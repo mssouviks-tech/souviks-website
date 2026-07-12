@@ -1,0 +1,7 @@
+playwright
+customtkinter
+pandas
+openpyxl
+requests
+pillow
+imagehash
