@@ -184,8 +184,8 @@
             "canonical": "https://www.souviks.co.in/categories/filters"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.715602",
-        "updated_at": "2026-07-16T09:23:05.715620"
+        "created_at": "2026-07-16T10:59:31.306487",
+        "updated_at": "2026-07-16T10:59:31.306495"
     },
     {
         "id": "fasteners-hardware",
@@ -335,8 +335,8 @@
             "canonical": "https://www.souviks.co.in/categories/fasteners-hardware"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.715709",
-        "updated_at": "2026-07-16T09:23:05.715719"
+        "created_at": "2026-07-16T10:59:31.306527",
+        "updated_at": "2026-07-16T10:59:31.306530"
     },
     {
         "id": "air-system",
@@ -471,8 +471,8 @@
             "canonical": "https://www.souviks.co.in/categories/air-system"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.715780",
-        "updated_at": "2026-07-16T09:23:05.715791"
+        "created_at": "2026-07-16T10:59:31.306551",
+        "updated_at": "2026-07-16T10:59:31.306554"
     },
     {
         "id": "suspension-steering",
@@ -857,8 +857,8 @@
             "canonical": "https://www.souviks.co.in/categories/suspension-steering"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.715967",
-        "updated_at": "2026-07-16T09:23:05.715973"
+        "created_at": "2026-07-16T10:59:31.306619",
+        "updated_at": "2026-07-16T10:59:31.306621"
     },
     {
         "id": "electricals",
@@ -1174,8 +1174,8 @@
             "canonical": "https://www.souviks.co.in/categories/electricals"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.716076",
-        "updated_at": "2026-07-16T09:23:05.716083"
+        "created_at": "2026-07-16T10:59:31.306662",
+        "updated_at": "2026-07-16T10:59:31.306664"
     },
     {
         "id": "brakes",
@@ -1348,8 +1348,8 @@
             "canonical": "https://www.souviks.co.in/categories/brakes"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.716142",
-        "updated_at": "2026-07-16T09:23:05.716148"
+        "created_at": "2026-07-16T10:59:31.306685",
+        "updated_at": "2026-07-16T10:59:31.306687"
     },
     {
         "id": "engine-components",
@@ -1475,8 +1475,8 @@
             "canonical": "https://www.souviks.co.in/categories/engine-components"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.716192",
-        "updated_at": "2026-07-16T09:23:05.716197"
+        "created_at": "2026-07-16T10:59:31.306704",
+        "updated_at": "2026-07-16T10:59:31.306706"
     },
     {
         "id": "bearings",
@@ -1698,8 +1698,8 @@
             "canonical": "https://www.souviks.co.in/categories/bearings"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.716287",
-        "updated_at": "2026-07-16T09:23:05.716294"
+        "created_at": "2026-07-16T10:59:31.306740",
+        "updated_at": "2026-07-16T10:59:31.306742"
     },
     {
         "id": "rubber-parts",
@@ -1806,8 +1806,8 @@
             "canonical": "https://www.souviks.co.in/categories/rubber-parts"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.716318",
-        "updated_at": "2026-07-16T09:23:05.716324"
+        "created_at": "2026-07-16T10:59:31.306751",
+        "updated_at": "2026-07-16T10:59:31.306753"
     },
     {
         "id": "clutch-parts",
@@ -2055,8 +2055,8 @@
             "canonical": "https://www.souviks.co.in/categories/clutch-parts"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.716401",
-        "updated_at": "2026-07-16T09:23:05.716407"
+        "created_at": "2026-07-16T10:59:31.306784",
+        "updated_at": "2026-07-16T10:59:31.306786"
     },
     {
         "id": "lubricants",
@@ -2185,8 +2185,8 @@
             "canonical": "https://www.souviks.co.in/categories/lubricants"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.716436",
-        "updated_at": "2026-07-16T09:23:05.716442"
+        "created_at": "2026-07-16T10:59:31.306797",
+        "updated_at": "2026-07-16T10:59:31.306800"
     },
     {
         "id": "cooling-system",
@@ -2248,7 +2248,7 @@
             "canonical": "https://www.souviks.co.in/categories/cooling-system"
         },
         "schema": {},
-        "created_at": "2026-07-16T09:23:05.716456",
-        "updated_at": "2026-07-16T09:23:05.716461"
+        "created_at": "2026-07-16T10:59:31.306805",
+        "updated_at": "2026-07-16T10:59:31.306807"
     }
 ]
