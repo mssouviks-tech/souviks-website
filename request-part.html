@@ -527,15 +527,7 @@ Reusable Across Entire Website
             </a>
 
         </li>
-<li>
 
-    <a href="/request-quote.html">
-
-        RFQ
-
-    </a>
-
-</li>
 
         <li>
 
@@ -555,57 +547,63 @@ Reusable Across Entire Website
          MOBILE ACTIONS
     =========================================== -->
 
-    <div class="mobile-navigation-actions">
+ <div class="mobile-navigation-actions">
 
-        <a href="/request-part.html"
+    <a
+        href="/request-part.html"
+        class="btn btn-primary">
 
-           class="btn btn-primary">
+        Request a Part
 
-            Request a Part
+    </a>
 
-        </a>
+    <a
+        href="/request-quote.html"
+        class="btn btn-secondary">
 
-        <a href="tel:+919434331896"
+        RFQ Basket
 
-           class="mobile-phone">
+        <span class="rfq-badge">
+            0
+        </span>
 
-            <img
+    </a>
 
-                src="/assets/icons/phone.svg"
+</div>
 
-                alt="Phone"
+<div class="mobile-navigation-contact">
 
-                class="mobile-icon">
+    <a
+        href="tel:+919434331896"
+        class="mobile-phone">
 
-            <span>
+        <img
+            src="/assets/icons/phone.svg"
+            alt="Phone"
+            class="mobile-icon">
 
-                +91 94343 31896
+        <span>
+            +91 94343 31896
+        </span>
 
-            </span>
+    </a>
 
-        </a>
+    <a
+        href="mailto:info@souviks.co.in"
+        class="mobile-email">
 
-        <a href="mailto:info@souviks.co.in"
+        <img
+            src="/assets/icons/email.svg"
+            alt="Email"
+            class="mobile-icon">
 
-           class="mobile-email">
+        <span>
+            info@souviks.co.in
+        </span>
 
-            <img
+    </a>
 
-                src="/assets/icons/email.svg"
-
-                alt="Email"
-
-                class="mobile-icon">
-
-            <span>
-
-                info@souviks.co.in
-
-            </span>
-
-        </a>
-
-    </div>
+</div>
 
 </nav>
 
@@ -630,7 +628,19 @@ Reusable Across Entire Website
             <div class="container">
 
                 <form id="requestPartForm" class="request-part-form">
+<div style="display:none;">
 
+    <label>
+        Website
+    </label>
+
+    <input
+        type="text"
+        id="website"
+        name="website"
+        autocomplete="off">
+
+</div>
     <div class="form-grid">
 
         <div class="form-group">
