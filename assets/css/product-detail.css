@@ -1,0 +1,1087 @@
+html{
+    scroll-behavior:smooth;
+}
+
+/* ==========================================================
+   PDP WRAPPER
+========================================================== */
+
+.pdp-wrapper{
+    margin-top:40px;
+}
+
+.pdp-hero{
+    display:grid;
+    grid-template-columns:480px 1fr 320px;
+    gap:24px;
+    align-items:start;
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+
+.pdp-gallery,
+.pdp-summary,
+.pdp-inquiry,
+.pdp-description-card,
+.pdp-spec-card,
+.pdp-vehicle-card,
+.pdp-related-card{
+
+    background:#fff;
+
+    border:1px solid var(--border-color);
+
+    border-radius:16px;
+
+    overflow:hidden;
+}
+
+.pdp-description-card{
+
+    display:grid;
+    gap:24px;
+
+}
+
+.pdp-description-card ul{
+
+    padding-left:18px;
+
+}
+
+.pdp-description-card li{
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================================================
+   GALLERY
+========================================================== */
+
+.pdp-gallery{
+    padding:24px;
+}
+
+.pdp-main-image{
+
+    border:1px solid #e5e7eb;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    background:#fff;
+
+}
+
+.pdp-main-image img{
+
+    width:100%;
+
+    height:500px;
+
+    object-fit:contain;
+
+}
+
+.pdp-thumbnails{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.pdp-thumb{
+
+    width:72px;
+
+    height:72px;
+
+    border:1px solid var(--border-color);
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+}
+
+.pdp-thumb img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+}
+
+/* ==========================================================
+   SUMMARY
+========================================================== */
+
+.pdp-summary{
+
+    padding:32px;
+}
+
+.pdp-badges{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:16px;
+}
+
+.pdp-stock{
+
+    background:#16a34a;
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.pdp-genuine{
+
+    background:#e8f0ff;
+
+    color:#2563eb;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.pdp-title{
+
+    font-size:48px;
+
+    line-height:1.1;
+
+    margin-bottom:12px;
+}
+
+.pdp-part{
+
+    color:var(--color-primary);
+
+    font-weight:700;
+
+    margin-bottom:24px;
+}
+
+.pdp-meta{
+
+    display:grid;
+
+    gap:12px;
+}
+
+.pdp-row{
+
+    display:grid;
+
+    grid-template-columns:140px 1fr;
+
+    gap:20px;
+}
+
+.pdp-row strong{
+
+    color:#111827;
+}
+
+/* ==========================================================
+   OEM
+========================================================== */
+
+.pdp-oem{
+
+    margin-top:24px;
+
+    border:1px solid var(--border-color);
+
+    border-radius:12px;
+
+    padding:20px;
+}
+
+.pdp-oem h3{
+
+    font-size:18px;
+
+    margin-bottom:12px;
+}
+
+.pdp-oem table{
+
+    width:100%;
+}
+
+.pdp-oem td{
+
+    padding:8px 0;
+}
+
+/* ==========================================================
+   INQUIRY
+========================================================== */
+
+.pdp-inquiry{
+
+    padding:24px;
+
+    position:sticky;
+
+    top:100px;
+}
+
+.pdp-inquiry h3{
+
+    margin-bottom:20px;
+}
+
+.pdp-inquiry form{
+
+    display:grid;
+
+    gap:12px;
+}
+
+.pdp-inquiry textarea{
+
+    min-height:120px;
+
+    resize:vertical;
+}
+
+.pdp-inquiry .btn{
+
+    width:100%;
+}
+
+/* ==========================================================
+   TRUST BAR
+========================================================== */
+
+
+.pdp-trust{
+
+    margin-top:32px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:0;
+
+    background:#fff;
+
+    border:1px solid var(--border-color);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+}
+
+.pdp-trust-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:24px;
+
+    border-right:1px solid #f1f5f9;
+
+}
+
+.pdp-trust-item:last-child{
+
+    border-right:none;
+
+}
+
+.pdp-trust-item img{
+
+    width:56px;
+
+    height:56px;
+
+}
+
+.pdp-trust-item strong{
+
+    display:block;
+
+    font-size:15px;
+
+    margin-bottom:4px;
+
+    color:#111827;
+
+}
+
+.pdp-trust-item span{
+
+    font-size:13px;
+
+    color:#6b7280;
+
+}
+
+@media(max-width:992px){
+
+    .pdp-trust{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .pdp-trust{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .pdp-trust-item{
+
+        border-right:none;
+
+        border-bottom:1px solid #f1f5f9;
+
+    }
+
+}
+
+/* ==========================================================
+   TABS
+========================================================== */
+
+
+.pdp-tab-nav{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:24px;
+}
+
+
+
+.pdp-tab-btn.active{
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+    border-color:var(--color-primary);
+}
+
+.pdp-tab-nav{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:24px;
+
+    flex-wrap:wrap;
+
+}
+
+.pdp-tab-btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 24px;
+
+    border-radius:999px;
+
+    border:1px solid #e5e7eb;
+
+    background:#fff;
+
+    font-weight:600;
+
+    color:#111827;
+
+    text-decoration:none;
+
+    transition:.2s;
+
+}
+
+.pdp-tab-btn:hover{
+
+    background:#c62828;
+    color:#fff;
+    border-color:#c62828;
+
+}
+
+/* ==========================================================
+   SPEC TABLE
+========================================================== */
+
+.pdp-spec-table{
+
+    width:100%;
+}
+
+.pdp-spec-table td{
+
+    padding:12px;
+
+    border-bottom:1px solid #f1f5f9;
+}
+
+/* ==========================================================
+   VEHICLES
+========================================================== */
+
+.pdp-vehicles{
+
+    margin-top:40px;
+}
+
+.pdp-vehicle-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:20px;
+}
+
+.pdp-vehicle-card{
+
+    background:#fff;
+
+    border:1px solid var(--border-color);
+
+    border-radius:16px;
+
+    padding:16px;
+
+    text-align:center;
+}
+
+.pdp-vehicle-card img{
+
+    height:120px;
+
+    width:100%;
+
+    object-fit:contain;
+
+    margin-bottom:10px;
+}
+
+/* ==========================================================
+   RELATED
+========================================================== */
+
+.pdp-related{
+
+    margin-top:50px;
+}
+
+.pdp-related-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(220px,1fr));
+
+    gap:24px;
+
+}
+
+
+.pdp-related-wrapper{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.pdp-related-slider{
+
+    display:flex;
+
+    gap:20px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    flex:1;
+
+}
+
+.pdp-related-slider::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.pdp-related-slider .product-card{
+
+    flex:0 0 260px;
+
+}
+
+.pdp-related-prev,
+.pdp-related-next{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+
+    cursor:pointer;
+
+    flex-shrink:0;
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:1200px){
+
+    .pdp-hero{
+        grid-template-columns:1fr;
+    }
+
+    .pdp-inquiry{
+        position:static;
+    }
+
+}
+
+@media(max-width:992px){
+
+    .pdp-trust{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .pdp-vehicle-grid,
+    .pdp-related-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:576px){
+
+    .pdp-trust,
+    .pdp-vehicle-grid,
+    .pdp-related-grid{
+        grid-template-columns:1fr;
+    }
+
+    .pdp-title{
+        font-size:34px;
+    }
+
+}
+
+/* ==========================================
+   TAB SYSTEM
+========================================== */
+
+
+
+
+
+/* ==========================================
+   DESCRIPTION GRID
+========================================== */
+
+.pdp-description-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    gap:24px;
+
+    align-items:start;
+
+}
+
+.pdp-description-card{
+
+    background:#ffffff;
+
+    border:1px solid var(--border-color);
+
+    border-radius:16px;
+
+    padding:24px;
+
+}
+
+.pdp-description-card h3{
+
+    margin-bottom:16px;
+
+}
+
+/* ==========================================
+   OEM TABLE
+========================================== */
+
+.pdp-oem-table{
+
+    width:100%;
+
+}
+
+.pdp-oem-table td{
+
+    padding:10px 0;
+
+    border-bottom:1px solid #f1f5f9;
+
+}
+
+/* ==========================================
+   HIGHLIGHTS
+========================================== */
+
+.pdp-highlights{
+
+    padding-left:18px;
+
+}
+
+.pdp-highlights li{
+
+    margin-bottom:12px;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .pdp-description-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+.pdp-vehicle-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(260px,1fr));
+
+    gap:24px;
+
+}
+
+.pdp-vehicle-card{
+
+    background:#fff;
+
+    border:1px solid var(--border-color);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    transition:.25s ease;
+
+}
+
+.pdp-vehicle-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--color-primary);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.pdp-vehicle-image{
+
+    height:180px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    border-bottom:1px solid #f1f5f9;
+
+}
+
+.pdp-vehicle-image img{
+
+    max-width:100%;
+
+    max-height:120px;
+
+    object-fit:contain;
+
+}
+
+.pdp-vehicle-content{
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+.pdp-vehicle-content h4{
+
+    font-size:16px;
+
+    margin:0;
+
+}
+
+
+@media(max-width:992px){
+
+    .pdp-related-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .pdp-related-grid{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+/* =========================================
+   PDP GALLERY
+========================================= */
+
+.pdp-gallery{
+
+    position:relative;
+
+}
+
+.pdp-brand-badge{
+
+    position:absolute;
+
+    top:16px;
+
+    left:16px;
+
+    z-index:10;
+
+    background:#fff;
+
+    padding:10px;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.08);
+
+}
+
+.pdp-brand-badge img{
+
+    width:100px;
+
+    height:40px;
+
+    object-fit:contain;
+
+}
+
+
+
+.pdp-thumb-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:16px;
+
+}
+
+.pdp-thumbnails{
+
+    display:flex;
+
+    gap:12px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    flex:1;
+
+}
+
+.pdp-thumbnails::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.pdp-thumb{
+
+    flex:0 0 90px;
+
+}
+
+.pdp-thumb-prev,
+.pdp-thumb-next{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+
+    cursor:pointer;
+
+}
+
+.pdp-thumb:hover{
+
+    border-color:#c62828;
+
+}
+
+.pdp-thumb img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+
+
+/* =========================================
+   ADD CART
+========================================= */
+
+.pdp-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:24px;
+
+    align-items:center;
+
+}
+
+.pdp-qty{
+
+    display:flex;
+
+    align-items:center;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+}
+
+.pdp-qty button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+}
+
+.pdp-qty input{
+
+    width:60px;
+
+    height:42px;
+
+    text-align:center;
+
+    border:none;
+
+    outline:none;
+
+}
+
+.pdp-cart-btn{
+
+    flex:1;
+
+}
+
+.pdp-remove-btn{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#dc2626;
+
+    color:#fff;
+
+    cursor:pointer;
+
+}
+
+/* =========================================
+   SECTION NAV
+========================================= */
+
+.pdp-section-nav{
+
+    position:sticky;
+
+    top:70px;
+
+    z-index:100;
+
+    background:#fff;
+
+    padding:12px 0;
+
+}
+
+.pdp-section-nav a{
+
+    text-decoration:none;
+
+}
+
+.pdp-section{
+
+    margin-bottom:50px;
+
+}
+
+.pdp-section-title{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    margin-bottom:24px;
+
+    color:#111827;
+
+}
+
+/* DESCRIPTION */
+
+
+
+@media(max-width:992px){
+
+    .pdp-description-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

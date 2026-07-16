@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TPGHPZJ3");
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8L4BR9F375"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8L4BR9F375');
+    </script>
+    <!-- End Google Analytics -->
+    <meta name="google-site-verification" content="google-site-verification=xlzSImYcsvuxzDoSRURexdEIO4yg3VVASgz-x8Wraj8" />
+
+    <title>Jain Auto Mart — Truck, Trailer &amp; Tipper Parts | Jaipur, India</title>
+    <link rel="canonical" href="https://www.jainautomart.com" />
+
+    <!-- Default Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jain Auto Mart" />
+    <meta property="og:url" content="https://www.jainautomart.com" />
+    <meta property="og:title" content="Jain Auto Mart — Truck, Trailer &amp; Tipper Parts | Jaipur, India" />
+    <meta property="og:description" content="Buy truck, trailer, tipper and tanker spare parts online. 1000+ parts from Jain Auto Mart, Jaipur. Trusted by fleet owners across India. Call +91-9983000222." />
+    <meta property="og:image" content="https://jain-automart-revamp-deepaksihag.replit.app/opengraph.jpg" />
+
+    <!-- Default Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jain Auto Mart — Truck &amp; Trailer Parts | Jaipur" />
+    <meta name="twitter:description" content="1000+ truck, trailer &amp; tipper spare parts. Jaipur, Rajasthan. Shipping across India." />
+    <meta name="twitter:image" content="https://jain-automart-revamp-deepaksihag.replit.app/opengraph.jpg" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Importing Oswald for headers (Industrial feel) and Inter for UI legibility -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-BMGI3qMe.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C2hXCr8P.css">
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TPGHPZJ3"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,329 @@
+/* ==========================================================
+   CONTAINERS
+========================================================== */
+
+.container {
+
+    width: 100%;
+
+    max-width: 1440px;
+
+    margin: 0 auto;
+
+    padding: 0 24px;
+
+}
+
+/* ==========================================================
+   PAGE SECTIONS
+========================================================== */
+
+section {
+
+    position: relative;
+
+}
+
+.section-spacing {
+
+    padding: 40px 0;
+
+}
+
+/* ==========================================================
+   STANDARD SECTION SPACING
+========================================================== */
+
+.catalogue-search,
+.category-directory,
+.brand-directory,
+.vehicle-directory,
+.product-directory,
+.catalogue-products {
+    padding-top: 50px;
+    padding: 20px 0;
+
+}
+
+/* ==========================================================
+   SECTION HEADERS
+========================================================== */
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 48px;
+
+}
+
+.section-heading h2 {
+
+    margin-bottom: 12px;
+    font-size:42px;
+    font-weight:800;
+    color:#111827;
+
+}
+
+.section-heading p {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color:#6b7280;
+
+}
+
+
+/* ==========================================================
+   CTA SECTION
+========================================================== */
+
+.cta-banner {
+
+    padding: 20px 0;
+
+}
+
+.cta-wrapper {
+
+    background: #ffffff;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+.cta-content {
+
+    max-width: 700px;
+
+}
+
+.cta-tag {
+
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: var(--color-primary);
+
+    font-weight: 700;
+
+}
+
+.cta-content h2 {
+
+    margin-bottom: 8px;
+
+}
+
+.cta-content p {
+
+    color: var(--text-secondary);
+
+}
+
+.cta-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+/* ==========================================================
+   BREADCRUMB
+========================================================== */
+
+.breadcrumb {
+
+    padding: 16px 0;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid var(--border-color);
+
+}
+
+.breadcrumb-list {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    list-style: none;
+
+}
+
+.breadcrumb-item {
+
+    font-size: 14px;
+
+}
+
+.breadcrumb-item.active {
+
+    font-weight: 600;
+
+}
+
+/* ==========================================================
+   PAGE CONTENT WIDTH
+========================================================== */
+
+.page-content {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+/* ==========================================================
+   FLEX UTILITIES
+========================================================== */
+
+.flex {
+
+    display: flex;
+
+}
+
+.flex-center {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.flex-between {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+/* ==========================================================
+   GRID UTILITIES
+========================================================== */
+
+.grid {
+
+    display: grid;
+
+}
+
+.grid-2 {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 24px;
+
+}
+
+.grid-3 {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 24px;
+
+}
+
+.grid-4 {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 24px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .cta-wrapper {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .cta-actions {
+
+        justify-content: center;
+
+    }
+
+    .grid-4 {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .container {
+
+        padding: 0 16px;
+
+    }
+
+    .section-spacing,
+    .catalogue-search,
+    .category-directory,
+    .brand-directory,
+    .vehicle-directory,
+    .product-directory,
+    .catalogue-products {
+
+        padding: 40px 0;
+
+    }
+
+    .grid-4,
+    .grid-3,
+    .grid-2 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

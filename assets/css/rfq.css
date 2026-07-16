@@ -1,0 +1,241 @@
+/* ==========================================================
+   RFQ HERO
+========================================================== */
+
+.rfq-page,
+.rfq-basket,
+.rfq-customer {
+
+    background: transparent;
+}
+
+/* ==========================================================
+   RFQ TABLE
+========================================================== */
+
+.rfq-table {
+
+    background: #ffffff;
+
+    border-radius: var(--radius-lg);
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.rfq-table thead {
+
+    background: var(--bg-dark);
+
+    color: white;
+}
+
+.rfq-table th {
+
+    text-align: left;
+
+    padding: 16px;
+}
+
+.rfq-table td {
+
+    padding: 16px;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ==========================================================
+   RFQ EMPTY STATE
+========================================================== */
+
+.rfq-empty {
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: var(--text-secondary);
+}
+
+/* ==========================================================
+   CUSTOMER FORM
+========================================================== */
+
+#rfq-form {
+
+    background: #ffffff;
+
+    border-radius: var(--radius-lg);
+
+    padding: 32px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.form-group {
+
+    margin-bottom: 20px;
+}
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+}
+
+/* ==========================================================
+   FORM GRID
+========================================================== */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 20px;
+}
+
+/* ==========================================================
+   FORM ACTIONS
+========================================================== */
+
+.form-actions {
+
+    margin-top: 32px;
+
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+/* ==========================================================
+   THANK YOU PAGE
+========================================================== */
+
+.thank-you-page {
+
+    padding: 100px 0;
+}
+
+.confirmation-box {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    border-radius: var(--radius-lg);
+
+    padding: 48px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================
+   REFERENCE NUMBER
+========================================================== */
+
+.reference-number {
+
+    display: inline-block;
+
+    background: #F3F4F6;
+
+    padding: 12px 20px;
+
+    border-radius: var(--radius-md);
+
+    font-weight: 700;
+
+    margin: 24px 0;
+}
+
+/* ==========================================================
+   THANK YOU ACTIONS
+========================================================== */
+
+.thank-you-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-top: 32px;
+}
+
+/* ==========================================================
+   RFQ COUNTER BADGE
+========================================================== */
+
+.rfq-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 24px;
+    height: 24px;
+
+    padding: 0 8px;
+
+    border-radius: 999px;
+
+    background: var(--color-primary);
+
+    color: white;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+}
+
+
+.rfq-qty{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.rfq-qty button{
+
+    width:32px;
+
+    height:32px;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:6px;
+
+}
+
+.remove-rfq{
+
+    border:none;
+
+    background:none;
+
+    color:#d32f2f;
+
+    cursor:pointer;
+
+}

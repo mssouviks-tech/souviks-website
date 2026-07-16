@@ -1,0 +1,20 @@
+/* style.css */
+@import url("variables.css");
+@import url("reset.css");
+@import url("typography.css");
+@import url("layout.css");
+@import url("components.css");
+@import url("header.css");
+@import url("footer.css");
+@import url("buttons.css");
+@import url("forms.css");
+@import url("cards.css");
+@import url("catalogue.css");
+@import url("product.css");
+@import url("responsive.css");
+@import url("responsive.css");
+@import url("about.css");
+@import url("privacy.css");
+@import url("request-part.css");
+@import url("product.css");
+@import url("product-detail.css");

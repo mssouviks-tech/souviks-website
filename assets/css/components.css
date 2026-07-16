@@ -1,0 +1,429 @@
+.page-hero {
+
+    position: relative;
+
+    min-height: 320px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+}
+
+.page-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(15,23,42,.60),
+            rgba(15,23,42,.60)
+        );
+
+}
+
+.page-hero .container {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.page-hero h1 {
+
+    color: white;
+
+    font-size: 56px;
+
+}
+
+.page-hero p {
+
+    color: rgba(255,255,255,.85);
+
+}
+
+/* ==========================================================
+   HERO IMAGE
+========================================================== */
+
+.catalogue-hero,
+.categories-hero {
+
+    position: relative;
+    min-height:300px; 
+    padding: 100px 0;
+    align-items:center;
+    text-align: center;
+
+    background:
+       linear-gradient(
+rgba(15,23,42,.55),
+rgba(15,23,42,.55)
+),
+        url("/assets/images/hero/catalogue-hero.png");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ffffff;
+
+}
+
+.contact-hero {
+
+    position: relative;
+    min-height:300px; 
+    padding: 100px 0;
+    align-items:center;
+    text-align: center;
+
+    background:
+       linear-gradient(
+rgba(15,23,42,.55),
+rgba(15,23,42,.55)
+),
+        url("/assets/images/hero/contact-hero.png");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ffffff;
+
+}
+
+.about-hero {
+
+    position: relative;
+    min-height:300px; 
+    padding: 100px 0;
+    align-items:center;
+    text-align: center;
+
+    background:
+       linear-gradient(
+rgba(15,23,42,.55),
+rgba(15,23,42,.55)
+),
+        url("/assets/images/hero/about-hero.png");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ffffff;
+
+}
+
+.products-hero {
+
+    position: relative;
+    min-height:300px; 
+    padding: 100px 0;
+    align-items:center;
+    text-align: center;
+
+    background:
+       linear-gradient(
+rgba(15,23,42,.55),
+rgba(15,23,42,.55)
+),
+        url("/assets/images/hero/product-hero.png");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ffffff;
+
+}
+
+.vehicles-hero {
+
+    position: relative;
+    min-height:300px; 
+    padding: 100px 0;
+    align-items:center;
+    text-align: center;
+
+    background:
+       linear-gradient(
+rgba(15,23,42,.55),
+rgba(15,23,42,.55)
+),
+        url("/assets/images/hero/vehicle-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ffffff;
+
+}
+
+.brands-hero {
+
+    position: relative;
+    min-height:300px; 
+    padding: 100px 0;
+    align-items:center;
+    text-align: center;
+
+    background:
+       linear-gradient(
+rgba(15,23,42,.55),
+rgba(15,23,42,.55)
+),
+        url("/assets/images/hero/brand-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ffffff;
+
+}
+
+.privacy-hero{
+
+    position: relative;
+    min-height:300px; 
+    padding: 100px 0;
+    align-items:center;
+    text-align: center;
+
+    background:
+       linear-gradient(
+rgba(15,23,42,.55),
+rgba(15,23,42,.55)
+),
+        url("/assets/images/hero/privacy-hero.png");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ffffff;
+}
+
+.terms-hero{
+
+    position: relative;
+    min-height:300px; 
+    padding: 100px 0;
+    align-items:center;
+    text-align: center;
+
+    background:
+       linear-gradient(
+rgba(15,23,42,.55),
+rgba(15,23,42,.55)
+),
+        url("/assets/images/hero/terms-hero.png");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ffffff;
+}
+
+
+.index-hero{
+
+    position: relative;
+    min-height:500px; 
+    padding: 140px 120px;
+    align-items:center;
+    text-align: center;
+
+    background:
+       linear-gradient(
+rgba(15,23,42,.55),
+rgba(15,23,42,.55)
+),
+        url("/assets/images/hero/index-hero.png");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ffffff;
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+.products-hero h1,
+.catalogue-hero h1,
+.categories-hero h1,
+.brands-hero h1,
+.vehicles-hero h1,
+.about-hero h1,
+.privacy-hero h1,
+.index-hero h1,
+.contact-hero h1 {
+
+    color: #ffffff;
+
+    margin-bottom: 16px;
+}
+.index-hero p,
+.products-hero p,
+.privacy-hero p,
+.catalogue-hero p,
+.categories-hero p,
+.brands-hero p,
+.vehicles-hero p,
+.about-hero p,
+.contact-hero p {
+
+    color: rgba(255,255,255,.9);
+
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+/* ==========================================================
+   HERO STATS
+========================================================== */
+
+.hero-stats {
+
+    display: flex;
+
+    justify-content: center;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 32px;
+
+    margin-top: 32px;
+
+    padding: 24px 40px;
+
+    width: fit-content;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+}
+
+.hero-stat {
+
+    text-align: center;
+
+ position: relative;
+
+    min-width: 140px;
+
+    padding: 0 32px;
+    display: flex;
+    gap:14px;
+
+}
+
+.hero-stat strong {
+    display: block;
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    color: #ffffff;
+
+    margin-bottom: 6px;
+}
+
+.hero-stat span {
+
+    font-size:14px;
+    color: rgba(255,255,255,.85);
+    letter-spacing: .5px;
+}
+
+.hero-stat:not(:last-child)::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 1px;
+
+    height: 60px;
+
+    background: rgba(255,255,255,.18);
+}
+
+.hero-stat-icon {
+
+    width: 32px;
+
+    height: 32px;
+
+    margin-bottom: 12px;
+
+    object-fit: contain;
+}
+.hero-stat-content{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.stat-number{
+
+    font-size:36px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    color:#ffffff;
+}
+
+.stat-label{
+
+    font-size:13px;
+
+    color:rgba(255,255,255,.85);
+}
+
+.hero-stat-divider{
+
+    width:1px;
+
+    height:48px;
+
+    background:rgba(255,255,255,.20);
+}

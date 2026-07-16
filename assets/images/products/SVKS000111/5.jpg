@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="theme-color" content="#430743">	
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<title>Kenua botstopper</title>
+	<link rel="stylesheet" href="/.within.website/x/cmd/anubis/static/css/app.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<script id="anubis_version" type="application/json">"1.25.0"
+</script><script id="anubis_challenge" type="application/json">{"rules":{"algorithm":"fast","difficulty":2},"challenge":{"issuedAt":"2026-07-13T00:39:28.460340811+02:00","metadata":{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64)","X-Real-Ip":"223.181.55.73"},"id":"019f587c-4acc-752b-9533-530910cc6577","method":"fast","randomData":"c7848125d76530d9221d2ef81170a64d7202c3a9bc1f0f5215ca1b7af7264cc26b5a82332e5a173cd040c3ec98597eff52408f7ad3c3c91ac16e319729a1b5fd","policyRuleHash":"ac980f49c4d35fab","difficulty":2,"spent":false}}
+</script><script id="anubis_base_prefix" type="application/json">""
+</script><script id="anubis_public_url" type="application/json">""
+</script>
+</head>
+<body>
+	<main role="main">
+		<div class="content">
+			<h1>Analyse et catégorisation de la connexion en cours</h1>
+			<div class="centered-div"><p id="status">Loading...</p><script async type="module" src="/.within.website/x/cmd/anubis/static/js/main.mjs?cacheBuster=1.25.0"></script><div id="progress" role="progressbar" aria-labelledby="status"><div class="bar-inner"></div></div><div id="testarea"></div></div>
+			<div class="footer">
+				<p>Protégé par <a href="https://www.kenua.com">Kenua</a> grâce à <a href="https://anubis.techaro.lol/docs/admin/botstopper">BotStopper</a>.</p>
+				<a href="https://www.kenua.com" title="Kenua, cloud & outils collaboratifs (nouvelle fenêtre)" target="_blank"><img src="/.within.website/x/cmd/anubis/static/img/logo.svg" width="162" height="58" alt="Kenua, cloud & outils collaboratifs" lazy="loading"/></a>
+			</div>
+		</div>
+		<div class="img">
+			<img class="robot" src="/.within.website/x/cmd/anubis/static/img/pensive.svg" width="500" height="500" alt="" lazy="loading"/>
+			<img class="blob" src="/.within.website/x/cmd/anubis/static/img/blob.svg" width="330" height="330" alt="" lazy="loading"/>
+		</div>
+	</main>
+</body>
+</html>

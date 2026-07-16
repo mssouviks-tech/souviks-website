@@ -1,0 +1,653 @@
+
+/* ==========================================================
+   SEARCH BAR
+========================================================== */
+
+.catalogue-search {
+
+    background: transparent;
+    position: relative;
+    z-index: 10000;
+
+    border-bottom: none;
+
+}
+
+.search-wrapper {
+
+background: rgba(255,255,255,.08);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(255,255,255,.15);
+border-radius: 20px;
+padding: 16px;
+position: relative;
+z-index: 10001;
+}
+
+
+
+.search-input {
+
+    width: 100%;
+
+    padding: 14px 18px 14px 48px;
+
+    border-radius: var(--radius-md);
+
+}
+
+.search-icon {
+
+    position: absolute;
+
+    left: 16px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 18px;
+
+    height: 18px;
+
+    opacity: .5;
+
+}
+
+.clear-search {
+
+    position: absolute;
+
+    right: 12px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    display: none;
+
+    cursor: pointer;
+}
+
+/* ==========================================================
+   FILTERS
+========================================================== */
+
+.catalogue-filters {
+
+    background: #ffffff;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    padding: 24px;
+
+    margin-bottom: 32px;
+
+    gap:16px;
+
+    flex-wrap:wrap;
+
+    margin-top:20px;
+
+    display:flex;
+
+}
+
+.filter-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 16px;
+
+}
+
+.subcategory-filters {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 24px 0;
+
+}
+
+.subcategory-filter {
+
+    padding: 8px 14px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+}
+
+.subcategory-filter.active {
+
+    background: var(--color-primary);
+
+    color: #ffffff;
+
+    border-color: var(--color-primary);
+
+}
+.catalogue-filters select{
+
+    min-width:220px;
+    height:48px;
+
+    padding:0 14px;
+
+    border:1px solid var(--border-color);
+
+    border-radius:10px;
+
+    background:#fff;
+
+}
+
+/* ==========================================================
+   FILTER BAR
+========================================================== */
+
+.filter-wrapper{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,minmax(180px,1fr));
+
+    gap:20px;
+
+    align-items:end;
+
+}
+
+.filter-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.filter-actions{
+
+    display:flex;
+
+    align-items:flex-end;
+
+}
+
+.catalogue-filter{
+
+    width:100%;
+
+}
+
+/* ==========================================================
+   RESULTS HEADER
+========================================================== */
+
+.catalogue-summary {
+
+    margin-bottom: 32px;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--border-color);
+
+}
+
+.catalogue-summary-wrapper {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.catalogue-results {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+.catalogue-last-updated {
+
+    font-size: 14px;
+
+    color: var(--text-secondary);
+
+}
+
+
+
+/* ==========================================================
+   GRID SYSTEM
+========================================================== */
+
+.entity-grid,
+.product-grid,
+.products-grid,
+.brand-grid,
+.brands-grid,
+.vehicle-grid,
+.vehicles-grid,
+.category-grid,
+.categories-grid,
+#categoryGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0,1fr));
+
+    gap: 32px;
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.brand-grid {
+    max-height: 720px;
+    overflow: hidden;
+    position: relative;
+}
+
+.vehicle-grid {
+    max-height: 720px;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 24px;
+}
+
+#vehicle-grid {
+    display:grid;
+    grid-templete-columns: repeat(4,minmax(0,1fr));
+    gap:32px;
+}
+
+/* ==========================================================
+   PAGINATION
+========================================================== */
+
+.pagination {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 40px;
+
+}
+
+.pagination a,
+.pagination button {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: #ffffff;
+
+}
+
+.pagination .active {
+
+    background: var(--color-primary);
+
+    border-color: var(--color-primary);
+
+    color: #ffffff;
+
+}
+
+
+
+.pagination-status {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: var(--color-text);
+
+    min-width: 120px;
+
+    text-align: center;
+
+}
+
+.pagination-prev,
+.pagination-next {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 90px;
+    height: 42px;
+
+    padding: 0 18px;
+
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.pagination-prev:hover,
+.pagination-next:hover {
+
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.pagination-prev:disabled,
+.pagination-next:disabled {
+
+    opacity: 0.4;
+
+    cursor: not-allowed;
+
+}
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.no-results {
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+}
+
+/* ==========================================================
+   LOADING STATE
+========================================================== */
+
+.loading-state {
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+}
+
+/* ==========================================================
+   FADE EFFECT
+========================================================== */
+
+.brand-fade {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 90px;
+
+    background:
+
+        linear-gradient(
+
+            transparent,
+
+            #ffffff
+
+        );
+    pointer-events:none;
+    z-index:1;
+}
+
+.brands-expanded
+.brand-grid {
+
+    max-height: none;
+
+}
+
+.brands-expanded
+.brand-fade {
+
+    display: none;
+    pointer-events: none;
+
+}
+
+.show-more-wrapper {
+    margin-top: 40px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+
+}
+
+.brand-grid-wrapper {
+    position:relative;
+}
+
+.brands-expanded
+.show-more-wrapper {
+    display: none;
+}
+
+
+/* ==========================================================
+   POPULAR VEHICLES
+========================================================== */
+
+.popular-vehicles {
+
+    padding: 40px 0;
+
+}
+
+.popular-vehicles-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 20px;
+
+}
+
+.popular-vehicle-card {
+    display: flex;
+    background: #ffffff;
+    justify-content: center;
+    border: 1px solid #e5e7eb;
+    min-height: 180px;
+    border-radius: 16px;
+    position: relative;
+    padding: 40px;
+    overflow: hidden;
+    text-align: center;
+
+    text-decoration: none;
+
+    transition: all .25s ease;
+
+}
+
+.popular-vehicle-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #dc2626;
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    border-top: 4px solid var(--color-primary);
+
+}
+
+.vehicle-name {
+
+    font-weight: 700;
+
+    font-size: 18px;
+
+    color: var(--color-heading);
+
+}
+
+.popular-vehicle-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    background: #dc2626;
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform .25s ease;
+
+}
+
+.popular-vehicle-card:hover::before {
+
+    transform: scaleX(1);
+
+}
+
+.popular-vehicle-content {
+
+    text-align: center;
+
+    padding: 24px;
+
+}
+
+.popular-vehicle-content h3 {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #0f172a;
+
+    margin-bottom: 12px;
+
+}
+
+.popular-vehicle-count {
+
+    font-size: 14px;
+
+    color: #64748b;
+
+    margin-bottom: 14px;
+
+}
+
+.popular-vehicle-link {
+
+    color: #dc2626;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+}
+
+.directory-collapsed {
+
+    max-height: 1200px;
+
+    overflow: hidden;
+
+    position: relative;
+
+
+}
+
+.directory-expanded {
+
+    max-height: none;
+
+}
+
+.directory-fade {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 180px;
+
+    background: linear-gradient(
+        rgba(255,255,255,0),
+        rgba(255,255,255,1)
+    );
+    pointer-events: none;
+}
+
+.directory-expanded .directory-fade {
+
+    display: none;
+
+}

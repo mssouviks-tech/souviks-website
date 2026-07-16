@@ -1,0 +1,3168 @@
+[
+    {
+        "id": "fleetguard",
+        "slug": "fleetguard",
+        "name": "Fleetguard",
+        "short_name": "Fleetguard",
+        "logo": "/assets/images/brands/fleetguard.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 18,
+        "categories": [
+            "filters"
+        ],
+        "subcategories": [
+            "air-filter",
+            "filter-housing",
+            "filter-repair-kit",
+            "fuel-filter",
+            "fuel-water-separator",
+            "oil-filter"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Ecomet",
+            "Eicher 1110",
+            "Eicher Pro Series",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 2416",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000001",
+            "SVKS000176",
+            "SVKS000283",
+            "SVKS000284",
+            "SVKS000287",
+            "SVKS000288",
+            "SVKS000289",
+            "SVKS000290"
+        ],
+        "products": [
+            "SVKS000001",
+            "SVKS000176",
+            "SVKS000283",
+            "SVKS000284",
+            "SVKS000287",
+            "SVKS000288",
+            "SVKS000289",
+            "SVKS000290",
+            "SVKS000291",
+            "SVKS000292",
+            "SVKS000293",
+            "SVKS000294",
+            "SVKS000295",
+            "SVKS000296",
+            "SVKS000297",
+            "SVKS000298",
+            "SVKS000299",
+            "SVKS000347"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Fleetguard Parts | Souviks",
+            "description": "Browse genuine and aftermarket Fleetguard spare parts available at Souviks.",
+            "keywords": [
+                "Fleetguard",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/fleetguard"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652635",
+        "updated_at": "2026-07-16T08:26:41.652642"
+    },
+    {
+        "id": "tvs-girling",
+        "slug": "tvs-girling",
+        "name": "TVS Girling",
+        "short_name": "TVS Girling",
+        "logo": "/assets/images/brands/tvs-girling.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 88,
+        "categories": [
+            "air-system",
+            "brakes",
+            "clutch-parts",
+            "electricals",
+            "fasteners-hardware",
+            "lubricants",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "air-repair-kit",
+            "bolt",
+            "brake-fluid-dot-3",
+            "brake-slack-adjuster",
+            "center-bolt",
+            "clutch-cover",
+            "clutch-master-cylinder",
+            "clutch-repair-kit",
+            "clutch-slave-cylinder",
+            "lock-nut",
+            "nut",
+            "rotor",
+            "spring-washer",
+            "transmission-fluid",
+            "u-bolt",
+            "washer"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000002",
+            "SVKS000003",
+            "SVKS000004",
+            "SVKS000005",
+            "SVKS000006",
+            "SVKS000007",
+            "SVKS000008",
+            "SVKS000009"
+        ],
+        "products": [
+            "SVKS000002",
+            "SVKS000003",
+            "SVKS000004",
+            "SVKS000005",
+            "SVKS000006",
+            "SVKS000007",
+            "SVKS000008",
+            "SVKS000009",
+            "SVKS000010",
+            "SVKS000011",
+            "SVKS000012",
+            "SVKS000013",
+            "SVKS000014",
+            "SVKS000015",
+            "SVKS000020",
+            "SVKS000021",
+            "SVKS000022",
+            "SVKS000023",
+            "SVKS000024",
+            "SVKS000025",
+            "SVKS000026",
+            "SVKS000027",
+            "SVKS000028",
+            "SVKS000029",
+            "SVKS000032",
+            "SVKS000033",
+            "SVKS000034",
+            "SVKS000039",
+            "SVKS000040",
+            "SVKS000041",
+            "SVKS000042",
+            "SVKS000043",
+            "SVKS000044",
+            "SVKS000045",
+            "SVKS000046",
+            "SVKS000053",
+            "SVKS000054",
+            "SVKS000055",
+            "SVKS000056",
+            "SVKS000057",
+            "SVKS000058",
+            "SVKS000059",
+            "SVKS000066",
+            "SVKS000067",
+            "SVKS000068",
+            "SVKS000069",
+            "SVKS000070",
+            "SVKS000071",
+            "SVKS000072",
+            "SVKS000074",
+            "SVKS000075",
+            "SVKS000076",
+            "SVKS000077",
+            "SVKS000078",
+            "SVKS000079",
+            "SVKS000080",
+            "SVKS000081",
+            "SVKS000082",
+            "SVKS000083",
+            "SVKS000084",
+            "SVKS000086",
+            "SVKS000089",
+            "SVKS000110",
+            "SVKS000119",
+            "SVKS000120",
+            "SVKS000121",
+            "SVKS000122",
+            "SVKS000123",
+            "SVKS000124",
+            "SVKS000125",
+            "SVKS000177",
+            "SVKS000178",
+            "SVKS000470",
+            "SVKS000471",
+            "SVKS000472",
+            "SVKS000473",
+            "SVKS000474",
+            "SVKS000475",
+            "SVKS000476",
+            "SVKS000477",
+            "SVKS000478",
+            "SVKS000479",
+            "SVKS000480",
+            "SVKS000481",
+            "SVKS000482",
+            "SVKS000483",
+            "SVKS000484",
+            "SVKS000485"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "TVS Girling Parts | Souviks",
+            "description": "Browse genuine and aftermarket TVS Girling spare parts available at Souviks.",
+            "keywords": [
+                "TVS Girling",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/tvs-girling"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652671",
+        "updated_at": "2026-07-16T08:26:41.652674"
+    },
+    {
+        "id": "roots",
+        "slug": "roots",
+        "name": "Roots",
+        "short_name": "Roots",
+        "logo": "/assets/images/brands/roots.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 5,
+        "categories": [
+            "electricals",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "horn",
+            "u-bolt"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata LPT",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000030",
+            "SVKS000031",
+            "SVKS000065",
+            "SVKS000319",
+            "SVKS000432"
+        ],
+        "products": [
+            "SVKS000030",
+            "SVKS000031",
+            "SVKS000065",
+            "SVKS000319",
+            "SVKS000432"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Roots Parts | Souviks",
+            "description": "Browse genuine and aftermarket Roots spare parts available at Souviks.",
+            "keywords": [
+                "Roots",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/roots"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652682",
+        "updated_at": "2026-07-16T08:26:41.652684"
+    },
+    {
+        "id": "gs",
+        "slug": "gs",
+        "name": "GS",
+        "short_name": "GS",
+        "logo": "/assets/images/brands/gs.jpg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 19,
+        "categories": [
+            "air-system",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "air-spring",
+            "center-bolt",
+            "suspension-bush"
+        ],
+        "vehicles": [
+            "Eicher 1110",
+            "Tata 1109",
+            "Tata 407",
+            "Tata 709",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa",
+            "Tata Ultra",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000047",
+            "SVKS000301",
+            "SVKS000302",
+            "SVKS000303",
+            "SVKS000304",
+            "SVKS000305",
+            "SVKS000306",
+            "SVKS000307"
+        ],
+        "products": [
+            "SVKS000047",
+            "SVKS000301",
+            "SVKS000302",
+            "SVKS000303",
+            "SVKS000304",
+            "SVKS000305",
+            "SVKS000306",
+            "SVKS000307",
+            "SVKS000308",
+            "SVKS000309",
+            "SVKS000310",
+            "SVKS000311",
+            "SVKS000312",
+            "SVKS000313",
+            "SVKS000314",
+            "SVKS000315",
+            "SVKS000317",
+            "SVKS000318",
+            "SVKS000371"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "GS Parts | Souviks",
+            "description": "Browse genuine and aftermarket GS spare parts available at Souviks.",
+            "keywords": [
+                "GS",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/gs"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652693",
+        "updated_at": "2026-07-16T08:26:41.652695"
+    },
+    {
+        "id": "spicer",
+        "slug": "spicer",
+        "name": "Spicer",
+        "short_name": "Spicer",
+        "logo": "/assets/images/brands/spicer.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 4,
+        "categories": [
+            "brakes",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "brake-drum",
+            "cross-joint",
+            "crown-wheel-pinion",
+            "differential-kit"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata Ace",
+            "Tata LPT"
+        ],
+        "featured_products": [
+            "SVKS000060",
+            "SVKS000061",
+            "SVKS000062",
+            "SVKS000274"
+        ],
+        "products": [
+            "SVKS000060",
+            "SVKS000061",
+            "SVKS000062",
+            "SVKS000274"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Spicer Parts | Souviks",
+            "description": "Browse genuine and aftermarket Spicer spare parts available at Souviks.",
+            "keywords": [
+                "Spicer",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/spicer"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652701",
+        "updated_at": "2026-07-16T08:26:41.652703"
+    },
+    {
+        "id": "tata-genuine-parts",
+        "slug": "tata-genuine-parts",
+        "name": "Tata Genuine Parts",
+        "short_name": "Tata Genuine Parts",
+        "logo": "/assets/images/brands/tata-genuine-parts.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 68,
+        "categories": [
+            "bearings",
+            "brakes",
+            "clutch-parts",
+            "cooling-system",
+            "electricals",
+            "engine-components",
+            "filters",
+            "lubricants",
+            "rubber-parts",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "air-filter",
+            "brake-disc",
+            "brake-fluid",
+            "clutch-assembly",
+            "clutch-cover",
+            "clutch-disc",
+            "clutch-kit",
+            "clutch-lever",
+            "clutch-master-cylinder",
+            "clutch-plate",
+            "clutch-repair-kit",
+            "clutch-shaft",
+            "clutch-slave-cylinder",
+            "engine-bushes-synchronizers",
+            "engine-oil",
+            "filter-element",
+            "fuel-filter",
+            "gasket",
+            "gear-top-cover",
+            "glow-plug",
+            "hub-units-wheel-bearings",
+            "o-ring",
+            "oil-filter",
+            "oil-seal",
+            "piston-ring",
+            "radiator",
+            "taper-roller-bearing",
+            "timing-belt",
+            "timing-components",
+            "u-bolt",
+            "water-pump-bearings"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Eicher 1110",
+            "Eicher Pro Series",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 407",
+            "Tata 709",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT",
+            "Tata Magic",
+            "Tata Signa"
+        ],
+        "featured_products": [
+            "SVKS000063",
+            "SVKS000064",
+            "SVKS000094",
+            "SVKS000095",
+            "SVKS000096",
+            "SVKS000097",
+            "SVKS000098",
+            "SVKS000099"
+        ],
+        "products": [
+            "SVKS000063",
+            "SVKS000064",
+            "SVKS000094",
+            "SVKS000095",
+            "SVKS000096",
+            "SVKS000097",
+            "SVKS000098",
+            "SVKS000099",
+            "SVKS000100",
+            "SVKS000101",
+            "SVKS000102",
+            "SVKS000103",
+            "SVKS000104",
+            "SVKS000105",
+            "SVKS000106",
+            "SVKS000107",
+            "SVKS000108",
+            "SVKS000109",
+            "SVKS000111",
+            "SVKS000112",
+            "SVKS000113",
+            "SVKS000114",
+            "SVKS000115",
+            "SVKS000116",
+            "SVKS000117",
+            "SVKS000118",
+            "SVKS000145",
+            "SVKS000146",
+            "SVKS000147",
+            "SVKS000148",
+            "SVKS000149",
+            "SVKS000150",
+            "SVKS000151",
+            "SVKS000179",
+            "SVKS000180",
+            "SVKS000181",
+            "SVKS000182",
+            "SVKS000183",
+            "SVKS000184",
+            "SVKS000185",
+            "SVKS000186",
+            "SVKS000187",
+            "SVKS000188",
+            "SVKS000189",
+            "SVKS000190",
+            "SVKS000191",
+            "SVKS000192",
+            "SVKS000193",
+            "SVKS000194",
+            "SVKS000212",
+            "SVKS000452",
+            "SVKS000453",
+            "SVKS000454",
+            "SVKS000455",
+            "SVKS000456",
+            "SVKS000457",
+            "SVKS000458",
+            "SVKS000459",
+            "SVKS000460",
+            "SVKS000461",
+            "SVKS000462",
+            "SVKS000463",
+            "SVKS000464",
+            "SVKS000465",
+            "SVKS000466",
+            "SVKS000467",
+            "SVKS000468",
+            "SVKS000469"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Tata Genuine Parts Parts | Souviks",
+            "description": "Browse genuine and aftermarket Tata Genuine Parts spare parts available at Souviks.",
+            "keywords": [
+                "Tata Genuine Parts",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/tata-genuine-parts"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652728",
+        "updated_at": "2026-07-16T08:26:41.652730"
+    },
+    {
+        "id": "harish",
+        "slug": "harish",
+        "name": "Harish",
+        "short_name": "Harish",
+        "logo": "/assets/images/brands/harish.jpg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 28,
+        "categories": [
+            "clutch-parts",
+            "fasteners-hardware",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "clutch-bush",
+            "leaf-spring",
+            "spring-leaf-side-washer",
+            "suspension-bush",
+            "washer"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Eicher 1110",
+            "Eicher Pro Series",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 407",
+            "Tata 709",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000090",
+            "SVKS000091",
+            "SVKS000126",
+            "SVKS000127",
+            "SVKS000128",
+            "SVKS000129",
+            "SVKS000130",
+            "SVKS000131"
+        ],
+        "products": [
+            "SVKS000090",
+            "SVKS000091",
+            "SVKS000126",
+            "SVKS000127",
+            "SVKS000128",
+            "SVKS000129",
+            "SVKS000130",
+            "SVKS000131",
+            "SVKS000132",
+            "SVKS000133",
+            "SVKS000134",
+            "SVKS000135",
+            "SVKS000136",
+            "SVKS000137",
+            "SVKS000138",
+            "SVKS000139",
+            "SVKS000140",
+            "SVKS000141",
+            "SVKS000142",
+            "SVKS000143",
+            "SVKS000144",
+            "SVKS000316",
+            "SVKS000327",
+            "SVKS000328",
+            "SVKS000329",
+            "SVKS000330",
+            "SVKS000404",
+            "SVKS000586"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Harish Parts | Souviks",
+            "description": "Browse genuine and aftermarket Harish spare parts available at Souviks.",
+            "keywords": [
+                "Harish",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/harish"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652743",
+        "updated_at": "2026-07-16T08:26:41.652745"
+    },
+    {
+        "id": "rider",
+        "slug": "rider",
+        "name": "Rider",
+        "short_name": "Rider",
+        "logo": "",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 2,
+        "categories": [
+            "bearings",
+            "rubber-parts"
+        ],
+        "subcategories": [
+            "hub-units-wheel-bearings",
+            "oil-seal"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa"
+        ],
+        "featured_products": [
+            "SVKS000093",
+            "SVKS000427"
+        ],
+        "products": [
+            "SVKS000093",
+            "SVKS000427"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Rider Parts | Souviks",
+            "description": "Browse genuine and aftermarket Rider spare parts available at Souviks.",
+            "keywords": [
+                "Rider",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/rider"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652750",
+        "updated_at": "2026-07-16T08:26:41.652752"
+    },
+    {
+        "id": "anupam",
+        "slug": "anupam",
+        "name": "Anupam",
+        "short_name": "Anupam",
+        "logo": "/assets/images/brands/anupam.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 6,
+        "categories": [
+            "electricals"
+        ],
+        "subcategories": [
+            "combination-switch"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Eicher 1110",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 709",
+            "Tata Ace",
+            "Tata LPT",
+            "Tata Magic"
+        ],
+        "featured_products": [
+            "SVKS000175",
+            "SVKS000218",
+            "SVKS000219",
+            "SVKS000220",
+            "SVKS000221",
+            "SVKS000222"
+        ],
+        "products": [
+            "SVKS000175",
+            "SVKS000218",
+            "SVKS000219",
+            "SVKS000220",
+            "SVKS000221",
+            "SVKS000222"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Anupam Parts | Souviks",
+            "description": "Browse genuine and aftermarket Anupam spare parts available at Souviks.",
+            "keywords": [
+                "Anupam",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/anupam"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652759",
+        "updated_at": "2026-07-16T08:26:41.652761"
+    },
+    {
+        "id": "unominda",
+        "slug": "unominda",
+        "name": "UnoMinda",
+        "short_name": "UnoMinda",
+        "logo": "/assets/images/brands/unominda.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 21,
+        "categories": [
+            "brakes",
+            "electricals"
+        ],
+        "subcategories": [
+            "battery-cable",
+            "brake-light",
+            "brake-switch",
+            "bulb",
+            "combination-switch",
+            "head-light",
+            "horn",
+            "ignition-switch",
+            "relay",
+            "reverse-switch",
+            "sensor",
+            "solenoid-switch",
+            "stop-light-switch"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Captain",
+            "Ashok Leyland Ecomet",
+            "Eicher 1110",
+            "Eicher Pro Series",
+            "Mahindra Blazo",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 407",
+            "Tata 709",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000195",
+            "SVKS000196",
+            "SVKS000252",
+            "SVKS000276",
+            "SVKS000430",
+            "SVKS000431",
+            "SVKS000433",
+            "SVKS000434"
+        ],
+        "products": [
+            "SVKS000195",
+            "SVKS000196",
+            "SVKS000252",
+            "SVKS000276",
+            "SVKS000430",
+            "SVKS000431",
+            "SVKS000433",
+            "SVKS000434",
+            "SVKS000439",
+            "SVKS000441",
+            "SVKS000450",
+            "SVKS000451",
+            "SVKS000558",
+            "SVKS000568",
+            "SVKS000569",
+            "SVKS000570",
+            "SVKS000571",
+            "SVKS000572",
+            "SVKS000573",
+            "SVKS000574",
+            "SVKS000575"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "UnoMinda Parts | Souviks",
+            "description": "Browse genuine and aftermarket UnoMinda spare parts available at Souviks.",
+            "keywords": [
+                "UnoMinda",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/unominda"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652773",
+        "updated_at": "2026-07-16T08:26:41.652775"
+    },
+    {
+        "id": "ask",
+        "slug": "ask",
+        "name": "ASK",
+        "short_name": "ASK",
+        "logo": "/assets/images/brands/ask.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 14,
+        "categories": [
+            "brakes"
+        ],
+        "subcategories": [
+            "brake-lining"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata 1109",
+            "Tata 1512",
+            "Tata 709",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa"
+        ],
+        "featured_products": [
+            "SVKS000198",
+            "SVKS000199",
+            "SVKS000200",
+            "SVKS000201",
+            "SVKS000202",
+            "SVKS000203",
+            "SVKS000204",
+            "SVKS000205"
+        ],
+        "products": [
+            "SVKS000198",
+            "SVKS000199",
+            "SVKS000200",
+            "SVKS000201",
+            "SVKS000202",
+            "SVKS000203",
+            "SVKS000204",
+            "SVKS000205",
+            "SVKS000206",
+            "SVKS000207",
+            "SVKS000208",
+            "SVKS000209",
+            "SVKS000210",
+            "SVKS000223"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "ASK Parts | Souviks",
+            "description": "Browse genuine and aftermarket ASK spare parts available at Souviks.",
+            "keywords": [
+                "ASK",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/ask"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652782",
+        "updated_at": "2026-07-16T08:26:41.652784"
+    },
+    {
+        "id": "abc",
+        "slug": "abc",
+        "name": "ABC",
+        "short_name": "ABC",
+        "logo": "/assets/images/brands/abc.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "bearings"
+        ],
+        "subcategories": [
+            "taper-roller-bearing"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000211"
+        ],
+        "products": [
+            "SVKS000211"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "ABC Parts | Souviks",
+            "description": "Browse genuine and aftermarket ABC spare parts available at Souviks.",
+            "keywords": [
+                "ABC",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/abc"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652789",
+        "updated_at": "2026-07-16T08:26:41.652791"
+    },
+    {
+        "id": "alok",
+        "slug": "alok",
+        "name": "Alok",
+        "short_name": "Alok",
+        "logo": "/assets/images/brands/alok.jpg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 3,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "drag-link",
+            "tie-rod-end"
+        ],
+        "vehicles": [
+            "Tata Ace",
+            "Tata Intra"
+        ],
+        "featured_products": [
+            "SVKS000224",
+            "SVKS000225",
+            "SVKS000226"
+        ],
+        "products": [
+            "SVKS000224",
+            "SVKS000225",
+            "SVKS000226"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Alok Parts | Souviks",
+            "description": "Browse genuine and aftermarket Alok spare parts available at Souviks.",
+            "keywords": [
+                "Alok",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/alok"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652796",
+        "updated_at": "2026-07-16T08:26:41.652798"
+    },
+    {
+        "id": "valvoline",
+        "slug": "valvoline",
+        "name": "Valvoline",
+        "short_name": "Valvoline",
+        "logo": "/assets/images/brands/valvoline.svg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "cross-joint"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000227"
+        ],
+        "products": [
+            "SVKS000227"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Valvoline Parts | Souviks",
+            "description": "Browse genuine and aftermarket Valvoline spare parts available at Souviks.",
+            "keywords": [
+                "Valvoline",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/valvoline"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652802",
+        "updated_at": "2026-07-16T08:26:41.652804"
+    },
+    {
+        "id": "nirmal",
+        "slug": "nirmal",
+        "name": "Nirmal",
+        "short_name": "Nirmal",
+        "logo": "/assets/images/brands/nirmal.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 14,
+        "categories": [
+            "clutch-parts",
+            "engine-components",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "clutch-bush",
+            "cotter-bolt",
+            "engine-mount",
+            "spring-pin",
+            "u-bolt"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata LPT",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000228",
+            "SVKS000229",
+            "SVKS000251",
+            "SVKS000391",
+            "SVKS000392",
+            "SVKS000393",
+            "SVKS000394",
+            "SVKS000395"
+        ],
+        "products": [
+            "SVKS000228",
+            "SVKS000229",
+            "SVKS000251",
+            "SVKS000391",
+            "SVKS000392",
+            "SVKS000393",
+            "SVKS000394",
+            "SVKS000395",
+            "SVKS000396",
+            "SVKS000397",
+            "SVKS000398",
+            "SVKS000399",
+            "SVKS000400",
+            "SVKS000401"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Nirmal Parts | Souviks",
+            "description": "Browse genuine and aftermarket Nirmal spare parts available at Souviks.",
+            "keywords": [
+                "Nirmal",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/nirmal"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652812",
+        "updated_at": "2026-07-16T08:26:41.652814"
+    },
+    {
+        "id": "bgl",
+        "slug": "bgl",
+        "name": "BGL",
+        "short_name": "BGL",
+        "logo": "/assets/images/brands/bgl.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 8,
+        "categories": [
+            "clutch-parts"
+        ],
+        "subcategories": [
+            "clutch-plate",
+            "clutch-spring",
+            "flywheel-assembly",
+            "pressure-plate"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa",
+            "Tata Ultra",
+            "Tractors"
+        ],
+        "featured_products": [
+            "SVKS000230",
+            "SVKS000231",
+            "SVKS000232",
+            "SVKS000233",
+            "SVKS000234",
+            "SVKS000248",
+            "SVKS000429",
+            "SVKS000442"
+        ],
+        "products": [
+            "SVKS000230",
+            "SVKS000231",
+            "SVKS000232",
+            "SVKS000233",
+            "SVKS000234",
+            "SVKS000248",
+            "SVKS000429",
+            "SVKS000442"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "BGL Parts | Souviks",
+            "description": "Browse genuine and aftermarket BGL spare parts available at Souviks.",
+            "keywords": [
+                "BGL",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/bgl"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652821",
+        "updated_at": "2026-07-16T08:26:41.652823"
+    },
+    {
+        "id": "bosch",
+        "slug": "bosch",
+        "name": "Bosch",
+        "short_name": "Bosch",
+        "logo": "/assets/images/brands/bosch.svg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 27,
+        "categories": [
+            "bearings",
+            "cooling-system",
+            "electricals",
+            "filters",
+            "lubricants"
+        ],
+        "subcategories": [
+            "armature",
+            "clutch-bearings",
+            "fuel-filter",
+            "fuel-water-separator",
+            "gear-oil",
+            "light-holder",
+            "oil-filter",
+            "rectifier",
+            "voltage-regulator",
+            "water-pump-bearings"
+        ],
+        "vehicles": [
+            "Bosch Engines/Electrical"
+        ],
+        "featured_products": [
+            "SVKS000235",
+            "SVKS000236",
+            "SVKS000237",
+            "SVKS000238",
+            "SVKS000239",
+            "SVKS000240",
+            "SVKS000241",
+            "SVKS000255"
+        ],
+        "products": [
+            "SVKS000235",
+            "SVKS000236",
+            "SVKS000237",
+            "SVKS000238",
+            "SVKS000239",
+            "SVKS000240",
+            "SVKS000241",
+            "SVKS000255",
+            "SVKS000256",
+            "SVKS000257",
+            "SVKS000258",
+            "SVKS000259",
+            "SVKS000260",
+            "SVKS000261",
+            "SVKS000262",
+            "SVKS000263",
+            "SVKS000264",
+            "SVKS000265",
+            "SVKS000266",
+            "SVKS000267",
+            "SVKS000268",
+            "SVKS000269",
+            "SVKS000270",
+            "SVKS000271",
+            "SVKS000272",
+            "SVKS000273",
+            "SVKS000275"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Bosch Parts | Souviks",
+            "description": "Browse genuine and aftermarket Bosch spare parts available at Souviks.",
+            "keywords": [
+                "Bosch",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/bosch"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652833",
+        "updated_at": "2026-07-16T08:26:41.652835"
+    },
+    {
+        "id": "motherson",
+        "slug": "motherson",
+        "name": "Motherson",
+        "short_name": "Motherson",
+        "logo": "/assets/images/brands/motherson.svg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 2,
+        "categories": [
+            "electricals"
+        ],
+        "subcategories": [
+            "wire"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000243",
+            "SVKS000244"
+        ],
+        "products": [
+            "SVKS000243",
+            "SVKS000244"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Motherson Parts | Souviks",
+            "description": "Browse genuine and aftermarket Motherson spare parts available at Souviks.",
+            "keywords": [
+                "Motherson",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/motherson"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652840",
+        "updated_at": "2026-07-16T08:26:41.652842"
+    },
+    {
+        "id": "msl",
+        "slug": "msl",
+        "name": "MSL",
+        "short_name": "MSL",
+        "logo": "/assets/images/brands/msl.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 2,
+        "categories": [
+            "clutch-parts"
+        ],
+        "subcategories": [
+            "clutch-spring"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata LPT"
+        ],
+        "featured_products": [
+            "SVKS000245",
+            "SVKS000246"
+        ],
+        "products": [
+            "SVKS000245",
+            "SVKS000246"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "MSL Parts | Souviks",
+            "description": "Browse genuine and aftermarket MSL spare parts available at Souviks.",
+            "keywords": [
+                "MSL",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/msl"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652846",
+        "updated_at": "2026-07-16T08:26:41.652848"
+    },
+    {
+        "id": "compo",
+        "slug": "compo",
+        "name": "Compo",
+        "short_name": "Compo",
+        "logo": "/assets/images/brands/compo.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "brakes"
+        ],
+        "subcategories": [
+            "brake-disc"
+        ],
+        "vehicles": [
+            "Tata Ace",
+            "Tata Intra",
+            "Tata Magic"
+        ],
+        "featured_products": [
+            "SVKS000247"
+        ],
+        "products": [
+            "SVKS000247"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Compo Parts | Souviks",
+            "description": "Browse genuine and aftermarket Compo spare parts available at Souviks.",
+            "keywords": [
+                "Compo",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/compo"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652853",
+        "updated_at": "2026-07-16T08:26:41.652855"
+    },
+    {
+        "id": "comet",
+        "slug": "comet",
+        "name": "Comet",
+        "short_name": "Comet",
+        "logo": "/assets/images/brands/comet.jpg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "electricals"
+        ],
+        "subcategories": [
+            "bulb"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000249"
+        ],
+        "products": [
+            "SVKS000249"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Comet Parts | Souviks",
+            "description": "Browse genuine and aftermarket Comet spare parts available at Souviks.",
+            "keywords": [
+                "Comet",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/comet"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652859",
+        "updated_at": "2026-07-16T08:26:41.652862"
+    },
+    {
+        "id": "jmp",
+        "slug": "jmp",
+        "name": "JMP",
+        "short_name": "JMP",
+        "logo": "/assets/images/brands/jmp.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 8,
+        "categories": [
+            "brakes",
+            "clutch-parts",
+            "rubber-parts",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "brake-anchor-pin",
+            "clutch-bush",
+            "leaf-spring",
+            "rubber-pad",
+            "shackle-plate"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Captain",
+            "Ashok Leyland Ecomet",
+            "Tata LPT",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000254",
+            "SVKS000300",
+            "SVKS000331",
+            "SVKS000337",
+            "SVKS000338",
+            "SVKS000365",
+            "SVKS000565",
+            "SVKS000566"
+        ],
+        "products": [
+            "SVKS000254",
+            "SVKS000300",
+            "SVKS000331",
+            "SVKS000337",
+            "SVKS000338",
+            "SVKS000365",
+            "SVKS000565",
+            "SVKS000566"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "JMP Parts | Souviks",
+            "description": "Browse genuine and aftermarket JMP spare parts available at Souviks.",
+            "keywords": [
+                "JMP",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/jmp"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652868",
+        "updated_at": "2026-07-16T08:26:41.652870"
+    },
+    {
+        "id": "leyparts",
+        "slug": "leyparts",
+        "name": "Leyparts",
+        "short_name": "Leyparts",
+        "logo": "/assets/images/brands/leyparts.svg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 16,
+        "categories": [
+            "brakes",
+            "filters",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "axle-shaft",
+            "brake-lining",
+            "brake-slack-adjuster",
+            "coolant-filter",
+            "filter-housing",
+            "fuel-filter",
+            "fuel-water-separator",
+            "oil-filter"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Captain",
+            "Ashok Leyland Ecomet",
+            "Tata LPT"
+        ],
+        "featured_products": [
+            "SVKS000277",
+            "SVKS000278",
+            "SVKS000279",
+            "SVKS000280",
+            "SVKS000281",
+            "SVKS000282",
+            "SVKS000352",
+            "SVKS000353"
+        ],
+        "products": [
+            "SVKS000277",
+            "SVKS000278",
+            "SVKS000279",
+            "SVKS000280",
+            "SVKS000281",
+            "SVKS000282",
+            "SVKS000352",
+            "SVKS000353",
+            "SVKS000354",
+            "SVKS000355",
+            "SVKS000356",
+            "SVKS000357",
+            "SVKS000358",
+            "SVKS000359",
+            "SVKS000402",
+            "SVKS000403"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Leyparts Parts | Souviks",
+            "description": "Browse genuine and aftermarket Leyparts spare parts available at Souviks.",
+            "keywords": [
+                "Leyparts",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/leyparts"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652894",
+        "updated_at": "2026-07-16T08:26:41.652896"
+    },
+    {
+        "id": "fenner",
+        "slug": "fenner",
+        "name": "Fenner",
+        "short_name": "Fenner",
+        "logo": "/assets/images/brands/fenner.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 2,
+        "categories": [
+            "engine-components"
+        ],
+        "subcategories": [
+            "timing-belt"
+        ],
+        "vehicles": [
+            "Mahindra Bolero Pickup",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000285",
+            "SVKS000286"
+        ],
+        "products": [
+            "SVKS000285",
+            "SVKS000286"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Fenner Parts | Souviks",
+            "description": "Browse genuine and aftermarket Fenner spare parts available at Souviks.",
+            "keywords": [
+                "Fenner",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/fenner"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652901",
+        "updated_at": "2026-07-16T08:26:41.652903"
+    },
+    {
+        "id": "hp",
+        "slug": "hp",
+        "name": "HP",
+        "short_name": "HP",
+        "logo": "/assets/images/brands/hp.svg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 4,
+        "categories": [
+            "lubricants"
+        ],
+        "subcategories": [
+            "gear-oil",
+            "hydraulic-oil",
+            "steering-fluid"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000320",
+            "SVKS000321",
+            "SVKS000322",
+            "SVKS000323"
+        ],
+        "products": [
+            "SVKS000320",
+            "SVKS000321",
+            "SVKS000322",
+            "SVKS000323"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "HP Parts | Souviks",
+            "description": "Browse genuine and aftermarket HP spare parts available at Souviks.",
+            "keywords": [
+                "HP",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/hp"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652908",
+        "updated_at": "2026-07-16T08:26:41.652911"
+    },
+    {
+        "id": "meritor",
+        "slug": "meritor",
+        "name": "Meritor",
+        "short_name": "Meritor",
+        "logo": "/assets/images/brands/meritor.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 6,
+        "categories": [
+            "brakes",
+            "clutch-parts"
+        ],
+        "subcategories": [
+            "brake-lining",
+            "brake-slack-adjuster",
+            "clutch-spring"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata LPT",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000324",
+            "SVKS000444",
+            "SVKS000445",
+            "SVKS000446",
+            "SVKS000447",
+            "SVKS000448"
+        ],
+        "products": [
+            "SVKS000324",
+            "SVKS000444",
+            "SVKS000445",
+            "SVKS000446",
+            "SVKS000447",
+            "SVKS000448"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Meritor Parts | Souviks",
+            "description": "Browse genuine and aftermarket Meritor spare parts available at Souviks.",
+            "keywords": [
+                "Meritor",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/meritor"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652916",
+        "updated_at": "2026-07-16T08:26:41.652919"
+    },
+    {
+        "id": "phoenix",
+        "slug": "phoenix",
+        "name": "Phoenix",
+        "short_name": "Phoenix",
+        "logo": "/assets/images/brands/phoenix.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 7,
+        "categories": [
+            "electricals"
+        ],
+        "subcategories": [
+            "bulb"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000325",
+            "SVKS000326",
+            "SVKS000406",
+            "SVKS000407",
+            "SVKS000408",
+            "SVKS000409",
+            "SVKS000585"
+        ],
+        "products": [
+            "SVKS000325",
+            "SVKS000326",
+            "SVKS000406",
+            "SVKS000407",
+            "SVKS000408",
+            "SVKS000409",
+            "SVKS000585"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Phoenix Parts | Souviks",
+            "description": "Browse genuine and aftermarket Phoenix spare parts available at Souviks.",
+            "keywords": [
+                "Phoenix",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/phoenix"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652924",
+        "updated_at": "2026-07-16T08:26:41.652926"
+    },
+    {
+        "id": "jai",
+        "slug": "jai",
+        "name": "JAI",
+        "short_name": "JAI",
+        "logo": "/assets/images/brands/jai.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 77,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "leaf-spring",
+            "spring-pin",
+            "suspension-bush"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Captain",
+            "Eicher Pro Series",
+            "Mahindra Blazo",
+            "Mahindra Bolero Pickup",
+            "Mahindra Max Pickup",
+            "Tata 1312",
+            "Tata 2416",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT",
+            "Tata Magic",
+            "Tata Prima",
+            "Tata Signa",
+            "Tata Ultra",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000332",
+            "SVKS000333",
+            "SVKS000334",
+            "SVKS000335",
+            "SVKS000336",
+            "SVKS000449",
+            "SVKS000587",
+            "SVKS000588"
+        ],
+        "products": [
+            "SVKS000332",
+            "SVKS000333",
+            "SVKS000334",
+            "SVKS000335",
+            "SVKS000336",
+            "SVKS000449",
+            "SVKS000587",
+            "SVKS000588",
+            "SVKS000589",
+            "SVKS000590",
+            "SVKS000591",
+            "SVKS000592",
+            "SVKS000593",
+            "SVKS000594",
+            "SVKS000595",
+            "SVKS000596",
+            "SVKS000597",
+            "SVKS000598",
+            "SVKS000599",
+            "SVKS000600",
+            "SVKS000601",
+            "SVKS000602",
+            "SVKS000603",
+            "SVKS000604",
+            "SVKS000605",
+            "SVKS000606",
+            "SVKS000607",
+            "SVKS000608",
+            "SVKS000609",
+            "SVKS000610",
+            "SVKS000611",
+            "SVKS000612",
+            "SVKS000613",
+            "SVKS000614",
+            "SVKS000615",
+            "SVKS000616",
+            "SVKS000617",
+            "SVKS000618",
+            "SVKS000629",
+            "SVKS000630",
+            "SVKS000631",
+            "SVKS000632",
+            "SVKS000633",
+            "SVKS000634",
+            "SVKS000635",
+            "SVKS000636",
+            "SVKS000637",
+            "SVKS000638",
+            "SVKS000639",
+            "SVKS000640",
+            "SVKS000641",
+            "SVKS000642",
+            "SVKS000643",
+            "SVKS000644",
+            "SVKS000645",
+            "SVKS000646",
+            "SVKS000647",
+            "SVKS000648",
+            "SVKS000649",
+            "SVKS000650",
+            "SVKS000651",
+            "SVKS000652",
+            "SVKS000653",
+            "SVKS000654",
+            "SVKS000655",
+            "SVKS000656",
+            "SVKS000657",
+            "SVKS000658",
+            "SVKS000659",
+            "SVKS000660",
+            "SVKS000661",
+            "SVKS000662",
+            "SVKS000663",
+            "SVKS000664",
+            "SVKS000665",
+            "SVKS000666",
+            "SVKS000667"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "JAI Parts | Souviks",
+            "description": "Browse genuine and aftermarket JAI spare parts available at Souviks.",
+            "keywords": [
+                "JAI",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/jai"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652942",
+        "updated_at": "2026-07-16T08:26:41.652944"
+    },
+    {
+        "id": "kfl",
+        "slug": "kfl",
+        "name": "KFL",
+        "short_name": "KFL",
+        "logo": "/assets/images/brands/kfl.jpg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 8,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "cross-joint",
+            "tie-rod-end"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata 1109",
+            "Tata 407",
+            "Tata 709",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT"
+        ],
+        "featured_products": [
+            "SVKS000339",
+            "SVKS000340",
+            "SVKS000341",
+            "SVKS000342",
+            "SVKS000343",
+            "SVKS000344",
+            "SVKS000345",
+            "SVKS000346"
+        ],
+        "products": [
+            "SVKS000339",
+            "SVKS000340",
+            "SVKS000341",
+            "SVKS000342",
+            "SVKS000343",
+            "SVKS000344",
+            "SVKS000345",
+            "SVKS000346"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "KFL Parts | Souviks",
+            "description": "Browse genuine and aftermarket KFL spare parts available at Souviks.",
+            "keywords": [
+                "KFL",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/kfl"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652951",
+        "updated_at": "2026-07-16T08:26:41.652953"
+    },
+    {
+        "id": "mahle",
+        "slug": "mahle",
+        "name": "Mahle",
+        "short_name": "Mahle",
+        "logo": "/assets/images/brands/mahle.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 7,
+        "categories": [
+            "filters"
+        ],
+        "subcategories": [
+            "air-filter",
+            "fuel-filter",
+            "fuel-water-separator",
+            "oil-filter"
+        ],
+        "vehicles": [
+            "Mahindra Blazo",
+            "Mahindra Furio",
+            "Tata LPT",
+            "Tata Prima",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000348",
+            "SVKS000349",
+            "SVKS000360",
+            "SVKS000361",
+            "SVKS000362",
+            "SVKS000389",
+            "SVKS000390"
+        ],
+        "products": [
+            "SVKS000348",
+            "SVKS000349",
+            "SVKS000360",
+            "SVKS000361",
+            "SVKS000362",
+            "SVKS000389",
+            "SVKS000390"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Mahle Parts | Souviks",
+            "description": "Browse genuine and aftermarket Mahle spare parts available at Souviks.",
+            "keywords": [
+                "Mahle",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/mahle"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652959",
+        "updated_at": "2026-07-16T08:26:41.652961"
+    },
+    {
+        "id": "neolite",
+        "slug": "neolite",
+        "name": "NeoLite",
+        "short_name": "NeoLite",
+        "logo": "/assets/images/brands/neolite.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 16,
+        "categories": [
+            "electricals"
+        ],
+        "subcategories": [
+            "fog-light",
+            "head-light"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Ecomet",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 407",
+            "Tata 709",
+            "Tata Signa"
+        ],
+        "featured_products": [
+            "SVKS000350",
+            "SVKS000351",
+            "SVKS000374",
+            "SVKS000375",
+            "SVKS000376",
+            "SVKS000377",
+            "SVKS000378",
+            "SVKS000379"
+        ],
+        "products": [
+            "SVKS000350",
+            "SVKS000351",
+            "SVKS000374",
+            "SVKS000375",
+            "SVKS000376",
+            "SVKS000377",
+            "SVKS000378",
+            "SVKS000379",
+            "SVKS000380",
+            "SVKS000381",
+            "SVKS000382",
+            "SVKS000383",
+            "SVKS000384",
+            "SVKS000385",
+            "SVKS000387",
+            "SVKS000388"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "NeoLite Parts | Souviks",
+            "description": "Browse genuine and aftermarket NeoLite spare parts available at Souviks.",
+            "keywords": [
+                "NeoLite",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/neolite"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652968",
+        "updated_at": "2026-07-16T08:26:41.652970"
+    },
+    {
+        "id": "nbc",
+        "slug": "nbc",
+        "name": "NBC",
+        "short_name": "NBC",
+        "logo": "/assets/images/brands/nbc.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "bearings"
+        ],
+        "subcategories": [
+            "taper-roller-bearing"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata LPT"
+        ],
+        "featured_products": [
+            "SVKS000363"
+        ],
+        "products": [
+            "SVKS000363"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "NBC Parts | Souviks",
+            "description": "Browse genuine and aftermarket NBC spare parts available at Souviks.",
+            "keywords": [
+                "NBC",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/nbc"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652975",
+        "updated_at": "2026-07-16T08:26:41.652977"
+    },
+    {
+        "id": "mei",
+        "slug": "mei",
+        "name": "MEI",
+        "short_name": "MEI",
+        "logo": "/assets/images/brands/mei.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 6,
+        "categories": [
+            "brakes",
+            "clutch-parts"
+        ],
+        "subcategories": [
+            "brake-slack-adjuster",
+            "clutch-booster"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Captain",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa"
+        ],
+        "featured_products": [
+            "SVKS000364",
+            "SVKS000366",
+            "SVKS000367",
+            "SVKS000368",
+            "SVKS000369",
+            "SVKS000370"
+        ],
+        "products": [
+            "SVKS000364",
+            "SVKS000366",
+            "SVKS000367",
+            "SVKS000368",
+            "SVKS000369",
+            "SVKS000370"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "MEI Parts | Souviks",
+            "description": "Browse genuine and aftermarket MEI spare parts available at Souviks.",
+            "keywords": [
+                "MEI",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/mei"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652983",
+        "updated_at": "2026-07-16T08:26:41.652985"
+    },
+    {
+        "id": "manu",
+        "slug": "manu",
+        "name": "Manu",
+        "short_name": "Manu",
+        "logo": "/assets/images/brands/manu.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "suspension-bush"
+        ],
+        "vehicles": [
+            "Tata LPT"
+        ],
+        "featured_products": [
+            "SVKS000372"
+        ],
+        "products": [
+            "SVKS000372"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Manu Parts | Souviks",
+            "description": "Browse genuine and aftermarket Manu spare parts available at Souviks.",
+            "keywords": [
+                "Manu",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/manu"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652989",
+        "updated_at": "2026-07-16T08:26:41.652991"
+    },
+    {
+        "id": "naic-024b",
+        "slug": "naic-024b",
+        "name": "NAIC 024B",
+        "short_name": "NAIC 024B",
+        "logo": "",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "clutch-parts"
+        ],
+        "subcategories": [
+            "clutch-lever"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000373"
+        ],
+        "products": [
+            "SVKS000373"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "NAIC 024B Parts | Souviks",
+            "description": "Browse genuine and aftermarket NAIC 024B spare parts available at Souviks.",
+            "keywords": [
+                "NAIC 024B",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/naic-024b"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.652996",
+        "updated_at": "2026-07-16T08:26:41.652998"
+    },
+    {
+        "id": "ng",
+        "slug": "ng",
+        "name": "NG",
+        "short_name": "NG",
+        "logo": "",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "electricals"
+        ],
+        "subcategories": [
+            "brake-light"
+        ],
+        "vehicles": [
+            "Tata LPT",
+            "Tata Signa"
+        ],
+        "featured_products": [
+            "SVKS000386"
+        ],
+        "products": [
+            "SVKS000386"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "NG Parts | Souviks",
+            "description": "Browse genuine and aftermarket NG spare parts available at Souviks.",
+            "keywords": [
+                "NG",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/ng"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653002",
+        "updated_at": "2026-07-16T08:26:41.653004"
+    },
+    {
+        "id": "philips",
+        "slug": "philips",
+        "name": "Philips",
+        "short_name": "Philips",
+        "logo": "/assets/images/brands/philips.svg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "electricals"
+        ],
+        "subcategories": [
+            "bulb"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000405"
+        ],
+        "products": [
+            "SVKS000405"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Philips Parts | Souviks",
+            "description": "Browse genuine and aftermarket Philips spare parts available at Souviks.",
+            "keywords": [
+                "Philips",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/philips"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653008",
+        "updated_at": "2026-07-16T08:26:41.653010"
+    },
+    {
+        "id": "pix",
+        "slug": "pix",
+        "name": "Pix",
+        "short_name": "Pix",
+        "logo": "/assets/images/brands/pix.webp",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 16,
+        "categories": [
+            "engine-components"
+        ],
+        "subcategories": [
+            "timing-belt"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Mahindra Blazo",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata LPT",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000410",
+            "SVKS000411",
+            "SVKS000412",
+            "SVKS000413",
+            "SVKS000414",
+            "SVKS000415",
+            "SVKS000416",
+            "SVKS000417"
+        ],
+        "products": [
+            "SVKS000410",
+            "SVKS000411",
+            "SVKS000412",
+            "SVKS000413",
+            "SVKS000414",
+            "SVKS000415",
+            "SVKS000416",
+            "SVKS000417",
+            "SVKS000418",
+            "SVKS000419",
+            "SVKS000420",
+            "SVKS000421",
+            "SVKS000422",
+            "SVKS000423",
+            "SVKS000424",
+            "SVKS000425"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Pix Parts | Souviks",
+            "description": "Browse genuine and aftermarket Pix spare parts available at Souviks.",
+            "keywords": [
+                "Pix",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/pix"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653020",
+        "updated_at": "2026-07-16T08:26:41.653023"
+    },
+    {
+        "id": "rane",
+        "slug": "rane",
+        "name": "Rane",
+        "short_name": "Rane",
+        "logo": "/assets/images/brands/rane.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "power-steering-pump"
+        ],
+        "vehicles": [
+            "Tata LPT",
+            "Tata Signa"
+        ],
+        "featured_products": [
+            "SVKS000426"
+        ],
+        "products": [
+            "SVKS000426"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Rane Parts | Souviks",
+            "description": "Browse genuine and aftermarket Rane spare parts available at Souviks.",
+            "keywords": [
+                "Rane",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/rane"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653030",
+        "updated_at": "2026-07-16T08:26:41.653033"
+    },
+    {
+        "id": "sargun",
+        "slug": "sargun",
+        "name": "Sargun",
+        "short_name": "Sargun",
+        "logo": "",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 4,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "cross-joint"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata 1312",
+            "Tata LPT"
+        ],
+        "featured_products": [
+            "SVKS000428",
+            "SVKS000436",
+            "SVKS000437",
+            "SVKS000438"
+        ],
+        "products": [
+            "SVKS000428",
+            "SVKS000436",
+            "SVKS000437",
+            "SVKS000438"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Sargun Parts | Souviks",
+            "description": "Browse genuine and aftermarket Sargun spare parts available at Souviks.",
+            "keywords": [
+                "Sargun",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/sargun"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653039",
+        "updated_at": "2026-07-16T08:26:41.653042"
+    },
+    {
+        "id": "amw",
+        "slug": "amw",
+        "name": "AMW",
+        "short_name": "AMW",
+        "logo": "/assets/images/brands/amw.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "brakes"
+        ],
+        "subcategories": [
+            "brake-lining"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000435"
+        ],
+        "products": [
+            "SVKS000435"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "AMW Parts | Souviks",
+            "description": "Browse genuine and aftermarket AMW spare parts available at Souviks.",
+            "keywords": [
+                "AMW",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/amw"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653046",
+        "updated_at": "2026-07-16T08:26:41.653048"
+    },
+    {
+        "id": "skf",
+        "slug": "skf",
+        "name": "SKF",
+        "short_name": "SKF",
+        "logo": "/assets/images/brands/skf.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 2,
+        "categories": [
+            "bearings"
+        ],
+        "subcategories": [
+            "taper-roller-bearing"
+        ],
+        "vehicles": [
+            "Ashok Leyland Captain",
+            "Tata LPT",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000440",
+            "SVKS000443"
+        ],
+        "products": [
+            "SVKS000440",
+            "SVKS000443"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "SKF Parts | Souviks",
+            "description": "Browse genuine and aftermarket SKF spare parts available at Souviks.",
+            "keywords": [
+                "SKF",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/skf"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653053",
+        "updated_at": "2026-07-16T08:26:41.653055"
+    },
+    {
+        "id": "texspin",
+        "slug": "texspin",
+        "name": "Texspin",
+        "short_name": "Texspin",
+        "logo": "/assets/images/brands/texspin.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 72,
+        "categories": [
+            "bearings",
+            "clutch-parts",
+            "lubricants",
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "ball-bearings",
+            "center-bearing",
+            "clutch-release-bearing",
+            "collector-ring",
+            "grease",
+            "king-pin-kit",
+            "kingpin-bearings",
+            "taper-roller-bearing"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Boss",
+            "Ashok Leyland Ecomet",
+            "Eicher Pro Series",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 407",
+            "Tata 709",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa",
+            "Tractors",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000486",
+            "SVKS000487",
+            "SVKS000488",
+            "SVKS000489",
+            "SVKS000490",
+            "SVKS000491",
+            "SVKS000492",
+            "SVKS000493"
+        ],
+        "products": [
+            "SVKS000486",
+            "SVKS000487",
+            "SVKS000488",
+            "SVKS000489",
+            "SVKS000490",
+            "SVKS000491",
+            "SVKS000492",
+            "SVKS000493",
+            "SVKS000494",
+            "SVKS000495",
+            "SVKS000496",
+            "SVKS000497",
+            "SVKS000498",
+            "SVKS000499",
+            "SVKS000500",
+            "SVKS000501",
+            "SVKS000502",
+            "SVKS000503",
+            "SVKS000504",
+            "SVKS000505",
+            "SVKS000506",
+            "SVKS000507",
+            "SVKS000508",
+            "SVKS000509",
+            "SVKS000510",
+            "SVKS000511",
+            "SVKS000512",
+            "SVKS000513",
+            "SVKS000514",
+            "SVKS000515",
+            "SVKS000516",
+            "SVKS000517",
+            "SVKS000518",
+            "SVKS000519",
+            "SVKS000520",
+            "SVKS000521",
+            "SVKS000522",
+            "SVKS000523",
+            "SVKS000524",
+            "SVKS000525",
+            "SVKS000526",
+            "SVKS000527",
+            "SVKS000528",
+            "SVKS000529",
+            "SVKS000530",
+            "SVKS000531",
+            "SVKS000532",
+            "SVKS000533",
+            "SVKS000534",
+            "SVKS000535",
+            "SVKS000536",
+            "SVKS000537",
+            "SVKS000538",
+            "SVKS000539",
+            "SVKS000540",
+            "SVKS000541",
+            "SVKS000542",
+            "SVKS000543",
+            "SVKS000544",
+            "SVKS000545",
+            "SVKS000546",
+            "SVKS000547",
+            "SVKS000548",
+            "SVKS000549",
+            "SVKS000550",
+            "SVKS000551",
+            "SVKS000552",
+            "SVKS000553",
+            "SVKS000554",
+            "SVKS000555",
+            "SVKS000556",
+            "SVKS000557"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Texspin Parts | Souviks",
+            "description": "Browse genuine and aftermarket Texspin spare parts available at Souviks.",
+            "keywords": [
+                "Texspin",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/texspin"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653073",
+        "updated_at": "2026-07-16T08:26:41.653075"
+    },
+    {
+        "id": "tata-autocomp",
+        "slug": "tata-autocomp",
+        "name": "Tata AutoComp",
+        "short_name": "Tata AutoComp",
+        "logo": "/assets/images/brands/tata-autocomp.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "filters"
+        ],
+        "subcategories": [
+            "oil-filter"
+        ],
+        "vehicles": [
+            "Tata LPT"
+        ],
+        "featured_products": [
+            "SVKS000559"
+        ],
+        "products": [
+            "SVKS000559"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Tata AutoComp Parts | Souviks",
+            "description": "Browse genuine and aftermarket Tata AutoComp spare parts available at Souviks.",
+            "keywords": [
+                "Tata AutoComp",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/tata-autocomp"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653079",
+        "updated_at": "2026-07-16T08:26:41.653082"
+    },
+    {
+        "id": "timken",
+        "slug": "timken",
+        "name": "Timken",
+        "short_name": "Timken",
+        "logo": "/assets/images/brands/timken.jpg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 5,
+        "categories": [
+            "bearings"
+        ],
+        "subcategories": [
+            "taper-roller-bearing"
+        ],
+        "vehicles": [
+            "Tata LPT",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000560",
+            "SVKS000561",
+            "SVKS000562",
+            "SVKS000563",
+            "SVKS000564"
+        ],
+        "products": [
+            "SVKS000560",
+            "SVKS000561",
+            "SVKS000562",
+            "SVKS000563",
+            "SVKS000564"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Timken Parts | Souviks",
+            "description": "Browse genuine and aftermarket Timken spare parts available at Souviks.",
+            "keywords": [
+                "Timken",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/timken"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653087",
+        "updated_at": "2026-07-16T08:26:41.653089"
+    },
+    {
+        "id": "everest",
+        "slug": "everest",
+        "name": "Everest",
+        "short_name": "Everest",
+        "logo": "/assets/images/brands/everest.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "cross-joint"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata LPT"
+        ],
+        "featured_products": [
+            "SVKS000567"
+        ],
+        "products": [
+            "SVKS000567"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Everest Parts | Souviks",
+            "description": "Browse genuine and aftermarket Everest spare parts available at Souviks.",
+            "keywords": [
+                "Everest",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/everest"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653094",
+        "updated_at": "2026-07-16T08:26:41.653096"
+    },
+    {
+        "id": "wabco",
+        "slug": "wabco",
+        "name": "WABCO",
+        "short_name": "WABCO",
+        "logo": "/assets/images/brands/wabco.svg",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 8,
+        "categories": [
+            "air-system"
+        ],
+        "subcategories": [
+            "air-compressor"
+        ],
+        "vehicles": [
+            "Tata 709",
+            "Tata LPT",
+            "Tata Prima",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000577",
+            "SVKS000578",
+            "SVKS000579",
+            "SVKS000580",
+            "SVKS000581",
+            "SVKS000582",
+            "SVKS000583",
+            "SVKS000584"
+        ],
+        "products": [
+            "SVKS000577",
+            "SVKS000578",
+            "SVKS000579",
+            "SVKS000580",
+            "SVKS000581",
+            "SVKS000582",
+            "SVKS000583",
+            "SVKS000584"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "WABCO Parts | Souviks",
+            "description": "Browse genuine and aftermarket WABCO spare parts available at Souviks.",
+            "keywords": [
+                "WABCO",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/wabco"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653101",
+        "updated_at": "2026-07-16T08:26:41.653103"
+    },
+    {
+        "id": "lucas-tvs",
+        "slug": "lucas-tvs",
+        "name": "Lucas TVS",
+        "short_name": "Lucas TVS",
+        "logo": "/assets/images/brands/lucas-tvs.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 10,
+        "categories": [
+            "electricals"
+        ],
+        "subcategories": [
+            "regulator",
+            "solenoid-switch",
+            "starter",
+            "stator"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Captain",
+            "Ashok Leyland Stallion",
+            "Mahindra Bolero Pickup",
+            "Mahindra Max Pickup",
+            "Tata LPT",
+            "Tractors",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000619",
+            "SVKS000620",
+            "SVKS000621",
+            "SVKS000622",
+            "SVKS000623",
+            "SVKS000624",
+            "SVKS000625",
+            "SVKS000626"
+        ],
+        "products": [
+            "SVKS000619",
+            "SVKS000620",
+            "SVKS000621",
+            "SVKS000622",
+            "SVKS000623",
+            "SVKS000624",
+            "SVKS000625",
+            "SVKS000626",
+            "SVKS000627",
+            "SVKS000628"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Lucas TVS Parts | Souviks",
+            "description": "Browse genuine and aftermarket Lucas TVS spare parts available at Souviks.",
+            "keywords": [
+                "Lucas TVS",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/lucas-tvs"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.653110",
+        "updated_at": "2026-07-16T08:26:41.653112"
+    }
+]

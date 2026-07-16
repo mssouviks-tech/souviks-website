@@ -1,0 +1,297 @@
+/* ==========================================================
+   LARGE DESKTOP
+========================================================== */
+
+@media (max-width: 1400px) {
+
+    .container {
+        max-width: 1200px;
+    }
+
+}
+
+/* ==========================================================
+   LAPTOP
+========================================================== */
+
+@media (max-width: 1200px) {
+
+    .entity-grid,
+    .product-grid,
+    .products-grid,
+    .brand-grid,
+    .brands-grid,
+    .vehicle-grid,
+    .vehicles-grid,
+    .category-grid,
+    .categories-grid,
+    .contact-grid,
+    .why-grid,
+    #categoryGrid {
+
+        grid-template-columns:
+            repeat(3, minmax(0,1fr));
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .hero-stats {
+
+        gap: 32px;
+
+    }
+
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .main-navigation {
+
+        display: none;
+
+    }
+
+    .mobile-menu-button {
+
+        display: block;
+
+    }
+
+    .catalogue-summary-wrapper {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        text-align: center;
+
+    }
+
+    .cta-wrapper {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .cta-actions {
+
+        justify-content: center;
+
+    }
+
+    .entity-grid,
+    .product-grid,
+    .products-grid,
+    .brand-grid,
+    .brands-grid,
+    .vehicle-grid,
+    .vehicles-grid,
+    .category-grid,
+    .categories-grid,
+    .contact-grid,
+    .why-grid,
+    #categoryGrid {
+
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+
+    }
+
+    .hero-stats {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .container {
+
+        padding-left: 16px;
+        padding-right: 16px;
+
+    }
+
+    .catalogue-hero,
+    .categories-hero,
+    .brands-hero,
+    .vehicles-hero {
+
+        padding: 60px 0;
+
+    }
+
+    .catalogue-hero h1,
+    .categories-hero h1,
+    .brands-hero h1,
+    .vehicles-hero h1 {
+
+        font-size: 2rem;
+
+    }
+
+    .hero-stats {
+
+        gap: 20px;
+
+    }
+
+    .hero-stat strong {
+
+        font-size: 22px;
+
+    }
+
+    .search-wrapper {
+
+        flex-direction: column;
+
+    }
+
+    .search-box {
+
+        width: 100%;
+
+    }
+
+    .section-heading {
+
+        margin-bottom: 32px;
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+    }
+
+    .footer-bottom-links {
+
+        justify-content: center;
+
+    }
+
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 576px) {
+
+    .entity-grid,
+    .product-grid,
+    .products-grid,
+    .brand-grid,
+    .brands-grid,
+    .vehicle-grid,
+    .vehicles-grid,
+    .category-grid,
+    .categories-grid,
+    .contact-grid,
+    .why-grid,
+    #categoryGrid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hero-stats {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+    }
+
+    .cta-wrapper {
+
+        padding: 24px;
+
+    }
+
+    .cta-actions {
+
+        flex-direction: column;
+
+        width: 100%;
+
+    }
+
+    .cta-actions .btn {
+
+        width: 100%;
+
+    }
+
+}
+
+/* ==========================================================
+   GALLERY
+========================================================== */
+
+
+
+@media (max-width:992px){
+
+    .store-gallery-large,
+    .video-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .store-gallery-small{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+/* ==========================================================
+   POPULAR VEHICLES
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .popular-vehicles-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .popular-vehicles-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

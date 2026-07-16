@@ -1,0 +1,30 @@
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border:
+
+        1px solid
+
+        var(--border-color);
+
+    border-radius:
+
+        var(--radius-md);
+
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline: none;
+
+    border-color:
+        var(--color-primary);
+
+}

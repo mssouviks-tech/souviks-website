@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Outer Circle -->
+    <circle cx="12" cy="12" r="9"></circle>
+
+    <!-- Clock Hands -->
+    <path d="M12 7V12"></path>
+    <path d="M12 12L16 14"></path>
+
+    <!-- Year Marker Dots -->
+    <circle cx="12" cy="3" r="0.8" fill="#DC2626" stroke="none"></circle>
+    <circle cx="21" cy="12" r="0.8" fill="#DC2626" stroke="none"></circle>
+    <circle cx="12" cy="21" r="0.8" fill="#DC2626" stroke="none"></circle>
+    <circle cx="3" cy="12" r="0.8" fill="#DC2626" stroke="none"></circle>
+
+</svg>

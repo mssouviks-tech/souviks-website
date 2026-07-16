@@ -1,0 +1,2254 @@
+[
+    {
+        "id": "filters",
+        "slug": "filters",
+        "name": "Filters",
+        "short_name": "Filters",
+        "icon": "/assets/images/categories/filters.png",
+        "image": "/assets/images/categories/filters.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "filter-repair-kit",
+                "name": "Filter Repair Kit",
+                "count": 1
+            },
+            {
+                "id": "filter-element",
+                "name": "Filter Element",
+                "count": 4
+            },
+            {
+                "id": "oil-filter",
+                "name": "Oil Filter",
+                "count": 18
+            },
+            {
+                "id": "air-filter",
+                "name": "Air Filter",
+                "count": 5
+            },
+            {
+                "id": "fuel-filter",
+                "name": "Fuel Filter",
+                "count": 17
+            },
+            {
+                "id": "fuel-water-separator",
+                "name": "Fuel Water Separator",
+                "count": 11
+            },
+            {
+                "id": "filter-housing",
+                "name": "Filter Housing",
+                "count": 3
+            },
+            {
+                "id": "coolant-filter",
+                "name": "Coolant Filter",
+                "count": 1
+            }
+        ],
+        "brands": [
+            {
+                "id": "fleetguard",
+                "name": "Fleetguard"
+            },
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "bosch",
+                "name": "Bosch"
+            },
+            {
+                "id": "leyparts",
+                "name": "Leyparts"
+            },
+            {
+                "id": "mahle",
+                "name": "Mahle"
+            },
+            {
+                "id": "tata-autocomp",
+                "name": "Tata AutoComp"
+            }
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Ecomet",
+            "Bosch Engines/Electrical",
+            "Eicher 1110",
+            "Eicher Pro Series",
+            "Mahindra Blazo",
+            "Mahindra Furio",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 2416",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT",
+            "Tata Magic",
+            "Tata Prima",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000001",
+            "SVKS000104",
+            "SVKS000107",
+            "SVKS000148",
+            "SVKS000150",
+            "SVKS000176",
+            "SVKS000183",
+            "SVKS000185"
+        ],
+        "products": [
+            "SVKS000001",
+            "SVKS000104",
+            "SVKS000107",
+            "SVKS000148",
+            "SVKS000150",
+            "SVKS000176",
+            "SVKS000183",
+            "SVKS000185",
+            "SVKS000186",
+            "SVKS000212",
+            "SVKS000235",
+            "SVKS000236",
+            "SVKS000237",
+            "SVKS000238",
+            "SVKS000239",
+            "SVKS000240",
+            "SVKS000241",
+            "SVKS000256",
+            "SVKS000279",
+            "SVKS000283",
+            "SVKS000284",
+            "SVKS000287",
+            "SVKS000288",
+            "SVKS000289",
+            "SVKS000290",
+            "SVKS000291",
+            "SVKS000292",
+            "SVKS000293",
+            "SVKS000294",
+            "SVKS000295",
+            "SVKS000296",
+            "SVKS000297",
+            "SVKS000298",
+            "SVKS000299",
+            "SVKS000347",
+            "SVKS000348",
+            "SVKS000349",
+            "SVKS000353",
+            "SVKS000354",
+            "SVKS000355",
+            "SVKS000356",
+            "SVKS000357",
+            "SVKS000358",
+            "SVKS000359",
+            "SVKS000360",
+            "SVKS000361",
+            "SVKS000362",
+            "SVKS000389",
+            "SVKS000390",
+            "SVKS000452",
+            "SVKS000453",
+            "SVKS000454",
+            "SVKS000455",
+            "SVKS000456",
+            "SVKS000457",
+            "SVKS000458",
+            "SVKS000459",
+            "SVKS000462",
+            "SVKS000463",
+            "SVKS000559"
+        ],
+        "product_count": 60,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Filters Parts | Souviks",
+            "description": "Browse Filters spare parts and related components available at Souviks.",
+            "keywords": [
+                "Filters",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/filters"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671446",
+        "updated_at": "2026-07-16T08:26:41.671454"
+    },
+    {
+        "id": "fasteners-hardware",
+        "slug": "fasteners-hardware",
+        "name": "Fasteners & Hardware",
+        "short_name": "Fasteners & Hardware",
+        "icon": "/assets/images/categories/fasteners-hardware.png",
+        "image": "/assets/images/categories/fasteners-hardware.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "washer",
+                "name": "Washer",
+                "count": 41
+            },
+            {
+                "id": "spring-washer",
+                "name": "Spring Washer",
+                "count": 7
+            },
+            {
+                "id": "nut",
+                "name": "Nut",
+                "count": 4
+            },
+            {
+                "id": "bolt",
+                "name": "Bolt",
+                "count": 5
+            },
+            {
+                "id": "lock-nut",
+                "name": "Lock Nut",
+                "count": 2
+            }
+        ],
+        "brands": [
+            {
+                "id": "tvs-girling",
+                "name": "TVS Girling"
+            },
+            {
+                "id": "harish",
+                "name": "Harish"
+            }
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Eicher 1110",
+            "Eicher Pro Series",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 407",
+            "Tata 709",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000002",
+            "SVKS000003",
+            "SVKS000004",
+            "SVKS000005",
+            "SVKS000006",
+            "SVKS000007",
+            "SVKS000008",
+            "SVKS000009"
+        ],
+        "products": [
+            "SVKS000002",
+            "SVKS000003",
+            "SVKS000004",
+            "SVKS000005",
+            "SVKS000006",
+            "SVKS000007",
+            "SVKS000008",
+            "SVKS000009",
+            "SVKS000010",
+            "SVKS000011",
+            "SVKS000020",
+            "SVKS000021",
+            "SVKS000022",
+            "SVKS000023",
+            "SVKS000024",
+            "SVKS000025",
+            "SVKS000039",
+            "SVKS000040",
+            "SVKS000041",
+            "SVKS000042",
+            "SVKS000043",
+            "SVKS000053",
+            "SVKS000054",
+            "SVKS000055",
+            "SVKS000056",
+            "SVKS000057",
+            "SVKS000058",
+            "SVKS000074",
+            "SVKS000075",
+            "SVKS000076",
+            "SVKS000077",
+            "SVKS000083",
+            "SVKS000084",
+            "SVKS000085",
+            "SVKS000086",
+            "SVKS000089",
+            "SVKS000130",
+            "SVKS000131",
+            "SVKS000132",
+            "SVKS000133",
+            "SVKS000134",
+            "SVKS000135",
+            "SVKS000136",
+            "SVKS000137",
+            "SVKS000138",
+            "SVKS000139",
+            "SVKS000140",
+            "SVKS000141",
+            "SVKS000142",
+            "SVKS000143",
+            "SVKS000144",
+            "SVKS000152",
+            "SVKS000153",
+            "SVKS000154",
+            "SVKS000167",
+            "SVKS000168",
+            "SVKS000169",
+            "SVKS000170",
+            "SVKS000586"
+        ],
+        "product_count": 59,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Fasteners & Hardware Parts | Souviks",
+            "description": "Browse Fasteners & Hardware spare parts and related components available at Souviks.",
+            "keywords": [
+                "Fasteners & Hardware",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/fasteners-hardware"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671487",
+        "updated_at": "2026-07-16T08:26:41.671489"
+    },
+    {
+        "id": "air-system",
+        "slug": "air-system",
+        "name": "Air System",
+        "short_name": "Air System",
+        "icon": "/assets/images/categories/air-system.png",
+        "image": "/assets/images/categories/air-system.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "air-repair-kit",
+                "name": "Air Repair Kit",
+                "count": 49
+            },
+            {
+                "id": "air-spring",
+                "name": "Air Spring",
+                "count": 1
+            },
+            {
+                "id": "air-compressor",
+                "name": "Air Compressor",
+                "count": 8
+            }
+        ],
+        "brands": [
+            {
+                "id": "tvs-girling",
+                "name": "TVS Girling"
+            },
+            {
+                "id": "gs",
+                "name": "GS"
+            },
+            {
+                "id": "wabco",
+                "name": "WABCO"
+            }
+        ],
+        "vehicles": [
+            "Tata 709",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000012",
+            "SVKS000013",
+            "SVKS000014",
+            "SVKS000016",
+            "SVKS000017",
+            "SVKS000018",
+            "SVKS000019",
+            "SVKS000033"
+        ],
+        "products": [
+            "SVKS000012",
+            "SVKS000013",
+            "SVKS000014",
+            "SVKS000016",
+            "SVKS000017",
+            "SVKS000018",
+            "SVKS000019",
+            "SVKS000033",
+            "SVKS000034",
+            "SVKS000035",
+            "SVKS000036",
+            "SVKS000037",
+            "SVKS000038",
+            "SVKS000048",
+            "SVKS000049",
+            "SVKS000050",
+            "SVKS000051",
+            "SVKS000052",
+            "SVKS000073",
+            "SVKS000079",
+            "SVKS000080",
+            "SVKS000081",
+            "SVKS000082",
+            "SVKS000087",
+            "SVKS000088",
+            "SVKS000092",
+            "SVKS000155",
+            "SVKS000156",
+            "SVKS000157",
+            "SVKS000158",
+            "SVKS000159",
+            "SVKS000160",
+            "SVKS000161",
+            "SVKS000162",
+            "SVKS000163",
+            "SVKS000164",
+            "SVKS000165",
+            "SVKS000166",
+            "SVKS000171",
+            "SVKS000172",
+            "SVKS000173",
+            "SVKS000174",
+            "SVKS000197",
+            "SVKS000213",
+            "SVKS000214",
+            "SVKS000215",
+            "SVKS000216",
+            "SVKS000217",
+            "SVKS000250",
+            "SVKS000371",
+            "SVKS000577",
+            "SVKS000578",
+            "SVKS000579",
+            "SVKS000580",
+            "SVKS000581",
+            "SVKS000582",
+            "SVKS000583",
+            "SVKS000584"
+        ],
+        "product_count": 58,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Air System Parts | Souviks",
+            "description": "Browse Air System spare parts and related components available at Souviks.",
+            "keywords": [
+                "Air System",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/air-system"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671512",
+        "updated_at": "2026-07-16T08:26:41.671514"
+    },
+    {
+        "id": "suspension-steering",
+        "slug": "suspension-steering",
+        "name": "Suspension & Steering",
+        "short_name": "Suspension & Steering",
+        "icon": "/assets/images/categories/suspension-steering.png",
+        "image": "/assets/images/categories/suspension-steering.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "center-bolt",
+                "name": "Center Bolt",
+                "count": 18
+            },
+            {
+                "id": "u-bolt",
+                "name": "U Bolt",
+                "count": 27
+            },
+            {
+                "id": "differential-kit",
+                "name": "Differential Kit",
+                "count": 1
+            },
+            {
+                "id": "crown-wheel-pinion",
+                "name": "Crown Wheel & Pinion",
+                "count": 1
+            },
+            {
+                "id": "spring-leaf-side-washer",
+                "name": "Spring Leaf Side Washer",
+                "count": 2
+            },
+            {
+                "id": "leaf-spring",
+                "name": "Leaf Spring",
+                "count": 41
+            },
+            {
+                "id": "drag-link",
+                "name": "Drag Link",
+                "count": 1
+            },
+            {
+                "id": "tie-rod-end",
+                "name": "Tie Rod End",
+                "count": 3
+            },
+            {
+                "id": "cross-joint",
+                "name": "Cross Joint",
+                "count": 14
+            },
+            {
+                "id": "cotter-bolt",
+                "name": "Cotter Bolt",
+                "count": 1
+            },
+            {
+                "id": "shackle-plate",
+                "name": "Shackle Plate",
+                "count": 3
+            },
+            {
+                "id": "suspension-bush",
+                "name": "Suspension Bush",
+                "count": 8
+            },
+            {
+                "id": "spring-pin",
+                "name": "Spring Pin",
+                "count": 44
+            },
+            {
+                "id": "axle-shaft",
+                "name": "Axle Shaft",
+                "count": 1
+            },
+            {
+                "id": "power-steering-pump",
+                "name": "Power Steering Pump",
+                "count": 1
+            },
+            {
+                "id": "king-pin-kit",
+                "name": "King Pin Kit",
+                "count": 1
+            }
+        ],
+        "brands": [
+            {
+                "id": "tvs-girling",
+                "name": "TVS Girling"
+            },
+            {
+                "id": "gs",
+                "name": "GS"
+            },
+            {
+                "id": "spicer",
+                "name": "Spicer"
+            },
+            {
+                "id": "harish",
+                "name": "Harish"
+            },
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "alok",
+                "name": "Alok"
+            },
+            {
+                "id": "valvoline",
+                "name": "Valvoline"
+            },
+            {
+                "id": "nirmal",
+                "name": "Nirmal"
+            },
+            {
+                "id": "jmp",
+                "name": "JMP"
+            },
+            {
+                "id": "jai",
+                "name": "JAI"
+            },
+            {
+                "id": "kfl",
+                "name": "KFL"
+            },
+            {
+                "id": "leyparts",
+                "name": "Leyparts"
+            },
+            {
+                "id": "manu",
+                "name": "Manu"
+            },
+            {
+                "id": "rane",
+                "name": "Rane"
+            },
+            {
+                "id": "sargun",
+                "name": "Sargun"
+            },
+            {
+                "id": "roots",
+                "name": "Roots"
+            },
+            {
+                "id": "texspin",
+                "name": "Texspin"
+            },
+            {
+                "id": "everest",
+                "name": "Everest"
+            }
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Captain",
+            "Ashok Leyland Ecomet",
+            "Eicher 1110",
+            "Eicher Pro Series",
+            "Mahindra Blazo",
+            "Mahindra Bolero Pickup",
+            "Mahindra Max Pickup",
+            "Tata 1109",
+            "Tata 1312",
+            "Tata 2416",
+            "Tata 407",
+            "Tata 709",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT",
+            "Tata Magic",
+            "Tata Prima",
+            "Tata Signa",
+            "Tata Ultra",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000015",
+            "SVKS000026",
+            "SVKS000027",
+            "SVKS000028",
+            "SVKS000029",
+            "SVKS000032",
+            "SVKS000044",
+            "SVKS000045"
+        ],
+        "products": [
+            "SVKS000015",
+            "SVKS000026",
+            "SVKS000027",
+            "SVKS000028",
+            "SVKS000029",
+            "SVKS000032",
+            "SVKS000044",
+            "SVKS000045",
+            "SVKS000046",
+            "SVKS000047",
+            "SVKS000059",
+            "SVKS000061",
+            "SVKS000062",
+            "SVKS000066",
+            "SVKS000067",
+            "SVKS000068",
+            "SVKS000069",
+            "SVKS000070",
+            "SVKS000071",
+            "SVKS000072",
+            "SVKS000078",
+            "SVKS000090",
+            "SVKS000091",
+            "SVKS000126",
+            "SVKS000127",
+            "SVKS000128",
+            "SVKS000129",
+            "SVKS000190",
+            "SVKS000224",
+            "SVKS000225",
+            "SVKS000226",
+            "SVKS000227",
+            "SVKS000251",
+            "SVKS000254",
+            "SVKS000274",
+            "SVKS000300",
+            "SVKS000301",
+            "SVKS000302",
+            "SVKS000303",
+            "SVKS000304",
+            "SVKS000305",
+            "SVKS000306",
+            "SVKS000307",
+            "SVKS000308",
+            "SVKS000309",
+            "SVKS000310",
+            "SVKS000311",
+            "SVKS000312",
+            "SVKS000313",
+            "SVKS000314",
+            "SVKS000315",
+            "SVKS000317",
+            "SVKS000318",
+            "SVKS000327",
+            "SVKS000328",
+            "SVKS000329",
+            "SVKS000330",
+            "SVKS000332",
+            "SVKS000333",
+            "SVKS000334",
+            "SVKS000335",
+            "SVKS000336",
+            "SVKS000337",
+            "SVKS000338",
+            "SVKS000339",
+            "SVKS000340",
+            "SVKS000341",
+            "SVKS000342",
+            "SVKS000343",
+            "SVKS000344",
+            "SVKS000345",
+            "SVKS000346",
+            "SVKS000352",
+            "SVKS000372",
+            "SVKS000391",
+            "SVKS000392",
+            "SVKS000393",
+            "SVKS000394",
+            "SVKS000395",
+            "SVKS000396",
+            "SVKS000397",
+            "SVKS000398",
+            "SVKS000399",
+            "SVKS000400",
+            "SVKS000401",
+            "SVKS000404",
+            "SVKS000426",
+            "SVKS000428",
+            "SVKS000432",
+            "SVKS000436",
+            "SVKS000437",
+            "SVKS000438",
+            "SVKS000449",
+            "SVKS000550",
+            "SVKS000565",
+            "SVKS000567",
+            "SVKS000587",
+            "SVKS000588",
+            "SVKS000589",
+            "SVKS000590",
+            "SVKS000591",
+            "SVKS000592",
+            "SVKS000593",
+            "SVKS000594",
+            "SVKS000595",
+            "SVKS000596",
+            "SVKS000597",
+            "SVKS000598",
+            "SVKS000599",
+            "SVKS000600",
+            "SVKS000601",
+            "SVKS000602",
+            "SVKS000603",
+            "SVKS000604",
+            "SVKS000605",
+            "SVKS000606",
+            "SVKS000607",
+            "SVKS000608",
+            "SVKS000609",
+            "SVKS000610",
+            "SVKS000611",
+            "SVKS000612",
+            "SVKS000613",
+            "SVKS000614",
+            "SVKS000615",
+            "SVKS000616",
+            "SVKS000617",
+            "SVKS000618",
+            "SVKS000629",
+            "SVKS000630",
+            "SVKS000631",
+            "SVKS000632",
+            "SVKS000633",
+            "SVKS000634",
+            "SVKS000635",
+            "SVKS000636",
+            "SVKS000637",
+            "SVKS000638",
+            "SVKS000639",
+            "SVKS000640",
+            "SVKS000641",
+            "SVKS000642",
+            "SVKS000643",
+            "SVKS000644",
+            "SVKS000645",
+            "SVKS000646",
+            "SVKS000647",
+            "SVKS000648",
+            "SVKS000649",
+            "SVKS000650",
+            "SVKS000651",
+            "SVKS000652",
+            "SVKS000653",
+            "SVKS000654",
+            "SVKS000655",
+            "SVKS000656",
+            "SVKS000657",
+            "SVKS000658",
+            "SVKS000659",
+            "SVKS000660",
+            "SVKS000661",
+            "SVKS000662",
+            "SVKS000663",
+            "SVKS000664",
+            "SVKS000665",
+            "SVKS000666",
+            "SVKS000667"
+        ],
+        "product_count": 167,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Suspension & Steering Parts | Souviks",
+            "description": "Browse Suspension & Steering spare parts and related components available at Souviks.",
+            "keywords": [
+                "Suspension & Steering",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/suspension-steering"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671587",
+        "updated_at": "2026-07-16T08:26:41.671589"
+    },
+    {
+        "id": "electricals",
+        "slug": "electricals",
+        "name": "Electricals",
+        "short_name": "Electricals",
+        "icon": "/assets/images/categories/electricals.png",
+        "image": "/assets/images/categories/electricals.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "horn",
+                "name": "Horn",
+                "count": 6
+            },
+            {
+                "id": "rotor",
+                "name": "Rotor",
+                "count": 1
+            },
+            {
+                "id": "combination-switch",
+                "name": "Combination Switch",
+                "count": 10
+            },
+            {
+                "id": "reverse-switch",
+                "name": "Reverse Switch",
+                "count": 1
+            },
+            {
+                "id": "wire",
+                "name": "Wire",
+                "count": 2
+            },
+            {
+                "id": "bulb",
+                "name": "Bulb",
+                "count": 10
+            },
+            {
+                "id": "rectifier",
+                "name": "Rectifier",
+                "count": 2
+            },
+            {
+                "id": "light-holder",
+                "name": "Light Holder",
+                "count": 5
+            },
+            {
+                "id": "armature",
+                "name": "Armature",
+                "count": 3
+            },
+            {
+                "id": "voltage-regulator",
+                "name": "Voltage Regulator",
+                "count": 2
+            },
+            {
+                "id": "relay",
+                "name": "Relay",
+                "count": 2
+            },
+            {
+                "id": "head-light",
+                "name": "Head Light",
+                "count": 16
+            },
+            {
+                "id": "brake-light",
+                "name": "Brake Light",
+                "count": 2
+            },
+            {
+                "id": "fog-light",
+                "name": "Fog Light",
+                "count": 2
+            },
+            {
+                "id": "battery-cable",
+                "name": "Battery Cable",
+                "count": 2
+            },
+            {
+                "id": "glow-plug",
+                "name": "Glow Plug",
+                "count": 1
+            },
+            {
+                "id": "solenoid-switch",
+                "name": "Solenoid Switch",
+                "count": 2
+            },
+            {
+                "id": "stop-light-switch",
+                "name": "Stop Light Switch",
+                "count": 1
+            },
+            {
+                "id": "ignition-switch",
+                "name": "Ignition Switch",
+                "count": 1
+            },
+            {
+                "id": "sensor",
+                "name": "Sensor",
+                "count": 1
+            },
+            {
+                "id": "regulator",
+                "name": "Regulator",
+                "count": 3
+            },
+            {
+                "id": "stator",
+                "name": "Stator",
+                "count": 1
+            },
+            {
+                "id": "starter",
+                "name": "Starter",
+                "count": 5
+            }
+        ],
+        "brands": [
+            {
+                "id": "roots",
+                "name": "Roots"
+            },
+            {
+                "id": "tvs-girling",
+                "name": "TVS Girling"
+            },
+            {
+                "id": "anupam",
+                "name": "Anupam"
+            },
+            {
+                "id": "unominda",
+                "name": "UnoMinda"
+            },
+            {
+                "id": "motherson",
+                "name": "Motherson"
+            },
+            {
+                "id": "comet",
+                "name": "Comet"
+            },
+            {
+                "id": "bosch",
+                "name": "Bosch"
+            },
+            {
+                "id": "phoenix",
+                "name": "Phoenix"
+            },
+            {
+                "id": "neolite",
+                "name": "NeoLite"
+            },
+            {
+                "id": "ng",
+                "name": "NG"
+            },
+            {
+                "id": "philips",
+                "name": "Philips"
+            },
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "lucas-tvs",
+                "name": "Lucas TVS"
+            }
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Captain",
+            "Ashok Leyland Ecomet",
+            "Ashok Leyland Stallion",
+            "Bosch Engines/Electrical",
+            "Eicher 1110",
+            "Eicher Pro Series",
+            "Mahindra Blazo",
+            "Mahindra Bolero Pickup",
+            "Mahindra Max Pickup",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 407",
+            "Tata 709",
+            "Tata Ace",
+            "Tata LPT",
+            "Tata Magic",
+            "Tata Prima",
+            "Tata Signa",
+            "Tractors",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000030",
+            "SVKS000031",
+            "SVKS000065",
+            "SVKS000110",
+            "SVKS000175",
+            "SVKS000195",
+            "SVKS000196",
+            "SVKS000218"
+        ],
+        "products": [
+            "SVKS000030",
+            "SVKS000031",
+            "SVKS000065",
+            "SVKS000110",
+            "SVKS000175",
+            "SVKS000195",
+            "SVKS000196",
+            "SVKS000218",
+            "SVKS000219",
+            "SVKS000220",
+            "SVKS000221",
+            "SVKS000222",
+            "SVKS000243",
+            "SVKS000244",
+            "SVKS000249",
+            "SVKS000252",
+            "SVKS000255",
+            "SVKS000257",
+            "SVKS000260",
+            "SVKS000263",
+            "SVKS000264",
+            "SVKS000265",
+            "SVKS000266",
+            "SVKS000267",
+            "SVKS000269",
+            "SVKS000271",
+            "SVKS000272",
+            "SVKS000273",
+            "SVKS000276",
+            "SVKS000319",
+            "SVKS000325",
+            "SVKS000326",
+            "SVKS000350",
+            "SVKS000351",
+            "SVKS000374",
+            "SVKS000375",
+            "SVKS000376",
+            "SVKS000377",
+            "SVKS000378",
+            "SVKS000379",
+            "SVKS000380",
+            "SVKS000381",
+            "SVKS000382",
+            "SVKS000383",
+            "SVKS000384",
+            "SVKS000385",
+            "SVKS000386",
+            "SVKS000387",
+            "SVKS000388",
+            "SVKS000405",
+            "SVKS000406",
+            "SVKS000407",
+            "SVKS000408",
+            "SVKS000409",
+            "SVKS000430",
+            "SVKS000431",
+            "SVKS000434",
+            "SVKS000439",
+            "SVKS000450",
+            "SVKS000451",
+            "SVKS000468",
+            "SVKS000558",
+            "SVKS000568",
+            "SVKS000569",
+            "SVKS000570",
+            "SVKS000571",
+            "SVKS000572",
+            "SVKS000573",
+            "SVKS000574",
+            "SVKS000575",
+            "SVKS000585",
+            "SVKS000619",
+            "SVKS000620",
+            "SVKS000621",
+            "SVKS000622",
+            "SVKS000623",
+            "SVKS000624",
+            "SVKS000625",
+            "SVKS000626",
+            "SVKS000627",
+            "SVKS000628"
+        ],
+        "product_count": 81,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Electricals Parts | Souviks",
+            "description": "Browse Electricals spare parts and related components available at Souviks.",
+            "keywords": [
+                "Electricals",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/electricals"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671632",
+        "updated_at": "2026-07-16T08:26:41.671634"
+    },
+    {
+        "id": "brakes",
+        "slug": "brakes",
+        "name": "Brakes",
+        "short_name": "Brakes",
+        "icon": "/assets/images/categories/brakes.png",
+        "image": "/assets/images/categories/brakes.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "brake-drum",
+                "name": "Brake Drum",
+                "count": 1
+            },
+            {
+                "id": "brake-disc",
+                "name": "Brake Disc",
+                "count": 3
+            },
+            {
+                "id": "brake-slack-adjuster",
+                "name": "Brake Slack Adjuster",
+                "count": 13
+            },
+            {
+                "id": "brake-lining",
+                "name": "Brake Lining",
+                "count": 21
+            },
+            {
+                "id": "brake-switch",
+                "name": "Brake Switch",
+                "count": 2
+            },
+            {
+                "id": "brake-anchor-pin",
+                "name": "Brake Anchor Pin",
+                "count": 1
+            }
+        ],
+        "brands": [
+            {
+                "id": "spicer",
+                "name": "Spicer"
+            },
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "tvs-girling",
+                "name": "TVS Girling"
+            },
+            {
+                "id": "ask",
+                "name": "ASK"
+            },
+            {
+                "id": "compo",
+                "name": "Compo"
+            },
+            {
+                "id": "leyparts",
+                "name": "Leyparts"
+            },
+            {
+                "id": "meritor",
+                "name": "Meritor"
+            },
+            {
+                "id": "mei",
+                "name": "MEI"
+            },
+            {
+                "id": "unominda",
+                "name": "UnoMinda"
+            },
+            {
+                "id": "amw",
+                "name": "AMW"
+            },
+            {
+                "id": "jmp",
+                "name": "JMP"
+            }
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Captain",
+            "Eicher Pro Series",
+            "Tata 1109",
+            "Tata 1512",
+            "Tata 709",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT",
+            "Tata Magic",
+            "Tata Prima",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000060",
+            "SVKS000108",
+            "SVKS000111",
+            "SVKS000177",
+            "SVKS000178",
+            "SVKS000198",
+            "SVKS000199",
+            "SVKS000200"
+        ],
+        "products": [
+            "SVKS000060",
+            "SVKS000108",
+            "SVKS000111",
+            "SVKS000177",
+            "SVKS000178",
+            "SVKS000198",
+            "SVKS000199",
+            "SVKS000200",
+            "SVKS000201",
+            "SVKS000202",
+            "SVKS000203",
+            "SVKS000204",
+            "SVKS000205",
+            "SVKS000206",
+            "SVKS000207",
+            "SVKS000208",
+            "SVKS000209",
+            "SVKS000210",
+            "SVKS000223",
+            "SVKS000247",
+            "SVKS000277",
+            "SVKS000278",
+            "SVKS000280",
+            "SVKS000281",
+            "SVKS000282",
+            "SVKS000324",
+            "SVKS000366",
+            "SVKS000367",
+            "SVKS000368",
+            "SVKS000369",
+            "SVKS000370",
+            "SVKS000402",
+            "SVKS000403",
+            "SVKS000433",
+            "SVKS000435",
+            "SVKS000441",
+            "SVKS000444",
+            "SVKS000445",
+            "SVKS000446",
+            "SVKS000447",
+            "SVKS000566"
+        ],
+        "product_count": 41,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Brakes Parts | Souviks",
+            "description": "Browse Brakes spare parts and related components available at Souviks.",
+            "keywords": [
+                "Brakes",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/brakes"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671659",
+        "updated_at": "2026-07-16T08:26:41.671661"
+    },
+    {
+        "id": "engine-components",
+        "slug": "engine-components",
+        "name": "Engine Components",
+        "short_name": "Engine Components",
+        "icon": "/assets/images/categories/engine-components.png",
+        "image": "/assets/images/categories/engine-components.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "timing-belt",
+                "name": "Timing Belt",
+                "count": 21
+            },
+            {
+                "id": "engine-bushes-synchronizers",
+                "name": "Engine Bushes & Synchronizers",
+                "count": 1
+            },
+            {
+                "id": "engine-mount",
+                "name": "Engine Mount",
+                "count": 1
+            },
+            {
+                "id": "piston-ring",
+                "name": "Piston Ring",
+                "count": 1
+            },
+            {
+                "id": "gear-top-cover",
+                "name": "Gear Top Cover",
+                "count": 2
+            }
+        ],
+        "brands": [
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "nirmal",
+                "name": "Nirmal"
+            },
+            {
+                "id": "fenner",
+                "name": "Fenner"
+            },
+            {
+                "id": "pix",
+                "name": "Pix"
+            }
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Mahindra Blazo",
+            "Mahindra Bolero Pickup",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 407",
+            "Tata 709",
+            "Tata Ace",
+            "Tata LPT",
+            "Tata Magic",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000063",
+            "SVKS000099",
+            "SVKS000103",
+            "SVKS000229",
+            "SVKS000285",
+            "SVKS000286",
+            "SVKS000410",
+            "SVKS000411"
+        ],
+        "products": [
+            "SVKS000063",
+            "SVKS000099",
+            "SVKS000103",
+            "SVKS000229",
+            "SVKS000285",
+            "SVKS000286",
+            "SVKS000410",
+            "SVKS000411",
+            "SVKS000412",
+            "SVKS000413",
+            "SVKS000414",
+            "SVKS000415",
+            "SVKS000416",
+            "SVKS000417",
+            "SVKS000418",
+            "SVKS000419",
+            "SVKS000420",
+            "SVKS000421",
+            "SVKS000422",
+            "SVKS000423",
+            "SVKS000424",
+            "SVKS000425",
+            "SVKS000461",
+            "SVKS000464",
+            "SVKS000465",
+            "SVKS000467"
+        ],
+        "product_count": 26,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Engine Components Parts | Souviks",
+            "description": "Browse Engine Components spare parts and related components available at Souviks.",
+            "keywords": [
+                "Engine Components",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/engine-components"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671679",
+        "updated_at": "2026-07-16T08:26:41.671681"
+    },
+    {
+        "id": "bearings",
+        "slug": "bearings",
+        "name": "Bearings",
+        "short_name": "Bearings",
+        "icon": "/assets/images/categories/bearings.png",
+        "image": "/assets/images/categories/bearings.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "taper-roller-bearing",
+                "name": "Taper Roller Bearing",
+                "count": 36
+            },
+            {
+                "id": "hub-units-wheel-bearings",
+                "name": "Hub Units & Wheel Bearings",
+                "count": 3
+            },
+            {
+                "id": "timing-components",
+                "name": "Timing Components",
+                "count": 1
+            },
+            {
+                "id": "water-pump-bearings",
+                "name": "Water Pump Bearings",
+                "count": 4
+            },
+            {
+                "id": "clutch-bearings",
+                "name": "Clutch Bearings",
+                "count": 4
+            },
+            {
+                "id": "clutch-release-bearing",
+                "name": "Clutch Release Bearing",
+                "count": 22
+            },
+            {
+                "id": "center-bearing",
+                "name": "Center Bearing",
+                "count": 3
+            },
+            {
+                "id": "kingpin-bearings",
+                "name": "Kingpin Bearings",
+                "count": 6
+            },
+            {
+                "id": "ball-bearings",
+                "name": "Ball Bearings",
+                "count": 3
+            }
+        ],
+        "brands": [
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "abc",
+                "name": "ABC"
+            },
+            {
+                "id": "bosch",
+                "name": "Bosch"
+            },
+            {
+                "id": "nbc",
+                "name": "NBC"
+            },
+            {
+                "id": "rider",
+                "name": "Rider"
+            },
+            {
+                "id": "skf",
+                "name": "SKF"
+            },
+            {
+                "id": "texspin",
+                "name": "Texspin"
+            },
+            {
+                "id": "timken",
+                "name": "Timken"
+            }
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Boss",
+            "Ashok Leyland Captain",
+            "Ashok Leyland Ecomet",
+            "Bosch Engines/Electrical",
+            "Eicher Pro Series",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT",
+            "Tata Magic",
+            "Tata Prima",
+            "Tata Signa",
+            "Tractors",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000064",
+            "SVKS000109",
+            "SVKS000147",
+            "SVKS000149",
+            "SVKS000151",
+            "SVKS000184",
+            "SVKS000188",
+            "SVKS000189"
+        ],
+        "products": [
+            "SVKS000064",
+            "SVKS000109",
+            "SVKS000147",
+            "SVKS000149",
+            "SVKS000151",
+            "SVKS000184",
+            "SVKS000188",
+            "SVKS000189",
+            "SVKS000211",
+            "SVKS000258",
+            "SVKS000259",
+            "SVKS000261",
+            "SVKS000268",
+            "SVKS000363",
+            "SVKS000427",
+            "SVKS000440",
+            "SVKS000443",
+            "SVKS000486",
+            "SVKS000487",
+            "SVKS000488",
+            "SVKS000489",
+            "SVKS000490",
+            "SVKS000491",
+            "SVKS000492",
+            "SVKS000493",
+            "SVKS000494",
+            "SVKS000495",
+            "SVKS000496",
+            "SVKS000497",
+            "SVKS000498",
+            "SVKS000499",
+            "SVKS000500",
+            "SVKS000501",
+            "SVKS000502",
+            "SVKS000503",
+            "SVKS000504",
+            "SVKS000505",
+            "SVKS000506",
+            "SVKS000507",
+            "SVKS000508",
+            "SVKS000509",
+            "SVKS000510",
+            "SVKS000511",
+            "SVKS000512",
+            "SVKS000513",
+            "SVKS000514",
+            "SVKS000515",
+            "SVKS000516",
+            "SVKS000517",
+            "SVKS000518",
+            "SVKS000519",
+            "SVKS000520",
+            "SVKS000521",
+            "SVKS000522",
+            "SVKS000523",
+            "SVKS000524",
+            "SVKS000525",
+            "SVKS000526",
+            "SVKS000527",
+            "SVKS000528",
+            "SVKS000529",
+            "SVKS000530",
+            "SVKS000538",
+            "SVKS000539",
+            "SVKS000540",
+            "SVKS000541",
+            "SVKS000542",
+            "SVKS000543",
+            "SVKS000544",
+            "SVKS000545",
+            "SVKS000546",
+            "SVKS000547",
+            "SVKS000548",
+            "SVKS000549",
+            "SVKS000551",
+            "SVKS000552",
+            "SVKS000553",
+            "SVKS000560",
+            "SVKS000561",
+            "SVKS000562",
+            "SVKS000563",
+            "SVKS000564"
+        ],
+        "product_count": 82,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Bearings Parts | Souviks",
+            "description": "Browse Bearings spare parts and related components available at Souviks.",
+            "keywords": [
+                "Bearings",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/bearings"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671718",
+        "updated_at": "2026-07-16T08:26:41.671720"
+    },
+    {
+        "id": "rubber-parts",
+        "slug": "rubber-parts",
+        "name": "Rubber Parts",
+        "short_name": "Rubber Parts",
+        "icon": "/assets/images/categories/rubber-parts.png",
+        "image": "/assets/images/categories/rubber-parts.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "oil-seal",
+                "name": "Oil Seal",
+                "count": 3
+            },
+            {
+                "id": "o-ring",
+                "name": "O Ring",
+                "count": 3
+            },
+            {
+                "id": "brake-pipe",
+                "name": "Brake Pipe",
+                "count": 1
+            },
+            {
+                "id": "diesel-cap",
+                "name": "Diesel Cap",
+                "count": 1
+            },
+            {
+                "id": "rubber-pad",
+                "name": "Rubber Pad",
+                "count": 1
+            },
+            {
+                "id": "gasket",
+                "name": "Gasket",
+                "count": 1
+            },
+            {
+                "id": "def-tank-cap",
+                "name": "DEF Tank Cap",
+                "count": 1
+            }
+        ],
+        "brands": [
+            {
+                "id": "rider",
+                "name": "Rider"
+            },
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "jmp",
+                "name": "JMP"
+            }
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Tata Ace",
+            "Tata Magic",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000093",
+            "SVKS000105",
+            "SVKS000112",
+            "SVKS000117",
+            "SVKS000180",
+            "SVKS000192",
+            "SVKS000242",
+            "SVKS000253"
+        ],
+        "products": [
+            "SVKS000093",
+            "SVKS000105",
+            "SVKS000112",
+            "SVKS000117",
+            "SVKS000180",
+            "SVKS000192",
+            "SVKS000242",
+            "SVKS000253",
+            "SVKS000331",
+            "SVKS000460",
+            "SVKS000576"
+        ],
+        "product_count": 11,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Rubber Parts Parts | Souviks",
+            "description": "Browse Rubber Parts spare parts and related components available at Souviks.",
+            "keywords": [
+                "Rubber Parts",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/rubber-parts"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671729",
+        "updated_at": "2026-07-16T08:26:41.671731"
+    },
+    {
+        "id": "clutch-parts",
+        "slug": "clutch-parts",
+        "name": "Clutch Parts",
+        "short_name": "Clutch Parts",
+        "icon": "/assets/images/categories/clutch-parts.png",
+        "image": "/assets/images/categories/clutch-parts.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "clutch-kit",
+                "name": "Clutch Kit",
+                "count": 1
+            },
+            {
+                "id": "clutch-assembly",
+                "name": "Clutch Assembly",
+                "count": 1
+            },
+            {
+                "id": "clutch-disc",
+                "name": "Clutch Disc",
+                "count": 2
+            },
+            {
+                "id": "clutch-cover",
+                "name": "Clutch Cover",
+                "count": 5
+            },
+            {
+                "id": "clutch-master-cylinder",
+                "name": "Clutch Master Cylinder",
+                "count": 16
+            },
+            {
+                "id": "clutch-shaft",
+                "name": "Clutch Shaft",
+                "count": 1
+            },
+            {
+                "id": "clutch-repair-kit",
+                "name": "Clutch Repair Kit",
+                "count": 7
+            },
+            {
+                "id": "clutch-slave-cylinder",
+                "name": "Clutch Slave Cylinder",
+                "count": 3
+            },
+            {
+                "id": "clutch-plate",
+                "name": "Clutch Plate",
+                "count": 5
+            },
+            {
+                "id": "clutch-lever",
+                "name": "Clutch Lever",
+                "count": 2
+            },
+            {
+                "id": "clutch-bush",
+                "name": "Clutch Bush",
+                "count": 3
+            },
+            {
+                "id": "pressure-plate",
+                "name": "Pressure Plate",
+                "count": 2
+            },
+            {
+                "id": "flywheel-assembly",
+                "name": "Flywheel Assembly",
+                "count": 2
+            },
+            {
+                "id": "clutch-spring",
+                "name": "Clutch Spring",
+                "count": 4
+            },
+            {
+                "id": "clutch-booster",
+                "name": "Clutch Booster",
+                "count": 1
+            },
+            {
+                "id": "collector-ring",
+                "name": "Collector Ring",
+                "count": 7
+            }
+        ],
+        "brands": [
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "tvs-girling",
+                "name": "TVS Girling"
+            },
+            {
+                "id": "nirmal",
+                "name": "Nirmal"
+            },
+            {
+                "id": "bgl",
+                "name": "BGL"
+            },
+            {
+                "id": "msl",
+                "name": "MSL"
+            },
+            {
+                "id": "harish",
+                "name": "Harish"
+            },
+            {
+                "id": "mei",
+                "name": "MEI"
+            },
+            {
+                "id": "jmp",
+                "name": "JMP"
+            },
+            {
+                "id": "naic-024b",
+                "name": "NAIC 024B"
+            },
+            {
+                "id": "meritor",
+                "name": "Meritor"
+            },
+            {
+                "id": "texspin",
+                "name": "Texspin"
+            }
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Ecomet",
+            "Tata 1109",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 1512",
+            "Tata 407",
+            "Tata 709",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT",
+            "Tata Magic",
+            "Tata Prima",
+            "Tata Signa",
+            "Tata Ultra",
+            "Tractors",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000094",
+            "SVKS000095",
+            "SVKS000096",
+            "SVKS000097",
+            "SVKS000098",
+            "SVKS000101",
+            "SVKS000102",
+            "SVKS000106"
+        ],
+        "products": [
+            "SVKS000094",
+            "SVKS000095",
+            "SVKS000096",
+            "SVKS000097",
+            "SVKS000098",
+            "SVKS000101",
+            "SVKS000102",
+            "SVKS000106",
+            "SVKS000113",
+            "SVKS000114",
+            "SVKS000115",
+            "SVKS000116",
+            "SVKS000118",
+            "SVKS000119",
+            "SVKS000120",
+            "SVKS000121",
+            "SVKS000122",
+            "SVKS000123",
+            "SVKS000145",
+            "SVKS000146",
+            "SVKS000179",
+            "SVKS000181",
+            "SVKS000182",
+            "SVKS000228",
+            "SVKS000230",
+            "SVKS000231",
+            "SVKS000232",
+            "SVKS000233",
+            "SVKS000234",
+            "SVKS000245",
+            "SVKS000246",
+            "SVKS000248",
+            "SVKS000316",
+            "SVKS000364",
+            "SVKS000365",
+            "SVKS000373",
+            "SVKS000429",
+            "SVKS000442",
+            "SVKS000448",
+            "SVKS000470",
+            "SVKS000471",
+            "SVKS000472",
+            "SVKS000473",
+            "SVKS000474",
+            "SVKS000475",
+            "SVKS000476",
+            "SVKS000477",
+            "SVKS000478",
+            "SVKS000479",
+            "SVKS000480",
+            "SVKS000481",
+            "SVKS000482",
+            "SVKS000483",
+            "SVKS000484",
+            "SVKS000485",
+            "SVKS000531",
+            "SVKS000532",
+            "SVKS000533",
+            "SVKS000534",
+            "SVKS000535",
+            "SVKS000536",
+            "SVKS000537"
+        ],
+        "product_count": 62,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Clutch Parts Parts | Souviks",
+            "description": "Browse Clutch Parts spare parts and related components available at Souviks.",
+            "keywords": [
+                "Clutch Parts",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/clutch-parts"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671762",
+        "updated_at": "2026-07-16T08:26:41.671765"
+    },
+    {
+        "id": "lubricants",
+        "slug": "lubricants",
+        "name": "Lubricants",
+        "short_name": "Lubricants",
+        "icon": "/assets/images/categories/lubricants.png",
+        "image": "/assets/images/categories/lubricants.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "engine-oil",
+                "name": "Engine Oil",
+                "count": 2
+            },
+            {
+                "id": "brake-fluid-dot-3",
+                "name": "Brake Fluid / Dot 3",
+                "count": 1
+            },
+            {
+                "id": "transmission-fluid",
+                "name": "Transmission Fluid",
+                "count": 1
+            },
+            {
+                "id": "brake-fluid",
+                "name": "Brake Fluid",
+                "count": 4
+            },
+            {
+                "id": "gear-oil",
+                "name": "Gear Oil",
+                "count": 4
+            },
+            {
+                "id": "steering-fluid",
+                "name": "Steering Fluid",
+                "count": 1
+            },
+            {
+                "id": "hydraulic-oil",
+                "name": "Hydraulic Oil",
+                "count": 1
+            },
+            {
+                "id": "grease",
+                "name": "Grease",
+                "count": 4
+            }
+        ],
+        "brands": [
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "tvs-girling",
+                "name": "TVS Girling"
+            },
+            {
+                "id": "bosch",
+                "name": "Bosch"
+            },
+            {
+                "id": "hp",
+                "name": "HP"
+            },
+            {
+                "id": "texspin",
+                "name": "Texspin"
+            }
+        ],
+        "vehicles": [
+            "Bosch Engines/Electrical",
+            "Tata Ace",
+            "Tata Intra",
+            "Tata LPT",
+            "Tata Magic",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000100",
+            "SVKS000124",
+            "SVKS000125",
+            "SVKS000187",
+            "SVKS000191",
+            "SVKS000193",
+            "SVKS000194",
+            "SVKS000262"
+        ],
+        "products": [
+            "SVKS000100",
+            "SVKS000124",
+            "SVKS000125",
+            "SVKS000187",
+            "SVKS000191",
+            "SVKS000193",
+            "SVKS000194",
+            "SVKS000262",
+            "SVKS000270",
+            "SVKS000320",
+            "SVKS000321",
+            "SVKS000322",
+            "SVKS000323",
+            "SVKS000469",
+            "SVKS000554",
+            "SVKS000555",
+            "SVKS000556",
+            "SVKS000557"
+        ],
+        "product_count": 18,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Lubricants Parts | Souviks",
+            "description": "Browse Lubricants spare parts and related components available at Souviks.",
+            "keywords": [
+                "Lubricants",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/lubricants"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671778",
+        "updated_at": "2026-07-16T08:26:41.671780"
+    },
+    {
+        "id": "cooling-system",
+        "slug": "cooling-system",
+        "name": "Cooling System",
+        "short_name": "Cooling System",
+        "icon": "/assets/images/categories/cooling-system.png",
+        "image": "/assets/images/categories/cooling-system.png",
+        "banner": "",
+        "description": "",
+        "short_description": "",
+        "parent_category": "",
+        "subcategories": [
+            {
+                "id": "water-pump-bearings",
+                "name": "Water Pump Bearings",
+                "count": 1
+            },
+            {
+                "id": "radiator",
+                "name": "Radiator",
+                "count": 1
+            }
+        ],
+        "brands": [
+            {
+                "id": "bosch",
+                "name": "Bosch"
+            },
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
+            }
+        ],
+        "vehicles": [
+            "Bosch Engines/Electrical",
+            "Tata Ace",
+            "Tata Magic"
+        ],
+        "featured_products": [
+            "SVKS000275",
+            "SVKS000466"
+        ],
+        "products": [
+            "SVKS000275",
+            "SVKS000466"
+        ],
+        "product_count": 2,
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Cooling System Parts | Souviks",
+            "description": "Browse Cooling System spare parts and related components available at Souviks.",
+            "keywords": [
+                "Cooling System",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/categories/cooling-system"
+        },
+        "schema": {},
+        "created_at": "2026-07-16T08:26:41.671786",
+        "updated_at": "2026-07-16T08:26:41.671788"
+    }
+]
