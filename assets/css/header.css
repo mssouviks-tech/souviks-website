@@ -214,6 +214,45 @@
 /* ==========================================================
    MOBILE NAVIGATION
 ========================================================== */
+.mobile-navigation-actions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    padding:20px;
+
+}
+
+.mobile-phone,
+.mobile-email{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:var(--text-color);
+
+}
+
+.mobile-icon{
+
+    width:20px;
+
+    height:20px;
+
+    min-width:20px;
+
+    flex-shrink:0;
+
+}
+
 
 .mobile-navigation {
 
