@@ -11,6 +11,8 @@ document.addEventListener(
 
     () => {
 
+const formLoadTime = Date.now();
+
         emailjs.init(
             "HYXrRpK5XSEAGf5s2"
         );
@@ -35,9 +37,22 @@ document.addEventListener(
 
                 event.preventDefault();
 
+const secondsOnPage =
+    (Date.now() - formLoadTime) / 1000;
+
+if (secondsOnPage < 3) {
+
+    console.warn(
+        "Submission blocked: too fast."
+    );
+
+    return;
+
+}
+
                 const leadId =
 
-                    "SP-" +
+                    "ENQ-" +
 
                     Date.now();
 
@@ -89,7 +104,19 @@ document.addEventListener(
                 };
 
                 try {
+const honeypot =
+    document.getElementById(
+        "website"
+    );
 
+if (
+    honeypot &&
+    honeypot.value.trim() !== ""
+) {
+
+    return;
+
+}
                     await emailjs.send(
 
                         "service_trsy6ll",

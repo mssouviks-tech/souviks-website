@@ -1,39 +1,31 @@
 /*
 ==========================================================
-SOUVIKS CONTACT FORM
+SOUVIKS RFQ SUBMISSION
 ==========================================================
 */
 
 document.addEventListener(
-
     "DOMContentLoaded",
-
     () => {
 
-const formLoadTime =
-    Date.now();
+const formLoadTime = Date.now();
 
         emailjs.init(
             "HYXrRpK5XSEAGf5s2"
         );
 
         const form =
-
             document.getElementById(
-                "contactForm"
+                "rfq-form"
             );
 
         if (!form) {
-
             return;
-
         }
 
         form.addEventListener(
-
             "submit",
-
-            async event => {
+            async (event) => {
 
                 event.preventDefault();
 
@@ -50,11 +42,33 @@ if (secondsOnPage < 3) {
 
 }
 
+                const items =
+                    RFQ.get();
+
+                if (!items.length) {
+
+                    alert(
+                        "Please add at least one item to your RFQ."
+                    );
+
+                    return;
+                }
+
                 const leadId =
-
-                    "ENQ-" +
-
+                    "RFQ-" +
                     Date.now();
+
+                const rfqItems =
+                    items.map(item =>
+
+`Part Number: ${item.partNumber}
+Product: ${item.name}
+Brand: ${item.brand}
+Quantity: ${item.qty}
+
+--------------------------------`
+
+                    ).join("\n");
 
                 const payload = {
 
@@ -62,29 +76,37 @@ if (secondsOnPage < 3) {
                         leadId,
 
                     name:
-                        document.getElementById(
-                            "contactName"
-                        ).value,
+                        form.querySelector(
+                            '[name="name"]'
+                        )?.value || "",
+
+                    company:
+                        form.querySelector(
+                            '[name="company"]'
+                        )?.value || "",
 
                     phone:
-                        document.getElementById(
-                            "contactPhone"
-                        ).value,
+                        form.querySelector(
+                            '[name="phone"]'
+                        )?.value || "",
 
                     email:
-                        document.getElementById(
-                            "contactEmail"
-                        ).value,
+                        form.querySelector(
+                            '[name="email"]'
+                        )?.value || "",
 
-                    vehicle:
-                        document.getElementById(
-                            "contactVehicle"
-                        ).value,
+                    gst:
+                        form.querySelector(
+                            '[name="gst"]'
+                        )?.value || "",
 
                     message:
-                        document.getElementById(
-                            "contactMessage"
-                        ).value
+                        form.querySelector(
+                            '[name="message"]'
+                        )?.value || "",
+
+                    rfq_items:
+                        rfqItems
 
                 };
 
@@ -103,60 +125,62 @@ if (
 
 }
                     await emailjs.send(
-
                         "service_trsy6ll",
-
-                        "template_gpvlrc8",
-
+                        "template_udttxcf",
                         payload
-
                     );
 
-                    showContactSuccess(
+                    showRFQSuccess(
                         leadId,
                         payload
                     );
+
+                    RFQ.save([]);
+
+                    RFQ.updateBadge();
+
+                    RFQ.renderPage();
 
                     form.reset();
 
                 }
 
-                catch(error) {
+                catch (error) {
 
                     console.error(
                         error
                     );
 
                     alert(
-                        "Unable to submit inquiry."
+                        "Unable to submit RFQ. Please try again."
                     );
 
                 }
 
             }
-
         );
 
     }
-
 );
 
-function showContactSuccess(
+function showRFQSuccess(
     leadId,
     payload
-){
+) {
 
     const whatsappMessage =
 
-`Lead ID: ${leadId}
+`RFQ Reference: ${leadId}
 
 Name: ${payload.name}
+Company: ${payload.company}
 Phone: ${payload.phone}
 Email: ${payload.email}
-Vehicle: ${payload.vehicle}
 
-Message:
-${payload.message}`;
+Notes:
+${payload.message}
+
+RFQ Submitted Via Website`;
 
     const whatsappUrl =
         `https://wa.me/917908215701?text=${encodeURIComponent(
@@ -169,7 +193,9 @@ ${payload.message}`;
         )}`;
 
     const modal =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     modal.className =
         "lead-success-modal";
@@ -179,7 +205,7 @@ ${payload.message}`;
         <div class="lead-success-content">
 
             <h2>
-                Enquiry Submitted Successfully
+                RFQ Submitted Successfully
             </h2>
 
             <p>
@@ -191,8 +217,7 @@ ${payload.message}`;
             </h3>
 
             <p>
-                We have received your enquiry.
-                For a faster response, you may also share it via WhatsApp.
+                Your quotation request has been received.
             </p>
 
             <img
@@ -223,7 +248,7 @@ ${payload.message}`;
                 </a>
 
                 <button
-                    id="closeContactModal"
+                    id="closeRFQModal"
                     class="btn btn-secondary"
                 >
                     Close
@@ -241,10 +266,12 @@ ${payload.message}`;
 
     document
         .getElementById(
-            "closeContactModal"
+            "closeRFQModal"
         )
         .addEventListener(
             "click",
-            () => modal.remove()
+            () => {
+                modal.remove();
+            }
         );
 }

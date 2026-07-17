@@ -207,6 +207,42 @@ html{
     color:#111827;
 }
 
+.pdp-meta-pills{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin:16px 0 24px;
+
+}
+
+.pdp-pill{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:8px 14px;
+
+    background:#f8f9fa;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:999px;
+
+    font-size:.9rem;
+
+    font-weight:500;
+
+    line-height:1;
+
+}
+
 /* ==========================================================
    OEM
 ========================================================== */
@@ -237,6 +273,34 @@ html{
 .pdp-oem td{
 
     padding:8px 0;
+}
+
+.pdp-pill.part-number{
+
+    background:#d62828;
+
+    color:#fff;
+
+    border-color:#d62828;
+
+}
+
+@media (max-width:768px){
+
+    .pdp-meta-pills{
+
+        gap:8px;
+
+    }
+
+    .pdp-pill{
+
+        font-size:.85rem;
+
+        padding:7px 12px;
+
+    }
+
 }
 
 /* ==========================================================
