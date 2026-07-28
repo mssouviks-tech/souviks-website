@@ -13,4 +13,11 @@ async function initialisePage() {
 
     );
 
+Breadcrumb.start(
+    "Categories",
+    "/categories.html"
+);
+
+Breadcrumb.render("Categories");
+
 }

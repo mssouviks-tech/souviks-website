@@ -607,46 +607,15 @@ Reusable Across Entire Website
 
 <!-- ==========================================================
 SOUVIKS BREADCRUMB
-Reusable Breadcrumb Navigation
 ========================================================== -->
 
-<nav
-
-    class="breadcrumb"
-
-    aria-label="Breadcrumb">
+<nav class="breadcrumb" aria-label="Breadcrumb">
 
     <div class="container">
 
-        <ol class="breadcrumb-list">
+        <ol class="breadcrumb-list" id="breadcrumb-list">
 
-            <li class="breadcrumb-item">
-
-                <a href="/">
-
-                    Home
-
-                </a>
-
-            </li>
-
-            
-                <li class="breadcrumb-item">
-                    <a href="/brands.html">
-                        Brands
-                    </a>
-                </li>
-                
-
-            <li
-
-                class="breadcrumb-item active"
-
-                aria-current="page">
-
-                Tie Rod End RH/LH T. Ace H/T
-
-            </li>
+            <!-- JavaScript will generate the breadcrumb -->
 
         </ol>
 
@@ -1063,7 +1032,13 @@ window.souviks = {
 
     siteUrl: "https://www.souviks.co.in",
 
-    currentPage: "{{CURRENT_PAGE_TYPE}}",
+    currentPage: "Tie Rod End RH/LH T. Ace H/T",
+
+    currentPageType: "{{CURRENT_PAGE_TYPE}}",
+
+    currentPageUrl: "{{CURRENT_PAGE_URL}}",
+
+    breadcrumbRoot: {{BREADCRUMB_ROOT}},
 
     currentLanguage: "en",
 
@@ -1101,6 +1076,7 @@ window.souviks = {
 <script src="/assets/js/filters.js"></script>
 <script src="/assets/js/pagination.js"></script>
 <script src="/assets/js/rfq.js"></script>
+<script src="/assets/js/breadcrumb.js"></script>
 
 <script src="/assets/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

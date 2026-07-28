@@ -77,7 +77,11 @@ constructor() {
 
     <article class="product-card">
 
-        <a href="${Utils.productUrl(product)}">
+<a
+    href="${Utils.productUrl(product)}"
+    data-breadcrumb="${product.product_name}"
+    data-breadcrumb-type="detail"
+>
 
             <div class="product-image">
 
@@ -194,66 +198,50 @@ render() {
 
 updateResults() {
 
-document.getElementById(
-    "totalProducts"
-).textContent =
-    this.products.length;
-visibleProducts.textContent =
-    this.filtered.length;
+    const totalProducts =
+        document.getElementById("totalProducts");
+
+    if (totalProducts) {
+        totalProducts.textContent =
+            this.products.length;
+    }
 
     const visible =
-        document.getElementById(
-            "visibleProducts"
-        );
+        document.getElementById("visibleProducts");
 
     if (visible) {
-
         visible.textContent =
             this.filtered.length;
-
     }
 
     const start =
-        document.getElementById(
-            "currentResultStart"
-        );
+        document.getElementById("currentResultStart");
 
     const end =
-        document.getElementById(
-            "currentResultEnd"
-        );
+        document.getElementById("currentResultEnd");
 
     const total =
-        document.getElementById(
-            "totalResults"
-        );
+        document.getElementById("totalResults");
 
     if (start) {
-
         start.textContent =
-            ((this.currentPage - 1)
-            * this.pageSize) + 1;
-
+            this.filtered.length
+                ? ((this.currentPage - 1) * this.pageSize) + 1
+                : 0;
     }
 
     if (end) {
-
         end.textContent =
             Math.min(
-                this.currentPage *
-                this.pageSize,
+                this.currentPage * this.pageSize,
                 this.filtered.length
             );
-
     }
 
     if (total) {
-
         total.textContent =
             this.filtered.length;
-
     }
-
 }
 
     // ======================================================
@@ -602,7 +590,27 @@ async hydrateProductPage() {
 const product =
     await API.productBySlug(slug);
 
+Breadcrumb.render(
+    product.product_name,
+    [
+        {
+            title: "Products",
+            url: "/products.html"
+        }
+    ]
+);
+
 if (!product) return;
+
+Breadcrumb.render(
+    product.product_name,
+    [
+        {
+            title: "Products",
+            url: "/products.html"
+        }
+    ]
+);
 
 const brand =
     await API.brandById(

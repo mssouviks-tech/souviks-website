@@ -33,6 +33,7 @@ class CategoryManager {
 
         );
 
+
         if (!this.container) {
 
             return;
@@ -62,7 +63,10 @@ class CategoryManager {
 
         <article class="category-card">
 
-            <a href="${Utils.categoryUrl(category)}">
+          <a
+    href="${Utils.categoryUrl(category)}"
+    data-breadcrumb="${category.name}"
+>
 
                 <div class="category-image">
 
@@ -286,6 +290,16 @@ if (visible) {
             return;
 
         }
+
+Breadcrumb.render(
+    category.name,
+    [
+        {
+            title: "Categories",
+            url: "/categories.html"
+        }
+    ]
+);
 
         const target =
 

@@ -4,6 +4,13 @@ document.addEventListener(
 
         await Products.init("#product-grid");
 
+Breadcrumb.start(
+    "Products",
+    "/products.html"
+);
+
+Breadcrumb.render("Products");
+
         const allProducts = [
             ...Products.products
         ];

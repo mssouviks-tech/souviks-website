@@ -62,7 +62,10 @@ class VehicleManager {
 
         <article class="vehicle-card">
 
-            <a href="${Utils.vehicleUrl(vehicle)}">
+           <a
+    href="${Utils.vehicleUrl(vehicle)}"
+    data-breadcrumb="${vehicle.model}"
+>
 
                 <div class="vehicle-image">
 
@@ -273,12 +276,31 @@ class VehicleManager {
                 slug
 
             );
+Breadcrumb.render(
+    vehicle.model,
+    [
+        {
+            title: "Vehicles",
+            url: "/vehicles.html"
+        }
+    ]
+);
 
         if (!vehicle) {
 
             return;
 
         }
+
+Breadcrumb.render(
+    vehicle.model,
+    [
+        {
+            title: "Vehicles",
+            url: "/vehicles.html"
+        }
+    ]
+);
 
         const target =
 

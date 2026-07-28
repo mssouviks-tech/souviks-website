@@ -184,8 +184,8 @@
             "canonical": "https://www.souviks.co.in/categories/filters"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.726960",
-        "updated_at": "2026-07-17T06:01:01.726968"
+        "created_at": "2026-07-28T21:43:32.080737",
+        "updated_at": "2026-07-28T21:43:32.080737"
     },
     {
         "id": "fasteners-hardware",
@@ -335,8 +335,8 @@
             "canonical": "https://www.souviks.co.in/categories/fasteners-hardware"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727003",
-        "updated_at": "2026-07-17T06:01:01.727006"
+        "created_at": "2026-07-28T21:43:32.080737",
+        "updated_at": "2026-07-28T21:43:32.080737"
     },
     {
         "id": "air-system",
@@ -471,8 +471,8 @@
             "canonical": "https://www.souviks.co.in/categories/air-system"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727029",
-        "updated_at": "2026-07-17T06:01:01.727031"
+        "created_at": "2026-07-28T21:43:32.080737",
+        "updated_at": "2026-07-28T21:43:32.080737"
     },
     {
         "id": "suspension-steering",
@@ -532,6 +532,11 @@
                 "count": 14
             },
             {
+                "id": "suspension-bush",
+                "name": "Suspension Bush",
+                "count": 11
+            },
+            {
                 "id": "cotter-bolt",
                 "name": "Cotter Bolt",
                 "count": 1
@@ -540,11 +545,6 @@
                 "id": "shackle-plate",
                 "name": "Shackle Plate",
                 "count": 3
-            },
-            {
-                "id": "suspension-bush",
-                "name": "Suspension Bush",
-                "count": 8
             },
             {
                 "id": "spring-pin",
@@ -707,6 +707,7 @@
             "SVKS000225",
             "SVKS000226",
             "SVKS000227",
+            "SVKS000228",
             "SVKS000251",
             "SVKS000254",
             "SVKS000274",
@@ -726,6 +727,7 @@
             "SVKS000313",
             "SVKS000314",
             "SVKS000315",
+            "SVKS000316",
             "SVKS000317",
             "SVKS000318",
             "SVKS000327",
@@ -748,6 +750,7 @@
             "SVKS000345",
             "SVKS000346",
             "SVKS000352",
+            "SVKS000365",
             "SVKS000372",
             "SVKS000391",
             "SVKS000392",
@@ -843,7 +846,7 @@
             "SVKS000666",
             "SVKS000667"
         ],
-        "product_count": 167,
+        "product_count": 170,
         "featured": false,
         "active": true,
         "seo": {
@@ -857,8 +860,8 @@
             "canonical": "https://www.souviks.co.in/categories/suspension-steering"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727103",
-        "updated_at": "2026-07-17T06:01:01.727106"
+        "created_at": "2026-07-28T21:43:32.081785",
+        "updated_at": "2026-07-28T21:43:32.081785"
     },
     {
         "id": "electricals",
@@ -1174,8 +1177,8 @@
             "canonical": "https://www.souviks.co.in/categories/electricals"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727150",
-        "updated_at": "2026-07-17T06:01:01.727152"
+        "created_at": "2026-07-28T21:43:32.081785",
+        "updated_at": "2026-07-28T21:43:32.081785"
     },
     {
         "id": "brakes",
@@ -1200,14 +1203,14 @@
                 "count": 3
             },
             {
+                "id": "brake-lining",
+                "name": "Brake Lining",
+                "count": 28
+            },
+            {
                 "id": "brake-slack-adjuster",
                 "name": "Brake Slack Adjuster",
                 "count": 13
-            },
-            {
-                "id": "brake-lining",
-                "name": "Brake Lining",
-                "count": 21
             },
             {
                 "id": "brake-switch",
@@ -1285,18 +1288,25 @@
             "SVKS000060",
             "SVKS000108",
             "SVKS000111",
+            "SVKS000120",
+            "SVKS000121",
+            "SVKS000122",
             "SVKS000177",
-            "SVKS000178",
-            "SVKS000198",
-            "SVKS000199",
-            "SVKS000200"
+            "SVKS000178"
         ],
         "products": [
             "SVKS000060",
             "SVKS000108",
             "SVKS000111",
+            "SVKS000120",
+            "SVKS000121",
+            "SVKS000122",
             "SVKS000177",
             "SVKS000178",
+            "SVKS000187",
+            "SVKS000191",
+            "SVKS000193",
+            "SVKS000194",
             "SVKS000198",
             "SVKS000199",
             "SVKS000200",
@@ -1334,7 +1344,7 @@
             "SVKS000447",
             "SVKS000566"
         ],
-        "product_count": 41,
+        "product_count": 48,
         "featured": false,
         "active": true,
         "seo": {
@@ -1348,8 +1358,8 @@
             "canonical": "https://www.souviks.co.in/categories/brakes"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727174",
-        "updated_at": "2026-07-17T06:01:01.727177"
+        "created_at": "2026-07-28T21:43:32.081785",
+        "updated_at": "2026-07-28T21:43:32.081785"
     },
     {
         "id": "engine-components",
@@ -1475,8 +1485,8 @@
             "canonical": "https://www.souviks.co.in/categories/engine-components"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727196",
-        "updated_at": "2026-07-17T06:01:01.727198"
+        "created_at": "2026-07-28T21:43:32.081785",
+        "updated_at": "2026-07-28T21:43:32.081785"
     },
     {
         "id": "bearings",
@@ -1698,8 +1708,8 @@
             "canonical": "https://www.souviks.co.in/categories/bearings"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727234",
-        "updated_at": "2026-07-17T06:01:01.727236"
+        "created_at": "2026-07-28T21:43:32.081785",
+        "updated_at": "2026-07-28T21:43:32.081785"
     },
     {
         "id": "rubber-parts",
@@ -1806,8 +1816,8 @@
             "canonical": "https://www.souviks.co.in/categories/rubber-parts"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727247",
-        "updated_at": "2026-07-17T06:01:01.727249"
+        "created_at": "2026-07-28T21:43:32.081785",
+        "updated_at": "2026-07-28T21:43:32.081785"
     },
     {
         "id": "clutch-parts",
@@ -1854,7 +1864,7 @@
             {
                 "id": "clutch-repair-kit",
                 "name": "Clutch Repair Kit",
-                "count": 7
+                "count": 4
             },
             {
                 "id": "clutch-slave-cylinder",
@@ -1870,11 +1880,6 @@
                 "id": "clutch-lever",
                 "name": "Clutch Lever",
                 "count": 2
-            },
-            {
-                "id": "clutch-bush",
-                "name": "Clutch Bush",
-                "count": 3
             },
             {
                 "id": "pressure-plate",
@@ -1912,10 +1917,6 @@
                 "name": "TVS Girling"
             },
             {
-                "id": "nirmal",
-                "name": "Nirmal"
-            },
-            {
                 "id": "bgl",
                 "name": "BGL"
             },
@@ -1924,16 +1925,8 @@
                 "name": "MSL"
             },
             {
-                "id": "harish",
-                "name": "Harish"
-            },
-            {
                 "id": "mei",
                 "name": "MEI"
-            },
-            {
-                "id": "jmp",
-                "name": "JMP"
             },
             {
                 "id": "naic-024b",
@@ -1950,7 +1943,6 @@
         ],
         "vehicles": [
             "Ashok Leyland 2516",
-            "Ashok Leyland Ecomet",
             "Tata 1109",
             "Tata 1210",
             "Tata 1312",
@@ -1992,16 +1984,12 @@
             "SVKS000116",
             "SVKS000118",
             "SVKS000119",
-            "SVKS000120",
-            "SVKS000121",
-            "SVKS000122",
             "SVKS000123",
             "SVKS000145",
             "SVKS000146",
             "SVKS000179",
             "SVKS000181",
             "SVKS000182",
-            "SVKS000228",
             "SVKS000230",
             "SVKS000231",
             "SVKS000232",
@@ -2010,9 +1998,7 @@
             "SVKS000245",
             "SVKS000246",
             "SVKS000248",
-            "SVKS000316",
             "SVKS000364",
-            "SVKS000365",
             "SVKS000373",
             "SVKS000429",
             "SVKS000442",
@@ -2041,7 +2027,7 @@
             "SVKS000536",
             "SVKS000537"
         ],
-        "product_count": 62,
+        "product_count": 56,
         "featured": false,
         "active": true,
         "seo": {
@@ -2055,8 +2041,8 @@
             "canonical": "https://www.souviks.co.in/categories/clutch-parts"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727284",
-        "updated_at": "2026-07-17T06:01:01.727286"
+        "created_at": "2026-07-28T21:43:32.081785",
+        "updated_at": "2026-07-28T21:43:32.081785"
     },
     {
         "id": "lubricants",
@@ -2084,11 +2070,6 @@
                 "id": "transmission-fluid",
                 "name": "Transmission Fluid",
                 "count": 1
-            },
-            {
-                "id": "brake-fluid",
-                "name": "Brake Fluid",
-                "count": 4
             },
             {
                 "id": "gear-oil",
@@ -2136,29 +2117,23 @@
         "vehicles": [
             "Bosch Engines/Electrical",
             "Tata Ace",
-            "Tata Intra",
             "Tata LPT",
-            "Tata Magic",
             "Universal"
         ],
         "featured_products": [
             "SVKS000100",
             "SVKS000124",
             "SVKS000125",
-            "SVKS000187",
-            "SVKS000191",
-            "SVKS000193",
-            "SVKS000194",
-            "SVKS000262"
+            "SVKS000262",
+            "SVKS000270",
+            "SVKS000320",
+            "SVKS000321",
+            "SVKS000322"
         ],
         "products": [
             "SVKS000100",
             "SVKS000124",
             "SVKS000125",
-            "SVKS000187",
-            "SVKS000191",
-            "SVKS000193",
-            "SVKS000194",
             "SVKS000262",
             "SVKS000270",
             "SVKS000320",
@@ -2171,7 +2146,7 @@
             "SVKS000556",
             "SVKS000557"
         ],
-        "product_count": 18,
+        "product_count": 14,
         "featured": false,
         "active": true,
         "seo": {
@@ -2185,8 +2160,8 @@
             "canonical": "https://www.souviks.co.in/categories/lubricants"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727300",
-        "updated_at": "2026-07-17T06:01:01.727302"
+        "created_at": "2026-07-28T21:43:32.081785",
+        "updated_at": "2026-07-28T21:43:32.081785"
     },
     {
         "id": "cooling-system",
@@ -2248,7 +2223,7 @@
             "canonical": "https://www.souviks.co.in/categories/cooling-system"
         },
         "schema": {},
-        "created_at": "2026-07-17T06:01:01.727308",
-        "updated_at": "2026-07-17T06:01:01.727310"
+        "created_at": "2026-07-28T21:43:32.081785",
+        "updated_at": "2026-07-28T21:43:32.081785"
     }
 ]

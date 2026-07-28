@@ -3756,8 +3756,8 @@
             "Kit Pad Assy.",
             "29932512",
             "TVS Girling",
-            "Clutch Parts",
-            "Clutch Repair Kit",
+            "Brakes",
+            "Brake Lining",
             "Tata Ace"
         ],
         "part_number": "29932512",
@@ -3766,8 +3766,8 @@
         "image": "Kit Pad Assy..webp",
         "icon": "",
         "category": {
-            "id": "clutch-parts",
-            "name": "Clutch Parts"
+            "id": "brakes",
+            "name": "Brakes"
         },
         "brand": {
             "id": "tvs-girling",
@@ -3788,8 +3788,8 @@
             "Kit Pad Assy.",
             "29932629",
             "TVS Girling",
-            "Clutch Parts",
-            "Clutch Repair Kit",
+            "Brakes",
+            "Brake Lining",
             "Tata Ace"
         ],
         "part_number": "29932629",
@@ -3798,8 +3798,8 @@
         "image": "Kit Pad Assy..webp",
         "icon": "",
         "category": {
-            "id": "clutch-parts",
-            "name": "Clutch Parts"
+            "id": "brakes",
+            "name": "Brakes"
         },
         "brand": {
             "id": "tvs-girling",
@@ -3820,8 +3820,8 @@
             "Kit Pad Assy.",
             "29933025",
             "TVS Girling",
-            "Clutch Parts",
-            "Clutch Repair Kit",
+            "Brakes",
+            "Brake Lining",
             "Tata Ace"
         ],
         "part_number": "29933025",
@@ -3830,8 +3830,8 @@
         "image": "Kit Pad Assy..webp",
         "icon": "",
         "category": {
-            "id": "clutch-parts",
-            "name": "Clutch Parts"
+            "id": "brakes",
+            "name": "Brakes"
         },
         "brand": {
             "id": "tvs-girling",
@@ -5881,8 +5881,8 @@
             "Front Brake Pad ACE",
             "886443012829",
             "Tata Genuine Parts",
-            "Lubricants",
-            "Brake Fluid",
+            "Brakes",
+            "Brake Lining",
             "Tata Ace",
             "Tata Magic"
         ],
@@ -5892,8 +5892,8 @@
         "image": "Front Brake Pad ACE.webp",
         "icon": "",
         "category": {
-            "id": "lubricants",
-            "name": "Lubricants"
+            "id": "brakes",
+            "name": "Brakes"
         },
         "brand": {
             "id": "tata-genuine-parts",
@@ -6011,8 +6011,8 @@
             "Front Brake Pad ACE",
             "886742000003",
             "Tata Genuine Parts",
-            "Lubricants",
-            "Brake Fluid",
+            "Brakes",
+            "Brake Lining",
             "Tata Ace"
         ],
         "part_number": "886742000003",
@@ -6021,8 +6021,8 @@
         "image": "Front Brake Pad ACE.webp",
         "icon": "",
         "category": {
-            "id": "lubricants",
-            "name": "Lubricants"
+            "id": "brakes",
+            "name": "Brakes"
         },
         "brand": {
             "id": "tata-genuine-parts",
@@ -6076,8 +6076,8 @@
             "Front Brake Pad Magic Intra",
             "886742000019",
             "Tata Genuine Parts",
-            "Lubricants",
-            "Brake Fluid",
+            "Brakes",
+            "Brake Lining",
             "Tata Magic",
             "Tata Intra"
         ],
@@ -6087,8 +6087,8 @@
         "image": "Front Brake Pad Magic Intra.webp",
         "icon": "",
         "category": {
-            "id": "lubricants",
-            "name": "Lubricants"
+            "id": "brakes",
+            "name": "Brakes"
         },
         "brand": {
             "id": "tata-genuine-parts",
@@ -6109,8 +6109,8 @@
             "Front Brake Pad - 207 Pickup",
             "886742010207",
             "Tata Genuine Parts",
-            "Lubricants",
-            "Brake Fluid",
+            "Brakes",
+            "Brake Lining",
             "Tata LPT"
         ],
         "part_number": "886742010207",
@@ -6119,8 +6119,8 @@
         "image": "Front Brake Pad - 207 Pickup.webp",
         "icon": "",
         "category": {
-            "id": "lubricants",
-            "name": "Lubricants"
+            "id": "brakes",
+            "name": "Brakes"
         },
         "brand": {
             "id": "tata-genuine-parts",
@@ -7199,8 +7199,8 @@
             "Balance Rod Bush",
             "B 1145",
             "Nirmal",
-            "Clutch Parts",
-            "Clutch Bush",
+            "Suspension & Steering",
+            "Suspension Bush",
             "Tata LPT",
             "Ashok Leyland 2516"
         ],
@@ -7210,8 +7210,8 @@
         "image": "Balance Rod Bush.webp",
         "icon": "",
         "category": {
-            "id": "clutch-parts",
-            "name": "Clutch Parts"
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
         },
         "brand": {
             "id": "nirmal",
@@ -10027,8 +10027,8 @@
             "Bell Crank Bush L/L",
             "H468",
             "Harish",
-            "Clutch Parts",
-            "Clutch Bush",
+            "Suspension & Steering",
+            "Suspension Bush",
             "Universal"
         ],
         "part_number": "H468",
@@ -10037,8 +10037,8 @@
         "image": "Bell Crank Bush L/L.webp",
         "icon": "",
         "category": {
-            "id": "clutch-parts",
-            "name": "Clutch Parts"
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
         },
         "brand": {
             "id": "harish",
@@ -11608,8 +11608,8 @@
             "Bell Crank Bush L/L",
             "58",
             "JMP",
-            "Clutch Parts",
-            "Clutch Bush",
+            "Suspension & Steering",
+            "Suspension Bush",
             "Ashok Leyland 2516",
             "Ashok Leyland Ecomet"
         ],
@@ -11619,8 +11619,8 @@
         "image": "Bell Crank Bush L/L.webp",
         "icon": "",
         "category": {
-            "id": "clutch-parts",
-            "name": "Clutch Parts"
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
         },
         "brand": {
             "id": "jmp",
@@ -21647,7 +21647,7 @@
         "slug": "tata-genuine-parts",
         "url": "/brands/tata-genuine-parts",
         "image": "",
-        "icon": "/assets/images/brands/tata-genuine-parts.png",
+        "icon": "/assets/images/brands/tata-genuine-parts.webp",
         "category": {
             "id": "",
             "name": ""
@@ -21669,7 +21669,6 @@
         "subtitle": "Brand",
         "keywords": [
             "Harish",
-            "clutch-parts",
             "fasteners-hardware",
             "suspension-steering"
         ],
@@ -21897,7 +21896,6 @@
         "subtitle": "Brand",
         "keywords": [
             "Nirmal",
-            "clutch-parts",
             "engine-components",
             "suspension-steering"
         ],
@@ -22100,7 +22098,6 @@
         "keywords": [
             "JMP",
             "brakes",
-            "clutch-parts",
             "rubber-parts",
             "suspension-steering"
         ],
@@ -22971,9 +22968,9 @@
             "Drag Link",
             "Tie Rod End",
             "Cross Joint",
+            "Suspension Bush",
             "Cotter Bolt",
             "Shackle Plate",
-            "Suspension Bush",
             "Spring Pin",
             "Axle Shaft",
             "Power Steering Pump",
@@ -22993,7 +22990,7 @@
             "name": ""
         },
         "vehicle_count": 21,
-        "product_count": 167,
+        "product_count": 170,
         "featured": false,
         "active": true,
         "weight": 80
@@ -23057,8 +23054,8 @@
             "Brakes",
             "Brake Drum",
             "Brake Disc",
-            "Brake Slack Adjuster",
             "Brake Lining",
+            "Brake Slack Adjuster",
             "Brake Switch",
             "Brake Anchor Pin"
         ],
@@ -23076,7 +23073,7 @@
             "name": ""
         },
         "vehicle_count": 13,
-        "product_count": 41,
+        "product_count": 48,
         "featured": false,
         "active": true,
         "weight": 80
@@ -23200,7 +23197,6 @@
             "Clutch Slave Cylinder",
             "Clutch Plate",
             "Clutch Lever",
-            "Clutch Bush",
             "Pressure Plate",
             "Flywheel Assembly",
             "Clutch Spring",
@@ -23220,8 +23216,8 @@
             "id": "",
             "name": ""
         },
-        "vehicle_count": 17,
-        "product_count": 62,
+        "vehicle_count": 16,
+        "product_count": 56,
         "featured": false,
         "active": true,
         "weight": 80
@@ -23236,7 +23232,6 @@
             "Engine Oil",
             "Brake Fluid / Dot 3",
             "Transmission Fluid",
-            "Brake Fluid",
             "Gear Oil",
             "Steering Fluid",
             "Hydraulic Oil",
@@ -23255,8 +23250,8 @@
             "id": "",
             "name": ""
         },
-        "vehicle_count": 6,
-        "product_count": 18,
+        "vehicle_count": 4,
+        "product_count": 14,
         "featured": false,
         "active": true,
         "weight": 80

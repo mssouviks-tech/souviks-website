@@ -20,6 +20,14 @@ document.addEventListener(
 
         );
 
+Breadcrumb.start(
+    "Brands",
+    "/brands.html"
+);
+
+Breadcrumb.render("Brands");
+
+
         bindSearch();
 
         bindShowMore();
@@ -77,6 +85,7 @@ function renderBrands(
 
             )
             .join("");
+
 
 }
 

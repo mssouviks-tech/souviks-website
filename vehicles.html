@@ -47,7 +47,7 @@ Reusable Head Component
 
         name="keywords"
 
-        content="tata 407, eicher, bharatbenz, ashok leyland">
+        content="tata 407, eicher, bharatbenz, ashok leyland, tata, leyland, mahindra">
 
     <meta
 
@@ -608,40 +608,15 @@ Reusable Across Entire Website
 
 <!-- ==========================================================
 SOUVIKS BREADCRUMB
-Reusable Breadcrumb Navigation
 ========================================================== -->
 
-<nav
-
-    class="breadcrumb"
-
-    aria-label="Breadcrumb">
+<nav class="breadcrumb" aria-label="Breadcrumb">
 
     <div class="container">
 
-        <ol class="breadcrumb-list">
+        <ol class="breadcrumb-list" id="breadcrumb-list">
 
-            <li class="breadcrumb-item">
-
-                <a href="/">
-
-                    Home
-
-                </a>
-
-            </li>
-
-            
-
-            <li
-
-                class="breadcrumb-item active"
-
-                aria-current="page">
-
-                Vehicles
-
-            </li>
+            <!-- JavaScript will generate the breadcrumb -->
 
         </ol>
 
@@ -1657,7 +1632,13 @@ window.souviks = {
 
     siteUrl: "https://www.souviks.co.in",
 
-    currentPage: "{{CURRENT_PAGE_TYPE}}",
+    currentPage: "{{CURRENT_PAGE}}",
+
+    currentPageType: "{{CURRENT_PAGE_TYPE}}",
+
+    currentPageUrl: "/vehicles.html",
+
+    breadcrumbRoot: false,
 
     currentLanguage: "en",
 
@@ -1695,6 +1676,7 @@ window.souviks = {
 <script src="/assets/js/filters.js"></script>
 <script src="/assets/js/pagination.js"></script>
 <script src="/assets/js/rfq.js"></script>
+<script src="/assets/js/breadcrumb.js"></script>
 
 <script src="/assets/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

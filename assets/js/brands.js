@@ -43,10 +43,12 @@ class BrandManager {
 
         return `
 
-        <article class="brand-card">
+<article class="brand-card">
 
-            <a href="${Utils.brandUrl(brand)}">
-
+    <a
+        href="${Utils.brandUrl(brand)}"
+        data-name="${brand.name}"
+    >
                 <div class="brand-image">
 
                     <img
@@ -119,6 +121,16 @@ async hydrateBrandPage() {
         return;
 
     }
+
+Breadcrumb.render(
+    brand.name,
+    [
+        {
+            title: "Brands",
+            url: "/brands.html"
+        }
+    ]
+);
 
     this.renderBrandHero(
         brand

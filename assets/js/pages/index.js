@@ -2,6 +2,9 @@ document.addEventListener(
     "DOMContentLoaded",
     async () => {
 
+Breadcrumb.reset();
+Breadcrumb.render("Home");
+
         await renderFeaturedCategories();
 
         await renderFeaturedBrands();

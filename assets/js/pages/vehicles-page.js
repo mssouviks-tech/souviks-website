@@ -19,6 +19,13 @@ document.addEventListener(
 
         );
 
+Breadcrumb.start(
+    "Vehicles",
+    "/vehicles.html"
+);
+
+Breadcrumb.render("Vehicles");
+
         renderVehicles(
 
             Vehicles.vehicles
