@@ -4,8 +4,14 @@
 
 @media (max-width: 1400px) {
 
+    /* ===========
+       CONTAINER
+    ============ */
+
     .container {
+
         max-width: 1200px;
+
     }
 
 }
@@ -15,6 +21,10 @@
 ========================================================== */
 
 @media (max-width: 1200px) {
+
+    /* ===========
+       GRID LAYOUTS
+    ============ */
 
     .entity-grid,
     .product-grid,
@@ -29,21 +39,43 @@
     .why-grid,
     #categoryGrid {
 
-        grid-template-columns:
-            repeat(3, minmax(0,1fr));
+        grid-template-columns: repeat(3, minmax(0,1fr));
 
     }
+
+    /* ===========
+       FOOTER
+    ============ */
 
     .footer-grid {
 
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns: repeat(2,1fr);
 
     }
+
+    /* ===========
+       HERO
+    ============ */
 
     .hero-stats {
 
         gap: 32px;
+
+    }
+
+    /* ===========
+       PRODUCT DETAIL
+    ============ */
+
+    .pdp-hero {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .pdp-inquiry {
+
+        position: static;
 
     }
 
@@ -54,6 +86,10 @@
 ========================================================== */
 
 @media (max-width: 992px) {
+
+    /* ======================================================
+       HEADER
+    ====================================================== */
 
     .main-navigation {
 
@@ -67,15 +103,60 @@
 
     }
 
-    .catalogue-summary-wrapper {
+    .header-actions {
 
-        flex-direction: column;
-
-        gap: 12px;
-
-        text-align: center;
+        display: none;
 
     }
+
+    .header-wrapper {
+
+        min-height: 72px;
+
+    }
+
+    .logo-image {
+
+        max-height: 48px;
+
+    }
+
+    .mobile-navigation {
+
+        position: fixed;
+
+        top: 145px;
+
+        left: 0;
+
+        width: 100%;
+
+        height: calc(100vh - 145px);
+
+        display: none;
+
+        padding: 24px;
+
+        overflow-y: auto;
+
+        background: #fff;
+
+        z-index: 3000;
+
+        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+
+    }
+
+    .mobile-navigation.active {
+
+        display: block;
+
+    }
+
+
+    /* ======================================================
+       CTA
+    ====================================================== */
 
     .cta-wrapper {
 
@@ -91,6 +172,44 @@
 
     }
 
+
+    /* ======================================================
+       CATALOGUE
+    ====================================================== */
+
+    .catalogue-summary-wrapper {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        text-align: center;
+
+    }
+
+
+    /* ======================================================
+       GALLERY
+    ====================================================== */
+
+    .store-gallery-large,
+    .video-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .store-gallery-small {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+
+    /* ======================================================
+       GRID LAYOUTS
+    ====================================================== */
+
     .entity-grid,
     .product-grid,
     .products-grid,
@@ -104,16 +223,72 @@
     .why-grid,
     #categoryGrid {
 
-        grid-template-columns:
-            repeat(2, minmax(0,1fr));
+        grid-template-columns: repeat(2, minmax(0,1fr));
 
     }
+
+    .grid-4 {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+
+    /* ======================================================
+       HERO
+    ====================================================== */
 
     .hero-stats {
 
         flex-wrap: wrap;
 
         justify-content: center;
+
+    }
+
+
+    /* ======================================================
+       POPULAR VEHICLES
+    ====================================================== */
+
+    .popular-vehicles-grid {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+
+    /* ======================================================
+       FOOTER
+    ====================================================== */
+
+    .footer-grid {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+
+    /* ======================================================
+       PRODUCT DETAIL
+    ====================================================== */
+
+    .pdp-trust {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+    .pdp-vehicle-grid,
+    .pdp-related-grid {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+    .pdp-description-grid {
+
+        grid-template-columns: 1fr;
 
     }
 
@@ -125,18 +300,41 @@
 
 @media (max-width: 768px) {
 
+    /* ======================================================
+       CONTAINER
+    ====================================================== */
+
     .container {
 
-               width:100%;
+        width: 100%;
 
-        max-width:100%;
+        max-width: 100%;
 
-        padding-left:16px;
-
-        padding-right:16px;
-
+        padding: 0 16px;
 
     }
+
+
+    /* ======================================================
+       PAGE SPACING
+    ====================================================== */
+
+    .section-spacing,
+    .catalogue-search,
+    .category-directory,
+    .brand-directory,
+    .vehicle-directory,
+    .product-directory,
+    .catalogue-products {
+
+        padding: 40px 0;
+
+    }
+
+
+    /* ======================================================
+       HERO
+    ====================================================== */
 
     .catalogue-hero,
     .categories-hero,
@@ -150,15 +348,40 @@
     .catalogue-hero h1,
     .categories-hero h1,
     .brands-hero h1,
-    .vehicles-hero h1 {
+    .vehicles-hero h1,
+    .hero-content h1 {
 
         font-size: 2rem;
 
     }
 
+    .hero-content {
+
+        text-align: center;
+
+    }
+
+    .hero-content h1 {
+
+        line-height: 1.2;
+
+    }
+
+    .hero-content p {
+
+        font-size: 1rem;
+
+    }
+
     .hero-stats {
 
-        gap: 20px;
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        margin-top: 24px;
 
     }
 
@@ -168,9 +391,24 @@
 
     }
 
+    .hero-stat-divider {
+
+        display: none;
+
+    }
+
+
+    /* ======================================================
+       SEARCH
+    ====================================================== */
+
     .search-wrapper {
 
+        display: flex;
+
         flex-direction: column;
+
+        gap: 12px;
 
     }
 
@@ -180,11 +418,122 @@
 
     }
 
+    #searchButton {
+
+        width: 100%;
+
+    }
+
+
+    /* ======================================================
+       FILTERS
+    ====================================================== */
+
+    .filter-wrapper {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+    }
+
+    .filter-group,
+    .catalogue-filter {
+
+        width: 100%;
+
+    }
+
+
+    /* ======================================================
+       CTA
+    ====================================================== */
+
+    .cta-wrapper {
+
+        flex-direction: column;
+
+        gap: 24px;
+
+        text-align: center;
+
+    }
+
+    .cta-actions {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        width: 100%;
+
+    }
+
+    .cta-actions .btn {
+
+        width: 100%;
+
+    }
+
+
+    /* ======================================================
+       PAGINATION
+    ====================================================== */
+
+    .pagination-wrapper {
+
+        flex-direction: column;
+
+        gap: 16px;
+
+        text-align: center;
+
+    }
+
+
+    /* ======================================================
+       TYPOGRAPHY
+    ====================================================== */
+
     .section-heading {
 
         margin-bottom: 32px;
 
     }
+
+
+    /* ======================================================
+       GRID UTILITIES
+    ====================================================== */
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /* ======================================================
+       PRODUCT GRIDS
+    ====================================================== */
+
+    .products-grid,
+    .entity-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /* ======================================================
+       FOOTER
+    ====================================================== */
 
     .footer-grid {
 
@@ -194,182 +543,99 @@
 
     }
 
+    .footer-section {
+
+        text-align: center;
+
+    }
+
     .footer-bottom-links {
 
         justify-content: center;
 
     }
 
-}
 
-@media (max-width:768px){
+    /* ======================================================
+       PRODUCT DETAIL
+    ====================================================== */
 
-    .hero-content{
+    .pdp-meta-pills {
 
-        text-align:center;
-
-    }
-
-    .hero-content h1{
-
-        font-size:2rem;
-
-        line-height:1.2;
+        gap: 8px;
 
     }
 
-    .hero-content p{
+    .pdp-pill {
 
-        font-size:1rem;
+        padding: 7px 12px;
 
-    }
-
-}
-
-@media (max-width:768px){
-
-    .hero-stats{
-
-        display:flex;
-
-        flex-direction:column;
-
-        gap:12px;
-
-        margin-top:24px;
+        font-size: .85rem;
 
     }
 
-    .hero-stat-divider{
+    .pdp-sticky-rfq {
 
-        display:none;
+        position: fixed;
 
-    }
+        bottom: 0;
 
-}
+        left: 0;
 
-@media (max-width:768px){
+        width: 100%;
 
-    .cta-wrapper{
+        padding: 12px;
 
-        flex-direction:column;
+        background: #fff;
 
-        text-align:center;
+        box-shadow: 0 -4px 20px rgba(0,0,0,.08);
 
-        gap:24px;
-
-    }
-
-    .cta-actions{
-
-        width:100%;
-
-        display:flex;
-
-        flex-direction:column;
-
-        gap:12px;
+        z-index: 5000;
 
     }
 
-    .cta-actions .btn{
+    .pdp-main-image {
 
-        width:100%;
+        width: 100%;
 
-    }
+        aspect-ratio: 1 / 1;
 
-}
-
-@media (max-width:768px){
-
-    .search-wrapper{
-
-        display:flex;
-
-        flex-direction:column;
-
-        gap:12px;
+        object-fit: contain;
 
     }
 
-    .search-box{
+    .pdp-thumbnails {
 
-        width:100%;
+        display: flex;
 
-    }
+        gap: 8px;
 
-    #searchButton{
+        overflow-x: auto;
 
-        width:100%;
-
-    }
-
-}
-
-@media (max-width:768px){
-
-    .filter-wrapper{
-
-        display:flex;
-
-        flex-direction:column;
-
-        gap:12px;
+        scrollbar-width: none;
 
     }
 
-    .filter-group{
+    .pdp-thumbnails::-webkit-scrollbar {
 
-        width:100%;
-
-    }
-
-    .catalogue-filter{
-
-        width:100%;
+        display: none;
 
     }
 
-}
+    .pdp-thumbnail {
 
-@media (max-width:768px){
+        width: 60px;
 
-    .pagination-wrapper{
+        height: 60px;
 
-        flex-direction:column;
-
-        gap:16px;
-
-        text-align:center;
+        flex: 0 0 auto;
 
     }
 
-}
+    .pdp-thumb-prev,
+    .pdp-thumb-next {
 
-@media (max-width:768px){
-
-    .footer-grid{
-
-        grid-template-columns:1fr;
-
-        gap:32px;
-
-    }
-
-    .footer-section{
-
-        text-align:center;
-
-    }
-
-}
-
-@media (max-width:768px){
-
-    .products-grid,
-    .entity-grid{
-
-        grid-template-columns:1fr;
+        display: none;
 
     }
 
@@ -380,6 +646,10 @@
 ========================================================== */
 
 @media (max-width: 576px) {
+
+    /* ======================================================
+       GRID LAYOUTS
+    ====================================================== */
 
     .entity-grid,
     .product-grid,
@@ -398,6 +668,11 @@
 
     }
 
+
+    /* ======================================================
+       HERO
+    ====================================================== */
+
     .hero-stats {
 
         flex-direction: column;
@@ -405,6 +680,11 @@
         gap: 12px;
 
     }
+
+
+    /* ======================================================
+       CTA
+    ====================================================== */
 
     .cta-wrapper {
 
@@ -426,46 +706,10 @@
 
     }
 
-}
 
-/* ==========================================================
-   GALLERY
-========================================================== */
-
-
-
-@media (max-width:992px){
-
-    .store-gallery-large,
-    .video-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .store-gallery-small{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-}
-
-/* ==========================================================
-   POPULAR VEHICLES
-========================================================== */
-
-@media (max-width: 992px) {
-
-    .popular-vehicles-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-}
-
-@media (max-width: 576px) {
+    /* ======================================================
+       POPULAR VEHICLES
+    ====================================================== */
 
     .popular-vehicles-grid {
 
@@ -473,96 +717,49 @@
 
     }
 
-}
 
+    /* ======================================================
+       PRODUCT DETAIL
+    ====================================================== */
 
+    .pdp-trust {
 
-/* ==========================================================
-   PRODUCT DETAIL
-========================================================== */
-
-
-@media (max-width:768px){
-
-    .pdp-sticky-rfq{
-
-        position:fixed;
-
-        bottom:0;
-
-        left:0;
-
-        width:100%;
-
-        background:#fff;
-
-        padding:12px;
-
-        box-shadow:
-            0 -4px 20px rgba(0,0,0,.08);
-
-        z-index:5000;
+        grid-template-columns: 1fr;
 
     }
 
-}
+    .pdp-title {
 
-@media (max-width:768px){
-
-    .pdp-main-image{
-
-        aspect-ratio:1/1;
-
-        width:100%;
-
-        object-fit:contain;
+        font-size: 34px;
 
     }
 
-}
+    .pdp-tabs {
 
-@media (max-width:768px){
+        overflow-x: auto;
 
-    .pdp-thumbnails{
+        white-space: nowrap;
 
-        display:flex;
-
-        overflow-x:auto;
-
-        gap:8px;
-
-        scrollbar-width:none;
+        scrollbar-width: none;
 
     }
 
-    .pdp-thumbnails::-webkit-scrollbar{
+    .pdp-tabs::-webkit-scrollbar {
 
-        display:none;
-
-    }
-
-}
-
-@media (max-width:768px){
-
-    .pdp-thumbnail{
-
-        width:60px;
-
-        height:60px;
-
-        flex:0 0 auto;
+        display: none;
 
     }
 
-}
+    .pdp-tab {
 
-@media (max-width:768px){
+        flex: 0 0 auto;
 
-    .pdp-thumb-prev,
-    .pdp-thumb-next{
+    }
 
-        display:none;
+    .pdp-vehicle-grid,
+    .pdp-related-grid {
+
+        grid-template-columns: 1fr;
 
     }
 

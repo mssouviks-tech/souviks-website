@@ -6,44 +6,45 @@
 .product-card,
 .brand-card,
 .vehicle-card,
-.category-card {
+.category-card,
+.metrics-card {
 
-    background: #ffffff;
+    background: #fff;
 
-    border: 1px solid var(--border-color);
+    border: 1px solid #e5e7eb;
 
-    border-radius: 16px;
+    border-radius: 20px;
 
     overflow: hidden;
 
-    transition: .25s ease;
-
     height: 100%;
 
-}
-
-
-.category-image img,
-.brand-image img,
-.vehicle-image img,
-.product-image img {
-
     transition:
-        transform .35s ease;
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
 
 }
 
-.category-card:hover img,
-.brand-card:hover img,
-.vehicle-card:hover img,
-.product-card:hover img {
+.card:hover,
+.product-card:hover,
+.brand-card:hover,
+.vehicle-card:hover,
+.category-card:hover,
+.metrics-card:hover {
 
-    transform: scale(1.08);
+    transform: translateY(-6px);
+
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.10);
 
 }
+
 
 /* ==========================================================
-   IMAGE AREA
+   CARD IMAGES
 ========================================================== */
 
 .card-image,
@@ -52,17 +53,17 @@
 .vehicle-image,
 .category-image {
 
-    height: 140px;
-
     display: flex;
 
     align-items: center;
 
     justify-content: center;
 
-    background: #ffffff;
+    height: 140px;
 
     padding: 20px;
+
+    background: #ffffff;
 
     border-bottom: 1px solid #eee;
 
@@ -80,10 +81,22 @@
 
     object-fit: contain;
 
+    transition: transform .35s ease;
+
 }
 
+.category-card:hover img,
+.brand-card:hover img,
+.vehicle-card:hover img,
+.product-card:hover img {
+
+    transform: scale(1.08);
+
+}
+
+
 /* ==========================================================
-   CONTENT AREA
+   CARD CONTENT
 ========================================================== */
 
 .card-content,
@@ -91,10 +104,6 @@
 .brand-content,
 .vehicle-content,
 .category-content {
-
-    padding: 20px;
-
-    text-align: center;
 
     display: flex;
 
@@ -104,10 +113,15 @@
 
     gap: 8px;
 
+    padding: 20px;
+
+    text-align: center;
+
 }
 
+
 /* ==========================================================
-   TITLES
+   CARD TITLES
 ========================================================== */
 
 .card-title,
@@ -115,6 +129,8 @@
 .brand-name,
 .vehicle-name,
 .category-name {
+
+    margin: 0;
 
     font-size: 18px;
 
@@ -124,12 +140,11 @@
 
     color: var(--text-primary);
 
-    margin: 0;
-
 }
 
+
 /* ==========================================================
-   META TEXT
+   CARD META
 ========================================================== */
 
 .card-meta,
@@ -144,10 +159,10 @@
 
 }
 
+
 /* ==========================================================
    CATEGORY CARDS
 ========================================================== */
-
 
 .category-content h3 {
 
@@ -159,15 +174,17 @@
 
 }
 
+
 /* ==========================================================
-   BRAND CARDS
+   BRAND & VEHICLE CARDS
 ========================================================== */
 
 .brand-card,
 .vehicle-card {
 
-    text-align: center;
     padding: 0;
+
+    text-align: center;
 
 }
 
@@ -197,9 +214,9 @@
 .brand-content h3,
 .vehicle-content h3 {
 
-    font-size: 18px;
-
     margin: 0;
+
+    font-size: 18px;
 
 }
 
@@ -228,6 +245,7 @@
 
 }
 
+
 /* ==========================================================
    PRODUCT CARDS
 ========================================================== */
@@ -238,17 +256,127 @@
 
     flex-direction: column;
 
+    min-height: 360px;
+
 }
 
 .product-image {
 
-    height: 220px;
+    height: 140px;
+
+    padding: 14px;
+
+}
+
+.product-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
 
 }
 
 .product-content {
 
     flex: 1;
+
+    justify-content: flex-start;
+
+    gap: 6px;
+
+    padding: 14px;
+
+}
+
+.product-title {
+
+    margin: 0;
+
+    display: -webkit-box;
+
+    min-height: 30px;
+
+    overflow: hidden;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    -webkit-line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+
+}
+
+.product-description {
+
+    display: -webkit-box;
+
+    min-height: 32px;
+
+    overflow: hidden;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    -webkit-line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+
+}
+
+.product-id {
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+    color: var(--color-primary);
+
+}
+
+.product-brand {
+
+    font-size: 12px;
+
+    color: var(--color-text-light);
+
+}
+
+.product-part {
+
+    font-size: 12px;
+
+}
+
+.product-category {
+
+    font-size: 11px;
+
+}
+
+.product-actions {
+
+    margin-top: auto;
+
+}
+
+.product-actions .btn {
+
+    padding: 7px 12px;
+
+    font-size: 12px;
 
 }
 
@@ -257,23 +385,12 @@
    VEHICLE CARDS
 ========================================================== */
 
-.vehicle-card {
-
-    text-align: center;
-
-}
-
 .vehicle-image {
 
     height: 240px;
 
 }
 
-.vehicle-content {
-
-    min-height: 90px;
-
-}
 
 /* ==========================================================
    FEATURED CARD
@@ -292,42 +409,6 @@
 
 }
 
-/* ==========================================================
-   product CARD
-========================================================== */
-
-.product-content{
-
-    padding:20px;
-
-    text-align:center;
-}
-
-.product-id{
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:.08em;
-
-    color:var(--color-primary);
-
-    text-transform:uppercase;
-
-    margin-bottom:8px;
-}
-
-
-
-.product-brand{
-
-    font-size:14px;
-
-    color:var(--color-text-light);
-}
-
-
 
 /* ==========================================================
    ICON CARDS
@@ -335,22 +416,9 @@
 
 .why-card {
 
-    text-align: center;
-
     padding: 32px;
 
-}
-
-.why-icon {
-
-    width: 56px !important;
-    height: 56px !important;
-
-    object-fit: contain;
-
-    margin: 0 auto 20px;
-
-    display: block;
+    text-align: center;
 
 }
 
@@ -366,23 +434,62 @@
 
 }
 
+.why-icon {
+
+    display: block;
+
+    width: 56px !important;
+
+    height: 56px !important;
+
+    margin: 0 auto 20px;
+
+    object-fit: contain;
+
+}
+
+
+/* ==========================================================
+   GRID LAYOUTS
+========================================================== */
+
 .why-grid,
 .contact-grid {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:24px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 24px;
+
+}
+
+.metrics-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 40px;
+
+    justify-content: center;
+
+    text-align: center;
+
 }
 
 
 /* ==========================================================
    MAP
 ========================================================== */
+
 .map-wrapper {
 
-    border-radius: 16px;
     overflow: hidden;
 
     border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
 
     box-shadow: 0 10px 30px rgba(0,0,0,.08);
 
@@ -396,81 +503,32 @@
 
 }
 
-/* ==========================================================
-   BUSINESS HOURS
-========================================================== */
-.metrics-grid {
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:40px;
-    justify-content:center;
-    text-align:center;
-}
-
-
 
 /* ==========================================================
-   FORM PADDING
+   FORMS
 ========================================================== */
 
-.request-part-form{
+.request-part-form {
 
-    background:#fff;
+    padding: 40px;
 
-    padding:40px;
+    background: #fff;
 
-    border-radius:16px;
+    border: 1px solid #e5e7eb;
 
-    border:1px solid #e5e7eb;
+    border-radius: 16px;
 
 }
+
 
 /* ==========================================================
-  GLOBAL
+   METRICS
 ========================================================== */
-
-.card,
-.product-card,
-.brand-card,
-.vehicle-card,
-.category-card,
-.metrics-card {
-
-    background:#fff;
-
-    border:1px solid #e5e7eb;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
-
-}
-
-.card:hover,
-.product-card:hover,
-.brand-card:hover,
-.vehicle-card:hover,
-.category-card:hover,
-.metrics-card:hover {
-
-    transform:translateY(-6px);
-
-    border-color:var(--color-primary);
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,.10);
-
-}
 
 .metrics-card {
 
-    padding:48px 32px;
+    padding: 48px 32px;
 
-    text-align:center;
+    text-align: center;
 
 }

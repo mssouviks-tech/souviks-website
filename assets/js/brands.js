@@ -122,6 +122,11 @@ async hydrateBrandPage() {
 
     }
 
+Breadcrumb.visit(
+    brand.name,
+    window.location.pathname
+);
+
 Breadcrumb.render(
     brand.name,
     [
@@ -162,14 +167,14 @@ renderBrandHero(
 
         <div class="brand-detail">
 
-            <div class="brand-logo">
-
-                <img
-                    src="${brand.logo}"
-                    alt="${brand.name}"
-                >
-
-            </div>
+           <div class="brand-logo">
+    <img
+        src="${brand.logo}"
+        alt="${brand.name}"
+        loading="lazy"
+        decoding="async"
+    >
+</div>
 
             <div class="brand-info">
 

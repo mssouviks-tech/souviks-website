@@ -25,6 +25,8 @@ Breadcrumb.render("Products");
 
         bindSearch();
 
+        bindSort();
+
         bindPageSize();
 
         bindReset();
@@ -150,6 +152,24 @@ function bindFilters() {
             }
         );
 
+document
+    .getElementById(
+        "subcategoryFilter"
+    )
+    ?.addEventListener(
+        "change",
+        e => {
+
+            Filters.set(
+                "subcategory_id",
+                e.target.value
+            );
+
+            applyCatalogue();
+
+        }
+    );
+
     document
         .getElementById(
             "vehicleFilter"
@@ -250,6 +270,54 @@ function bindReset() {
 
 }
 
+function bindSort() {
+
+    document
+        .getElementById(
+            "sortBy"
+        )
+        ?.addEventListener(
+            "change",
+            e => {
+
+                const value = e.target.value;
+
+                switch (value) {
+
+                    case "name-asc":
+                        Filters.sort("product_name", "asc");
+                        break;
+
+                    case "name-desc":
+                        Filters.sort("product_name", "desc");
+                        break;
+
+                    case "part-asc":
+                        Filters.sort("part_number", "asc");
+                        break;
+
+                    case "part-desc":
+                        Filters.sort("part_number", "desc");
+                        break;
+
+                    case "brand-asc":
+                        Filters.sort("brand_name", "asc");
+                        break;
+
+                    case "brand-desc":
+                        Filters.sort("brand_name", "desc");
+                        break;
+
+                }
+
+                applyCatalogue();
+
+            }
+
+        );
+
+}
+
 function populateFilters(products) {
 
     populateSelect(
@@ -275,6 +343,18 @@ function populateFilters(products) {
             )
         ]
     );
+
+populateSelect(
+    "subcategoryFilter",
+    [
+        ...new Set(
+            products.map(
+                p =>
+                    p.subcategory_id
+            )
+        )
+    ]
+);
 
     populateSelect(
         "vehicleFilter",

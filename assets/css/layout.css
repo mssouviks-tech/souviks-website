@@ -14,6 +14,15 @@
 
 }
 
+.page-content {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
 /* ==========================================================
    PAGE SECTIONS
 ========================================================== */
@@ -30,23 +39,20 @@ section {
 
 }
 
-/* ==========================================================
-   STANDARD SECTION SPACING
-========================================================== */
-
 .catalogue-search,
 .category-directory,
 .brand-directory,
 .vehicle-directory,
 .product-directory,
 .catalogue-products {
-    padding-top: 50px;
+
     padding: 20px 0;
 
 }
 
+
 /* ==========================================================
-   SECTION HEADERS
+   SECTION HEADINGS
 ========================================================== */
 
 .section-heading {
@@ -60,9 +66,12 @@ section {
 .section-heading h2 {
 
     margin-bottom: 12px;
-    font-size:42px;
-    font-weight:800;
-    color:#111827;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    color: #111827;
 
 }
 
@@ -72,13 +81,13 @@ section {
 
     margin: 0 auto;
 
-    color:#6b7280;
+    color: #6b7280;
 
 }
 
 
 /* ==========================================================
-   CTA SECTION
+   CTA
 ========================================================== */
 
 .cta-banner {
@@ -89,14 +98,6 @@ section {
 
 .cta-wrapper {
 
-    background: #ffffff;
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 20px;
-
-    padding: 24px;
-
     display: flex;
 
     justify-content: space-between;
@@ -104,6 +105,14 @@ section {
     align-items: center;
 
     gap: 30px;
+
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 20px;
 
 }
 
@@ -141,11 +150,12 @@ section {
 
     display: flex;
 
-    gap: 12px;
-
     flex-wrap: wrap;
 
+    gap: 12px;
+
 }
+
 
 /* ==========================================================
    BREADCRUMB
@@ -187,17 +197,6 @@ section {
 
 }
 
-/* ==========================================================
-   PAGE CONTENT WIDTH
-========================================================== */
-
-.page-content {
-
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-}
 
 /* ==========================================================
    FLEX UTILITIES
@@ -228,6 +227,7 @@ section {
     align-items: center;
 
 }
+
 
 /* ==========================================================
    GRID UTILITIES
@@ -266,64 +266,5 @@ section {
     grid-template-columns: repeat(4,1fr);
 
     gap: 24px;
-
-}
-
-/* ==========================================================
-   RESPONSIVE
-========================================================== */
-
-@media (max-width: 992px) {
-
-    .cta-wrapper {
-
-        flex-direction: column;
-
-        text-align: center;
-
-    }
-
-    .cta-actions {
-
-        justify-content: center;
-
-    }
-
-    .grid-4 {
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    .container {
-
-        padding: 0 16px;
-
-    }
-
-    .section-spacing,
-    .catalogue-search,
-    .category-directory,
-    .brand-directory,
-    .vehicle-directory,
-    .product-directory,
-    .catalogue-products {
-
-        padding: 40px 0;
-
-    }
-
-    .grid-4,
-    .grid-3,
-    .grid-2 {
-
-        grid-template-columns: 1fr;
-
-    }
 
 }

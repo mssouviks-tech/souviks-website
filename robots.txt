@@ -1,5 +1,6 @@
 User-agent: *
 
-Allow: /
+    Allow: /
 
-Sitemap: https://souviks.co.in/sitemap.xml
+    Sitemap: https://www.souviks.co.in/sitemap.xml
+    

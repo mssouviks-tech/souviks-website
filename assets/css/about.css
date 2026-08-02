@@ -1,139 +1,160 @@
-.store-gallery-large{
+/* ==========================================================
+   SECTION HEADINGS
+========================================================== */
 
-    display:grid;
+.section-tag {
 
-    grid-template-columns:repeat(3,1fr);
+    display: inline-block;
 
-    gap:16px;
+    color: #dc2626;
 
-    margin-top:20px;
+    font-size: 12px;
 
-}
+    font-weight: 700;
 
-.store-gallery-large img{
+    letter-spacing: 1.5px;
 
-    height:280px;
+    text-transform: uppercase;
 
-    object-fit:cover;
-
-    border-radius:16px;
-
-}
-
-.store-gallery-small{
-
-    display:grid;
-
-    grid-template-columns:repeat(5,1fr);
-
-    gap:12px;
-
-    margin-top:10px;
+    margin-bottom: 12px;
 
 }
 
-.store-gallery-small img{
+.section-heading {
 
-    height:140px;
+    position: relative;
 
-    object-fit:cover;
+    text-align: center;
 
-    border-radius:12px;
-
-}
-
-.video-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:24px;
-
-    margin-top:20px;
+    margin-bottom: 60px;
 
 }
 
-.video-card{
+.section-heading::after {
 
-    background:#fff;
+    content: "";
 
-    border:1px solid #e5e7eb;
+    display: block;
 
-    border-radius:16px;
+    width: 60px;
 
-    overflow:hidden;
+    height: 3px;
 
-}
+    margin: 20px auto 0;
 
-.video-card video{
+    border-radius: 3px;
 
-    width:100%;
-
-    display:block;
+    background: #dc2626;
 
 }
 
-.video-card h3{
 
-    padding:16px;
-
-    text-align:center;
-
-    font-size:16px;
-
-}
-
-.section-tag{
-
-    display:inline-block;
-
-    color:#dc2626;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    letter-spacing:1.5px;
-
-    text-transform:uppercase;
-
-    margin-bottom:12px;
-
-}
-
-.section-heading{
-
-    position:relative;
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-}
-
-.section-heading::after{
-
-    content:"";
-
-    width:60px;
-
-    height:3px;
-
-    background:#dc2626;
-
-    display:block;
-
-    margin:20px auto 0;
-
-    border-radius:3px;
-
-}
+/* ==========================================================
+   SECTION LAYOUT
+========================================================== */
 
 .about-story,
 .why-trust,
 .store-gallery-section,
 .store-videos {
-    padding:40px 0;
-    padding-top:50px;
+
+    padding: 40px 0;
+    padding-top: 50px;
+
+}
+
+
+/* ==========================================================
+   STORE GALLERY
+========================================================== */
+
+.store-gallery-large {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 16px;
+
+    margin-top: 20px;
+
+}
+
+.store-gallery-large img {
+
+    height: 280px;
+
+    object-fit: cover;
+
+    border-radius: 16px;
+
+}
+
+.store-gallery-small {
+
+    display: grid;
+
+    grid-template-columns: repeat(5,1fr);
+
+    gap: 12px;
+
+    margin-top: 10px;
+
+}
+
+.store-gallery-small img {
+
+    height: 140px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+}
+
+
+/* ==========================================================
+   VIDEOS
+========================================================== */
+
+.video-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 24px;
+
+    margin-top: 20px;
+
+}
+
+.video-card {
+
+    background: #fff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+}
+
+.video-card video {
+
+    display: block;
+
+    width: 100%;
+
+}
+
+.video-card h3 {
+
+    padding: 16px;
+
+    text-align: center;
+
+    font-size: 16px;
+
 }

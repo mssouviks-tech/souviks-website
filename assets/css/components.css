@@ -1,8 +1,10 @@
+/* ==========================================================
+   PAGE HERO
+========================================================== */
+
 .page-hero {
 
     position: relative;
-
-    min-height: 320px;
 
     display: flex;
 
@@ -10,9 +12,11 @@
 
     justify-content: center;
 
-    text-align: center;
+    min-height: 320px;
 
     overflow: hidden;
+
+    text-align: center;
 
 }
 
@@ -24,11 +28,10 @@
 
     inset: 0;
 
-    background:
-        linear-gradient(
-            rgba(15,23,42,.60),
-            rgba(15,23,42,.60)
-        );
+    background: linear-gradient(
+        rgba(15,23,42,.60),
+        rgba(15,23,42,.60)
+    );
 
 }
 
@@ -42,9 +45,9 @@
 
 .page-hero h1 {
 
-    color: white;
-
     font-size: 56px;
+
+    color: #ffffff;
 
 }
 
@@ -54,210 +57,172 @@
 
 }
 
+
 /* ==========================================================
-   HERO IMAGE
+   HERO BACKGROUNDS
 ========================================================== */
+
+.catalogue-hero,
+.categories-hero,
+.request-quote-hero,
+.contact-hero,
+.about-hero,
+.products-hero,
+.vehicles-hero,
+.brands-hero,
+.privacy-hero,
+.terms-hero {
+
+    position: relative;
+
+    min-height: 300px;
+
+    padding: 100px 0;
+
+    text-align: center;
+
+    align-items: center;
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: #ffffff;
+
+}
 
 .catalogue-hero,
 .categories-hero {
 
-    position: relative;
-    min-height:300px; 
-    padding: 100px 0;
-    align-items:center;
-    text-align: center;
-
     background:
-       linear-gradient(
-rgba(15,23,42,.55),
-rgba(15,23,42,.55)
-),
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
         url("/assets/images/hero/catalogue-hero.png");
 
-    background-size: cover;
-    background-position: center;
+}
 
-    color: #ffffff;
+.request-quote-hero {
+
+    background:
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
+        url("/assets/images/hero/request-quote-hero.png");
 
 }
 
 .contact-hero {
 
-    position: relative;
-    min-height:300px; 
-    padding: 100px 0;
-    align-items:center;
-    text-align: center;
-
     background:
-       linear-gradient(
-rgba(15,23,42,.55),
-rgba(15,23,42,.55)
-),
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
         url("/assets/images/hero/contact-hero.png");
-
-    background-size: cover;
-    background-position: center;
-
-    color: #ffffff;
 
 }
 
 .about-hero {
 
-    position: relative;
-    min-height:300px; 
-    padding: 100px 0;
-    align-items:center;
-    text-align: center;
-
     background:
-       linear-gradient(
-rgba(15,23,42,.55),
-rgba(15,23,42,.55)
-),
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
         url("/assets/images/hero/about-hero.png");
-
-    background-size: cover;
-    background-position: center;
-
-    color: #ffffff;
 
 }
 
 .products-hero {
 
-    position: relative;
-    min-height:300px; 
-    padding: 100px 0;
-    align-items:center;
-    text-align: center;
-
     background:
-       linear-gradient(
-rgba(15,23,42,.55),
-rgba(15,23,42,.55)
-),
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
         url("/assets/images/hero/product-hero.png");
-
-    background-size: cover;
-    background-position: center;
-
-    color: #ffffff;
 
 }
 
 .vehicles-hero {
 
-    position: relative;
-    min-height:300px; 
-    padding: 100px 0;
-    align-items:center;
-    text-align: center;
-
     background:
-       linear-gradient(
-rgba(15,23,42,.55),
-rgba(15,23,42,.55)
-),
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
         url("/assets/images/hero/vehicle-hero.jpg");
-
-    background-size: cover;
-    background-position: center;
-
-    color: #ffffff;
 
 }
 
 .brands-hero {
 
-    position: relative;
-    min-height:300px; 
-    padding: 100px 0;
-    align-items:center;
-    text-align: center;
-
     background:
-       linear-gradient(
-rgba(15,23,42,.55),
-rgba(15,23,42,.55)
-),
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
         url("/assets/images/hero/brand-hero.jpg");
 
-    background-size: cover;
-    background-position: center;
-
-    color: #ffffff;
-
 }
 
-.privacy-hero{
-
-    position: relative;
-    min-height:300px; 
-    padding: 100px 0;
-    align-items:center;
-    text-align: center;
+.privacy-hero {
 
     background:
-       linear-gradient(
-rgba(15,23,42,.55),
-rgba(15,23,42,.55)
-),
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
         url("/assets/images/hero/privacy-hero.png");
 
-    background-size: cover;
-    background-position: center;
-
-    color: #ffffff;
 }
 
-.terms-hero{
-
-    position: relative;
-    min-height:300px; 
-    padding: 100px 0;
-    align-items:center;
-    text-align: center;
+.terms-hero {
 
     background:
-       linear-gradient(
-rgba(15,23,42,.55),
-rgba(15,23,42,.55)
-),
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
         url("/assets/images/hero/terms-hero.png");
 
-    background-size: cover;
-    background-position: center;
-
-    color: #ffffff;
 }
 
-
-.index-hero{
+.index-hero {
 
     position: relative;
-    min-height:500px; 
+
+    min-height: 500px;
+
     padding: 140px 120px;
-    align-items:center;
+
     text-align: center;
 
+    align-items: center;
+
     background:
-       linear-gradient(
-rgba(15,23,42,.55),
-rgba(15,23,42,.55)
-),
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
         url("/assets/images/hero/index-hero.png");
 
     background-size: cover;
+
     background-position: center;
 
     color: #ffffff;
+
 }
 
+
 /* ==========================================================
-   HERO
+   HERO TYPOGRAPHY
 ========================================================== */
+
 .products-hero h1,
 .catalogue-hero h1,
 .categories-hero h1,
@@ -266,12 +231,15 @@ rgba(15,23,42,.55)
 .about-hero h1,
 .privacy-hero h1,
 .index-hero h1,
+.request-quote-hero h1,
 .contact-hero h1 {
+
+    margin-bottom: 16px;
 
     color: #ffffff;
 
-    margin-bottom: 16px;
 }
+
 .index-hero p,
 .products-hero p,
 .privacy-hero p,
@@ -279,25 +247,24 @@ rgba(15,23,42,.55)
 .categories-hero p,
 .brands-hero p,
 .vehicles-hero p,
+.request-quote-hero p,
 .about-hero p,
 .contact-hero p {
-
-    color: rgba(255,255,255,.9);
 
     max-width: 700px;
 
     margin: 0 auto;
+
+    color: rgba(255,255,255,.9);
+
 }
+
 
 /* ==========================================================
    HERO STATS
 ========================================================== */
 
 .hero-stats {
-
-    display: flex;
-
-    justify-content: center;
 
     display: flex;
 
@@ -314,6 +281,7 @@ rgba(15,23,42,.55)
     width: fit-content;
 
     margin-left: auto;
+
     margin-right: auto;
 
     background: rgba(255,255,255,.08);
@@ -328,24 +296,30 @@ rgba(15,23,42,.55)
 
     box-shadow:
         0 10px 30px rgba(0,0,0,.25);
+
 }
 
 .hero-stat {
 
-    text-align: center;
+    position: relative;
 
- position: relative;
+    display: flex;
+
+    gap: 14px;
 
     min-width: 140px;
 
     padding: 0 32px;
-    display: flex;
-    gap:14px;
+
+    text-align: center;
 
 }
 
 .hero-stat strong {
+
     display: block;
+
+    margin-bottom: 6px;
 
     font-size: 42px;
 
@@ -355,14 +329,16 @@ rgba(15,23,42,.55)
 
     color: #ffffff;
 
-    margin-bottom: 6px;
 }
 
 .hero-stat span {
 
-    font-size:14px;
-    color: rgba(255,255,255,.85);
+    font-size: 14px;
+
     letter-spacing: .5px;
+
+    color: rgba(255,255,255,.85);
+
 }
 
 .hero-stat:not(:last-child)::after {
@@ -371,17 +347,18 @@ rgba(15,23,42,.55)
 
     position: absolute;
 
-    right: 0;
-
     top: 50%;
 
-    transform: translateY(-50%);
+    right: 0;
 
     width: 1px;
 
     height: 60px;
 
     background: rgba(255,255,255,.18);
+
+    transform: translateY(-50%);
+
 }
 
 .hero-stat-icon {
@@ -393,37 +370,86 @@ rgba(15,23,42,.55)
     margin-bottom: 12px;
 
     object-fit: contain;
-}
-.hero-stat-content{
 
-    display:flex;
-
-    flex-direction:column;
 }
 
-.stat-number{
+.hero-stat-content {
 
-    font-size:36px;
+    display: flex;
 
-    font-weight:700;
+    flex-direction: column;
 
-    line-height:1;
-
-    color:#ffffff;
 }
 
-.stat-label{
+.stat-number {
 
-    font-size:13px;
+    font-size: 36px;
 
-    color:rgba(255,255,255,.85);
+    font-weight: 700;
+
+    line-height: 1;
+
+    color: #ffffff;
+
 }
 
-.hero-stat-divider{
+.stat-label {
 
-    width:1px;
+    font-size: 13px;
 
-    height:48px;
+    color: rgba(255,255,255,.85);
 
-    background:rgba(255,255,255,.20);
+}
+
+.hero-stat-divider {
+
+    width: 1px;
+
+    height: 48px;
+
+    background: rgba(255,255,255,.20);
+
+}
+
+
+/* ==========================================================
+   BRAND LOGO
+========================================================== */
+
+.brand-logo {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 100%;
+
+    height: 220px;
+
+    padding: 24px;
+
+    margin-bottom: 32px;
+
+    overflow: hidden;
+
+}
+
+.brand-logo img {
+
+    display: block;
+
+    width: auto;
+
+    height: auto;
+
+    max-width: 420px;
+
+    max-height: 160px;
+
+    object-fit: contain;
+
+    object-position: center;
+
 }

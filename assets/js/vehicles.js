@@ -276,21 +276,10 @@ class VehicleManager {
                 slug
 
             );
-Breadcrumb.render(
+Breadcrumb.visit(
     vehicle.model,
-    [
-        {
-            title: "Vehicles",
-            url: "/vehicles.html"
-        }
-    ]
+    window.location.pathname
 );
-
-        if (!vehicle) {
-
-            return;
-
-        }
 
 Breadcrumb.render(
     vehicle.model,
@@ -301,7 +290,6 @@ Breadcrumb.render(
         }
     ]
 );
-
         const target =
 
             Utils.el(

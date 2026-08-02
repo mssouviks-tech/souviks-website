@@ -8,6 +8,7 @@
 
 }
 
+
 /* ==========================================================
    PRODUCT LAYOUT
 ========================================================== */
@@ -26,19 +27,20 @@
 
 }
 
+
 /* ==========================================================
-   GALLERY
+   PRODUCT GALLERY
 ========================================================== */
 
 .product-gallery {
+
+    padding: 24px;
 
     background: #ffffff;
 
     border: 1px solid var(--border-color);
 
     border-radius: var(--radius-lg);
-
-    padding: 24px;
 
 }
 
@@ -68,35 +70,36 @@
 
     height: 72px;
 
+    overflow: hidden;
+
     border: 1px solid var(--border-color);
 
     border-radius: var(--radius-md);
 
-    overflow: hidden;
-
 }
 
+
 /* ==========================================================
-   SUMMARY
+   PRODUCT SUMMARY
 ========================================================== */
 
 .product-summary {
-
-    border: 1px solid var(--border-color);
-
-    border-radius: var(--radius-lg);
 
     padding: 24px;
 
     background: #ffffff;
 
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
 }
 
 .product-title {
 
-    font-size: 2.25rem;
-
     margin-bottom: 12px;
+
+    font-size: 2.25rem;
 
 }
 
@@ -104,20 +107,21 @@
 
     display: inline-block;
 
+    margin-bottom: 20px;
+
     padding: 8px 12px;
 
     background: #F3F4F6;
 
     border-radius: var(--radius-sm);
 
-    margin-bottom: 20px;
-
     font-weight: 600;
 
 }
 
+
 /* ==========================================================
-   META
+   PRODUCT META
 ========================================================== */
 
 .product-meta {
@@ -152,8 +156,9 @@
 
 }
 
+
 /* ==========================================================
-   ACTIONS
+   PRODUCT ACTIONS
 ========================================================== */
 
 .product-actions {
@@ -166,12 +171,15 @@
 
 }
 
+
 /* ==========================================================
-   DESCRIPTION
+   PRODUCT DETAILS
 ========================================================== */
 
 .product-description,
 .vehicle-applications {
+
+    padding: 32px;
 
     background: #ffffff;
 
@@ -179,9 +187,8 @@
 
     border-radius: var(--radius-lg);
 
-    padding: 32px;
-
 }
+
 
 /* ==========================================================
    SPECIFICATIONS
@@ -195,11 +202,11 @@
 
 .specifications-table th {
 
+    padding: 12px;
+
     text-align: left;
 
     background: #F9FAFB;
-
-    padding: 12px;
 
 }
 
@@ -210,6 +217,7 @@
     border-bottom: 1px solid var(--border-color);
 
 }
+
 
 /* ==========================================================
    RELATED PRODUCTS
@@ -225,11 +233,8 @@
 
     display: grid;
 
-    grid-template-columns:
-        repeat(4,minmax(0,1fr));
+    grid-template-columns: repeat(4,minmax(0,1fr));
 
     gap: 24px;
 
 }
-
-

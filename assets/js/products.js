@@ -793,39 +793,44 @@ ${galleryHtml}
 
             </div>
 
-            <div class="pdp-meta">
+          <div class="pdp-meta">
 
-                <div class="pdp-row">
+    <div class="pdp-row">
+        <strong>Product ID</strong>
+        <span>${product.id || ""}</span>
+    </div>
 
-                    <strong>Brand</strong>
+    <div class="pdp-row">
+        <strong>Part Number</strong>
+        <span>${product.part_number || ""}</span>
+    </div>
 
-                    <span>
-                        ${product.brand_name || ""}
-                    </span>
+    <div class="pdp-row">
+        <strong>Brand</strong>
+        <span>${product.brand_name || ""}</span>
+    </div>
 
-                </div>
+    <div class="pdp-row">
+        <strong>Category</strong>
+        <span>${product.category_name || ""}</span>
+    </div>
 
-                <div class="pdp-row">
+    <div class="pdp-row">
+        <strong>Sub Category</strong>
+        <span>${product.subcategory_name || ""}</span>
+    </div>
 
-                    <strong>Category</strong>
+    <div class="pdp-row">
+        <strong>Applications</strong>
+        <span>${(product.applications || []).join(", ")}</span>
+    </div>
 
-                    <span>
-                        ${product.category_name || ""}
-                    </span>
+    <div class="pdp-row">
+        <strong>Compatible Vehicles</strong>
+        <span>${(product.vehicles || []).join(", ")}</span>
+    </div>
 
-                </div>
-
-                <div class="pdp-row">
-
-                    <strong>Sub Category</strong>
-
-                    <span>
-                        ${product.subcategory_name || ""}
-                    </span>
-
-                </div>
-
-            </div>
+</div>
 <div class="pdp-actions">
 
     <div class="pdp-qty">
