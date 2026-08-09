@@ -595,7 +595,7 @@ Breadcrumb.render(
     [
         {
             title: "Products",
-            url: "/products.html"
+            url: "/${LANG}/products.html"
         }
     ]
 );
@@ -607,7 +607,7 @@ Breadcrumb.render(
     [
         {
             title: "Products",
-            url: "/products.html"
+            url: "/${LANG}/products.html"
         }
     ]
 );

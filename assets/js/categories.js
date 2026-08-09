@@ -296,7 +296,7 @@ Breadcrumb.render(
     [
         {
             title: "Categories",
-            url: "/categories.html"
+            url: "/${LANG}/categories.html"
         }
     ]
 );

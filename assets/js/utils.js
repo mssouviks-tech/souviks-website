@@ -129,7 +129,6 @@ Utils.currentSlug = function() {
 
 };
 
-
 // ======================================================
 // UNIQUE
 // ======================================================
@@ -266,7 +265,7 @@ Utils.debounce = function(
 
 Utils.productUrl = function(product) {
 
-    return `/products/${product.slug}.html`;
+    return `/${LANG}/products/${product.slug}.html`;
 
 };
 
@@ -276,7 +275,7 @@ Utils.productUrl = function(product) {
 
 Utils.brandUrl = function(brand) {
 
-    return `/brands/${brand.slug}.html`;
+    return `/${LANG}/brands/${brand.slug}.html`;
 
 };
 
@@ -286,7 +285,7 @@ Utils.brandUrl = function(brand) {
 
 Utils.categoryUrl = function(category) {
 
-    return `/categories/${category.slug}.html`;
+    return `/${LANG}/categories/${category.slug}.html`;
 
 };
 
@@ -296,7 +295,7 @@ Utils.categoryUrl = function(category) {
 
 Utils.vehicleUrl = function(vehicle) {
 
-    return `/vehicles/${vehicle.slug}.html`;
+    return `/${LANG}/vehicles/${vehicle.slug}.html`;
 
 };
 
@@ -328,3 +327,5 @@ Utils.emptyState = function(
 // ======================================================
 
 window.Utils = Utils;
+
+const LANG = window.souviks.currentLanguage;

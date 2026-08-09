@@ -1,0 +1,496 @@
+/* ==========================================================
+   LANGUAGE SWITCHER
+========================================================== */
+
+.language-switcher {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+}
+
+.language-button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .6rem;
+
+    padding: .65rem 1.2rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: #111;
+
+    font-weight: 600;
+
+    font-size: .95rem;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    white-space: nowrap;
+
+}
+
+.language-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
+
+}
+
+.language-arrow {
+
+    font-size: .75rem;
+
+    transition: transform .25s ease;
+
+}
+
+.language-menu.open + .language-arrow {
+
+    transform: rotate(180deg);
+
+}
+
+.language-menu {
+
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    right: 0;
+
+    min-width: 180px;
+
+    margin: 0;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+
+    z-index: 1200;
+
+}
+
+.language-menu.open {
+
+    display: block;
+
+}
+
+.language-menu a {
+
+    display: block;
+
+    padding: 10px 18px;
+
+    color: #222;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+}
+
+.language-menu a:hover {
+
+    background: #f3f3f3;
+
+}
+
+
+/* ==========================================================
+   TOP BAR
+========================================================== */
+
+.top-bar {
+
+    position: relative;
+
+    z-index: 1100;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    border-bottom: 2px solid #d9d9d9;
+
+}
+
+.top-bar .container {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 56px;
+
+    gap: 24px;
+
+}
+
+.top-bar-brand {
+
+    flex: 0 0 auto;
+
+}
+
+.top-logo {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+.top-logo img {
+
+    display: block;
+
+    height: 42px;
+
+    width: auto;
+
+}
+
+.top-bar-tools {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    flex: 1;
+
+    min-width: 0;
+
+    margin-left: 32px;
+
+    gap: 20px;
+
+}
+
+.top-item {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 9px 16px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+}
+
+.top-item:hover {
+
+    background: #f7f7f7;
+
+    border-color: var(--color-primary);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .10);
+
+    transform: translateY(-1px);
+
+}
+
+.top-icon {
+
+    width: 18px;
+
+    height: 18px;
+
+    flex-shrink: 0;
+
+}
+
+.top-signin {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 9px 18px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+}
+
+.top-signin:hover {
+
+    background: #f7f7f7;
+
+    border-color: var(--color-primary);
+
+    color: var(--text-primary);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .10);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ==========================================================
+   MOBILE TOP BAR
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .top-bar {
+
+        width: 100%;
+
+    }
+
+    .top-bar .container {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        width: 100%;
+
+        min-height: 52px;
+
+        padding-top: 6px;
+
+        padding-bottom: 6px;
+
+        gap: 12px;
+
+    }
+
+    .top-bar-brand {
+
+        flex: 0 0 auto;
+
+    }
+
+    .top-logo img {
+
+        height: 38px;
+
+        width: auto;
+
+    }
+
+    .top-bar-tools {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-end;
+
+        flex: 1 1 auto;
+
+        min-width: 0;
+
+        margin-left: auto;
+
+        gap: 10px;
+
+    }
+
+    /* Hide Email on mobile */
+
+    .top-bar-tools .top-email {
+
+        display: none;
+
+    }
+
+    /* Hide Phone on mobile */
+
+    .top-bar-tools .top-phone {
+
+        display: none;
+
+    }
+
+    /* Keep WhatsApp visible on mobile */
+
+    .top-bar-tools .top-whatsapp {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 6px;
+
+        padding: 7px 10px;
+
+        font-size: .8rem;
+
+        white-space: nowrap;
+
+    }
+
+    /* Hide Sign In on mobile */
+
+    .top-bar-tools .top-signin {
+
+        display: none;
+
+    }
+
+    .top-bar-tools .language-switcher {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        flex-shrink: 0;
+
+    }
+
+    .language-button {
+
+        padding: .55rem .85rem;
+
+        font-size: .8rem;
+
+    }
+
+    .top-icon {
+
+        width: 16px;
+
+        height: 16px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 576px) {
+
+    .top-bar .container {
+
+        min-height: 50px;
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+        gap: 8px;
+
+    }
+
+    .top-logo img {
+
+        height: 36px;
+
+    }
+
+    .top-bar-tools {
+
+        gap: 6px;
+
+    }
+
+    .top-bar-tools .top-whatsapp {
+
+        padding: 6px 8px;
+
+        font-size: .75rem;
+
+    }
+
+    .top-bar-tools .top-whatsapp .top-icon {
+
+        width: 15px;
+
+        height: 15px;
+
+    }
+
+    .language-button {
+
+        padding: .5rem .7rem;
+
+        font-size: .75rem;
+
+    }
+
+}

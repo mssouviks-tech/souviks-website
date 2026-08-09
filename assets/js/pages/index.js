@@ -305,16 +305,16 @@ function getSearchUrl(item) {
     switch(item.type?.toLowerCase()) {
 
         case "product":
-            return `/products/${item.slug}.html`;
+            return `/${LANG}/products/${item.slug}.html`;
 
         case "brand":
-            return `/brands/${item.slug}.html`;
+            return `/${LANG}/brands/${item.slug}.html`;
 
         case "category":
-            return `/categories/${item.slug}.html`;
+            return `/${LANG}/categories/${item.slug}.html`;
 
         case "vehicle":
-            return `/vehicles/${item.slug}.html`;
+            return `/${LANG}/vehicles/${item.slug}.html`;
 
         default:
             return item.url;

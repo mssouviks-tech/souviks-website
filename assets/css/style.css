@@ -12,9 +12,10 @@
 @import url("catalogue.css");
 @import url("product.css");
 @import url("responsive.css");
-@import url("responsive.css");
+@import url("common.css");
 @import url("about.css");
 @import url("privacy.css");
 @import url("request-part.css");
 @import url("product.css");
 @import url("product-detail.css");
+@import url("top-bar.css");

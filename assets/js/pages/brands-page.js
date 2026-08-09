@@ -22,7 +22,7 @@ document.addEventListener(
 
 Breadcrumb.start(
     "Brands",
-    "/brands.html"
+    "/${LANG}/brands.html"
 );
 
 Breadcrumb.render("Brands");

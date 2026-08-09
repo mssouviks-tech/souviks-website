@@ -1,0 +1,422 @@
+{
+"site_name": "Souviks",
+
+"menu": {
+  "home": "Home",
+  "products": "Products",
+  "brands": "Brands",
+  "vehicles": "Vehicles",
+  "categories": "Categories",
+  "about": "About Us",
+  "contact": "Contact"
+},
+
+"buttons": {
+  "search": "Search",
+  "view_details": "View Details",
+  "request_part": "Request a Part",
+  "request_quote": "Request Quote",
+  "rfq_basket": "RFQ Basket",
+  "contact": "Contact Us",
+  "submit": "Submit",
+  "clear": "Clear",
+  "reset": "Reset Filters",
+  "show_more": "Show More",
+  "show_less": "Show Less",
+  "view_all": "View All",
+  "sign_in": "Sign In",
+  "cart": "Cart",
+  "return_home": "Return Home",
+  "browse_products": "Browse Products",
+  "chat_now": "Chat Now"
+},
+
+"common": {
+  "brand": "Brand",
+  "category": "Category",
+  "subcategory": "Sub Category",
+  "vehicle": "Vehicle",
+  "part_number": "Part Number",
+  "products": "Products",
+  "last_updated": "Last Updated",
+  "showing": "Showing",
+  "of": "of",
+  "results": "Results",
+  "per_page": "Per Page",
+  "language": "Language",
+  "choose_language": "Choose Language"
+},
+
+
+"product": {
+  "description": "Description",
+  "applications": "Applications",
+"compatible_products": "Compatible Products",
+  "compatible_products_description": "Products compatible with this vehicle",
+  "compatible_vehicles": "Compatible Vehicles",
+  "related_products": "Related Products",
+  "product_information": "Product Information",
+  "features": "Features",
+  "overview": "Overview",
+  "faq": "Frequently Asked Questions",
+  "view_details": "View Details",
+  "part_number": "Part Number",
+  "brand": "Brand",
+  "category": "Category",
+  "subcategory": "Sub Category"
+},
+
+"filters": {
+  "brand": "Brand",
+  "vehicle": "Vehicle",
+  "category": "Category",
+  "subcategory": "Sub Category",
+  "all_brands": "All Brands",
+  "all_vehicles": "All Vehicles",
+  "all_categories": "All Categories",
+  "all_subcategories": "All Sub Categories",
+  "sort_by": "Sort By",
+  "featured": "Featured",
+  "name_asc": "Product Name (A–Z)",
+  "name_desc": "Product Name (Z–A)",
+  "part_number": "Part Number",
+  "search_placeholder": "Search by part number, brand or vehicle"
+},
+
+"contact": {
+  "phone": "Phone",
+  "mobile": "Mobile",
+  "email": "Email",
+  "address": "Address",
+  "contact_numbers": "Contact Numbers",
+  "location": "West Bengal",
+  "location_value": "Andal",
+  "seven_days": "7 Days",
+  "open_weekly": "Open Weekly",
+  "call_us": "Call Us",
+  "whatsapp": "WhatsApp",
+  "visit_us": "Visit Us",
+  "whatsapp_description": "Fastest way to reach us.",
+  "chat_now": "Chat Now",
+  "business_hours": "Business Hours",
+  "weekdays": "Weekdays",
+  "weekends": "Weekends",
+  "find_us": "Find Us",
+  "name": "Name",
+  "vehicle": "Vehicle",
+  "message": "Message",
+  "send_inquiry": "Send Inquiry"
+},
+
+"footer": {
+  "logo_alt": "Souviks Logo",
+  "description": "Souviks is your trusted destination for genuine OEM and premium aftermarket commercial vehicle spare parts. Serving retailers, workshops, fleet operators and distributors across India.",
+  "quick_links": "Quick Links",
+  "contact": "Contact Us",
+  "business_hours": "Business Hours",
+  "weekdays": "Monday - Saturday",
+  "weekday_hours": "7:00 AM – 9:00 PM",
+  "sunday": "Sunday",
+  "sunday_hours": "9:00 AM – 7:00 PM",
+  "genuine_parts": "Genuine Parts",
+  "trusted_since": "Trusted Since 1986",
+  "privacy": "Privacy Policy",
+  "terms": "Terms & Conditions",
+  "sitemap": "Sitemap",
+  "copyright": "All Rights Reserved."
+},
+
+"aria": {
+  "primary_navigation": "Primary Navigation",
+  "mobile_navigation": "Mobile Navigation",
+  "open_navigation": "Open Navigation",
+  "breadcrumb": "Breadcrumb",
+  "loading": "Loading content",
+  "live_polite": "polite",
+  "no_results": "No Results"
+},
+
+"cta": {
+  "tag": "Need Assistance?",
+  "title": "Looking for a Specific Part?",
+  "description": "Contact Souviks for genuine OEM and premium aftermarket commercial vehicle spare parts.",
+  "primary_text": "Request a Part",
+  "secondary_text": "Contact Us"
+},
+
+"no_results": {
+  "title": "No Matching Products Found",
+  "description": "We couldn't find any products matching your search criteria. Try changing your keywords or adjusting the selected filters.",
+  "image_alt": "No Results Found"
+},
+
+"pagination": {
+  "showing": "Showing",
+  "of": "of",
+  "results": "Results",
+  "per_page": "Per Page"
+},
+
+"home": {
+  "title": "Souviks",
+  "subtitle": "Commercial Vehicle Spare Parts Since 1986",
+  "description": "Trusted supplier of genuine OEM and aftermarket parts for Tata, Ashok Leyland, Eicher and commercial vehicles across India.",
+
+  "stats": {
+    "products": "Products",
+    "brands": "Brands",
+    "shipping": "Shipping",
+    "shipping_value": "Pan India"
+  },
+
+  "featured_categories": {
+    "title": "Featured Categories",
+    "view_all": "View All Categories →"
+  },
+
+  "featured_brands": {
+    "title": "Featured Brands",
+    "view_all": "View All Brands →"
+  },
+
+  "featured_vehicles": {
+    "title": "Featured Vehicles",
+    "view_all": "View All Vehicles →"
+  }
+},
+"products": {
+  "hero_title": "Commercial Vehicle Spare Parts",
+  "hero_description": "Browse our complete commercial vehicle spare parts catalogue.",
+
+  "stats": {
+    "products": "Products",
+    "brands": "Brands",
+    "categories": "Categories",
+    "vehicles": "Vehicles"
+  },
+
+  "summary": {
+    "showing": "Showing",
+    "products": "Products",
+    "last_updated": "Last Updated"
+  }
+},
+
+"brands": {
+  "stats": {
+    "brands": "Brands",
+    "products": "Products",
+    "categories": "Categories"
+  },
+
+  "summary": {
+    "showing": "Showing",
+    "brands": "Brands",
+    "last_updated": "Last Updated",
+    "directory_title": "Complete Brand Directory",
+    "directory_description": "Browse every manufacturer currently available in our catalogue.",
+    "view_all": "View All Brands"
+
+  },
+  "hero_title": "Our Brands",
+  "hero_description": "Browse genuine OEM and premium aftermarket manufacturers available at Souviks."
+},
+
+"brand": {
+  "products_title": "Products",
+  "products_description": "Genuine OEM and aftermarket parts"
+},
+
+"categories": {
+  "stats": {
+    "categories": "Categories",
+    "subcategories": "Sub Categories",
+    "products": "Products"
+  },
+
+  "summary": {
+    "showing": "Showing",
+    "categories": "Categories",
+    "last_updated": "Last Updated"
+},
+  "hero_title": "Product Categories",
+  "hero_description": "Browse our spare parts catalogue by category and sub-category.",
+    "browse_title": "Browse by Category",
+    "browse_description": "Explore every spare parts category available in our commercial vehicle catalogue."
+},
+
+"category": {
+  "products_title": "Products",
+  "browse_products": "Browse all products in this category"
+},
+
+"vehicles": {
+  "stats": {
+    "models": "Vehicle Models",
+    "compatible_parts": "Compatible Parts",
+    "brands": "Brands"
+  },
+  "summary": {
+    "showing": "Showing",
+    "vehicle_models": "Vehicle Models",
+    "last_updated": "Last Updated"
+  },
+    "browse_title": "Browse by Vehicle Model",
+    "browse_description": "Browse all supported commercial vehicle models currently available in our catalogue.",
+    "popular_title": "Popular Vehicle Platforms",
+    "popular_description": "Quickly access the most searched commercial vehicle applications.",
+    "view_all": "View All Vehicles",
+  "hero_title": "Browse by Vehicle",
+  "hero_description": "Find compatible spare parts by vehicle manufacturer and model.",
+    "browse_parts": "Browse Parts →"
+},
+
+"vehicle": {
+  "products_title": "Compatible Products",
+  "products_description": "Products compatible with this vehicle"
+},
+
+"about": {
+    "stats": {
+    "products": "Products",
+    "brands": "Brands"
+},
+  "hero": {
+    "title": "Trusted Commercial Vehicle Parts Since 1986",
+    "description": "Serving workshops, retailers, fleet operators and distributors with genuine OEM and premium aftermarket spare parts."
+},
+  "why": {
+    "title": "Why Customers Trust Souviks",
+    "description": "Nearly four decades of industry experience."
+  },
+    "established": "Established",
+    "applications": "Applications",
+  "our_story": "OUR STORY",
+  "story_title": "A Legacy Built On Trust Since 1986",
+  "story_p1": "For nearly four decades, Souviks has supplied genuine and aftermarket commercial vehicle spare parts to workshops, retailers and fleet operators across India.",
+  "story_p2": "What began as a local spare parts business has grown into a trusted name known for reliability, product knowledge and consistent customer support.",
+  "story_p3": "Today we stock filters, bearings, clutch parts, brake components, lubricants, electricals, engine parts and thousands of related products for trucks and buses.",
+  "card1_title": "Trusted Since 1986",
+  "card1_description": "Decades of dependable service and relationships.",
+  "card2_title": "Extensive Inventory",
+  "card2_description": "Large stock across multiple categories.",
+  "card3_title": "Commercial Vehicle Focus",
+  "card3_description": "Dedicated to trucks and buses.",
+  "card4_title": "Expert Assistance",
+  "card4_description": "Helping customers identify the right part.",
+  "our_store": "OUR STORE",
+  "store_title": "Take A Look Inside Souviks",
+  "store_front": "Store Front",
+  "store_interior": "Store Interior",
+  "store_counter": "Store Counter",
+  "inventory": "Inventory",
+  "shelves": "Shelves",
+  "lubricants": "Lubricants",
+  "parts": "Parts",
+  "belts": "Belts",
+  "store_videos": "OUR STORE VIDEOS",
+  "video_title": "See Souviks In Action",
+  "video1": "Welcome To Souviks",
+  "video2": "Inside Our Store",
+  "video3": "Quality Parts, Trusted Service"
+},
+
+"contact_page": {
+  "title": "Contact Souviks",
+  "intro": "Reach out for part availability, pricing, bulk requirements, vehicle compatibility and technical assistance."
+},
+
+"request_part": {
+  "title": "Request a Part",
+  "intro": "Can't find a spare part? Send us the details.",
+  "name": "Name",
+  "company": "Company",
+  "phone": "Phone",
+  "email": "Email",
+  "vehicle": "Vehicle Model",
+  "part_number": "Part Number",
+  "urgency": "Urgency",
+  "today": "Need Today",
+  "two_days": "Need Within 2 Days",
+  "this_week": "Need This Week",
+  "planning": "Planning Purchase",
+  "requirement": "Part Requirement",
+  "submit": "Submit Request"
+},
+
+  "rfq": {
+      "selected_parts": "Selected Parts",
+      "empty": "No items added yet.",
+      "part_number": "Part Number",
+      "product": "Product",
+      "brand": "Brand",
+      "quantity": "Quantity",
+      "remove": "Remove",
+      "customer_information": "Customer Information",
+      "name": "Name",
+      "company": "Company",
+      "phone": "Phone",
+      "email": "Email",
+      "gst": "GST Number",
+      "additional_notes": "Additional Notes",
+      "submit": "Submit for Quote"
+  },
+
+  "thankyou": {
+"request_received": "Request Received",
+      "submitted": "Your quotation request has been successfully submitted.",
+      "reference": "Reference Number:",
+      "contact_soon": "Our team will review your request and contact you shortly.",
+     "return_home": "Return Home",
+      "browse_products": "Browse Products",
+      "contact": "Contact Us"
+  },
+
+  "form": {
+    "website": "Website",
+    "required": "Required",
+    "optional": "Optional"
+  },
+ "privacy": {
+     "title": "Privacy Policy",
+     "intro": "Learn how Souviks collects, uses, stores and protects your information when interacting with our website, products and services.",
+    "sections": {
+      "information": "Information We Collect",
+      "usage": "How We Use Your Information",
+      "sharing": "Information Sharing",
+      "security": "Data Security",
+      "cookies": "Cookies",
+      "retention": "Data Retention",
+      "rights": "Your Rights",
+      "updates": "Policy Updates",
+      "contact": "Contact Us"
+    }
+  },
+  "terms": {
+     "title": "Terms & Conditions",
+     "intro": "Review the terms governing the use of the Souviks website, services, communications, inquiries and future e-commerce features.",
+    "sections": {
+      "acceptance": "Acceptance of Terms",
+      "website": "Website Usage",
+      "products": "Products & Availability",
+      "pricing": "Pricing",
+      "orders": "Orders & Quotations",
+      "intellectual_property": "Intellectual Property",
+      "liability": "Limitation of Liability",
+      "external_links": "External Links",
+      "changes": "Changes to These Terms",
+      "contact": "Contact Us"
+    }
+  },
+
+  "404": {
+      "title": "Page Not Found",
+      "heading": "Oops! We couldn't find that page.",
+      "description": "The page you are looking for doesn't exist or may have been moved.",
+      "message": "You can return to the homepage, browse our products, or contact us if you need assistance finding a specific spare part.",
+      "image_alt": "404 Page Not Found",
+        "home": "Return Home",
+      "products": "Browse Products",
+      "contact": "Contact Us"
+ }
+}

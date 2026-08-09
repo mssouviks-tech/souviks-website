@@ -1,5 +1,3 @@
-console.log("Souviks Core Loaded");
-
 document.addEventListener(
     "DOMContentLoaded",
     () => {
@@ -14,26 +12,30 @@ document.addEventListener(
                 "mobileNavigation"
             );
 
-        if(
+        if (
             !button ||
             !navigation
-        ){
+        ) {
             return;
         }
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
         button.addEventListener(
             "click",
             () => {
 
-                navigation.classList.toggle(
-                    "active"
-                );
+                const isOpen =
+                    navigation.classList.toggle(
+                        "active"
+                    );
 
                 button.setAttribute(
                     "aria-expanded",
-                    navigation.classList.contains(
-                        "active"
-                    )
+                    isOpen
                 );
 
             }

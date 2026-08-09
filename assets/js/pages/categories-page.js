@@ -15,7 +15,7 @@ async function initialisePage() {
 
 Breadcrumb.start(
     "Categories",
-    "/categories.html"
+    "/${LANG}/categories.html"
 );
 
 Breadcrumb.render("Categories");

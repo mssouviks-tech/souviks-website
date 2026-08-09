@@ -286,7 +286,7 @@ Breadcrumb.render(
     [
         {
             title: "Vehicles",
-            url: "/vehicles.html"
+            url: "/${LANG}/vehicles.html"
         }
     ]
 );

@@ -21,7 +21,7 @@ document.addEventListener(
 
 Breadcrumb.start(
     "Vehicles",
-    "/vehicles.html"
+    "/${LANG}/vehicles.html"
 );
 
 Breadcrumb.render("Vehicles");

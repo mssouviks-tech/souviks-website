@@ -132,7 +132,7 @@ Breadcrumb.render(
     [
         {
             title: "Brands",
-            url: "/brands.html"
+            url: "/${LANG}/brands.html"
         }
     ]
 );

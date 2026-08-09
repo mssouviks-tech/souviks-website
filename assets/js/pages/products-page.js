@@ -6,7 +6,7 @@ document.addEventListener(
 
 Breadcrumb.start(
     "Products",
-    "/products.html"
+    "/${LANG}/products.html"
 );
 
 Breadcrumb.render("Products");

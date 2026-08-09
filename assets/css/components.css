@@ -363,11 +363,13 @@
 
 .hero-stat-icon {
 
-    width: 32px;
+    width: 24px !important;
 
-    height: 32px;
+    height: 24px !important;
 
     margin-bottom: 12px;
+
+    flex-shrink: 0;
 
     object-fit: contain;
 

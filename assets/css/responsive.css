@@ -87,7 +87,7 @@
 
 @media (max-width: 992px) {
 
-    /* ======================================================
+        /* ======================================================
        HEADER
     ====================================================== */
 
@@ -97,27 +97,29 @@
 
     }
 
-    .mobile-menu-button {
-
-        display: block;
-
-    }
-
-    .header-actions {
+    .header-buttons {
 
         display: none;
 
     }
 
-    .header-wrapper {
+    .mobile-menu-button {
 
-        min-height: 72px;
+        display: block;
+
+        margin-left: auto;
 
     }
 
-    .logo-image {
+    .header-wrapper {
 
-        max-height: 48px;
+        min-height: 60px;
+
+        width: 100%;
+
+        justify-content: flex-end;
+
+        gap: 0;
 
     }
 
@@ -125,25 +127,27 @@
 
         position: fixed;
 
-        top: 145px;
+        top: 112px;
 
         left: 0;
 
         width: 100%;
 
-        height: calc(100vh - 145px);
+        height: calc(100vh - 112px);
 
         display: none;
 
-        padding: 24px;
+        padding: 24px 16px;
 
         overflow-y: auto;
 
-        background: #fff;
+        overflow-x: hidden;
+
+        background: #ffffff;
 
         z-index: 3000;
 
-        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
 
     }
 
@@ -294,11 +298,42 @@
 
 }
 
+    /* ======================================================
+       LANGUAGE SWITCHER
+    ====================================================== */
+
+
+
+    .language-switcher {
+
+        margin-left: auto;
+
+    }
+
+    .language-button {
+
+        padding: .55rem .9rem;
+
+        font-size: .85rem;
+
+    }
+
 /* ==========================================================
    MOBILE
 ========================================================== */
 
 @media (max-width: 768px) {
+
+    html,
+    body {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow-x: hidden;
+
+    }
 
     /* ======================================================
        CONTAINER
@@ -397,6 +432,75 @@
 
     }
 
+        .hero-content {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        margin: 0 auto;
+
+        padding: 0;
+
+        text-align: center;
+
+    }
+
+    .hero-content h1 {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+        font-size: 2rem;
+
+        line-height: 1.2;
+
+    }
+
+    .hero-content p {
+
+        width: 100%;
+
+        max-width: 620px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+        font-size: 1rem;
+
+        line-height: 1.6;
+
+    }
+
+    .hero-stats {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        width: 100%;
+
+        max-width: 520px;
+
+        margin: 24px auto 0;
+
+        gap: 12px;
+
+    }
+
+    .hero-stat {
+
+        width: 100%;
+
+    }
 
     /* ======================================================
        SEARCH

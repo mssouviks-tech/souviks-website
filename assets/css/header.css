@@ -4,19 +4,32 @@
 
 .site-header {
 
-    position: sticky;
-
-    top: 0;
+    position: relative;
 
     z-index: 1000;
 
+    margin: 0;
+
+    padding: 0;
+
     background: #ffffff;
 
-    border-bottom: 1px solid var(--border-color);
-
-    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid #d9d9d9;
 
 }
+
+.site-header .container {
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding-top: 0;
+
+    padding-bottom: 0;
+
+}
+
 
 /* ==========================================================
    WRAPPER
@@ -28,31 +41,20 @@
 
     align-items: center;
 
-    justify-content: space-between;
+    justify-content: center;
 
-    min-height: var(--header-height);
+    width: 100%;
 
-    gap: 32px;
+    min-height: 60px;
 
-}
+    margin: 0;
 
-/* ==========================================================
-   LOGO
-========================================================== */
+    padding: 0;
 
-.site-logo {
-
-    flex-shrink: 0;
+    gap: 24px;
 
 }
 
-.logo-image {
-
-    height: 52px;
-
-    width: auto;
-
-}
 
 /* ==========================================================
    NAVIGATION
@@ -60,11 +62,11 @@
 
 .main-navigation {
 
-    flex: 1;
-
     display: flex;
 
-    justify-content: center;
+    align-items: center;
+
+    flex: 0 0 auto;
 
 }
 
@@ -74,7 +76,23 @@
 
     align-items: center;
 
-    gap: 24px;
+    justify-content: center;
+
+    gap: 2rem;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+.navigation-menu li {
+
+    margin: 0;
+
+    padding: 0;
 
 }
 
@@ -82,9 +100,17 @@
 
     position: relative;
 
+    display: inline-flex;
+
+    align-items: center;
+
     white-space: nowrap;
 
     font-weight: 600;
+
+    color: var(--text-primary);
+
+    text-decoration: none;
 
 }
 
@@ -118,41 +144,23 @@
 
 }
 
+
 /* ==========================================================
-   ACTIONS
+   HEADER BUTTONS
 ========================================================== */
 
-.header-actions {
+.header-buttons {
 
     display: flex;
 
     align-items: center;
 
-    gap: 12px;
+    gap: .75rem;
+
+    flex-shrink: 0;
 
 }
 
-.header-phone {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    white-space: nowrap;
-
-    font-size: 14px;
-
-}
-
-.header-icon {
-
-    width: 18px;
-
-    height: 18px;
-
-}
 
 /* ==========================================================
    RFQ COUNT
@@ -185,6 +193,7 @@
 
 }
 
+
 /* ==========================================================
    MOBILE MENU
 ========================================================== */
@@ -196,6 +205,14 @@
     width: 44px;
 
     height: 44px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
 
 }
 
