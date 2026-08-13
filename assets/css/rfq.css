@@ -15,7 +15,23 @@
    RFQ TABLE
 ========================================================== */
 
+.rfq-basket {
+
+    width: 100%;
+
+    padding: 40px 0;
+
+}
+
 .rfq-table {
+
+    display: table;
+
+    width: 100%;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
 
     background: #ffffff;
 
@@ -29,28 +45,56 @@
 
 .rfq-table thead {
 
+    display: table-header-group;
+
     background: var(--bg-dark);
 
     color: #ffffff;
 
 }
 
-.rfq-table th {
+.rfq-table tbody {
+
+    display: table-row-group;
+
+}
+
+.rfq-table tr {
+
+    display: table-row;
+
+}
+
+.rfq-table th,
+.rfq-table td {
+
+    display: table-cell;
 
     padding: 16px;
 
     text-align: left;
 
+    vertical-align: middle;
+
+}
+
+.rfq-table th {
+
+    font-weight: 700;
+
 }
 
 .rfq-table td {
-
-    padding: 16px;
 
     border-bottom: 1px solid var(--border-color);
 
 }
 
+.rfq-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
 
 /* ==========================================================
    RFQ EMPTY STATE
