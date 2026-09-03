@@ -215,7 +215,7 @@ Reusable Head Component
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Double Pin Hanger 50MM Hole",
-  "url": "https://www.souviks.co.in/hi/products/double-pin-hanger-50mm-hole.html",
+  "url": "https://www.souviks.co.in/products/double-pin-hanger-50mm-hole/",
   "description": "Heavy-duty leaf spring hanger assembly designed for suspension mounting and load distribution.",
   "image": [
     "https://www.souviks.co.in/assets/images/products/SVKS000254/Double%20Pin%20Hanger%2050MM%20Hole.webp",
@@ -226,6 +226,7 @@ Reusable Head Component
     "https://www.souviks.co.in/assets/images/products/SVKS000254/5.webp",
     "https://www.souviks.co.in/assets/images/products/SVKS000254/6.webp"
   ],
+  "sku": "SVKS000254",
   "brand": {
     "@type": "Brand",
     "name": "JMP"
@@ -246,8 +247,8 @@ Reusable Head Component
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Products",
-      "item": "https://www.souviks.co.in/hi/products.html"
+      "name": "Double Pin Hanger 50MM Hole",
+      "item": "https://www.souviks.co.in/products/double-pin-hanger-50mm-hole/"
     },
     {
       "@type": "ListItem",
@@ -292,6 +293,7 @@ Reusable Head Component
 </head>
 
 <body>
+
 
 <div class="top-bar">
 
@@ -364,15 +366,80 @@ Reusable Head Component
             </a>
 
 
-            <!-- SIGN IN -->
+            <!-- AUTHENTICATION -->
 
-            <a
-                href="/hi/login.html"
-                class="top-signin">
+            <div
+                id="topAuth"
+                class="top-auth">
 
-                साइन इन करें
+                <!-- LOGGED OUT -->
 
-            </a>
+                <a
+                    id="topSignIn"
+                    href="/hi/login.html"
+                    class="top-signin">
+
+                    साइन इन
+
+                </a>
+
+
+                <!-- LOGGED IN -->
+
+                <div
+                    id="topUserMenu"
+                    class="top-user-menu"
+                    hidden>
+
+                    <button
+                        type="button"
+                        id="topUserButton"
+                        class="top-user-button"
+                        aria-expanded="false"
+                        aria-haspopup="true">
+
+                        <span id="topUserName">
+
+                            खाता
+
+                        </span>
+
+                        <span
+                            class="top-user-arrow"
+                            aria-hidden="true">
+
+                            ▼
+
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        id="topUserDropdown"
+                        class="top-user-dropdown"
+                        hidden>
+
+                        <a
+                            href="/hi/account.html">
+
+                            मेरा खाता
+
+                        </a>
+
+                        <button
+                            type="button"
+                            data-auth-logout>
+
+                            साइन आउट
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
             <!-- LANGUAGE -->
@@ -446,7 +513,10 @@ Reusable Head Component
 
     </div>
 
-</div> <header class="site-header">
+</div>
+
+ 
+<header class="site-header">
 
     <div class="container">
 
@@ -546,6 +616,11 @@ Reusable Head Component
 
             </nav>
 
+
+            <!-- ==========================================
+                 HEADER ACTIONS
+            =========================================== -->
+
             <div class="header-buttons">
 
                 <a
@@ -570,7 +645,12 @@ Reusable Head Component
 
                 </a>
 
-            </div>
+
+                
+
+            <!-- ==========================================
+                 MOBILE MENU BUTTON
+            =========================================== -->
 
             <button
                 id="mobileMenuButton"
@@ -590,184 +670,189 @@ Reusable Head Component
 
     </div>
 
-<!-- ==========================================================
-     MOBILE NAVIGATION
-========================================================== -->
 
-<nav
-    id="mobileNavigation"
-    class="mobile-navigation"
-    aria-label="मुख्य नेविगेशन">
+    <!-- ==========================================================
+         MOBILE NAVIGATION
+    ========================================================== -->
 
-    <!-- ==========================================
-         NAVIGATION LINKS
-    =========================================== -->
+    <nav
+        id="mobileNavigation"
+        class="mobile-navigation"
+        aria-label="मुख्य नेविगेशन">
 
-    <ul>
 
-        <li>
+        <!-- ==========================================
+             NAVIGATION LINKS
+        =========================================== -->
+
+        <ul>
+
+            <li>
+
+                <a
+                    href="/hi/"
+                    class="">
+
+                    होम
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/hi/products.html"
+                    class="">
+
+                    उत्पाद
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/hi/brands.html"
+                    class="">
+
+                    ब्रांड
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/hi/vehicles.html"
+                    class="">
+
+                    वाहन
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/hi/categories.html"
+                    class="">
+
+                    श्रेणियाँ
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/hi/about.html"
+                    class="">
+
+                    हमारे बारे में
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/hi/contact.html"
+                    class="">
+
+                    संपर्क करें
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <!-- ==========================================
+             MOBILE ACTIONS
+        =========================================== -->
+
+        <div class="mobile-navigation-actions">
 
             <a
-                href="/hi/"
-                class="">
+                href="/hi/request-part.html"
+                class="btn btn-primary">
 
-                होम
+                पार्ट का अनुरोध करें
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/hi/products.html"
-                class="">
+                href="/hi/request-quote.html"
+                class="btn btn-secondary">
 
-                उत्पाद
+                RFQ बास्केट
+
+                <span class="rfq-badge">
+
+                    0
+
+                </span>
 
             </a>
 
-        </li>
 
-        <li>
+            
+
+
+        <!-- ==========================================
+             MOBILE CONTACT
+        =========================================== -->
+
+        <div class="mobile-navigation-contact">
 
             <a
-                href="/hi/brands.html"
-                class="">
+                href="tel:+919434331896"
+                class="mobile-phone">
 
-                ब्रांड
+                <img
+                    src="/assets/icons/phone.svg"
+                    alt="फ़ोन"
+                    class="mobile-icon">
+
+                <span>
+
+                    +91 94343 31896
+
+                </span>
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/hi/vehicles.html"
-                class="">
+                href="mailto:info@souviks.co.in"
+                class="mobile-email">
 
-                वाहन
+                <img
+                    src="/assets/icons/email.svg"
+                    alt="ईमेल"
+                    class="mobile-icon">
+
+                <span>
+
+                    info@souviks.co.in
+
+                </span>
 
             </a>
 
-        </li>
+        </div>
 
-        <li>
-
-            <a
-                href="/hi/categories.html"
-                class="">
-
-                श्रेणियाँ
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/hi/about.html"
-                class="">
-
-                हमारे बारे में
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/hi/contact.html"
-                class="">
-
-                संपर्क करें
-
-            </a>
-
-        </li>
-
-    </ul>
-
-
-    <!-- ==========================================
-         MOBILE ACTIONS
-    =========================================== -->
-
-    <div class="mobile-navigation-actions">
-
-        <a
-            href="/hi/request-part.html"
-            class="btn btn-primary">
-
-            पार्ट का अनुरोध करें
-
-        </a>
-
-        <a
-            href="/hi/request-quote.html"
-            class="btn btn-secondary">
-
-            RFQ बास्केट
-
-            <span class="rfq-badge">
-
-                0
-
-            </span>
-
-        </a>
-
-    </div>
-
-
-    <!-- ==========================================
-         MOBILE CONTACT
-    =========================================== -->
-
-    <div class="mobile-navigation-contact">
-
-        <a
-            href="tel:+919434331896"
-            class="mobile-phone">
-
-            <img
-                src="/assets/icons/phone.svg"
-                alt="फ़ोन"
-                class="mobile-icon">
-
-            <span>
-
-                +91 94343 31896
-
-            </span>
-
-        </a>
-
-        <a
-            href="mailto:info@souviks.co.in"
-            class="mobile-email">
-
-            <img
-                src="/assets/icons/email.svg"
-                alt="ईमेल"
-                class="mobile-icon">
-
-            <span>
-
-                info@souviks.co.in
-
-            </span>
-
-        </a>
-
-    </div>
-
-</nav>
+    </nav>
 
 </header>
+
+
 
 <!-- ==========================================================
 SOUVIKS BREADCRUMB
@@ -1114,43 +1199,55 @@ SOUVIKS BREADCRUMB
          FOOTER BOTTOM
     =========================================== -->
 
-    <div class="footer-bottom">
+<!-- ==========================================
+     FOOTER BOTTOM
+========================================== -->
 
-        <p class="footer-copyright">
+<div class="footer-bottom">
 
-            &copy; 2026
-            Souviks.
-            सर्वाधिकार सुरक्षित।
+    <p class="footer-copyright">
 
-        </p>
+        &copy; 2026
+        Souviks.
+        सर्वाधिकार सुरक्षित।
 
-        <div class="footer-bottom-links">
+    </p>
 
-            <a href="/hi/privacy-policy.html">
+    <div class="footer-bottom-links">
 
-                गोपनीयता नीति
+        <a href="/hi/privacy-policy.html">
 
-            </a>
+            गोपनीयता नीति
 
-            <span>|</span>
+        </a>
 
-            <a href="/hi/terms.html">
+        <span>|</span>
 
-                नियम एवं शर्तें
+        <a href="/hi/terms.html">
 
-            </a>
+            नियम एवं शर्तें
 
-            <span>|</span>
+        </a>
 
-            <a href="/sitemap.xml">
+        <span>|</span>
 
-                साइटमैप
+        <a href="/hi/refund.html">
 
-            </a>
+            रिफंड नीति
 
-        </div>
+        </a>
+
+        <span>|</span>
+
+        <a href="/sitemap.xml">
+
+            साइटमैप
+
+        </a>
 
     </div>
+
+</div>
 
 </div>
 </footer>
@@ -1160,6 +1257,7 @@ SOUVIKS PAGE SCRIPTS
 Reusable JavaScript Loader
 ========================================================== -->
 
+
 <!-- ==========================================
      GLOBAL CONFIG
 ========================================== -->
@@ -1168,31 +1266,43 @@ Reusable JavaScript Loader
 
 window.souviks = {
 
-    siteName: "Souviks",
+    siteName:
+        "Souviks",
 
-    siteUrl: "https://www.souviks.co.in",
+    siteUrl:
+        "https://www.souviks.co.in",
 
-    currentPage: "Double Pin Hanger 50MM Hole",
+    currentPage:
+        "Double Pin Hanger 50MM Hole",
 
-    currentPageType: "",
+    currentPageType:
+        "",
 
-    currentPageUrl: "/hi/products/double-pin-hanger-50mm-hole.html",
+    currentPageUrl:
+        "/hi/products/double-pin-hanger-50mm-hole.html",
 
-    breadcrumbRoot: false,
+    breadcrumbRoot:
+        false,
 
-    currentLanguage: "hi",
+    currentLanguage:
+        "hi",
 
     api: {
 
-        products: "/assets/data/products.json",
+        products:
+            "/assets/data/products.json",
 
-        brands: "/assets/data/brands.json",
+        brands:
+            "/assets/data/brands.json",
 
-        categories: "/assets/data/categories.json",
+        categories:
+            "/assets/data/categories.json",
 
-        vehicles: "/assets/data/vehicles.json",
+        vehicles:
+            "/assets/data/vehicles.json",
 
-        search: "/assets/data/search.json"
+        search:
+            "/assets/data/search.json"
 
     }
 
@@ -1200,28 +1310,108 @@ window.souviks = {
 
 </script>
 
+
+<!-- ==========================================
+     SUPABASE
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+<script
+    src="/assets/js/auth/supabase.js">
+</script>
+
+<script
+    src="/assets/js/auth/register.js">
+</script>
+
+<script
+    src="/assets/js/auth/auth-state.js">
+</script>
+
+<script
+    src="/assets/js/auth/logout.js">
+</script>
+
+
 <!-- ==========================================
      GLOBAL JAVASCRIPT
 ========================================== -->
 
-<script src="/assets/js/utils.js"></script>
-<script src="/assets/js/api.js"></script>
+<script
+    src="/assets/js/utils.js">
+</script>
 
-<script src="/assets/js/products.js"></script>
-<script src="/assets/js/brands.js"></script>
-<script src="/assets/js/categories.js"></script>
-<script src="/assets/js/vehicles.js"></script>
+<script
+    src="/assets/js/api.js">
+</script>
 
-<script src="/assets/js/search.js"></script>
-<script src="/assets/js/filters.js"></script>
-<script src="/assets/js/pagination.js"></script>
-<script src="/assets/js/rfq.js"></script>
-<script src="/assets/js/breadcrumb.js"></script>
-<script src="/assets/js/language-switcher.js"></script>
+<script
+    src="/assets/js/saved-products.js">
+</script>
 
-<script src="/assets/js/main.js"></script>
+<script
+    src="/assets/js/products.js">
+</script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script
+    src="/assets/js/brands.js">
+</script>
+
+<script
+    src="/assets/js/categories.js">
+</script>
+
+<script
+    src="/assets/js/vehicles.js">
+</script>
+
+
+<script
+    src="/assets/js/search.js">
+</script>
+
+<script
+    src="/assets/js/filters.js">
+</script>
+
+<script
+    src="/assets/js/pagination.js">
+</script>
+
+<script
+    src="/assets/js/breadcrumb.js">
+</script>
+
+<script
+    src="/assets/js/language-switcher.js">
+</script>
+
+<script
+    src="/assets/js/rfq.js">
+</script>
+
+
+<script
+    src="/assets/js/main.js">
+</script>
+
+
+<!-- ==========================================
+     EMAILJS
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+
+<!-- ==========================================
+     PAGE-SPECIFIC SCRIPTS
+========================================== -->
+
 
 
 
@@ -1231,15 +1421,21 @@ window.souviks = {
 
 <script>
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    if (typeof initialisePage === "function") {
+        if (
+            typeof initialisePage ===
+            "function"
+        ) {
 
-        initialisePage();
+            initialisePage();
+
+        }
 
     }
-
-});
+);
 
 </script>
 
