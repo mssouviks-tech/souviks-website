@@ -240,6 +240,7 @@ Reusable Head Component
 
 <body>
 
+
 <div class="top-bar">
 
     <div class="container">
@@ -311,15 +312,80 @@ Reusable Head Component
             </a>
 
 
-            <!-- SIGN IN -->
+            <!-- AUTHENTICATION -->
 
-            <a
-                href="/en/login.html"
-                class="top-signin">
+            <div
+                id="topAuth"
+                class="top-auth">
 
-                Sign In
+                <!-- LOGGED OUT -->
 
-            </a>
+                <a
+                    id="topSignIn"
+                    href="/en/login.html"
+                    class="top-signin">
+
+                    Sign In
+
+                </a>
+
+
+                <!-- LOGGED IN -->
+
+                <div
+                    id="topUserMenu"
+                    class="top-user-menu"
+                    hidden>
+
+                    <button
+                        type="button"
+                        id="topUserButton"
+                        class="top-user-button"
+                        aria-expanded="false"
+                        aria-haspopup="true">
+
+                        <span id="topUserName">
+
+                            Account
+
+                        </span>
+
+                        <span
+                            class="top-user-arrow"
+                            aria-hidden="true">
+
+                            ▼
+
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        id="topUserDropdown"
+                        class="top-user-dropdown"
+                        hidden>
+
+                        <a
+                            href="/en/account.html">
+
+                            My Account
+
+                        </a>
+
+                        <button
+                            type="button"
+                            data-auth-logout>
+
+                            Sign Out
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
             <!-- LANGUAGE -->
@@ -393,7 +459,12 @@ Reusable Head Component
 
     </div>
 
-</div> <header class="site-header">
+</div>
+
+
+
+
+<header class="site-header">
 
     <div class="container">
 
@@ -493,6 +564,11 @@ Reusable Head Component
 
             </nav>
 
+
+            <!-- ==========================================
+                 HEADER ACTIONS
+            =========================================== -->
+
             <div class="header-buttons">
 
                 <a
@@ -517,7 +593,12 @@ Reusable Head Component
 
                 </a>
 
-            </div>
+
+                
+
+            <!-- ==========================================
+                 MOBILE MENU BUTTON
+            =========================================== -->
 
             <button
                 id="mobileMenuButton"
@@ -537,184 +618,189 @@ Reusable Head Component
 
     </div>
 
-<!-- ==========================================================
-     MOBILE NAVIGATION
-========================================================== -->
 
-<nav
-    id="mobileNavigation"
-    class="mobile-navigation"
-    aria-label="Primary Navigation">
+    <!-- ==========================================================
+         MOBILE NAVIGATION
+    ========================================================== -->
 
-    <!-- ==========================================
-         NAVIGATION LINKS
-    =========================================== -->
+    <nav
+        id="mobileNavigation"
+        class="mobile-navigation"
+        aria-label="Primary Navigation">
 
-    <ul>
 
-        <li>
+        <!-- ==========================================
+             NAVIGATION LINKS
+        =========================================== -->
+
+        <ul>
+
+            <li>
+
+                <a
+                    href="/en/"
+                    class="">
+
+                    Home
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/products.html"
+                    class="">
+
+                    Products
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/brands.html"
+                    class="">
+
+                    Brands
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/vehicles.html"
+                    class="">
+
+                    Vehicles
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/categories.html"
+                    class="">
+
+                    Categories
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/about.html"
+                    class="">
+
+                    About Us
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/contact.html"
+                    class="">
+
+                    Contact
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <!-- ==========================================
+             MOBILE ACTIONS
+        =========================================== -->
+
+        <div class="mobile-navigation-actions">
 
             <a
-                href="/en/"
-                class="">
+                href="/en/request-part.html"
+                class="btn btn-primary">
 
-                Home
+                Request a Part
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/en/products.html"
-                class="">
+                href="/en/request-quote.html"
+                class="btn btn-secondary">
 
-                Products
+                RFQ Basket
+
+                <span class="rfq-badge">
+
+                    0
+
+                </span>
 
             </a>
 
-        </li>
 
-        <li>
+            
+
+
+        <!-- ==========================================
+             MOBILE CONTACT
+        =========================================== -->
+
+        <div class="mobile-navigation-contact">
 
             <a
-                href="/en/brands.html"
-                class="">
+                href="tel:+919434331896"
+                class="mobile-phone">
 
-                Brands
+                <img
+                    src="/assets/icons/phone.svg"
+                    alt="Phone"
+                    class="mobile-icon">
+
+                <span>
+
+                    +91 94343 31896
+
+                </span>
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/en/vehicles.html"
-                class="">
+                href="mailto:info@souviks.co.in"
+                class="mobile-email">
 
-                Vehicles
+                <img
+                    src="/assets/icons/email.svg"
+                    alt="Email"
+                    class="mobile-icon">
+
+                <span>
+
+                    info@souviks.co.in
+
+                </span>
 
             </a>
 
-        </li>
+        </div>
 
-        <li>
-
-            <a
-                href="/en/categories.html"
-                class="">
-
-                Categories
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/en/about.html"
-                class="">
-
-                About Us
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/en/contact.html"
-                class="">
-
-                Contact
-
-            </a>
-
-        </li>
-
-    </ul>
-
-
-    <!-- ==========================================
-         MOBILE ACTIONS
-    =========================================== -->
-
-    <div class="mobile-navigation-actions">
-
-        <a
-            href="/en/request-part.html"
-            class="btn btn-primary">
-
-            Request a Part
-
-        </a>
-
-        <a
-            href="/en/request-quote.html"
-            class="btn btn-secondary">
-
-            RFQ Basket
-
-            <span class="rfq-badge">
-
-                0
-
-            </span>
-
-        </a>
-
-    </div>
-
-
-    <!-- ==========================================
-         MOBILE CONTACT
-    =========================================== -->
-
-    <div class="mobile-navigation-contact">
-
-        <a
-            href="tel:+919434331896"
-            class="mobile-phone">
-
-            <img
-                src="/assets/icons/phone.svg"
-                alt="Phone"
-                class="mobile-icon">
-
-            <span>
-
-                +91 94343 31896
-
-            </span>
-
-        </a>
-
-        <a
-            href="mailto:info@souviks.co.in"
-            class="mobile-email">
-
-            <img
-                src="/assets/icons/email.svg"
-                alt="Email"
-                class="mobile-icon">
-
-            <span>
-
-                info@souviks.co.in
-
-            </span>
-
-        </a>
-
-    </div>
-
-</nav>
+    </nav>
 
 </header>
+
+
 
 <main>
 
@@ -740,6 +826,7 @@ SOUVIKS BREADCRUMB
 
 </nav>
 
+
 <!-- ==========================================================
 TERMS HERO
 ========================================================== -->
@@ -751,15 +838,11 @@ TERMS HERO
         <div class="hero-content">
 
             <h1>
-
                 Terms & Conditions
-
             </h1>
 
             <p>
-
-                Review the terms governing the use of the Souviks website, services, communications, inquiries and future e-commerce features.
-
+                Please read these Terms & Conditions carefully before using the Souviks website, submitting an enquiry, placing an order, or purchasing products through our online services.
             </p>
 
         </div>
@@ -768,8 +851,9 @@ TERMS HERO
 
 </section>
 
+
 <!-- ==========================================================
-LEGAL CONTENT
+TERMS CONTENT
 ========================================================== -->
 
 <section class="legal-content">
@@ -778,13 +862,425 @@ LEGAL CONTENT
 
         <div class="legal-wrapper">
 
-            
+            <div class="legal-section">
+
+    <h2>Acceptance of Terms</h2>
+
+    <p>
+        By accessing or using the Souviks website, you acknowledge that you have read, understood and agreed to these Terms & Conditions.
+    </p>
+
+    <p>
+        These Terms & Conditions apply to visitors, registered users, customers and other persons who access or use the website, submit enquiries, request quotations, place orders or purchase products through Souviks.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>About Souviks</h2>
+
+    <p>
+        Souviks is the trade name of a proprietorship business owned by Chandrani Sadhu. Souviks directly supplies and sells automotive spare parts and related products to customers.
+    </p>
+
+    <p>
+        Souviks operates as an inventory-based e-commerce business. Products offered through the website are supplied from Souviks' own inventory or through its authorised procurement and supply arrangements; Souviks is not a marketplace connecting independent third-party sellers with customers.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Website Usage</h2>
+
+    <p>
+        The Souviks website provides information about automotive spare parts, brands, vehicle applications, product categories, product availability and related services.
+    </p>
+
+    <p>
+        You must use the website only for lawful purposes and must not use it in any way that may damage, disable, overburden or interfere with the website, its security or its operation.
+    </p>
+
+    <p>
+        Product descriptions, specifications, photographs, applications and other information are provided to help customers make informed decisions. Souviks makes reasonable efforts to keep such information accurate and current, but information may change from time to time.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Products & Product Information</h2>
+
+    <p>
+        Souviks supplies genuine OEM and aftermarket automotive spare parts for commercial vehicles and other applications shown in the catalogue.
+    </p>
+
+    <p>
+        Automotive parts can be application-specific. Customers are responsible for providing accurate vehicle, model, part-number and specification information and for confirming compatibility before purchase where applicable.
+    </p>
+
+    <p>
+        Displaying a product on the website does not by itself guarantee stock availability, immediate dispatch or suitability for a particular vehicle.
+    </p>
+
+    <ul>
+        <li>Customers should verify the part number and application before placing an order.</li>
+        <li>Product packaging, branding or appearance may vary where the supplied product remains materially consistent with the product ordered.</li>
+        <li>Availability shown on the website is subject to actual stock and supplier availability.</li>
+    </ul>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Customer Accounts</h2>
+
+    <p>
+        Where customer accounts are available, you are responsible for maintaining the confidentiality of your login credentials and for activities carried out through your account.
+    </p>
+
+    <p>
+        You must provide accurate and current information and promptly notify Souviks if you believe your account or credentials have been compromised.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Orders & Contract Formation</h2>
+
+    <p>
+        An order placed through the website constitutes an offer by the customer to purchase the selected products subject to these Terms & Conditions and the applicable order details.
+    </p>
+
+    <p>
+        Souviks may accept or decline an order based on product availability, pricing, technical or application requirements, payment issues, suspected fraud, regulatory requirements or other legitimate business reasons. A contract of sale is formed when Souviks confirms acceptance of the order through the applicable ordering process.
+    </p>
+
+    <p>
+        Where a product cannot be supplied after acceptance or where a material error has occurred, Souviks will provide the remedy required under applicable law and the applicable order or return policy, which may include cancellation and refund.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Pricing, Taxes & Availability</h2>
+
+    <p>
+        Product prices will be displayed together with applicable taxes and other mandatory charges where required. Delivery, freight, handling and other applicable charges will be disclosed before order completion.
+    </p>
+
+    <p>
+        Prices, taxes, stock availability and promotional offers may change before an order is placed. The price applicable to an accepted order will be the price displayed and confirmed during the applicable ordering process, subject to correction of manifest errors where permitted by law.
+    </p>
+
+    <p>
+        If a pricing or product-information error materially affects an order, Souviks may contact the customer before fulfilment and provide an appropriate resolution, including cancellation and refund where applicable.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Payment</h2>
+
+    <p>
+        Souviks may accept UPI, cash, bank transfer, cash on delivery, net banking and credit or debit cards, subject to availability and the options displayed at checkout.
+    </p>
+
+    <p>
+        Customers must provide accurate billing and payment information and use only payment methods they are authorised to use. Payment-provider terms may also apply to the transaction.
+    </p>
+
+    <p>
+        Payment processing may be performed by authorised third-party payment service providers. Souviks will handle payment information in accordance with applicable law, its Privacy Policy and the security practices of the relevant payment provider.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Delivery & Shipment</h2>
+
+    <p>
+        Delivery times shown at checkout or communicated by Souviks are estimates unless expressly stated otherwise. The usual estimated delivery period is approximately 5–10 working days, but actual delivery may vary.
+    </p>
+
+    <p>
+        Delivery may be affected by destination, product availability, carrier operations, weather, public holidays, remote-location restrictions, customer-provided address information and other circumstances beyond reasonable control.
+    </p>
+
+    <p>
+        Free shipping is available for purchases above ₹45,000 unless a product-specific or promotional condition states otherwise. For other orders, shipping charges may vary according to product size, weight, destination and applicable logistics requirements.
+    </p>
+
+    <p>
+        Delivery Partners:
+        Delhivery, Blue Dart, FedEx, XpressBees, India Post and DHL, or other suitable logistics providers selected by Souviks.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Order Cancellation</h2>
+
+    <p>
+        Where cancellation is available before dispatch, a customer may request cancellation through the mechanism provided by Souviks or by contacting customer support.
+    </p>
+
+    <p>
+        Cancellation is not permitted after an order has been dispatched. Once dispatched, any eligible issue must be handled under the applicable return, exchange, refund or warranty process.
+    </p>
+
+    <p>
+        Nothing in this section limits any cancellation, refund or other consumer right that cannot lawfully be excluded.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Returns, Exchanges & Refunds</h2>
+
+    <p>
+        Returns, exchanges and refunds are governed by the Souviks Exchange & Return Policy published on the website. That policy forms part of these Terms & Conditions.
+    </p>
+
+    <p>
+        Souviks accepts return or exchange requests for products that are received damaged or have a verified manufacturing defect, subject to the applicable policy, inspection and applicable law.
+    </p>
+
+    <p>
+        Visible damage received with a delivery must be reported to Souviks within 1 hour of delivery. Eligible return or exchange requests generally must be raised within 7 days of delivery.
+    </p>
+
+    <p>
+        Lubricants are non-returnable. Electrical and electronic products are returnable or exchangeable only where the product was received damaged, subject to inspection and the applicable product conditions. Where an original seal is required to remain intact, a broken seal may make the product ineligible for return. Approved refunds are processed after the returned product has been received and inspected.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Warranty</h2>
+
+    <p>
+        Some products may be covered by a manufacturer or supplier warranty. Where applicable, warranty claims will be handled according to the relevant warranty terms and conditions.
+    </p>
+
+    <p>
+        Warranty coverage may depend on proper installation, intended use, maintenance and compliance with manufacturer instructions. Nothing in these Terms excludes any statutory consumer right or remedy that cannot lawfully be excluded.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Customer Information & User Content</h2>
+
+    <p>
+        Where the website allows customers to submit reviews, enquiries, images or other information, you must ensure that the information provided is accurate and lawful and does not infringe the rights of any other person.
+    </p>
+
+    <p>
+        Souviks may use customer-submitted information for the purpose for which it was provided and in accordance with the Privacy Policy and applicable law.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Intellectual Property</h2>
+
+    <p>
+        The Souviks name, logo, website design, text, graphics, images, catalogue content and other original website materials are protected by applicable intellectual-property laws.
+    </p>
+
+    <p>
+        You may not reproduce, modify, distribute, publish, reverse engineer or commercially exploit website materials without appropriate permission, except where permitted by applicable law.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Privacy & Personal Data</h2>
+
+    <p>
+        Souviks collects and processes personal information in accordance with its Privacy Policy and applicable data-protection laws.
+    </p>
+
+    <p>
+        Personal information may be processed for account management, order fulfilment, payment processing, delivery, customer support, fraud prevention, legal compliance and other purposes described in the Privacy Policy.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Liability</h2>
+
+    <p>
+        Souviks will take reasonable care in operating the website and fulfilling accepted orders. The website may occasionally be unavailable due to maintenance, technical issues, third-party failures or circumstances beyond reasonable control.
+    </p>
+
+    <p>
+        Nothing in these Terms excludes or restricts any liability, consumer right or remedy that cannot lawfully be excluded or restricted under applicable law.
+    </p>
+
+    <p>
+        Subject to the preceding paragraph, Souviks will not be liable for losses caused solely by circumstances beyond its reasonable control or by inaccurate or incomplete information supplied by the customer, except to the extent liability cannot lawfully be excluded.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Third-Party Links & Services</h2>
+
+    <p>
+        The website may contain links to third-party websites, payment services, social-media platforms or other external services.
+    </p>
+
+    <p>
+        Souviks does not control third-party services and is not responsible for their content, availability, security or policies. Your use of a third-party service may be subject to its own terms and privacy policy.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Changes to These Terms</h2>
+
+    <p>
+        Souviks may update these Terms & Conditions from time to time to reflect changes in the website, products, services, business practices or applicable legal requirements.
+    </p>
+
+    <p>
+        The updated version will be published on this page with its effective date. Continued use of the website after an update constitutes acceptance of the revised Terms to the extent permitted by applicable law.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Governing Law & Jurisdiction</h2>
+
+    <p>
+        These Terms & Conditions are governed by the laws of India and are subject to applicable consumer-protection and other mandatory legal rights.
+    </p>
+
+    <p>
+        Subject to applicable law and the jurisdiction of competent consumer forums and authorities, disputes arising in connection with these Terms or transactions with Souviks shall be subject to the jurisdiction of the competent courts at Durgapur, West Bengal.
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Grievance Redressal</h2>
+
+    <p>
+        Souviks maintains a grievance-redressal mechanism for customer complaints relating to products, orders, returns, refunds, payments, deliveries and other website services.
+    </p>
+
+    <p>
+        <strong>
+            Grievance Officer:
+        </strong>
+        Sujit Kumar Sadhu
+    </p>
+
+    <p>
+        <strong>
+            Designation:
+        </strong>
+        Head, Finance and Sales
+    </p>
+
+    <p>
+        <strong>
+            Grievance Email:
+        </strong>
+        mssouviks@gmail.com
+    </p>
+
+    <p>
+        <strong>
+            Grievance Phone:
+        </strong>
+        +91 94343 31896 / +91 79082 15701
+    </p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>Contact Us</h2>
+
+    <p>
+        For questions about these Terms & Conditions, products, orders, payments, deliveries, returns or related services, please contact Souviks.
+    </p>
+
+    <p>
+        <strong>
+            Phone:
+        </strong>
+        +91 94343 31896
+    </p>
+
+    <p>
+        <strong>
+            WhatsApp:
+        </strong>
+        +91 79082 15701
+    </p>
+
+    <p>
+        <strong>
+            Email:
+        </strong>
+        mssouviks@gmail.com
+    </p>
+
+    <p>
+        <strong>
+            Address:
+        </strong>
+        CN-119(2), Souviks Building, Beside NH-2, Andal More, West Bengal - 713321
+    </p>
+
+</div>
 
         </div>
 
     </div>
 
 </section>
+
 
 <div class="container">
 
@@ -1109,43 +1605,55 @@ LEGAL CONTENT
          FOOTER BOTTOM
     =========================================== -->
 
-    <div class="footer-bottom">
+<!-- ==========================================
+     FOOTER BOTTOM
+========================================== -->
 
-        <p class="footer-copyright">
+<div class="footer-bottom">
 
-            &copy; 2026
-            Souviks.
-            All Rights Reserved.
+    <p class="footer-copyright">
 
-        </p>
+        &copy; 2026
+        Souviks.
+        All Rights Reserved.
 
-        <div class="footer-bottom-links">
+    </p>
 
-            <a href="/en/privacy-policy.html">
+    <div class="footer-bottom-links">
 
-                Privacy Policy
+        <a href="/en/privacy-policy.html">
 
-            </a>
+            Privacy Policy
 
-            <span>|</span>
+        </a>
 
-            <a href="/en/terms.html">
+        <span>|</span>
 
-                Terms & Conditions
+        <a href="/en/terms.html">
 
-            </a>
+            Terms & Conditions
 
-            <span>|</span>
+        </a>
 
-            <a href="/sitemap.xml">
+        <span>|</span>
 
-                Sitemap
+        <a href="/en/refund.html">
 
-            </a>
+            Refund Policy
 
-        </div>
+        </a>
+
+        <span>|</span>
+
+        <a href="/sitemap.xml">
+
+            Sitemap
+
+        </a>
 
     </div>
+
+</div>
 
 </div>
 </footer>
@@ -1155,6 +1663,7 @@ SOUVIKS PAGE SCRIPTS
 Reusable JavaScript Loader
 ========================================================== -->
 
+
 <!-- ==========================================
      GLOBAL CONFIG
 ========================================== -->
@@ -1163,31 +1672,43 @@ Reusable JavaScript Loader
 
 window.souviks = {
 
-    siteName: "Souviks",
+    siteName:
+        "Souviks",
 
-    siteUrl: "https://www.souviks.co.in",
+    siteUrl:
+        "https://www.souviks.co.in",
 
-    currentPage: "Terms & Conditions",
+    currentPage:
+        "Terms & Conditions",
 
-    currentPageType: "",
+    currentPageType:
+        "",
 
-    currentPageUrl: "/en/terms.html",
+    currentPageUrl:
+        "/en/terms.html",
 
-    breadcrumbRoot: false,
+    breadcrumbRoot:
+        false,
 
-    currentLanguage: "en",
+    currentLanguage:
+        "en",
 
     api: {
 
-        products: "/assets/data/products.json",
+        products:
+            "/assets/data/products.json",
 
-        brands: "/assets/data/brands.json",
+        brands:
+            "/assets/data/brands.json",
 
-        categories: "/assets/data/categories.json",
+        categories:
+            "/assets/data/categories.json",
 
-        vehicles: "/assets/data/vehicles.json",
+        vehicles:
+            "/assets/data/vehicles.json",
 
-        search: "/assets/data/search.json"
+        search:
+            "/assets/data/search.json"
 
     }
 
@@ -1195,28 +1716,108 @@ window.souviks = {
 
 </script>
 
+
+<!-- ==========================================
+     SUPABASE
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+<script
+    src="/assets/js/auth/supabase.js">
+</script>
+
+<script
+    src="/assets/js/auth/register.js">
+</script>
+
+<script
+    src="/assets/js/auth/auth-state.js">
+</script>
+
+<script
+    src="/assets/js/auth/logout.js">
+</script>
+
+
 <!-- ==========================================
      GLOBAL JAVASCRIPT
 ========================================== -->
 
-<script src="/assets/js/utils.js"></script>
-<script src="/assets/js/api.js"></script>
+<script
+    src="/assets/js/utils.js">
+</script>
 
-<script src="/assets/js/products.js"></script>
-<script src="/assets/js/brands.js"></script>
-<script src="/assets/js/categories.js"></script>
-<script src="/assets/js/vehicles.js"></script>
+<script
+    src="/assets/js/api.js">
+</script>
 
-<script src="/assets/js/search.js"></script>
-<script src="/assets/js/filters.js"></script>
-<script src="/assets/js/pagination.js"></script>
-<script src="/assets/js/rfq.js"></script>
-<script src="/assets/js/breadcrumb.js"></script>
-<script src="/assets/js/language-switcher.js"></script>
+<script
+    src="/assets/js/saved-products.js">
+</script>
 
-<script src="/assets/js/main.js"></script>
+<script
+    src="/assets/js/products.js">
+</script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script
+    src="/assets/js/brands.js">
+</script>
+
+<script
+    src="/assets/js/categories.js">
+</script>
+
+<script
+    src="/assets/js/vehicles.js">
+</script>
+
+
+<script
+    src="/assets/js/search.js">
+</script>
+
+<script
+    src="/assets/js/filters.js">
+</script>
+
+<script
+    src="/assets/js/pagination.js">
+</script>
+
+<script
+    src="/assets/js/breadcrumb.js">
+</script>
+
+<script
+    src="/assets/js/language-switcher.js">
+</script>
+
+<script
+    src="/assets/js/rfq.js">
+</script>
+
+
+<script
+    src="/assets/js/main.js">
+</script>
+
+
+<!-- ==========================================
+     EMAILJS
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+
+<!-- ==========================================
+     PAGE-SPECIFIC SCRIPTS
+========================================== -->
+
 
 
 
@@ -1226,15 +1827,21 @@ window.souviks = {
 
 <script>
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    if (typeof initialisePage === "function") {
+        if (
+            typeof initialisePage ===
+            "function"
+        ) {
 
-        initialisePage();
+            initialisePage();
+
+        }
 
     }
-
-});
+);
 
 </script>
 

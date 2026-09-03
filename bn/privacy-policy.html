@@ -27,7 +27,7 @@ Reusable Head Component
 
     <title>
 
-        Privacy Policy | Souviks
+        গোপনীয়তা নীতি | Souviks
 
     </title>
 
@@ -240,6 +240,7 @@ Reusable Head Component
 
 <body>
 
+
 <div class="top-bar">
 
     <div class="container">
@@ -311,15 +312,80 @@ Reusable Head Component
             </a>
 
 
-            <!-- SIGN IN -->
+            <!-- AUTHENTICATION -->
 
-            <a
-                href="/bn/login.html"
-                class="top-signin">
+            <div
+                id="topAuth"
+                class="top-auth">
 
-                সাইন ইন
+                <!-- LOGGED OUT -->
 
-            </a>
+                <a
+                    id="topSignIn"
+                    href="/bn/login.html"
+                    class="top-signin">
+
+                    সাইন ইন
+
+                </a>
+
+
+                <!-- LOGGED IN -->
+
+                <div
+                    id="topUserMenu"
+                    class="top-user-menu"
+                    hidden>
+
+                    <button
+                        type="button"
+                        id="topUserButton"
+                        class="top-user-button"
+                        aria-expanded="false"
+                        aria-haspopup="true">
+
+                        <span id="topUserName">
+
+                            অ্যাকাউন্ট
+
+                        </span>
+
+                        <span
+                            class="top-user-arrow"
+                            aria-hidden="true">
+
+                            ▼
+
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        id="topUserDropdown"
+                        class="top-user-dropdown"
+                        hidden>
+
+                        <a
+                            href="/bn/account.html">
+
+                            আমার অ্যাকাউন্ট
+
+                        </a>
+
+                        <button
+                            type="button"
+                            data-auth-logout>
+
+                            সাইন আউট
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
             <!-- LANGUAGE -->
@@ -393,7 +459,10 @@ Reusable Head Component
 
     </div>
 
-</div> <header class="site-header">
+</div>
+
+ 
+<header class="site-header">
 
     <div class="container">
 
@@ -493,6 +562,11 @@ Reusable Head Component
 
             </nav>
 
+
+            <!-- ==========================================
+                 HEADER ACTIONS
+            =========================================== -->
+
             <div class="header-buttons">
 
                 <a
@@ -517,7 +591,12 @@ Reusable Head Component
 
                 </a>
 
-            </div>
+
+                
+
+            <!-- ==========================================
+                 MOBILE MENU BUTTON
+            =========================================== -->
 
             <button
                 id="mobileMenuButton"
@@ -537,184 +616,189 @@ Reusable Head Component
 
     </div>
 
-<!-- ==========================================================
-     MOBILE NAVIGATION
-========================================================== -->
 
-<nav
-    id="mobileNavigation"
-    class="mobile-navigation"
-    aria-label="প্রধান নেভিগেশন">
+    <!-- ==========================================================
+         MOBILE NAVIGATION
+    ========================================================== -->
 
-    <!-- ==========================================
-         NAVIGATION LINKS
-    =========================================== -->
+    <nav
+        id="mobileNavigation"
+        class="mobile-navigation"
+        aria-label="প্রধান নেভিগেশন">
 
-    <ul>
 
-        <li>
+        <!-- ==========================================
+             NAVIGATION LINKS
+        =========================================== -->
+
+        <ul>
+
+            <li>
+
+                <a
+                    href="/bn/"
+                    class="">
+
+                    হোম
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/products.html"
+                    class="">
+
+                    পণ্যসমূহ
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/brands.html"
+                    class="">
+
+                    ব্র্যান্ডসমূহ
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/vehicles.html"
+                    class="">
+
+                    যানবাহন
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/categories.html"
+                    class="">
+
+                    বিভাগসমূহ
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/about.html"
+                    class="">
+
+                    আমাদের সম্পর্কে
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/contact.html"
+                    class="">
+
+                    যোগাযোগ
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <!-- ==========================================
+             MOBILE ACTIONS
+        =========================================== -->
+
+        <div class="mobile-navigation-actions">
 
             <a
-                href="/bn/"
-                class="">
+                href="/bn/request-part.html"
+                class="btn btn-primary">
 
-                হোম
+                যন্ত্রাংশের অনুরোধ করুন
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/bn/products.html"
-                class="">
+                href="/bn/request-quote.html"
+                class="btn btn-secondary">
 
-                পণ্যসমূহ
+                RFQ ঝুড়ি
+
+                <span class="rfq-badge">
+
+                    0
+
+                </span>
 
             </a>
 
-        </li>
 
-        <li>
+            
+
+
+        <!-- ==========================================
+             MOBILE CONTACT
+        =========================================== -->
+
+        <div class="mobile-navigation-contact">
 
             <a
-                href="/bn/brands.html"
-                class="">
+                href="tel:+919434331896"
+                class="mobile-phone">
 
-                ব্র্যান্ডসমূহ
+                <img
+                    src="/assets/icons/phone.svg"
+                    alt="ফোন"
+                    class="mobile-icon">
+
+                <span>
+
+                    +91 94343 31896
+
+                </span>
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/bn/vehicles.html"
-                class="">
+                href="mailto:info@souviks.co.in"
+                class="mobile-email">
 
-                যানবাহন
+                <img
+                    src="/assets/icons/email.svg"
+                    alt="ইমেইল"
+                    class="mobile-icon">
+
+                <span>
+
+                    info@souviks.co.in
+
+                </span>
 
             </a>
 
-        </li>
+        </div>
 
-        <li>
-
-            <a
-                href="/bn/categories.html"
-                class="">
-
-                বিভাগসমূহ
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/bn/about.html"
-                class="">
-
-                আমাদের সম্পর্কে
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/bn/contact.html"
-                class="">
-
-                যোগাযোগ
-
-            </a>
-
-        </li>
-
-    </ul>
-
-
-    <!-- ==========================================
-         MOBILE ACTIONS
-    =========================================== -->
-
-    <div class="mobile-navigation-actions">
-
-        <a
-            href="/bn/request-part.html"
-            class="btn btn-primary">
-
-            যন্ত্রাংশের অনুরোধ করুন
-
-        </a>
-
-        <a
-            href="/bn/request-quote.html"
-            class="btn btn-secondary">
-
-            RFQ ঝুড়ি
-
-            <span class="rfq-badge">
-
-                0
-
-            </span>
-
-        </a>
-
-    </div>
-
-
-    <!-- ==========================================
-         MOBILE CONTACT
-    =========================================== -->
-
-    <div class="mobile-navigation-contact">
-
-        <a
-            href="tel:+919434331896"
-            class="mobile-phone">
-
-            <img
-                src="/assets/icons/phone.svg"
-                alt="ফোন"
-                class="mobile-icon">
-
-            <span>
-
-                +91 94343 31896
-
-            </span>
-
-        </a>
-
-        <a
-            href="mailto:info@souviks.co.in"
-            class="mobile-email">
-
-            <img
-                src="/assets/icons/email.svg"
-                alt="ইমেইল"
-                class="mobile-icon">
-
-            <span>
-
-                info@souviks.co.in
-
-            </span>
-
-        </a>
-
-    </div>
-
-</nav>
+    </nav>
 
 </header>
+
+
 
 <main>
 
@@ -758,7 +842,7 @@ SOUVIKS BREADCRUMB
 
             <p>
 
-                আমাদের ওয়েবসাইট, পণ্য এবং পরিষেবার সাথে যোগাযোগ করার সময় Souviks কীভাবে আপনার তথ্য সংগ্রহ, ব্যবহার, সংরক্ষণ এবং সুরক্ষিত করে তা জানুন।
+                আপনি আমাদের ওয়েবসাইট ব্যবহার করলে, অ্যাকাউন্ট তৈরি করলে, অনুসন্ধান পাঠালে, কোটেশনের অনুরোধ করলে, অর্ডার করলে অথবা আমাদের পরিষেবার সঙ্গে অন্যভাবে যুক্ত হলে Souviks কীভাবে আপনার ব্যক্তিগত তথ্য সংগ্রহ, ব্যবহার, সংরক্ষণ, শেয়ার এবং সুরক্ষিত করে তা জানুন।
 
             </p>
 
@@ -778,7 +862,210 @@ SOUVIKS BREADCRUMB
 
         <div class="legal-wrapper">
 
-            
+            <div class="legal-section">
+
+    <h2>আমরা যে ব্যক্তিগত তথ্য সংগ্রহ করি</h2>
+
+    <p>আপনি আমাদের ওয়েবসাইট ব্যবহার করলে, আমাদের সঙ্গে যোগাযোগ করলে, অ্যাকাউন্ট তৈরি বা পরিচালনা করলে, কোনো পার্টের অনুসন্ধান বা কোটেশনের অনুরোধ পাঠালে, অর্ডার করলে, কাস্টমার সাপোর্টের সঙ্গে যোগাযোগ করলে বা ওয়েবসাইটের অন্যান্য কার্যক্রমে অংশ নিলে Souviks আপনার ব্যক্তিগত তথ্য সংগ্রহ করতে পারে।</p>
+
+    <p>আমরা যে তথ্য সংগ্রহ করি তা আপনি কোন পরিষেবা ব্যবহার করছেন তার উপর নির্ভর করে এবং এতে আপনার পরিচয় নির্ধারণ, আপনার সঙ্গে যোগাযোগ, অর্ডার প্রক্রিয়াকরণ, পণ্য ডেলিভারি, সহায়তা প্রদান, রেকর্ড সংরক্ষণ এবং প্রযোজ্য আইনগত প্রয়োজনীয়তা পূরণের জন্য যুক্তিসঙ্গতভাবে প্রয়োজনীয় তথ্য অন্তর্ভুক্ত থাকতে পারে।</p>
+
+    <p>আপনি ওয়েবসাইট ব্যবহার করার সময় আমরা কিছু প্রযুক্তিগত এবং ব্যবহার-সংক্রান্ত তথ্য স্বয়ংক্রিয়ভাবেও সংগ্রহ করতে পারি।</p>
+
+    <ul>
+        <li>নাম এবং যোগাযোগের তথ্য, যার মধ্যে ফোন নম্বর, মোবাইল নম্বর এবং ইমেল ঠিকানা রয়েছে।</li>
+        <li>বিলিং, শিপিং এবং ডেলিভারি ঠিকানার তথ্য।</li>
+        <li>ব্যবসায়িক তথ্য, যেমন কোম্পানির নাম, GSTIN এবং প্রদান করা হলে সংশ্লিষ্ট তথ্য।</li>
+        <li>অ্যাকাউন্টের তথ্য, যার মধ্যে লগইন ক্রেডেনশিয়াল, সংরক্ষিত পছন্দ এবং অ্যাকাউন্টের কার্যকলাপ রয়েছে।</li>
+        <li>অর্ডার, অনুসন্ধান, কোটেশন, ইনভয়েস, রিটার্ন, রিফান্ড এবং কাস্টমার সাপোর্ট সংক্রান্ত তথ্য।</li>
+        <li>IP ঠিকানা, ব্রাউজারের ধরন, ডিভাইসের তথ্য, অপারেটিং সিস্টেমের তথ্য, আনুমানিক অবস্থানের তথ্য এবং ওয়েবসাইট ব্যবহারের তথ্যের মতো প্রযুক্তিগত তথ্য।</li>
+    </ul>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>তথ্য প্রক্রিয়াকরণের উদ্দেশ্য</h2>
+
+    <p>Souviks আমাদের ব্যবসা পরিচালনা এবং গ্রাহকদের অনুরোধ করা পরিষেবা প্রদানের সঙ্গে সম্পর্কিত নির্দিষ্ট, বৈধ এবং যুক্তিসঙ্গতভাবে প্রয়োজনীয় উদ্দেশ্যে ব্যক্তিগত তথ্য প্রক্রিয়াকরণ করে।</p>
+
+    <ul>
+        <li>গ্রাহক অ্যাকাউন্ট তৈরি, যাচাই এবং পরিচালনা করা।</li>
+        <li>অনুসন্ধান, পার্টের অনুরোধ, কোটেশনের অনুরোধ এবং কাস্টমার সাপোর্টের অনুরোধের উত্তর দেওয়া।</li>
+        <li>অর্ডার, ইনভয়েস, পেমেন্ট, রিফান্ড, এক্সচেঞ্জ এবং ওয়ারেন্টি-সংক্রান্ত অনুরোধ প্রক্রিয়াকরণ করা।</li>
+        <li>শিপিং, ডেলিভারি, শিপমেন্ট ট্র্যাকিং এবং লজিস্টিকস পরিষেবা প্রদানকারীদের সঙ্গে প্রয়োজনীয় যোগাযোগের ব্যবস্থা করা।</li>
+        <li>ব্যবসায়িক, কর, হিসাবরক্ষণ, লেনদেন এবং কাস্টমার সার্ভিস সংক্রান্ত রেকর্ড সংরক্ষণ করা।</li>
+        <li>জালিয়াতি, অপব্যবহার, অননুমোদিত কার্যকলাপ এবং নিরাপত্তাজনিত ঘটনা প্রতিরোধ করা।</li>
+        <li>প্রযোজ্য আইন, নিয়ন্ত্রক প্রয়োজনীয়তা, আইনগত প্রক্রিয়া এবং কর্তৃপক্ষের বৈধ অনুরোধ মেনে চলা।</li>
+    </ul>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>আইনি ভিত্তি ও সম্মতি</h2>
+
+    <p>যেখানে প্রযোজ্য ডেটা সুরক্ষা আইন নির্দিষ্ট আইনি ভিত্তি বা বিজ্ঞপ্তির প্রয়োজন করে, সেখানে Souviks সংশ্লিষ্ট প্রক্রিয়াকরণ কার্যক্রমের ক্ষেত্রে প্রযোজ্য আইনি ভিত্তির উপর ভিত্তি করে ব্যক্তিগত তথ্য প্রক্রিয়াকরণ করবে। পরিস্থিতি অনুযায়ী এর মধ্যে সম্মতি, অনুরোধ করা পরিষেবা বা লেনদেনের জন্য প্রয়োজনীয় প্রক্রিয়াকরণ, আইনগত বাধ্যবাধকতা পালন অথবা প্রযোজ্য আইন দ্বারা স্বীকৃত অন্য কোনো ভিত্তি অন্তর্ভুক্ত হতে পারে।</p>
+
+    <p>যেখানে প্রক্রিয়াকরণ সম্মতির উপর ভিত্তি করে হয়, Souviks প্রয়োজনীয় তথ্য প্রদান করবে এবং উপযুক্ত পদ্ধতিতে সম্মতি চাইবে। যেখানে প্রযোজ্য আইন সম্মতি প্রত্যাহারের অধিকার প্রদান করে, সেখানে সম্মতি প্রত্যাহারের প্রক্রিয়া এবং এর ফলাফল সংশ্লিষ্ট আইন অনুযায়ী পরিচালিত হবে।</p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>তথ্য প্রকাশ ও শেয়ারিং</h2>
+
+    <p>Souviks ব্যক্তিগত তথ্যকে বাণিজ্যিক পণ্য হিসেবে বিক্রি করে না। পরিষেবা প্রদান, লেনদেন সম্পন্ন করা, আমাদের সিস্টেম ও ব্যবসা সুরক্ষিত রাখা বা প্রযোজ্য আইন মেনে চলার জন্য যুক্তিসঙ্গতভাবে প্রয়োজন হলে আমরা ব্যক্তিগত তথ্য প্রকাশ বা শেয়ার করতে পারি।</p>
+
+    <ul>
+        <li>পেমেন্ট গেটওয়ে, ব্যাংক এবং অনুমোদিত পেমেন্ট পরিষেবা প্রদানকারী।</li>
+        <li>কুরিয়ার, লজিস্টিকস এবং ডেলিভারি পরিষেবা প্রদানকারী।</li>
+        <li>হোস্টিং, প্রযুক্তি, যোগাযোগ, নিরাপত্তা, অ্যানালিটিক্স এবং কাস্টমার সাপোর্ট পরিষেবা প্রদানকারী।</li>
+        <li>পেশাদার পরামর্শদাতা, অডিটর, বিমা প্রদানকারী এবং অন্যান্য পরিষেবা প্রদানকারী, যেখানে ব্যবসায়িক বা আইনগত উদ্দেশ্যে যুক্তিসঙ্গতভাবে প্রয়োজন হয়।</li>
+        <li>সরকারি কর্তৃপক্ষ, নিয়ন্ত্রক, আদালত, আইন প্রয়োগকারী সংস্থা বা অন্যান্য প্রাপক, যেখানে প্রযোজ্য আইন অনুযায়ী তথ্য প্রকাশ করা প্রয়োজন বা অনুমোদিত।</li>
+    </ul>
+
+    <p>পরিষেবার উপর নির্ভর করে কিছু তৃতীয় পক্ষ আমাদের পক্ষে তথ্য প্রক্রিয়াকরণ করতে পারে, আবার অন্যরা নিজেদের আইনগত দায়িত্বের অধীনে তথ্য প্রক্রিয়াকরণ করতে পারে। তাদের নিজস্ব শর্তাবলী ও গোপনীয়তা নীতিও প্রযোজ্য হতে পারে।</p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>পেমেন্ট সংক্রান্ত তথ্য</h2>
+
+    <p>Souviks UPI, নগদ, ব্যাংক ট্রান্সফার, ক্যাশ অন ডেলিভারি, নেট ব্যাংকিং এবং ক্রেডিট বা ডেবিট কার্ডসহ বিভিন্ন পেমেন্ট বিকল্প প্রদান করতে পারে, যা নির্দিষ্ট অর্ডারের জন্য উপলব্ধ বিকল্পের উপর নির্ভর করবে।</p>
+
+    <p>যেখানে তৃতীয় পক্ষের পেমেন্ট পরিষেবা প্রদানকারীর মাধ্যমে পেমেন্ট প্রক্রিয়া করা হয়, সেখানে সংবেদনশীল পেমেন্ট ক্রেডেনশিয়াল সরাসরি সেই প্রদানকারী পরিচালনা করতে পারে। অর্ডার প্রক্রিয়াকরণ, পেমেন্ট মিলিয়ে দেখা, রিফান্ড, কাস্টমার সাপোর্ট, জালিয়াতি প্রতিরোধ এবং প্রযোজ্য আইনগত বা হিসাবরক্ষণ সংক্রান্ত প্রয়োজনের জন্য যুক্তিসঙ্গতভাবে প্রয়োজনীয় তথ্যই Souviks গ্রহণ ও সংরক্ষণ করবে।</p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>ডেলিভারি ও লজিস্টিকস</h2>
+
+    <p>অর্ডার পূরণ করার জন্য Souviks গ্রাহকের নাম, টেলিফোন নম্বর, ডেলিভারি ঠিকানা, অর্ডারের বিবরণ এবং শিপমেন্টের জন্য প্রয়োজনীয় অন্যান্য তথ্য দায়িত্বপ্রাপ্ত লজিস্টিকস বা ডেলিভারি প্রদানকারীর সঙ্গে শেয়ার করতে পারে।</p>
+
+    <p>গন্তব্য, প্যাকেজের বৈশিষ্ট্য, পরিষেবার প্রাপ্যতা, খরচ, ডেলিভারি প্রয়োজনীয়তা এবং অন্যান্য কার্যকরী বিষয়ের উপর ভিত্তি করে ডেলিভারি প্রদানকারী পরিবর্তিত হতে পারে।</p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>কুকিজ ও অনুরূপ প্রযুক্তি</h2>
+
+    <p>Souviks ওয়েবসাইট পরিচালনা, সেশন বজায় রাখা, পছন্দ মনে রাখা, কর্মক্ষমতা উন্নত করা, ওয়েবসাইট ব্যবহারের ধরন বোঝা এবং নিরাপত্তায় সহায়তা করার জন্য কুকিজ, লোকাল স্টোরেজ এবং অনুরূপ প্রযুক্তি ব্যবহার করতে পারে।</p>
+
+    <p>যেখানে প্রযোজ্য, ঐচ্ছিক প্রযুক্তি উপলব্ধ কুকি বা গোপনীয়তা সেটিংসের মাধ্যমে নিয়ন্ত্রণ করা যেতে পারে। ওয়েবসাইটে সংযুক্ত তৃতীয় পক্ষের পরিষেবাগুলিও তাদের নিজস্ব নীতি এবং প্রযোজ্য প্রয়োজনীয়তার অধীন কুকিজ বা অনুরূপ প্রযুক্তি ব্যবহার করতে পারে।</p>
+
+    <ul>
+        <li>ওয়েবসাইটের মূল কার্যকারিতা, অ্যাকাউন্ট সেশন এবং নিরাপত্তার জন্য প্রয়োজনীয় প্রযুক্তি।</li>
+        <li>ভাষা, সেটিংস বা অন্যান্য পছন্দ মনে রাখার জন্য ব্যবহৃত প্রেফারেন্স প্রযুক্তি।</li>
+        <li>যেখানে সক্রিয় করা থাকে, ওয়েবসাইট ব্যবহারের ধরন বোঝা এবং পরিষেবা উন্নত করার জন্য অ্যানালিটিক্স বা পারফরম্যান্স প্রযুক্তি।</li>
+        <li>নিরাপত্তা, জালিয়াতি প্রতিরোধ বা অপব্যবহার শনাক্তকরণ প্রযুক্তি।</li>
+    </ul>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>তথ্য সংরক্ষণ</h2>
+
+    <p>Souviks ব্যক্তিগত তথ্য শুধুমাত্র সেই সময় পর্যন্ত সংরক্ষণ করে যতদিন তা সংগ্রহের উদ্দেশ্যে যুক্তিসঙ্গতভাবে প্রয়োজন, যার মধ্যে পরিষেবা প্রদান, লেনদেন সম্পন্ন করা, ব্যবসায়িক ও কর সংক্রান্ত রেকর্ড সংরক্ষণ, বিরোধ নিষ্পত্তি, জালিয়াতি প্রতিরোধ, চুক্তি কার্যকর করা এবং প্রযোজ্য আইনগত বা নিয়ন্ত্রক বাধ্যবাধকতা পালন অন্তর্ভুক্ত।</p>
+
+    <p>তথ্য সংরক্ষণের সময়কাল তথ্যের ধরন, প্রক্রিয়াকরণের উদ্দেশ্য এবং প্রযোজ্য আইনগত প্রয়োজনীয়তার উপর নির্ভর করে পরিবর্তিত হতে পারে। যখন তথ্যের আর প্রয়োজন থাকে না এবং তা সংরক্ষণের কোনো বৈধ কারণ থাকে না, তখন Souviks তা মুছে ফেলা, অ্যানোনিমাইজ করা বা নিরাপদভাবে নিষ্পত্তি করার জন্য যুক্তিসঙ্গত ব্যবস্থা নেবে।</p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>তথ্যের নিরাপত্তা</h2>
+
+    <p>Souviks ব্যক্তিগত তথ্যকে অননুমোদিত প্রবেশ, অপব্যবহার, ক্ষতি, পরিবর্তন, ধ্বংস বা প্রকাশ থেকে রক্ষা করার জন্য যুক্তিসঙ্গত প্রযুক্তিগত ও সাংগঠনিক নিরাপত্তা ব্যবস্থা বজায় রাখে।</p>
+
+    <p>ইন্টারনেটের মাধ্যমে কোনো ডেটা ট্রান্সমিশন, ওয়েবসাইট বা তথ্য সংরক্ষণ ব্যবস্থা সম্পূর্ণ নিরাপদ বলে নিশ্চয়তা দেওয়া যায় না। গ্রাহকদের নিজেদের অ্যাকাউন্টের ক্রেডেনশিয়াল সুরক্ষিত রাখতে হবে এবং অননুমোদিত প্রবেশ বা নিরাপত্তাজনিত ঘটনার সন্দেহ হলে দ্রুত Souviks-কে জানাতে হবে।</p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>আপনার গোপনীয়তার অধিকার</h2>
+
+    <p>প্রযোজ্য ডেটা সুরক্ষা আইন এবং সেখানে নির্ধারিত শর্ত বা সীমাবদ্ধতার অধীন, ব্যক্তিদের তাদের ব্যক্তিগত তথ্য সম্পর্কিত কিছু অধিকার থাকতে পারে।</p>
+
+    <ul>
+        <li>Souviks যে ব্যক্তিগত তথ্য প্রক্রিয়াকরণ করে সে সম্পর্কে তথ্যের অনুরোধ করা।</li>
+        <li>ভুল বা অসম্পূর্ণ ব্যক্তিগত তথ্য সংশোধন বা আপডেটের অনুরোধ করা।</li>
+        <li>যেখানে প্রযোজ্য আইন এমন অধিকার প্রদান করে, সেখানে তথ্য মুছে ফেলা বা অন্যান্য ব্যবস্থা নেওয়ার অনুরোধ করা।</li>
+        <li>যেখানে প্রক্রিয়াকরণ সম্মতির উপর ভিত্তি করে এবং প্রযোজ্য আইন এমন অধিকার প্রদান করে, সেখানে সম্মতি প্রত্যাহার করা।</li>
+        <li>ব্যক্তিগত তথ্য পরিচালনার বিষয়ে অভিযোগ বা গ্রিভেন্স দাখিল করা।</li>
+    </ul>
+
+    <p>অনুরোধের ক্ষেত্রে যুক্তিসঙ্গত পরিচয় যাচাই প্রয়োজন হতে পারে। যেখানে প্রযোজ্য আইন অনুমতি দেয় বা প্রয়োজন করে, সেখানে আইনগত, নিরাপত্তা, জালিয়াতি প্রতিরোধ বা বিরোধ নিষ্পত্তির জন্য তথ্য সংরক্ষণ করা প্রয়োজন হলে Souviks কোনো অনুরোধ প্রত্যাখ্যান, সীমিত বা স্থগিত করতে পারে।</p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>শিশুদের ব্যক্তিগত তথ্য</h2>
+
+    <p>Souviks জেনেশুনে শিশুদের ব্যক্তিগত তথ্য প্রক্রিয়াকরণের চেষ্টা করে না, শুধুমাত্র সেই পরিস্থিতি ব্যতীত যেখানে প্রযোজ্য আইন অনুযায়ী এমন প্রক্রিয়াকরণ অনুমোদিত এবং প্রয়োজনীয় সুরক্ষা ব্যবস্থা প্রয়োগ করা হয়েছে। যদি আমরা এমন কোনো প্রক্রিয়াকরণ সম্পর্কে জানতে পারি যা প্রযোজ্য প্রয়োজনীয়তা পূরণ করে না, তাহলে আমরা আইন অনুযায়ী উপযুক্ত ব্যবস্থা নেব।</p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>এই গোপনীয়তা নীতির পরিবর্তন</h2>
+
+    <p>আমাদের ওয়েবসাইট, পরিষেবা, ডেটা প্রক্রিয়াকরণের পদ্ধতি বা প্রযোজ্য আইনগত প্রয়োজনীয়তার পরিবর্তন প্রতিফলিত করতে Souviks সময়ে সময়ে এই Privacy Policy আপডেট করতে পারে।</p>
+
+    <p>আপডেট করা Privacy Policy কার্যকর তারিখসহ এই পৃষ্ঠায় প্রকাশ করা হবে। যেখানে প্রযোজ্য আইন কোনো গুরুত্বপূর্ণ পরিবর্তনের জন্য অতিরিক্ত বিজ্ঞপ্তির প্রয়োজন করে, সেখানে Souviks উপযুক্ত মাধ্যমে সেই বিজ্ঞপ্তি প্রদান করবে।</p>
+
+</div>
+
+
+<div class="legal-section">
+
+    <h2>যোগাযোগ করুন</h2>
+
+    <p>ব্যক্তিগত তথ্য প্রক্রিয়াকরণ সংক্রান্ত প্রশ্ন, গোপনীয়তা অনুরোধ বা অভিযোগের জন্য Souviks-এর সঙ্গে যোগাযোগ করুন।</p>
+
+    <p>
+        <strong>ব্যবসা:</strong>
+        Souviks
+    </p>
+
+    <p>
+        <strong>গোপনীয়তা / অভিযোগ যোগাযোগ:</strong>
+        Sujit Kumar Sadhu, Head, Finance and Sales
+    </p>
+
+    <p>
+        <strong>ইমেল:</strong>
+        mssouviks@gmail.com
+    </p>
+
+    <p>
+        <strong>ফোন:</strong>
+        +91 94343 31896 / +91 79082 15701
+    </p>
+
+    <p>
+        <strong>ঠিকানা:</strong>
+        CN-119(2), Souviks Building, Beside NH-2, Andal More, West Bengal - 713321
+    </p>
+
+</div>
 
         </div>
 
@@ -1109,43 +1396,55 @@ SOUVIKS BREADCRUMB
          FOOTER BOTTOM
     =========================================== -->
 
-    <div class="footer-bottom">
+<!-- ==========================================
+     FOOTER BOTTOM
+========================================== -->
 
-        <p class="footer-copyright">
+<div class="footer-bottom">
 
-            &copy; 2026
-            Souviks.
-            সর্বস্বত্ব সংরক্ষিত।
+    <p class="footer-copyright">
 
-        </p>
+        &copy; 2026
+        Souviks.
+        সর্বস্বত্ব সংরক্ষিত।
 
-        <div class="footer-bottom-links">
+    </p>
 
-            <a href="/bn/privacy-policy.html">
+    <div class="footer-bottom-links">
 
-                গোপনীয়তা নীতি
+        <a href="/bn/privacy-policy.html">
 
-            </a>
+            গোপনীয়তা নীতি
 
-            <span>|</span>
+        </a>
 
-            <a href="/bn/terms.html">
+        <span>|</span>
 
-                শর্তাবলী
+        <a href="/bn/terms.html">
 
-            </a>
+            শর্তাবলী
 
-            <span>|</span>
+        </a>
 
-            <a href="/sitemap.xml">
+        <span>|</span>
 
-                সাইটম্যাপ
+        <a href="/bn/refund.html">
 
-            </a>
+            রিফান্ড নীতি
 
-        </div>
+        </a>
+
+        <span>|</span>
+
+        <a href="/sitemap.xml">
+
+            সাইটম্যাপ
+
+        </a>
 
     </div>
+
+</div>
 
 </div>
 </footer>
@@ -1155,6 +1454,7 @@ SOUVIKS PAGE SCRIPTS
 Reusable JavaScript Loader
 ========================================================== -->
 
+
 <!-- ==========================================
      GLOBAL CONFIG
 ========================================== -->
@@ -1163,31 +1463,43 @@ Reusable JavaScript Loader
 
 window.souviks = {
 
-    siteName: "Souviks",
+    siteName:
+        "Souviks",
 
-    siteUrl: "https://www.souviks.co.in",
+    siteUrl:
+        "https://www.souviks.co.in",
 
-    currentPage: "Privacy Policy",
+    currentPage:
+        "গোপনীয়তা নীতি",
 
-    currentPageType: "",
+    currentPageType:
+        "",
 
-    currentPageUrl: "/bn/privacy-policy.html",
+    currentPageUrl:
+        "/bn/privacy-policy.html",
 
-    breadcrumbRoot: false,
+    breadcrumbRoot:
+        false,
 
-    currentLanguage: "bn",
+    currentLanguage:
+        "bn",
 
     api: {
 
-        products: "/assets/data/products.json",
+        products:
+            "/assets/data/products.json",
 
-        brands: "/assets/data/brands.json",
+        brands:
+            "/assets/data/brands.json",
 
-        categories: "/assets/data/categories.json",
+        categories:
+            "/assets/data/categories.json",
 
-        vehicles: "/assets/data/vehicles.json",
+        vehicles:
+            "/assets/data/vehicles.json",
 
-        search: "/assets/data/search.json"
+        search:
+            "/assets/data/search.json"
 
     }
 
@@ -1195,28 +1507,108 @@ window.souviks = {
 
 </script>
 
+
+<!-- ==========================================
+     SUPABASE
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+<script
+    src="/assets/js/auth/supabase.js">
+</script>
+
+<script
+    src="/assets/js/auth/register.js">
+</script>
+
+<script
+    src="/assets/js/auth/auth-state.js">
+</script>
+
+<script
+    src="/assets/js/auth/logout.js">
+</script>
+
+
 <!-- ==========================================
      GLOBAL JAVASCRIPT
 ========================================== -->
 
-<script src="/assets/js/utils.js"></script>
-<script src="/assets/js/api.js"></script>
+<script
+    src="/assets/js/utils.js">
+</script>
 
-<script src="/assets/js/products.js"></script>
-<script src="/assets/js/brands.js"></script>
-<script src="/assets/js/categories.js"></script>
-<script src="/assets/js/vehicles.js"></script>
+<script
+    src="/assets/js/api.js">
+</script>
 
-<script src="/assets/js/search.js"></script>
-<script src="/assets/js/filters.js"></script>
-<script src="/assets/js/pagination.js"></script>
-<script src="/assets/js/rfq.js"></script>
-<script src="/assets/js/breadcrumb.js"></script>
-<script src="/assets/js/language-switcher.js"></script>
+<script
+    src="/assets/js/saved-products.js">
+</script>
 
-<script src="/assets/js/main.js"></script>
+<script
+    src="/assets/js/products.js">
+</script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script
+    src="/assets/js/brands.js">
+</script>
+
+<script
+    src="/assets/js/categories.js">
+</script>
+
+<script
+    src="/assets/js/vehicles.js">
+</script>
+
+
+<script
+    src="/assets/js/search.js">
+</script>
+
+<script
+    src="/assets/js/filters.js">
+</script>
+
+<script
+    src="/assets/js/pagination.js">
+</script>
+
+<script
+    src="/assets/js/breadcrumb.js">
+</script>
+
+<script
+    src="/assets/js/language-switcher.js">
+</script>
+
+<script
+    src="/assets/js/rfq.js">
+</script>
+
+
+<script
+    src="/assets/js/main.js">
+</script>
+
+
+<!-- ==========================================
+     EMAILJS
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+
+<!-- ==========================================
+     PAGE-SPECIFIC SCRIPTS
+========================================== -->
+
 
 
 
@@ -1226,15 +1618,21 @@ window.souviks = {
 
 <script>
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    if (typeof initialisePage === "function") {
+        if (
+            typeof initialisePage ===
+            "function"
+        ) {
 
-        initialisePage();
+            initialisePage();
+
+        }
 
     }
-
-});
+);
 
 </script>
 

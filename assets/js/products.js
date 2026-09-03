@@ -58,7 +58,7 @@ constructor() {
     // PRODUCT CARD
     // ======================================================
 
-   card(product) {
+card(product) {
 
     const cardImage =
 
@@ -73,15 +73,32 @@ constructor() {
 
         '/assets/images/placeholder.webp';
 
+
+    const productId =
+        String(
+            product.id
+        );
+
+
+    const isSaved =
+        typeof SavedProducts !==
+        "undefined" &&
+
+        SavedProducts.isSaved(
+            productId
+        );
+
+
     return `
 
-    <article class="product-card">
+    <article
+        class="product-card">
 
-<a
-    href="${Utils.productUrl(product)}"
-    data-breadcrumb="${product.product_name}"
-    data-breadcrumb-type="detail"
->
+        <a
+            href="${Utils.productUrl(product)}"
+            data-breadcrumb="${product.product_name}"
+            data-breadcrumb-type="detail"
+        >
 
             <div class="product-image">
 
@@ -90,6 +107,44 @@ constructor() {
                     alt="${product.product_name}"
                     loading="lazy"
                 >
+
+                <button
+                    type="button"
+                    class="product-save-button ${
+                        isSaved
+                            ? "is-saved"
+                            : ""
+                    }"
+                    data-saved-product-id="${productId}"
+                    data-saved="${
+                        isSaved
+                            ? "true"
+                            : "false"
+                    }"
+                    aria-pressed="${
+                        isSaved
+                            ? "true"
+                            : "false"
+                    }"
+                    aria-label="${
+                        isSaved
+                            ? "Remove from saved products"
+                            : "Save product"
+                    }">
+
+                    <span
+                        data-saved-icon
+                        aria-hidden="true">
+
+                        ${
+                            isSaved
+                                ? "♥"
+                                : "♡"
+                        }
+
+                    </span>
+
+                </button>
 
             </div>
 
@@ -1164,20 +1219,32 @@ const removeBtn =
         ".pdp-remove-btn"
     );
 
+
+/*
+----------------------------------------------------------
+LOAD EXISTING RFQ ITEM
+----------------------------------------------------------
+*/
+
+const rfqItems =
+    await RFQ.get();
+
 const rfqItem =
-    RFQ.get().find(
+    rfqItems.find(
         item =>
-        item.id === product.id
+            item.id === product.id
     );
+
 
 let inRFQ = false;
 
-if(
+
+if (
     rfqItem &&
     qtyInput &&
     rfqBtn &&
     removeBtn
-){
+) {
 
     inRFQ = true;
 
@@ -1192,19 +1259,32 @@ if(
 
 }
 
+
+/*
+----------------------------------------------------------
+PDP QUANTITY — MINUS
+----------------------------------------------------------
+*/
+
 minusBtn?.addEventListener(
+
     "click",
+
     () => {
 
         qtyInput.value =
             Math.max(
+
                 1,
+
                 Number(
                     qtyInput.value
                 ) - 1
+
             );
 
-        if(inRFQ){
+
+        if (inRFQ) {
 
             rfqBtn.textContent =
                 "Update RFQ";
@@ -1212,10 +1292,20 @@ minusBtn?.addEventListener(
         }
 
     }
+
 );
 
+
+/*
+----------------------------------------------------------
+PDP QUANTITY — PLUS
+----------------------------------------------------------
+*/
+
 plusBtn?.addEventListener(
+
     "click",
+
     () => {
 
         qtyInput.value =
@@ -1223,7 +1313,8 @@ plusBtn?.addEventListener(
                 qtyInput.value
             ) + 1;
 
-        if(inRFQ){
+
+        if (inRFQ) {
 
             rfqBtn.textContent =
                 "Update RFQ";
@@ -1231,13 +1322,23 @@ plusBtn?.addEventListener(
         }
 
     }
+
 );
+
+
+/*
+----------------------------------------------------------
+PDP QUANTITY — MANUAL INPUT
+----------------------------------------------------------
+*/
 
 qtyInput?.addEventListener(
+
     "input",
+
     () => {
 
-        if(inRFQ){
+        if (inRFQ) {
 
             rfqBtn.textContent =
                 "Update RFQ";
@@ -1245,60 +1346,63 @@ qtyInput?.addEventListener(
         }
 
     }
+
 );
 
+
+/*
+----------------------------------------------------------
+PDP — ADD / UPDATE RFQ
+----------------------------------------------------------
+*/
+
 rfqBtn?.addEventListener(
+
     "click",
-    () => {
+
+    async () => {
 
         const qty =
-            Number(
-                qtyInput.value
+            Math.max(
+
+                1,
+
+                Number(
+                    qtyInput.value
+                ) || 1
+
             );
 
-        const items =
-            RFQ.get();
 
-        const existing =
-            items.find(
-                item =>
-                item.id === product.id
+        const success =
+            await RFQ.setQuantity(
+
+                product.id,
+
+                {
+
+                    partNumber:
+                        product.part_number,
+
+                    name:
+                        product.product_name,
+
+                    brand:
+                        product.brand_name
+
+                },
+
+                qty
+
             );
 
-        if(existing){
 
-            existing.qty =
-                qty;
+        if (!success) {
 
-        }
-        else{
-
-            items.push({
-
-                id:
-                    product.id,
-
-                partNumber:
-                    product.part_number,
-
-                name:
-                    product.product_name,
-
-                brand:
-                    product.brand_name,
-
-                qty:
-                    qty
-
-            });
+            return;
 
         }
 
-        RFQ.save(
-            items
-        );
-
-        RFQ.updateBadge();
 
         inRFQ = true;
 
@@ -1309,19 +1413,31 @@ rfqBtn?.addEventListener(
             "block";
 
     }
+
 );
 
-removeBtn?.addEventListener(
-    "click",
-    () => {
 
-        RFQ.remove(
+/*
+----------------------------------------------------------
+PDP — REMOVE FROM RFQ
+----------------------------------------------------------
+*/
+
+removeBtn?.addEventListener(
+
+    "click",
+
+    async () => {
+
+        await RFQ.remove(
             product.id
         );
 
+
         inRFQ = false;
 
-        qtyInput.value = 1;
+        qtyInput.value =
+            1;
 
         rfqBtn.textContent =
             "Add To RFQ";
@@ -1330,6 +1446,7 @@ removeBtn?.addEventListener(
             "none";
 
     }
+
 );
 
 const mainImage =

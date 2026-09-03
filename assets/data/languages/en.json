@@ -11,6 +11,171 @@
   "contact": "Contact"
 },
 
+"auth": {
+    "sign_in": "Sign In",
+    "account": "Account",
+    "my_account": "My Account",
+    "sign_out": "Sign Out",
+
+    "login_intro": "Log in to manage your Souviks account.",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "full_name": "Full Name",
+    "forgot_password": "Forgot Password",
+    "forgot_password_intro": "Enter your email address and we'll send you a password reset link.",
+    "no_account": "Don't have an account?",
+    "create_account": "Create Your Account",
+    "already_account": "Already have an account?",
+    "register_intro": "Create an account to manage your Souviks profile and future enquiries.",
+
+    "new_password": "New Password",
+    "confirm_new_password": "Confirm New Password",
+    "reset_password": "Reset Password",
+    "reset_password_intro": "Choose a new password for your Souviks account.",
+    "update_password": "Update Password",
+    "remember_password": "Remember your password?",
+    "send_reset_link": "Send Reset Link",
+
+    "email_required": "Please enter your email address.",
+    "password_required": "Please enter your password.",
+    "invalid_credentials": "Invalid email or password.",
+    "email_not_confirmed": "Please verify your email address before logging in.",
+    "too_many_attempts": "Too many login attempts. Please wait and try again.",
+    "network_error": "Unable to connect to the authentication service. Please try again.",
+    "login_failed": "Login could not be completed. Please try again.",
+    "authentication_unavailable": "Authentication service is unavailable. Please try again later.",
+    "something_went_wrong": "Something went wrong. Please try again.",
+
+    "full_name_required": "Please enter your full name.",
+    "password_create_required": "Please enter a password.",
+    "password_min_length": "Password must be at least 6 characters.",
+    "password_mismatch": "Passwords do not match.",
+    "registration_failed": "Unable to create your account. Please try again.",
+    "account_exists": "An account with this email already exists.",
+    "registration_success": "Account created successfully. Please check your email to verify your account.",
+
+    "reset_email_failed": "Unable to process your request. Please try again later.",
+    "reset_email_success": "If an account exists for this email address, a password reset email has been sent.",
+
+    "reset_session_invalid": "This password reset link is invalid or has expired. Please request a new one.",
+    "reset_session_error": "The password reset link could not be verified. Please request a new reset link.",
+    "reset_session_unavailable": "Unable to verify the password reset session.",
+    "new_password_required": "Please enter a new password.",
+    "password_update_failed": "Unable to update your password. Please request a new reset link.",
+    "password_update_success": "Your password has been updated successfully. Redirecting to login..."
+},
+
+"account": {
+  "page_title": "My Account",
+  "page_intro": "Manage your Souviks account and profile.",
+  "saved_intro": "Products you have saved for quick access.",
+"saved_loading": "Loading your saved products...",
+"saved_empty": "You haven't saved any products yet.",
+  "navigation": "Account",
+  "my_account": "My Account",
+  "rfq": "RFQ",
+  "my_saved": "My Saved",
+  "my_vehicles": "My Vehicles",
+  "my_orders": "My Orders",
+  "my_invoices": "My Invoices",
+  "coming_soon": "Coming Soon",
+
+  "profile": "Profile",
+  "profile_intro": "Your account information.",
+  "edit_profile": "Edit Profile",
+
+  "full_name": "Full Name",
+  "email": "Email",
+  "phone": "Phone",
+  "company": "Company",
+  "business_account": "Business Account",
+  "gst_number": "GST Number",
+
+  "edit_title": "Edit Profile",
+  "edit_intro": "Update the information associated with your Souviks account.",
+
+  "email_managed": "Your account email is managed through your sign-in credentials.",
+
+  "is_business": "Is this for a business?",
+
+  "account": "Account",
+  "rfq_basket": "RFQ Basket",
+  "change_password": "Change Password",
+
+  "save_changes": "Save Changes",
+  "cancel": "Cancel",
+
+  "loading": "Loading...",
+  "saving": "Saving...",
+  "saved": "Your profile has been updated.",
+
+  "save_error": "Unable to save your profile. Please try again.",
+  "session_expired": "Your session has expired. Please sign in again.",
+
+  "name_required": "Please enter your full name.",
+  "company_required": "Please enter your company name.",
+  "gst_required": "Please enter your GST number.",
+  "gst_invalid": "Please enter a valid GST number.",
+"rfq_intro": "Submit a quotation request using the products you need.",
+  "business_yes": "Yes",
+  "business_no": "No",
+"privacy": "Privacy",
+"privacy_intro": "Manage your email address and password.",
+"change_email": "Change Email",
+"verify_gst": "Verify GSTIN",
+"gst_verification_required": "A valid GSTIN must be verified before you can save a business account.",
+"gst_verifying": "Verifying GSTIN...",
+"gst_verified": "GSTIN verified successfully.",
+"gst_verification_failed": "Unable to verify this GSTIN. Please check the number and try again.",
+"gst_legal_name": "Legal Business Name",
+"gst_trade_name": "Trade Name",
+"gst_status": "GST Status",
+"password": "Password",
+"new_email": "New Email",
+"new_password": "New Password",
+"confirm_new_password": "Confirm New Password",
+"update_email": "Update Email",
+"update_password": "Update Password",
+"email_update_sent": "A confirmation email has been sent to your new email address.",
+"password_updated": "Your password has been updated successfully.",
+"privacy_update_error": "Unable to update your privacy settings. Please try again.",
+"rfq_account_info": "This RFQ will be submitted using the information associated with your account.",
+"rfq_message_placeholder": "Add any additional requirements or notes for this quotation request.",
+"rfq_submitted": "RFQ Submitted",
+"rfq_submitted_successfully": "Your quotation request has been submitted successfully.",
+"rfq_reference": "Reference:",
+"my_inquiries": "My Inquiries",
+"inquiries_intro": "View your previously submitted quotation requests.",
+"inquiries_empty": "You have not submitted any inquiries yet.",
+"inquiries_load_error": "Unable to load your inquiries. Please try again.",
+
+"inquiries_products": "Products",
+"inquiries_part_number": "Part Number",
+"inquiries_product": "Product",
+"inquiries_brand": "Brand",
+"inquiries_quantity": "Quantity",
+
+"inquiries_customer": "Customer Information",
+"inquiries_name": "Name",
+"inquiries_email": "Email",
+"inquiries_phone": "Phone",
+"inquiries_company": "Company",
+"inquiries_gst": "GST Number",
+
+"inquiries_message": "Additional Notes",
+"inquiries_no_items": "No products were recorded for this inquiry.",
+
+"inquiry_item": "item",
+"inquiry_items": "items",
+"inquiry_reference_unavailable": "RFQ",
+
+"inquiry_status_submitted": "Submitted",
+"inquiry_status_processing": "Processing",
+"inquiry_status_quoted": "Quoted",
+"inquiry_status_completed": "Completed",
+"inquiry_status_cancelled": "Cancelled"
+},
+
 "buttons": {
   "search": "Search",
   "view_details": "View Details",
@@ -45,6 +210,7 @@
   "per_page": "Per Page",
   "language": "Language",
   "choose_language": "Choose Language"
+
 },
 
 
@@ -123,7 +289,8 @@
   "privacy": "Privacy Policy",
   "terms": "Terms & Conditions",
   "sitemap": "Sitemap",
-  "copyright": "All Rights Reserved."
+  "copyright": "All Rights Reserved.",
+"refund": "Refund Policy"
 },
 
 "aria": {
@@ -377,37 +544,305 @@
     "required": "Required",
     "optional": "Optional"
   },
- "privacy": {
-     "title": "Privacy Policy",
-     "intro": "Learn how Souviks collects, uses, stores and protects your information when interacting with our website, products and services.",
-    "sections": {
-      "information": "Information We Collect",
-      "usage": "How We Use Your Information",
-      "sharing": "Information Sharing",
-      "security": "Data Security",
-      "cookies": "Cookies",
-      "retention": "Data Retention",
-      "rights": "Your Rights",
-      "updates": "Policy Updates",
-      "contact": "Contact Us"
-    }
+
+"privacy": {
+  "page_title": "Privacy Policy | Souviks",
+
+  "title": "Privacy Policy",
+
+  "intro": "Learn how Souviks collects, uses, stores, shares and protects personal information when you use our website, create an account, submit an enquiry, request a quotation, place an order or otherwise interact with our services.",
+
+  "sections": {
+    "information": "Personal Information We Collect",
+    "purposes": "Purposes of Processing",
+    "legal_basis": "Legal Basis and Consent",
+    "sharing": "Disclosure and Sharing",
+    "payment": "Payment Information",
+    "delivery": "Delivery and Logistics",
+    "cookies": "Cookies and Similar Technologies",
+    "retention": "Data Retention",
+    "security": "Data Security",
+    "rights": "Your Privacy Rights",
+    "children": "Children's Personal Data",
+    "changes": "Changes to This Privacy Policy",
+    "contact": "Contact Us"
   },
-  "terms": {
-     "title": "Terms & Conditions",
-     "intro": "Review the terms governing the use of the Souviks website, services, communications, inquiries and future e-commerce features.",
-    "sections": {
-      "acceptance": "Acceptance of Terms",
-      "website": "Website Usage",
-      "products": "Products & Availability",
-      "pricing": "Pricing",
-      "orders": "Orders & Quotations",
-      "intellectual_property": "Intellectual Property",
-      "liability": "Limitation of Liability",
-      "external_links": "External Links",
-      "changes": "Changes to These Terms",
-      "contact": "Contact Us"
+
+  "content": {
+
+    "information": {
+      "p1": "Souviks may collect personal information that you provide directly when you use our website, contact us, create or manage an account, submit a part enquiry or quotation request, place an order, communicate with customer support, or participate in other website activities.",
+      "p2": "The information collected depends on the services you use and may include information reasonably necessary to identify you, communicate with you, process an order, deliver products, provide support, maintain records and meet applicable legal requirements.",
+      "p3": "We may also collect certain technical and usage information automatically when you access or use the website.",
+      "li1": "Name and contact information, including phone number, mobile number and email address.",
+      "li2": "Billing, shipping and delivery address information.",
+      "li3": "Business information such as company name, GSTIN and related details where provided.",
+      "li4": "Account information, including login credentials, saved preferences and account activity.",
+      "li5": "Order, enquiry, quotation, invoice, return, refund and customer-support information.",
+      "li6": "Technical information such as IP address, browser type, device information, operating-system information, approximate location information and website usage information."
+    },
+
+    "purposes": {
+      "p1": "Souviks processes personal information for specific, lawful and reasonably necessary purposes connected with operating our business and providing the services requested by customers.",
+      "li1": "Creating, authenticating and managing customer accounts.",
+      "li2": "Responding to enquiries, part requests, quotation requests and customer-support requests.",
+      "li3": "Processing orders, invoices, payments, refunds, exchanges and warranty-related requests.",
+      "li4": "Arranging shipping, delivery, shipment tracking and communications with logistics providers.",
+      "li5": "Maintaining business, tax, accounting, transaction and customer-service records.",
+      "li6": "Preventing fraud, abuse, unauthorised activity and security incidents.",
+      "li7": "Complying with applicable laws, regulatory requirements, legal process and lawful requests from authorities."
+    },
+
+    "legal_basis": {
+      "p1": "Where applicable data-protection law requires a particular legal basis or notice, Souviks will process personal information on the basis applicable to the relevant processing activity. Depending on the circumstances, this may include consent, processing necessary for a requested service or transaction, compliance with a legal obligation, or another basis recognised by applicable law.",
+      "p2": "Where processing is based on consent, Souviks will provide the required notice and request consent in an appropriate manner. Where applicable law provides a right to withdraw consent, the withdrawal process and any resulting effects will be handled in accordance with that law."
+    },
+
+    "sharing": {
+      "p1": "Souviks does not sell personal information as a commercial commodity. We may disclose or share personal information where reasonably necessary to provide services, complete transactions, protect our systems and business, or comply with applicable law.",
+      "li1": "Payment gateways, banks and authorised payment-service providers.",
+      "li2": "Courier, logistics and delivery providers.",
+      "li3": "Hosting, technology, communications, security, analytics and customer-support service providers.",
+      "li4": "Professional advisers, auditors, insurers and other service providers where reasonably necessary for business or legal purposes.",
+      "li5": "Government authorities, regulators, courts, law-enforcement agencies or other recipients where disclosure is required or permitted by applicable law.",
+      "p2": "Depending on the service, certain third parties may process information on our behalf, while others may process information under their own lawful responsibilities. Their own terms and privacy policies may also apply."
+    },
+
+    "payment": {
+      "p1": "Souviks may provide payment options including UPI, cash, bank transfer, cash on delivery, net banking and credit or debit cards, subject to the options available for a particular order.",
+      "p2": "Where payment is processed through a third-party payment provider, sensitive payment credentials may be handled directly by that provider. Souviks will receive and retain only information reasonably necessary for order processing, reconciliation, refunds, customer support, fraud prevention and applicable legal or accounting requirements."
+    },
+
+    "delivery": {
+      "p1": "To fulfil an order, Souviks may provide the customer's name, telephone number, delivery address, order details and other necessary shipment information to the logistics provider responsible for delivery.",
+      "p2": "The delivery provider may vary depending on destination, package characteristics, service availability, cost, delivery requirements and other operational considerations."
+    },
+
+    "cookies": {
+      "p1": "Souviks may use cookies, local storage and similar technologies to operate the website, maintain sessions, remember preferences, improve performance, understand website usage and support security.",
+      "p2": "Where applicable, optional technologies may be controlled through available cookie or privacy settings. Third-party services integrated into the website may also use cookies or similar technologies subject to their own policies and applicable requirements.",
+      "li1": "Essential technologies required for core website functions, account sessions and security.",
+      "li2": "Preference technologies used to remember language, settings or other choices.",
+      "li3": "Analytics or performance technologies used, where enabled, to understand website usage and improve services.",
+      "li4": "Security, fraud-prevention or abuse-detection technologies."
+    },
+
+    "retention": {
+      "p1": "Souviks retains personal information only for as long as reasonably necessary for the purposes for which it was collected, including providing services, completing transactions, maintaining business and tax records, resolving disputes, preventing fraud, enforcing agreements and complying with applicable legal or regulatory obligations.",
+      "p2": "Retention periods may vary depending on the type of information, the reason for processing and applicable legal requirements. When information is no longer required and there is no lawful reason to retain it, Souviks will take reasonable steps to delete, anonymise or securely dispose of it."
+    },
+
+    "security": {
+      "p1": "Souviks maintains reasonable technical and organisational security measures designed to protect personal information against unauthorised access, misuse, loss, alteration, destruction or disclosure.",
+      "p2": "No internet transmission, website or information-storage system can be guaranteed to be completely secure. Customers are responsible for protecting their account credentials and should notify Souviks promptly if they suspect unauthorised access or a security incident."
+    },
+
+    "rights": {
+      "p1": "Subject to applicable data-protection law and any conditions or limitations imposed by that law, individuals may have rights concerning their personal information.",
+      "li1": "Request information about personal data processed by Souviks.",
+      "li2": "Request correction or updating of inaccurate or incomplete personal information.",
+      "li3": "Request deletion or other action where such a right is provided by applicable law.",
+      "li4": "Withdraw consent where processing is based on consent, where and to the extent applicable law provides such a right.",
+      "li5": "Raise a complaint or grievance regarding the handling of personal information.",
+      "p2": "Requests may require reasonable identity verification. Souviks may refuse, restrict or defer a request where permitted or required by applicable law, including where retention is necessary for legal, security, fraud-prevention or dispute-resolution purposes."
+    },
+
+    "children": {
+      "p1": "Souviks does not knowingly seek to process children's personal data except where such processing is permitted and carried out in accordance with applicable law and any required safeguards. If we become aware of processing that does not meet applicable requirements, we will take appropriate steps as required by law."
+    },
+
+    "changes": {
+      "p1": "Souviks may update this Privacy Policy when our website, services, data-processing practices or applicable legal requirements change.",
+      "p2": "The updated Privacy Policy will be published on this page with its effective date. Where applicable law requires additional notice for a material change, Souviks will provide that notice through an appropriate channel."
+    },
+
+    "contact": {
+      "p1": "For questions, privacy requests or complaints concerning the processing of personal information, please contact Souviks.",
+      "name_label": "Business",
+      "name": "Souviks",
+      "role_label": "Privacy / Grievance Contact",
+      "role": "Sujit Kumar Sadhu, Head, Finance and Sales",
+      "email_label": "Email",
+      "email": "mssouviks@gmail.com",
+      "phone_label": "Phone",
+      "phone": "+91 94343 31896 / +91 79082 15701",
+      "address_label": "Address",
+      "address": "CN-119(2), Souviks Building, Beside NH-2, Andal More, West Bengal - 713321"
     }
+
+  }
+},
+
+
+"terms": {
+  "title": "Terms & Conditions",
+
+  "intro": "Please read these Terms & Conditions carefully before using the Souviks website, submitting an enquiry, placing an order, or purchasing products through our online services.",
+
+  "sections": {
+    "acceptance": "Acceptance of Terms",
+    "business": "About Souviks",
+    "website": "Website Usage",
+    "products": "Products & Product Information",
+    "account": "Customer Accounts",
+    "orders": "Orders & Contract Formation",
+    "pricing": "Pricing, Taxes & Availability",
+    "payment": "Payment",
+    "delivery": "Delivery & Shipment",
+    "cancellation": "Order Cancellation",
+    "returns": "Returns, Exchanges & Refunds",
+    "warranty": "Warranty",
+    "user_content": "Customer Information & User Content",
+    "intellectual_property": "Intellectual Property",
+    "privacy": "Privacy & Personal Data",
+    "liability": "Liability",
+    "external_links": "Third-Party Links & Services",
+    "changes": "Changes to These Terms",
+    "governing_law": "Governing Law & Jurisdiction",
+    "grievance": "Grievance Redressal",
+    "contact": "Contact Us"
   },
+
+  "content": {
+
+    "acceptance": {
+      "p1": "By accessing or using the Souviks website, you acknowledge that you have read, understood and agreed to these Terms & Conditions.",
+      "p2": "These Terms & Conditions apply to visitors, registered users, customers and other persons who access or use the website, submit enquiries, request quotations, place orders or purchase products through Souviks."
+    },
+
+    "business": {
+      "p1": "Souviks is the trade name of a proprietorship business owned by Chandrani Sadhu. Souviks directly supplies and sells automotive spare parts and related products to customers.",
+      "p2": "Souviks operates as an inventory-based e-commerce business. Products offered through the website are supplied from Souviks' own inventory or through its authorised procurement and supply arrangements; Souviks is not a marketplace connecting independent third-party sellers with customers.",
+      "p3": "Business Address: CN-119(2), Souviks Building, Beside NH-2, Andal More, West Bengal - 713321. GSTIN: 19BZMPS2461K1ZO."
+    },
+
+    "website": {
+      "p1": "The Souviks website provides information about automotive spare parts, brands, vehicle applications, product categories, product availability and related services.",
+      "p2": "You must use the website only for lawful purposes and must not use it in any way that may damage, disable, overburden or interfere with the website, its security or its operation.",
+      "p3": "Product descriptions, specifications, photographs, applications and other information are provided to help customers make informed decisions. Souviks makes reasonable efforts to keep such information accurate and current, but information may change from time to time."
+    },
+
+    "products": {
+      "p1": "Souviks supplies genuine OEM and aftermarket automotive spare parts for commercial vehicles and other applications shown in the catalogue.",
+      "p2": "Automotive parts can be application-specific. Customers are responsible for providing accurate vehicle, model, part-number and specification information and for confirming compatibility before purchase where applicable.",
+      "p3": "Displaying a product on the website does not by itself guarantee stock availability, immediate dispatch or suitability for a particular vehicle.",
+      "li1": "Customers should verify the part number and application before placing an order.",
+      "li2": "Product packaging, branding or appearance may vary where the supplied product remains materially consistent with the product ordered.",
+      "li3": "Availability shown on the website is subject to actual stock and supplier availability."
+    },
+
+    "account": {
+      "p1": "Where customer accounts are available, you are responsible for maintaining the confidentiality of your login credentials and for activities carried out through your account.",
+      "p2": "You must provide accurate and current information and promptly notify Souviks if you believe your account or credentials have been compromised."
+    },
+
+    "orders": {
+      "p1": "An order placed through the website constitutes an offer by the customer to purchase the selected products subject to these Terms & Conditions and the applicable order details.",
+      "p2": "Souviks may accept or decline an order based on product availability, pricing, technical or application requirements, payment issues, suspected fraud, regulatory requirements or other legitimate business reasons. A contract of sale is formed when Souviks confirms acceptance of the order through the applicable ordering process.",
+      "p3": "Where a product cannot be supplied after acceptance or where a material error has occurred, Souviks will provide the remedy required under applicable law and the applicable order or return policy, which may include cancellation and refund."
+    },
+
+    "pricing": {
+      "p1": "Product prices will be displayed together with applicable taxes and other mandatory charges where required. Delivery, freight, handling and other applicable charges will be disclosed before order completion.",
+      "p2": "Prices, taxes, stock availability and promotional offers may change before an order is placed. The price applicable to an accepted order will be the price displayed and confirmed during the applicable ordering process, subject to correction of manifest errors where permitted by law.",
+      "p3": "If a pricing or product-information error materially affects an order, Souviks may contact the customer before fulfilment and provide an appropriate resolution, including cancellation and refund where applicable."
+    },
+
+    "payment": {
+      "p1": "Souviks may accept UPI, cash, bank transfer, cash on delivery, net banking and credit or debit cards, subject to availability and the options displayed at checkout.",
+      "p2": "Customers must provide accurate billing and payment information and use only payment methods they are authorised to use. Payment-provider terms may also apply to the transaction.",
+      "p3": "Payment processing may be performed by authorised third-party payment service providers. Souviks will handle payment information in accordance with applicable law, its Privacy Policy and the security practices of the relevant payment provider."
+    },
+
+    "delivery": {
+      "p1": "Delivery times shown at checkout or communicated by Souviks are estimates unless expressly stated otherwise. The usual estimated delivery period is approximately 5–10 working days, but actual delivery may vary.",
+      "p2": "Delivery may be affected by destination, product availability, carrier operations, weather, public holidays, remote-location restrictions, customer-provided address information and other circumstances beyond reasonable control.",
+      "p3": "Free shipping is available for purchases above ₹45,000 unless a product-specific or promotional condition states otherwise. For other orders, shipping charges may vary according to product size, weight, destination and applicable logistics requirements.",
+      "partners_label": "Delivery Partners",
+      "partners": "Delhivery, Blue Dart, FedEx, XpressBees, India Post and DHL, or other suitable logistics providers selected by Souviks."
+    },
+
+    "cancellation": {
+      "p1": "Where cancellation is available before dispatch, a customer may request cancellation through the mechanism provided by Souviks or by contacting customer support.",
+      "p2": "Cancellation is not permitted after an order has been dispatched. Once dispatched, any eligible issue must be handled under the applicable return, exchange, refund or warranty process.",
+      "p3": "Nothing in this section limits any cancellation, refund or other consumer right that cannot lawfully be excluded."
+    },
+
+    "returns": {
+      "p1": "Returns, exchanges and refunds are governed by the Souviks Exchange & Return Policy published on the website. That policy forms part of these Terms & Conditions.",
+      "p2": "Souviks accepts return or exchange requests for products that are received damaged or have a verified manufacturing defect, subject to the applicable policy, inspection and applicable law.",
+      "p3": "Visible damage received with a delivery must be reported to Souviks within 1 hour of delivery. Eligible return or exchange requests generally must be raised within 7 days of delivery.",
+      "p4": "Lubricants are non-returnable. Electrical and electronic products are returnable or exchangeable only where the product was received damaged, subject to inspection and the applicable product conditions. Where an original seal is required to remain intact, a broken seal may make the product ineligible for return. Approved refunds are processed after the returned product has been received and inspected."
+    },
+
+    "warranty": {
+      "p1": "Some products may be covered by a manufacturer or supplier warranty. Where applicable, warranty claims will be handled according to the relevant warranty terms and conditions.",
+      "p2": "Warranty coverage may depend on proper installation, intended use, maintenance and compliance with manufacturer instructions. Nothing in these Terms excludes any statutory consumer right or remedy that cannot lawfully be excluded."
+    },
+
+    "user_content": {
+      "p1": "Where the website allows customers to submit reviews, enquiries, images or other information, you must ensure that the information provided is accurate and lawful and does not infringe the rights of any other person.",
+      "p2": "Souviks may use customer-submitted information for the purpose for which it was provided and in accordance with the Privacy Policy and applicable law."
+    },
+
+    "intellectual_property": {
+      "p1": "The Souviks name, logo, website design, text, graphics, images, catalogue content and other original website materials are protected by applicable intellectual-property laws.",
+      "p2": "You may not reproduce, modify, distribute, publish, reverse engineer or commercially exploit website materials without appropriate permission, except where permitted by applicable law."
+    },
+
+    "privacy": {
+      "p1": "Souviks collects and processes personal information in accordance with its Privacy Policy and applicable data-protection laws.",
+      "p2": "Personal information may be processed for account management, order fulfilment, payment processing, delivery, customer support, fraud prevention, legal compliance and other purposes described in the Privacy Policy."
+    },
+
+    "liability": {
+      "p1": "Souviks will take reasonable care in operating the website and fulfilling accepted orders. The website may occasionally be unavailable due to maintenance, technical issues, third-party failures or circumstances beyond reasonable control.",
+      "p2": "Nothing in these Terms excludes or restricts any liability, consumer right or remedy that cannot lawfully be excluded or restricted under applicable law.",
+      "p3": "Subject to the preceding paragraph, Souviks will not be liable for losses caused solely by circumstances beyond its reasonable control or by inaccurate or incomplete information supplied by the customer, except to the extent liability cannot lawfully be excluded."
+    },
+
+    "external_links": {
+      "p1": "The website may contain links to third-party websites, payment services, social-media platforms or other external services.",
+      "p2": "Souviks does not control third-party services and is not responsible for their content, availability, security or policies. Your use of a third-party service may be subject to its own terms and privacy policy."
+    },
+
+    "changes": {
+      "p1": "Souviks may update these Terms & Conditions from time to time to reflect changes in the website, products, services, business practices or applicable legal requirements.",
+      "p2": "The updated version will be published on this page with its effective date. Continued use of the website after an update constitutes acceptance of the revised Terms to the extent permitted by applicable law."
+    },
+
+    "governing_law": {
+      "p1": "These Terms & Conditions are governed by the laws of India and are subject to applicable consumer-protection and other mandatory legal rights.",
+      "p2": "Subject to applicable law and the jurisdiction of competent consumer forums and authorities, disputes arising in connection with these Terms or transactions with Souviks shall be subject to the jurisdiction of the competent courts at Durgapur, West Bengal."
+    },
+
+    "grievance": {
+      "p1": "Souviks maintains a grievance-redressal mechanism for customer complaints relating to products, orders, returns, refunds, payments, deliveries and other website services.",
+      "officer_label": "Grievance Officer",
+      "officer": "Sujit Kumar Sadhu",
+      "designation_label": "Designation",
+      "designation": "Head, Finance and Sales",
+      "email_label": "Grievance Email",
+      "email": "mssouviks@gmail.com",
+      "phone_label": "Grievance Phone",
+      "phone": "+91 94343 31896 / +91 79082 15701"
+    },
+
+    "contact": {
+      "p1": "For questions about these Terms & Conditions, products, orders, payments, deliveries, returns or related services, please contact Souviks.",
+      "phone_label": "Phone",
+      "phone": "+91 94343 31896",
+      "whatsapp_label": "WhatsApp",
+      "whatsapp": "+91 79082 15701",
+      "email_label": "Email",
+      "email": "mssouviks@gmail.com",
+      "address_label": "Address",
+      "address": "CN-119(2), Souviks Building, Beside NH-2, Andal More, West Bengal - 713321"
+    }
+
+  }
+},
+
 
   "404": {
       "title": "Page Not Found",
@@ -418,5 +853,103 @@
         "home": "Return Home",
       "products": "Browse Products",
       "contact": "Contact Us"
- }
+ },
+
+
+"refund": {
+  "page_title": "Refund Policy | Souviks",
+
+  "title": "Refund Policy",
+
+  "intro": "This Refund Policy explains when a refund may be available, how refund requests are reviewed, and how approved refunds are processed by Souviks.",
+
+  "sections": {
+    "overview": "Refund Policy Overview",
+    "eligibility": "When a Refund May Be Available",
+    "request": "How to Request a Refund",
+    "inspection": "Inspection and Verification",
+    "approval": "Refund Approval",
+    "processing": "Refund Processing",
+    "payment_method": "Refund Method",
+    "cancellation": "Order Cancellation and Refunds",
+    "non_refundable": "Non-Refundable Products and Situations",
+    "exceptions": "Statutory and Other Exceptions",
+    "contact": "Refund Support"
+  },
+
+  "content": {
+
+    "overview": {
+      "p1": "Souviks processes refunds only in accordance with the applicable order terms, Exchange & Return Policy, product-specific conditions and applicable law.",
+      "p2": "Where a refund is approved, it will generally be processed only after the relevant product has been received and inspected, unless the circumstances or applicable law require otherwise."
+    },
+
+    "eligibility": {
+      "p1": "A refund may be available where an eligible product is received damaged, is confirmed to have a manufacturing defect, or where Souviks is otherwise required to provide a refund under the applicable order terms or law.",
+      "li1": "Visible damage at delivery must be reported within 1 hour of delivery.",
+      "li2": "Eligible return or exchange requests generally must be raised within 7 days of delivery.",
+      "li3": "The product must satisfy the applicable return and inspection conditions.",
+      "li4": "The refund request must be approved by Souviks after verification, except where applicable law provides otherwise."
+    },
+
+    "request": {
+      "p1": "To request a refund, contact Souviks using the customer-support details provided on this page and provide the order or invoice number, customer details, product information and reason for the request.",
+      "p2": "Souviks may request photographs, videos, packaging details, product markings or other information reasonably necessary to assess the claim."
+    },
+
+    "inspection": {
+      "p1": "Refund claims may require the affected product to be returned to Souviks for inspection and verification.",
+      "p2": "The inspection may consider the product condition, packaging, seals, identifying markings, evidence of installation or use, and the nature and cause of the reported damage or defect."
+    },
+
+    "approval": {
+      "p1": "A refund is not automatically approved merely because a request has been submitted. Souviks will assess the claim against the applicable policy and circumstances.",
+      "li1": "Approved for refund.",
+      "li2": "Approved for replacement or exchange instead of refund, where appropriate and legally permitted.",
+      "li3": "Rejected where the claim does not meet the applicable policy or where the product has been damaged, altered or used in a manner that excludes the claim, subject to applicable law."
+    },
+
+    "processing": {
+      "p1": "For an approved return-based refund, Souviks will process the refund after the returned product has been received and inspected, unless a different process is required by applicable law or agreed for the particular transaction.",
+      "p2": "After Souviks initiates the refund, the time required for the amount to appear in the customer's account may depend on the payment method, bank, card issuer or payment-service provider.",
+      "li1": "Refunds for prepaid orders will generally be made through the original payment channel where technically and operationally possible.",
+      "li2": "Where the original payment channel cannot be used, Souviks may request verified bank-account or other payment details necessary to complete the refund securely.",
+      "li3": "Souviks will not request unnecessary payment credentials, passwords, PINs or one-time authentication codes for processing a refund."
+    },
+
+    "payment_method": {
+      "p1": "Souviks may accept UPI, bank transfer, net banking, credit or debit cards, cash and cash on delivery, subject to the payment options available for the order.",
+      "p2": "For cash-on-delivery or other transactions where there is no original electronic payment channel available, Souviks may process an approved refund through a verified bank account or another appropriate method."
+    },
+
+    "cancellation": {
+      "p1": "Where cancellation is available before dispatch, an eligible cancellation may result in a refund after verification and subject to the applicable payment and order conditions.",
+      "p2": "Cancellation is not permitted after dispatch. After dispatch, any eligible claim must be handled under the applicable return, exchange, refund or warranty process."
+    },
+
+    "non_refundable": {
+      "p1": "Certain products and situations are not eligible for refunds under Souviks' standard policy, subject always to any mandatory rights provided by applicable law.",
+      "li1": "Lubricants are non-returnable and non-refundable.",
+      "li2": "Electrical and electronic products are subject to their specific return conditions and are eligible for refund only where the applicable conditions are satisfied.",
+      "li3": "Products that have been installed, used, modified, dismantled, tampered with or returned with a broken applicable seal may be ineligible for a refund."
+    },
+
+    "exceptions": {
+      "p1": "Nothing in this Refund Policy is intended to exclude, restrict or waive any consumer right, statutory remedy or other protection that cannot lawfully be excluded under applicable Indian law. Where applicable law requires a refund, replacement or other remedy, Souviks will comply with that requirement."
+    },
+
+    "contact": {
+      "p1": "For refund requests, refund status, or questions regarding an approved or pending refund, please contact Souviks.",
+      "name_label": "Business",
+      "name": "Souviks",
+      "email_label": "Email",
+      "email": "mssouviks@gmail.com",
+      "phone_label": "Phone / WhatsApp",
+      "phone": "+91 94343 31896 / +91 79082 15701",
+      "address_label": "Address",
+      "address": "CN-119(2), Souviks Building, Beside NH-2, Andal More, West Bengal - 713321"
+    }
+
+  }
+}
 }

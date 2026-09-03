@@ -1,0 +1,282 @@
+/* ==========================================================
+   SOUVIKS — ACCOUNT NAVIGATION
+========================================================== */
+
+
+/* ==========================================================
+   ACCOUNT LAYOUT
+========================================================== */
+
+.account-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        220px minmax(0, 1fr);
+
+    gap: 28px;
+
+    align-items: start;
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+}
+
+
+/* ==========================================================
+   ACCOUNT SIDEBAR
+========================================================== */
+
+.account-navigation {
+
+    position: sticky;
+
+    top: 24px;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+
+/* ==========================================================
+   NAVIGATION TITLE
+========================================================== */
+
+.account-navigation-title {
+
+    margin: 0 0 14px;
+
+    padding: 0 12px;
+
+    color: var(--text-secondary);
+
+    font-size: .75rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+}
+
+
+/* ==========================================================
+   NAVIGATION LIST
+========================================================== */
+
+.account-navigation-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+/* ==========================================================
+   NAVIGATION LINK
+========================================================== */
+
+.account-navigation-link {
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 44px;
+
+    padding: 10px 12px;
+
+    color: var(--text-primary);
+
+    border-radius: var(--radius-md);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease;
+
+}
+
+
+.account-navigation-link:hover {
+
+    background: var(--bg-light);
+
+    color: var(--color-primary);
+
+}
+
+
+/* ==========================================================
+   ACTIVE LINK
+========================================================== */
+
+.account-navigation-link.active {
+
+    background: var(--bg-light);
+
+    color: var(--color-primary);
+
+    font-weight: 700;
+
+}
+
+
+/* ==========================================================
+   COMING SOON
+========================================================== */
+
+.account-navigation-link.is-disabled {
+
+    color: var(--text-secondary);
+
+    opacity: .55;
+
+    cursor: not-allowed;
+
+    pointer-events: none;
+
+}
+
+
+/* ==========================================================
+   NAVIGATION STATUS
+========================================================== */
+
+.account-navigation-status {
+
+    margin-left: auto;
+
+    font-size: .68rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .04em;
+
+}
+
+
+/* ==========================================================
+   ACCOUNT CONTENT
+========================================================== */
+
+.account-content {
+
+    min-width: 0;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 850px) {
+
+    .account-layout {
+
+        grid-template-columns: 180px minmax(0, 1fr);
+
+        gap: 20px;
+
+    }
+
+
+    .account-navigation {
+
+        padding: 16px;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .account-layout {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+    }
+
+
+    .account-navigation {
+
+        position: static;
+
+        width: 100%;
+
+        padding: 12px;
+
+        overflow-x: auto;
+
+    }
+
+
+    .account-navigation-title {
+
+        padding: 4px 8px 8px;
+
+        margin-bottom: 4px;
+
+    }
+
+
+    .account-navigation-list {
+
+        flex-direction: row;
+
+        gap: 6px;
+
+        overflow-x: auto;
+
+        scrollbar-width: thin;
+
+    }
+
+
+    .account-navigation-link {
+
+        flex: 0 0 auto;
+
+        white-space: nowrap;
+
+    }
+
+
+    .account-content {
+
+        width: 100%;
+
+    }
+
+}

@@ -15,80 +15,160 @@
    RFQ TABLE
 ========================================================== */
 
-.rfq-basket {
+.rfq-table-wrapper {
 
     width: 100%;
 
-    padding: 40px 0;
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+    border: 1px solid #d9dee5;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
 
 }
 
+
 .rfq-table {
 
-    display: table;
-
     width: 100%;
+
+    min-width: 760px;
 
     border-collapse: separate;
 
     border-spacing: 0;
 
+    table-layout: fixed;
+
     background: #ffffff;
 
-    border-radius: var(--radius-lg);
-
-    overflow: hidden;
-
-    box-shadow: var(--shadow-sm);
-
 }
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
 
 .rfq-table thead {
 
-    display: table-header-group;
+    background: #111827;
 
-    background: var(--bg-dark);
+}
+
+
+.rfq-table thead th {
+
+    padding: 16px 20px;
 
     color: #ffffff;
 
-}
+    background: #111827;
 
-.rfq-table tbody {
-
-    display: table-row-group;
-
-}
-
-.rfq-table tr {
-
-    display: table-row;
-
-}
-
-.rfq-table th,
-.rfq-table td {
-
-    display: table-cell;
-
-    padding: 16px;
-
-    text-align: left;
-
-    vertical-align: middle;
-
-}
-
-.rfq-table th {
+    font-size: .9rem;
 
     font-weight: 700;
 
+    text-align: left;
+
+    white-space: nowrap;
+
+    border-right: 1px solid rgba(255, 255, 255, .15);
+
+    border-bottom: 1px solid #d9dee5;
+
 }
 
-.rfq-table td {
 
-    border-bottom: 1px solid var(--border-color);
+.rfq-table thead th:last-child {
+
+    border-right: none;
 
 }
+
+
+/* ==========================================================
+   COLUMN WIDTHS
+========================================================== */
+
+.rfq-table th:nth-child(1),
+.rfq-table td:nth-child(1) {
+
+    width: 20%;
+
+}
+
+
+.rfq-table th:nth-child(2),
+.rfq-table td:nth-child(2) {
+
+    width: 35%;
+
+}
+
+
+.rfq-table th:nth-child(3),
+.rfq-table td:nth-child(3) {
+
+    width: 18%;
+
+}
+
+
+.rfq-table th:nth-child(4),
+.rfq-table td:nth-child(4) {
+
+    width: 15%;
+
+    text-align: center;
+
+}
+
+
+.rfq-table th:nth-child(5),
+.rfq-table td:nth-child(5) {
+
+    width: 12%;
+
+    text-align: center;
+
+}
+
+
+/* ==========================================================
+   BODY CELLS
+========================================================== */
+
+.rfq-table tbody td {
+
+    padding: 17px 20px;
+
+    color: #1f2937;
+
+    background: #ffffff;
+
+    font-size: .95rem;
+
+    vertical-align: middle;
+
+    border-right: 1px solid #d9dee5;
+
+    border-bottom: 1px solid #d9dee5;
+
+}
+
+
+.rfq-table tbody td:last-child {
+
+    border-right: none;
+
+}
+
 
 .rfq-table tbody tr:last-child td {
 
@@ -96,87 +176,74 @@
 
 }
 
-/* ==========================================================
-   RFQ EMPTY STATE
-========================================================== */
-
-.rfq-empty {
-
-    padding: 60px 20px;
-
-    text-align: center;
-
-    color: var(--text-secondary);
-
-}
-
 
 /* ==========================================================
-   CUSTOMER FORM
+   ROW HOVER
 ========================================================== */
 
-#rfq-form {
+.rfq-table tbody tr {
 
-    padding: 32px;
-
-    background: #ffffff;
-
-    border-radius: var(--radius-lg);
-
-    box-shadow: var(--shadow-sm);
+    transition: background-color .15s ease;
 
 }
 
-.form-grid {
 
-    display: grid;
+.rfq-table tbody tr:hover td {
 
-    grid-template-columns: repeat(2, minmax(0,1fr));
-
-    gap: 20px;
+    background: #f8fafc;
 
 }
 
-.form-group {
 
-    margin-bottom: 20px;
+/* ==========================================================
+   PRODUCT DATA
+========================================================== */
 
-}
-
-.form-group label {
-
-    display: block;
-
-    margin-bottom: 8px;
+.rfq-table td:nth-child(1) {
 
     font-weight: 600;
 
+    overflow-wrap: anywhere;
+
 }
 
-.form-actions {
 
-    display: flex;
+.rfq-table td:nth-child(2) {
 
-    justify-content: flex-end;
+    font-weight: 500;
 
-    margin-top: 32px;
+    overflow-wrap: anywhere;
+
+}
+
+
+.rfq-table td:nth-child(3) {
+
+    color: #6b7280;
+
+    overflow-wrap: anywhere;
 
 }
 
 
 /* ==========================================================
-   RFQ QUANTITY
+   QUANTITY
 ========================================================== */
 
 .rfq-qty {
 
-    display: flex;
+    display: inline-flex;
 
     align-items: center;
 
-    gap: 12px;
+    justify-content: center;
+
+    gap: 6px;
+
+    white-space: nowrap;
 
 }
+
 
 .rfq-qty button {
 
@@ -184,25 +251,243 @@
 
     height: 32px;
 
-    border: none;
+    min-width: 32px;
+
+    padding: 0;
+
+    border: 1px solid #cfd5dc;
 
     border-radius: 6px;
 
+    background: #ffffff;
+
+    color: #1f2937;
+
     cursor: pointer;
 
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        transform .15s ease;
+
 }
+
+
+.rfq-qty button:hover {
+
+    background: #f3f4f6;
+
+    border-color: #9ca3af;
+
+}
+
+
+.rfq-qty button:active {
+
+    transform: scale(.94);
+
+}
+
+
+.rfq-qty span {
+
+    min-width: 28px;
+
+    text-align: center;
+
+    font-weight: 700;
+
+}
+
+
+/* ==========================================================
+   REMOVE BUTTON
+========================================================== */
 
 .remove-rfq {
 
-    border: none;
+    padding: 7px 12px;
 
-    background: none;
+    border: 1px solid #cfd5dc;
 
-    color: #d32f2f;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #dc2626;
 
     cursor: pointer;
 
+    font: inherit;
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background-color .2s ease,
+        border-color .2s ease;
+
 }
+
+
+.remove-rfq:hover {
+
+    background: #fef2f2;
+
+    border-color: #dc2626;
+
+}
+
+/* ==========================================================
+   RFQ CUSTOMER FORM
+========================================================== */
+
+.rfq-customer {
+
+    padding: 48px 0 64px;
+
+}
+
+#rfq-form {
+
+    width: 100%;
+
+    padding: 36px 40px;
+
+    background: #ffffff;
+
+    border: 1px solid #d9dee5;
+
+    border-radius: 14px;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .06);
+
+}
+
+
+/* ==========================================================
+   FORM GROUPS
+========================================================== */
+
+#rfq-form .form-group {
+
+    margin-bottom: 22px;
+
+}
+
+#rfq-form .form-group:last-of-type {
+
+    margin-bottom: 28px;
+
+}
+
+
+/* ==========================================================
+   LABELS
+========================================================== */
+
+#rfq-form .form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #1f2937;
+
+    font-size: .9rem;
+
+    font-weight: 600;
+
+}
+
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+#rfq-form input,
+#rfq-form textarea {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d9dee5;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    font: inherit;
+
+    font-size: .95rem;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+#rfq-form input {
+
+    min-height: 46px;
+
+}
+
+
+#rfq-form textarea {
+
+    min-height: 130px;
+
+    resize: vertical;
+
+}
+
+
+/* ==========================================================
+   INPUT FOCUS
+========================================================== */
+
+#rfq-form input:focus,
+#rfq-form textarea:focus {
+
+    border-color: #9ca3af;
+
+    box-shadow: 0 0 0 3px rgba(156, 163, 175, .15);
+
+}
+
+
+/* ==========================================================
+   SUBMIT
+========================================================== */
+
+#rfq-form .btn-primary {
+
+    margin-top: 4px;
+
+}
+
 
 
 /* ==========================================================

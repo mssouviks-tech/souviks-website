@@ -240,6 +240,7 @@ Reusable Head Component
 
 <body>
 
+
 <div class="top-bar">
 
     <div class="container">
@@ -311,15 +312,80 @@ Reusable Head Component
             </a>
 
 
-            <!-- SIGN IN -->
+            <!-- AUTHENTICATION -->
 
-            <a
-                href="/bn/login.html"
-                class="top-signin">
+            <div
+                id="topAuth"
+                class="top-auth">
 
-                সাইন ইন
+                <!-- LOGGED OUT -->
 
-            </a>
+                <a
+                    id="topSignIn"
+                    href="/bn/login.html"
+                    class="top-signin">
+
+                    সাইন ইন
+
+                </a>
+
+
+                <!-- LOGGED IN -->
+
+                <div
+                    id="topUserMenu"
+                    class="top-user-menu"
+                    hidden>
+
+                    <button
+                        type="button"
+                        id="topUserButton"
+                        class="top-user-button"
+                        aria-expanded="false"
+                        aria-haspopup="true">
+
+                        <span id="topUserName">
+
+                            অ্যাকাউন্ট
+
+                        </span>
+
+                        <span
+                            class="top-user-arrow"
+                            aria-hidden="true">
+
+                            ▼
+
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        id="topUserDropdown"
+                        class="top-user-dropdown"
+                        hidden>
+
+                        <a
+                            href="/bn/account.html">
+
+                            আমার অ্যাকাউন্ট
+
+                        </a>
+
+                        <button
+                            type="button"
+                            data-auth-logout>
+
+                            সাইন আউট
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
             <!-- LANGUAGE -->
@@ -393,7 +459,11 @@ Reusable Head Component
 
     </div>
 
-</div> <header class="site-header">
+</div>
+
+
+
+<header class="site-header">
 
     <div class="container">
 
@@ -493,6 +563,11 @@ Reusable Head Component
 
             </nav>
 
+
+            <!-- ==========================================
+                 HEADER ACTIONS
+            =========================================== -->
+
             <div class="header-buttons">
 
                 <a
@@ -517,7 +592,12 @@ Reusable Head Component
 
                 </a>
 
-            </div>
+
+                
+
+            <!-- ==========================================
+                 MOBILE MENU BUTTON
+            =========================================== -->
 
             <button
                 id="mobileMenuButton"
@@ -537,184 +617,189 @@ Reusable Head Component
 
     </div>
 
-<!-- ==========================================================
-     MOBILE NAVIGATION
-========================================================== -->
 
-<nav
-    id="mobileNavigation"
-    class="mobile-navigation"
-    aria-label="প্রধান নেভিগেশন">
+    <!-- ==========================================================
+         MOBILE NAVIGATION
+    ========================================================== -->
 
-    <!-- ==========================================
-         NAVIGATION LINKS
-    =========================================== -->
+    <nav
+        id="mobileNavigation"
+        class="mobile-navigation"
+        aria-label="প্রধান নেভিগেশন">
 
-    <ul>
 
-        <li>
+        <!-- ==========================================
+             NAVIGATION LINKS
+        =========================================== -->
+
+        <ul>
+
+            <li>
+
+                <a
+                    href="/bn/"
+                    class="">
+
+                    হোম
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/products.html"
+                    class="">
+
+                    পণ্যসমূহ
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/brands.html"
+                    class="">
+
+                    ব্র্যান্ডসমূহ
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/vehicles.html"
+                    class="">
+
+                    যানবাহন
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/categories.html"
+                    class="">
+
+                    বিভাগসমূহ
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/about.html"
+                    class="">
+
+                    আমাদের সম্পর্কে
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/bn/contact.html"
+                    class="">
+
+                    যোগাযোগ
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <!-- ==========================================
+             MOBILE ACTIONS
+        =========================================== -->
+
+        <div class="mobile-navigation-actions">
 
             <a
-                href="/bn/"
-                class="">
+                href="/bn/request-part.html"
+                class="btn btn-primary">
 
-                হোম
+                যন্ত্রাংশের অনুরোধ করুন
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/bn/products.html"
-                class="">
+                href="/bn/request-quote.html"
+                class="btn btn-secondary">
 
-                পণ্যসমূহ
+                RFQ ঝুড়ি
+
+                <span class="rfq-badge">
+
+                    0
+
+                </span>
 
             </a>
 
-        </li>
 
-        <li>
+            
+
+
+        <!-- ==========================================
+             MOBILE CONTACT
+        =========================================== -->
+
+        <div class="mobile-navigation-contact">
 
             <a
-                href="/bn/brands.html"
-                class="">
+                href="tel:+919434331896"
+                class="mobile-phone">
 
-                ব্র্যান্ডসমূহ
+                <img
+                    src="/assets/icons/phone.svg"
+                    alt="ফোন"
+                    class="mobile-icon">
+
+                <span>
+
+                    +91 94343 31896
+
+                </span>
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/bn/vehicles.html"
-                class="">
+                href="mailto:info@souviks.co.in"
+                class="mobile-email">
 
-                যানবাহন
+                <img
+                    src="/assets/icons/email.svg"
+                    alt="ইমেইল"
+                    class="mobile-icon">
+
+                <span>
+
+                    info@souviks.co.in
+
+                </span>
 
             </a>
 
-        </li>
+        </div>
 
-        <li>
-
-            <a
-                href="/bn/categories.html"
-                class="">
-
-                বিভাগসমূহ
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/bn/about.html"
-                class="">
-
-                আমাদের সম্পর্কে
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/bn/contact.html"
-                class="">
-
-                যোগাযোগ
-
-            </a>
-
-        </li>
-
-    </ul>
-
-
-    <!-- ==========================================
-         MOBILE ACTIONS
-    =========================================== -->
-
-    <div class="mobile-navigation-actions">
-
-        <a
-            href="/bn/request-part.html"
-            class="btn btn-primary">
-
-            যন্ত্রাংশের অনুরোধ করুন
-
-        </a>
-
-        <a
-            href="/bn/request-quote.html"
-            class="btn btn-secondary">
-
-            RFQ ঝুড়ি
-
-            <span class="rfq-badge">
-
-                0
-
-            </span>
-
-        </a>
-
-    </div>
-
-
-    <!-- ==========================================
-         MOBILE CONTACT
-    =========================================== -->
-
-    <div class="mobile-navigation-contact">
-
-        <a
-            href="tel:+919434331896"
-            class="mobile-phone">
-
-            <img
-                src="/assets/icons/phone.svg"
-                alt="ফোন"
-                class="mobile-icon">
-
-            <span>
-
-                +91 94343 31896
-
-            </span>
-
-        </a>
-
-        <a
-            href="mailto:info@souviks.co.in"
-            class="mobile-email">
-
-            <img
-                src="/assets/icons/email.svg"
-                alt="ইমেইল"
-                class="mobile-icon">
-
-            <span>
-
-                info@souviks.co.in
-
-            </span>
-
-        </a>
-
-    </div>
-
-</nav>
+    </nav>
 
 </header>
+
+
 
 <main>
 
@@ -742,6 +827,7 @@ Reusable Head Component
 
     </section>
 
+
     <!-- ==========================================
          RFQ BASKET
     =========================================== -->
@@ -756,65 +842,70 @@ Reusable Head Component
 
             </h2>
 
-            <table class="rfq-table">
+            <div class="rfq-table-wrapper">
 
-                <thead>
+                <table class="rfq-table">
 
-                    <tr>
+                    <thead>
 
-                        <th>
+                        <tr>
 
-                            পার্ট নম্বর
+                            <th scope="col">
 
-                        </th>
+                                পার্ট নম্বর
 
-                        <th>
+                            </th>
 
-                            পণ্যসমূহ
+                            <th scope="col">
 
-                        </th>
+                                পণ্যসমূহ
 
-                        <th>
+                            </th>
 
-                            ব্র্যান্ড
+                            <th scope="col">
 
-                        </th>
+                                ব্র্যান্ড
 
-                        <th>
+                            </th>
 
-                            পরিমাণ
+                            <th scope="col">
 
-                        </th>
+                                পরিমাণ
 
-                        <th>
+                            </th>
 
-                            সরান
+                            <th scope="col">
 
-                        </th>
+                                সরান
 
-                    </tr>
+                            </th>
 
-                </thead>
+                        </tr>
 
-                <tbody id="rfq-items">
+                    </thead>
 
-                    <tr>
+                    <tbody id="rfq-items">
 
-                        <td colspan="5">
+                        <tr>
 
-                            এখনও কোনো পণ্য যোগ করা হয়নি।
+                            <td colspan="5">
 
-                        </td>
+                                এখনও কোনো পণ্য যোগ করা হয়নি।
 
-                    </tr>
+                            </td>
 
-                </tbody>
+                        </tr>
 
-            </table>
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </div>
 
     </section>
+
 
     <!-- ==========================================
          CUSTOMER INFORMATION
@@ -832,9 +923,15 @@ Reusable Head Component
 
             <form id="rfq-form">
 
-                <div style="display:none;">
+                <!-- ======================================
+                     HONEYPOT
+                ======================================= -->
 
-                    <label>
+                <div
+                    class="form-honeypot"
+                    aria-hidden="true">
+
+                    <label for="website">
 
                         Website
 
@@ -844,13 +941,19 @@ Reusable Head Component
                         type="text"
                         id="website"
                         name="website"
-                        autocomplete="off">
+                        autocomplete="off"
+                        tabindex="-1">
 
                 </div>
 
+
+                <!-- ======================================
+                     NAME
+                ======================================= -->
+
                 <div class="form-group">
 
-                    <label>
+                    <label for="rfq-name">
 
                         নাম
 
@@ -858,14 +961,21 @@ Reusable Head Component
 
                     <input
                         type="text"
+                        id="rfq-name"
                         name="name"
+                        autocomplete="name"
                         required>
 
                 </div>
 
+
+                <!-- ======================================
+                     COMPANY
+                ======================================= -->
+
                 <div class="form-group">
 
-                    <label>
+                    <label for="rfq-company">
 
                         প্রতিষ্ঠানের নাম
 
@@ -873,13 +983,20 @@ Reusable Head Component
 
                     <input
                         type="text"
-                        name="company">
+                        id="rfq-company"
+                        name="company"
+                        autocomplete="organization">
 
                 </div>
 
+
+                <!-- ======================================
+                     PHONE
+                ======================================= -->
+
                 <div class="form-group">
 
-                    <label>
+                    <label for="rfq-phone">
 
                         ফোন
 
@@ -887,14 +1004,21 @@ Reusable Head Component
 
                     <input
                         type="tel"
+                        id="rfq-phone"
                         name="phone"
+                        autocomplete="tel"
                         required>
 
                 </div>
 
+
+                <!-- ======================================
+                     EMAIL
+                ======================================= -->
+
                 <div class="form-group">
 
-                    <label>
+                    <label for="rfq-email">
 
                         ইমেইল
 
@@ -902,13 +1026,20 @@ Reusable Head Component
 
                     <input
                         type="email"
-                        name="email">
+                        id="rfq-email"
+                        name="email"
+                        autocomplete="email">
 
                 </div>
 
+
+                <!-- ======================================
+                     GST
+                ======================================= -->
+
                 <div class="form-group">
 
-                    <label>
+                    <label for="rfq-gst">
 
                         GST নম্বর
 
@@ -916,23 +1047,36 @@ Reusable Head Component
 
                     <input
                         type="text"
-                        name="gst">
+                        id="rfq-gst"
+                        name="gst"
+                        autocomplete="off">
 
                 </div>
 
+
+                <!-- ======================================
+                     ADDITIONAL NOTES
+                ======================================= -->
+
                 <div class="form-group">
 
-                    <label>
+                    <label for="rfq-message">
 
                         অতিরিক্ত মন্তব্য
 
                     </label>
 
                     <textarea
+                        id="rfq-message"
                         name="message"
                         rows="5"></textarea>
 
                 </div>
+
+
+                <!-- ======================================
+                     SUBMIT
+                ======================================= -->
 
                 <button
                     type="submit"
@@ -949,6 +1093,7 @@ Reusable Head Component
     </section>
 
 </main>
+
 
 <footer class="site-footer">
 <div class="container">
@@ -1213,53 +1358,74 @@ Reusable Head Component
          FOOTER BOTTOM
     =========================================== -->
 
-    <div class="footer-bottom">
+<!-- ==========================================
+     FOOTER BOTTOM
+========================================== -->
 
-        <p class="footer-copyright">
+<div class="footer-bottom">
 
-            &copy; 2026
-            Souviks.
-            সর্বস্বত্ব সংরক্ষিত।
+    <p class="footer-copyright">
 
-        </p>
+        &copy; 2026
+        Souviks.
+        সর্বস্বত্ব সংরক্ষিত।
 
-        <div class="footer-bottom-links">
+    </p>
 
-            <a href="/bn/privacy-policy.html">
+    <div class="footer-bottom-links">
 
-                গোপনীয়তা নীতি
+        <a href="/bn/privacy-policy.html">
 
-            </a>
+            গোপনীয়তা নীতি
 
-            <span>|</span>
+        </a>
 
-            <a href="/bn/terms.html">
+        <span>|</span>
 
-                শর্তাবলী
+        <a href="/bn/terms.html">
 
-            </a>
+            শর্তাবলী
 
-            <span>|</span>
+        </a>
 
-            <a href="/sitemap.xml">
+        <span>|</span>
 
-                সাইটম্যাপ
+        <a href="/bn/refund.html">
 
-            </a>
+            রিফান্ড নীতি
 
-        </div>
+        </a>
+
+        <span>|</span>
+
+        <a href="/sitemap.xml">
+
+            সাইটম্যাপ
+
+        </a>
 
     </div>
 
 </div>
+
+</div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- ==========================================
+     EMAILJS
+=========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
 
 <!-- ==========================================================
 SOUVIKS PAGE SCRIPTS
 Reusable JavaScript Loader
 ========================================================== -->
+
 
 <!-- ==========================================
      GLOBAL CONFIG
@@ -1269,31 +1435,43 @@ Reusable JavaScript Loader
 
 window.souviks = {
 
-    siteName: "Souviks",
+    siteName:
+        "Souviks",
 
-    siteUrl: "https://www.souviks.co.in",
+    siteUrl:
+        "https://www.souviks.co.in",
 
-    currentPage: "Request Quote",
+    currentPage:
+        "Request Quote",
 
-    currentPageType: "",
+    currentPageType:
+        "",
 
-    currentPageUrl: "/bn/request-quote.html",
+    currentPageUrl:
+        "/bn/request-quote.html",
 
-    breadcrumbRoot: false,
+    breadcrumbRoot:
+        false,
 
-    currentLanguage: "bn",
+    currentLanguage:
+        "bn",
 
     api: {
 
-        products: "/assets/data/products.json",
+        products:
+            "/assets/data/products.json",
 
-        brands: "/assets/data/brands.json",
+        brands:
+            "/assets/data/brands.json",
 
-        categories: "/assets/data/categories.json",
+        categories:
+            "/assets/data/categories.json",
 
-        vehicles: "/assets/data/vehicles.json",
+        vehicles:
+            "/assets/data/vehicles.json",
 
-        search: "/assets/data/search.json"
+        search:
+            "/assets/data/search.json"
 
     }
 
@@ -1301,30 +1479,110 @@ window.souviks = {
 
 </script>
 
+
+<!-- ==========================================
+     SUPABASE
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+<script
+    src="/assets/js/auth/supabase.js">
+</script>
+
+<script
+    src="/assets/js/auth/register.js">
+</script>
+
+<script
+    src="/assets/js/auth/auth-state.js">
+</script>
+
+<script
+    src="/assets/js/auth/logout.js">
+</script>
+
+
 <!-- ==========================================
      GLOBAL JAVASCRIPT
 ========================================== -->
 
-<script src="/assets/js/utils.js"></script>
-<script src="/assets/js/api.js"></script>
+<script
+    src="/assets/js/utils.js">
+</script>
 
-<script src="/assets/js/products.js"></script>
-<script src="/assets/js/brands.js"></script>
-<script src="/assets/js/categories.js"></script>
-<script src="/assets/js/vehicles.js"></script>
+<script
+    src="/assets/js/api.js">
+</script>
 
-<script src="/assets/js/search.js"></script>
-<script src="/assets/js/filters.js"></script>
-<script src="/assets/js/pagination.js"></script>
-<script src="/assets/js/rfq.js"></script>
-<script src="/assets/js/breadcrumb.js"></script>
-<script src="/assets/js/language-switcher.js"></script>
+<script
+    src="/assets/js/saved-products.js">
+</script>
 
-<script src="/assets/js/main.js"></script>
+<script
+    src="/assets/js/products.js">
+</script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script
+    src="/assets/js/brands.js">
+</script>
+
+<script
+    src="/assets/js/categories.js">
+</script>
+
+<script
+    src="/assets/js/vehicles.js">
+</script>
+
+
+<script
+    src="/assets/js/search.js">
+</script>
+
+<script
+    src="/assets/js/filters.js">
+</script>
+
+<script
+    src="/assets/js/pagination.js">
+</script>
+
+<script
+    src="/assets/js/breadcrumb.js">
+</script>
+
+<script
+    src="/assets/js/language-switcher.js">
+</script>
+
+<script
+    src="/assets/js/rfq.js">
+</script>
+
+
+<script
+    src="/assets/js/main.js">
+</script>
+
+
+<!-- ==========================================
+     EMAILJS
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+
+<!-- ==========================================
+     PAGE-SPECIFIC SCRIPTS
+========================================== -->
 
 <script src="/assets/js/pages/rfq.js"></script>
+
 
 <!-- ==========================================
      PAGE INITIALISER
@@ -1332,15 +1590,21 @@ window.souviks = {
 
 <script>
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    if (typeof initialisePage === "function") {
+        if (
+            typeof initialisePage ===
+            "function"
+        ) {
 
-        initialisePage();
+            initialisePage();
+
+        }
 
     }
-
-});
+);
 
 </script>
 

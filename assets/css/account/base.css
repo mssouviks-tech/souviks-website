@@ -1,0 +1,170 @@
+/* ==========================================================
+   SOUVIKS — ACCOUNT BASE
+========================================================== */
+
+
+/* ==========================================================
+   ACCOUNT PAGE
+========================================================== */
+
+.account-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+}
+
+
+/* ==========================================================
+   ACCOUNT SECTION
+========================================================== */
+
+.account-section {
+
+    padding: 32px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+
+/* ==========================================================
+   ACCOUNT SECTION HEADER
+========================================================== */
+
+.account-section-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 28px;
+
+}
+
+
+.account-section-header h2 {
+
+    margin: 0 0 6px;
+
+}
+
+
+.account-section-header p {
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+}
+
+
+/* ==========================================================
+   ACCOUNT SECTION CONTENT
+========================================================== */
+
+.account-section > h2 {
+
+    margin-top: 0;
+
+}
+
+
+.account-section > p {
+
+    color: var(--text-secondary);
+
+}
+
+
+/* ==========================================================
+   ACCOUNT LOADING STATE
+========================================================== */
+
+.account-auth-loader {
+
+    min-height: 320px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.account-auth-loader-inner {
+
+    text-align: center;
+
+    color: var(--text-secondary);
+
+}
+
+
+.account-auth-loader-spinner {
+
+    width: 36px;
+
+    height: 36px;
+
+    margin: 0 auto 16px;
+
+    border: 3px solid var(--border-color);
+
+    border-top-color: var(--color-primary);
+
+    border-radius: 50%;
+
+    animation:
+        accountLoaderSpin .8s linear infinite;
+
+}
+
+
+@keyframes accountLoaderSpin {
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+/* ==========================================================
+   AUTH PENDING
+========================================================== */
+
+body.account-auth-pending main {
+
+    visibility: hidden;
+
+}
+
+
+body:not(.account-auth-pending)
+.account-auth-loader {
+
+    display: none;
+
+}

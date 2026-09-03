@@ -296,8 +296,6 @@
 
     }
 
-}
-
     /* ======================================================
        LANGUAGE SWITCHER
     ====================================================== */
@@ -317,6 +315,139 @@
         font-size: .85rem;
 
     }
+
+    /* ======================================================
+       TOP BAR
+    ====================================================== */
+
+.top-bar {
+
+        width: 100%;
+
+    }
+
+    .top-bar .container {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        width: 100%;
+
+        min-height: 52px;
+
+        padding-top: 6px;
+
+        padding-bottom: 6px;
+
+        gap: 12px;
+
+    }
+
+    .top-bar-brand {
+
+        flex: 0 0 auto;
+
+    }
+
+    .top-logo img {
+
+        height: 38px;
+
+        width: auto;
+
+    }
+
+    .top-bar-tools {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-end;
+
+        flex: 1 1 auto;
+
+        min-width: 0;
+
+        margin-left: auto;
+
+        gap: 10px;
+
+    }
+
+    /* Hide Email on mobile */
+
+    .top-bar-tools .top-email {
+
+        display: none;
+
+    }
+
+    /* Hide Phone on mobile */
+
+    .top-bar-tools .top-phone {
+
+        display: none;
+
+    }
+
+    /* Keep WhatsApp visible on mobile */
+
+    .top-bar-tools .top-whatsapp {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 6px;
+
+        padding: 7px 10px;
+
+        font-size: .8rem;
+
+        white-space: nowrap;
+
+    }
+
+    /* Hide Sign In on mobile */
+
+    .top-bar-tools .top-signin {
+
+        display: none;
+
+    }
+
+    .top-bar-tools .language-switcher {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        flex-shrink: 0;
+
+    }
+
+    .language-button {
+
+        padding: .55rem .85rem;
+
+        font-size: .8rem;
+
+    }
+
+    .top-icon {
+
+        width: 16px;
+
+        height: 16px;
+
+    }
+}
 
 /* ==========================================================
    MOBILE
@@ -864,6 +995,81 @@
     .pdp-related-grid {
 
         grid-template-columns: 1fr;
+
+    }
+
+    /* ======================================================
+       PRODUCT DETAIL
+    ====================================================== */
+
+
+ .top-bar .container {
+
+        min-height: 50px;
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+        gap: 8px;
+
+    }
+
+    .top-logo img {
+
+        height: 36px;
+
+    }
+
+    .top-bar-tools {
+
+        gap: 6px;
+
+    }
+
+    .top-bar-tools .top-whatsapp {
+
+        padding: 6px 8px;
+
+        font-size: .75rem;
+
+    }
+
+    .top-bar-tools .top-whatsapp .top-icon {
+
+        width: 15px;
+
+        height: 15px;
+
+    }
+
+    .language-button {
+
+        padding: .5rem .7rem;
+
+        font-size: .75rem;
+
+    }
+
+    .rfq-basket {
+
+        padding: 24px 0;
+
+    }
+
+    .rfq-table-wrapper {
+
+        width: 100%;
+
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+
+    }
+
+    .rfq-table {
+
+        min-width: 760px;
 
     }
 

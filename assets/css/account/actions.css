@@ -1,0 +1,83 @@
+/* ==========================================================
+   SOUVIKS — ACCOUNT ACTIONS
+========================================================== */
+
+
+/* ==========================================================
+   ACCOUNT ACTIONS
+========================================================== */
+
+.account-actions {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+}
+
+
+.account-actions .btn {
+
+    width: 100%;
+
+    justify-content: center;
+
+}
+
+
+/* ==========================================================
+   LOGOUT
+========================================================== */
+
+.account-page > .form-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 0;
+
+}
+
+
+.account-page > .form-actions .btn {
+
+    min-width: 140px;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 700px) {
+
+    .account-actions {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .account-page > .form-actions {
+
+        justify-content: stretch;
+
+    }
+
+
+    .account-page > .form-actions .btn {
+
+        width: 100%;
+
+    }
+
+}

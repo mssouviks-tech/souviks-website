@@ -191,6 +191,17 @@
 
 }
 
+.refund-hero {
+
+    background:
+        linear-gradient(
+            rgba(15,23,42,.55),
+            rgba(15,23,42,.55)
+        ),
+        url("/assets/images/hero/refund-hero.png");
+
+}
+
 .index-hero {
 
     position: relative;

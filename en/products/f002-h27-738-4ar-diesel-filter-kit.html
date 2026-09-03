@@ -215,7 +215,7 @@ Reusable Head Component
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Diesel Filter Kit",
-  "url": "https://www.souviks.co.in/en/products/f002-h27-738-4ar-diesel-filter-kit.html",
+  "url": "https://www.souviks.co.in/products/f002-h27-738-4ar-diesel-filter-kit/",
   "description": "Genuine Bosch diesel filter service kit providing high filtration efficiency and extended fuel system reliability.",
   "image": [
     "https://www.souviks.co.in/assets/images/products/SVKS000241/Diesel%20Filter%20Kit.webp",
@@ -231,7 +231,7 @@ Reusable Head Component
     "https://www.souviks.co.in/assets/images/products/SVKS000241/8.webp",
     "https://www.souviks.co.in/assets/images/products/SVKS000241/9.webp"
   ],
-  "sku": "F002-H27-738-4AR",
+  "sku": "SVKS000241",
   "mpn": "F002-H27-738-4AR",
   "brand": {
     "@type": "Brand",
@@ -253,8 +253,8 @@ Reusable Head Component
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Products",
-      "item": "https://www.souviks.co.in/en/products.html"
+      "name": "Diesel Filter Kit",
+      "item": "https://www.souviks.co.in/products/f002-h27-738-4ar-diesel-filter-kit/"
     },
     {
       "@type": "ListItem",
@@ -299,6 +299,7 @@ Reusable Head Component
 </head>
 
 <body>
+
 
 <div class="top-bar">
 
@@ -371,15 +372,80 @@ Reusable Head Component
             </a>
 
 
-            <!-- SIGN IN -->
+            <!-- AUTHENTICATION -->
 
-            <a
-                href="/en/login.html"
-                class="top-signin">
+            <div
+                id="topAuth"
+                class="top-auth">
 
-                Sign In
+                <!-- LOGGED OUT -->
 
-            </a>
+                <a
+                    id="topSignIn"
+                    href="/en/login.html"
+                    class="top-signin">
+
+                    Sign In
+
+                </a>
+
+
+                <!-- LOGGED IN -->
+
+                <div
+                    id="topUserMenu"
+                    class="top-user-menu"
+                    hidden>
+
+                    <button
+                        type="button"
+                        id="topUserButton"
+                        class="top-user-button"
+                        aria-expanded="false"
+                        aria-haspopup="true">
+
+                        <span id="topUserName">
+
+                            Account
+
+                        </span>
+
+                        <span
+                            class="top-user-arrow"
+                            aria-hidden="true">
+
+                            ▼
+
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        id="topUserDropdown"
+                        class="top-user-dropdown"
+                        hidden>
+
+                        <a
+                            href="/en/account.html">
+
+                            My Account
+
+                        </a>
+
+                        <button
+                            type="button"
+                            data-auth-logout>
+
+                            Sign Out
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
             <!-- LANGUAGE -->
@@ -453,7 +519,10 @@ Reusable Head Component
 
     </div>
 
-</div> <header class="site-header">
+</div>
+
+ 
+<header class="site-header">
 
     <div class="container">
 
@@ -553,6 +622,11 @@ Reusable Head Component
 
             </nav>
 
+
+            <!-- ==========================================
+                 HEADER ACTIONS
+            =========================================== -->
+
             <div class="header-buttons">
 
                 <a
@@ -577,7 +651,12 @@ Reusable Head Component
 
                 </a>
 
-            </div>
+
+                
+
+            <!-- ==========================================
+                 MOBILE MENU BUTTON
+            =========================================== -->
 
             <button
                 id="mobileMenuButton"
@@ -597,184 +676,189 @@ Reusable Head Component
 
     </div>
 
-<!-- ==========================================================
-     MOBILE NAVIGATION
-========================================================== -->
 
-<nav
-    id="mobileNavigation"
-    class="mobile-navigation"
-    aria-label="Primary Navigation">
+    <!-- ==========================================================
+         MOBILE NAVIGATION
+    ========================================================== -->
 
-    <!-- ==========================================
-         NAVIGATION LINKS
-    =========================================== -->
+    <nav
+        id="mobileNavigation"
+        class="mobile-navigation"
+        aria-label="Primary Navigation">
 
-    <ul>
 
-        <li>
+        <!-- ==========================================
+             NAVIGATION LINKS
+        =========================================== -->
+
+        <ul>
+
+            <li>
+
+                <a
+                    href="/en/"
+                    class="">
+
+                    Home
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/products.html"
+                    class="">
+
+                    Products
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/brands.html"
+                    class="">
+
+                    Brands
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/vehicles.html"
+                    class="">
+
+                    Vehicles
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/categories.html"
+                    class="">
+
+                    Categories
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/about.html"
+                    class="">
+
+                    About Us
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/en/contact.html"
+                    class="">
+
+                    Contact
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <!-- ==========================================
+             MOBILE ACTIONS
+        =========================================== -->
+
+        <div class="mobile-navigation-actions">
 
             <a
-                href="/en/"
-                class="">
+                href="/en/request-part.html"
+                class="btn btn-primary">
 
-                Home
+                Request a Part
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/en/products.html"
-                class="">
+                href="/en/request-quote.html"
+                class="btn btn-secondary">
 
-                Products
+                RFQ Basket
+
+                <span class="rfq-badge">
+
+                    0
+
+                </span>
 
             </a>
 
-        </li>
 
-        <li>
+            
+
+
+        <!-- ==========================================
+             MOBILE CONTACT
+        =========================================== -->
+
+        <div class="mobile-navigation-contact">
 
             <a
-                href="/en/brands.html"
-                class="">
+                href="tel:+919434331896"
+                class="mobile-phone">
 
-                Brands
+                <img
+                    src="/assets/icons/phone.svg"
+                    alt="Phone"
+                    class="mobile-icon">
+
+                <span>
+
+                    +91 94343 31896
+
+                </span>
 
             </a>
 
-        </li>
-
-        <li>
-
             <a
-                href="/en/vehicles.html"
-                class="">
+                href="mailto:info@souviks.co.in"
+                class="mobile-email">
 
-                Vehicles
+                <img
+                    src="/assets/icons/email.svg"
+                    alt="Email"
+                    class="mobile-icon">
+
+                <span>
+
+                    info@souviks.co.in
+
+                </span>
 
             </a>
 
-        </li>
+        </div>
 
-        <li>
-
-            <a
-                href="/en/categories.html"
-                class="">
-
-                Categories
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/en/about.html"
-                class="">
-
-                About Us
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a
-                href="/en/contact.html"
-                class="">
-
-                Contact
-
-            </a>
-
-        </li>
-
-    </ul>
-
-
-    <!-- ==========================================
-         MOBILE ACTIONS
-    =========================================== -->
-
-    <div class="mobile-navigation-actions">
-
-        <a
-            href="/en/request-part.html"
-            class="btn btn-primary">
-
-            Request a Part
-
-        </a>
-
-        <a
-            href="/en/request-quote.html"
-            class="btn btn-secondary">
-
-            RFQ Basket
-
-            <span class="rfq-badge">
-
-                0
-
-            </span>
-
-        </a>
-
-    </div>
-
-
-    <!-- ==========================================
-         MOBILE CONTACT
-    =========================================== -->
-
-    <div class="mobile-navigation-contact">
-
-        <a
-            href="tel:+919434331896"
-            class="mobile-phone">
-
-            <img
-                src="/assets/icons/phone.svg"
-                alt="Phone"
-                class="mobile-icon">
-
-            <span>
-
-                +91 94343 31896
-
-            </span>
-
-        </a>
-
-        <a
-            href="mailto:info@souviks.co.in"
-            class="mobile-email">
-
-            <img
-                src="/assets/icons/email.svg"
-                alt="Email"
-                class="mobile-icon">
-
-            <span>
-
-                info@souviks.co.in
-
-            </span>
-
-        </a>
-
-    </div>
-
-</nav>
+    </nav>
 
 </header>
+
+
 
 <!-- ==========================================================
 SOUVIKS BREADCRUMB
@@ -1121,43 +1205,55 @@ SOUVIKS BREADCRUMB
          FOOTER BOTTOM
     =========================================== -->
 
-    <div class="footer-bottom">
+<!-- ==========================================
+     FOOTER BOTTOM
+========================================== -->
 
-        <p class="footer-copyright">
+<div class="footer-bottom">
 
-            &copy; 2026
-            Souviks.
-            All Rights Reserved.
+    <p class="footer-copyright">
 
-        </p>
+        &copy; 2026
+        Souviks.
+        All Rights Reserved.
 
-        <div class="footer-bottom-links">
+    </p>
 
-            <a href="/en/privacy-policy.html">
+    <div class="footer-bottom-links">
 
-                Privacy Policy
+        <a href="/en/privacy-policy.html">
 
-            </a>
+            Privacy Policy
 
-            <span>|</span>
+        </a>
 
-            <a href="/en/terms.html">
+        <span>|</span>
 
-                Terms & Conditions
+        <a href="/en/terms.html">
 
-            </a>
+            Terms & Conditions
 
-            <span>|</span>
+        </a>
 
-            <a href="/sitemap.xml">
+        <span>|</span>
 
-                Sitemap
+        <a href="/en/refund.html">
 
-            </a>
+            Refund Policy
 
-        </div>
+        </a>
+
+        <span>|</span>
+
+        <a href="/sitemap.xml">
+
+            Sitemap
+
+        </a>
 
     </div>
+
+</div>
 
 </div>
 </footer>
@@ -1167,6 +1263,7 @@ SOUVIKS PAGE SCRIPTS
 Reusable JavaScript Loader
 ========================================================== -->
 
+
 <!-- ==========================================
      GLOBAL CONFIG
 ========================================== -->
@@ -1175,31 +1272,43 @@ Reusable JavaScript Loader
 
 window.souviks = {
 
-    siteName: "Souviks",
+    siteName:
+        "Souviks",
 
-    siteUrl: "https://www.souviks.co.in",
+    siteUrl:
+        "https://www.souviks.co.in",
 
-    currentPage: "Diesel Filter Kit",
+    currentPage:
+        "Diesel Filter Kit",
 
-    currentPageType: "",
+    currentPageType:
+        "",
 
-    currentPageUrl: "/en/products/f002-h27-738-4ar-diesel-filter-kit.html",
+    currentPageUrl:
+        "/en/products/f002-h27-738-4ar-diesel-filter-kit.html",
 
-    breadcrumbRoot: false,
+    breadcrumbRoot:
+        false,
 
-    currentLanguage: "en",
+    currentLanguage:
+        "en",
 
     api: {
 
-        products: "/assets/data/products.json",
+        products:
+            "/assets/data/products.json",
 
-        brands: "/assets/data/brands.json",
+        brands:
+            "/assets/data/brands.json",
 
-        categories: "/assets/data/categories.json",
+        categories:
+            "/assets/data/categories.json",
 
-        vehicles: "/assets/data/vehicles.json",
+        vehicles:
+            "/assets/data/vehicles.json",
 
-        search: "/assets/data/search.json"
+        search:
+            "/assets/data/search.json"
 
     }
 
@@ -1207,28 +1316,108 @@ window.souviks = {
 
 </script>
 
+
+<!-- ==========================================
+     SUPABASE
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+<script
+    src="/assets/js/auth/supabase.js">
+</script>
+
+<script
+    src="/assets/js/auth/register.js">
+</script>
+
+<script
+    src="/assets/js/auth/auth-state.js">
+</script>
+
+<script
+    src="/assets/js/auth/logout.js">
+</script>
+
+
 <!-- ==========================================
      GLOBAL JAVASCRIPT
 ========================================== -->
 
-<script src="/assets/js/utils.js"></script>
-<script src="/assets/js/api.js"></script>
+<script
+    src="/assets/js/utils.js">
+</script>
 
-<script src="/assets/js/products.js"></script>
-<script src="/assets/js/brands.js"></script>
-<script src="/assets/js/categories.js"></script>
-<script src="/assets/js/vehicles.js"></script>
+<script
+    src="/assets/js/api.js">
+</script>
 
-<script src="/assets/js/search.js"></script>
-<script src="/assets/js/filters.js"></script>
-<script src="/assets/js/pagination.js"></script>
-<script src="/assets/js/rfq.js"></script>
-<script src="/assets/js/breadcrumb.js"></script>
-<script src="/assets/js/language-switcher.js"></script>
+<script
+    src="/assets/js/saved-products.js">
+</script>
 
-<script src="/assets/js/main.js"></script>
+<script
+    src="/assets/js/products.js">
+</script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script
+    src="/assets/js/brands.js">
+</script>
+
+<script
+    src="/assets/js/categories.js">
+</script>
+
+<script
+    src="/assets/js/vehicles.js">
+</script>
+
+
+<script
+    src="/assets/js/search.js">
+</script>
+
+<script
+    src="/assets/js/filters.js">
+</script>
+
+<script
+    src="/assets/js/pagination.js">
+</script>
+
+<script
+    src="/assets/js/breadcrumb.js">
+</script>
+
+<script
+    src="/assets/js/language-switcher.js">
+</script>
+
+<script
+    src="/assets/js/rfq.js">
+</script>
+
+
+<script
+    src="/assets/js/main.js">
+</script>
+
+
+<!-- ==========================================
+     EMAILJS
+========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+
+<!-- ==========================================
+     PAGE-SPECIFIC SCRIPTS
+========================================== -->
+
 
 
 
@@ -1238,15 +1427,21 @@ window.souviks = {
 
 <script>
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    if (typeof initialisePage === "function") {
+        if (
+            typeof initialisePage ===
+            "function"
+        ) {
 
-        initialisePage();
+            initialisePage();
+
+        }
 
     }
-
-});
+);
 
 </script>
 

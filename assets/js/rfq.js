@@ -1,126 +1,824 @@
+/* ==========================================================
+   SOUVIKS — RFQ
+   Shared RFQ Basket Engine
+
+   AUTHENTICATED USERS:
+       Supabase → rfq_cart_items
+
+   ANONYMOUS USERS:
+       localStorage → local RFQ basket
+
+   Submission is handled separately by:
+       assets/js/pages/rfq.js
+       Account authenticated RFQ logic
+   ========================================================== */
+
+
 window.RFQ = {
 
-    key: "souviks_rfq"
+    table:
+        "rfq_cart_items",
+
+    storageKey:
+        "souviks_rfq_guest"
 
 };
 
-RFQ.get = function(){
 
-    return JSON.parse(
+/*
+----------------------------------------------------------
+GET CURRENT USER
+----------------------------------------------------------
+*/
 
-        localStorage.getItem(
+RFQ.getUser = async function () {
 
-            RFQ.key
+    if (
+        typeof supabaseClient ===
+        "undefined"
+    ) {
 
-        ) || "[]"
+        return null;
 
+    }
+
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.auth.getUser();
+
+
+        if (error) {
+
+            console.error(
+                "[Souviks RFQ] Unable to get authenticated user:",
+                error
+            );
+
+            return null;
+
+        }
+
+
+        return data?.user || null;
+
+
+    } catch (error) {
+
+        console.error(
+            "[Souviks RFQ] Unexpected authentication error:",
+            error
+        );
+
+        return null;
+
+    }
+
+};
+
+
+/*
+----------------------------------------------------------
+HTML ESCAPE
+----------------------------------------------------------
+
+Prevents product data from being interpreted as HTML
+when rendered into the RFQ table.
+----------------------------------------------------------
+*/
+
+RFQ.escapeHTML = function (
+    value
+) {
+
+    const text =
+        String(
+            value ?? ""
+        );
+
+
+    return text.replace(
+        /[&<>"']/g,
+        character => {
+
+            const entities = {
+
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+
+            };
+
+
+            return entities[
+                character
+            ];
+
+        }
     );
 
 };
 
-RFQ.save = function(
 
-    items
+/*
+----------------------------------------------------------
+GET GUEST ITEMS
+----------------------------------------------------------
+*/
 
-){
+RFQ.getGuestItems = function () {
 
-    localStorage.setItem(
+    try {
 
-        RFQ.key,
+        const stored =
+            localStorage.getItem(
+                RFQ.storageKey
+            );
 
-        JSON.stringify(
 
-            items
+        if (!stored) {
 
-        )
+            return [];
 
-    );
+        }
 
-};
 
-RFQ.add = function(
+        const parsed =
+            JSON.parse(
+                stored
+            );
 
-    product
 
-){
+        if (
+            !Array.isArray(
+                parsed
+            )
+        ) {
 
-    const items =
+            return [];
 
-        RFQ.get();
+        }
 
-    const existing =
 
-        items.find(
+        return parsed.map(
 
-            item =>
+            item => ({
 
-                item.id === product.id
+                id:
+                    item.id,
+
+                rowId:
+                    null,
+
+                partNumber:
+                    item.partNumber || "",
+
+                name:
+                    item.name || "",
+
+                brand:
+                    item.brand || "",
+
+                qty:
+                    Math.max(
+                        1,
+                        Number(
+                            item.qty
+                        ) || 1
+                    )
+
+            })
 
         );
 
-    if(existing){
 
-        existing.qty += 1;
+    } catch (error) {
 
-    }
+        console.error(
+            "[Souviks RFQ] Unable to read guest RFQ basket:",
+            error
+        );
 
-    else{
-
-        items.push({
-
-            ...product,
-
-            qty:1
-
-        });
+        return [];
 
     }
-
-    RFQ.save(
-
-        items
-
-    );
-
-    RFQ.updateBadge();
 
 };
 
-RFQ.updateBadge = function(){
+
+/*
+----------------------------------------------------------
+SAVE GUEST ITEMS
+----------------------------------------------------------
+*/
+
+RFQ.saveGuestItems = function (
+    items
+) {
+
+    try {
+
+        localStorage.setItem(
+
+            RFQ.storageKey,
+
+            JSON.stringify(
+                items
+            )
+
+        );
+
+
+        return true;
+
+
+    } catch (error) {
+
+        console.error(
+            "[Souviks RFQ] Unable to save guest RFQ basket:",
+            error
+        );
+
+        return false;
+
+    }
+
+};
+
+
+/*
+----------------------------------------------------------
+GET RFQ ITEMS
+----------------------------------------------------------
+
+Authenticated:
+    Supabase rfq_cart_items
+
+Anonymous:
+    localStorage
+
+Returns the same frontend structure in both cases:
+
+    {
+        id,
+        rowId,
+        partNumber,
+        name,
+        brand,
+        qty
+    }
+----------------------------------------------------------
+*/
+
+RFQ.get = async function () {
+
+    const user =
+        await RFQ.getUser();
+
+
+    /*
+    ------------------------------------------------------
+    ANONYMOUS
+    ------------------------------------------------------
+    */
+
+    if (!user) {
+
+        return RFQ.getGuestItems();
+
+    }
+
+
+    /*
+    ------------------------------------------------------
+    AUTHENTICATED
+    ------------------------------------------------------
+    */
+
+    if (
+        typeof supabaseClient ===
+        "undefined"
+    ) {
+
+        console.error(
+            "[Souviks RFQ] Supabase client unavailable."
+        );
+
+        return [];
+
+    }
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+
+            .from(
+                RFQ.table
+            )
+
+            .select(
+                "id, user_id, product_id, part_number, product_name, brand, quantity, created_at, updated_at"
+            )
+
+            .eq(
+                "user_id",
+                user.id
+            )
+
+            .order(
+                "created_at",
+                {
+                    ascending:
+                        true
+                }
+            );
+
+
+    if (error) {
+
+        console.error(
+            "[Souviks RFQ] Unable to load RFQ basket:",
+            error
+        );
+
+        return [];
+
+    }
+
+
+    return (
+        data || []
+    ).map(
+
+        item => ({
+
+            id:
+                item.product_id,
+
+            rowId:
+                item.id,
+
+            partNumber:
+                item.part_number,
+
+            name:
+                item.product_name,
+
+            brand:
+                item.brand,
+
+            qty:
+                Number(
+                    item.quantity ||
+                    0
+                )
+
+        })
+
+    );
+
+};
+
+
+/*
+----------------------------------------------------------
+UPDATE RFQ BADGE
+----------------------------------------------------------
+*/
+
+RFQ.updateBadge = async function () {
+
+    const items =
+        await RFQ.get();
+
 
     const total =
+        items.reduce(
 
-        RFQ.get()
+            (
+                sum,
+                item
+            ) =>
 
-            .reduce(
+                sum +
+                Number(
+                    item.qty ||
+                    0
+                ),
 
-                (sum,item)=>
+            0
 
-                    sum + item.qty,
+        );
 
-                0
+
+    document
+        .querySelectorAll(
+            ".rfq-badge"
+        )
+        .forEach(
+
+            badge => {
+
+                badge.textContent =
+                    total;
+
+            }
+
+        );
+
+
+    return total;
+
+};
+
+
+/*
+----------------------------------------------------------
+SET PRODUCT QUANTITY
+----------------------------------------------------------
+
+Authenticated:
+    UPDATE / INSERT in Supabase
+
+Anonymous:
+    UPDATE / INSERT in localStorage
+----------------------------------------------------------
+*/
+
+RFQ.setQuantity = async function (
+
+    productId,
+    product,
+    quantity
+
+) {
+
+    const qty =
+        Math.max(
+            1,
+            Number(
+                quantity
+            ) || 1
+        );
+
+
+    const user =
+        await RFQ.getUser();
+
+
+    /*
+    ------------------------------------------------------
+    ANONYMOUS
+    ------------------------------------------------------
+    */
+
+    if (!user) {
+
+        const items =
+            RFQ.getGuestItems();
+
+
+        const existingIndex =
+            items.findIndex(
+
+                item =>
+                    item.id ===
+                    productId
 
             );
 
-    document
 
-        .querySelectorAll(
+        const normalizedProduct = {
 
-            ".rfq-badge"
+            id:
+                productId,
 
-        )
+            rowId:
+                null,
 
-        .forEach(
+            partNumber:
+                product?.partNumber ||
+                "",
 
-            badge =>
+            name:
+                product?.name ||
+                "",
 
-                badge.textContent =
+            brand:
+                product?.brand ||
+                "",
 
-                    total
+            qty
+
+        };
+
+
+        if (
+            existingIndex >=
+            0
+        ) {
+
+            items[
+                existingIndex
+            ] =
+                normalizedProduct;
+
+        } else {
+
+            items.push(
+                normalizedProduct
+            );
+
+        }
+
+
+        const saved =
+            RFQ.saveGuestItems(
+                items
+            );
+
+
+        if (!saved) {
+
+            return false;
+
+        }
+
+
+        await RFQ.updateBadge();
+
+        await RFQ.renderPage();
+
+
+        return true;
+
+    }
+
+
+    /*
+    ------------------------------------------------------
+    AUTHENTICATED
+    ------------------------------------------------------
+    */
+
+    if (
+        typeof supabaseClient ===
+        "undefined"
+    ) {
+
+        console.error(
+            "[Souviks RFQ] Supabase client unavailable."
+        );
+
+        return false;
+
+    }
+
+
+    /*
+    ------------------------------------------------------
+    FIND EXISTING PRODUCT
+    ------------------------------------------------------
+    */
+
+    const {
+        data: existing,
+        error: findError
+    } =
+        await supabaseClient
+
+            .from(
+                RFQ.table
+            )
+
+            .select(
+                "id, quantity"
+            )
+
+            .eq(
+                "user_id",
+                user.id
+            )
+
+            .eq(
+                "product_id",
+                productId
+            )
+
+            .maybeSingle();
+
+
+    if (findError) {
+
+        console.error(
+            "[Souviks RFQ] Unable to find RFQ product:",
+            findError
+        );
+
+        return false;
+
+    }
+
+
+    /*
+    ------------------------------------------------------
+    UPDATE EXISTING PRODUCT
+    ------------------------------------------------------
+    */
+
+    if (existing) {
+
+        const {
+            error
+        } =
+            await supabaseClient
+
+                .from(
+                    RFQ.table
+                )
+
+                .update({
+
+                    quantity:
+                        qty
+
+                })
+
+                .eq(
+                    "id",
+                    existing.id
+                )
+
+                .eq(
+                    "user_id",
+                    user.id
+                );
+
+
+        if (error) {
+
+            console.error(
+                "[Souviks RFQ] Unable to update RFQ quantity:",
+                error
+            );
+
+            return false;
+
+        }
+
+    }
+
+
+    /*
+    ------------------------------------------------------
+    INSERT NEW PRODUCT
+    ------------------------------------------------------
+    */
+
+    else {
+
+        const {
+            error
+        } =
+            await supabaseClient
+
+                .from(
+                    RFQ.table
+                )
+
+                .insert({
+
+                    user_id:
+                        user.id,
+
+                    product_id:
+                        productId,
+
+                    part_number:
+                        product?.partNumber ||
+                        "",
+
+                    product_name:
+                        product?.name ||
+                        "",
+
+                    brand:
+                        product?.brand ||
+                        "",
+
+                    quantity:
+                        qty
+
+                });
+
+
+        if (error) {
+
+            console.error(
+                "[Souviks RFQ] Unable to insert RFQ product:",
+                error
+            );
+
+            return false;
+
+        }
+
+    }
+
+
+    await RFQ.updateBadge();
+
+    await RFQ.renderPage();
+
+
+    return true;
+
+};
+
+
+/*
+----------------------------------------------------------
+ADD PRODUCT
+----------------------------------------------------------
+
+Used by product cards and product detail pages.
+----------------------------------------------------------
+*/
+
+RFQ.add = async function (
+    product
+) {
+
+    if (
+        !product ||
+        !product.id
+    ) {
+
+        console.error(
+            "[Souviks RFQ] Invalid product supplied to RFQ.add()."
+        );
+
+        return false;
+
+    }
+
+
+    const items =
+        await RFQ.get();
+
+
+    const existing =
+        items.find(
+
+            item =>
+                item.id ===
+                product.id
 
         );
 
+
+    if (existing) {
+
+        return RFQ.setQuantity(
+
+            product.id,
+
+            product,
+
+            existing.qty + 1
+
+        );
+
+    }
+
+
+    return RFQ.setQuantity(
+
+        product.id,
+
+        product,
+
+        1
+
+    );
+
 };
+
+
+/*
+----------------------------------------------------------
+ADD TO RFQ — PRODUCT CARD
+----------------------------------------------------------
+*/
 
 document.addEventListener(
 
@@ -129,18 +827,20 @@ document.addEventListener(
     event => {
 
         const button =
-
             event.target.closest(
-
                 ".add-to-cart"
-
             );
 
-        if(!button){
+
+        if (!button) {
 
             return;
 
         }
+
+
+        event.preventDefault();
+
 
         RFQ.add({
 
@@ -156,41 +856,67 @@ document.addEventListener(
             brand:
                 button.dataset.brand
 
-        });
+        })
 
-        button.textContent =
+        .then(
 
-            "Added";
+            added => {
+
+                if (added) {
+
+                    button.textContent =
+                        "Added";
+
+                }
+
+            }
+
+        )
+
+        .catch(
+
+            error => {
+
+                console.error(
+                    "[Souviks RFQ] Add-to-RFQ error:",
+                    error
+                );
+
+            }
+
+        );
 
     }
 
 );
 
-document.addEventListener(
 
-    "DOMContentLoaded",
+/*
+----------------------------------------------------------
+RENDER RFQ PAGE
+----------------------------------------------------------
+*/
 
-    RFQ.updateBadge
-
-);
-
-RFQ.renderPage = function(){
+RFQ.renderPage = async function () {
 
     const table =
-
         document.getElementById(
             "rfq-items"
         );
 
-    if(!table){
+
+    if (!table) {
 
         return;
 
     }
 
-    const items = RFQ.get();
 
-    if(!items.length){
+    const items =
+        await RFQ.get();
+
+
+    if (!items.length) {
 
         table.innerHTML = `
 
@@ -210,172 +936,810 @@ RFQ.renderPage = function(){
 
     }
 
+
     table.innerHTML =
 
         items.map(
 
-            item => `
+            item => {
 
-            <tr>
+                const id =
+                    RFQ.escapeHTML(
+                        item.id
+                    );
 
-                <td>
+                const partNumber =
+                    RFQ.escapeHTML(
+                        item.partNumber
+                    );
 
-                    ${item.partNumber}
+                const name =
+                    RFQ.escapeHTML(
+                        item.name
+                    );
 
-                </td>
+                const brand =
+                    RFQ.escapeHTML(
+                        item.brand
+                    );
 
-                <td>
+                const qty =
+                    Math.max(
+                        1,
+                        Number(
+                            item.qty
+                        ) || 1
+                    );
 
-                    ${item.name}
 
-                </td>
+                return `
 
-                <td>
+                    <tr>
 
-                    ${item.brand}
+                        <td>
 
-                </td>
+                            ${partNumber}
 
-                <td>
+                        </td>
 
-                    <div class="rfq-qty">
+                        <td>
 
-                        <button
+                            ${name}
 
-                            class="qty-minus"
+                        </td>
 
-                            data-id="${item.id}"
+                        <td>
 
-                        >
+                            ${brand}
 
-                            -
+                        </td>
 
-                        </button>
+                        <td>
 
-                        <span>
+                            <div class="rfq-qty">
 
-                            ${item.qty}
+                                <button
+                                    type="button"
+                                    class="qty-minus"
+                                    data-id="${id}"
+                                    aria-label="Decrease quantity"
+                                >
 
-                        </span>
+                                    -
 
-                        <button
+                                </button>
 
-                            class="qty-plus"
 
-                            data-id="${item.id}"
+                                <span>
 
-                        >
+                                    ${qty}
 
-                            +
+                                </span>
 
-                        </button>
 
-                    </div>
+                                <button
+                                    type="button"
+                                    class="qty-plus"
+                                    data-id="${id}"
+                                    aria-label="Increase quantity"
+                                >
 
-                </td>
+                                    +
 
-                <td>
+                                </button>
 
-                    <button
+                            </div>
 
-                        class="remove-rfq"
+                        </td>
 
-                        data-id="${item.id}"
+                        <td>
 
-                    >
+                            <button
+                                type="button"
+                                class="remove-rfq"
+                                data-id="${id}"
+                            >
 
-                        Remove
+                                Remove
 
-                    </button>
+                            </button>
 
-                </td>
+                        </td>
 
-            </tr>
+                    </tr>
 
-            `
+                `;
+
+            }
 
         ).join("");
 
 };
-document.addEventListener(
 
-    "DOMContentLoaded",
 
-    () => {
+/*
+----------------------------------------------------------
+CHANGE QUANTITY
+----------------------------------------------------------
+*/
 
-        RFQ.updateBadge();
+RFQ.changeQty = async function (
 
-        RFQ.renderPage();
-
-    }
-
-);
-
-RFQ.changeQty = function(
-
-    id,
-
+    productId,
     amount
 
-){
+) {
 
     const items =
+        await RFQ.get();
 
-        RFQ.get();
 
     const item =
-
         items.find(
 
-            item =>
-
-                item.id === id
+            entry =>
+                String(
+                    entry.id
+                ) ===
+                String(
+                    productId
+                )
 
         );
 
-    if(!item){
+
+    if (!item) {
 
         return;
 
     }
 
-    item.qty += amount;
 
-    if(item.qty <= 0){
+    const newQuantity =
+        Number(
+            item.qty
+        ) +
+        Number(
+            amount
+        );
 
-        RFQ.remove(id);
+
+    /*
+    ------------------------------------------------------
+    REMOVE WHEN QUANTITY REACHES ZERO
+    ------------------------------------------------------
+    */
+
+    if (
+        newQuantity <=
+        0
+    ) {
+
+        await RFQ.remove(
+            productId
+        );
 
         return;
 
     }
 
-    RFQ.save(items);
 
-    RFQ.updateBadge();
+    /*
+    ------------------------------------------------------
+    ANONYMOUS
+    ------------------------------------------------------
+    */
 
-    RFQ.renderPage();
+    const user =
+        await RFQ.getUser();
 
-};
 
-RFQ.remove = function(id){
+    if (!user) {
 
-    const items =
+        const guestItems =
+            RFQ.getGuestItems();
 
-        RFQ.get().filter(
 
-            item =>
+        const guestIndex =
+            guestItems.findIndex(
 
-                item.id !== id
+                entry =>
+                    String(
+                        entry.id
+                    ) ===
+                    String(
+                        productId
+                    )
 
+            );
+
+
+        if (
+            guestIndex <
+            0
+        ) {
+
+            return;
+
+        }
+
+
+        guestItems[
+            guestIndex
+        ].qty =
+            newQuantity;
+
+
+        RFQ.saveGuestItems(
+            guestItems
         );
 
-    RFQ.save(items);
 
-    RFQ.updateBadge();
+        await RFQ.updateBadge();
 
-    RFQ.renderPage();
+        await RFQ.renderPage();
+
+
+        return;
+
+    }
+
+
+    /*
+    ------------------------------------------------------
+    AUTHENTICATED
+    ------------------------------------------------------
+    */
+
+    if (
+        typeof supabaseClient ===
+        "undefined"
+    ) {
+
+        return;
+
+    }
+
+
+    const {
+        data: dbItem,
+        error: findError
+    } =
+        await supabaseClient
+
+            .from(
+                RFQ.table
+            )
+
+            .select(
+                "id, quantity"
+            )
+
+            .eq(
+                "user_id",
+                user.id
+            )
+
+            .eq(
+                "product_id",
+                productId
+            )
+
+            .maybeSingle();
+
+
+    if (findError) {
+
+        console.error(
+            "[Souviks RFQ] Unable to find RFQ item:",
+            findError
+        );
+
+        return;
+
+    }
+
+
+    if (!dbItem) {
+
+        return;
+
+    }
+
+
+    const {
+        error: updateError
+    } =
+        await supabaseClient
+
+            .from(
+                RFQ.table
+            )
+
+            .update({
+
+                quantity:
+                    newQuantity
+
+            })
+
+            .eq(
+                "id",
+                dbItem.id
+            )
+
+            .eq(
+                "user_id",
+                user.id
+            );
+
+
+    if (updateError) {
+
+        console.error(
+            "[Souviks RFQ] Unable to update RFQ quantity:",
+            updateError
+        );
+
+        return;
+
+    }
+
+
+    await RFQ.updateBadge();
+
+    await RFQ.renderPage();
 
 };
+
+
+/*
+----------------------------------------------------------
+REMOVE PRODUCT
+----------------------------------------------------------
+*/
+
+RFQ.remove = async function (
+
+    productId
+
+) {
+
+    const user =
+        await RFQ.getUser();
+
+
+    /*
+    ------------------------------------------------------
+    ANONYMOUS
+    ------------------------------------------------------
+    */
+
+    if (!user) {
+
+        const items =
+            RFQ.getGuestItems();
+
+
+        const filtered =
+            items.filter(
+
+                item =>
+                    String(
+                        item.id
+                    ) !==
+                    String(
+                        productId
+                    )
+
+            );
+
+
+        RFQ.saveGuestItems(
+            filtered
+        );
+
+
+        await RFQ.updateBadge();
+
+        await RFQ.renderPage();
+
+
+        return;
+
+    }
+
+
+    /*
+    ------------------------------------------------------
+    AUTHENTICATED
+    ------------------------------------------------------
+    */
+
+    if (
+        typeof supabaseClient ===
+        "undefined"
+    ) {
+
+        return;
+
+    }
+
+
+    const {
+        error
+    } =
+        await supabaseClient
+
+            .from(
+                RFQ.table
+            )
+
+            .delete()
+
+            .eq(
+                "user_id",
+                user.id
+            )
+
+            .eq(
+                "product_id",
+                productId
+            );
+
+
+    if (error) {
+
+        console.error(
+            "[Souviks RFQ] Unable to remove RFQ item:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    await RFQ.updateBadge();
+
+    await RFQ.renderPage();
+
+};
+
+
+/*
+----------------------------------------------------------
+CLEAR RFQ BASKET
+----------------------------------------------------------
+
+Authenticated:
+    Deletes only the current user's rows.
+
+Anonymous:
+    Clears only the Souviks guest RFQ localStorage key.
+----------------------------------------------------------
+*/
+
+RFQ.clear = async function () {
+
+    const user =
+        await RFQ.getUser();
+
+
+    /*
+    ------------------------------------------------------
+    ANONYMOUS
+    ------------------------------------------------------
+    */
+
+    if (!user) {
+
+        try {
+
+            localStorage.removeItem(
+                RFQ.storageKey
+            );
+
+        } catch (error) {
+
+            console.error(
+                "[Souviks RFQ] Unable to clear guest RFQ basket:",
+                error
+            );
+
+        }
+
+
+        await RFQ.updateBadge();
+
+        await RFQ.renderPage();
+
+
+        return true;
+
+    }
+
+
+    /*
+    ------------------------------------------------------
+    AUTHENTICATED
+    ------------------------------------------------------
+    */
+
+    if (
+        typeof supabaseClient ===
+        "undefined"
+    ) {
+
+        console.error(
+            "[Souviks RFQ] Supabase client unavailable."
+        );
+
+        return false;
+
+    }
+
+
+    const {
+        error
+    } =
+        await supabaseClient
+
+            .from(
+                RFQ.table
+            )
+
+            .delete()
+
+            .eq(
+                "user_id",
+                user.id
+            );
+
+
+    if (error) {
+
+        console.error(
+            "[Souviks RFQ] Unable to clear RFQ basket:",
+            error
+        );
+
+        return false;
+
+    }
+
+
+    await RFQ.updateBadge();
+
+    await RFQ.renderPage();
+
+
+    return true;
+
+};
+
+
+/*
+----------------------------------------------------------
+MERGE GUEST BASKET
+----------------------------------------------------------
+
+When an anonymous visitor signs in, move the guest
+basket into the authenticated Supabase basket.
+
+If the same product already exists in the account basket,
+quantities are combined.
+----------------------------------------------------------
+*/
+
+RFQ.mergeGuestBasket = async function () {
+
+    const user =
+        await RFQ.getUser();
+
+
+    if (!user) {
+
+        return;
+
+    }
+
+
+    const guestItems =
+        RFQ.getGuestItems();
+
+
+    if (!guestItems.length) {
+
+        return;
+
+    }
+
+
+    for (
+        const item
+        of guestItems
+    ) {
+
+        try {
+
+            const {
+                data: existing,
+                error
+            } =
+                await supabaseClient
+
+                    .from(
+                        RFQ.table
+                    )
+
+                    .select(
+                        "id, quantity"
+                    )
+
+                    .eq(
+                        "user_id",
+                        user.id
+                    )
+
+                    .eq(
+                        "product_id",
+                        item.id
+                    )
+
+                    .maybeSingle();
+
+
+            if (error) {
+
+                console.error(
+                    "[Souviks RFQ] Unable to check guest basket item:",
+                    error
+                );
+
+                continue;
+
+            }
+
+
+            if (existing) {
+
+                const {
+                    error:
+                        updateError
+                } =
+                    await supabaseClient
+
+                        .from(
+                            RFQ.table
+                        )
+
+                        .update({
+
+                            quantity:
+                                Number(
+                                    existing.quantity ||
+                                    0
+                                ) +
+                                Number(
+                                    item.qty ||
+                                    0
+                                )
+
+                        })
+
+                        .eq(
+                            "id",
+                            existing.id
+                        )
+
+                        .eq(
+                            "user_id",
+                            user.id
+                        );
+
+
+                if (updateError) {
+
+                    console.error(
+                        "[Souviks RFQ] Unable to merge guest RFQ item:",
+                        updateError
+                    );
+
+                }
+
+            } else {
+
+                const {
+                    error:
+                        insertError
+                } =
+                    await supabaseClient
+
+                        .from(
+                            RFQ.table
+                        )
+
+                        .insert({
+
+                            user_id:
+                                user.id,
+
+                            product_id:
+                                item.id,
+
+                            part_number:
+                                item.partNumber,
+
+                            product_name:
+                                item.name,
+
+                            brand:
+                                item.brand,
+
+                            quantity:
+                                item.qty
+
+                        });
+
+
+                if (insertError) {
+
+                    console.error(
+                        "[Souviks RFQ] Unable to import guest RFQ item:",
+                        insertError
+                    );
+
+                }
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "[Souviks RFQ] Unexpected guest RFQ merge error:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /*
+    ------------------------------------------------------
+    CLEAR GUEST BASKET ONLY AFTER MERGE ATTEMPT
+    ------------------------------------------------------
+    */
+
+    try {
+
+        localStorage.removeItem(
+            RFQ.storageKey
+        );
+
+    } catch (error) {
+
+        console.error(
+            "[Souviks RFQ] Unable to clear guest RFQ storage:",
+            error
+        );
+
+    }
+
+
+    await RFQ.updateBadge();
+
+    await RFQ.renderPage();
+
+};
+
+
+/*
+----------------------------------------------------------
+RFQ PAGE BUTTONS
+----------------------------------------------------------
+*/
 
 document.addEventListener(
 
@@ -384,12 +1748,15 @@ document.addEventListener(
     event => {
 
         const plus =
-
             event.target.closest(
                 ".qty-plus"
             );
 
-        if(plus){
+
+        if (plus) {
+
+            event.preventDefault();
+
 
             RFQ.changeQty(
 
@@ -399,15 +1766,22 @@ document.addEventListener(
 
             );
 
+
+            return;
+
         }
 
-        const minus =
 
+        const minus =
             event.target.closest(
                 ".qty-minus"
             );
 
-        if(minus){
+
+        if (minus) {
+
+            event.preventDefault();
+
 
             RFQ.changeQty(
 
@@ -417,15 +1791,22 @@ document.addEventListener(
 
             );
 
+
+            return;
+
         }
 
-        const remove =
 
+        const remove =
             event.target.closest(
                 ".remove-rfq"
             );
 
-        if(remove){
+
+        if (remove) {
+
+            event.preventDefault();
+
 
             RFQ.remove(
 
@@ -439,3 +1820,131 @@ document.addEventListener(
 
 );
 
+
+/*
+----------------------------------------------------------
+INITIAL RFQ STATE
+----------------------------------------------------------
+*/
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    async () => {
+
+        await RFQ.updateBadge();
+
+        await RFQ.renderPage();
+
+    }
+
+);
+
+
+/*
+----------------------------------------------------------
+AUTH STATE CHANGES
+----------------------------------------------------------
+
+Supabase recommends avoiding direct database work
+inside the auth callback. We defer the RFQ refresh.
+----------------------------------------------------------
+*/
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    () => {
+
+        if (
+            typeof supabaseClient ===
+            "undefined"
+        ) {
+
+            return;
+
+        }
+
+
+        supabaseClient.auth.onAuthStateChange(
+
+            (
+                event,
+                session
+            ) => {
+
+                console.log(
+                    "[Souviks RFQ] Auth event:",
+                    event
+                );
+
+
+                /*
+                ------------------------------------------
+                SIGNED IN
+                ------------------------------------------
+                */
+
+                if (
+                    event ===
+                    "SIGNED_IN"
+                ) {
+
+                    setTimeout(
+
+                        async () => {
+
+                            await RFQ.mergeGuestBasket();
+
+                            await RFQ.updateBadge();
+
+                            await RFQ.renderPage();
+
+                        },
+
+                        0
+
+                    );
+
+
+                    return;
+
+                }
+
+
+                /*
+                ------------------------------------------
+                SIGNED OUT
+                ------------------------------------------
+                */
+
+                if (
+                    event ===
+                    "SIGNED_OUT"
+                ) {
+
+                    setTimeout(
+
+                        async () => {
+
+                            await RFQ.updateBadge();
+
+                            await RFQ.renderPage();
+
+                        },
+
+                        0
+
+                    );
+
+                }
+
+            }
+
+        );
+
+    }
+
+);
