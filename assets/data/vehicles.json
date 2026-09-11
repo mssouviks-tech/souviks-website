@@ -189,6 +189,7 @@
             "SVKS000575",
             "SVKS000665",
             "SVKS000687",
+            "SVKS000699",
             "SVKS000707",
             "SVKS000709",
             "SVKS000713",
@@ -201,15 +202,21 @@
             "SVKS000736",
             "SVKS000742",
             "SVKS000743",
+            "SVKS000780",
             "SVKS000788",
+            "SVKS000793",
+            "SVKS000800",
             "SVKS000828",
+            "SVKS000833",
+            "SVKS000834",
+            "SVKS000835",
             "SVKS000876",
             "SVKS000893",
             "SVKS000894",
             "SVKS000895",
             "SVKS000896"
         ],
-        "product_count": 57,
+        "product_count": 64,
         "featured": false,
         "active": true,
         "seo": {
@@ -223,8 +230,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-signa"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.683306",
+        "updated_at": "2026-09-11T09:26:07.683306"
     },
     {
         "id": "tata-lpt",
@@ -632,6 +639,7 @@
             "SVKS000686",
             "SVKS000689",
             "SVKS000700",
+            "SVKS000701",
             "SVKS000702",
             "SVKS000703",
             "SVKS000709",
@@ -647,6 +655,7 @@
             "SVKS000731",
             "SVKS000732",
             "SVKS000733",
+            "SVKS000737",
             "SVKS000739",
             "SVKS000742",
             "SVKS000745",
@@ -670,19 +679,22 @@
             "SVKS000789",
             "SVKS000790",
             "SVKS000792",
+            "SVKS000793",
+            "SVKS000820",
             "SVKS000824",
             "SVKS000825",
             "SVKS000826",
             "SVKS000827",
             "SVKS000828",
             "SVKS000829",
+            "SVKS000830",
             "SVKS000831",
             "SVKS000856",
             "SVKS000857",
             "SVKS000858",
             "SVKS000859"
         ],
-        "product_count": 235,
+        "product_count": 240,
         "featured": false,
         "active": true,
         "seo": {
@@ -696,8 +708,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-lpt"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.683306",
+        "updated_at": "2026-09-11T09:26:07.683306"
     },
     {
         "id": "ashok-leyland-2516",
@@ -1047,6 +1059,8 @@
             "SVKS000692",
             "SVKS000693",
             "SVKS000694",
+            "SVKS000704",
+            "SVKS000705",
             "SVKS000706",
             "SVKS000710",
             "SVKS000714",
@@ -1085,7 +1099,7 @@
             "SVKS000869",
             "SVKS000875"
         ],
-        "product_count": 181,
+        "product_count": 183,
         "featured": false,
         "active": true,
         "seo": {
@@ -1099,8 +1113,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-2516"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.683306",
+        "updated_at": "2026-09-11T09:26:07.683306"
     },
     {
         "id": "eicher-pro-series",
@@ -1193,6 +1207,10 @@
             {
                 "id": "wabco",
                 "name": "WABCO"
+            },
+            {
+                "id": "toyo",
+                "name": "Toyo"
             }
         ],
         "featured_products": [
@@ -1238,9 +1256,12 @@
             "SVKS000864",
             "SVKS000870",
             "SVKS000874",
-            "SVKS000875"
+            "SVKS000875",
+            "SVKS000878",
+            "SVKS000879",
+            "SVKS000883"
         ],
-        "product_count": 33,
+        "product_count": 36,
         "featured": false,
         "active": true,
         "seo": {
@@ -1254,8 +1275,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/eicher-pro-series"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.683306",
+        "updated_at": "2026-09-11T09:26:07.683306"
     },
     {
         "id": "eicher-1110",
@@ -1367,8 +1388,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/eicher-1110"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.683306",
+        "updated_at": "2026-09-11T09:26:07.683306"
     },
     {
         "id": "universal",
@@ -1805,16 +1826,17 @@
             "SVKS000670",
             "SVKS000671",
             "SVKS000675",
+            "SVKS000676",
+            "SVKS000677",
+            "SVKS000678",
+            "SVKS000679",
             "SVKS000680",
+            "SVKS000682",
             "SVKS000686",
             "SVKS000695",
             "SVKS000696",
             "SVKS000697",
             "SVKS000698",
-            "SVKS000699",
-            "SVKS000701",
-            "SVKS000704",
-            "SVKS000705",
             "SVKS000708",
             "SVKS000744",
             "SVKS000748",
@@ -1856,9 +1878,10 @@
             "SVKS000870",
             "SVKS000871",
             "SVKS000872",
-            "SVKS000873"
+            "SVKS000873",
+            "SVKS000877"
         ],
-        "product_count": 259,
+        "product_count": 261,
         "featured": false,
         "active": true,
         "seo": {
@@ -1872,8 +1895,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/universal"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.683306",
+        "updated_at": "2026-09-11T09:26:07.683306"
     },
     {
         "id": "tata-ace",
@@ -2068,8 +2091,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-ace"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-407",
@@ -2154,6 +2177,10 @@
             {
                 "id": "bosch",
                 "name": "Bosch"
+            },
+            {
+                "id": "fleetguard",
+                "name": "Fleetguard"
             }
         ],
         "featured_products": [
@@ -2182,9 +2209,10 @@
             "SVKS000531",
             "SVKS000574",
             "SVKS000673",
-            "SVKS000681"
+            "SVKS000681",
+            "SVKS000688"
         ],
-        "product_count": 16,
+        "product_count": 17,
         "featured": false,
         "active": true,
         "seo": {
@@ -2198,8 +2226,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-407"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-709",
@@ -2250,6 +2278,10 @@
             {
                 "id": "air-system",
                 "name": "Air System"
+            },
+            {
+                "id": "filters",
+                "name": "Filters"
             }
         ],
         "brands": [
@@ -2296,6 +2328,10 @@
             {
                 "id": "bapi",
                 "name": "Bapi"
+            },
+            {
+                "id": "fleetguard",
+                "name": "Fleetguard"
             }
         ],
         "featured_products": [
@@ -2330,9 +2366,10 @@
             "SVKS000531",
             "SVKS000574",
             "SVKS000578",
-            "SVKS000673"
+            "SVKS000673",
+            "SVKS000688"
         ],
-        "product_count": 22,
+        "product_count": 23,
         "featured": false,
         "active": true,
         "seo": {
@@ -2346,8 +2383,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-709"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-1109",
@@ -2517,10 +2554,11 @@
             "SVKS000531",
             "SVKS000573",
             "SVKS000574",
+            "SVKS000688",
             "SVKS000784",
             "SVKS000874"
         ],
-        "product_count": 50,
+        "product_count": 51,
         "featured": false,
         "active": true,
         "seo": {
@@ -2534,8 +2572,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-1109"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-1210",
@@ -2582,6 +2620,10 @@
             {
                 "id": "electricals",
                 "name": "Electricals"
+            },
+            {
+                "id": "suspension-steering",
+                "name": "Suspension & Steering"
             }
         ],
         "brands": [
@@ -2620,6 +2662,10 @@
             {
                 "id": "texspin",
                 "name": "Texspin"
+            },
+            {
+                "id": "kfl",
+                "name": "KFL"
             }
         ],
         "featured_products": [
@@ -2675,13 +2721,14 @@
             "SVKS000532",
             "SVKS000573",
             "SVKS000574",
+            "SVKS000740",
             "SVKS000807",
             "SVKS000852",
             "SVKS000853",
             "SVKS000854",
             "SVKS000855"
         ],
-        "product_count": 47,
+        "product_count": 48,
         "featured": false,
         "active": true,
         "seo": {
@@ -2695,8 +2742,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-1210"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-1312",
@@ -2857,6 +2904,7 @@
             "SVKS000637",
             "SVKS000638",
             "SVKS000639",
+            "SVKS000740",
             "SVKS000741",
             "SVKS000807",
             "SVKS000836",
@@ -2868,7 +2916,7 @@
             "SVKS000854",
             "SVKS000855"
         ],
-        "product_count": 57,
+        "product_count": 58,
         "featured": false,
         "active": true,
         "seo": {
@@ -2882,8 +2930,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-1312"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-1512",
@@ -2932,6 +2980,10 @@
                 "name": "Engine Components"
             },
             {
+                "id": "filters",
+                "name": "Filters"
+            },
+            {
                 "id": "suspension-steering",
                 "name": "Suspension & Steering"
             }
@@ -2972,6 +3024,14 @@
             {
                 "id": "texspin",
                 "name": "Texspin"
+            },
+            {
+                "id": "fleetguard",
+                "name": "Fleetguard"
+            },
+            {
+                "id": "jmp",
+                "name": "JMP"
             }
         ],
         "featured_products": [
@@ -3019,9 +3079,11 @@
             "SVKS000533",
             "SVKS000573",
             "SVKS000574",
+            "SVKS000684",
+            "SVKS000737",
             "SVKS000778"
         ],
-        "product_count": 35,
+        "product_count": 37,
         "featured": false,
         "active": true,
         "seo": {
@@ -3035,8 +3097,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-1512"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-magic",
@@ -3174,8 +3236,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-magic"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-intra",
@@ -3293,8 +3355,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-intra"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-prima",
@@ -3407,6 +3469,10 @@
             {
                 "id": "kfl",
                 "name": "KFL"
+            },
+            {
+                "id": "rane",
+                "name": "Rane"
             }
         ],
         "featured_products": [
@@ -3447,9 +3513,10 @@
             "SVKS000731",
             "SVKS000732",
             "SVKS000733",
-            "SVKS000750"
+            "SVKS000750",
+            "SVKS000793"
         ],
-        "product_count": 28,
+        "product_count": 29,
         "featured": false,
         "active": true,
         "seo": {
@@ -3463,8 +3530,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-prima"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "mahindra-blazo",
@@ -3519,8 +3586,8 @@
                 "name": "Pix"
             },
             {
-                "id": "toyo",
-                "name": "Toyo"
+                "id": "jai",
+                "name": "JAI"
             }
         ],
         "featured_products": [
@@ -3557,8 +3624,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/mahindra-blazo"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-ultra",
@@ -3591,6 +3658,10 @@
                 "name": "Suspension & Steering"
             },
             {
+                "id": "brakes",
+                "name": "Brakes"
+            },
+            {
                 "id": "electricals",
                 "name": "Electricals"
             }
@@ -3607,6 +3678,14 @@
             {
                 "id": "jai",
                 "name": "JAI"
+            },
+            {
+                "id": "rane",
+                "name": "Rane"
+            },
+            {
+                "id": "tvs-girling",
+                "name": "TVS Girling"
             }
         ],
         "featured_products": [
@@ -3617,7 +3696,7 @@
             "SVKS000635",
             "SVKS000636",
             "SVKS000789",
-            "SVKS000856"
+            "SVKS000793"
         ],
         "products": [
             "SVKS000234",
@@ -3627,12 +3706,14 @@
             "SVKS000635",
             "SVKS000636",
             "SVKS000789",
+            "SVKS000793",
+            "SVKS000817",
             "SVKS000856",
             "SVKS000857",
             "SVKS000858",
             "SVKS000859"
         ],
-        "product_count": 11,
+        "product_count": 13,
         "featured": false,
         "active": true,
         "seo": {
@@ -3646,8 +3727,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-ultra"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "bosch-engineselectrical",
@@ -3751,8 +3832,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/bosch-engineselectrical"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "ashok-leyland-ecomet",
@@ -3821,6 +3902,10 @@
             {
                 "id": "texspin",
                 "name": "Texspin"
+            },
+            {
+                "id": "toyo",
+                "name": "Toyo"
             }
         ],
         "featured_products": [
@@ -3847,9 +3932,12 @@
             "SVKS000716",
             "SVKS000717",
             "SVKS000751",
-            "SVKS000755"
+            "SVKS000755",
+            "SVKS000878",
+            "SVKS000879",
+            "SVKS000883"
         ],
-        "product_count": 14,
+        "product_count": 17,
         "featured": false,
         "active": true,
         "seo": {
@@ -3863,8 +3951,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-ecomet"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "mahindra-bolero-pickup",
@@ -3939,9 +4027,10 @@
             "SVKS000886",
             "SVKS000887",
             "SVKS000890",
-            "SVKS000891"
+            "SVKS000891",
+            "SVKS000892"
         ],
-        "product_count": 14,
+        "product_count": 15,
         "featured": false,
         "active": true,
         "seo": {
@@ -3955,8 +4044,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/mahindra-bolero-pickup"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.328961",
-        "updated_at": "2026-09-02T18:30:01.328961"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tata-2416",
@@ -3991,6 +4080,10 @@
             {
                 "id": "electricals",
                 "name": "Electricals"
+            },
+            {
+                "id": "rubber-parts",
+                "name": "Rubber Parts"
             }
         ],
         "brands": [
@@ -4021,6 +4114,14 @@
             {
                 "id": "manu",
                 "name": "Manu"
+            },
+            {
+                "id": "rane",
+                "name": "Rane"
+            },
+            {
+                "id": "tata-genuine-parts",
+                "name": "Tata Genuine Parts"
             }
         ],
         "featured_products": [
@@ -4043,6 +4144,7 @@
             "SVKS000663",
             "SVKS000673",
             "SVKS000700",
+            "SVKS000701",
             "SVKS000702",
             "SVKS000703",
             "SVKS000711",
@@ -4056,12 +4158,15 @@
             "SVKS000739",
             "SVKS000767",
             "SVKS000771",
+            "SVKS000793",
+            "SVKS000820",
+            "SVKS000830",
             "SVKS000856",
             "SVKS000857",
             "SVKS000858",
             "SVKS000859"
         ],
-        "product_count": 26,
+        "product_count": 30,
         "featured": false,
         "active": true,
         "seo": {
@@ -4075,8 +4180,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-2416"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "ashok-leyland-captain",
@@ -4194,8 +4299,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-captain"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "mahindra-furio",
@@ -4252,8 +4357,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/mahindra-furio"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "tractors",
@@ -4345,8 +4450,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tractors"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "ashok-leyland-boss",
@@ -4425,8 +4530,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-boss"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "mahindra-max-pickup",
@@ -4472,14 +4577,16 @@
         "featured_products": [
             "SVKS000591",
             "SVKS000607",
-            "SVKS000628"
+            "SVKS000628",
+            "SVKS000892"
         ],
         "products": [
             "SVKS000591",
             "SVKS000607",
-            "SVKS000628"
+            "SVKS000628",
+            "SVKS000892"
         ],
-        "product_count": 3,
+        "product_count": 4,
         "featured": false,
         "active": true,
         "seo": {
@@ -4493,8 +4600,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/mahindra-max-pickup"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "ashok-leyland-stallion",
@@ -4569,8 +4676,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-stallion"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
         "id": "",
@@ -4597,99 +4704,21 @@
             {
                 "id": "filters",
                 "name": "Filters"
-            },
-            {
-                "id": "electricals",
-                "name": "Electricals"
-            },
-            {
-                "id": "suspension-steering",
-                "name": "Suspension & Steering"
-            },
-            {
-                "id": "clutch-parts",
-                "name": "Clutch Parts"
-            },
-            {
-                "id": "brakes",
-                "name": "Brakes"
-            },
-            {
-                "id": "rubber-parts",
-                "name": "Rubber Parts"
             }
         ],
         "brands": [
             {
-                "id": "bosch",
-                "name": "Bosch"
-            },
-            {
                 "id": "fleetguard",
                 "name": "Fleetguard"
-            },
-            {
-                "id": "jmp",
-                "name": "JMP"
-            },
-            {
-                "id": "kfl",
-                "name": "KFL"
-            },
-            {
-                "id": "rane",
-                "name": "Rane"
-            },
-            {
-                "id": "tvs-girling",
-                "name": "TVS Girling"
-            },
-            {
-                "id": "tata-genuine-parts",
-                "name": "Tata Genuine Parts"
-            },
-            {
-                "id": "texspin",
-                "name": "Texspin"
-            },
-            {
-                "id": "gs",
-                "name": "GS"
             }
         ],
         "featured_products": [
-            "SVKS000676",
-            "SVKS000677",
-            "SVKS000678",
-            "SVKS000679",
-            "SVKS000682",
-            "SVKS000684",
-            "SVKS000685",
-            "SVKS000688"
+            "SVKS000685"
         ],
         "products": [
-            "SVKS000676",
-            "SVKS000677",
-            "SVKS000678",
-            "SVKS000679",
-            "SVKS000682",
-            "SVKS000684",
-            "SVKS000685",
-            "SVKS000688",
-            "SVKS000737",
-            "SVKS000740",
-            "SVKS000780",
-            "SVKS000793",
-            "SVKS000800",
-            "SVKS000817",
-            "SVKS000820",
-            "SVKS000830",
-            "SVKS000833",
-            "SVKS000834",
-            "SVKS000835",
-            "SVKS000877"
+            "SVKS000685"
         ],
-        "product_count": 20,
+        "product_count": 1,
         "featured": false,
         "active": true,
         "seo": {
@@ -4703,87 +4732,27 @@
             "canonical": "https://www.souviks.co.in/vehicles/"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     },
     {
-        "id": "eicher-ecomet",
-        "slug": "eicher-ecomet",
+        "id": "ashok-leyland-u-truck",
+        "slug": "ashok-leyland-u-truck",
         "manufacturer": {
             "id": "",
             "name": "",
             "logo": ""
         },
-        "model": "Eicher Ecomet",
+        "model": "Ashok Leyland U Truck",
         "variant": "",
         "generation": "",
         "year_from": "",
         "year_to": "",
         "fuel_type": "",
         "vehicle_type": "",
-        "image": "/assets/images/vehicles/EICHER_ECOMET/thumbnail-400x300.webp",
-        "cutout": "/assets/images/vehicles/EICHER_ECOMET/transparent-cutout.png",
-        "hero": "/assets/images/vehicles/EICHER_ECOMET/hero-1920x1080.webp",
-        "banner": "",
-        "description": "",
-        "short_description": "",
-        "categories": [
-            {
-                "id": "suspension-steering",
-                "name": "Suspension & Steering"
-            }
-        ],
-        "brands": [
-            {
-                "id": "toyo",
-                "name": "Toyo"
-            }
-        ],
-        "featured_products": [
-            "SVKS000878",
-            "SVKS000879",
-            "SVKS000883"
-        ],
-        "products": [
-            "SVKS000878",
-            "SVKS000879",
-            "SVKS000883"
-        ],
-        "product_count": 3,
-        "featured": false,
-        "active": true,
-        "seo": {
-            "title": "Eicher Ecomet Parts | Souviks",
-            "description": "Browse spare parts compatible with Eicher Ecomet available at Souviks.",
-            "keywords": [
-                "Eicher Ecomet",
-                "commercial vehicle spare parts",
-                "truck spare parts"
-            ],
-            "canonical": "https://www.souviks.co.in/vehicles/eicher-ecomet"
-        },
-        "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
-    },
-    {
-        "id": "eicher-u-truck",
-        "slug": "eicher-u-truck",
-        "manufacturer": {
-            "id": "",
-            "name": "",
-            "logo": ""
-        },
-        "model": "Eicher U Truck",
-        "variant": "",
-        "generation": "",
-        "year_from": "",
-        "year_to": "",
-        "fuel_type": "",
-        "vehicle_type": "",
-        "image": "/assets/images/vehicles/EICHER_U_TRUCK/thumbnail-400x300.webp",
-        "cutout": "/assets/images/vehicles/EICHER_U_TRUCK/transparent-cutout.png",
-        "hero": "/assets/images/vehicles/EICHER_U_TRUCK/hero-1920x1080.webp",
+        "image": "/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/thumbnail-400x300.webp",
+        "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/transparent-cutout.png",
+        "hero": "/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/hero-1920x1080.webp",
         "banner": "",
         "description": "",
         "short_description": "",
@@ -4813,73 +4782,17 @@
         "featured": false,
         "active": true,
         "seo": {
-            "title": "Eicher U Truck Parts | Souviks",
-            "description": "Browse spare parts compatible with Eicher U Truck available at Souviks.",
+            "title": "Ashok Leyland U Truck Parts | Souviks",
+            "description": "Browse spare parts compatible with Ashok Leyland U Truck available at Souviks.",
             "keywords": [
-                "Eicher U Truck",
+                "Ashok Leyland U Truck",
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/eicher-u-truck"
+            "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-u-truck"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
-    },
-    {
-        "id": "mahindra-bolero-maxi-truck",
-        "slug": "mahindra-bolero-maxi-truck",
-        "manufacturer": {
-            "id": "",
-            "name": "",
-            "logo": ""
-        },
-        "model": "Mahindra Bolero Maxi Truck",
-        "variant": "",
-        "generation": "",
-        "year_from": "",
-        "year_to": "",
-        "fuel_type": "",
-        "vehicle_type": "",
-        "image": "/assets/images/vehicles/MAHINDRA_BOLERO_MAXI_TRUCK/thumbnail-400x300.webp",
-        "cutout": "/assets/images/vehicles/MAHINDRA_BOLERO_MAXI_TRUCK/transparent-cutout.png",
-        "hero": "/assets/images/vehicles/MAHINDRA_BOLERO_MAXI_TRUCK/hero-1920x1080.webp",
-        "banner": "",
-        "description": "",
-        "short_description": "",
-        "categories": [
-            {
-                "id": "suspension-steering",
-                "name": "Suspension & Steering"
-            }
-        ],
-        "brands": [
-            {
-                "id": "jai",
-                "name": "JAI"
-            }
-        ],
-        "featured_products": [
-            "SVKS000892"
-        ],
-        "products": [
-            "SVKS000892"
-        ],
-        "product_count": 1,
-        "featured": false,
-        "active": true,
-        "seo": {
-            "title": "Mahindra Bolero Maxi Truck Parts | Souviks",
-            "description": "Browse spare parts compatible with Mahindra Bolero Maxi Truck available at Souviks.",
-            "keywords": [
-                "Mahindra Bolero Maxi Truck",
-                "commercial vehicle spare parts",
-                "truck spare parts"
-            ],
-            "canonical": "https://www.souviks.co.in/vehicles/mahindra-bolero-maxi-truck"
-        },
-        "schema": {},
-        "created_at": "2026-09-02T18:30:01.329948",
-        "updated_at": "2026-09-02T18:30:01.329948"
+        "created_at": "2026-09-11T09:26:07.684319",
+        "updated_at": "2026-09-11T09:26:07.684319"
     }
 ]

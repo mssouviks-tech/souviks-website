@@ -90,8 +90,10 @@
             "Tata 1109",
             "Tata 1210",
             "Tata 1312",
+            "Tata 1512",
             "Tata 2416",
             "Tata 407",
+            "Tata 709",
             "Tata Ace",
             "Tata Intra",
             "Tata LPT",
@@ -204,8 +206,8 @@
             "canonical": "https://www.souviks.co.in/categories/filters"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.297659",
-        "updated_at": "2026-09-02T18:30:01.297659"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "fasteners-hardware",
@@ -383,8 +385,8 @@
             "canonical": "https://www.souviks.co.in/categories/fasteners-hardware"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.297659",
-        "updated_at": "2026-09-02T18:30:01.297659"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "air-system",
@@ -543,8 +545,8 @@
             "canonical": "https://www.souviks.co.in/categories/air-system"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.297659",
-        "updated_at": "2026-09-02T18:30:01.297659"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "suspension-steering",
@@ -737,15 +739,14 @@
             "Ashok Leyland Captain",
             "Ashok Leyland Ecomet",
             "Ashok Leyland Stallion",
+            "Ashok Leyland U Truck",
             "Eicher 1110",
-            "Eicher Ecomet",
             "Eicher Pro Series",
-            "Eicher U Truck",
             "Mahindra Blazo",
-            "Mahindra Bolero Maxi Truck",
             "Mahindra Bolero Pickup",
             "Mahindra Max Pickup",
             "Tata 1109",
+            "Tata 1210",
             "Tata 1312",
             "Tata 1512",
             "Tata 2416",
@@ -758,8 +759,7 @@
             "Tata Prima",
             "Tata Signa",
             "Tata Ultra",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000015",
@@ -1061,8 +1061,8 @@
             "canonical": "https://www.souviks.co.in/categories/suspension-steering"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.297659",
-        "updated_at": "2026-09-02T18:30:01.297659"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "electricals",
@@ -1288,8 +1288,7 @@
             "Tata Signa",
             "Tata Ultra",
             "Tractors",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000030",
@@ -1432,8 +1431,8 @@
             "canonical": "https://www.souviks.co.in/categories/electricals"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.297659",
-        "updated_at": "2026-09-02T18:30:01.297659"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "brakes",
@@ -1537,8 +1536,8 @@
             "Tata Magic",
             "Tata Prima",
             "Tata Signa",
-            "Universal",
-            "[]"
+            "Tata Ultra",
+            "Universal"
         ],
         "featured_products": [
             "SVKS000060",
@@ -1620,8 +1619,8 @@
             "canonical": "https://www.souviks.co.in/categories/brakes"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.297659",
-        "updated_at": "2026-09-02T18:30:01.297659"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "engine-components",
@@ -1758,8 +1757,8 @@
             "canonical": "https://www.souviks.co.in/categories/engine-components"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.297659",
-        "updated_at": "2026-09-02T18:30:01.297659"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "bearings",
@@ -1986,8 +1985,8 @@
             "canonical": "https://www.souviks.co.in/categories/bearings"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.297659",
-        "updated_at": "2026-09-02T18:30:01.297659"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "rubber-parts",
@@ -2061,11 +2060,11 @@
         ],
         "vehicles": [
             "Ashok Leyland 2516",
+            "Tata 2416",
             "Tata Ace",
             "Tata LPT",
             "Tata Magic",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000093",
@@ -2112,8 +2111,8 @@
             "canonical": "https://www.souviks.co.in/categories/rubber-parts"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.297659",
-        "updated_at": "2026-09-02T18:30:01.297659"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "clutch-parts",
@@ -2266,8 +2265,7 @@
             "Tata Signa",
             "Tata Ultra",
             "Tractors",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000094",
@@ -2366,8 +2364,8 @@
             "canonical": "https://www.souviks.co.in/categories/clutch-parts"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.298660",
-        "updated_at": "2026-09-02T18:30:01.298660"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "lubricants",
@@ -2515,8 +2513,8 @@
             "canonical": "https://www.souviks.co.in/categories/lubricants"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.298660",
-        "updated_at": "2026-09-02T18:30:01.298660"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     },
     {
         "id": "cooling-system",
@@ -2593,7 +2591,7 @@
             "canonical": "https://www.souviks.co.in/categories/cooling-system"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.298660",
-        "updated_at": "2026-09-02T18:30:01.298660"
+        "created_at": "2026-09-11T09:26:07.645707",
+        "updated_at": "2026-09-11T09:26:07.645707"
     }
 ]

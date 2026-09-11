@@ -31,7 +31,10 @@
             "Tata 1109",
             "Tata 1210",
             "Tata 1312",
+            "Tata 1512",
             "Tata 2416",
+            "Tata 407",
+            "Tata 709",
             "Tata LPT",
             "Tata Prima",
             "Tata Signa",
@@ -88,8 +91,8 @@
             "canonical": "https://www.souviks.co.in/brands/fleetguard"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "tvs-girling",
@@ -145,8 +148,8 @@
             "Tata Intra",
             "Tata LPT",
             "Tata Signa",
-            "Universal",
-            "[]"
+            "Tata Ultra",
+            "Universal"
         ],
         "featured_products": [
             "SVKS000002",
@@ -276,8 +279,8 @@
             "canonical": "https://www.souviks.co.in/brands/tvs-girling"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "roots",
@@ -332,8 +335,8 @@
             "canonical": "https://www.souviks.co.in/brands/roots"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "gs",
@@ -367,8 +370,7 @@
             "Tata Prima",
             "Tata Signa",
             "Tata Ultra",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000047",
@@ -420,8 +422,8 @@
             "canonical": "https://www.souviks.co.in/brands/gs"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "spicer",
@@ -475,8 +477,8 @@
             "canonical": "https://www.souviks.co.in/brands/spicer"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "tata-genuine-parts",
@@ -545,6 +547,7 @@
             "Tata 1210",
             "Tata 1312",
             "Tata 1512",
+            "Tata 2416",
             "Tata 407",
             "Tata 709",
             "Tata Ace",
@@ -552,8 +555,7 @@
             "Tata LPT",
             "Tata Magic",
             "Tata Signa",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000063",
@@ -661,8 +663,8 @@
             "canonical": "https://www.souviks.co.in/brands/tata-genuine-parts"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "harish",
@@ -765,8 +767,8 @@
             "canonical": "https://www.souviks.co.in/brands/harish"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "rider",
@@ -815,8 +817,8 @@
             "canonical": "https://www.souviks.co.in/brands/rider"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "anupam",
@@ -879,8 +881,8 @@
             "canonical": "https://www.souviks.co.in/brands/anupam"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "unominda",
@@ -985,8 +987,8 @@
             "canonical": "https://www.souviks.co.in/brands/unominda"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "ask",
@@ -1054,8 +1056,8 @@
             "canonical": "https://www.souviks.co.in/brands/ask"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "abc",
@@ -1097,8 +1099,8 @@
             "canonical": "https://www.souviks.co.in/brands/abc"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "alok",
@@ -1146,8 +1148,8 @@
             "canonical": "https://www.souviks.co.in/brands/alok"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "valvoline",
@@ -1195,8 +1197,8 @@
             "canonical": "https://www.souviks.co.in/brands/valvoline"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "nirmal",
@@ -1268,8 +1270,8 @@
             "canonical": "https://www.souviks.co.in/brands/nirmal"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "bgl",
@@ -1333,8 +1335,8 @@
             "canonical": "https://www.souviks.co.in/brands/bgl"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "bosch",
@@ -1373,8 +1375,7 @@
             "Ashok Leyland Captain",
             "Bosch Engines/Electrical",
             "Tata 407",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000235",
@@ -1435,8 +1436,8 @@
             "canonical": "https://www.souviks.co.in/brands/bosch"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "motherson",
@@ -1480,8 +1481,8 @@
             "canonical": "https://www.souviks.co.in/brands/motherson"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "msl",
@@ -1526,8 +1527,8 @@
             "canonical": "https://www.souviks.co.in/brands/msl"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "compo",
@@ -1571,8 +1572,8 @@
             "canonical": "https://www.souviks.co.in/brands/compo"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "comet",
@@ -1614,8 +1615,8 @@
             "canonical": "https://www.souviks.co.in/brands/comet"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "jmp",
@@ -1650,12 +1651,12 @@
             "Ashok Leyland Captain",
             "Ashok Leyland Ecomet",
             "Eicher Pro Series",
+            "Tata 1512",
             "Tata 2416",
             "Tata LPT",
             "Tata Prima",
             "Tata Signa",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000254",
@@ -1715,8 +1716,8 @@
             "canonical": "https://www.souviks.co.in/brands/jmp"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.266947",
-        "updated_at": "2026-09-02T18:30:01.266947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "leyparts",
@@ -1816,8 +1817,8 @@
             "canonical": "https://www.souviks.co.in/brands/leyparts"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "fenner",
@@ -1862,8 +1863,8 @@
             "canonical": "https://www.souviks.co.in/brands/fenner"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "hp",
@@ -1917,8 +1918,8 @@
             "canonical": "https://www.souviks.co.in/brands/hp"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "meritor",
@@ -1975,8 +1976,8 @@
             "canonical": "https://www.souviks.co.in/brands/meritor"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "phoenix",
@@ -2030,8 +2031,8 @@
             "canonical": "https://www.souviks.co.in/brands/phoenix"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "jai",
@@ -2044,7 +2045,7 @@
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 99,
+        "product_count": 101,
         "categories": [
             "suspension-steering"
         ],
@@ -2057,7 +2058,7 @@
             "Ashok Leyland 2516",
             "Ashok Leyland Captain",
             "Eicher Pro Series",
-            "Mahindra Bolero Maxi Truck",
+            "Mahindra Blazo",
             "Mahindra Bolero Pickup",
             "Mahindra Max Pickup",
             "Tata 1312",
@@ -2093,6 +2094,7 @@
             "SVKS000589",
             "SVKS000590",
             "SVKS000591",
+            "SVKS000592",
             "SVKS000593",
             "SVKS000594",
             "SVKS000595",
@@ -2108,6 +2110,7 @@
             "SVKS000605",
             "SVKS000606",
             "SVKS000607",
+            "SVKS000608",
             "SVKS000609",
             "SVKS000610",
             "SVKS000611",
@@ -2195,8 +2198,8 @@
             "canonical": "https://www.souviks.co.in/brands/jai"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "kfl",
@@ -2227,6 +2230,7 @@
         "vehicles": [
             "Ashok Leyland 2516",
             "Tata 1109",
+            "Tata 1210",
             "Tata 1312",
             "Tata 2416",
             "Tata 407",
@@ -2236,8 +2240,7 @@
             "Tata LPT",
             "Tata Prima",
             "Tata Signa",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000339",
@@ -2284,8 +2287,8 @@
             "canonical": "https://www.souviks.co.in/brands/kfl"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "mahle",
@@ -2349,8 +2352,8 @@
             "canonical": "https://www.souviks.co.in/brands/mahle"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "neolite",
@@ -2422,8 +2425,8 @@
             "canonical": "https://www.souviks.co.in/brands/neolite"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "nbc",
@@ -2466,8 +2469,8 @@
             "canonical": "https://www.souviks.co.in/brands/nbc"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "mei",
@@ -2528,8 +2531,8 @@
             "canonical": "https://www.souviks.co.in/brands/mei"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "manu",
@@ -2577,8 +2580,8 @@
             "canonical": "https://www.souviks.co.in/brands/manu"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "naic-024b",
@@ -2620,8 +2623,8 @@
             "canonical": "https://www.souviks.co.in/brands/naic-024b"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "ng",
@@ -2664,8 +2667,8 @@
             "canonical": "https://www.souviks.co.in/brands/ng"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "philips",
@@ -2707,8 +2710,8 @@
             "canonical": "https://www.souviks.co.in/brands/philips"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "pix",
@@ -2779,8 +2782,8 @@
             "canonical": "https://www.souviks.co.in/brands/pix"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "rane",
@@ -2807,10 +2810,12 @@
         "vehicles": [
             "Ashok Leyland 2516",
             "Eicher Pro Series",
+            "Tata 2416",
             "Tata LPT",
+            "Tata Prima",
             "Tata Signa",
-            "Universal",
-            "[]"
+            "Tata Ultra",
+            "Universal"
         ],
         "featured_products": [
             "SVKS000426",
@@ -2839,8 +2844,8 @@
             "canonical": "https://www.souviks.co.in/brands/rane"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "sargun",
@@ -2890,8 +2895,8 @@
             "canonical": "https://www.souviks.co.in/brands/sargun"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "amw",
@@ -2933,8 +2938,8 @@
             "canonical": "https://www.souviks.co.in/brands/amw"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "skf",
@@ -2980,8 +2985,8 @@
             "canonical": "https://www.souviks.co.in/brands/skf"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "texspin",
@@ -3026,8 +3031,7 @@
             "Tata Prima",
             "Tata Signa",
             "Tractors",
-            "Universal",
-            "[]"
+            "Universal"
         ],
         "featured_products": [
             "SVKS000486",
@@ -3134,8 +3138,8 @@
             "canonical": "https://www.souviks.co.in/brands/texspin"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "tata-autocomp",
@@ -3181,8 +3185,8 @@
             "canonical": "https://www.souviks.co.in/brands/tata-autocomp"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "timken",
@@ -3233,8 +3237,8 @@
             "canonical": "https://www.souviks.co.in/brands/timken"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "everest",
@@ -3277,8 +3281,8 @@
             "canonical": "https://www.souviks.co.in/brands/everest"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "wabco",
@@ -3357,72 +3361,8 @@
             "canonical": "https://www.souviks.co.in/brands/wabco"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
-    },
-    {
-        "id": "toyo",
-        "slug": "toyo",
-        "name": "Toyo",
-        "short_name": "Toyo",
-        "logo": "/assets/images/brands/toyo.png",
-        "banner": "",
-        "website": "",
-        "country": "",
-        "description": "",
-        "short_description": "",
-        "product_count": 12,
-        "categories": [
-            "suspension-steering"
-        ],
-        "subcategories": [
-            "leaf-spring"
-        ],
-        "vehicles": [
-            "Eicher Ecomet",
-            "Eicher U Truck",
-            "Mahindra Blazo",
-            "Tata Signa"
-        ],
-        "featured_products": [
-            "SVKS000592",
-            "SVKS000608",
-            "SVKS000878",
-            "SVKS000879",
-            "SVKS000880",
-            "SVKS000881",
-            "SVKS000882",
-            "SVKS000883"
-        ],
-        "products": [
-            "SVKS000592",
-            "SVKS000608",
-            "SVKS000878",
-            "SVKS000879",
-            "SVKS000880",
-            "SVKS000881",
-            "SVKS000882",
-            "SVKS000883",
-            "SVKS000893",
-            "SVKS000894",
-            "SVKS000895",
-            "SVKS000896"
-        ],
-        "featured": false,
-        "active": true,
-        "seo": {
-            "title": "Toyo Parts | Souviks",
-            "description": "Browse genuine and aftermarket Toyo spare parts available at Souviks.",
-            "keywords": [
-                "Toyo",
-                "commercial vehicle spare parts",
-                "truck spare parts"
-            ],
-            "canonical": "https://www.souviks.co.in/brands/toyo"
-        },
-        "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "lucas-tvs",
@@ -3490,8 +3430,8 @@
             "canonical": "https://www.souviks.co.in/brands/lucas-tvs"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "autoply",
@@ -3536,8 +3476,8 @@
             "canonical": "https://www.souviks.co.in/brands/autoply"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "bapi",
@@ -3590,8 +3530,8 @@
             "canonical": "https://www.souviks.co.in/brands/bapi"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     },
     {
         "id": "gulf",
@@ -3636,7 +3576,69 @@
             "canonical": "https://www.souviks.co.in/brands/gulf"
         },
         "schema": {},
-        "created_at": "2026-09-02T18:30:01.267947",
-        "updated_at": "2026-09-02T18:30:01.267947"
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
+    },
+    {
+        "id": "toyo",
+        "slug": "toyo",
+        "name": "Toyo",
+        "short_name": "Toyo",
+        "logo": "/assets/images/brands/toyo.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 10,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "leaf-spring"
+        ],
+        "vehicles": [
+            "Ashok Leyland Ecomet",
+            "Ashok Leyland U Truck",
+            "Eicher Pro Series",
+            "Tata Signa"
+        ],
+        "featured_products": [
+            "SVKS000878",
+            "SVKS000879",
+            "SVKS000880",
+            "SVKS000881",
+            "SVKS000882",
+            "SVKS000883",
+            "SVKS000893",
+            "SVKS000894"
+        ],
+        "products": [
+            "SVKS000878",
+            "SVKS000879",
+            "SVKS000880",
+            "SVKS000881",
+            "SVKS000882",
+            "SVKS000883",
+            "SVKS000893",
+            "SVKS000894",
+            "SVKS000895",
+            "SVKS000896"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Toyo Parts | Souviks",
+            "description": "Browse genuine and aftermarket Toyo spare parts available at Souviks.",
+            "keywords": [
+                "Toyo",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/toyo"
+        },
+        "schema": {},
+        "created_at": "2026-09-11T09:26:07.607727",
+        "updated_at": "2026-09-11T09:26:07.607727"
     }
 ]

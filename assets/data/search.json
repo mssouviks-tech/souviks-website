@@ -17285,17 +17285,17 @@
     {
         "id": "SVKS000538",
         "type": "product",
-        "title": "TX-6013 WOS",
-        "subtitle": "Part No. 6013 WOS",
+        "title": "PROPELLER SHAFT BEARING FOR TATA-2518/ 3118/ 4018, ASHOK LEYLAND-3118",
+        "subtitle": "Part No. TX-6013 WOS",
         "keywords": [
+            "PROPELLER SHAFT BEARING FOR TATA-2518/ 3118/ 4018, ASHOK LEYLAND-3118",
             "TX-6013 WOS",
-            "6013 WOS",
             "Texspin",
             "Bearings",
             "Center Bearing",
             "Tata LPT"
         ],
-        "part_number": "6013 WOS",
+        "part_number": "TX-6013 WOS",
         "slug": "6013-wos-tx-6013-wos",
         "url": "/products/6013-wos-tx-6013-wos",
         "image": "TX-6013 WOS.webp",
@@ -17317,17 +17317,17 @@
     {
         "id": "SVKS000539",
         "type": "product",
-        "title": "TX-62211 WOS MOD",
-        "subtitle": "Part No. 62211 WOS MOD",
+        "title": "TATA - 3118/2518 (RSB TYPE)",
+        "subtitle": "Part No. TX-62211 WOS MOD",
         "keywords": [
+            "TATA - 3118/2518 (RSB TYPE)",
             "TX-62211 WOS MOD",
-            "62211 WOS MOD",
             "Texspin",
             "Bearings",
             "Center Bearing",
             "Ashok Leyland 2516"
         ],
-        "part_number": "62211 WOS MOD",
+        "part_number": "TX-62211 WOS MOD",
         "slug": "62211-wos-mod-tx-62211-wos-mod",
         "url": "/products/62211-wos-mod-tx-62211-wos-mod",
         "image": "TX-62211 WOS MOD.webp",
@@ -17349,17 +17349,17 @@
     {
         "id": "SVKS000540",
         "type": "product",
-        "title": "TX-88512 WOS-AL",
-        "subtitle": "Part No. 88512 WOS-AL",
+        "title": "CENTER BEARING FOR ASHOK LEYLAND WITH RUBBER ( MSL TYPE )",
+        "subtitle": "Part No. TX-88512 WOS-AL",
         "keywords": [
+            "CENTER BEARING FOR ASHOK LEYLAND WITH RUBBER ( MSL TYPE )",
             "TX-88512 WOS-AL",
-            "88512 WOS-AL",
             "Texspin",
             "Bearings",
             "Center Bearing",
             "Ashok Leyland 2516"
         ],
-        "part_number": "88512 WOS-AL",
+        "part_number": "TX-88512 WOS-AL",
         "slug": "88512-wos-al-tx-88512-wos-al",
         "url": "/products/88512-wos-al-tx-88512-wos-al",
         "image": "TX-88512 WOS-AL.webp",
@@ -17797,10 +17797,10 @@
     {
         "id": "SVKS000554",
         "type": "product",
-        "title": "TXL 3 - 2SG + 2KG",
+        "title": "Superior Grease",
         "subtitle": "Part No. TXL 3 - 2SG + 2KG",
         "keywords": [
-            "TXL 3 - 2SG + 2KG",
+            "Superior Grease",
             "TXL 3 - 2SG + 2KG",
             "Texspin",
             "Lubricants",
@@ -17829,10 +17829,10 @@
     {
         "id": "SVKS000555",
         "type": "product",
-        "title": "TXL 3 - 3SG + 3KG",
+        "title": "Superior Grease",
         "subtitle": "Part No. TXL 3 - 3SG + 3KG",
         "keywords": [
-            "TXL 3 - 3SG + 3KG",
+            "Superior Grease",
             "TXL 3 - 3SG + 3KG",
             "Texspin",
             "Lubricants",
@@ -17861,10 +17861,10 @@
     {
         "id": "SVKS000556",
         "type": "product",
-        "title": "TXL 3 - 5SG + 5KG",
+        "title": "Superior Grease",
         "subtitle": "Part No. TXL 3 - 5SG + 5KG",
         "keywords": [
-            "TXL 3 - 5SG + 5KG",
+            "Superior Grease",
             "TXL 3 - 5SG + 5KG",
             "Texspin",
             "Lubricants",
@@ -17893,10 +17893,10 @@
     {
         "id": "SVKS000557",
         "type": "product",
-        "title": "TXL 3 - 7SG + 7KG",
+        "title": "Superior Grease",
         "subtitle": "Part No. TXL 3 - 7SG + 7KG",
         "keywords": [
-            "TXL 3 - 7SG + 7KG",
+            "Superior Grease",
             "TXL 3 - 7SG + 7KG",
             "Texspin",
             "Lubricants",
@@ -19029,19 +19029,19 @@
     {
         "id": "SVKS000592",
         "type": "product",
-        "title": "LP909 Marco - Main Leaf",
-        "subtitle": "Part No. 152",
+        "title": "ARMADA NEW (RR) - Main leaf",
+        "subtitle": "Part No. 0152",
         "keywords": [
-            "LP909 Marco - Main Leaf",
-            152,
-            "Toyo",
+            "ARMADA NEW (RR) - Main leaf",
+            "0152",
+            "JAI",
             "Suspension & Steering",
             "Leaf Spring",
             "Mahindra Blazo"
         ],
-        "part_number": 152,
-        "slug": "0152-lp909-marco-main-leaf",
-        "url": "/products/0152-lp909-marco-main-leaf",
+        "part_number": "0152",
+        "slug": "0152-armada-new-rr-main-leaf",
+        "url": "/products/0152-armada-new-rr-main-leaf",
         "image": "Toyo - 0152 - LP909 Marco - Main Leaf.webp",
         "icon": "",
         "category": {
@@ -19049,8 +19049,8 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "toyo",
-            "name": "Toyo"
+            "id": "jai",
+            "name": "JAI"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -19542,19 +19542,19 @@
     {
         "id": "SVKS000608",
         "type": "product",
-        "title": "LP909 Marco - 2nd Leaf",
+        "title": "ARMADA NEW (RR) - 2nd leaf",
         "subtitle": "Part No. 152",
         "keywords": [
-            "LP909 Marco - 2nd Leaf",
+            "ARMADA NEW (RR) - 2nd leaf",
             152,
-            "Toyo",
+            "JAI",
             "Suspension & Steering",
             "Leaf Spring",
             "Mahindra Blazo"
         ],
         "part_number": 152,
-        "slug": "0152-lp909-marco-2nd-leaf",
-        "url": "/products/0152-lp909-marco-2nd-leaf",
+        "slug": "0152-armada-new-rr-2nd-leaf",
+        "url": "/products/0152-armada-new-rr-2nd-leaf",
         "image": "Armada New Rear Leaf Spring.webp",
         "icon": "",
         "category": {
@@ -19562,8 +19562,8 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "toyo",
-            "name": "Toyo"
+            "id": "jai",
+            "name": "JAI"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -21741,7 +21741,7 @@
             "Bosch",
             "Filters",
             "Fuel Filter",
-            "[]"
+            "Universal"
         ],
         "part_number": "1457-431-003",
         "slug": "bosch-1457-431-003-diesel-filter",
@@ -21773,7 +21773,7 @@
             "Bosch",
             "Filters",
             "Fuel Filter",
-            "[]"
+            "Universal"
         ],
         "part_number": "9451-037-409",
         "slug": "bosch-9451-037-409-diesel-filter",
@@ -21805,7 +21805,7 @@
             "Bosch",
             "Electricals",
             "Solenoid Switch",
-            "[]"
+            "Universal"
         ],
         "part_number": "F-002-D13-640",
         "slug": "bosch-f-002-d13-640-solenoid-switch",
@@ -21837,7 +21837,7 @@
             "Bosch",
             "Electricals",
             "Solenoid Switch",
-            "[]"
+            "Universal"
         ],
         "part_number": "F-002-D13-641",
         "slug": "bosch-f-002-d13-641-pulling-electric-switch",
@@ -21934,7 +21934,7 @@
             "Bosch",
             "Electricals",
             "Bulb",
-            "[]"
+            "Universal"
         ],
         "part_number": "F-002-H50-156",
         "slug": "bosch-f-002-h50-156-bulb-h4",
@@ -21998,7 +21998,7 @@
             "Fleetguard",
             "Filters",
             "Air Filter",
-            "[]"
+            "Tata 1512"
         ],
         "part_number": "820007000",
         "slug": "fleetguard-820007000-set-of-af25884-af25885",
@@ -22130,7 +22130,9 @@
             "Fleetguard",
             "Filters",
             "Fuel Water Separator",
-            "[]"
+            "Tata 407",
+            "Tata 709",
+            "Tata 1109"
         ],
         "part_number": "FS1964400V",
         "slug": "fleetguard-fs1964400v-fuel-water-separator-for-tata-697-engine-bs-iii",
@@ -22145,7 +22147,7 @@
             "id": "fleetguard",
             "name": "Fleetguard"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 3,
         "product_count": 0,
         "featured": false,
         "active": false,
@@ -22472,7 +22474,7 @@
             "Harish",
             "Suspension & Steering",
             "Spring Pin",
-            "Universal"
+            "Tata Signa"
         ],
         "part_number": "",
         "slug": "harish-spring-pin-32-x-150",
@@ -22535,7 +22537,8 @@
             "Harish",
             "Suspension & Steering",
             "Spring Pin",
-            "Universal"
+            "Tata 2416",
+            "Tata LPT"
         ],
         "part_number": "",
         "slug": "harish-spring-pin-35-x-140",
@@ -22550,7 +22553,7 @@
             "id": "harish",
             "name": "Harish"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 2,
         "product_count": 0,
         "featured": false,
         "active": false,
@@ -22630,7 +22633,7 @@
             "Harish",
             "Suspension & Steering",
             "Spring Pin",
-            "Universal"
+            "Ashok Leyland 2516"
         ],
         "part_number": "",
         "slug": "harish-spring-pin-42-x-124",
@@ -22661,7 +22664,7 @@
             "Harish",
             "Suspension & Steering",
             "Spring Pin",
-            "Universal"
+            "Ashok Leyland 2516"
         ],
         "part_number": "",
         "slug": "harish-spring-pin-42-x-132",
@@ -23696,7 +23699,8 @@
             "JMP",
             "Suspension & Steering",
             "Hanger",
-            "[]"
+            "Tata 1512",
+            "Tata LPT"
         ],
         "part_number": "J1635",
         "slug": "jmp-j1635-f-s-front-hanger-30mm-pin",
@@ -23711,7 +23715,7 @@
             "id": "jmp",
             "name": "JMP"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 2,
         "product_count": 0,
         "featured": false,
         "active": false,
@@ -23793,7 +23797,8 @@
             "KFL",
             "Suspension & Steering",
             "Tie Rod End",
-            "[]"
+            "Tata 1210",
+            "Tata 1312"
         ],
         "part_number": "KF3359",
         "slug": "kf-3359-tie-rod-end-big-for-gb-40-tata",
@@ -23808,7 +23813,7 @@
             "id": "kfl",
             "name": "KFL"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 2,
         "product_count": 0,
         "featured": false,
         "active": false,
@@ -25070,7 +25075,7 @@
             "RKI",
             "Suspension & Steering",
             "Cross Joint",
-            "[]"
+            "Tata Signa"
         ],
         "part_number": "K262",
         "slug": "rki-k262-half-yoke-rsb-490-490-series",
@@ -25494,7 +25499,11 @@
             "Rane",
             "Suspension & Steering",
             "Power Steering Pump",
-            "[]"
+            "Tata LPT",
+            "Tata Signa",
+            "Tata Ultra",
+            "Tata Prima",
+            "Tata 2416"
         ],
         "part_number": "704020600",
         "slug": "rane-704020600-power-steering-reservoir-a-l-fvdp",
@@ -25509,7 +25518,7 @@
             "id": "rane",
             "name": "Rane"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 5,
         "product_count": 0,
         "featured": false,
         "active": false,
@@ -25715,7 +25724,7 @@
             "Setco",
             "Clutch Parts",
             "Clutch Kit",
-            "[]"
+            "Tata Signa"
         ],
         "part_number": "380019-L1013-5R",
         "slug": "setco-380019-l1013-5r-380dia-clutch-set",
@@ -26260,7 +26269,7 @@
             "TVS Girling",
             "Brakes",
             "Brake Drum",
-            "[]"
+            "Tata Ultra"
         ],
         "part_number": "SIAS 6214DT",
         "slug": "tvs-girling-sias-6214dt-for-trailer-balloon-ca-20ft-2-duo-for-tr",
@@ -26357,7 +26366,8 @@
             "Tata Genuine Parts",
             "Rubber Parts",
             "Oil Seal",
-            "[]"
+            "Tata 2416",
+            "Tata LPT"
         ],
         "part_number": "265433407801",
         "slug": "tata-genuine-parts-265433407801-oil-seal",
@@ -26372,7 +26382,7 @@
             "id": "tata-genuine-parts",
             "name": "Tata Genuine Parts"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 2,
         "product_count": 0,
         "featured": false,
         "active": false,
@@ -26679,7 +26689,8 @@
             "Tata Genuine Parts",
             "Rubber Parts",
             "Oil Seal",
-            "[]"
+            "Tata 2416",
+            "Tata LPT"
         ],
         "part_number": "886733000041",
         "slug": "tata-genuine-parts-886733000041-oil-seal-frt-hub-bs3-4-6",
@@ -26694,7 +26705,7 @@
             "id": "tata-genuine-parts",
             "name": "Tata Genuine Parts"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 2,
         "product_count": 0,
         "featured": false,
         "active": false,
@@ -26775,7 +26786,7 @@
             "Texspin",
             "Clutch Parts",
             "Clutch Release Bearing",
-            "[]"
+            "Tata Signa"
         ],
         "part_number": "TX-380-DPA-1",
         "slug": "texspin-tx-380-dpa-1",
@@ -26800,16 +26811,16 @@
         "id": "SVKS000834",
         "type": "product",
         "title": "380 - DPA - 4",
-        "subtitle": "Part No. TX",
+        "subtitle": "Part No. TX-380-DPA-4",
         "keywords": [
             "380 - DPA - 4",
-            "TX",
+            "TX-380-DPA-4",
             "Texspin",
             "Clutch Parts",
             "Clutch Release Bearing",
-            "[]"
+            "Tata Signa"
         ],
-        "part_number": "TX",
+        "part_number": "TX-380-DPA-4",
         "slug": "texspin-tx-380-dpa-4",
         "url": "/products/texspin-tx-380-dpa-4",
         "image": "380 - DPA - 4.webp",
@@ -26832,16 +26843,16 @@
         "id": "SVKS000835",
         "type": "product",
         "title": "380 - PPA - G",
-        "subtitle": "Part No. TX",
+        "subtitle": "Part No. TX-380-PPA-G",
         "keywords": [
             "380 - PPA - G",
-            "TX",
+            "TX-380-PPA-G",
             "Texspin",
             "Clutch Parts",
             "Clutch Release Bearing",
-            "[]"
+            "Tata Signa"
         ],
-        "part_number": "TX",
+        "part_number": "TX-380-PPA-G",
         "slug": "texspin-tx-380-ppa-g",
         "url": "/products/texspin-tx-380-ppa-g",
         "image": "380 - PPA - G.webp",
@@ -26864,16 +26875,16 @@
         "id": "SVKS000836",
         "type": "product",
         "title": "610/1 KP",
-        "subtitle": "Part No. TX",
+        "subtitle": "Part No. TX-610/1 KP",
         "keywords": [
             "610/1 KP",
-            "TX",
+            "TX-610/1 KP",
             "Texspin",
             "Suspension & Steering",
             "King Pin Kit",
             "Tata 1312"
         ],
-        "part_number": "TX",
+        "part_number": "TX-610/1 KP",
         "slug": "texspin-tx-610-1-kp",
         "url": "/products/texspin-tx-610-1-kp",
         "image": "610/1 KP.webp",
@@ -26896,16 +26907,16 @@
         "id": "SVKS000837",
         "type": "product",
         "title": "610/2 KP",
-        "subtitle": "Part No. TX",
+        "subtitle": "Part No. TX-610/2 KP",
         "keywords": [
             "610/2 KP",
-            "TX",
+            "TX-610/2 KP",
             "Texspin",
             "Suspension & Steering",
             "King Pin Kit",
             "Tata 1312"
         ],
-        "part_number": "TX",
+        "part_number": "TX-610/2 KP",
         "slug": "texspin-tx-610-2-kp",
         "url": "/products/texspin-tx-610-2-kp",
         "image": "610/2 KP.webp",
@@ -26928,16 +26939,16 @@
         "id": "SVKS000838",
         "type": "product",
         "title": "610/4 KP",
-        "subtitle": "Part No. TX",
+        "subtitle": "Part No. TX-610/4 KP",
         "keywords": [
             "610/4 KP",
-            "TX",
+            "TX-610/4 KP",
             "Texspin",
             "Suspension & Steering",
             "King Pin Kit",
             "Tata 1312"
         ],
-        "part_number": "TX",
+        "part_number": "TX-610/4 KP",
         "slug": "texspin-tx-610-4-kp",
         "url": "/products/texspin-tx-610-4-kp",
         "image": "610/4 KP.webp",
@@ -26960,16 +26971,16 @@
         "id": "SVKS000839",
         "type": "product",
         "title": "610/5 KP",
-        "subtitle": "Part No. TX",
+        "subtitle": "Part No. TX-610/5 KP",
         "keywords": [
             "610/5 KP",
-            "TX",
+            "TX-610/5 KP",
             "Texspin",
             "Suspension & Steering",
             "King Pin Kit",
             "Tata 1312"
         ],
-        "part_number": "TX",
+        "part_number": "TX-610/5 KP",
         "slug": "texspin-tx-610-5-kp",
         "url": "/products/texspin-tx-610-5-kp",
         "image": "610/5 KP.webp",
@@ -26991,17 +27002,17 @@
     {
         "id": "SVKS000840",
         "type": "product",
-        "title": "1SG + 1 KG Superior   Grease",
-        "subtitle": "Part No. TXL 3",
+        "title": "Superior Grease",
+        "subtitle": "Part No. TXL 3 - 1SG + 1KG",
         "keywords": [
-            "1SG + 1 KG Superior   Grease",
-            "TXL 3",
+            "Superior Grease",
+            "TXL 3 - 1SG + 1KG",
             "Texspin",
             "Lubricants",
             "Grease",
             "Ashok Leyland 2516"
         ],
-        "part_number": "TXL 3",
+        "part_number": "TXL 3 - 1SG + 1KG",
         "slug": "texspin-txl-3-1sg-1-kg-superior-grease",
         "url": "/products/texspin-txl-3-1sg-1-kg-superior-grease",
         "image": "1SG + 1 KG Superior Grease.webp",
@@ -28196,7 +28207,7 @@
             "GS",
             "Suspension & Steering",
             "Center Bolt",
-            "[]"
+            "Universal"
         ],
         "part_number": "SBAM 231",
         "slug": "gs-sbam-231-centre-bolt-lh-14",
@@ -28228,7 +28239,8 @@
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
-            "Eicher Ecomet"
+            "Eicher Pro Series",
+            "Ashok Leyland Ecomet"
         ],
         "part_number": 208,
         "slug": "0208-e-comet-front-main-leaf",
@@ -28243,7 +28255,7 @@
             "id": "toyo",
             "name": "Toyo"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 2,
         "product_count": 0,
         "featured": false,
         "active": true,
@@ -28260,7 +28272,8 @@
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
-            "Eicher Ecomet"
+            "Eicher Pro Series",
+            "Ashok Leyland Ecomet"
         ],
         "part_number": 208,
         "slug": "0208-e-comet-front-2nd-leaf",
@@ -28275,7 +28288,7 @@
             "id": "toyo",
             "name": "Toyo"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 2,
         "product_count": 0,
         "featured": false,
         "active": true,
@@ -28292,7 +28305,7 @@
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
-            "Eicher U Truck"
+            "Ashok Leyland U Truck"
         ],
         "part_number": 236,
         "slug": "0236-u-truck-front-main-leaf",
@@ -28324,7 +28337,7 @@
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
-            "Eicher U Truck"
+            "Ashok Leyland U Truck"
         ],
         "part_number": 236,
         "slug": "0236-u-truck-front-aux-a",
@@ -28356,7 +28369,7 @@
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
-            "Eicher U Truck"
+            "Ashok Leyland U Truck"
         ],
         "part_number": 236,
         "slug": "0236-u-truck-front-aux-b",
@@ -28388,7 +28401,8 @@
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
-            "Eicher Ecomet"
+            "Eicher Pro Series",
+            "Ashok Leyland Ecomet"
         ],
         "part_number": 209,
         "slug": "0209-e-comet-rear-main-leaf",
@@ -28403,7 +28417,7 @@
             "id": "toyo",
             "name": "Toyo"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 2,
         "product_count": 0,
         "featured": false,
         "active": true,
@@ -28674,7 +28688,8 @@
             "JAI",
             "Suspension & Steering",
             "Leaf Spring",
-            "Mahindra Bolero Maxi Truck"
+            "Mahindra Bolero Pickup",
+            "Mahindra Max Pickup"
         ],
         "part_number": 5271,
         "slug": "5271-bolero-maxi-truck-plus-supro-mini-truck-main-leaf",
@@ -28689,7 +28704,7 @@
             "id": "jai",
             "name": "JAI"
         },
-        "vehicle_count": 1,
+        "vehicle_count": 2,
         "product_count": 0,
         "featured": false,
         "active": true,
@@ -28698,19 +28713,19 @@
     {
         "id": "SVKS000893",
         "type": "product",
-        "title": "4623 Signa Front - Main Leaf",
-        "subtitle": "Part No. 151",
+        "title": "ARMADA NEW (FR) - main leaf",
+        "subtitle": "Part No. 0151",
         "keywords": [
-            "4623 Signa Front - Main Leaf",
-            151,
+            "ARMADA NEW (FR) - main leaf",
+            "0151",
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
             "Tata Signa"
         ],
-        "part_number": 151,
-        "slug": "0151-4623-signa-front-main-leaf",
-        "url": "/products/0151-4623-signa-front-main-leaf",
+        "part_number": "0151",
+        "slug": "0151-armada-new-front-main-leaf",
+        "url": "/products/0151-armada-new-front-main-leaf",
         "image": "4623 Signa Front - Main Leaf.webp",
         "icon": "",
         "category": {
@@ -28730,19 +28745,19 @@
     {
         "id": "SVKS000894",
         "type": "product",
-        "title": "4623 Signa Front - 2nd Leaf",
-        "subtitle": "Part No. 151",
+        "title": "ARMADA NEW (FR) - 2nd Leaf",
+        "subtitle": "Part No. 0152",
         "keywords": [
-            "4623 Signa Front - 2nd Leaf",
-            151,
+            "ARMADA NEW (FR) - 2nd Leaf",
+            "0152",
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
             "Tata Signa"
         ],
-        "part_number": 151,
-        "slug": "0151-4623-signa-front-2nd-leaf",
-        "url": "/products/0151-4623-signa-front-2nd-leaf",
+        "part_number": "0152",
+        "slug": "0151-armada-new-front-2nd-leaf",
+        "url": "/products/0151-armada-new-front-2nd-leaf",
         "image": "4623 Signa Front - 2nd Leaf.webp",
         "icon": "",
         "category": {
@@ -28762,19 +28777,19 @@
     {
         "id": "SVKS000895",
         "type": "product",
-        "title": "4623 Signa Front - 3rd Leaf",
-        "subtitle": "Part No. 151",
+        "title": "ARMADA NEW (FR) - 3rd Leaf",
+        "subtitle": "Part No. 0153",
         "keywords": [
-            "4623 Signa Front - 3rd Leaf",
-            151,
+            "ARMADA NEW (FR) - 3rd Leaf",
+            "0153",
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
             "Tata Signa"
         ],
-        "part_number": 151,
-        "slug": "0151-4623-signa-front-3rd-leaf",
-        "url": "/products/0151-4623-signa-front-3rd-leaf",
+        "part_number": "0153",
+        "slug": "0151-armada-new-front-3rd-leaf",
+        "url": "/products/0151-armada-new-front-3rd-leaf",
         "image": "4623 Signa Front - 3rd Leaf.webp",
         "icon": "",
         "category": {
@@ -28794,19 +28809,19 @@
     {
         "id": "SVKS000896",
         "type": "product",
-        "title": "4623 Signa Front - AUX-A",
-        "subtitle": "Part No. 151",
+        "title": "ARMADA NEW (FR) - AUX-A",
+        "subtitle": "Part No. 0154",
         "keywords": [
-            "4623 Signa Front - AUX-A",
-            151,
+            "ARMADA NEW (FR) - AUX-A",
+            "0154",
             "Toyo",
             "Suspension & Steering",
             "Leaf Spring",
             "Tata Signa"
         ],
-        "part_number": 151,
-        "slug": "0151-4623-signa-front-aux-a",
-        "url": "/products/0151-4623-signa-front-aux-a",
+        "part_number": "0154",
+        "slug": "0151-armada-new-front-aux-a",
+        "url": "/products/0151-armada-new-front-aux-a",
         "image": "4623 Signa Front - AUX-A.webp",
         "icon": "",
         "category": {
@@ -29165,7 +29180,7 @@
             "id": "fleetguard",
             "name": "Fleetguard"
         },
-        "vehicle_count": 13,
+        "vehicle_count": 16,
         "product_count": 25,
         "featured": false,
         "active": true,
@@ -29259,7 +29274,7 @@
             "id": "gs",
             "name": "GS"
         },
-        "vehicle_count": 11,
+        "vehicle_count": 10,
         "product_count": 25,
         "featured": false,
         "active": true,
@@ -29643,7 +29658,7 @@
             "id": "bosch",
             "name": "Bosch"
         },
-        "vehicle_count": 5,
+        "vehicle_count": 4,
         "product_count": 34,
         "featured": false,
         "active": true,
@@ -29962,7 +29977,7 @@
             "name": "JAI"
         },
         "vehicle_count": 16,
-        "product_count": 99,
+        "product_count": 101,
         "featured": false,
         "active": true,
         "weight": 90
@@ -30275,7 +30290,7 @@
             "id": "rane",
             "name": "Rane"
         },
-        "vehicle_count": 6,
+        "vehicle_count": 8,
         "product_count": 5,
         "featured": false,
         "active": true,
@@ -30390,7 +30405,7 @@
             "id": "texspin",
             "name": "Texspin"
         },
-        "vehicle_count": 16,
+        "vehicle_count": 15,
         "product_count": 80,
         "featured": false,
         "active": true,
@@ -30510,34 +30525,6 @@
         "weight": 90
     },
     {
-        "id": "toyo",
-        "type": "brand",
-        "title": "Toyo",
-        "subtitle": "Brand",
-        "keywords": [
-            "Toyo",
-            "suspension-steering"
-        ],
-        "part_number": "",
-        "slug": "toyo",
-        "url": "/brands/toyo",
-        "image": "",
-        "icon": "/assets/images/brands/toyo.png",
-        "category": {
-            "id": "",
-            "name": ""
-        },
-        "brand": {
-            "id": "toyo",
-            "name": "Toyo"
-        },
-        "vehicle_count": 4,
-        "product_count": 12,
-        "featured": false,
-        "active": true,
-        "weight": 90
-    },
-    {
         "id": "lucas-tvs",
         "type": "brand",
         "title": "Lucas TVS",
@@ -30650,6 +30637,34 @@
         "weight": 90
     },
     {
+        "id": "toyo",
+        "type": "brand",
+        "title": "Toyo",
+        "subtitle": "Brand",
+        "keywords": [
+            "Toyo",
+            "suspension-steering"
+        ],
+        "part_number": "",
+        "slug": "toyo",
+        "url": "/brands/toyo",
+        "image": "",
+        "icon": "/assets/images/brands/toyo.png",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "brand": {
+            "id": "toyo",
+            "name": "Toyo"
+        },
+        "vehicle_count": 4,
+        "product_count": 10,
+        "featured": false,
+        "active": true,
+        "weight": 90
+    },
+    {
         "id": "filters",
         "type": "category",
         "title": "Filters",
@@ -30678,7 +30693,7 @@
             "id": "",
             "name": ""
         },
-        "vehicle_count": 21,
+        "vehicle_count": 23,
         "product_count": 77,
         "featured": false,
         "active": true,
@@ -30786,7 +30801,7 @@
             "id": "",
             "name": ""
         },
-        "vehicle_count": 27,
+        "vehicle_count": 25,
         "product_count": 274,
         "featured": false,
         "active": true,
@@ -30836,7 +30851,7 @@
             "id": "",
             "name": ""
         },
-        "vehicle_count": 27,
+        "vehicle_count": 26,
         "product_count": 115,
         "featured": false,
         "active": true,
@@ -31014,7 +31029,7 @@
             "id": "",
             "name": ""
         },
-        "vehicle_count": 21,
+        "vehicle_count": 20,
         "product_count": 71,
         "featured": false,
         "active": true,
@@ -31106,7 +31121,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 57,
+        "product_count": 64,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31133,7 +31148,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 235,
+        "product_count": 240,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31160,7 +31175,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 181,
+        "product_count": 183,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31187,7 +31202,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 33,
+        "product_count": 36,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31241,7 +31256,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 259,
+        "product_count": 261,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31295,7 +31310,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 16,
+        "product_count": 17,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31322,7 +31337,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 22,
+        "product_count": 23,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31349,7 +31364,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 50,
+        "product_count": 51,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31376,7 +31391,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 47,
+        "product_count": 48,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31403,7 +31418,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 57,
+        "product_count": 58,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31430,7 +31445,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 35,
+        "product_count": 37,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31511,7 +31526,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 28,
+        "product_count": 29,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31565,7 +31580,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 11,
+        "product_count": 13,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31619,7 +31634,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 14,
+        "product_count": 17,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31646,7 +31661,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 14,
+        "product_count": 15,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31673,7 +31688,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 26,
+        "product_count": 30,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31808,7 +31823,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 3,
+        "product_count": 4,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31862,88 +31877,34 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 20,
-        "featured": false,
-        "active": true,
-        "weight": 70
-    },
-    {
-        "id": "eicher-ecomet",
-        "type": "vehicle",
-        "title": "Eicher Ecomet",
-        "subtitle": "Vehicle",
-        "keywords": [
-            "Eicher Ecomet"
-        ],
-        "part_number": "",
-        "slug": "eicher-ecomet",
-        "url": "/vehicles/eicher-ecomet",
-        "image": "/assets/images/vehicles/EICHER_ECOMET/thumbnail-400x300.webp",
-        "icon": "",
-        "category": {
-            "id": "",
-            "name": ""
-        },
-        "brand": {
-            "id": "",
-            "name": ""
-        },
-        "vehicle_count": 1,
-        "product_count": 3,
-        "featured": false,
-        "active": true,
-        "weight": 70
-    },
-    {
-        "id": "eicher-u-truck",
-        "type": "vehicle",
-        "title": "Eicher U Truck",
-        "subtitle": "Vehicle",
-        "keywords": [
-            "Eicher U Truck"
-        ],
-        "part_number": "",
-        "slug": "eicher-u-truck",
-        "url": "/vehicles/eicher-u-truck",
-        "image": "/assets/images/vehicles/EICHER_U_TRUCK/thumbnail-400x300.webp",
-        "icon": "",
-        "category": {
-            "id": "",
-            "name": ""
-        },
-        "brand": {
-            "id": "",
-            "name": ""
-        },
-        "vehicle_count": 1,
-        "product_count": 3,
-        "featured": false,
-        "active": true,
-        "weight": 70
-    },
-    {
-        "id": "mahindra-bolero-maxi-truck",
-        "type": "vehicle",
-        "title": "Mahindra Bolero Maxi Truck",
-        "subtitle": "Vehicle",
-        "keywords": [
-            "Mahindra Bolero Maxi Truck"
-        ],
-        "part_number": "",
-        "slug": "mahindra-bolero-maxi-truck",
-        "url": "/vehicles/mahindra-bolero-maxi-truck",
-        "image": "/assets/images/vehicles/MAHINDRA_BOLERO_MAXI_TRUCK/thumbnail-400x300.webp",
-        "icon": "",
-        "category": {
-            "id": "",
-            "name": ""
-        },
-        "brand": {
-            "id": "",
-            "name": ""
-        },
-        "vehicle_count": 1,
         "product_count": 1,
+        "featured": false,
+        "active": true,
+        "weight": 70
+    },
+    {
+        "id": "ashok-leyland-u-truck",
+        "type": "vehicle",
+        "title": "Ashok Leyland U Truck",
+        "subtitle": "Vehicle",
+        "keywords": [
+            "Ashok Leyland U Truck"
+        ],
+        "part_number": "",
+        "slug": "ashok-leyland-u-truck",
+        "url": "/vehicles/ashok-leyland-u-truck",
+        "image": "/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/thumbnail-400x300.webp",
+        "icon": "",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "brand": {
+            "id": "",
+            "name": ""
+        },
+        "vehicle_count": 1,
+        "product_count": 3,
         "featured": false,
         "active": true,
         "weight": 70
