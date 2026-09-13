@@ -254,6 +254,28 @@ export async function onRequest(context) {
         return await oauthDiscoveryResponse();
     }
 
+    if (pathname === "/.well-known/oauth-protected-resource") {
+        return new Response(
+            JSON.stringify({
+                resource: "https://www.souviks.co.in/",
+                authorization_servers: [
+                    "https://kjxrfmujzdxatpgegqcs.supabase.co/auth/v1"
+                ],
+                bearer_methods_supported: [
+                    "header"
+                ]
+            }),
+            {
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Cache-Control": "public, max-age=300, s-maxage=300",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            }
+        );
+    }
+
     const response = await context.next();
 
     if (!acceptsMarkdown(context.request)) {
