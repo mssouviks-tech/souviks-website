@@ -1582,7 +1582,279 @@ async function oauthDiscoveryResponse() {
 }
 
 
-export async function handleAgentRequest(request) {
+
+const WEB_BOT_AUTH_PUBLIC_JWK = {
+    kty: "OKP",
+    crv: "Ed25519",
+    x: "s__D4LSG1zw6LvT0Q2-bHVydX1330CToVL5k1QSzed0",
+    kid: "R5zj2gRqOvZE783G9DuhVdY097JWE3JDPCZdR4yZyhg",
+    use: "sig"
+};
+
+function base64UrlEncode(bytes) {
+    let binary = "";
+
+    for (const byte of bytes) {
+        binary += String.fromCharCode(byte);
+    }
+
+    return btoa(binary)
+        .replace(/\+/g, "-")
+        .replace(/\//g, "_")
+        .replace(/=+$/g, "");
+}
+
+function base64Encode(bytes) {
+    let binary = "";
+
+    for (const byte of bytes) {
+        binary += String.fromCharCode(byte);
+    }
+
+    return btoa(binary);
+}
+
+function randomNonce() {
+    const bytes =
+        new Uint8Array(32);
+
+    crypto.getRandomValues(bytes);
+
+    return base64UrlEncode(bytes);
+}
+
+function unsignedDirectoryHeaders() {
+    return {
+        "Content-Type":
+            "application/http-message-signatures-directory+json",
+        "Cache-Control":
+            "public, max-age=86400, s-maxage=86400",
+        "Access-Control-Allow-Origin":
+            "*"
+    };
+}
+
+async function signDirectoryResponse(
+    authority,
+    env
+) {
+    const privateKeyValue =
+        env?.WEB_BOT_AUTH_PRIVATE_KEY;
+
+    if (
+        !privateKeyValue ||
+        typeof privateKeyValue !==
+            "string"
+    ) {
+        return {
+            headers:
+                unsignedDirectoryHeaders(),
+            signed: false
+        };
+    }
+
+    const seed =
+        Uint8Array.from(
+            atob(
+                privateKeyValue
+                    .replace(/-/g, "+")
+                    .replace(/_/g, "/") +
+                "=".repeat(
+                    (4 -
+                        (privateKeyValue
+                            .length %
+                            4)) %
+                        4
+                )
+            ),
+            (char) =>
+                char.charCodeAt(0)
+        );
+
+    if (seed.length !== 32) {
+        throw new Error(
+            "WEB_BOT_AUTH_PRIVATE_KEY must contain a base64url-encoded 32-byte Ed25519 private seed"
+        );
+    }
+
+    const key =
+        await crypto.subtle.importKey(
+            "raw",
+            seed,
+            {
+                name:
+                    "Ed25519"
+            },
+            false,
+            [
+                "sign"
+            ]
+        );
+
+    const now =
+        Math.floor(
+            Date.now() / 1000
+        );
+
+    const expires =
+        now + 60;
+
+    const nonce =
+        randomNonce();
+
+    const signatureParams =
+        '("@authority";req);alg="ed25519";keyid="' +
+        WEB_BOT_AUTH_PUBLIC_JWK.kid +
+        '";nonce="' +
+        nonce +
+        '";tag="http-message-signatures-directory";created=' +
+        now +
+        ";expires=" +
+        expires;
+
+    const signatureBase =
+        '"@authority": "' +
+        authority +
+        '"\n' +
+        '"@signature-params": ' +
+        signatureParams;
+
+    const signatureBytes =
+        await crypto.subtle.sign(
+            {
+                name:
+                    "Ed25519"
+            },
+            key,
+            new TextEncoder().encode(
+                signatureBase
+            )
+        );
+
+    const signatureInput =
+        "sig1=" +
+        signatureParams;
+
+    return {
+        headers: {
+            ...unsignedDirectoryHeaders(),
+            "Signature-Input":
+                signatureInput,
+            "Signature":
+                "sig1=:" +
+                base64Encode(
+                    new Uint8Array(
+                        signatureBytes
+                    )
+                ) +
+                ":"
+        },
+        signed: true
+    };
+}
+
+async function httpMessageSignaturesDirectory(
+    request,
+    env
+) {
+    if (
+        request.method !== "GET" &&
+        request.method !== "HEAD"
+    ) {
+        return new Response(
+            null,
+            {
+                status: 405,
+                headers: {
+                    ...unsignedDirectoryHeaders(),
+                    Allow: "GET, HEAD"
+                }
+            }
+        );
+    }
+
+    const url =
+        new URL(request.url);
+
+    const authority =
+        request.headers.get(
+            "Host"
+        ) ||
+        url.host;
+
+    const jwks = {
+        keys: [
+            WEB_BOT_AUTH_PUBLIC_JWK
+        ]
+    };
+
+    let signed;
+
+    try {
+        signed =
+            await signDirectoryResponse(
+                authority,
+                env
+            );
+    } catch (error) {
+        console.error(
+            "[Souviks Web Bot Auth]",
+            error
+        );
+
+        return new Response(
+            JSON.stringify({
+                error:
+                    "Unable to sign Web Bot Auth key directory"
+            }),
+            {
+                status: 503,
+                headers: {
+                    "Content-Type":
+                        "application/json; charset=utf-8",
+                    "Cache-Control":
+                        "no-store"
+                }
+            }
+        );
+    }
+
+    const body =
+        JSON.stringify(jwks);
+
+    if (
+        request.method === "HEAD"
+    ) {
+        return new Response(
+            null,
+            {
+                status: 200,
+                headers: {
+                    ...signed.headers,
+                    "Content-Length":
+                        String(
+                            new TextEncoder()
+                                .encode(body)
+                                .byteLength
+                        )
+                }
+            }
+        );
+    }
+
+    return new Response(
+        body,
+        {
+            status: 200,
+            headers: signed.headers
+        }
+    );
+}
+
+export async function handleAgentRequest(
+    request,
+    env
+) {
     const url = new URL(request.url);
     const pathname = url.pathname;
 
@@ -1598,6 +1870,16 @@ export async function handleAgentRequest(request) {
     ) {
         return await handleMcpRequest(
             request
+        );
+    }
+
+    if (
+        pathname ===
+        "/.well-known/http-message-signatures-directory"
+    ) {
+        return await httpMessageSignaturesDirectory(
+            request,
+            env
         );
     }
 
