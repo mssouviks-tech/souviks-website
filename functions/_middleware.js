@@ -147,11 +147,113 @@ function htmlToMarkdown(html, url) {
     return output.replace(/\n{3,}/g, "\n\n").trim() + "\n";
 }
 
+
+const OAUTH_DISCOVERY_UPSTREAM =
+    "https://kjxrfmujzdxatpgegqcs.supabase.co/auth/v1/.well-known/openid-configuration";
+
+async function oauthDiscoveryResponse() {
+    try {
+        const upstreamResponse = await fetch(
+            OAUTH_DISCOVERY_UPSTREAM,
+            {
+                headers: {
+                    Accept: "application/json"
+                }
+            }
+        );
+
+        if (!upstreamResponse.ok) {
+            return new Response(
+                JSON.stringify({
+                    error: "OAuth discovery upstream unavailable"
+                }),
+                {
+                    status: 502,
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Cache-Control": "no-store"
+                    }
+                }
+            );
+        }
+
+        const data = await upstreamResponse.json();
+
+        const requiredFields = [
+            "issuer",
+            "authorization_endpoint",
+            "token_endpoint",
+            "jwks_uri",
+            "grant_types_supported",
+            "response_types_supported"
+        ];
+
+        const missing = requiredFields.filter(
+            (field) =>
+                data[field] === undefined ||
+                data[field] === null ||
+                data[field] === ""
+        );
+
+        if (missing.length) {
+            return new Response(
+                JSON.stringify({
+                    error: "OAuth discovery metadata incomplete",
+                    missing
+                }),
+                {
+                    status: 502,
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Cache-Control": "no-store"
+                    }
+                }
+            );
+        }
+
+        return new Response(
+            JSON.stringify(data),
+            {
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Cache-Control": "public, max-age=300, s-maxage=300",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            }
+        );
+    } catch (error) {
+        console.error("[Souviks OAuth Discovery]", error);
+
+        return new Response(
+            JSON.stringify({
+                error: "Unable to retrieve OAuth discovery metadata"
+            }),
+            {
+                status: 502,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Cache-Control": "no-store"
+                }
+            }
+        );
+    }
+}
+
 function tokenEstimate(value) {
     return Math.max(1, Math.ceil(value.length / 4));
 }
 
 export async function onRequest(context) {
+    const pathname = new URL(context.request.url).pathname;
+
+    if (
+        pathname === "/.well-known/openid-configuration" ||
+        pathname === "/.well-known/oauth-authorization-server"
+    ) {
+        return await oauthDiscoveryResponse();
+    }
+
     const response = await context.next();
 
     if (!acceptsMarkdown(context.request)) {
