@@ -257,13 +257,15 @@ export async function onRequest(context) {
     if (pathname === "/.well-known/oauth-protected-resource") {
         return new Response(
             JSON.stringify({
-                resource: "https://www.souviks.co.in/",
+                resource: "https://souviks.co.in",
                 authorization_servers: [
                     "https://kjxrfmujzdxatpgegqcs.supabase.co/auth/v1"
                 ],
                 bearer_methods_supported: [
                     "header"
-                ]
+                ],
+                resource_name: "Souviks",
+                resource_documentation: "https://souviks.co.in/en/about.html"
             }),
             {
                 status: 200,
