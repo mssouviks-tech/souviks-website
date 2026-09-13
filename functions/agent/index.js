@@ -9,6 +9,469 @@ OAuth Protected Resource Metadata
 ==========================================================
 */
 
+const MCP_ENDPOINT =
+    "https://www.souviks.co.in/mcp";
+
+const MCP_PROTOCOL_VERSION =
+    "2026-07-28";
+
+const MCP_SERVER_INFO = {
+    name: "Souviks Catalogue MCP Server",
+    version: "1.0.0"
+};
+
+const MCP_CARD = {
+    $schema:
+        "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+    name: "co.souviks/catalogue",
+    version: "1.0.0",
+    description:
+        "MCP server for discovering Souviks commercial vehicle spare parts and catalogue information.",
+    title: "Souviks Catalogue MCP Server",
+    websiteUrl:
+        "https://www.souviks.co.in/",
+    serverInfo: MCP_SERVER_INFO,
+    transport: {
+        type: "streamable-http",
+        endpoint: MCP_ENDPOINT,
+        url: MCP_ENDPOINT,
+        protocolVersion:
+            MCP_PROTOCOL_VERSION
+    },
+    remotes: [
+        {
+            type: "streamable-http",
+            url: MCP_ENDPOINT,
+            supportedProtocolVersions: [
+                MCP_PROTOCOL_VERSION
+            ]
+        }
+    ],
+    capabilities: {
+        tools: {},
+        resources: {},
+        prompts: {}
+    },
+    repository: {
+        url:
+            "https://github.com/mssouviks-tech/souviks-website",
+        source: "github"
+    }
+};
+
+function mcpHeaders(
+    contentType = "application/json; charset=utf-8"
+) {
+    return {
+        "Content-Type": contentType,
+        "Cache-Control": "no-store",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods":
+            "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers":
+            "Content-Type, Accept, Authorization, MCP-Protocol-Version, MCP-Session-Id"
+    };
+}
+
+function mcpJson(
+    data,
+    status = 200
+) {
+    return new Response(
+        JSON.stringify(data),
+        {
+            status,
+            headers: mcpHeaders()
+        }
+    );
+}
+
+function validMcpOrigin(request) {
+    const origin =
+        request.headers.get("Origin");
+
+    if (!origin) {
+        return true;
+    }
+
+    try {
+        const parsed =
+            new URL(origin);
+
+        return (
+            parsed.protocol === "https:" &&
+            (
+                parsed.hostname ===
+                    "souviks.co.in" ||
+                parsed.hostname ===
+                    "www.souviks.co.in"
+            )
+        );
+    } catch {
+        return false;
+    }
+}
+
+function mcpError(
+    id,
+    code,
+    message
+) {
+    return mcpJson({
+        jsonrpc: "2.0",
+        id,
+        error: {
+            code,
+            message
+        }
+    });
+}
+
+const MCP_TOOLS = [
+    {
+        name: "search_catalogue",
+        title: "Search Souviks Catalogue",
+        description:
+            "Search the public Souviks product catalogue by product name, part number, SKU, brand, category, or related text.",
+        inputSchema: {
+            type: "object",
+            properties: {
+                query: {
+                    type: "string",
+                    description:
+                        "Product or catalogue search query."
+                },
+                limit: {
+                    type: "integer",
+                    minimum: 1,
+                    maximum: 20,
+                    default: 10
+                }
+            },
+            required: [
+                "query"
+            ]
+        }
+    },
+    {
+        name: "get_catalogue_resources",
+        title: "Get Souviks Catalogue Resources",
+        description:
+            "Return the public machine-readable Souviks catalogue resource URLs.",
+        inputSchema: {
+            type: "object",
+            properties: {}
+        }
+    }
+];
+
+async function mcpSearchCatalogue(query, limit) {
+    const normalized =
+        String(query || "").trim();
+
+    if (!normalized) {
+        return [];
+    }
+
+    const response =
+        await fetch(
+            "https://www.souviks.co.in/assets/data/products.json",
+            {
+                headers: {
+                    Accept:
+                        "application/json"
+                }
+            }
+        );
+
+    if (!response.ok) {
+        throw new Error(
+            "Catalogue data unavailable"
+        );
+    }
+
+    const products =
+        await response.json();
+
+    const terms =
+        normalized
+            .toLowerCase()
+            .split(/\s+/)
+            .filter(
+                (term) =>
+                    term.length >= 2
+            );
+
+    return Array.isArray(products)
+        ? products
+            .filter((item) => {
+                const haystack =
+                    JSON.stringify(
+                        item
+                    ).toLowerCase();
+
+                return terms.every(
+                    (term) =>
+                        haystack.includes(
+                            term
+                        )
+                );
+            })
+            .slice(
+                0,
+                Math.max(
+                    1,
+                    Math.min(
+                        20,
+                        Number.isFinite(
+                            limit
+                        )
+                            ? limit
+                            : 10
+                    )
+                )
+            )
+            .map(
+                (item) =>
+                    pickProductFields(
+                        item
+                    )
+            )
+        : [];
+}
+
+async function mcpHandleToolCall(
+    name,
+    argumentsObject
+) {
+    switch (name) {
+        case "search_catalogue": {
+            const matches =
+                await mcpSearchCatalogue(
+                    argumentsObject?.query,
+                    argumentsObject?.limit
+                );
+
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text:
+                            JSON.stringify(
+                                {
+                                    matches,
+                                    catalogue:
+                                        "https://www.souviks.co.in/en/products.html"
+                                },
+                                null,
+                                2
+                            )
+                    }
+                ],
+                structuredContent: {
+                    matches
+                }
+            };
+        }
+
+        case "get_catalogue_resources":
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text:
+                            JSON.stringify(
+                                {
+                                    products:
+                                        "https://www.souviks.co.in/assets/data/products.json",
+                                    brands:
+                                        "https://www.souviks.co.in/assets/data/brands.json",
+                                    categories:
+                                        "https://www.souviks.co.in/assets/data/categories.json",
+                                    vehicles:
+                                        "https://www.souviks.co.in/assets/data/vehicles.json",
+                                    search:
+                                        "https://www.souviks.co.in/assets/data/search.json",
+                                    catalogue:
+                                        "https://www.souviks.co.in/en/products.html"
+                                },
+                                null,
+                                2
+                            )
+                    }
+                ]
+            };
+
+        default:
+            throw new Error(
+                "Unknown tool: " + name
+            );
+    }
+}
+
+async function handleMcpRequest(
+    request
+) {
+    if (!validMcpOrigin(request)) {
+        return mcpJson(
+            {
+                error:
+                    "Forbidden Origin"
+            },
+            403
+        );
+    }
+
+    if (
+        request.method === "OPTIONS"
+    ) {
+        return new Response(
+            null,
+            {
+                status: 204,
+                headers: mcpHeaders()
+            }
+        );
+    }
+
+    if (
+        request.method === "GET"
+    ) {
+        return new Response(
+            null,
+            {
+                status: 405,
+                headers: {
+                    ...mcpHeaders(),
+                    Allow: "POST"
+                }
+            }
+        );
+    }
+
+    if (
+        request.method !== "POST"
+    ) {
+        return new Response(
+            null,
+            {
+                status: 405,
+                headers: {
+                    ...mcpHeaders(),
+                    Allow: "POST, OPTIONS"
+                }
+            }
+        );
+    }
+
+    let payload;
+
+    try {
+        payload =
+            await request.json();
+    } catch {
+        return mcpError(
+            null,
+            -32700,
+            "Invalid JSON"
+        );
+    }
+
+    const isJsonRpcRequest =
+        payload?.jsonrpc === "2.0" &&
+        typeof payload?.method === "string";
+
+    if (!isJsonRpcRequest) {
+        return mcpError(
+            payload?.id ?? null,
+            -32600,
+            "Invalid Request"
+        );
+    }
+
+    const id =
+        Object.prototype.hasOwnProperty.call(
+            payload,
+            "id"
+        )
+            ? payload.id
+            : null;
+
+    switch (payload.method) {
+        case "initialize":
+            return mcpJson({
+                jsonrpc: "2.0",
+                id,
+                result: {
+                    protocolVersion:
+                        MCP_PROTOCOL_VERSION,
+                    capabilities: {
+                        tools: {}
+                    },
+                    serverInfo:
+                        MCP_SERVER_INFO,
+                    instructions:
+                        "Use the Souviks catalogue tools to discover public product data, brands, categories, vehicle applications, and catalogue resources."
+                }
+            });
+
+        case "notifications/initialized":
+            return new Response(
+                null,
+                {
+                    status: 202,
+                    headers:
+                        mcpHeaders()
+                }
+            );
+
+        case "tools/list":
+            return mcpJson({
+                jsonrpc: "2.0",
+                id,
+                result: {
+                    tools:
+                        MCP_TOOLS
+                }
+            });
+
+        case "tools/call": {
+            const name =
+                payload?.params
+                    ?.name;
+
+            try {
+                const result =
+                    await mcpHandleToolCall(
+                        name,
+                        payload?.params
+                            ?.arguments || {}
+                    );
+
+                return mcpJson({
+                    jsonrpc: "2.0",
+                    id,
+                    result
+                });
+            } catch (error) {
+                return mcpError(
+                    id,
+                    -32000,
+                    error?.message ||
+                        "Tool execution failed"
+                );
+            }
+        }
+
+        default:
+            return mcpError(
+                id,
+                -32601,
+                "Method not found"
+            );
+    }
+}
+
 const A2A_BASE_URL =
     "https://www.souviks.co.in/a2a";
 
@@ -1122,6 +1585,21 @@ async function oauthDiscoveryResponse() {
 export async function handleAgentRequest(request) {
     const url = new URL(request.url);
     const pathname = url.pathname;
+
+    if (pathname === "/.well-known/mcp/server-card.json") {
+        return mcpJson(
+            MCP_CARD,
+            200
+        );
+    }
+
+    if (
+        pathname === "/mcp"
+    ) {
+        return await handleMcpRequest(
+            request
+        );
+    }
 
     if (pathname === "/.well-known/agent-card.json") {
         return new Response(
