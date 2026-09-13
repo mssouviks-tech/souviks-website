@@ -166,7 +166,8 @@ export async function onRequest(context) {
 
     const agentResponse =
         await handleAgentRequest(
-            context.request
+            context.request,
+            context.env
         );
 
     if (agentResponse) {
