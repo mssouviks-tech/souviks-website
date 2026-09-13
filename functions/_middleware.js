@@ -1265,6 +1265,20 @@ function tokenEstimate(value) {
 export async function onRequest(context) {
     const pathname = new URL(context.request.url).pathname;
 
+    if (pathname === "/.well-known/agent-card.json") {
+        return new Response(
+            JSON.stringify(A2A_CARD),
+            {
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Cache-Control": "public, max-age=300, s-maxage=300",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            }
+        );
+    }
+
     const a2aResponse =
         await handleA2A(context.request);
 
@@ -1272,16 +1286,8 @@ export async function onRequest(context) {
         return a2aResponse;
     }
 
-    if (pathname === "/.well-known/agent-card.json") {
-        return jsonResponse(
-            A2A_CARD,
-            200,
-            "application/json; charset=utf-8"
-        );
-    }
-
     if (pathname === "/a2a/message:send") {
-        return await a2aMessageSend(context.request);
+        return await handleA2ASend(context.request);
     }
 
     if (
