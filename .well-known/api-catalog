@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "publisher": "Souviks",
+  "homepage": "https://www.souviks.co.in/",
+  "purpose": "Machine-readable discovery of Souviks commercial vehicle spare-parts catalogue data and related catalogue indexes.",
+  "resources": [
+    {
+      "id": "products",
+      "type": "catalogue-data",
+      "title": "Souviks Product Catalogue",
+      "href": "https://www.souviks.co.in/assets/data/products.json",
+      "mediaType": "application/json",
+      "description": "Machine-readable product catalogue containing Souviks product records, including product identifiers, brands, categories and vehicle applicability where available."
+    },
+    {
+      "id": "brands",
+      "type": "catalogue-index",
+      "title": "Souviks Brand Index",
+      "href": "https://www.souviks.co.in/assets/data/brands.json",
+      "mediaType": "application/json",
+      "description": "Machine-readable index of brands represented in the Souviks catalogue."
+    },
+    {
+      "id": "categories",
+      "type": "catalogue-index",
+      "title": "Souviks Category Index",
+      "href": "https://www.souviks.co.in/assets/data/categories.json",
+      "mediaType": "application/json",
+      "description": "Machine-readable index of product categories represented in the Souviks catalogue."
+    },
+    {
+      "id": "vehicles",
+      "type": "catalogue-index",
+      "title": "Souviks Vehicle Index",
+      "href": "https://www.souviks.co.in/assets/data/vehicles.json",
+      "mediaType": "application/json",
+      "description": "Machine-readable index of commercial vehicles and vehicle applications represented in the Souviks catalogue."
+    },
+    {
+      "id": "search",
+      "type": "catalogue-search-index",
+      "title": "Souviks Search Index",
+      "href": "https://www.souviks.co.in/assets/data/search.json",
+      "mediaType": "application/json",
+      "description": "Machine-readable search index used by the Souviks website for catalogue discovery."
+    }
+  ],
+  "humanDocumentation": "https://www.souviks.co.in/.well-known/service-documentation.html",
+  "machineDescription": "https://www.souviks.co.in/.well-known/service-description.json"
+}
