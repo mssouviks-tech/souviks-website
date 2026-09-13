@@ -1583,21 +1583,11 @@ async function oauthDiscoveryResponse() {
 
 
 
-const WEB_BOT_AUTH_PUBLIC_JWK = {
-    kty: "OKP",
-    crv: "Ed25519",
-    x: "s__D4LSG1zw6LvT0Q2-bHVydX1330CToVL5k1QSzed0",
-    kid: "R5zj2gRqOvZE783G9DuhVdY097JWE3JDPCZdR4yZyhg",
-    use: "sig"
-};
-
 function base64UrlEncode(bytes) {
     let binary = "";
-
     for (const byte of bytes) {
         binary += String.fromCharCode(byte);
     }
-
     return btoa(binary)
         .replace(/\+/g, "-")
         .replace(/\//g, "_")
@@ -1606,20 +1596,29 @@ function base64UrlEncode(bytes) {
 
 function base64Encode(bytes) {
     let binary = "";
-
     for (const byte of bytes) {
         binary += String.fromCharCode(byte);
     }
-
     return btoa(binary);
 }
 
+function pemToDer(pem) {
+    const base64 = pem
+        .replace(/-----BEGIN PRIVATE KEY-----/g, "")
+        .replace(/-----END PRIVATE KEY-----/g, "")
+        .replace(/\s+/g, "");
+
+    const binary = atob(base64);
+
+    return Uint8Array.from(
+        binary,
+        (char) => char.charCodeAt(0)
+    );
+}
+
 function randomNonce() {
-    const bytes =
-        new Uint8Array(32);
-
+    const bytes = new Uint8Array(32);
     crypto.getRandomValues(bytes);
-
     return base64UrlEncode(bytes);
 }
 
@@ -1634,81 +1633,99 @@ function unsignedDirectoryHeaders() {
     };
 }
 
-async function signDirectoryResponse(
-    authority,
-    env
-) {
-    const privateKeyValue =
+async function jwkThumbprint(jwk) {
+    const canonical = JSON.stringify({
+        crv: jwk.crv,
+        kty: jwk.kty,
+        x: jwk.x
+    });
+
+    const digest = await crypto.subtle.digest(
+        "SHA-256",
+        new TextEncoder().encode(canonical)
+    );
+
+    return base64UrlEncode(
+        new Uint8Array(digest)
+    );
+}
+
+async function loadWebBotSigningMaterial(env) {
+    const privateKeyPem =
         env?.WEB_BOT_AUTH_PRIVATE_KEY;
 
     if (
-        !privateKeyValue ||
-        typeof privateKeyValue !==
-            "string"
+        !privateKeyPem ||
+        typeof privateKeyPem !== "string"
     ) {
-        return {
-            headers:
-                unsignedDirectoryHeaders(),
-            signed: false
-        };
+        return null;
     }
 
-    const seed =
-        Uint8Array.from(
-            atob(
-                privateKeyValue
-                    .replace(/-/g, "+")
-                    .replace(/_/g, "/") +
-                "=".repeat(
-                    (4 -
-                        (privateKeyValue
-                            .length %
-                            4)) %
-                        4
-                )
-            ),
-            (char) =>
-                char.charCodeAt(0)
-        );
-
-    if (seed.length !== 32) {
-        throw new Error(
-            "WEB_BOT_AUTH_PRIVATE_KEY must contain a base64url-encoded 32-byte Ed25519 private seed"
-        );
-    }
-
-    const key =
+    const privateKey =
         await crypto.subtle.importKey(
-            "raw",
-            seed,
-            {
-                name:
-                    "Ed25519"
-            },
-            false,
-            [
-                "sign"
-            ]
+            "pkcs8",
+            pemToDer(privateKeyPem),
+            { name: "Ed25519" },
+            true,
+            ["sign"]
         );
 
-    const now =
-        Math.floor(
-            Date.now() / 1000
+    const privateJwk =
+        await crypto.subtle.exportKey(
+            "jwk",
+            privateKey
         );
 
-    const expires =
-        now + 60;
+    if (
+        privateJwk.kty !== "OKP" ||
+        privateJwk.crv !== "Ed25519" ||
+        !privateJwk.x
+    ) {
+        throw new Error(
+            "WEB_BOT_AUTH_PRIVATE_KEY is not an Ed25519 private key"
+        );
+    }
 
-    const nonce =
-        randomNonce();
+    const publicJwk = {
+        kty: "OKP",
+        crv: "Ed25519",
+        x: privateJwk.x,
+        use: "sig"
+    };
+
+    const kid =
+        await jwkThumbprint(publicJwk);
+
+    return {
+        privateKey,
+        publicJwk: {
+            ...publicJwk,
+            kid
+        },
+        kid
+    };
+}
+
+async function signDirectoryResponse(
+    authority,
+    material
+) {
+    if (!material) {
+        return null;
+    }
+
+    const created =
+        Math.floor(Date.now() / 1000);
+    const expires = created + 60;
+    const nonce = randomNonce();
 
     const signatureParams =
         '("@authority";req);alg="ed25519";keyid="' +
-        WEB_BOT_AUTH_PUBLIC_JWK.kid +
+        material.kid +
         '";nonce="' +
         nonce +
         '";tag="http-message-signatures-directory";created=' +
-        now +
+        created +
         ";expires=" +
         expires;
 
@@ -1721,35 +1738,22 @@ async function signDirectoryResponse(
 
     const signatureBytes =
         await crypto.subtle.sign(
-            {
-                name:
-                    "Ed25519"
-            },
-            key,
+            { name: "Ed25519" },
+            material.privateKey,
             new TextEncoder().encode(
                 signatureBase
             )
         );
 
-    const signatureInput =
-        "sig1=" +
-        signatureParams;
-
     return {
-        headers: {
-            ...unsignedDirectoryHeaders(),
-            "Signature-Input":
-                signatureInput,
-            "Signature":
-                "sig1=:" +
-                base64Encode(
-                    new Uint8Array(
-                        signatureBytes
-                    )
-                ) +
-                ":"
-        },
-        signed: true
+        "Signature-Input":
+            "sig1=" + signatureParams,
+        "Signature":
+            "sig1=:" +
+            base64Encode(
+                new Uint8Array(signatureBytes)
+            ) +
+            ":"
     };
 }
 
@@ -1773,27 +1777,11 @@ async function httpMessageSignaturesDirectory(
         );
     }
 
-    const url =
-        new URL(request.url);
-
-    const authority =
-        request.headers.get(
-            "Host"
-        ) ||
-        url.host;
-
-    const jwks = {
-        keys: [
-            WEB_BOT_AUTH_PUBLIC_JWK
-        ]
-    };
-
-    let signed;
+    let material;
 
     try {
-        signed =
-            await signDirectoryResponse(
-                authority,
+        material =
+            await loadWebBotSigningMaterial(
                 env
             );
     } catch (error) {
@@ -1805,7 +1793,7 @@ async function httpMessageSignaturesDirectory(
         return new Response(
             JSON.stringify({
                 error:
-                    "Unable to sign Web Bot Auth key directory"
+                    "WEB_BOT_AUTH_PRIVATE_KEY must be a valid Ed25519 PKCS#8 PEM private key"
             }),
             {
                 status: 503,
@@ -1819,25 +1807,57 @@ async function httpMessageSignaturesDirectory(
         );
     }
 
-    const body =
-        JSON.stringify(jwks);
+    if (!material) {
+        return new Response(
+            JSON.stringify({
+                error:
+                    "Web Bot Auth signing key is not configured"
+            }),
+            {
+                status: 503,
+                headers: {
+                    "Content-Type":
+                        "application/json; charset=utf-8",
+                    "Cache-Control":
+                        "no-store"
+                }
+            }
+        );
+    }
 
-    if (
-        request.method === "HEAD"
-    ) {
+    const jwks = {
+        keys: [
+            material.publicJwk
+        ]
+    };
+
+    const signatureHeaders =
+        await signDirectoryResponse(
+            request.headers.get("Host") ||
+                new URL(request.url).host,
+            material
+        );
+
+    const headers = {
+        ...unsignedDirectoryHeaders(),
+        ...signatureHeaders
+    };
+
+    const body = JSON.stringify(jwks);
+
+    if (request.method === "HEAD") {
+        headers["Content-Length"] =
+            String(
+                new TextEncoder()
+                    .encode(body)
+                    .byteLength
+            );
+
         return new Response(
             null,
             {
                 status: 200,
-                headers: {
-                    ...signed.headers,
-                    "Content-Length":
-                        String(
-                            new TextEncoder()
-                                .encode(body)
-                                .byteLength
-                        )
-                }
+                headers
             }
         );
     }
@@ -1846,7 +1866,7 @@ async function httpMessageSignaturesDirectory(
         body,
         {
             status: 200,
-            headers: signed.headers
+            headers
         }
     );
 }
