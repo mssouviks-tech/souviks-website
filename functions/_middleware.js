@@ -988,38 +988,43 @@ async function handleA2ATasks(request) {
     const pathname =
         new URL(request.url).pathname;
 
-    const match =
+    if (
+        pathname === "/a2a/tasks" &&
+        request.method === "GET"
+    ) {
+        return a2aJson({
+            tasks: [],
+            nextPageToken: "",
+            pageSize: 100,
+            totalSize: 0
+        });
+    }
+
+    const getMatch =
         pathname.match(
             /^\/a2a\/tasks\/([^/:]+)$/
         );
 
-    if (!match) {
-        return null;
-    }
-
-    const taskId =
-        decodeURIComponent(
-            match[1]
+    const cancelMatch =
+        pathname.match(
+            /^\/a2a\/tasks\/([^/:]+):cancel$/
         );
 
-    if (
-        request.method === "GET"
-    ) {
+    if (getMatch && request.method === "GET") {
+        const taskId =
+            decodeURIComponent(
+                getMatch[1]
+            );
+
         const task =
             await loadTask(
                 taskId
             );
 
         if (!task) {
-            return a2aJson(
-                {
-                    error: {
-                        code: "TASK_NOT_FOUND",
-                        message:
-                            "Task not found"
-                    }
-                },
-                404
+            return httpA2aError(
+                404,
+                "Task not found"
             );
         }
 
@@ -1027,9 +1032,26 @@ async function handleA2ATasks(request) {
     }
 
     if (
-        request.method === "POST" &&
-        pathname.endsWith(":cancel")
+        cancelMatch &&
+        request.method === "POST"
     ) {
+        const taskId =
+            decodeURIComponent(
+                cancelMatch[1]
+            );
+
+        const task =
+            await loadTask(
+                taskId
+            );
+
+        if (!task) {
+            return httpA2aError(
+                404,
+                "Task not found"
+            );
+        }
+
         return a2aJson(
             {
                 error: {
@@ -1117,8 +1139,24 @@ async function handleA2A(request) {
             "/a2a"
         )
     ) {
-        return jsonResponse(
-            A2A_CARD
+        return new Response(
+            JSON.stringify(A2A_CARD),
+            {
+                status: 200,
+                headers: a2aHeaders()
+            }
+        );
+    }
+
+    if (
+        request.method === "GET" &&
+        request.url.endsWith(
+            "/a2a/extendedAgentCard"
+        )
+    ) {
+        return httpA2aError(
+            404,
+            "Extended Agent Card is not available"
         );
     }
 
@@ -1223,6 +1261,13 @@ function tokenEstimate(value) {
 
 export async function onRequest(context) {
     const pathname = new URL(context.request.url).pathname;
+
+    const a2aResponse =
+        await handleA2A(context.request);
+
+    if (a2aResponse) {
+        return a2aResponse;
+    }
 
     if (pathname === "/.well-known/agent-card.json") {
         return jsonResponse(
