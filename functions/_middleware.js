@@ -1124,13 +1124,16 @@ async function handleA2A(request) {
         );
     }
 
-    const taskResponse =
-        await handleA2ATasks(
+    const pathname =
+        new URL(request.url).pathname;
+
+    if (
+        pathname === "/a2a/tasks" ||
+        pathname.startsWith("/a2a/tasks/")
+    ) {
+        return await handleA2ATasks(
             request
         );
-
-    if (taskResponse) {
-        return taskResponse;
     }
 
     if (
