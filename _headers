@@ -1,0 +1,5 @@
+/*
+ * RFC 9727 API Catalog response media type
+ */
+[/.well-known/api-catalog]
+  Content-Type: application/linkset+json

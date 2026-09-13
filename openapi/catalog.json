@@ -1,0 +1,125 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Souviks Catalogue Data API",
+    "version": "1.0.0",
+    "description": "Machine-readable catalogue resources published by Souviks for commercial vehicle spare-parts discovery."
+  },
+  "servers": [
+    {
+      "url": "https://www.souviks.co.in"
+    }
+  ],
+  "paths": {
+    "/assets/data/products.json": {
+      "get": {
+        "operationId": "getProducts",
+        "summary": "Get product catalogue",
+        "responses": {
+          "200": {
+            "description": "Product catalogue",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/brands.json": {
+      "get": {
+        "operationId": "getBrands",
+        "summary": "Get brand index",
+        "responses": {
+          "200": {
+            "description": "Brand index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/categories.json": {
+      "get": {
+        "operationId": "getCategories",
+        "summary": "Get category index",
+        "responses": {
+          "200": {
+            "description": "Category index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/vehicles.json": {
+      "get": {
+        "operationId": "getVehicles",
+        "summary": "Get vehicle index",
+        "responses": {
+          "200": {
+            "description": "Vehicle index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/search.json": {
+      "get": {
+        "operationId": "getSearchIndex",
+        "summary": "Get catalogue search index",
+        "responses": {
+          "200": {
+            "description": "Search index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
