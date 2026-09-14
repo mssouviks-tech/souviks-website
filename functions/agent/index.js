@@ -132,7 +132,7 @@ const MCP_TOOLS = [
         name: "search_catalogue",
         title: "Search Souviks Catalogue",
         description:
-            "Search the public Souviks product catalogue by product name, part number, SKU, brand, category, or related text.",
+            "Search the public Souviks product catalogue by product name, part number, manufacturer part number, SKU, brand, category, vehicle, or related text. Exact part-number lookups use the compact agent index when available.",
         inputSchema: {
             type: "object",
             properties: {
@@ -154,10 +154,104 @@ const MCP_TOOLS = [
         }
     },
     {
+        name: "find_part",
+        title: "Find Part by Exact Identifier",
+        description:
+            "Find Souviks catalogue products by exact internal product ID, part number, or manufacturer part number using the compact part index.",
+        inputSchema: {
+            type: "object",
+            properties: {
+                identifier: {
+                    type: "string",
+                    description:
+                        "Exact Souviks product ID, part number, or manufacturer part number."
+                }
+            },
+            required: [
+                "identifier"
+            ]
+        }
+    },
+    {
+        name: "find_vehicle",
+        title: "Find Vehicle Applications",
+        description:
+            "Find Souviks vehicle application records and associated product IDs using the compact vehicle index.",
+        inputSchema: {
+            type: "object",
+            properties: {
+                query: {
+                    type: "string",
+                    description:
+                        "Vehicle slug, model, manufacturer, or related search text."
+                },
+                limit: {
+                    type: "integer",
+                    minimum: 1,
+                    maximum: 20,
+                    default: 10
+                }
+            },
+            required: [
+                "query"
+            ]
+        }
+    },
+    {
+        name: "list_brand_products",
+        title: "List Products by Brand",
+        description:
+            "Return products associated with a Souviks brand using the compact brand index.",
+        inputSchema: {
+            type: "object",
+            properties: {
+                brand: {
+                    type: "string",
+                    description:
+                        "Brand ID or brand name."
+                },
+                limit: {
+                    type: "integer",
+                    minimum: 1,
+                    maximum: 100,
+                    default: 50
+                }
+            },
+            required: [
+                "brand"
+            ]
+        }
+    },
+    {
+        name: "list_category_products",
+        title: "List Products by Category",
+        description:
+            "Return products associated with a Souviks category using the compact category index.",
+        inputSchema: {
+            type: "object",
+            properties: {
+                category: {
+                    type: "string",
+                    description:
+                        "Category ID or category name."
+                },
+                limit: {
+                    type: "integer",
+                    minimum: 1,
+                    maximum: 100,
+                    default: 50
+                }
+            },
+            required: [
+                "category"
+            ]
+        }
+    },
+    {
         name: "get_catalogue_resources",
         title: "Get Souviks Catalogue Resources",
         description:
-            "Return the public machine-readable Souviks catalogue resource URLs.",
+            "Return the public machine-readable Souviks catalogue and compact agent-index URLs.",
         inputSchema: {
             type: "object",
             properties: {}
@@ -165,45 +259,140 @@ const MCP_TOOLS = [
     }
 ];
 
+async function fetchJsonWithFallback(paths) {
+    for (const path of paths) {
+        try {
+            const response = await fetch(
+                "https://www.souviks.co.in" + path,
+                {
+                    headers: {
+                        Accept: "application/json"
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                continue;
+            }
+
+            return await response.json();
+        } catch {
+            continue;
+        }
+    }
+
+    throw new Error(
+        "Catalogue data unavailable"
+    );
+}
+
+function compactProductSearchRecord(item) {
+    return {
+        id: item.id ?? "",
+        part_number: item.part_number ?? "",
+        manufacturer_part_number:
+            item.manufacturer_part_number ?? "",
+        product_name:
+            item.product_name ??
+            item.name ??
+            item.title ??
+            "",
+        brand_id:
+            item.brand_id ??
+            item.brand?.id ??
+            "",
+        brand_name:
+            item.brand_name ??
+            item.brand?.name ??
+            "",
+        category_id:
+            item.category_id ??
+            item.category?.id ??
+            "",
+        category_name:
+            item.category_name ??
+            item.category?.name ??
+            "",
+        subcategory_id:
+            item.subcategory_id ??
+            "",
+        subcategory_name:
+            item.subcategory_name ??
+            "",
+        vehicles:
+            Array.isArray(item.vehicles)
+                ? item.vehicles
+                : [],
+        applications:
+            Array.isArray(item.applications)
+                ? item.applications
+                : [],
+        url:
+            item.seo?.canonical ??
+            item.url ??
+            (item.slug
+                ? "https://www.souviks.co.in/products/" +
+                  item.slug +
+                  "/"
+                : "")
+    };
+}
+
 async function mcpSearchCatalogue(query, limit) {
-    const normalized =
-        String(query || "").trim();
+    const normalized = String(query || "").trim();
 
     if (!normalized) {
         return [];
     }
 
-    const response =
-        await fetch(
-            "https://www.souviks.co.in/assets/data/products.json",
-            {
-                headers: {
-                    Accept:
-                        "application/json"
-                }
-            }
-        );
+    const maxResults = Math.max(
+        1,
+        Math.min(
+            20,
+            Number.isFinite(limit)
+                ? limit
+                : 10
+        )
+    );
 
-    if (!response.ok) {
-        throw new Error(
-            "Catalogue data unavailable"
-        );
+    const lower = normalized.toLowerCase();
+
+    try {
+        const partIndex =
+            await fetchJsonWithFallback([
+                "/assets/data/agent/part-index.json"
+            ]);
+
+        const exact =
+            partIndex[lower];
+
+        if (Array.isArray(exact) && exact.length) {
+            return exact
+                .slice(0, maxResults)
+                .map(compactProductSearchRecord);
+        }
+    } catch {
+        // Fall back to existing search data.
     }
 
-    const products =
-        await response.json();
+    try {
+        const summary =
+            await fetchJsonWithFallback([
+                "/assets/data/agent/products-summary.json",
+                "/assets/data/search.json"
+            ]);
 
-    const terms =
-        normalized
-            .toLowerCase()
+        const terms = lower
             .split(/\s+/)
             .filter(
                 (term) =>
                     term.length >= 2
             );
 
-    return Array.isArray(products)
-        ? products
+        return (Array.isArray(summary)
+            ? summary
+            : []
+        )
             .filter((item) => {
                 const haystack =
                     JSON.stringify(
@@ -219,25 +408,16 @@ async function mcpSearchCatalogue(query, limit) {
             })
             .slice(
                 0,
-                Math.max(
-                    1,
-                    Math.min(
-                        20,
-                        Number.isFinite(
-                            limit
-                        )
-                            ? limit
-                            : 10
-                    )
-                )
+                maxResults
             )
             .map(
-                (item) =>
-                    pickProductFields(
-                        item
-                    )
-            )
-        : [];
+                compactProductSearchRecord
+            );
+    } catch {
+        throw new Error(
+            "Catalogue data unavailable"
+        );
+    }
 }
 
 async function mcpHandleToolCall(
@@ -274,6 +454,365 @@ async function mcpHandleToolCall(
             };
         }
 
+        case "find_part": {
+            const identifier =
+                String(
+                    argumentsObject?.identifier ||
+                    ""
+                ).trim().toLowerCase();
+
+            if (!identifier) {
+                return {
+                    content: [
+                        {
+                            type: "text",
+                            text: "An exact identifier is required."
+                        }
+                    ]
+                };
+            }
+
+            const index =
+                await fetchJsonWithFallback([
+                    "/assets/data/agent/part-index.json"
+                ]);
+
+            const matches =
+                Array.isArray(index[identifier])
+                    ? index[identifier]
+                    : [];
+
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text: JSON.stringify(
+                            {
+                                matches:
+                                    matches.map(
+                                        compactProductSearchRecord
+                                    )
+                            },
+                            null,
+                            2
+                        )
+                    }
+                ],
+                structuredContent: {
+                    matches
+                }
+            };
+        }
+
+        case "find_vehicle": {
+            const query =
+                String(
+                    argumentsObject?.query || ""
+                ).trim().toLowerCase();
+
+            const limit =
+                Math.max(
+                    1,
+                    Math.min(
+                        20,
+                        Number.isFinite(
+                            argumentsObject?.limit
+                        )
+                            ? argumentsObject.limit
+                            : 10
+                    )
+                );
+
+            const index =
+                await fetchJsonWithFallback([
+                    "/assets/data/agent/vehicle-index.json",
+                    "/assets/data/vehicles.json"
+                ]);
+
+            const entries =
+                Array.isArray(index)
+                    ? index.map(
+                        (item) => ({
+                            ...(item || {}),
+                            __key:
+                                String(
+                                    item?.id ??
+                                    item?.slug ??
+                                    ""
+                                )
+                                    .toLowerCase()
+                        })
+                    )
+                    : Object.entries(
+                        index || {}
+                    ).map(
+                        ([key, value]) => ({
+                            ...(value || {}),
+                            id:
+                                value?.id ??
+                                key,
+                            slug:
+                                value?.slug ??
+                                key,
+                            __key:
+                                key.toLowerCase()
+                        })
+                    );
+
+            const matches =
+                entries
+                    .filter(
+                        (item) => {
+                            if (!query) {
+                                return false;
+                            }
+
+                            return JSON.stringify(
+                                item
+                            )
+                                .toLowerCase()
+                                .includes(
+                                    query
+                                );
+                        }
+                    )
+                    .slice(
+                        0,
+                        limit
+                    )
+                    .map(
+                        (item) => {
+                            const {
+                                __key,
+                                ...publicItem
+                            } = item;
+
+                            return publicItem;
+                        }
+                    );
+
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text: JSON.stringify(
+                            {
+                                query,
+                                matches
+                            },
+                            null,
+                            2
+                        )
+                    }
+                ],
+                structuredContent: {
+                    matches
+                }
+            };
+        }
+
+        case "list_brand_products": {
+            const requested =
+                String(
+                    argumentsObject?.brand || ""
+                ).trim().toLowerCase();
+
+            const limit =
+                Math.max(
+                    1,
+                    Math.min(
+                        100,
+                        Number.isFinite(
+                            argumentsObject?.limit
+                        )
+                            ? argumentsObject.limit
+                            : 50
+                    )
+                );
+
+            const index =
+                await fetchJsonWithFallback([
+                    "/assets/data/agent/brand-index.json"
+                ]);
+
+            const matchKey =
+                Object.keys(
+                    index || {}
+                ).find(
+                    (key) =>
+                        key.toLowerCase() ===
+                            requested ||
+                        String(
+                            index?.[key]?.name || ""
+                        )
+                            .toLowerCase() ===
+                            requested
+                );
+
+            const brand =
+                matchKey
+                    ? index[matchKey]
+                    : null;
+
+            const ids =
+                Array.isArray(
+                    brand?.product_ids
+                )
+                    ? brand.product_ids
+                    : [];
+
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text: JSON.stringify(
+                            {
+                                brand:
+                                    brand
+                                        ? {
+                                            id:
+                                                matchKey,
+                                            name:
+                                                brand.name,
+                                            product_count:
+                                                brand.product_count,
+                                            product_ids:
+                                                ids.slice(
+                                                    0,
+                                                    limit
+                                                ),
+                                            url:
+                                                brand.url
+                                        }
+                                        : null
+                            },
+                            null,
+                            2
+                        )
+                    }
+                ],
+                structuredContent: {
+                    brand:
+                        brand
+                            ? {
+                                id:
+                                    matchKey,
+                                name:
+                                    brand.name,
+                                product_count:
+                                    brand.product_count,
+                                product_ids:
+                                    ids.slice(
+                                        0,
+                                        limit
+                                    )
+                            }
+                            : null
+                }
+            };
+        }
+
+        case "list_category_products": {
+            const requested =
+                String(
+                    argumentsObject?.category || ""
+                ).trim().toLowerCase();
+
+            const limit =
+                Math.max(
+                    1,
+                    Math.min(
+                        100,
+                        Number.isFinite(
+                            argumentsObject?.limit
+                        )
+                            ? argumentsObject.limit
+                            : 50
+                    )
+                );
+
+            const index =
+                await fetchJsonWithFallback([
+                    "/assets/data/agent/category-index.json"
+                ]);
+
+            const matchKey =
+                Object.keys(
+                    index || {}
+                ).find(
+                    (key) =>
+                        key.toLowerCase() ===
+                            requested ||
+                        String(
+                            index?.[key]?.name || ""
+                        )
+                            .toLowerCase() ===
+                            requested
+                );
+
+            const category =
+                matchKey
+                    ? index[matchKey]
+                    : null;
+
+            const ids =
+                Array.isArray(
+                    category?.product_ids
+                )
+                    ? category.product_ids
+                    : [];
+
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text: JSON.stringify(
+                            {
+                                category:
+                                    category
+                                        ? {
+                                            id:
+                                                matchKey,
+                                            name:
+                                                category.name,
+                                            product_count:
+                                                category.product_count,
+                                            product_ids:
+                                                ids.slice(
+                                                    0,
+                                                    limit
+                                                ),
+                                            url:
+                                                category.url
+                                        }
+                                        : null
+                            },
+                            null,
+                            2
+                        )
+                    }
+                ],
+                structuredContent: {
+                    category:
+                        category
+                            ? {
+                                id:
+                                    matchKey,
+                                name:
+                                    category.name,
+                                product_count:
+                                    category.product_count,
+                                product_ids:
+                                    ids.slice(
+                                        0,
+                                        limit
+                                    )
+                            }
+                            : null
+                }
+            };
+        }
+
         case "get_catalogue_resources":
             return {
                 content: [
@@ -292,6 +831,16 @@ async function mcpHandleToolCall(
                                         "https://www.souviks.co.in/assets/data/vehicles.json",
                                     search:
                                         "https://www.souviks.co.in/assets/data/search.json",
+                                    part_index:
+                                        "https://www.souviks.co.in/assets/data/agent/part-index.json",
+                                    brand_index:
+                                        "https://www.souviks.co.in/assets/data/agent/brand-index.json",
+                                    category_index:
+                                        "https://www.souviks.co.in/assets/data/agent/category-index.json",
+                                    vehicle_index:
+                                        "https://www.souviks.co.in/assets/data/agent/vehicle-index.json",
+                                    products_summary:
+                                        "https://www.souviks.co.in/assets/data/agent/products-summary.json",
                                     catalogue:
                                         "https://www.souviks.co.in/en/products.html"
                                 },
@@ -738,22 +1287,20 @@ async function catalogueAgentMessage(query) {
     }
 
     try {
-        const response = await fetch(
-            "https://www.souviks.co.in/assets/data/products.json",
-            {
-                headers: {
-                    Accept: "application/json"
-                }
-            }
-        );
+        let products;
 
-        if (!response.ok) {
+        try {
+            products =
+                await fetchJsonWithFallback([
+                    "/assets/data/agent/products-summary.json",
+                    "/assets/data/search.json",
+                    "/assets/data/products.json"
+                ]);
+        } catch {
             throw new Error(
                 "Catalogue data unavailable"
             );
         }
-
-        const products = await response.json();
 
         const terms = normalized
             .toLowerCase()

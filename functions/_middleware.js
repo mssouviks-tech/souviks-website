@@ -84,6 +84,62 @@ const ARD_MANIFEST = {
       ]
     },
     {
+      "identifier": "urn:air:souviks.co.in:index:part",
+      "displayName": "Souviks Part Identifier Index",
+      "type": "application/json",
+      "url": "https://souviks.co.in/assets/data/agent/part-index.json",
+      "description": "Compact machine-readable index for exact Souviks product ID, part number, and manufacturer part number lookups.",
+      "representativeQueries": [
+        "Find an exact Souviks part number.",
+        "Look up a Souviks manufacturer part number."
+      ]
+    },
+    {
+      "identifier": "urn:air:souviks.co.in:index:vehicle",
+      "displayName": "Souviks Vehicle Index",
+      "type": "application/json",
+      "url": "https://souviks.co.in/assets/data/agent/vehicle-index.json",
+      "description": "Compact machine-readable vehicle index connecting vehicle applications to Souviks products, brands, and categories.",
+      "representativeQueries": [
+        "Find parts for Tata Signa.",
+        "Which products are associated with a vehicle model?"
+      ]
+    },
+    {
+      "identifier": "urn:air:souviks.co.in:index:brand",
+      "displayName": "Souviks Brand Index",
+      "type": "application/json",
+      "url": "https://souviks.co.in/assets/data/agent/brand-index.json",
+      "description": "Compact machine-readable brand index connecting Souviks brands to products, vehicles, and categories.",
+      "representativeQueries": [
+        "Which products does Fleetguard have in the Souviks catalogue?",
+        "Find the vehicle applications of a brand."
+      ]
+    },
+    {
+      "identifier": "urn:air:souviks.co.in:index:category",
+      "displayName": "Souviks Category Index",
+      "type": "application/json",
+      "url": "https://souviks.co.in/assets/data/agent/category-index.json",
+      "description": "Compact machine-readable category index connecting Souviks categories to products, brands, vehicles, and subcategories.",
+      "representativeQueries": [
+        "Find products in the Filters category.",
+        "Which brands supply parts in a category?"
+      ]
+    },
+    {
+      "identifier": "urn:air:souviks.co.in:index:products-summary",
+      "displayName": "Souviks Product Summary Index",
+      "type": "application/json",
+      "url": "https://souviks.co.in/assets/data/agent/products-summary.json",
+      "description": "Compact machine-readable product summary index for keyword discovery without downloading the full catalogue records.",
+      "representativeQueries": [
+        "Search Souviks products by name and brand.",
+        "Find catalogue products matching a vehicle and category.",
+        "Search product applications and descriptions."
+      ]
+    },
+    {
       "identifier": "urn:air:souviks.co.in:agent:a2a",
       "displayName": "Souviks Catalogue A2A Agent",
       "type": "application/a2a-agent-card+json",
