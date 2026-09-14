@@ -27,7 +27,7 @@ Reusable Head Component
 
     <title>
 
-        NG | Souviks
+        Slip Yoke – Tata 4018 Patti Type
 
     </title>
 
@@ -66,22 +66,22 @@ Reusable Head Component
 <link
     rel="alternate"
     hreflang="en"
-    href="https://www.souviks.co.in/en/brands/ng.html">
+    href="https://www.souviks.co.in/en/products/k310-slip-yoke-tata-4018-patti-type.html">
 
 <link
     rel="alternate"
     hreflang="bn"
-    href="https://www.souviks.co.in/bn/brands/ng.html">
+    href="https://www.souviks.co.in/bn/products/k310-slip-yoke-tata-4018-patti-type.html">
 
 <link
     rel="alternate"
     hreflang="hi"
-    href="https://www.souviks.co.in/hi/brands/ng.html">
+    href="https://www.souviks.co.in/hi/products/k310-slip-yoke-tata-4018-patti-type.html">
 
 <link
     rel="alternate"
     hreflang="x-default"
-    href="https://www.souviks.co.in/en/brands/ng.html">
+    href="https://www.souviks.co.in/en/products/k310-slip-yoke-tata-4018-patti-type.html">
 
 <!-- ==========================================
      FAVICONS
@@ -213,14 +213,20 @@ Reusable Head Component
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "NG Parts | Souviks",
-  "url": "https://www.souviks.co.in/hi/brands/ng.html",
-  "mainEntity": {
+  "@type": "Product",
+  "name": "Slip Yoke – Tata 4018 Patti Type",
+  "url": "https://www.souviks.co.in/products/k310-slip-yoke-tata-4018-patti-type/",
+  "description": "RKI 16-spline slip yoke for Tata 4018 Patti Type and related heavy commercial vehicle applications. 49.2 × 154.8 mm cross fitment and approximately 329 mm length.",
+  "image": [
+    "https://www.souviks.co.in/assets/images/products/SVKS000925/Slip%20Yoke%20Tata%204018%20Patti%20Type.webp"
+  ],
+  "sku": "SVKS000925",
+  "mpn": "K310",
+  "brand": {
     "@type": "Brand",
-    "name": "NG",
-    "url": "https://www.souviks.co.in/hi/brands/ng.html"
-  }
+    "name": "RKI"
+  },
+  "category": "Suspension & Steering"
 }
 </script><script type="application/ld+json">
 {
@@ -236,14 +242,20 @@ Reusable Head Component
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Brands",
-      "item": "https://www.souviks.co.in/hi/brands.html"
+      "name": "Slip Yoke – Tata 4018 Patti Type",
+      "item": "https://www.souviks.co.in/products/k310-slip-yoke-tata-4018-patti-type/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "NG",
-      "item": "https://www.souviks.co.in/hi/brands/ng.html"
+      "name": "Suspension & Steering",
+      "item": "https://www.souviks.co.in/hi/categories/suspension-steering.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Slip Yoke – Tata 4018 Patti Type",
+      "item": "https://www.souviks.co.in/hi/products/k310-slip-yoke-tata-4018-patti-type.html"
     }
   ]
 }
@@ -539,7 +551,7 @@ Reusable Head Component
 
                         <a
                             href="/hi/brands.html"
-                            class="nav-link active">
+                            class="nav-link ">
 
                             ब्रांड
 
@@ -698,7 +710,7 @@ Reusable Head Component
 
                 <a
                     href="/hi/brands.html"
-                    class="active">
+                    class="">
 
                     ब्रांड
 
@@ -859,53 +871,7 @@ SOUVIKS BREADCRUMB
 
 </nav>
 
-<!-- ==========================================================
-BRAND HERO
-========================================================== -->
-
-<section class="entity-hero">
-
-    <div class="container">
-
-        <div id="brand-detail"></div>
-
-    </div>
-
-</section>
-
-<!-- ==========================================================
-BRAND PRODUCTS
-========================================================== -->
-
-<section class="catalogue-products">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <h2>
-
-                उत्पाद
-
-            </h2>
-
-            <p>
-
-                असली OEM एवं आफ्टरमार्केट पार्ट्स
-
-            </p>
-
-        </div>
-
-        <div
-            id="product-grid"
-            class="products-grid">
-
-        </div>
-
-    </div>
-
-</section>
+<div id="product-detail"></div>
 
 <div class="container">
 
@@ -1302,13 +1268,13 @@ window.souviks = {
         "https://www.souviks.co.in",
 
     currentPage:
-        "Brands",
+        "Slip Yoke – Tata 4018 Patti Type",
 
     currentPageType:
         "",
 
     currentPageUrl:
-        "/hi/brands/ng.html",
+        "/hi/products/k310-slip-yoke-tata-4018-patti-type.html",
 
     breadcrumbRoot:
         false,
@@ -1441,7 +1407,7 @@ window.souviks = {
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script src="/assets/js/pages/brand-page.js"></script>
+
 
 
 <!-- ==========================================
@@ -1464,6 +1430,34 @@ document.addEventListener(
         }
 
     }
+);
+
+</script>
+
+<script>
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    async () => {
+
+        if (
+
+            typeof Products !==
+
+            "undefined"
+
+        ) {
+
+            await Products
+
+                .hydrateProductPage();
+
+        }
+
+    }
+
 );
 
 </script>

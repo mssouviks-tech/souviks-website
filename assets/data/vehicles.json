@@ -100,10 +100,6 @@
                 "name": "NeoLite"
             },
             {
-                "id": "ng",
-                "name": "NG"
-            },
-            {
                 "id": "rane",
                 "name": "Rane"
             },
@@ -134,6 +130,14 @@
             {
                 "id": "kfl",
                 "name": "KFL"
+            },
+            {
+                "id": "rki",
+                "name": "RKI"
+            },
+            {
+                "id": "setco",
+                "name": "Setco"
             },
             {
                 "id": "toyo",
@@ -214,9 +218,11 @@
             "SVKS000893",
             "SVKS000894",
             "SVKS000895",
-            "SVKS000896"
+            "SVKS000896",
+            "SVKS000914",
+            "SVKS000929"
         ],
-        "product_count": 64,
+        "product_count": 66,
         "featured": false,
         "active": true,
         "seo": {
@@ -230,8 +236,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-signa"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.683306",
-        "updated_at": "2026-09-11T09:26:07.683306"
+        "created_at": "2026-09-14T12:32:30.033131",
+        "updated_at": "2026-09-14T12:32:30.033131"
     },
     {
         "id": "tata-lpt",
@@ -390,8 +396,8 @@
                 "name": "Manu"
             },
             {
-                "id": "ng",
-                "name": "NG"
+                "id": "neolite",
+                "name": "NeoLite"
             },
             {
                 "id": "pix",
@@ -440,6 +446,14 @@
             {
                 "id": "bapi",
                 "name": "Bapi"
+            },
+            {
+                "id": "rki",
+                "name": "RKI"
+            },
+            {
+                "id": "varroc",
+                "name": "Varroc"
             }
         ],
         "featured_products": [
@@ -692,9 +706,31 @@
             "SVKS000856",
             "SVKS000857",
             "SVKS000858",
-            "SVKS000859"
+            "SVKS000859",
+            "SVKS000908",
+            "SVKS000909",
+            "SVKS000910",
+            "SVKS000911",
+            "SVKS000912",
+            "SVKS000914",
+            "SVKS000916",
+            "SVKS000918",
+            "SVKS000919",
+            "SVKS000920",
+            "SVKS000922",
+            "SVKS000923",
+            "SVKS000924",
+            "SVKS000925",
+            "SVKS000926",
+            "SVKS000927",
+            "SVKS000928",
+            "SVKS000929",
+            "SVKS000930",
+            "SVKS000931",
+            "SVKS000932",
+            "SVKS000933"
         ],
-        "product_count": 240,
+        "product_count": 262,
         "featured": false,
         "active": true,
         "seo": {
@@ -708,8 +744,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-lpt"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.683306",
-        "updated_at": "2026-09-11T09:26:07.683306"
+        "created_at": "2026-09-14T12:32:30.033131",
+        "updated_at": "2026-09-14T12:32:30.033131"
     },
     {
         "id": "ashok-leyland-2516",
@@ -884,6 +920,10 @@
                 "name": "JAI"
             },
             {
+                "id": "wabco",
+                "name": "WABCO"
+            },
+            {
                 "id": "bapi",
                 "name": "Bapi"
             },
@@ -896,12 +936,16 @@
                 "name": "Manu"
             },
             {
+                "id": "rki",
+                "name": "RKI"
+            },
+            {
                 "id": "rane",
                 "name": "Rane"
             },
             {
-                "id": "wabco",
-                "name": "WABCO"
+                "id": "varroc",
+                "name": "Varroc"
             }
         ],
         "featured_products": [
@@ -1097,9 +1141,10 @@
             "SVKS000860",
             "SVKS000864",
             "SVKS000869",
-            "SVKS000875"
+            "SVKS000875",
+            "SVKS000926"
         ],
-        "product_count": 183,
+        "product_count": 184,
         "featured": false,
         "active": true,
         "seo": {
@@ -1113,8 +1158,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-2516"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.683306",
-        "updated_at": "2026-09-11T09:26:07.683306"
+        "created_at": "2026-09-14T12:32:30.033131",
+        "updated_at": "2026-09-14T12:32:30.033131"
     },
     {
         "id": "eicher-pro-series",
@@ -1197,6 +1242,10 @@
                 "name": "JAI"
             },
             {
+                "id": "wabco",
+                "name": "WABCO"
+            },
+            {
                 "id": "jmp",
                 "name": "JMP"
             },
@@ -1205,8 +1254,8 @@
                 "name": "Rane"
             },
             {
-                "id": "wabco",
-                "name": "WABCO"
+                "id": "setco",
+                "name": "Setco"
             },
             {
                 "id": "toyo",
@@ -1275,8 +1324,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/eicher-pro-series"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.683306",
-        "updated_at": "2026-09-11T09:26:07.683306"
+        "created_at": "2026-09-14T12:32:30.033131",
+        "updated_at": "2026-09-14T12:32:30.033131"
     },
     {
         "id": "eicher-1110",
@@ -1349,6 +1398,10 @@
             {
                 "id": "wabco",
                 "name": "WABCO"
+            },
+            {
+                "id": "kfl",
+                "name": "KFL"
             }
         ],
         "featured_products": [
@@ -1372,9 +1425,10 @@
             "SVKS000302",
             "SVKS000303",
             "SVKS000574",
-            "SVKS000874"
+            "SVKS000874",
+            "SVKS000917"
         ],
-        "product_count": 11,
+        "product_count": 12,
         "featured": false,
         "active": true,
         "seo": {
@@ -1388,8 +1442,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/eicher-1110"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.683306",
-        "updated_at": "2026-09-11T09:26:07.683306"
+        "created_at": "2026-09-14T12:32:30.033131",
+        "updated_at": "2026-09-14T12:32:30.033131"
     },
     {
         "id": "universal",
@@ -1484,6 +1538,10 @@
                 "name": "Valvoline"
             },
             {
+                "id": "rider",
+                "name": "Rider"
+            },
+            {
                 "id": "motherson",
                 "name": "Motherson"
             },
@@ -1528,8 +1586,8 @@
                 "name": "Mahle"
             },
             {
-                "id": "naic-024b",
-                "name": "NAIC 024B"
+                "id": "ci",
+                "name": "CI"
             },
             {
                 "id": "philips",
@@ -1592,12 +1650,24 @@
                 "name": "KFL"
             },
             {
+                "id": "luk",
+                "name": "Luk"
+            },
+            {
                 "id": "mei",
                 "name": "MEI"
             },
             {
+                "id": "rki",
+                "name": "RKI"
+            },
+            {
                 "id": "rane",
                 "name": "Rane"
+            },
+            {
+                "id": "setco",
+                "name": "Setco"
             },
             {
                 "id": "tata-autocomp",
@@ -1606,6 +1676,10 @@
             {
                 "id": "tata-genuine-parts",
                 "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "varroc",
+                "name": "Varroc"
             }
         ],
         "featured_products": [
@@ -1895,8 +1969,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/universal"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.683306",
-        "updated_at": "2026-09-11T09:26:07.683306"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-ace",
@@ -2091,8 +2165,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-ace"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-407",
@@ -2226,8 +2300,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-407"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-709",
@@ -2383,8 +2457,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-709"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-1109",
@@ -2491,6 +2565,10 @@
                 "name": "Texspin"
             },
             {
+                "id": "rki",
+                "name": "RKI"
+            },
+            {
                 "id": "wabco",
                 "name": "WABCO"
             }
@@ -2556,9 +2634,10 @@
             "SVKS000574",
             "SVKS000688",
             "SVKS000784",
-            "SVKS000874"
+            "SVKS000874",
+            "SVKS000915"
         ],
-        "product_count": 51,
+        "product_count": 52,
         "featured": false,
         "active": true,
         "seo": {
@@ -2572,8 +2651,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-1109"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-1210",
@@ -2666,6 +2745,10 @@
             {
                 "id": "kfl",
                 "name": "KFL"
+            },
+            {
+                "id": "varroc",
+                "name": "Varroc"
             }
         ],
         "featured_products": [
@@ -2726,9 +2809,10 @@
             "SVKS000852",
             "SVKS000853",
             "SVKS000854",
-            "SVKS000855"
+            "SVKS000855",
+            "SVKS000913"
         ],
-        "product_count": 48,
+        "product_count": 49,
         "featured": false,
         "active": true,
         "seo": {
@@ -2742,8 +2826,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-1210"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-1312",
@@ -2844,6 +2928,10 @@
             {
                 "id": "kfl",
                 "name": "KFL"
+            },
+            {
+                "id": "varroc",
+                "name": "Varroc"
             }
         ],
         "featured_products": [
@@ -2930,8 +3018,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-1312"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-1512",
@@ -3032,6 +3120,10 @@
             {
                 "id": "jmp",
                 "name": "JMP"
+            },
+            {
+                "id": "rki",
+                "name": "RKI"
             }
         ],
         "featured_products": [
@@ -3097,8 +3189,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-1512"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-magic",
@@ -3236,8 +3328,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-magic"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-intra",
@@ -3355,8 +3447,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-intra"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-prima",
@@ -3473,6 +3565,10 @@
             {
                 "id": "rane",
                 "name": "Rane"
+            },
+            {
+                "id": "rki",
+                "name": "RKI"
             }
         ],
         "featured_products": [
@@ -3514,9 +3610,11 @@
             "SVKS000732",
             "SVKS000733",
             "SVKS000750",
-            "SVKS000793"
+            "SVKS000793",
+            "SVKS000914",
+            "SVKS000929"
         ],
-        "product_count": 29,
+        "product_count": 31,
         "featured": false,
         "active": true,
         "seo": {
@@ -3530,8 +3628,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-prima"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "mahindra-blazo",
@@ -3624,8 +3722,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/mahindra-blazo"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-ultra",
@@ -3680,12 +3778,20 @@
                 "name": "JAI"
             },
             {
+                "id": "rki",
+                "name": "RKI"
+            },
+            {
                 "id": "rane",
                 "name": "Rane"
             },
             {
                 "id": "tvs-girling",
                 "name": "TVS Girling"
+            },
+            {
+                "id": "varroc",
+                "name": "Varroc"
             }
         ],
         "featured_products": [
@@ -3727,8 +3833,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-ultra"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "bosch-engineselectrical",
@@ -3832,8 +3938,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/bosch-engineselectrical"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "ashok-leyland-ecomet",
@@ -3951,8 +4057,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-ecomet"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "mahindra-bolero-pickup",
@@ -4044,8 +4150,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/mahindra-bolero-pickup"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tata-2416",
@@ -4122,6 +4228,10 @@
             {
                 "id": "tata-genuine-parts",
                 "name": "Tata Genuine Parts"
+            },
+            {
+                "id": "varroc",
+                "name": "Varroc"
             }
         ],
         "featured_products": [
@@ -4180,8 +4290,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tata-2416"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "ashok-leyland-captain",
@@ -4299,8 +4409,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-captain"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "mahindra-furio",
@@ -4357,8 +4467,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/mahindra-furio"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "tractors",
@@ -4450,8 +4560,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/tractors"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "ashok-leyland-boss",
@@ -4500,6 +4610,10 @@
             {
                 "id": "unominda",
                 "name": "UnoMinda"
+            },
+            {
+                "id": "varroc",
+                "name": "Varroc"
             }
         ],
         "featured_products": [
@@ -4530,8 +4644,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-boss"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "mahindra-max-pickup",
@@ -4600,8 +4714,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/mahindra-max-pickup"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "ashok-leyland-stallion",
@@ -4676,8 +4790,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-stallion"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "",
@@ -4732,8 +4846,8 @@
             "canonical": "https://www.souviks.co.in/vehicles/"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     },
     {
         "id": "ashok-leyland-u-truck",
@@ -4766,19 +4880,40 @@
             {
                 "id": "toyo",
                 "name": "Toyo"
+            },
+            {
+                "id": "rki",
+                "name": "RKI"
+            },
+            {
+                "id": "kfl",
+                "name": "KFL"
             }
         ],
         "featured_products": [
             "SVKS000880",
             "SVKS000881",
-            "SVKS000882"
+            "SVKS000882",
+            "SVKS000907",
+            "SVKS000917",
+            "SVKS000920",
+            "SVKS000921",
+            "SVKS000924"
         ],
         "products": [
             "SVKS000880",
             "SVKS000881",
-            "SVKS000882"
+            "SVKS000882",
+            "SVKS000907",
+            "SVKS000917",
+            "SVKS000920",
+            "SVKS000921",
+            "SVKS000924",
+            "SVKS000926",
+            "SVKS000928",
+            "SVKS000932"
         ],
-        "product_count": 3,
+        "product_count": 11,
         "featured": false,
         "active": true,
         "seo": {
@@ -4792,7 +4927,7 @@
             "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-u-truck"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.684319",
-        "updated_at": "2026-09-11T09:26:07.684319"
+        "created_at": "2026-09-14T12:32:30.034383",
+        "updated_at": "2026-09-14T12:32:30.034383"
     }
 ]

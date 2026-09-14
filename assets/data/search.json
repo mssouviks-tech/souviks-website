@@ -3948,7 +3948,7 @@
             "30 mm Spring Leaf Side Washer 4mm Thickness",
             "Harish",
             "Suspension & Steering",
-            "Leaf Spring",
+            "Spring Leaf Side Washer",
             "Tata LPT",
             "Ashok Leyland 2516",
             "Eicher Pro Series",
@@ -3982,7 +3982,7 @@
             "30 mm Spring Leaf Side Washer 5mm Thickness",
             "Harish",
             "Suspension & Steering",
-            "Leaf Spring",
+            "Spring Leaf Side Washer",
             "Tata LPT",
             "Ashok Leyland 2516"
         ],
@@ -4014,7 +4014,7 @@
             "32 mm Spring Leaf Side Washer 4mm Thickness",
             "Harish",
             "Suspension & Steering",
-            "Leaf Spring",
+            "Spring Leaf Side Washer",
             "Tata LPT",
             "Eicher Pro Series"
         ],
@@ -4046,7 +4046,7 @@
             "32 mm Spring Leaf Side Washer 5mm Thickness",
             "Harish",
             "Suspension & Steering",
-            "Leaf Spring",
+            "Spring Leaf Side Washer",
             "Tata Signa",
             "Tata Prima"
         ],
@@ -7647,6 +7647,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "Brake Pipe Clutch O/O 84\"",
+            "Rider",
             "Rubber Parts",
             "Brake Pipe",
             "Universal"
@@ -7661,8 +7662,8 @@
             "name": "Rubber Parts"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "rider",
+            "name": "Rider"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -7903,6 +7904,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "Coolant Pipe Socket 12mm L (11.8) Coupler",
+            "Rider",
             "Air System",
             "Air Repair Kit",
             "Universal"
@@ -7917,8 +7919,8 @@
             "name": "Air System"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "rider",
+            "name": "Rider"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -7996,6 +7998,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "Diesel Tank Cap with Key BS-6",
+            "Rider",
             "Rubber Parts",
             "Diesel Cap",
             "Universal"
@@ -8010,8 +8013,8 @@
             "name": "Rubber Parts"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "rider",
+            "name": "Rider"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -9510,7 +9513,7 @@
             "Front Hanger Trailer",
             "JMP",
             "Suspension & Steering",
-            "Leaf Spring",
+            "Shackle Plate",
             "Universal"
         ],
         "part_number": "",
@@ -10701,7 +10704,7 @@
             "A02466",
             "JMP",
             "Suspension & Steering",
-            "Leaf Spring",
+            "Shackle Plate",
             "Universal"
         ],
         "part_number": "A02466",
@@ -11868,7 +11871,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "Gear Lever Knob",
-            "NAIC 024B",
+            "CI",
             "Clutch Parts",
             "Clutch Lever",
             "Universal"
@@ -11883,8 +11886,8 @@
             "name": "Clutch Parts"
         },
         "brand": {
-            "id": "naic-024b",
-            "name": "NAIC 024B"
+            "id": "ci",
+            "name": "CI"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -12288,7 +12291,7 @@
         "keywords": [
             "Tail Lamp Assy. Tata 4 Chamber 24V",
             "103",
-            "NG",
+            "NeoLite",
             "Electricals",
             "Brake Light",
             "Tata LPT",
@@ -12304,8 +12307,8 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "ng",
-            "name": "NG"
+            "id": "neolite",
+            "name": "NeoLite"
         },
         "vehicle_count": 2,
         "product_count": 0,
@@ -16290,17 +16293,17 @@
     {
         "id": "SVKS000507",
         "type": "product",
-        "title": "TX-30209",
-        "subtitle": "Part No. 30209",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-30209",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-30209",
-            30209,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 30209,
+        "part_number": "TX-30209",
         "slug": "30209-tx-30209",
         "url": "/products/30209-tx-30209",
         "image": "TX-30209.webp",
@@ -16322,17 +16325,17 @@
     {
         "id": "SVKS000508",
         "type": "product",
-        "title": "TX-30210",
-        "subtitle": "Part No. 30210",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-30210",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-30210",
-            30210,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 30210,
+        "part_number": "TX-30210",
         "slug": "30210-tx-30210",
         "url": "/products/30210-tx-30210",
         "image": "TX-30210.webp",
@@ -16354,17 +16357,17 @@
     {
         "id": "SVKS000509",
         "type": "product",
-        "title": "TX-30312",
-        "subtitle": "Part No. 30312",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-30312",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-30312",
-            30312,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 30312,
+        "part_number": "TX-30312",
         "slug": "30312-tx-30312",
         "url": "/products/30312-tx-30312",
         "image": "TX-30312.webp",
@@ -16386,17 +16389,17 @@
     {
         "id": "SVKS000510",
         "type": "product",
-        "title": "TX-32213",
-        "subtitle": "Part No. 32213",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-32213",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-32213",
-            32213,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 32213,
+        "part_number": "TX-32213",
         "slug": "32213-tx-32213",
         "url": "/products/32213-tx-32213",
         "image": "TX-32213.webp",
@@ -16418,17 +16421,17 @@
     {
         "id": "SVKS000511",
         "type": "product",
-        "title": "TX-32214",
-        "subtitle": "Part No. 32214",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-32214",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-32214",
-            32214,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 32214,
+        "part_number": "TX-32214",
         "slug": "32214-tx-32214",
         "url": "/products/32214-tx-32214",
         "image": "TX-32214.webp",
@@ -16450,17 +16453,17 @@
     {
         "id": "SVKS000512",
         "type": "product",
-        "title": "TX-32216",
-        "subtitle": "Part No. 32216",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-32216",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-32216",
-            32216,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 32216,
+        "part_number": "TX-32216",
         "slug": "32216-tx-32216",
         "url": "/products/32216-tx-32216",
         "image": "TX-32216.webp",
@@ -16482,17 +16485,17 @@
     {
         "id": "SVKS000513",
         "type": "product",
-        "title": "TX-32218",
-        "subtitle": "Part No. 32218",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-32218",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-32218",
-            32218,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 32218,
+        "part_number": "TX-32218",
         "slug": "32218-tx-32218",
         "url": "/products/32218-tx-32218",
         "image": "TX-32218.webp",
@@ -16514,17 +16517,17 @@
     {
         "id": "SVKS000514",
         "type": "product",
-        "title": "TX-32307",
-        "subtitle": "Part No. 32307",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-32307",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-32307",
-            32307,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 32307,
+        "part_number": "TX-32307",
         "slug": "32307-tx-32307",
         "url": "/products/32307-tx-32307",
         "image": "TX-32307.webp",
@@ -16546,17 +16549,17 @@
     {
         "id": "SVKS000515",
         "type": "product",
-        "title": "TX-32308",
-        "subtitle": "Part No. 32308",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-32308",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-32308",
-            32308,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 32308,
+        "part_number": "TX-32308",
         "slug": "32308-tx-32308",
         "url": "/products/32308-tx-32308",
         "image": "TX-32308.webp",
@@ -16578,17 +16581,17 @@
     {
         "id": "SVKS000516",
         "type": "product",
-        "title": "TX-32309",
-        "subtitle": "Part No. 32309",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-32309",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-32309",
-            32309,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 32309,
+        "part_number": "TX-32309",
         "slug": "32309-tx-32309",
         "url": "/products/32309-tx-32309",
         "image": "TX-32309.webp",
@@ -16610,17 +16613,17 @@
     {
         "id": "SVKS000517",
         "type": "product",
-        "title": "TX-33019",
-        "subtitle": "Part No. 33019",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-33019",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-33019",
-            33019,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 33019,
+        "part_number": "TX-33019",
         "slug": "33019-tx-33019",
         "url": "/products/33019-tx-33019",
         "image": "TX-33019.webp",
@@ -16642,17 +16645,17 @@
     {
         "id": "SVKS000518",
         "type": "product",
-        "title": "TX-33117",
-        "subtitle": "Part No. 33117",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-33117",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-33117",
-            33117,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 33117,
+        "part_number": "TX-33117",
         "slug": "33117-tx-33117",
         "url": "/products/33117-tx-33117",
         "image": "TX-33117.webp",
@@ -16674,17 +16677,17 @@
     {
         "id": "SVKS000519",
         "type": "product",
-        "title": "TX-33213",
-        "subtitle": "Part No. 33213",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-33213",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-33213",
-            33213,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 33213,
+        "part_number": "TX-33213",
         "slug": "33213-tx-33213",
         "url": "/products/33213-tx-33213",
         "image": "TX-33213.webp",
@@ -16706,17 +16709,17 @@
     {
         "id": "SVKS000520",
         "type": "product",
-        "title": "TX-33215",
-        "subtitle": "Part No. 33215",
+        "title": "Taper Roller Bearing",
+        "subtitle": "Part No. TX-33215",
         "keywords": [
+            "Taper Roller Bearing",
             "TX-33215",
-            33215,
             "Texspin",
             "Bearings",
             "Taper Roller Bearing",
             "Universal"
         ],
-        "part_number": 33215,
+        "part_number": "TX-33215",
         "slug": "33215-tx-33215",
         "url": "/products/33215-tx-33215",
         "image": "TX-33215.webp",
@@ -18523,6 +18526,7 @@
         "keywords": [
             "Urea Cap BS6 - DEF Tank Cap",
             "Urea Cap BS6",
+            "CI",
             "Rubber Parts",
             "DEF Tank Cap",
             "Universal"
@@ -18537,8 +18541,8 @@
             "name": "Rubber Parts"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "ci",
+            "name": "CI"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -21483,6 +21487,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "96670172 Diaphragm Type 24 843331",
+            "WABCO",
             "Air System",
             "Air Repair Kit",
             "Ashok Leyland 2516",
@@ -21499,8 +21504,8 @@
             "name": "Air System"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "wabco",
+            "name": "WABCO"
         },
         "vehicle_count": 3,
         "product_count": 0,
@@ -22754,6 +22759,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "Hydraulic Jack 751 (80-100 Tonne)",
+            "Harish",
             "Suspension & Steering",
             "Hydraulic Jack",
             "Universal"
@@ -22768,8 +22774,8 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "harish",
+            "name": "Harish"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -24376,6 +24382,7 @@
             "551S004",
             "Leyparts",
             "Suspension & Steering",
+            "Spring Pin",
             "Ashok Leyland 2516"
         ],
         "part_number": "551S004",
@@ -24407,6 +24414,7 @@
             "F0986215",
             "Leyparts",
             "Suspension & Steering",
+            "Spring Pin",
             "Ashok Leyland 2516"
         ],
         "part_number": "F0986215",
@@ -24438,6 +24446,7 @@
             "F0986415",
             "Leyparts",
             "Suspension & Steering",
+            "Spring Pin",
             "Ashok Leyland 2516"
         ],
         "part_number": "F0986415",
@@ -24531,7 +24540,7 @@
         "keywords": [
             "Brake Lining   Kit",
             "SDB/AMW 1 (Std.)",
-            "LuxMe",
+            "Luk",
             "Brakes",
             "Brake Lining",
             "Universal"
@@ -24546,8 +24555,8 @@
             "name": "Brakes"
         },
         "brand": {
-            "id": "",
-            "name": "LuxMe"
+            "id": "luk",
+            "name": "Luk"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -24722,6 +24731,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "Premium Grease 10KG TXL1-10LP",
+            "Texspin",
             "Lubricants",
             "Grease",
             "Ashok Leyland 2516"
@@ -24736,8 +24746,8 @@
             "name": "Lubricants"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "texspin",
+            "name": "Texspin"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -24752,6 +24762,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "Premium Grease 5KG Texspin",
+            "Texspin",
             "Lubricants",
             "Grease",
             "Ashok Leyland 2516"
@@ -24766,8 +24777,8 @@
             "name": "Lubricants"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "texspin",
+            "name": "Texspin"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -24782,7 +24793,9 @@
         "subtitle": "Part No. ",
         "keywords": [
             "R/S F. Hanger 2416 N/M",
+            "JMP",
             "Suspension & Steering",
+            "Hanger",
             "Tata 2416",
             "Tata LPT"
         ],
@@ -24796,8 +24809,8 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "jmp",
+            "name": "JMP"
         },
         "vehicle_count": 2,
         "product_count": 0,
@@ -24827,7 +24840,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -24860,7 +24873,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 2,
@@ -24893,7 +24906,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 2,
@@ -24925,7 +24938,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -24958,7 +24971,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 2,
@@ -24990,7 +25003,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -25023,7 +25036,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 2,
@@ -25055,7 +25068,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -25087,7 +25100,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -25121,7 +25134,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 3,
@@ -25153,7 +25166,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -25185,7 +25198,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -25217,7 +25230,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -25249,7 +25262,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -25282,7 +25295,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 2,
@@ -25314,7 +25327,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 1,
@@ -25347,7 +25360,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 2,
@@ -25381,7 +25394,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 3,
@@ -25414,7 +25427,7 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
+            "id": "rki",
             "name": "RKI"
         },
         "vehicle_count": 2,
@@ -25563,6 +25576,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "Rear + Rear 6 Hole 22 No.",
+            "JMP",
             "Suspension & Steering",
             "Universal"
         ],
@@ -25576,8 +25590,8 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "jmp",
+            "name": "JMP"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -25608,7 +25622,7 @@
             "name": "Clutch Parts"
         },
         "brand": {
-            "id": "",
+            "id": "setco",
             "name": "Setco"
         },
         "vehicle_count": 1,
@@ -25640,7 +25654,7 @@
             "name": "Clutch Parts"
         },
         "brand": {
-            "id": "",
+            "id": "setco",
             "name": "Setco"
         },
         "vehicle_count": 1,
@@ -25672,7 +25686,7 @@
             "name": "Clutch Parts"
         },
         "brand": {
-            "id": "",
+            "id": "setco",
             "name": "Setco"
         },
         "vehicle_count": 1,
@@ -25704,7 +25718,7 @@
             "name": "Clutch Parts"
         },
         "brand": {
-            "id": "",
+            "id": "setco",
             "name": "Setco"
         },
         "vehicle_count": 1,
@@ -25736,7 +25750,7 @@
             "name": "Clutch Parts"
         },
         "brand": {
-            "id": "",
+            "id": "setco",
             "name": "Setco"
         },
         "vehicle_count": 1,
@@ -25768,7 +25782,7 @@
             "name": "Clutch Parts"
         },
         "brand": {
-            "id": "",
+            "id": "setco",
             "name": "Setco"
         },
         "vehicle_count": 1,
@@ -25800,7 +25814,7 @@
             "name": "Clutch Parts"
         },
         "brand": {
-            "id": "",
+            "id": "setco",
             "name": "Setco"
         },
         "vehicle_count": 1,
@@ -25832,7 +25846,7 @@
             "name": "Clutch Parts"
         },
         "brand": {
-            "id": "",
+            "id": "setco",
             "name": "Setco"
         },
         "vehicle_count": 1,
@@ -27038,6 +27052,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "UJ Cross 48 x 135",
+            "KFL",
             "Suspension & Steering",
             "Cross Joint",
             "Ashok Leyland 2516"
@@ -27052,8 +27067,8 @@
             "name": "Suspension & Steering"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "kfl",
+            "name": "KFL"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -27308,7 +27323,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 1,
@@ -27340,7 +27355,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 1,
@@ -27372,7 +27387,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 1,
@@ -27405,7 +27420,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 2,
@@ -27438,7 +27453,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 2,
@@ -27471,7 +27486,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 2,
@@ -27504,7 +27519,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 2,
@@ -27538,7 +27553,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 3,
@@ -27572,7 +27587,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 3,
@@ -27606,7 +27621,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 3,
@@ -27640,7 +27655,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 3,
@@ -27672,7 +27687,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 1,
@@ -27704,7 +27719,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 1,
@@ -27736,7 +27751,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 1,
@@ -27768,7 +27783,7 @@
             "name": "Electricals"
         },
         "brand": {
-            "id": "",
+            "id": "varroc",
             "name": "Varroc"
         },
         "vehicle_count": 1,
@@ -27973,25 +27988,25 @@
     {
         "id": "SVKS000870",
         "type": "product",
-        "title": "Relay Valve Vertical   Version",
+        "title": "Relay Valve Kit",
         "subtitle": "Part No. 300003072",
         "keywords": [
-            "Relay Valve Vertical   Version",
+            "Relay Valve Kit",
             "300003072",
             "WABCO",
-            "Electricals",
-            "Relay",
+            "Air System",
+            "Air Repair Kit",
             "Eicher Pro Series",
             "Universal"
         ],
         "part_number": "300003072",
-        "slug": "wabco-300003072-relay-valve-vertical-version",
-        "url": "/products/wabco-300003072-relay-valve-vertical-version",
+        "slug": "wabco-300003072-relay-valve-kit",
+        "url": "/products/wabco-300003072-relay-valve-kit",
         "image": "Relay Valve Vertical Version.webp",
         "icon": "",
         "category": {
-            "id": "electricals",
-            "name": "Electricals"
+            "id": "air-system",
+            "name": "Air System"
         },
         "brand": {
             "id": "wabco",
@@ -28012,8 +28027,8 @@
             "Relay Valve Kit",
             "300003079",
             "WABCO",
-            "Electricals",
-            "Relay",
+            "Air System",
+            "Air Repair Kit",
             "Universal"
         ],
         "part_number": "300003079",
@@ -28022,8 +28037,8 @@
         "image": "Relay Valve Kit.webp",
         "icon": "",
         "category": {
-            "id": "electricals",
-            "name": "Electricals"
+            "id": "air-system",
+            "name": "Air System"
         },
         "brand": {
             "id": "wabco",
@@ -28173,6 +28188,7 @@
         "subtitle": "Part No. ",
         "keywords": [
             "Water Separator 3718, 4923 BS IV H6   (filter)",
+            "Fleetguard",
             "Filters",
             "Filter Element",
             "Tata Signa"
@@ -28187,8 +28203,8 @@
             "name": "Filters"
         },
         "brand": {
-            "id": "",
-            "name": ""
+            "id": "fleetguard",
+            "name": "Fleetguard"
         },
         "vehicle_count": 1,
         "product_count": 0,
@@ -29159,6 +29175,881 @@
         "weight": 100
     },
     {
+        "id": "SVKS000907",
+        "type": "product",
+        "title": "Long Fork – Leyland Tusker",
+        "subtitle": "Part No. K185",
+        "keywords": [
+            "Long Fork – Leyland Tusker",
+            "K185",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Ashok Leyland U Truck"
+        ],
+        "part_number": "K185",
+        "slug": "k185-long-fork-leyland-tusker",
+        "url": "/products/k185-long-fork-leyland-tusker",
+        "image": "Long Fork Leyland Tusker.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000908",
+        "type": "product",
+        "title": "Centre Coupling Flange – 26 Spline",
+        "subtitle": "Part No. K317",
+        "keywords": [
+            "Centre Coupling Flange – 26 Spline",
+            "K317",
+            "RKI",
+            "Suspension & Steering",
+            "Flange",
+            "Tata LPT"
+        ],
+        "part_number": "K317",
+        "slug": "k317-centre-coupling-flange-26-spline",
+        "url": "/products/k317-centre-coupling-flange-26-spline",
+        "image": "Centre Coupling Flange.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000909",
+        "type": "product",
+        "title": "Cross Holder Flange Yoke – RSB 325",
+        "subtitle": "Part No. K276",
+        "keywords": [
+            "Cross Holder Flange Yoke – RSB 325",
+            "K276",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Tata LPT"
+        ],
+        "part_number": "K276",
+        "slug": "k276-cross-holder-flange-yoke-rsb-325",
+        "url": "/products/k276-cross-holder-flange-yoke-rsb-325",
+        "image": "Cross Holder Flange Yoke RSB 325.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000910",
+        "type": "product",
+        "title": "Gear Coupling – GBS-1150",
+        "subtitle": "Part No. K567",
+        "keywords": [
+            "Gear Coupling – GBS-1150",
+            "K567",
+            "RKI",
+            "Suspension & Steering",
+            "Flange",
+            "Tata LPT"
+        ],
+        "part_number": "K567",
+        "slug": "k567-gear-coupling-gbs-1150",
+        "url": "/products/k567-gear-coupling-gbs-1150",
+        "image": "Gear Coupling GBS-1150.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000911",
+        "type": "product",
+        "title": "Gear Coupling – GBS 75",
+        "subtitle": "Part No. K319",
+        "keywords": [
+            "Gear Coupling – GBS 75",
+            "K319",
+            "RKI",
+            "Suspension & Steering",
+            "Flange",
+            "Tata LPT"
+        ],
+        "part_number": "K319",
+        "slug": "k319-gear-coupling-gbs-75",
+        "url": "/products/k319-gear-coupling-gbs-75",
+        "image": "Gear Coupling GBS 75.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000912",
+        "type": "product",
+        "title": "Cross Holder Flange Yoke – RSB 490",
+        "subtitle": "Part No. K331",
+        "keywords": [
+            "Cross Holder Flange Yoke – RSB 490",
+            "K331",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Tata LPT"
+        ],
+        "part_number": "K331",
+        "slug": "k331-cross-holder-flange-yoke-rsb-490",
+        "url": "/products/k331-cross-holder-flange-yoke-rsb-490",
+        "image": "Cross Holder Flange Yoke RSB 490.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000913",
+        "type": "product",
+        "title": "Front Teeth – Tata 1210 / SE",
+        "subtitle": "Part No. KF6104",
+        "keywords": [
+            "Front Teeth – Tata 1210 / SE",
+            "KF6104",
+            "KFL",
+            "Suspension & Steering",
+            "Drive Flange",
+            "Tata 1210"
+        ],
+        "part_number": "KF6104",
+        "slug": "kf6104-front-teeth-tata-1210-se",
+        "url": "/products/kf6104-front-teeth-tata-1210-se",
+        "image": "Front Teeth Tata 1210.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "kfl",
+            "name": "KFL"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000914",
+        "type": "product",
+        "title": "Centre Coupling Flange – RSB 490 / 590",
+        "subtitle": "Part No. KF6929",
+        "keywords": [
+            "Centre Coupling Flange – RSB 490 / 590",
+            "KF6929",
+            "KFL",
+            "Suspension & Steering",
+            "Flange",
+            "Tata LPT",
+            "Tata Signa",
+            "Tata Prima"
+        ],
+        "part_number": "KF6929",
+        "slug": "kf6929-centre-coupling-flange-rsb-490-590",
+        "url": "/products/kf6929-centre-coupling-flange-rsb-490-590",
+        "image": "Centre Coupling Flange RSB 490 590.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "kfl",
+            "name": "KFL"
+        },
+        "vehicle_count": 3,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000915",
+        "type": "product",
+        "title": "Cross Holder Flange Yoke – Tata 1109",
+        "subtitle": "Part No. KF6117",
+        "keywords": [
+            "Cross Holder Flange Yoke – Tata 1109",
+            "KF6117",
+            "KFL",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Tata 1109"
+        ],
+        "part_number": "KF6117",
+        "slug": "kf6117-cross-holder-flange-yoke-tata-1109",
+        "url": "/products/kf6117-cross-holder-flange-yoke-tata-1109",
+        "image": "Cross Holder Flange Yoke Tata 1109.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "kfl",
+            "name": "KFL"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000916",
+        "type": "product",
+        "title": "Differential Coupling Flange – Tata 2518 Small",
+        "subtitle": "Part No. KF6847A",
+        "keywords": [
+            "Differential Coupling Flange – Tata 2518 Small",
+            "KF6847A",
+            "KFL",
+            "Suspension & Steering",
+            "Flange",
+            "Tata LPT"
+        ],
+        "part_number": "KF6847A",
+        "slug": "kf6847a-differential-coupling-flange-tata-2518-small",
+        "url": "/products/kf6847a-differential-coupling-flange-tata-2518-small",
+        "image": "Differential Coupling Flange Tata 2518 Small.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "kfl",
+            "name": "KFL"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000917",
+        "type": "product",
+        "title": "Stub Ball / Half Yoke End – Leyland Tusker",
+        "subtitle": "Part No. KF6259",
+        "keywords": [
+            "Stub Ball / Half Yoke End – Leyland Tusker",
+            "KF6259",
+            "KFL",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Ashok Leyland U Truck",
+            "Eicher 1110"
+        ],
+        "part_number": "KF6259",
+        "slug": "kf6259-stub-ball-half-yoke-end-leyland-tusker",
+        "url": "/products/kf6259-stub-ball-half-yoke-end-leyland-tusker",
+        "image": "Stub Ball Half Yoke Leyland Tusker.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "kfl",
+            "name": "KFL"
+        },
+        "vehicle_count": 2,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000918",
+        "type": "product",
+        "title": "Gear Coupling – GB 75",
+        "subtitle": "Part No. KF6289",
+        "keywords": [
+            "Gear Coupling – GB 75",
+            "KF6289",
+            "KFL",
+            "Suspension & Steering",
+            "Flange",
+            "Tata LPT"
+        ],
+        "part_number": "KF6289",
+        "slug": "kf6289-gear-coupling-gb-75",
+        "url": "/products/kf6289-gear-coupling-gb-75",
+        "image": "Gear Coupling GB75.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "kfl",
+            "name": "KFL"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000919",
+        "type": "product",
+        "title": "Steering Cross Assembly – Tata 2516 / 1613",
+        "subtitle": "Part No. KF6114A",
+        "keywords": [
+            "Steering Cross Assembly – Tata 2516 / 1613",
+            "KF6114A",
+            "KFL",
+            "Suspension & Steering",
+            "Steering Cross",
+            "Tata LPT"
+        ],
+        "part_number": "KF6114A",
+        "slug": "kf6114a-steering-cross-assembly-tata-2516-1613",
+        "url": "/products/kf6114a-steering-cross-assembly-tata-2516-1613",
+        "image": "Steering Cross Assembly Tata 2516 1613.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "kfl",
+            "name": "KFL"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000920",
+        "type": "product",
+        "title": "Slip Yoke – SPL 90",
+        "subtitle": "Part No. K141A",
+        "keywords": [
+            "Slip Yoke – SPL 90",
+            "K141A",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Ashok Leyland U Truck",
+            "Tata LPT"
+        ],
+        "part_number": "K141A",
+        "slug": "k141a-slip-yoke-spl-90",
+        "url": "/products/k141a-slip-yoke-spl-90",
+        "image": "Slip Yoke SPL 90.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 2,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000921",
+        "type": "product",
+        "title": "Stub Shaft / Rear Teeth – Leyland",
+        "subtitle": "Part No. K144",
+        "keywords": [
+            "Stub Shaft / Rear Teeth – Leyland",
+            "K144",
+            "RKI",
+            "Suspension & Steering",
+            "Stub Shaft",
+            "Ashok Leyland U Truck"
+        ],
+        "part_number": "K144",
+        "slug": "k144-stub-shaft-rear-teeth-leyland",
+        "url": "/products/k144-stub-shaft-rear-teeth-leyland",
+        "image": "Stub Shaft Rear Teeth K144.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000922",
+        "type": "product",
+        "title": "Stub Shaft / Rear Teeth – Tata LPK 10 in Thin Spline",
+        "subtitle": "Part No. K9A",
+        "keywords": [
+            "Stub Shaft / Rear Teeth – Tata LPK 10 in Thin Spline",
+            "K9A",
+            "RKI",
+            "Suspension & Steering",
+            "Stub Shaft",
+            "Tata LPT"
+        ],
+        "part_number": "K9A",
+        "slug": "k9a-stub-shaft-rear-teeth-tata-lpk-10-in-thin-spline",
+        "url": "/products/k9a-stub-shaft-rear-teeth-tata-lpk-10-in-thin-spline",
+        "image": "Stub Shaft Rear Teeth K9A.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000923",
+        "type": "product",
+        "title": "Stub Shaft / Rear Teeth – Discontinued",
+        "subtitle": "Part No. K9C",
+        "keywords": [
+            "Stub Shaft / Rear Teeth – Discontinued",
+            "K9C",
+            "RKI",
+            "Suspension & Steering",
+            "Stub Shaft",
+            "Tata LPT"
+        ],
+        "part_number": "K9C",
+        "slug": "k9c-stub-shaft-rear-teeth-discontinued",
+        "url": "/products/k9c-stub-shaft-rear-teeth-discontinued",
+        "image": "Stub Shaft Rear Teeth K9C.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000924",
+        "type": "product",
+        "title": "Slip Yoke – SPL 90",
+        "subtitle": "Part No. K141",
+        "keywords": [
+            "Slip Yoke – SPL 90",
+            "K141",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Ashok Leyland U Truck",
+            "Tata LPT"
+        ],
+        "part_number": "K141",
+        "slug": "k141-slip-yoke-spl-90",
+        "url": "/products/k141-slip-yoke-spl-90",
+        "image": "Slip Yoke SPL 90 K141.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 2,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000925",
+        "type": "product",
+        "title": "Slip Yoke – Tata 4018 Patti Type",
+        "subtitle": "Part No. K310",
+        "keywords": [
+            "Slip Yoke – Tata 4018 Patti Type",
+            "K310",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Tata LPT"
+        ],
+        "part_number": "K310",
+        "slug": "k310-slip-yoke-tata-4018-patti-type",
+        "url": "/products/k310-slip-yoke-tata-4018-patti-type",
+        "image": "Slip Yoke Tata 4018 Patti Type.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000926",
+        "type": "product",
+        "title": "Slip Yoke – SPL 90 / Tata Heavy Vehicle",
+        "subtitle": "Part No. K269A",
+        "keywords": [
+            "Slip Yoke – SPL 90 / Tata Heavy Vehicle",
+            "K269A",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Ashok Leyland U Truck",
+            "Ashok Leyland 2516",
+            "Tata LPT"
+        ],
+        "part_number": "K269A",
+        "slug": "k269a-slip-yoke-spl-90-tata-heavy-vehicle",
+        "url": "/products/k269a-slip-yoke-spl-90-tata-heavy-vehicle",
+        "image": "Slip Yoke K269A.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 3,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000927",
+        "type": "product",
+        "title": "Stub Shaft / Rear Teeth – Discontinued",
+        "subtitle": "Part No. K270",
+        "keywords": [
+            "Stub Shaft / Rear Teeth – Discontinued",
+            "K270",
+            "RKI",
+            "Suspension & Steering",
+            "Stub Shaft",
+            "Tata LPT"
+        ],
+        "part_number": "K270",
+        "slug": "k270-stub-shaft-rear-teeth-discontinued",
+        "url": "/products/k270-stub-shaft-rear-teeth-discontinued",
+        "image": "Stub Shaft Rear Teeth K270.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000928",
+        "type": "product",
+        "title": "Stub Shaft / Rear Teeth – Tata",
+        "subtitle": "Part No. K311",
+        "keywords": [
+            "Stub Shaft / Rear Teeth – Tata",
+            "K311",
+            "RKI",
+            "Suspension & Steering",
+            "Stub Shaft",
+            "Ashok Leyland U Truck",
+            "Tata LPT"
+        ],
+        "part_number": "K311",
+        "slug": "k311-stub-shaft-rear-teeth-tata",
+        "url": "/products/k311-stub-shaft-rear-teeth-tata",
+        "image": "Stub Shaft Rear Teeth K311.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 2,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000929",
+        "type": "product",
+        "title": "Centre Coupling Flange – 7 in",
+        "subtitle": "Part No. K652",
+        "keywords": [
+            "Centre Coupling Flange – 7 in",
+            "K652",
+            "RKI",
+            "Suspension & Steering",
+            "Flange",
+            "Tata LPT",
+            "Tata Signa",
+            "Tata Prima"
+        ],
+        "part_number": "K652",
+        "slug": "k652-centre-coupling-flange-7-in",
+        "url": "/products/k652-centre-coupling-flange-7-in",
+        "image": "Centre Coupling Flange K652.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 3,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000930",
+        "type": "product",
+        "title": "Cross Holder Flange Yoke – SPR 2040",
+        "subtitle": "Part No. K637",
+        "keywords": [
+            "Cross Holder Flange Yoke – SPR 2040",
+            "K637",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Tata LPT"
+        ],
+        "part_number": "K637",
+        "slug": "k637-cross-holder-flange-yoke-spr-2040",
+        "url": "/products/k637-cross-holder-flange-yoke-spr-2040",
+        "image": "Cross Holder Flange Yoke SPR 2040.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000931",
+        "type": "product",
+        "title": "Cross Holder Flange Yoke – SPR 2040 7 in",
+        "subtitle": "Part No. K543",
+        "keywords": [
+            "Cross Holder Flange Yoke – SPR 2040 7 in",
+            "K543",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Tata LPT"
+        ],
+        "part_number": "K543",
+        "slug": "k543-cross-holder-flange-yoke-spr-2040-7-in",
+        "url": "/products/k543-cross-holder-flange-yoke-spr-2040-7-in",
+        "image": "Cross Holder Flange Yoke SPR 2040 7in.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000932",
+        "type": "product",
+        "title": "Cross Holder Flange Yoke – SPR 2040",
+        "subtitle": "Part No. K478",
+        "keywords": [
+            "Cross Holder Flange Yoke – SPR 2040",
+            "K478",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Ashok Leyland U Truck",
+            "Tata LPT"
+        ],
+        "part_number": "K478",
+        "slug": "k478-cross-holder-flange-yoke-spr-2040",
+        "url": "/products/k478-cross-holder-flange-yoke-spr-2040",
+        "image": "Cross Holder Flange Yoke SPR 2040 K478.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 2,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
+        "id": "SVKS000933",
+        "type": "product",
+        "title": "Cross Holder Flange Yoke – SPR 2040 7 in",
+        "subtitle": "Part No. K631",
+        "keywords": [
+            "Cross Holder Flange Yoke – SPR 2040 7 in",
+            "K631",
+            "RKI",
+            "Suspension & Steering",
+            "Slip Yoke",
+            "Tata LPT"
+        ],
+        "part_number": "K631",
+        "slug": "k631-cross-holder-flange-yoke-spr-2040-7-in",
+        "url": "/products/k631-cross-holder-flange-yoke-spr-2040-7-in",
+        "image": "Cross Holder Flange Yoke SPR 2040 7in.webp",
+        "icon": "",
+        "category": {
+            "id": "suspension-steering",
+            "name": "Suspension & Steering"
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 1,
+        "product_count": 0,
+        "featured": false,
+        "active": true,
+        "weight": 100
+    },
+    {
         "id": "fleetguard",
         "type": "brand",
         "title": "Fleetguard",
@@ -29181,7 +30072,7 @@
             "name": "Fleetguard"
         },
         "vehicle_count": 16,
-        "product_count": 25,
+        "product_count": 26,
         "featured": false,
         "active": true,
         "weight": 90
@@ -29370,7 +30261,7 @@
             "name": "Harish"
         },
         "vehicle_count": 14,
-        "product_count": 37,
+        "product_count": 38,
         "featured": false,
         "active": true,
         "weight": 90
@@ -29382,6 +30273,7 @@
         "subtitle": "Brand",
         "keywords": [
             "Rider",
+            "air-system",
             "bearings",
             "rubber-parts"
         ],
@@ -29398,8 +30290,8 @@
             "id": "rider",
             "name": "Rider"
         },
-        "vehicle_count": 4,
-        "product_count": 2,
+        "vehicle_count": 5,
+        "product_count": 5,
         "featured": false,
         "active": true,
         "weight": 90
@@ -29802,7 +30694,7 @@
             "name": "JMP"
         },
         "vehicle_count": 10,
-        "product_count": 33,
+        "product_count": 35,
         "featured": false,
         "active": true,
         "weight": 90
@@ -30007,8 +30899,8 @@
             "id": "kfl",
             "name": "KFL"
         },
-        "vehicle_count": 13,
-        "product_count": 20,
+        "vehicle_count": 15,
+        "product_count": 28,
         "featured": false,
         "active": true,
         "weight": 90
@@ -30063,8 +30955,8 @@
             "id": "neolite",
             "name": "NeoLite"
         },
-        "vehicle_count": 8,
-        "product_count": 16,
+        "vehicle_count": 9,
+        "product_count": 17,
         "featured": false,
         "active": true,
         "weight": 90
@@ -30155,17 +31047,18 @@
         "weight": 90
     },
     {
-        "id": "naic-024b",
+        "id": "ci",
         "type": "brand",
-        "title": "NAIC 024B",
+        "title": "CI",
         "subtitle": "Brand",
         "keywords": [
-            "NAIC 024B",
-            "clutch-parts"
+            "CI",
+            "clutch-parts",
+            "rubber-parts"
         ],
         "part_number": "",
-        "slug": "naic-024b",
-        "url": "/brands/naic-024b",
+        "slug": "ci",
+        "url": "/brands/ci",
         "image": "",
         "icon": "",
         "category": {
@@ -30173,39 +31066,11 @@
             "name": ""
         },
         "brand": {
-            "id": "naic-024b",
-            "name": "NAIC 024B"
+            "id": "ci",
+            "name": "CI"
         },
         "vehicle_count": 1,
-        "product_count": 1,
-        "featured": false,
-        "active": true,
-        "weight": 90
-    },
-    {
-        "id": "ng",
-        "type": "brand",
-        "title": "NG",
-        "subtitle": "Brand",
-        "keywords": [
-            "NG",
-            "electricals"
-        ],
-        "part_number": "",
-        "slug": "ng",
-        "url": "/brands/ng",
-        "image": "",
-        "icon": "",
-        "category": {
-            "id": "",
-            "name": ""
-        },
-        "brand": {
-            "id": "ng",
-            "name": "NG"
-        },
-        "vehicle_count": 2,
-        "product_count": 1,
+        "product_count": 2,
         "featured": false,
         "active": true,
         "weight": 90
@@ -30406,7 +31271,7 @@
             "name": "Texspin"
         },
         "vehicle_count": 15,
-        "product_count": 80,
+        "product_count": 82,
         "featured": false,
         "active": true,
         "weight": 90
@@ -30519,7 +31384,7 @@
             "name": "WABCO"
         },
         "vehicle_count": 8,
-        "product_count": 20,
+        "product_count": 21,
         "featured": false,
         "active": true,
         "weight": 90
@@ -30632,6 +31497,118 @@
         },
         "vehicle_count": 1,
         "product_count": 2,
+        "featured": false,
+        "active": true,
+        "weight": 90
+    },
+    {
+        "id": "luk",
+        "type": "brand",
+        "title": "Luk",
+        "subtitle": "Brand",
+        "keywords": [
+            "Luk",
+            "brakes"
+        ],
+        "part_number": "",
+        "slug": "luk",
+        "url": "/brands/luk",
+        "image": "",
+        "icon": "",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "brand": {
+            "id": "luk",
+            "name": "Luk"
+        },
+        "vehicle_count": 1,
+        "product_count": 1,
+        "featured": false,
+        "active": true,
+        "weight": 90
+    },
+    {
+        "id": "rki",
+        "type": "brand",
+        "title": "RKI",
+        "subtitle": "Brand",
+        "keywords": [
+            "RKI",
+            "suspension-steering"
+        ],
+        "part_number": "",
+        "slug": "rki",
+        "url": "/brands/rki",
+        "image": "",
+        "icon": "/assets/images/brands/rki.png",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "brand": {
+            "id": "rki",
+            "name": "RKI"
+        },
+        "vehicle_count": 9,
+        "product_count": 39,
+        "featured": false,
+        "active": true,
+        "weight": 90
+    },
+    {
+        "id": "setco",
+        "type": "brand",
+        "title": "Setco",
+        "subtitle": "Brand",
+        "keywords": [
+            "Setco",
+            "clutch-parts"
+        ],
+        "part_number": "",
+        "slug": "setco",
+        "url": "/brands/setco",
+        "image": "",
+        "icon": "/assets/images/brands/setco.png",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "brand": {
+            "id": "setco",
+            "name": "Setco"
+        },
+        "vehicle_count": 3,
+        "product_count": 8,
+        "featured": false,
+        "active": true,
+        "weight": 90
+    },
+    {
+        "id": "varroc",
+        "type": "brand",
+        "title": "Varroc",
+        "subtitle": "Brand",
+        "keywords": [
+            "Varroc",
+            "electricals"
+        ],
+        "part_number": "",
+        "slug": "varroc",
+        "url": "/brands/varroc",
+        "image": "",
+        "icon": "",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "brand": {
+            "id": "varroc",
+            "name": "Varroc"
+        },
+        "vehicle_count": 8,
+        "product_count": 15,
         "featured": false,
         "active": true,
         "weight": 90
@@ -30756,7 +31733,7 @@
             "name": ""
         },
         "vehicle_count": 9,
-        "product_count": 70,
+        "product_count": 72,
         "featured": false,
         "active": true,
         "weight": 80
@@ -30772,7 +31749,6 @@
             "Differential Kit",
             "Crown Wheel & Pinion",
             "Spring Leaf Side Washer",
-            "Leaf Spring",
             "U Bolt",
             "Drag Link",
             "Tie Rod End",
@@ -30780,13 +31756,19 @@
             "Suspension Bush",
             "Cotter Bolt",
             "Shackle Plate",
+            "Leaf Spring",
             "Spring Pin",
             "Axle Shaft",
             "Power Steering Pump",
             "King Pin Kit",
             "Hydraulic Jack",
             "Bracket",
-            "Hanger"
+            "Hanger",
+            "Slip Yoke",
+            "Flange",
+            "Drive Flange",
+            "Steering Cross",
+            "Stub Shaft"
         ],
         "part_number": "",
         "slug": "suspension-steering",
@@ -30802,7 +31784,7 @@
             "name": ""
         },
         "vehicle_count": 25,
-        "product_count": 274,
+        "product_count": 301,
         "featured": false,
         "active": true,
         "weight": 80
@@ -30852,7 +31834,7 @@
             "name": ""
         },
         "vehicle_count": 26,
-        "product_count": 115,
+        "product_count": 113,
         "featured": false,
         "active": true,
         "weight": 80
@@ -31121,7 +32103,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 64,
+        "product_count": 66,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31148,7 +32130,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 240,
+        "product_count": 262,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31175,7 +32157,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 183,
+        "product_count": 184,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31229,7 +32211,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 11,
+        "product_count": 12,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31364,7 +32346,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 51,
+        "product_count": 52,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31391,7 +32373,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 48,
+        "product_count": 49,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31526,7 +32508,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 29,
+        "product_count": 31,
         "featured": false,
         "active": true,
         "weight": 70
@@ -31904,7 +32886,7 @@
             "name": ""
         },
         "vehicle_count": 1,
-        "product_count": 3,
+        "product_count": 11,
         "featured": false,
         "active": true,
         "weight": 70

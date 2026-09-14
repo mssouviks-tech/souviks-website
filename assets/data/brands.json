@@ -10,7 +10,7 @@
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 25,
+        "product_count": 26,
         "categories": [
             "filters"
         ],
@@ -76,7 +76,8 @@
             "SVKS000686",
             "SVKS000687",
             "SVKS000688",
-            "SVKS000689"
+            "SVKS000689",
+            "SVKS000876"
         ],
         "featured": false,
         "active": true,
@@ -91,8 +92,8 @@
             "canonical": "https://www.souviks.co.in/brands/fleetguard"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "tvs-girling",
@@ -279,8 +280,8 @@
             "canonical": "https://www.souviks.co.in/brands/tvs-girling"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "roots",
@@ -335,8 +336,8 @@
             "canonical": "https://www.souviks.co.in/brands/roots"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "gs",
@@ -422,8 +423,8 @@
             "canonical": "https://www.souviks.co.in/brands/gs"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "spicer",
@@ -477,8 +478,8 @@
             "canonical": "https://www.souviks.co.in/brands/spicer"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "tata-genuine-parts",
@@ -663,8 +664,8 @@
             "canonical": "https://www.souviks.co.in/brands/tata-genuine-parts"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "harish",
@@ -677,13 +678,13 @@
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 37,
+        "product_count": 38,
         "categories": [
             "fasteners-hardware",
             "suspension-steering"
         ],
         "subcategories": [
-            "leaf-spring",
+            "hydraulic-jack",
             "spring-leaf-side-washer",
             "spring-pin",
             "suspension-bush",
@@ -752,7 +753,8 @@
             "SVKS000704",
             "SVKS000705",
             "SVKS000706",
-            "SVKS000707"
+            "SVKS000707",
+            "SVKS000708"
         ],
         "featured": false,
         "active": true,
@@ -767,8 +769,8 @@
             "canonical": "https://www.souviks.co.in/brands/harish"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "rider",
@@ -781,12 +783,16 @@
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 2,
+        "product_count": 5,
         "categories": [
+            "air-system",
             "bearings",
             "rubber-parts"
         ],
         "subcategories": [
+            "air-repair-kit",
+            "brake-pipe",
+            "diesel-cap",
             "hub-units-wheel-bearings",
             "oil-seal"
         ],
@@ -794,14 +800,21 @@
             "Ashok Leyland 2516",
             "Tata LPT",
             "Tata Prima",
-            "Tata Signa"
+            "Tata Signa",
+            "Universal"
         ],
         "featured_products": [
             "SVKS000093",
+            "SVKS000242",
+            "SVKS000250",
+            "SVKS000253",
             "SVKS000427"
         ],
         "products": [
             "SVKS000093",
+            "SVKS000242",
+            "SVKS000250",
+            "SVKS000253",
             "SVKS000427"
         ],
         "featured": false,
@@ -817,8 +830,8 @@
             "canonical": "https://www.souviks.co.in/brands/rider"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "anupam",
@@ -881,8 +894,8 @@
             "canonical": "https://www.souviks.co.in/brands/anupam"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "unominda",
@@ -987,8 +1000,8 @@
             "canonical": "https://www.souviks.co.in/brands/unominda"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "ask",
@@ -1056,8 +1069,8 @@
             "canonical": "https://www.souviks.co.in/brands/ask"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "abc",
@@ -1099,8 +1112,8 @@
             "canonical": "https://www.souviks.co.in/brands/abc"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "alok",
@@ -1148,8 +1161,8 @@
             "canonical": "https://www.souviks.co.in/brands/alok"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "valvoline",
@@ -1197,8 +1210,8 @@
             "canonical": "https://www.souviks.co.in/brands/valvoline"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "nirmal",
@@ -1270,8 +1283,8 @@
             "canonical": "https://www.souviks.co.in/brands/nirmal"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "bgl",
@@ -1335,8 +1348,8 @@
             "canonical": "https://www.souviks.co.in/brands/bgl"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "bosch",
@@ -1436,8 +1449,8 @@
             "canonical": "https://www.souviks.co.in/brands/bosch"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "motherson",
@@ -1481,8 +1494,8 @@
             "canonical": "https://www.souviks.co.in/brands/motherson"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "msl",
@@ -1527,8 +1540,8 @@
             "canonical": "https://www.souviks.co.in/brands/msl"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "compo",
@@ -1572,8 +1585,8 @@
             "canonical": "https://www.souviks.co.in/brands/compo"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "comet",
@@ -1615,8 +1628,8 @@
             "canonical": "https://www.souviks.co.in/brands/comet"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.979088",
+        "updated_at": "2026-09-14T12:32:29.979088"
     },
     {
         "id": "jmp",
@@ -1629,7 +1642,7 @@
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 33,
+        "product_count": 35,
         "categories": [
             "brakes",
             "fasteners-hardware",
@@ -1640,7 +1653,6 @@
             "bracket",
             "brake-anchor-pin",
             "hanger",
-            "leaf-spring",
             "nut",
             "rubber-pad",
             "shackle-plate",
@@ -1701,7 +1713,9 @@
             "SVKS000735",
             "SVKS000736",
             "SVKS000737",
-            "SVKS000738"
+            "SVKS000738",
+            "SVKS000771",
+            "SVKS000795"
         ],
         "featured": false,
         "active": true,
@@ -1716,8 +1730,8 @@
             "canonical": "https://www.souviks.co.in/brands/jmp"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "leyparts",
@@ -1753,6 +1767,7 @@
             "oil-filter",
             "relay",
             "rubber-pad",
+            "spring-pin",
             "suspension-bush",
             "timing-belt"
         ],
@@ -1817,8 +1832,8 @@
             "canonical": "https://www.souviks.co.in/brands/leyparts"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "fenner",
@@ -1863,8 +1878,8 @@
             "canonical": "https://www.souviks.co.in/brands/fenner"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "hp",
@@ -1918,8 +1933,8 @@
             "canonical": "https://www.souviks.co.in/brands/hp"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "meritor",
@@ -1976,8 +1991,8 @@
             "canonical": "https://www.souviks.co.in/brands/meritor"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "phoenix",
@@ -2031,8 +2046,8 @@
             "canonical": "https://www.souviks.co.in/brands/phoenix"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "jai",
@@ -2198,8 +2213,8 @@
             "canonical": "https://www.souviks.co.in/brands/jai"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "kfl",
@@ -2212,7 +2227,7 @@
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 20,
+        "product_count": 28,
         "categories": [
             "bearings",
             "cooling-system",
@@ -2223,12 +2238,18 @@
             "center-bearing",
             "cross-joint",
             "drag-link",
+            "drive-flange",
             "engine-mount",
+            "flange",
+            "slip-yoke",
+            "steering-cross",
             "tie-rod-end",
             "water-pump-bearings"
         ],
         "vehicles": [
             "Ashok Leyland 2516",
+            "Ashok Leyland U Truck",
+            "Eicher 1110",
             "Tata 1109",
             "Tata 1210",
             "Tata 1312",
@@ -2272,7 +2293,15 @@
             "SVKS000747",
             "SVKS000748",
             "SVKS000749",
-            "SVKS000750"
+            "SVKS000750",
+            "SVKS000841",
+            "SVKS000913",
+            "SVKS000914",
+            "SVKS000915",
+            "SVKS000916",
+            "SVKS000917",
+            "SVKS000918",
+            "SVKS000919"
         ],
         "featured": false,
         "active": true,
@@ -2287,8 +2316,8 @@
             "canonical": "https://www.souviks.co.in/brands/kfl"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "mahle",
@@ -2352,8 +2381,8 @@
             "canonical": "https://www.souviks.co.in/brands/mahle"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "neolite",
@@ -2366,11 +2395,12 @@
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 16,
+        "product_count": 17,
         "categories": [
             "electricals"
         ],
         "subcategories": [
+            "brake-light",
             "fog-light",
             "head-light"
         ],
@@ -2382,6 +2412,7 @@
             "Tata 1512",
             "Tata 407",
             "Tata 709",
+            "Tata LPT",
             "Tata Signa"
         ],
         "featured_products": [
@@ -2409,6 +2440,7 @@
             "SVKS000383",
             "SVKS000384",
             "SVKS000385",
+            "SVKS000386",
             "SVKS000387",
             "SVKS000388"
         ],
@@ -2425,8 +2457,8 @@
             "canonical": "https://www.souviks.co.in/brands/neolite"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "nbc",
@@ -2469,8 +2501,8 @@
             "canonical": "https://www.souviks.co.in/brands/nbc"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "mei",
@@ -2531,8 +2563,8 @@
             "canonical": "https://www.souviks.co.in/brands/mei"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "manu",
@@ -2580,95 +2612,55 @@
             "canonical": "https://www.souviks.co.in/brands/manu"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
-        "id": "naic-024b",
-        "slug": "naic-024b",
-        "name": "NAIC 024B",
-        "short_name": "NAIC 024B",
+        "id": "ci",
+        "slug": "ci",
+        "name": "CI",
+        "short_name": "CI",
         "logo": "",
         "banner": "",
         "website": "",
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 1,
+        "product_count": 2,
         "categories": [
-            "clutch-parts"
+            "clutch-parts",
+            "rubber-parts"
         ],
         "subcategories": [
-            "clutch-lever"
+            "clutch-lever",
+            "def-tank-cap"
         ],
         "vehicles": [
             "Universal"
         ],
         "featured_products": [
-            "SVKS000373"
+            "SVKS000373",
+            "SVKS000576"
         ],
         "products": [
-            "SVKS000373"
+            "SVKS000373",
+            "SVKS000576"
         ],
         "featured": false,
         "active": true,
         "seo": {
-            "title": "NAIC 024B Parts | Souviks",
-            "description": "Browse genuine and aftermarket NAIC 024B spare parts available at Souviks.",
+            "title": "CI Parts | Souviks",
+            "description": "Browse genuine and aftermarket CI spare parts available at Souviks.",
             "keywords": [
-                "NAIC 024B",
+                "CI",
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/brands/naic-024b"
+            "canonical": "https://www.souviks.co.in/brands/ci"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
-    },
-    {
-        "id": "ng",
-        "slug": "ng",
-        "name": "NG",
-        "short_name": "NG",
-        "logo": "",
-        "banner": "",
-        "website": "",
-        "country": "",
-        "description": "",
-        "short_description": "",
-        "product_count": 1,
-        "categories": [
-            "electricals"
-        ],
-        "subcategories": [
-            "brake-light"
-        ],
-        "vehicles": [
-            "Tata LPT",
-            "Tata Signa"
-        ],
-        "featured_products": [
-            "SVKS000386"
-        ],
-        "products": [
-            "SVKS000386"
-        ],
-        "featured": false,
-        "active": true,
-        "seo": {
-            "title": "NG Parts | Souviks",
-            "description": "Browse genuine and aftermarket NG spare parts available at Souviks.",
-            "keywords": [
-                "NG",
-                "commercial vehicle spare parts",
-                "truck spare parts"
-            ],
-            "canonical": "https://www.souviks.co.in/brands/ng"
-        },
-        "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "philips",
@@ -2710,8 +2702,8 @@
             "canonical": "https://www.souviks.co.in/brands/philips"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "pix",
@@ -2782,8 +2774,8 @@
             "canonical": "https://www.souviks.co.in/brands/pix"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "rane",
@@ -2844,8 +2836,8 @@
             "canonical": "https://www.souviks.co.in/brands/rane"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "sargun",
@@ -2895,8 +2887,8 @@
             "canonical": "https://www.souviks.co.in/brands/sargun"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "amw",
@@ -2938,8 +2930,8 @@
             "canonical": "https://www.souviks.co.in/brands/amw"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "skf",
@@ -2985,8 +2977,8 @@
             "canonical": "https://www.souviks.co.in/brands/skf"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "texspin",
@@ -2999,7 +2991,7 @@
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 80,
+        "product_count": 82,
         "categories": [
             "bearings",
             "clutch-parts",
@@ -3116,6 +3108,8 @@
             "SVKS000555",
             "SVKS000556",
             "SVKS000557",
+            "SVKS000769",
+            "SVKS000770",
             "SVKS000833",
             "SVKS000834",
             "SVKS000835",
@@ -3138,8 +3132,8 @@
             "canonical": "https://www.souviks.co.in/brands/texspin"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "tata-autocomp",
@@ -3185,8 +3179,8 @@
             "canonical": "https://www.souviks.co.in/brands/tata-autocomp"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "timken",
@@ -3237,8 +3231,8 @@
             "canonical": "https://www.souviks.co.in/brands/timken"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "everest",
@@ -3281,8 +3275,8 @@
             "canonical": "https://www.souviks.co.in/brands/everest"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "wabco",
@@ -3295,7 +3289,7 @@
         "country": "",
         "description": "",
         "short_description": "",
-        "product_count": 20,
+        "product_count": 21,
         "categories": [
             "air-system",
             "electricals"
@@ -3303,7 +3297,6 @@
         "subcategories": [
             "air-compressor",
             "air-repair-kit",
-            "relay",
             "stop-light-switch"
         ],
         "vehicles": [
@@ -3335,6 +3328,7 @@
             "SVKS000582",
             "SVKS000583",
             "SVKS000584",
+            "SVKS000668",
             "SVKS000864",
             "SVKS000865",
             "SVKS000866",
@@ -3361,8 +3355,8 @@
             "canonical": "https://www.souviks.co.in/brands/wabco"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "lucas-tvs",
@@ -3430,8 +3424,8 @@
             "canonical": "https://www.souviks.co.in/brands/lucas-tvs"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "autoply",
@@ -3476,8 +3470,8 @@
             "canonical": "https://www.souviks.co.in/brands/autoply"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "bapi",
@@ -3530,8 +3524,8 @@
             "canonical": "https://www.souviks.co.in/brands/bapi"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "gulf",
@@ -3576,8 +3570,285 @@
             "canonical": "https://www.souviks.co.in/brands/gulf"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
+    },
+    {
+        "id": "luk",
+        "slug": "luk",
+        "name": "Luk",
+        "short_name": "Luk",
+        "logo": "",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 1,
+        "categories": [
+            "brakes"
+        ],
+        "subcategories": [
+            "brake-lining"
+        ],
+        "vehicles": [
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000763"
+        ],
+        "products": [
+            "SVKS000763"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Luk Parts | Souviks",
+            "description": "Browse genuine and aftermarket Luk spare parts available at Souviks.",
+            "keywords": [
+                "Luk",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/luk"
+        },
+        "schema": {},
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
+    },
+    {
+        "id": "rki",
+        "slug": "rki",
+        "name": "RKI",
+        "short_name": "RKI",
+        "logo": "/assets/images/brands/rki.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 39,
+        "categories": [
+            "suspension-steering"
+        ],
+        "subcategories": [
+            "cross-joint",
+            "flange",
+            "slip-yoke",
+            "stub-shaft"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland U Truck",
+            "Tata 1109",
+            "Tata 1512",
+            "Tata LPT",
+            "Tata Prima",
+            "Tata Signa",
+            "Tata Ultra",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000772",
+            "SVKS000773",
+            "SVKS000774",
+            "SVKS000775",
+            "SVKS000776",
+            "SVKS000777",
+            "SVKS000778",
+            "SVKS000779"
+        ],
+        "products": [
+            "SVKS000772",
+            "SVKS000773",
+            "SVKS000774",
+            "SVKS000775",
+            "SVKS000776",
+            "SVKS000777",
+            "SVKS000778",
+            "SVKS000779",
+            "SVKS000780",
+            "SVKS000781",
+            "SVKS000782",
+            "SVKS000783",
+            "SVKS000784",
+            "SVKS000785",
+            "SVKS000786",
+            "SVKS000787",
+            "SVKS000788",
+            "SVKS000789",
+            "SVKS000790",
+            "SVKS000907",
+            "SVKS000908",
+            "SVKS000909",
+            "SVKS000910",
+            "SVKS000911",
+            "SVKS000912",
+            "SVKS000920",
+            "SVKS000921",
+            "SVKS000922",
+            "SVKS000923",
+            "SVKS000924",
+            "SVKS000925",
+            "SVKS000926",
+            "SVKS000927",
+            "SVKS000928",
+            "SVKS000929",
+            "SVKS000930",
+            "SVKS000931",
+            "SVKS000932",
+            "SVKS000933"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "RKI Parts | Souviks",
+            "description": "Browse genuine and aftermarket RKI spare parts available at Souviks.",
+            "keywords": [
+                "RKI",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/rki"
+        },
+        "schema": {},
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
+    },
+    {
+        "id": "setco",
+        "slug": "setco",
+        "name": "Setco",
+        "short_name": "Setco",
+        "logo": "/assets/images/brands/setco.png",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 8,
+        "categories": [
+            "clutch-parts"
+        ],
+        "subcategories": [
+            "clutch-assembly",
+            "clutch-cover",
+            "clutch-kit",
+            "clutch-plate",
+            "collector-ring"
+        ],
+        "vehicles": [
+            "Eicher Pro Series",
+            "Tata Signa",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000796",
+            "SVKS000797",
+            "SVKS000798",
+            "SVKS000799",
+            "SVKS000800",
+            "SVKS000801",
+            "SVKS000802",
+            "SVKS000803"
+        ],
+        "products": [
+            "SVKS000796",
+            "SVKS000797",
+            "SVKS000798",
+            "SVKS000799",
+            "SVKS000800",
+            "SVKS000801",
+            "SVKS000802",
+            "SVKS000803"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Setco Parts | Souviks",
+            "description": "Browse genuine and aftermarket Setco spare parts available at Souviks.",
+            "keywords": [
+                "Setco",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/setco"
+        },
+        "schema": {},
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
+    },
+    {
+        "id": "varroc",
+        "slug": "varroc",
+        "name": "Varroc",
+        "short_name": "Varroc",
+        "logo": "",
+        "banner": "",
+        "website": "",
+        "country": "",
+        "description": "",
+        "short_description": "",
+        "product_count": 15,
+        "categories": [
+            "electricals"
+        ],
+        "subcategories": [
+            "fog-light",
+            "head-light"
+        ],
+        "vehicles": [
+            "Ashok Leyland 2516",
+            "Ashok Leyland Boss",
+            "Tata 1210",
+            "Tata 1312",
+            "Tata 2416",
+            "Tata LPT",
+            "Tata Ultra",
+            "Universal"
+        ],
+        "featured_products": [
+            "SVKS000849",
+            "SVKS000850",
+            "SVKS000851",
+            "SVKS000852",
+            "SVKS000853",
+            "SVKS000854",
+            "SVKS000855",
+            "SVKS000856"
+        ],
+        "products": [
+            "SVKS000849",
+            "SVKS000850",
+            "SVKS000851",
+            "SVKS000852",
+            "SVKS000853",
+            "SVKS000854",
+            "SVKS000855",
+            "SVKS000856",
+            "SVKS000857",
+            "SVKS000858",
+            "SVKS000859",
+            "SVKS000860",
+            "SVKS000861",
+            "SVKS000862",
+            "SVKS000863"
+        ],
+        "featured": false,
+        "active": true,
+        "seo": {
+            "title": "Varroc Parts | Souviks",
+            "description": "Browse genuine and aftermarket Varroc spare parts available at Souviks.",
+            "keywords": [
+                "Varroc",
+                "commercial vehicle spare parts",
+                "truck spare parts"
+            ],
+            "canonical": "https://www.souviks.co.in/brands/varroc"
+        },
+        "schema": {},
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     },
     {
         "id": "toyo",
@@ -3638,7 +3909,7 @@
             "canonical": "https://www.souviks.co.in/brands/toyo"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.607727",
-        "updated_at": "2026-09-11T09:26:07.607727"
+        "created_at": "2026-09-14T12:32:29.980084",
+        "updated_at": "2026-09-14T12:32:29.980084"
     }
 ]

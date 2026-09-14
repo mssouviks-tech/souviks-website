@@ -206,8 +206,8 @@
             "canonical": "https://www.souviks.co.in/categories/filters"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "fasteners-hardware",
@@ -385,8 +385,8 @@
             "canonical": "https://www.souviks.co.in/categories/fasteners-hardware"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "air-system",
@@ -403,7 +403,7 @@
             {
                 "id": "air-repair-kit",
                 "name": "Air Repair Kit",
-                "count": 61
+                "count": 63
             },
             {
                 "id": "air-spring",
@@ -420,6 +420,10 @@
             {
                 "id": "tvs-girling",
                 "name": "TVS Girling"
+            },
+            {
+                "id": "rider",
+                "name": "Rider"
             },
             {
                 "id": "gs",
@@ -526,12 +530,14 @@
             "SVKS000867",
             "SVKS000868",
             "SVKS000869",
+            "SVKS000870",
+            "SVKS000871",
             "SVKS000872",
             "SVKS000873",
             "SVKS000874",
             "SVKS000875"
         ],
-        "product_count": 70,
+        "product_count": 72,
         "featured": false,
         "active": true,
         "seo": {
@@ -545,8 +551,8 @@
             "canonical": "https://www.souviks.co.in/categories/air-system"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "suspension-steering",
@@ -578,12 +584,7 @@
             {
                 "id": "spring-leaf-side-washer",
                 "name": "Spring Leaf Side Washer",
-                "count": 2
-            },
-            {
-                "id": "leaf-spring",
-                "name": "Leaf Spring",
-                "count": 74
+                "count": 6
             },
             {
                 "id": "u-bolt",
@@ -618,12 +619,17 @@
             {
                 "id": "shackle-plate",
                 "name": "Shackle Plate",
-                "count": 12
+                "count": 14
+            },
+            {
+                "id": "leaf-spring",
+                "name": "Leaf Spring",
+                "count": 68
             },
             {
                 "id": "spring-pin",
                 "name": "Spring Pin",
-                "count": 53
+                "count": 56
             },
             {
                 "id": "axle-shaft",
@@ -653,7 +659,32 @@
             {
                 "id": "hanger",
                 "name": "Hanger",
-                "count": 3
+                "count": 4
+            },
+            {
+                "id": "slip-yoke",
+                "name": "Slip Yoke",
+                "count": 13
+            },
+            {
+                "id": "flange",
+                "name": "Flange",
+                "count": 7
+            },
+            {
+                "id": "drive-flange",
+                "name": "Drive Flange",
+                "count": 1
+            },
+            {
+                "id": "steering-cross",
+                "name": "Steering Cross",
+                "count": 1
+            },
+            {
+                "id": "stub-shaft",
+                "name": "Stub Shaft",
+                "count": 5
             }
         ],
         "brands": [
@@ -728,6 +759,10 @@
             {
                 "id": "everest",
                 "name": "Everest"
+            },
+            {
+                "id": "rki",
+                "name": "RKI"
             },
             {
                 "id": "toyo",
@@ -1045,9 +1080,36 @@
             "SVKS000903",
             "SVKS000904",
             "SVKS000905",
-            "SVKS000906"
+            "SVKS000906",
+            "SVKS000907",
+            "SVKS000908",
+            "SVKS000909",
+            "SVKS000910",
+            "SVKS000911",
+            "SVKS000912",
+            "SVKS000913",
+            "SVKS000914",
+            "SVKS000915",
+            "SVKS000916",
+            "SVKS000917",
+            "SVKS000918",
+            "SVKS000919",
+            "SVKS000920",
+            "SVKS000921",
+            "SVKS000922",
+            "SVKS000923",
+            "SVKS000924",
+            "SVKS000925",
+            "SVKS000926",
+            "SVKS000927",
+            "SVKS000928",
+            "SVKS000929",
+            "SVKS000930",
+            "SVKS000931",
+            "SVKS000932",
+            "SVKS000933"
         ],
-        "product_count": 274,
+        "product_count": 301,
         "featured": false,
         "active": true,
         "seo": {
@@ -1061,8 +1123,8 @@
             "canonical": "https://www.souviks.co.in/categories/suspension-steering"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "electricals",
@@ -1129,7 +1191,7 @@
             {
                 "id": "relay",
                 "name": "Relay",
-                "count": 5
+                "count": 3
             },
             {
                 "id": "head-light",
@@ -1230,10 +1292,6 @@
                 "name": "NeoLite"
             },
             {
-                "id": "ng",
-                "name": "NG"
-            },
-            {
                 "id": "philips",
                 "name": "Philips"
             },
@@ -1256,6 +1314,10 @@
             {
                 "id": "leyparts",
                 "name": "Leyparts"
+            },
+            {
+                "id": "varroc",
+                "name": "Varroc"
             },
             {
                 "id": "wabco",
@@ -1413,11 +1475,9 @@
             "SVKS000861",
             "SVKS000862",
             "SVKS000863",
-            "SVKS000864",
-            "SVKS000870",
-            "SVKS000871"
+            "SVKS000864"
         ],
-        "product_count": 115,
+        "product_count": 113,
         "featured": false,
         "active": true,
         "seo": {
@@ -1431,8 +1491,8 @@
             "canonical": "https://www.souviks.co.in/categories/electricals"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "brakes",
@@ -1521,6 +1581,10 @@
             {
                 "id": "jmp",
                 "name": "JMP"
+            },
+            {
+                "id": "luk",
+                "name": "Luk"
             }
         ],
         "vehicles": [
@@ -1619,8 +1683,8 @@
             "canonical": "https://www.souviks.co.in/categories/brakes"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "engine-components",
@@ -1757,8 +1821,8 @@
             "canonical": "https://www.souviks.co.in/categories/engine-components"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "bearings",
@@ -1985,8 +2049,8 @@
             "canonical": "https://www.souviks.co.in/categories/bearings"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "rubber-parts",
@@ -2050,6 +2114,10 @@
                 "name": "JMP"
             },
             {
+                "id": "ci",
+                "name": "CI"
+            },
+            {
                 "id": "leyparts",
                 "name": "Leyparts"
             },
@@ -2111,8 +2179,8 @@
             "canonical": "https://www.souviks.co.in/categories/rubber-parts"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "clutch-parts",
@@ -2229,8 +2297,8 @@
                 "name": "MEI"
             },
             {
-                "id": "naic-024b",
-                "name": "NAIC 024B"
+                "id": "ci",
+                "name": "CI"
             },
             {
                 "id": "meritor",
@@ -2243,6 +2311,10 @@
             {
                 "id": "leyparts",
                 "name": "Leyparts"
+            },
+            {
+                "id": "setco",
+                "name": "Setco"
             }
         ],
         "vehicles": [
@@ -2364,8 +2436,8 @@
             "canonical": "https://www.souviks.co.in/categories/clutch-parts"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "lubricants",
@@ -2513,8 +2585,8 @@
             "canonical": "https://www.souviks.co.in/categories/lubricants"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     },
     {
         "id": "cooling-system",
@@ -2591,7 +2663,7 @@
             "canonical": "https://www.souviks.co.in/categories/cooling-system"
         },
         "schema": {},
-        "created_at": "2026-09-11T09:26:07.645707",
-        "updated_at": "2026-09-11T09:26:07.645707"
+        "created_at": "2026-09-14T12:32:30.005033",
+        "updated_at": "2026-09-14T12:32:30.005033"
     }
 ]
