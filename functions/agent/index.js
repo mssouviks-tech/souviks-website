@@ -1287,22 +1287,20 @@ async function catalogueAgentMessage(query) {
     }
 
     try {
-        const response = await fetch(
-            "https://www.souviks.co.in/assets/data/products.json",
-            {
-                headers: {
-                    Accept: "application/json"
-                }
-            }
-        );
+        let products;
 
-        if (!response.ok) {
+        try {
+            products =
+                await fetchJsonWithFallback([
+                    "/assets/data/agent/products-summary.json",
+                    "/assets/data/search.json",
+                    "/assets/data/products.json"
+                ]);
+        } catch {
             throw new Error(
                 "Catalogue data unavailable"
             );
         }
-
-        const products = await response.json();
 
         const terms = normalized
             .toLowerCase()
