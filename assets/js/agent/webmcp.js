@@ -29,6 +29,21 @@ This file supports both where available.
     const CATALOGUE_URL =
         "/assets/data/search.json";
 
+    const AGENT_PART_INDEX_URL =
+        "/assets/data/agent/part-index.json";
+
+    const AGENT_BRAND_INDEX_URL =
+        "/assets/data/agent/brand-index.json";
+
+    const AGENT_CATEGORY_INDEX_URL =
+        "/assets/data/agent/category-index.json";
+
+    const AGENT_VEHICLE_INDEX_URL =
+        "/assets/data/agent/vehicle-index.json";
+
+    const AGENT_PRODUCTS_SUMMARY_URL =
+        "/assets/data/agent/products-summary.json";
+
     const VEHICLES_URL =
         "/assets/data/vehicles.json";
 
@@ -142,11 +157,26 @@ This file supports both where available.
             };
         }
 
-        const search =
-            await fetchJson(
-                CATALOGUE_URL,
-                signal
-            );
+        let search;
+
+        try {
+            const summary =
+                await fetchJson(
+                    AGENT_PRODUCTS_SUMMARY_URL,
+                    signal
+                );
+
+            search =
+                Array.isArray(summary)
+                    ? summary
+                    : [];
+        } catch {
+            search =
+                await fetchJson(
+                    CATALOGUE_URL,
+                    signal
+                );
+        }
 
         const terms =
             query
@@ -217,11 +247,69 @@ This file supports both where available.
             };
         }
 
-        const vehicles =
-            await fetchJson(
-                VEHICLES_URL,
-                signal
-            );
+        let vehicles;
+
+        try {
+            const index =
+                await fetchJson(
+                    AGENT_VEHICLE_INDEX_URL,
+                    signal
+                );
+
+            vehicles =
+                Object.entries(
+                    index || {}
+                ).map(
+                    ([id, value]) => ({
+                        id,
+                        slug:
+                            value?.slug ||
+                            id,
+                        model:
+                            value?.model ||
+                            "",
+                        manufacturer:
+                            value?.manufacturer ||
+                            "",
+                        variant:
+                            value?.variant ||
+                            "",
+                        vehicle_type:
+                            value?.vehicle_type ||
+                            "",
+                        product_count:
+                            value?.product_count ||
+                            0,
+                        product_ids:
+                            Array.isArray(
+                                value?.product_ids
+                            )
+                                ? value.product_ids
+                                : [],
+                        brand_ids:
+                            Array.isArray(
+                                value?.brand_ids
+                            )
+                                ? value.brand_ids
+                                : [],
+                        category_ids:
+                            Array.isArray(
+                                value?.category_ids
+                            )
+                                ? value.category_ids
+                                : [],
+                        url:
+                            value?.url ||
+                            null
+                    })
+                );
+        } catch {
+            vehicles =
+                await fetchJson(
+                    VEHICLES_URL,
+                    signal
+                );
+        }
 
         const matches =
             Array.isArray(
@@ -308,11 +396,57 @@ This file supports both where available.
                 input?.query
             );
 
-        const brands =
-            await fetchJson(
-                BRANDS_URL,
-                signal
-            );
+        let brands;
+
+        try {
+            const index =
+                await fetchJson(
+                    AGENT_BRAND_INDEX_URL,
+                    signal
+                );
+
+            brands =
+                Object.entries(
+                    index || {}
+                ).map(
+                    ([id, value]) => ({
+                        id,
+                        name:
+                            value?.name ||
+                            id,
+                        product_count:
+                            value?.product_count ||
+                            0,
+                        product_ids:
+                            Array.isArray(
+                                value?.product_ids
+                            )
+                                ? value.product_ids
+                                : [],
+                        vehicle_names:
+                            Array.isArray(
+                                value?.vehicle_names
+                            )
+                                ? value.vehicle_names
+                                : [],
+                        category_ids:
+                            Array.isArray(
+                                value?.category_ids
+                            )
+                                ? value.category_ids
+                                : [],
+                        url:
+                            value?.url ||
+                            null
+                    })
+                );
+        } catch {
+            brands =
+                await fetchJson(
+                    BRANDS_URL,
+                    signal
+                );
+        }
 
         const matches =
             Array.isArray(
@@ -363,11 +497,63 @@ This file supports both where available.
                 input?.query
             );
 
-        const categories =
-            await fetchJson(
-                CATEGORIES_URL,
-                signal
-            );
+        let categories;
+
+        try {
+            const index =
+                await fetchJson(
+                    AGENT_CATEGORY_INDEX_URL,
+                    signal
+                );
+
+            categories =
+                Object.entries(
+                    index || {}
+                ).map(
+                    ([id, value]) => ({
+                        id,
+                        name:
+                            value?.name ||
+                            id,
+                        product_count:
+                            value?.product_count ||
+                            0,
+                        product_ids:
+                            Array.isArray(
+                                value?.product_ids
+                            )
+                                ? value.product_ids
+                                : [],
+                        brand_ids:
+                            Array.isArray(
+                                value?.brand_ids
+                            )
+                                ? value.brand_ids
+                                : [],
+                        vehicle_names:
+                            Array.isArray(
+                                value?.vehicle_names
+                            )
+                                ? value.vehicle_names
+                                : [],
+                        subcategory_ids:
+                            Array.isArray(
+                                value?.subcategory_ids
+                            )
+                                ? value.subcategory_ids
+                                : [],
+                        url:
+                            value?.url ||
+                            null
+                    })
+                );
+        } catch {
+            categories =
+                await fetchJson(
+                    CATEGORIES_URL,
+                    signal
+                );
+        }
 
         const matches =
             Array.isArray(
@@ -419,6 +605,31 @@ This file supports both where available.
             search:
                 new URL(
                     CATALOGUE_URL,
+                    location.origin
+                ).href,
+            part_index:
+                new URL(
+                    AGENT_PART_INDEX_URL,
+                    location.origin
+                ).href,
+            brand_index:
+                new URL(
+                    AGENT_BRAND_INDEX_URL,
+                    location.origin
+                ).href,
+            category_index:
+                new URL(
+                    AGENT_CATEGORY_INDEX_URL,
+                    location.origin
+                ).href,
+            vehicle_index:
+                new URL(
+                    AGENT_VEHICLE_INDEX_URL,
+                    location.origin
+                ).href,
+            products_summary:
+                new URL(
+                    AGENT_PRODUCTS_SUMMARY_URL,
                     location.origin
                 ).href,
             vehicles:
