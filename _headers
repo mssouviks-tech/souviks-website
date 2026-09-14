@@ -1,3 +1,16 @@
 # RFC 9727 API Catalog
 /.well-known/api-catalog
   Content-Type: application/linkset+json
+
+# Early Hints: critical homepage stylesheet
+/
+  Link: </assets/css/style.css>; rel=preload; as=style
+
+/en/
+  Link: </assets/css/style.css>; rel=preload; as=style
+
+/hi/
+  Link: </assets/css/style.css>; rel=preload; as=style
+
+/bn/
+  Link: </assets/css/style.css>; rel=preload; as=style
