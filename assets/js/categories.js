@@ -73,7 +73,7 @@ class CategoryManager {
                     <img
                         src="${category.image || '/assets/images/category-placeholder.webp'}"
                         alt="${category.name}"
-                        loading="lazy"
+                        ${Utils.responsiveImageAttrs(category.image || '/assets/images/category-placeholder.webp', category.image_dimensions, '(max-width: 640px) 92vw, (max-width: 1024px) 31vw, 280px', 'lazy')}
                     >
 
                 </div>
@@ -296,7 +296,7 @@ Breadcrumb.render(
     [
         {
             title: "Categories",
-            url: "/${LANG}/categories.html"
+            url: `/${LANG}/categories.html`
         }
     ]
 );

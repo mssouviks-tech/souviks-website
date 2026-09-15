@@ -15,6 +15,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_SIGNA/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_SIGNA/hero-1920x1080.webp",
         "banner": "",
@@ -233,11 +237,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-signa"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-signa.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.033131",
-        "updated_at": "2026-09-14T12:32:30.033131"
+        "created_at": "2026-09-15T09:07:31.687155",
+        "updated_at": "2026-09-15T09:07:31.687155"
     },
     {
         "id": "tata-lpt",
@@ -255,6 +259,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_LPT/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_LPT/hero-1920x1080.webp",
         "banner": "",
@@ -741,11 +749,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-lpt"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-lpt.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.033131",
-        "updated_at": "2026-09-14T12:32:30.033131"
+        "created_at": "2026-09-15T09:07:31.687155",
+        "updated_at": "2026-09-15T09:07:31.687155"
     },
     {
         "id": "ashok-leyland-2516",
@@ -763,6 +771,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_2516/transparent-cutout.png",
         "hero": "/assets/images/vehicles/ASHOK_LEYLAND_2516/hero-1920x1080.webp",
         "banner": "",
@@ -1155,11 +1167,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-2516"
+            "canonical": "https://www.souviks.co.in/en/vehicles/ashok-leyland-2516.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.033131",
-        "updated_at": "2026-09-14T12:32:30.033131"
+        "created_at": "2026-09-15T09:07:31.687155",
+        "updated_at": "2026-09-15T09:07:31.687155"
     },
     {
         "id": "eicher-pro-series",
@@ -1177,6 +1189,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/EICHER_PRO_SERIES/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/EICHER_PRO_SERIES/transparent-cutout.png",
         "hero": "/assets/images/vehicles/EICHER_PRO_SERIES/hero-1920x1080.webp",
         "banner": "",
@@ -1321,11 +1337,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/eicher-pro-series"
+            "canonical": "https://www.souviks.co.in/en/vehicles/eicher-pro-series.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.033131",
-        "updated_at": "2026-09-14T12:32:30.033131"
+        "created_at": "2026-09-15T09:07:31.687155",
+        "updated_at": "2026-09-15T09:07:31.687155"
     },
     {
         "id": "eicher-1110",
@@ -1343,6 +1359,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/EICHER_1110/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/EICHER_1110/transparent-cutout.png",
         "hero": "/assets/images/vehicles/EICHER_1110/hero-1920x1080.webp",
         "banner": "",
@@ -1439,11 +1459,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/eicher-1110"
+            "canonical": "https://www.souviks.co.in/en/vehicles/eicher-1110.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.033131",
-        "updated_at": "2026-09-14T12:32:30.033131"
+        "created_at": "2026-09-15T09:07:31.687155",
+        "updated_at": "2026-09-15T09:07:31.687155"
     },
     {
         "id": "universal",
@@ -1461,6 +1481,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/UNIVERSAL/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/UNIVERSAL/transparent-cutout.png",
         "hero": "/assets/images/vehicles/UNIVERSAL/hero-1920x1080.webp",
         "banner": "",
@@ -1966,11 +1990,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/universal"
+            "canonical": "https://www.souviks.co.in/en/vehicles/universal.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.687155",
+        "updated_at": "2026-09-15T09:07:31.687155"
     },
     {
         "id": "tata-ace",
@@ -1988,6 +2012,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_ACE/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_ACE/hero-1920x1080.webp",
         "banner": "",
@@ -2162,11 +2190,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-ace"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-ace.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.687155",
+        "updated_at": "2026-09-15T09:07:31.687155"
     },
     {
         "id": "tata-407",
@@ -2184,6 +2212,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_407/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_407/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_407/hero-1920x1080.webp",
         "banner": "",
@@ -2297,11 +2329,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-407"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-407.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.687155",
+        "updated_at": "2026-09-15T09:07:31.687155"
     },
     {
         "id": "tata-709",
@@ -2319,6 +2351,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_709/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_709/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_709/hero-1920x1080.webp",
         "banner": "",
@@ -2454,11 +2490,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-709"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-709.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.687155",
+        "updated_at": "2026-09-15T09:07:31.687155"
     },
     {
         "id": "tata-1109",
@@ -2476,6 +2512,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_1109/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_1109/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_1109/hero-1920x1080.webp",
         "banner": "",
@@ -2648,11 +2688,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-1109"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-1109.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "tata-1210",
@@ -2670,6 +2710,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_1210/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_1210/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_1210/hero-1920x1080.webp",
         "banner": "",
@@ -2823,11 +2867,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-1210"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-1210.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "tata-1312",
@@ -2845,6 +2889,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_1312/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_1312/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_1312/hero-1920x1080.webp",
         "banner": "",
@@ -3015,11 +3063,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-1312"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-1312.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "tata-1512",
@@ -3037,6 +3085,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_1512/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_1512/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_1512/hero-1920x1080.webp",
         "banner": "",
@@ -3186,11 +3238,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-1512"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-1512.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "tata-magic",
@@ -3208,6 +3260,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_MAGIC/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_MAGIC/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_MAGIC/hero-1920x1080.webp",
         "banner": "",
@@ -3325,11 +3381,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-magic"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-magic.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "tata-intra",
@@ -3347,6 +3403,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_INTRA/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_INTRA/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_INTRA/hero-1920x1080.webp",
         "banner": "",
@@ -3444,11 +3504,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-intra"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-intra.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "tata-prima",
@@ -3466,6 +3526,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_PRIMA/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_PRIMA/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_PRIMA/hero-1920x1080.webp",
         "banner": "",
@@ -3625,11 +3689,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-prima"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-prima.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "mahindra-blazo",
@@ -3647,6 +3711,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/MAHINDRA_BLAZO/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/MAHINDRA_BLAZO/transparent-cutout.png",
         "hero": "/assets/images/vehicles/MAHINDRA_BLAZO/hero-1920x1080.webp",
         "banner": "",
@@ -3719,11 +3787,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/mahindra-blazo"
+            "canonical": "https://www.souviks.co.in/en/vehicles/mahindra-blazo.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "tata-ultra",
@@ -3741,6 +3809,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_ULTRA/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_ULTRA/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_ULTRA/hero-1920x1080.webp",
         "banner": "",
@@ -3830,11 +3902,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-ultra"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-ultra.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "bosch-engineselectrical",
@@ -3852,6 +3924,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/BOSCH_ENGINESELECTRICAL/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/BOSCH_ENGINESELECTRICAL/transparent-cutout.png",
         "hero": "/assets/images/vehicles/BOSCH_ENGINESELECTRICAL/hero-1920x1080.webp",
         "banner": "",
@@ -3935,11 +4011,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/bosch-engineselectrical"
+            "canonical": "https://www.souviks.co.in/en/vehicles/bosch-engineselectrical.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "ashok-leyland-ecomet",
@@ -3957,6 +4033,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/transparent-cutout.png",
         "hero": "/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/hero-1920x1080.webp",
         "banner": "",
@@ -4054,11 +4134,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-ecomet"
+            "canonical": "https://www.souviks.co.in/en/vehicles/ashok-leyland-ecomet.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "mahindra-bolero-pickup",
@@ -4076,6 +4156,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/MAHINDRA_BOLERO_PICKUP/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/MAHINDRA_BOLERO_PICKUP/transparent-cutout.png",
         "hero": "/assets/images/vehicles/MAHINDRA_BOLERO_PICKUP/hero-1920x1080.webp",
         "banner": "",
@@ -4147,11 +4231,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/mahindra-bolero-pickup"
+            "canonical": "https://www.souviks.co.in/en/vehicles/mahindra-bolero-pickup.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "tata-2416",
@@ -4169,6 +4253,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TATA_2416/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/TATA_2416/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TATA_2416/hero-1920x1080.webp",
         "banner": "",
@@ -4287,11 +4375,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tata-2416"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tata-2416.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "ashok-leyland-captain",
@@ -4309,6 +4397,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/ASHOK_LEYLAND_CAPTAIN/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_CAPTAIN/transparent-cutout.png",
         "hero": "/assets/images/vehicles/ASHOK_LEYLAND_CAPTAIN/hero-1920x1080.webp",
         "banner": "",
@@ -4406,11 +4498,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-captain"
+            "canonical": "https://www.souviks.co.in/en/vehicles/ashok-leyland-captain.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "mahindra-furio",
@@ -4428,6 +4520,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/MAHINDRA_FURIO/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/MAHINDRA_FURIO/transparent-cutout.png",
         "hero": "/assets/images/vehicles/MAHINDRA_FURIO/hero-1920x1080.webp",
         "banner": "",
@@ -4464,11 +4560,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/mahindra-furio"
+            "canonical": "https://www.souviks.co.in/en/vehicles/mahindra-furio.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "tractors",
@@ -4486,6 +4582,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/TRACTORS/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            400
+        ],
         "cutout": "/assets/images/vehicles/TRACTORS/transparent-cutout.png",
         "hero": "/assets/images/vehicles/TRACTORS/hero-1920x1080.webp",
         "banner": "",
@@ -4557,11 +4657,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/tractors"
+            "canonical": "https://www.souviks.co.in/en/vehicles/tractors.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "ashok-leyland-boss",
@@ -4579,6 +4679,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/ASHOK_LEYLAND_BOSS/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_BOSS/transparent-cutout.png",
         "hero": "/assets/images/vehicles/ASHOK_LEYLAND_BOSS/hero-1920x1080.webp",
         "banner": "",
@@ -4641,11 +4745,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-boss"
+            "canonical": "https://www.souviks.co.in/en/vehicles/ashok-leyland-boss.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "mahindra-max-pickup",
@@ -4663,6 +4767,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/MAHINDRA_MAX_PICKUP/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/MAHINDRA_MAX_PICKUP/transparent-cutout.png",
         "hero": "/assets/images/vehicles/MAHINDRA_MAX_PICKUP/hero-1920x1080.webp",
         "banner": "",
@@ -4711,11 +4819,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/mahindra-max-pickup"
+            "canonical": "https://www.souviks.co.in/en/vehicles/mahindra-max-pickup.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "ashok-leyland-stallion",
@@ -4733,6 +4841,10 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/ASHOK_LEYLAND_STALLION/thumbnail-400x300.webp",
+        "image_dimensions": [
+            400,
+            300
+        ],
         "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_STALLION/transparent-cutout.png",
         "hero": "/assets/images/vehicles/ASHOK_LEYLAND_STALLION/hero-1920x1080.webp",
         "banner": "",
@@ -4787,11 +4899,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-stallion"
+            "canonical": "https://www.souviks.co.in/en/vehicles/ashok-leyland-stallion.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "",
@@ -4809,6 +4921,7 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles//thumbnail-400x300.webp",
+        "image_dimensions": null,
         "cutout": "/assets/images/vehicles//transparent-cutout.png",
         "hero": "/assets/images/vehicles//hero-1920x1080.webp",
         "banner": "",
@@ -4843,11 +4956,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/"
+            "canonical": "https://www.souviks.co.in/en/vehicles/.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     },
     {
         "id": "ashok-leyland-u-truck",
@@ -4865,6 +4978,7 @@
         "fuel_type": "",
         "vehicle_type": "",
         "image": "/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/thumbnail-400x300.webp",
+        "image_dimensions": null,
         "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/transparent-cutout.png",
         "hero": "/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/hero-1920x1080.webp",
         "banner": "",
@@ -4924,10 +5038,10 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/vehicles/ashok-leyland-u-truck"
+            "canonical": "https://www.souviks.co.in/en/vehicles/ashok-leyland-u-truck.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.034383",
-        "updated_at": "2026-09-14T12:32:30.034383"
+        "created_at": "2026-09-15T09:07:31.688185",
+        "updated_at": "2026-09-15T09:07:31.688185"
     }
 ]

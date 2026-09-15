@@ -72,7 +72,7 @@ class VehicleManager {
                     <img
                         src="${vehicle.image || '/assets/images/vehicle-placeholder.webp'}"
                         alt="${vehicle.model}"
-                        loading="lazy"
+                        ${Utils.responsiveImageAttrs(vehicle.image || '/assets/images/vehicle-placeholder.webp', vehicle.image_dimensions, '(max-width: 640px) 92vw, (max-width: 1024px) 31vw, 280px', 'lazy')}
                     >
 
                 </div>
@@ -286,7 +286,7 @@ Breadcrumb.render(
     [
         {
             title: "Vehicles",
-            url: "/${LANG}/vehicles.html"
+            url: `/${LANG}/vehicles.html`
         }
     ]
 );

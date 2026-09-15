@@ -54,7 +54,7 @@ class BrandManager {
                     <img
                         src="${brand.logo}"
                         alt="${brand.name}"
-                        loading="lazy"
+                        ${Utils.responsiveImageAttrs(brand.logo, brand.logo_dimensions, '(max-width: 640px) 92vw, (max-width: 1024px) 31vw, 280px', 'lazy')}
                     >
 
                 </div>
@@ -132,7 +132,7 @@ Breadcrumb.render(
     [
         {
             title: "Brands",
-            url: "/${LANG}/brands.html"
+            url: `/${LANG}/brands.html`
         }
     ]
 );

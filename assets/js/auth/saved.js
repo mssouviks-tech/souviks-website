@@ -364,7 +364,8 @@ function renderAccountSavedProduct(
                 <img
                     src="${image}"
                     alt="${product.product_name}"
-                    loading="lazy">
+                    ${Utils.responsiveImageAttrs(image, product.gallery_dimensions?.[product.gallery?.[0]], '(max-width: 640px) 92vw, 280px', 'lazy')}
+                >
 
             </a>
 

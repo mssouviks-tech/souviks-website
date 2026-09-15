@@ -29,7 +29,7 @@ Reusable Head Component
 
     <title>
 
-        Commercial Vehicle Spare Parts | Truck Parts Supplier in India | Souviks
+        Commercial Vehicle Spare Parts in India | Souviks
 
     </title>
 
@@ -39,12 +39,7 @@ Reusable Head Component
 
     <meta
         name="description"
-        content="Souviks supplies genuine commercial vehicle spare parts including clutch components, bearings, filters, brake parts, lubricants and OEM replacement parts from leading brands. Serving customers across India since 1986.">
-
-    <meta
-        name="keywords"
-        content="commercial vehicle spare parts, truck spare parts, clutch parts, bearings, filters, brake components, lubricants, Tata truck parts, Ashok Leyland parts, Fleetguard, SKF, Souviks">
-
+        content="Souviks supplies genuine OEM and premium aftermarket commercial vehicle spare parts for trucks and buses across India since 1986.">
     <meta
         name="author"
         content="Souviks">
@@ -59,7 +54,7 @@ Reusable Head Component
 
 <link
     rel="canonical"
-    href="https://www.souviks.co.in">
+    href="https://www.souviks.co.in/bn/">
 
 <!-- ==========================================
      HREFLANG
@@ -68,7 +63,7 @@ Reusable Head Component
 <link
     rel="alternate"
     hreflang="en"
-    href="https://www.souviks.co.in/en/">
+    href="https://www.souviks.co.in/">
 
 <link
     rel="alternate"
@@ -83,7 +78,7 @@ Reusable Head Component
 <link
     rel="alternate"
     hreflang="x-default"
-    href="https://www.souviks.co.in/en/">
+    href="https://www.souviks.co.in/">
 
 <!-- ==========================================
      FAVICONS
@@ -98,18 +93,6 @@ Reusable Head Component
     rel="apple-touch-icon"
     href="/assets/favicon/apple-touch-icon.png">
 
-    <!-- ==========================================
-         FAVICONS
-    =========================================== -->
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="/assets/favicon/favicon-32x32.png">
-
-    <link
-        rel="apple-touch-icon"
-        href="/assets/favicon/apple-touch-icon.png">
 
     <!-- ==========================================
          THEME COLOR
@@ -137,11 +120,15 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og-image.png">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
+
+    <meta
+    property="og:image:alt"
+    content="Souviks">
 
     <meta
         property="og:url"
-        content="https://www.souviks.co.in">
+        content="https://www.souviks.co.in/bn/">
 
     <meta
         property="og:site_name"
@@ -169,11 +156,15 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og-image.png">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
+
+    <meta
+    name="twitter:image:alt"
+    content="Souviks">
 
     <meta
         name="twitter:url"
-        content="https://www.souviks.co.in">
+        content="https://www.souviks.co.in/bn/">
 
     <!-- ==========================================
          GOOGLE FONTS
@@ -198,7 +189,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/site.css">
 
 
 
@@ -212,21 +203,43 @@ Reusable Head Component
          STRUCTURED DATA
     =========================================== -->
 
-    
-<script type="application/ld+json">
+    <script type="application/ld+json">
 {
-"@context":"https://schema.org",
-"@type":"WebSite",
-"name":"Souviks",
-"url":"https://www.souviks.co.in",
-"potentialAction":{
-"@type":"SearchAction",
-"target":"https://www.souviks.co.in/search?q={search_term_string}",
-"query-input":"required name=search_term_string"
-}
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Souviks",
+      "url": "https://www.souviks.co.in",
+      "logo": "https://www.souviks.co.in/assets/logo/souviks-logo.png",
+      "email": "info@souviks.co.in",
+      "telephone": "+91-94343-31896",
+      "foundingDate": "1986",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Andal More",
+        "addressLocality": "Andal",
+        "addressRegion": "West Bengal",
+        "postalCode": "713321",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.facebook.com/souviksandal",
+        "https://x.com/mssouviks"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Souviks",
+      "url": "https://www.souviks.co.in",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Souviks"
+      }
+    }
+  ]
 }
 </script>
-
 
     <!-- ==========================================
          OPTIONAL PRELOADS
@@ -341,7 +354,8 @@ Reusable Head Component
                 <a
                     id="topSignIn"
                     href="/bn/login.html"
-                    class="top-signin">
+                    class="top-signin"
+                    data-auth-open="login">
 
                     সাইন ইন
 
@@ -400,6 +414,292 @@ Reusable Head Component
                         </button>
 
                     </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 AUTHENTICATION MODAL
+            =================================================== -->
+
+            <div
+                id="authModal"
+                class="auth-modal"
+                hidden
+                aria-hidden="true">
+
+                <div
+                    class="auth-modal-backdrop"
+                    data-auth-close>
+                </div>
+
+                <div
+                    class="auth-modal-dialog"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="authModalTitle">
+
+                    <div class="auth-modal-header">
+
+                        <h2
+                            id="authModalTitle"
+                            class="auth-modal-title">
+
+                            সাইন ইন
+
+                        </h2>
+
+                        <button
+                            type="button"
+                            class="auth-modal-close"
+                            data-auth-close
+                            aria-label="Close">
+
+                            ×
+
+                        </button>
+
+                    </div>
+
+                    <div class="auth-modal-tabs">
+
+                        <button
+                            type="button"
+                            class="auth-modal-tab active"
+                            data-auth-tab="login">
+
+                            সাইন ইন
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="auth-modal-tab"
+                            data-auth-tab="register">
+
+                            আপনার অ্যাকাউন্ট তৈরি করুন
+
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="authModalTranslations"
+                        hidden
+                        data-email-required="অনুগ্রহ করে আপনার ইমেল ঠিকানা লিখুন।"
+                        data-password-required="অনুগ্রহ করে আপনার পাসওয়ার্ড লিখুন।"
+                        data-invalid-credentials="ইমেল বা পাসওয়ার্ড সঠিক নয়।"
+                        data-email-not-confirmed="লগ ইন করার আগে অনুগ্রহ করে আপনার ইমেল ঠিকানা যাচাই করুন।"
+                        data-too-many-attempts="অনেকবার লগ ইন করার চেষ্টা করা হয়েছে। অনুগ্রহ করে কিছুক্ষণ অপেক্ষা করে আবার চেষ্টা করুন।"
+                        data-network-error="অথেন্টিকেশন পরিষেবার সঙ্গে সংযোগ করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
+                        data-login-failed="লগ ইন সম্পূর্ণ করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
+                        data-authentication-unavailable="অথেন্টিকেশন পরিষেবা বর্তমানে উপলব্ধ নয়। অনুগ্রহ করে পরে আবার চেষ্টা করুন।"
+                        data-something-went-wrong="কিছু সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।"
+                        data-full-name-required="অনুগ্রহ করে আপনার পুরো নাম লিখুন।"
+                        data-password-create-required="অনুগ্রহ করে একটি পাসওয়ার্ড লিখুন।"
+                        data-password-min-length="পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে।"
+                        data-password-mismatch="পাসওয়ার্ড দুটি মিলছে না।"
+                        data-registration-failed="আপনার অ্যাকাউন্ট তৈরি করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
+                        data-account-exists="এই ইমেল ঠিকানা দিয়ে ইতিমধ্যেই একটি অ্যাকাউন্ট রয়েছে।"
+                        data-registration-success="অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে। আপনার অ্যাকাউন্ট যাচাই করতে অনুগ্রহ করে আপনার ইমেল দেখুন।">
+
+                    </div>
+
+                    <section
+                        id="authModalLoginPanel"
+                        class="auth-modal-panel">
+
+                        <form
+                            id="authModalLoginForm"
+                            class="auth-form"
+                            novalidate>
+
+                            <div class="form-group">
+
+                                <label for="authModalLoginEmail">
+                                    ইমেইল
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="authModalLoginEmail"
+                                    name="email"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalLoginPassword">
+                                    পাসওয়ার্ড
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalLoginPassword"
+                                    name="password"
+                                    autocomplete="current-password"
+                                    required>
+
+                            </div>
+
+                            <div class="auth-forgot-password">
+
+                                <a
+                                    href="/bn/forgot-password.html">
+
+                                    পাসওয়ার্ড ভুলে গেছেন?
+
+                                </a>
+
+                            </div>
+
+                            <div
+                                id="authModalLoginStatus"
+                                class="form-status"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                            <div class="auth-form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary auth-submit">
+
+                                    সাইন ইন
+
+                                </button>
+
+                            </div>
+
+                            <p class="auth-modal-switch">
+
+                                আপনার কি অ্যাকাউন্ট নেই?
+
+                                <button
+                                    type="button"
+                                    data-auth-tab="register">
+
+                                    আপনার অ্যাকাউন্ট তৈরি করুন
+
+                                </button>
+
+                            </p>
+
+                        </form>
+
+                    </section>
+
+                    <section
+                        id="authModalRegisterPanel"
+                        class="auth-modal-panel"
+                        hidden>
+
+                        <form
+                            id="authModalRegisterForm"
+                            class="auth-form"
+                            novalidate>
+
+                            <div class="form-group">
+
+                                <label for="authModalFullName">
+                                    পুরো নাম
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="authModalFullName"
+                                    name="fullName"
+                                    autocomplete="name"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalRegisterEmail">
+                                    ইমেইল
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="authModalRegisterEmail"
+                                    name="email"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalRegisterPassword">
+                                    পাসওয়ার্ড
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalRegisterPassword"
+                                    name="password"
+                                    autocomplete="new-password"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalConfirmPassword">
+                                    পাসওয়ার্ড নিশ্চিত করুন
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalConfirmPassword"
+                                    name="confirmPassword"
+                                    autocomplete="new-password"
+                                    required>
+
+                            </div>
+
+                            <div
+                                id="authModalRegisterStatus"
+                                class="form-status"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                            <div class="auth-form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary auth-submit">
+
+                                    আপনার অ্যাকাউন্ট তৈরি করুন
+
+                                </button>
+
+                            </div>
+
+                            <p class="auth-modal-switch">
+
+                                আপনার কি ইতিমধ্যেই একটি অ্যাকাউন্ট আছে?
+
+                                <button
+                                    type="button"
+                                    data-auth-tab="login">
+
+                                    সাইন ইন
+
+                                </button>
+
+                            </p>
+
+                        </form>
+
+                    </section>
 
                 </div>
 
@@ -1102,6 +1402,15 @@ Reusable Search Component
     </section>
 
 
+    <section class="homepage-section homepage-seo-content">
+        <div class="container">
+            <div class="section-header">
+                <h2>আসল OEM ও প্রিমিয়াম আফটারমার্কেট কমার্শিয়াল ভেহিকেল স্পেয়ার পার্টস</h2>
+            </div>
+            <p>Souviks সারা ভারতে ট্রাক ও বাসের জন্য কমার্শিয়াল ভেহিকেল স্পেয়ার পার্টস সরবরাহ করে। ক্যাটালগে ক্লাচ পার্টস, বেয়ারিং, ফিল্টার, ব্রেক, ইলেকট্রিক্যাল, ইঞ্জিন, লুব্রিকেন্ট এবং সাসপেনশন ও স্টিয়ারিং পার্টস রয়েছে। গ্রাহক ব্র্যান্ড, ক্যাটাগরি, গাড়ি বা পার্ট নম্বর অনুযায়ী পার্ট খুঁজে পেতে পারেন এবং প্রাপ্যতা, মূল্য ও গাড়ির উপযুক্ততার জন্য সহায়তা চাইতে পারেন।</p>
+        </div>
+    </section>
+
     <div class="container">
 
     <div class="cta-wrapper">
@@ -1222,99 +1531,21 @@ window.souviks = {
 
 
 <!-- ==========================================
-     SUPABASE
+     THIRD-PARTY AUTH PROVIDER
 ========================================== -->
 
 <script
+    defer
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
 </script>
 
-<script
-    src="/assets/js/auth/supabase.js">
-</script>
-
-<script
-    src="/assets/js/auth/register.js">
-</script>
-
-<script
-    src="/assets/js/auth/auth-state.js">
-</script>
-
-<script
-    src="/assets/js/auth/logout.js">
-</script>
-
-
 <!-- ==========================================
-     GLOBAL JAVASCRIPT
+     CONSOLIDATED SITE JAVASCRIPT
 ========================================== -->
 
 <script
-    src="/assets/js/utils.js">
-</script>
-
-<script
-    src="/assets/js/api.js">
-</script>
-
-<script
-    src="/assets/js/saved-products.js">
-</script>
-
-<script
-    src="/assets/js/products.js">
-</script>
-
-<script
-    src="/assets/js/brands.js">
-</script>
-
-<script
-    src="/assets/js/categories.js">
-</script>
-
-<script
-    src="/assets/js/vehicles.js">
-</script>
-
-
-<script
-    src="/assets/js/search.js">
-</script>
-
-<script
-    src="/assets/js/filters.js">
-</script>
-
-<script
-    src="/assets/js/pagination.js">
-</script>
-
-<script
-    src="/assets/js/breadcrumb.js">
-</script>
-
-<script
-    src="/assets/js/language-switcher.js">
-</script>
-
-<script
-    src="/assets/js/rfq.js">
-</script>
-
-
-<script
-    src="/assets/js/main.js">
-</script>
-
-
-<!-- ==========================================
-     EMAILJS
-========================================== -->
-
-<script
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    defer
+    src="/assets/js/app.js">
 </script>
 
 
@@ -1322,7 +1553,7 @@ window.souviks = {
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script src="/assets/js/pages/index.js"></script>
+<script defer src="/assets/js/pages/index.js"></script>
 
 
 <!-- ==========================================
@@ -1395,6 +1626,13 @@ document.addEventListener(
                         src="/assets/icons/instagram.svg"
                         alt="Instagram">
 
+                </a>
+
+                <a href="https://x.com/mssouviks"
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Souviks on X">
+                    <span aria-hidden="true">X</span>
                 </a>
 
             </div>
@@ -1664,10 +1902,6 @@ document.addEventListener(
 
 </div>
 </footer>
-
-
-<!-- WebMCP agent tools -->
-<script src="/assets/js/agent/webmcp.js"></script>
 </body>
 
 </html>

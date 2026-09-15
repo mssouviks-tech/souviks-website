@@ -29,7 +29,7 @@ Reusable Head Component
 
     <title>
 
-        Commercial Vehicle Spare Parts | Truck Parts Supplier in India | Souviks
+        Commercial Vehicle Spare Parts in India | Souviks
 
     </title>
 
@@ -39,12 +39,7 @@ Reusable Head Component
 
     <meta
         name="description"
-        content="Souviks supplies genuine commercial vehicle spare parts including clutch components, bearings, filters, brake parts, lubricants and OEM replacement parts from leading brands. Serving customers across India since 1986.">
-
-    <meta
-        name="keywords"
-        content="commercial vehicle spare parts, truck spare parts, clutch parts, bearings, filters, brake components, lubricants, Tata truck parts, Ashok Leyland parts, Fleetguard, SKF, Souviks">
-
+        content="Souviks supplies genuine OEM and premium aftermarket commercial vehicle spare parts for trucks and buses across India since 1986.">
     <meta
         name="author"
         content="Souviks">
@@ -59,7 +54,7 @@ Reusable Head Component
 
 <link
     rel="canonical"
-    href="https://www.souviks.co.in">
+    href="https://www.souviks.co.in/">
 
 <!-- ==========================================
      HREFLANG
@@ -68,7 +63,7 @@ Reusable Head Component
 <link
     rel="alternate"
     hreflang="en"
-    href="https://www.souviks.co.in/en/">
+    href="https://www.souviks.co.in/">
 
 <link
     rel="alternate"
@@ -83,7 +78,7 @@ Reusable Head Component
 <link
     rel="alternate"
     hreflang="x-default"
-    href="https://www.souviks.co.in/en/">
+    href="https://www.souviks.co.in/">
 
 <!-- ==========================================
      FAVICONS
@@ -98,18 +93,6 @@ Reusable Head Component
     rel="apple-touch-icon"
     href="/assets/favicon/apple-touch-icon.png">
 
-    <!-- ==========================================
-         FAVICONS
-    =========================================== -->
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="/assets/favicon/favicon-32x32.png">
-
-    <link
-        rel="apple-touch-icon"
-        href="/assets/favicon/apple-touch-icon.png">
 
     <!-- ==========================================
          THEME COLOR
@@ -137,11 +120,15 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og-image.png">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
+
+    <meta
+    property="og:image:alt"
+    content="Souviks">
 
     <meta
         property="og:url"
-        content="https://www.souviks.co.in">
+        content="https://www.souviks.co.in/">
 
     <meta
         property="og:site_name"
@@ -169,11 +156,15 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og-image.png">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
+
+    <meta
+    name="twitter:image:alt"
+    content="Souviks">
 
     <meta
         name="twitter:url"
-        content="https://www.souviks.co.in">
+        content="https://www.souviks.co.in/">
 
     <!-- ==========================================
          GOOGLE FONTS
@@ -198,7 +189,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/site.css">
 
 
 
@@ -212,21 +203,43 @@ Reusable Head Component
          STRUCTURED DATA
     =========================================== -->
 
-    
-<script type="application/ld+json">
+    <script type="application/ld+json">
 {
-"@context":"https://schema.org",
-"@type":"WebSite",
-"name":"Souviks",
-"url":"https://www.souviks.co.in",
-"potentialAction":{
-"@type":"SearchAction",
-"target":"https://www.souviks.co.in/search?q={search_term_string}",
-"query-input":"required name=search_term_string"
-}
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Souviks",
+      "url": "https://www.souviks.co.in",
+      "logo": "https://www.souviks.co.in/assets/logo/souviks-logo.png",
+      "email": "info@souviks.co.in",
+      "telephone": "+91-94343-31896",
+      "foundingDate": "1986",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Andal More",
+        "addressLocality": "Andal",
+        "addressRegion": "West Bengal",
+        "postalCode": "713321",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.facebook.com/souviksandal",
+        "https://x.com/mssouviks"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Souviks",
+      "url": "https://www.souviks.co.in",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Souviks"
+      }
+    }
+  ]
 }
 </script>
-
 
     <!-- ==========================================
          OPTIONAL PRELOADS
@@ -341,7 +354,8 @@ Reusable Head Component
                 <a
                     id="topSignIn"
                     href="/en/login.html"
-                    class="top-signin">
+                    class="top-signin"
+                    data-auth-open="login">
 
                     Sign In
 
@@ -400,6 +414,292 @@ Reusable Head Component
                         </button>
 
                     </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 AUTHENTICATION MODAL
+            =================================================== -->
+
+            <div
+                id="authModal"
+                class="auth-modal"
+                hidden
+                aria-hidden="true">
+
+                <div
+                    class="auth-modal-backdrop"
+                    data-auth-close>
+                </div>
+
+                <div
+                    class="auth-modal-dialog"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="authModalTitle">
+
+                    <div class="auth-modal-header">
+
+                        <h2
+                            id="authModalTitle"
+                            class="auth-modal-title">
+
+                            Sign In
+
+                        </h2>
+
+                        <button
+                            type="button"
+                            class="auth-modal-close"
+                            data-auth-close
+                            aria-label="Close">
+
+                            ×
+
+                        </button>
+
+                    </div>
+
+                    <div class="auth-modal-tabs">
+
+                        <button
+                            type="button"
+                            class="auth-modal-tab active"
+                            data-auth-tab="login">
+
+                            Sign In
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="auth-modal-tab"
+                            data-auth-tab="register">
+
+                            Create Your Account
+
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="authModalTranslations"
+                        hidden
+                        data-email-required="Please enter your email address."
+                        data-password-required="Please enter your password."
+                        data-invalid-credentials="Invalid email or password."
+                        data-email-not-confirmed="Please verify your email address before logging in."
+                        data-too-many-attempts="Too many login attempts. Please wait and try again."
+                        data-network-error="Unable to connect to the authentication service. Please try again."
+                        data-login-failed="Login could not be completed. Please try again."
+                        data-authentication-unavailable="Authentication service is unavailable. Please try again later."
+                        data-something-went-wrong="Something went wrong. Please try again."
+                        data-full-name-required="Please enter your full name."
+                        data-password-create-required="Please enter a password."
+                        data-password-min-length="Password must be at least 6 characters."
+                        data-password-mismatch="Passwords do not match."
+                        data-registration-failed="Unable to create your account. Please try again."
+                        data-account-exists="An account with this email already exists."
+                        data-registration-success="Account created successfully. Please check your email to verify your account.">
+
+                    </div>
+
+                    <section
+                        id="authModalLoginPanel"
+                        class="auth-modal-panel">
+
+                        <form
+                            id="authModalLoginForm"
+                            class="auth-form"
+                            novalidate>
+
+                            <div class="form-group">
+
+                                <label for="authModalLoginEmail">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="authModalLoginEmail"
+                                    name="email"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalLoginPassword">
+                                    Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalLoginPassword"
+                                    name="password"
+                                    autocomplete="current-password"
+                                    required>
+
+                            </div>
+
+                            <div class="auth-forgot-password">
+
+                                <a
+                                    href="/en/forgot-password.html">
+
+                                    Forgot Password
+
+                                </a>
+
+                            </div>
+
+                            <div
+                                id="authModalLoginStatus"
+                                class="form-status"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                            <div class="auth-form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary auth-submit">
+
+                                    Sign In
+
+                                </button>
+
+                            </div>
+
+                            <p class="auth-modal-switch">
+
+                                Don't have an account?
+
+                                <button
+                                    type="button"
+                                    data-auth-tab="register">
+
+                                    Create Your Account
+
+                                </button>
+
+                            </p>
+
+                        </form>
+
+                    </section>
+
+                    <section
+                        id="authModalRegisterPanel"
+                        class="auth-modal-panel"
+                        hidden>
+
+                        <form
+                            id="authModalRegisterForm"
+                            class="auth-form"
+                            novalidate>
+
+                            <div class="form-group">
+
+                                <label for="authModalFullName">
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="authModalFullName"
+                                    name="fullName"
+                                    autocomplete="name"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalRegisterEmail">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="authModalRegisterEmail"
+                                    name="email"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalRegisterPassword">
+                                    Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalRegisterPassword"
+                                    name="password"
+                                    autocomplete="new-password"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalConfirmPassword">
+                                    Confirm Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalConfirmPassword"
+                                    name="confirmPassword"
+                                    autocomplete="new-password"
+                                    required>
+
+                            </div>
+
+                            <div
+                                id="authModalRegisterStatus"
+                                class="form-status"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                            <div class="auth-form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary auth-submit">
+
+                                    Create Your Account
+
+                                </button>
+
+                            </div>
+
+                            <p class="auth-modal-switch">
+
+                                Already have an account?
+
+                                <button
+                                    type="button"
+                                    data-auth-tab="login">
+
+                                    Sign In
+
+                                </button>
+
+                            </p>
+
+                        </form>
+
+                    </section>
 
                 </div>
 
@@ -1102,6 +1402,15 @@ Reusable Search Component
     </section>
 
 
+    <section class="homepage-section homepage-seo-content">
+        <div class="container">
+            <div class="section-header">
+                <h2>Genuine OEM & Premium Aftermarket Commercial Vehicle Spare Parts</h2>
+            </div>
+            <p>Souviks supplies commercial vehicle spare parts for trucks and buses across India, with a catalogue covering clutch parts, bearings, filters, brake components, electrical parts, engine parts, lubricants, suspension and steering components. Customers can browse products by brand, category, vehicle or part number and request availability, pricing and compatibility assistance. Our catalogue includes genuine OEM and premium aftermarket parts from established brands, supported by Souviks' experience serving workshops, retailers, fleet operators and distributors since 1986.</p>
+        </div>
+    </section>
+
     <div class="container">
 
     <div class="cta-wrapper">
@@ -1222,99 +1531,21 @@ window.souviks = {
 
 
 <!-- ==========================================
-     SUPABASE
+     THIRD-PARTY AUTH PROVIDER
 ========================================== -->
 
 <script
+    defer
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
 </script>
 
-<script
-    src="/assets/js/auth/supabase.js">
-</script>
-
-<script
-    src="/assets/js/auth/register.js">
-</script>
-
-<script
-    src="/assets/js/auth/auth-state.js">
-</script>
-
-<script
-    src="/assets/js/auth/logout.js">
-</script>
-
-
 <!-- ==========================================
-     GLOBAL JAVASCRIPT
+     CONSOLIDATED SITE JAVASCRIPT
 ========================================== -->
 
 <script
-    src="/assets/js/utils.js">
-</script>
-
-<script
-    src="/assets/js/api.js">
-</script>
-
-<script
-    src="/assets/js/saved-products.js">
-</script>
-
-<script
-    src="/assets/js/products.js">
-</script>
-
-<script
-    src="/assets/js/brands.js">
-</script>
-
-<script
-    src="/assets/js/categories.js">
-</script>
-
-<script
-    src="/assets/js/vehicles.js">
-</script>
-
-
-<script
-    src="/assets/js/search.js">
-</script>
-
-<script
-    src="/assets/js/filters.js">
-</script>
-
-<script
-    src="/assets/js/pagination.js">
-</script>
-
-<script
-    src="/assets/js/breadcrumb.js">
-</script>
-
-<script
-    src="/assets/js/language-switcher.js">
-</script>
-
-<script
-    src="/assets/js/rfq.js">
-</script>
-
-
-<script
-    src="/assets/js/main.js">
-</script>
-
-
-<!-- ==========================================
-     EMAILJS
-========================================== -->
-
-<script
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    defer
+    src="/assets/js/app.js">
 </script>
 
 
@@ -1322,7 +1553,7 @@ window.souviks = {
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script src="/assets/js/pages/index.js"></script>
+<script defer src="/assets/js/pages/index.js"></script>
 
 
 <!-- ==========================================
@@ -1395,6 +1626,13 @@ document.addEventListener(
                         src="/assets/icons/instagram.svg"
                         alt="Instagram">
 
+                </a>
+
+                <a href="https://x.com/mssouviks"
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Souviks on X">
+                    <span aria-hidden="true">X</span>
                 </a>
 
             </div>
@@ -1664,10 +1902,6 @@ document.addEventListener(
 
 </div>
 </footer>
-
-
-<!-- WebMCP agent tools -->
-<script src="/assets/js/agent/webmcp.js"></script>
 </body>
 
 </html>

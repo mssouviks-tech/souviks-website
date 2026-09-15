@@ -105,7 +105,7 @@ card(product) {
                 <img
                     src="${cardImage}"
                     alt="${product.product_name}"
-                    loading="lazy"
+                    ${Utils.responsiveImageAttrs(cardImage, product.gallery_dimensions?.[product.gallery?.[0]], '(max-width: 640px) 92vw, (max-width: 1024px) 31vw, 280px', 'lazy')}
                 >
 
                 <button
@@ -635,42 +635,88 @@ if(
 }
 
     // ======================================================
+    // PRODUCT PRICING
+    // ======================================================
+
+priceHtml(product) {
+
+    const mrp = Number(product?.mrp);
+    const sellingPrice = Number(product?.selling_price);
+
+    const hasMrp = Number.isFinite(mrp) && mrp >= 0;
+    const hasSellingPrice = Number.isFinite(sellingPrice) && sellingPrice >= 0;
+
+    if (!hasMrp && !hasSellingPrice) {
+        return "";
+    }
+
+    const formatPrice = value =>
+        new Intl.NumberFormat("en-IN", {
+            style: "currency",
+            currency: "INR",
+            maximumFractionDigits: 2
+        }).format(value);
+
+    let discountHtml = "";
+
+    if (hasMrp && hasSellingPrice && mrp > 0 && sellingPrice < mrp) {
+        const discount = Math.round(((mrp - sellingPrice) / mrp) * 100);
+        discountHtml = `<span class="pdp-price-discount">${discount}% OFF</span>`;
+    }
+
+    return `
+        <div class="pdp-pricing" aria-label="Product pricing">
+            ${hasMrp ? `
+                <div class="pdp-price-mrp">
+                    <span class="pdp-price-label">MRP</span>
+                    <span class="pdp-price-value">${formatPrice(mrp)}</span>
+                </div>
+            ` : ""}
+            ${hasSellingPrice ? `
+                <div class="pdp-price-selling">
+                    <span class="pdp-price-label">Selling Price</span>
+                    <span class="pdp-price-value">${formatPrice(sellingPrice)}</span>
+                    ${discountHtml}
+                </div>
+            ` : ""}
+        </div>
+    `;
+}
+
+    // ======================================================
     // PRODUCT DETAIL
     // ======================================================
 
 async hydrateProductPage() {
 
     const slug = Utils.currentSlug();
+    const product = await API.productBySlug(slug);
 
-const product =
-    await API.productBySlug(slug);
+    if (!product) return;
 
-Breadcrumb.render(
-    product.product_name,
-    [
-        {
-            title: "Products",
-            url: "/${LANG}/products.html"
-        }
-    ]
-);
+    const brand = await API.brandById(product.brand_id);
+    const category = await API.categoryById(product.category_id);
 
-if (!product) return;
+    const breadcrumbItems = [
+        { title: "Products", url: `/${LANG}/products.html` }
+    ];
 
-Breadcrumb.render(
-    product.product_name,
-    [
-        {
-            title: "Products",
-            url: "/${LANG}/products.html"
-        }
-    ]
-);
+    if (category?.name && category?.slug) {
+        breadcrumbItems.push({
+            title: category.name,
+            url: `/${LANG}/categories/${category.slug}.html`
+        });
+    }
 
-const brand =
-    await API.brandById(
-        product.brand_id
-    );
+    if (brand?.name && brand?.slug) {
+        breadcrumbItems.push({
+            title: brand.name,
+            url: `/${LANG}/brands/${brand.slug}.html`
+        });
+    }
+
+    Breadcrumb.render(product.product_name, breadcrumbItems);
+
 
 const brandLogo =
     brand?.logo || "";
@@ -723,7 +769,9 @@ const vehiclesHtml =
                                 vehicle?.image ||
                                 '/assets/images/vehicle-placeholder.webp'
                             }"
-                            alt="${vehicleName}">
+                            alt="${vehicleName}"
+                            loading="lazy"
+                            decoding="async">
 
                     </div>
 
@@ -755,7 +803,9 @@ const galleryHtml = `
 
             <img
                 src="${brandLogo}"
-                alt="${brand.name}">
+                alt="${brand.name}"
+                loading="lazy"
+                decoding="async">
 
         </div>
         `
@@ -770,7 +820,9 @@ const galleryHtml = `
         <img
             id="pdpMainImage"
             src="${galleryImages[0]}"
-            alt="${product.product_name}">
+            alt="${product.product_name}"
+            ${Utils.responsiveImageAttrs(galleryImages[0], product.gallery_dimensions?.[product.gallery?.[0]], '(max-width: 768px) 92vw, 800px', 'eager')}
+        >
 
     </div>
 
@@ -791,7 +843,9 @@ const galleryHtml = `
 
                 <img
                     src="${img}"
-                    alt="${product.product_name}">
+                    alt="${product.product_name}"
+                    ${Utils.responsiveImageAttrs(img, product.gallery_dimensions?.[img], '96px', 'lazy')}
+                >
 
             </button>
 
@@ -847,6 +901,8 @@ ${galleryHtml}
                 ${product.id || ""}
 
             </div>
+
+            ${this.priceHtml(product)}
 
           <div class="pdp-meta">
 

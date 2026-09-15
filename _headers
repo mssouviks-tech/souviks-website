@@ -1,16 +1,14 @@
-# RFC 9727 API Catalog
-/.well-known/api-catalog
-  Content-Type: application/linkset+json
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
 
-# Early Hints: critical homepage stylesheet
-/
-  Link: </assets/css/style.css>; rel=preload; as=style
+/assets/*
+  Cache-Control: public, max-age=2592000
 
-/en/
-  Link: </assets/css/style.css>; rel=preload; as=style
+/assets/data/*
+  Cache-Control: public, max-age=300, must-revalidate
 
-/hi/
-  Link: </assets/css/style.css>; rel=preload; as=style
-
-/bn/
-  Link: </assets/css/style.css>; rel=preload; as=style
+/ads.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400

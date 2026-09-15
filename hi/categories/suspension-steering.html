@@ -38,11 +38,6 @@ Reusable Head Component
     <meta
         name="description"
         content="">
-
-    <meta
-        name="keywords"
-        content="">
-
     <meta
         name="author"
         content="Souviks">
@@ -57,7 +52,7 @@ Reusable Head Component
 
 <link
     rel="canonical"
-    href="">
+    href="https://www.souviks.co.in/hi/categories/suspension-steering.html">
 
 <!-- ==========================================
      HREFLANG
@@ -96,18 +91,6 @@ Reusable Head Component
     rel="apple-touch-icon"
     href="/assets/favicon/apple-touch-icon.png">
 
-    <!-- ==========================================
-         FAVICONS
-    =========================================== -->
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="/assets/favicon/favicon-32x32.png">
-
-    <link
-        rel="apple-touch-icon"
-        href="/assets/favicon/apple-touch-icon.png">
 
     <!-- ==========================================
          THEME COLOR
@@ -135,11 +118,15 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og-image.png">
+    content="">
+
+    <meta
+    property="og:image:alt"
+    content="">
 
     <meta
         property="og:url"
-        content="">
+        content="https://www.souviks.co.in/hi/categories/suspension-steering.html">
 
     <meta
         property="og:site_name"
@@ -167,11 +154,15 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og-image.png">
+    content="">
+
+    <meta
+    name="twitter:image:alt"
+    content="">
 
     <meta
         name="twitter:url"
-        content="">
+        content="https://www.souviks.co.in/hi/categories/suspension-steering.html">
 
     <!-- ==========================================
          GOOGLE FONTS
@@ -196,7 +187,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/site.css">
 
 
 
@@ -365,7 +356,8 @@ Reusable Head Component
                 <a
                     id="topSignIn"
                     href="/hi/login.html"
-                    class="top-signin">
+                    class="top-signin"
+                    data-auth-open="login">
 
                     साइन इन
 
@@ -424,6 +416,292 @@ Reusable Head Component
                         </button>
 
                     </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 AUTHENTICATION MODAL
+            =================================================== -->
+
+            <div
+                id="authModal"
+                class="auth-modal"
+                hidden
+                aria-hidden="true">
+
+                <div
+                    class="auth-modal-backdrop"
+                    data-auth-close>
+                </div>
+
+                <div
+                    class="auth-modal-dialog"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="authModalTitle">
+
+                    <div class="auth-modal-header">
+
+                        <h2
+                            id="authModalTitle"
+                            class="auth-modal-title">
+
+                            साइन इन
+
+                        </h2>
+
+                        <button
+                            type="button"
+                            class="auth-modal-close"
+                            data-auth-close
+                            aria-label="Close">
+
+                            ×
+
+                        </button>
+
+                    </div>
+
+                    <div class="auth-modal-tabs">
+
+                        <button
+                            type="button"
+                            class="auth-modal-tab active"
+                            data-auth-tab="login">
+
+                            साइन इन
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="auth-modal-tab"
+                            data-auth-tab="register">
+
+                            अपना खाता बनाएं
+
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="authModalTranslations"
+                        hidden
+                        data-email-required="कृपया अपना ईमेल पता दर्ज करें।"
+                        data-password-required="कृपया अपना पासवर्ड दर्ज करें।"
+                        data-invalid-credentials="ईमेल या पासवर्ड गलत है।"
+                        data-email-not-confirmed="लॉग इन करने से पहले कृपया अपने ईमेल पते की पुष्टि करें।"
+                        data-too-many-attempts="बहुत अधिक लॉग इन प्रयास किए गए हैं। कृपया प्रतीक्षा करें और फिर प्रयास करें।"
+                        data-network-error="प्रमाणीकरण सेवा से कनेक्ट नहीं हो सका। कृपया पुनः प्रयास करें।"
+                        data-login-failed="लॉग इन पूरा नहीं हो सका। कृपया पुनः प्रयास करें।"
+                        data-authentication-unavailable="प्रमाणीकरण सेवा उपलब्ध नहीं है। कृपया बाद में पुनः प्रयास करें।"
+                        data-something-went-wrong="कुछ गलत हो गया। कृपया पुनः प्रयास करें।"
+                        data-full-name-required="कृपया अपना पूरा नाम दर्ज करें।"
+                        data-password-create-required="कृपया एक पासवर्ड दर्ज करें।"
+                        data-password-min-length="पासवर्ड कम से कम 6 अक्षरों का होना चाहिए।"
+                        data-password-mismatch="पासवर्ड मेल नहीं खाते।"
+                        data-registration-failed="आपका खाता नहीं बनाया जा सका। कृपया पुनः प्रयास करें।"
+                        data-account-exists="इस ईमेल पते से पहले से एक खाता मौजूद है।"
+                        data-registration-success="खाता सफलतापूर्वक बनाया गया। कृपया अपना खाता सत्यापित करने के लिए अपना ईमेल देखें।">
+
+                    </div>
+
+                    <section
+                        id="authModalLoginPanel"
+                        class="auth-modal-panel">
+
+                        <form
+                            id="authModalLoginForm"
+                            class="auth-form"
+                            novalidate>
+
+                            <div class="form-group">
+
+                                <label for="authModalLoginEmail">
+                                    ईमेल
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="authModalLoginEmail"
+                                    name="email"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalLoginPassword">
+                                    पासवर्ड
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalLoginPassword"
+                                    name="password"
+                                    autocomplete="current-password"
+                                    required>
+
+                            </div>
+
+                            <div class="auth-forgot-password">
+
+                                <a
+                                    href="/hi/forgot-password.html">
+
+                                    पासवर्ड भूल गए?
+
+                                </a>
+
+                            </div>
+
+                            <div
+                                id="authModalLoginStatus"
+                                class="form-status"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                            <div class="auth-form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary auth-submit">
+
+                                    साइन इन
+
+                                </button>
+
+                            </div>
+
+                            <p class="auth-modal-switch">
+
+                                क्या आपका खाता नहीं है?
+
+                                <button
+                                    type="button"
+                                    data-auth-tab="register">
+
+                                    अपना खाता बनाएं
+
+                                </button>
+
+                            </p>
+
+                        </form>
+
+                    </section>
+
+                    <section
+                        id="authModalRegisterPanel"
+                        class="auth-modal-panel"
+                        hidden>
+
+                        <form
+                            id="authModalRegisterForm"
+                            class="auth-form"
+                            novalidate>
+
+                            <div class="form-group">
+
+                                <label for="authModalFullName">
+                                    पूरा नाम
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="authModalFullName"
+                                    name="fullName"
+                                    autocomplete="name"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalRegisterEmail">
+                                    ईमेल
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="authModalRegisterEmail"
+                                    name="email"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalRegisterPassword">
+                                    पासवर्ड
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalRegisterPassword"
+                                    name="password"
+                                    autocomplete="new-password"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalConfirmPassword">
+                                    पासवर्ड की पुष्टि करें
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalConfirmPassword"
+                                    name="confirmPassword"
+                                    autocomplete="new-password"
+                                    required>
+
+                            </div>
+
+                            <div
+                                id="authModalRegisterStatus"
+                                class="form-status"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                            <div class="auth-form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary auth-submit">
+
+                                    अपना खाता बनाएं
+
+                                </button>
+
+                            </div>
+
+                            <p class="auth-modal-switch">
+
+                                क्या आपका पहले से खाता है?
+
+                                <button
+                                    type="button"
+                                    data-auth-tab="login">
+
+                                    साइन इन
+
+                                </button>
+
+                            </p>
+
+                        </form>
+
+                    </section>
 
                 </div>
 
@@ -1018,6 +1296,13 @@ CATEGORY PRODUCTS
 
                 </a>
 
+                <a href="https://x.com/mssouviks"
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Souviks on X">
+                    <span aria-hidden="true">X</span>
+                </a>
+
             </div>
 
         </div>
@@ -1346,99 +1631,21 @@ window.souviks = {
 
 
 <!-- ==========================================
-     SUPABASE
+     THIRD-PARTY AUTH PROVIDER
 ========================================== -->
 
 <script
+    defer
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
 </script>
 
-<script
-    src="/assets/js/auth/supabase.js">
-</script>
-
-<script
-    src="/assets/js/auth/register.js">
-</script>
-
-<script
-    src="/assets/js/auth/auth-state.js">
-</script>
-
-<script
-    src="/assets/js/auth/logout.js">
-</script>
-
-
 <!-- ==========================================
-     GLOBAL JAVASCRIPT
+     CONSOLIDATED SITE JAVASCRIPT
 ========================================== -->
 
 <script
-    src="/assets/js/utils.js">
-</script>
-
-<script
-    src="/assets/js/api.js">
-</script>
-
-<script
-    src="/assets/js/saved-products.js">
-</script>
-
-<script
-    src="/assets/js/products.js">
-</script>
-
-<script
-    src="/assets/js/brands.js">
-</script>
-
-<script
-    src="/assets/js/categories.js">
-</script>
-
-<script
-    src="/assets/js/vehicles.js">
-</script>
-
-
-<script
-    src="/assets/js/search.js">
-</script>
-
-<script
-    src="/assets/js/filters.js">
-</script>
-
-<script
-    src="/assets/js/pagination.js">
-</script>
-
-<script
-    src="/assets/js/breadcrumb.js">
-</script>
-
-<script
-    src="/assets/js/language-switcher.js">
-</script>
-
-<script
-    src="/assets/js/rfq.js">
-</script>
-
-
-<script
-    src="/assets/js/main.js">
-</script>
-
-
-<!-- ==========================================
-     EMAILJS
-========================================== -->
-
-<script
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    defer
+    src="/assets/js/app.js">
 </script>
 
 
@@ -1446,7 +1653,7 @@ window.souviks = {
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script src="/assets/js/pages/category-page.js"></script>
+<script defer src="/assets/js/pages/category-page.js"></script>
 
 
 <!-- ==========================================

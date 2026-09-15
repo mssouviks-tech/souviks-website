@@ -1074,3 +1074,237 @@
     }
 
 }
+
+/* ==========================================================
+   MOBILE-FIRST HARDENING
+   Prevent horizontal overflow and improve touch layouts.
+========================================================== */
+
+@media (max-width: 768px) {
+
+    img,
+    svg,
+    video,
+    iframe {
+        max-width: 100%;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        max-width: 100%;
+    }
+
+    .btn,
+    button,
+    .top-item,
+    .top-signin,
+    .top-user-button {
+        min-height: 44px;
+    }
+
+    .page-header {
+        padding: 42px 0 34px;
+    }
+
+    .page-header h1 {
+        font-size: clamp(1.75rem, 7vw, 2.4rem);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .product-layout,
+    .pdp-hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .product-gallery,
+    .product-summary,
+    .product-description,
+    .vehicle-applications {
+        min-width: 0;
+        padding: 18px;
+    }
+
+    .product-title,
+    .pdp-title {
+        font-size: clamp(1.55rem, 7vw, 2.15rem);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .product-part-number,
+    .pdp-part {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .product-actions,
+    .pdp-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .product-actions .btn,
+    .pdp-actions .btn {
+        width: 100%;
+    }
+
+    .product-meta-item,
+    .pdp-row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .product-meta-value,
+    .pdp-row > span {
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        text-align: right;
+    }
+
+    .specifications-table,
+    .pdp-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .auth-section .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .auth-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .auth-form input,
+    .auth-form select,
+    .auth-form textarea {
+        width: 100%;
+        min-width: 0;
+        font-size: 16px;
+    }
+
+    .auth-form-actions .btn {
+        width: 100%;
+    }
+
+    .top-bar .container {
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .top-bar-tools {
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .top-bar-tools .top-item,
+    .top-bar-tools .top-signin,
+    .top-bar-tools .top-user-button {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .auth-modal {
+        padding: max(8px, env(safe-area-inset-top)) 8px max(8px, env(safe-area-inset-bottom));
+        align-items: center;
+    }
+
+    .auth-modal-dialog {
+        width: min(100%, 520px);
+        max-height: calc(100dvh - 16px);
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .auth-modal-header {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .auth-modal-title {
+        font-size: clamp(1.2rem, 6vw, 1.5rem);
+        overflow-wrap: anywhere;
+    }
+
+    .auth-modal-tabs {
+        gap: 5px;
+        margin-bottom: 18px;
+    }
+
+    .auth-modal-tab {
+        min-height: 44px;
+        padding: 9px 8px;
+        font-size: .9rem;
+    }
+
+    .auth-modal-close {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .section-spacing,
+    .catalogue-search,
+    .category-directory,
+    .brand-directory,
+    .vehicle-directory,
+    .product-directory,
+    .catalogue-products {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .top-bar .container {
+        gap: 6px;
+    }
+
+    .top-logo img {
+        height: 32px;
+    }
+
+    .language-button {
+        max-width: 44px;
+        padding: .55rem .65rem;
+    }
+
+    .language-text,
+    .language-label {
+        display: none;
+    }
+
+    .top-bar-tools .top-whatsapp {
+        max-width: 44px;
+        padding: 10px;
+        font-size: 0;
+    }
+
+    .top-bar-tools .top-whatsapp .top-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .pdp-pricing {
+        padding: 13px;
+    }
+
+    .pdp-price-discount {
+        font-size: .7rem;
+        padding: 4px 8px;
+    }
+}

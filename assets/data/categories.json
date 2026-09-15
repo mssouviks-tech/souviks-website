@@ -6,6 +6,10 @@
         "short_name": "Filters",
         "icon": "/assets/images/categories/filters.png",
         "image": "/assets/images/categories/filters.png",
+        "image_dimensions": [
+            1536,
+            1024
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -203,11 +207,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/filters"
+            "canonical": "https://www.souviks.co.in/en/categories/filters.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.648839",
+        "updated_at": "2026-09-15T09:07:31.648839"
     },
     {
         "id": "fasteners-hardware",
@@ -216,6 +220,10 @@
         "short_name": "Fasteners & Hardware",
         "icon": "/assets/images/categories/fasteners-hardware.png",
         "image": "/assets/images/categories/fasteners-hardware.png",
+        "image_dimensions": [
+            1254,
+            1254
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -382,11 +390,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/fasteners-hardware"
+            "canonical": "https://www.souviks.co.in/en/categories/fasteners-hardware.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.648839",
+        "updated_at": "2026-09-15T09:07:31.648839"
     },
     {
         "id": "air-system",
@@ -395,6 +403,10 @@
         "short_name": "Air System",
         "icon": "/assets/images/categories/air-system.png",
         "image": "/assets/images/categories/air-system.png",
+        "image_dimensions": [
+            1254,
+            1254
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -548,11 +560,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/air-system"
+            "canonical": "https://www.souviks.co.in/en/categories/air-system.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.648839",
+        "updated_at": "2026-09-15T09:07:31.648839"
     },
     {
         "id": "suspension-steering",
@@ -561,6 +573,10 @@
         "short_name": "Suspension & Steering",
         "icon": "/assets/images/categories/suspension-steering.png",
         "image": "/assets/images/categories/suspension-steering.png",
+        "image_dimensions": [
+            1254,
+            1254
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -1120,11 +1136,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/suspension-steering"
+            "canonical": "https://www.souviks.co.in/en/categories/suspension-steering.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.650346",
+        "updated_at": "2026-09-15T09:07:31.650346"
     },
     {
         "id": "electricals",
@@ -1133,6 +1149,10 @@
         "short_name": "Electricals",
         "icon": "/assets/images/categories/electricals.png",
         "image": "/assets/images/categories/electricals.png",
+        "image_dimensions": [
+            1254,
+            1254
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -1488,11 +1508,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/electricals"
+            "canonical": "https://www.souviks.co.in/en/categories/electricals.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.650346",
+        "updated_at": "2026-09-15T09:07:31.650346"
     },
     {
         "id": "brakes",
@@ -1501,6 +1521,10 @@
         "short_name": "Brakes",
         "icon": "/assets/images/categories/brakes.png",
         "image": "/assets/images/categories/brakes.png",
+        "image_dimensions": [
+            1536,
+            1024
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -1680,11 +1704,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/brakes"
+            "canonical": "https://www.souviks.co.in/en/categories/brakes.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.650346",
+        "updated_at": "2026-09-15T09:07:31.650346"
     },
     {
         "id": "engine-components",
@@ -1693,6 +1717,10 @@
         "short_name": "Engine Components",
         "icon": "/assets/images/categories/engine-components.png",
         "image": "/assets/images/categories/engine-components.png",
+        "image_dimensions": [
+            1254,
+            1254
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -1818,11 +1846,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/engine-components"
+            "canonical": "https://www.souviks.co.in/en/categories/engine-components.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.650346",
+        "updated_at": "2026-09-15T09:07:31.650346"
     },
     {
         "id": "bearings",
@@ -1831,6 +1859,10 @@
         "short_name": "Bearings",
         "icon": "/assets/images/categories/bearings.png",
         "image": "/assets/images/categories/bearings.png",
+        "image_dimensions": [
+            1536,
+            1024
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -2046,11 +2078,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/bearings"
+            "canonical": "https://www.souviks.co.in/en/categories/bearings.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.650346",
+        "updated_at": "2026-09-15T09:07:31.650346"
     },
     {
         "id": "rubber-parts",
@@ -2059,6 +2091,10 @@
         "short_name": "Rubber Parts",
         "icon": "/assets/images/categories/rubber-parts.png",
         "image": "/assets/images/categories/rubber-parts.png",
+        "image_dimensions": [
+            1254,
+            1254
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -2176,11 +2212,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/rubber-parts"
+            "canonical": "https://www.souviks.co.in/en/categories/rubber-parts.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.650346",
+        "updated_at": "2026-09-15T09:07:31.650346"
     },
     {
         "id": "clutch-parts",
@@ -2189,6 +2225,10 @@
         "short_name": "Clutch Parts",
         "icon": "/assets/images/categories/clutch-parts.png",
         "image": "/assets/images/categories/clutch-parts.png",
+        "image_dimensions": [
+            1536,
+            1024
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -2433,11 +2473,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/clutch-parts"
+            "canonical": "https://www.souviks.co.in/en/categories/clutch-parts.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.650346",
+        "updated_at": "2026-09-15T09:07:31.650346"
     },
     {
         "id": "lubricants",
@@ -2446,6 +2486,10 @@
         "short_name": "Lubricants",
         "icon": "/assets/images/categories/lubricants.png",
         "image": "/assets/images/categories/lubricants.png",
+        "image_dimensions": [
+            1254,
+            1254
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -2582,11 +2626,11 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/lubricants"
+            "canonical": "https://www.souviks.co.in/en/categories/lubricants.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.650346",
+        "updated_at": "2026-09-15T09:07:31.650346"
     },
     {
         "id": "cooling-system",
@@ -2595,6 +2639,10 @@
         "short_name": "Cooling System",
         "icon": "/assets/images/categories/cooling-system.png",
         "image": "/assets/images/categories/cooling-system.png",
+        "image_dimensions": [
+            1254,
+            1254
+        ],
         "banner": "",
         "description": "",
         "short_description": "",
@@ -2660,10 +2708,10 @@
                 "commercial vehicle spare parts",
                 "truck spare parts"
             ],
-            "canonical": "https://www.souviks.co.in/categories/cooling-system"
+            "canonical": "https://www.souviks.co.in/en/categories/cooling-system.html"
         },
         "schema": {},
-        "created_at": "2026-09-14T12:32:30.005033",
-        "updated_at": "2026-09-14T12:32:30.005033"
+        "created_at": "2026-09-15T09:07:31.650346",
+        "updated_at": "2026-09-15T09:07:31.650346"
     }
 ]
