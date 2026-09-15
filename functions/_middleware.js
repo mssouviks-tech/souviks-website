@@ -205,7 +205,25 @@ function ardResponse() {
 }
 
 export async function onRequest(context) {
-    const pathname = new URL(context.request.url).pathname;
+    const requestUrl = new URL(context.request.url);
+    const pathname = requestUrl.pathname;
+
+    // Canonicalise the bare domain at the edge. This cannot be done with
+    // the Pages _redirects file because host-based sources must use a
+    // Cloudflare Redirect Rule. Keeping it here makes the repository
+    // deployment self-contained and preserves the request path/query.
+    if (requestUrl.hostname === "souviks.co.in") {
+        const target = new URL(requestUrl);
+        target.hostname = "www.souviks.co.in";
+
+        return new Response(null, {
+            status: 301,
+            headers: {
+                Location: target.toString(),
+                "Cache-Control": "public, max-age=300"
+            }
+        });
+    }
 
     if (pathname === "/.well-known/ai-catalog.json") {
         return ardResponse();
