@@ -13,7 +13,8 @@ body.auth-modal-open {
 .auth-modal {
     position: fixed;
     inset: 0;
-    z-index: 5000;
+    z-index: 2147483000;
+    isolation: isolate;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +30,7 @@ body.auth-modal-open {
 
 .auth-modal-dialog {
     position: relative;
-    z-index: 1;
+    z-index: 20001;
     width: min(100%, 520px);
     max-height: min(720px, calc(100vh - 48px));
     overflow-y: auto;

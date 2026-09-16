@@ -6,8 +6,8 @@
         "short_name": "Fleetguard",
         "logo": "/assets/images/brands/fleetguard.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -96,8 +96,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/fleetguard.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "tvs-girling",
@@ -106,8 +106,8 @@
         "short_name": "TVS Girling",
         "logo": "/assets/images/brands/tvs-girling.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -123,7 +123,6 @@
             "electricals",
             "fasteners-hardware",
             "lubricants",
-            "rubber-parts",
             "suspension-steering"
         ],
         "subcategories": [
@@ -140,7 +139,6 @@
             "clutch-slave-cylinder",
             "lock-nut",
             "nut",
-            "o-ring",
             "radiator",
             "rotor",
             "spring-washer",
@@ -149,6 +147,7 @@
         ],
         "vehicles": [
             "Ashok Leyland 2516",
+            "Eicher Pro Series",
             "Tata 1109",
             "Tata 1210",
             "Tata 1312",
@@ -259,13 +258,13 @@
             "SVKS000483",
             "SVKS000484",
             "SVKS000485",
+            "SVKS000668",
             "SVKS000804",
             "SVKS000805",
             "SVKS000806",
             "SVKS000807",
             "SVKS000808",
             "SVKS000809",
-            "SVKS000810",
             "SVKS000811",
             "SVKS000812",
             "SVKS000813",
@@ -288,8 +287,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/tvs-girling.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "roots",
@@ -298,8 +297,8 @@
         "short_name": "Roots",
         "logo": "/assets/images/brands/roots.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -348,8 +347,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/roots.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "gs",
@@ -358,8 +357,8 @@
         "short_name": "GS",
         "logo": "/assets/images/brands/gs.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -439,8 +438,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/gs.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "spicer",
@@ -449,8 +448,8 @@
         "short_name": "Spicer",
         "logo": "/assets/images/brands/spicer.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -498,8 +497,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/spicer.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "tata-genuine-parts",
@@ -508,8 +507,8 @@
         "short_name": "Tata Genuine Parts",
         "logo": "/assets/images/brands/tata-genuine-parts.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -688,8 +687,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/tata-genuine-parts.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "harish",
@@ -698,8 +697,8 @@
         "short_name": "Harish",
         "logo": "/assets/images/brands/harish.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -797,8 +796,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/harish.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "rider",
@@ -807,8 +806,8 @@
         "short_name": "Rider",
         "logo": "/assets/images/brands/rider.png",
         "logo_dimensions": [
-            447,
-            447
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -862,8 +861,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/rider.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "anupam",
@@ -872,8 +871,8 @@
         "short_name": "Anupam",
         "logo": "/assets/images/brands/anupam.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -930,8 +929,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/anupam.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "unominda",
@@ -940,8 +939,8 @@
         "short_name": "UnoMinda",
         "logo": "/assets/images/brands/unominda.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1040,8 +1039,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/unominda.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "ask",
@@ -1050,8 +1049,8 @@
         "short_name": "ASK",
         "logo": "/assets/images/brands/ask.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1113,8 +1112,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/ask.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "abc",
@@ -1123,8 +1122,8 @@
         "short_name": "ABC",
         "logo": "/assets/images/brands/abc.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1160,8 +1159,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/abc.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "alok",
@@ -1170,8 +1169,8 @@
         "short_name": "Alok",
         "logo": "/assets/images/brands/alok.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1213,8 +1212,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/alok.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "valvoline",
@@ -1223,8 +1222,8 @@
         "short_name": "Valvoline",
         "logo": "/assets/images/brands/valvoline.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1266,8 +1265,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/valvoline.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "nirmal",
@@ -1276,8 +1275,8 @@
         "short_name": "Nirmal",
         "logo": "/assets/images/brands/nirmal.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1343,8 +1342,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/nirmal.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "bgl",
@@ -1353,8 +1352,8 @@
         "short_name": "BGL",
         "logo": "/assets/images/brands/bgl.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1412,8 +1411,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/bgl.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "bosch",
@@ -1422,8 +1421,8 @@
         "short_name": "Bosch",
         "logo": "/assets/images/brands/bosch.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1517,8 +1516,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/bosch.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "motherson",
@@ -1527,8 +1526,8 @@
         "short_name": "Motherson",
         "logo": "/assets/images/brands/motherson.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1566,8 +1565,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/motherson.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "msl",
@@ -1576,8 +1575,8 @@
         "short_name": "MSL",
         "logo": "/assets/images/brands/msl.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1616,8 +1615,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/msl.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "compo",
@@ -1626,8 +1625,8 @@
         "short_name": "Compo",
         "logo": "/assets/images/brands/compo.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1665,8 +1664,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/compo.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "comet",
@@ -1675,8 +1674,8 @@
         "short_name": "Comet",
         "logo": "/assets/images/brands/comet.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1712,8 +1711,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/comet.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "jmp",
@@ -1722,8 +1721,8 @@
         "short_name": "JMP",
         "logo": "/assets/images/brands/jmp.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1818,8 +1817,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/jmp.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "leyparts",
@@ -1828,8 +1827,8 @@
         "short_name": "Leyparts",
         "logo": "/assets/images/brands/leyparts.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1924,8 +1923,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/leyparts.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "fenner",
@@ -1934,8 +1933,8 @@
         "short_name": "Fenner",
         "logo": "/assets/images/brands/fenner.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -1974,8 +1973,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/fenner.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "hp",
@@ -1984,8 +1983,8 @@
         "short_name": "HP",
         "logo": "/assets/images/brands/hp.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2033,8 +2032,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/hp.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "meritor",
@@ -2043,8 +2042,8 @@
         "short_name": "Meritor",
         "logo": "/assets/images/brands/meritor.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2095,8 +2094,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/meritor.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "phoenix",
@@ -2105,8 +2104,8 @@
         "short_name": "Phoenix",
         "logo": "/assets/images/brands/phoenix.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2154,8 +2153,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/phoenix.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "jai",
@@ -2164,8 +2163,8 @@
         "short_name": "JAI",
         "logo": "/assets/images/brands/jai.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2325,8 +2324,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/jai.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "kfl",
@@ -2335,8 +2334,8 @@
         "short_name": "KFL",
         "logo": "/assets/images/brands/kfl.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2432,8 +2431,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/kfl.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.622339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "mahle",
@@ -2442,8 +2441,8 @@
         "short_name": "Mahle",
         "logo": "/assets/images/brands/mahle.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2501,8 +2500,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/mahle.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.622339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "neolite",
@@ -2511,8 +2510,8 @@
         "short_name": "NeoLite",
         "logo": "/assets/images/brands/neolite.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2581,8 +2580,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/neolite.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "nbc",
@@ -2591,8 +2590,8 @@
         "short_name": "NBC",
         "logo": "/assets/images/brands/nbc.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2629,8 +2628,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/nbc.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "mei",
@@ -2639,8 +2638,8 @@
         "short_name": "MEI",
         "logo": "/assets/images/brands/mei.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2695,8 +2694,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/mei.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "manu",
@@ -2705,8 +2704,8 @@
         "short_name": "Manu",
         "logo": "/assets/images/brands/manu.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2748,8 +2747,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/manu.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "ci",
@@ -2796,8 +2795,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/ci.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "philips",
@@ -2806,8 +2805,8 @@
         "short_name": "Philips",
         "logo": "/assets/images/brands/philips.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2843,8 +2842,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/philips.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "pix",
@@ -2853,8 +2852,8 @@
         "short_name": "Pix",
         "logo": "/assets/images/brands/pix.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2919,8 +2918,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/pix.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "rane",
@@ -2929,8 +2928,8 @@
         "short_name": "Rane",
         "logo": "/assets/images/brands/rane.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -2985,8 +2984,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/rane.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "sargun",
@@ -3037,8 +3036,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/sargun.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "amw",
@@ -3047,8 +3046,8 @@
         "short_name": "AMW",
         "logo": "/assets/images/brands/amw.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3084,8 +3083,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/amw.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "skf",
@@ -3094,8 +3093,8 @@
         "short_name": "SKF",
         "logo": "/assets/images/brands/skf.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3135,8 +3134,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/skf.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "texspin",
@@ -3145,8 +3144,8 @@
         "short_name": "Texspin",
         "logo": "/assets/images/brands/texspin.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3294,8 +3293,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/texspin.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "tata-autocomp",
@@ -3304,8 +3303,8 @@
         "short_name": "Tata AutoComp",
         "logo": "/assets/images/brands/tata-autocomp.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3345,8 +3344,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/tata-autocomp.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "timken",
@@ -3355,8 +3354,8 @@
         "short_name": "Timken",
         "logo": "/assets/images/brands/timken.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3401,8 +3400,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/timken.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "everest",
@@ -3411,8 +3410,8 @@
         "short_name": "Everest",
         "logo": "/assets/images/brands/everest.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3449,8 +3448,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/everest.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "wabco",
@@ -3459,8 +3458,8 @@
         "short_name": "WABCO",
         "logo": "/assets/images/brands/wabco.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3470,11 +3469,13 @@
         "product_count": 21,
         "categories": [
             "air-system",
-            "electricals"
+            "electricals",
+            "rubber-parts"
         ],
         "subcategories": [
             "air-compressor",
             "air-repair-kit",
+            "o-ring",
             "stop-light-switch"
         ],
         "vehicles": [
@@ -3506,7 +3507,7 @@
             "SVKS000582",
             "SVKS000583",
             "SVKS000584",
-            "SVKS000668",
+            "SVKS000810",
             "SVKS000864",
             "SVKS000865",
             "SVKS000866",
@@ -3533,8 +3534,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/wabco.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "lucas-tvs",
@@ -3543,8 +3544,8 @@
         "short_name": "Lucas TVS",
         "logo": "/assets/images/brands/lucas-tvs.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3606,8 +3607,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/lucas-tvs.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "autoply",
@@ -3653,8 +3654,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/autoply.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "bapi",
@@ -3663,8 +3664,8 @@
         "short_name": "Bapi",
         "logo": "/assets/images/brands/bapi.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3711,8 +3712,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/bapi.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "gulf",
@@ -3721,8 +3722,8 @@
         "short_name": "Gulf",
         "logo": "/assets/images/brands/gulf.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3761,8 +3762,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/gulf.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "luk",
@@ -3805,8 +3806,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/luk.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "rki",
@@ -3815,8 +3816,8 @@
         "short_name": "RKI",
         "logo": "/assets/images/brands/rki.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3908,8 +3909,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/rki.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "setco",
@@ -3918,8 +3919,8 @@
         "short_name": "Setco",
         "logo": "/assets/images/brands/setco.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -3975,8 +3976,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/setco.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "varroc",
@@ -4048,8 +4049,8 @@
             "canonical": "https://www.souviks.co.in/en/brands/varroc.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     },
     {
         "id": "toyo",
@@ -4058,8 +4059,8 @@
         "short_name": "Toyo",
         "logo": "/assets/images/brands/toyo.png",
         "logo_dimensions": [
-            600,
-            300
+            400,
+            400
         ],
         "banner": "",
         "website": "",
@@ -4114,7 +4115,7 @@
             "canonical": "https://www.souviks.co.in/en/brands/toyo.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.623339",
-        "updated_at": "2026-09-15T09:07:31.623339"
+        "created_at": "2026-09-16T14:26:55.104374",
+        "updated_at": "2026-09-16T14:26:55.104374"
     }
 ]

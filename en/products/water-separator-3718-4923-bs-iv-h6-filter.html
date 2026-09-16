@@ -37,7 +37,7 @@ Reusable Head Component
 
     <meta
         name="description"
-        content="Buy Water Separator 3718, 4923 BS IV H6   (filter) from Souviks. Part Number: .">
+        content="Buy Water Separator 3718, 4923 BS IV H6   (filter) from Souviks. Part Number: FS1003.">
     <meta
         name="author"
         content="Souviks">
@@ -187,7 +187,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/site.css">
+        href="/assets/css/style.css">
 
 
 
@@ -211,6 +211,7 @@ Reusable Head Component
     "https://www.souviks.co.in/assets/images/products/SVKS000876/Water%20Separator%203718%2C%204923%20BS%20IV%20H6%20%28filter%29.webp"
   ],
   "sku": "SVKS000876",
+  "mpn": "FS1003",
   "brand": {
     "@type": "Brand",
     "name": "Fleetguard"
@@ -1605,13 +1606,29 @@ window.souviks = {
 </script>
 
 <!-- ==========================================
-     CONSOLIDATED SITE JAVASCRIPT
+     GLOBAL SITE JAVASCRIPT
+     Keep the existing modular script architecture.
 ========================================== -->
 
-<script
-    defer
-    src="/assets/js/app.js">
-</script>
+<script defer src="/assets/js/auth/supabase.js"></script>
+<script defer src="/assets/js/auth/register.js"></script>
+<script defer src="/assets/js/auth/auth-modal.js"></script>
+<script defer src="/assets/js/auth/auth-state.js"></script>
+<script defer src="/assets/js/auth/logout.js"></script>
+<script defer src="/assets/js/utils.js"></script>
+<script defer src="/assets/js/api.js"></script>
+<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/products.js"></script>
+<script defer src="/assets/js/brands.js"></script>
+<script defer src="/assets/js/categories.js"></script>
+<script defer src="/assets/js/vehicles.js"></script>
+<script defer src="/assets/js/search.js"></script>
+<script defer src="/assets/js/filters.js"></script>
+<script defer src="/assets/js/pagination.js"></script>
+<script defer src="/assets/js/breadcrumb.js"></script>
+<script defer src="/assets/js/language-switcher.js"></script>
+<script defer src="/assets/js/rfq.js"></script>
+<script defer src="/assets/js/main.js"></script>
 
 
 <!-- ==========================================

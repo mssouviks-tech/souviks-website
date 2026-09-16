@@ -7,8 +7,8 @@
         "icon": "/assets/images/categories/filters.png",
         "image": "/assets/images/categories/filters.png",
         "image_dimensions": [
-            1536,
-            1024
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -23,7 +23,7 @@
             {
                 "id": "filter-element",
                 "name": "Filter Element",
-                "count": 10
+                "count": 9
             },
             {
                 "id": "oil-filter",
@@ -43,7 +43,7 @@
             {
                 "id": "fuel-water-separator",
                 "name": "Fuel Water Separator",
-                "count": 12
+                "count": 13
             },
             {
                 "id": "filter-housing",
@@ -210,8 +210,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/filters.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.648839",
-        "updated_at": "2026-09-15T09:07:31.648839"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "fasteners-hardware",
@@ -221,8 +221,8 @@
         "icon": "/assets/images/categories/fasteners-hardware.png",
         "image": "/assets/images/categories/fasteners-hardware.png",
         "image_dimensions": [
-            1254,
-            1254
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -393,8 +393,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/fasteners-hardware.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.648839",
-        "updated_at": "2026-09-15T09:07:31.648839"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "air-system",
@@ -404,8 +404,8 @@
         "icon": "/assets/images/categories/air-system.png",
         "image": "/assets/images/categories/air-system.png",
         "image_dimensions": [
-            1254,
-            1254
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -563,8 +563,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/air-system.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.648839",
-        "updated_at": "2026-09-15T09:07:31.648839"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "suspension-steering",
@@ -574,8 +574,8 @@
         "icon": "/assets/images/categories/suspension-steering.png",
         "image": "/assets/images/categories/suspension-steering.png",
         "image_dimensions": [
-            1254,
-            1254
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -1139,8 +1139,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/suspension-steering.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.650346",
-        "updated_at": "2026-09-15T09:07:31.650346"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "electricals",
@@ -1150,8 +1150,8 @@
         "icon": "/assets/images/categories/electricals.png",
         "image": "/assets/images/categories/electricals.png",
         "image_dimensions": [
-            1254,
-            1254
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -1511,8 +1511,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/electricals.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.650346",
-        "updated_at": "2026-09-15T09:07:31.650346"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "brakes",
@@ -1522,8 +1522,8 @@
         "icon": "/assets/images/categories/brakes.png",
         "image": "/assets/images/categories/brakes.png",
         "image_dimensions": [
-            1536,
-            1024
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -1707,8 +1707,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/brakes.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.650346",
-        "updated_at": "2026-09-15T09:07:31.650346"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "engine-components",
@@ -1718,8 +1718,8 @@
         "icon": "/assets/images/categories/engine-components.png",
         "image": "/assets/images/categories/engine-components.png",
         "image_dimensions": [
-            1254,
-            1254
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -1849,8 +1849,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/engine-components.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.650346",
-        "updated_at": "2026-09-15T09:07:31.650346"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "bearings",
@@ -1860,8 +1860,8 @@
         "icon": "/assets/images/categories/bearings.png",
         "image": "/assets/images/categories/bearings.png",
         "image_dimensions": [
-            1536,
-            1024
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -2081,8 +2081,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/bearings.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.650346",
-        "updated_at": "2026-09-15T09:07:31.650346"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "rubber-parts",
@@ -2092,8 +2092,8 @@
         "icon": "/assets/images/categories/rubber-parts.png",
         "image": "/assets/images/categories/rubber-parts.png",
         "image_dimensions": [
-            1254,
-            1254
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -2158,8 +2158,8 @@
                 "name": "Leyparts"
             },
             {
-                "id": "tvs-girling",
-                "name": "TVS Girling"
+                "id": "wabco",
+                "name": "WABCO"
             }
         ],
         "vehicles": [
@@ -2215,8 +2215,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/rubber-parts.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.650346",
-        "updated_at": "2026-09-15T09:07:31.650346"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "clutch-parts",
@@ -2226,8 +2226,8 @@
         "icon": "/assets/images/categories/clutch-parts.png",
         "image": "/assets/images/categories/clutch-parts.png",
         "image_dimensions": [
-            1536,
-            1024
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -2476,8 +2476,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/clutch-parts.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.650346",
-        "updated_at": "2026-09-15T09:07:31.650346"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "lubricants",
@@ -2487,8 +2487,8 @@
         "icon": "/assets/images/categories/lubricants.png",
         "image": "/assets/images/categories/lubricants.png",
         "image_dimensions": [
-            1254,
-            1254
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -2629,8 +2629,8 @@
             "canonical": "https://www.souviks.co.in/en/categories/lubricants.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.650346",
-        "updated_at": "2026-09-15T09:07:31.650346"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     },
     {
         "id": "cooling-system",
@@ -2640,8 +2640,8 @@
         "icon": "/assets/images/categories/cooling-system.png",
         "image": "/assets/images/categories/cooling-system.png",
         "image_dimensions": [
-            1254,
-            1254
+            400,
+            400
         ],
         "banner": "",
         "description": "",
@@ -2711,7 +2711,7 @@
             "canonical": "https://www.souviks.co.in/en/categories/cooling-system.html"
         },
         "schema": {},
-        "created_at": "2026-09-15T09:07:31.650346",
-        "updated_at": "2026-09-15T09:07:31.650346"
+        "created_at": "2026-09-16T14:26:55.143425",
+        "updated_at": "2026-09-16T14:26:55.143425"
     }
 ]

@@ -9,6 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!modal) return;
 
+    // Move the modal to <body> so it is outside the header/top-bar stacking
+    // context. This guarantees the fixed overlay can sit above catalogue
+    // search layers regardless of their z-index.
+    if (modal.parentElement !== document.body) {
+        document.body.appendChild(modal);
+    }
+
     const loginForm = document.getElementById("authModalLoginForm");
     const registerForm = document.getElementById("authModalRegisterForm");
     const loginPanel = document.getElementById("authModalLoginPanel");

@@ -187,7 +187,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/site.css">
+        href="/assets/css/style.css">
 
 
 
@@ -208,7 +208,11 @@ Reusable Head Component
   "name": "Battery (Terminal) Cable   440/.30mm",
   "url": "https://www.souviks.co.in/en/products/autoply-battery-terminal-cable-440-30mm.html",
   "image": [
-    "https://www.souviks.co.in/assets/images/products/SVKS000671/Battery%20%28Terminal%29%20Cable%20440%2F.30mm.webp"
+    "https://www.souviks.co.in/assets/images/products/SVKS000671/Battery%20%28Terminal%29%20Cable%20440%2F.30mm.webp",
+    "https://www.souviks.co.in/assets/images/products/SVKS000671/1.webp",
+    "https://www.souviks.co.in/assets/images/products/SVKS000671/2.webp",
+    "https://www.souviks.co.in/assets/images/products/SVKS000671/3.webp",
+    "https://www.souviks.co.in/assets/images/products/SVKS000671/4.webp"
   ],
   "sku": "SVKS000671",
   "brand": {
@@ -1605,13 +1609,29 @@ window.souviks = {
 </script>
 
 <!-- ==========================================
-     CONSOLIDATED SITE JAVASCRIPT
+     GLOBAL SITE JAVASCRIPT
+     Keep the existing modular script architecture.
 ========================================== -->
 
-<script
-    defer
-    src="/assets/js/app.js">
-</script>
+<script defer src="/assets/js/auth/supabase.js"></script>
+<script defer src="/assets/js/auth/register.js"></script>
+<script defer src="/assets/js/auth/auth-modal.js"></script>
+<script defer src="/assets/js/auth/auth-state.js"></script>
+<script defer src="/assets/js/auth/logout.js"></script>
+<script defer src="/assets/js/utils.js"></script>
+<script defer src="/assets/js/api.js"></script>
+<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/products.js"></script>
+<script defer src="/assets/js/brands.js"></script>
+<script defer src="/assets/js/categories.js"></script>
+<script defer src="/assets/js/vehicles.js"></script>
+<script defer src="/assets/js/search.js"></script>
+<script defer src="/assets/js/filters.js"></script>
+<script defer src="/assets/js/pagination.js"></script>
+<script defer src="/assets/js/breadcrumb.js"></script>
+<script defer src="/assets/js/language-switcher.js"></script>
+<script defer src="/assets/js/rfq.js"></script>
+<script defer src="/assets/js/main.js"></script>
 
 
 <!-- ==========================================
