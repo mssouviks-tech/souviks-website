@@ -1,77 +1,32 @@
 {
   "linkset": [
     {
-      "anchor": "https://www.souviks.co.in/assets/data/products.json",
-      "service-desc": [
+      "anchor": "https://www.souviks.co.in/.well-known/api-catalog",
+      "item": [
         {
-          "href": "https://www.souviks.co.in/openapi/catalog.json",
-          "type": "application/vnd.oai.openapi+json;version=3.0"
-        }
-      ],
-      "service-doc": [
+          "href": "https://www.souviks.co.in/assets/data/products.json",
+          "type": "application/json",
+          "title": "Souviks product catalogue"
+        },
         {
-          "href": "https://www.souviks.co.in/.well-known/service-documentation.html",
-          "type": "text/html"
-        }
-      ]
-    },
-    {
-      "anchor": "https://www.souviks.co.in/assets/data/brands.json",
-      "service-desc": [
+          "href": "https://www.souviks.co.in/assets/data/brands.json",
+          "type": "application/json",
+          "title": "Souviks brand catalogue"
+        },
         {
-          "href": "https://www.souviks.co.in/openapi/catalog.json",
-          "type": "application/vnd.oai.openapi+json;version=3.0"
-        }
-      ],
-      "service-doc": [
+          "href": "https://www.souviks.co.in/assets/data/categories.json",
+          "type": "application/json",
+          "title": "Souviks category catalogue"
+        },
         {
-          "href": "https://www.souviks.co.in/.well-known/service-documentation.html",
-          "type": "text/html"
-        }
-      ]
-    },
-    {
-      "anchor": "https://www.souviks.co.in/assets/data/categories.json",
-      "service-desc": [
+          "href": "https://www.souviks.co.in/assets/data/vehicles.json",
+          "type": "application/json",
+          "title": "Souviks vehicle catalogue"
+        },
         {
-          "href": "https://www.souviks.co.in/openapi/catalog.json",
-          "type": "application/vnd.oai.openapi+json;version=3.0"
-        }
-      ],
-      "service-doc": [
-        {
-          "href": "https://www.souviks.co.in/.well-known/service-documentation.html",
-          "type": "text/html"
-        }
-      ]
-    },
-    {
-      "anchor": "https://www.souviks.co.in/assets/data/vehicles.json",
-      "service-desc": [
-        {
-          "href": "https://www.souviks.co.in/openapi/catalog.json",
-          "type": "application/vnd.oai.openapi+json;version=3.0"
-        }
-      ],
-      "service-doc": [
-        {
-          "href": "https://www.souviks.co.in/.well-known/service-documentation.html",
-          "type": "text/html"
-        }
-      ]
-    },
-    {
-      "anchor": "https://www.souviks.co.in/assets/data/search.json",
-      "service-desc": [
-        {
-          "href": "https://www.souviks.co.in/openapi/catalog.json",
-          "type": "application/vnd.oai.openapi+json;version=3.0"
-        }
-      ],
-      "service-doc": [
-        {
-          "href": "https://www.souviks.co.in/.well-known/service-documentation.html",
-          "type": "text/html"
+          "href": "https://www.souviks.co.in/assets/data/search.json",
+          "type": "application/json",
+          "title": "Souviks search index"
         }
       ]
     }
