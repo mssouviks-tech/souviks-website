@@ -19,7 +19,17 @@ Version : 1.0
             return;
         }
 
-        const modelContext = navigator.modelContext;
+        const modelContext =
+            navigator.modelContext ||
+            document.modelContext;
+
+        if (
+            !modelContext ||
+            typeof modelContext.registerTool !== "function"
+        ) {
+            return;
+        }
+
         const controllers = [];
 
         const jsonResponse = (data) => ({
@@ -55,12 +65,25 @@ Version : 1.0
             const controller = new AbortController();
 
             try {
-                await modelContext.registerTool(
-                    tool,
-                    {
-                        signal: controller.signal
-                    }
-                );
+                if (
+                    navigator.modelContext &&
+                    typeof navigator.modelContext.registerTool ===
+                        "function"
+                ) {
+                    await navigator.modelContext.registerTool(
+                        tool,
+                        {
+                            signal: controller.signal
+                        }
+                    );
+                } else {
+                    await document.modelContext.registerTool(
+                        tool,
+                        {
+                            signal: controller.signal
+                        }
+                    );
+                }
 
                 controllers.push(controller);
 
