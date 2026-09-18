@@ -26,11 +26,9 @@ Breadcrumb.start(
 
 Breadcrumb.render("Vehicles");
 
-        renderVehicles(
-
-            Vehicles.vehicles
-
-        );
+        if (Vehicles.container?.dataset.staticRendered !== "true") {
+            renderVehicles(Vehicles.vehicles);
+        }
 
         updateCounters(
 

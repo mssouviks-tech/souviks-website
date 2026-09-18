@@ -1,45 +1,52 @@
 document.addEventListener(
     "DOMContentLoaded",
     () => {
+        const button = document.getElementById("mobileMenuButton");
+        const navigation = document.querySelector(".main-navigation");
+        const closeButton = document.getElementById("mobileNavigationClose");
 
-        const button =
-            document.getElementById(
-                "mobileMenuButton"
+        if (!button || !navigation) return;
+
+        const setNavigationState = isOpen => {
+            navigation.classList.toggle("active", isOpen);
+            button.setAttribute("aria-expanded", String(isOpen));
+            button.setAttribute(
+                "aria-label",
+                isOpen
+                    ? (button.dataset.closeLabel || "Close navigation")
+                    : (button.dataset.openLabel || "Open navigation")
             );
+            document.body.classList.toggle("mobile-navigation-open", isOpen);
+        };
 
-        const navigation =
-            document.getElementById(
-                "mobileNavigation"
-            );
+        button.dataset.openLabel = button.getAttribute("aria-label") || "Open navigation";
+        button.dataset.closeLabel = "Close navigation";
+        setNavigationState(false);
 
-        if (
-            !button ||
-            !navigation
-        ) {
-            return;
-        }
+        button.addEventListener("click", () => {
+            setNavigationState(!navigation.classList.contains("active"));
+        });
 
-        button.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+        closeButton?.addEventListener("click", () => {
+            setNavigationState(false);
+            button.focus();
+        });
 
-        button.addEventListener(
-            "click",
-            () => {
+        navigation.querySelectorAll(".navigation-menu a").forEach(link => {
+            link.addEventListener("click", () => setNavigationState(false));
+        });
 
-                const isOpen =
-                    navigation.classList.toggle(
-                        "active"
-                    );
-
-                button.setAttribute(
-                    "aria-expanded",
-                    isOpen
-                );
-
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && navigation.classList.contains("active")) {
+                setNavigationState(false);
+                button.focus();
             }
-        );
+        });
 
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 992 && navigation.classList.contains("active")) {
+                setNavigationState(false);
+            }
+        });
     }
 );

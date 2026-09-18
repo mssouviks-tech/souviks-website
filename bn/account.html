@@ -110,19 +110,19 @@ Reusable Head Component
 
     <meta
         property="og:title"
-        content="">
+        content="My Account | Souviks">
 
     <meta
         property="og:description"
-        content="">
+        content="Manage your Souviks account and profile.">
 
     <meta
     property="og:image"
-    content="">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
 
     <meta
     property="og:image:alt"
-    content="">
+    content="Account">
 
     <meta
         property="og:url"
@@ -134,7 +134,7 @@ Reusable Head Component
 
     <meta
         property="og:locale"
-        content="self.og_locale">
+        content="bn_IN">
 
     <!-- ==========================================
          TWITTER
@@ -146,19 +146,19 @@ Reusable Head Component
 
     <meta
         name="twitter:title"
-        content="">
+        content="My Account | Souviks">
 
     <meta
         name="twitter:description"
-        content="">
+        content="Manage your Souviks account and profile.">
 
     <meta
     name="twitter:image"
-    content="">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
 
     <meta
     name="twitter:image:alt"
-    content="">
+    content="Account">
 
     <meta
         name="twitter:url"
@@ -226,6 +226,7 @@ Reusable Head Component
     =========================================== -->
 
     
+
 
 </head>
 
@@ -404,13 +405,15 @@ Reusable Head Component
 
                     <div class="auth-modal-header">
 
-                        <h2
+                        <div
                             id="authModalTitle"
-                            class="auth-modal-title">
+                            class="auth-modal-title"
+                            role="heading"
+                            aria-level="2">
 
                             সাইন ইন
 
-                        </h2>
+                        </div>
 
                         <button
                             type="button"
@@ -736,6 +739,17 @@ Reusable Head Component
 
         </div>
 
+        <button
+            id="mobileMenuButton"
+            class="mobile-menu-button"
+            type="button"
+            aria-label="নেভিগেশন খুলুন"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
     </div>
 
 </div>
@@ -751,6 +765,18 @@ Reusable Head Component
             <nav
                 class="main-navigation"
                 aria-label="প্রধান নেভিগেশন">
+
+                <div class="mobile-navigation-header">
+                    <img
+                        src="/assets/logo/souviks-logo-white.png"
+                        alt="Souviks"
+                        class="mobile-navigation-logo">
+                    <button
+                        id="mobileNavigationClose"
+                        class="mobile-navigation-close"
+                        type="button"
+                        aria-label="Close Navigation">×</button>
+                </div>
 
                 <ul class="navigation-menu">
 
@@ -874,210 +900,14 @@ Reusable Head Component
 
                 
 
-            <!-- ==========================================
-                 MOBILE MENU BUTTON
-            =========================================== -->
-
-            <button
-                id="mobileMenuButton"
-                class="mobile-menu-button"
-                type="button"
-                aria-label="নেভিগেশন খুলুন">
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-            </button>
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- ==========================================================
-         MOBILE NAVIGATION
-    ========================================================== -->
-
-    <nav
-        id="mobileNavigation"
-        class="mobile-navigation"
-        aria-label="প্রধান নেভিগেশন">
-
-
-        <!-- ==========================================
-             NAVIGATION LINKS
-        =========================================== -->
-
-        <ul>
-
-            <li>
-
-                <a
-                    href="/bn/"
-                    class="">
-
-                    হোম
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/products.html"
-                    class="">
-
-                    পণ্যসমূহ
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/brands.html"
-                    class="">
-
-                    ব্র্যান্ডসমূহ
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/vehicles.html"
-                    class="">
-
-                    যানবাহন
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/categories.html"
-                    class="">
-
-                    বিভাগসমূহ
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/about.html"
-                    class="">
-
-                    আমাদের সম্পর্কে
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/contact.html"
-                    class="">
-
-                    যোগাযোগ
-
-                </a>
-
-            </li>
-
-        </ul>
-
-
-        <!-- ==========================================
-             MOBILE ACTIONS
-        =========================================== -->
-
-        <div class="mobile-navigation-actions">
-
-            <a
-                href="/bn/request-part.html"
-                class="btn btn-primary">
-
-                যন্ত্রাংশের অনুরোধ করুন
-
-            </a>
-
-            <a
-                href="/bn/request-quote.html"
-                class="btn btn-secondary">
-
-                RFQ ঝুড়ি
-
-                <span class="rfq-badge">
-
-                    0
-
-                </span>
-
-            </a>
-
-
-            
-
-
-        <!-- ==========================================
-             MOBILE CONTACT
-        =========================================== -->
-
-        <div class="mobile-navigation-contact">
-
-            <a
-                href="tel:+919434331896"
-                class="mobile-phone">
-
-                <img
-                    src="/assets/icons/phone.svg"
-                    alt="ফোন"
-                    class="mobile-icon">
-
-                <span>
-
-                    +91 94343 31896
-
-                </span>
-
-            </a>
-
-            <a
-                href="mailto:info@souviks.co.in"
-                class="mobile-email">
-
-                <img
-                    src="/assets/icons/email.svg"
-                    alt="ইমেইল"
-                    class="mobile-icon">
-
-                <span>
-
-                    info@souviks.co.in
-
-                </span>
-
-            </a>
-
-        </div>
-
-    </nav>
-
 </header>
-
 
 
 
@@ -2578,7 +2408,7 @@ Reusable Head Component
 
                 <li>
 
-                    08:30 AM – 07:00 PM
+                    08:00 AM – 07:00 PM
 
                 </li>
 
@@ -2698,6 +2528,12 @@ window.souviks = {
     currentLanguage:
         "bn",
 
+    translations: {
+        buttons: {
+            add_to_rfq: "RFQ-তে যোগ করুন"
+        }
+    },
+
     api: {
 
         products:
@@ -2733,7 +2569,7 @@ window.souviks = {
 
 <!-- ==========================================
      GLOBAL SITE JAVASCRIPT
-     Keep the existing modular script architecture.
+     PageBuilder injects only the modules required by this page.
 ========================================== -->
 
 <script defer src="/assets/js/auth/supabase.js"></script>
@@ -2743,19 +2579,9 @@ window.souviks = {
 <script defer src="/assets/js/auth/logout.js"></script>
 <script defer src="/assets/js/utils.js"></script>
 <script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/filters.js"></script>
-<script defer src="/assets/js/pagination.js"></script>
 <script defer src="/assets/js/breadcrumb.js"></script>
 <script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
 <script defer src="/assets/js/main.js"></script>
-
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

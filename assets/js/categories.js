@@ -50,7 +50,9 @@ class CategoryManager {
 
         ];
 
-        this.render();
+        if (this.container.dataset.staticRendered !== "true") {
+            this.render();
+        }
 
     }
     // ======================================================
@@ -377,8 +379,7 @@ Breadcrumb.render(
                         product
                     )
             ).join("");
-
-    }
+        }
 
 }
     // ======================================================

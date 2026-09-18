@@ -1,1086 +1,43 @@
 /* ==========================================================
-   LARGE DESKTOP
+   GLOBAL RESPONSIVE FOUNDATION
+   Component-specific responsive rules live with their component.
 ========================================================== */
 
 @media (max-width: 1400px) {
-
-    /* ===========
-       CONTAINER
-    ============ */
-
     .container {
-
         max-width: 1200px;
-
     }
-
 }
-
-/* ==========================================================
-   LAPTOP
-========================================================== */
 
 @media (max-width: 1200px) {
-
-    /* ===========
-       GRID LAYOUTS
-    ============ */
-
-    .entity-grid,
-    .product-grid,
-    .products-grid,
-    .brand-grid,
-    .brands-grid,
-    .vehicle-grid,
-    .vehicles-grid,
-    .category-grid,
-    .categories-grid,
-    .contact-grid,
-    .why-grid,
-    #categoryGrid {
-
-        grid-template-columns: repeat(3, minmax(0,1fr));
-
+    .section-heading h2 {
+        font-size: clamp(2rem, 4vw, 2.6rem);
     }
-
-    /* ===========
-       FOOTER
-    ============ */
-
-    .footer-grid {
-
-        grid-template-columns: repeat(2,1fr);
-
-    }
-
-    /* ===========
-       HERO
-    ============ */
-
-    .hero-stats {
-
-        gap: 32px;
-
-    }
-
-    /* ===========
-       PRODUCT DETAIL
-    ============ */
-
-    .pdp-hero {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .pdp-inquiry {
-
-        position: static;
-
-    }
-
 }
-
-/* ==========================================================
-   TABLET
-========================================================== */
 
 @media (max-width: 992px) {
-
-        /* ======================================================
-       HEADER
-    ====================================================== */
-
-    .main-navigation {
-
-        display: none;
-
-    }
-
-    .header-buttons {
-
-        display: none;
-
-    }
-
-    .mobile-menu-button {
-
-        display: block;
-
-        margin-left: auto;
-
-    }
-
-    .header-wrapper {
-
-        min-height: 60px;
-
-        width: 100%;
-
-        justify-content: flex-end;
-
-        gap: 0;
-
-    }
-
-    .mobile-navigation {
-
-        position: fixed;
-
-        top: 112px;
-
-        left: 0;
-
-        width: 100%;
-
-        height: calc(100vh - 112px);
-
-        display: none;
-
-        padding: 24px 16px;
-
-        overflow-y: auto;
-
-        overflow-x: hidden;
-
-        background: #ffffff;
-
-        z-index: 3000;
-
-        box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
-
-    }
-
-    .mobile-navigation.active {
-
-        display: block;
-
-    }
-
-
-    /* ======================================================
-       CTA
-    ====================================================== */
-
-    .cta-wrapper {
-
-        flex-direction: column;
-
-        text-align: center;
-
-    }
-
-    .cta-actions {
-
-        justify-content: center;
-
-    }
-
-
-    /* ======================================================
-       CATALOGUE
-    ====================================================== */
-
-    .catalogue-summary-wrapper {
-
-        flex-direction: column;
-
-        gap: 12px;
-
-        text-align: center;
-
-    }
-
-
-    /* ======================================================
-       GALLERY
-    ====================================================== */
-
-    .store-gallery-large,
-    .video-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .store-gallery-small {
-
-        grid-template-columns: repeat(2,1fr);
-
-    }
-
-
-    /* ======================================================
-       GRID LAYOUTS
-    ====================================================== */
-
-    .entity-grid,
-    .product-grid,
-    .products-grid,
-    .brand-grid,
-    .brands-grid,
-    .vehicle-grid,
-    .vehicles-grid,
-    .category-grid,
-    .categories-grid,
-    .contact-grid,
-    .why-grid,
-    #categoryGrid {
-
-        grid-template-columns: repeat(2, minmax(0,1fr));
-
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .grid-4 {
-
-        grid-template-columns: repeat(2,1fr);
-
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-
-    /* ======================================================
-       HERO
-    ====================================================== */
 
     .hero-stats {
-
         flex-wrap: wrap;
-
         justify-content: center;
-
-    }
-
-
-    /* ======================================================
-       POPULAR VEHICLES
-    ====================================================== */
-
-    .popular-vehicles-grid {
-
-        grid-template-columns: repeat(2,1fr);
-
-    }
-
-
-    /* ======================================================
-       FOOTER
-    ====================================================== */
-
-    .footer-grid {
-
-        grid-template-columns: repeat(2,1fr);
-
-    }
-
-
-    /* ======================================================
-       PRODUCT DETAIL
-    ====================================================== */
-
-    .pdp-trust {
-
-        grid-template-columns: repeat(2,1fr);
-
-    }
-
-    .pdp-vehicle-grid,
-    .pdp-related-grid {
-
-        grid-template-columns: repeat(2,1fr);
-
-    }
-
-    .pdp-description-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    /* ======================================================
-       LANGUAGE SWITCHER
-    ====================================================== */
-
-
-
-    .language-switcher {
-
-        margin-left: auto;
-
-    }
-
-    .language-button {
-
-        padding: .55rem .9rem;
-
-        font-size: .85rem;
-
-    }
-
-    /* ======================================================
-       TOP BAR
-    ====================================================== */
-
-.top-bar {
-
-        width: 100%;
-
-    }
-
-    .top-bar .container {
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        width: 100%;
-
-        min-height: 52px;
-
-        padding-top: 6px;
-
-        padding-bottom: 6px;
-
-        gap: 12px;
-
-    }
-
-    .top-bar-brand {
-
-        flex: 0 0 auto;
-
-    }
-
-    .top-logo img {
-
-        height: 38px;
-
-        width: auto;
-
-    }
-
-    .top-bar-tools {
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: flex-end;
-
-        flex: 1 1 auto;
-
-        min-width: 0;
-
-        margin-left: auto;
-
-        gap: 10px;
-
-    }
-
-    /* Hide Email on mobile */
-
-    .top-bar-tools .top-email {
-
-        display: none;
-
-    }
-
-    /* Hide Phone on mobile */
-
-    .top-bar-tools .top-phone {
-
-        display: none;
-
-    }
-
-    /* Keep WhatsApp visible on mobile */
-
-    .top-bar-tools .top-whatsapp {
-
-        display: inline-flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 6px;
-
-        padding: 7px 10px;
-
-        font-size: .8rem;
-
-        white-space: nowrap;
-
-    }
-
-    /* Hide Sign In on mobile */
-
-    .top-bar-tools .top-signin {
-
-        display: none;
-
-    }
-
-    .top-bar-tools .language-switcher {
-
-        display: inline-flex;
-
-        align-items: center;
-
-        flex-shrink: 0;
-
-    }
-
-    .language-button {
-
-        padding: .55rem .85rem;
-
-        font-size: .8rem;
-
-    }
-
-    .top-icon {
-
-        width: 16px;
-
-        height: 16px;
-
     }
 }
 
-/* ==========================================================
-   MOBILE
-========================================================== */
-
 @media (max-width: 768px) {
-
     html,
     body {
-
         width: 100%;
-
         max-width: 100%;
-
         overflow-x: hidden;
-
     }
-
-    /* ======================================================
-       CONTAINER
-    ====================================================== */
-
-    .container {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        padding: 0 16px;
-
-    }
-
-
-    /* ======================================================
-       PAGE SPACING
-    ====================================================== */
-
-    .section-spacing,
-    .catalogue-search,
-    .category-directory,
-    .brand-directory,
-    .vehicle-directory,
-    .product-directory,
-    .catalogue-products {
-
-        padding: 40px 0;
-
-    }
-
-
-    /* ======================================================
-       HERO
-    ====================================================== */
-
-    .catalogue-hero,
-    .categories-hero,
-    .brands-hero,
-    .vehicles-hero {
-
-        padding: 60px 0;
-
-    }
-
-    .catalogue-hero h1,
-    .categories-hero h1,
-    .brands-hero h1,
-    .vehicles-hero h1,
-    .hero-content h1 {
-
-        font-size: 2rem;
-
-    }
-
-    .hero-content {
-
-        text-align: center;
-
-    }
-
-    .hero-content h1 {
-
-        line-height: 1.2;
-
-    }
-
-    .hero-content p {
-
-        font-size: 1rem;
-
-    }
-
-    .hero-stats {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 12px;
-
-        margin-top: 24px;
-
-    }
-
-    .hero-stat strong {
-
-        font-size: 22px;
-
-    }
-
-    .hero-stat-divider {
-
-        display: none;
-
-    }
-
-        .hero-content {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        margin: 0 auto;
-
-        padding: 0;
-
-        text-align: center;
-
-    }
-
-    .hero-content h1 {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-        font-size: 2rem;
-
-        line-height: 1.2;
-
-    }
-
-    .hero-content p {
-
-        width: 100%;
-
-        max-width: 620px;
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-        font-size: 1rem;
-
-        line-height: 1.6;
-
-    }
-
-    .hero-stats {
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        width: 100%;
-
-        max-width: 520px;
-
-        margin: 24px auto 0;
-
-        gap: 12px;
-
-    }
-
-    .hero-stat {
-
-        width: 100%;
-
-    }
-
-    /* ======================================================
-       SEARCH
-    ====================================================== */
-
-    .search-wrapper {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 12px;
-
-    }
-
-    .search-box {
-
-        width: 100%;
-
-    }
-
-    #searchButton {
-
-        width: 100%;
-
-    }
-
-
-    /* ======================================================
-       FILTERS
-    ====================================================== */
-
-    .filter-wrapper {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 12px;
-
-    }
-
-    .filter-group,
-    .catalogue-filter {
-
-        width: 100%;
-
-    }
-
-
-    /* ======================================================
-       CTA
-    ====================================================== */
-
-    .cta-wrapper {
-
-        flex-direction: column;
-
-        gap: 24px;
-
-        text-align: center;
-
-    }
-
-    .cta-actions {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 12px;
-
-        width: 100%;
-
-    }
-
-    .cta-actions .btn {
-
-        width: 100%;
-
-    }
-
-
-    /* ======================================================
-       PAGINATION
-    ====================================================== */
-
-    .pagination-wrapper {
-
-        flex-direction: column;
-
-        gap: 16px;
-
-        text-align: center;
-
-    }
-
-
-    /* ======================================================
-       TYPOGRAPHY
-    ====================================================== */
-
-    .section-heading {
-
-        margin-bottom: 32px;
-
-    }
-
-
-    /* ======================================================
-       GRID UTILITIES
-    ====================================================== */
-
-    .grid-2,
-    .grid-3,
-    .grid-4 {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    /* ======================================================
-       PRODUCT GRIDS
-    ====================================================== */
-
-    .products-grid,
-    .entity-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    /* ======================================================
-       FOOTER
-    ====================================================== */
-
-    .footer-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-
-    }
-
-    .footer-section {
-
-        text-align: center;
-
-    }
-
-    .footer-bottom-links {
-
-        justify-content: center;
-
-    }
-
-
-    /* ======================================================
-       PRODUCT DETAIL
-    ====================================================== */
-
-    .pdp-meta-pills {
-
-        gap: 8px;
-
-    }
-
-    .pdp-pill {
-
-        padding: 7px 12px;
-
-        font-size: .85rem;
-
-    }
-
-    .pdp-sticky-rfq {
-
-        position: fixed;
-
-        bottom: 0;
-
-        left: 0;
-
-        width: 100%;
-
-        padding: 12px;
-
-        background: #fff;
-
-        box-shadow: 0 -4px 20px rgba(0,0,0,.08);
-
-        z-index: 5000;
-
-    }
-
-    .pdp-main-image {
-
-        width: 100%;
-
-        aspect-ratio: 1 / 1;
-
-        object-fit: contain;
-
-    }
-
-    .pdp-thumbnails {
-
-        display: flex;
-
-        gap: 8px;
-
-        overflow-x: auto;
-
-        scrollbar-width: none;
-
-    }
-
-    .pdp-thumbnails::-webkit-scrollbar {
-
-        display: none;
-
-    }
-
-    .pdp-thumbnail {
-
-        width: 60px;
-
-        height: 60px;
-
-        flex: 0 0 auto;
-
-    }
-
-    .pdp-thumb-prev,
-    .pdp-thumb-next {
-
-        display: none;
-
-    }
-
-}
-
-/* ==========================================================
-   SMALL MOBILE
-========================================================== */
-
-@media (max-width: 576px) {
-
-    /* ======================================================
-       GRID LAYOUTS
-    ====================================================== */
-
-    .entity-grid,
-    .product-grid,
-    .products-grid,
-    .brand-grid,
-    .brands-grid,
-    .vehicle-grid,
-    .vehicles-grid,
-    .category-grid,
-    .categories-grid,
-    .contact-grid,
-    .why-grid,
-    #categoryGrid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    /* ======================================================
-       HERO
-    ====================================================== */
-
-    .hero-stats {
-
-        flex-direction: column;
-
-        gap: 12px;
-
-    }
-
-
-    /* ======================================================
-       CTA
-    ====================================================== */
-
-    .cta-wrapper {
-
-        padding: 24px;
-
-    }
-
-    .cta-actions {
-
-        flex-direction: column;
-
-        width: 100%;
-
-    }
-
-    .cta-actions .btn {
-
-        width: 100%;
-
-    }
-
-
-    /* ======================================================
-       POPULAR VEHICLES
-    ====================================================== */
-
-    .popular-vehicles-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    /* ======================================================
-       PRODUCT DETAIL
-    ====================================================== */
-
-    .pdp-trust {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .pdp-title {
-
-        font-size: 34px;
-
-    }
-
-    .pdp-tabs {
-
-        overflow-x: auto;
-
-        white-space: nowrap;
-
-        scrollbar-width: none;
-
-    }
-
-    .pdp-tabs::-webkit-scrollbar {
-
-        display: none;
-
-    }
-
-    .pdp-tab {
-
-        flex: 0 0 auto;
-
-    }
-
-    .pdp-vehicle-grid,
-    .pdp-related-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    /* ======================================================
-       PRODUCT DETAIL
-    ====================================================== */
-
-
- .top-bar .container {
-
-        min-height: 50px;
-
-        padding-left: 12px;
-
-        padding-right: 12px;
-
-        gap: 8px;
-
-    }
-
-    .top-logo img {
-
-        height: 36px;
-
-    }
-
-    .top-bar-tools {
-
-        gap: 6px;
-
-    }
-
-    .top-bar-tools .top-whatsapp {
-
-        padding: 6px 8px;
-
-        font-size: .75rem;
-
-    }
-
-    .top-bar-tools .top-whatsapp .top-icon {
-
-        width: 15px;
-
-        height: 15px;
-
-    }
-
-    .language-button {
-
-        padding: .5rem .7rem;
-
-        font-size: .75rem;
-
-    }
-
-    .rfq-basket {
-
-        padding: 24px 0;
-
-    }
-
-    .rfq-table-wrapper {
-
-        width: 100%;
-
-        overflow-x: auto;
-
-        -webkit-overflow-scrolling: touch;
-
-    }
-
-    .rfq-table {
-
-        min-width: 760px;
-
-    }
-
-}
-
-/* ==========================================================
-   MOBILE-FIRST HARDENING
-   Prevent horizontal overflow and improve touch layouts.
-========================================================== */
-
-@media (max-width: 768px) {
 
     img,
     svg,
@@ -1096,167 +53,11 @@
         max-width: 100%;
     }
 
-    .btn,
-    button,
-    .top-item,
-    .top-signin,
-    .top-user-button {
-        min-height: 44px;
-    }
-
-    .page-header {
-        padding: 42px 0 34px;
-    }
-
-    .page-header h1 {
-        font-size: clamp(1.75rem, 7vw, 2.4rem);
-        line-height: 1.2;
-        overflow-wrap: anywhere;
-    }
-
-    .product-layout,
-    .pdp-hero {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .product-gallery,
-    .product-summary,
-    .product-description,
-    .vehicle-applications {
-        min-width: 0;
-        padding: 18px;
-    }
-
-    .product-title,
-    .pdp-title {
-        font-size: clamp(1.55rem, 7vw, 2.15rem);
-        line-height: 1.2;
-        overflow-wrap: anywhere;
-    }
-
-    .product-part-number,
-    .pdp-part {
-        max-width: 100%;
-        overflow-wrap: anywhere;
-    }
-
-    .product-actions,
-    .pdp-actions {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .product-actions .btn,
-    .pdp-actions .btn {
-        width: 100%;
-    }
-
-    .product-meta-item,
-    .pdp-row {
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
-
-    .product-meta-value,
-    .pdp-row > span {
-        min-width: 0;
-        max-width: 100%;
-        overflow-wrap: anywhere;
-        text-align: right;
-    }
-
-    .specifications-table,
-    .pdp-table {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .auth-section .container {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .auth-card {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .auth-form input,
-    .auth-form select,
-    .auth-form textarea {
-        width: 100%;
-        min-width: 0;
-        font-size: 16px;
-    }
-
-    .auth-form-actions .btn {
-        width: 100%;
-    }
-
-    .top-bar .container {
-        min-width: 0;
-        overflow: hidden;
-    }
-
-    .top-bar-tools {
-        min-width: 0;
-        overflow: hidden;
-    }
-
-    .top-bar-tools .top-item,
-    .top-bar-tools .top-signin,
-    .top-bar-tools .top-user-button {
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .auth-modal {
-        padding: max(8px, env(safe-area-inset-top)) 8px max(8px, env(safe-area-inset-bottom));
-        align-items: center;
-    }
-
-    .auth-modal-dialog {
-        width: min(100%, 520px);
-        max-height: calc(100dvh - 16px);
-        padding: 20px 16px;
-        border-radius: 16px;
-    }
-
-    .auth-modal-header {
-        gap: 12px;
-        margin-bottom: 16px;
-    }
-
-    .auth-modal-title {
-        font-size: clamp(1.2rem, 6vw, 1.5rem);
-        overflow-wrap: anywhere;
-    }
-
-    .auth-modal-tabs {
-        gap: 5px;
-        margin-bottom: 18px;
-    }
-
-    .auth-modal-tab {
-        min-height: 44px;
-        padding: 9px 8px;
-        font-size: .9rem;
-    }
-
-    .auth-modal-close {
-        width: 44px;
-        height: 44px;
-    }
-}
-
-@media (max-width: 420px) {
-
     .container {
-        padding-left: 12px;
-        padding-right: 12px;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .section-spacing,
@@ -1270,41 +71,420 @@
         padding-bottom: 32px;
     }
 
-    .top-bar .container {
-        gap: 6px;
+    .page-header {
+        padding: 42px 0 34px;
     }
 
-    .top-logo img {
-        height: 32px;
+    .page-header h1,
+    .catalogue-hero h1,
+    .categories-hero h1,
+    .brands-hero h1,
+    .vehicles-hero h1,
+    .hero-content h1 {
+        font-size: clamp(1.75rem, 7vw, 2.4rem);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
     }
 
-    .language-button {
-        max-width: 44px;
-        padding: .55rem .65rem;
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
     }
 
-    .language-text,
-    .language-label {
+    .hero-content p {
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .hero-stat {
+        width: 100%;
+    }
+
+    .hero-stat-divider {
         display: none;
     }
 
-    .top-bar-tools .top-whatsapp {
-        max-width: 44px;
-        padding: 10px;
-        font-size: 0;
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
     }
 
-    .top-bar-tools .top-whatsapp .top-icon {
-        width: 18px;
-        height: 18px;
+    .cta-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        text-align: center;
     }
 
-    .pdp-pricing {
-        padding: 13px;
+    .cta-content {
+        max-width: 100%;
     }
 
-    .pdp-price-discount {
-        font-size: .7rem;
-        padding: 4px 8px;
+    .cta-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .cta-actions .btn {
+        width: 100%;
+    }
+
+    .breadcrumb-list {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+    }
+
+    .breadcrumb-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .breadcrumb-item {
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .section-spacing,
+    .catalogue-search,
+    .category-directory,
+    .brand-directory,
+    .vehicle-directory,
+    .product-directory,
+    .catalogue-products {
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+}
+
+/* ==========================================================
+   MOBILE LANDING-PAGE CONSISTENCY
+   Shared presentation for home, products, brands, vehicles,
+   categories, about, contact and other landing pages.
+========================================================== */
+
+@media (max-width: 992px) {
+    .main-navigation {
+        z-index: 5000;
+    }
+
+    .catalogue-search,
+    .search-wrapper {
+        z-index: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Keep every landing-page hero aligned to the same visual rhythm. */
+    .page-hero,
+    .catalogue-hero,
+    .products-hero,
+    .brands-hero,
+    .vehicles-hero,
+    .categories-hero,
+    .about-hero,
+    .contact-hero,
+    .request-quote-hero,
+    .privacy-hero,
+    .terms-hero,
+    .refund-hero {
+        min-height: 0;
+        padding: 56px 0 32px;
+        background-position: center center;
+    }
+
+    .page-hero .hero-content,
+    .catalogue-hero .hero-content,
+    .products-hero .hero-content,
+    .brands-hero .hero-content,
+    .vehicles-hero .hero-content,
+    .categories-hero .hero-content,
+    .about-hero .hero-content,
+    .contact-hero .hero-content,
+    .request-quote-hero .hero-content,
+    .privacy-hero .hero-content,
+    .terms-hero .hero-content,
+    .refund-hero .hero-content {
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .page-hero h1,
+    .catalogue-hero h1,
+    .products-hero h1,
+    .brands-hero h1,
+    .vehicles-hero h1,
+    .categories-hero h1,
+    .about-hero h1,
+    .contact-hero h1,
+    .request-quote-hero h1,
+    .privacy-hero h1,
+    .terms-hero h1,
+    .refund-hero h1 {
+        font-size: clamp(1.7rem, 7vw, 2.15rem);
+        line-height: 1.15;
+        margin-bottom: 10px;
+        overflow-wrap: anywhere;
+    }
+
+    .page-hero p,
+    .catalogue-hero p,
+    .products-hero p,
+    .brands-hero p,
+    .vehicles-hero p,
+    .categories-hero p,
+    .about-hero p,
+    .contact-hero p,
+    .request-quote-hero p,
+    .privacy-hero p,
+    .terms-hero p,
+    .refund-hero p {
+        max-width: 680px;
+        font-size: .92rem;
+        line-height: 1.5;
+    }
+
+    /* All landing-page stat rows use the same responsive grid. */
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+        width: 100%;
+        max-width: 760px;
+        margin-top: 20px;
+        padding: 10px 6px;
+        gap: 0;
+        border-radius: 14px;
+    }
+
+    .hero-stat {
+        min-width: 0;
+        padding: 6px 8px;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .hero-stat:not(:last-child)::after {
+        top: 50%;
+        right: 0;
+        height: 52px;
+    }
+
+    .hero-stat-icon {
+        width: 22px !important;
+        height: 22px !important;
+        margin: 0 auto 3px;
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 1rem;
+        line-height: 1.1;
+        font-weight: 800;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .stat-label {
+        display: block;
+        margin-top: 2px;
+        font-size: .67rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    /* Trust/contact cards stay in pairs on mobile. */
+    .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .why-card {
+        padding: 20px 14px;
+        border-radius: 16px;
+    }
+
+    .why-icon {
+        width: 44px !important;
+        height: 44px !important;
+        margin-bottom: 12px;
+    }
+
+    .why-card h3 {
+        font-size: 15px;
+        line-height: 1.25;
+    }
+
+    .why-card p {
+        font-size: .82rem;
+        line-height: 1.45;
+    }
+
+    /* Business-hours cards remain side by side as well. */
+    .metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .metrics-card {
+        padding: 24px 14px;
+        border-radius: 16px;
+    }
+
+    .metrics-card h3 {
+        font-size: 15px;
+        line-height: 1.25;
+    }
+
+    .metrics-card span {
+        font-size: .82rem;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+    }
+
+    /* Never let the homepage search sit above the mobile drawer. */
+    .mobile-navigation-open .catalogue-search,
+    .mobile-navigation-open .search-wrapper {
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    /* Keep the mobile drawer visually above page content. */
+    .mobile-navigation-open .main-navigation {
+        z-index: 5000;
+    }
+}
+
+@media (max-width: 420px) {
+    .page-hero,
+    .catalogue-hero,
+    .products-hero,
+    .brands-hero,
+    .vehicles-hero,
+    .categories-hero,
+    .about-hero,
+    .contact-hero,
+    .request-quote-hero,
+    .privacy-hero,
+    .terms-hero,
+    .refund-hero {
+        padding-top: 48px;
+        padding-bottom: 26px;
+    }
+
+    .why-grid,
+    .metrics-grid {
+        gap: 10px;
+    }
+
+    .why-card {
+        padding: 16px 10px;
+    }
+
+    .why-card h3,
+    .metrics-card h3 {
+        font-size: 14px;
+    }
+
+    .why-card p,
+    .metrics-card span {
+        font-size: .76rem;
+    }
+
+    .metrics-card {
+        padding: 20px 10px;
+    }
+}
+
+/* ==========================================================
+   LANDING PAGE DETAIL SPACING
+========================================================== */
+
+@media (max-width: 768px) {
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .about-story,
+    .why-trust,
+    .store-gallery-section,
+    .store-videos {
+        padding: 36px 0;
+    }
+
+    .store-gallery-large {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .store-gallery-large img {
+        width: 100%;
+        height: 180px;
+        border-radius: 12px;
+    }
+
+    .store-gallery-small {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .store-gallery-small img {
+        width: 100%;
+        height: 96px;
+        border-radius: 10px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .video-card h3 {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .request-part-form {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .map-wrapper iframe {
+        min-height: 320px;
+        height: 320px;
+    }
+}
+
+@media (max-width: 420px) {
+    .store-gallery-large img {
+        height: 150px;
+    }
+
+    .store-gallery-small img {
+        height: 82px;
+    }
+
+    .request-part-form {
+        padding: 16px;
     }
 }

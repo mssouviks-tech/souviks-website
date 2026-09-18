@@ -12,23 +12,3 @@
 /ads.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400
-
-/
-  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </.well-known/site-description.json>; rel="service-desc"; type="application/json", </.well-known/site-description.json>; rel="describedby"; type="application/json", </en/products.html>; rel="service-doc"; type="text/html"
-
-/en/
-  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </.well-known/site-description.json>; rel="service-desc"; type="application/json", </.well-known/site-description.json>; rel="describedby"; type="application/json", </en/products.html>; rel="service-doc"; type="text/html"
-
-/bn/
-  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </.well-known/site-description.json>; rel="service-desc"; type="application/json", </.well-known/site-description.json>; rel="describedby"; type="application/json", </en/products.html>; rel="service-doc"; type="text/html"
-
-/hi/
-  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </.well-known/site-description.json>; rel="service-desc"; type="application/json", </.well-known/site-description.json>; rel="describedby"; type="application/json", </en/products.html>; rel="service-doc"; type="text/html"
-
-/.well-known/api-catalog
-  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
-  Cache-Control: public, max-age=3600, must-revalidate
-
-/.well-known/site-description.json
-  Content-Type: application/json; charset=utf-8
-  Cache-Control: public, max-age=3600, must-revalidate

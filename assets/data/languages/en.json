@@ -155,6 +155,7 @@
     "search": "Search",
     "view_details": "View Details",
     "request_part": "Request a Part",
+    "add_to_rfq": "Add To RFQ",
     "request_quote": "Request Quote",
     "rfq_basket": "RFQ Basket",
     "contact": "Contact Us",
@@ -589,7 +590,7 @@
         "role_label": "Privacy / Grievance Contact",
         "role": "Sujit Kumar Sadhu, Head, Finance and Sales",
         "email_label": "Email",
-        "email": "mssouviks@gmail.com",
+        "email": "info@souviks.co.in",
         "phone_label": "Phone",
         "phone": "+91 94343 31896 / +91 79082 15701",
         "address_label": "Address",
@@ -723,7 +724,7 @@
         "designation_label": "Designation",
         "designation": "Head, Finance and Sales",
         "email_label": "Grievance Email",
-        "email": "mssouviks@gmail.com",
+        "email": "info@souviks.co.in",
         "phone_label": "Grievance Phone",
         "phone": "+91 94343 31896 / +91 79082 15701"
       },
@@ -734,7 +735,7 @@
         "whatsapp_label": "WhatsApp",
         "whatsapp": "+91 79082 15701",
         "email_label": "Email",
-        "email": "mssouviks@gmail.com",
+        "email": "info@souviks.co.in",
         "address_label": "Address",
         "address": "CN-119(2), Souviks Building, Beside NH-2, Andal More, West Bengal - 713321"
       }
@@ -822,7 +823,7 @@
         "name_label": "Business",
         "name": "Souviks",
         "email_label": "Email",
-        "email": "mssouviks@gmail.com",
+        "email": "info@souviks.co.in",
         "phone_label": "Phone / WhatsApp",
         "phone": "+91 94343 31896 / +91 79082 15701",
         "address_label": "Address",

@@ -2,348 +2,116 @@
 ==========================================================
 SOUVIKS WEBSITE
 PAGINATION ENGINE
-Version : 1.0
+Version : 2.0
 ==========================================================
 */
 
 class PaginationManager {
-
     constructor() {
-
         this.data = [];
-
         this.currentPage = 1;
-
-        this.perPage = 12;
-
-        this.totalPages = 0;
-
+        this.perPage = 20;
+        this.totalPages = 1;
         this.container = null;
-
         this.onChange = null;
-
     }
-    // ======================================================
-    // INIT
-    // ======================================================
 
-    init({
-
-        data = [],
-
-        perPage = 12,
-
-        container = "#pagination",
-
-        onChange = null
-
-    } = {}) {
-
+    init({ data = [], perPage = 20, container = "#pagination", onChange = null } = {}) {
         this.data = [...data];
-
-        this.perPage = perPage;
-
+        this.perPage = this.normalisePerPage(perPage);
         this.currentPage = 1;
-
-        this.container = Utils.el(
-
-            container
-
-        );
-
+        this.container = Utils.el(container);
         this.onChange = onChange;
-
         this.calculate();
-
         this.render();
-
         return this.pageData();
-
     }
-    // ======================================================
-    // CALCULATE
-    // ======================================================
+
+    normalisePerPage(value) {
+        const number = Number(value);
+        return Number.isFinite(number) && number > 0 ? Math.floor(number) : 20;
+    }
 
     calculate() {
-
-        this.totalPages = Math.max(
-
-            1,
-
-            Math.ceil(
-
-                this.data.length /
-
-                this.perPage
-
-            )
-
-        );
-
+        this.totalPages = Math.max(1, Math.ceil(this.data.length / this.perPage));
+        this.currentPage = Math.min(this.currentPage, this.totalPages);
     }
-    // ======================================================
-    // PAGE DATA
-    // ======================================================
 
     pageData() {
-
-        const start =
-
-            (this.currentPage - 1)
-
-            * this.perPage;
-
-        const end =
-
-            start +
-
-            this.perPage;
-
-        return this.data.slice(
-
-            start,
-
-            end
-
-        );
-
+        const start = (this.currentPage - 1) * this.perPage;
+        return this.data.slice(start, start + this.perPage);
     }
-    // ======================================================
-    // UPDATE DATA
-    // ======================================================
 
     update(data = []) {
-
         this.data = [...data];
-
         this.currentPage = 1;
-
         this.calculate();
-
         this.render();
-
         return this.pageData();
-
     }
-    // ======================================================
-    // PREVIOUS
-    // ======================================================
+
+    setPerPage(value, resetPage = true) {
+        this.perPage = this.normalisePerPage(value);
+        if (resetPage) this.currentPage = 1;
+        this.calculate();
+        this.render();
+        return this.pageData();
+    }
 
     previous() {
-
-        if (
-
-            this.currentPage <= 1
-
-        ) {
-
-            return;
-
-        }
-
-        this.currentPage--;
-
+        if (this.currentPage <= 1) return;
+        this.currentPage -= 1;
         this.refresh();
-
     }
-
-    // ======================================================
-    // NEXT
-    // ======================================================
 
     next() {
-
-        if (
-
-            this.currentPage >=
-
-            this.totalPages
-
-        ) {
-
-            return;
-
-        }
-
-        this.currentPage++;
-
+        if (this.currentPage >= this.totalPages) return;
+        this.currentPage += 1;
         this.refresh();
-
     }
-    // ======================================================
-    // GOTO
-    // ======================================================
 
     go(page) {
-
-        page = Number(page);
-
-        if (
-
-            page < 1 ||
-
-            page > this.totalPages
-
-        ) {
-
-            return;
-
-        }
-
-        this.currentPage = page;
-
+        const target = Number(page);
+        if (!Number.isFinite(target) || target < 1 || target > this.totalPages) return;
+        this.currentPage = Math.floor(target);
         this.refresh();
-
     }
-    // ======================================================
-    // REFRESH
-    // ======================================================
 
     refresh() {
-
         this.render();
-
-        if (
-
-            typeof this.onChange ===
-
-            "function"
-
-        ) {
-
-            this.onChange(
-
-                this.pageData()
-
-            );
-
-        }
-
+        if (typeof this.onChange === "function") this.onChange(this.pageData());
     }
-    // ======================================================
-    // RENDER
-    // ======================================================
 
-render() {
+    render() {
+        if (!this.container) return;
 
-    if (!this.container) return;
-
-    const info = this.info();
-
-    this.container.innerHTML = `
-
-        <button
-            class="pagination-prev"
-            data-page="prev"
-            ${info.currentPage === 1 ? "disabled" : ""}
-        >
-            Previous
-        </button>
-
-        <span class="pagination-status">
-
-            Page ${info.currentPage}
-            of
-            ${info.totalPages}
-
-        </span>
-
-        <button
-            class="pagination-next"
-            data-page="next"
-            ${info.currentPage === info.totalPages ? "disabled" : ""}
-        >
-            Next
-        </button>
-
-    `;
-
-    this.bind();
-
-}
-    // ======================================================
-    // EVENTS
-    // ======================================================
+        const info = this.info();
+        this.container.innerHTML = `
+            <button class="pagination-prev" data-page="prev" ${info.currentPage === 1 ? "disabled" : ""}>Previous</button>
+            <span class="pagination-status" aria-live="polite">Page ${info.currentPage} of ${info.totalPages}</span>
+            <button class="pagination-next" data-page="next" ${info.currentPage === info.totalPages ? "disabled" : ""}>Next</button>
+        `;
+        this.bind();
+    }
 
     bind() {
-
-        Utils.els(
-
-            "[data-page]"
-
-        ).forEach(
-
-            button => {
-
-                button.onclick = () => {
-
-                    const value =
-
-                        button.dataset.page;
-
-                    if (
-
-                        value === "prev"
-
-                    ) {
-
-                        this.previous();
-
-                        return;
-
-                    }
-
-                    if (
-
-                        value === "next"
-
-                    ) {
-
-                        this.next();
-
-                        return;
-
-                    }
-
-                    this.go(
-
-                        value
-
-                    );
-
-                };
-
-            }
-
-        );
-
+        this.container?.querySelectorAll("[data-page]").forEach(button => {
+            button.onclick = () => {
+                const value = button.dataset.page;
+                if (value === "prev") return this.previous();
+                if (value === "next") return this.next();
+                this.go(value);
+            };
+        });
     }
-    // ======================================================
-    // INFO
-    // ======================================================
 
     info() {
-
         return {
-
-            currentPage:
-
-                this.currentPage,
-
-            totalPages:
-
-                this.totalPages,
-
-            perPage:
-
-                this.perPage,
-
-            totalRecords:
-
-                this.data.length
-
+            currentPage: this.currentPage,
+            totalPages: this.totalPages,
+            perPage: this.perPage,
+            totalRecords: this.data.length
         };
-
     }
 }
 

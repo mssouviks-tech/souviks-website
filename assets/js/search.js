@@ -151,73 +151,62 @@ class SearchManager {
 
         }
 
-        this.results =
+        if (
+            window.SouviksSearchEngine &&
+            typeof SouviksSearchEngine.search ===
+                "function"
+        ) {
 
-            this.index
+            this.results =
+                SouviksSearchEngine.search(
+                    this.index,
+                    query,
+                    20
+                );
 
-                .filter(item => {
+        } else {
 
-                    const titleMatch =
+            this.results =
+                this.index
 
-                        item.title
+                    .filter(item => {
 
-                            ?.toLowerCase()
+                        const titleMatch =
+                            item.title
+                                ?.toLowerCase()
+                                .includes(query);
 
-                            .includes(query);
+                        const keywordMatch =
+                            item.keywords
+                                ?.join(" ")
+                                .toLowerCase()
+                                .includes(query);
 
-                    const keywordMatch =
+                        const partMatch =
+                            item.part_number
+                                ?.toLowerCase()
+                                .includes(query);
 
-                        item.keywords
+                        return (
+                            titleMatch ||
+                            keywordMatch ||
+                            partMatch
+                        );
 
-                            ?.join(" ")
+                    })
 
-                            .toLowerCase()
+                    .sort(
+                        (a, b) =>
+                            b.weight -
+                            a.weight
+                    )
 
-                            .includes(query);
-
-                    const partMatch =
-
-                        item.part_number
-
-                            ?.toLowerCase()
-
-                            .includes(query);
-
-                    return (
-
-                        titleMatch ||
-
-                        keywordMatch ||
-
-                        partMatch
-
+                    .slice(
+                        0,
+                        20
                     );
 
-                })
-
-                .sort(
-
-                    (
-
-                        a,
-
-                        b
-
-                    ) =>
-
-                        b.weight -
-
-                        a.weight
-
-                )
-
-                .slice(
-
-                    0,
-
-                    20
-
-                );
+        }
 
         this.render();
 

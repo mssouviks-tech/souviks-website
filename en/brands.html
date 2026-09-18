@@ -110,19 +110,19 @@ Reusable Head Component
 
     <meta
         property="og:title"
-        content="">
+        content="Commercial Vehicle Spare Parts Brands | Souviks">
 
     <meta
         property="og:description"
-        content="">
+        content="Explore commercial vehicle spare part brands available at Souviks.">
 
     <meta
     property="og:image"
-    content="">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
 
     <meta
     property="og:image:alt"
-    content="">
+    content="Souviks Brands">
 
     <meta
         property="og:url"
@@ -134,7 +134,7 @@ Reusable Head Component
 
     <meta
         property="og:locale"
-        content="self.og_locale">
+        content="en_IN">
 
     <!-- ==========================================
          TWITTER
@@ -146,19 +146,19 @@ Reusable Head Component
 
     <meta
         name="twitter:title"
-        content="">
+        content="Commercial Vehicle Spare Parts Brands | Souviks">
 
     <meta
         name="twitter:description"
-        content="">
+        content="Explore commercial vehicle spare part brands available at Souviks.">
 
     <meta
     name="twitter:image"
-    content="">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
 
     <meta
     name="twitter:image:alt"
-    content="">
+    content="Souviks Brands">
 
     <meta
         name="twitter:url"
@@ -201,7 +201,47 @@ Reusable Head Component
          STRUCTURED DATA
     =========================================== -->
 
-    
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://www.souviks.co.in/en/brands.html#collection",
+  "name": "Commercial Vehicle Spare Part Brands | Souviks",
+  "url": "https://www.souviks.co.in/en/brands.html",
+  "mainEntityOfPage": "https://www.souviks.co.in/en/brands.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Souviks",
+    "url": "https://www.souviks.co.in"
+  },
+  "description": "Explore commercial vehicle spare part brands available at Souviks.",
+  "image": "https://www.souviks.co.in/assets/images/og/home.webp",
+  "about": {
+    "@type": "Brand",
+    "name": "Commercial Vehicle Spare Part Brands | Souviks",
+    "url": "https://www.souviks.co.in/en/brands.html"
+  }
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.souviks.co.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Brands",
+      "item": "https://www.souviks.co.in/en/brands.html"
+    }
+  ]
+}
+</script>
 
     <!-- ==========================================
          OPTIONAL PRELOADS
@@ -226,6 +266,7 @@ Reusable Head Component
     =========================================== -->
 
     
+
 
 </head>
 
@@ -403,13 +444,15 @@ Reusable Head Component
 
                     <div class="auth-modal-header">
 
-                        <h2
+                        <div
                             id="authModalTitle"
-                            class="auth-modal-title">
+                            class="auth-modal-title"
+                            role="heading"
+                            aria-level="2">
 
                             Sign In
 
-                        </h2>
+                        </div>
 
                         <button
                             type="button"
@@ -735,6 +778,17 @@ Reusable Head Component
 
         </div>
 
+        <button
+            id="mobileMenuButton"
+            class="mobile-menu-button"
+            type="button"
+            aria-label="Open Navigation"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
     </div>
 
 </div>
@@ -749,6 +803,18 @@ Reusable Head Component
             <nav
                 class="main-navigation"
                 aria-label="Primary Navigation">
+
+                <div class="mobile-navigation-header">
+                    <img
+                        src="/assets/logo/souviks-logo-white.png"
+                        alt="Souviks"
+                        class="mobile-navigation-logo">
+                    <button
+                        id="mobileNavigationClose"
+                        class="mobile-navigation-close"
+                        type="button"
+                        aria-label="Close Navigation">×</button>
+                </div>
 
                 <ul class="navigation-menu">
 
@@ -872,210 +938,14 @@ Reusable Head Component
 
                 
 
-            <!-- ==========================================
-                 MOBILE MENU BUTTON
-            =========================================== -->
-
-            <button
-                id="mobileMenuButton"
-                class="mobile-menu-button"
-                type="button"
-                aria-label="Open Navigation">
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-            </button>
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- ==========================================================
-         MOBILE NAVIGATION
-    ========================================================== -->
-
-    <nav
-        id="mobileNavigation"
-        class="mobile-navigation"
-        aria-label="Primary Navigation">
-
-
-        <!-- ==========================================
-             NAVIGATION LINKS
-        =========================================== -->
-
-        <ul>
-
-            <li>
-
-                <a
-                    href="/en/"
-                    class="">
-
-                    Home
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/products.html"
-                    class="">
-
-                    Products
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/brands.html"
-                    class="active">
-
-                    Brands
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/vehicles.html"
-                    class="">
-
-                    Vehicles
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/categories.html"
-                    class="">
-
-                    Categories
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/about.html"
-                    class="">
-
-                    About Us
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/contact.html"
-                    class="">
-
-                    Contact
-
-                </a>
-
-            </li>
-
-        </ul>
-
-
-        <!-- ==========================================
-             MOBILE ACTIONS
-        =========================================== -->
-
-        <div class="mobile-navigation-actions">
-
-            <a
-                href="/en/request-part.html"
-                class="btn btn-primary">
-
-                Request a Part
-
-            </a>
-
-            <a
-                href="/en/request-quote.html"
-                class="btn btn-secondary">
-
-                RFQ Basket
-
-                <span class="rfq-badge">
-
-                    0
-
-                </span>
-
-            </a>
-
-
-            
-
-
-        <!-- ==========================================
-             MOBILE CONTACT
-        =========================================== -->
-
-        <div class="mobile-navigation-contact">
-
-            <a
-                href="tel:+919434331896"
-                class="mobile-phone">
-
-                <img
-                    src="/assets/icons/phone.svg"
-                    alt="Phone"
-                    class="mobile-icon">
-
-                <span>
-
-                    +91 94343 31896
-
-                </span>
-
-            </a>
-
-            <a
-                href="mailto:info@souviks.co.in"
-                class="mobile-email">
-
-                <img
-                    src="/assets/icons/email.svg"
-                    alt="Email"
-                    class="mobile-icon">
-
-                <span>
-
-                    info@souviks.co.in
-
-                </span>
-
-            </a>
-
-        </div>
-
-    </nav>
-
 </header>
-
 
 
 <!-- ==========================================================
@@ -1135,7 +1005,7 @@ BRANDS HERO
 
                         <span class="stat-number">
 
-                            48
+                            55
 
                         </span>
 
@@ -1161,7 +1031,7 @@ BRANDS HERO
 
                         <span class="stat-number">
 
-                            667
+                            933
 
                         </span>
 
@@ -1292,7 +1162,7 @@ CATALOGUE SUMMARY
 
                 <span id="totalBrands">
 
-                    48
+                    55
 
                 </span>
 
@@ -1306,7 +1176,7 @@ CATALOGUE SUMMARY
 
                 <strong>
 
-                    27 June 2026
+                    16 September 2026
 
                 </strong>
 
@@ -1346,7 +1216,10 @@ ALL BRANDS
 
             <div
                 id="brand-grid"
-                class="entity-grid brand-grid">
+                class="entity-grid brand-grid"
+                data-static-rendered="true">
+
+                <article class="brand-card"><a href="/en/brands/fleetguard.html" data-name="Fleetguard"><div class="brand-image"><img src="/assets/images/brands/fleetguard.png" alt="Fleetguard" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Fleetguard</h3><div class="brand-count"><span class="count-number">26</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/tvs-girling.html" data-name="TVS Girling"><div class="brand-image"><img src="/assets/images/brands/tvs-girling.png" alt="TVS Girling" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">TVS Girling</h3><div class="brand-count"><span class="count-number">103</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/roots.html" data-name="Roots"><div class="brand-image"><img src="/assets/images/brands/roots.png" alt="Roots" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Roots</h3><div class="brand-count"><span class="count-number">5</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/gs.html" data-name="GS"><div class="brand-image"><img src="/assets/images/brands/gs.png" alt="GS" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">GS</h3><div class="brand-count"><span class="count-number">25</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/spicer.html" data-name="Spicer"><div class="brand-image"><img src="/assets/images/brands/spicer.png" alt="Spicer" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Spicer</h3><div class="brand-count"><span class="count-number">4</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/tata-genuine-parts.html" data-name="Tata Genuine Parts"><div class="brand-image"><img src="/assets/images/brands/tata-genuine-parts.png" alt="Tata Genuine Parts" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Tata Genuine Parts</h3><div class="brand-count"><span class="count-number">81</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/harish.html" data-name="Harish"><div class="brand-image"><img src="/assets/images/brands/harish.png" alt="Harish" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Harish</h3><div class="brand-count"><span class="count-number">38</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/rider.html" data-name="Rider"><div class="brand-image"><img src="/assets/images/brands/rider.png" alt="Rider" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Rider</h3><div class="brand-count"><span class="count-number">5</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/anupam.html" data-name="Anupam"><div class="brand-image"><img src="/assets/images/brands/anupam.png" alt="Anupam" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Anupam</h3><div class="brand-count"><span class="count-number">7</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/unominda.html" data-name="UnoMinda"><div class="brand-image"><img src="/assets/images/brands/unominda.png" alt="UnoMinda" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">UnoMinda</h3><div class="brand-count"><span class="count-number">26</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/ask.html" data-name="ASK"><div class="brand-image"><img src="/assets/images/brands/ask.png" alt="ASK" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">ASK</h3><div class="brand-count"><span class="count-number">14</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/abc.html" data-name="ABC"><div class="brand-image"><img src="/assets/images/brands/abc.png" alt="ABC" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">ABC</h3><div class="brand-count"><span class="count-number">1</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/alok.html" data-name="Alok"><div class="brand-image"><img src="/assets/images/brands/alok.png" alt="Alok" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Alok</h3><div class="brand-count"><span class="count-number">3</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/valvoline.html" data-name="Valvoline"><div class="brand-image"><img src="/assets/images/brands/valvoline.png" alt="Valvoline" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Valvoline</h3><div class="brand-count"><span class="count-number">3</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/nirmal.html" data-name="Nirmal"><div class="brand-image"><img src="/assets/images/brands/nirmal.png" alt="Nirmal" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Nirmal</h3><div class="brand-count"><span class="count-number">15</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/bgl.html" data-name="BGL"><div class="brand-image"><img src="/assets/images/brands/bgl.png" alt="BGL" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">BGL</h3><div class="brand-count"><span class="count-number">8</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/bosch.html" data-name="Bosch"><div class="brand-image"><img src="/assets/images/brands/bosch.png" alt="Bosch" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Bosch</h3><div class="brand-count"><span class="count-number">34</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/motherson.html" data-name="Motherson"><div class="brand-image"><img src="/assets/images/brands/motherson.png" alt="Motherson" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Motherson</h3><div class="brand-count"><span class="count-number">2</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/msl.html" data-name="MSL"><div class="brand-image"><img src="/assets/images/brands/msl.png" alt="MSL" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">MSL</h3><div class="brand-count"><span class="count-number">2</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/compo.html" data-name="Compo"><div class="brand-image"><img src="/assets/images/brands/compo.png" alt="Compo" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Compo</h3><div class="brand-count"><span class="count-number">1</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/comet.html" data-name="Comet"><div class="brand-image"><img src="/assets/images/brands/comet.png" alt="Comet" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Comet</h3><div class="brand-count"><span class="count-number">1</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/jmp.html" data-name="JMP"><div class="brand-image"><img src="/assets/images/brands/jmp.png" alt="JMP" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">JMP</h3><div class="brand-count"><span class="count-number">35</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/leyparts.html" data-name="Leyparts"><div class="brand-image"><img src="/assets/images/brands/leyparts.png" alt="Leyparts" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Leyparts</h3><div class="brand-count"><span class="count-number">28</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/fenner.html" data-name="Fenner"><div class="brand-image"><img src="/assets/images/brands/fenner.png" alt="Fenner" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Fenner</h3><div class="brand-count"><span class="count-number">2</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/hp.html" data-name="HP"><div class="brand-image"><img src="/assets/images/brands/hp.png" alt="HP" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">HP</h3><div class="brand-count"><span class="count-number">6</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/meritor.html" data-name="Meritor"><div class="brand-image"><img src="/assets/images/brands/meritor.png" alt="Meritor" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Meritor</h3><div class="brand-count"><span class="count-number">6</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/phoenix.html" data-name="Phoenix"><div class="brand-image"><img src="/assets/images/brands/phoenix.png" alt="Phoenix" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Phoenix</h3><div class="brand-count"><span class="count-number">7</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/jai.html" data-name="JAI"><div class="brand-image"><img src="/assets/images/brands/jai.png" alt="JAI" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">JAI</h3><div class="brand-count"><span class="count-number">101</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/kfl.html" data-name="KFL"><div class="brand-image"><img src="/assets/images/brands/kfl.png" alt="KFL" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">KFL</h3><div class="brand-count"><span class="count-number">28</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/mahle.html" data-name="Mahle"><div class="brand-image"><img src="/assets/images/brands/mahle.png" alt="Mahle" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Mahle</h3><div class="brand-count"><span class="count-number">8</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/neolite.html" data-name="NeoLite"><div class="brand-image"><img src="/assets/images/brands/neolite.png" alt="NeoLite" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">NeoLite</h3><div class="brand-count"><span class="count-number">17</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/nbc.html" data-name="NBC"><div class="brand-image"><img src="/assets/images/brands/nbc.png" alt="NBC" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">NBC</h3><div class="brand-count"><span class="count-number">1</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/mei.html" data-name="MEI"><div class="brand-image"><img src="/assets/images/brands/mei.png" alt="MEI" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">MEI</h3><div class="brand-count"><span class="count-number">7</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/manu.html" data-name="Manu"><div class="brand-image"><img src="/assets/images/brands/manu.png" alt="Manu" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Manu</h3><div class="brand-count"><span class="count-number">3</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/ci.html" data-name="CI"><div class="brand-image"><img src="/assets/images/brands/ci.png" alt="CI" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">CI</h3><div class="brand-count"><span class="count-number">2</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/philips.html" data-name="Philips"><div class="brand-image"><img src="/assets/images/brands/philips.png" alt="Philips" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Philips</h3><div class="brand-count"><span class="count-number">1</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/pix.html" data-name="Pix"><div class="brand-image"><img src="/assets/images/brands/pix.png" alt="Pix" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Pix</h3><div class="brand-count"><span class="count-number">16</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/rane.html" data-name="Rane"><div class="brand-image"><img src="/assets/images/brands/rane.png" alt="Rane" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Rane</h3><div class="brand-count"><span class="count-number">5</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/sargun.html" data-name="Sargun"><div class="brand-image"><img src="" alt="Sargun" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Sargun</h3><div class="brand-count"><span class="count-number">4</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/amw.html" data-name="AMW"><div class="brand-image"><img src="/assets/images/brands/amw.png" alt="AMW" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">AMW</h3><div class="brand-count"><span class="count-number">1</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/skf.html" data-name="SKF"><div class="brand-image"><img src="/assets/images/brands/skf.png" alt="SKF" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">SKF</h3><div class="brand-count"><span class="count-number">2</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/texspin.html" data-name="Texspin"><div class="brand-image"><img src="/assets/images/brands/texspin.png" alt="Texspin" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Texspin</h3><div class="brand-count"><span class="count-number">82</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/tata-autocomp.html" data-name="Tata AutoComp"><div class="brand-image"><img src="/assets/images/brands/tata-autocomp.png" alt="Tata AutoComp" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Tata AutoComp</h3><div class="brand-count"><span class="count-number">2</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/timken.html" data-name="Timken"><div class="brand-image"><img src="/assets/images/brands/timken.png" alt="Timken" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Timken</h3><div class="brand-count"><span class="count-number">5</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/everest.html" data-name="Everest"><div class="brand-image"><img src="/assets/images/brands/everest.png" alt="Everest" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Everest</h3><div class="brand-count"><span class="count-number">1</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/wabco.html" data-name="WABCO"><div class="brand-image"><img src="/assets/images/brands/wabco.png" alt="WABCO" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">WABCO</h3><div class="brand-count"><span class="count-number">21</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/lucas-tvs.html" data-name="Lucas TVS"><div class="brand-image"><img src="/assets/images/brands/lucas-tvs.png" alt="Lucas TVS" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Lucas TVS</h3><div class="brand-count"><span class="count-number">10</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/autoply.html" data-name="AutoPly"><div class="brand-image"><img src="/assets/images/brands/autoply.png" alt="AutoPly" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">AutoPly</h3><div class="brand-count"><span class="count-number">2</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/bapi.html" data-name="Bapi"><div class="brand-image"><img src="/assets/images/brands/bapi.png" alt="Bapi" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Bapi</h3><div class="brand-count"><span class="count-number">4</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/gulf.html" data-name="Gulf"><div class="brand-image"><img src="/assets/images/brands/gulf.png" alt="Gulf" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Gulf</h3><div class="brand-count"><span class="count-number">2</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/luk.html" data-name="Luk"><div class="brand-image"><img src="/assets/images/brands/luk.png" alt="Luk" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Luk</h3><div class="brand-count"><span class="count-number">1</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/rki.html" data-name="RKI"><div class="brand-image"><img src="/assets/images/brands/rki.png" alt="RKI" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">RKI</h3><div class="brand-count"><span class="count-number">39</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/setco.html" data-name="Setco"><div class="brand-image"><img src="/assets/images/brands/setco.png" alt="Setco" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Setco</h3><div class="brand-count"><span class="count-number">8</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/varroc.html" data-name="Varroc"><div class="brand-image"><img src="/assets/images/brands/varroc.png" alt="Varroc" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Varroc</h3><div class="brand-count"><span class="count-number">15</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/toyo.html" data-name="Toyo"><div class="brand-image"><img src="/assets/images/brands/toyo.png" alt="Toyo" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Toyo</h3><div class="brand-count"><span class="count-number">10</span> Products</div></div></a></article>
 
             </div>
 
@@ -1420,7 +1293,7 @@ NO RESULTS
                 <div class="no-results-actions">
 
                     <button
-                        id="resetFilters"
+                        id="resetNoResultsFilters"
                         class="btn btn-primary">
 
                         Reset Filters
@@ -1444,117 +1317,6 @@ NO RESULTS
     </div>
 
 </div>
-
-<!-- ==========================================================
-LOADING STATE
-========================================================== -->
-
-<!-- ==========================================================
-SOUVIKS LOADING STATE
-Reusable Loading Component
-========================================================== -->
-
-<section
-
-    id="loadingState"
-
-    class="loading-state hidden"
-
-    aria-live="polite"
-
-    aria-busy="true"
-
-    aria-label="Loading content">
-
-    <div class="container">
-
-        <div class="loading-header">
-
-            <div class="loading-title skeleton"></div>
-
-            <div class="loading-subtitle skeleton"></div>
-
-        </div>
-
-        <div class="loading-grid">
-
-            <!-- CARD 1 -->
-
-            <article class="loading-card">
-
-                <div class="loading-image skeleton"></div>
-
-                <div class="loading-logo skeleton"></div>
-
-                <div class="loading-text skeleton"></div>
-
-                <div class="loading-text short skeleton"></div>
-
-                <div class="loading-pill skeleton"></div>
-
-                <div class="loading-button skeleton"></div>
-
-            </article>
-
-            <!-- CARD 2 -->
-
-            <article class="loading-card">
-
-                <div class="loading-image skeleton"></div>
-
-                <div class="loading-logo skeleton"></div>
-
-                <div class="loading-text skeleton"></div>
-
-                <div class="loading-text short skeleton"></div>
-
-                <div class="loading-pill skeleton"></div>
-
-                <div class="loading-button skeleton"></div>
-
-            </article>
-
-            <!-- CARD 3 -->
-
-            <article class="loading-card">
-
-                <div class="loading-image skeleton"></div>
-
-                <div class="loading-logo skeleton"></div>
-
-                <div class="loading-text skeleton"></div>
-
-                <div class="loading-text short skeleton"></div>
-
-                <div class="loading-pill skeleton"></div>
-
-                <div class="loading-button skeleton"></div>
-
-            </article>
-
-            <!-- CARD 4 -->
-
-            <article class="loading-card">
-
-                <div class="loading-image skeleton"></div>
-
-                <div class="loading-logo skeleton"></div>
-
-                <div class="loading-text skeleton"></div>
-
-                <div class="loading-text short skeleton"></div>
-
-                <div class="loading-pill skeleton"></div>
-
-                <div class="loading-button skeleton"></div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
 
 <!-- ==========================================================
 CALL TO ACTION
@@ -1857,7 +1619,7 @@ CALL TO ACTION
 
                 <li>
 
-                    08:30 AM – 07:00 PM
+                    08:00 AM – 07:00 PM
 
                 </li>
 
@@ -1976,6 +1738,12 @@ window.souviks = {
     currentLanguage:
         "en",
 
+    translations: {
+        buttons: {
+            add_to_rfq: "Add To RFQ"
+        }
+    },
+
     api: {
 
         products:
@@ -2011,7 +1779,7 @@ window.souviks = {
 
 <!-- ==========================================
      GLOBAL SITE JAVASCRIPT
-     Keep the existing modular script architecture.
+     PageBuilder injects only the modules required by this page.
 ========================================== -->
 
 <script defer src="/assets/js/auth/supabase.js"></script>
@@ -2021,19 +1789,17 @@ window.souviks = {
 <script defer src="/assets/js/auth/logout.js"></script>
 <script defer src="/assets/js/utils.js"></script>
 <script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/breadcrumb.js"></script>
+<script defer src="/assets/js/language-switcher.js"></script>
+<script defer src="/assets/js/main.js"></script>
+<script defer src="/assets/js/webmcp.js"></script>
 <script defer src="/assets/js/products.js"></script>
 <script defer src="/assets/js/brands.js"></script>
 <script defer src="/assets/js/categories.js"></script>
 <script defer src="/assets/js/vehicles.js"></script>
+<script defer src="/assets/js/search-engine.js"></script>
 <script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/filters.js"></script>
-<script defer src="/assets/js/pagination.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
 <script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/main.js"></script>
-
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

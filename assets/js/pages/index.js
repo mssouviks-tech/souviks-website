@@ -30,14 +30,15 @@ async function renderFeaturedCategories() {
                     (b.product_count || 0) -
                     (a.product_count || 0)
             )
-            .slice(0, 4);
+            .slice(0, 5);
 
     const container =
         document.querySelector(
             "#featuredCategories"
         );
 
-    container.innerHTML =
+    if (container?.dataset.staticRendered !== "true") {
+        container.innerHTML =
 
         featured
             .map(
@@ -47,6 +48,7 @@ async function renderFeaturedCategories() {
                     )
             )
             .join("");
+    }
 
 }
 
@@ -60,8 +62,8 @@ async function renderFeaturedBrands() {
         "Tata Genuine Parts",
         "Leyparts",
         "TVS Girling",
-        "Texspin"
-        
+        "Texspin",
+        "Bosch"
 
     ];
 
@@ -82,7 +84,8 @@ async function renderFeaturedBrands() {
             "#featuredBrands"
         );
 
-    container.innerHTML =
+    if (container?.dataset.staticRendered !== "true") {
+        container.innerHTML =
 
         featured
             .map(
@@ -92,6 +95,7 @@ async function renderFeaturedBrands() {
                     )
             )
             .join("");
+    }
 
 }
 
@@ -101,34 +105,18 @@ async function renderFeaturedVehicles() {
     const vehicles =
         await API.vehicles();
 
-    const featuredModels = [
-
-        "Tata 1210",
-        "Ashok Leyland 2516",
-        "Tata Signa",
-        "Tata Prima"
-      
-
-    ];
-
-    const featured =
-
-        vehicles.filter(
-
-            vehicle =>
-
-                featuredModels.includes(
-                    vehicle.model
-                )
-
-        );
+    const featured = vehicles
+        .filter(vehicle => vehicle?.active !== false)
+        .sort((a, b) => (b.product_count || 0) - (a.product_count || 0))
+        .slice(0, 5);
 
     const container =
         document.querySelector(
             "#featuredVehicles"
         );
 
-    container.innerHTML =
+    if (container?.dataset.staticRendered !== "true") {
+        container.innerHTML =
 
         featured
             .map(
@@ -138,6 +126,7 @@ async function renderFeaturedVehicles() {
                     )
             )
             .join("");
+    }
 
 }
 
@@ -152,54 +141,33 @@ async function initializeHomepageSearch() {
 
 function searchCatalog(query) {
 
-    if (!query) return [];
+    if (!query) {
+        return [];
+    }
 
-    query = query.toLowerCase().trim();
+    if (
+        window.SouviksSearchEngine &&
+        typeof SouviksSearchEngine.search ===
+            "function"
+    ) {
+        return SouviksSearchEngine.search(
+            SEARCH_INDEX,
+            query,
+            8
+        );
+    }
 
     return SEARCH_INDEX
-
-        .map(item => {
-
-            let score = 0;
-
-            const title =
-                (item.title || "")
-                    .toLowerCase();
-
-            if (title === query)
-                score += 1000;
-
-            else if (title.startsWith(query))
-                score += 500;
-
-            else if (title.includes(query))
-                score += 250;
-
-            if (item.type === "vehicle")
-                score += 300;
-
-            if (item.type === "brand")
-                score += 200;
-
-            if (item.type === "category")
-                score += 100;
-
-            if (item.type === "product")
-                score += 10;
-
-            return {
-                ...item,
-                score
-            };
-
-        })
-
-        .filter(item => item.score > 0)
-
-        .sort((a, b) => b.score - a.score)
-
+        .filter(item =>
+            String(item.title || "")
+                .toLowerCase()
+                .includes(
+                    String(query)
+                        .trim()
+                        .toLowerCase()
+                )
+        )
         .slice(0, 8);
-
 }
 
 function bindSearchEvents() {
@@ -217,42 +185,26 @@ const searchButton =
     document.querySelector(
         "#searchButton"
     );
-searchButton?.addEventListener(
-    "click",
-    () => {
-
-        const matches =
-            searchCatalog(
-                input.value
-            );
-
-        renderSearchResults(
-            matches,
-            results
-        );
-
+const goToCatalogue = () => {
+    const query = String(input?.value || "").trim();
+    if (!query) {
+        input?.focus();
+        return;
     }
-);
-input.addEventListener(
-    "keydown",
-    event => {
 
-        if(event.key === "Enter") {
+    const url = new URL(`/${LANG}/products.html`, window.location.origin);
+    url.searchParams.set("q", query);
+    window.location.assign(url.pathname + url.search);
+};
 
-            const matches =
-                searchCatalog(
-                    input.value
-                );
+searchButton?.addEventListener("click", goToCatalogue);
 
-            renderSearchResults(
-                matches,
-                results
-            );
-
-        }
-
+input?.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        goToCatalogue();
     }
-);
+});
 document.addEventListener(
     "click",
     event => {

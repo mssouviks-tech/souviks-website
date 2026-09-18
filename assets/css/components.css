@@ -466,3 +466,201 @@
     object-position: center;
 
 }
+
+/* ==========================================================
+   HOMEPAGE MOBILE HERO
+   Desktop hero remains unchanged.
+========================================================== */
+
+@media (max-width: 768px) {
+    .index-hero {
+        min-height: 0;
+        padding: 34px 0 24px;
+        display: block;
+        background-position: 58% center;
+    }
+
+    .index-hero .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .index-hero .hero-content {
+        max-width: 560px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .index-hero h1 {
+        margin-bottom: 8px;
+        font-size: clamp(1.7rem, 7.5vw, 2rem);
+        line-height: 1.12;
+    }
+
+    .index-hero .hero-content p {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: .9rem;
+        line-height: 1.45;
+    }
+
+    .index-hero .hero-content p:nth-of-type(1) {
+        font-size: 1rem;
+        line-height: 1.35;
+        margin-bottom: 8px;
+    }
+
+    .index-hero .hero-content p:nth-of-type(2) {
+        max-width: 460px;
+    }
+
+    .index-hero .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+        width: 100%;
+        max-width: 560px;
+        gap: 0;
+        margin: 18px 0 0;
+        padding: 10px 4px;
+        border-radius: 14px;
+    }
+
+    .index-hero .hero-stat {
+        min-width: 0;
+        padding: 4px 7px;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .index-hero .hero-stat:not(:last-child) {
+        border-right: 1px solid rgba(255,255,255,.18);
+    }
+
+    .index-hero .hero-stat-icon {
+        width: 22px;
+        height: 22px;
+        margin: 0 auto 2px;
+    }
+
+    .index-hero .hero-stat-content {
+        min-width: 0;
+        text-align: center;
+    }
+
+    .index-hero .stat-number {
+        display: block;
+        font-size: 1rem;
+        line-height: 1.05;
+        font-weight: 800;
+    }
+
+    .index-hero .stat-label {
+        display: block;
+        margin-top: 2px;
+        font-size: .67rem;
+        line-height: 1.15;
+        white-space: normal;
+    }
+
+    .index-hero .catalogue-search {
+        margin-top: 16px;
+        padding: 0;
+    }
+
+    .index-hero .catalogue-search .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .index-hero .search-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        padding: 0;
+        background: #fff;
+        border: 1px solid rgba(255,255,255,.5);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0,0,0,.2);
+        backdrop-filter: none;
+    }
+
+    .index-hero .search-box {
+        position: relative;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .index-hero .search-input {
+        height: 46px;
+        padding: 11px 38px 11px 40px;
+        border: 0;
+        border-radius: 0;
+        font-size: .86rem;
+        box-shadow: none;
+        outline: none;
+    }
+
+    .index-hero .search-icon {
+        left: 13px;
+        width: 17px;
+        height: 17px;
+    }
+
+    .index-hero #searchButton {
+        flex: 0 0 48px;
+        width: 48px;
+        min-width: 48px;
+        height: 46px;
+        padding: 0;
+        border-radius: 0;
+        font-size: 0;
+    }
+
+    .index-hero #searchButton::before {
+        content: "⌕";
+        font-size: 23px;
+        line-height: 1;
+    }
+
+    .index-hero .clear-search {
+        right: 8px;
+    }
+}
+
+@media (max-width: 420px) {
+    .index-hero {
+        padding-top: 28px;
+        padding-bottom: 20px;
+        background-position: 60% center;
+    }
+
+    .index-hero .container,
+    .index-hero .catalogue-search .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .index-hero .hero-stats {
+        margin-top: 14px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .index-hero .stat-number {
+        font-size: .92rem;
+    }
+
+    .index-hero .stat-label {
+        font-size: .61rem;
+    }
+
+    .index-hero #searchButton {
+        flex-basis: 46px;
+        width: 46px;
+        min-width: 46px;
+    }
+}

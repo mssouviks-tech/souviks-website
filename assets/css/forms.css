@@ -28,3 +28,15 @@ textarea:focus {
         var(--color-primary);
 
 }
+
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px;
+        min-width: 0;
+    }
+    .lead-success-content {
+        width: calc(100% - 24px);
+        max-width: none;
+        padding: 28px 20px;
+    }
+}

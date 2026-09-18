@@ -1,0 +1,137 @@
+/* ==========================================================
+   GRID LAYOUTS
+========================================================== */
+
+.entity-grid,
+.product-grid,
+.products-grid,
+.brand-grid,
+.brands-grid,
+.vehicle-grid,
+.vehicles-grid,
+.category-grid,
+.categories-grid,
+#categoryGrid {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 18px;
+
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+}
+
+.brand-grid {
+
+    position: relative;
+
+    max-height: 720px;
+
+    overflow: hidden;
+
+}
+
+.vehicle-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 24px;
+
+    position: relative;
+
+    max-height: 720px;
+
+    overflow: hidden;
+
+}
+
+#vehicle-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,minmax(0,1fr));
+
+    gap: 32px;
+
+}
+
+
+
+
+/* Directory grids use their own feature module; no duplicate overrides here. */
+
+
+/* ==========================================================
+   RESPONSIVE CATALOGUE GRIDS
+========================================================== */
+
+@media (max-width: 1200px) {
+    .entity-grid,
+    .category-grid,
+    .categories-grid,
+    #categoryGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .brand-grid,
+    .brands-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+    .vehicle-grid,
+    .vehicles-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .entity-grid,
+    .category-grid,
+    .categories-grid,
+    #categoryGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .brand-grid,
+    .brands-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .vehicle-grid,
+    .vehicles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid,
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+    .entity-grid,
+    .category-grid,
+    .categories-grid,
+    #categoryGrid,
+    .vehicle-grid,
+    .vehicles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+    .brand-grid,
+    .brands-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 359px) {
+    .product-grid,
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}

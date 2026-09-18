@@ -2,9 +2,7 @@
 
 <html lang="en">
 
-<head>
-
-    <!-- ==========================================================
+<!-- ==========================================================
 SOUVIKS PAGE HEAD
 Reusable Head Component
 ========================================================== -->
@@ -136,7 +134,7 @@ Reusable Head Component
 
     <meta
         property="og:locale"
-        content="self.og_locale">
+        content="en_IN">
 
     <!-- ==========================================
          TWITTER
@@ -208,33 +206,99 @@ Reusable Head Component
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "LocalBusiness"
+      ],
+      "@id": "https://www.souviks.co.in/#organization",
       "name": "Souviks",
+      "description": "Supplier of genuine OEM and premium aftermarket commercial vehicle spare parts.",
+      "priceRange": "₹₹",
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "serviceType": [
+        "Commercial vehicle spare parts",
+        "Truck spare parts",
+        "Bus spare parts"
+      ],
       "url": "https://www.souviks.co.in",
-      "logo": "https://www.souviks.co.in/assets/logo/souviks-logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.souviks.co.in/assets/logo/souviks-logo.png"
+      },
       "email": "info@souviks.co.in",
-      "telephone": "+91-94343-31896",
+      "telephone": [
+        "+91-94343-31896",
+        "+91-79082-15701"
+      ],
       "foundingDate": "1986",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Andal More",
+        "streetAddress": "CN-119(2), Souviks Building, Beside NH-2, Andal More",
         "addressLocality": "Andal",
         "addressRegion": "West Bengal",
         "postalCode": "713321",
         "addressCountry": "IN"
       },
       "sameAs": [
-        "https://www.facebook.com/souviksandal",
+        "https://www.instagram.com/mssouviks/",
         "https://x.com/mssouviks"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-94343-31896",
+          "contactType": "sales",
+          "areaServed": "IN",
+          "availableLanguage": [
+            "en",
+            "hi",
+            "bn"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-79082-15701",
+          "contactType": "customer support",
+          "areaServed": "IN",
+          "availableLanguage": [
+            "en",
+            "hi",
+            "bn"
+          ]
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "07:00",
+          "closes": "19:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "08:00",
+          "closes": "19:00"
+        }
       ]
     },
     {
       "@type": "WebSite",
+      "@id": "https://www.souviks.co.in/#website",
       "name": "Souviks",
       "url": "https://www.souviks.co.in",
       "publisher": {
-        "@type": "Organization",
-        "name": "Souviks"
+        "@id": "https://www.souviks.co.in/#organization"
       }
     }
   ]
@@ -265,9 +329,6 @@ Reusable Head Component
 
     
 
-    <script src="/assets/js/webmcp.js"></script>
-
-</head>
 
 </head>
 
@@ -445,13 +506,15 @@ Reusable Head Component
 
                     <div class="auth-modal-header">
 
-                        <h2
+                        <div
                             id="authModalTitle"
-                            class="auth-modal-title">
+                            class="auth-modal-title"
+                            role="heading"
+                            aria-level="2">
 
                             Sign In
 
-                        </h2>
+                        </div>
 
                         <button
                             type="button"
@@ -777,6 +840,17 @@ Reusable Head Component
 
         </div>
 
+        <button
+            id="mobileMenuButton"
+            class="mobile-menu-button"
+            type="button"
+            aria-label="Open Navigation"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
     </div>
 
 </div>
@@ -793,6 +867,18 @@ Reusable Head Component
             <nav
                 class="main-navigation"
                 aria-label="Primary Navigation">
+
+                <div class="mobile-navigation-header">
+                    <img
+                        src="/assets/logo/souviks-logo-white.png"
+                        alt="Souviks"
+                        class="mobile-navigation-logo">
+                    <button
+                        id="mobileNavigationClose"
+                        class="mobile-navigation-close"
+                        type="button"
+                        aria-label="Close Navigation">×</button>
+                </div>
 
                 <ul class="navigation-menu">
 
@@ -916,210 +1002,14 @@ Reusable Head Component
 
                 
 
-            <!-- ==========================================
-                 MOBILE MENU BUTTON
-            =========================================== -->
-
-            <button
-                id="mobileMenuButton"
-                class="mobile-menu-button"
-                type="button"
-                aria-label="Open Navigation">
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-            </button>
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- ==========================================================
-         MOBILE NAVIGATION
-    ========================================================== -->
-
-    <nav
-        id="mobileNavigation"
-        class="mobile-navigation"
-        aria-label="Primary Navigation">
-
-
-        <!-- ==========================================
-             NAVIGATION LINKS
-        =========================================== -->
-
-        <ul>
-
-            <li>
-
-                <a
-                    href="/en/"
-                    class="active">
-
-                    Home
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/products.html"
-                    class="">
-
-                    Products
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/brands.html"
-                    class="">
-
-                    Brands
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/vehicles.html"
-                    class="">
-
-                    Vehicles
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/categories.html"
-                    class="">
-
-                    Categories
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/about.html"
-                    class="">
-
-                    About Us
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/contact.html"
-                    class="">
-
-                    Contact
-
-                </a>
-
-            </li>
-
-        </ul>
-
-
-        <!-- ==========================================
-             MOBILE ACTIONS
-        =========================================== -->
-
-        <div class="mobile-navigation-actions">
-
-            <a
-                href="/en/request-part.html"
-                class="btn btn-primary">
-
-                Request a Part
-
-            </a>
-
-            <a
-                href="/en/request-quote.html"
-                class="btn btn-secondary">
-
-                RFQ Basket
-
-                <span class="rfq-badge">
-
-                    0
-
-                </span>
-
-            </a>
-
-
-            
-
-
-        <!-- ==========================================
-             MOBILE CONTACT
-        =========================================== -->
-
-        <div class="mobile-navigation-contact">
-
-            <a
-                href="tel:+919434331896"
-                class="mobile-phone">
-
-                <img
-                    src="/assets/icons/phone.svg"
-                    alt="Phone"
-                    class="mobile-icon">
-
-                <span>
-
-                    +91 94343 31896
-
-                </span>
-
-            </a>
-
-            <a
-                href="mailto:info@souviks.co.in"
-                class="mobile-email">
-
-                <img
-                    src="/assets/icons/email.svg"
-                    alt="Email"
-                    class="mobile-icon">
-
-                <span>
-
-                    info@souviks.co.in
-
-                </span>
-
-            </a>
-
-        </div>
-
-    </nav>
-
 </header>
-
 
 
 
@@ -1164,7 +1054,7 @@ Reusable Head Component
 
                             <span class="stat-number">
 
-                                667
+                                933
 
                             </span>
 
@@ -1190,7 +1080,7 @@ Reusable Head Component
 
                             <span class="stat-number">
 
-                                48
+                                55
 
                             </span>
 
@@ -1325,7 +1215,10 @@ Reusable Search Component
 
             <div
                 id="featuredCategories"
-                class="categories-grid">
+                class="categories-grid"
+                data-static-rendered="true">
+
+                <article class="category-card"><a href="/en/categories/suspension-steering.html" data-breadcrumb="Suspension &amp; Steering"><div class="category-image"><img src="/assets/images/categories/suspension-steering.png" alt="Suspension &amp; Steering" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Suspension &amp; Steering</h3><div class="category-count">301 Products</div></div></a></article><article class="category-card"><a href="/en/categories/electricals.html" data-breadcrumb="Electricals"><div class="category-image"><img src="/assets/images/categories/electricals.png" alt="Electricals" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Electricals</h3><div class="category-count">113 Products</div></div></a></article><article class="category-card"><a href="/en/categories/fasteners-hardware.html" data-breadcrumb="Fasteners &amp; Hardware"><div class="category-image"><img src="/assets/images/categories/fasteners-hardware.png" alt="Fasteners &amp; Hardware" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Fasteners &amp; Hardware</h3><div class="category-count">83 Products</div></div></a></article><article class="category-card"><a href="/en/categories/bearings.html" data-breadcrumb="Bearings"><div class="category-image"><img src="/assets/images/categories/bearings.png" alt="Bearings" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Bearings</h3><div class="category-count">83 Products</div></div></a></article><article class="category-card"><a href="/en/categories/filters.html" data-breadcrumb="Filters"><div class="category-image"><img src="/assets/images/categories/filters.png" alt="Filters" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Filters</h3><div class="category-count">77 Products</div></div></a></article>
 
             </div>
 
@@ -1360,7 +1253,10 @@ Reusable Search Component
 
             <div
                 id="featuredBrands"
-                class="brands-grid">
+                class="brands-grid"
+                data-static-rendered="true">
+
+                <article class="brand-card"><a href="/en/brands/tvs-girling.html" data-name="TVS Girling"><div class="brand-image"><img src="/assets/images/brands/tvs-girling.png" alt="TVS Girling" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">TVS Girling</h3><div class="brand-count"><span class="count-number">103</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/jai.html" data-name="JAI"><div class="brand-image"><img src="/assets/images/brands/jai.png" alt="JAI" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">JAI</h3><div class="brand-count"><span class="count-number">101</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/texspin.html" data-name="Texspin"><div class="brand-image"><img src="/assets/images/brands/texspin.png" alt="Texspin" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Texspin</h3><div class="brand-count"><span class="count-number">82</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/tata-genuine-parts.html" data-name="Tata Genuine Parts"><div class="brand-image"><img src="/assets/images/brands/tata-genuine-parts.png" alt="Tata Genuine Parts" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Tata Genuine Parts</h3><div class="brand-count"><span class="count-number">81</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/rki.html" data-name="RKI"><div class="brand-image"><img src="/assets/images/brands/rki.png" alt="RKI" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">RKI</h3><div class="brand-count"><span class="count-number">39</span> Products</div></div></a></article>
 
             </div>
 
@@ -1395,7 +1291,10 @@ Reusable Search Component
 
             <div
                 id="featuredVehicles"
-                class="vehicles-grid">
+                class="vehicles-grid"
+                data-static-rendered="true">
+
+                <article class="vehicle-card"><a href="/en/vehicles/tata-lpt.html" data-breadcrumb="Tata LPT"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata LPT</h3><div class="vehicle-count">262 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/universal.html" data-breadcrumb="Universal"><div class="vehicle-image"><img src="/assets/images/vehicles/UNIVERSAL/thumbnail-400x300.webp" alt="Universal" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Universal</h3><div class="vehicle-count">261 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-2516.html" data-breadcrumb="Ashok Leyland 2516"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland 2516</h3><div class="vehicle-count">184 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-ace.html" data-breadcrumb="Tata Ace"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp" alt="Tata Ace" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ace</h3><div class="vehicle-count">70 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-signa.html" data-breadcrumb="Tata Signa"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp" alt="Tata Signa" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Signa</h3><div class="vehicle-count">66 Products</div></div></a></article>
 
             </div>
 
@@ -1508,6 +1407,12 @@ window.souviks = {
     currentLanguage:
         "en",
 
+    translations: {
+        buttons: {
+            add_to_rfq: "Add To RFQ"
+        }
+    },
+
     api: {
 
         products:
@@ -1543,7 +1448,7 @@ window.souviks = {
 
 <!-- ==========================================
      GLOBAL SITE JAVASCRIPT
-     Keep the existing modular script architecture.
+     PageBuilder injects only the modules required by this page.
 ========================================== -->
 
 <script defer src="/assets/js/auth/supabase.js"></script>
@@ -1553,19 +1458,17 @@ window.souviks = {
 <script defer src="/assets/js/auth/logout.js"></script>
 <script defer src="/assets/js/utils.js"></script>
 <script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/breadcrumb.js"></script>
+<script defer src="/assets/js/language-switcher.js"></script>
+<script defer src="/assets/js/main.js"></script>
+<script defer src="/assets/js/webmcp.js"></script>
 <script defer src="/assets/js/products.js"></script>
 <script defer src="/assets/js/brands.js"></script>
 <script defer src="/assets/js/categories.js"></script>
 <script defer src="/assets/js/vehicles.js"></script>
+<script defer src="/assets/js/search-engine.js"></script>
 <script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/filters.js"></script>
-<script defer src="/assets/js/pagination.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
 <script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/main.js"></script>
-
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS
@@ -1837,7 +1740,7 @@ document.addEventListener(
 
                 <li>
 
-                    08:30 AM – 07:00 PM
+                    08:00 AM – 07:00 PM
 
                 </li>
 

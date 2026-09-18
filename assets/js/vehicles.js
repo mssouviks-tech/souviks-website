@@ -49,7 +49,9 @@ class VehicleManager {
 
         ];
 
-        this.render();
+        if (this.container.dataset.staticRendered !== "true") {
+            this.render();
+        }
 
     }
     // ======================================================
@@ -365,11 +367,9 @@ const grid =
                         product
                     )
             ).join("");
-
-    }
+        }
 
 }
-
 // ======================================================
 // VEHICLE PRODUCTS
 // ======================================================

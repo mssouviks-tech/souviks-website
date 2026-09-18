@@ -1,0 +1,46 @@
+/* ==========================================================
+   ICON CARDS
+========================================================== */
+
+.why-card {
+    padding: 28px 22px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+}
+
+.why-card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.why-card p {
+    margin: 0 0 8px;
+    color: var(--color-text-light);
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.why-icon {
+    display: block;
+    width: 56px !important;
+    height: 56px !important;
+    margin: 0 auto 18px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+/* ==========================================================
+   GRID LAYOUTS
+========================================================== */
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}

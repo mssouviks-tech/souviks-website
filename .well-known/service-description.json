@@ -1,24 +1,19 @@
 {
-  "name": "Souviks Website",
-  "url": "https://www.souviks.co.in/",
-  "description": "Souviks is a commercial vehicle spare-parts catalogue and enquiry website. Product information is exposed through the machine-readable catalogue resources listed in the API catalogue.",
-  "languages": ["en", "hi", "bn"],
-  "catalogue": {
-    "products": "https://www.souviks.co.in/assets/data/products.json",
-    "brands": "https://www.souviks.co.in/assets/data/brands.json",
-    "categories": "https://www.souviks.co.in/assets/data/categories.json",
-    "vehicles": "https://www.souviks.co.in/assets/data/vehicles.json",
-    "search": "https://www.souviks.co.in/assets/data/search.json"
+  "name":"Souviks Website",
+  "url":"https://www.souviks.co.in/",
+  "description":"Souviks is a commercial vehicle spare-parts catalogue and enquiry website. Product information is exposed through machine-readable catalogue resources.",
+  "languages":["en","hi","bn"],
+  "catalogue":{
+    "products":"https://www.souviks.co.in/assets/data/products.json",
+    "brands":"https://www.souviks.co.in/assets/data/brands.json",
+    "categories":"https://www.souviks.co.in/assets/data/categories.json",
+    "vehicles":"https://www.souviks.co.in/assets/data/vehicles.json",
+    "search":"https://www.souviks.co.in/assets/data/search.json"
   },
-  "humanPages": {
-    "products": "https://www.souviks.co.in/en/products.html",
-    "brands": "https://www.souviks.co.in/en/brands.html",
-    "categories": "https://www.souviks.co.in/en/categories.html",
-    "vehicles": "https://www.souviks.co.in/en/vehicles.html"
-  },
-  "locales": {
-    "en": "https://www.souviks.co.in/en/",
-    "hi": "https://www.souviks.co.in/hi/",
-    "bn": "https://www.souviks.co.in/bn/"
+  "humanPages":{
+    "products":"https://www.souviks.co.in/en/products.html",
+    "brands":"https://www.souviks.co.in/en/brands.html",
+    "categories":"https://www.souviks.co.in/en/categories.html",
+    "vehicles":"https://www.souviks.co.in/en/vehicles.html"
   }
 }

@@ -94,7 +94,7 @@
 
     box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
 
-    z-index: 1200;
+    z-index: 5200;
 
 }
 
@@ -514,3 +514,128 @@
 
 }
 
+
+/* ==========================================================
+   RESPONSIVE TOP BAR
+========================================================== */
+
+@media (max-width: 992px) {
+    .top-bar .container {
+        min-height: 52px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        gap: 12px;
+    }
+    .top-logo img { height: 38px; }
+    .top-bar-tools {
+        min-width: 0;
+        margin-left: auto;
+        gap: 8px;
+    }
+    .top-bar-tools .top-email,
+    .top-bar-tools .top-phone,
+    .top-bar-tools .top-signin {
+        display: none;
+    }
+    .top-bar-tools .top-whatsapp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 7px 10px;
+        font-size: .8rem;
+        white-space: nowrap;
+    }
+    .top-bar-tools .language-switcher {
+        display: inline-flex;
+        flex-shrink: 0;
+    }
+    .language-button {
+        padding: .55rem .8rem;
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .top-bar .container {
+        min-height: 50px;
+        padding-left: 12px;
+        padding-right: 12px;
+        gap: 8px;
+    }
+    .top-logo img { height: 32px; }
+    .top-bar-tools { gap: 6px; }
+    .top-bar-tools .top-whatsapp {
+        width: 44px;
+        max-width: 44px;
+        min-height: 44px;
+        padding: 10px;
+        font-size: 0;
+    }
+    .top-bar-tools .top-whatsapp .top-icon {
+        width: 18px;
+        height: 18px;
+    }
+    .language-button {
+        width: 44px;
+        max-width: 44px;
+        min-height: 44px;
+        padding: .55rem .65rem;
+        justify-content: center;
+    }
+    .language-text,
+    .language-label { display: none; }
+}
+
+
+/* ==========================================================
+   MOBILE MENU CONTROL
+========================================================== */
+
+.top-bar .mobile-menu-button {
+    display: none;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.top-bar .mobile-menu-button span {
+    display: block;
+    width: 23px;
+    height: 2px;
+    margin: 4px auto;
+    background: var(--text-primary);
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+.top-bar .mobile-menu-button[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.top-bar .mobile-menu-button[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.top-bar .mobile-menu-button[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 992px) {
+    .top-bar .mobile-menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 420px) {
+    .top-bar .mobile-menu-button {
+        flex-basis: 44px;
+        width: 44px;
+    }
+}

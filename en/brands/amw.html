@@ -37,7 +37,7 @@ Reusable Head Component
 
     <meta
         name="description"
-        content="">
+        content="Brands at Souviks. Browse commercial vehicle spare parts, applications and catalogue information.">
     <meta
         name="author"
         content="Souviks">
@@ -110,19 +110,19 @@ Reusable Head Component
 
     <meta
         property="og:title"
-        content="">
+        content="AMW | Souviks">
 
     <meta
         property="og:description"
-        content="">
+        content="Brands at Souviks. Browse commercial vehicle spare parts, applications and catalogue information.">
 
     <meta
     property="og:image"
-    content="">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
 
     <meta
     property="og:image:alt"
-    content="">
+    content="Brands">
 
     <meta
         property="og:url"
@@ -134,7 +134,7 @@ Reusable Head Component
 
     <meta
         property="og:locale"
-        content="self.og_locale">
+        content="en_IN">
 
     <!-- ==========================================
          TWITTER
@@ -146,19 +146,19 @@ Reusable Head Component
 
     <meta
         name="twitter:title"
-        content="">
+        content="AMW | Souviks">
 
     <meta
         name="twitter:description"
-        content="">
+        content="Brands at Souviks. Browse commercial vehicle spare parts, applications and catalogue information.">
 
     <meta
     name="twitter:image"
-    content="">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
 
     <meta
     name="twitter:image:alt"
-    content="">
+    content="Brands">
 
     <meta
         name="twitter:url"
@@ -205,16 +205,42 @@ Reusable Head Component
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
+  "@id": "https://www.souviks.co.in/en/brands/amw.html#collection",
   "name": "AMW Parts | Souviks",
   "url": "https://www.souviks.co.in/en/brands/amw.html",
-  "mainEntity": {
+  "mainEntityOfPage": "https://www.souviks.co.in/en/brands/amw.html",
+  "about": {
     "@type": "Brand",
+    "@id": "https://www.souviks.co.in/en/brands/amw.html#brand",
     "name": "AMW",
     "url": "https://www.souviks.co.in/en/brands/amw.html",
     "logo": {
       "@type": "ImageObject",
       "url": "https://www.souviks.co.in/assets/images/brands/amw.png"
     }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Souviks",
+    "url": "https://www.souviks.co.in"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "numberOfItems": 1,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "SDB/AMW 1 - (Std.) Brake Lining Kit",
+        "url": "https://www.souviks.co.in/en/products/sdbamw-1-sdbamw-1-std-brake-lining-kit.html",
+        "item": {
+          "@type": "Product",
+          "name": "SDB/AMW 1 - (Std.) Brake Lining Kit",
+          "url": "https://www.souviks.co.in/en/products/sdbamw-1-sdbamw-1-std-brake-lining-kit.html"
+        }
+      }
+    ]
   }
 }
 </script><script type="application/ld+json">
@@ -267,6 +293,7 @@ Reusable Head Component
     =========================================== -->
 
     
+
 
 </head>
 
@@ -444,13 +471,15 @@ Reusable Head Component
 
                     <div class="auth-modal-header">
 
-                        <h2
+                        <div
                             id="authModalTitle"
-                            class="auth-modal-title">
+                            class="auth-modal-title"
+                            role="heading"
+                            aria-level="2">
 
                             Sign In
 
-                        </h2>
+                        </div>
 
                         <button
                             type="button"
@@ -776,6 +805,17 @@ Reusable Head Component
 
         </div>
 
+        <button
+            id="mobileMenuButton"
+            class="mobile-menu-button"
+            type="button"
+            aria-label="Open Navigation"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
     </div>
 
 </div>
@@ -790,6 +830,18 @@ Reusable Head Component
             <nav
                 class="main-navigation"
                 aria-label="Primary Navigation">
+
+                <div class="mobile-navigation-header">
+                    <img
+                        src="/assets/logo/souviks-logo-white.png"
+                        alt="Souviks"
+                        class="mobile-navigation-logo">
+                    <button
+                        id="mobileNavigationClose"
+                        class="mobile-navigation-close"
+                        type="button"
+                        aria-label="Close Navigation">×</button>
+                </div>
 
                 <ul class="navigation-menu">
 
@@ -913,210 +965,14 @@ Reusable Head Component
 
                 
 
-            <!-- ==========================================
-                 MOBILE MENU BUTTON
-            =========================================== -->
-
-            <button
-                id="mobileMenuButton"
-                class="mobile-menu-button"
-                type="button"
-                aria-label="Open Navigation">
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-            </button>
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- ==========================================================
-         MOBILE NAVIGATION
-    ========================================================== -->
-
-    <nav
-        id="mobileNavigation"
-        class="mobile-navigation"
-        aria-label="Primary Navigation">
-
-
-        <!-- ==========================================
-             NAVIGATION LINKS
-        =========================================== -->
-
-        <ul>
-
-            <li>
-
-                <a
-                    href="/en/"
-                    class="">
-
-                    Home
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/products.html"
-                    class="">
-
-                    Products
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/brands.html"
-                    class="active">
-
-                    Brands
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/vehicles.html"
-                    class="">
-
-                    Vehicles
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/categories.html"
-                    class="">
-
-                    Categories
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/about.html"
-                    class="">
-
-                    About Us
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/en/contact.html"
-                    class="">
-
-                    Contact
-
-                </a>
-
-            </li>
-
-        </ul>
-
-
-        <!-- ==========================================
-             MOBILE ACTIONS
-        =========================================== -->
-
-        <div class="mobile-navigation-actions">
-
-            <a
-                href="/en/request-part.html"
-                class="btn btn-primary">
-
-                Request a Part
-
-            </a>
-
-            <a
-                href="/en/request-quote.html"
-                class="btn btn-secondary">
-
-                RFQ Basket
-
-                <span class="rfq-badge">
-
-                    0
-
-                </span>
-
-            </a>
-
-
-            
-
-
-        <!-- ==========================================
-             MOBILE CONTACT
-        =========================================== -->
-
-        <div class="mobile-navigation-contact">
-
-            <a
-                href="tel:+919434331896"
-                class="mobile-phone">
-
-                <img
-                    src="/assets/icons/phone.svg"
-                    alt="Phone"
-                    class="mobile-icon">
-
-                <span>
-
-                    +91 94343 31896
-
-                </span>
-
-            </a>
-
-            <a
-                href="mailto:info@souviks.co.in"
-                class="mobile-email">
-
-                <img
-                    src="/assets/icons/email.svg"
-                    alt="Email"
-                    class="mobile-icon">
-
-                <span>
-
-                    info@souviks.co.in
-
-                </span>
-
-            </a>
-
-        </div>
-
-    </nav>
-
 </header>
-
 
 
 <!-- ==========================================================
@@ -1149,7 +1005,9 @@ BRAND HERO
 
     <div class="container">
 
-        <div id="brand-detail"></div>
+        <div id="brand-detail" data-static-rendered="true">
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/amw.png" alt="AMW" loading="lazy" decoding="async"></div><div class="brand-info"><h1>AMW</h1><p>Souviks catalogue: 1 active products from AMW. Categories include Brakes. Listed vehicle applications include Universal.</p></div></div>
+        </div>
 
     </div>
 
@@ -1181,7 +1039,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid">
+            class="products-grid"
+            data-static-rendered="true">
+
+            <article class="product-card"><div class="product-image"><a href="/en/products/sdbamw-1-sdbamw-1-std-brake-lining-kit.html" class="product-link" aria-label="View SDB/AMW 1 - (Std.) Brake Lining Kit"><img class="product-image-file" src="/assets/images/products/SVKS000435/1.webp" alt="SDB/AMW 1 - (Std.) Brake Lining Kit" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000435" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/sdbamw-1-sdbamw-1-std-brake-lining-kit.html">SDB/AMW 1 - (Std.) Brake Lining Kit</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000435" data-part="SDB/AMW 1" data-name="SDB/AMW 1 - (Std.) Brake Lining Kit" data-brand="AMW" aria-label="Add SDB/AMW 1 - (Std.) Brake Lining Kit to RFQ">Add To RFQ</button></div></article>
 
         </div>
 
@@ -1486,7 +1347,7 @@ BRAND PRODUCTS
 
                 <li>
 
-                    08:30 AM – 07:00 PM
+                    08:00 AM – 07:00 PM
 
                 </li>
 
@@ -1605,6 +1466,12 @@ window.souviks = {
     currentLanguage:
         "en",
 
+    translations: {
+        buttons: {
+            add_to_rfq: "Add To RFQ"
+        }
+    },
+
     api: {
 
         products:
@@ -1640,7 +1507,7 @@ window.souviks = {
 
 <!-- ==========================================
      GLOBAL SITE JAVASCRIPT
-     Keep the existing modular script architecture.
+     PageBuilder injects only the modules required by this page.
 ========================================== -->
 
 <script defer src="/assets/js/auth/supabase.js"></script>
@@ -1650,19 +1517,18 @@ window.souviks = {
 <script defer src="/assets/js/auth/logout.js"></script>
 <script defer src="/assets/js/utils.js"></script>
 <script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/breadcrumb.js"></script>
+<script defer src="/assets/js/language-switcher.js"></script>
+<script defer src="/assets/js/main.js"></script>
+<script defer src="/assets/js/webmcp.js"></script>
 <script defer src="/assets/js/products.js"></script>
 <script defer src="/assets/js/brands.js"></script>
 <script defer src="/assets/js/categories.js"></script>
 <script defer src="/assets/js/vehicles.js"></script>
+<script defer src="/assets/js/search-engine.js"></script>
 <script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/filters.js"></script>
-<script defer src="/assets/js/pagination.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
 <script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/main.js"></script>
-
+<script defer src="/assets/js/saved-products.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

@@ -1,0 +1,131 @@
+/* ==========================================================
+   STATES
+========================================================== */
+
+.no-results,
+.loading-state {
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+}
+
+
+/* ==========================================================
+   BRAND DIRECTORY
+========================================================== */
+
+.brand-grid-wrapper {
+
+    position: relative;
+
+}
+
+.brand-fade {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 90px;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background: linear-gradient(transparent,#ffffff);
+
+}
+
+.brands-expanded .brand-grid {
+
+    max-height: none;
+
+}
+
+.brands-expanded .brand-fade {
+
+    display: none;
+
+    pointer-events: none;
+
+}
+
+.show-more-wrapper {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 40px;
+
+    text-align: center;
+
+}
+
+.brands-expanded .show-more-wrapper {
+
+    display: none;
+
+}
+
+
+
+/* ==========================================================
+   DIRECTORY EXPAND/COLLAPSE
+========================================================== */
+
+.directory-collapsed {
+
+    position: relative;
+
+    max-height: 1200px;
+
+    overflow: hidden;
+
+}
+
+.directory-expanded {
+
+    max-height: none;
+
+}
+
+.directory-fade {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 180px;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        rgba(255,255,255,0),
+        rgba(255,255,255,1)
+    );
+
+}
+
+.directory-expanded .directory-fade {
+
+    display: none;
+
+}
+/* Keep the brand directory intentionally compact. This rule comes after the
+   shared four-column grid so it remains authoritative on desktop. */
+.brand-grid,
+.brands-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 18px;
+}

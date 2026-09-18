@@ -17,7 +17,7 @@ constructor() {
 
     this.currentPage = 1;
 
-    this.pageSize = 12;
+    this.pageSize = 20;
 
 }
     // ======================================================
@@ -50,7 +50,15 @@ constructor() {
 
         ];
 
-        this.render();
+        // Keep builder-generated product cards in the initial HTML.
+        // JavaScript continues to render after filtering, sorting,
+        // pagination, or other user interaction.
+        if (
+            this.container.dataset.staticRendered !==
+            "true"
+        ) {
+            this.render();
+        }
 
     }
 
@@ -60,120 +68,74 @@ constructor() {
 
 card(product) {
 
-    const cardImage =
+    const cardImage = String(product.image_url || product.primary_image || "").trim() ||
+        "/assets/images/placeholder.webp";
 
-        product.gallery &&
-        product.gallery.length
-
-        ?
-
-        `/assets/images/products/${product.image_folder}/${product.gallery[0]}`
-
-        :
-
-        '/assets/images/placeholder.webp';
-
-
-    const productId =
-        String(
-            product.id
-        );
-
-
+    const productId = String(product.id || "");
+    const name = String(product.product_name || product.name || "");
+    const partNumber = String(product.part_number || product.partNumber || "");
+    const brandName = String(product.brand_name || product.brand || "");
+    const hasSellingPrice = product.selling_price !== null && product.selling_price !== undefined && product.selling_price !== "";
+    const hasMrp = product.mrp !== null && product.mrp !== undefined && product.mrp !== "";
+    const mrpNumber = Number(product.mrp);
+    const sellingNumber = Number(product.selling_price);
+    const discounted = Number.isFinite(mrpNumber) && Number.isFinite(sellingNumber) && mrpNumber > 0 && sellingNumber < mrpNumber;
+    const discount = discounted
+        ? Math.round(((mrpNumber - sellingNumber) / mrpNumber) * 100)
+        : null;
+    const price = discounted
+        ? `<span class="product-price-current">${Utils.currency(sellingNumber)}</span><span class="product-price-mrp">MRP ${Utils.currency(mrpNumber)}</span><span class="product-price-discount">${discount}% OFF</span>`
+        : (hasSellingPrice || hasMrp)
+            ? `${hasSellingPrice ? "Price" : "MRP"}: ${Utils.currency(hasSellingPrice ? product.selling_price : product.mrp)}`
+            : "Price on request";
     const isSaved =
-        typeof SavedProducts !==
-        "undefined" &&
+        typeof SavedProducts !== "undefined" &&
+        SavedProducts.isSaved(productId);
 
-        SavedProducts.isSaved(
-            productId
-        );
-
+    const escape = value =>
+        String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/\"/g, "&quot;")
+            .replace(/'/g, "&#39;");
 
     return `
-
-    <article
-        class="product-card">
-
-        <a
-            href="${Utils.productUrl(product)}"
-            data-breadcrumb="${product.product_name}"
-            data-breadcrumb-type="detail"
-        >
-
-            <div class="product-image">
-
+    <article class="product-card">
+        <div class="product-image">
+            <a href="${Utils.productUrl(product)}" aria-label="View ${escape(name)}">
                 <img
+                    class="product-image-file"
                     src="${cardImage}"
-                    alt="${product.product_name}"
-                    ${Utils.responsiveImageAttrs(cardImage, product.gallery_dimensions?.[product.gallery?.[0]], '(max-width: 640px) 92vw, (max-width: 1024px) 31vw, 280px', 'lazy')}
-                >
-
-                <button
-                    type="button"
-                    class="product-save-button ${
-                        isSaved
-                            ? "is-saved"
-                            : ""
-                    }"
-                    data-saved-product-id="${productId}"
-                    data-saved="${
-                        isSaved
-                            ? "true"
-                            : "false"
-                    }"
-                    aria-pressed="${
-                        isSaved
-                            ? "true"
-                            : "false"
-                    }"
-                    aria-label="${
-                        isSaved
-                            ? "Remove from saved products"
-                            : "Save product"
-                    }">
-
-                    <span
-                        data-saved-icon
-                        aria-hidden="true">
-
-                        ${
-                            isSaved
-                                ? "♥"
-                                : "♡"
-                        }
-
-                    </span>
-
-                </button>
-
-            </div>
-
-            <div class="product-content">
-
-                <div class="product-id">
-
-                    ${product.id}
-
-                </div>
-
-                <h3 class="product-title">
-
-                    ${product.product_name}
-
-                </h3>
-
-                <div class="product-brand">
-
-                    ${product.brand_name || ''}
-
-                </div>
-
-            </div>
-
-        </a>
-
+                    alt="${escape(name)}"
+                    loading="lazy"
+                    decoding="async">
+            </a>
+            <button
+                type="button"
+                class="product-save-button ${isSaved ? "is-saved" : ""}"
+                data-saved-product-id="${escape(productId)}"
+                data-saved="${isSaved ? "true" : "false"}"
+                aria-pressed="${isSaved ? "true" : "false"}"
+                aria-label="${isSaved ? "Remove from saved products" : "Save product"}">
+                <span data-saved-icon aria-hidden="true">${isSaved ? "♥" : "♡"}</span>
+            </button>
+        </div>
+        <div class="product-content">
+            <h3 class="product-title"><a href="${Utils.productUrl(product)}">${escape(name)}</a></h3>
+            <div class="product-price ${discounted ? "product-price-sale" : ""}" aria-label="Price">${price}</div>
+            <button
+                type="button"
+                class="btn btn-primary add-to-cart"
+                data-id="${escape(productId)}"
+                data-part="${escape(partNumber)}"
+                data-name="${escape(name)}"
+                data-brand="${escape(brandName)}"
+                aria-label="Add ${escape(name)} to RFQ">
+                ${window.souviks?.translations?.buttons?.add_to_rfq || "Add To RFQ"}
+            </button>
+        </div>
     </article>
-
     `;
 }
 
@@ -684,6 +646,143 @@ priceHtml(product) {
 }
 
     // ======================================================
+    // PRODUCT GALLERY
+    // ======================================================
+
+    bindGallery(product) {
+        const gallery = document.querySelector(".pdp-gallery");
+        const mainImage = document.getElementById("pdpMainImage");
+        if (!gallery || !mainImage) return;
+
+        const placeholder = "/assets/images/placeholder.webp";
+
+        const primary = (() => {
+            const value = String(product?.image_url || "").trim();
+
+            if (value && !value.endsWith("/placeholder.webp")) {
+                return value;
+            }
+
+            const folder = String(product?.image_folder || "").trim();
+            const image = String(
+                product?.primary_image ||
+                product?.image ||
+                ""
+            ).trim();
+
+            if (folder && image) {
+                return `/assets/images/products/${encodeURIComponent(folder)}/${encodeURIComponent(image)}`;
+            }
+
+            return value || placeholder;
+        })();
+
+        const safeImage = (image, fallback = primary) => {
+            if (!image || image.dataset.galleryFallback === "placeholder") return;
+
+            image.addEventListener("error", () => {
+                const stage = image.dataset.galleryFallback || "primary";
+
+                if (stage === "primary" && fallback && fallback !== image.src) {
+                    image.dataset.galleryFallback = "placeholder";
+                    image.src = fallback;
+                    return;
+                }
+
+                image.dataset.galleryFallback = "placeholder";
+                image.src = placeholder;
+            }, { once: true });
+        };
+
+        // Main image: current source -> canonical primary -> global placeholder.
+        mainImage.dataset.galleryFallback = "primary";
+        mainImage.addEventListener("error", () => {
+            if (mainImage.dataset.galleryFallback === "primary" &&
+                primary &&
+                mainImage.src !== new URL(primary, window.location.href).href) {
+                mainImage.dataset.galleryFallback = "placeholder";
+                mainImage.src = primary;
+                return;
+            }
+
+            mainImage.dataset.galleryFallback = "done";
+            mainImage.src = placeholder;
+        });
+
+        const thumbs = [...gallery.querySelectorAll(".pdp-thumb")];
+        const validThumbs = thumbs.length ? thumbs : [];
+
+        validThumbs.forEach((thumb, index) => {
+            const img = thumb.querySelector("img");
+            if (!img) {
+                thumb.hidden = true;
+                return;
+            }
+
+            // Each thumbnail is isolated: one bad asset cannot break the gallery.
+            img.dataset.galleryFallback = "placeholder";
+            img.addEventListener("error", () => {
+                img.dataset.galleryFallback = "done";
+                img.src = placeholder;
+                thumb.classList.add("is-gallery-fallback");
+            }, { once: true });
+
+            thumb.addEventListener("click", () => {
+                const source = String(img.currentSrc || img.src || "").trim();
+                if (!source) return;
+
+                mainImage.dataset.galleryFallback = "primary";
+                mainImage.src = source;
+
+                validThumbs.forEach(item => item.classList.remove("active"));
+                thumb.classList.add("active");
+            });
+
+            if (index === 0) thumb.classList.add("active");
+        });
+
+        // If the static builder produced no thumbnails, retain a functional
+        // one-item fallback rather than an empty gallery rail.
+        if (!thumbs.length) {
+            const wrapper = gallery.querySelector(".pdp-thumbnails");
+            if (wrapper) {
+                wrapper.innerHTML = `
+                    <button class="pdp-thumb is-gallery-fallback active" type="button"
+                        aria-label="View product image">
+                        <img src="${placeholder}" alt="${String(product?.product_name || "Product")} image">
+                    </button>
+                `;
+                const fallbackThumb = wrapper.querySelector(".pdp-thumb");
+                fallbackThumb?.addEventListener("click", () => {
+                    mainImage.dataset.galleryFallback = "done";
+                    mainImage.src = primary || placeholder;
+                });
+            }
+        }
+
+        const thumbContainer = gallery.querySelector(".pdp-thumbnails");
+        const thumbPrev = gallery.querySelector(".pdp-thumb-prev");
+        const thumbNext = gallery.querySelector(".pdp-thumb-next");
+
+        thumbPrev?.addEventListener("click", () => {
+            thumbContainer?.scrollBy({ left: -260, behavior: "smooth" });
+        });
+
+        thumbNext?.addEventListener("click", () => {
+            thumbContainer?.scrollBy({ left: 260, behavior: "smooth" });
+        });
+
+        const brandImage = gallery.querySelector(".pdp-brand-badge img");
+        if (brandImage) {
+            brandImage.addEventListener("error", () => {
+                const badge = brandImage.closest(".pdp-brand-badge");
+                if (badge) badge.hidden = true;
+            }, { once: true });
+        }
+
+    }
+
+    // ======================================================
     // PRODUCT DETAIL
     // ======================================================
 
@@ -722,21 +821,21 @@ const brandLogo =
     brand?.logo || "";
 
 const imageBase =
-    `/assets/images/products/${product.image_folder}`;
+    `/assets/images/products/${encodeURIComponent(String(product.image_folder || ""))}`;
 
 const galleryImages =
-
-    product.gallery && product.gallery.length
-
-    ?
-
-    product.gallery.map(
-        file => `${imageBase}/${file}`
-    )
-
-    :
-
-    [];
+    Array.isArray(product.gallery) && product.gallery.length
+    ? product.gallery.map(file => {
+        const value = String(file || "").trim();
+        if (!value) return "";
+        if (/^https?:\/\//i.test(value) || value.startsWith("/")) return value;
+        return `${imageBase}/${encodeURIComponent(value)}`;
+    }).filter(Boolean)
+    : (product.image_url
+        ? [String(product.image_url)]
+        : (product.image
+            ? [`${imageBase}/${encodeURIComponent(String(product.image))}`]
+            : ["/assets/images/placeholder.webp"]));
 
 this.products =
     await API.products();
@@ -865,6 +964,8 @@ const galleryHtml = `
 </div>
 
 `;
+
+    if (target.dataset.staticRendered !== "true") {
 
     target.innerHTML = `
 
@@ -1246,6 +1347,8 @@ ${galleryHtml}
 
 `;
 
+}
+
 /* ==========================================
    PDP RFQ CONTROLS
 ========================================== */
@@ -1505,93 +1608,7 @@ removeBtn?.addEventListener(
 
 );
 
-const mainImage =
-    document.getElementById(
-        "pdpMainImage"
-    );
-
-document
-.querySelectorAll(
-    ".pdp-thumb"
-)
-.forEach(thumb => {
-
-    thumb.addEventListener(
-        "click",
-        () => {
-
-            const img =
-                thumb.querySelector(
-                    "img"
-                );
-
-            if (
-                img &&
-                mainImage
-            ) {
-
-                mainImage.src =
-                    img.src;
-
-            }
-
-        }
-    );
-
-});
-
-const thumbContainer =
-    document.querySelector(
-        ".pdp-thumbnails"
-    );
-
-const thumbPrev =
-    document.querySelector(
-        ".pdp-thumb-prev"
-    );
-
-const thumbNext =
-    document.querySelector(
-        ".pdp-thumb-next"
-    );
-
-if(
-    thumbContainer &&
-    thumbPrev &&
-    thumbNext
-){
-
-    thumbPrev.addEventListener(
-        "click",
-        () => {
-
-            thumbContainer.scrollBy({
-
-                left:-300,
-
-                behavior:"smooth"
-
-            });
-
-        }
-    );
-
-    thumbNext.addEventListener(
-        "click",
-        () => {
-
-            thumbContainer.scrollBy({
-
-                left:300,
-
-                behavior:"smooth"
-
-            });
-
-        }
-    );
-
-}
+this.bindGallery(product);
 
 const slider =
     document.querySelector(

@@ -240,13 +240,13 @@
 
     position: fixed;
 
-    top: var(--header-height);
+    top: calc(var(--header-height) + 56px);
 
     left: 0;
 
     width: 100%;
 
-    height: calc(100vh - var(--header-height));
+    height: calc(100vh - var(--header-height) - 56px);
 
     overflow-y: auto;
 
@@ -426,4 +426,197 @@
 
 .mobile-user-menu{
     width:100%;
+}
+
+@media (max-width: 992px) {
+    .main-navigation,
+    .header-buttons { display: none; }
+    .header-wrapper {
+        min-height: 60px;
+        justify-content: flex-end;
+        gap: 0;
+    }
+    .mobile-menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex: 0 0 44px;
+        margin-left: auto;
+    }
+    .mobile-navigation {
+        top: calc(var(--header-height) + 56px);
+        height: calc(100dvh - var(--header-height) - 56px);
+        padding: 16px;
+        overflow-x: hidden;
+        overscroll-behavior: contain;
+        z-index: 3000;
+    }
+    .mobile-navigation a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .mobile-navigation { padding: 12px; }
+    .mobile-navigation-actions { padding: 16px 8px; }
+    .mobile-navigation-contact { margin-top: 16px; padding-top: 16px; }
+}
+
+
+/* ==========================================================
+   MOBILE SINGLE-NAVIGATION DRAWER
+   The desktop primary navigation is the only navigation DOM.
+   At mobile widths it becomes the off-canvas drawer.
+========================================================== */
+
+.mobile-navigation-header {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .site-header {
+        height: 0;
+        border-bottom: 0;
+    }
+
+    .site-header .container {
+        height: 0;
+        padding: 0;
+    }
+
+    .header-wrapper {
+        min-height: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-navigation {
+        position: fixed;
+        top: 52px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        height: calc(100dvh - 52px);
+        max-height: calc(100dvh - 52px);
+        padding: 0 16px 24px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: #0b1015;
+        color: #fff;
+        border-top: 1px solid rgba(255,255,255,.12);
+        box-shadow: 0 18px 40px rgba(0,0,0,.28);
+        transform: translateX(100%);
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform .22s ease, visibility .22s ease;
+        z-index: 4000;
+    }
+
+    .main-navigation.active {
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .mobile-navigation-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 84px;
+        padding: 12px 4px;
+        border-bottom: 1px solid rgba(255,255,255,.14);
+    }
+
+    .mobile-navigation-logo {
+        display: block;
+        width: 112px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .mobile-navigation-close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #fff;
+        font-size: 34px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .main-navigation .navigation-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 0;
+        margin: 0;
+        padding: 8px 0 0;
+    }
+
+    .main-navigation .navigation-menu li {
+        border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .main-navigation .navigation-menu .nav-link {
+        display: flex;
+        align-items: center;
+        min-height: 52px;
+        width: 100%;
+        padding: 12px 8px;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .main-navigation .navigation-menu .nav-link.active {
+        color: #fff;
+        background: rgba(255,255,255,.08);
+        border-left: 3px solid var(--color-primary);
+        padding-left: 5px;
+    }
+
+    .main-navigation .navigation-menu .nav-link.active::after {
+        display: none;
+    }
+
+    .header-buttons {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .main-navigation {
+        top: 50px;
+        height: calc(100dvh - 50px);
+        max-height: calc(100dvh - 50px);
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .mobile-navigation-header {
+        min-height: 76px;
+    }
+
+    .mobile-navigation-logo {
+        width: 104px;
+    }
+}
+
+
+@media (max-width: 992px) {
+    body.mobile-navigation-open {
+        overflow: hidden;
+    }
 }

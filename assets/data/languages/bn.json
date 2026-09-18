@@ -147,6 +147,7 @@
     "search": "অনুসন্ধান করুন",
     "view_details": "বিস্তারিত দেখুন",
     "request_part": "যন্ত্রাংশের অনুরোধ করুন",
+    "add_to_rfq": "RFQ-তে যোগ করুন",
     "request_quote": "দরপত্রের অনুরোধ করুন",
     "rfq_basket": "RFQ ঝুড়ি",
     "contact": "যোগাযোগ করুন",
@@ -581,7 +582,7 @@
         "role_label": "গোপনীয়তা / অভিযোগ যোগাযোগ",
         "role": "Sujit Kumar Sadhu, Head, Finance and Sales",
         "email_label": "ইমেল",
-        "email": "mssouviks@gmail.com",
+        "email": "info@souviks.co.in",
         "phone_label": "ফোন",
         "phone": "+91 94343 31896 / +91 79082 15701",
         "address_label": "ঠিকানা",
@@ -715,7 +716,7 @@
         "designation_label": "পদ",
         "designation": "Head, Finance and Sales",
         "email_label": "অভিযোগ ইমেল",
-        "email": "mssouviks@gmail.com",
+        "email": "info@souviks.co.in",
         "phone_label": "অভিযোগ ফোন",
         "phone": "+91 94343 31896 / +91 79082 15701"
       },
@@ -726,7 +727,7 @@
         "whatsapp_label": "হোয়াটসঅ্যাপ",
         "whatsapp": "+91 79082 15701",
         "email_label": "ইমেল",
-        "email": "mssouviks@gmail.com",
+        "email": "info@souviks.co.in",
         "address_label": "ঠিকানা",
         "address": "CN-119(2), Souviks Building, Beside NH-2, Andal More, West Bengal - 713321"
       }
@@ -814,7 +815,7 @@
         "name_label": "ব্যবসা",
         "name": "Souviks",
         "email_label": "ইমেল",
-        "email": "mssouviks@gmail.com",
+        "email": "info@souviks.co.in",
         "phone_label": "ফোন / হোয়াটসঅ্যাপ",
         "phone": "+91 94343 31896 / +91 79082 15701",
         "address_label": "ঠিকানা",

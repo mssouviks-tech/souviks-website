@@ -32,11 +32,9 @@ Breadcrumb.render("Brands");
 
         bindShowMore();
 
-        renderBrands(
-
-            Brands.brands
-
-        );
+        if (Brands.container?.dataset.staticRendered !== "true") {
+            renderBrands(Brands.brands);
+        }
 
         updateCounters(
 

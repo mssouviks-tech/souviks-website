@@ -1,0 +1,11 @@
+/* ==========================================================
+   REQUEST / CONTACT FORM CARD
+========================================================== */
+
+.request-part-form {
+    padding: 40px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}

@@ -37,7 +37,7 @@ Reusable Head Component
 
     <meta
         name="description"
-        content="">
+        content="Brands at Souviks. Browse commercial vehicle spare parts, applications and catalogue information.">
     <meta
         name="author"
         content="Souviks">
@@ -110,19 +110,19 @@ Reusable Head Component
 
     <meta
         property="og:title"
-        content="">
+        content="AutoPly | Souviks">
 
     <meta
         property="og:description"
-        content="">
+        content="Brands at Souviks. Browse commercial vehicle spare parts, applications and catalogue information.">
 
     <meta
     property="og:image"
-    content="">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
 
     <meta
     property="og:image:alt"
-    content="">
+    content="Brands">
 
     <meta
         property="og:url"
@@ -134,7 +134,7 @@ Reusable Head Component
 
     <meta
         property="og:locale"
-        content="self.og_locale">
+        content="bn_IN">
 
     <!-- ==========================================
          TWITTER
@@ -146,19 +146,19 @@ Reusable Head Component
 
     <meta
         name="twitter:title"
-        content="">
+        content="AutoPly | Souviks">
 
     <meta
         name="twitter:description"
-        content="">
+        content="Brands at Souviks. Browse commercial vehicle spare parts, applications and catalogue information.">
 
     <meta
     name="twitter:image"
-    content="">
+    content="https://www.souviks.co.in/assets/images/og/home.webp">
 
     <meta
     name="twitter:image:alt"
-    content="">
+    content="Brands">
 
     <meta
         name="twitter:url"
@@ -205,12 +205,53 @@ Reusable Head Component
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
+  "@id": "https://www.souviks.co.in/bn/brands/autoply.html#collection",
   "name": "AutoPly Parts | Souviks",
   "url": "https://www.souviks.co.in/bn/brands/autoply.html",
-  "mainEntity": {
+  "mainEntityOfPage": "https://www.souviks.co.in/bn/brands/autoply.html",
+  "about": {
     "@type": "Brand",
+    "@id": "https://www.souviks.co.in/bn/brands/autoply.html#brand",
     "name": "AutoPly",
-    "url": "https://www.souviks.co.in/bn/brands/autoply.html"
+    "url": "https://www.souviks.co.in/bn/brands/autoply.html",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.souviks.co.in/assets/images/brands/autoply.png"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Souviks",
+    "url": "https://www.souviks.co.in"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "numberOfItems": 2,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "SU 8 LED High Bright   24V White",
+        "url": "https://www.souviks.co.in/bn/products/autoply-3896w-su-8-led-high-bright-24v-white.html",
+        "item": {
+          "@type": "Product",
+          "name": "SU 8 LED High Bright   24V White",
+          "url": "https://www.souviks.co.in/bn/products/autoply-3896w-su-8-led-high-bright-24v-white.html"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Battery (Terminal) Cable   440/.30mm",
+        "url": "https://www.souviks.co.in/bn/products/autoply-battery-terminal-cable-440-30mm.html",
+        "item": {
+          "@type": "Product",
+          "name": "Battery (Terminal) Cable   440/.30mm",
+          "url": "https://www.souviks.co.in/bn/products/autoply-battery-terminal-cable-440-30mm.html"
+        }
+      }
+    ]
   }
 }
 </script><script type="application/ld+json">
@@ -263,6 +304,7 @@ Reusable Head Component
     =========================================== -->
 
     
+
 
 </head>
 
@@ -440,13 +482,15 @@ Reusable Head Component
 
                     <div class="auth-modal-header">
 
-                        <h2
+                        <div
                             id="authModalTitle"
-                            class="auth-modal-title">
+                            class="auth-modal-title"
+                            role="heading"
+                            aria-level="2">
 
                             সাইন ইন
 
-                        </h2>
+                        </div>
 
                         <button
                             type="button"
@@ -772,6 +816,17 @@ Reusable Head Component
 
         </div>
 
+        <button
+            id="mobileMenuButton"
+            class="mobile-menu-button"
+            type="button"
+            aria-label="নেভিগেশন খুলুন"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
     </div>
 
 </div>
@@ -786,6 +841,18 @@ Reusable Head Component
             <nav
                 class="main-navigation"
                 aria-label="প্রধান নেভিগেশন">
+
+                <div class="mobile-navigation-header">
+                    <img
+                        src="/assets/logo/souviks-logo-white.png"
+                        alt="Souviks"
+                        class="mobile-navigation-logo">
+                    <button
+                        id="mobileNavigationClose"
+                        class="mobile-navigation-close"
+                        type="button"
+                        aria-label="Close Navigation">×</button>
+                </div>
 
                 <ul class="navigation-menu">
 
@@ -909,210 +976,14 @@ Reusable Head Component
 
                 
 
-            <!-- ==========================================
-                 MOBILE MENU BUTTON
-            =========================================== -->
-
-            <button
-                id="mobileMenuButton"
-                class="mobile-menu-button"
-                type="button"
-                aria-label="নেভিগেশন খুলুন">
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-            </button>
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- ==========================================================
-         MOBILE NAVIGATION
-    ========================================================== -->
-
-    <nav
-        id="mobileNavigation"
-        class="mobile-navigation"
-        aria-label="প্রধান নেভিগেশন">
-
-
-        <!-- ==========================================
-             NAVIGATION LINKS
-        =========================================== -->
-
-        <ul>
-
-            <li>
-
-                <a
-                    href="/bn/"
-                    class="">
-
-                    হোম
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/products.html"
-                    class="">
-
-                    পণ্যসমূহ
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/brands.html"
-                    class="active">
-
-                    ব্র্যান্ডসমূহ
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/vehicles.html"
-                    class="">
-
-                    যানবাহন
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/categories.html"
-                    class="">
-
-                    বিভাগসমূহ
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/about.html"
-                    class="">
-
-                    আমাদের সম্পর্কে
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a
-                    href="/bn/contact.html"
-                    class="">
-
-                    যোগাযোগ
-
-                </a>
-
-            </li>
-
-        </ul>
-
-
-        <!-- ==========================================
-             MOBILE ACTIONS
-        =========================================== -->
-
-        <div class="mobile-navigation-actions">
-
-            <a
-                href="/bn/request-part.html"
-                class="btn btn-primary">
-
-                যন্ত্রাংশের অনুরোধ করুন
-
-            </a>
-
-            <a
-                href="/bn/request-quote.html"
-                class="btn btn-secondary">
-
-                RFQ ঝুড়ি
-
-                <span class="rfq-badge">
-
-                    0
-
-                </span>
-
-            </a>
-
-
-            
-
-
-        <!-- ==========================================
-             MOBILE CONTACT
-        =========================================== -->
-
-        <div class="mobile-navigation-contact">
-
-            <a
-                href="tel:+919434331896"
-                class="mobile-phone">
-
-                <img
-                    src="/assets/icons/phone.svg"
-                    alt="ফোন"
-                    class="mobile-icon">
-
-                <span>
-
-                    +91 94343 31896
-
-                </span>
-
-            </a>
-
-            <a
-                href="mailto:info@souviks.co.in"
-                class="mobile-email">
-
-                <img
-                    src="/assets/icons/email.svg"
-                    alt="ইমেইল"
-                    class="mobile-icon">
-
-                <span>
-
-                    info@souviks.co.in
-
-                </span>
-
-            </a>
-
-        </div>
-
-    </nav>
-
 </header>
-
 
 
 <!-- ==========================================================
@@ -1145,7 +1016,9 @@ BRAND HERO
 
     <div class="container">
 
-        <div id="brand-detail"></div>
+        <div id="brand-detail" data-static-rendered="true">
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/autoply.png" alt="AutoPly" loading="lazy" decoding="async"></div><div class="brand-info"><h1>AutoPly</h1><p>Souviks catalogue: 2 active products from AutoPly. Categories include Electricals. Listed vehicle applications include Universal.</p></div></div>
+        </div>
 
     </div>
 
@@ -1177,7 +1050,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid">
+            class="products-grid"
+            data-static-rendered="true">
+
+            <article class="product-card"><div class="product-image"><a href="/bn/products/autoply-3896w-su-8-led-high-bright-24v-white.html" class="product-link" aria-label="View SU 8 LED High Bright   24V White"><img class="product-image-file" src="/assets/images/products/SVKS000670/1.webp" alt="SU 8 LED High Bright   24V White" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000670" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/autoply-3896w-su-8-led-high-bright-24v-white.html">SU 8 LED High Bright   24V White</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000670" data-part="3896W" data-name="SU 8 LED High Bright   24V White" data-brand="AutoPly" aria-label="Add SU 8 LED High Bright   24V White to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/autoply-battery-terminal-cable-440-30mm.html" class="product-link" aria-label="View Battery (Terminal) Cable   440/.30mm"><img class="product-image-file" src="/assets/images/products/SVKS000671/1.webp" alt="Battery (Terminal) Cable   440/.30mm" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000671" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/autoply-battery-terminal-cable-440-30mm.html">Battery (Terminal) Cable   440/.30mm</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000671" data-part="" data-name="Battery (Terminal) Cable   440/.30mm" data-brand="AutoPly" aria-label="Add Battery (Terminal) Cable   440/.30mm to RFQ">RFQ-তে যোগ করুন</button></div></article>
 
         </div>
 
@@ -1482,7 +1358,7 @@ BRAND PRODUCTS
 
                 <li>
 
-                    08:30 AM – 07:00 PM
+                    08:00 AM – 07:00 PM
 
                 </li>
 
@@ -1601,6 +1477,12 @@ window.souviks = {
     currentLanguage:
         "bn",
 
+    translations: {
+        buttons: {
+            add_to_rfq: "RFQ-তে যোগ করুন"
+        }
+    },
+
     api: {
 
         products:
@@ -1636,7 +1518,7 @@ window.souviks = {
 
 <!-- ==========================================
      GLOBAL SITE JAVASCRIPT
-     Keep the existing modular script architecture.
+     PageBuilder injects only the modules required by this page.
 ========================================== -->
 
 <script defer src="/assets/js/auth/supabase.js"></script>
@@ -1646,19 +1528,18 @@ window.souviks = {
 <script defer src="/assets/js/auth/logout.js"></script>
 <script defer src="/assets/js/utils.js"></script>
 <script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/breadcrumb.js"></script>
+<script defer src="/assets/js/language-switcher.js"></script>
+<script defer src="/assets/js/main.js"></script>
+<script defer src="/assets/js/webmcp.js"></script>
 <script defer src="/assets/js/products.js"></script>
 <script defer src="/assets/js/brands.js"></script>
 <script defer src="/assets/js/categories.js"></script>
 <script defer src="/assets/js/vehicles.js"></script>
+<script defer src="/assets/js/search-engine.js"></script>
 <script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/filters.js"></script>
-<script defer src="/assets/js/pagination.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
 <script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/main.js"></script>
-
+<script defer src="/assets/js/saved-products.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

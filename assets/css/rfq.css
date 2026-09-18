@@ -578,3 +578,10 @@
     margin-top: 32px;
 
 }
+
+@media (max-width: 768px) {
+    .rfq-customer { padding: 32px 0 48px; }
+    #rfq-form { padding: 24px 16px; border-radius: 12px; }
+    .rfq-table-wrapper { border-radius: 10px; }
+    .rfq-table { min-width: 720px; }
+}
