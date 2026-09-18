@@ -1,0 +1,6 @@
+/* Souviks Card Architecture
+   Each card family owns its markup-related styles in one module. */
+@import url("features/cards/foundation.css");
+@import url("features/cards/directory-cards.css");
+@import url("features/cards/product-cards.css");
+@import url("features/cards/general-cards.css");

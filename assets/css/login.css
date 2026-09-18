@@ -1,0 +1,227 @@
+/* ==========================================================
+   AUTHENTICATION PAGE
+========================================================== */
+
+.auth-section {
+
+    padding: 32px 0 64px;
+
+}
+
+
+.auth-card {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    padding: 32px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+
+/* ==========================================================
+   AUTH CARD HEADER
+========================================================== */
+
+.auth-card-header {
+
+    margin-bottom: 28px;
+
+    text-align: center;
+
+}
+
+
+.auth-card-header h2 {
+
+    margin: 0 0 8px;
+
+}
+
+
+.auth-card-header p {
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================================
+   AUTH FORM
+========================================================== */
+
+.auth-form {
+
+    width: 100%;
+
+}
+
+
+.auth-form .form-group {
+
+    margin-bottom: 20px;
+
+}
+
+
+.auth-form .form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+}
+
+
+.auth-form .form-group input {
+
+    width: 100%;
+
+}
+
+
+/* ==========================================================
+   FORGOT PASSWORD
+========================================================== */
+
+.auth-forgot-password {
+
+    margin-top: -4px;
+
+    margin-bottom: 24px;
+
+    text-align: right;
+
+    font-size: .9rem;
+
+}
+
+
+.auth-forgot-password a {
+
+    font-weight: 600;
+
+}
+
+
+/* ==========================================================
+   AUTH FORM ACTIONS
+========================================================== */
+
+.auth-form-actions {
+
+    margin-top: 8px;
+
+}
+
+
+.auth-submit {
+
+    width: 100%;
+
+}
+
+
+/* ==========================================================
+   AUTH STATUS
+========================================================== */
+
+.auth-form .form-status {
+
+    margin-bottom: 20px;
+
+}
+
+
+/* ==========================================================
+   REGISTER PROMPT
+========================================================== */
+
+.auth-register {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 28px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid var(--border-color);
+
+    color: var(--text-secondary);
+
+    font-size: .9rem;
+
+    text-align: center;
+
+}
+
+
+.auth-register a {
+
+    font-weight: 600;
+
+}
+
+/* ==========================================================
+   REGISTER CARD
+========================================================== */
+
+.auth-card-register {
+
+    max-width: 600px;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 700px) {
+
+    .auth-section {
+
+        padding: 24px 0 48px;
+
+    }
+
+
+    .auth-card {
+
+        padding: 24px 20px;
+
+    }
+
+
+    .auth-forgot-password {
+
+        text-align: left;
+
+    }
+
+}

@@ -1,0 +1,24 @@
+{
+  "site":"https://www.souviks.co.in/",
+  "name":"Souviks",
+  "description":"Commercial vehicle spare-parts catalogue and enquiry website.",
+  "primaryInformation":{
+    "productCatalogue":"https://www.souviks.co.in/en/products.html",
+    "brandIndex":"https://www.souviks.co.in/en/brands.html",
+    "categoryIndex":"https://www.souviks.co.in/en/categories.html",
+    "vehicleIndex":"https://www.souviks.co.in/en/vehicles.html"
+  },
+  "machineReadableData":{
+    "productCatalogue":"https://www.souviks.co.in/assets/data/products.json",
+    "brands":"https://www.souviks.co.in/assets/data/brands.json",
+    "categories":"https://www.souviks.co.in/assets/data/categories.json",
+    "vehicles":"https://www.souviks.co.in/assets/data/vehicles.json",
+    "searchIndex":"https://www.souviks.co.in/assets/data/search.json"
+  },
+  "languages":{"english":"https://www.souviks.co.in/en/","hindi":"https://www.souviks.co.in/hi/","bengali":"https://www.souviks.co.in/bn/"},
+  "discovery":{
+    "apiCatalog":"https://www.souviks.co.in/.well-known/api-catalog",
+    "serviceDescription":"https://www.souviks.co.in/.well-known/service-description.json",
+    "serviceDocumentation":"https://www.souviks.co.in/.well-known/service-documentation.html"
+  }
+}

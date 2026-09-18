@@ -1,0 +1,1666 @@
+/*
+==========================================================
+SOUVIKS WEBSITE
+PRODUCTS MODULE
+Version : 1.0
+==========================================================
+*/
+
+class ProductManager {
+
+constructor() {
+
+    this.products = [];
+    this.filtered = [];
+
+    this.container = null;
+
+    this.currentPage = 1;
+
+    this.pageSize = 20;
+
+}
+    // ======================================================
+    // INIT
+    // ======================================================
+
+    async init(
+
+        selector = "#product-grid"
+
+    ) {
+
+        this.container = Utils.el(
+
+            selector
+
+        );
+
+        if (!this.container) {
+
+            return;
+
+        }
+
+        this.products = await API.products();
+
+        this.filtered = [
+
+            ...this.products
+
+        ];
+
+        // Keep builder-generated product cards in the initial HTML.
+        // JavaScript continues to render after filtering, sorting,
+        // pagination, or other user interaction.
+        if (
+            this.container.dataset.staticRendered !==
+            "true"
+        ) {
+            this.render();
+        }
+
+    }
+
+    // ======================================================
+    // PRODUCT CARD
+    // ======================================================
+
+card(product) {
+
+    const cardImage = String(product.image_url || product.primary_image || "").trim() ||
+        "/assets/images/placeholder.webp";
+
+    const productId = String(product.id || "");
+    const name = String(product.product_name || product.name || "");
+    const partNumber = String(product.part_number || product.partNumber || "");
+    const brandName = String(product.brand_name || product.brand || "");
+    const hasSellingPrice = product.selling_price !== null && product.selling_price !== undefined && product.selling_price !== "";
+    const hasMrp = product.mrp !== null && product.mrp !== undefined && product.mrp !== "";
+    const mrpNumber = Number(product.mrp);
+    const sellingNumber = Number(product.selling_price);
+    const discounted = Number.isFinite(mrpNumber) && Number.isFinite(sellingNumber) && mrpNumber > 0 && sellingNumber < mrpNumber;
+    const discount = discounted
+        ? Math.round(((mrpNumber - sellingNumber) / mrpNumber) * 100)
+        : null;
+    const price = discounted
+        ? `<span class="product-price-current">${Utils.currency(sellingNumber)}</span><span class="product-price-mrp">MRP ${Utils.currency(mrpNumber)}</span><span class="product-price-discount">${discount}% OFF</span>`
+        : (hasSellingPrice || hasMrp)
+            ? `${hasSellingPrice ? "Price" : "MRP"}: ${Utils.currency(hasSellingPrice ? product.selling_price : product.mrp)}`
+            : "Price on request";
+    const isSaved =
+        typeof SavedProducts !== "undefined" &&
+        SavedProducts.isSaved(productId);
+
+    const escape = value =>
+        String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/\"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+
+    return `
+    <article class="product-card">
+        <div class="product-image">
+            <a href="${Utils.productUrl(product)}" aria-label="View ${escape(name)}">
+                <img
+                    class="product-image-file"
+                    src="${cardImage}"
+                    alt="${escape(name)}"
+                    loading="lazy"
+                    decoding="async">
+            </a>
+            <button
+                type="button"
+                class="product-save-button ${isSaved ? "is-saved" : ""}"
+                data-saved-product-id="${escape(productId)}"
+                data-saved="${isSaved ? "true" : "false"}"
+                aria-pressed="${isSaved ? "true" : "false"}"
+                aria-label="${isSaved ? "Remove from saved products" : "Save product"}">
+                <span data-saved-icon aria-hidden="true">${isSaved ? "♥" : "♡"}</span>
+            </button>
+        </div>
+        <div class="product-content">
+            <h3 class="product-title"><a href="${Utils.productUrl(product)}">${escape(name)}</a></h3>
+            <div class="product-price ${discounted ? "product-price-sale" : ""}" aria-label="Price">${price}</div>
+            <button
+                type="button"
+                class="btn btn-primary add-to-cart"
+                data-id="${escape(productId)}"
+                data-part="${escape(partNumber)}"
+                data-name="${escape(name)}"
+                data-brand="${escape(brandName)}"
+                aria-label="Add ${escape(name)} to RFQ">
+                ${window.souviks?.translations?.buttons?.add_to_rfq || "Add To RFQ"}
+            </button>
+        </div>
+    </article>
+    `;
+}
+
+    // ======================================================
+    // RENDER GRID
+    // ======================================================
+
+render() {
+
+    if (!this.container) {
+
+        return;
+
+    }
+
+    if (
+
+        !this.filtered ||
+
+        this.filtered.length === 0
+
+    ) {
+
+        this.container.innerHTML =
+
+            Utils.emptyState(
+
+                "No products found."
+
+            );
+
+        return;
+
+    }
+
+    const start =
+
+        (this.currentPage - 1) *
+
+        this.pageSize;
+
+    const end =
+
+        start +
+
+        this.pageSize;
+
+    const pageProducts =
+
+        this.filtered.slice(
+
+            start,
+
+            end
+
+        );
+
+    this.container.innerHTML =
+
+        pageProducts
+
+            .map(
+
+                product =>
+
+                    this.card(product)
+
+            )
+
+            .join("");
+
+    this.updateResults();
+
+    this.renderPagination();
+
+}
+
+updateResults() {
+
+    const totalProducts =
+        document.getElementById("totalProducts");
+
+    if (totalProducts) {
+        totalProducts.textContent =
+            this.products.length;
+    }
+
+    const visible =
+        document.getElementById("visibleProducts");
+
+    if (visible) {
+        visible.textContent =
+            this.filtered.length;
+    }
+
+    const start =
+        document.getElementById("currentResultStart");
+
+    const end =
+        document.getElementById("currentResultEnd");
+
+    const total =
+        document.getElementById("totalResults");
+
+    if (start) {
+        start.textContent =
+            this.filtered.length
+                ? ((this.currentPage - 1) * this.pageSize) + 1
+                : 0;
+    }
+
+    if (end) {
+        end.textContent =
+            Math.min(
+                this.currentPage * this.pageSize,
+                this.filtered.length
+            );
+    }
+
+    if (total) {
+        total.textContent =
+            this.filtered.length;
+    }
+}
+
+    // ======================================================
+    // PAGINATION
+    // ======================================================
+
+renderPagination() {
+
+    const container =
+
+        document.getElementById(
+
+            "pagination"
+
+        );
+
+    if (!container) {
+
+        return;
+
+    }
+
+    const pages = Math.ceil(
+
+        this.filtered.length /
+
+        this.pageSize
+
+    );
+
+    let html = "";
+
+    for (
+
+        let i = 1;
+
+        i <= pages;
+
+        i++
+
+    ) {
+
+        html += `
+
+        <button
+
+            class="pagination-page ${
+
+                i === this.currentPage
+
+                    ? "active"
+
+                    : ""
+
+            }"
+
+            data-page="${i}">
+
+            ${i}
+
+        </button>
+
+        `;
+
+    }
+
+    container.innerHTML = html;
+
+    container
+
+        .querySelectorAll(
+
+            "[data-page]"
+
+        )
+
+        .forEach(
+
+            button => {
+
+                button.addEventListener(
+
+                    "click",
+
+                    () => {
+
+                        this.currentPage =
+
+                            Number(
+
+                                button.dataset.page
+
+                            );
+
+                        this.render();
+
+                    }
+
+                );
+
+            }
+
+        );
+
+}
+
+    // ======================================================
+    // FILTER BRAND
+    // ======================================================
+
+    filterBrand(
+
+        brandId
+
+    ) {
+
+        if (!brandId) {
+
+            this.filtered = [
+
+                ...this.products
+
+            ];
+            this.currentPage = 1;
+
+            this.render();
+
+            return;
+
+        }
+
+        this.filtered =
+
+            this.products.filter(
+
+                product =>
+
+                    product.brand_id ===
+
+                    brandId
+
+            );
+
+        this.render();
+
+    }
+
+    // ======================================================
+    // FILTER CATEGORY
+    // ======================================================
+
+    filterCategory(
+
+        categoryId
+
+    ) {
+
+        if (!categoryId) {
+
+            this.filtered = [
+
+                ...this.products
+
+            ];
+            this.currentPage = 1;
+            this.render();
+
+            return;
+
+        }
+
+        this.filtered =
+
+            this.products.filter(
+
+                product =>
+
+                    product.category_id ===
+
+                    categoryId
+
+            );
+
+        this.render();
+
+    }
+
+    // ======================================================
+    // FILTER VEHICLE
+    // ======================================================
+
+    filterVehicle(
+
+        vehicleName
+
+    ) {
+
+        if (!vehicleName) {
+
+            this.filtered = [
+
+                ...this.products
+
+            ];
+            this.currentPage = 1;
+            this.render();
+
+            return;
+
+        }
+
+        this.filtered =
+
+            this.products.filter(
+
+                product =>
+
+                    product.vehicles.includes(
+
+                        vehicleName
+
+                    )
+
+            );
+
+        this.render();
+
+    }
+
+    // ======================================================
+    // FEATURED
+    // ======================================================
+
+    featured(
+
+        count = 8
+
+    ) {
+
+        return this.products
+
+            .filter(
+
+                item =>
+
+                    item.featured === true
+
+            )
+
+            .slice(
+
+                0,
+
+                count
+
+            );
+
+    }
+
+    // ======================================================
+    // RELATED PRODUCTS
+    // ======================================================
+
+related(product, limit = 5) {
+
+    return this.products
+
+        .filter(item => {
+
+            if(item.id === product.id)
+                return false;
+
+            return true;
+
+        })
+
+        .map(item => {
+
+            let score = 0;
+
+            const currentVehicles =
+                product.vehicles || [];
+
+            const itemVehicles =
+                item.vehicles || [];
+
+const sharedVehicle =
+    currentVehicles.some(
+        v => itemVehicles.includes(v)
+    );
+
+if(
+    item.subcategory_id ===
+    product.subcategory_id
+){
+    score += 500;
+}
+else if(
+    item.category_id ===
+    product.category_id
+){
+    score += 300;
+}
+else if(
+    sharedVehicle
+){
+    score += 150;
+}
+
+if(
+    item.brand_id ===
+    product.brand_id
+){
+    score += 20;
+}
+
+            return {
+                item,
+                score
+            };
+
+        })
+
+        .sort(
+            (a,b) =>
+            b.score - a.score
+        )
+
+        .slice(0, limit)
+
+        .map(
+            result =>
+            result.item
+        );
+
+}
+
+    // ======================================================
+    // PRODUCT PRICING
+    // ======================================================
+
+priceHtml(product) {
+
+    const mrp = Number(product?.mrp);
+    const sellingPrice = Number(product?.selling_price);
+
+    const hasMrp = Number.isFinite(mrp) && mrp >= 0;
+    const hasSellingPrice = Number.isFinite(sellingPrice) && sellingPrice >= 0;
+
+    if (!hasMrp && !hasSellingPrice) {
+        return "";
+    }
+
+    const formatPrice = value =>
+        new Intl.NumberFormat("en-IN", {
+            style: "currency",
+            currency: "INR",
+            maximumFractionDigits: 2
+        }).format(value);
+
+    let discountHtml = "";
+
+    if (hasMrp && hasSellingPrice && mrp > 0 && sellingPrice < mrp) {
+        const discount = Math.round(((mrp - sellingPrice) / mrp) * 100);
+        discountHtml = `<span class="pdp-price-discount">${discount}% OFF</span>`;
+    }
+
+    return `
+        <div class="pdp-pricing" aria-label="Product pricing">
+            ${hasMrp ? `
+                <div class="pdp-price-mrp">
+                    <span class="pdp-price-label">MRP</span>
+                    <span class="pdp-price-value">${formatPrice(mrp)}</span>
+                </div>
+            ` : ""}
+            ${hasSellingPrice ? `
+                <div class="pdp-price-selling">
+                    <span class="pdp-price-label">Selling Price</span>
+                    <span class="pdp-price-value">${formatPrice(sellingPrice)}</span>
+                    ${discountHtml}
+                </div>
+            ` : ""}
+        </div>
+    `;
+}
+
+    // ======================================================
+    // PRODUCT GALLERY
+    // ======================================================
+
+    bindGallery(product) {
+        const gallery = document.querySelector(".pdp-gallery");
+        const mainImage = document.getElementById("pdpMainImage");
+        if (!gallery || !mainImage) return;
+
+        const placeholder = "/assets/images/placeholder.webp";
+
+        const primary = (() => {
+            const value = String(product?.image_url || "").trim();
+
+            if (value && !value.endsWith("/placeholder.webp")) {
+                return value;
+            }
+
+            const folder = String(product?.image_folder || "").trim();
+            const image = String(
+                product?.primary_image ||
+                product?.image ||
+                ""
+            ).trim();
+
+            if (folder && image) {
+                return `/assets/images/products/${encodeURIComponent(folder)}/${encodeURIComponent(image)}`;
+            }
+
+            return value || placeholder;
+        })();
+
+        const safeImage = (image, fallback = primary) => {
+            if (!image || image.dataset.galleryFallback === "placeholder") return;
+
+            image.addEventListener("error", () => {
+                const stage = image.dataset.galleryFallback || "primary";
+
+                if (stage === "primary" && fallback && fallback !== image.src) {
+                    image.dataset.galleryFallback = "placeholder";
+                    image.src = fallback;
+                    return;
+                }
+
+                image.dataset.galleryFallback = "placeholder";
+                image.src = placeholder;
+            }, { once: true });
+        };
+
+        // Main image: current source -> canonical primary -> global placeholder.
+        mainImage.dataset.galleryFallback = "primary";
+        mainImage.addEventListener("error", () => {
+            if (mainImage.dataset.galleryFallback === "primary" &&
+                primary &&
+                mainImage.src !== new URL(primary, window.location.href).href) {
+                mainImage.dataset.galleryFallback = "placeholder";
+                mainImage.src = primary;
+                return;
+            }
+
+            mainImage.dataset.galleryFallback = "done";
+            mainImage.src = placeholder;
+        });
+
+        const thumbs = [...gallery.querySelectorAll(".pdp-thumb")];
+        const validThumbs = thumbs.length ? thumbs : [];
+
+        validThumbs.forEach((thumb, index) => {
+            const img = thumb.querySelector("img");
+            if (!img) {
+                thumb.hidden = true;
+                return;
+            }
+
+            // Each thumbnail is isolated: one bad asset cannot break the gallery.
+            img.dataset.galleryFallback = "placeholder";
+            img.addEventListener("error", () => {
+                img.dataset.galleryFallback = "done";
+                img.src = placeholder;
+                thumb.classList.add("is-gallery-fallback");
+            }, { once: true });
+
+            thumb.addEventListener("click", () => {
+                const source = String(img.currentSrc || img.src || "").trim();
+                if (!source) return;
+
+                mainImage.dataset.galleryFallback = "primary";
+                mainImage.src = source;
+
+                validThumbs.forEach(item => item.classList.remove("active"));
+                thumb.classList.add("active");
+            });
+
+            if (index === 0) thumb.classList.add("active");
+        });
+
+        // If the static builder produced no thumbnails, retain a functional
+        // one-item fallback rather than an empty gallery rail.
+        if (!thumbs.length) {
+            const wrapper = gallery.querySelector(".pdp-thumbnails");
+            if (wrapper) {
+                wrapper.innerHTML = `
+                    <button class="pdp-thumb is-gallery-fallback active" type="button"
+                        aria-label="View product image">
+                        <img src="${placeholder}" alt="${String(product?.product_name || "Product")} image">
+                    </button>
+                `;
+                const fallbackThumb = wrapper.querySelector(".pdp-thumb");
+                fallbackThumb?.addEventListener("click", () => {
+                    mainImage.dataset.galleryFallback = "done";
+                    mainImage.src = primary || placeholder;
+                });
+            }
+        }
+
+        const thumbContainer = gallery.querySelector(".pdp-thumbnails");
+        const thumbPrev = gallery.querySelector(".pdp-thumb-prev");
+        const thumbNext = gallery.querySelector(".pdp-thumb-next");
+
+        thumbPrev?.addEventListener("click", () => {
+            thumbContainer?.scrollBy({ left: -260, behavior: "smooth" });
+        });
+
+        thumbNext?.addEventListener("click", () => {
+            thumbContainer?.scrollBy({ left: 260, behavior: "smooth" });
+        });
+
+        const brandImage = gallery.querySelector(".pdp-brand-badge img");
+        if (brandImage) {
+            brandImage.addEventListener("error", () => {
+                const badge = brandImage.closest(".pdp-brand-badge");
+                if (badge) badge.hidden = true;
+            }, { once: true });
+        }
+
+    }
+
+    // ======================================================
+    // PRODUCT DETAIL
+    // ======================================================
+
+async hydrateProductPage() {
+
+    const slug = Utils.currentSlug();
+    const product = await API.productBySlug(slug);
+
+    if (!product) return;
+
+    const brand = await API.brandById(product.brand_id);
+    const category = await API.categoryById(product.category_id);
+
+    const breadcrumbItems = [
+        { title: "Products", url: `/${LANG}/products.html` }
+    ];
+
+    if (category?.name && category?.slug) {
+        breadcrumbItems.push({
+            title: category.name,
+            url: `/${LANG}/categories/${category.slug}.html`
+        });
+    }
+
+    if (brand?.name && brand?.slug) {
+        breadcrumbItems.push({
+            title: brand.name,
+            url: `/${LANG}/brands/${brand.slug}.html`
+        });
+    }
+
+    Breadcrumb.render(product.product_name, breadcrumbItems);
+
+
+const brandLogo =
+    brand?.logo || "";
+
+const imageBase =
+    `/assets/images/products/${encodeURIComponent(String(product.image_folder || ""))}`;
+
+const galleryImages =
+    Array.isArray(product.gallery) && product.gallery.length
+    ? product.gallery.map(file => {
+        const value = String(file || "").trim();
+        if (!value) return "";
+        if (/^https?:\/\//i.test(value) || value.startsWith("/")) return value;
+        return `${imageBase}/${encodeURIComponent(value)}`;
+    }).filter(Boolean)
+    : (product.image_url
+        ? [String(product.image_url)]
+        : (product.image
+            ? [`${imageBase}/${encodeURIComponent(String(product.image))}`]
+            : ["/assets/images/placeholder.webp"]));
+
+this.products =
+    await API.products();
+
+
+
+    const target =
+        Utils.el("#product-detail");
+
+    if (!target) return;
+const allVehicles =
+    await API.vehicles();
+   
+const vehiclesHtml =
+    (product.vehicles || [])
+        .map(vehicleName => {
+
+            const vehicle =
+                allVehicles.find(
+                    v => v.model === vehicleName
+                );
+
+            return `
+                <div class="pdp-vehicle-card">
+
+                    <div class="pdp-vehicle-image">
+
+                        <img
+                            src="${
+                                vehicle?.image ||
+                                '/assets/images/vehicle-placeholder.webp'
+                            }"
+                            alt="${vehicleName}"
+                            loading="lazy"
+                            decoding="async">
+
+                    </div>
+
+                    <div class="pdp-vehicle-content">
+
+                        <h4>${vehicleName}</h4>
+
+                    </div>
+
+                </div>
+            `;
+        })
+        .join("");
+
+    const relatedHtml =
+        this.related(product, 50)
+        .map(item => this.card(item))
+        .join("");
+
+const galleryHtml = `
+
+<div class="pdp-gallery">
+
+    ${
+        brandLogo ?
+
+        `
+        <div class="pdp-brand-badge">
+
+            <img
+                src="${brandLogo}"
+                alt="${brand.name}"
+                loading="lazy"
+                decoding="async">
+
+        </div>
+        `
+
+        :
+
+        ""
+    }
+
+    <div class="pdp-main-image">
+
+        <img
+            id="pdpMainImage"
+            src="${galleryImages[0]}"
+            alt="${product.product_name}"
+            ${Utils.responsiveImageAttrs(galleryImages[0], product.gallery_dimensions?.[product.gallery?.[0]], '(max-width: 768px) 92vw, 800px', 'eager')}
+        >
+
+    </div>
+
+<div class="pdp-thumb-wrapper">
+
+    <button
+        class="pdp-thumb-prev">
+
+        ‹
+
+    </button>
+
+    <div class="pdp-thumbnails">
+
+        ${galleryImages.map(img => `
+
+            <button class="pdp-thumb">
+
+                <img
+                    src="${img}"
+                    alt="${product.product_name}"
+                    ${Utils.responsiveImageAttrs(img, product.gallery_dimensions?.[img], '96px', 'lazy')}
+                >
+
+            </button>
+
+        `).join("")}
+
+    </div>
+
+    <button
+        class="pdp-thumb-next">
+
+        ›
+
+    </button>
+
+</div>
+
+</div>
+
+`;
+
+    if (target.dataset.staticRendered !== "true") {
+
+    target.innerHTML = `
+
+<div class="container">
+
+<div class="pdp-wrapper">
+
+    <section class="pdp-hero">
+${galleryHtml}
+
+        <div class="pdp-summary">
+
+            <div class="pdp-badges">
+
+                <span class="pdp-stock">
+                    In Stock
+                </span>
+
+                <span class="pdp-genuine">
+                    100% Genuine
+                </span>
+
+            </div>
+
+            <h1 class="pdp-title">
+
+                ${product.product_name}
+
+            </h1>
+
+            <div class="pdp-part">
+
+                PART ID:
+                ${product.id || ""}
+
+            </div>
+
+            ${this.priceHtml(product)}
+
+          <div class="pdp-meta">
+
+    <div class="pdp-row">
+        <strong>Product ID</strong>
+        <span>${product.id || ""}</span>
+    </div>
+
+    <div class="pdp-row">
+        <strong>Part Number</strong>
+        <span>${product.part_number || ""}</span>
+    </div>
+
+    <div class="pdp-row">
+        <strong>Brand</strong>
+        <span>${product.brand_name || ""}</span>
+    </div>
+
+    <div class="pdp-row">
+        <strong>Category</strong>
+        <span>${product.category_name || ""}</span>
+    </div>
+
+    <div class="pdp-row">
+        <strong>Sub Category</strong>
+        <span>${product.subcategory_name || ""}</span>
+    </div>
+
+    <div class="pdp-row">
+        <strong>Applications</strong>
+        <span>${(product.applications || []).join(", ")}</span>
+    </div>
+
+    <div class="pdp-row">
+        <strong>Compatible Vehicles</strong>
+        <span>${(product.vehicles || []).join(", ")}</span>
+    </div>
+
+</div>
+<div class="pdp-actions">
+
+    <div class="pdp-qty">
+
+        <button
+            type="button"
+            class="pdp-qty-minus">
+
+            −
+
+        </button>
+
+        <input
+            id="pdpQty"
+            type="number"
+            min="1"
+            value="1">
+
+        <button
+            type="button"
+            class="pdp-qty-plus">
+
+            +
+
+        </button>
+
+    </div>
+
+    <button
+        class="btn btn-primary pdp-rfq-btn">
+
+        Add To RFQ
+
+    </button>
+
+    <button
+        class="pdp-remove-btn"
+        style="display:none">
+
+        🗑
+
+    </button>
+
+</div>
+
+        </div>
+
+        <aside class="pdp-inquiry">
+
+            <h3>Request This Part</h3>
+
+            <form>
+
+                <input
+                    type="text"
+                    placeholder="Name">
+
+                <input
+                    type="text"
+                    placeholder="Phone">
+
+                <input
+                    type="text"
+                    placeholder="Vehicle">
+
+                <input
+                    type="text"
+                    value="${product.part_number || ""}"
+                    placeholder="Part Number">
+
+                <textarea
+                    placeholder="Requirement"></textarea>
+
+                <button
+                    class="btn btn-primary">
+
+                    Request Quote
+
+                </button>
+
+            </form>
+
+        </aside>
+
+</section>
+
+<section class="pdp-trust">
+
+    <div class="pdp-trust-item">
+
+        <img
+            src="/assets/icons/genuine.svg"
+            alt="Genuine Parts">
+
+        <div>
+
+            <strong>
+                100% Genuine Products
+            </strong>
+
+            <span>
+                Original & Authorized
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="pdp-trust-item">
+
+        <img
+            src="/assets/icons/trusted.svg"
+            alt="Trusted">
+
+        <div>
+
+            <strong>
+                Trusted Since 1986
+            </strong>
+
+            <span>
+                Serving Workshops & Fleets
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="pdp-trust-item">
+
+        <img
+            src="/assets/icons/inventory.svg"
+            alt="Inventory">
+
+        <div>
+
+            <strong>
+                Wide Range Available
+            </strong>
+
+            <span>
+                5000+ Products
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="pdp-trust-item">
+
+        <img
+            src="/assets/icons/delivery.svg"
+            alt="Delivery">
+
+        <div>
+
+            <strong>
+                Pan India Delivery
+            </strong>
+
+            <span>
+                Fast & Reliable
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="pdp-section-nav">
+
+    <a
+        href="#description-section"
+        class="pdp-tab-btn">
+
+        Description
+
+    </a>
+
+    <a
+        href="#vehicles-section"
+        class="pdp-tab-btn">
+
+        Compatible Vehicles
+
+    </a>
+
+    <a
+        href="#related-section"
+        class="pdp-tab-btn">
+
+        Related Products
+
+    </a>
+
+</section>
+
+<section
+    id="description-section"
+    class="pdp-section">
+
+    <h2 class="pdp-section-title">
+
+        Description
+
+    </h2>
+
+    <div class="pdp-description-grid">
+
+        <div class="pdp-description-card">
+
+            <h3>Description</h3>
+
+            <p>
+
+                ${product.description || ""}
+
+            </p>
+
+        </div>
+
+        <div class="pdp-description-card">
+
+            <h3>Applications</h3>
+
+            <ul>
+
+                ${(product.applications || [])
+                    .map(
+                        app =>
+                        `<li>${app}</li>`
+                    )
+                    .join("")}
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section
+    id="vehicles-section"
+    class="pdp-section">
+
+    <h2 class="pdp-section-title">
+
+        Compatible Vehicles
+
+    </h2>
+
+    <div class="pdp-vehicle-grid">
+
+        ${vehiclesHtml}
+
+    </div>
+
+</section>
+
+<section
+    id="related-section"
+    class="pdp-section">
+
+    <h2 class="pdp-section-title">
+
+        Related Products
+
+    </h2>
+
+<div class="pdp-related-wrapper">
+
+    <button
+        class="pdp-related-prev">
+
+        ‹
+
+    </button>
+
+    <div
+        class="pdp-related-slider">
+
+        ${relatedHtml}
+
+    </div>
+
+    <button
+        class="pdp-related-next">
+
+        ›
+
+    </button>
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+/* ==========================================
+   PDP RFQ CONTROLS
+========================================== */
+
+const qtyInput =
+    document.getElementById(
+        "pdpQty"
+    );
+
+const minusBtn =
+    document.querySelector(
+        ".pdp-qty-minus"
+    );
+
+const plusBtn =
+    document.querySelector(
+        ".pdp-qty-plus"
+    );
+
+const rfqBtn =
+    document.querySelector(
+        ".pdp-rfq-btn"
+    );
+
+const removeBtn =
+    document.querySelector(
+        ".pdp-remove-btn"
+    );
+
+
+/*
+----------------------------------------------------------
+LOAD EXISTING RFQ ITEM
+----------------------------------------------------------
+*/
+
+const rfqItems =
+    await RFQ.get();
+
+const rfqItem =
+    rfqItems.find(
+        item =>
+            item.id === product.id
+    );
+
+
+let inRFQ = false;
+
+
+if (
+    rfqItem &&
+    qtyInput &&
+    rfqBtn &&
+    removeBtn
+) {
+
+    inRFQ = true;
+
+    qtyInput.value =
+        rfqItem.qty;
+
+    rfqBtn.textContent =
+        "Added ✓";
+
+    removeBtn.style.display =
+        "block";
+
+}
+
+
+/*
+----------------------------------------------------------
+PDP QUANTITY — MINUS
+----------------------------------------------------------
+*/
+
+minusBtn?.addEventListener(
+
+    "click",
+
+    () => {
+
+        qtyInput.value =
+            Math.max(
+
+                1,
+
+                Number(
+                    qtyInput.value
+                ) - 1
+
+            );
+
+
+        if (inRFQ) {
+
+            rfqBtn.textContent =
+                "Update RFQ";
+
+        }
+
+    }
+
+);
+
+
+/*
+----------------------------------------------------------
+PDP QUANTITY — PLUS
+----------------------------------------------------------
+*/
+
+plusBtn?.addEventListener(
+
+    "click",
+
+    () => {
+
+        qtyInput.value =
+            Number(
+                qtyInput.value
+            ) + 1;
+
+
+        if (inRFQ) {
+
+            rfqBtn.textContent =
+                "Update RFQ";
+
+        }
+
+    }
+
+);
+
+
+/*
+----------------------------------------------------------
+PDP QUANTITY — MANUAL INPUT
+----------------------------------------------------------
+*/
+
+qtyInput?.addEventListener(
+
+    "input",
+
+    () => {
+
+        if (inRFQ) {
+
+            rfqBtn.textContent =
+                "Update RFQ";
+
+        }
+
+    }
+
+);
+
+
+/*
+----------------------------------------------------------
+PDP — ADD / UPDATE RFQ
+----------------------------------------------------------
+*/
+
+rfqBtn?.addEventListener(
+
+    "click",
+
+    async () => {
+
+        const qty =
+            Math.max(
+
+                1,
+
+                Number(
+                    qtyInput.value
+                ) || 1
+
+            );
+
+
+        const success =
+            await RFQ.setQuantity(
+
+                product.id,
+
+                {
+
+                    partNumber:
+                        product.part_number,
+
+                    name:
+                        product.product_name,
+
+                    brand:
+                        product.brand_name
+
+                },
+
+                qty
+
+            );
+
+
+        if (!success) {
+
+            return;
+
+        }
+
+
+        inRFQ = true;
+
+        rfqBtn.textContent =
+            "Added ✓";
+
+        removeBtn.style.display =
+            "block";
+
+    }
+
+);
+
+
+/*
+----------------------------------------------------------
+PDP — REMOVE FROM RFQ
+----------------------------------------------------------
+*/
+
+removeBtn?.addEventListener(
+
+    "click",
+
+    async () => {
+
+        await RFQ.remove(
+            product.id
+        );
+
+
+        inRFQ = false;
+
+        qtyInput.value =
+            1;
+
+        rfqBtn.textContent =
+            "Add To RFQ";
+
+        removeBtn.style.display =
+            "none";
+
+    }
+
+);
+
+this.bindGallery(product);
+
+const slider =
+    document.querySelector(
+        ".pdp-related-slider"
+    );
+
+const prev =
+    document.querySelector(
+        ".pdp-related-prev"
+    );
+
+const next =
+    document.querySelector(
+        ".pdp-related-next"
+    );
+
+if(
+    slider &&
+    prev &&
+    next
+){
+
+    prev.addEventListener(
+        "click",
+        () => {
+
+            slider.scrollBy({
+                left:-600,
+                behavior:"smooth"
+            });
+
+        }
+    );
+
+    next.addEventListener(
+        "click",
+        () => {
+
+            slider.scrollBy({
+                left:600,
+                behavior:"smooth"
+            });
+
+        }
+    );
+
+}
+
+}
+
+}
+
+
+
+window.Products = new ProductManager();

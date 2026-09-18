@@ -1,0 +1,641 @@
+/* ==========================================================
+   LANGUAGE SWITCHER
+========================================================== */
+
+.language-switcher {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+}
+
+.language-button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .6rem;
+
+    padding: .65rem 1.2rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: #111;
+
+    font-weight: 600;
+
+    font-size: .95rem;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    white-space: nowrap;
+
+}
+
+.language-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
+
+}
+
+.language-arrow {
+
+    font-size: .75rem;
+
+    transition: transform .25s ease;
+
+}
+
+.language-menu.open + .language-arrow {
+
+    transform: rotate(180deg);
+
+}
+
+.language-menu {
+
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    right: 0;
+
+    min-width: 180px;
+
+    margin: 0;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+
+    z-index: 5200;
+
+}
+
+.language-menu.open {
+
+    display: block;
+
+}
+
+.language-menu a {
+
+    display: block;
+
+    padding: 10px 18px;
+
+    color: #222;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+}
+
+.language-menu a:hover {
+
+    background: #f3f3f3;
+
+}
+
+
+/* ==========================================================
+   TOP BAR
+========================================================== */
+
+.top-bar {
+
+    position: relative;
+
+    z-index: 1100;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    border-bottom: 2px solid #d9d9d9;
+
+}
+
+.top-bar .container {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 56px;
+
+    gap: 24px;
+
+}
+
+.top-bar-brand {
+
+    flex: 0 0 auto;
+
+}
+
+.top-logo {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+.top-logo img {
+
+    display: block;
+
+    height: 42px;
+
+    width: auto;
+
+}
+
+.top-bar-tools {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    flex: 1;
+
+    min-width: 0;
+
+    margin-left: 32px;
+
+    gap: 20px;
+
+}
+
+.top-item {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 9px 16px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+}
+
+.top-item:hover {
+
+    background: #f7f7f7;
+
+    border-color: var(--color-primary);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .10);
+
+    transform: translateY(-1px);
+
+}
+
+.top-icon {
+
+    width: 18px;
+
+    height: 18px;
+
+    flex-shrink: 0;
+
+}
+
+.top-signin {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 9px 18px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+}
+
+.top-signin:hover {
+
+    background: #f7f7f7;
+
+    border-color: var(--color-primary);
+
+    color: var(--text-primary);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .10);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ==========================================================
+   TOP BAR AUTHENTICATION
+========================================================== */
+
+.top-auth {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+}
+
+
+/* ----------------------------------------------------------
+   USER MENU
+---------------------------------------------------------- */
+
+.top-user-menu {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+}
+
+
+/* ----------------------------------------------------------
+   USER BUTTON
+---------------------------------------------------------- */
+
+.top-user-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 9px 18px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    font: inherit;
+
+    font-size: inherit;
+
+    line-height: 1.2;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+}
+
+.top-user-button:hover {
+
+    background: #f7f7f7;
+
+    border-color: var(--color-primary);
+
+    color: var(--text-primary);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .10);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ----------------------------------------------------------
+   USER ARROW
+---------------------------------------------------------- */
+
+.top-user-arrow {
+
+    font-size: .7rem;
+
+    line-height: 1;
+
+    transition:
+        transform .25s ease;
+
+}
+
+.top-user-button[aria-expanded="true"] .top-user-arrow {
+
+    transform: rotate(180deg);
+
+}
+
+
+/* ----------------------------------------------------------
+   USER DROPDOWN
+---------------------------------------------------------- */
+
+.top-user-dropdown {
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    right: 0;
+
+    min-width: 190px;
+
+    margin: 0;
+
+    padding: 6px 0;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+
+    z-index: 1200;
+
+}
+
+
+/* ----------------------------------------------------------
+   HIDDEN STATE
+---------------------------------------------------------- */
+
+.top-user-dropdown[hidden],
+.top-user-menu[hidden],
+.top-signin[hidden] {
+
+    display: none !important;
+
+}
+
+
+/* ----------------------------------------------------------
+   DROPDOWN ITEMS
+---------------------------------------------------------- */
+
+.top-user-dropdown a,
+.top-user-dropdown button {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 10px 18px;
+
+    border: 0;
+
+    background: #ffffff;
+
+    color: #222;
+
+    font: inherit;
+
+    font-size: .95rem;
+
+    line-height: 1.4;
+
+    text-align: left;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+}
+
+.top-user-dropdown a:hover,
+.top-user-dropdown button:hover {
+
+    background: #f3f3f3;
+
+}
+
+
+/* ----------------------------------------------------------
+   TOP BAR AUTH ALIGNMENT
+---------------------------------------------------------- */
+
+.top-bar-tools .top-auth {
+
+    margin-left: auto;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE TOP BAR
+========================================================== */
+
+@media (max-width: 992px) {
+    .top-bar .container {
+        min-height: 52px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        gap: 12px;
+    }
+    .top-logo img { height: 38px; }
+    .top-bar-tools {
+        min-width: 0;
+        margin-left: auto;
+        gap: 8px;
+    }
+    .top-bar-tools .top-email,
+    .top-bar-tools .top-phone,
+    .top-bar-tools .top-signin {
+        display: none;
+    }
+    .top-bar-tools .top-whatsapp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 7px 10px;
+        font-size: .8rem;
+        white-space: nowrap;
+    }
+    .top-bar-tools .language-switcher {
+        display: inline-flex;
+        flex-shrink: 0;
+    }
+    .language-button {
+        padding: .55rem .8rem;
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .top-bar .container {
+        min-height: 50px;
+        padding-left: 12px;
+        padding-right: 12px;
+        gap: 8px;
+    }
+    .top-logo img { height: 32px; }
+    .top-bar-tools { gap: 6px; }
+    .top-bar-tools .top-whatsapp {
+        width: 44px;
+        max-width: 44px;
+        min-height: 44px;
+        padding: 10px;
+        font-size: 0;
+    }
+    .top-bar-tools .top-whatsapp .top-icon {
+        width: 18px;
+        height: 18px;
+    }
+    .language-button {
+        width: 44px;
+        max-width: 44px;
+        min-height: 44px;
+        padding: .55rem .65rem;
+        justify-content: center;
+    }
+    .language-text,
+    .language-label { display: none; }
+}
+
+
+/* ==========================================================
+   MOBILE MENU CONTROL
+========================================================== */
+
+.top-bar .mobile-menu-button {
+    display: none;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.top-bar .mobile-menu-button span {
+    display: block;
+    width: 23px;
+    height: 2px;
+    margin: 4px auto;
+    background: var(--text-primary);
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+.top-bar .mobile-menu-button[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.top-bar .mobile-menu-button[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.top-bar .mobile-menu-button[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 992px) {
+    .top-bar .mobile-menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 420px) {
+    .top-bar .mobile-menu-button {
+        flex-basis: 44px;
+        width: 44px;
+    }
+}

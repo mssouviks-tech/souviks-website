@@ -1,0 +1,42 @@
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border:
+
+        1px solid
+
+        var(--border-color);
+
+    border-radius:
+
+        var(--radius-md);
+
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline: none;
+
+    border-color:
+        var(--color-primary);
+
+}
+
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px;
+        min-width: 0;
+    }
+    .lead-success-content {
+        width: calc(100% - 24px);
+        max-width: none;
+        padding: 28px 20px;
+    }
+}

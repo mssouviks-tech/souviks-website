@@ -1,0 +1,463 @@
+/* ==========================================================
+   SOUVIKS — ACCOUNT INQUIRIES
+========================================================== */
+
+
+/* ==========================================================
+   INQUIRIES LIST
+========================================================== */
+
+.account-inquiries {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-md);
+
+}
+
+
+.account-inquiries-state {
+
+    padding: var(--space-xl);
+
+    text-align: center;
+
+    color: var(--text-secondary);
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+
+/* ==========================================================
+   INQUIRY LIST
+========================================================== */
+
+.account-inquiries-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-md);
+
+}
+
+
+/* ==========================================================
+   INQUIRY CARD
+========================================================== */
+
+.account-inquiry-card {
+
+    overflow: hidden;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+
+}
+
+
+.account-inquiry-card:hover {
+
+    border-color: var(--color-primary);
+
+    box-shadow: var(--shadow-md);
+
+}
+
+
+/* ==========================================================
+   INQUIRY SUMMARY
+========================================================== */
+
+.account-inquiry-summary {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: var(--space-md);
+
+    padding: 18px 20px;
+
+    margin: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--text-primary);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font: inherit;
+
+}
+
+
+.account-inquiry-summary:hover {
+
+    background: var(--bg-body);
+
+}
+
+
+/* ==========================================================
+   SUMMARY MAIN
+========================================================== */
+
+.account-inquiry-main {
+
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.account-inquiry-reference {
+
+    color: var(--text-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+}
+
+
+.account-inquiry-meta {
+
+    color: var(--text-secondary);
+
+    font-size: .875rem;
+
+}
+
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.account-inquiry-status {
+
+    flex-shrink: 0;
+
+    padding: 5px 10px;
+
+    color: var(--color-success);
+
+    background: rgba(22, 163, 74, .10);
+
+    border-radius: 999px;
+
+    font-size: .75rem;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+}
+
+
+/* ==========================================================
+   ARROW
+========================================================== */
+
+.account-inquiry-arrow {
+
+    flex-shrink: 0;
+
+    color: var(--text-secondary);
+
+    font-size: .75rem;
+
+    transition:
+        transform var(--transition-fast);
+
+}
+
+
+.account-inquiry-summary[aria-expanded="true"]
+.account-inquiry-arrow {
+
+    transform: rotate(180deg);
+
+}
+
+
+/* ==========================================================
+   DETAILS
+========================================================== */
+
+.account-inquiry-details {
+
+    border-top: 1px solid var(--border-color);
+
+}
+
+
+.account-inquiry-content {
+
+    padding: var(--space-lg);
+
+}
+
+
+.account-inquiry-content section + section {
+
+    margin-top: var(--space-xl);
+
+}
+
+
+.account-inquiry-content h3 {
+
+    margin: 0 0 var(--space-md);
+
+    color: var(--text-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+}
+
+
+/* ==========================================================
+   PRODUCTS TABLE
+========================================================== */
+
+.account-inquiry-table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+.account-inquiry-table {
+
+    width: 100%;
+
+    min-width: 600px;
+
+    border-collapse: collapse;
+
+}
+
+
+.account-inquiry-table th,
+.account-inquiry-table td {
+
+    padding: 12px 14px;
+
+    border-bottom: 1px solid var(--border-color);
+
+    text-align: left;
+
+    vertical-align: middle;
+
+}
+
+
+.account-inquiry-table th {
+
+    color: var(--text-secondary);
+
+    background: var(--bg-body);
+
+    font-size: .75rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .04em;
+
+}
+
+
+.account-inquiry-table td {
+
+    color: var(--text-primary);
+
+    font-size: .875rem;
+
+}
+
+
+.account-inquiry-table tbody tr:last-child td {
+
+    border-bottom: 0;
+
+}
+
+
+/* ==========================================================
+   CUSTOMER INFORMATION
+========================================================== */
+
+.account-inquiry-customer dl {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: var(--space-md);
+
+    margin: 0;
+
+}
+
+
+.account-inquiry-customer dl > div {
+
+    padding: 12px 14px;
+
+    background: var(--bg-body);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+}
+
+
+.account-inquiry-customer dt {
+
+    margin-bottom: 4px;
+
+    color: var(--text-secondary);
+
+    font-size: .75rem;
+
+    font-weight: 600;
+
+}
+
+
+.account-inquiry-customer dd {
+
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: .875rem;
+
+    font-weight: 500;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* ==========================================================
+   ADDITIONAL NOTES
+========================================================== */
+
+.account-inquiry-message {
+
+    padding: 14px 16px;
+
+    background: var(--bg-body);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+}
+
+
+.account-inquiry-message p {
+
+    margin: 0;
+
+    color: var(--text-primary);
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 700px) {
+
+    .account-inquiry-summary {
+
+        align-items: flex-start;
+
+        padding: 16px;
+
+    }
+
+
+    .account-inquiry-status {
+
+        padding: 4px 8px;
+
+        font-size: .7rem;
+
+    }
+
+
+    .account-inquiry-content {
+
+        padding: var(--space-md);
+
+    }
+
+
+    .account-inquiry-customer dl {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .account-inquiry-table {
+
+        min-width: 560px;
+
+    }
+
+}

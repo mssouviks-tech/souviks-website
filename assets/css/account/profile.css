@@ -1,0 +1,166 @@
+/* ==========================================================
+   SOUVIKS — ACCOUNT PROFILE
+========================================================== */
+
+
+/* ==========================================================
+   PROFILE SECTION HEADER
+========================================================== */
+
+.account-profile-section
+.account-section-header {
+
+    align-items: center;
+
+}
+
+
+.account-profile-section
+.account-section-header h2 {
+
+    margin: 0 0 6px;
+
+}
+
+
+/* ==========================================================
+   PROFILE DETAILS
+========================================================== */
+
+.account-details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    margin-top: 4px;
+
+    border-top: 1px solid var(--border-color);
+
+}
+
+
+.account-detail {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    min-width: 0;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid var(--border-color);
+
+}
+
+
+.account-detail:nth-child(odd) {
+
+    border-right: 1px solid var(--border-color);
+
+}
+
+
+/* ==========================================================
+   DETAIL LABEL
+========================================================== */
+
+.account-detail-label {
+
+    font-size: .8rem;
+
+    font-weight: 700;
+
+    color: var(--text-secondary);
+
+    text-transform: uppercase;
+
+    letter-spacing: .04em;
+
+}
+
+
+/* ==========================================================
+   DETAIL VALUE
+========================================================== */
+
+.account-detail-value {
+
+    min-width: 0;
+
+    color: var(--text-primary);
+
+    font-size: .98rem;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* ==========================================================
+   GST DETAIL
+========================================================== */
+
+#accountGstDetail[hidden] {
+
+    display: none;
+
+}
+
+
+/* ==========================================================
+   EDIT PROFILE BUTTON
+========================================================== */
+
+#editAccountProfile {
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 700px) {
+
+    .account-profile-section
+    .account-section-header {
+
+        align-items: stretch;
+
+    }
+
+
+    #editAccountProfile {
+
+        width: 100%;
+
+    }
+
+
+    .account-details {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .account-detail:nth-child(odd) {
+
+        border-right: none;
+
+    }
+
+}

@@ -1,0 +1,865 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Souviks Catalogue Data API",
+    "version": "1.3.0",
+    "description": "Machine-readable catalogue resources published by Souviks for commercial vehicle spare-parts discovery."
+  },
+  "servers": [
+    {
+      "url": "https://www.souviks.co.in"
+    }
+  ],
+  "paths": {
+    "/assets/data/products.json": {
+      "get": {
+        "operationId": "getProducts",
+        "summary": "Get product catalogue",
+        "responses": {
+          "200": {
+            "description": "Get product catalogue",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/brands.json": {
+      "get": {
+        "operationId": "getBrands",
+        "summary": "Get brand index",
+        "responses": {
+          "200": {
+            "description": "Get brand index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Brand"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/categories.json": {
+      "get": {
+        "operationId": "getCategories",
+        "summary": "Get category index",
+        "responses": {
+          "200": {
+            "description": "Get category index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Category"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/vehicles.json": {
+      "get": {
+        "operationId": "getVehicles",
+        "summary": "Get vehicle index",
+        "responses": {
+          "200": {
+            "description": "Get vehicle index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vehicle"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/search.json": {
+      "get": {
+        "operationId": "getSearchIndex",
+        "summary": "Get catalogue search index",
+        "responses": {
+          "200": {
+            "description": "Get catalogue search index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SearchRecord"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/agent/part-index.json": {
+      "get": {
+        "operationId": "getAgentPartIndex",
+        "summary": "Part lookup index",
+        "responses": {
+          "200": {
+            "description": "Part lookup index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/agent/brand-index.json": {
+      "get": {
+        "operationId": "getAgentBrandIndex",
+        "summary": "Brand lookup index",
+        "responses": {
+          "200": {
+            "description": "Brand lookup index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/agent/category-index.json": {
+      "get": {
+        "operationId": "getAgentCategoryIndex",
+        "summary": "Category lookup index",
+        "responses": {
+          "200": {
+            "description": "Category lookup index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/agent/vehicle-index.json": {
+      "get": {
+        "operationId": "getAgentVehicleIndex",
+        "summary": "Vehicle lookup index",
+        "responses": {
+          "200": {
+            "description": "Vehicle lookup index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/agent/products-summary.json": {
+      "get": {
+        "operationId": "getAgentProductsSummary",
+        "summary": "Compact product summary index",
+        "responses": {
+          "200": {
+            "description": "Compact product summary index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/data/agent/README.json": {
+      "get": {
+        "operationId": "getAgentReadme",
+        "summary": "Agent resource manifest",
+        "responses": {
+          "200": {
+            "description": "Agent resource manifest",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "title": "Souviks Product",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "part_number": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "manufacturer_part_number": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "product_name": {
+            "type": "string"
+          },
+          "brand_id": {
+            "type": "string"
+          },
+          "brand_name": {
+            "type": "string"
+          },
+          "category_id": {
+            "type": "string"
+          },
+          "category_name": {
+            "type": "string"
+          },
+          "subcategory_id": {
+            "type": "string"
+          },
+          "subcategory_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "short_description": {
+            "type": "string"
+          },
+          "image_folder": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "gallery": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "vehicles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "applications": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "featured": {
+            "type": "boolean"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "mrp": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "selling_price": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "discount_percent": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "partNumber": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "brand": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "category": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "subcategory": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "image_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "product_name",
+          "brand_id",
+          "category_id",
+          "active"
+        ],
+        "additionalProperties": true
+      },
+      "Brand": {
+        "title": "Souviks Brand",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "short_name": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "string"
+          },
+          "banner": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "short_description": {
+            "type": "string"
+          },
+          "product_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "categories": {
+            "type": "array"
+          },
+          "subcategories": {
+            "type": "array"
+          },
+          "vehicles": {
+            "type": "array"
+          },
+          "products": {
+            "type": "array"
+          },
+          "featured_products": {
+            "type": "array"
+          },
+          "featured": {
+            "type": "boolean"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "name",
+          "active"
+        ],
+        "additionalProperties": true
+      },
+      "Category": {
+        "title": "Souviks Category",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "short_name": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "banner": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "short_description": {
+            "type": "string"
+          },
+          "parent_category": {
+            "type": "string"
+          },
+          "subcategories": {
+            "type": "array"
+          },
+          "brands": {
+            "type": "array"
+          },
+          "vehicles": {
+            "type": "array"
+          },
+          "products": {
+            "type": "array"
+          },
+          "featured_products": {
+            "type": "array"
+          },
+          "product_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "featured": {
+            "type": "boolean"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "name",
+          "active"
+        ],
+        "additionalProperties": true
+      },
+      "Vehicle": {
+        "title": "Souviks Vehicle",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "manufacturer": {
+            "type": "object"
+          },
+          "model": {
+            "type": "string"
+          },
+          "variant": {
+            "type": "string"
+          },
+          "generation": {
+            "type": "string"
+          },
+          "year_from": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "year_to": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "fuel_type": {
+            "type": "string"
+          },
+          "vehicle_type": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "banner": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "short_description": {
+            "type": "string"
+          },
+          "categories": {
+            "type": "array"
+          },
+          "brands": {
+            "type": "array"
+          },
+          "products": {
+            "type": "array"
+          },
+          "featured_products": {
+            "type": "array"
+          },
+          "product_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "featured": {
+            "type": "boolean"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "model",
+          "active"
+        ],
+        "additionalProperties": true
+      },
+      "SearchRecord": {
+        "title": "Souviks Search Record",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "product",
+              "brand",
+              "category",
+              "vehicle"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "part_number": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "category": {
+            "type": "object"
+          },
+          "brand": {
+            "type": "object"
+          },
+          "vehicle_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "product_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "featured": {
+            "type": "boolean"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "weight": {
+            "type": "number"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "applications": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "vehicles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "title",
+          "slug",
+          "url"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "x-webmcp-tools": {
+    "souviks_search": {
+      "name": "souviks_search",
+      "title": "Search Souviks catalogue",
+      "description": "Search the Souviks commercial vehicle spare-parts catalogue by part number, product name, brand, category, vehicle, application or keyword.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 10
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      }
+    },
+    "souviks_get_product": {
+      "name": "souviks_get_product",
+      "title": "Get Souviks product",
+      "description": "Retrieve a Souviks product by part number, product ID or catalogue slug.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "partNumber": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      }
+    },
+    "souviks_get_brand": {
+      "name": "souviks_get_brand",
+      "title": "Get Souviks brand",
+      "description": "Retrieve a Souviks brand by ID, slug or name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      }
+    },
+    "souviks_get_category": {
+      "name": "souviks_get_category",
+      "title": "Get Souviks category",
+      "description": "Retrieve a Souviks product category by ID, slug or name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      }
+    },
+    "souviks_get_vehicle": {
+      "name": "souviks_get_vehicle",
+      "title": "Get Souviks vehicle application",
+      "description": "Retrieve a Souviks vehicle application by ID, slug or model name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      }
+    },
+    "souviks_get_catalogue": {
+      "name": "souviks_get_catalogue",
+      "title": "Get Souviks catalogue",
+      "description": "Retrieve a machine-readable Souviks catalogue resource: products, brands, categories, vehicles or search.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resource": {
+            "type": "string",
+            "enum": [
+              "products",
+              "brands",
+              "categories",
+              "vehicles",
+              "search"
+            ]
+          }
+        },
+        "required": [
+          "resource"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      }
+    },
+    "souviks_navigate": {
+      "name": "souviks_navigate",
+      "title": "Navigate Souviks",
+      "description": "Navigate to a Souviks catalogue section: home, products, brands, categories or vehicles.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "enum": [
+              "home",
+              "products",
+              "brands",
+              "categories",
+              "vehicles"
+            ]
+          }
+        },
+        "required": [
+          "destination"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "consequentialHint": true
+      }
+    }
+  }
+}

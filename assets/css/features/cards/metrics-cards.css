@@ -1,0 +1,14 @@
+/* ==========================================================
+   METRIC CARDS
+========================================================== */
+
+.metrics-card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.metrics-card span {
+    display: block;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
