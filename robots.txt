@@ -1,8 +1,0 @@
-User-agent: *
-
-Allow: /
-
-Disallow: /assets/temp/
-Disallow: /drafts/
-
-Sitemap: https://www.souviks.co.in/sitemap.xml
