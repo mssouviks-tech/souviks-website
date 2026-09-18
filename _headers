@@ -4,15 +4,24 @@
   Referrer-Policy: strict-origin-when-cross-origin
 
 /assets/css/*
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: no-store
 
 /assets/js/*
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: no-store
 
 /assets/data/*
   Cache-Control: public, max-age=300, must-revalidate
 
-/assets/*
+/assets/images/*
+  Cache-Control: public, max-age=2592000
+
+/assets/icons/*
+  Cache-Control: public, max-age=2592000
+
+/assets/logo/*
+  Cache-Control: public, max-age=2592000
+
+/assets/favicon/*
   Cache-Control: public, max-age=2592000
 
 /ads.txt
