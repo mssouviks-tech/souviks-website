@@ -111,6 +111,82 @@ function getAccountInitial(fullName, user) {
 }
 
 
+
+function ensureUserDropdownProfile(fullName, user) {
+
+    if (!topUserDropdown) {
+        return;
+    }
+
+    let profile =
+        topUserDropdown.querySelector(
+            ".top-user-profile"
+        );
+
+    if (!profile) {
+
+        profile =
+            document.createElement(
+                "div"
+            );
+
+        profile.className =
+            "top-user-profile";
+
+        profile.innerHTML = `
+            <div class="top-user-profile-avatar" aria-hidden="true"></div>
+            <div class="top-user-profile-copy">
+                <div class="top-user-profile-name"></div>
+                <div class="top-user-profile-email"></div>
+            </div>
+        `;
+
+        topUserDropdown.prepend(
+            profile
+        );
+
+    }
+
+    const avatar =
+        profile.querySelector(
+            ".top-user-profile-avatar"
+        );
+
+    const name =
+        profile.querySelector(
+            ".top-user-profile-name"
+        );
+
+    const email =
+        profile.querySelector(
+            ".top-user-profile-email"
+        );
+
+    const initial =
+        getAccountInitial(
+            fullName,
+            user
+        );
+
+    if (avatar) {
+        avatar.textContent =
+            initial;
+    }
+
+    if (name) {
+        name.textContent =
+            fullName;
+    }
+
+    if (email) {
+        email.textContent =
+            user?.email ||
+            "";
+    }
+
+}
+
+
 function setAnonymousAccountIcon() {
 
     if (!topSignIn) {
@@ -422,6 +498,11 @@ function setAccountAvatar(fullName, user) {
         */
 
         setAccountAvatar(
+            fullName,
+            user
+        );
+
+        ensureUserDropdownProfile(
             fullName,
             user
         );
