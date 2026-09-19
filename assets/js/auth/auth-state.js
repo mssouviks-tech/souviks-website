@@ -63,6 +63,127 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 
+
+/* ----------------------------------------------------------
+   COMPACT ACCOUNT AVATAR HELPERS
+   ---------------------------------------------------------- */
+
+function getAccountInitial(fullName, user) {
+
+    const preferredName =
+        String(fullName || "").trim();
+
+    const metadataName =
+        String(
+            user?.user_metadata?.full_name ||
+            ""
+        ).trim();
+
+    const emailName =
+        String(
+            user?.email ||
+            ""
+        ).trim()
+        .split("@")[0]
+        .replace(/[^A-Za-z0-9]/g, " ")
+        .trim();
+
+    const source =
+        preferredName &&
+        preferredName.toLowerCase() !== "account"
+
+            ? preferredName
+
+            : (
+                metadataName ||
+                emailName ||
+                "A"
+            );
+
+    return (
+        source
+            .trim()
+            .charAt(0)
+            .toUpperCase() ||
+        "A"
+    );
+
+}
+
+
+function setAnonymousAccountIcon() {
+
+    if (!topSignIn) {
+        return;
+    }
+
+    topSignIn.innerHTML = `
+        <span
+            class="top-auth-avatar top-auth-avatar-anonymous"
+            aria-hidden="true">
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle
+                    cx="12"
+                    cy="8"
+                    r="3.25"
+                    stroke="currentColor"
+                    stroke-width="1.8"/>
+                <path
+                    d="M5.5 20c.65-3.35 2.85-5.4 6.5-5.4s5.85 2.05 6.5 5.4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"/>
+            </svg>
+        </span>
+        <span class="sr-only">Sign In</span>
+    `;
+
+    topSignIn.setAttribute(
+        "aria-label",
+        "Sign In"
+    );
+
+    topSignIn.title =
+        "Sign In";
+
+}
+
+
+function setAccountAvatar(fullName, user) {
+
+    if (!topUserButton || !topUserName) {
+        return;
+    }
+
+    const initial =
+        getAccountInitial(
+            fullName,
+            user
+        );
+
+    topUserName.className =
+        "top-user-avatar";
+
+    topUserName.innerHTML = `
+        <span aria-hidden="true">
+            ${initial}
+        </span>
+    `;
+
+    topUserButton.setAttribute(
+        "aria-label",
+        `Account: ${fullName}`
+    );
+
+    topUserButton.title =
+        fullName;
+
+}
+
+
     function closeDropdown() {
 
         if (!topUserDropdown) {
@@ -200,6 +321,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (!session || !session.user) {
 
+            setAnonymousAccountIcon();
+
             setHidden(
                 topSignIn,
                 false
@@ -298,12 +421,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         ----------------------------------------------
         */
 
-        if (topUserName) {
-
-            topUserName.textContent =
-                fullName;
-
-        }
+        setAccountAvatar(
+            fullName,
+            user
+        );
 
         setHidden(
             topSignIn,
