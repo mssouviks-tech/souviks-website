@@ -1,4 +1,4 @@
-name: Reapply Product Routing Patch
+name: Enforce Static Product Pages
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  reapply:
+  enforce:
     runs-on: ubuntu-latest
     steps:
       - name: Check out main
@@ -18,19 +18,19 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Fetch canonical product-routing patch
-        run: git fetch origin fix/product-routing-internal-rewrite --depth=1
+      - name: Verify canonical static-only branch
+        run: git fetch origin fix/product-routing-static-only --depth=1
 
-      - name: Restore patched routing configuration
+      - name: Remove duplicate product routing layer
         run: |
-          git checkout FETCH_HEAD -- \
+          git rm -f --ignore-unmatch \
             "functions/products/[slug].js" \
             "functions/en/products/[slug].js" \
             "functions/bn/products/[slug].js" \
             "functions/hi/products/[slug].js" \
             "_routes.json"
 
-      - name: Commit patch if the build replaced it
+      - name: Commit cleanup if required
         run: |
           if git diff --quiet HEAD -- \
             "functions/products/[slug].js" \
@@ -38,17 +38,11 @@ jobs:
             "functions/bn/products/[slug].js" \
             "functions/hi/products/[slug].js" \
             "_routes.json"; then
-            echo "Product routing patch is already present."
+            echo "Static-only product routing is already present."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            "functions/products/[slug].js" \
-            "functions/en/products/[slug].js" \
-            "functions/bn/products/[slug].js" \
-            "functions/hi/products/[slug].js" \
-            "_routes.json"
-          git commit -m "Reapply product routing patch"
+          git commit -am "Remove duplicate product routing layer"
           git push origin HEAD:main
