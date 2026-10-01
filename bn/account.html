@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -187,7 +187,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/account.css">
 
 
 
@@ -228,6 +228,15 @@ Reusable Head Component
     
 
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
+
 </head>
 
 <body class="account-auth-pending">
@@ -245,7 +254,7 @@ Reusable Head Component
                 class="top-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo.png"
+                    src="/assets/logo/souviks-logo.png" width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -262,7 +271,7 @@ Reusable Head Component
                 class="top-item top-email">
 
                 <img
-                    src="/assets/icons/email.svg"
+                    src="/assets/icons/email.svg" width="24" height="24"
                     class="top-icon"
                     alt="ইমেইল">
 
@@ -278,7 +287,7 @@ Reusable Head Component
                 class="top-item top-phone">
 
                 <img
-                    src="/assets/icons/phone.svg"
+                    src="/assets/icons/phone.svg" width="24" height="24"
                     class="top-icon"
                     alt="ফোন">
 
@@ -293,10 +302,10 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
-                    src="/assets/icons/whatsapp.svg"
+                    src="/assets/icons/whatsapp.svg" width="24" height="24"
                     class="top-icon"
                     alt="হোয়াটসঅ্যাপ">
 
@@ -715,23 +724,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -768,7 +777,7 @@ Reusable Head Component
 
                 <div class="mobile-navigation-header">
                     <img
-                        src="/assets/logo/souviks-logo-white.png"
+                        src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                         alt="Souviks"
                         class="mobile-navigation-logo">
                     <button
@@ -926,7 +935,7 @@ Reusable Head Component
             </h1>
 
             <p>
-                আপনার Souviks অ্যাকাউন্ট ও প্রোফাইল পরিচালনা করুন।
+                এক জায়গা থেকে RFQ, অনুসন্ধান, সংরক্ষিত যন্ত্রাংশ ও প্রোফাইল পরিচালনা করুন।
             </p>
 
         </div>
@@ -957,174 +966,84 @@ Reusable Head Component
     class="account-navigation"
     aria-label="অ্যাকাউন্ট">
 
-    <h2 class="account-navigation-title">
-
-        অ্যাকাউন্ট
-
-    </h2>
-
+    <div class="account-navigation-heading">
+        <span class="account-navigation-kicker">অ্যাকাউন্ট</span>
+        <span class="account-navigation-caption">Souviks</span>
+    </div>
 
     <nav>
 
         <ul class="account-navigation-list">
 
-
-            <!-- ==========================================
-                 MY ACCOUNT
-            =========================================== -->
-
             <li>
-
                 <a
-    href="/bn/account.html"
-    class="account-navigation-link"
-    data-account-view="account">
-
-    আমার অ্যাকাউন্ট
-
-</a>
-
+                    href="/bn/account.html"
+                    class="account-navigation-link"
+                    data-account-view="account">
+                    <span>ওভারভিউ</span>
+                </a>
             </li>
 
-
-            <!-- ==========================================
-                 RFQ
-            =========================================== -->
-
             <li>
-
                 <a
-    href="/bn/account.html?view=rfq"
-    class="account-navigation-link"
-    data-account-view="rfq">
-
-    RFQ
-
-</a>
-
+                    href="/bn/account.html?view=rfq"
+                    class="account-navigation-link"
+                    data-account-view="rfq">
+                    <span>RFQ বাস্কেট</span>
+                </a>
             </li>
-
-
-            <!-- ==========================================
-     MY INQUIRIES
-=========================================== -->
-
-<li>
-
-    <a
-        href="/bn/account.html?view=inquiries"
-        class="account-navigation-link"
-        data-account-view="inquiries">
-
-        আমার অনুসন্ধানসমূহ
-
-    </a>
-
-</li>
-
-
-            <!-- ==========================================
-                 MY ORDERS
-            =========================================== -->
 
             <li>
-
-                <span
-                    class="account-navigation-link is-disabled">
-
-                    আমার অর্ডার
-
-                    <span
-                        class="account-navigation-status">
-
-                        শীঘ্রই আসছে
-
-                    </span>
-
-                </span>
-
-            </li>
-
-
-            <!-- ==========================================
-                 MY VEHICLES
-            =========================================== -->
-
-            <li>
-
-                <span
-                    class="account-navigation-link is-disabled">
-
-                    আমার গাড়ি
-
-                    <span
-                        class="account-navigation-status">
-
-                        শীঘ্রই আসছে
-
-                    </span>
-
-                </span>
-
-            </li>
-
-
-            <!-- ==========================================
-                 MY SAVED
-            =========================================== -->
-
-            <li>
-
-                <span
-                    class="account-navigation-link is-disabled">
-
-                    আমার সংরক্ষিত
-
-                    <span
-                        class="account-navigation-status">
-
-                        শীঘ্রই আসছে
-
-                    </span>
-
-                </span>
-
-            </li>
-
-
-            <!-- ==========================================
-                 NAVIGATION DIVIDER
-            =========================================== -->
-
-            <li
-                class="account-navigation-divider"
-                aria-hidden="true">
-            </li>
-
-
-            <!-- ==========================================
-                 PRIVACY
-            =========================================== -->
-
-            <li>
-
                 <a
-    href="/bn/account.html?view=privacy"
-    class="account-navigation-link"
-    data-account-view="privacy">
-
-    গোপনীয়তা
-
-</a>
-
+                    href="/bn/account.html?view=inquiries"
+                    class="account-navigation-link"
+                    data-account-view="inquiries">
+                    <span>আমার অনুসন্ধানসমূহ</span>
+                </a>
             </li>
 
+            <li>
+                <a
+                    href="/bn/account.html?view=saved"
+                    class="account-navigation-link"
+                    data-account-view="saved">
+                    <span>সংরক্ষিত যন্ত্রাংশ</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="/bn/account.html?view=vehicles"
+                    class="account-navigation-link"
+                    data-account-view="vehicles">
+                    <span>আমার গাড়ি</span>
+                </a>
+            </li>
+
+            <li class="account-navigation-divider" aria-hidden="true"></li>
+
+            <li>
+                <a
+                    href="/bn/account.html?view=profile"
+                    class="account-navigation-link"
+                    data-account-view="profile">
+                    <span>ব্যক্তিগত ও ব্যবসায়িক</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="/bn/account.html?view=privacy"
+                    class="account-navigation-link"
+                    data-account-view="privacy">
+                    <span>নিরাপত্তা ও লগইন</span>
+                </a>
+            </li>
 
         </ul>
-
     </nav>
-
 </aside>
+
 
 
                 <!-- ======================================
@@ -1144,419 +1063,221 @@ Reusable Head Component
 
 
                         <!-- ==================================
-                             PROFILE
+                             ACCOUNT OVERVIEW
                         =================================== -->
 
-                        <div
-                            class="account-section account-profile-section">
+                        <section class="account-dashboard" aria-labelledby="accountDashboardTitle">
 
-                            <div class="account-section-header">
+                            <div class="account-dashboard-hero">
 
-                                <div>
+                                <div class="account-dashboard-identity">
 
-                                    <h2>
-                                        প্রোফাইল
+                                    <span class="account-dashboard-eyebrow">
+                                        ওভারভিউ
+                                    </span>
+
+                                    <h2 id="accountDashboardTitle">
+                                        আবার স্বাগতম,
+                                        <span id="accountDashboardName">লোড হচ্ছে...</span>
                                     </h2>
 
-                                    <p>
-                                        আপনার অ্যাকাউন্টের তথ্য।
+                                    <p id="accountDashboardCompany" class="account-dashboard-company">
+                                        এক জায়গা থেকে RFQ, অনুসন্ধান, সংরক্ষিত যন্ত্রাংশ ও প্রোফাইল পরিচালনা করুন।
                                     </p>
 
                                 </div>
 
-
-                                <button
-                                    type="button"
-                                    class="btn btn-secondary"
-                                    id="editAccountProfile">
-
-                                    প্রোফাইল সম্পাদনা করুন
-
-                                </button>
-
-                            </div>
-
-
-                            <!-- ==================================
-                                 PROFILE DETAILS
-                            =================================== -->
-
-                            <div class="account-details">
-
-
-                                <!-- FULL NAME -->
-
-                                <div class="account-detail">
-
-                                    <span class="account-detail-label">
-
-                                        পুরো নাম
-
-                                    </span>
-
-                                    <span
-                                        id="accountFullName"
-                                        class="account-detail-value">
-
-                                        লোড হচ্ছে...
-
-                                    </span>
-
-                                </div>
-
-
-                                <!-- EMAIL -->
-
-                                <div class="account-detail">
-
-                                    <span class="account-detail-label">
-
-                                        ইমেল
-
-                                    </span>
-
-                                    <span
-                                        id="accountEmail"
-                                        class="account-detail-value">
-
-                                        লোড হচ্ছে...
-
-                                    </span>
-
-                                </div>
-
-
-                                <!-- PHONE -->
-
-                                <div class="account-detail">
-
-                                    <span class="account-detail-label">
-
-                                        ফোন
-
-                                    </span>
-
-                                    <span
-                                        id="accountPhone"
-                                        class="account-detail-value">
-
-                                        লোড হচ্ছে...
-
-                                    </span>
-
-                                </div>
-
-
-                                <!-- COMPANY -->
-
-                                <div class="account-detail">
-
-                                    <span class="account-detail-label">
-
-                                        কোম্পানি
-
-                                    </span>
-
-                                    <span
-                                        id="accountCompany"
-                                        class="account-detail-value">
-
-                                        লোড হচ্ছে...
-
-                                    </span>
-
-                                </div>
-
-
-                                <!-- BUSINESS ACCOUNT -->
-
-                                <div class="account-detail">
-
-                                    <span class="account-detail-label">
-
-                                        ব্যবসায়িক অ্যাকাউন্ট
-
-                                    </span>
-
-                                    <span
-                                        id="accountBusiness"
-                                        class="account-detail-value">
-
-                                        লোড হচ্ছে...
-
-                                    </span>
-
-                                </div>
-
-
-                                <!-- GST -->
-
-                                <div
-                                    id="accountGstDetail"
-                                    class="account-detail"
-                                    hidden>
-
-                                    <span class="account-detail-label">
-
-                                        GST নম্বর
-
-                                    </span>
-
-                                    <span
-                                        id="accountGst"
-                                        class="account-detail-value">
-
-                                        লোড হচ্ছে...
-
-                                    </span>
-
+                                <div class="account-dashboard-account-badge" id="accountDashboardType">
+                                    লোড হচ্ছে...
                                 </div>
 
                             </div>
 
-                        </div>
+                            <div class="account-dashboard-stats" aria-label="Account summary">
 
+                                <a class="account-dashboard-stat" href="/bn/account.html?view=rfq" data-account-view="rfq">
+                                    <span class="account-dashboard-stat-label">RFQ বাস্কেট</span>
+                                    <strong id="accountDashboardRfqCount">—</strong>
+                                    <span class="account-dashboard-stat-note">RFQ বাস্কেট খুলুন</span>
+                                </a>
+
+                                <a class="account-dashboard-stat" href="/bn/account.html?view=inquiries" data-account-view="inquiries">
+                                    <span class="account-dashboard-stat-label">আমার অনুসন্ধান</span>
+                                    <strong id="accountDashboardInquiryCount">—</strong>
+                                    <span class="account-dashboard-stat-note">অনুসন্ধান দেখুন</span>
+                                </a>
+
+                                <a class="account-dashboard-stat" href="/bn/account.html?view=saved" data-account-view="saved">
+                                    <span class="account-dashboard-stat-label">সংরক্ষিত যন্ত্রাংশ</span>
+                                    <strong id="accountDashboardSavedCount">—</strong>
+                                    <span class="account-dashboard-stat-note">সংরক্ষিত যন্ত্রাংশ দেখুন</span>
+                                </a>
+
+                                <a class="account-dashboard-stat" href="/bn/account.html?view=vehicles" data-account-view="vehicles">
+                                    <span class="account-dashboard-stat-label">আমার গাড়ি</span>
+                                    <strong id="accountDashboardVehicleCount">—</strong>
+                                    <span class="account-dashboard-stat-note">গাড়ি পরিচালনা করুন</span>
+                                </a>
+
+                            </div>
+
+                            <div class="account-dashboard-actions">
+
+                                <div class="account-dashboard-section-heading">
+                                    <h3>দ্রুত কাজ</h3>
+                                </div>
+
+                                <div class="account-dashboard-action-grid">
+                                    <a class="account-dashboard-action account-dashboard-action-primary" href="/bn/account.html?view=rfq" data-account-view="rfq">
+                                        <span class="account-dashboard-action-title">RFQ বাস্কেট খুলুন</span>
+                                        <span class="account-dashboard-action-arrow" aria-hidden="true">→</span>
+                                    </a>
+                                    <a class="account-dashboard-action" href="/bn/products.html">
+                                        <span class="account-dashboard-action-title">পণ্য দেখুন</span>
+                                        <span class="account-dashboard-action-arrow" aria-hidden="true">→</span>
+                                    </a>
+                                    <a class="account-dashboard-action" href="/bn/account.html?view=inquiries" data-account-view="inquiries">
+                                        <span class="account-dashboard-action-title">অনুসন্ধান দেখুন</span>
+                                        <span class="account-dashboard-action-arrow" aria-hidden="true">→</span>
+                                    </a>
+                                    <a class="account-dashboard-action" href="/bn/account.html?view=saved" data-account-view="saved">
+                                        <span class="account-dashboard-action-title">সংরক্ষিত যন্ত্রাংশ দেখুন</span>
+                                        <span class="account-dashboard-action-arrow" aria-hidden="true">→</span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="account-dashboard-recent">
+
+                                <div class="account-dashboard-section-heading account-dashboard-section-heading-row">
+                                    <div>
+                                        <h3>সাম্প্রতিক অনুসন্ধান</h3>
+                                    </div>
+                                    <a href="/bn/account.html?view=inquiries" data-account-view="inquiries">
+                                        সব অনুসন্ধান দেখুন
+                                    </a>
+                                </div>
+
+                                <div id="accountRecentInquiries" class="account-dashboard-recent-list">
+                                    <div class="account-dashboard-recent-state">সাম্প্রতিক কার্যকলাপ লোড হচ্ছে...</div>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <section
+                            id="accountVehiclePartsSection"
+                            class="account-dashboard-vehicle-parts"
+                            aria-labelledby="accountVehiclePartsTitle">
+
+                            <div class="account-dashboard-section-heading account-dashboard-section-heading-row">
+                                <div>
+                                    <span class="account-section-kicker">গাড়িভিত্তিক যন্ত্রাংশ</span>
+                                    <h3 id="accountVehiclePartsTitle">আপনার গাড়ির জন্য যন্ত্রাংশ</h3>
+                                    <p class="account-dashboard-profile-intro">আপনার সংরক্ষিত গাড়ির সঙ্গে সামঞ্জস্যপূর্ণ কিছু যন্ত্রাংশ দেখুন এবং সম্পূর্ণ গাড়ি ক্যাটালগে দ্রুত যান।</p>
+                                </div>
+                                <div class="account-vehicle-parts-heading-meta">
+                                    <strong id="accountVehiclePartsSelectedTitle"></strong>
+                                    <span id="accountVehiclePartsCount"></span>
+                                    <a id="accountVehiclePartsBrowse" href="/bn/products.html" hidden>সব সামঞ্জস্যপূর্ণ যন্ত্রাংশ দেখুন</a>
+                                </div>
+                            </div>
+
+                            <div id="accountVehiclePartsLoading" class="account-inquiries-state">
+                                সামঞ্জস্যপূর্ণ যন্ত্রাংশ লোড হচ্ছে...
+                            </div>
+
+                            <div id="accountVehiclePartsEmpty" class="account-inquiries-state" hidden>
+                                <p>সামঞ্জস্যপূর্ণ যন্ত্রাংশ দেখতে একটি গাড়ি যোগ করুন।</p>
+                                <a href="./account.html?view=vehicles" class="btn btn-primary">গাড়ি যোগ করুন</a>
+                            </div>
+
+                            <div id="accountVehiclePartsControls" class="account-vehicle-parts-controls" hidden>
+                                <label for="accountVehiclePartsVehicle">গাড়ি</label>
+                                <select id="accountVehiclePartsVehicle"></select>
+                            </div>
+
+                            <div id="accountVehiclePartsList" class="account-vehicle-parts-list" hidden></div>
+                        </section>
 
                         <!-- ==================================
-                             EDIT PROFILE
+                             PROFILE SNAPSHOT
                         =================================== -->
 
-                        <div
-                            id="accountEditSection"
-                            class="account-section account-edit-section"
-                            hidden>
+                        <section class="account-dashboard-profile" aria-labelledby="accountDashboardProfileTitle">
 
-                            <h2>
+                            <div class="account-dashboard-section-heading account-dashboard-section-heading-row">
+                                <div>
+                                    <h3 id="accountDashboardProfileTitle">ব্যক্তিগত ও ব্যবসায়িক</h3>
+                                    <p class="account-dashboard-profile-intro">আপনার RFQ-তে ব্যবহৃত যোগাযোগ ও ব্যবসায়িক তথ্য আপডেট রাখুন।</p>
+                                </div>
+                                <a href="/bn/account.html?view=profile" data-account-view="profile">ব্যক্তিগত ও ব্যবসায়িক তথ্য পরিচালনা করুন</a>
+                            </div>
 
-                                প্রোফাইল সম্পাদনা করুন
+                            <div class="account-dashboard-profile-grid">
 
-                            </h2>
-
-
-                            <p>
-
-                                আপনার Souviks অ্যাকাউন্টের সঙ্গে যুক্ত তথ্য আপডেট করুন।
-
-                            </p>
-
-
-                            <form
-                                id="account-profile-form"
-                                novalidate>
-
-
-                                <!-- ==================================
-                                     FULL NAME
-                                =================================== -->
-
-                                <div class="form-group">
-
-                                    <label
-                                        for="account-full-name">
-
-                                        পুরো নাম
-
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        id="account-full-name"
-                                        name="full_name"
-                                        autocomplete="name"
-                                        required>
-
+                                <div class="account-dashboard-profile-item">
+                                    <span class="account-dashboard-profile-label">পুরো নাম</span>
+                                    <strong id="accountDashboardProfileName">লোড হচ্ছে...</strong>
                                 </div>
 
-
-                                <!-- ==================================
-                                     EMAIL
-                                =================================== -->
-
-                                <div class="form-group">
-
-                                    <label
-                                        for="account-email-input">
-
-                                        ইমেল
-
-                                    </label>
-
-                                    <input
-                                        type="email"
-                                        id="account-email-input"
-                                        name="email"
-                                        autocomplete="email"
-                                        readonly>
-
-                                    <small>
-
-                                        আপনার অ্যাকাউন্টের ইমেল আপনার সাইন-ইন তথ্যের মাধ্যমে পরিচালিত হয়।
-
-                                    </small>
-
+                                <div class="account-dashboard-profile-item">
+                                    <span class="account-dashboard-profile-label">ইমেল</span>
+                                    <strong id="accountDashboardProfileEmail">লোড হচ্ছে...</strong>
+                                    <span id="accountDashboardEmailStatus" class="account-dashboard-email-status">লোড হচ্ছে...</span>
                                 </div>
 
-
-                                <!-- ==================================
-                                     PHONE
-                                =================================== -->
-
-                                <div class="form-group">
-
-                                    <label
-                                        for="account-phone-input">
-
-                                        ফোন
-
-                                    </label>
-
-                                    <input
-                                        type="tel"
-                                        id="account-phone-input"
-                                        name="phone"
-                                        autocomplete="tel">
-
+                                <div class="account-dashboard-profile-item">
+                                    <span class="account-dashboard-profile-label">ফোন</span>
+                                    <strong id="accountDashboardProfilePhone">লোড হচ্ছে...</strong>
                                 </div>
 
-
-                                <!-- ==================================
-                                     BUSINESS CHECKBOX
-                                =================================== -->
-
-                                <div class="account-business-toggle">
-
-                                    <label
-                                        for="account-is-business"
-                                        class="account-checkbox-label">
-
-                                        <input
-                                            type="checkbox"
-                                            id="account-is-business"
-                                            name="is_business">
-
-                                        <span>
-
-                                            এটি কি কোনও ব্যবসার জন্য?
-
-                                        </span>
-
-                                    </label>
-
+                                <div class="account-dashboard-profile-item">
+                                    <span class="account-dashboard-profile-label">কোম্পানি</span>
+                                    <strong id="accountDashboardProfileCompany">লোড হচ্ছে...</strong>
                                 </div>
 
+                            </div>
 
-                                <!-- ==================================
-                                     BUSINESS INFORMATION
-                                =================================== -->
+                        <div class="account-dashboard-lower-grid">
 
-                                <div
-                                    id="account-business-fields"
-                                    class="account-business-fields"
-                                    hidden>
+                            <section class="account-dashboard-completion" aria-labelledby="accountProfileCompletionTitle">
 
-
-                                    <!-- COMPANY -->
-
-                                    <div class="form-group">
-
-                                        <label
-                                            for="account-company-input">
-
-                                            কোম্পানি
-
-                                            <span
-                                                class="account-required"
-                                                aria-hidden="true">
-
-                                                *
-
-                                            </span>
-
-                                        </label>
-
-                                        <input
-                                            type="text"
-                                            id="account-company-input"
-                                            name="company"
-                                            autocomplete="organization">
-
+                                <div class="account-dashboard-section-heading account-dashboard-section-heading-row">
+                                    <div>
+                                        <h3 id="accountProfileCompletionTitle">প্রোফাইল সম্পূর্ণতা</h3>
+                                        <p class="account-dashboard-profile-intro">দ্রুত RFQ এবং কোটেশনের জন্য আপনার অ্যাকাউন্টের তথ্য আপডেট রাখুন।</p>
                                     </div>
-
-
-                                    <!-- GST -->
-
-                                    <div class="form-group">
-
-                                        <label
-                                            for="account-gst-input">
-
-                                            GST নম্বর
-
-                                            <span
-                                                class="account-required"
-                                                aria-hidden="true">
-
-                                                *
-
-                                            </span>
-
-                                        </label>
-
-                                        <input
-                                            type="text"
-                                            id="account-gst-input"
-                                            name="gst_number"
-                                            maxlength="15"
-                                            autocomplete="off"
-                                            spellcheck="false"
-                                            autocapitalize="characters">
-
-                                    </div>
-
+                                    <strong id="accountProfileCompletionPercent" class="account-profile-completion-percent">0%</strong>
                                 </div>
 
-
-                                <!-- ==================================
-                                     FORM STATUS
-                                =================================== -->
-
-                                <div
-                                    id="accountProfileStatus"
-                                    class="form-status"
-                                    role="status"
-                                    aria-live="polite"
-                                    hidden>
+                                <div class="account-profile-completion-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="প্রোফাইল সম্পূর্ণতা">
+                                    <span id="accountProfileCompletionBar"></span>
                                 </div>
 
+                                <p id="accountProfileCompletionText" class="account-profile-completion-text">RFQ এবং কোটেশনের তথ্য প্রস্তুত রাখতে আপনার প্রোফাইল সম্পূর্ণ করুন।</p>
 
-                                <!-- ==================================
-                                     FORM ACTIONS
-                                =================================== -->
+                                <a href="/bn/account.html?view=profile" class="btn btn-secondary account-profile-completion-action" id="accountProfileCompletionAction" data-account-view="profile">প্রোফাইল সম্পূর্ণ করুন</a>
 
-                                <div class="form-actions">
+                            </section>
 
-                                    <button
-                                        type="button"
-                                        class="btn btn-secondary"
-                                        id="cancelAccountEdit">
+                            <section class="account-dashboard-help" aria-labelledby="accountHelpTitle">
 
-                                        বাতিল
-
-                                    </button>
-
-
-                                    <button
-                                        type="submit"
-                                        class="btn btn-primary"
-                                        id="saveAccountProfile">
-
-                                        পরিবর্তনগুলি সংরক্ষণ করুন
-
-                                    </button>
-
+                                <div class="account-dashboard-section-heading">
+                                    <h3 id="accountHelpTitle">সাহায্য দরকার?</h3>
+                                    <p class="account-dashboard-profile-intro">কোনো পার্ট বা ইনকোয়ারি নিয়ে সাহায্য দরকার?</p>
                                 </div>
 
-                            </form>
+                                <div class="account-help-actions">
+                                    <a href="/bn/request-part.html">একটি পার্টের অনুরোধ করুন</a>
+                                    <a href="/bn/contact.html">Souviks-এ যোগাযোগ করুন</a>
+                                </div>
+
+                            </section>
 
                         </div>
 
@@ -1564,6 +1285,7 @@ Reusable Head Component
                         <!-- ==================================
                              ACCOUNT TRANSLATION MESSAGES
                         =================================== -->
+
 
                         <div
                             id="accountMessages"
@@ -1584,8 +1306,44 @@ Reusable Head Component
                             data-business-yes="হ্যাঁ"
                             data-business-no="না"
 
-                            data-save-changes="পরিবর্তনগুলি সংরক্ষণ করুন">
-                        </div>
+                            data-save-changes="পরিবর্তনগুলি সংরক্ষণ করুন"
+                            data-account-dashboard-intro="এক জায়গা থেকে RFQ, অনুসন্ধান, সংরক্ষিত যন্ত্রাংশ ও প্রোফাইল পরিচালনা করুন।"
+                            data-account-individual-account="ব্যক্তিগত অ্যাকাউন্ট"
+                            data-account-business-account-label="ব্যবসায়িক অ্যাকাউন্ট"
+
+                            data-inquiry-status-submitted="জমা দেওয়া হয়েছে"
+                            data-inquiry-status-processing="প্রক্রিয়াধীন"
+                            data-inquiry-status-quoted="কোটেশন দেওয়া হয়েছে"
+                            data-inquiry-status-completed="সম্পন্ন"
+                            data-inquiry-status-cancelled="বাতিল"
+
+                            data-recent-inquiries-empty="এখনও কোনো অনুসন্ধান নেই। জমা দেওয়া কোটেশন অনুরোধ এখানে দেখা যাবে।"
+                            data-recent-unavailable="সাম্প্রতিক কার্যকলাপ লোড করা যায়নি।"
+
+                            data-vehicles-load-error="আপনার গাড়িগুলি লোড করা যায়নি। আবার চেষ্টা করুন।"
+                            data-search-vehicle="গাড়ি খুঁজুন..." data-no-vehicles-found="কোনও মিল থাকা গাড়ি পাওয়া যায়নি।" data-vehicle-required="অনুগ্রহ করে একটি গাড়ি নির্বাচন করুন।"
+                            data-vehicle-saved="গাড়ি সফলভাবে সংরক্ষিত হয়েছে।"
+                            data-vehicle-updated="গাড়ির তথ্য সফলভাবে আপডেট হয়েছে।"
+                            data-vehicle-save-error="এই গাড়িটি সংরক্ষণ করা যায়নি। আবার চেষ্টা করুন।"
+                            data-vehicle-year-invalid="অনুগ্রহ করে একটি বৈধ মডেল বছর লিখুন।"
+                            data-vehicles-try-again="আবার চেষ্টা করুন"
+
+                            data-vehicle-parts-no-vehicles="সামঞ্জস্যপূর্ণ যন্ত্রাংশ দেখতে একটি গাড়ি যোগ করুন।"
+                            data-vehicle-parts-compatible-count="সামঞ্জস্যপূর্ণ যন্ত্রাংশ"
+                            data-vehicle-parts-no-mapped-products="এই গাড়ির জন্য এখনও কোনো সামঞ্জস্যপূর্ণ পণ্য ম্যাপ করা নেই।"
+                            data-vehicle-parts-load-error="সামঞ্জস্যপূর্ণ যন্ত্রাংশ এই মুহূর্তে লোড করা যাচ্ছে না।"
+                            data-add-vehicle="গাড়ি যোগ করুন"
+                            data-add-to-r-f-q="RFQ-তে যোগ করুন"
+                            data-price-on-request="মূল্য জানতে যোগাযোগ করুন"
+                            data-inquiry-status-timeline="RFQ-এর অবস্থা"
+                            data-inquiry-repeat-r-f-q="এই RFQ পুনরায় ব্যবহার করুন"
+                            data-inquiry-repeating-r-f-q="RFQ-তে যোগ হচ্ছে..."
+                            data-inquiry-repeated-r-f-q="RFQ-তে যোগ হয়েছে"
+                            data-inquiry-open-r-f-q="RFQ Basket খুলুন"
+                            data-inquiry-repeat-success="{parts}টি পার্ট ({units}টি ইউনিট) আপনার RFQ Basket-এ যোগ হয়েছে।"
+                            data-inquiry-repeat-partial="{parts}টি পার্ট ({units}টি ইউনিট) যোগ হয়েছে। কিছু আইটেম যোগ করা যায়নি।"
+                            data-inquiry-repeat-failed="RFQ-টি Basket-এ যোগ করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
+                            data-inquiry-repeat-no-items="এই RFQ-তে পুনরায় ব্যবহারের জন্য কোনো আইটেম নেই।">
 
 
                         <!-- ==================================
@@ -1601,24 +1359,323 @@ Reusable Head Component
                         </div>
 
 
-                        <!-- ==================================
-                             LOGOUT
-                        =================================== -->
 
-                        <div class="form-actions">
+                    </div>
 
-                            <button
-                                type="button"
-                                class="btn btn-primary"
-                                data-auth-logout>
 
-                                সাইন আউট
+                    <!-- ==================================
+                         MY VEHICLES VIEW
+                    =================================== -->
 
-                            </button>
+                    <section
+                        class="account-view"
+                        data-account-view="vehicles"
+                        hidden>
+
+                        <div class="account-section account-vehicles-workspace">
+
+                            <div class="account-section-header">
+                                <div>
+                                    <span class="account-section-kicker">আমার গাড়ি</span>
+                                    <h2>আমার গাড়ি</h2>
+                                    <p>আপনি যে গাড়িগুলিতে কাজ করেন সেগুলি সংরক্ষণ করুন, যাতে সামঞ্জস্যপূর্ণ যন্ত্রাংশ দ্রুত খুঁজে পান।</p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    id="addAccountVehicle">
+                                    গাড়ি যোগ করুন
+                                </button>
+                            </div>
+
+                            <div
+                                id="accountVehiclesStatus"
+                                class="form-status"
+                                role="status"
+                                aria-live="polite"
+                                hidden>
+                            </div>
+
+                            <div
+                                id="accountVehiclesLoading"
+                                class="account-inquiries-state">
+                                আপনার গাড়িগুলি লোড হচ্ছে...
+                            </div>
+
+                            <div
+                                id="accountVehiclesEmpty"
+                                class="account-inquiries-state"
+                                hidden>
+                                <strong>এখনও কোনও গাড়ি সংরক্ষণ করা হয়নি</strong>
+                                <p>একটি গাড়ি যোগ করুন, যাতে তার সামঞ্জস্যপূর্ণ যন্ত্রাংশ দ্রুত পাওয়া যায়।</p>
+                                <button type="button" class="btn btn-primary" id="addFirstAccountVehicle">গাড়ি যোগ করুন</button>
+                            </div>
+
+                            <div
+                                id="accountVehiclesList"
+                                class="account-vehicles-list"
+                                hidden>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- ==================================
+                         VEHICLE MODAL
+                    =================================== -->
+
+                    <div
+                        id="accountVehicleModal"
+                        class="account-vehicle-modal"
+                        hidden
+                        aria-hidden="true">
+
+                        <div
+                            class="account-vehicle-modal-backdrop"
+                            data-vehicle-modal-close>
+                        </div>
+
+                        <div
+                            class="account-vehicle-modal-dialog"
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="accountVehicleModalTitle">
+
+                            <div class="account-vehicle-modal-header">
+                                <div>
+                                    <span class="account-section-kicker">আমার গাড়ি</span>
+                                    <h2 id="accountVehicleModalTitle">গাড়ি যোগ করুন</h2>
+                                    <p>প্রয়োজনে ডাকনাম বা রেজিস্ট্রেশন নম্বরসহ একটি গাড়ি সংরক্ষণ করুন।</p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="account-vehicle-modal-close"
+                                    data-vehicle-modal-close
+                                    aria-label="বাতিল">×</button>
+                            </div>
+
+                            <form id="accountVehicleForm" novalidate>
+
+                                <div class="account-vehicle-form-grid">
+                                    <div class="form-group account-vehicle-form-wide">
+                                        <label for="accountVehicleSelect">গাড়ির মডেল</label>
+                                        <select id="accountVehicleSelect" required>
+                                            <option value="">একটি গাড়ি নির্বাচন করুন</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="accountVehicleLabel">গাড়ির নাম</label>
+                                        <input type="text" id="accountVehicleLabel" maxlength="80" placeholder="যেমন: ডেলিভারি ট্রাক ০১" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="accountVehicleRegistration">রেজিস্ট্রেশন নম্বর</label>
+                                        <input type="text" id="accountVehicleRegistration" maxlength="24" placeholder="যেমন: WB40A1234" autocomplete="off" spellcheck="false">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="accountVehicleVariant">ভ্যারিয়েন্ট</label>
+                                        <input type="text" id="accountVehicleVariant" maxlength="80" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="accountVehicleYear">মডেল বছর</label>
+                                        <input type="number" id="accountVehicleYear" min="1950" max="2100" inputmode="numeric">
+                                    </div>
+
+                                    <div class="form-group account-vehicle-form-wide">
+                                        <label for="accountVehicleNotes">নোট</label>
+                                        <textarea id="accountVehicleNotes" rows="4" maxlength="500" placeholder="এই গাড়ি বা সাধারণত প্রয়োজনীয় যন্ত্রাংশ সম্পর্কে ঐচ্ছিক নোট।"></textarea>
+                                    </div>
+                                </div>
+
+                                <div id="accountVehicleFormStatus" class="form-status" role="status" aria-live="polite" hidden></div>
+
+                                <div class="account-vehicle-form-actions">
+                                    <button type="button" class="btn btn-secondary" id="cancelAccountVehicle">বাতিল</button>
+                                    <button type="submit" class="btn btn-primary" id="saveAccountVehicle">গাড়ি সংরক্ষণ করুন</button>
+                                </div>
+
+                            </form>
 
                         </div>
 
                     </div>
+
+
+                    <!-- ==================================
+                         PERSONAL & BUSINESS VIEW
+                    =================================== -->
+
+                    <section
+                        class="account-view"
+                        data-account-view="profile"
+                        hidden>
+
+                        <div class="account-section account-profile-workspace">
+
+                            <div class="account-section-header">
+                                <div>
+                                    <span class="account-section-kicker">ব্যক্তিগত ও ব্যবসায়িক</span>
+                                    <h2>ব্যক্তিগত ও ব্যবসায়িক</h2>
+                                    <p>আপনার RFQ-তে ব্যবহৃত যোগাযোগ ও ব্যবসায়িক তথ্য আপডেট রাখুন।</p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    id="editAccountProfile">
+                                    প্রোফাইল সম্পাদনা করুন
+                                </button>
+                            </div>
+
+                            <div class="account-profile-card-grid">
+
+                                <article class="account-profile-card">
+                                    <div class="account-profile-card-header">
+                                        <div class="account-profile-card-mark" aria-hidden="true">P</div>
+                                        <div>
+                                            <h3>ব্যক্তিগত তথ্য</h3>
+                                            <p>অ্যাকাউন্ট যোগাযোগ ও RFQ-তে ব্যবহৃত আপনার যোগাযোগের তথ্য।</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="account-profile-details">
+                                        <div class="account-profile-detail">
+                                            <span class="account-detail-label">পুরো নাম</span>
+                                            <strong id="accountFullName" class="account-detail-value">লোড হচ্ছে...</strong>
+                                        </div>
+                                        <div class="account-profile-detail">
+                                            <span class="account-detail-label">ইমেল</span>
+                                            <strong id="accountEmail" class="account-detail-value">লোড হচ্ছে...</strong>
+                                        </div>
+                                        <div class="account-profile-detail">
+                                            <span class="account-detail-label">ফোন</span>
+                                            <strong id="accountPhone" class="account-detail-value">লোড হচ্ছে...</strong>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="account-profile-card">
+                                    <div class="account-profile-card-header">
+                                        <div class="account-profile-card-mark" aria-hidden="true">B</div>
+                                        <div>
+                                            <h3>ব্যবসায়িক তথ্য</h3>
+                                            <p>কোটেশন ও গ্রাহক রেকর্ডে ব্যবহৃত তথ্য।</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="account-profile-details">
+                                        <div class="account-profile-detail">
+                                            <span class="account-detail-label">অ্যাকাউন্টের ধরন</span>
+                                            <strong id="accountBusiness" class="account-detail-value">লোড হচ্ছে...</strong>
+                                        </div>
+                                        <div class="account-profile-detail">
+                                            <span class="account-detail-label">কোম্পানি</span>
+                                            <strong id="accountCompany" class="account-detail-value">লোড হচ্ছে...</strong>
+                                        </div>
+                                        <div
+                                            id="accountGstDetail"
+                                            class="account-profile-detail"
+                                            hidden>
+                                            <span class="account-detail-label">GST নম্বর</span>
+                                            <strong id="accountGst" class="account-detail-value">লোড হচ্ছে...</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="account-profile-card-note" id="accountBusinessDescription">
+                                        ব্যবসায়িক তথ্য কোটেশন ও গ্রাহক রেকর্ডের জন্য ব্যবহৃত হয়।
+                                    </div>
+                                </article>
+
+                            </div>
+
+                            <div
+                                id="accountProfileStatus"
+                                class="form-status account-profile-view-status"
+                                role="status"
+                                aria-live="polite"
+                                hidden>
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="accountEditSection"
+                            class="account-section account-edit-section"
+                            hidden>
+
+                            <div class="account-section-header">
+                                <div>
+                                    <span class="account-section-kicker">প্রোফাইল সম্পাদনা করুন</span>
+                                    <h2>প্রোফাইল সম্পাদনা করুন</h2>
+                                    <p>আপনার Souviks অ্যাকাউন্টের সঙ্গে যুক্ত তথ্য আপডেট করুন।</p>
+                                </div>
+                            </div>
+
+                            <form id="account-profile-form" novalidate>
+
+                                <div class="account-edit-group">
+                                    <div class="account-edit-group-heading">
+                                        <h3>ব্যক্তিগত তথ্য</h3>
+                                        <p>অ্যাকাউন্ট যোগাযোগ ও RFQ-তে ব্যবহৃত আপনার যোগাযোগের তথ্য।</p>
+                                    </div>
+
+                                    <div class="account-edit-grid">
+                                        <div class="form-group">
+                                            <label for="account-full-name">পুরো নাম</label>
+                                            <input type="text" id="account-full-name" name="full_name" autocomplete="name" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="account-email-input">ইমেল</label>
+                                            <input type="email" id="account-email-input" name="email" autocomplete="email" readonly>
+                                            <small>আপনার অ্যাকাউন্টের ইমেল আপনার সাইন-ইন তথ্যের মাধ্যমে পরিচালিত হয়।</small>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="account-phone-input">ফোন</label>
+                                            <input type="tel" id="account-phone-input" name="phone" autocomplete="tel">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="account-edit-group">
+                                    <div class="account-edit-group-heading">
+                                        <h3>ব্যবসায়িক তথ্য</h3>
+                                        <p>কোটেশন ও গ্রাহক রেকর্ডে ব্যবহৃত তথ্য।</p>
+                                    </div>
+
+                                    <div class="account-business-toggle">
+                                        <label for="account-is-business" class="account-checkbox-label">
+                                            <input type="checkbox" id="account-is-business" name="is_business">
+                                            <span>এটি কি কোনও ব্যবসার জন্য?</span>
+                                        </label>
+                                    </div>
+
+                                    <div id="account-business-fields" class="account-business-fields" hidden>
+                                        <div class="form-group">
+                                            <label for="account-company-input">কোম্পানি <span class="account-required" aria-hidden="true">*</span></label>
+                                            <input type="text" id="account-company-input" name="company" autocomplete="organization">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="account-gst-input">GST নম্বর <span class="account-required" aria-hidden="true">*</span></label>
+                                            <input type="text" id="account-gst-input" name="gst_number" maxlength="15" autocomplete="off" spellcheck="false" autocapitalize="characters">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary" id="cancelAccountEdit">বাতিল</button>
+                                    <button type="submit" class="btn btn-primary" id="saveAccountProfile">পরিবর্তনগুলি সংরক্ষণ করুন</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </section>
 
 
                     <!-- ==================================
@@ -1638,9 +1695,11 @@ Reusable Head Component
                                  RFQ HEADER
                             =================================== -->
 
-                            <div class="account-section-header">
+                            <div class="account-section-header account-rfq-header">
 
                                 <div>
+
+                                    <span class="account-section-kicker">RFQ বাস্কেট</span>
 
                                     <h2>
                                         RFQ
@@ -1652,6 +1711,12 @@ Reusable Head Component
 
                                 </div>
 
+                                <a
+                                    href="/bn/products.html"
+                                    class="btn btn-secondary account-rfq-continue">
+                                    পণ্য দেখুন
+                                </a>
+
                             </div>
 
 
@@ -1661,9 +1726,17 @@ Reusable Head Component
 
                             <div class="account-rfq-basket">
 
-                                <h3>
-                                    নির্বাচিত যন্ত্রাংশ
-                                </h3>
+                                <div class="account-rfq-basket-heading">
+                                    <div>
+                                        <h3>
+                                            নির্বাচিত যন্ত্রাংশ
+                                        </h3>
+                                        <p id="accountRfqSummary" class="account-rfq-summary">
+                                            আপনার RFQ বাস্কেট খালি। কোটেশনের জন্য পার্ট যোগ করুন।
+                                        </p>
+                                    </div>
+                                    <a href="/bn/products.html" class="account-rfq-add-more">+ আরও পার্ট যোগ করুন</a>
+                                </div>
 
 
                                 <div class="rfq-table-wrapper">
@@ -1906,6 +1979,26 @@ Reusable Head Component
                             </div>
 
 
+                            <div
+                                id="accountRfqSuccess"
+                                class="account-rfq-success"
+                                hidden
+                                role="status"
+                                aria-live="polite">
+
+                                <div class="account-rfq-success-icon" aria-hidden="true">✓</div>
+                                <div class="account-rfq-success-copy">
+                                    <strong>RFQ জমা হয়েছে</strong>
+                                    <p id="accountRfqSuccessMessage">আপনার কোটেশন অনুরোধ সফলভাবে জমা হয়েছে।</p>
+                                </div>
+                                <div class="account-rfq-success-actions">
+                                    <a href="/bn/account.html?view=inquiries" class="btn btn-secondary">অনুসন্ধান দেখুন</a>
+                                    <a href="/bn/products.html" class="btn btn-primary">পণ্য দেখুন</a>
+                                </div>
+
+                            </div>
+
+
                             <!-- ==================================
                                  RFQ ACTION
                             =================================== -->
@@ -1933,14 +2026,25 @@ Reusable Head Component
 
     <div class="account-section-header">
 
-        <h2>
-            আমার অনুসন্ধানসমূহ
-        </h2>
+        <div>
+            <span class="account-section-kicker">আমার অনুসন্ধান</span>
+            <h2>আমার অনুসন্ধানসমূহ</h2>
+            <p>আপনার পূর্বে জমা দেওয়া কোটেশন অনুরোধগুলি দেখুন।</p>
+        </div>
 
-        <p>
-            আপনার পূর্বে জমা দেওয়া কোটেশন অনুরোধগুলি দেখুন।
-        </p>
+    </div>
 
+    <div class="account-inquiries-toolbar" aria-label="স্ট্যাটাস অনুযায়ী ফিল্টার">
+        <label for="accountInquiryStatusFilter">স্ট্যাটাস অনুযায়ী ফিল্টার</label>
+        <select id="accountInquiryStatusFilter" class="account-inquiries-filter">
+            <option value="all">সব স্ট্যাটাস</option>
+            <option value="submitted">জমা দেওয়া হয়েছে</option>
+            <option value="processing">প্রক্রিয়াধীন</option>
+            <option value="quoted">কোটেশন দেওয়া হয়েছে</option>
+            <option value="completed">সম্পন্ন</option>
+            <option value="cancelled">বাতিল</option>
+        </select>
+        <span id="accountInquiriesCount" class="account-inquiries-count" aria-live="polite"></span>
     </div>
 
 
@@ -1964,6 +2068,15 @@ Reusable Head Component
 
             আপনি এখনও কোনো অনুসন্ধান জমা দেননি।
 
+            <a href="/bn/products.html" class="btn btn-primary account-inquiries-empty-action">পণ্য দেখুন</a>
+
+        </div>
+
+        <div
+            id="accountInquiriesFilterEmpty"
+            class="account-inquiries-state"
+            hidden>
+            এই স্ট্যাটাসের সঙ্গে কোনো অনুসন্ধান মেলেনি।
         </div>
 
 
@@ -1979,133 +2092,152 @@ Reusable Head Component
 
 
                     <!-- ==================================
-                         PRIVACY VIEW
+                         SECURITY VIEW
                     =================================== -->
 
-                    <div
+                    <section
                         class="account-view"
                         data-account-view="privacy"
                         hidden>
 
-                        <div class="account-section">
-
+                        <div class="account-section account-security-section">
 
                             <div class="account-section-header">
-
                                 <div>
-
-                                    <h2>
-                                        গোপনীয়তা
-                                    </h2>
-
-                                    <p>
-                                        আপনার ইমেল ঠিকানা এবং পাসওয়ার্ড পরিচালনা করুন।
-                                    </p>
-
+                                    <span class="account-section-kicker">নিরাপত্তা ও লগইন</span>
+                                    <h2>নিরাপত্তা ও লগইন</h2>
+                                    <p>সাইন ইন করার জন্য ব্যবহৃত ইমেল ও পাসওয়ার্ড পরিচালনা করুন।</p>
                                 </div>
+                            </div>
+
+                            <div class="account-security-list">
+
+                                <article class="account-security-card">
+                                    <div class="account-security-card-header">
+                                        <div class="account-security-card-mark" aria-hidden="true">@</div>
+                                        <div>
+                                            <h3>ইমেল</h3>
+                                            <p>সাইন-ইন ও অ্যাকাউন্ট যোগাযোগের বর্তমান ইমেল ঠিকানা।</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="account-security-value-row">
+                                        <div class="account-security-current">
+                                            <span class="account-detail-label">ইমেল</span>
+                                            <strong id="privacyEmail" class="account-detail-value">লোড হচ্ছে...</strong>
+                                            <span id="privacyEmailVerificationStatus" class="account-security-verification"></span>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            id="changeEmailButton"
+                                            aria-expanded="false"
+                                            aria-controls="changeEmailPanel">
+                                            ইমেল পরিবর্তন করুন
+                                        </button>
+                                    </div>
+
+                                    <div id="changeEmailPanel" class="account-security-form-panel" hidden>
+                                        <form id="account-change-email-form" novalidate>
+                                            <div class="account-security-form-heading">
+                                                <h4>ইমেল ঠিকানা পরিবর্তন করুন</h4>
+                                                <p>ইমেল পরিবর্তনের যাচাইকরণ প্রক্রিয়ার অংশ হিসেবে একটি নিশ্চিতকরণ ইমেল পাঠানো হবে।</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="account-new-email">নতুন ইমেল</label>
+                                                <input type="email" id="account-new-email" autocomplete="email" required>
+                                            </div>
+                                            <div id="accountEmailChangeStatus" class="form-status" role="status" aria-live="polite" hidden></div>
+                                            <div class="account-security-form-actions">
+                                                <button type="button" class="btn btn-secondary" id="cancelEmailChange">বাতিল</button>
+                                                <button type="submit" class="btn btn-primary" id="updateEmailButton">ইমেল আপডেট করুন</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </article>
+
+                                <article class="account-security-card">
+                                    <div class="account-security-card-header">
+                                        <div class="account-security-card-mark" aria-hidden="true">●</div>
+                                        <div>
+                                            <h3>পাসওয়ার্ড</h3>
+                                            <p>এমন একটি শক্তিশালী পাসওয়ার্ড ব্যবহার করুন যা অন্যত্র পুনর্ব্যবহার করেন না।</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="account-security-value-row">
+                                        <div class="account-security-current">
+                                            <span class="account-detail-label">পাসওয়ার্ড</span>
+                                            <strong class="account-detail-value" aria-label="পাসওয়ার্ড">••••••••••••</strong>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            id="changePasswordButton"
+                                            aria-expanded="false"
+                                            aria-controls="changePasswordPanel">
+                                            পাসওয়ার্ড পরিবর্তন করুন
+                                        </button>
+                                    </div>
+
+                                    <div id="changePasswordPanel" class="account-security-form-panel" hidden>
+                                        <form id="account-change-password-form" novalidate>
+                                            <div class="account-security-form-heading">
+                                                <h4>পাসওয়ার্ড পরিবর্তন করুন</h4>
+                                                <p>কমপক্ষে ৮টি অক্ষর ব্যবহার করুন। অক্ষর, সংখ্যা ও প্রতীকের মিশ্রণ ব্যবহার করার পরামর্শ দেওয়া হয়।</p>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="account-new-password">নতুন পাসওয়ার্ড</label>
+                                                <div class="account-password-input">
+                                                    <input type="password" id="account-new-password" autocomplete="new-password" minlength="8" required>
+                                                    <button type="button" class="account-password-toggle" data-password-toggle="account-new-password" aria-label="দেখুন" aria-pressed="false">দেখুন</button>
+                                                </div>
+                                                <div class="account-password-strength" aria-live="polite">
+                                                    <span class="account-password-strength-bar"><span id="accountPasswordStrengthBar"></span></span>
+                                                    <span id="accountPasswordStrengthText">পাসওয়ার্ড লিখুন</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="account-confirm-new-password">নতুন পাসওয়ার্ড নিশ্চিত করুন</label>
+                                                <div class="account-password-input">
+                                                    <input type="password" id="account-confirm-new-password" autocomplete="new-password" minlength="8" required>
+                                                    <button type="button" class="account-password-toggle" data-password-toggle="account-confirm-new-password" aria-label="দেখুন" aria-pressed="false">দেখুন</button>
+                                                </div>
+                                            </div>
+
+                                            <div id="accountPasswordChangeStatus" class="form-status" role="status" aria-live="polite" hidden></div>
+                                            <div class="account-security-form-actions">
+                                                <button type="button" class="btn btn-secondary" id="cancelPasswordChange">বাতিল</button>
+                                                <button type="submit" class="btn btn-primary" id="updatePasswordButton">পাসওয়ার্ড আপডেট করুন</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </article>
 
                             </div>
 
+                            <div id="privacyStatus" class="form-status" role="status" aria-live="polite" hidden></div>
 
-                            <!-- ==================================
-                                 EMAIL
-                            =================================== -->
-
-                            <div class="privacy-setting">
-
-                                <div class="privacy-setting-content">
-
-                                    <span
-                                        class="account-detail-label">
-
-                                        ইমেল
-
-                                    </span>
-
-                                    <span
-                                        id="privacyEmail"
-                                        class="account-detail-value">
-
-                                        লোড হচ্ছে...
-
-                                    </span>
-
-                                </div>
-
-
-                                <button
-                                    type="button"
-                                    class="btn btn-secondary"
-                                    id="changeEmailButton">
-
-                                    ইমেল পরিবর্তন করুন
-
-                                </button>
-
+                            <div class="account-security-note">
+                                <strong>অ্যাকাউন্ট নিরাপত্তা</strong>
+                                <p>আপনার পাসওয়ার্ড বা যাচাইকরণ লিংক কখনও শেয়ার করবেন না। Souviks আপনার পাসওয়ার্ড, PIN বা OTP চাইবে না।</p>
+                                <a href="/bn/forgot-password.html">পাসওয়ার্ড ভুলে গেছেন?</a>
                             </div>
 
-
-                            <!-- ==================================
-                                 PASSWORD
-                            =================================== -->
-
-                            <div class="privacy-setting">
-
-                                <div class="privacy-setting-content">
-
-                                    <span
-                                        class="account-detail-label">
-
-                                        পাসওয়ার্ড
-
-                                    </span>
-
-                                    <span
-                                        class="account-detail-value">
-
-                                        ••••••••••••
-
-                                    </span>
-
+                            <div class="account-security-signout">
+                                <div>
+                                    <span class="account-detail-label">সাইন আউট</span>
+                                    <p>এই ব্রাউজার থেকে সাইন আউট করে আপনার বর্তমান Souviks সেশন শেষ করুন।</p>
                                 </div>
-
-
-                                <button
-                                    type="button"
-                                    class="btn btn-secondary"
-                                    id="changePasswordButton">
-
-                                    পাসওয়ার্ড পরিবর্তন করুন
-
-                                </button>
-
-                            </div>
-
-
-                            <!-- ==================================
-                                 PRIVACY STATUS
-                            =================================== -->
-
-                            <div
-                                id="privacyStatus"
-                                class="form-status"
-                                role="status"
-                                aria-live="polite"
-                                hidden>
+                                <button type="button" class="btn btn-secondary" data-auth-logout>সাইন আউট</button>
                             </div>
 
                         </div>
 
-                    </div>
+                    </section>
 
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
 
 <!-- ==========================================
      MY SAVED
@@ -2123,7 +2255,7 @@ Reusable Head Component
             <div>
 
                 <h2>
-                    আমার সংরক্ষিত
+                    সংরক্ষিত যন্ত্রাংশ
                 </h2>
 
                 <p>
@@ -2166,6 +2298,16 @@ Reusable Head Component
 
 </section>
 
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
 </main>
 
 
@@ -2184,7 +2326,7 @@ Reusable Head Component
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks লোগো">
 
             </a>
@@ -2199,27 +2341,27 @@ Reusable Head Component
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
-                        src="/assets/icons/facebook.svg"
+                        src="/assets/icons/facebook.svg" width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
-                        src="/assets/icons/instagram.svg"
+                        src="/assets/icons/instagram.svg" width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -2313,7 +2455,7 @@ Reusable Head Component
                 <li>
 
                     <img
-                        src="/assets/icons/location.svg"
+                        src="/assets/icons/location.svg" width="24" height="24"
                         alt="ঠিকানা"
                         class="footer-icon">
 
@@ -2328,7 +2470,7 @@ Reusable Head Component
                 <li>
 
                     <img
-                        src="/assets/icons/phone.svg"
+                        src="/assets/icons/phone.svg" width="24" height="24"
                         alt="ফোন"
                         class="footer-icon">
 
@@ -2343,7 +2485,7 @@ Reusable Head Component
                 <li>
 
                     <img
-                        src="/assets/icons/mobile.svg"
+                        src="/assets/icons/mobile.svg" width="24" height="24"
                         alt="মোবাইল"
                         class="footer-icon">
 
@@ -2358,7 +2500,7 @@ Reusable Head Component
                 <li>
 
                     <img
-    src="/assets/icons/email.svg"
+    src="/assets/icons/email.svg" width="24" height="24"
     alt="ইমেইল"
     class="footer-icon">
 
@@ -2572,27 +2714,7 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-
-<!-- ==========================================
-     PAGE-SPECIFIC SCRIPTS
-========================================== -->
-
-
-    <script src="/assets/js/rfq-submit.js"></script>
-    <script src="/assets/js/auth/inquiries.js"></script>
-    <script src="/assets/js/auth/saved.js"></script>
-    <script src="/assets/js/auth/account.js"></script>
-                    
+<script defer src="/assets/js/bundles/account.js"></script>
 
 
 <!-- ==========================================

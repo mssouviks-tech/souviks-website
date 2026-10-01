@@ -110,15 +110,15 @@ Reusable Head Component
 
     <meta
         property="og:title"
-        content="Commercial Vehicle Applications | Souviks">
+        content="Vehicles | Souviks">
 
     <meta
         property="og:description"
-        content="Find compatible commercial vehicle spare parts by manufacturer and model.">
+        content="Browse spare parts by commercial vehicle application.">
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -146,15 +146,15 @@ Reusable Head Component
 
     <meta
         name="twitter:title"
-        content="Commercial Vehicle Applications | Souviks">
+        content="Vehicles | Souviks">
 
     <meta
         name="twitter:description"
-        content="Find compatible commercial vehicle spare parts by manufacturer and model.">
+        content="Browse spare parts by commercial vehicle application.">
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/vehicles.css">
 
 
 
@@ -215,7 +223,7 @@ Reusable Head Component
     "url": "https://www.souviks.co.in"
   },
   "description": "Find compatible commercial vehicle spare parts by manufacturer and model.",
-  "image": "https://www.souviks.co.in/assets/images/og/home.webp",
+  "image": "https://www.souviks.co.in/assets/images/og-image.png",
   "about": {
     "@type": "Vehicle",
     "name": "Commercial Vehicle Applications | Souviks",
@@ -265,7 +273,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -285,6 +300,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -303,6 +319,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ইমেইল">
 
                 info@souviks.co.in
@@ -319,6 +336,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ফোন">
 
                 +91 94343 31896
@@ -332,11 +350,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="হোয়াটসঅ্যাপ">
 
                 হোয়াটসঅ্যাপ
@@ -754,23 +773,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -809,7 +828,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -962,7 +981,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item active" aria-current="page">Vehicles</li>
 
         </ol>
 
@@ -997,7 +1016,9 @@ VEHICLES HERO
                 <div class="hero-stat">
 
                     <img
-                        src="/assets/icons/vehicles.svg"
+                        src="/assets/icons/vehicle.svg"
+                        width="24"
+                        height="24"
                         alt="যানবাহন"
                         class="hero-stat-icon">
 
@@ -1005,7 +1026,7 @@ VEHICLES HERO
 
                         <span class="stat-number">
 
-                            29
+                            27
 
                         </span>
 
@@ -1024,7 +1045,7 @@ VEHICLES HERO
                 <div class="hero-stat">
 
                     <img
-                        src="/assets/icons/products.svg"
+                        src="/assets/icons/products.svg" width="48" height="48"
                         alt="পণ্যসমূহ"
                         class="hero-stat-icon">
 
@@ -1032,7 +1053,7 @@ VEHICLES HERO
 
                         <span class="stat-number">
 
-                            933
+                            1022
 
                         </span>
 
@@ -1051,7 +1072,7 @@ VEHICLES HERO
                 <div class="hero-stat">
 
                     <img
-                        src="/assets/icons/brands.svg"
+                        src="/assets/icons/brands.svg" width="48" height="48"
                         alt="ব্র্যান্ডসমূহ"
                         class="hero-stat-icon">
 
@@ -1059,7 +1080,7 @@ VEHICLES HERO
 
                         <span class="stat-number">
 
-                            55
+                            60
 
                         </span>
 
@@ -1096,25 +1117,40 @@ Reusable Search Component
                 <img
                     src="/assets/icons/search.svg"
                     alt="অনুসন্ধান করুন"
-                    class="search-icon">
+                    class="search-icon" width="24" height="24">
 
                 <input
                     type="search"
                     id="searchInput"
                     class="search-input"
                     placeholder="পার্ট নম্বর, ব্র্যান্ড বা যানবাহন দিয়ে অনুসন্ধান করুন"
-                    aria-label="অনুসন্ধান করুন">
+                    aria-label="অনুসন্ধান করুন"
+                    enterkeyhint="search"
+                    autocomplete="off">
 
                 <button
+                    type="button"
                     id="clearSearch"
                     class="clear-search"
-                    aria-label="মুছে ফেলুন">
+                    aria-label="মুছে ফেলুন"
+                    hidden>
 
                     ×
 
                 </button>
 
-                <div
+                <button
+                    type="button"
+                    id="voiceSearch"
+                    class="voice-search"
+                    aria-label="Voice search"
+                    title="Voice search"
+                    hidden>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Zm-5-3a5 5 0 0 0 10 0h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2Zm5 5a5 5 0 0 0 5-5h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2a5 5 0 0 0 5 5Z"/>
+                    </svg>
+                </button>
+<div
                     id="searchResults"
                     class="search-results">
                 </div>
@@ -1170,7 +1206,7 @@ CATALOGUE SUMMARY
 
                 <strong>
 
-                    16 September 2026
+                    01 October 2026
 
                 </strong>
 
@@ -1223,6 +1259,7 @@ FEATURED VEHICLES
 
                     <img
                         src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp"
+                        width="400" height="400"
                         alt="Tata Signa"
                         loading="lazy">
 
@@ -1265,6 +1302,7 @@ FEATURED VEHICLES
 
                     <img
                         src="/assets/images/vehicles/TATA_PRIMA/thumbnail-400x300.webp"
+                        width="400" height="400"
                         alt="Tata Prima"
                         loading="lazy">
 
@@ -1307,6 +1345,7 @@ FEATURED VEHICLES
 
                     <img
                         src="/assets/images/vehicles/TATA_2416/thumbnail-400x300.webp"
+                        width="400" height="400"
                         alt="Tata 2416"
                         loading="lazy">
 
@@ -1349,6 +1388,7 @@ FEATURED VEHICLES
 
                     <img
                         src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp"
+                        width="400" height="400"
                         alt="Ashok Leyland 2516"
                         loading="lazy">
 
@@ -1391,6 +1431,7 @@ FEATURED VEHICLES
 
                     <img
                         src="/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/thumbnail-400x300.webp"
+                        width="400" height="400"
                         alt="Ashok Leyland Ecomet"
                         loading="lazy">
 
@@ -1459,7 +1500,7 @@ ALL VEHICLES
                 class="entity-grid"
                 data-static-rendered="true">
 
-                <article class="vehicle-card"><a href="/bn/vehicles/tata-signa.html" data-breadcrumb="Tata Signa"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp" alt="Tata Signa" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Signa</h3><div class="vehicle-count">66 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-lpt.html" data-breadcrumb="Tata LPT"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata LPT</h3><div class="vehicle-count">262 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-2516.html" data-breadcrumb="Ashok Leyland 2516"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland 2516</h3><div class="vehicle-count">184 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/eicher-pro-series.html" data-breadcrumb="Eicher Pro Series"><div class="vehicle-image"><img src="/assets/images/vehicles/EICHER_PRO_SERIES/thumbnail-400x300.webp" alt="Eicher Pro Series" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Eicher Pro Series</h3><div class="vehicle-count">36 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/eicher-1110.html" data-breadcrumb="Eicher 1110"><div class="vehicle-image"><img src="/assets/images/vehicles/EICHER_1110/thumbnail-400x300.webp" alt="Eicher 1110" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Eicher 1110</h3><div class="vehicle-count">12 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/universal.html" data-breadcrumb="Universal"><div class="vehicle-image"><img src="/assets/images/vehicles/UNIVERSAL/thumbnail-400x300.webp" alt="Universal" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Universal</h3><div class="vehicle-count">261 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-ace.html" data-breadcrumb="Tata Ace"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp" alt="Tata Ace" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ace</h3><div class="vehicle-count">70 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-407.html" data-breadcrumb="Tata 407"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_407/thumbnail-400x300.webp" alt="Tata 407" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 407</h3><div class="vehicle-count">17 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-709.html" data-breadcrumb="Tata 709"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_709/thumbnail-400x300.webp" alt="Tata 709" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 709</h3><div class="vehicle-count">23 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-1109.html" data-breadcrumb="Tata 1109"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1109/thumbnail-400x300.webp" alt="Tata 1109" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1109</h3><div class="vehicle-count">52 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-1210.html" data-breadcrumb="Tata 1210"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1210/thumbnail-400x300.webp" alt="Tata 1210" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1210</h3><div class="vehicle-count">49 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-1312.html" data-breadcrumb="Tata 1312"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1312/thumbnail-400x300.webp" alt="Tata 1312" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1312</h3><div class="vehicle-count">58 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-1512.html" data-breadcrumb="Tata 1512"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1512/thumbnail-400x300.webp" alt="Tata 1512" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1512</h3><div class="vehicle-count">37 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-magic.html" data-breadcrumb="Tata Magic"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_MAGIC/thumbnail-400x300.webp" alt="Tata Magic" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Magic</h3><div class="vehicle-count">33 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-intra.html" data-breadcrumb="Tata Intra"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_INTRA/thumbnail-400x300.webp" alt="Tata Intra" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Intra</h3><div class="vehicle-count">21 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-prima.html" data-breadcrumb="Tata Prima"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_PRIMA/thumbnail-400x300.webp" alt="Tata Prima" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Prima</h3><div class="vehicle-count">31 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/mahindra-blazo.html" data-breadcrumb="Mahindra Blazo"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_BLAZO/thumbnail-400x300.webp" alt="Mahindra Blazo" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Blazo</h3><div class="vehicle-count">8 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-ultra.html" data-breadcrumb="Tata Ultra"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ULTRA/thumbnail-400x300.webp" alt="Tata Ultra" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ultra</h3><div class="vehicle-count">13 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/bosch-engineselectrical.html" data-breadcrumb="Bosch Engines/Electrical"><div class="vehicle-image"><img src="/assets/images/vehicles/BOSCH_ENGINESELECTRICAL/thumbnail-400x300.webp" alt="Bosch Engines/Electrical" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Bosch Engines/Electrical</h3><div class="vehicle-count">27 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-ecomet.html" data-breadcrumb="Ashok Leyland Ecomet"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/thumbnail-400x300.webp" alt="Ashok Leyland Ecomet" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Ecomet</h3><div class="vehicle-count">17 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/mahindra-bolero-pickup.html" data-breadcrumb="Mahindra Bolero Pickup"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_BOLERO_PICKUP/thumbnail-400x300.webp" alt="Mahindra Bolero Pickup" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Bolero Pickup</h3><div class="vehicle-count">15 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-2416.html" data-breadcrumb="Tata 2416"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_2416/thumbnail-400x300.webp" alt="Tata 2416" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 2416</h3><div class="vehicle-count">30 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-captain.html" data-breadcrumb="Ashok Leyland Captain"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_CAPTAIN/thumbnail-400x300.webp" alt="Ashok Leyland Captain" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Captain</h3><div class="vehicle-count">13 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/mahindra-furio.html" data-breadcrumb="Mahindra Furio"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_FURIO/thumbnail-400x300.webp" alt="Mahindra Furio" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Furio</h3><div class="vehicle-count">2 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tractors.html" data-breadcrumb="Tractors"><div class="vehicle-image"><img src="/assets/images/vehicles/TRACTORS/thumbnail-400x300.webp" alt="Tractors" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tractors</h3><div class="vehicle-count">15 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-boss.html" data-breadcrumb="Ashok Leyland Boss"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_BOSS/thumbnail-400x300.webp" alt="Ashok Leyland Boss" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Boss</h3><div class="vehicle-count">5 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/mahindra-max-pickup.html" data-breadcrumb="Mahindra Max Pickup"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_MAX_PICKUP/thumbnail-400x300.webp" alt="Mahindra Max Pickup" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Max Pickup</h3><div class="vehicle-count">4 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-stallion.html" data-breadcrumb="Ashok Leyland Stallion"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_STALLION/thumbnail-400x300.webp" alt="Ashok Leyland Stallion" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Stallion</h3><div class="vehicle-count">3 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-u-truck.html" data-breadcrumb="Ashok Leyland U Truck"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/thumbnail-400x300.webp" alt="Ashok Leyland U Truck" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland U Truck</h3><div class="vehicle-count">11 পণ্যসমূহ</div></div></a></article>
+                <article class="vehicle-card"><a href="/bn/vehicles/tata-signa.html" data-breadcrumb="Tata Signa"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp" alt="Tata Signa" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Signa</h3><div class="vehicle-count">72 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-lpt.html" data-breadcrumb="Tata LPT"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata LPT</h3><div class="vehicle-count">274 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-2516.html" data-breadcrumb="Ashok Leyland 2516"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland 2516</h3><div class="vehicle-count">200 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/eicher-pro-series.html" data-breadcrumb="Eicher Pro Series"><div class="vehicle-image"><img src="/assets/images/vehicles/EICHER_PRO_SERIES/thumbnail-400x300.webp" alt="Eicher Pro Series" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Eicher Pro Series</h3><div class="vehicle-count">43 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/eicher-1110.html" data-breadcrumb="Eicher 1110"><div class="vehicle-image"><img src="/assets/images/vehicles/EICHER_1110/thumbnail-400x300.webp" alt="Eicher 1110" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Eicher 1110</h3><div class="vehicle-count">14 পণ্যসমূহ</div></div></a></article><article class="vehicle-card vehicle-card--every"><a href="/bn/vehicles/universal.html" data-breadcrumb="সব যানবাহন"><div class="vehicle-image vehicle-image--every" aria-hidden="true"><img class="vehicle-every-icon" src="/assets/icons/vehicle.svg" alt="" width="64" height="64" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">সব যানবাহন</h3><div class="vehicle-count">311 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-ace.html" data-breadcrumb="Tata Ace"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp" alt="Tata Ace" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ace</h3><div class="vehicle-count">73 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-407.html" data-breadcrumb="Tata 407"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_407/thumbnail-400x300.webp" alt="Tata 407" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 407</h3><div class="vehicle-count">22 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-709.html" data-breadcrumb="Tata 709"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_709/thumbnail-400x300.webp" alt="Tata 709" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 709</h3><div class="vehicle-count">30 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-1109.html" data-breadcrumb="Tata 1109"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1109/thumbnail-400x300.webp" alt="Tata 1109" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1109</h3><div class="vehicle-count">55 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-1210.html" data-breadcrumb="Tata 1210"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1210/thumbnail-400x300.webp" alt="Tata 1210" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1210</h3><div class="vehicle-count">53 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-1312.html" data-breadcrumb="Tata 1312"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1312/thumbnail-400x300.webp" alt="Tata 1312" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1312</h3><div class="vehicle-count">63 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-1512.html" data-breadcrumb="Tata 1512"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1512/thumbnail-400x300.webp" alt="Tata 1512" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1512</h3><div class="vehicle-count">41 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-magic.html" data-breadcrumb="Tata Magic"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_MAGIC/thumbnail-400x300.webp" alt="Tata Magic" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Magic</h3><div class="vehicle-count">36 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-intra.html" data-breadcrumb="Tata Intra"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_INTRA/thumbnail-400x300.webp" alt="Tata Intra" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Intra</h3><div class="vehicle-count">21 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-prima.html" data-breadcrumb="Tata Prima"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_PRIMA/thumbnail-400x300.webp" alt="Tata Prima" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Prima</h3><div class="vehicle-count">36 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/mahindra-blazo.html" data-breadcrumb="Mahindra Blazo"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_BLAZO/thumbnail-400x300.webp" alt="Mahindra Blazo" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Blazo</h3><div class="vehicle-count">16 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-ultra.html" data-breadcrumb="Tata Ultra"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ULTRA/thumbnail-400x300.webp" alt="Tata Ultra" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ultra</h3><div class="vehicle-count">16 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tractors.html" data-breadcrumb="Tractors"><div class="vehicle-image"><img src="/assets/images/vehicles/TRACTORS/thumbnail-400x300.webp" alt="Tractors" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tractors</h3><div class="vehicle-count">16 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-ecomet.html" data-breadcrumb="Ashok Leyland Ecomet"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/thumbnail-400x300.webp" alt="Ashok Leyland Ecomet" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Ecomet</h3><div class="vehicle-count">19 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/mahindra-bolero-pik-upmaxx-pik-up.html" data-breadcrumb="Mahindra Bolero Pik-Up/MaXX Pik-Up"><div class="vehicle-image"><img src="/assets/images/placeholder.webp" alt="Mahindra Bolero Pik-Up/MaXX Pik-Up" loading="lazy" decoding="async" width="1200" height="1200"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Bolero Pik-Up/MaXX Pik-Up</h3><div class="vehicle-count">19 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/tata-2416.html" data-breadcrumb="Tata 2416"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_2416/thumbnail-400x300.webp" alt="Tata 2416" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 2416</h3><div class="vehicle-count">35 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-u-truck.html" data-breadcrumb="Ashok Leyland U-Truck"><div class="vehicle-image"><img src="/assets/images/placeholder.webp" alt="Ashok Leyland U-Truck" loading="lazy" decoding="async" width="1200" height="1200"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland U-Truck</h3><div class="vehicle-count">18 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-captain.html" data-breadcrumb="Ashok Leyland Captain"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_CAPTAIN/thumbnail-400x300.webp" alt="Ashok Leyland Captain" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Captain</h3><div class="vehicle-count">13 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/mahindra-furio.html" data-breadcrumb="Mahindra Furio"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_FURIO/thumbnail-400x300.webp" alt="Mahindra Furio" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Furio</h3><div class="vehicle-count">2 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-boss.html" data-breadcrumb="Ashok Leyland Boss"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_BOSS/thumbnail-400x300.webp" alt="Ashok Leyland Boss" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Boss</h3><div class="vehicle-count">5 পণ্যসমূহ</div></div></a></article><article class="vehicle-card"><a href="/bn/vehicles/ashok-leyland-stallion.html" data-breadcrumb="Ashok Leyland Stallion"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_STALLION/thumbnail-400x300.webp" alt="Ashok Leyland Stallion" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Stallion</h3><div class="vehicle-count">3 পণ্যসমূহ</div></div></a></article>
 
             </div>
 
@@ -1498,7 +1539,7 @@ ALL VEHICLES
             <div class="no-results-image">
 
                 <img
-                    src="/assets/images/no-results.svg"
+                    src="/assets/images/no-results.svg" width="640" height="420"
                     alt="কোনো ফলাফল পাওয়া যায়নি"
                     loading="lazy">
 
@@ -1519,6 +1560,13 @@ ALL VEHICLES
                     আপনার অনুসন্ধানের সাথে মিলে এমন কোনো পণ্য পাওয়া যায়নি। অনুগ্রহ করে অন্য কীওয়ার্ড ব্যবহার করুন বা নির্বাচিত ফিল্টার পরিবর্তন করুন।
 
                 </p>
+
+                <div
+                    id="searchSuggestions"
+                    class="search-suggestions"
+                    hidden
+                    aria-live="polite">
+                </div>
 
                 <!-- ACTIONS -->
 
@@ -1730,7 +1778,9 @@ Reusable Loading Component
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks লোগো">
 
             </a>
@@ -1745,27 +1795,29 @@ Reusable Loading Component
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1861,7 +1913,7 @@ Reusable Loading Component
                     <img
                         src="/assets/icons/location.svg"
                         alt="ঠিকানা"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1876,7 +1928,7 @@ Reusable Loading Component
                     <img
                         src="/assets/icons/phone.svg"
                         alt="ফোন"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1891,7 +1943,7 @@ Reusable Loading Component
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="মোবাইল"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1906,7 +1958,7 @@ Reusable Loading Component
                     <img
     src="/assets/icons/email.svg"
     alt="ইমেইল"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -2117,30 +2169,13 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
+<script defer src="/assets/js/bundles/vehicles.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script defer src="/assets/js/pages/vehicles-page.js"></script>
+
 
 
 <!-- ==========================================

@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000598/Tata%202515%20EX%204018%20Front%20Parabolic%20Leaf%20Spring.webp">
+    content="https://www.souviks.co.in/assets/images/products/SVKS000598/1.webp">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000598/Tata%202515%20EX%204018%20Front%20Parabolic%20Leaf%20Spring.webp">
+    content="https://www.souviks.co.in/assets/images/products/SVKS000598/1.webp">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/product.css">
 
 
 
@@ -235,7 +243,7 @@ Reusable Head Component
     "@type": "Offer",
     "url": "https://www.souviks.co.in/bn/products/2731-tata-2515-ex-4018-front-parabolic-leaf-spring.html",
     "priceCurrency": "INR",
-    "price": 4549.0,
+    "price": 4426.8,
     "seller": {
       "@type": "Organization",
       "name": "Souviks"
@@ -285,7 +293,7 @@ Reusable Head Component
          OPTIONAL PRELOADS
     =========================================== -->
 
-    
+    <link rel="preload" as="image" href="/assets/images/products/SVKS000598/1.webp" fetchpriority="high">
 
     <!-- ==========================================
          PAGE-SPECIFIC META
@@ -303,7 +311,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -323,6 +338,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -341,6 +357,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ইমেইল">
 
                 info@souviks.co.in
@@ -357,6 +374,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ফোন">
 
                 +91 94343 31896
@@ -370,11 +388,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="হোয়াটসঅ্যাপ">
 
                 হোয়াটসঅ্যাপ
@@ -792,23 +811,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -846,7 +865,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -1000,7 +1019,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/bn/">Home</a></li><li class="breadcrumb-item"><a href="/bn/products.html">Products</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/bn/categories/suspension-steering.html">Suspension &amp; Steering</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/bn/brands/jai.html">JAI</a></li><li class="breadcrumb-item active" aria-current="page">Tata 2515 EX 4018 Front Parabolic Leaf Spring</li>
 
         </ol>
 
@@ -1009,8 +1028,51 @@ SOUVIKS BREADCRUMB
 </nav>
 
 <div id="product-detail" data-static-rendered="true">
-<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/jai.png" alt="JAI" loading="lazy" decoding="async"></div><div class="pdp-main-image"><img id="pdpMainImage" src="/assets/images/products/SVKS000598/1.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring" loading="eager" decoding="async"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 1"><img src="/assets/images/products/SVKS000598/1.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 1" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 2"><img src="/assets/images/products/SVKS000598/2.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 2" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 3"><img src="/assets/images/products/SVKS000598/3.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 3" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 4"><img src="/assets/images/products/SVKS000598/4.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 4" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 5"><img src="/assets/images/products/SVKS000598/5.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 5" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 6"><img src="/assets/images/products/SVKS000598/6.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 6" loading="lazy" decoding="async"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">In Stock</span><span class="pdp-genuine">100% Genuine</span></div><h1 class="pdp-title">Tata 2515 EX 4018 Front Parabolic Leaf Spring</h1><div class="pdp-part">PART ID: SVKS000598</div><div class="pdp-pricing" aria-label="Product pricing"><div class="pdp-price-mrp"><span class="pdp-price-label">MRP</span><span class="pdp-price-value">₹4,760</span></div><div class="pdp-price-selling"><span class="pdp-price-label">Selling Price</span><span class="pdp-price-value">₹4,549</span></div><span class="pdp-price-discount">4% OFF</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000598</span></div><div class="pdp-row"><strong>পার্ট নম্বর</strong><span>2731</span></div><div class="pdp-row"><strong>ব্র্যান্ড</strong><span>JAI</span></div><div class="pdp-row"><strong>বিভাগ</strong><span>Suspension &amp; Steering</span></div><div class="pdp-row"><strong>উপবিভাগ</strong><span>Leaf Spring</span></div><div class="pdp-row"><strong>প্রয়োগ</strong><span>Front Suspension System</span></div><div class="pdp-row"><strong>সামঞ্জস্যপূর্ণ যানবাহন</strong><span>Tata LPT</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">দরপত্রের অনুরোধ করুন</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>যন্ত্রাংশের অনুরোধ করুন</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="2731" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">দরপত্রের অনুরোধ করুন</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts"><div><strong>100% Genuine Products</strong><span>Original & Authorized</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">বিবরণ</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>বিবরণ</h3><p>Heavy-duty front parabolic leaf spring designed for Tata 2515 EX and Tata 4018 applications. Provides improved ride quality and weight reduction compared to conventional springs.</p></div><div class="pdp-description-card"><h3>প্রয়োগ</h3><ul><li>Front Suspension System</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">সামঞ্জস্যপূর্ণ যানবাহন</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Tata LPT</h4></div></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">সম্পর্কিত পণ্য</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/bn/products/258201-tata-2515-lpt-r-ml.html" class="product-link" aria-label="View Tata 2515 LPT (R) M/L"><img class="product-image-file" src="/assets/images/products/SVKS000332/1.webp" alt="Tata 2515 LPT (R) M/L" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000332" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/258201-tata-2515-lpt-r-ml.html">Tata 2515 LPT (R) M/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,149</span><span class="product-price-mrp">MRP ₹3,270</span><span class="product-price-discount">4% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000332" data-part="258201" data-name="Tata 2515 LPT (R) M/L" data-brand="JAI" aria-label="Add Tata 2515 LPT (R) M/L to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/258202-tata-2515-lpt-r-2l.html" class="product-link" aria-label="View Tata 2515 LPT (R) 2/L"><img class="product-image-file" src="/assets/images/products/SVKS000333/1.webp" alt="Tata 2515 LPT (R) 2/L" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000333" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/258202-tata-2515-lpt-r-2l.html">Tata 2515 LPT (R) 2/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,549</span><span class="product-price-mrp">MRP ₹2,780</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000333" data-part="258202" data-name="Tata 2515 LPT (R) 2/L" data-brand="JAI" aria-label="Add Tata 2515 LPT (R) 2/L to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/tata-2515-rear-main-leaf.html" class="product-link" aria-label="View Tata 2515 (Rear) Main Leaf"><img class="product-image-file" src="/assets/images/products/SVKS000449/1.webp" alt="Tata 2515 (Rear) Main Leaf" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000449" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/tata-2515-rear-main-leaf.html">Tata 2515 (Rear) Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,049</span><span class="product-price-mrp">MRP ₹3,270</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000449" data-part="2582" data-name="Tata 2515 (Rear) Main Leaf" data-brand="JAI" aria-label="Add Tata 2515 (Rear) Main Leaf to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/2951-tata-magic-front-parabolic-leaf-spring.html" class="product-link" aria-label="View Tata Magic Front Parabolic Leaf Spring"><img class="product-image-file" src="/assets/images/products/SVKS000587/1.webp" alt="Tata Magic Front Parabolic Leaf Spring" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000587" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/2951-tata-magic-front-parabolic-leaf-spring.html">Tata Magic Front Parabolic Leaf Spring</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,049</span><span class="product-price-mrp">MRP ₹1,090</span><span class="product-price-discount">4% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000587" data-part="2951" data-name="Tata Magic Front Parabolic Leaf Spring" data-brand="JAI" aria-label="Add Tata Magic Front Parabolic Leaf Spring to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/14031-tml-intra-v30-front-main-leaf.html" class="product-link" aria-label="View TML Intra V30 Front - Main Leaf"><img class="product-image-file" src="/assets/images/products/SVKS000588/1.webp" alt="TML Intra V30 Front - Main Leaf" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000588" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/14031-tml-intra-v30-front-main-leaf.html">TML Intra V30 Front - Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,179</span><span class="product-price-mrp">MRP ₹1,220</span><span class="product-price-discount">3% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000588" data-part="14031" data-name="TML Intra V30 Front - Main Leaf" data-brand="JAI" aria-label="Add TML Intra V30 Front - Main Leaf to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/2332s-ace-magic-spl-rear-leaf-spring.html" class="product-link" aria-label="View Ace Magic SPL Rear Leaf Spring"><img class="product-image-file" src="/assets/images/products/SVKS000589/1.webp" alt="Ace Magic SPL Rear Leaf Spring" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000589" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/2332s-ace-magic-spl-rear-leaf-spring.html">Ace Magic SPL Rear Leaf Spring</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹799</span><span class="product-price-mrp">MRP ₹820</span><span class="product-price-discount">3% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000589" data-part="2332S" data-name="Ace Magic SPL Rear Leaf Spring" data-brand="JAI" aria-label="Add Ace Magic SPL Rear Leaf Spring to RFQ">RFQ-তে যোগ করুন</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
+<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/jai.png" alt="JAI" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-main-image" role="button" tabindex="0" aria-label="Enlarge Tata 2515 EX 4018 Front Parabolic Leaf Spring image" title="Click to enlarge"><img id="pdpMainImage" src="/assets/images/products/SVKS000598/1.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring" loading="eager" decoding="async" draggable="false" width="400" height="400"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 1"><img src="/assets/images/products/SVKS000598/1.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 1" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 2"><img src="/assets/images/products/SVKS000598/2.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 2" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 3"><img src="/assets/images/products/SVKS000598/3.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 3" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 4"><img src="/assets/images/products/SVKS000598/4.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 4" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 5"><img src="/assets/images/products/SVKS000598/5.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 5" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 2515 EX 4018 Front Parabolic Leaf Spring image 6"><img src="/assets/images/products/SVKS000598/6.webp" alt="Tata 2515 EX 4018 Front Parabolic Leaf Spring image 6" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">Availability subject to confirmation</span><span class="pdp-genuine">Established Brand</span></div><h1 class="pdp-title">Tata 2515 EX 4018 Front Parabolic Leaf Spring</h1><div class="pdp-part">PART ID: SVKS000598</div><div class="pdp-pricing" aria-label="Product pricing"><div class="pdp-price-mrp"><span class="pdp-price-label">MRP</span><span class="pdp-price-value">₹4,760</span></div><div class="pdp-price-selling"><span class="pdp-price-label">Selling Price</span><span class="pdp-price-value">₹4,426.80</span></div><span class="pdp-price-discount">7% OFF</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000598</span></div><div class="pdp-row"><strong>পার্ট নম্বর</strong><span>2731</span></div><div class="pdp-row"><strong>ব্র্যান্ড</strong><span>JAI</span></div><div class="pdp-row"><strong>বিভাগ</strong><span>Suspension &amp; Steering</span></div><div class="pdp-row"><strong>উপবিভাগ</strong><span>Leaf Spring</span></div><div class="pdp-row"><strong>প্রয়োগ</strong><span>Front Suspension System</span></div><div class="pdp-row"><strong>সামঞ্জস্যপূর্ণ যানবাহন</strong><span>Tata LPT</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">দরপত্রের অনুরোধ করুন</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>যন্ত্রাংশের অনুরোধ করুন</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="2731" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">দরপত্রের অনুরোধ করুন</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts" width="24" height="24"><div><strong>Established Brand</strong><span>Catalogue-listed product</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted" width="24" height="24"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory" width="24" height="24"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery" width="24" height="24"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#reviews-section" class="pdp-tab-btn">Reviews</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">বিবরণ</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>বিবরণ</h3><p>Heavy-duty front parabolic leaf spring designed for Tata 2515 EX and Tata 4018 applications. Provides improved ride quality and weight reduction compared to conventional springs.</p></div><div class="pdp-description-card"><h3>প্রয়োগ</h3><ul><li>Front Suspension System</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">সামঞ্জস্যপূর্ণ যানবাহন</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Tata LPT</h4></div></div></div></section><section id="reviews-section" class="pdp-section pdp-reviews" data-product-id="SVKS000598"><div class="pdp-reviews-header"><div><h2 class="pdp-section-title">Customer Reviews</h2><p class="pdp-section-intro">Reviews from customers who have used or purchased this product through Souviks.</p></div><div class="pdp-review-summary" data-review-summary><strong>—</strong><span>No reviews yet</span></div></div><div class="pdp-review-list" data-review-list><div class="pdp-review-empty">Loading reviews…</div></div><div class="pdp-review-form-wrap" data-review-form-wrap><div class="pdp-review-signin" data-review-signin hidden>Sign in to share your experience with this product.</div><form class="pdp-review-form" data-review-form hidden><div class="pdp-review-form-grid"><div class="form-group"><label for="pdpReviewName">Name</label><input id="pdpReviewName" name="reviewer_name" type="text" maxlength="80" autocomplete="name" required></div><div class="form-group"><label for="pdpReviewRating">Rating</label><select id="pdpReviewRating" name="rating" required><option value="">Select rating</option><option value="5">★★★★★ — Excellent</option><option value="4">★★★★☆ — Very good</option><option value="3">★★★☆☆ — Good</option><option value="2">★★☆☆☆ — Fair</option><option value="1">★☆☆☆☆ — Poor</option></select></div></div><div class="form-group"><label for="pdpReviewTitle">Review title</label><input id="pdpReviewTitle" name="title" type="text" maxlength="120" required></div><div class="form-group"><label for="pdpReviewText">Your review</label><textarea id="pdpReviewText" name="review" rows="5" maxlength="1200" required></textarea></div><button class="btn btn-primary" type="submit">Submit Review</button><p class="pdp-review-form-note">Your review will be published after moderation.</p><div class="pdp-review-status" data-review-status role="status" aria-live="polite"></div></form></div></section><section class="pdp-section pdp-complete-job"><h2 class="pdp-section-title">Frequently used with this part</h2><p class="pdp-section-intro">Related components from the same application, category or system.</p><div class="pdp-related-wrapper"><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/bn/products/258201-tata-2515-lpt-r-ml.html" class="product-link" aria-label="View Tata 2515 LPT (R) M/L"><img class="product-image-file" src="/assets/images/products/SVKS000332/1.webp" alt="Tata 2515 LPT (R) M/L" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000332" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>258201</strong></div><h3 class="product-title"><a href="/bn/products/258201-tata-2515-lpt-r-ml.html">Tata 2515 LPT (R) M/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,106.50</span><span class="product-price-mrp">MRP ₹3,270</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000332" data-part="258201" data-name="Tata 2515 LPT (R) M/L" data-brand="JAI" aria-label="Add Tata 2515 LPT (R) M/L to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/258202-tata-2515-lpt-r-2l.html" class="product-link" aria-label="View Tata 2515 LPT (R) 2/L"><img class="product-image-file" src="/assets/images/products/SVKS000333/1.webp" alt="Tata 2515 LPT (R) 2/L" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000333" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>258202</strong></div><h3 class="product-title"><a href="/bn/products/258202-tata-2515-lpt-r-2l.html">Tata 2515 LPT (R) 2/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,641</span><span class="product-price-mrp">MRP ₹2,780</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000333" data-part="258202" data-name="Tata 2515 LPT (R) 2/L" data-brand="JAI" aria-label="Add Tata 2515 LPT (R) 2/L to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/tata-2515-rear-main-leaf.html" class="product-link" aria-label="View Tata 2515 (Rear) Main Leaf"><img class="product-image-file" src="/assets/images/products/SVKS000449/1.webp" alt="Tata 2515 (Rear) Main Leaf" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000449" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>2582</strong></div><h3 class="product-title"><a href="/bn/products/tata-2515-rear-main-leaf.html">Tata 2515 (Rear) Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,106.50</span><span class="product-price-mrp">MRP ₹3,270</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000449" data-part="2582" data-name="Tata 2515 (Rear) Main Leaf" data-brand="JAI" aria-label="Add Tata 2515 (Rear) Main Leaf to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/2951-tata-magic-front-parabolic-leaf-spring.html" class="product-link" aria-label="View Tata Magic Front Parabolic Leaf Spring"><img class="product-image-file" src="/assets/images/products/SVKS000587/1.webp" alt="Tata Magic Front Parabolic Leaf Spring" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000587" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>2951</strong></div><h3 class="product-title"><a href="/bn/products/2951-tata-magic-front-parabolic-leaf-spring.html">Tata Magic Front Parabolic Leaf Spring</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,013.70</span><span class="product-price-mrp">MRP ₹1,090</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000587" data-part="2951" data-name="Tata Magic Front Parabolic Leaf Spring" data-brand="JAI" aria-label="Add Tata Magic Front Parabolic Leaf Spring to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/14031-tml-intra-v30-front-main-leaf.html" class="product-link" aria-label="View TML Intra V30 Front - Main Leaf"><img class="product-image-file" src="/assets/images/products/SVKS000588/1.webp" alt="TML Intra V30 Front - Main Leaf" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000588" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>14031</strong></div><h3 class="product-title"><a href="/bn/products/14031-tml-intra-v30-front-main-leaf.html">TML Intra V30 Front - Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,134.60</span><span class="product-price-mrp">MRP ₹1,220</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000588" data-part="14031" data-name="TML Intra V30 Front - Main Leaf" data-brand="JAI" aria-label="Add TML Intra V30 Front - Main Leaf to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/2332s-ace-magic-spl-rear-leaf-spring.html" class="product-link" aria-label="View Ace Magic SPL Rear Leaf Spring"><img class="product-image-file" src="/assets/images/products/SVKS000589/1.webp" alt="Ace Magic SPL Rear Leaf Spring" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000589" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>2332S</strong></div><h3 class="product-title"><a href="/bn/products/2332s-ace-magic-spl-rear-leaf-spring.html">Ace Magic SPL Rear Leaf Spring</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹762.60</span><span class="product-price-mrp">MRP ₹820</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000589" data-part="2332S" data-name="Ace Magic SPL Rear Leaf Spring" data-brand="JAI" aria-label="Add Ace Magic SPL Rear Leaf Spring to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">সম্পর্কিত পণ্য</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/bn/products/258201-tata-2515-lpt-r-ml.html" class="product-link" aria-label="View Tata 2515 LPT (R) M/L"><img class="product-image-file" src="/assets/images/products/SVKS000332/1.webp" alt="Tata 2515 LPT (R) M/L" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000332" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>258201</strong></div><h3 class="product-title"><a href="/bn/products/258201-tata-2515-lpt-r-ml.html">Tata 2515 LPT (R) M/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,106.50</span><span class="product-price-mrp">MRP ₹3,270</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000332" data-part="258201" data-name="Tata 2515 LPT (R) M/L" data-brand="JAI" aria-label="Add Tata 2515 LPT (R) M/L to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/258202-tata-2515-lpt-r-2l.html" class="product-link" aria-label="View Tata 2515 LPT (R) 2/L"><img class="product-image-file" src="/assets/images/products/SVKS000333/1.webp" alt="Tata 2515 LPT (R) 2/L" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000333" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>258202</strong></div><h3 class="product-title"><a href="/bn/products/258202-tata-2515-lpt-r-2l.html">Tata 2515 LPT (R) 2/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,641</span><span class="product-price-mrp">MRP ₹2,780</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000333" data-part="258202" data-name="Tata 2515 LPT (R) 2/L" data-brand="JAI" aria-label="Add Tata 2515 LPT (R) 2/L to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/tata-2515-rear-main-leaf.html" class="product-link" aria-label="View Tata 2515 (Rear) Main Leaf"><img class="product-image-file" src="/assets/images/products/SVKS000449/1.webp" alt="Tata 2515 (Rear) Main Leaf" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000449" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>2582</strong></div><h3 class="product-title"><a href="/bn/products/tata-2515-rear-main-leaf.html">Tata 2515 (Rear) Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,106.50</span><span class="product-price-mrp">MRP ₹3,270</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000449" data-part="2582" data-name="Tata 2515 (Rear) Main Leaf" data-brand="JAI" aria-label="Add Tata 2515 (Rear) Main Leaf to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/2951-tata-magic-front-parabolic-leaf-spring.html" class="product-link" aria-label="View Tata Magic Front Parabolic Leaf Spring"><img class="product-image-file" src="/assets/images/products/SVKS000587/1.webp" alt="Tata Magic Front Parabolic Leaf Spring" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000587" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>2951</strong></div><h3 class="product-title"><a href="/bn/products/2951-tata-magic-front-parabolic-leaf-spring.html">Tata Magic Front Parabolic Leaf Spring</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,013.70</span><span class="product-price-mrp">MRP ₹1,090</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000587" data-part="2951" data-name="Tata Magic Front Parabolic Leaf Spring" data-brand="JAI" aria-label="Add Tata Magic Front Parabolic Leaf Spring to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/14031-tml-intra-v30-front-main-leaf.html" class="product-link" aria-label="View TML Intra V30 Front - Main Leaf"><img class="product-image-file" src="/assets/images/products/SVKS000588/1.webp" alt="TML Intra V30 Front - Main Leaf" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000588" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>14031</strong></div><h3 class="product-title"><a href="/bn/products/14031-tml-intra-v30-front-main-leaf.html">TML Intra V30 Front - Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,134.60</span><span class="product-price-mrp">MRP ₹1,220</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000588" data-part="14031" data-name="TML Intra V30 Front - Main Leaf" data-brand="JAI" aria-label="Add TML Intra V30 Front - Main Leaf to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/2332s-ace-magic-spl-rear-leaf-spring.html" class="product-link" aria-label="View Ace Magic SPL Rear Leaf Spring"><img class="product-image-file" src="/assets/images/products/SVKS000589/1.webp" alt="Ace Magic SPL Rear Leaf Spring" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000589" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>2332S</strong></div><h3 class="product-title"><a href="/bn/products/2332s-ace-magic-spl-rear-leaf-spring.html">Ace Magic SPL Rear Leaf Spring</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹762.60</span><span class="product-price-mrp">MRP ₹820</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000589" data-part="2332S" data-name="Ace Magic SPL Rear Leaf Spring" data-brand="JAI" aria-label="Add Ace Magic SPL Rear Leaf Spring to RFQ">RFQ-তে যোগ করুন</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
 </div>
+
+<script>
+window.SOUVIKS_PRODUCT_PAGE_DATA = {"id":"SVKS000598","slug":"2731-tata-2515-ex-4018-front-parabolic-leaf-spring","part_number":"2731","manufacturer_part_number":"","manufacturer_part_numbers":[],"alternate_part_numbers":[],"oem_numbers":[],"cross_references":[],"mrp":4760,"selling_price":4426.8,"discount_percent":7,"discountPercent":7,"product_name":"Tata 2515 EX 4018 Front Parabolic Leaf Spring","name":"Tata 2515 EX 4018 Front Parabolic Leaf Spring","partNumber":"2731","brand_id":"jai","brand_name":"JAI","brand":"JAI","category_id":"suspension-steering","category_name":"Suspension \u0026 Steering","category":"Suspension \u0026 Steering","subcategory_id":"leaf-spring","subcategory_name":"Leaf Spring","subcategory":"Leaf Spring","gallery":["1.webp","2.webp","3.webp","4.webp","5.webp","6.webp"],"gallery_dimensions":{"1.webp":[400,400],"2.webp":[400,400],"3.webp":[400,400],"4.webp":[400,400],"5.webp":[400,400],"6.webp":[400,400]},"description":"Heavy-duty front parabolic leaf spring designed for Tata 2515 EX and Tata 4018 applications. Provides improved ride quality and weight reduction compared to conventional springs.","image_folder":"SVKS000598","image":"1.webp","primary_image":"1.webp","image_url":"/assets/images/products/SVKS000598/1.webp","vehicles":["Tata LPT"],"applications":["Front Suspension System"],"featured":false,"active":true,"seo":{"title":"JAI - 2731 - Tata 2515 EX 4018 Front Parabolic Leaf Spring | Souviks","description":"Commercial vehicle spare part: Tata 2515 EX 4018 Front Parabolic Leaf Spring. Part Number: 2731. Browse applications and request availability from Souviks.","keywords":["Tata 2515 EX 4018 Front Parabolic Leaf Spring","2731","commercial vehicle spare parts","truck spare parts"],"canonical":"https://www.souviks.co.in/en/products/2731-tata-2515-ex-4018-front-parabolic-leaf-spring.html"},"schema":{},"created_at":"2026-10-01T11:55:25.146669","updated_at":"2026-10-01T16:55:04+05:30","catalogue_updated_at":"2026-10-01T16:55:04+05:30"};
+</script>
+
+<!-- Independent first-interaction gallery binding. It does not wait for API, breadcrumb, RFQ, or review loading. -->
+<script>
+(() => {
+    const gallery = document.querySelector(".pdp-gallery");
+    const mainImage = document.getElementById("pdpMainImage");
+    if (!gallery || !mainImage || gallery.dataset.fastBound === "true") return;
+    gallery.dataset.fastBound = "true";
+
+    const thumbs = Array.from(gallery.querySelectorAll(".pdp-thumb"));
+    const thumbContainer = gallery.querySelector(".pdp-thumbnails");
+    const activate = button => {
+        thumbs.forEach(item => {
+            const active = item === button;
+            item.classList.toggle("active", active);
+            if (active) item.setAttribute("aria-current", "true");
+            else item.removeAttribute("aria-current");
+        });
+    };
+    thumbs.forEach(button => button.addEventListener("click", () => {
+        const img = button.querySelector("img");
+        const src = img?.currentSrc || img?.src;
+        if (!src) return;
+        mainImage.src = src;
+        mainImage.removeAttribute("srcset");
+        mainImage.removeAttribute("sizes");
+        activate(button);
+    }));
+    gallery.querySelector(".pdp-thumb-prev")?.addEventListener("click", () => thumbContainer?.scrollBy({left:-260, behavior:"smooth"}));
+    gallery.querySelector(".pdp-thumb-next")?.addEventListener("click", () => thumbContainer?.scrollBy({left:260, behavior:"smooth"}));
+    const main = gallery.querySelector(".pdp-main-image");
+    main?.addEventListener("keydown", event => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        main.querySelector("img")?.click();
+    });
+    activate(thumbs[0]);
+})();
+</script>
 
 <div class="container">
 
@@ -1085,7 +1147,9 @@ SOUVIKS BREADCRUMB
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks লোগো">
 
             </a>
@@ -1100,27 +1164,29 @@ SOUVIKS BREADCRUMB
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1216,7 +1282,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/location.svg"
                         alt="ঠিকানা"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1231,7 +1297,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/phone.svg"
                         alt="ফোন"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1246,7 +1312,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="মোবাইল"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1261,7 +1327,7 @@ SOUVIKS BREADCRUMB
                     <img
     src="/assets/icons/email.svg"
     alt="ইমেইল"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1472,25 +1538,7 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/product.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

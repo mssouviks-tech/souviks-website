@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/brand.css">
 
 
 
@@ -234,88 +242,56 @@ Reusable Head Component
         "position": 1,
         "name": "Air Filter Kit Turbo",
         "url": "https://www.souviks.co.in/en/products/lx-3631-kit-air-filter-kit-turbo.html",
-        "item": {
-          "@type": "Product",
-          "name": "Air Filter Kit Turbo",
-          "url": "https://www.souviks.co.in/en/products/lx-3631-kit-air-filter-kit-turbo.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/lx-3631-kit-air-filter-kit-turbo.html"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Air Filter Kit (TC/LL)",
         "url": "https://www.souviks.co.in/en/products/lx-3634-kit-air-filter-kit-tcll.html",
-        "item": {
-          "@type": "Product",
-          "name": "Air Filter Kit (TC/LL)",
-          "url": "https://www.souviks.co.in/en/products/lx-3634-kit-air-filter-kit-tcll.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/lx-3634-kit-air-filter-kit-tcll.html"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Fuel Filter",
         "url": "https://www.souviks.co.in/en/products/kx691-fuel-filter.html",
-        "item": {
-          "@type": "Product",
-          "name": "Fuel Filter",
-          "url": "https://www.souviks.co.in/en/products/kx691-fuel-filter.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/kx691-fuel-filter.html"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "Oil Filter Mahindra Blazo 16T",
         "url": "https://www.souviks.co.in/en/products/oc1846-oil-filter-mahindra-blazo-16t.html",
-        "item": {
-          "@type": "Product",
-          "name": "Oil Filter Mahindra Blazo 16T",
-          "url": "https://www.souviks.co.in/en/products/oc1846-oil-filter-mahindra-blazo-16t.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/oc1846-oil-filter-mahindra-blazo-16t.html"
       },
       {
         "@type": "ListItem",
         "position": 5,
         "name": "Oil Filter",
         "url": "https://www.souviks.co.in/en/products/oc1858-oil-filter.html",
-        "item": {
-          "@type": "Product",
-          "name": "Oil Filter",
-          "url": "https://www.souviks.co.in/en/products/oc1858-oil-filter.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/oc1858-oil-filter.html"
       },
       {
         "@type": "ListItem",
         "position": 6,
         "name": "Fuel Water Separator",
         "url": "https://www.souviks.co.in/en/products/ks54-fuel-water-separator.html",
-        "item": {
-          "@type": "Product",
-          "name": "Fuel Water Separator",
-          "url": "https://www.souviks.co.in/en/products/ks54-fuel-water-separator.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/ks54-fuel-water-separator.html"
       },
       {
         "@type": "ListItem",
         "position": 7,
         "name": "Fuel Water Separator",
         "url": "https://www.souviks.co.in/en/products/ks55-fuel-water-separator.html",
-        "item": {
-          "@type": "Product",
-          "name": "Fuel Water Separator",
-          "url": "https://www.souviks.co.in/en/products/ks55-fuel-water-separator.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/ks55-fuel-water-separator.html"
       },
       {
         "@type": "ListItem",
         "position": 8,
         "name": "Kit Air Filter   Navistar",
         "url": "https://www.souviks.co.in/en/products/mahle-mf-c-lx4913-kit-air-filter-navistar.html",
-        "item": {
-          "@type": "Product",
-          "name": "Kit Air Filter   Navistar",
-          "url": "https://www.souviks.co.in/en/products/mahle-mf-c-lx4913-kit-air-filter-navistar.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/mahle-mf-c-lx4913-kit-air-filter-navistar.html"
       }
     ]
   }
@@ -369,7 +345,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -389,6 +372,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -407,6 +391,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Email">
 
                 info@souviks.co.in
@@ -423,6 +408,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Phone">
 
                 +91 94343 31896
@@ -436,11 +422,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="WhatsApp">
 
                 WhatsApp
@@ -858,23 +845,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -912,7 +899,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -1066,7 +1053,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/en/brands.html">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Mahle</li>
 
         </ol>
 
@@ -1083,7 +1070,7 @@ BRAND HERO
     <div class="container">
 
         <div id="brand-detail" data-static-rendered="true">
-            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/mahle.png" alt="Mahle" loading="lazy" decoding="async"></div><div class="brand-info"><h1>Mahle</h1><p>Souviks catalogue: 8 active products from Mahle. Categories include Filters. Listed vehicle applications include Mahindra Blazo, Mahindra Furio, Tata LPT, Tata Prima, Universal.</p></div></div>
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/mahle.png" alt="Mahle" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Mahle</h1><p>Souviks catalogue: 8 active products from Mahle. Categories include Filters. Listed vehicle applications include Mahindra Blazo, Mahindra Furio, Tata LPT, Tata Prima, Universal.</p></div></div>
         </div>
 
     </div>
@@ -1119,7 +1106,7 @@ BRAND PRODUCTS
             class="products-grid"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/en/products/lx-3631-kit-air-filter-kit-turbo.html" class="product-link" aria-label="View Air Filter Kit Turbo"><img class="product-image-file" src="/assets/images/products/SVKS000348/1.webp" alt="Air Filter Kit Turbo" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000348" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/lx-3631-kit-air-filter-kit-turbo.html">Air Filter Kit Turbo</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000348" data-part="LX 3631 KIT" data-name="Air Filter Kit Turbo" data-brand="Mahle" aria-label="Add Air Filter Kit Turbo to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/lx-3634-kit-air-filter-kit-tcll.html" class="product-link" aria-label="View Air Filter Kit (TC/LL)"><img class="product-image-file" src="/assets/images/products/SVKS000349/1.webp" alt="Air Filter Kit (TC/LL)" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000349" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/lx-3634-kit-air-filter-kit-tcll.html">Air Filter Kit (TC/LL)</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000349" data-part="LX 3634 KIT" data-name="Air Filter Kit (TC/LL)" data-brand="Mahle" aria-label="Add Air Filter Kit (TC/LL) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/kx691-fuel-filter.html" class="product-link" aria-label="View Fuel Filter"><img class="product-image-file" src="/assets/images/products/SVKS000360/1.webp" alt="Fuel Filter" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000360" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/kx691-fuel-filter.html">Fuel Filter</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000360" data-part="KX691" data-name="Fuel Filter" data-brand="Mahle" aria-label="Add Fuel Filter to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/oc1846-oil-filter-mahindra-blazo-16t.html" class="product-link" aria-label="View Oil Filter Mahindra Blazo 16T"><img class="product-image-file" src="/assets/images/products/SVKS000361/1.webp" alt="Oil Filter Mahindra Blazo 16T" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000361" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/oc1846-oil-filter-mahindra-blazo-16t.html">Oil Filter Mahindra Blazo 16T</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000361" data-part="OC1846" data-name="Oil Filter Mahindra Blazo 16T" data-brand="Mahle" aria-label="Add Oil Filter Mahindra Blazo 16T to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/oc1858-oil-filter.html" class="product-link" aria-label="View Oil Filter"><img class="product-image-file" src="/assets/images/products/SVKS000362/1.webp" alt="Oil Filter" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000362" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/oc1858-oil-filter.html">Oil Filter</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000362" data-part="OC1858" data-name="Oil Filter" data-brand="Mahle" aria-label="Add Oil Filter to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ks54-fuel-water-separator.html" class="product-link" aria-label="View Fuel Water Separator"><img class="product-image-file" src="/assets/images/products/SVKS000389/1.webp" alt="Fuel Water Separator" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000389" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/ks54-fuel-water-separator.html">Fuel Water Separator</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000389" data-part="KS54" data-name="Fuel Water Separator" data-brand="Mahle" aria-label="Add Fuel Water Separator to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ks55-fuel-water-separator.html" class="product-link" aria-label="View Fuel Water Separator"><img class="product-image-file" src="/assets/images/products/SVKS000390/1.webp" alt="Fuel Water Separator" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000390" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/ks55-fuel-water-separator.html">Fuel Water Separator</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000390" data-part="KS55" data-name="Fuel Water Separator" data-brand="Mahle" aria-label="Add Fuel Water Separator to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/mahle-mf-c-lx4913-kit-air-filter-navistar.html" class="product-link" aria-label="View Kit Air Filter   Navistar"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="Kit Air Filter   Navistar" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000765" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/mahle-mf-c-lx4913-kit-air-filter-navistar.html">Kit Air Filter   Navistar</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000765" data-part="MF-C-LX4913" data-name="Kit Air Filter   Navistar" data-brand="Mahle" aria-label="Add Kit Air Filter   Navistar to RFQ">Add To RFQ</button></div></article>
+            <article class="product-card"><div class="product-image"><a href="/en/products/lx-3631-kit-air-filter-kit-turbo.html" class="product-link" aria-label="View Air Filter Kit Turbo"><img class="product-image-file" src="/assets/images/products/SVKS000348/1.webp" alt="Air Filter Kit Turbo" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000348" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Mahle</div><div class="product-part-number">Part No. <strong>LX 3631 KIT</strong></div><h3 class="product-title"><a href="/en/products/lx-3631-kit-air-filter-kit-turbo.html">Air Filter Kit Turbo</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000348" data-part="LX 3631 KIT" data-name="Air Filter Kit Turbo" data-brand="Mahle" aria-label="Add Air Filter Kit Turbo to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/lx-3634-kit-air-filter-kit-tcll.html" class="product-link" aria-label="View Air Filter Kit (TC/LL)"><img class="product-image-file" src="/assets/images/products/SVKS000349/1.webp" alt="Air Filter Kit (TC/LL)" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000349" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Mahle</div><div class="product-part-number">Part No. <strong>LX 3634 KIT</strong></div><h3 class="product-title"><a href="/en/products/lx-3634-kit-air-filter-kit-tcll.html">Air Filter Kit (TC/LL)</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000349" data-part="LX 3634 KIT" data-name="Air Filter Kit (TC/LL)" data-brand="Mahle" aria-label="Add Air Filter Kit (TC/LL) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/kx691-fuel-filter.html" class="product-link" aria-label="View Fuel Filter"><img class="product-image-file" src="/assets/images/products/SVKS000360/1.webp" alt="Fuel Filter" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000360" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Mahle</div><div class="product-part-number">Part No. <strong>KX691</strong></div><h3 class="product-title"><a href="/en/products/kx691-fuel-filter.html">Fuel Filter</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000360" data-part="KX691" data-name="Fuel Filter" data-brand="Mahle" aria-label="Add Fuel Filter to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/oc1846-oil-filter-mahindra-blazo-16t.html" class="product-link" aria-label="View Oil Filter Mahindra Blazo 16T"><img class="product-image-file" src="/assets/images/products/SVKS000361/1.webp" alt="Oil Filter Mahindra Blazo 16T" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000361" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Mahle</div><div class="product-part-number">Part No. <strong>OC1846</strong></div><h3 class="product-title"><a href="/en/products/oc1846-oil-filter-mahindra-blazo-16t.html">Oil Filter Mahindra Blazo 16T</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹850</span><span class="product-price-mrp">MRP ₹1,150</span><span class="product-price-discount">26% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000361" data-part="OC1846" data-name="Oil Filter Mahindra Blazo 16T" data-brand="Mahle" aria-label="Add Oil Filter Mahindra Blazo 16T to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/oc1858-oil-filter.html" class="product-link" aria-label="View Oil Filter"><img class="product-image-file" src="/assets/images/products/SVKS000362/1.webp" alt="Oil Filter" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000362" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Mahle</div><div class="product-part-number">Part No. <strong>OC1858</strong></div><h3 class="product-title"><a href="/en/products/oc1858-oil-filter.html">Oil Filter</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000362" data-part="OC1858" data-name="Oil Filter" data-brand="Mahle" aria-label="Add Oil Filter to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ks54-fuel-water-separator.html" class="product-link" aria-label="View Fuel Water Separator"><img class="product-image-file" src="/assets/images/products/SVKS000389/1.webp" alt="Fuel Water Separator" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000389" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Mahle</div><div class="product-part-number">Part No. <strong>KS54</strong></div><h3 class="product-title"><a href="/en/products/ks54-fuel-water-separator.html">Fuel Water Separator</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,199</span><span class="product-price-mrp">MRP ₹1,300</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000389" data-part="KS54" data-name="Fuel Water Separator" data-brand="Mahle" aria-label="Add Fuel Water Separator to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ks55-fuel-water-separator.html" class="product-link" aria-label="View Fuel Water Separator"><img class="product-image-file" src="/assets/images/products/SVKS000390/1.webp" alt="Fuel Water Separator" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000390" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Mahle</div><div class="product-part-number">Part No. <strong>KS55</strong></div><h3 class="product-title"><a href="/en/products/ks55-fuel-water-separator.html">Fuel Water Separator</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,249</span><span class="product-price-mrp">MRP ₹1,350</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000390" data-part="KS55" data-name="Fuel Water Separator" data-brand="Mahle" aria-label="Add Fuel Water Separator to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/mahle-mf-c-lx4913-kit-air-filter-navistar.html" class="product-link" aria-label="View Kit Air Filter   Navistar"><img class="product-image-file" src="/assets/images/products/SVKS000765/1.webp" alt="Kit Air Filter   Navistar" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000765" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Mahle</div><div class="product-part-number">Part No. <strong>MF-C-LX4913</strong></div><h3 class="product-title"><a href="/en/products/mahle-mf-c-lx4913-kit-air-filter-navistar.html">Kit Air Filter   Navistar</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,825</span><span class="product-price-mrp">MRP ₹4,250</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000765" data-part="MF-C-LX4913" data-name="Kit Air Filter   Navistar" data-brand="Mahle" aria-label="Add Kit Air Filter   Navistar to RFQ">Add To RFQ</button></div></article>
 
         </div>
 
@@ -1200,7 +1187,9 @@ BRAND PRODUCTS
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks Logo">
 
             </a>
@@ -1215,27 +1204,29 @@ BRAND PRODUCTS
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1331,7 +1322,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/location.svg"
                         alt="Address"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1346,7 +1337,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/phone.svg"
                         alt="Phone"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1361,7 +1352,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="Mobile"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1376,7 +1367,7 @@ BRAND PRODUCTS
                     <img
     src="/assets/icons/email.svg"
     alt="Email"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1587,31 +1578,13 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/brand.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script defer src="/assets/js/pages/brand-page.js"></script>
+
 
 
 <!-- ==========================================

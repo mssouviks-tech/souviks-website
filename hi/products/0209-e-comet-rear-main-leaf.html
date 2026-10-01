@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000883/E%20Comet%20Rear%20-%20Main%20Leaf.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000883/E%20Comet%20Rear%20-%20Main%20Leaf.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/product.css">
 
 
 
@@ -210,9 +218,6 @@ Reusable Head Component
   "url": "https://www.souviks.co.in/hi/products/0209-e-comet-rear-main-leaf.html",
   "mainEntityOfPage": "https://www.souviks.co.in/hi/products/0209-e-comet-rear-main-leaf.html",
   "description": "ECOMET rear main leaf spring, 75×14.",
-  "image": [
-    "https://www.souviks.co.in/assets/images/products/SVKS000883/E%20Comet%20Rear%20-%20Main%20Leaf.webp"
-  ],
   "sku": "SVKS000883",
   "mpn": "B6Y02601/701",
   "identifier": [
@@ -225,7 +230,17 @@ Reusable Head Component
     "@type": "Brand",
     "name": "Toyo"
   },
-  "category": "Suspension & Steering"
+  "category": "Suspension & Steering",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.souviks.co.in/hi/products/0209-e-comet-rear-main-leaf.html",
+    "priceCurrency": "INR",
+    "price": 4381.0,
+    "seller": {
+      "@type": "Organization",
+      "name": "Souviks"
+    }
+  }
 }
 </script><script type="application/ld+json">
 {
@@ -270,7 +285,7 @@ Reusable Head Component
          OPTIONAL PRELOADS
     =========================================== -->
 
-    
+    <link rel="preload" as="image" href="/assets/images/placeholder.webp" fetchpriority="high">
 
     <!-- ==========================================
          PAGE-SPECIFIC META
@@ -288,7 +303,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -308,6 +330,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -326,6 +349,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ईमेल">
 
                 info@souviks.co.in
@@ -342,6 +366,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="फ़ोन">
 
                 +91 94343 31896
@@ -355,11 +380,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="व्हाट्सऐप">
 
                 व्हाट्सऐप
@@ -777,23 +803,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -831,7 +857,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -985,7 +1011,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/hi/">Home</a></li><li class="breadcrumb-item"><a href="/hi/products.html">Products</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/hi/categories/suspension-steering.html">Suspension &amp; Steering</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/hi/brands/toyo.html">Toyo</a></li><li class="breadcrumb-item active" aria-current="page">E Comet Rear - Main Leaf</li>
 
         </ol>
 
@@ -994,8 +1020,51 @@ SOUVIKS BREADCRUMB
 </nav>
 
 <div id="product-detail" data-static-rendered="true">
-<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/toyo.png" alt="Toyo" loading="lazy" decoding="async"></div><div class="pdp-main-image"><img id="pdpMainImage" src="/assets/images/placeholder.webp" alt="E Comet Rear - Main Leaf" loading="eager" decoding="async"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View E Comet Rear - Main Leaf image 1"><img src="/assets/images/placeholder.webp" alt="E Comet Rear - Main Leaf image 1" loading="lazy" decoding="async"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">In Stock</span><span class="pdp-genuine">100% Genuine</span></div><h1 class="pdp-title">E Comet Rear - Main Leaf</h1><div class="pdp-part">PART ID: SVKS000883</div><div class="pdp-pricing" aria-label="Product pricing"><span class="pdp-price-label">Price on request</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000883</span></div><div class="pdp-row"><strong>पार्ट नंबर</strong><span>209</span></div><div class="pdp-row"><strong>ब्रांड</strong><span>Toyo</span></div><div class="pdp-row"><strong>श्रेणी</strong><span>Suspension &amp; Steering</span></div><div class="pdp-row"><strong>उपश्रेणी</strong><span>Leaf Spring</span></div><div class="pdp-row"><strong>उपयोग</strong><span>Rear Suspension System</span></div><div class="pdp-row"><strong>संगत वाहन</strong><span>Eicher Pro Series, Ashok Leyland Ecomet</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">कोटेशन का अनुरोध करें</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>पार्ट का अनुरोध करें</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="209" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">कोटेशन का अनुरोध करें</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts"><div><strong>100% Genuine Products</strong><span>Original & Authorized</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">विवरण</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>विवरण</h3><p>ECOMET rear main leaf spring, 75×14.</p></div><div class="pdp-description-card"><h3>उपयोग</h3><ul><li>Rear Suspension System</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">संगत वाहन</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/EICHER_PRO_SERIES/thumbnail-400x300.webp" alt="Eicher Pro Series" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Eicher Pro Series</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/thumbnail-400x300.webp" alt="Ashok Leyland Ecomet" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Ashok Leyland Ecomet</h4></div></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">संबंधित उत्पाद</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/hi/products/0208-e-comet-front-main-leaf.html" class="product-link" aria-label="View E Comet Front - Main Leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="E Comet Front - Main Leaf" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000878" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/0208-e-comet-front-main-leaf.html">E Comet Front - Main Leaf</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000878" data-part="208" data-name="E Comet Front - Main Leaf" data-brand="Toyo" aria-label="Add E Comet Front - Main Leaf to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0208-e-comet-front-2nd-leaf.html" class="product-link" aria-label="View E Comet Front - 2nd Leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="E Comet Front - 2nd Leaf" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000879" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/0208-e-comet-front-2nd-leaf.html">E Comet Front - 2nd Leaf</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000879" data-part="208" data-name="E Comet Front - 2nd Leaf" data-brand="Toyo" aria-label="Add E Comet Front - 2nd Leaf to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0236-u-truck-front-main-leaf.html" class="product-link" aria-label="View U Truck Front - Main Leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="U Truck Front - Main Leaf" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000880" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/0236-u-truck-front-main-leaf.html">U Truck Front - Main Leaf</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000880" data-part="236" data-name="U Truck Front - Main Leaf" data-brand="Toyo" aria-label="Add U Truck Front - Main Leaf to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0236-u-truck-front-aux-a.html" class="product-link" aria-label="View U Truck Front - AUX-A"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="U Truck Front - AUX-A" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000881" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/0236-u-truck-front-aux-a.html">U Truck Front - AUX-A</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000881" data-part="236" data-name="U Truck Front - AUX-A" data-brand="Toyo" aria-label="Add U Truck Front - AUX-A to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0236-u-truck-front-aux-b.html" class="product-link" aria-label="View U Truck Front - AUX-B"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="U Truck Front - AUX-B" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000882" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/0236-u-truck-front-aux-b.html">U Truck Front - AUX-B</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000882" data-part="236" data-name="U Truck Front - AUX-B" data-brand="Toyo" aria-label="Add U Truck Front - AUX-B to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0151-armada-new-front-main-leaf.html" class="product-link" aria-label="View ARMADA NEW (FR) - main leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="ARMADA NEW (FR) - main leaf" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000893" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/0151-armada-new-front-main-leaf.html">ARMADA NEW (FR) - main leaf</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000893" data-part="0151" data-name="ARMADA NEW (FR) - main leaf" data-brand="Toyo" aria-label="Add ARMADA NEW (FR) - main leaf to RFQ">RFQ में जोड़ें</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
+<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/toyo.png" alt="Toyo" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-main-image" role="button" tabindex="0" aria-label="Enlarge E Comet Rear - Main Leaf image" title="Click to enlarge"><img id="pdpMainImage" src="/assets/images/placeholder.webp" alt="E Comet Rear - Main Leaf" loading="eager" decoding="async" draggable="false" width="1200" height="1200"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View E Comet Rear - Main Leaf image 1"><img src="/assets/images/placeholder.webp" alt="E Comet Rear - Main Leaf image 1" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">Availability subject to confirmation</span><span class="pdp-genuine">Established Brand</span></div><h1 class="pdp-title">E Comet Rear - Main Leaf</h1><div class="pdp-part">PART ID: SVKS000883</div><div class="pdp-pricing" aria-label="Product pricing"><div class="pdp-price-mrp"><span class="pdp-price-label">MRP</span><span class="pdp-price-value">₹5,038.15</span></div><div class="pdp-price-selling"><span class="pdp-price-label">Selling Price</span><span class="pdp-price-value">₹4,381</span></div><span class="pdp-price-discount">13% OFF</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000883</span></div><div class="pdp-row"><strong>पार्ट नंबर</strong><span>209</span></div><div class="pdp-row"><strong>OEM / Manufacturer Reference</strong><span class="pdp-reference-list"><span class="pdp-reference-chip">B6Y02601/701</span></span></div><div class="pdp-row"><strong>ब्रांड</strong><span>Toyo</span></div><div class="pdp-row"><strong>श्रेणी</strong><span>Suspension &amp; Steering</span></div><div class="pdp-row"><strong>उपश्रेणी</strong><span>Leaf Spring</span></div><div class="pdp-row"><strong>उपयोग</strong><span>Rear Suspension System</span></div><div class="pdp-row"><strong>संगत वाहन</strong><span>Eicher Pro Series, Ashok Leyland Ecomet</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">कोटेशन का अनुरोध करें</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>पार्ट का अनुरोध करें</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="209" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">कोटेशन का अनुरोध करें</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts" width="24" height="24"><div><strong>Established Brand</strong><span>Catalogue-listed product</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted" width="24" height="24"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory" width="24" height="24"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery" width="24" height="24"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#reviews-section" class="pdp-tab-btn">Reviews</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">विवरण</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>विवरण</h3><p>ECOMET rear main leaf spring, 75×14.</p></div><div class="pdp-description-card"><h3>उपयोग</h3><ul><li>Rear Suspension System</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">संगत वाहन</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/EICHER_PRO_SERIES/thumbnail-400x300.webp" alt="Eicher Pro Series" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Eicher Pro Series</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/thumbnail-400x300.webp" alt="Ashok Leyland Ecomet" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Ashok Leyland Ecomet</h4></div></div></div></section><section id="reviews-section" class="pdp-section pdp-reviews" data-product-id="SVKS000883"><div class="pdp-reviews-header"><div><h2 class="pdp-section-title">Customer Reviews</h2><p class="pdp-section-intro">Reviews from customers who have used or purchased this product through Souviks.</p></div><div class="pdp-review-summary" data-review-summary><strong>—</strong><span>No reviews yet</span></div></div><div class="pdp-review-list" data-review-list><div class="pdp-review-empty">Loading reviews…</div></div><div class="pdp-review-form-wrap" data-review-form-wrap><div class="pdp-review-signin" data-review-signin hidden>Sign in to share your experience with this product.</div><form class="pdp-review-form" data-review-form hidden><div class="pdp-review-form-grid"><div class="form-group"><label for="pdpReviewName">Name</label><input id="pdpReviewName" name="reviewer_name" type="text" maxlength="80" autocomplete="name" required></div><div class="form-group"><label for="pdpReviewRating">Rating</label><select id="pdpReviewRating" name="rating" required><option value="">Select rating</option><option value="5">★★★★★ — Excellent</option><option value="4">★★★★☆ — Very good</option><option value="3">★★★☆☆ — Good</option><option value="2">★★☆☆☆ — Fair</option><option value="1">★☆☆☆☆ — Poor</option></select></div></div><div class="form-group"><label for="pdpReviewTitle">Review title</label><input id="pdpReviewTitle" name="title" type="text" maxlength="120" required></div><div class="form-group"><label for="pdpReviewText">Your review</label><textarea id="pdpReviewText" name="review" rows="5" maxlength="1200" required></textarea></div><button class="btn btn-primary" type="submit">Submit Review</button><p class="pdp-review-form-note">Your review will be published after moderation.</p><div class="pdp-review-status" data-review-status role="status" aria-live="polite"></div></form></div></section><section class="pdp-section pdp-complete-job"><h2 class="pdp-section-title">Frequently used with this part</h2><p class="pdp-section-intro">Related components from the same application, category or system.</p><div class="pdp-related-wrapper"><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/hi/products/0208-e-comet-front-main-leaf.html" class="product-link" aria-label="View E Comet Front - Main Leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="E Comet Front - Main Leaf" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000878" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>208</strong></div><h3 class="product-title"><a href="/hi/products/0208-e-comet-front-main-leaf.html">E Comet Front - Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹4,156</span><span class="product-price-mrp">MRP ₹4,779.40</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000878" data-part="208" data-name="E Comet Front - Main Leaf" data-brand="Toyo" aria-label="Add E Comet Front - Main Leaf to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0208-e-comet-front-2nd-leaf.html" class="product-link" aria-label="View E Comet Front - 2nd Leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="E Comet Front - 2nd Leaf" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000879" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>208</strong></div><h3 class="product-title"><a href="/hi/products/0208-e-comet-front-2nd-leaf.html">E Comet Front - 2nd Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹4,076</span><span class="product-price-mrp">MRP ₹4,687.40</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000879" data-part="208" data-name="E Comet Front - 2nd Leaf" data-brand="Toyo" aria-label="Add E Comet Front - 2nd Leaf to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0236-u-truck-front-main-leaf.html" class="product-link" aria-label="View U Truck Front - Main Leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="U Truck Front - Main Leaf" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000880" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>236</strong></div><h3 class="product-title"><a href="/hi/products/0236-u-truck-front-main-leaf.html">U Truck Front - Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹7,124</span><span class="product-price-mrp">MRP ₹8,192.60</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000880" data-part="236" data-name="U Truck Front - Main Leaf" data-brand="Toyo" aria-label="Add U Truck Front - Main Leaf to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0236-u-truck-front-aux-a.html" class="product-link" aria-label="View U Truck Front - AUX-A"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="U Truck Front - AUX-A" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000881" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>236</strong></div><h3 class="product-title"><a href="/hi/products/0236-u-truck-front-aux-a.html">U Truck Front - AUX-A</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,787</span><span class="product-price-mrp">MRP ₹6,655.05</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000881" data-part="236" data-name="U Truck Front - AUX-A" data-brand="Toyo" aria-label="Add U Truck Front - AUX-A to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0236-u-truck-front-aux-b.html" class="product-link" aria-label="View U Truck Front - AUX-B"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="U Truck Front - AUX-B" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000882" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>236</strong></div><h3 class="product-title"><a href="/hi/products/0236-u-truck-front-aux-b.html">U Truck Front - AUX-B</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,493</span><span class="product-price-mrp">MRP ₹6,316.95</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000882" data-part="236" data-name="U Truck Front - AUX-B" data-brand="Toyo" aria-label="Add U Truck Front - AUX-B to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/258201-tata-2515-lpt-r-ml.html" class="product-link" aria-label="View Tata 2515 LPT (R) M/L"><img class="product-image-file" src="/assets/images/products/SVKS000332/1.webp" alt="Tata 2515 LPT (R) M/L" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000332" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>258201</strong></div><h3 class="product-title"><a href="/hi/products/258201-tata-2515-lpt-r-ml.html">Tata 2515 LPT (R) M/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,106.50</span><span class="product-price-mrp">MRP ₹3,270</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000332" data-part="258201" data-name="Tata 2515 LPT (R) M/L" data-brand="JAI" aria-label="Add Tata 2515 LPT (R) M/L to RFQ">RFQ में जोड़ें</button></div></article></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">संबंधित उत्पाद</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/hi/products/0208-e-comet-front-main-leaf.html" class="product-link" aria-label="View E Comet Front - Main Leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="E Comet Front - Main Leaf" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000878" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>208</strong></div><h3 class="product-title"><a href="/hi/products/0208-e-comet-front-main-leaf.html">E Comet Front - Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹4,156</span><span class="product-price-mrp">MRP ₹4,779.40</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000878" data-part="208" data-name="E Comet Front - Main Leaf" data-brand="Toyo" aria-label="Add E Comet Front - Main Leaf to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0208-e-comet-front-2nd-leaf.html" class="product-link" aria-label="View E Comet Front - 2nd Leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="E Comet Front - 2nd Leaf" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000879" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>208</strong></div><h3 class="product-title"><a href="/hi/products/0208-e-comet-front-2nd-leaf.html">E Comet Front - 2nd Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹4,076</span><span class="product-price-mrp">MRP ₹4,687.40</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000879" data-part="208" data-name="E Comet Front - 2nd Leaf" data-brand="Toyo" aria-label="Add E Comet Front - 2nd Leaf to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0236-u-truck-front-main-leaf.html" class="product-link" aria-label="View U Truck Front - Main Leaf"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="U Truck Front - Main Leaf" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000880" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>236</strong></div><h3 class="product-title"><a href="/hi/products/0236-u-truck-front-main-leaf.html">U Truck Front - Main Leaf</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹7,124</span><span class="product-price-mrp">MRP ₹8,192.60</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000880" data-part="236" data-name="U Truck Front - Main Leaf" data-brand="Toyo" aria-label="Add U Truck Front - Main Leaf to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0236-u-truck-front-aux-a.html" class="product-link" aria-label="View U Truck Front - AUX-A"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="U Truck Front - AUX-A" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000881" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>236</strong></div><h3 class="product-title"><a href="/hi/products/0236-u-truck-front-aux-a.html">U Truck Front - AUX-A</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,787</span><span class="product-price-mrp">MRP ₹6,655.05</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000881" data-part="236" data-name="U Truck Front - AUX-A" data-brand="Toyo" aria-label="Add U Truck Front - AUX-A to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/0236-u-truck-front-aux-b.html" class="product-link" aria-label="View U Truck Front - AUX-B"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="U Truck Front - AUX-B" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000882" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Toyo</div><div class="product-part-number">Part No. <strong>236</strong></div><h3 class="product-title"><a href="/hi/products/0236-u-truck-front-aux-b.html">U Truck Front - AUX-B</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,493</span><span class="product-price-mrp">MRP ₹6,316.95</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000882" data-part="236" data-name="U Truck Front - AUX-B" data-brand="Toyo" aria-label="Add U Truck Front - AUX-B to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/258201-tata-2515-lpt-r-ml.html" class="product-link" aria-label="View Tata 2515 LPT (R) M/L"><img class="product-image-file" src="/assets/images/products/SVKS000332/1.webp" alt="Tata 2515 LPT (R) M/L" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000332" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">JAI</div><div class="product-part-number">Part No. <strong>258201</strong></div><h3 class="product-title"><a href="/hi/products/258201-tata-2515-lpt-r-ml.html">Tata 2515 LPT (R) M/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,106.50</span><span class="product-price-mrp">MRP ₹3,270</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000332" data-part="258201" data-name="Tata 2515 LPT (R) M/L" data-brand="JAI" aria-label="Add Tata 2515 LPT (R) M/L to RFQ">RFQ में जोड़ें</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
 </div>
+
+<script>
+window.SOUVIKS_PRODUCT_PAGE_DATA = {"id":"SVKS000883","slug":"0209-e-comet-rear-main-leaf","part_number":"209","manufacturer_part_number":"B6Y02601/701","manufacturer_part_numbers":["B6Y02601/701"],"alternate_part_numbers":[],"oem_numbers":[],"cross_references":[],"mrp":5038.15,"selling_price":4381,"discount_percent":13,"discountPercent":13,"product_name":"E Comet Rear - Main Leaf","name":"E Comet Rear - Main Leaf","partNumber":"209","brand_id":"toyo","brand_name":"Toyo","brand":"Toyo","category_id":"suspension-steering","category_name":"Suspension \u0026 Steering","category":"Suspension \u0026 Steering","subcategory_id":"leaf-spring","subcategory_name":"Leaf Spring","subcategory":"Leaf Spring","gallery":[],"gallery_dimensions":{},"description":"ECOMET rear main leaf spring, 75×14.","image_folder":"SVKS000883","image":"","primary_image":"","image_url":"/assets/images/placeholder.webp","vehicles":["Eicher Pro Series","Ashok Leyland Ecomet"],"applications":["Rear Suspension System"],"featured":false,"active":true,"seo":{"title":"Toyo - 209 - E Comet Rear - Main Leaf | Souviks","description":"Commercial vehicle spare part: E Comet Rear - Main Leaf. Part Number: 209. Browse applications and request availability from Souviks.","keywords":["E Comet Rear - Main Leaf","209","commercial vehicle spare parts","truck spare parts"],"canonical":"https://www.souviks.co.in/en/products/0209-e-comet-rear-main-leaf.html"},"schema":{},"created_at":"2026-10-01T11:55:28.901543","updated_at":"2026-10-01T16:55:04+05:30","catalogue_updated_at":"2026-10-01T16:55:04+05:30"};
+</script>
+
+<!-- Independent first-interaction gallery binding. It does not wait for API, breadcrumb, RFQ, or review loading. -->
+<script>
+(() => {
+    const gallery = document.querySelector(".pdp-gallery");
+    const mainImage = document.getElementById("pdpMainImage");
+    if (!gallery || !mainImage || gallery.dataset.fastBound === "true") return;
+    gallery.dataset.fastBound = "true";
+
+    const thumbs = Array.from(gallery.querySelectorAll(".pdp-thumb"));
+    const thumbContainer = gallery.querySelector(".pdp-thumbnails");
+    const activate = button => {
+        thumbs.forEach(item => {
+            const active = item === button;
+            item.classList.toggle("active", active);
+            if (active) item.setAttribute("aria-current", "true");
+            else item.removeAttribute("aria-current");
+        });
+    };
+    thumbs.forEach(button => button.addEventListener("click", () => {
+        const img = button.querySelector("img");
+        const src = img?.currentSrc || img?.src;
+        if (!src) return;
+        mainImage.src = src;
+        mainImage.removeAttribute("srcset");
+        mainImage.removeAttribute("sizes");
+        activate(button);
+    }));
+    gallery.querySelector(".pdp-thumb-prev")?.addEventListener("click", () => thumbContainer?.scrollBy({left:-260, behavior:"smooth"}));
+    gallery.querySelector(".pdp-thumb-next")?.addEventListener("click", () => thumbContainer?.scrollBy({left:260, behavior:"smooth"}));
+    const main = gallery.querySelector(".pdp-main-image");
+    main?.addEventListener("keydown", event => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        main.querySelector("img")?.click();
+    });
+    activate(thumbs[0]);
+})();
+</script>
 
 <div class="container">
 
@@ -1070,7 +1139,9 @@ SOUVIKS BREADCRUMB
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks लोगो">
 
             </a>
@@ -1085,27 +1156,29 @@ SOUVIKS BREADCRUMB
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1201,7 +1274,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/location.svg"
                         alt="पता"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1216,7 +1289,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/phone.svg"
                         alt="फ़ोन"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1231,7 +1304,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="मोबाइल"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1246,7 +1319,7 @@ SOUVIKS BREADCRUMB
                     <img
     src="/assets/icons/email.svg"
     alt="ईमेल"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1457,25 +1530,7 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/product.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

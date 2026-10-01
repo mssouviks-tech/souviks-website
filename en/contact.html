@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/contact.css">
 
 
 
@@ -225,7 +233,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -245,6 +260,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -263,6 +279,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Email">
 
                 info@souviks.co.in
@@ -279,6 +296,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Phone">
 
                 +91 94343 31896
@@ -292,11 +310,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="WhatsApp">
 
                 WhatsApp
@@ -714,23 +733,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -768,7 +787,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -924,7 +943,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            
 
         </ol>
 
@@ -959,7 +978,7 @@ CONTACT HERO
                 <div class="hero-stat">
 
                     <img
-                        src="/assets/icons/phone.svg"
+                        src="/assets/icons/phone.svg" width="24" height="24"
                         class="hero-stat-icon"
                         alt="Phone">
 
@@ -986,7 +1005,7 @@ CONTACT HERO
                 <div class="hero-stat">
 
                     <img
-                        src="/assets/icons/location.svg"
+                        src="/assets/icons/location.svg" width="24" height="24"
                         class="hero-stat-icon"
                         alt="Address">
 
@@ -1013,7 +1032,7 @@ CONTACT HERO
                 <div class="hero-stat">
 
                     <img
-                        src="/assets/icons/clock.svg"
+                        src="/assets/icons/clock.svg" width="48" height="48"
                         class="hero-stat-icon"
                         alt="Business Hours">
 
@@ -1056,7 +1075,7 @@ CONTACT CARDS
             <div class="why-card">
 
                 <img
-                    src="/assets/icons/phone.svg"
+                    src="/assets/icons/phone.svg" width="24" height="24"
                     class="why-icon"
                     alt="Phone">
 
@@ -1083,7 +1102,7 @@ CONTACT CARDS
             <div class="why-card">
 
                 <img
-                    src="/assets/icons/mail.svg"
+                    src="/assets/icons/mail.svg" width="24" height="24"
                     class="why-icon"
                     alt="Email">
 
@@ -1104,7 +1123,7 @@ CONTACT CARDS
             <div class="why-card">
 
                 <img
-                    src="/assets/icons/whatsapp.svg"
+                    src="/assets/icons/whatsapp.svg" width="24" height="24"
                     class="why-icon"
                     alt="WhatsApp">
 
@@ -1133,7 +1152,7 @@ CONTACT CARDS
             <div class="why-card">
 
                 <img
-                    src="/assets/icons/location.svg"
+                    src="/assets/icons/location.svg" width="24" height="24"
                     class="why-icon"
                     alt="Address">
 
@@ -1242,6 +1261,7 @@ MAP
                 style="border:0;"
                 allowfullscreen=""
                 loading="lazy"
+                title="Souviks location map"
                 referrerpolicy="strict-origin-when-cross-origin">
 
             </iframe>
@@ -1451,7 +1471,9 @@ CONTACT FORM
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks Logo">
 
             </a>
@@ -1466,27 +1488,29 @@ CONTACT FORM
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1582,7 +1606,7 @@ CONTACT FORM
                     <img
                         src="/assets/icons/location.svg"
                         alt="Address"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1597,7 +1621,7 @@ CONTACT FORM
                     <img
                         src="/assets/icons/phone.svg"
                         alt="Phone"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1612,7 +1636,7 @@ CONTACT FORM
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="Mobile"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1627,7 +1651,7 @@ CONTACT FORM
                     <img
     src="/assets/icons/email.svg"
     alt="Email"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1840,22 +1864,13 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
+<script defer src="/assets/js/bundles/contact.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script defer src="/assets/js/pages/contact.js"></script>
+
 
 
 <!-- ==========================================

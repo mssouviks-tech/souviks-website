@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/about.css">
 
 
 
@@ -225,7 +233,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -245,6 +260,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -263,6 +279,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ईमेल">
 
                 info@souviks.co.in
@@ -279,6 +296,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="फ़ोन">
 
                 +91 94343 31896
@@ -292,11 +310,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="व्हाट्सऐप">
 
                 व्हाट्सऐप
@@ -714,23 +733,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -768,7 +787,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -924,7 +943,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            
 
         </ol>
 
@@ -960,7 +979,7 @@ ABOUT HERO
             <div class="hero-stat">
 
                 <img
-                    src="/assets/icons/calendar.svg"
+                    src="/assets/icons/calendar.svg" width="48" height="48"
                     alt="स्थापित"
                     class="hero-stat-icon">
 
@@ -986,7 +1005,7 @@ ABOUT HERO
             <div class="hero-stat">
 
                 <img
-                    src="/assets/icons/products.svg"
+                    src="/assets/icons/products.svg" width="48" height="48"
                     alt="उत्पाद"
                     class="hero-stat-icon">
 
@@ -994,7 +1013,7 @@ ABOUT HERO
 
                     <div class="stat-number">
 
-                        933
+                        1022
 
                     </div>
 
@@ -1013,7 +1032,7 @@ ABOUT HERO
             <div class="hero-stat">
 
                 <img
-                    src="/assets/icons/brands.svg"
+                    src="/assets/icons/brands.svg" width="48" height="48"
                     alt="ब्रांड"
                     class="hero-stat-icon">
 
@@ -1021,7 +1040,7 @@ ABOUT HERO
 
                     <div class="stat-number">
 
-                        55
+                        60
 
                     </div>
 
@@ -1040,15 +1059,17 @@ ABOUT HERO
             <div class="hero-stat">
 
                 <img
-                    src="/assets/icons/vehicles.svg"
-                    alt="उपयोग"
+                    src="/assets/icons/vehicle.svg"
+                    width="24"
+                        height="24"
+                        alt="उपयोग"
                     class="hero-stat-icon">
 
                 <div>
 
                     <div class="stat-number">
 
-                        29
+                        27
 
                     </div>
 
@@ -1144,7 +1165,7 @@ WHY TRUST
             <div class="why-card">
 
                 <img
-                    src="/assets/icons/shield.svg"
+                    src="/assets/icons/shield.svg" width="24" height="24"
                     alt="1986 से विश्वसनीय"
                     class="why-icon">
 
@@ -1165,7 +1186,7 @@ WHY TRUST
             <div class="why-card">
 
                 <img
-                    src="/assets/icons/inventory.svg"
+                    src="/assets/icons/inventory.svg" width="64" height="64"
                     alt="विशाल स्टॉक"
                     class="why-icon">
 
@@ -1186,8 +1207,10 @@ WHY TRUST
             <div class="why-card">
 
                 <img
-                    src="/assets/icons/truck.svg"
-                    alt="वाणिज्यिक वाहनों पर विशेष ध्यान"
+                    src="/assets/icons/vehicle.svg"
+                    width="24"
+                        height="24"
+                        alt="वाणिज्यिक वाहनों पर विशेष ध्यान"
                     class="why-icon">
 
                 <h3>
@@ -1208,6 +1231,7 @@ WHY TRUST
 
                 <img
                     src="/assets/icons/support.png"
+                    width="1254" height="1254"
                     alt="विशेषज्ञ सहायता"
                     class="why-icon">
 
@@ -1257,25 +1281,25 @@ STORE GALLERY
 
         <div class="store-gallery-large">
 
-            <img src="/assets/images/about/store-front.jpg" alt="स्टोर का सामने का भाग">
+            <img src="/assets/images/about/store-front.jpg" width="400" height="400" loading="lazy" decoding="async" alt="स्टोर का सामने का भाग">
 
-            <img src="/assets/images/about/store-interior.jpg" alt="स्टोर का अंदरूनी भाग">
+            <img src="/assets/images/about/store-interior.jpg" width="400" height="400" loading="lazy" decoding="async" alt="स्टोर का अंदरूनी भाग">
 
-            <img src="/assets/images/about/store-counter.jpg" alt="स्टोर काउंटर">
+            <img src="/assets/images/about/store-counter.jpg" width="400" height="400" loading="lazy" decoding="async" alt="स्टोर काउंटर">
 
         </div>
 
         <div class="store-gallery-small">
 
-            <img src="/assets/images/about/gallery-1.jpg" alt="स्टॉक">
+            <img src="/assets/images/about/gallery-1.jpg" width="400" height="400" loading="lazy" decoding="async" alt="स्टॉक">
 
-            <img src="/assets/images/about/gallery-2.jpg" alt="रैक">
+            <img src="/assets/images/about/gallery-2.jpg" width="400" height="400" loading="lazy" decoding="async" alt="रैक">
 
-            <img src="/assets/images/about/gallery-3.jpg" alt="लुब्रिकेंट्स">
+            <img src="/assets/images/about/gallery-3.jpg" width="400" height="400" loading="lazy" decoding="async" alt="लुब्रिकेंट्स">
 
-            <img src="/assets/images/about/gallery-4.jpg" alt="पार्ट्स">
+            <img src="/assets/images/about/gallery-4.jpg" width="400" height="400" loading="lazy" decoding="async" alt="पार्ट्स">
 
-            <img src="/assets/images/about/gallery-5.jpg" alt="बेल्ट">
+            <img src="/assets/images/about/gallery-5.jpg" width="400" height="400" loading="lazy" decoding="async" alt="बेल्ट">
 
         </div>
 
@@ -1310,57 +1334,21 @@ VIDEOS
         <div class="video-grid">
 
             <div class="video-card">
-
-                <video controls preload="metadata">
-
-                    <source
-                        src="/assets/videos/store-tour.mp4"
-                        type="video/mp4">
-
-                </video>
-
-                <h3>
-
-                    Souviks में आपका स्वागत है
-
-                </h3>
-
+                <img src="/assets/images/about/store-front.jpg" width="400" height="400" width="400" height="400" loading="lazy" decoding="async" alt="Souviks में आपका स्वागत है">
+                <h3>Souviks में आपका स्वागत है</h3>
+                <span class="video-coming-soon">Video coming soon</span>
             </div>
 
             <div class="video-card">
-
-                <video controls preload="metadata">
-
-                    <source
-                        src="/assets/videos/inventory-tour.mp4"
-                        type="video/mp4">
-
-                </video>
-
-                <h3>
-
-                    हमारे स्टोर के अंदर
-
-                </h3>
-
+                <img src="/assets/images/about/store-interior.jpg" width="400" height="400" width="400" height="400" loading="lazy" decoding="async" alt="हमारे स्टोर के अंदर">
+                <h3>हमारे स्टोर के अंदर</h3>
+                <span class="video-coming-soon">Video coming soon</span>
             </div>
 
             <div class="video-card">
-
-                <video controls preload="metadata">
-
-                    <source
-                        src="/assets/videos/customer-support.mp4"
-                        type="video/mp4">
-
-                </video>
-
-                <h3>
-
-                    गुणवत्तापूर्ण पार्ट्स, विश्वसनीय सेवा
-
-                </h3>
-
+                <img src="/assets/images/about/store-counter.jpg" width="400" height="400" width="400" height="400" loading="lazy" decoding="async" alt="गुणवत्तापूर्ण पार्ट्स, विश्वसनीय सेवा">
+                <h3>गुणवत्तापूर्ण पार्ट्स, विश्वसनीय सेवा</h3>
+                <span class="video-coming-soon">Video coming soon</span>
             </div>
 
         </div>
@@ -1444,7 +1432,9 @@ VIDEOS
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks लोगो">
 
             </a>
@@ -1459,27 +1449,29 @@ VIDEOS
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1575,7 +1567,7 @@ VIDEOS
                     <img
                         src="/assets/icons/location.svg"
                         alt="पता"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1590,7 +1582,7 @@ VIDEOS
                     <img
                         src="/assets/icons/phone.svg"
                         alt="फ़ोन"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1605,7 +1597,7 @@ VIDEOS
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="मोबाइल"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1620,7 +1612,7 @@ VIDEOS
                     <img
     src="/assets/icons/email.svg"
     alt="ईमेल"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1831,16 +1823,7 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
+<script defer src="/assets/js/bundles/about.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

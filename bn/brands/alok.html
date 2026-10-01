@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/brand.css">
 
 
 
@@ -234,33 +242,21 @@ Reusable Head Component
         "position": 1,
         "name": "Drag Link End T. Intra",
         "url": "https://www.souviks.co.in/bn/products/alk-1014-drag-link-end-t-intra.html",
-        "item": {
-          "@type": "Product",
-          "name": "Drag Link End T. Intra",
-          "url": "https://www.souviks.co.in/bn/products/alk-1014-drag-link-end-t-intra.html"
-        }
+        "item": "https://www.souviks.co.in/bn/products/alk-1014-drag-link-end-t-intra.html"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Tie Rod End T. ACE Mega L=R",
         "url": "https://www.souviks.co.in/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr.html",
-        "item": {
-          "@type": "Product",
-          "name": "Tie Rod End T. ACE Mega L=R",
-          "url": "https://www.souviks.co.in/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr.html"
-        }
+        "item": "https://www.souviks.co.in/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr.html"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Tie Rod End RH/LH T. Ace H/T",
         "url": "https://www.souviks.co.in/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht.html",
-        "item": {
-          "@type": "Product",
-          "name": "Tie Rod End RH/LH T. Ace H/T",
-          "url": "https://www.souviks.co.in/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht.html"
-        }
+        "item": "https://www.souviks.co.in/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht.html"
       }
     ]
   }
@@ -314,7 +310,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -334,6 +337,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -352,6 +356,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ইমেইল">
 
                 info@souviks.co.in
@@ -368,6 +373,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ফোন">
 
                 +91 94343 31896
@@ -381,11 +387,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="হোয়াটসঅ্যাপ">
 
                 হোয়াটসঅ্যাপ
@@ -803,23 +810,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -857,7 +864,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -1011,7 +1018,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/bn/brands.html">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Alok</li>
 
         </ol>
 
@@ -1028,7 +1035,7 @@ BRAND HERO
     <div class="container">
 
         <div id="brand-detail" data-static-rendered="true">
-            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/alok.png" alt="Alok" loading="lazy" decoding="async"></div><div class="brand-info"><h1>Alok</h1><p>Souviks catalogue: 3 active products from Alok. Categories include Suspension &amp; Steering. Listed vehicle applications include Tata Ace, Tata Intra.</p></div></div>
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/alok.png" alt="Alok" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Alok</h1><p>Souviks catalogue: 3 active products from Alok. Categories include Suspension &amp; Steering. Listed vehicle applications include Tata Ace, Tata Intra.</p></div></div>
         </div>
 
     </div>
@@ -1064,7 +1071,7 @@ BRAND PRODUCTS
             class="products-grid"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/bn/products/alk-1014-drag-link-end-t-intra.html" class="product-link" aria-label="View Drag Link End T. Intra"><img class="product-image-file" src="/assets/images/products/SVKS000224/1.webp" alt="Drag Link End T. Intra" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000224" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/alk-1014-drag-link-end-t-intra.html">Drag Link End T. Intra</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000224" data-part="ALK 1014" data-name="Drag Link End T. Intra" data-brand="Alok" aria-label="Add Drag Link End T. Intra to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr.html" class="product-link" aria-label="View Tie Rod End T. ACE Mega L=R"><img class="product-image-file" src="/assets/images/products/SVKS000225/1.webp" alt="Tie Rod End T. ACE Mega L=R" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000225" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr.html">Tie Rod End T. ACE Mega L=R</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000225" data-part="ALK 2312" data-name="Tie Rod End T. ACE Mega L=R" data-brand="Alok" aria-label="Add Tie Rod End T. ACE Mega L=R to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht.html" class="product-link" aria-label="View Tie Rod End RH/LH T. Ace H/T"><img class="product-image-file" src="/assets/images/products/SVKS000226/1.webp" alt="Tie Rod End RH/LH T. Ace H/T" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000226" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht.html">Tie Rod End RH/LH T. Ace H/T</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000226" data-part="ALK 2314" data-name="Tie Rod End RH/LH T. Ace H/T" data-brand="Alok" aria-label="Add Tie Rod End RH/LH T. Ace H/T to RFQ">RFQ-তে যোগ করুন</button></div></article>
+            <article class="product-card"><div class="product-image"><a href="/bn/products/alk-1014-drag-link-end-t-intra.html" class="product-link" aria-label="View Drag Link End T. Intra"><img class="product-image-file" src="/assets/images/products/SVKS000224/1.webp" alt="Drag Link End T. Intra" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000224" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 1014</strong></div><h3 class="product-title"><a href="/bn/products/alk-1014-drag-link-end-t-intra.html">Drag Link End T. Intra</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000224" data-part="ALK 1014" data-name="Drag Link End T. Intra" data-brand="Alok" aria-label="Add Drag Link End T. Intra to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr.html" class="product-link" aria-label="View Tie Rod End T. ACE Mega L=R"><img class="product-image-file" src="/assets/images/products/SVKS000225/1.webp" alt="Tie Rod End T. ACE Mega L=R" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000225" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2312</strong></div><h3 class="product-title"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr.html">Tie Rod End T. ACE Mega L=R</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000225" data-part="ALK 2312" data-name="Tie Rod End T. ACE Mega L=R" data-brand="Alok" aria-label="Add Tie Rod End T. ACE Mega L=R to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht.html" class="product-link" aria-label="View Tie Rod End RH/LH T. Ace H/T"><img class="product-image-file" src="/assets/images/products/SVKS000226/1.webp" alt="Tie Rod End RH/LH T. Ace H/T" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000226" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2314</strong></div><h3 class="product-title"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht.html">Tie Rod End RH/LH T. Ace H/T</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000226" data-part="ALK 2314" data-name="Tie Rod End RH/LH T. Ace H/T" data-brand="Alok" aria-label="Add Tie Rod End RH/LH T. Ace H/T to RFQ">RFQ-তে যোগ করুন</button></div></article>
 
         </div>
 
@@ -1145,7 +1152,9 @@ BRAND PRODUCTS
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks লোগো">
 
             </a>
@@ -1160,27 +1169,29 @@ BRAND PRODUCTS
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1276,7 +1287,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/location.svg"
                         alt="ঠিকানা"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1291,7 +1302,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/phone.svg"
                         alt="ফোন"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1306,7 +1317,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="মোবাইল"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1321,7 +1332,7 @@ BRAND PRODUCTS
                     <img
     src="/assets/icons/email.svg"
     alt="ইমেইল"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1532,31 +1543,13 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/brand.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script defer src="/assets/js/pages/brand-page.js"></script>
+
 
 
 <!-- ==========================================

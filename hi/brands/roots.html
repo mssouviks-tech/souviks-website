@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/brand.css">
 
 
 
@@ -234,55 +242,35 @@ Reusable Head Component
         "position": 1,
         "name": "Vibrosonic Horn 12V",
         "url": "https://www.souviks.co.in/hi/products/12vvsu0128-vibrosonic-horn-12v.html",
-        "item": {
-          "@type": "Product",
-          "name": "Vibrosonic Horn 12V",
-          "url": "https://www.souviks.co.in/hi/products/12vvsu0128-vibrosonic-horn-12v.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/12vvsu0128-vibrosonic-horn-12v.html"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Wind Tone Horn",
         "url": "https://www.souviks.co.in/hi/products/12vwnuo12s-wind-tone-horn.html",
-        "item": {
-          "@type": "Product",
-          "name": "Wind Tone Horn",
-          "url": "https://www.souviks.co.in/hi/products/12vwnuo12s-wind-tone-horn.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/12vwnuo12s-wind-tone-horn.html"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Vibrosonic Horn",
         "url": "https://www.souviks.co.in/hi/products/24vvsu024h-vibrosonic-horn.html",
-        "item": {
-          "@type": "Product",
-          "name": "Vibrosonic Horn",
-          "url": "https://www.souviks.co.in/hi/products/24vvsu024h-vibrosonic-horn.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/24vvsu024h-vibrosonic-horn.html"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "Horn Mini 24V",
         "url": "https://www.souviks.co.in/hi/products/hm24ds-r1-horn-mini-24v.html",
-        "item": {
-          "@type": "Product",
-          "name": "Horn Mini 24V",
-          "url": "https://www.souviks.co.in/hi/products/hm24ds-r1-horn-mini-24v.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/hm24ds-r1-horn-mini-24v.html"
       },
       {
         "@type": "ListItem",
         "position": 5,
         "name": "Siren Multitone 12V/24V",
         "url": "https://www.souviks.co.in/hi/products/rsmprc-siren-multitone-12v24v.html",
-        "item": {
-          "@type": "Product",
-          "name": "Siren Multitone 12V/24V",
-          "url": "https://www.souviks.co.in/hi/products/rsmprc-siren-multitone-12v24v.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/rsmprc-siren-multitone-12v24v.html"
       }
     ]
   }
@@ -336,7 +324,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -356,6 +351,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -374,6 +370,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ईमेल">
 
                 info@souviks.co.in
@@ -390,6 +387,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="फ़ोन">
 
                 +91 94343 31896
@@ -403,11 +401,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="व्हाट्सऐप">
 
                 व्हाट्सऐप
@@ -825,23 +824,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -879,7 +878,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -1033,7 +1032,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/hi/brands.html">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Roots</li>
 
         </ol>
 
@@ -1050,7 +1049,7 @@ BRAND HERO
     <div class="container">
 
         <div id="brand-detail" data-static-rendered="true">
-            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/roots.png" alt="Roots" loading="lazy" decoding="async"></div><div class="brand-info"><h1>Roots</h1><p>Souviks catalogue: 5 active products from Roots. Categories include Electricals, Suspension &amp; Steering. Listed vehicle applications include Ashok Leyland 2516, Tata LPT, Tata Signa, Universal.</p></div></div>
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/roots.png" alt="Roots" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Roots</h1><p>Souviks catalogue: 5 active products from Roots. Categories include Electricals, Suspension &amp; Steering. Listed vehicle applications include Ashok Leyland 2516, Tata LPT, Tata Signa, Universal.</p></div></div>
         </div>
 
     </div>
@@ -1086,7 +1085,7 @@ BRAND PRODUCTS
             class="products-grid"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/hi/products/12vvsu0128-vibrosonic-horn-12v.html" class="product-link" aria-label="View Vibrosonic Horn 12V"><img class="product-image-file" src="/assets/images/products/SVKS000030/1-front.webp" alt="Vibrosonic Horn 12V" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000030" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/12vvsu0128-vibrosonic-horn-12v.html">Vibrosonic Horn 12V</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000030" data-part="12V/VSU0128" data-name="Vibrosonic Horn 12V" data-brand="Roots" aria-label="Add Vibrosonic Horn 12V to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/12vwnuo12s-wind-tone-horn.html" class="product-link" aria-label="View Wind Tone Horn"><img class="product-image-file" src="/assets/images/products/SVKS000031/1-front.webp" alt="Wind Tone Horn" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000031" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/12vwnuo12s-wind-tone-horn.html">Wind Tone Horn</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000031" data-part="12V/WNUO12S" data-name="Wind Tone Horn" data-brand="Roots" aria-label="Add Wind Tone Horn to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/24vvsu024h-vibrosonic-horn.html" class="product-link" aria-label="View Vibrosonic Horn"><img class="product-image-file" src="/assets/images/products/SVKS000065/1.webp" alt="Vibrosonic Horn" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000065" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/24vvsu024h-vibrosonic-horn.html">Vibrosonic Horn</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000065" data-part="24V/VSU024H" data-name="Vibrosonic Horn" data-brand="Roots" aria-label="Add Vibrosonic Horn to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/hm24ds-r1-horn-mini-24v.html" class="product-link" aria-label="View Horn Mini 24V"><img class="product-image-file" src="/assets/images/products/SVKS000319/1.webp" alt="Horn Mini 24V" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000319" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/hm24ds-r1-horn-mini-24v.html">Horn Mini 24V</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000319" data-part="HM24DS R1" data-name="Horn Mini 24V" data-brand="Roots" aria-label="Add Horn Mini 24V to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/rsmprc-siren-multitone-12v24v.html" class="product-link" aria-label="View Siren Multitone 12V/24V"><img class="product-image-file" src="/assets/images/products/SVKS000432/1.webp" alt="Siren Multitone 12V/24V" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000432" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/rsmprc-siren-multitone-12v24v.html">Siren Multitone 12V/24V</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000432" data-part="RSMPRC" data-name="Siren Multitone 12V/24V" data-brand="Roots" aria-label="Add Siren Multitone 12V/24V to RFQ">RFQ में जोड़ें</button></div></article>
+            <article class="product-card"><div class="product-image"><a href="/hi/products/12vvsu0128-vibrosonic-horn-12v.html" class="product-link" aria-label="View Vibrosonic Horn 12V"><img class="product-image-file" src="/assets/images/products/SVKS000030/1-front.webp" alt="Vibrosonic Horn 12V" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000030" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Roots</div><div class="product-part-number">Part No. <strong>12V/VSU0128</strong></div><h3 class="product-title"><a href="/hi/products/12vvsu0128-vibrosonic-horn-12v.html">Vibrosonic Horn 12V</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹900</span><span class="product-price-mrp">MRP ₹1,383</span><span class="product-price-discount">35% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000030" data-part="12V/VSU0128" data-name="Vibrosonic Horn 12V" data-brand="Roots" aria-label="Add Vibrosonic Horn 12V to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/12vwnuo12s-wind-tone-horn.html" class="product-link" aria-label="View Wind Tone Horn"><img class="product-image-file" src="/assets/images/products/SVKS000031/1-front.webp" alt="Wind Tone Horn" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000031" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Roots</div><div class="product-part-number">Part No. <strong>12V/WNUO12S</strong></div><h3 class="product-title"><a href="/hi/products/12vwnuo12s-wind-tone-horn.html">Wind Tone Horn</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,749</span><span class="product-price-mrp">MRP ₹2,149</span><span class="product-price-discount">19% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000031" data-part="12V/WNUO12S" data-name="Wind Tone Horn" data-brand="Roots" aria-label="Add Wind Tone Horn to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/24vvsu024h-vibrosonic-horn.html" class="product-link" aria-label="View Vibrosonic Horn"><img class="product-image-file" src="/assets/images/products/SVKS000065/1.webp" alt="Vibrosonic Horn" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000065" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Roots</div><div class="product-part-number">Part No. <strong>24V/VSU024H</strong></div><h3 class="product-title"><a href="/hi/products/24vvsu024h-vibrosonic-horn.html">Vibrosonic Horn</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹900</span><span class="product-price-mrp">MRP ₹1,383</span><span class="product-price-discount">35% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000065" data-part="24V/VSU024H" data-name="Vibrosonic Horn" data-brand="Roots" aria-label="Add Vibrosonic Horn to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/hm24ds-r1-horn-mini-24v.html" class="product-link" aria-label="View Horn Mini 24V"><img class="product-image-file" src="/assets/images/products/SVKS000319/1.webp" alt="Horn Mini 24V" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000319" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Roots</div><div class="product-part-number">Part No. <strong>HM24DS R1</strong></div><h3 class="product-title"><a href="/hi/products/hm24ds-r1-horn-mini-24v.html">Horn Mini 24V</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹550</span><span class="product-price-mrp">MRP ₹790</span><span class="product-price-discount">30% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000319" data-part="HM24DS R1" data-name="Horn Mini 24V" data-brand="Roots" aria-label="Add Horn Mini 24V to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/rsmprc-siren-multitone-12v24v.html" class="product-link" aria-label="View Siren Multitone 12V/24V"><img class="product-image-file" src="/assets/images/products/SVKS000432/1.webp" alt="Siren Multitone 12V/24V" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000432" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Roots</div><div class="product-part-number">Part No. <strong>RSMPRC</strong></div><h3 class="product-title"><a href="/hi/products/rsmprc-siren-multitone-12v24v.html">Siren Multitone 12V/24V</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹670</span><span class="product-price-mrp">MRP ₹1,150</span><span class="product-price-discount">42% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000432" data-part="RSMPRC" data-name="Siren Multitone 12V/24V" data-brand="Roots" aria-label="Add Siren Multitone 12V/24V to RFQ">RFQ में जोड़ें</button></div></article>
 
         </div>
 
@@ -1167,7 +1166,9 @@ BRAND PRODUCTS
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks लोगो">
 
             </a>
@@ -1182,27 +1183,29 @@ BRAND PRODUCTS
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1298,7 +1301,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/location.svg"
                         alt="पता"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1313,7 +1316,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/phone.svg"
                         alt="फ़ोन"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1328,7 +1331,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="मोबाइल"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1343,7 +1346,7 @@ BRAND PRODUCTS
                     <img
     src="/assets/icons/email.svg"
     alt="ईमेल"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1554,31 +1557,13 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/brand.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script defer src="/assets/js/pages/brand-page.js"></script>
+
 
 
 <!-- ==========================================

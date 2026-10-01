@@ -249,6 +249,30 @@
               "null"
             ]
           },
+          "manufacturer_part_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "alternate_part_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "oem_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cross_references": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "product_name": {
             "type": "string"
           },

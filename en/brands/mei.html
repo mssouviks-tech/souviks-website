@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/brand.css">
 
 
 
@@ -227,84 +235,49 @@ Reusable Head Component
   "mainEntity": {
     "@type": "ItemList",
     "itemListOrder": "https://schema.org/ItemListOrderAscending",
-    "numberOfItems": 7,
+    "numberOfItems": 6,
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Clutch Booster Assy. 700 Dia",
+        "name": "Clutch Booster Assy. 70 mm Dia",
         "url": "https://www.souviks.co.in/en/products/cb300130-clutch-booster-assy-700-dia.html",
-        "item": {
-          "@type": "Product",
-          "name": "Clutch Booster Assy. 700 Dia",
-          "url": "https://www.souviks.co.in/en/products/cb300130-clutch-booster-assy-700-dia.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/cb300130-clutch-booster-assy-700-dia.html"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Manual Slack Adjuster",
         "url": "https://www.souviks.co.in/en/products/msa-18-02p-manual-slack-adjuster.html",
-        "item": {
-          "@type": "Product",
-          "name": "Manual Slack Adjuster",
-          "url": "https://www.souviks.co.in/en/products/msa-18-02p-manual-slack-adjuster.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/msa-18-02p-manual-slack-adjuster.html"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Manual Slack Adjuster RH",
         "url": "https://www.souviks.co.in/en/products/msa-af-18-03p-manual-slack-adjuster-rh.html",
-        "item": {
-          "@type": "Product",
-          "name": "Manual Slack Adjuster RH",
-          "url": "https://www.souviks.co.in/en/products/msa-af-18-03p-manual-slack-adjuster-rh.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/msa-af-18-03p-manual-slack-adjuster-rh.html"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "Manual Slack Adjuster",
         "url": "https://www.souviks.co.in/en/products/msa-af-18-257p-manual-slack-adjuster.html",
-        "item": {
-          "@type": "Product",
-          "name": "Manual Slack Adjuster",
-          "url": "https://www.souviks.co.in/en/products/msa-af-18-257p-manual-slack-adjuster.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/msa-af-18-257p-manual-slack-adjuster.html"
       },
       {
         "@type": "ListItem",
         "position": 5,
         "name": "Manual Slack Adjuster LH",
         "url": "https://www.souviks.co.in/en/products/msa-af-18-273-manual-slack-adjuster-lh.html",
-        "item": {
-          "@type": "Product",
-          "name": "Manual Slack Adjuster LH",
-          "url": "https://www.souviks.co.in/en/products/msa-af-18-273-manual-slack-adjuster-lh.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/msa-af-18-273-manual-slack-adjuster-lh.html"
       },
       {
         "@type": "ListItem",
         "position": 6,
         "name": "Manual Slack Adjuster RH",
         "url": "https://www.souviks.co.in/en/products/msa-af-18-274-manual-slack-adjuster-rh.html",
-        "item": {
-          "@type": "Product",
-          "name": "Manual Slack Adjuster RH",
-          "url": "https://www.souviks.co.in/en/products/msa-af-18-274-manual-slack-adjuster-rh.html"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 7,
-        "name": "SMS3007 Manual Slack Adjuster",
-        "url": "https://www.souviks.co.in/en/products/mei-sms3007-manual-slack-adjuster.html",
-        "item": {
-          "@type": "Product",
-          "name": "SMS3007 Manual Slack Adjuster",
-          "url": "https://www.souviks.co.in/en/products/mei-sms3007-manual-slack-adjuster.html"
-        }
+        "item": "https://www.souviks.co.in/en/products/msa-af-18-274-manual-slack-adjuster-rh.html"
       }
     ]
   }
@@ -358,7 +331,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -378,6 +358,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -396,6 +377,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Email">
 
                 info@souviks.co.in
@@ -412,6 +394,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Phone">
 
                 +91 94343 31896
@@ -425,11 +408,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="WhatsApp">
 
                 WhatsApp
@@ -847,23 +831,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -901,7 +885,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -1055,7 +1039,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/en/brands.html">Brands</a></li><li class="breadcrumb-item active" aria-current="page">MEI</li>
 
         </ol>
 
@@ -1072,7 +1056,7 @@ BRAND HERO
     <div class="container">
 
         <div id="brand-detail" data-static-rendered="true">
-            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/mei.png" alt="MEI" loading="lazy" decoding="async"></div><div class="brand-info"><h1>MEI</h1><p>Souviks catalogue: 7 active products from MEI. Categories include Brakes, Clutch Parts. Listed vehicle applications include Ashok Leyland 2516, Ashok Leyland Captain, Tata LPT, Tata Prima, Tata Signa, Universal.</p></div></div>
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/mei.png" alt="MEI" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>MEI</h1><p>Souviks catalogue: 6 active products from MEI. Categories include Brakes, Clutch Parts. Listed vehicle applications include Ashok Leyland 2516, Ashok Leyland Captain, Tata LPT, Tata Prima, Tata Signa.</p></div></div>
         </div>
 
     </div>
@@ -1108,7 +1092,7 @@ BRAND PRODUCTS
             class="products-grid"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/en/products/cb300130-clutch-booster-assy-700-dia.html" class="product-link" aria-label="View Clutch Booster Assy. 700 Dia"><img class="product-image-file" src="/assets/images/products/SVKS000364/1.webp" alt="Clutch Booster Assy. 700 Dia" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000364" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/cb300130-clutch-booster-assy-700-dia.html">Clutch Booster Assy. 700 Dia</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000364" data-part="CB300130" data-name="Clutch Booster Assy. 700 Dia" data-brand="MEI" aria-label="Add Clutch Booster Assy. 700 Dia to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-18-02p-manual-slack-adjuster.html" class="product-link" aria-label="View Manual Slack Adjuster"><img class="product-image-file" src="/assets/images/products/SVKS000366/1.webp" alt="Manual Slack Adjuster" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000366" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/msa-18-02p-manual-slack-adjuster.html">Manual Slack Adjuster</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000366" data-part="MSA 18-02P" data-name="Manual Slack Adjuster" data-brand="MEI" aria-label="Add Manual Slack Adjuster to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-af-18-03p-manual-slack-adjuster-rh.html" class="product-link" aria-label="View Manual Slack Adjuster RH"><img class="product-image-file" src="/assets/images/products/SVKS000367/1.webp" alt="Manual Slack Adjuster RH" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000367" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/msa-af-18-03p-manual-slack-adjuster-rh.html">Manual Slack Adjuster RH</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000367" data-part="MSA AF 18-03P" data-name="Manual Slack Adjuster RH" data-brand="MEI" aria-label="Add Manual Slack Adjuster RH to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-af-18-257p-manual-slack-adjuster.html" class="product-link" aria-label="View Manual Slack Adjuster"><img class="product-image-file" src="/assets/images/products/SVKS000368/1.webp" alt="Manual Slack Adjuster" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000368" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/msa-af-18-257p-manual-slack-adjuster.html">Manual Slack Adjuster</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000368" data-part="MSA AF 18-257P" data-name="Manual Slack Adjuster" data-brand="MEI" aria-label="Add Manual Slack Adjuster to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-af-18-273-manual-slack-adjuster-lh.html" class="product-link" aria-label="View Manual Slack Adjuster LH"><img class="product-image-file" src="/assets/images/products/SVKS000369/1.webp" alt="Manual Slack Adjuster LH" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000369" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/msa-af-18-273-manual-slack-adjuster-lh.html">Manual Slack Adjuster LH</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000369" data-part="MSA AF 18-273" data-name="Manual Slack Adjuster LH" data-brand="MEI" aria-label="Add Manual Slack Adjuster LH to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-af-18-274-manual-slack-adjuster-rh.html" class="product-link" aria-label="View Manual Slack Adjuster RH"><img class="product-image-file" src="/assets/images/products/SVKS000370/1.webp" alt="Manual Slack Adjuster RH" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000370" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/msa-af-18-274-manual-slack-adjuster-rh.html">Manual Slack Adjuster RH</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000370" data-part="MSA AF 18-274" data-name="Manual Slack Adjuster RH" data-brand="MEI" aria-label="Add Manual Slack Adjuster RH to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/mei-sms3007-manual-slack-adjuster.html" class="product-link" aria-label="View SMS3007 Manual Slack Adjuster"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="SMS3007 Manual Slack Adjuster" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000764" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/mei-sms3007-manual-slack-adjuster.html">SMS3007 Manual Slack Adjuster</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000764" data-part="SMS3007" data-name="SMS3007 Manual Slack Adjuster" data-brand="MEI" aria-label="Add SMS3007 Manual Slack Adjuster to RFQ">Add To RFQ</button></div></article>
+            <article class="product-card"><div class="product-image"><a href="/en/products/cb300130-clutch-booster-assy-700-dia.html" class="product-link" aria-label="View Clutch Booster Assy. 70 mm Dia"><img class="product-image-file" src="/assets/images/products/SVKS000364/1.webp" alt="Clutch Booster Assy. 70 mm Dia" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000364" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MEI</div><div class="product-part-number">Part No. <strong>CB300130</strong></div><h3 class="product-title"><a href="/en/products/cb300130-clutch-booster-assy-700-dia.html">Clutch Booster Assy. 70 mm Dia</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,399</span><span class="product-price-mrp">MRP ₹2,611</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000364" data-part="CB300130" data-name="Clutch Booster Assy. 70 mm Dia" data-brand="MEI" aria-label="Add Clutch Booster Assy. 70 mm Dia to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-18-02p-manual-slack-adjuster.html" class="product-link" aria-label="View Manual Slack Adjuster"><img class="product-image-file" src="/assets/images/products/SVKS000366/1.webp" alt="Manual Slack Adjuster" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000366" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MEI</div><div class="product-part-number">Part No. <strong>MSA 18-02P</strong></div><h3 class="product-title"><a href="/en/products/msa-18-02p-manual-slack-adjuster.html">Manual Slack Adjuster</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,119</span><span class="product-price-mrp">MRP ₹1,233</span><span class="product-price-discount">9% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000366" data-part="MSA 18-02P" data-name="Manual Slack Adjuster" data-brand="MEI" aria-label="Add Manual Slack Adjuster to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-af-18-03p-manual-slack-adjuster-rh.html" class="product-link" aria-label="View Manual Slack Adjuster RH"><img class="product-image-file" src="/assets/images/products/SVKS000367/1.webp" alt="Manual Slack Adjuster RH" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000367" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MEI</div><div class="product-part-number">Part No. <strong>MSA AF 18-03P</strong></div><h3 class="product-title"><a href="/en/products/msa-af-18-03p-manual-slack-adjuster-rh.html">Manual Slack Adjuster RH</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,149</span><span class="product-price-mrp">MRP ₹1,270</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000367" data-part="MSA AF 18-03P" data-name="Manual Slack Adjuster RH" data-brand="MEI" aria-label="Add Manual Slack Adjuster RH to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-af-18-257p-manual-slack-adjuster.html" class="product-link" aria-label="View Manual Slack Adjuster"><img class="product-image-file" src="/assets/images/products/SVKS000368/1.webp" alt="Manual Slack Adjuster" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000368" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MEI</div><div class="product-part-number">Part No. <strong>MSA AF 18-257P</strong></div><h3 class="product-title"><a href="/en/products/msa-af-18-257p-manual-slack-adjuster.html">Manual Slack Adjuster</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,049</span><span class="product-price-mrp">MRP ₹1,170</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000368" data-part="MSA AF 18-257P" data-name="Manual Slack Adjuster" data-brand="MEI" aria-label="Add Manual Slack Adjuster to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-af-18-273-manual-slack-adjuster-lh.html" class="product-link" aria-label="View Manual Slack Adjuster LH"><img class="product-image-file" src="/assets/images/products/SVKS000369/1.webp" alt="Manual Slack Adjuster LH" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000369" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MEI</div><div class="product-part-number">Part No. <strong>MSA AF 18-273</strong></div><h3 class="product-title"><a href="/en/products/msa-af-18-273-manual-slack-adjuster-lh.html">Manual Slack Adjuster LH</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,349</span><span class="product-price-mrp">MRP ₹1,515</span><span class="product-price-discount">11% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000369" data-part="MSA AF 18-273" data-name="Manual Slack Adjuster LH" data-brand="MEI" aria-label="Add Manual Slack Adjuster LH to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/msa-af-18-274-manual-slack-adjuster-rh.html" class="product-link" aria-label="View Manual Slack Adjuster RH"><img class="product-image-file" src="/assets/images/products/SVKS000370/1.webp" alt="Manual Slack Adjuster RH" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000370" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MEI</div><div class="product-part-number">Part No. <strong>MSA AF 18-274</strong></div><h3 class="product-title"><a href="/en/products/msa-af-18-274-manual-slack-adjuster-rh.html">Manual Slack Adjuster RH</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,349</span><span class="product-price-mrp">MRP ₹1,515</span><span class="product-price-discount">11% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000370" data-part="MSA AF 18-274" data-name="Manual Slack Adjuster RH" data-brand="MEI" aria-label="Add Manual Slack Adjuster RH to RFQ">Add To RFQ</button></div></article>
 
         </div>
 
@@ -1189,7 +1173,9 @@ BRAND PRODUCTS
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks Logo">
 
             </a>
@@ -1204,27 +1190,29 @@ BRAND PRODUCTS
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1320,7 +1308,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/location.svg"
                         alt="Address"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1335,7 +1323,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/phone.svg"
                         alt="Phone"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1350,7 +1338,7 @@ BRAND PRODUCTS
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="Mobile"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1365,7 +1353,7 @@ BRAND PRODUCTS
                     <img
     src="/assets/icons/email.svg"
     alt="Email"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1576,31 +1564,13 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/brand.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script defer src="/assets/js/pages/brand-page.js"></script>
+
 
 
 <!-- ==========================================

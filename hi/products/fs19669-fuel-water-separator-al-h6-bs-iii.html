@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000293/Fuel%20Water%20Separator%20AL%20H6%20BS%20III.webp">
+    content="https://www.souviks.co.in/assets/images/products/SVKS000293/1.webp">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000293/Fuel%20Water%20Separator%20AL%20H6%20BS%20III.webp">
+    content="https://www.souviks.co.in/assets/images/products/SVKS000293/1.webp">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/product.css">
 
 
 
@@ -214,16 +222,14 @@ Reusable Head Component
     "https://www.souviks.co.in/assets/images/products/SVKS000293/1.webp",
     "https://www.souviks.co.in/assets/images/products/SVKS000293/2.webp",
     "https://www.souviks.co.in/assets/images/products/SVKS000293/3.webp",
-    "https://www.souviks.co.in/assets/images/products/SVKS000293/4.webp",
-    "https://www.souviks.co.in/assets/images/products/SVKS000293/5.webp",
-    "https://www.souviks.co.in/assets/images/products/SVKS000293/6.webp"
+    "https://www.souviks.co.in/assets/images/products/SVKS000293/4.webp"
   ],
   "sku": "SVKS000293",
-  "mpn": "FS19669",
+  "mpn": "FHJ00700",
   "identifier": [
     {
       "propertyID": "part_number",
-      "value": "FS19669"
+      "value": "FHJ00700"
     }
   ],
   "brand": {
@@ -235,7 +241,7 @@ Reusable Head Component
     "@type": "Offer",
     "url": "https://www.souviks.co.in/hi/products/fs19669-fuel-water-separator-al-h6-bs-iii.html",
     "priceCurrency": "INR",
-    "price": 999.0,
+    "price": 1003.2,
     "seller": {
       "@type": "Organization",
       "name": "Souviks"
@@ -285,7 +291,7 @@ Reusable Head Component
          OPTIONAL PRELOADS
     =========================================== -->
 
-    
+    <link rel="preload" as="image" href="/assets/images/products/SVKS000293/1.webp" fetchpriority="high">
 
     <!-- ==========================================
          PAGE-SPECIFIC META
@@ -303,7 +309,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -323,6 +336,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -341,6 +355,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ईमेल">
 
                 info@souviks.co.in
@@ -357,6 +372,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="फ़ोन">
 
                 +91 94343 31896
@@ -370,11 +386,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="व्हाट्सऐप">
 
                 व्हाट्सऐप
@@ -792,23 +809,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -846,7 +863,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -1000,7 +1017,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/hi/">Home</a></li><li class="breadcrumb-item"><a href="/hi/products.html">Products</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/hi/categories/filters.html">Filters</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/hi/brands/fleetguard.html">Fleetguard</a></li><li class="breadcrumb-item active" aria-current="page">Fuel Water Separator AL H6 BS III</li>
 
         </ol>
 
@@ -1009,8 +1026,51 @@ SOUVIKS BREADCRUMB
 </nav>
 
 <div id="product-detail" data-static-rendered="true">
-<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/fleetguard.png" alt="Fleetguard" loading="lazy" decoding="async"></div><div class="pdp-main-image"><img id="pdpMainImage" src="/assets/images/products/SVKS000293/1.webp" alt="Fuel Water Separator AL H6 BS III" loading="eager" decoding="async"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 1"><img src="/assets/images/products/SVKS000293/1.webp" alt="Fuel Water Separator AL H6 BS III image 1" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 2"><img src="/assets/images/products/SVKS000293/2.webp" alt="Fuel Water Separator AL H6 BS III image 2" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 3"><img src="/assets/images/products/SVKS000293/3.webp" alt="Fuel Water Separator AL H6 BS III image 3" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 4"><img src="/assets/images/products/SVKS000293/4.webp" alt="Fuel Water Separator AL H6 BS III image 4" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 5"><img src="/assets/images/products/SVKS000293/5.webp" alt="Fuel Water Separator AL H6 BS III image 5" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 6"><img src="/assets/images/products/SVKS000293/6.webp" alt="Fuel Water Separator AL H6 BS III image 6" loading="lazy" decoding="async"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">In Stock</span><span class="pdp-genuine">100% Genuine</span></div><h1 class="pdp-title">Fuel Water Separator AL H6 BS III</h1><div class="pdp-part">PART ID: SVKS000293</div><div class="pdp-pricing" aria-label="Product pricing"><div class="pdp-price-mrp"><span class="pdp-price-label">MRP</span><span class="pdp-price-value">₹1,056</span></div><div class="pdp-price-selling"><span class="pdp-price-label">Selling Price</span><span class="pdp-price-value">₹999</span></div><span class="pdp-price-discount">5% OFF</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000293</span></div><div class="pdp-row"><strong>पार्ट नंबर</strong><span>FS19669</span></div><div class="pdp-row"><strong>ब्रांड</strong><span>Fleetguard</span></div><div class="pdp-row"><strong>श्रेणी</strong><span>Filters</span></div><div class="pdp-row"><strong>उपश्रेणी</strong><span>Fuel Water Separator</span></div><div class="pdp-row"><strong>उपयोग</strong><span>Fuel Water Separation System</span></div><div class="pdp-row"><strong>संगत वाहन</strong><span>Ashok Leyland 2516</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">कोटेशन का अनुरोध करें</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>पार्ट का अनुरोध करें</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="FS19669" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">कोटेशन का अनुरोध करें</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts"><div><strong>100% Genuine Products</strong><span>Original & Authorized</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">विवरण</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>विवरण</h3><p>Fleetguard separator designed specifically for Ashok Leyland H6 BS3 engines.</p></div><div class="pdp-description-card"><h3>उपयोग</h3><ul><li>Fuel Water Separation System</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">संगत वाहन</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Ashok Leyland 2516</h4></div></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">संबंधित उत्पाद</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/hi/products/fs1967100-fws-wo-dv-for-al-cb18-fip-crs-engine-1338.html" class="product-link" aria-label="View FWS w/o DV for AL CB18 FIP CRS Engine [1338]"><img class="product-image-file" src="/assets/images/products/SVKS000284/1.webp" alt="FWS w/o DV for AL CB18 FIP CRS Engine [1338]" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000284" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/fs1967100-fws-wo-dv-for-al-cb18-fip-crs-engine-1338.html">FWS w/o DV for AL CB18 FIP CRS Engine [1338]</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,449</span><span class="product-price-mrp">MRP ₹1,518</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000284" data-part="FS1967100" data-name="FWS w/o DV for AL CB18 FIP CRS Engine [1338]" data-brand="Fleetguard" aria-label="Add FWS w/o DV for AL CB18 FIP CRS Engine [1338] to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs19636-fuel-water-separator-al-bs-ii-bs-iii.html" class="product-link" aria-label="View Fuel Water Separator AL BS II &amp; BS III"><img class="product-image-file" src="/assets/images/products/SVKS000292/1.webp" alt="Fuel Water Separator AL BS II &amp; BS III" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000292" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/fs19636-fuel-water-separator-al-bs-ii-bs-iii.html">Fuel Water Separator AL BS II &amp; BS III</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,449</span><span class="product-price-mrp">MRP ₹1,540</span><span class="product-price-discount">6% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000292" data-part="FS19636" data-name="Fuel Water Separator AL BS II &amp; BS III" data-brand="Fleetguard" aria-label="Add Fuel Water Separator AL BS II &amp; BS III to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs19671-fuel-water-separator-al-cb18-fip-crs.html" class="product-link" aria-label="View Fuel Water Separator AL CB18 FIP CRS"><img class="product-image-file" src="/assets/images/products/SVKS000294/1.webp" alt="Fuel Water Separator AL CB18 FIP CRS" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000294" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/fs19671-fuel-water-separator-al-cb18-fip-crs.html">Fuel Water Separator AL CB18 FIP CRS</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,409</span><span class="product-price-mrp">MRP ₹1,518</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000294" data-part="FS19671" data-name="Fuel Water Separator AL CB18 FIP CRS" data-brand="Fleetguard" aria-label="Add Fuel Water Separator AL CB18 FIP CRS to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs19671v-fuel-water-separator-al-cb18-fip-crs-bs-iv.html" class="product-link" aria-label="View Fuel Water Separator AL CB18 FIP CRS BS IV"><img class="product-image-file" src="/assets/images/products/SVKS000295/1.webp" alt="Fuel Water Separator AL CB18 FIP CRS BS IV" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000295" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/fs19671v-fuel-water-separator-al-cb18-fip-crs-bs-iv.html">Fuel Water Separator AL CB18 FIP CRS BS IV</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,249</span><span class="product-price-mrp">MRP ₹2,403</span><span class="product-price-discount">6% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000295" data-part="FS19671V" data-name="Fuel Water Separator AL CB18 FIP CRS BS IV" data-brand="Fleetguard" aria-label="Add Fuel Water Separator AL CB18 FIP CRS BS IV to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs20117-fuel-water-separator-cartridge.html" class="product-link" aria-label="View Fuel Water Separator Cartridge"><img class="product-image-file" src="/assets/images/products/SVKS000296/1.webp" alt="Fuel Water Separator Cartridge" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000296" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/fs20117-fuel-water-separator-cartridge.html">Fuel Water Separator Cartridge</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹4,449</span><span class="product-price-mrp">MRP ₹4,724</span><span class="product-price-discount">6% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000296" data-part="FS20117" data-name="Fuel Water Separator Cartridge" data-brand="Fleetguard" aria-label="Add Fuel Water Separator Cartridge to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fleetguard-fs1964400v-fuel-water-separator-for-tata-697-engine-bs-iii.html" class="product-link" aria-label="View Fuel/Water   Separator for Tata 697 Engine BS III"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="Fuel/Water   Separator for Tata 697 Engine BS III" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000688" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/fleetguard-fs1964400v-fuel-water-separator-for-tata-697-engine-bs-iii.html">Fuel/Water   Separator for Tata 697 Engine BS III</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,449</span><span class="product-price-mrp">MRP ₹2,747</span><span class="product-price-discount">11% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000688" data-part="FS1964400V" data-name="Fuel/Water   Separator for Tata 697 Engine BS III" data-brand="Fleetguard" aria-label="Add Fuel/Water   Separator for Tata 697 Engine BS III to RFQ">RFQ में जोड़ें</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
+<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/fleetguard.png" alt="Fleetguard" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-main-image" role="button" tabindex="0" aria-label="Enlarge Fuel Water Separator AL H6 BS III image" title="Click to enlarge"><img id="pdpMainImage" src="/assets/images/products/SVKS000293/1.webp" alt="Fuel Water Separator AL H6 BS III" loading="eager" decoding="async" draggable="false" width="768" height="512"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 1"><img src="/assets/images/products/SVKS000293/1.webp" alt="Fuel Water Separator AL H6 BS III image 1" loading="lazy" decoding="async" draggable="false" width="768" height="512"></button><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 2"><img src="/assets/images/products/SVKS000293/2.webp" alt="Fuel Water Separator AL H6 BS III image 2" loading="lazy" decoding="async" draggable="false" width="768" height="512"></button><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 3"><img src="/assets/images/products/SVKS000293/3.webp" alt="Fuel Water Separator AL H6 BS III image 3" loading="lazy" decoding="async" draggable="false" width="768" height="512"></button><button class="pdp-thumb" type="button" aria-label="View Fuel Water Separator AL H6 BS III image 4"><img src="/assets/images/products/SVKS000293/4.webp" alt="Fuel Water Separator AL H6 BS III image 4" loading="lazy" decoding="async" draggable="false" width="768" height="512"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">Availability subject to confirmation</span><span class="pdp-genuine">Established Brand</span></div><h1 class="pdp-title">Fuel Water Separator AL H6 BS III</h1><div class="pdp-part">PART ID: SVKS000293</div><div class="pdp-pricing" aria-label="Product pricing"><div class="pdp-price-mrp"><span class="pdp-price-label">MRP</span><span class="pdp-price-value">₹1,056</span></div><div class="pdp-price-selling"><span class="pdp-price-label">Selling Price</span><span class="pdp-price-value">₹1,003.20</span></div><span class="pdp-price-discount">5% OFF</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000293</span></div><div class="pdp-row"><strong>पार्ट नंबर</strong><span>FS19669</span></div><div class="pdp-row"><strong>OEM / Manufacturer Reference</strong><span class="pdp-reference-list"><span class="pdp-reference-chip">FHJ00700</span></span></div><div class="pdp-row"><strong>ब्रांड</strong><span>Fleetguard</span></div><div class="pdp-row"><strong>श्रेणी</strong><span>Filters</span></div><div class="pdp-row"><strong>उपश्रेणी</strong><span>Fuel Water Separator</span></div><div class="pdp-row"><strong>उपयोग</strong><span>Fuel Water Separation System</span></div><div class="pdp-row"><strong>संगत वाहन</strong><span>Ashok Leyland 2516</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">कोटेशन का अनुरोध करें</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>पार्ट का अनुरोध करें</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="FS19669" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">कोटेशन का अनुरोध करें</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts" width="24" height="24"><div><strong>Established Brand</strong><span>Catalogue-listed product</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted" width="24" height="24"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory" width="24" height="24"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery" width="24" height="24"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#reviews-section" class="pdp-tab-btn">Reviews</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">विवरण</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>विवरण</h3><p>Fleetguard separator designed specifically for Ashok Leyland H6 BS3 engines.</p></div><div class="pdp-description-card"><h3>उपयोग</h3><ul><li>Fuel Water Separation System</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">संगत वाहन</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Ashok Leyland 2516</h4></div></div></div></section><section id="reviews-section" class="pdp-section pdp-reviews" data-product-id="SVKS000293"><div class="pdp-reviews-header"><div><h2 class="pdp-section-title">Customer Reviews</h2><p class="pdp-section-intro">Reviews from customers who have used or purchased this product through Souviks.</p></div><div class="pdp-review-summary" data-review-summary><strong>—</strong><span>No reviews yet</span></div></div><div class="pdp-review-list" data-review-list><div class="pdp-review-empty">Loading reviews…</div></div><div class="pdp-review-form-wrap" data-review-form-wrap><div class="pdp-review-signin" data-review-signin hidden>Sign in to share your experience with this product.</div><form class="pdp-review-form" data-review-form hidden><div class="pdp-review-form-grid"><div class="form-group"><label for="pdpReviewName">Name</label><input id="pdpReviewName" name="reviewer_name" type="text" maxlength="80" autocomplete="name" required></div><div class="form-group"><label for="pdpReviewRating">Rating</label><select id="pdpReviewRating" name="rating" required><option value="">Select rating</option><option value="5">★★★★★ — Excellent</option><option value="4">★★★★☆ — Very good</option><option value="3">★★★☆☆ — Good</option><option value="2">★★☆☆☆ — Fair</option><option value="1">★☆☆☆☆ — Poor</option></select></div></div><div class="form-group"><label for="pdpReviewTitle">Review title</label><input id="pdpReviewTitle" name="title" type="text" maxlength="120" required></div><div class="form-group"><label for="pdpReviewText">Your review</label><textarea id="pdpReviewText" name="review" rows="5" maxlength="1200" required></textarea></div><button class="btn btn-primary" type="submit">Submit Review</button><p class="pdp-review-form-note">Your review will be published after moderation.</p><div class="pdp-review-status" data-review-status role="status" aria-live="polite"></div></form></div></section><section class="pdp-section pdp-manufacturer-variants" aria-labelledby="manufacturer-variants-title"><h2 id="manufacturer-variants-title" class="pdp-section-title">Available at Souviks</h2><p class="pdp-section-intro">Products in our catalogue matching this manufacturer reference.</p><div class="pdp-manufacturer-variant-grid"><a class="pdp-manufacturer-variant" href="/hi/products/fhj00700-fuel-element-cum-water-separator.html"><span class="pdp-manufacturer-variant-brand">Leyparts</span><strong>Fuel Element Cum Water Separator</strong><span class="pdp-manufacturer-variant-ref">Part No. FHJ00700</span><span class="pdp-manufacturer-variant-oem">Manufacturer No. FHJ00700</span><span class="pdp-manufacturer-variant-price">₹975.20</span><span class="pdp-manufacturer-variant-link">View product →</span></a></div></section><section class="pdp-section pdp-complete-job"><h2 class="pdp-section-title">Frequently used with this part</h2><p class="pdp-section-intro">Related components from the same application, category or system.</p><div class="pdp-related-wrapper"><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/hi/products/fs1967100-fws-wo-dv-for-al-cb18-fip-crs-engine-1338.html" class="product-link" aria-label="View FWS w/o DV for AL CB18 FIP CRS Engine [1338]"><img class="product-image-file" src="/assets/images/products/SVKS000284/1.webp" alt="FWS w/o DV for AL CB18 FIP CRS Engine [1338]" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000284" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS1967100</strong></div><h3 class="product-title"><a href="/hi/products/fs1967100-fws-wo-dv-for-al-cb18-fip-crs-engine-1338.html">FWS w/o DV for AL CB18 FIP CRS Engine [1338]</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,442.10</span><span class="product-price-mrp">MRP ₹1,518</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000284" data-part="FS1967100" data-name="FWS w/o DV for AL CB18 FIP CRS Engine [1338]" data-brand="Fleetguard" aria-label="Add FWS w/o DV for AL CB18 FIP CRS Engine [1338] to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs19636-fuel-water-separator-al-bs-ii-bs-iii.html" class="product-link" aria-label="View Fuel Water Separator AL BS II &amp; BS III"><img class="product-image-file" src="/assets/images/products/SVKS000292/1.webp" alt="Fuel Water Separator AL BS II &amp; BS III" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000292" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS19636</strong></div><h3 class="product-title"><a href="/hi/products/fs19636-fuel-water-separator-al-bs-ii-bs-iii.html">Fuel Water Separator AL BS II &amp; BS III</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,463</span><span class="product-price-mrp">MRP ₹1,540</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000292" data-part="FS19636" data-name="Fuel Water Separator AL BS II &amp; BS III" data-brand="Fleetguard" aria-label="Add Fuel Water Separator AL BS II &amp; BS III to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs19671-fuel-water-separator-al-cb18-fip-crs.html" class="product-link" aria-label="View Fuel Water Separator AL CB18 FIP CRS"><img class="product-image-file" src="/assets/images/products/SVKS000294/1.webp" alt="Fuel Water Separator AL CB18 FIP CRS" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000294" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS19671</strong></div><h3 class="product-title"><a href="/hi/products/fs19671-fuel-water-separator-al-cb18-fip-crs.html">Fuel Water Separator AL CB18 FIP CRS</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,442.10</span><span class="product-price-mrp">MRP ₹1,518</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000294" data-part="FS19671" data-name="Fuel Water Separator AL CB18 FIP CRS" data-brand="Fleetguard" aria-label="Add Fuel Water Separator AL CB18 FIP CRS to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs19671v-fuel-water-separator-al-cb18-fip-crs-bs-iv.html" class="product-link" aria-label="View Fuel Water Separator AL CB18 FIP CRS BS IV"><img class="product-image-file" src="/assets/images/products/SVKS000295/1.webp" alt="Fuel Water Separator AL CB18 FIP CRS BS IV" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000295" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS19671V</strong></div><h3 class="product-title"><a href="/hi/products/fs19671v-fuel-water-separator-al-cb18-fip-crs-bs-iv.html">Fuel Water Separator AL CB18 FIP CRS BS IV</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,282.85</span><span class="product-price-mrp">MRP ₹2,403</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000295" data-part="FS19671V" data-name="Fuel Water Separator AL CB18 FIP CRS BS IV" data-brand="Fleetguard" aria-label="Add Fuel Water Separator AL CB18 FIP CRS BS IV to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs20117-fuel-water-separator-cartridge.html" class="product-link" aria-label="View Fuel Water Separator Cartridge"><img class="product-image-file" src="/assets/images/products/SVKS000296/1.webp" alt="Fuel Water Separator Cartridge" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000296" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS20117</strong></div><h3 class="product-title"><a href="/hi/products/fs20117-fuel-water-separator-cartridge.html">Fuel Water Separator Cartridge</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹4,487.80</span><span class="product-price-mrp">MRP ₹4,724</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000296" data-part="FS20117" data-name="Fuel Water Separator Cartridge" data-brand="Fleetguard" aria-label="Add Fuel Water Separator Cartridge to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fleetguard-fs1964400v-fuel-water-separator-for-tata-697-engine-bs-iii.html" class="product-link" aria-label="View Fuel/Water   Separator for Tata 697 Engine BS III"><img class="product-image-file" src="/assets/images/products/SVKS000688/1.webp" alt="Fuel/Water   Separator for Tata 697 Engine BS III" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000688" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS1964400V</strong></div><h3 class="product-title"><a href="/hi/products/fleetguard-fs1964400v-fuel-water-separator-for-tata-697-engine-bs-iii.html">Fuel/Water   Separator for Tata 697 Engine BS III</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,472.30</span><span class="product-price-mrp">MRP ₹2,747</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000688" data-part="FS1964400V" data-name="Fuel/Water   Separator for Tata 697 Engine BS III" data-brand="Fleetguard" aria-label="Add Fuel/Water   Separator for Tata 697 Engine BS III to RFQ">RFQ में जोड़ें</button></div></article></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">संबंधित उत्पाद</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/hi/products/fs1967100-fws-wo-dv-for-al-cb18-fip-crs-engine-1338.html" class="product-link" aria-label="View FWS w/o DV for AL CB18 FIP CRS Engine [1338]"><img class="product-image-file" src="/assets/images/products/SVKS000284/1.webp" alt="FWS w/o DV for AL CB18 FIP CRS Engine [1338]" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000284" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS1967100</strong></div><h3 class="product-title"><a href="/hi/products/fs1967100-fws-wo-dv-for-al-cb18-fip-crs-engine-1338.html">FWS w/o DV for AL CB18 FIP CRS Engine [1338]</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,442.10</span><span class="product-price-mrp">MRP ₹1,518</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000284" data-part="FS1967100" data-name="FWS w/o DV for AL CB18 FIP CRS Engine [1338]" data-brand="Fleetguard" aria-label="Add FWS w/o DV for AL CB18 FIP CRS Engine [1338] to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs19636-fuel-water-separator-al-bs-ii-bs-iii.html" class="product-link" aria-label="View Fuel Water Separator AL BS II &amp; BS III"><img class="product-image-file" src="/assets/images/products/SVKS000292/1.webp" alt="Fuel Water Separator AL BS II &amp; BS III" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000292" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS19636</strong></div><h3 class="product-title"><a href="/hi/products/fs19636-fuel-water-separator-al-bs-ii-bs-iii.html">Fuel Water Separator AL BS II &amp; BS III</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,463</span><span class="product-price-mrp">MRP ₹1,540</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000292" data-part="FS19636" data-name="Fuel Water Separator AL BS II &amp; BS III" data-brand="Fleetguard" aria-label="Add Fuel Water Separator AL BS II &amp; BS III to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs19671-fuel-water-separator-al-cb18-fip-crs.html" class="product-link" aria-label="View Fuel Water Separator AL CB18 FIP CRS"><img class="product-image-file" src="/assets/images/products/SVKS000294/1.webp" alt="Fuel Water Separator AL CB18 FIP CRS" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000294" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS19671</strong></div><h3 class="product-title"><a href="/hi/products/fs19671-fuel-water-separator-al-cb18-fip-crs.html">Fuel Water Separator AL CB18 FIP CRS</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,442.10</span><span class="product-price-mrp">MRP ₹1,518</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000294" data-part="FS19671" data-name="Fuel Water Separator AL CB18 FIP CRS" data-brand="Fleetguard" aria-label="Add Fuel Water Separator AL CB18 FIP CRS to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs19671v-fuel-water-separator-al-cb18-fip-crs-bs-iv.html" class="product-link" aria-label="View Fuel Water Separator AL CB18 FIP CRS BS IV"><img class="product-image-file" src="/assets/images/products/SVKS000295/1.webp" alt="Fuel Water Separator AL CB18 FIP CRS BS IV" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000295" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS19671V</strong></div><h3 class="product-title"><a href="/hi/products/fs19671v-fuel-water-separator-al-cb18-fip-crs-bs-iv.html">Fuel Water Separator AL CB18 FIP CRS BS IV</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,282.85</span><span class="product-price-mrp">MRP ₹2,403</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000295" data-part="FS19671V" data-name="Fuel Water Separator AL CB18 FIP CRS BS IV" data-brand="Fleetguard" aria-label="Add Fuel Water Separator AL CB18 FIP CRS BS IV to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fs20117-fuel-water-separator-cartridge.html" class="product-link" aria-label="View Fuel Water Separator Cartridge"><img class="product-image-file" src="/assets/images/products/SVKS000296/1.webp" alt="Fuel Water Separator Cartridge" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000296" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS20117</strong></div><h3 class="product-title"><a href="/hi/products/fs20117-fuel-water-separator-cartridge.html">Fuel Water Separator Cartridge</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹4,487.80</span><span class="product-price-mrp">MRP ₹4,724</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000296" data-part="FS20117" data-name="Fuel Water Separator Cartridge" data-brand="Fleetguard" aria-label="Add Fuel Water Separator Cartridge to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/fleetguard-fs1964400v-fuel-water-separator-for-tata-697-engine-bs-iii.html" class="product-link" aria-label="View Fuel/Water   Separator for Tata 697 Engine BS III"><img class="product-image-file" src="/assets/images/products/SVKS000688/1.webp" alt="Fuel/Water   Separator for Tata 697 Engine BS III" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000688" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS1964400V</strong></div><h3 class="product-title"><a href="/hi/products/fleetguard-fs1964400v-fuel-water-separator-for-tata-697-engine-bs-iii.html">Fuel/Water   Separator for Tata 697 Engine BS III</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,472.30</span><span class="product-price-mrp">MRP ₹2,747</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000688" data-part="FS1964400V" data-name="Fuel/Water   Separator for Tata 697 Engine BS III" data-brand="Fleetguard" aria-label="Add Fuel/Water   Separator for Tata 697 Engine BS III to RFQ">RFQ में जोड़ें</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
 </div>
+
+<script>
+window.SOUVIKS_PRODUCT_PAGE_DATA = {"id":"SVKS000293","slug":"fs19669-fuel-water-separator-al-h6-bs-iii","part_number":"FS19669","manufacturer_part_number":"FHJ00700","manufacturer_part_numbers":["FHJ00700"],"alternate_part_numbers":[],"oem_numbers":[],"cross_references":[],"mrp":1056,"selling_price":1003.2,"discount_percent":5,"discountPercent":5,"product_name":"Fuel Water Separator AL H6 BS III","name":"Fuel Water Separator AL H6 BS III","partNumber":"FS19669","brand_id":"fleetguard","brand_name":"Fleetguard","brand":"Fleetguard","category_id":"filters","category_name":"Filters","category":"Filters","subcategory_id":"fuel-water-separator","subcategory_name":"Fuel Water Separator","subcategory":"Fuel Water Separator","gallery":["1.webp","2.webp","3.webp","4.webp"],"gallery_dimensions":{"1.webp":[768,512],"2.webp":[768,512],"3.webp":[768,512],"4.webp":[768,512]},"description":"Fleetguard separator designed specifically for Ashok Leyland H6 BS3 engines.","image_folder":"SVKS000293","image":"1.webp","primary_image":"1.webp","image_url":"/assets/images/products/SVKS000293/1.webp","vehicles":["Ashok Leyland 2516"],"applications":["Fuel Water Separation System"],"featured":false,"active":true,"seo":{"title":"Fleetguard - FS19669 - Fuel Water Separator AL H6 BS III | Souviks","description":"Commercial vehicle spare part: Fuel Water Separator AL H6 BS III. Part Number: FS19669. Browse applications and request availability from Souviks.","keywords":["Fuel Water Separator AL H6 BS III","FS19669","commercial vehicle spare parts","truck spare parts"],"canonical":"https://www.souviks.co.in/en/products/fs19669-fuel-water-separator-al-h6-bs-iii.html"},"schema":{},"created_at":"2026-10-01T11:55:17.622067","updated_at":"2026-10-01T16:55:04+05:30","catalogue_updated_at":"2026-10-01T16:55:04+05:30"};
+</script>
+
+<!-- Independent first-interaction gallery binding. It does not wait for API, breadcrumb, RFQ, or review loading. -->
+<script>
+(() => {
+    const gallery = document.querySelector(".pdp-gallery");
+    const mainImage = document.getElementById("pdpMainImage");
+    if (!gallery || !mainImage || gallery.dataset.fastBound === "true") return;
+    gallery.dataset.fastBound = "true";
+
+    const thumbs = Array.from(gallery.querySelectorAll(".pdp-thumb"));
+    const thumbContainer = gallery.querySelector(".pdp-thumbnails");
+    const activate = button => {
+        thumbs.forEach(item => {
+            const active = item === button;
+            item.classList.toggle("active", active);
+            if (active) item.setAttribute("aria-current", "true");
+            else item.removeAttribute("aria-current");
+        });
+    };
+    thumbs.forEach(button => button.addEventListener("click", () => {
+        const img = button.querySelector("img");
+        const src = img?.currentSrc || img?.src;
+        if (!src) return;
+        mainImage.src = src;
+        mainImage.removeAttribute("srcset");
+        mainImage.removeAttribute("sizes");
+        activate(button);
+    }));
+    gallery.querySelector(".pdp-thumb-prev")?.addEventListener("click", () => thumbContainer?.scrollBy({left:-260, behavior:"smooth"}));
+    gallery.querySelector(".pdp-thumb-next")?.addEventListener("click", () => thumbContainer?.scrollBy({left:260, behavior:"smooth"}));
+    const main = gallery.querySelector(".pdp-main-image");
+    main?.addEventListener("keydown", event => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        main.querySelector("img")?.click();
+    });
+    activate(thumbs[0]);
+})();
+</script>
 
 <div class="container">
 
@@ -1085,7 +1145,9 @@ SOUVIKS BREADCRUMB
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks लोगो">
 
             </a>
@@ -1100,27 +1162,29 @@ SOUVIKS BREADCRUMB
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1216,7 +1280,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/location.svg"
                         alt="पता"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1231,7 +1295,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/phone.svg"
                         alt="फ़ोन"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1246,7 +1310,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="मोबाइल"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1261,7 +1325,7 @@ SOUVIKS BREADCRUMB
                     <img
     src="/assets/icons/email.svg"
     alt="ईमेल"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1472,25 +1536,7 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/product.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

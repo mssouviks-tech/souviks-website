@@ -387,7 +387,8 @@
     "view_all": "View All Vehicles",
     "hero_title": "Browse by Vehicle",
     "hero_description": "Find compatible spare parts by vehicle manufacturer and model.",
-    "browse_parts": "Browse Parts →"
+    "browse_parts": "Browse Parts →",
+    "every_vehicle": "Every Vehicle"
   },
   "vehicle": {
     "products_title": "Compatible Products",

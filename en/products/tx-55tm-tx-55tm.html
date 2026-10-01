@@ -27,7 +27,7 @@ Reusable Head Component
 
     <title>
 
-        Texspin - TX-55TM - TX-55TM | Souviks
+        Texspin - TX-55TM - Tata 909/1109/1112/1210/1312/1510/1512/1612/1
 
     </title>
 
@@ -110,7 +110,7 @@ Reusable Head Component
 
     <meta
         property="og:title"
-        content="Texspin - TX-55TM - TX-55TM | Souviks">
+        content="Texspin - TX-55TM - Tata 909/1109/1112/1210/1312/1510/1512/1612/1">
 
     <meta
         property="og:description"
@@ -118,11 +118,11 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000506/TX-55TM.webp">
+    content="https://www.souviks.co.in/assets/images/products/SVKS000506/1.webp">
 
     <meta
     property="og:image:alt"
-    content="TX-55TM">
+    content="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)">
 
     <meta
         property="og:url"
@@ -146,7 +146,7 @@ Reusable Head Component
 
     <meta
         name="twitter:title"
-        content="Texspin - TX-55TM - TX-55TM | Souviks">
+        content="Texspin - TX-55TM - Tata 909/1109/1112/1210/1312/1510/1512/1612/1">
 
     <meta
         name="twitter:description"
@@ -154,11 +154,11 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000506/TX-55TM.webp">
+    content="https://www.souviks.co.in/assets/images/products/SVKS000506/1.webp">
 
     <meta
     name="twitter:image:alt"
-    content="TX-55TM">
+    content="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)">
 
     <meta
         name="twitter:url"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/product.css">
 
 
 
@@ -206,7 +214,7 @@ Reusable Head Component
   "@context": "https://schema.org",
   "@type": "Product",
   "@id": "https://www.souviks.co.in/en/products/tx-55tm-tx-55tm.html#product",
-  "name": "TX-55TM",
+  "name": "Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)",
   "url": "https://www.souviks.co.in/en/products/tx-55tm-tx-55tm.html",
   "mainEntityOfPage": "https://www.souviks.co.in/en/products/tx-55tm-tx-55tm.html",
   "description": "Self-Centering CRB",
@@ -238,7 +246,7 @@ Reusable Head Component
     "@type": "Offer",
     "url": "https://www.souviks.co.in/en/products/tx-55tm-tx-55tm.html",
     "priceCurrency": "INR",
-    "price": 1249.0,
+    "price": 1300.0,
     "seller": {
       "@type": "Organization",
       "name": "Souviks"
@@ -277,7 +285,7 @@ Reusable Head Component
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "TX-55TM",
+      "name": "Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)",
       "item": "https://www.souviks.co.in/en/products/tx-55tm-tx-55tm.html"
     }
   ]
@@ -288,7 +296,7 @@ Reusable Head Component
          OPTIONAL PRELOADS
     =========================================== -->
 
-    
+    <link rel="preload" as="image" href="/assets/images/products/SVKS000506/1.webp" fetchpriority="high">
 
     <!-- ==========================================
          PAGE-SPECIFIC META
@@ -306,7 +314,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -326,6 +341,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -344,6 +360,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Email">
 
                 info@souviks.co.in
@@ -360,6 +377,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Phone">
 
                 +91 94343 31896
@@ -373,11 +391,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="WhatsApp">
 
                 WhatsApp
@@ -795,23 +814,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -849,7 +868,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -1003,7 +1022,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item"><a href="/en/products.html">Products</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/en/categories/bearings.html">Bearings</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/en/brands/texspin.html">Texspin</a></li><li class="breadcrumb-item active" aria-current="page">Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)</li>
 
         </ol>
 
@@ -1012,8 +1031,51 @@ SOUVIKS BREADCRUMB
 </nav>
 
 <div id="product-detail" data-static-rendered="true">
-<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/texspin.png" alt="Texspin" loading="lazy" decoding="async"></div><div class="pdp-main-image"><img id="pdpMainImage" src="/assets/images/products/SVKS000506/1.webp" alt="TX-55TM" loading="eager" decoding="async"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View TX-55TM image 1"><img src="/assets/images/products/SVKS000506/1.webp" alt="TX-55TM image 1" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View TX-55TM image 2"><img src="/assets/images/products/SVKS000506/2.webp" alt="TX-55TM image 2" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View TX-55TM image 3"><img src="/assets/images/products/SVKS000506/3.webp" alt="TX-55TM image 3" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View TX-55TM image 4"><img src="/assets/images/products/SVKS000506/4.webp" alt="TX-55TM image 4" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View TX-55TM image 5"><img src="/assets/images/products/SVKS000506/5.webp" alt="TX-55TM image 5" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View TX-55TM image 6"><img src="/assets/images/products/SVKS000506/6.webp" alt="TX-55TM image 6" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View TX-55TM image 7"><img src="/assets/images/products/SVKS000506/7.webp" alt="TX-55TM image 7" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View TX-55TM image 8"><img src="/assets/images/products/SVKS000506/8.webp" alt="TX-55TM image 8" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View TX-55TM image 9"><img src="/assets/images/products/SVKS000506/9.webp" alt="TX-55TM image 9" loading="lazy" decoding="async"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">In Stock</span><span class="pdp-genuine">100% Genuine</span></div><h1 class="pdp-title">TX-55TM</h1><div class="pdp-part">PART ID: SVKS000506</div><div class="pdp-pricing" aria-label="Product pricing"><div class="pdp-price-mrp"><span class="pdp-price-label">MRP</span><span class="pdp-price-value">₹1,625</span></div><div class="pdp-price-selling"><span class="pdp-price-label">Selling Price</span><span class="pdp-price-value">₹1,249</span></div><span class="pdp-price-discount">23% OFF</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000506</span></div><div class="pdp-row"><strong>Part Number</strong><span>TX-55TM</span></div><div class="pdp-row"><strong>Brand</strong><span>Texspin</span></div><div class="pdp-row"><strong>Category</strong><span>Bearings</span></div><div class="pdp-row"><strong>Sub Category</strong><span>Taper Roller Bearing</span></div><div class="pdp-row"><strong>Applications</strong><span>Clutch Release Bearing</span></div><div class="pdp-row"><strong>Compatible Vehicles</strong><span>Tata 1109, Tata 1210, Tata 1312, Tata 1512, Tata LPT</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">Request Quote</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>Request a Part</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="TX-55TM" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">Request Quote</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts"><div><strong>100% Genuine Products</strong><span>Original & Authorized</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">Description</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>Description</h3><p>Self-Centering CRB</p></div><div class="pdp-description-card"><h3>Applications</h3><ul><li>Clutch Release Bearing</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">Compatible Vehicles</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_1109/thumbnail-400x300.webp" alt="Tata 1109" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Tata 1109</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_1210/thumbnail-400x300.webp" alt="Tata 1210" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Tata 1210</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_1312/thumbnail-400x300.webp" alt="Tata 1312" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Tata 1312</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_1512/thumbnail-400x300.webp" alt="Tata 1512" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Tata 1512</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Tata LPT</h4></div></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">Related Products</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/en/products/30209-tx-30209.html" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000507/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000507" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/30209-tx-30209.html">Taper Roller Bearing</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹549</span><span class="product-price-mrp">MRP ₹571</span><span class="product-price-discount">4% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000507" data-part="TX-30209" data-name="Taper Roller Bearing" data-brand="Texspin" aria-label="Add Taper Roller Bearing to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/30210-tx-30210.html" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000508/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000508" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/30210-tx-30210.html">Taper Roller Bearing</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹699</span><span class="product-price-mrp">MRP ₹713</span><span class="product-price-discount">2% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000508" data-part="TX-30210" data-name="Taper Roller Bearing" data-brand="Texspin" aria-label="Add Taper Roller Bearing to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/30312-tx-30312.html" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000509/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000509" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/30312-tx-30312.html">Taper Roller Bearing</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,799</span><span class="product-price-mrp">MRP ₹2,084</span><span class="product-price-discount">14% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000509" data-part="TX-30312" data-name="Taper Roller Bearing" data-brand="Texspin" aria-label="Add Taper Roller Bearing to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/32213-tx-32213.html" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000510/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000510" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/32213-tx-32213.html">Taper Roller Bearing</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,049</span><span class="product-price-mrp">MRP ₹1,208</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000510" data-part="TX-32213" data-name="Taper Roller Bearing" data-brand="Texspin" aria-label="Add Taper Roller Bearing to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/32214-tx-32214.html" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000511/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000511" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/32214-tx-32214.html">Taper Roller Bearing</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,249</span><span class="product-price-mrp">MRP ₹1,570</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000511" data-part="TX-32214" data-name="Taper Roller Bearing" data-brand="Texspin" aria-label="Add Taper Roller Bearing to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/32216-tx-32216.html" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000512/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000512" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/32216-tx-32216.html">Taper Roller Bearing</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,529</span><span class="product-price-mrp">MRP ₹1,702</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000512" data-part="TX-32216" data-name="Taper Roller Bearing" data-brand="Texspin" aria-label="Add Taper Roller Bearing to RFQ">Add To RFQ</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
+<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/texspin.png" alt="Texspin" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-main-image" role="button" tabindex="0" aria-label="Enlarge Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image" title="Click to enlarge"><img id="pdpMainImage" src="/assets/images/products/SVKS000506/1.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)" loading="eager" decoding="async" draggable="false" width="400" height="400"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 1"><img src="/assets/images/products/SVKS000506/1.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 1" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 2"><img src="/assets/images/products/SVKS000506/2.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 2" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 3"><img src="/assets/images/products/SVKS000506/3.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 3" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 4"><img src="/assets/images/products/SVKS000506/4.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 4" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 5"><img src="/assets/images/products/SVKS000506/5.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 5" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 6"><img src="/assets/images/products/SVKS000506/6.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 6" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 7"><img src="/assets/images/products/SVKS000506/7.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 7" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 8"><img src="/assets/images/products/SVKS000506/8.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 8" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button><button class="pdp-thumb" type="button" aria-label="View Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 9"><img src="/assets/images/products/SVKS000506/9.webp" alt="Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) image 9" loading="lazy" decoding="async" draggable="false" width="400" height="400"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">Availability subject to confirmation</span><span class="pdp-genuine">Established Brand</span></div><h1 class="pdp-title">Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)</h1><div class="pdp-part">PART ID: SVKS000506</div><div class="pdp-pricing" aria-label="Product pricing"><div class="pdp-price-mrp"><span class="pdp-price-label">MRP</span><span class="pdp-price-value">₹1,625</span></div><div class="pdp-price-selling"><span class="pdp-price-label">Selling Price</span><span class="pdp-price-value">₹1,300</span></div><span class="pdp-price-discount">20% OFF</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000506</span></div><div class="pdp-row"><strong>Part Number</strong><span>TX-55TM</span></div><div class="pdp-row"><strong>Brand</strong><span>Texspin</span></div><div class="pdp-row"><strong>Category</strong><span>Bearings</span></div><div class="pdp-row"><strong>Sub Category</strong><span>Taper Roller Bearing</span></div><div class="pdp-row"><strong>Applications</strong><span>Clutch Release Bearing</span></div><div class="pdp-row"><strong>Compatible Vehicles</strong><span>Tata 1109, Tata 1210, Tata 1312, Tata 1512, Tata LPT</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">Request Quote</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>Request a Part</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="TX-55TM" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">Request Quote</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts" width="24" height="24"><div><strong>Established Brand</strong><span>Catalogue-listed product</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted" width="24" height="24"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory" width="24" height="24"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery" width="24" height="24"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#reviews-section" class="pdp-tab-btn">Reviews</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">Description</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>Description</h3><p>Self-Centering CRB</p></div><div class="pdp-description-card"><h3>Applications</h3><ul><li>Clutch Release Bearing</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">Compatible Vehicles</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_1109/thumbnail-400x300.webp" alt="Tata 1109" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Tata 1109</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_1210/thumbnail-400x300.webp" alt="Tata 1210" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Tata 1210</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_1312/thumbnail-400x300.webp" alt="Tata 1312" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Tata 1312</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_1512/thumbnail-400x300.webp" alt="Tata 1512" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Tata 1512</h4></div></div><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Tata LPT</h4></div></div></div></section><section id="reviews-section" class="pdp-section pdp-reviews" data-product-id="SVKS000506"><div class="pdp-reviews-header"><div><h2 class="pdp-section-title">Customer Reviews</h2><p class="pdp-section-intro">Reviews from customers who have used or purchased this product through Souviks.</p></div><div class="pdp-review-summary" data-review-summary><strong>—</strong><span>No reviews yet</span></div></div><div class="pdp-review-list" data-review-list><div class="pdp-review-empty">Loading reviews…</div></div><div class="pdp-review-form-wrap" data-review-form-wrap><div class="pdp-review-signin" data-review-signin hidden>Sign in to share your experience with this product.</div><form class="pdp-review-form" data-review-form hidden><div class="pdp-review-form-grid"><div class="form-group"><label for="pdpReviewName">Name</label><input id="pdpReviewName" name="reviewer_name" type="text" maxlength="80" autocomplete="name" required></div><div class="form-group"><label for="pdpReviewRating">Rating</label><select id="pdpReviewRating" name="rating" required><option value="">Select rating</option><option value="5">★★★★★ — Excellent</option><option value="4">★★★★☆ — Very good</option><option value="3">★★★☆☆ — Good</option><option value="2">★★☆☆☆ — Fair</option><option value="1">★☆☆☆☆ — Poor</option></select></div></div><div class="form-group"><label for="pdpReviewTitle">Review title</label><input id="pdpReviewTitle" name="title" type="text" maxlength="120" required></div><div class="form-group"><label for="pdpReviewText">Your review</label><textarea id="pdpReviewText" name="review" rows="5" maxlength="1200" required></textarea></div><button class="btn btn-primary" type="submit">Submit Review</button><p class="pdp-review-form-note">Your review will be published after moderation.</p><div class="pdp-review-status" data-review-status role="status" aria-live="polite"></div></form></div></section><section class="pdp-section pdp-complete-job"><h2 class="pdp-section-title">Frequently used with this part</h2><p class="pdp-section-intro">Related components from the same application, category or system.</p><div class="pdp-related-wrapper"><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/en/products/30209-tx-30209.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735"><img class="product-image-file" src="/assets/images/products/SVKS000507/1.webp" alt="Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000507" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-30209</strong></div><h3 class="product-title"><a href="/en/products/30209-tx-30209.html">Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹456.80</span><span class="product-price-mrp">MRP ₹571</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000507" data-part="TX-30209" data-name="Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/30210-tx-30210.html" class="product-link" aria-label="View Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential"><img class="product-image-file" src="/assets/images/products/SVKS000508/1.webp" alt="Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000508" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-30210</strong></div><h3 class="product-title"><a href="/en/products/30210-tx-30210.html">Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹570.40</span><span class="product-price-mrp">MRP ₹713</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000508" data-part="TX-30210" data-name="Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/30312-tx-30312.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton"><img class="product-image-file" src="/assets/images/products/SVKS000509/1.webp" alt="Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000509" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-30312</strong></div><h3 class="product-title"><a href="/en/products/30312-tx-30312.html">Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,667.20</span><span class="product-price-mrp">MRP ₹2,084</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000509" data-part="TX-30312" data-name="Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/32213-tx-32213.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4"><img class="product-image-file" src="/assets/images/products/SVKS000510/1.webp" alt="Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000510" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-32213</strong></div><h3 class="product-title"><a href="/en/products/32213-tx-32213.html">Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹966.40</span><span class="product-price-mrp">MRP ₹1,208</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000510" data-part="TX-32213" data-name="Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/32214-tx-32214.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 608/1312/1516"><img class="product-image-file" src="/assets/images/products/SVKS000511/1.webp" alt="Tapper Roller Bearing for Tata 608/1312/1516" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000511" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-32214</strong></div><h3 class="product-title"><a href="/en/products/32214-tx-32214.html">Tapper Roller Bearing for Tata 608/1312/1516</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,256</span><span class="product-price-mrp">MRP ₹1,570</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000511" data-part="TX-32214" data-name="Tapper Roller Bearing for Tata 608/1312/1516" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 608/1312/1516 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/32216-tx-32216.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck"><img class="product-image-file" src="/assets/images/products/SVKS000512/1.webp" alt="Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000512" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-32216</strong></div><h3 class="product-title"><a href="/en/products/32216-tx-32216.html">Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,361.60</span><span class="product-price-mrp">MRP ₹1,702</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000512" data-part="TX-32216" data-name="Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck to RFQ">Add To RFQ</button></div></article></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">Related Products</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/en/products/30209-tx-30209.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735"><img class="product-image-file" src="/assets/images/products/SVKS000507/1.webp" alt="Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000507" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-30209</strong></div><h3 class="product-title"><a href="/en/products/30209-tx-30209.html">Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹456.80</span><span class="product-price-mrp">MRP ₹571</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000507" data-part="TX-30209" data-name="Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/30210-tx-30210.html" class="product-link" aria-label="View Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential"><img class="product-image-file" src="/assets/images/products/SVKS000508/1.webp" alt="Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000508" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-30210</strong></div><h3 class="product-title"><a href="/en/products/30210-tx-30210.html">Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹570.40</span><span class="product-price-mrp">MRP ₹713</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000508" data-part="TX-30210" data-name="Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/30312-tx-30312.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton"><img class="product-image-file" src="/assets/images/products/SVKS000509/1.webp" alt="Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000509" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-30312</strong></div><h3 class="product-title"><a href="/en/products/30312-tx-30312.html">Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,667.20</span><span class="product-price-mrp">MRP ₹2,084</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000509" data-part="TX-30312" data-name="Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/32213-tx-32213.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4"><img class="product-image-file" src="/assets/images/products/SVKS000510/1.webp" alt="Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000510" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-32213</strong></div><h3 class="product-title"><a href="/en/products/32213-tx-32213.html">Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹966.40</span><span class="product-price-mrp">MRP ₹1,208</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000510" data-part="TX-32213" data-name="Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/32214-tx-32214.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 608/1312/1516"><img class="product-image-file" src="/assets/images/products/SVKS000511/1.webp" alt="Tapper Roller Bearing for Tata 608/1312/1516" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000511" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-32214</strong></div><h3 class="product-title"><a href="/en/products/32214-tx-32214.html">Tapper Roller Bearing for Tata 608/1312/1516</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,256</span><span class="product-price-mrp">MRP ₹1,570</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000511" data-part="TX-32214" data-name="Tapper Roller Bearing for Tata 608/1312/1516" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 608/1312/1516 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/32216-tx-32216.html" class="product-link" aria-label="View Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck"><img class="product-image-file" src="/assets/images/products/SVKS000512/1.webp" alt="Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000512" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-32216</strong></div><h3 class="product-title"><a href="/en/products/32216-tx-32216.html">Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,361.60</span><span class="product-price-mrp">MRP ₹1,702</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000512" data-part="TX-32216" data-name="Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck" data-brand="Texspin" aria-label="Add Tapper Roller Bearing for Tata 707/807/909/1210, Isuzu truck to RFQ">Add To RFQ</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
 </div>
+
+<script>
+window.SOUVIKS_PRODUCT_PAGE_DATA = {"id":"SVKS000506","slug":"tx-55tm-tx-55tm","part_number":"TX-55TM","manufacturer_part_number":"","manufacturer_part_numbers":[],"alternate_part_numbers":[],"oem_numbers":[],"cross_references":[],"mrp":1625,"selling_price":1300,"discount_percent":20,"discountPercent":20,"product_name":"Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)","name":"Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)","partNumber":"TX-55TM","brand_id":"texspin","brand_name":"Texspin","brand":"Texspin","category_id":"bearings","category_name":"Bearings","category":"Bearings","subcategory_id":"taper-roller-bearing","subcategory_name":"Taper Roller Bearing","subcategory":"Taper Roller Bearing","gallery":["1.webp","2.webp","3.webp","4.webp","5.webp","6.webp","7.webp","8.webp","9.webp"],"gallery_dimensions":{"1.webp":[400,400],"2.webp":[400,400],"3.webp":[400,400],"4.webp":[400,400],"5.webp":[400,400],"6.webp":[400,400],"7.webp":[400,400],"8.webp":[400,400],"9.webp":[400,400]},"description":"Self-Centering CRB","image_folder":"SVKS000506","image":"1.webp","primary_image":"1.webp","image_url":"/assets/images/products/SVKS000506/1.webp","vehicles":["Tata 1109","Tata 1210","Tata 1312","Tata 1512","Tata LPT"],"applications":["Clutch Release Bearing"],"featured":false,"active":true,"seo":{"title":"Texspin - TX-55TM - Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) | Souviks","description":"Commercial vehicle spare part: Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering). Part Number: TX-55TM. Browse applications and request availability from Souviks.","keywords":["Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)","TX-55TM","commercial vehicle spare parts","truck spare parts"],"canonical":"https://www.souviks.co.in/en/products/tx-55tm-tx-55tm.html"},"schema":{},"created_at":"2026-10-01T11:55:22.369047","updated_at":"2026-10-01T16:55:04+05:30","catalogue_updated_at":"2026-10-01T16:55:04+05:30"};
+</script>
+
+<!-- Independent first-interaction gallery binding. It does not wait for API, breadcrumb, RFQ, or review loading. -->
+<script>
+(() => {
+    const gallery = document.querySelector(".pdp-gallery");
+    const mainImage = document.getElementById("pdpMainImage");
+    if (!gallery || !mainImage || gallery.dataset.fastBound === "true") return;
+    gallery.dataset.fastBound = "true";
+
+    const thumbs = Array.from(gallery.querySelectorAll(".pdp-thumb"));
+    const thumbContainer = gallery.querySelector(".pdp-thumbnails");
+    const activate = button => {
+        thumbs.forEach(item => {
+            const active = item === button;
+            item.classList.toggle("active", active);
+            if (active) item.setAttribute("aria-current", "true");
+            else item.removeAttribute("aria-current");
+        });
+    };
+    thumbs.forEach(button => button.addEventListener("click", () => {
+        const img = button.querySelector("img");
+        const src = img?.currentSrc || img?.src;
+        if (!src) return;
+        mainImage.src = src;
+        mainImage.removeAttribute("srcset");
+        mainImage.removeAttribute("sizes");
+        activate(button);
+    }));
+    gallery.querySelector(".pdp-thumb-prev")?.addEventListener("click", () => thumbContainer?.scrollBy({left:-260, behavior:"smooth"}));
+    gallery.querySelector(".pdp-thumb-next")?.addEventListener("click", () => thumbContainer?.scrollBy({left:260, behavior:"smooth"}));
+    const main = gallery.querySelector(".pdp-main-image");
+    main?.addEventListener("keydown", event => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        main.querySelector("img")?.click();
+    });
+    activate(thumbs[0]);
+})();
+</script>
 
 <div class="container">
 
@@ -1088,7 +1150,9 @@ SOUVIKS BREADCRUMB
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks Logo">
 
             </a>
@@ -1103,27 +1167,29 @@ SOUVIKS BREADCRUMB
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1219,7 +1285,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/location.svg"
                         alt="Address"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1234,7 +1300,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/phone.svg"
                         alt="Phone"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1249,7 +1315,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="Mobile"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1264,7 +1330,7 @@ SOUVIKS BREADCRUMB
                     <img
     src="/assets/icons/email.svg"
     alt="Email"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1417,7 +1483,7 @@ window.souviks = {
         "https://www.souviks.co.in",
 
     currentPage:
-        "TX-55TM",
+        "Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)",
 
     currentPageType:
         "",
@@ -1475,25 +1541,7 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/product.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

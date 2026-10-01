@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000429/Pressure%20Plate%20330%20Dia%20Sonalika%204%20Lever.webp">
+    content="https://www.souviks.co.in/assets/images/products/SVKS000429/1.webp">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/products/SVKS000429/Pressure%20Plate%20330%20Dia%20Sonalika%204%20Lever.webp">
+    content="https://www.souviks.co.in/assets/images/products/SVKS000429/1.webp">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/product.css">
 
 
 
@@ -214,16 +222,24 @@ Reusable Head Component
     "https://www.souviks.co.in/assets/images/products/SVKS000429/1.webp",
     "https://www.souviks.co.in/assets/images/products/SVKS000429/2.webp",
     "https://www.souviks.co.in/assets/images/products/SVKS000429/3.webp",
-    "https://www.souviks.co.in/assets/images/products/SVKS000429/4.webp",
-    "https://www.souviks.co.in/assets/images/products/SVKS000429/5.webp",
-    "https://www.souviks.co.in/assets/images/products/SVKS000429/6.webp"
+    "https://www.souviks.co.in/assets/images/products/SVKS000429/4.webp"
   ],
   "sku": "SVKS000429",
   "brand": {
     "@type": "Brand",
     "name": "BGL"
   },
-  "category": "Clutch Parts"
+  "category": "Clutch Parts",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.souviks.co.in/en/products/pressure-plate-330-dia-sonalika-4-lever.html",
+    "priceCurrency": "INR",
+    "price": 6313.0,
+    "seller": {
+      "@type": "Organization",
+      "name": "Souviks"
+    }
+  }
 }
 </script><script type="application/ld+json">
 {
@@ -268,7 +284,7 @@ Reusable Head Component
          OPTIONAL PRELOADS
     =========================================== -->
 
-    
+    <link rel="preload" as="image" href="/assets/images/products/SVKS000429/1.webp" fetchpriority="high">
 
     <!-- ==========================================
          PAGE-SPECIFIC META
@@ -286,7 +302,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -306,6 +329,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -324,6 +348,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Email">
 
                 info@souviks.co.in
@@ -340,6 +365,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Phone">
 
                 +91 94343 31896
@@ -353,11 +379,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="WhatsApp">
 
                 WhatsApp
@@ -775,23 +802,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -829,7 +856,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -983,7 +1010,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item"><a href="/en/products.html">Products</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/en/categories/clutch-parts.html">Clutch Parts</a></li><li class="breadcrumb-item"><a href="https://www.souviks.co.in/en/brands/bgl.html">BGL</a></li><li class="breadcrumb-item active" aria-current="page">Pressure Plate 330 Dia Sonalika 4 Lever</li>
 
         </ol>
 
@@ -992,8 +1019,51 @@ SOUVIKS BREADCRUMB
 </nav>
 
 <div id="product-detail" data-static-rendered="true">
-<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/bgl.png" alt="BGL" loading="lazy" decoding="async"></div><div class="pdp-main-image"><img id="pdpMainImage" src="/assets/images/products/SVKS000429/1.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever" loading="eager" decoding="async"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 1"><img src="/assets/images/products/SVKS000429/1.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 1" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 2"><img src="/assets/images/products/SVKS000429/2.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 2" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 3"><img src="/assets/images/products/SVKS000429/3.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 3" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 4"><img src="/assets/images/products/SVKS000429/4.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 4" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 5"><img src="/assets/images/products/SVKS000429/5.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 5" loading="lazy" decoding="async"></button><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 6"><img src="/assets/images/products/SVKS000429/6.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 6" loading="lazy" decoding="async"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">In Stock</span><span class="pdp-genuine">100% Genuine</span></div><h1 class="pdp-title">Pressure Plate 330 Dia Sonalika 4 Lever</h1><div class="pdp-part">PART ID: SVKS000429</div><div class="pdp-pricing" aria-label="Product pricing"><span class="pdp-price-label">Price on request</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000429</span></div><div class="pdp-row"><strong>Part Number</strong><span></span></div><div class="pdp-row"><strong>Brand</strong><span>BGL</span></div><div class="pdp-row"><strong>Category</strong><span>Clutch Parts</span></div><div class="pdp-row"><strong>Sub Category</strong><span>Pressure Plate</span></div><div class="pdp-row"><strong>Applications</strong><span>Clutch System, Transmission System</span></div><div class="pdp-row"><strong>Compatible Vehicles</strong><span>Tractors</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">Request Quote</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>Request a Part</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">Request Quote</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts"><div><strong>100% Genuine Products</strong><span>Original & Authorized</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">Description</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>Description</h3><p>Heavy-duty 330 mm clutch pressure plate with 4-lever design manufactured for Sonalika tractor applications. Designed to provide uniform clutch engagement, high torque transmission and long service life.</p></div><div class="pdp-description-card"><h3>Applications</h3><ul><li>Clutch System</li><li>Transmission System</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">Compatible Vehicles</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TRACTORS/thumbnail-400x300.webp" alt="Tractors" loading="lazy" decoding="async"></div><div class="pdp-vehicle-content"><h4>Tractors</h4></div></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">Related Products</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/en/products/380-ct-cover-assy-for-380-dia.html" class="product-link" aria-label="View 380 CT Cover Assy. for 380 Dia"><img class="product-image-file" src="/assets/images/products/SVKS000232/1.webp" alt="380 CT Cover Assy. for 380 Dia" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000232" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/380-ct-cover-assy-for-380-dia.html">380 CT Cover Assy. for 380 Dia</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000232" data-part="" data-name="380 CT Cover Assy. for 380 Dia" data-brand="BGL" aria-label="Add 380 CT Cover Assy. for 380 Dia to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/15-ipl-wp-cp-al-fan-type-15-wider-pad.html" class="product-link" aria-label="View 15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad"><img class="product-image-file" src="/assets/images/products/SVKS000230/1.webp" alt="15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000230" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/15-ipl-wp-cp-al-fan-type-15-wider-pad.html">15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000230" data-part="" data-name="15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad" data-brand="BGL" aria-label="Add 15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/380-ptb15-wp-clutch-plate-380-15-wider-pad.html" class="product-link" aria-label="View 380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad"><img class="product-image-file" src="/assets/images/products/SVKS000231/1.webp" alt="380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000231" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/380-ptb15-wp-clutch-plate-380-15-wider-pad.html">380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000231" data-part="" data-name="380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad" data-brand="BGL" aria-label="Add 380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/5988-fly-wheel-ring-assembly-gb-75-138t.html" class="product-link" aria-label="View Fly Wheel Ring Assembly GB 75 (138T)"><img class="product-image-file" src="/assets/images/products/SVKS000233/1.webp" alt="Fly Wheel Ring Assembly GB 75 (138T)" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000233" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/5988-fly-wheel-ring-assembly-gb-75-138t.html">Fly Wheel Ring Assembly GB 75 (138T)</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000233" data-part="5988" data-name="Fly Wheel Ring Assembly GB 75 (138T)" data-brand="BGL" aria-label="Add Fly Wheel Ring Assembly GB 75 (138T) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/6984-ll-4019-setco-type-sensor-136-teeth-engine.html" class="product-link" aria-label="View L/L 4019 Setco Type (Sensor) 136 Teeth Engine"><img class="product-image-file" src="/assets/images/products/SVKS000234/1.webp" alt="L/L 4019 Setco Type (Sensor) 136 Teeth Engine" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000234" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/6984-ll-4019-setco-type-sensor-136-teeth-engine.html">L/L 4019 Setco Type (Sensor) 136 Teeth Engine</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000234" data-part="6984" data-name="L/L 4019 Setco Type (Sensor) 136 Teeth Engine" data-brand="BGL" aria-label="Add L/L 4019 Setco Type (Sensor) 136 Teeth Engine to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/clutch-plate-395-dia-navistar.html" class="product-link" aria-label="View Clutch Plate 395 Dia NaviStar"><img class="product-image-file" src="/assets/images/products/SVKS000248/1.webp" alt="Clutch Plate 395 Dia NaviStar" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000248" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/en/products/clutch-plate-395-dia-navistar.html">Clutch Plate 395 Dia NaviStar</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000248" data-part="" data-name="Clutch Plate 395 Dia NaviStar" data-brand="BGL" aria-label="Add Clutch Plate 395 Dia NaviStar to RFQ">Add To RFQ</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
+<div class="container"><div class="pdp-wrapper"><section class="pdp-hero"><div class="pdp-gallery"><div class="pdp-brand-badge"><img src="/assets/images/brands/bgl.png" alt="BGL" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-main-image" role="button" tabindex="0" aria-label="Enlarge Pressure Plate 330 Dia Sonalika 4 Lever image" title="Click to enlarge"><img id="pdpMainImage" src="/assets/images/products/SVKS000429/1.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever" loading="eager" decoding="async" draggable="false" width="768" height="512"></div><div class="pdp-thumb-wrapper"><button class="pdp-thumb-prev" type="button" aria-label="Previous image">‹</button><div class="pdp-thumbnails"><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 1"><img src="/assets/images/products/SVKS000429/1.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 1" loading="lazy" decoding="async" draggable="false" width="768" height="512"></button><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 2"><img src="/assets/images/products/SVKS000429/2.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 2" loading="lazy" decoding="async" draggable="false" width="768" height="512"></button><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 3"><img src="/assets/images/products/SVKS000429/3.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 3" loading="lazy" decoding="async" draggable="false" width="768" height="512"></button><button class="pdp-thumb" type="button" aria-label="View Pressure Plate 330 Dia Sonalika 4 Lever image 4"><img src="/assets/images/products/SVKS000429/4.webp" alt="Pressure Plate 330 Dia Sonalika 4 Lever image 4" loading="lazy" decoding="async" draggable="false" width="768" height="512"></button></div><button class="pdp-thumb-next" type="button" aria-label="Next image">›</button></div></div><div class="pdp-summary"><div class="pdp-badges"><span class="pdp-stock">Availability subject to confirmation</span><span class="pdp-genuine">Established Brand</span></div><h1 class="pdp-title">Pressure Plate 330 Dia Sonalika 4 Lever</h1><div class="pdp-part">PART ID: SVKS000429</div><div class="pdp-pricing" aria-label="Product pricing"><div class="pdp-price-mrp"><span class="pdp-price-label">MRP</span><span class="pdp-price-value">₹7,260</span></div><div class="pdp-price-selling"><span class="pdp-price-label">Selling Price</span><span class="pdp-price-value">₹6,313</span></div><span class="pdp-price-discount">13% OFF</span></div><div class="pdp-meta"><div class="pdp-row"><strong>Product ID</strong><span>SVKS000429</span></div><div class="pdp-row"><strong>Part Number</strong><span></span></div><div class="pdp-row"><strong>Brand</strong><span>BGL</span></div><div class="pdp-row"><strong>Category</strong><span>Clutch Parts</span></div><div class="pdp-row"><strong>Sub Category</strong><span>Pressure Plate</span></div><div class="pdp-row"><strong>Applications</strong><span>Clutch System, Transmission System</span></div><div class="pdp-row"><strong>Compatible Vehicles</strong><span>Tractors</span></div></div><div class="pdp-actions"><div class="pdp-qty"><button type="button" class="pdp-qty-minus" aria-label="Decrease quantity">−</button><label class="sr-only" for="pdpQty">Quantity</label><input id="pdpQty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" class="pdp-qty-plus" aria-label="Increase quantity">+</button></div><button class="btn btn-primary pdp-rfq-btn" type="button">Request Quote</button><button class="pdp-remove-btn" type="button" style="display:none" aria-label="Remove product from RFQ">🗑</button></div></div><aside class="pdp-inquiry"><h3>Request a Part</h3><form><div class="form-group"><label for="pdpInquiryName">Name</label><input id="pdpInquiryName" type="text" name="name" autocomplete="name" placeholder="Name"></div><div class="form-group"><label for="pdpInquiryPhone">Phone</label><input id="pdpInquiryPhone" type="tel" name="phone" autocomplete="tel" placeholder="Phone"></div><div class="form-group"><label for="pdpInquiryVehicle">Vehicle</label><input id="pdpInquiryVehicle" type="text" name="vehicle" autocomplete="off" placeholder="Vehicle"></div><div class="form-group"><label for="pdpInquiryPartNumber">Part Number</label><input id="pdpInquiryPartNumber" type="text" name="partNumber" value="" placeholder="Part Number"></div><div class="form-group"><label for="pdpInquiryRequirement">Requirement</label><textarea id="pdpInquiryRequirement" name="requirement" placeholder="Requirement"></textarea></div><button class="btn btn-primary" type="submit">Request Quote</button></form></aside></section><section class="pdp-trust"><div class="pdp-trust-item"><img src="/assets/icons/genuine.svg" alt="Genuine Parts" width="24" height="24"><div><strong>Established Brand</strong><span>Catalogue-listed product</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/trusted.svg" alt="Trusted" width="24" height="24"><div><strong>Trusted Since 1986</strong><span>Serving Workshops & Fleets</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/inventory.svg" alt="Inventory" width="24" height="24"><div><strong>Wide Range Available</strong><span>Catalogue Products</span></div></div><div class="pdp-trust-item"><img src="/assets/icons/delivery.svg" alt="Delivery" width="24" height="24"><div><strong>Pan India Delivery</strong><span>Fast & Reliable</span></div></div></section><section class="pdp-section-nav"><a href="#description-section" class="pdp-tab-btn">Description</a><a href="#vehicles-section" class="pdp-tab-btn">Compatible Vehicles</a><a href="#reviews-section" class="pdp-tab-btn">Reviews</a><a href="#related-section" class="pdp-tab-btn">Related Products</a></section><section id="description-section" class="pdp-section"><h2 class="pdp-section-title">Description</h2><div class="pdp-description-grid"><div class="pdp-description-card"><h3>Description</h3><p>Heavy-duty 330 mm clutch pressure plate with 4-lever design manufactured for Sonalika tractor applications. Designed to provide uniform clutch engagement, high torque transmission and long service life.</p></div><div class="pdp-description-card"><h3>Applications</h3><ul><li>Clutch System</li><li>Transmission System</li></ul></div></div></section><section id="vehicles-section" class="pdp-section"><h2 class="pdp-section-title">Compatible Vehicles</h2><div class="pdp-vehicle-grid"><div class="pdp-vehicle-card"><div class="pdp-vehicle-image"><img src="/assets/images/vehicles/TRACTORS/thumbnail-400x300.webp" alt="Tractors" loading="lazy" decoding="async" width="400" height="400"></div><div class="pdp-vehicle-content"><h4>Tractors</h4></div></div></div></section><section id="reviews-section" class="pdp-section pdp-reviews" data-product-id="SVKS000429"><div class="pdp-reviews-header"><div><h2 class="pdp-section-title">Customer Reviews</h2><p class="pdp-section-intro">Reviews from customers who have used or purchased this product through Souviks.</p></div><div class="pdp-review-summary" data-review-summary><strong>—</strong><span>No reviews yet</span></div></div><div class="pdp-review-list" data-review-list><div class="pdp-review-empty">Loading reviews…</div></div><div class="pdp-review-form-wrap" data-review-form-wrap><div class="pdp-review-signin" data-review-signin hidden>Sign in to share your experience with this product.</div><form class="pdp-review-form" data-review-form hidden><div class="pdp-review-form-grid"><div class="form-group"><label for="pdpReviewName">Name</label><input id="pdpReviewName" name="reviewer_name" type="text" maxlength="80" autocomplete="name" required></div><div class="form-group"><label for="pdpReviewRating">Rating</label><select id="pdpReviewRating" name="rating" required><option value="">Select rating</option><option value="5">★★★★★ — Excellent</option><option value="4">★★★★☆ — Very good</option><option value="3">★★★☆☆ — Good</option><option value="2">★★☆☆☆ — Fair</option><option value="1">★☆☆☆☆ — Poor</option></select></div></div><div class="form-group"><label for="pdpReviewTitle">Review title</label><input id="pdpReviewTitle" name="title" type="text" maxlength="120" required></div><div class="form-group"><label for="pdpReviewText">Your review</label><textarea id="pdpReviewText" name="review" rows="5" maxlength="1200" required></textarea></div><button class="btn btn-primary" type="submit">Submit Review</button><p class="pdp-review-form-note">Your review will be published after moderation.</p><div class="pdp-review-status" data-review-status role="status" aria-live="polite"></div></form></div></section><section class="pdp-section pdp-complete-job"><h2 class="pdp-section-title">Frequently used with this part</h2><p class="pdp-section-intro">Related components from the same application, category or system.</p><div class="pdp-related-wrapper"><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/en/products/380-ct-cover-assy-for-380-dia.html" class="product-link" aria-label="View 380 CT Cover Assy. for 380 Dia"><img class="product-image-file" src="/assets/images/products/SVKS000232/1.webp" alt="380 CT Cover Assy. for 380 Dia" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000232" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/en/products/380-ct-cover-assy-for-380-dia.html">380 CT Cover Assy. for 380 Dia</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹12,505</span><span class="product-price-mrp">MRP ₹13,979</span><span class="product-price-discount">11% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000232" data-part="" data-name="380 CT Cover Assy. for 380 Dia" data-brand="BGL" aria-label="Add 380 CT Cover Assy. for 380 Dia to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/setco-183f-ap-0004307019800-0r-430-dia-cover-assembly-bs-vi.html" class="product-link" aria-label="View 430 dia cover assembly BS VI"><img class="product-image-file" src="/assets/images/products/SVKS000972/1.webp" alt="430 dia cover assembly BS VI" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000971" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Setco</div><div class="product-part-number">Part No. <strong>183F-AP-0004307019800-0R</strong></div><h3 class="product-title"><a href="/en/products/setco-183f-ap-0004307019800-0r-430-dia-cover-assembly-bs-vi.html">430 dia cover assembly BS VI</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹20,886</span><span class="product-price-mrp">MRP ₹25,063.20</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000971" data-part="183F-AP-0004307019800-0R" data-name="430 dia cover assembly BS VI" data-brand="Setco" aria-label="Add 430 dia cover assembly BS VI to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/15-ipl-wp-cp-al-fan-type-15-wider-pad.html" class="product-link" aria-label="View 15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad"><img class="product-image-file" src="/assets/images/products/SVKS000230/1.webp" alt="15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000230" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/en/products/15-ipl-wp-cp-al-fan-type-15-wider-pad.html">15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,015</span><span class="product-price-mrp">MRP ₹6,350</span><span class="product-price-discount">21% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000230" data-part="" data-name="15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad" data-brand="BGL" aria-label="Add 15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/380-ptb15-wp-clutch-plate-380-15-wider-pad.html" class="product-link" aria-label="View 380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad"><img class="product-image-file" src="/assets/images/products/SVKS000231/1.webp" alt="380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000231" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/en/products/380-ptb15-wp-clutch-plate-380-15-wider-pad.html">380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,153</span><span class="product-price-mrp">MRP ₹6,893</span><span class="product-price-discount">25% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000231" data-part="" data-name="380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad" data-brand="BGL" aria-label="Add 380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/5988-fly-wheel-ring-assembly-gb-75-138t.html" class="product-link" aria-label="View Fly Wheel Ring Assembly GB 75 (138T)"><img class="product-image-file" src="/assets/images/products/SVKS000233/1.webp" alt="Fly Wheel Ring Assembly GB 75 (138T)" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000233" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number">Part No. <strong>5988</strong></div><h3 class="product-title"><a href="/en/products/5988-fly-wheel-ring-assembly-gb-75-138t.html">Fly Wheel Ring Assembly GB 75 (138T)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹6,602</span><span class="product-price-mrp">MRP ₹8,987</span><span class="product-price-discount">27% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000233" data-part="5988" data-name="Fly Wheel Ring Assembly GB 75 (138T)" data-brand="BGL" aria-label="Add Fly Wheel Ring Assembly GB 75 (138T) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/6984-ll-4019-setco-type-sensor-136-teeth-engine.html" class="product-link" aria-label="View L/L 4019 Setco Type (Sensor) 136 Teeth Engine"><img class="product-image-file" src="/assets/images/products/SVKS000234/1.webp" alt="L/L 4019 Setco Type (Sensor) 136 Teeth Engine" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000234" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number">Part No. <strong>6984</strong></div><h3 class="product-title"><a href="/en/products/6984-ll-4019-setco-type-sensor-136-teeth-engine.html">L/L 4019 Setco Type (Sensor) 136 Teeth Engine</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹6,903</span><span class="product-price-mrp">MRP ₹9,795</span><span class="product-price-discount">30% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000234" data-part="6984" data-name="L/L 4019 Setco Type (Sensor) 136 Teeth Engine" data-brand="BGL" aria-label="Add L/L 4019 Setco Type (Sensor) 136 Teeth Engine to RFQ">Add To RFQ</button></div></article></div></div></section><section id="related-section" class="pdp-section"><h2 class="pdp-section-title">Related Products</h2><div class="pdp-related-wrapper"><button class="pdp-related-prev" type="button" aria-label="Previous related products">‹</button><div class="pdp-related-slider"><article class="product-card"><div class="product-image"><a href="/en/products/380-ct-cover-assy-for-380-dia.html" class="product-link" aria-label="View 380 CT Cover Assy. for 380 Dia"><img class="product-image-file" src="/assets/images/products/SVKS000232/1.webp" alt="380 CT Cover Assy. for 380 Dia" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000232" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/en/products/380-ct-cover-assy-for-380-dia.html">380 CT Cover Assy. for 380 Dia</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹12,505</span><span class="product-price-mrp">MRP ₹13,979</span><span class="product-price-discount">11% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000232" data-part="" data-name="380 CT Cover Assy. for 380 Dia" data-brand="BGL" aria-label="Add 380 CT Cover Assy. for 380 Dia to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/setco-183f-ap-0004307019800-0r-430-dia-cover-assembly-bs-vi.html" class="product-link" aria-label="View 430 dia cover assembly BS VI"><img class="product-image-file" src="/assets/images/products/SVKS000972/1.webp" alt="430 dia cover assembly BS VI" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000971" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Setco</div><div class="product-part-number">Part No. <strong>183F-AP-0004307019800-0R</strong></div><h3 class="product-title"><a href="/en/products/setco-183f-ap-0004307019800-0r-430-dia-cover-assembly-bs-vi.html">430 dia cover assembly BS VI</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹20,886</span><span class="product-price-mrp">MRP ₹25,063.20</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000971" data-part="183F-AP-0004307019800-0R" data-name="430 dia cover assembly BS VI" data-brand="Setco" aria-label="Add 430 dia cover assembly BS VI to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/15-ipl-wp-cp-al-fan-type-15-wider-pad.html" class="product-link" aria-label="View 15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad"><img class="product-image-file" src="/assets/images/products/SVKS000230/1.webp" alt="15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000230" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/en/products/15-ipl-wp-cp-al-fan-type-15-wider-pad.html">15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,015</span><span class="product-price-mrp">MRP ₹6,350</span><span class="product-price-discount">21% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000230" data-part="" data-name="15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad" data-brand="BGL" aria-label="Add 15 IPL-WP C.P. AL Fan Type 15&quot; Wider Pad to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/380-ptb15-wp-clutch-plate-380-15-wider-pad.html" class="product-link" aria-label="View 380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad"><img class="product-image-file" src="/assets/images/products/SVKS000231/1.webp" alt="380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000231" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/en/products/380-ptb15-wp-clutch-plate-380-15-wider-pad.html">380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,153</span><span class="product-price-mrp">MRP ₹6,893</span><span class="product-price-discount">25% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000231" data-part="" data-name="380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad" data-brand="BGL" aria-label="Add 380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/5988-fly-wheel-ring-assembly-gb-75-138t.html" class="product-link" aria-label="View Fly Wheel Ring Assembly GB 75 (138T)"><img class="product-image-file" src="/assets/images/products/SVKS000233/1.webp" alt="Fly Wheel Ring Assembly GB 75 (138T)" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000233" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number">Part No. <strong>5988</strong></div><h3 class="product-title"><a href="/en/products/5988-fly-wheel-ring-assembly-gb-75-138t.html">Fly Wheel Ring Assembly GB 75 (138T)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹6,602</span><span class="product-price-mrp">MRP ₹8,987</span><span class="product-price-discount">27% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000233" data-part="5988" data-name="Fly Wheel Ring Assembly GB 75 (138T)" data-brand="BGL" aria-label="Add Fly Wheel Ring Assembly GB 75 (138T) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/6984-ll-4019-setco-type-sensor-136-teeth-engine.html" class="product-link" aria-label="View L/L 4019 Setco Type (Sensor) 136 Teeth Engine"><img class="product-image-file" src="/assets/images/products/SVKS000234/1.webp" alt="L/L 4019 Setco Type (Sensor) 136 Teeth Engine" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000234" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number">Part No. <strong>6984</strong></div><h3 class="product-title"><a href="/en/products/6984-ll-4019-setco-type-sensor-136-teeth-engine.html">L/L 4019 Setco Type (Sensor) 136 Teeth Engine</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹6,903</span><span class="product-price-mrp">MRP ₹9,795</span><span class="product-price-discount">30% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000234" data-part="6984" data-name="L/L 4019 Setco Type (Sensor) 136 Teeth Engine" data-brand="BGL" aria-label="Add L/L 4019 Setco Type (Sensor) 136 Teeth Engine to RFQ">Add To RFQ</button></div></article></div><button class="pdp-related-next" type="button" aria-label="Next related products">›</button></div></section></div></div>
 </div>
+
+<script>
+window.SOUVIKS_PRODUCT_PAGE_DATA = {"id":"SVKS000429","slug":"pressure-plate-330-dia-sonalika-4-lever","part_number":"","manufacturer_part_number":"","manufacturer_part_numbers":[],"alternate_part_numbers":[],"oem_numbers":[],"cross_references":[],"mrp":7260,"selling_price":6313,"discount_percent":13,"discountPercent":13,"product_name":"Pressure Plate 330 Dia Sonalika 4 Lever","name":"Pressure Plate 330 Dia Sonalika 4 Lever","partNumber":"","brand_id":"bgl","brand_name":"BGL","brand":"BGL","category_id":"clutch-parts","category_name":"Clutch Parts","category":"Clutch Parts","subcategory_id":"pressure-plate","subcategory_name":"Pressure Plate","subcategory":"Pressure Plate","gallery":["1.webp","2.webp","3.webp","4.webp"],"gallery_dimensions":{"1.webp":[768,512],"2.webp":[768,512],"3.webp":[768,512],"4.webp":[768,512]},"description":"Heavy-duty 330 mm clutch pressure plate with 4-lever design manufactured for Sonalika tractor applications. Designed to provide uniform clutch engagement, high torque transmission and long service life.","image_folder":"SVKS000429","image":"1.webp","primary_image":"1.webp","image_url":"/assets/images/products/SVKS000429/1.webp","vehicles":["Tractors"],"applications":["Clutch System","Transmission System"],"featured":false,"active":true,"seo":{"title":"BGL - Pressure Plate 330 Dia Sonalika 4 Lever | Souviks","description":"Commercial vehicle spare part: Pressure Plate 330 Dia Sonalika 4 Lever. Part Number: . Browse applications and request availability from Souviks.","keywords":["Pressure Plate 330 Dia Sonalika 4 Lever","","commercial vehicle spare parts","truck spare parts"],"canonical":"https://www.souviks.co.in/en/products/pressure-plate-330-dia-sonalika-4-lever.html"},"schema":{},"created_at":"2026-10-01T11:55:20.127393","updated_at":"2026-10-01T16:55:04+05:30","catalogue_updated_at":"2026-10-01T16:55:04+05:30"};
+</script>
+
+<!-- Independent first-interaction gallery binding. It does not wait for API, breadcrumb, RFQ, or review loading. -->
+<script>
+(() => {
+    const gallery = document.querySelector(".pdp-gallery");
+    const mainImage = document.getElementById("pdpMainImage");
+    if (!gallery || !mainImage || gallery.dataset.fastBound === "true") return;
+    gallery.dataset.fastBound = "true";
+
+    const thumbs = Array.from(gallery.querySelectorAll(".pdp-thumb"));
+    const thumbContainer = gallery.querySelector(".pdp-thumbnails");
+    const activate = button => {
+        thumbs.forEach(item => {
+            const active = item === button;
+            item.classList.toggle("active", active);
+            if (active) item.setAttribute("aria-current", "true");
+            else item.removeAttribute("aria-current");
+        });
+    };
+    thumbs.forEach(button => button.addEventListener("click", () => {
+        const img = button.querySelector("img");
+        const src = img?.currentSrc || img?.src;
+        if (!src) return;
+        mainImage.src = src;
+        mainImage.removeAttribute("srcset");
+        mainImage.removeAttribute("sizes");
+        activate(button);
+    }));
+    gallery.querySelector(".pdp-thumb-prev")?.addEventListener("click", () => thumbContainer?.scrollBy({left:-260, behavior:"smooth"}));
+    gallery.querySelector(".pdp-thumb-next")?.addEventListener("click", () => thumbContainer?.scrollBy({left:260, behavior:"smooth"}));
+    const main = gallery.querySelector(".pdp-main-image");
+    main?.addEventListener("keydown", event => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        main.querySelector("img")?.click();
+    });
+    activate(thumbs[0]);
+})();
+</script>
 
 <div class="container">
 
@@ -1068,7 +1138,9 @@ SOUVIKS BREADCRUMB
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks Logo">
 
             </a>
@@ -1083,27 +1155,29 @@ SOUVIKS BREADCRUMB
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1199,7 +1273,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/location.svg"
                         alt="Address"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1214,7 +1288,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/phone.svg"
                         alt="Phone"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1229,7 +1303,7 @@ SOUVIKS BREADCRUMB
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="Mobile"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1244,7 +1318,7 @@ SOUVIKS BREADCRUMB
                     <img
     src="/assets/icons/email.svg"
     alt="Email"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1455,25 +1529,7 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/product.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

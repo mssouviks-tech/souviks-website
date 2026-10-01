@@ -118,7 +118,7 @@ Reusable Head Component
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -154,7 +154,7 @@ Reusable Head Component
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/vehicle.css">
 
 
 
@@ -230,57 +238,37 @@ Reusable Head Component
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "TX-6695SC",
+        "name": "Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck",
         "url": "https://www.souviks.co.in/hi/products/tx-6695sc-tx-6695sc.html",
-        "item": {
-          "@type": "Product",
-          "name": "TX-6695SC",
-          "url": "https://www.souviks.co.in/hi/products/tx-6695sc-tx-6695sc.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/tx-6695sc-tx-6695sc.html"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Cl. Cover 33cm   Diaphragm",
         "url": "https://www.souviks.co.in/hi/products/leyparts-b1m03401-cl-cover-33cm-diaphragm.html",
-        "item": {
-          "@type": "Product",
-          "name": "Cl. Cover 33cm   Diaphragm",
-          "url": "https://www.souviks.co.in/hi/products/leyparts-b1m03401-cl-cover-33cm-diaphragm.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/leyparts-b1m03401-cl-cover-33cm-diaphragm.html"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "AML Mini Boss 24V   LED",
         "url": "https://www.souviks.co.in/hi/products/unominda-wl-7341-aml-mini-boss-24v-led.html",
-        "item": {
-          "@type": "Product",
-          "name": "AML Mini Boss 24V   LED",
-          "url": "https://www.souviks.co.in/hi/products/unominda-wl-7341-aml-mini-boss-24v-led.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/unominda-wl-7341-aml-mini-boss-24v-led.html"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "Mini Big Boss White   DRL 12V P43",
         "url": "https://www.souviks.co.in/hi/products/varroc-wla-467wd-mini-big-boss-white-drl-12v-p43.html",
-        "item": {
-          "@type": "Product",
-          "name": "Mini Big Boss White   DRL 12V P43",
-          "url": "https://www.souviks.co.in/hi/products/varroc-wla-467wd-mini-big-boss-white-drl-12v-p43.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/varroc-wla-467wd-mini-big-boss-white-drl-12v-p43.html"
       },
       {
         "@type": "ListItem",
         "position": 5,
         "name": "Mini Big Boss White   MFR P43 WT Park",
         "url": "https://www.souviks.co.in/hi/products/varroc-wla-467wmp-mini-big-boss-white-mfr-p43-wt-park.html",
-        "item": {
-          "@type": "Product",
-          "name": "Mini Big Boss White   MFR P43 WT Park",
-          "url": "https://www.souviks.co.in/hi/products/varroc-wla-467wmp-mini-big-boss-white-mfr-p43-wt-park.html"
-        }
+        "item": "https://www.souviks.co.in/hi/products/varroc-wla-467wmp-mini-big-boss-white-mfr-p43-wt-park.html"
       }
     ]
   }
@@ -334,7 +322,14 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
@@ -354,6 +349,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -372,6 +368,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="ईमेल">
 
                 info@souviks.co.in
@@ -388,6 +385,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="फ़ोन">
 
                 +91 94343 31896
@@ -401,11 +399,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="व्हाट्सऐप">
 
                 व्हाट्सऐप
@@ -823,23 +822,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -877,7 +876,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -1031,7 +1030,7 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <!-- JavaScript will generate the breadcrumb -->
+            <li class="breadcrumb-item"><a href="/hi/vehicles.html">Vehicles</a></li><li class="breadcrumb-item active" aria-current="page">Ashok Leyland Boss</li>
 
         </ol>
 
@@ -1048,7 +1047,7 @@ VEHICLE HERO
     <div class="container">
 
         <div id="vehicle-detail" data-static-rendered="true">
-            <div class="vehicle-detail"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_BOSS/thumbnail-400x300.webp" alt="Ashok Leyland Boss" loading="lazy" decoding="async"></div><div class="vehicle-info"><h1>Ashok Leyland Boss</h1><p>Souviks lists 5 active spare parts for the Ashok Leyland Boss vehicle application. Product categories represented include Bearings, Clutch Parts, Electricals. Brands represented include Leyparts, Texspin, UnoMinda, Varroc.</p><div>Products: 5</div></div></div>
+            <div class="vehicle-detail"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_BOSS/thumbnail-400x300.webp" alt="Ashok Leyland Boss" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-info"><h1>Ashok Leyland Boss</h1><p>Souviks lists 5 active spare parts for the Ashok Leyland Boss vehicle application. Product categories represented include Bearings, Clutch Parts, Electricals. Brands represented include Leyparts, Texspin, UnoMinda, Varroc.</p><div>Products: 5</div></div></div>
         </div>
 
     </div>
@@ -1084,7 +1083,7 @@ COMPATIBLE PRODUCTS
             class="products-grid"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/hi/products/tx-6695sc-tx-6695sc.html" class="product-link" aria-label="View TX-6695SC"><img class="product-image-file" src="/assets/images/products/SVKS000505/1.webp" alt="TX-6695SC" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000505" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/tx-6695sc-tx-6695sc.html">TX-6695SC</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,749</span><span class="product-price-mrp">MRP ₹2,098</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000505" data-part="TX-6695SC" data-name="TX-6695SC" data-brand="Texspin" aria-label="Add TX-6695SC to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/leyparts-b1m03401-cl-cover-33cm-diaphragm.html" class="product-link" aria-label="View Cl. Cover 33cm   Diaphragm"><img class="product-image-file" src="/assets/images/products/SVKS000751/1.webp" alt="Cl. Cover 33cm   Diaphragm" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000751" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/leyparts-b1m03401-cl-cover-33cm-diaphragm.html">Cl. Cover 33cm   Diaphragm</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000751" data-part="B1M03401" data-name="Cl. Cover 33cm   Diaphragm" data-brand="Leyparts" aria-label="Add Cl. Cover 33cm   Diaphragm to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/unominda-wl-7341-aml-mini-boss-24v-led.html" class="product-link" aria-label="View AML Mini Boss 24V   LED"><img class="product-image-file" src="/assets/images/products/SVKS000845/1.webp" alt="AML Mini Boss 24V   LED" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000845" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/unominda-wl-7341-aml-mini-boss-24v-led.html">AML Mini Boss 24V   LED</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000845" data-part="WL 7341" data-name="AML Mini Boss 24V   LED" data-brand="UnoMinda" aria-label="Add AML Mini Boss 24V   LED to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/varroc-wla-467wd-mini-big-boss-white-drl-12v-p43.html" class="product-link" aria-label="View Mini Big Boss White   DRL 12V P43"><img class="product-image-file" src="/assets/images/products/SVKS000862/1.webp" alt="Mini Big Boss White   DRL 12V P43" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000862" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/varroc-wla-467wd-mini-big-boss-white-drl-12v-p43.html">Mini Big Boss White   DRL 12V P43</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000862" data-part="WLA-467WD" data-name="Mini Big Boss White   DRL 12V P43" data-brand="Varroc" aria-label="Add Mini Big Boss White   DRL 12V P43 to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/varroc-wla-467wmp-mini-big-boss-white-mfr-p43-wt-park.html" class="product-link" aria-label="View Mini Big Boss White   MFR P43 WT Park"><img class="product-image-file" src="/assets/images/products/SVKS000863/1.webp" alt="Mini Big Boss White   MFR P43 WT Park" loading="lazy" decoding="async"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000863" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><h3 class="product-title"><a href="/hi/products/varroc-wla-467wmp-mini-big-boss-white-mfr-p43-wt-park.html">Mini Big Boss White   MFR P43 WT Park</a></h3><div class="product-price" aria-label="Price">Price on request</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000863" data-part="WLA-467WMP" data-name="Mini Big Boss White   MFR P43 WT Park" data-brand="Varroc" aria-label="Add Mini Big Boss White   MFR P43 WT Park to RFQ">RFQ में जोड़ें</button></div></article>
+            <article class="product-card"><div class="product-image"><a href="/hi/products/tx-6695sc-tx-6695sc.html" class="product-link" aria-label="View Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck"><img class="product-image-file" src="/assets/images/products/SVKS000505/1.webp" alt="Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000505" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Texspin</div><div class="product-part-number">Part No. <strong>TX-6695SC</strong></div><h3 class="product-title"><a href="/hi/products/tx-6695sc-tx-6695sc.html">Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,678.40</span><span class="product-price-mrp">MRP ₹2,098</span><span class="product-price-discount">20% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000505" data-part="TX-6695SC" data-name="Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck" data-brand="Texspin" aria-label="Add Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/leyparts-b1m03401-cl-cover-33cm-diaphragm.html" class="product-link" aria-label="View Cl. Cover 33cm   Diaphragm"><img class="product-image-file" src="/assets/images/products/SVKS000751/1.webp" alt="Cl. Cover 33cm   Diaphragm" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000751" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Leyparts</div><div class="product-part-number">Part No. <strong>B1M03401</strong></div><h3 class="product-title"><a href="/hi/products/leyparts-b1m03401-cl-cover-33cm-diaphragm.html">Cl. Cover 33cm   Diaphragm</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹9,936</span><span class="product-price-mrp">MRP ₹10,800</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000751" data-part="B1M03401" data-name="Cl. Cover 33cm   Diaphragm" data-brand="Leyparts" aria-label="Add Cl. Cover 33cm   Diaphragm to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/unominda-wl-7341-aml-mini-boss-24v-led.html" class="product-link" aria-label="View AML Mini Boss 24V   LED"><img class="product-image-file" src="/assets/images/products/SVKS000845/1.webp" alt="AML Mini Boss 24V   LED" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000845" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">UnoMinda</div><div class="product-part-number">Part No. <strong>WL 7341</strong></div><h3 class="product-title"><a href="/hi/products/unominda-wl-7341-aml-mini-boss-24v-led.html">AML Mini Boss 24V   LED</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹599</span><span class="product-price-mrp">MRP ₹699</span><span class="product-price-discount">14% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000845" data-part="WL 7341" data-name="AML Mini Boss 24V   LED" data-brand="UnoMinda" aria-label="Add AML Mini Boss 24V   LED to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/varroc-wla-467wd-mini-big-boss-white-drl-12v-p43.html" class="product-link" aria-label="View Mini Big Boss White   DRL 12V P43"><img class="product-image-file" src="/assets/images/products/SVKS000862/1.webp" alt="Mini Big Boss White   DRL 12V P43" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000862" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Varroc</div><div class="product-part-number">Part No. <strong>WLA-467WD</strong></div><h3 class="product-title"><a href="/hi/products/varroc-wla-467wd-mini-big-boss-white-drl-12v-p43.html">Mini Big Boss White   DRL 12V P43</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹470</span><span class="product-price-mrp">MRP ₹500</span><span class="product-price-discount">6% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000862" data-part="WLA-467WD" data-name="Mini Big Boss White   DRL 12V P43" data-brand="Varroc" aria-label="Add Mini Big Boss White   DRL 12V P43 to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/varroc-wla-467wmp-mini-big-boss-white-mfr-p43-wt-park.html" class="product-link" aria-label="View Mini Big Boss White   MFR P43 WT Park"><img class="product-image-file" src="/assets/images/products/SVKS000863/1.webp" alt="Mini Big Boss White   MFR P43 WT Park" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000863" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Varroc</div><div class="product-part-number">Part No. <strong>WLA-467WMP</strong></div><h3 class="product-title"><a href="/hi/products/varroc-wla-467wmp-mini-big-boss-white-mfr-p43-wt-park.html">Mini Big Boss White   MFR P43 WT Park</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹360</span><span class="product-price-mrp">MRP ₹400</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000863" data-part="WLA-467WMP" data-name="Mini Big Boss White   MFR P43 WT Park" data-brand="Varroc" aria-label="Add Mini Big Boss White   MFR P43 WT Park to RFQ">RFQ में जोड़ें</button></div></article>
 
         </div>
 
@@ -1107,7 +1106,9 @@ COMPATIBLE PRODUCTS
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks लोगो">
 
             </a>
@@ -1122,27 +1123,29 @@ COMPATIBLE PRODUCTS
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1238,7 +1241,7 @@ COMPATIBLE PRODUCTS
                     <img
                         src="/assets/icons/location.svg"
                         alt="पता"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1253,7 +1256,7 @@ COMPATIBLE PRODUCTS
                     <img
                         src="/assets/icons/phone.svg"
                         alt="फ़ोन"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1268,7 +1271,7 @@ COMPATIBLE PRODUCTS
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="मोबाइल"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1283,7 +1286,7 @@ COMPATIBLE PRODUCTS
                     <img
     src="/assets/icons/email.svg"
     alt="ईमेल"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 
@@ -1494,31 +1497,13 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
-<script defer src="/assets/js/saved-products.js"></script>
+<script defer src="/assets/js/bundles/vehicle.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script defer src="/assets/js/pages/vehicle-page.js"></script>
+
 
 
 <!-- ==========================================

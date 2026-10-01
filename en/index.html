@@ -110,15 +110,15 @@ Reusable Head Component
 
     <meta
         property="og:title"
-        content="Commercial Vehicle Spare Parts | Souviks">
+        content="Commercial Vehicle Spare Parts in India | Souviks">
 
     <meta
         property="og:description"
-        content="Leading supplier of genuine commercial vehicle spare parts across India since 1986.">
+        content="Souviks supplies genuine OEM and premium aftermarket commercial vehicle spare parts for trucks and buses across India since 1986.">
 
     <meta
     property="og:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     property="og:image:alt"
@@ -146,15 +146,15 @@ Reusable Head Component
 
     <meta
         name="twitter:title"
-        content="Commercial Vehicle Spare Parts | Souviks">
+        content="Commercial Vehicle Spare Parts in India | Souviks">
 
     <meta
         name="twitter:description"
-        content="Leading supplier of genuine commercial vehicle spare parts across India since 1986.">
+        content="Souviks supplies genuine OEM and premium aftermarket commercial vehicle spare parts for trucks and buses across India since 1986.">
 
     <meta
     name="twitter:image"
-    content="https://www.souviks.co.in/assets/images/og/home.webp">
+    content="https://www.souviks.co.in/assets/images/og-image.png">
 
     <meta
     name="twitter:image:alt"
@@ -179,7 +179,15 @@ Reusable Head Component
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- ==========================================
          GLOBAL CSS
@@ -187,7 +195,7 @@ Reusable Head Component
 
     <link
         rel="stylesheet"
-        href="/assets/css/style.css">
+        href="/assets/css/bundles/index.css">
 
 
 
@@ -327,12 +335,19 @@ Reusable Head Component
          HEAD SCRIPTS
     =========================================== -->
 
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLYP5QB8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FDLYP5QB8V');
+</script>
 
 
 </head>
 
-<body>
+<body class="index-page">
 
     
 <div class="top-bar">
@@ -347,6 +362,7 @@ Reusable Head Component
 
                 <img
                     src="/assets/logo/souviks-logo.png"
+                    width="1024" height="1024"
                     alt="Souviks">
 
             </a>
@@ -365,6 +381,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/email.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Email">
 
                 info@souviks.co.in
@@ -381,6 +398,7 @@ Reusable Head Component
                 <img
                     src="/assets/icons/phone.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="Phone">
 
                 +91 94343 31896
@@ -394,11 +412,12 @@ Reusable Head Component
                 href="https://wa.me/+917908215701"
                 class="top-item top-whatsapp"
                 target="_blank"
-                rel="noopener">
+                rel="noopener noreferrer">
 
                 <img
                     src="/assets/icons/whatsapp.svg"
                     class="top-icon"
+                    width="24" height="24"
                     alt="WhatsApp">
 
                 WhatsApp
@@ -816,23 +835,23 @@ Reusable Head Component
 
     </div>
 
-    <a href="#" data-language="en">
+    <button type="button" class="language-option" data-language="en">
 
         🇬🇧 English
 
-    </a>
+    </button>
 
-    <a href="#" data-language="bn">
+    <button type="button" class="language-option" data-language="bn">
 
         🇧🇩 বাংলা
 
-    </a>
+    </button>
 
-    <a href="#" data-language="hi">
+    <button type="button" class="language-option" data-language="hi">
 
         🇮🇳 हिन्दी
 
-    </a>
+    </button>
 
 </div>
 
@@ -872,7 +891,7 @@ Reusable Head Component
                     <img
                         src="/assets/logo/souviks-logo-white.png"
                         alt="Souviks"
-                        class="mobile-navigation-logo">
+                        class="mobile-navigation-logo" width="1024" height="1024">
                     <button
                         id="mobileNavigationClose"
                         class="mobile-navigation-close"
@@ -1046,7 +1065,7 @@ Reusable Head Component
                     <div class="hero-stat">
 
                         <img
-                            src="/assets/icons/products.svg"
+                            src="/assets/icons/products.svg" width="48" height="48"
                             alt="Products"
                             class="hero-stat-icon">
 
@@ -1054,7 +1073,7 @@ Reusable Head Component
 
                             <span class="stat-number">
 
-                                933
+                                1022
 
                             </span>
 
@@ -1072,7 +1091,7 @@ Reusable Head Component
                     <div class="hero-stat">
 
                         <img
-                            src="/assets/icons/brands.svg"
+                            src="/assets/icons/brands.svg" width="48" height="48"
                             alt="Brands"
                             class="hero-stat-icon">
 
@@ -1080,7 +1099,7 @@ Reusable Head Component
 
                             <span class="stat-number">
 
-                                55
+                                60
 
                             </span>
 
@@ -1098,8 +1117,10 @@ Reusable Head Component
                     <div class="hero-stat">
 
                         <img
-                            src="/assets/icons/truck.svg"
-                            alt="Shipping"
+                            src="/assets/icons/vehicle.svg"
+                            width="24"
+                        height="24"
+                        alt="Shipping"
                             class="hero-stat-icon">
 
                         <div class="hero-stat-content">
@@ -1147,25 +1168,40 @@ Reusable Search Component
                 <img
                     src="/assets/icons/search.svg"
                     alt="Search"
-                    class="search-icon">
+                    class="search-icon" width="24" height="24">
 
                 <input
                     type="search"
                     id="searchInput"
                     class="search-input"
                     placeholder="Search by part number, brand or vehicle"
-                    aria-label="Search">
+                    aria-label="Search"
+                    enterkeyhint="search"
+                    autocomplete="off">
 
                 <button
+                    type="button"
                     id="clearSearch"
                     class="clear-search"
-                    aria-label="Clear">
+                    aria-label="Clear"
+                    hidden>
 
                     ×
 
                 </button>
 
-                <div
+                <button
+                    type="button"
+                    id="voiceSearch"
+                    class="voice-search"
+                    aria-label="Voice search"
+                    title="Voice search"
+                    hidden>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Zm-5-3a5 5 0 0 0 10 0h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2Zm5 5a5 5 0 0 0 5-5h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2a5 5 0 0 0 5 5Z"/>
+                    </svg>
+                </button>
+<div
                     id="searchResults"
                     class="search-results">
                 </div>
@@ -1218,7 +1254,7 @@ Reusable Search Component
                 class="categories-grid"
                 data-static-rendered="true">
 
-                <article class="category-card"><a href="/en/categories/suspension-steering.html" data-breadcrumb="Suspension &amp; Steering"><div class="category-image"><img src="/assets/images/categories/suspension-steering.png" alt="Suspension &amp; Steering" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Suspension &amp; Steering</h3><div class="category-count">301 Products</div></div></a></article><article class="category-card"><a href="/en/categories/electricals.html" data-breadcrumb="Electricals"><div class="category-image"><img src="/assets/images/categories/electricals.png" alt="Electricals" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Electricals</h3><div class="category-count">113 Products</div></div></a></article><article class="category-card"><a href="/en/categories/fasteners-hardware.html" data-breadcrumb="Fasteners &amp; Hardware"><div class="category-image"><img src="/assets/images/categories/fasteners-hardware.png" alt="Fasteners &amp; Hardware" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Fasteners &amp; Hardware</h3><div class="category-count">83 Products</div></div></a></article><article class="category-card"><a href="/en/categories/bearings.html" data-breadcrumb="Bearings"><div class="category-image"><img src="/assets/images/categories/bearings.png" alt="Bearings" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Bearings</h3><div class="category-count">83 Products</div></div></a></article><article class="category-card"><a href="/en/categories/filters.html" data-breadcrumb="Filters"><div class="category-image"><img src="/assets/images/categories/filters.png" alt="Filters" loading="lazy" decoding="async"></div><div class="category-content"><h3 class="category-title">Filters</h3><div class="category-count">77 Products</div></div></a></article>
+                <article class="category-card"><a href="/en/categories/suspension-steering.html" data-breadcrumb="Suspension &amp; Steering"><div class="category-image"><img src="/assets/images/categories/suspension-steering.png" alt="Suspension &amp; Steering" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Suspension &amp; Steering</h3><div class="category-count">312 Products</div></div></a></article><article class="category-card"><a href="/en/categories/electricals.html" data-breadcrumb="Electricals"><div class="category-image"><img src="/assets/images/categories/electricals.png" alt="Electricals" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Electricals</h3><div class="category-count">121 Products</div></div></a></article><article class="category-card"><a href="/en/categories/fasteners-hardware.html" data-breadcrumb="Fasteners &amp; Hardware"><div class="category-image"><img src="/assets/images/categories/fasteners-hardware.png" alt="Fasteners &amp; Hardware" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Fasteners &amp; Hardware</h3><div class="category-count">94 Products</div></div></a></article><article class="category-card"><a href="/en/categories/bearings.html" data-breadcrumb="Bearings"><div class="category-image"><img src="/assets/images/categories/bearings.png" alt="Bearings" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Bearings</h3><div class="category-count">94 Products</div></div></a></article><article class="category-card"><a href="/en/categories/clutch-parts.html" data-breadcrumb="Clutch Parts"><div class="category-image"><img src="/assets/images/categories/clutch-parts.png" alt="Clutch Parts" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Clutch Parts</h3><div class="category-count">90 Products</div></div></a></article>
 
             </div>
 
@@ -1256,7 +1292,7 @@ Reusable Search Component
                 class="brands-grid"
                 data-static-rendered="true">
 
-                <article class="brand-card"><a href="/en/brands/tvs-girling.html" data-name="TVS Girling"><div class="brand-image"><img src="/assets/images/brands/tvs-girling.png" alt="TVS Girling" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">TVS Girling</h3><div class="brand-count"><span class="count-number">103</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/jai.html" data-name="JAI"><div class="brand-image"><img src="/assets/images/brands/jai.png" alt="JAI" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">JAI</h3><div class="brand-count"><span class="count-number">101</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/texspin.html" data-name="Texspin"><div class="brand-image"><img src="/assets/images/brands/texspin.png" alt="Texspin" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Texspin</h3><div class="brand-count"><span class="count-number">82</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/tata-genuine-parts.html" data-name="Tata Genuine Parts"><div class="brand-image"><img src="/assets/images/brands/tata-genuine-parts.png" alt="Tata Genuine Parts" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">Tata Genuine Parts</h3><div class="brand-count"><span class="count-number">81</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/rki.html" data-name="RKI"><div class="brand-image"><img src="/assets/images/brands/rki.png" alt="RKI" loading="lazy" decoding="async"></div><div class="brand-content"><h3 class="brand-name">RKI</h3><div class="brand-count"><span class="count-number">39</span> Products</div></div></a></article>
+                <article class="brand-card"><a href="/en/brands/tvs-girling.html" data-name="TVS Girling"><div class="brand-image"><img src="/assets/images/brands/tvs-girling.png" alt="TVS Girling" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">TVS Girling</h3><div class="brand-count"><span class="count-number">129</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/jai.html" data-name="JAI"><div class="brand-image"><img src="/assets/images/brands/jai.png" alt="JAI" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">JAI</h3><div class="brand-count"><span class="count-number">108</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/texspin.html" data-name="Texspin"><div class="brand-image"><img src="/assets/images/brands/texspin.png" alt="Texspin" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">Texspin</h3><div class="brand-count"><span class="count-number">103</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/tata-genuine-parts.html" data-name="Tata Genuine Parts"><div class="brand-image"><img src="/assets/images/brands/tata-genuine-parts.png" alt="Tata Genuine Parts" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">Tata Genuine Parts</h3><div class="brand-count"><span class="count-number">96</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/rki.html" data-name="RKI"><div class="brand-image"><img src="/assets/images/brands/rki.png" alt="RKI" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">RKI</h3><div class="brand-count"><span class="count-number">41</span> Products</div></div></a></article>
 
             </div>
 
@@ -1294,7 +1330,7 @@ Reusable Search Component
                 class="vehicles-grid"
                 data-static-rendered="true">
 
-                <article class="vehicle-card"><a href="/en/vehicles/tata-lpt.html" data-breadcrumb="Tata LPT"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata LPT</h3><div class="vehicle-count">262 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/universal.html" data-breadcrumb="Universal"><div class="vehicle-image"><img src="/assets/images/vehicles/UNIVERSAL/thumbnail-400x300.webp" alt="Universal" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Universal</h3><div class="vehicle-count">261 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-2516.html" data-breadcrumb="Ashok Leyland 2516"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland 2516</h3><div class="vehicle-count">184 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-ace.html" data-breadcrumb="Tata Ace"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp" alt="Tata Ace" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ace</h3><div class="vehicle-count">70 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-signa.html" data-breadcrumb="Tata Signa"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp" alt="Tata Signa" loading="lazy" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Signa</h3><div class="vehicle-count">66 Products</div></div></a></article>
+                <article class="vehicle-card"><a href="/en/vehicles/universal.html" data-breadcrumb="Universal"><div class="vehicle-image"><img src="/assets/images/vehicles/UNIVERSAL/thumbnail-400x300.webp" alt="Universal" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Universal</h3><div class="vehicle-count">311 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-lpt.html" data-breadcrumb="Tata LPT"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata LPT</h3><div class="vehicle-count">274 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-2516.html" data-breadcrumb="Ashok Leyland 2516"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland 2516</h3><div class="vehicle-count">200 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-ace.html" data-breadcrumb="Tata Ace"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp" alt="Tata Ace" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ace</h3><div class="vehicle-count">73 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-signa.html" data-breadcrumb="Tata Signa"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp" alt="Tata Signa" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Signa</h3><div class="vehicle-count">72 Products</div></div></a></article>
 
             </div>
 
@@ -1451,30 +1487,13 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/auth/supabase.js"></script>
-<script defer src="/assets/js/auth/register.js"></script>
-<script defer src="/assets/js/auth/auth-modal.js"></script>
-<script defer src="/assets/js/auth/auth-state.js"></script>
-<script defer src="/assets/js/auth/logout.js"></script>
-<script defer src="/assets/js/utils.js"></script>
-<script defer src="/assets/js/api.js"></script>
-<script defer src="/assets/js/breadcrumb.js"></script>
-<script defer src="/assets/js/language-switcher.js"></script>
-<script defer src="/assets/js/main.js"></script>
-<script defer src="/assets/js/webmcp.js"></script>
-<script defer src="/assets/js/products.js"></script>
-<script defer src="/assets/js/brands.js"></script>
-<script defer src="/assets/js/categories.js"></script>
-<script defer src="/assets/js/vehicles.js"></script>
-<script defer src="/assets/js/search-engine.js"></script>
-<script defer src="/assets/js/search.js"></script>
-<script defer src="/assets/js/rfq.js"></script>
+<script defer src="/assets/js/bundles/index.js"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS
 ========================================== -->
 
-<script defer src="/assets/js/pages/index.js"></script>
+
 
 
 <!-- ==========================================
@@ -1516,7 +1535,9 @@ document.addEventListener(
                class="footer-logo">
 
                 <img
-                    src="/assets/logo/souviks-logo-white.png"
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.png" width="1024" height="1024"
                     alt="Souviks Logo">
 
             </a>
@@ -1531,27 +1552,29 @@ document.addEventListener(
 
                 <a href="https://www.facebook.com/souviksandal"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/facebook.svg"
+                        width="24" height="24"
                         alt="Facebook">
 
                 </a>
 
                 <a href="https://www.instagram.com/mssouviks"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener noreferrer">
 
                     <img
                         src="/assets/icons/instagram.svg"
+                        width="24" height="24"
                         alt="Instagram">
 
                 </a>
 
                 <a href="https://x.com/mssouviks"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    aria-label="Souviks on X">
                     <span aria-hidden="true">X</span>
                 </a>
@@ -1647,7 +1670,7 @@ document.addEventListener(
                     <img
                         src="/assets/icons/location.svg"
                         alt="Address"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <span>
 
@@ -1662,7 +1685,7 @@ document.addEventListener(
                     <img
                         src="/assets/icons/phone.svg"
                         alt="Phone"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+919434331896">
 
@@ -1677,7 +1700,7 @@ document.addEventListener(
                     <img
                         src="/assets/icons/mobile.svg"
                         alt="Mobile"
-                        class="footer-icon">
+                        class="footer-icon" width="24" height="24">
 
                     <a href="tel:+917908215701">
 
@@ -1692,7 +1715,7 @@ document.addEventListener(
                     <img
     src="/assets/icons/email.svg"
     alt="Email"
-    class="footer-icon">
+    class="footer-icon" width="24" height="24">
 
                     <a href="mailto:info@souviks.co.in">
 

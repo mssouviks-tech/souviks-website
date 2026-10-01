@@ -379,7 +379,8 @@
     "view_all": "सभी वाहन देखें",
     "hero_title": "वाहन के अनुसार देखें",
     "hero_description": "निर्माता और मॉडल के अनुसार संगत स्पेयर पार्ट्स खोजें।",
-    "browse_parts": "पार्ट्स देखें →"
+    "browse_parts": "पार्ट्स देखें →",
+    "every_vehicle": "सभी वाहन"
   },
   "vehicle": {
     "products_title": "संगत उत्पाद",
