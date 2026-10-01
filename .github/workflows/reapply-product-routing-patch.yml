@@ -38,11 +38,7 @@ jobs:
           )
 
           resolve() {
-            python3 - "$1" "$2" <<'PY'
-from urllib.parse import urljoin
-import sys
-print(urljoin(sys.argv[1], sys.argv[2]))
-PY
+            python3 -c 'from urllib.parse import urljoin; import sys; print(urljoin(sys.argv[1], sys.argv[2]))' "$1" "$2"
           }
 
           for original_url in "${urls[@]}"; do
