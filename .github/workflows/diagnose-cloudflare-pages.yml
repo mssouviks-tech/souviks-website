@@ -14,7 +14,8 @@ on:
         type: string
 
 permissions:
-  contents: write
+  contents: read
+  issues: write
 
 jobs:
   diagnose:
@@ -169,12 +170,10 @@ jobs:
           } | tee "${DIAGNOSTIC_FILE}" | tee -a "${GITHUB_STEP_SUMMARY}"
           exit 0
 
-      - name: Commit diagnostic report
+      - name: Publish diagnostic to PR conversation
+        env:
+          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "${DIAGNOSTIC_FILE}"
-          git commit -m "Record Cloudflare Pages diagnostic" || exit 0
-          git push origin HEAD:main
+          gh issue comment 17 --repo "${GITHUB_REPOSITORY}" --body-file "${DIAGNOSTIC_FILE}"
