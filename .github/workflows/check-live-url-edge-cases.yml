@@ -1,0 +1,74 @@
+name: Live URL HTTP Edge-Case Check
+
+on:
+  push:
+    branches:
+      - diagnostic/live-url-status-20261002
+
+permissions:
+  contents: read
+
+jobs:
+  check-live-urls:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check direct HTTP status and redirect chains
+        shell: bash
+        run: |
+          set -uo pipefail
+
+          urls=(
+            "https://www.souviks.co.in/en/products/12-x-15-nut"
+            "https://www.souviks.co.in/en/products/12-X-15-NUT"
+            "https://www.souviks.co.in/en/products/12%20X%2015%20Nut"
+            "https://www.souviks.co.in/en/products/12-x-15-nut/"
+            "https://www.souviks.co.in/en/products/12-x-15-nut.HTML"
+            "https://www.souviks.co.in/en/products/12-X-15-NUT.HTML"
+            "https://www.souviks.co.in/en/products/12%20X%2015%20Nut.HTML"
+            "https://www.souviks.co.in/en/products/"
+            "https://www.souviks.co.in/en/products"
+            "https://www.souviks.co.in/en/products/does-not-exist-xyz"
+          )
+
+          resolve_location() {
+            python3 - "$1" "$2" <<'PY'
+import sys
+from urllib.parse import urljoin
+base, loc = sys.argv[1], sys.argv[2]
+print(urljoin(base, loc))
+PY
+          }
+
+          for original in "${urls[@]}"; do
+            echo
+            echo "=== TEST: $original ==="
+            current="$original"
+            for hop in {0..9}; do
+              headers="$(mktemp)"
+              body="$(mktemp)"
+              if ! curl -sS --path-as-is --max-time 30 --connect-timeout 15 -D "$headers" -o "$body" "$current"; then
+                echo "REQUEST_ERROR url=$current"
+                rm -f "$headers" "$body"
+                break
+              fi
+              status="$(awk 'toupper($1) ~ /^HTTP\// { code=$2 } END { print code+0 }' "$headers")"
+              location="$(awk 'BEGIN{IGNORECASE=1} /^Location:/ { sub(/^Location:[[:space:]]*/, ""); print }' "$headers" | tail -1)"
+              printf 'HOP %s: status=%s url=%s' "$hop" "$status" "$current"
+              if [[ -n "$location" ]]; then
+                printf ' location=%s' "$location"
+              fi
+              printf '\n'
+              rm -f "$headers" "$body"
+
+              if [[ "$status" =~ ^3[0-9][0-9]$ && -n "$location" ]]; then
+                next="$(resolve_location "$current" "$location")"
+                if [[ "$next" == "$current" ]]; then
+                  echo "REDIRECT_LOOP: location resolves to same URL"
+                  break
+                fi
+                current="$next"
+              else
+                break
+              fi
+            done
+          done
