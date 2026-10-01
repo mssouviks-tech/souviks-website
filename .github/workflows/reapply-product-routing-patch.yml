@@ -32,7 +32,7 @@ jobs:
 
       - name: Commit patch if the build replaced it
         run: |
-          if git diff --quiet -- \
+          if git diff --quiet HEAD -- \
             "functions/products/[slug].js" \
             "functions/en/products/[slug].js" \
             "functions/bn/products/[slug].js" \
