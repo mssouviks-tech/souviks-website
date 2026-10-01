@@ -1,0 +1,115 @@
+name: Diagnose Cloudflare Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      account_id:
+        description: "Cloudflare Account ID for the Souviks Pages project"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ inputs.account_id }}
+      REPO_OWNER: "mssouviks-tech"
+      REPO_NAME: "souviks-website"
+    steps:
+      - name: Verify token
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            echo "CLOUDFLARE_API_TOKEN repository secret is missing." >&2
+            exit 1
+          fi
+          curl --fail --silent --show-error \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects?per_page=100" \
+            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            > /tmp/pages-projects.json
+          jq -e '.success == true' /tmp/pages-projects.json >/dev/null
+
+      - name: Inspect Pages project and production deployments
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          {
+            echo "## Cloudflare Pages diagnostic"
+            echo
+            echo "**GitHub repository:** ${REPO_OWNER}/${REPO_NAME}"
+            echo
+
+            MATCHES="$(jq -c --arg owner "${REPO_OWNER}" --arg repo "${REPO_NAME}" '
+              .result[]
+              | select(
+                  (.source.config.owner? // "") == $owner
+                  and (.source.config.repo_name? // "") == $repo
+                )
+              | {
+                  name,
+                  id,
+                  subdomain,
+                  production_branch: (.source.config.production_branch? // null),
+                  production_deployments_enabled: (.source.config.production_deployments_enabled? // null),
+                  deployments_enabled: (.source.config.deployments_enabled? // null),
+                  preview_deployment_setting: (.source.config.preview_deployment_setting? // null),
+                  canonical_deployment_id: (.canonical_deployment.id? // null)
+                }
+            ' /tmp/pages-projects.json)"
+
+            if [ -z "${MATCHES}" ]; then
+              echo "No Pages project was found whose source repository matches ${REPO_OWNER}/${REPO_NAME}."
+              echo
+              echo "All Pages projects visible to this token:"
+              jq -r '.result[] | "- (.name) | production branch: (.source.config.production_branch? // "unknown") | repo: (.source.config.owner? // "unknown")/(.source.config.repo_name? // "unknown")"' /tmp/pages-projects.json
+              exit 0
+            fi
+
+            echo "${MATCHES}" | while IFS= read -r project; do
+              PROJECT_NAME="$(echo "${project}" | jq -r '.name')"
+              echo "### Project: ${PROJECT_NAME}"
+              echo
+              echo "${project}" | jq .
+              echo
+
+              curl --fail --silent --show-error \
+                "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${PROJECT_NAME}/deployments?env=production&per_page=10" \
+                -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+                -H "Content-Type: application/json" \
+                > "/tmp/${PROJECT_NAME}-deployments.json"
+
+              echo "#### Recent production deployments"
+              jq -r '
+                .result[]
+                | [
+                    (.created_on // ""),
+                    (.latest_stage.status // ""),
+                    (.deployment_trigger.type // ""),
+                    (.deployment_trigger.metadata.branch // ""),
+                    (.deployment_trigger.metadata.commit_hash // ""),
+                    (.deployment_trigger.metadata.commit_message // ""),
+                    (.uses_functions // false),
+                    (.id // "")
+                  ]
+                | @tsv
+              ' "/tmp/${PROJECT_NAME}-deployments.json" | while IFS=$'\t' read -r created status trigger branch commit message uses_functions id; do
+                echo "- created=${created}; status=${status}; trigger=${trigger}; branch=${branch}; commit=${commit}; uses_functions=${uses_functions}; deployment_id=${id}"
+                echo "  message: ${message}"
+              done
+              echo
+            done
+          } | tee cloudflare-pages-diagnostic.txt | tee -a "${GITHUB_STEP_SUMMARY}"
+
+      - name: Upload diagnostic artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-pages-diagnostic
+          path: cloudflare-pages-diagnostic.txt
+          retention-days: 7
