@@ -1,0 +1,43 @@
+name: Reapply Product Routing Patch
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reapply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch canonical product-routing patch
+        run: git fetch origin fix/product-detail-routing --depth=1
+
+      - name: Restore patched routing functions
+        run: |
+          git checkout FETCH_HEAD -- \
+            "functions/products/[slug].js" \
+            "functions/en/products/[slug].js" \
+            "functions/bn/products/[slug].js" \
+            "functions/hi/products/[slug].js"
+
+      - name: Commit patch if the build replaced it
+        run: |
+          if git diff --quiet --             "functions/products/[slug].js"             "functions/en/products/[slug].js"             "functions/bn/products/[slug].js"             "functions/hi/products/[slug].js"; then
+            echo "Product routing patch is already present."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add             "functions/products/[slug].js"             "functions/en/products/[slug].js"             "functions/bn/products/[slug].js"             "functions/hi/products/[slug].js"
+          git commit -m "Reapply product detail routing patch"
+          git push origin HEAD:main
