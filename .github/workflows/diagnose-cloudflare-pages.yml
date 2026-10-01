@@ -62,7 +62,7 @@ jobs:
 
             echo "## Pages project API response"
             HTTP_STATUS=$(curl -sS -o /tmp/pages-projects.json -w "%{http_code}" \
-              "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects?per_page=100" \
+              "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects" \
               -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
               -H "Content-Type: application/json")
             echo "HTTP status: ${HTTP_STATUS}"
