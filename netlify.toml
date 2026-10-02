@@ -1,0 +1,5 @@
+# Keep the static .html URLs as the canonical public URLs used by the sitemap,
+# canonical tags and structured data. Netlify Pretty URLs otherwise redirects
+# /page.html to /page, creating an unnecessary canonical redirect hop.
+[build.processing.html]
+  pretty_urls = false
