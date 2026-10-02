@@ -1,57 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1">
-
-<title>Souviks</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commercial Vehicle Spare Parts in India | Souviks</title>
+<meta name="description" content="Souviks supplies genuine OEM and premium aftermarket commercial vehicle spare parts for trucks and buses across India. Browse parts by part number, brand, category and vehicle.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://www.souviks.co.in/en/">
+<link rel="alternate" hreflang="en" href="https://www.souviks.co.in/en/">
+<link rel="alternate" hreflang="bn" href="https://www.souviks.co.in/bn/">
+<link rel="alternate" hreflang="hi" href="https://www.souviks.co.in/hi/">
+<link rel="alternate" hreflang="x-default" href="https://www.souviks.co.in/en/">
+<link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#171717}
+main{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.wrap{max-width:720px}
+.logo{width:84px;height:84px;object-fit:contain}
+h1{font-size:clamp(28px,5vw,48px);margin:18px 0 10px}
+p{font-size:16px;line-height:1.6;color:#555}
+a{color:#d62828;font-weight:600}
+</style>
 <script>
-
-(function () {
-
-    const supported = ["en", "bn", "hi"];
-
-    let language =
-        localStorage.getItem(
-            "svks_language"
-        );
-
-    if (!language) {
-
-        language =
-            navigator.language
-                .toLowerCase()
-                .split("-")[0];
-
-    }
-
-    if (!supported.includes(language)) {
-
-            language = "en";
-
-    }
-
-    window.location.replace(
-
-        "/" + language + "/"
-
-    );
-
+(function(){
+  const supported=["en","bn","hi"];
+  let language=localStorage.getItem("svks_language");
+  if(!language) language=(navigator.language||"en").toLowerCase().split("-")[0];
+  if(!supported.includes(language)) language="en";
+  window.addEventListener("DOMContentLoaded",function(){
+    setTimeout(function(){ window.location.replace("/"+language+"/"); }, 450);
+  });
 })();
-
 </script>
-
 </head>
-
 <body>
-
-Redirecting...
-
+<main>
+<div class="wrap">
+<img class="logo" src="/assets/logo/souviks-logo.png" width="84" height="84" alt="Souviks">
+<h1>Commercial Vehicle Spare Parts</h1>
+<p>Souviks supplies genuine OEM and premium aftermarket spare parts for trucks and buses across India, with products searchable by part number, brand, category and vehicle.</p>
+<p>Opening Souviks in your preferred language… <a href="/en/">Continue in English</a></p>
+</div>
+</main>
 </body>
-
 </html>
