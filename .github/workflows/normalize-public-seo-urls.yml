@@ -30,12 +30,10 @@ jobs:
           top_pages = "(products|brands|categories|vehicles|about|contact|terms|privacy-policy|privacy|refund)"
 
           public_url = re.compile(
-              rf"(https://www\\.souviks\\.co\\.in|(?<![A-Za-z0-9:/]))/{langs}/"
-              rf"({sections})/([^\\s\"'<>?#]+?)\\.html"
+              r'(https://www\\.souviks\\.co\\.in)?/(en|bn|hi)/(products|brands|categories|vehicles)/([^"\\s<>?#]+)\\.html'
           )
           top_url = re.compile(
-              rf"(https://www\\.souviks\\.co\\.in|(?<![A-Za-z0-9:/]))/{langs}/"
-              rf"({top_pages})\\.html"
+              r'(https://www\\.souviks\\.co\\.in)?/(en|bn|hi)/(products|brands|categories|vehicles|about|contact|terms|privacy-policy|privacy|refund)\\.html'
           )
 
           changed = 0
