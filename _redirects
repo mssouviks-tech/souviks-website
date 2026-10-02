@@ -1,2 +1,6 @@
 # Canonical host: keep one public hostname to avoid duplicate URLs.
 https://souviks.co.in/* https://www.souviks.co.in/:splat 301
+
+# Serve the English homepage directly from the root without a client-side redirect.
+# The root is a routing entry point; /en/ is the indexable English homepage.
+/ /en/ 302
