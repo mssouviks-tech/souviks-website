@@ -30,7 +30,7 @@ jobs:
           top_pages = "(products|brands|categories|vehicles|about|contact|terms|privacy-policy|privacy|refund)"
 
           public_url = re.compile(
-              r'(https://www[.]souviks[.]co[.]in)?/(en|bn|hi)/(products|brands|categories|vehicles)/([^" \\t\\r\\n<>?#]+)[.]html'
+              r'(https://www[.]souviks[.]co[.]in)?/(en|bn|hi)/(products|brands|categories|vehicles)/([^"'<>?# ]+)[.]html'
           )
           top_url = re.compile(
               r'(https://www[.]souviks[.]co[.]in)?/(en|bn|hi)/(products|brands|categories|vehicles|about|contact|terms|privacy-policy|privacy|refund)[.]html'
