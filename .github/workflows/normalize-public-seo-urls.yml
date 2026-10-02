@@ -30,10 +30,10 @@ jobs:
           top_pages = "(products|brands|categories|vehicles|about|contact|terms|privacy-policy|privacy|refund)"
 
           public_url = re.compile(
-              r'(https://www[.]souviks[.]co[.]in)?/(en|bn|hi)/(products|brands|categories|vehicles)/([^"'<>?# ]+)[.]html'
+              r"""(https://www[.]souviks[.]co[.]in)?/(en|bn|hi)/(products|brands|categories|vehicles)/([^"'<>?# ]+)[.]html"""
           )
           top_url = re.compile(
-              r'(https://www[.]souviks[.]co[.]in)?/(en|bn|hi)/(products|brands|categories|vehicles|about|contact|terms|privacy-policy|privacy|refund)[.]html'
+              r"""(https://www[.]souviks[.]co[.]in)?/(en|bn|hi)/(products|brands|categories|vehicles|about|contact|terms|privacy-policy|privacy|refund)[.]html"""
           )
 
           changed = 0
@@ -60,14 +60,6 @@ jobs:
                       f"https://www.souviks.co.in/{lang}/index.html",
                       f"https://www.souviks.co.in/{lang}/"
                   )
-
-              # Auth/transactional pages should not compete with catalogue pages.
-              if re.search(r"/(login|register|forgot-password|reset-password|account|request-part|request-quote|thank-you|404)\\.html$", "/" + str(path)):
-                  robots = '<meta name="robots" content="noindex,nofollow">'
-                  if re.search(r'<meta\\s+name=["\']robots["\'][^>]*>', text, re.I):
-                      text = re.sub(r'<meta\\s+name=["\']robots["\'][^>]*>', robots, text, count=1, flags=re.I)
-                  elif "</head>" in text:
-                      text = text.replace("</head>", f"    {robots}\\n</head>", 1)
 
               if text != original:
                   path.write_text(text, encoding="utf-8")
