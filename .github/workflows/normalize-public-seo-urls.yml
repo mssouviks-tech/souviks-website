@@ -1,0 +1,91 @@
+name: Normalize Public SEO URLs
+
+on:
+  push:
+    branches:
+      - seo/google-ranking-phase-1
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Normalize public canonical URLs and internal links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          ROOT = Path(".")
+          langs = "(en|bn|hi)"
+          sections = "(products|brands|categories|vehicles)"
+          top_pages = "(products|brands|categories|vehicles|about|contact|terms|privacy-policy|privacy|refund)"
+
+          public_url = re.compile(
+              rf"(https://www\\.souviks\\.co\\.in|(?<![A-Za-z0-9:/]))/{langs}/"
+              rf"({sections})/([^\\s\"'<>?#]+?)\\.html"
+          )
+          top_url = re.compile(
+              rf"(https://www\\.souviks\\.co\\.in|(?<![A-Za-z0-9:/]))/{langs}/"
+              rf"({top_pages})\\.html"
+          )
+
+          changed = 0
+          for path in ROOT.rglob("*.html"):
+              if "node_modules" in path.parts:
+                  continue
+              text = path.read_text(encoding="utf-8")
+              original = text
+
+              text = public_url.sub(
+                  lambda m: (m.group(1) if m.group(1).startswith("http") else "")
+                            + f"/{m.group(2)}/{m.group(3)}/{m.group(4)}",
+                  text,
+              )
+              text = top_url.sub(
+                  lambda m: (m.group(1) if m.group(1).startswith("http") else "")
+                            + f"/{m.group(2)}/{m.group(3)}",
+                  text,
+              )
+
+              # Keep the language homepages as /en/, /bn/, /hi/.
+              for lang in ("en", "bn", "hi"):
+                  text = text.replace(
+                      f"https://www.souviks.co.in/{lang}/index.html",
+                      f"https://www.souviks.co.in/{lang}/"
+                  )
+
+              # Auth/transactional pages should not compete with catalogue pages.
+              if re.search(r"/(login|register|forgot-password|reset-password|account|request-part|request-quote|thank-you|404)\\.html$", "/" + str(path)):
+                  robots = '<meta name="robots" content="noindex,nofollow">'
+                  if re.search(r'<meta\\s+name=["\']robots["\'][^>]*>', text, re.I):
+                      text = re.sub(r'<meta\\s+name=["\']robots["\'][^>]*>', robots, text, count=1, flags=re.I)
+                  elif "</head>" in text:
+                      text = text.replace("</head>", f"    {robots}\\n</head>", 1)
+
+              if text != original:
+                  path.write_text(text, encoding="utf-8")
+                  changed += 1
+
+          print(f"Changed {changed} HTML files")
+          PY
+
+      - name: Commit SEO normalization
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes required."
+            exit 0
+          fi
+          git add -A
+          git commit -m "SEO phase 1: normalize public URLs and indexing"
+          git push origin HEAD:seo/google-ranking-phase-1
