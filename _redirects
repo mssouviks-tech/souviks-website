@@ -1,2 +1,5 @@
-# Canonical host: keep one public hostname to avoid duplicate URLs.
+# Paint-first root: serve the branded language bootstrap without an HTTP redirect.
+https://souviks.co.in/ /index.html 200
+
+# Canonical host for every non-root bare-host request.
 https://souviks.co.in/* https://www.souviks.co.in/:splat 301
