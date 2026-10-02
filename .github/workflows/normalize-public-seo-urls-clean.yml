@@ -1,0 +1,78 @@
+name: Normalize Public SEO URLs (clean)
+
+on:
+  push:
+    branches:
+      - seo/google-ranking-phase-1-clean
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Normalize public URLs without changing line endings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path(".")
+          public_url = re.compile(
+              r"""(https://www[.]souviks[.]co[.]in)?/(en|bn|hi)/(products|brands|categories|vehicles)/([^"'<>?# ]+)[.]html"""
+          )
+          top_url = re.compile(
+              r"""(https://www[.]souviks[.]co[.]in)?/(en|bn|hi)/(products|brands|categories|vehicles|about|contact|terms|privacy-policy|privacy|refund)[.]html"""
+          )
+
+          changed = 0
+          for path in root.rglob("*.html"):
+              if "node_modules" in path.parts:
+                  continue
+
+              raw = path.read_bytes()
+              text = raw.decode("utf-8")
+              original = text
+
+              text = public_url.sub(
+                  lambda m: (m.group(1) or "")
+                            + f"/{m.group(2)}/{m.group(3)}/{m.group(4)}",
+                  text,
+              )
+              text = top_url.sub(
+                  lambda m: (m.group(1) or "")
+                            + f"/{m.group(2)}/{m.group(3)}",
+                  text,
+              )
+
+              for lang in ("en", "bn", "hi"):
+                  text = text.replace(
+                      f"https://www.souviks.co.in/{lang}/index.html",
+                      f"https://www.souviks.co.in/{lang}/"
+                  )
+
+              if text != original:
+                  path.write_bytes(text.encode("utf-8"))
+                  changed += 1
+
+          print(f"Changed {changed} HTML files")
+          PY
+
+      - name: Commit SEO normalization
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes required."
+            exit 0
+          fi
+          git add -A
+          git commit -m "SEO phase 1 clean: normalize public URLs"
+          git push origin HEAD:seo/google-ranking-phase-1-clean
