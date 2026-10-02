@@ -44,7 +44,7 @@ jobs:
               original = text
 
               text = public_url.sub(
-                  lambda m: (m.group(1) if m.group(1).startswith("http") else "")
+                  lambda m: (m.group(1) if (m.group(1) or "").startswith("http") else "")
                             + f"/{m.group(2)}/{m.group(3)}/{m.group(4)}",
                   text,
               )
