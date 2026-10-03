@@ -3,26 +3,14 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
 
-/assets/css/*
-  Cache-Control: no-store
-
-/assets/js/*
-  Cache-Control: no-store
+/assets/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /assets/data/*
   Cache-Control: public, max-age=300, must-revalidate
 
-/assets/images/*
-  Cache-Control: public, max-age=2592000
-
-/assets/icons/*
-  Cache-Control: public, max-age=2592000
-
-/assets/logo/*
-  Cache-Control: public, max-age=2592000
-
-/assets/favicon/*
-  Cache-Control: public, max-age=2592000
+/assets/data/catalogue-index.json
+  Cache-Control: public, max-age=1800, stale-while-revalidate=86400
 
 /ads.txt
   Content-Type: text/plain; charset=utf-8

@@ -1874,7 +1874,7 @@ Utils.debounce = function(
 
 Utils.productUrl = function(product) {
 
-    return `/${LANG}/products/${product.slug}.html`;
+    return `/${LANG}/products/${product.slug}`;
 
 };
 
@@ -1884,7 +1884,7 @@ Utils.productUrl = function(product) {
 
 Utils.brandUrl = function(brand) {
 
-    return `/${LANG}/brands/${brand.slug}.html`;
+    return `/${LANG}/brands/${brand.slug}`;
 
 };
 
@@ -1894,7 +1894,7 @@ Utils.brandUrl = function(brand) {
 
 Utils.categoryUrl = function(category) {
 
-    return `/${LANG}/categories/${category.slug}.html`;
+    return `/${LANG}/categories/${category.slug}`;
 
 };
 
@@ -1904,7 +1904,7 @@ Utils.categoryUrl = function(category) {
 
 Utils.vehicleUrl = function(vehicle) {
 
-    return `/${LANG}/vehicles/${vehicle.slug}.html`;
+    return `/${LANG}/vehicles/${vehicle.slug}`;
 
 };
 
@@ -2364,6 +2364,14 @@ document.querySelectorAll(
                     "hi"
                 ];
 
+                if (supported.includes(language)) {
+                    try {
+                        localStorage.setItem("svks_language", language);
+                    } catch {
+                        // Ignore storage restrictions; navigation still works.
+                    }
+                }
+
                 const url =
                     new URL(
                         window.location.href
@@ -2441,6 +2449,7 @@ document.addEventListener(
                     ? (button.dataset.closeLabel || "Close navigation")
                     : (button.dataset.openLabel || "Open navigation")
             );
+            navigation.setAttribute("aria-hidden", String(!isOpen));
             document.body.classList.toggle("mobile-navigation-open", isOpen);
         };
 
@@ -9062,7 +9071,7 @@ function openVehicleParts(vehicleId) {
     if (!vehicle) return;
     const slug = vehicle.slug || vehicle.vehicle_id || vehicleId;
     const lang = document.documentElement.lang || "en";
-    window.location.href = `/${encodeURIComponent(lang)}/vehicles/${encodeURIComponent(slug)}.html`;
+    window.location.href = `/${encodeURIComponent(lang)}/vehicles/${encodeURIComponent(slug)}`;
 }
 
 
@@ -9701,13 +9710,13 @@ function normalizeVehicleName(value) {
 function getProductUrl(product) {
     const lang = document.documentElement.lang || window.souviks?.currentLanguage || "en";
     const slug = product.slug || "";
-    return `/${encodeURIComponent(lang)}/products/${encodeURIComponent(slug)}.html`;
+    return `/${encodeURIComponent(lang)}/products/${encodeURIComponent(slug)}`;
 }
 
 
 function getVehiclePath(slug) {
     const lang = document.documentElement.lang || window.souviks?.currentLanguage || "en";
-    return `/${encodeURIComponent(lang)}/vehicles/${encodeURIComponent(slug)}.html`;
+    return `/${encodeURIComponent(lang)}/vehicles/${encodeURIComponent(slug)}`;
 }
 
 

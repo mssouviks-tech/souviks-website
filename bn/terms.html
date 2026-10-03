@@ -52,7 +52,7 @@ Reusable Head Component
 
 <link
     rel="canonical"
-    href="https://www.souviks.co.in/bn/terms.html">
+    href="https://www.souviks.co.in/bn/terms">
 
 <!-- ==========================================
      HREFLANG
@@ -61,22 +61,22 @@ Reusable Head Component
 <link
     rel="alternate"
     hreflang="en"
-    href="https://www.souviks.co.in/en/terms.html">
+    href="https://www.souviks.co.in/en/terms">
 
 <link
     rel="alternate"
     hreflang="bn"
-    href="https://www.souviks.co.in/bn/terms.html">
+    href="https://www.souviks.co.in/bn/terms">
 
 <link
     rel="alternate"
     hreflang="hi"
-    href="https://www.souviks.co.in/hi/terms.html">
+    href="https://www.souviks.co.in/hi/terms">
 
 <link
     rel="alternate"
     hreflang="x-default"
-    href="https://www.souviks.co.in/en/terms.html">
+    href="https://www.souviks.co.in/en/terms">
 
 <!-- ==========================================
      FAVICONS
@@ -126,7 +126,7 @@ Reusable Head Component
 
     <meta
         property="og:url"
-        content="https://www.souviks.co.in/bn/terms.html">
+        content="https://www.souviks.co.in/bn/terms">
 
     <meta
         property="og:site_name"
@@ -162,7 +162,7 @@ Reusable Head Component
 
     <meta
         name="twitter:url"
-        content="https://www.souviks.co.in/bn/terms.html">
+        content="https://www.souviks.co.in/bn/terms">
 
     <!-- ==========================================
          GOOGLE FONTS
@@ -694,6 +694,7 @@ Reusable Head Component
 
 <button
     id="language-toggle"
+    type="button"
     class="language-button"
     aria-label="Change Language">
 
@@ -762,7 +763,8 @@ Reusable Head Component
             class="mobile-menu-button"
             type="button"
             aria-label="নেভিগেশন খুলুন"
-            aria-expanded="false">
+            aria-expanded="false"
+            aria-controls="mainNavigation">
             <span></span>
             <span></span>
             <span></span>
@@ -782,6 +784,7 @@ Reusable Head Component
         <div class="header-wrapper">
 
             <nav
+                id="mainNavigation"
                 class="main-navigation"
                 aria-label="প্রধান নেভিগেশন">
 
@@ -814,7 +817,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/bn/products.html"
+                            href="/bn/products"
                             class="nav-link ">
 
                             পণ্যসমূহ
@@ -826,7 +829,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/bn/brands.html"
+                            href="/bn/brands"
                             class="nav-link ">
 
                             ব্র্যান্ডসমূহ
@@ -838,7 +841,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/bn/vehicles.html"
+                            href="/bn/vehicles"
                             class="nav-link ">
 
                             যানবাহন
@@ -850,7 +853,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/bn/categories.html"
+                            href="/bn/categories"
                             class="nav-link ">
 
                             বিভাগসমূহ
@@ -862,7 +865,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/bn/about.html"
+                            href="/bn/about"
                             class="nav-link ">
 
                             আমাদের সম্পর্কে
@@ -874,7 +877,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/bn/contact.html"
+                            href="/bn/contact"
                             class="nav-link ">
 
                             যোগাযোগ
@@ -1453,7 +1456,7 @@ TERMS CONTENT
 
             <a
 
-                href="/bn/contact.html"
+                href="/bn/contact"
 
                 class="btn btn-secondary">
 
@@ -1558,7 +1561,7 @@ TERMS CONTENT
 
                 <li>
 
-                    <a href="/bn/products.html">
+                    <a href="/bn/products">
 
                         পণ্যসমূহ
 
@@ -1568,7 +1571,7 @@ TERMS CONTENT
 
                 <li>
 
-                    <a href="/bn/brands.html">
+                    <a href="/bn/brands">
 
                         ব্র্যান্ডসমূহ
 
@@ -1578,7 +1581,7 @@ TERMS CONTENT
 
                 <li>
 
-                    <a href="/bn/vehicles.html">
+                    <a href="/bn/vehicles">
 
                         যানবাহন
 
@@ -1588,7 +1591,7 @@ TERMS CONTENT
 
                 <li>
 
-                    <a href="/bn/categories.html">
+                    <a href="/bn/categories">
 
                         বিভাগসমূহ
 
@@ -1759,7 +1762,7 @@ TERMS CONTENT
 
     <div class="footer-bottom-links">
 
-        <a href="/bn/privacy-policy.html">
+        <a href="/bn/privacy-policy">
 
             গোপনীয়তা নীতি
 
@@ -1767,7 +1770,7 @@ TERMS CONTENT
 
         <span>|</span>
 
-        <a href="/bn/terms.html">
+        <a href="/bn/terms">
 
             শর্তাবলী
 
@@ -1775,7 +1778,7 @@ TERMS CONTENT
 
         <span>|</span>
 
-        <a href="/bn/refund.html">
+        <a href="/bn/refund">
 
             রিফান্ড নীতি
 
@@ -1823,7 +1826,7 @@ window.souviks = {
         "",
 
     currentPageUrl:
-        "/bn/terms.html",
+        "/bn/terms",
 
     breadcrumbRoot:
         false,
@@ -1884,29 +1887,7 @@ window.souviks = {
 
 
 
-<!-- ==========================================
-     PAGE INITIALISER
-========================================== -->
 
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        if (
-            typeof initialisePage ===
-            "function"
-        ) {
-
-            initialisePage();
-
-        }
-
-    }
-);
-
-</script>
 
 </body>
 

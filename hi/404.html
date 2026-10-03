@@ -694,6 +694,7 @@ Reusable Head Component
 
 <button
     id="language-toggle"
+    type="button"
     class="language-button"
     aria-label="Change Language">
 
@@ -762,7 +763,8 @@ Reusable Head Component
             class="mobile-menu-button"
             type="button"
             aria-label="नेविगेशन खोलें"
-            aria-expanded="false">
+            aria-expanded="false"
+            aria-controls="mainNavigation">
             <span></span>
             <span></span>
             <span></span>
@@ -782,6 +784,7 @@ Reusable Head Component
         <div class="header-wrapper">
 
             <nav
+                id="mainNavigation"
                 class="main-navigation"
                 aria-label="मुख्य नेविगेशन">
 
@@ -814,7 +817,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/products.html"
+                            href="/hi/products"
                             class="nav-link ">
 
                             उत्पाद
@@ -826,7 +829,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/brands.html"
+                            href="/hi/brands"
                             class="nav-link ">
 
                             ब्रांड
@@ -838,7 +841,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/vehicles.html"
+                            href="/hi/vehicles"
                             class="nav-link ">
 
                             वाहन
@@ -850,7 +853,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/categories.html"
+                            href="/hi/categories"
                             class="nav-link ">
 
                             श्रेणियाँ
@@ -862,7 +865,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/about.html"
+                            href="/hi/about"
                             class="nav-link ">
 
                             हमारे बारे में
@@ -874,7 +877,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/contact.html"
+                            href="/hi/contact"
                             class="nav-link ">
 
                             संपर्क करें
@@ -1009,7 +1012,7 @@ SOUVIKS BREADCRUMB
             </a>
 
             <a
-                href="/hi/products.html"
+                href="/hi/products"
                 class="btn btn-secondary">
 
                 उत्पाद देखें
@@ -1017,7 +1020,7 @@ SOUVIKS BREADCRUMB
             </a>
 
             <a
-                href="/hi/contact.html"
+                href="/hi/contact"
                 class="btn btn-outline">
 
                 संपर्क करें
@@ -1074,7 +1077,7 @@ SOUVIKS BREADCRUMB
 
             <a
 
-                href="/hi/contact.html"
+                href="/hi/contact"
 
                 class="btn btn-secondary">
 
@@ -1177,7 +1180,7 @@ SOUVIKS BREADCRUMB
 
                 <li>
 
-                    <a href="/hi/products.html">
+                    <a href="/hi/products">
 
                         उत्पाद
 
@@ -1187,7 +1190,7 @@ SOUVIKS BREADCRUMB
 
                 <li>
 
-                    <a href="/hi/brands.html">
+                    <a href="/hi/brands">
 
                         ब्रांड
 
@@ -1197,7 +1200,7 @@ SOUVIKS BREADCRUMB
 
                 <li>
 
-                    <a href="/hi/vehicles.html">
+                    <a href="/hi/vehicles">
 
                         वाहन
 
@@ -1207,7 +1210,7 @@ SOUVIKS BREADCRUMB
 
                 <li>
 
-                    <a href="/hi/categories.html">
+                    <a href="/hi/categories">
 
                         श्रेणियाँ
 
@@ -1378,7 +1381,7 @@ SOUVIKS BREADCRUMB
 
     <div class="footer-bottom-links">
 
-        <a href="/hi/privacy-policy.html">
+        <a href="/hi/privacy-policy">
 
             गोपनीयता नीति
 
@@ -1386,7 +1389,7 @@ SOUVIKS BREADCRUMB
 
         <span>|</span>
 
-        <a href="/hi/terms.html">
+        <a href="/hi/terms">
 
             नियम एवं शर्तें
 
@@ -1394,7 +1397,7 @@ SOUVIKS BREADCRUMB
 
         <span>|</span>
 
-        <a href="/hi/refund.html">
+        <a href="/hi/refund">
 
             रिफंड नीति
 
@@ -1503,29 +1506,7 @@ window.souviks = {
 
 
 
-<!-- ==========================================
-     PAGE INITIALISER
-========================================== -->
 
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        if (
-            typeof initialisePage ===
-            "function"
-        ) {
-
-            initialisePage();
-
-        }
-
-    }
-);
-
-</script>
 
 </body>
 

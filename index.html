@@ -6,51 +6,279 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1">
+      content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="theme-color" content="#d62828">
+
+<meta name="robots" content="noindex,follow">
 
 <title>Souviks</title>
 
-<script>
+<link
+    rel="icon"
+    type="image/png"
+    href="/assets/favicon/favicon-32x32.png">
 
-(function () {
+<link
+    rel="preload"
+    as="image"
+    href="/assets/images/souviks-loading-logo.png"
+    fetchpriority="high">
 
-    const supported = ["en", "bn", "hi"];
-
-    let language =
-        localStorage.getItem(
-            "svks_language"
-        );
-
-    if (!language) {
-
-        language =
-            navigator.language
-                .toLowerCase()
-                .split("-")[0];
-
+<style>
+    :root {
+        --loader-red: #D62828;
+        --loader-red-dark: #B71C1C;
+        --loader-bg: #F5F6F7;
+        --loader-card: #FFFFFF;
+        --loader-text: #243042;
+        --loader-muted: #6B7280;
     }
 
-    if (!supported.includes(language)) {
-
-            language = "en";
-
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
     }
 
-    window.location.replace(
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+    }
 
-        "/" + language + "/"
+    body {
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        position: relative;
+        background:
+            radial-gradient(circle at 50% 42%, rgba(214, 40, 40, .07), transparent 34%),
+            linear-gradient(145deg, #FFFFFF 0%, var(--loader-bg) 100%);
+        color: var(--loader-text);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-    );
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: 4px;
+        background: linear-gradient(90deg, var(--loader-red-dark), var(--loader-red), #ef5350, var(--loader-red));
+    }
 
-})();
+    .souviks-loader {
+        width: min(92vw, 420px);
+        padding: 34px 30px 30px;
+        border: 1px solid rgba(229, 231, 235, .95);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, .92);
+        box-shadow: 0 18px 55px rgba(36, 48, 66, .12);
+        text-align: center;
+        backdrop-filter: blur(9px);
+    }
 
-</script>
+    .souviks-loader-mark {
+        width: 184px;
+        height: 184px;
+        margin: 0 auto 18px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #FFFFFF;
+        box-shadow: 0 10px 30px rgba(36, 48, 66, .09);
+    }
+
+    .souviks-loader-mark img {
+        width: 152px;
+        height: 152px;
+        display: block;
+        object-fit: contain;
+        animation: souviks-logo-pulse 1.8s ease-in-out infinite;
+    }
+
+    .souviks-loader-title {
+        margin: 0;
+        font-size: clamp(1.2rem, 4vw, 1.45rem);
+        line-height: 1.25;
+        font-weight: 700;
+        letter-spacing: .01em;
+    }
+
+    .souviks-loader-subtitle {
+        margin: 8px 0 20px;
+        color: var(--loader-muted);
+        font-size: .93rem;
+    }
+
+    .souviks-loader-dots {
+        display: inline-flex;
+        gap: 7px;
+        align-items: center;
+        justify-content: center;
+        min-height: 12px;
+    }
+
+    .souviks-loader-dots span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--loader-red);
+        opacity: .3;
+        animation: souviks-loader-dot 1.1s ease-in-out infinite;
+    }
+
+    .souviks-loader-dots span:nth-child(2) {
+        animation-delay: .14s;
+    }
+
+    .souviks-loader-dots span:nth-child(3) {
+        animation-delay: .28s;
+    }
+
+    .souviks-loader-fallback {
+        margin-top: 18px;
+        font-size: .8rem;
+        color: var(--loader-muted);
+    }
+
+    .souviks-loader-fallback a {
+        color: var(--loader-red-dark);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .souviks-loader-fallback a:hover {
+        text-decoration: underline;
+    }
+
+    @keyframes souviks-logo-pulse {
+        0%, 100% { transform: scale(.985); opacity: .96; }
+        50% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes souviks-loader-dot {
+        0%, 100% { transform: translateY(0); opacity: .28; }
+        50% { transform: translateY(-3px); opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .souviks-loader-mark img,
+        .souviks-loader-dots span {
+            animation: none;
+        }
+    }
+</style>
 
 </head>
 
 <body>
 
-Redirecting...
+<main class="souviks-loader" aria-live="polite" aria-busy="true">
+
+    <div class="souviks-loader-mark" aria-hidden="true">
+        <img
+            src="/assets/images/souviks-loading-logo.png"
+            width="152"
+            height="152"
+            alt="">
+    </div>
+
+    <h1 class="souviks-loader-title">Welcome to Souviks</h1>
+    <p class="souviks-loader-subtitle">Preparing your catalogue…</p>
+
+    <div class="souviks-loader-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="souviks-loader-fallback">
+        <noscript>
+            JavaScript is required for automatic language selection.
+            <a href="/en/">Continue in English</a>
+        </noscript>
+    </div>
+
+</main>
+
+<script>
+(function () {
+    const supported = ["en", "bn", "hi"];
+    const defaultLanguage = "en";
+
+    function getSavedLanguage() {
+        try {
+            return String(localStorage.getItem("svks_language") || "")
+                .trim()
+                .toLowerCase();
+        } catch (error) {
+            return "";
+        }
+    }
+
+    function rememberLanguage(language) {
+        try {
+            localStorage.setItem("svks_language", language);
+        } catch (error) {
+            // Storage restrictions must never block first-visit language routing.
+        }
+    }
+
+    function resolveLanguage() {
+        const saved = getSavedLanguage();
+
+        if (supported.includes(saved)) {
+            return saved;
+        }
+
+        const candidates = Array.isArray(navigator.languages) && navigator.languages.length
+            ? navigator.languages
+            : [navigator.language];
+
+        for (const value of candidates) {
+            const language = String(value || "")
+                .toLowerCase()
+                .split("-")[0];
+
+            if (supported.includes(language)) {
+                return language;
+            }
+        }
+
+        return defaultLanguage;
+    }
+
+    function navigateToLanguage() {
+        const language = resolveLanguage();
+        document.documentElement.lang = language;
+        rememberLanguage(language);
+
+        // The production bare host is canonicalized only after the branded
+        // bootstrap has painted. Other hosts (including pages.dev/local QA)
+        // remain on the current origin.
+        const canonicalOrigin = window.location.hostname === "souviks.co.in"
+            ? "https://www.souviks.co.in"
+            : window.location.origin;
+
+        window.location.replace(canonicalOrigin + "/" + language + "/");
+    }
+
+    // Allow the branded shell to paint before language detection/navigation.
+    // The double animation-frame deliberately puts the splash on screen first.
+    const start = performance.now();
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            const elapsed = performance.now() - start;
+            const minimumPaint = 120;
+            window.setTimeout(
+                navigateToLanguage,
+                Math.max(0, minimumPaint - elapsed)
+            );
+        });
+    });
+})();
+</script>
 
 </body>
 

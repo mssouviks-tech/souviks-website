@@ -52,7 +52,7 @@ Reusable Head Component
 
 <link
     rel="canonical"
-    href="https://www.souviks.co.in/hi/terms.html">
+    href="https://www.souviks.co.in/hi/terms">
 
 <!-- ==========================================
      HREFLANG
@@ -61,22 +61,22 @@ Reusable Head Component
 <link
     rel="alternate"
     hreflang="en"
-    href="https://www.souviks.co.in/en/terms.html">
+    href="https://www.souviks.co.in/en/terms">
 
 <link
     rel="alternate"
     hreflang="bn"
-    href="https://www.souviks.co.in/bn/terms.html">
+    href="https://www.souviks.co.in/bn/terms">
 
 <link
     rel="alternate"
     hreflang="hi"
-    href="https://www.souviks.co.in/hi/terms.html">
+    href="https://www.souviks.co.in/hi/terms">
 
 <link
     rel="alternate"
     hreflang="x-default"
-    href="https://www.souviks.co.in/en/terms.html">
+    href="https://www.souviks.co.in/en/terms">
 
 <!-- ==========================================
      FAVICONS
@@ -126,7 +126,7 @@ Reusable Head Component
 
     <meta
         property="og:url"
-        content="https://www.souviks.co.in/hi/terms.html">
+        content="https://www.souviks.co.in/hi/terms">
 
     <meta
         property="og:site_name"
@@ -162,7 +162,7 @@ Reusable Head Component
 
     <meta
         name="twitter:url"
-        content="https://www.souviks.co.in/hi/terms.html">
+        content="https://www.souviks.co.in/hi/terms">
 
     <!-- ==========================================
          GOOGLE FONTS
@@ -694,6 +694,7 @@ Reusable Head Component
 
 <button
     id="language-toggle"
+    type="button"
     class="language-button"
     aria-label="Change Language">
 
@@ -762,7 +763,8 @@ Reusable Head Component
             class="mobile-menu-button"
             type="button"
             aria-label="नेविगेशन खोलें"
-            aria-expanded="false">
+            aria-expanded="false"
+            aria-controls="mainNavigation">
             <span></span>
             <span></span>
             <span></span>
@@ -782,6 +784,7 @@ Reusable Head Component
         <div class="header-wrapper">
 
             <nav
+                id="mainNavigation"
                 class="main-navigation"
                 aria-label="मुख्य नेविगेशन">
 
@@ -814,7 +817,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/products.html"
+                            href="/hi/products"
                             class="nav-link ">
 
                             उत्पाद
@@ -826,7 +829,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/brands.html"
+                            href="/hi/brands"
                             class="nav-link ">
 
                             ब्रांड
@@ -838,7 +841,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/vehicles.html"
+                            href="/hi/vehicles"
                             class="nav-link ">
 
                             वाहन
@@ -850,7 +853,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/categories.html"
+                            href="/hi/categories"
                             class="nav-link ">
 
                             श्रेणियाँ
@@ -862,7 +865,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/about.html"
+                            href="/hi/about"
                             class="nav-link ">
 
                             हमारे बारे में
@@ -874,7 +877,7 @@ Reusable Head Component
                     <li>
 
                         <a
-                            href="/hi/contact.html"
+                            href="/hi/contact"
                             class="nav-link ">
 
                             संपर्क करें
@@ -1453,7 +1456,7 @@ TERMS CONTENT
 
             <a
 
-                href="/hi/contact.html"
+                href="/hi/contact"
 
                 class="btn btn-secondary">
 
@@ -1558,7 +1561,7 @@ TERMS CONTENT
 
                 <li>
 
-                    <a href="/hi/products.html">
+                    <a href="/hi/products">
 
                         उत्पाद
 
@@ -1568,7 +1571,7 @@ TERMS CONTENT
 
                 <li>
 
-                    <a href="/hi/brands.html">
+                    <a href="/hi/brands">
 
                         ब्रांड
 
@@ -1578,7 +1581,7 @@ TERMS CONTENT
 
                 <li>
 
-                    <a href="/hi/vehicles.html">
+                    <a href="/hi/vehicles">
 
                         वाहन
 
@@ -1588,7 +1591,7 @@ TERMS CONTENT
 
                 <li>
 
-                    <a href="/hi/categories.html">
+                    <a href="/hi/categories">
 
                         श्रेणियाँ
 
@@ -1759,7 +1762,7 @@ TERMS CONTENT
 
     <div class="footer-bottom-links">
 
-        <a href="/hi/privacy-policy.html">
+        <a href="/hi/privacy-policy">
 
             गोपनीयता नीति
 
@@ -1767,7 +1770,7 @@ TERMS CONTENT
 
         <span>|</span>
 
-        <a href="/hi/terms.html">
+        <a href="/hi/terms">
 
             नियम एवं शर्तें
 
@@ -1775,7 +1778,7 @@ TERMS CONTENT
 
         <span>|</span>
 
-        <a href="/hi/refund.html">
+        <a href="/hi/refund">
 
             रिफंड नीति
 
@@ -1823,7 +1826,7 @@ window.souviks = {
         "",
 
     currentPageUrl:
-        "/hi/terms.html",
+        "/hi/terms",
 
     breadcrumbRoot:
         false,
@@ -1884,29 +1887,7 @@ window.souviks = {
 
 
 
-<!-- ==========================================
-     PAGE INITIALISER
-========================================== -->
 
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        if (
-            typeof initialisePage ===
-            "function"
-        ) {
-
-            initialisePage();
-
-        }
-
-    }
-);
-
-</script>
 
 </body>
 

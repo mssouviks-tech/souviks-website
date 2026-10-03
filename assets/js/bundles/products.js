@@ -267,7 +267,7 @@ Utils.debounce = function(
 
 Utils.productUrl = function(product) {
 
-    return `/${LANG}/products/${product.slug}.html`;
+    return `/${LANG}/products/${product.slug}`;
 
 };
 
@@ -277,7 +277,7 @@ Utils.productUrl = function(product) {
 
 Utils.brandUrl = function(brand) {
 
-    return `/${LANG}/brands/${brand.slug}.html`;
+    return `/${LANG}/brands/${brand.slug}`;
 
 };
 
@@ -287,7 +287,7 @@ Utils.brandUrl = function(brand) {
 
 Utils.categoryUrl = function(category) {
 
-    return `/${LANG}/categories/${category.slug}.html`;
+    return `/${LANG}/categories/${category.slug}`;
 
 };
 
@@ -297,7 +297,7 @@ Utils.categoryUrl = function(category) {
 
 Utils.vehicleUrl = function(vehicle) {
 
-    return `/${LANG}/vehicles/${vehicle.slug}.html`;
+    return `/${LANG}/vehicles/${vehicle.slug}`;
 
 };
 
@@ -1479,6 +1479,14 @@ document.querySelectorAll(
                     "hi"
                 ];
 
+                if (supported.includes(language)) {
+                    try {
+                        localStorage.setItem("svks_language", language);
+                    } catch {
+                        // Ignore storage restrictions; navigation still works.
+                    }
+                }
+
                 const url =
                     new URL(
                         window.location.href
@@ -1556,6 +1564,7 @@ document.addEventListener(
                     ? (button.dataset.closeLabel || "Close navigation")
                     : (button.dataset.openLabel || "Open navigation")
             );
+            navigation.setAttribute("aria-hidden", String(!isOpen));
             document.body.classList.toggle("mobile-navigation-open", isOpen);
         };
 
@@ -4237,20 +4246,20 @@ async hydrateProductPage() {
     const category = await API.categoryById(product.category_id);
 
     const breadcrumbItems = [
-        { title: "Products", url: `/${LANG}/products.html` }
+        { title: "Products", url: `/${LANG}/products` }
     ];
 
     if (category?.name && category?.slug) {
         breadcrumbItems.push({
             title: category.name,
-            url: `/${LANG}/categories/${category.slug}.html`
+            url: `/${LANG}/categories/${category.slug}`
         });
     }
 
     if (brand?.name && brand?.slug) {
         breadcrumbItems.push({
             title: brand.name,
-            url: `/${LANG}/brands/${brand.slug}.html`
+            url: `/${LANG}/brands/${brand.slug}`
         });
     }
 
@@ -5188,7 +5197,7 @@ if(
                 if (signIn) {
                     signIn.hidden = false;
                     const language = window.souviks?.currentLanguage || "en";
-                    const loginPath = `/${encodeURIComponent(language)}/login.html`;
+                    const loginPath = `/${encodeURIComponent(language)}/login`;
                     signIn.innerHTML = `Please <a href="${loginPath}">sign in</a> to share your experience with this product.`;
                 }
             }

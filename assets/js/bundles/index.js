@@ -267,7 +267,7 @@ Utils.debounce = function(
 
 Utils.productUrl = function(product) {
 
-    return `/${LANG}/products/${product.slug}.html`;
+    return `/${LANG}/products/${product.slug}`;
 
 };
 
@@ -277,7 +277,7 @@ Utils.productUrl = function(product) {
 
 Utils.brandUrl = function(brand) {
 
-    return `/${LANG}/brands/${brand.slug}.html`;
+    return `/${LANG}/brands/${brand.slug}`;
 
 };
 
@@ -287,7 +287,7 @@ Utils.brandUrl = function(brand) {
 
 Utils.categoryUrl = function(category) {
 
-    return `/${LANG}/categories/${category.slug}.html`;
+    return `/${LANG}/categories/${category.slug}`;
 
 };
 
@@ -297,7 +297,7 @@ Utils.categoryUrl = function(category) {
 
 Utils.vehicleUrl = function(vehicle) {
 
-    return `/${LANG}/vehicles/${vehicle.slug}.html`;
+    return `/${LANG}/vehicles/${vehicle.slug}`;
 
 };
 
@@ -1479,6 +1479,14 @@ document.querySelectorAll(
                     "hi"
                 ];
 
+                if (supported.includes(language)) {
+                    try {
+                        localStorage.setItem("svks_language", language);
+                    } catch {
+                        // Ignore storage restrictions; navigation still works.
+                    }
+                }
+
                 const url =
                     new URL(
                         window.location.href
@@ -1556,6 +1564,7 @@ document.addEventListener(
                     ? (button.dataset.closeLabel || "Close navigation")
                     : (button.dataset.openLabel || "Open navigation")
             );
+            navigation.setAttribute("aria-hidden", String(!isOpen));
             document.body.classList.toggle("mobile-navigation-open", isOpen);
         };
 
@@ -2758,16 +2767,16 @@ function getSearchUrl(item) {
     switch(item.type?.toLowerCase()) {
 
         case "product":
-            return `/${LANG}/products/${item.slug}.html`;
+            return `/${LANG}/products/${item.slug}`;
 
         case "brand":
-            return `/${LANG}/brands/${item.slug}.html`;
+            return `/${LANG}/brands/${item.slug}`;
 
         case "category":
-            return `/${LANG}/categories/${item.slug}.html`;
+            return `/${LANG}/categories/${item.slug}`;
 
         case "vehicle":
-            return `/${LANG}/vehicles/${item.slug}.html`;
+            return `/${LANG}/vehicles/${item.slug}`;
 
         default:
             return item.url;
