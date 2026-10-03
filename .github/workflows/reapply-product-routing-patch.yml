@@ -1,0 +1,48 @@
+name: Enforce Static Product Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  enforce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Verify canonical static-only branch
+        run: git fetch origin fix/product-routing-static-only --depth=1
+
+      - name: Remove duplicate product routing layer
+        run: |
+          git rm -f --ignore-unmatch \
+            "functions/products/[slug].js" \
+            "functions/en/products/[slug].js" \
+            "functions/bn/products/[slug].js" \
+            "functions/hi/products/[slug].js" \
+            "_routes.json"
+
+      - name: Commit cleanup if required
+        run: |
+          if git diff --quiet HEAD -- \
+            "functions/products/[slug].js" \
+            "functions/en/products/[slug].js" \
+            "functions/bn/products/[slug].js" \
+            "functions/hi/products/[slug].js" \
+            "_routes.json"; then
+            echo "Static-only product routing is already present."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Remove duplicate product routing layer"
+          git push origin HEAD:main
