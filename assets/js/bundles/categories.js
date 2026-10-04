@@ -434,6 +434,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const topUserDropdown =
         document.getElementById("topUserDropdown");
 
+    const mobileNavSignIn =
+        document.getElementById("mobileNavSignIn");
+
+    const mobileNavUserMenu =
+        document.getElementById("mobileNavUserMenu");
+
+    const mobileNavUserName =
+        document.getElementById("mobileNavUserName");
+
 
     /*
     ----------------------------------------------------------
@@ -618,6 +627,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                 true
             );
 
+            setHidden(
+                mobileNavSignIn,
+                false
+            );
+
+            setHidden(
+                mobileNavUserMenu,
+                true
+            );
+
             closeDropdown();
 
             return;
@@ -713,6 +732,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         }
 
+        if (mobileNavUserName) {
+
+            mobileNavUserName.textContent =
+                fullName;
+
+        }
+
         setHidden(
             topSignIn,
             true
@@ -720,6 +746,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         setHidden(
             topUserMenu,
+            false
+        );
+
+        setHidden(
+            mobileNavSignIn,
+            true
+        );
+
+        setHidden(
+            mobileNavUserMenu,
             false
         );
 
@@ -1581,8 +1617,8 @@ document.addEventListener(
             button.focus();
         });
 
-        navigation.querySelectorAll(".navigation-menu a").forEach(link => {
-            link.addEventListener("click", () => setNavigationState(false));
+        navigation.querySelectorAll(".navigation-menu a, .mobile-nav-auth a, .mobile-nav-auth button").forEach(control => {
+            control.addEventListener("click", () => setNavigationState(false));
         });
 
         document.addEventListener("keydown", event => {

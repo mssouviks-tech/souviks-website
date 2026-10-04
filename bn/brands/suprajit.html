@@ -308,7 +308,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -949,6 +949,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/bn/login.html">
+                        সাইন ইন
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/bn/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            সাইন আউট
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1007,7 +1026,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/bn/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Suprajit</li>
+            <li class="breadcrumb-item">
+                <a href="/bn/">হোম</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/bn/brands">ব্র্যান্ডসমূহ</a></li><li class="breadcrumb-item active" aria-current="page">Suprajit</li>
 
         </ol>
 
@@ -1057,10 +1080,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/bn/products/suprajit-cfg-mnm-00185-accelerator-cable-navistar" class="product-link" aria-label="View Accelerator Cable NaviStar"><img class="product-image-file" src="/assets/images/products/SVKS000972/1.webp" alt="Accelerator Cable NaviStar" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000972" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Suprajit</div><div class="product-part-number">Part No. <strong>CFG-MNM-00185</strong></div><h3 class="product-title"><a href="/bn/products/suprajit-cfg-mnm-00185-accelerator-cable-navistar">Accelerator Cable NaviStar</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹449</span><span class="product-price-mrp">MRP ₹480</span><span class="product-price-discount">6% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000972" data-part="CFG-MNM-00185" data-name="Accelerator Cable NaviStar" data-brand="Suprajit" aria-label="Add Accelerator Cable NaviStar to RFQ">RFQ-তে যোগ করুন</button></div></article>
+            <section class="entity-product-gallery" id="brand-suprajit-engine-components" aria-labelledby="brand-suprajit-engine-components-title"><div class="entity-product-gallery__header"><div><h2 id="brand-suprajit-engine-components-title">Engine Components</h2><span class="entity-product-gallery__count">1 পণ্যসমূহ</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=suprajit&amp;category_id=engine-components">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Engine Components products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/suprajit-cfg-mnm-00185-accelerator-cable-navistar" class="product-link" aria-label="View Accelerator Cable NaviStar"><img class="product-image-file" src="/assets/images/products/SVKS000972/1.webp" alt="Accelerator Cable NaviStar" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000972" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Suprajit</div><div class="product-part-number">Part No. <strong>CFG-MNM-00185</strong></div><h3 class="product-title"><a href="/bn/products/suprajit-cfg-mnm-00185-accelerator-cable-navistar">Accelerator Cable NaviStar</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹449</span><span class="product-price-mrp">MRP ₹480</span><span class="product-price-discount">6% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000972" data-part="CFG-MNM-00185" data-name="Accelerator Cable NaviStar" data-brand="Suprajit" aria-label="Add Accelerator Cable NaviStar to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
 
         </div>
 
@@ -1491,6 +1514,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ-তে যোগ করুন"
+        },
+        navigation: {
+            home: "হোম",
+            products: "পণ্যসমূহ",
+            brands: "ব্র্যান্ডসমূহ",
+            vehicles: "যানবাহন",
+            categories: "বিভাগসমূহ"
         }
     },
 

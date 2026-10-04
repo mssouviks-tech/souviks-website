@@ -996,6 +996,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const topUserDropdown =
         document.getElementById("topUserDropdown");
 
+    const mobileNavSignIn =
+        document.getElementById("mobileNavSignIn");
+
+    const mobileNavUserMenu =
+        document.getElementById("mobileNavUserMenu");
+
+    const mobileNavUserName =
+        document.getElementById("mobileNavUserName");
+
 
     /*
     ----------------------------------------------------------
@@ -1180,6 +1189,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                 true
             );
 
+            setHidden(
+                mobileNavSignIn,
+                false
+            );
+
+            setHidden(
+                mobileNavUserMenu,
+                true
+            );
+
             closeDropdown();
 
             return;
@@ -1275,6 +1294,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         }
 
+        if (mobileNavUserName) {
+
+            mobileNavUserName.textContent =
+                fullName;
+
+        }
+
         setHidden(
             topSignIn,
             true
@@ -1282,6 +1308,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         setHidden(
             topUserMenu,
+            false
+        );
+
+        setHidden(
+            mobileNavSignIn,
+            true
+        );
+
+        setHidden(
+            mobileNavUserMenu,
             false
         );
 
@@ -2302,6 +2338,24 @@ const Breadcrumb = {
             .replace(/'/g, "&#039;");
     },
 
+    label(key, fallback) {
+        return String(
+            window.souviks?.translations?.navigation?.[key] || fallback || ""
+        );
+    },
+
+    localizeKnownLabel(title) {
+        const value = String(title || "").trim().toLowerCase();
+        const labels = {
+            home: this.label("home", "Home"),
+            products: this.label("products", "Products"),
+            brands: this.label("brands", "Brands"),
+            vehicles: this.label("vehicles", "Vehicles"),
+            categories: this.label("categories", "Categories")
+        };
+        return labels[value] || title;
+    },
+
     reset() {},
     start() {},
     visit() {},
@@ -2312,11 +2366,11 @@ const Breadcrumb = {
         const list = document.getElementById("breadcrumb-list");
         if (!list) return;
 
-        const path = [{ title: "Home", url: this.homeUrl() }];
+        const path = [{ title: this.label("home", "Home"), url: this.homeUrl() }];
         for (const item of (Array.isArray(items) ? items : [])) {
             if (!item?.title || !item?.url) continue;
             if (item.title === "Home" || item.url === path[0].url) continue;
-            path.push({ title: item.title, url: item.url });
+            path.push({ title: this.localizeKnownLabel(item.title), url: item.url });
         }
 
         if (path[path.length - 1]?.title !== currentPage) {
@@ -2466,8 +2520,8 @@ document.addEventListener(
             button.focus();
         });
 
-        navigation.querySelectorAll(".navigation-menu a").forEach(link => {
-            link.addEventListener("click", () => setNavigationState(false));
+        navigation.querySelectorAll(".navigation-menu a, .mobile-nav-auth a, .mobile-nav-auth button").forEach(control => {
+            control.addEventListener("click", () => setNavigationState(false));
         });
 
         document.addEventListener("keydown", event => {

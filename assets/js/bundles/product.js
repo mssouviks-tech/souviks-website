@@ -434,6 +434,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const topUserDropdown =
         document.getElementById("topUserDropdown");
 
+    const mobileNavSignIn =
+        document.getElementById("mobileNavSignIn");
+
+    const mobileNavUserMenu =
+        document.getElementById("mobileNavUserMenu");
+
+    const mobileNavUserName =
+        document.getElementById("mobileNavUserName");
+
 
     /*
     ----------------------------------------------------------
@@ -618,6 +627,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                 true
             );
 
+            setHidden(
+                mobileNavSignIn,
+                false
+            );
+
+            setHidden(
+                mobileNavUserMenu,
+                true
+            );
+
             closeDropdown();
 
             return;
@@ -713,6 +732,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         }
 
+        if (mobileNavUserName) {
+
+            mobileNavUserName.textContent =
+                fullName;
+
+        }
+
         setHidden(
             topSignIn,
             true
@@ -720,6 +746,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         setHidden(
             topUserMenu,
+            false
+        );
+
+        setHidden(
+            mobileNavSignIn,
+            true
+        );
+
+        setHidden(
+            mobileNavUserMenu,
             false
         );
 
@@ -1581,8 +1617,8 @@ document.addEventListener(
             button.focus();
         });
 
-        navigation.querySelectorAll(".navigation-menu a").forEach(link => {
-            link.addEventListener("click", () => setNavigationState(false));
+        navigation.querySelectorAll(".navigation-menu a, .mobile-nav-auth a, .mobile-nav-auth button").forEach(control => {
+            control.addEventListener("click", () => setNavigationState(false));
         });
 
         document.addEventListener("keydown", event => {
@@ -2315,6 +2351,24 @@ const Breadcrumb = {
             .replace(/'/g, "&#039;");
     },
 
+    label(key, fallback) {
+        return String(
+            window.souviks?.translations?.navigation?.[key] || fallback || ""
+        );
+    },
+
+    localizeKnownLabel(title) {
+        const value = String(title || "").trim().toLowerCase();
+        const labels = {
+            home: this.label("home", "Home"),
+            products: this.label("products", "Products"),
+            brands: this.label("brands", "Brands"),
+            vehicles: this.label("vehicles", "Vehicles"),
+            categories: this.label("categories", "Categories")
+        };
+        return labels[value] || title;
+    },
+
     reset() {},
     start() {},
     visit() {},
@@ -2325,11 +2379,11 @@ const Breadcrumb = {
         const list = document.getElementById("breadcrumb-list");
         if (!list) return;
 
-        const path = [{ title: "Home", url: this.homeUrl() }];
+        const path = [{ title: this.label("home", "Home"), url: this.homeUrl() }];
         for (const item of (Array.isArray(items) ? items : [])) {
             if (!item?.title || !item?.url) continue;
             if (item.title === "Home" || item.url === path[0].url) continue;
-            path.push({ title: item.title, url: item.url });
+            path.push({ title: this.localizeKnownLabel(item.title), url: item.url });
         }
 
         if (path[path.length - 1]?.title !== currentPage) {
@@ -2912,81 +2966,65 @@ renderPagination() {
     }
 
     // ======================================================
-    // RELATED PRODUCTS
+    // PDP RECOMMENDATIONS
     // ======================================================
 
-related(product, limit = 5) {
+frequentlyUsedWith(product, limit = 6, excludedIds = new Set()) {
 
-    return this.products
-
-        .filter(item => {
-
-            if(item.id === product.id)
-                return false;
-
-            return true;
-
-        })
-
-        .map(item => {
-
-            let score = 0;
-
-            const currentVehicles =
-                product.vehicles || [];
-
-            const itemVehicles =
-                item.vehicles || [];
-
-const sharedVehicle =
-    currentVehicles.some(
-        v => itemVehicles.includes(v)
+    const currentVehicles = new Set(
+        (product?.vehicles || []).map(v => String(v).trim()).filter(Boolean)
     );
 
-if(
-    item.subcategory_id ===
-    product.subcategory_id
-){
-    score += 500;
-}
-else if(
-    item.category_id ===
-    product.category_id
-){
-    score += 300;
-}
-else if(
-    sharedVehicle
-){
-    score += 150;
-}
+    if (!currentVehicles.size) return [];
 
-if(
-    item.brand_id ===
-    product.brand_id
-){
-    score += 20;
-}
-
-            return {
-                item,
-                score
-            };
-
-        })
-
-        .sort(
-            (a,b) =>
-            b.score - a.score
-        )
-
-        .slice(0, limit)
-
-        .map(
-            result =>
-            result.item
+    const relevance = item => {
+        const itemVehicles = new Set(
+            (item?.vehicles || []).map(v => String(v).trim()).filter(Boolean)
         );
+        return [...currentVehicles].filter(v => itemVehicles.has(v)).length;
+    };
 
+    return this.products
+        .filter(item =>
+            item.id !== product.id &&
+            !excludedIds.has(item.id) &&
+            item.active !== false &&
+            relevance(item) > 0
+        )
+        .sort((a, b) => {
+            const scoreA = relevance(a);
+            const scoreB = relevance(b);
+            if (scoreB !== scoreA) return scoreB - scoreA;
+            if (a.subcategory_id === product.subcategory_id && b.subcategory_id !== product.subcategory_id) return -1;
+            if (b.subcategory_id === product.subcategory_id && a.subcategory_id !== product.subcategory_id) return 1;
+            if (a.category_id === product.category_id && b.category_id !== product.category_id) return -1;
+            if (b.category_id === product.category_id && a.category_id !== product.category_id) return 1;
+            return String(a.product_name || "").localeCompare(String(b.product_name || ""));
+        })
+        .slice(0, limit);
+}
+
+related(product, limit = 6, excludedIds = new Set()) {
+
+    return this.products
+        .filter(item =>
+            item.id !== product.id &&
+            !excludedIds.has(item.id) &&
+            item.active !== false &&
+            item.category_id === product.category_id
+        )
+        .sort((a, b) => {
+            const subA = a.subcategory_id === product.subcategory_id ? 0 : 1;
+            const subB = b.subcategory_id === product.subcategory_id ? 0 : 1;
+            if (subA !== subB) return subA - subB;
+
+            const brandA = a.brand_id === product.brand_id ? 0 : 1;
+            const brandB = b.brand_id === product.brand_id ? 0 : 1;
+            if (brandA !== brandB) return brandA - brandB;
+
+            return String(a.product_name || "").localeCompare(String(b.product_name || ""));
+        })
+        .slice(0, limit);
 }
 
     // ======================================================
@@ -3162,9 +3200,17 @@ priceHtml(product) {
         const plusBtn=document.querySelector(".pdp-qty-plus");
         const rfqBtn=document.querySelector(".pdp-rfq-btn");
         const removeBtn=document.querySelector(".pdp-remove-btn");
-        const slider=document.querySelector(".pdp-related-slider");
-        document.querySelector(".pdp-related-prev")?.addEventListener("click",()=>slider?.scrollBy({left:-600,behavior:"smooth"}));
-        document.querySelector(".pdp-related-next")?.addEventListener("click",()=>slider?.scrollBy({left:600,behavior:"smooth"}));
+        const bindSlider = (sliderSelector, prevSelector, nextSelector) => {
+            const slider = document.querySelector(sliderSelector);
+            document.querySelector(prevSelector)?.addEventListener("click", () =>
+                slider?.scrollBy({ left: -600, behavior: "smooth" })
+            );
+            document.querySelector(nextSelector)?.addEventListener("click", () =>
+                slider?.scrollBy({ left: 600, behavior: "smooth" })
+            );
+        };
+        bindSlider(".pdp-frequent-slider", ".pdp-frequent-prev", ".pdp-frequent-next");
+        bindSlider(".pdp-related-slider-main", ".pdp-related-prev-btn", ".pdp-related-next-btn");
         if(!qtyInput||!rfqBtn||!removeBtn||typeof RFQ==="undefined") return;
         let inRFQ=false;
         const markChanged=()=>{if(inRFQ) rfqBtn.textContent="Update RFQ";};
@@ -3299,8 +3345,15 @@ const vehiclesHtml =
         })
         .join("");
 
-    const relatedHtml =
-        this.related(product, 50)
+    const frequentlyProducts = this.frequentlyUsedWith(product, 6);
+    const frequentlyIds = new Set(frequentlyProducts.map(item => item.id));
+    const relatedProducts = this.related(product, 6, frequentlyIds);
+
+    const frequentHtml = frequentlyProducts
+        .map(item => this.card(item))
+        .join("");
+
+    const relatedHtml = relatedProducts
         .map(item => this.card(item))
         .join("");
 
@@ -3312,13 +3365,15 @@ const galleryHtml = `
         brandLogo ?
 
         `
-        <div class="pdp-brand-badge">
+        <div class="pdp-brand-badge" aria-hidden="true">
 
             <img
                 src="${brandLogo}"
-                alt="${brand.name}"
+                alt=""
                 loading="lazy"
-                decoding="async">
+                decoding="async"
+                width="56"
+                height="56">
 
         </div>
         `
@@ -3721,39 +3776,46 @@ ${galleryHtml}
 </section>
 
 <section
-    id="related-section"
-    class="pdp-section">
+    id="frequently-used-section"
+    class="pdp-section pdp-recommendation-section">
 
     <h2 class="pdp-section-title">
-
-        Related Products
-
+        Frequently used with this part
     </h2>
 
-<div class="pdp-related-wrapper">
+    <p class="pdp-section-intro">
+        Products commonly used with this part across the same vehicle group.
+    </p>
 
-    <button
-        class="pdp-related-prev">
-
-        ‹
-
-    </button>
-
-    <div
-        class="pdp-related-slider">
-
-        ${relatedHtml}
-
+    <div class="pdp-related-wrapper pdp-recommendation-wrapper">
+        <button class="pdp-related-prev pdp-frequent-prev" type="button" aria-label="Previous frequently used products">‹</button>
+        <div class="pdp-related-slider pdp-frequent-slider">
+            ${frequentHtml}
+        </div>
+        <button class="pdp-related-next pdp-frequent-next" type="button" aria-label="Next frequently used products">›</button>
     </div>
 
-    <button
-        class="pdp-related-next">
+</section>
 
-        ›
+<section
+    id="related-section"
+    class="pdp-section pdp-recommendation-section">
 
-    </button>
+    <h2 class="pdp-section-title">
+        Related Products
+    </h2>
 
-</div>
+    <p class="pdp-section-intro">
+        Other products from the same category, with matching subcategory products shown first.
+    </p>
+
+    <div class="pdp-related-wrapper pdp-recommendation-wrapper">
+        <button class="pdp-related-prev pdp-related-prev-btn" type="button" aria-label="Previous related products">‹</button>
+        <div class="pdp-related-slider pdp-related-slider-main">
+            ${relatedHtml}
+        </div>
+        <button class="pdp-related-next pdp-related-next-btn" type="button" aria-label="Next related products">›</button>
+    </div>
 
 </section>
 

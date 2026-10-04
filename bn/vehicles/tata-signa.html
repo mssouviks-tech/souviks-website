@@ -649,7 +649,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-vehicle">
 
 
 <div class="top-bar">
@@ -1290,6 +1290,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/bn/login.html">
+                        সাইন ইন
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/bn/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            সাইন আউট
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1348,7 +1367,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/bn/vehicles">Vehicles</a></li><li class="breadcrumb-item active" aria-current="page">Tata Signa</li>
+            <li class="breadcrumb-item">
+                <a href="/bn/">হোম</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/bn/vehicles">যানবাহন</a></li><li class="breadcrumb-item active" aria-current="page">Tata Signa</li>
 
         </ol>
 
@@ -1774,6 +1797,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ-তে যোগ করুন"
+        },
+        navigation: {
+            home: "হোম",
+            products: "পণ্যসমূহ",
+            brands: "ব্র্যান্ডসমূহ",
+            vehicles: "যানবাহন",
+            categories: "বিভাগসমূহ"
         }
     },
 

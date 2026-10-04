@@ -322,7 +322,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -963,6 +963,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/bn/login.html">
+                        সাইন ইন
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/bn/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            সাইন আউট
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1021,7 +1040,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/bn/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Alok</li>
+            <li class="breadcrumb-item">
+                <a href="/bn/">হোম</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/bn/brands">ব্র্যান্ডসমূহ</a></li><li class="breadcrumb-item active" aria-current="page">Alok</li>
 
         </ol>
 
@@ -1071,10 +1094,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/bn/products/alk-1014-drag-link-end-t-intra" class="product-link" aria-label="View Drag Link End T. Intra"><img class="product-image-file" src="/assets/images/products/SVKS000224/1.webp" alt="Drag Link End T. Intra" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000224" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 1014</strong></div><h3 class="product-title"><a href="/bn/products/alk-1014-drag-link-end-t-intra">Drag Link End T. Intra</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000224" data-part="ALK 1014" data-name="Drag Link End T. Intra" data-brand="Alok" aria-label="Add Drag Link End T. Intra to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr" class="product-link" aria-label="View Tie Rod End T. ACE Mega L=R"><img class="product-image-file" src="/assets/images/products/SVKS000225/1.webp" alt="Tie Rod End T. ACE Mega L=R" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000225" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2312</strong></div><h3 class="product-title"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr">Tie Rod End T. ACE Mega L=R</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000225" data-part="ALK 2312" data-name="Tie Rod End T. ACE Mega L=R" data-brand="Alok" aria-label="Add Tie Rod End T. ACE Mega L=R to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht" class="product-link" aria-label="View Tie Rod End RH/LH T. Ace H/T"><img class="product-image-file" src="/assets/images/products/SVKS000226/1.webp" alt="Tie Rod End RH/LH T. Ace H/T" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000226" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2314</strong></div><h3 class="product-title"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht">Tie Rod End RH/LH T. Ace H/T</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000226" data-part="ALK 2314" data-name="Tie Rod End RH/LH T. Ace H/T" data-brand="Alok" aria-label="Add Tie Rod End RH/LH T. Ace H/T to RFQ">RFQ-তে যোগ করুন</button></div></article>
+            <section class="entity-product-gallery" id="brand-alok-suspension-steering" aria-labelledby="brand-alok-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-alok-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">3 পণ্যসমূহ</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=alok&amp;category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/alk-1014-drag-link-end-t-intra" class="product-link" aria-label="View Drag Link End T. Intra"><img class="product-image-file" src="/assets/images/products/SVKS000224/1.webp" alt="Drag Link End T. Intra" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000224" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 1014</strong></div><h3 class="product-title"><a href="/bn/products/alk-1014-drag-link-end-t-intra">Drag Link End T. Intra</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000224" data-part="ALK 1014" data-name="Drag Link End T. Intra" data-brand="Alok" aria-label="Add Drag Link End T. Intra to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr" class="product-link" aria-label="View Tie Rod End T. ACE Mega L=R"><img class="product-image-file" src="/assets/images/products/SVKS000225/1.webp" alt="Tie Rod End T. ACE Mega L=R" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000225" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2312</strong></div><h3 class="product-title"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr">Tie Rod End T. ACE Mega L=R</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000225" data-part="ALK 2312" data-name="Tie Rod End T. ACE Mega L=R" data-brand="Alok" aria-label="Add Tie Rod End T. ACE Mega L=R to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht" class="product-link" aria-label="View Tie Rod End RH/LH T. Ace H/T"><img class="product-image-file" src="/assets/images/products/SVKS000226/1.webp" alt="Tie Rod End RH/LH T. Ace H/T" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000226" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2314</strong></div><h3 class="product-title"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht">Tie Rod End RH/LH T. Ace H/T</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000226" data-part="ALK 2314" data-name="Tie Rod End RH/LH T. Ace H/T" data-brand="Alok" aria-label="Add Tie Rod End RH/LH T. Ace H/T to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
 
         </div>
 
@@ -1505,6 +1528,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ-তে যোগ করুন"
+        },
+        navigation: {
+            home: "হোম",
+            products: "পণ্যসমূহ",
+            brands: "ব্র্যান্ডসমূহ",
+            vehicles: "যানবাহন",
+            categories: "বিভাগসমূহ"
         }
     },
 

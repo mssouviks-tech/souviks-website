@@ -308,7 +308,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -949,6 +949,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="खाता">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/hi/login.html">
+                        साइन इन
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/hi/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">खाता</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            साइन आउट
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1007,7 +1026,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/hi/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Delphi-TVS</li>
+            <li class="breadcrumb-item">
+                <a href="/hi/">होम</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/hi/brands">ब्रांड</a></li><li class="breadcrumb-item active" aria-current="page">Delphi-TVS</li>
 
         </ol>
 
@@ -1057,10 +1080,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/hi/products/91b3-136-91-b3-136-assy-twin-filter-head" class="product-link" aria-label="View 91 B3-136 Assy. Twin Filter Head"><img class="product-image-file" src="/assets/images/products/SVKS000212/1.webp" alt="91 B3-136 Assy. Twin Filter Head" loading="lazy" decoding="async" draggable="false" width="333" height="223"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000212" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Delphi-TVS</div><div class="product-part-number">Part No. <strong>91B3-136</strong></div><h3 class="product-title"><a href="/hi/products/91b3-136-91-b3-136-assy-twin-filter-head">91 B3-136 Assy. Twin Filter Head</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹800</span><span class="product-price-mrp">MRP ₹850</span><span class="product-price-discount">6% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000212" data-part="91B3-136" data-name="91 B3-136 Assy. Twin Filter Head" data-brand="Delphi-TVS" aria-label="Add 91 B3-136 Assy. Twin Filter Head to RFQ">RFQ में जोड़ें</button></div></article>
+            <section class="entity-product-gallery" id="brand-delphi-tvs-filters" aria-labelledby="brand-delphi-tvs-filters-title"><div class="entity-product-gallery__header"><div><h2 id="brand-delphi-tvs-filters-title">Filters</h2><span class="entity-product-gallery__count">1 उत्पाद</span></div><a class="entity-product-gallery__view-all" href="/hi/products?brand_id=delphi-tvs&amp;category_id=filters">सभी देखें<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Filters products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/hi/products/91b3-136-91-b3-136-assy-twin-filter-head" class="product-link" aria-label="View 91 B3-136 Assy. Twin Filter Head"><img class="product-image-file" src="/assets/images/products/SVKS000212/1.webp" alt="91 B3-136 Assy. Twin Filter Head" loading="lazy" decoding="async" draggable="false" width="333" height="223"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000212" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Delphi-TVS</div><div class="product-part-number">Part No. <strong>91B3-136</strong></div><h3 class="product-title"><a href="/hi/products/91b3-136-91-b3-136-assy-twin-filter-head">91 B3-136 Assy. Twin Filter Head</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹800</span><span class="product-price-mrp">MRP ₹850</span><span class="product-price-discount">6% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000212" data-part="91B3-136" data-name="91 B3-136 Assy. Twin Filter Head" data-brand="Delphi-TVS" aria-label="Add 91 B3-136 Assy. Twin Filter Head to RFQ">RFQ में जोड़ें</button></div></article></div></div></section>
 
         </div>
 
@@ -1491,6 +1514,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ में जोड़ें"
+        },
+        navigation: {
+            home: "होम",
+            products: "उत्पाद",
+            brands: "ब्रांड",
+            vehicles: "वाहन",
+            categories: "श्रेणियाँ"
         }
     },
 

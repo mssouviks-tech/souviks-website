@@ -245,7 +245,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-thank-you">
 
 
 <div class="top-bar">
@@ -886,6 +886,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="Account">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/en/login.html">
+                        Sign In
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/en/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">Account</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1390,6 +1409,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "Add To RFQ"
+        },
+        navigation: {
+            home: "Home",
+            products: "Products",
+            brands: "Brands",
+            vehicles: "Vehicles",
+            categories: "Categories"
         }
     },
 

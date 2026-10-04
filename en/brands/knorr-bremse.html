@@ -308,7 +308,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -949,6 +949,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="Account">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/en/login.html">
+                        Sign In
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/en/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">Account</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1007,6 +1026,10 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
+            <li class="breadcrumb-item">
+                <a href="/en/">Home</a>
+            </li>
+
             <li class="breadcrumb-item"><a href="/en/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Knorr-Bremse</li>
 
         </ol>
@@ -1057,10 +1080,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/en/products/knorr-bremse-b13tm1000150-relay-valve-type-v" class="product-link" aria-label="View Relay Valve (Type V)"><img class="product-image-file" src="/assets/images/products/SVKS000963/1.webp" alt="Relay Valve (Type V)" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000963" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Knorr-Bremse</div><div class="product-part-number">Part No. <strong>B13TM1000150</strong></div><h3 class="product-title"><a href="/en/products/knorr-bremse-b13tm1000150-relay-valve-type-v">Relay Valve (Type V)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,900</span><span class="product-price-mrp">MRP ₹2,280</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000963" data-part="B13TM1000150" data-name="Relay Valve (Type V)" data-brand="Knorr-Bremse" aria-label="Add Relay Valve (Type V) to RFQ">Add To RFQ</button></div></article>
+            <section class="entity-product-gallery" id="brand-knorr-bremse-air-system" aria-labelledby="brand-knorr-bremse-air-system-title"><div class="entity-product-gallery__header"><div><h2 id="brand-knorr-bremse-air-system-title">Air System</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=knorr-bremse&amp;category_id=air-system">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Air System products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/knorr-bremse-b13tm1000150-relay-valve-type-v" class="product-link" aria-label="View Relay Valve (Type V)"><img class="product-image-file" src="/assets/images/products/SVKS000963/1.webp" alt="Relay Valve (Type V)" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000963" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Knorr-Bremse</div><div class="product-part-number">Part No. <strong>B13TM1000150</strong></div><h3 class="product-title"><a href="/en/products/knorr-bremse-b13tm1000150-relay-valve-type-v">Relay Valve (Type V)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,900</span><span class="product-price-mrp">MRP ₹2,280</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000963" data-part="B13TM1000150" data-name="Relay Valve (Type V)" data-brand="Knorr-Bremse" aria-label="Add Relay Valve (Type V) to RFQ">Add To RFQ</button></div></article></div></div></section>
 
         </div>
 
@@ -1491,6 +1514,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "Add To RFQ"
+        },
+        navigation: {
+            home: "Home",
+            products: "Products",
+            brands: "Brands",
+            vehicles: "Vehicles",
+            categories: "Categories"
         }
     },
 

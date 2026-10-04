@@ -239,7 +239,7 @@ Reusable Head Component
 
 </head>
 
-<body class="account-auth-pending">
+<body class="site-page page-account page-account-dashboard account-auth-pending">
 
 
 
@@ -875,6 +875,25 @@ Reusable Head Component
                     </li>
 
                 </ul>
+
+                <div class="mobile-nav-auth" aria-label="Account">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/hi/login.html">
+                        साइन इन
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/hi/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">मेरा अकाउंट</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            साइन आउट
+                        </button>
+                    </div>
+                </div>
 
             </nav>
 

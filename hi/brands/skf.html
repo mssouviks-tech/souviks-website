@@ -315,7 +315,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -956,6 +956,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="खाता">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/hi/login.html">
+                        साइन इन
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/hi/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">खाता</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            साइन आउट
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1014,7 +1033,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/hi/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">SKF</li>
+            <li class="breadcrumb-item">
+                <a href="/hi/">होम</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/hi/brands">ब्रांड</a></li><li class="breadcrumb-item active" aria-current="page">SKF</li>
 
         </ol>
 
@@ -1064,10 +1087,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/hi/products/539532x-taper-roller-bearing" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000440/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async" draggable="false" width="1600" height="1600"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000440" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">SKF</div><div class="product-part-number">Part No. <strong>539/532X</strong></div><h3 class="product-title"><a href="/hi/products/539532x-taper-roller-bearing">Taper Roller Bearing</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000440" data-part="539/532X" data-name="Taper Roller Bearing" data-brand="SKF" aria-label="Add Taper Roller Bearing to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/539532x-taper-roller-bearing-svks000443" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000443/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async" draggable="false" width="1600" height="1600"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000443" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">SKF</div><div class="product-part-number">Part No. <strong>539/532X</strong></div><h3 class="product-title"><a href="/hi/products/539532x-taper-roller-bearing-svks000443">Taper Roller Bearing</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000443" data-part="539/532X" data-name="Taper Roller Bearing" data-brand="SKF" aria-label="Add Taper Roller Bearing to RFQ">RFQ में जोड़ें</button></div></article>
+            <section class="entity-product-gallery" id="brand-skf-bearings" aria-labelledby="brand-skf-bearings-title"><div class="entity-product-gallery__header"><div><h2 id="brand-skf-bearings-title">Bearings</h2><span class="entity-product-gallery__count">2 उत्पाद</span></div><a class="entity-product-gallery__view-all" href="/hi/products?brand_id=skf&amp;category_id=bearings">सभी देखें<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Bearings products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/hi/products/539532x-taper-roller-bearing" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000440/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async" draggable="false" width="1600" height="1600"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000440" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">SKF</div><div class="product-part-number">Part No. <strong>539/532X</strong></div><h3 class="product-title"><a href="/hi/products/539532x-taper-roller-bearing">Taper Roller Bearing</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000440" data-part="539/532X" data-name="Taper Roller Bearing" data-brand="SKF" aria-label="Add Taper Roller Bearing to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/539532x-taper-roller-bearing-svks000443" class="product-link" aria-label="View Taper Roller Bearing"><img class="product-image-file" src="/assets/images/products/SVKS000443/1.webp" alt="Taper Roller Bearing" loading="lazy" decoding="async" draggable="false" width="1600" height="1600"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000443" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">SKF</div><div class="product-part-number">Part No. <strong>539/532X</strong></div><h3 class="product-title"><a href="/hi/products/539532x-taper-roller-bearing-svks000443">Taper Roller Bearing</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000443" data-part="539/532X" data-name="Taper Roller Bearing" data-brand="SKF" aria-label="Add Taper Roller Bearing to RFQ">RFQ में जोड़ें</button></div></article></div></div></section>
 
         </div>
 
@@ -1498,6 +1521,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ में जोड़ें"
+        },
+        navigation: {
+            home: "होम",
+            products: "उत्पाद",
+            brands: "ब्रांड",
+            vehicles: "वाहन",
+            categories: "श्रेणियाँ"
         }
     },
 

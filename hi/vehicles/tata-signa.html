@@ -649,7 +649,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-vehicle">
 
 
 <div class="top-bar">
@@ -1290,6 +1290,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="खाता">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/hi/login.html">
+                        साइन इन
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/hi/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">खाता</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            साइन आउट
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1348,7 +1367,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/hi/vehicles">Vehicles</a></li><li class="breadcrumb-item active" aria-current="page">Tata Signa</li>
+            <li class="breadcrumb-item">
+                <a href="/hi/">होम</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/hi/vehicles">वाहन</a></li><li class="breadcrumb-item active" aria-current="page">Tata Signa</li>
 
         </ol>
 
@@ -1774,6 +1797,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ में जोड़ें"
+        },
+        navigation: {
+            home: "होम",
+            products: "उत्पाद",
+            brands: "ब्रांड",
+            vehicles: "वाहन",
+            categories: "श्रेणियाँ"
         }
     },
 

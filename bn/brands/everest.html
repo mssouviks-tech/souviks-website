@@ -308,7 +308,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -949,6 +949,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/bn/login.html">
+                        সাইন ইন
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/bn/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            সাইন আউট
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1007,7 +1026,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/bn/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Everest</li>
+            <li class="breadcrumb-item">
+                <a href="/bn/">হোম</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/bn/brands">ব্র্যান্ডসমূহ</a></li><li class="breadcrumb-item active" aria-current="page">Everest</li>
 
         </ol>
 
@@ -1057,10 +1080,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/bn/products/uj-cross-48-x-135" class="product-link" aria-label="View UJ Cross 48 x 135"><img class="product-image-file" src="/assets/images/products/SVKS000567/1.webp" alt="UJ Cross 48 x 135" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000567" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Everest</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/bn/products/uj-cross-48-x-135">UJ Cross 48 x 135</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000567" data-part="" data-name="UJ Cross 48 x 135" data-brand="Everest" aria-label="Add UJ Cross 48 x 135 to RFQ">RFQ-তে যোগ করুন</button></div></article>
+            <section class="entity-product-gallery" id="brand-everest-suspension-steering" aria-labelledby="brand-everest-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-everest-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">1 পণ্যসমূহ</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=everest&amp;category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/uj-cross-48-x-135" class="product-link" aria-label="View UJ Cross 48 x 135"><img class="product-image-file" src="/assets/images/products/SVKS000567/1.webp" alt="UJ Cross 48 x 135" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000567" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Everest</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/bn/products/uj-cross-48-x-135">UJ Cross 48 x 135</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000567" data-part="" data-name="UJ Cross 48 x 135" data-brand="Everest" aria-label="Add UJ Cross 48 x 135 to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
 
         </div>
 
@@ -1491,6 +1514,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ-তে যোগ করুন"
+        },
+        navigation: {
+            home: "হোম",
+            products: "পণ্যসমূহ",
+            brands: "ব্র্যান্ডসমূহ",
+            vehicles: "যানবাহন",
+            categories: "বিভাগসমূহ"
         }
     },
 

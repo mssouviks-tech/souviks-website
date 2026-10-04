@@ -320,7 +320,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-vehicle">
 
 
 <div class="top-bar">
@@ -961,6 +961,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/bn/login.html">
+                        সাইন ইন
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/bn/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            সাইন আউট
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1019,7 +1038,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/bn/vehicles">Vehicles</a></li><li class="breadcrumb-item active" aria-current="page">Ashok Leyland Stallion</li>
+            <li class="breadcrumb-item">
+                <a href="/bn/">হোম</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/bn/vehicles">যানবাহন</a></li><li class="breadcrumb-item active" aria-current="page">Ashok Leyland Stallion</li>
 
         </ol>
 
@@ -1072,7 +1095,7 @@ COMPATIBLE PRODUCTS
             class="products-grid"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/bn/products/26218362-regulator-assembly" class="product-link" aria-label="View Regulator Assembly"><img class="product-image-file" src="/assets/images/products/SVKS000624/1_front_3q.webp" alt="Regulator Assembly" loading="lazy" decoding="async" draggable="false" width="768" height="768"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000624" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Lucas TVS</div><div class="product-part-number">Part No. <strong>26218362</strong></div><h3 class="product-title"><a href="/bn/products/26218362-regulator-assembly">Regulator Assembly</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹962</span><span class="product-price-mrp">MRP ₹1,087.06</span><span class="product-price-discount">12% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000624" data-part="26218362" data-name="Regulator Assembly" data-brand="Lucas TVS" aria-label="Add Regulator Assembly to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/leyparts-b1m03401-cl-cover-33cm-diaphragm" class="product-link" aria-label="View Cl. Cover 33cm   Diaphragm"><img class="product-image-file" src="/assets/images/products/SVKS000751/1.webp" alt="Cl. Cover 33cm   Diaphragm" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000751" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Leyparts</div><div class="product-part-number">Part No. <strong>B1M03401</strong></div><h3 class="product-title"><a href="/bn/products/leyparts-b1m03401-cl-cover-33cm-diaphragm">Cl. Cover 33cm   Diaphragm</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹9,936</span><span class="product-price-mrp">MRP ₹10,800</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000751" data-part="B1M03401" data-name="Cl. Cover 33cm   Diaphragm" data-brand="Leyparts" aria-label="Add Cl. Cover 33cm   Diaphragm to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/nirmal-cotter-pin-n-v-star-small" class="product-link" aria-label="View Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL"><img class="product-image-file" src="/assets/images/products/SVKS000768/1.webp" alt="Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000768" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Nirmal</div><div class="product-part-number">Part No. <strong>NIRMAL/CP/449</strong></div><h3 class="product-title"><a href="/bn/products/nirmal-cotter-pin-n-v-star-small">Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹80.10</span><span class="product-price-mrp">MRP ₹89</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000768" data-part="NIRMAL/CP/449" data-name="Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL" data-brand="Nirmal" aria-label="Add Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL to RFQ">RFQ-তে যোগ করুন</button></div></article>
+            <article class="product-card"><div class="product-image"><a href="/bn/products/26218362-regulator-assembly" class="product-link" aria-label="View Regulator Assembly"><img class="product-image-file" src="/assets/images/products/SVKS000624/1.webp" alt="Regulator Assembly" loading="lazy" decoding="async" draggable="false" width="768" height="768"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000624" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Lucas TVS</div><div class="product-part-number">Part No. <strong>26218362</strong></div><h3 class="product-title"><a href="/bn/products/26218362-regulator-assembly">Regulator Assembly</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹962</span><span class="product-price-mrp">MRP ₹1,087.06</span><span class="product-price-discount">12% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000624" data-part="26218362" data-name="Regulator Assembly" data-brand="Lucas TVS" aria-label="Add Regulator Assembly to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/leyparts-b1m03401-cl-cover-33cm-diaphragm" class="product-link" aria-label="View Cl. Cover 33cm   Diaphragm"><img class="product-image-file" src="/assets/images/products/SVKS000751/1.webp" alt="Cl. Cover 33cm   Diaphragm" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000751" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Leyparts</div><div class="product-part-number">Part No. <strong>B1M03401</strong></div><h3 class="product-title"><a href="/bn/products/leyparts-b1m03401-cl-cover-33cm-diaphragm">Cl. Cover 33cm   Diaphragm</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹9,936</span><span class="product-price-mrp">MRP ₹10,800</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000751" data-part="B1M03401" data-name="Cl. Cover 33cm   Diaphragm" data-brand="Leyparts" aria-label="Add Cl. Cover 33cm   Diaphragm to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/nirmal-cotter-pin-n-v-star-small" class="product-link" aria-label="View Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL"><img class="product-image-file" src="/assets/images/products/SVKS000768/1.webp" alt="Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000768" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Nirmal</div><div class="product-part-number">Part No. <strong>NIRMAL/CP/449</strong></div><h3 class="product-title"><a href="/bn/products/nirmal-cotter-pin-n-v-star-small">Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹80.10</span><span class="product-price-mrp">MRP ₹89</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000768" data-part="NIRMAL/CP/449" data-name="Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL" data-brand="Nirmal" aria-label="Add Cotter Pin CANTER / NAVISTAR ( HEAD TYPE ) SMALL to RFQ">RFQ-তে যোগ করুন</button></div></article>
 
         </div>
 
@@ -1445,6 +1468,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ-তে যোগ করুন"
+        },
+        navigation: {
+            home: "হোম",
+            products: "পণ্যসমূহ",
+            brands: "ব্র্যান্ডসমূহ",
+            vehicles: "যানবাহন",
+            categories: "বিভাগসমূহ"
         }
     },
 

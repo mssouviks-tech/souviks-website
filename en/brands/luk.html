@@ -308,7 +308,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -949,6 +949,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="Account">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/en/login.html">
+                        Sign In
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/en/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">Account</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1007,6 +1026,10 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
+            <li class="breadcrumb-item">
+                <a href="/en/">Home</a>
+            </li>
+
             <li class="breadcrumb-item"><a href="/en/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Luk</li>
 
         </ol>
@@ -1057,10 +1080,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/en/products/luxme-sdb-amw-1-std-brake-lining-kit" class="product-link" aria-label="View Brake Lining   Kit"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="Brake Lining   Kit" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000763" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Luk</div><div class="product-part-number">Part No. <strong>SDB/AMW 1 (Std.)</strong></div><h3 class="product-title"><a href="/en/products/luxme-sdb-amw-1-std-brake-lining-kit">Brake Lining   Kit</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,622</span><span class="product-price-mrp">MRP ₹2,850</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000763" data-part="SDB/AMW 1 (Std.)" data-name="Brake Lining   Kit" data-brand="Luk" aria-label="Add Brake Lining   Kit to RFQ">Add To RFQ</button></div></article>
+            <section class="entity-product-gallery" id="brand-luk-brakes" aria-labelledby="brand-luk-brakes-title"><div class="entity-product-gallery__header"><div><h2 id="brand-luk-brakes-title">Brakes</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=luk&amp;category_id=brakes">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Brakes products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/luxme-sdb-amw-1-std-brake-lining-kit" class="product-link" aria-label="View Brake Lining   Kit"><img class="product-image-file" src="/assets/images/placeholder.webp" alt="Brake Lining   Kit" loading="lazy" decoding="async" draggable="false" width="1200" height="1200"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000763" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Luk</div><div class="product-part-number">Part No. <strong>SDB/AMW 1 (Std.)</strong></div><h3 class="product-title"><a href="/en/products/luxme-sdb-amw-1-std-brake-lining-kit">Brake Lining   Kit</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,622</span><span class="product-price-mrp">MRP ₹2,850</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000763" data-part="SDB/AMW 1 (Std.)" data-name="Brake Lining   Kit" data-brand="Luk" aria-label="Add Brake Lining   Kit to RFQ">Add To RFQ</button></div></article></div></div></section>
 
         </div>
 
@@ -1491,6 +1514,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "Add To RFQ"
+        },
+        navigation: {
+            home: "Home",
+            products: "Products",
+            brands: "Brands",
+            vehicles: "Vehicles",
+            categories: "Categories"
         }
     },
 

@@ -315,7 +315,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -956,6 +956,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="खाता">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/hi/login.html">
+                        साइन इन
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/hi/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">खाता</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            साइन आउट
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1014,7 +1033,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/hi/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">BIR</li>
+            <li class="breadcrumb-item">
+                <a href="/hi/">होम</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/hi/brands">ब्रांड</a></li><li class="breadcrumb-item active" aria-current="page">BIR</li>
 
         </ol>
 
@@ -1064,10 +1087,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/hi/products/b-1145-balance-rod-bush" class="product-link" aria-label="View Balance Rod Bush"><img class="product-image-file" src="/assets/images/products/SVKS000228/1.webp" alt="Balance Rod Bush" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000228" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BIR</div><div class="product-part-number">Part No. <strong>B 1145</strong></div><h3 class="product-title"><a href="/hi/products/b-1145-balance-rod-bush">Balance Rod Bush</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000228" data-part="B 1145" data-name="Balance Rod Bush" data-brand="BIR" aria-label="Add Balance Rod Bush to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/b-1151-rear-engine-mount-signa-16mm" class="product-link" aria-label="View Rear Engine Mount Signa 16mm"><img class="product-image-file" src="/assets/images/products/SVKS000229/1.webp" alt="Rear Engine Mount Signa 16mm" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000229" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BIR</div><div class="product-part-number">Part No. <strong>B 1151</strong></div><h3 class="product-title"><a href="/hi/products/b-1151-rear-engine-mount-signa-16mm">Rear Engine Mount Signa 16mm</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000229" data-part="B 1151" data-name="Rear Engine Mount Signa 16mm" data-brand="BIR" aria-label="Add Rear Engine Mount Signa 16mm to RFQ">RFQ में जोड़ें</button></div></article>
+            <section class="entity-product-gallery" id="brand-bir-engine-components" aria-labelledby="brand-bir-engine-components-title"><div class="entity-product-gallery__header"><div><h2 id="brand-bir-engine-components-title">Engine Components</h2><span class="entity-product-gallery__count">1 उत्पाद</span></div><a class="entity-product-gallery__view-all" href="/hi/products?brand_id=bir&amp;category_id=engine-components">सभी देखें<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Engine Components products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/hi/products/b-1151-rear-engine-mount-signa-16mm" class="product-link" aria-label="View Rear Engine Mount Signa 16mm"><img class="product-image-file" src="/assets/images/products/SVKS000229/1.webp" alt="Rear Engine Mount Signa 16mm" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000229" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BIR</div><div class="product-part-number">Part No. <strong>B 1151</strong></div><h3 class="product-title"><a href="/hi/products/b-1151-rear-engine-mount-signa-16mm">Rear Engine Mount Signa 16mm</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000229" data-part="B 1151" data-name="Rear Engine Mount Signa 16mm" data-brand="BIR" aria-label="Add Rear Engine Mount Signa 16mm to RFQ">RFQ में जोड़ें</button></div></article></div></div></section><section class="entity-product-gallery" id="brand-bir-suspension-steering" aria-labelledby="brand-bir-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-bir-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">1 उत्पाद</span></div><a class="entity-product-gallery__view-all" href="/hi/products?brand_id=bir&amp;category_id=suspension-steering">सभी देखें<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/hi/products/b-1145-balance-rod-bush" class="product-link" aria-label="View Balance Rod Bush"><img class="product-image-file" src="/assets/images/products/SVKS000228/1.webp" alt="Balance Rod Bush" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000228" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BIR</div><div class="product-part-number">Part No. <strong>B 1145</strong></div><h3 class="product-title"><a href="/hi/products/b-1145-balance-rod-bush">Balance Rod Bush</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000228" data-part="B 1145" data-name="Balance Rod Bush" data-brand="BIR" aria-label="Add Balance Rod Bush to RFQ">RFQ में जोड़ें</button></div></article></div></div></section>
 
         </div>
 
@@ -1498,6 +1521,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ में जोड़ें"
+        },
+        navigation: {
+            home: "होम",
+            products: "उत्पाद",
+            brands: "ब्रांड",
+            vehicles: "वाहन",
+            categories: "श्रेणियाँ"
         }
     },
 

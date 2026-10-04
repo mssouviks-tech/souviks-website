@@ -315,7 +315,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -956,6 +956,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="खाता">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/hi/login.html">
+                        साइन इन
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/hi/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">खाता</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            साइन आउट
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1014,7 +1033,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/hi/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">MSL</li>
+            <li class="breadcrumb-item">
+                <a href="/hi/">होम</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/hi/brands">ब्रांड</a></li><li class="breadcrumb-item active" aria-current="page">MSL</li>
 
         </ol>
 
@@ -1064,10 +1087,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/hi/products/cc-016010w-withdrawal-plate-push-type" class="product-link" aria-label="View Withdrawal Plate Push Type"><img class="product-image-file" src="/assets/images/products/SVKS000245/1.webp" alt="Withdrawal Plate Push Type" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000245" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MSL</div><div class="product-part-number">Part No. <strong>CC 016010W</strong></div><h3 class="product-title"><a href="/hi/products/cc-016010w-withdrawal-plate-push-type">Withdrawal Plate Push Type</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000245" data-part="CC 016010W" data-name="Withdrawal Plate Push Type" data-brand="MSL" aria-label="Add Withdrawal Plate Push Type to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/cc-016008r-withdrawal-plate-gb-75-6mm" class="product-link" aria-label="View Withdrawal Plate GB 75 (6mm)"><img class="product-image-file" src="/assets/images/products/SVKS000246/1.webp" alt="Withdrawal Plate GB 75 (6mm)" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000246" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MSL</div><div class="product-part-number">Part No. <strong>CC 016008R</strong></div><h3 class="product-title"><a href="/hi/products/cc-016008r-withdrawal-plate-gb-75-6mm">Withdrawal Plate GB 75 (6mm)</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000246" data-part="CC 016008R" data-name="Withdrawal Plate GB 75 (6mm)" data-brand="MSL" aria-label="Add Withdrawal Plate GB 75 (6mm) to RFQ">RFQ में जोड़ें</button></div></article>
+            <section class="entity-product-gallery" id="brand-msl-clutch-parts" aria-labelledby="brand-msl-clutch-parts-title"><div class="entity-product-gallery__header"><div><h2 id="brand-msl-clutch-parts-title">Clutch Parts</h2><span class="entity-product-gallery__count">2 उत्पाद</span></div><a class="entity-product-gallery__view-all" href="/hi/products?brand_id=msl&amp;category_id=clutch-parts">सभी देखें<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Clutch Parts products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/hi/products/cc-016010w-withdrawal-plate-push-type" class="product-link" aria-label="View Withdrawal Plate Push Type"><img class="product-image-file" src="/assets/images/products/SVKS000245/1.webp" alt="Withdrawal Plate Push Type" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000245" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MSL</div><div class="product-part-number">Part No. <strong>CC 016010W</strong></div><h3 class="product-title"><a href="/hi/products/cc-016010w-withdrawal-plate-push-type">Withdrawal Plate Push Type</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000245" data-part="CC 016010W" data-name="Withdrawal Plate Push Type" data-brand="MSL" aria-label="Add Withdrawal Plate Push Type to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/cc-016008r-withdrawal-plate-gb-75-6mm" class="product-link" aria-label="View Withdrawal Plate GB 75 (6mm)"><img class="product-image-file" src="/assets/images/products/SVKS000246/1.webp" alt="Withdrawal Plate GB 75 (6mm)" loading="lazy" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000246" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">MSL</div><div class="product-part-number">Part No. <strong>CC 016008R</strong></div><h3 class="product-title"><a href="/hi/products/cc-016008r-withdrawal-plate-gb-75-6mm">Withdrawal Plate GB 75 (6mm)</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000246" data-part="CC 016008R" data-name="Withdrawal Plate GB 75 (6mm)" data-brand="MSL" aria-label="Add Withdrawal Plate GB 75 (6mm) to RFQ">RFQ में जोड़ें</button></div></article></div></div></section>
 
         </div>
 
@@ -1498,6 +1521,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ में जोड़ें"
+        },
+        navigation: {
+            home: "होम",
+            products: "उत्पाद",
+            brands: "ब्रांड",
+            vehicles: "वाहन",
+            categories: "श्रेणियाँ"
         }
     },
 

@@ -315,7 +315,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -956,6 +956,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="खाता">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/hi/login.html">
+                        साइन इन
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/hi/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">खाता</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            साइन आउट
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1014,7 +1033,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/hi/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">Fenner</li>
+            <li class="breadcrumb-item">
+                <a href="/hi/">होम</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/hi/brands">ब्रांड</a></li><li class="breadcrumb-item active" aria-current="page">Fenner</li>
 
         </ol>
 
@@ -1031,7 +1054,7 @@ BRAND HERO
     <div class="container">
 
         <div id="brand-detail" data-static-rendered="true">
-            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/fenner.png" alt="Fenner" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Fenner</h1><p>Souviks catalogue: 2 active products from Fenner. Categories include Engine Components. Listed vehicle applications include Mahindra Bolero Pik-Up/MaXX Pik-Up, Universal.</p></div></div>
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/fenner.png" alt="Fenner" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Fenner</h1><p>Souviks catalogue: 2 active products from Fenner. Categories include Engine Components. Listed vehicle applications include Mahindra Bolero MaXX Pik-Up, Mahindra Bolero Pik-Up, Universal.</p></div></div>
         </div>
 
     </div>
@@ -1064,10 +1087,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/hi/products/4pk-720-micro-v-belt" class="product-link" aria-label="View Micro V Belt"><img class="product-image-file" src="/assets/images/products/SVKS000285/1.webp" alt="Micro V Belt" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000285" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fenner</div><div class="product-part-number">Part No. <strong>4PK-720</strong></div><h3 class="product-title"><a href="/hi/products/4pk-720-micro-v-belt">Micro V Belt</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹320</span><span class="product-price-mrp">MRP ₹480</span><span class="product-price-discount">33% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000285" data-part="4PK-720" data-name="Micro V Belt" data-brand="Fenner" aria-label="Add Micro V Belt to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/4pk-986spv-v-belt-mahindra-bolero" class="product-link" aria-label="View V Belt Mahindra Bolero"><img class="product-image-file" src="/assets/images/products/SVKS000286/1.webp" alt="V Belt Mahindra Bolero" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000286" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fenner</div><div class="product-part-number">Part No. <strong>4PK-986SPV</strong></div><h3 class="product-title"><a href="/hi/products/4pk-986spv-v-belt-mahindra-bolero">V Belt Mahindra Bolero</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹749</span><span class="product-price-mrp">MRP ₹874</span><span class="product-price-discount">14% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000286" data-part="4PK-986SPV" data-name="V Belt Mahindra Bolero" data-brand="Fenner" aria-label="Add V Belt Mahindra Bolero to RFQ">RFQ में जोड़ें</button></div></article>
+            <section class="entity-product-gallery" id="brand-fenner-engine-components" aria-labelledby="brand-fenner-engine-components-title"><div class="entity-product-gallery__header"><div><h2 id="brand-fenner-engine-components-title">Engine Components</h2><span class="entity-product-gallery__count">2 उत्पाद</span></div><a class="entity-product-gallery__view-all" href="/hi/products?brand_id=fenner&amp;category_id=engine-components">सभी देखें<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Engine Components products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/hi/products/4pk-720-micro-v-belt" class="product-link" aria-label="View Micro V Belt"><img class="product-image-file" src="/assets/images/products/SVKS000285/1.webp" alt="Micro V Belt" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000285" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fenner</div><div class="product-part-number">Part No. <strong>4PK-720</strong></div><h3 class="product-title"><a href="/hi/products/4pk-720-micro-v-belt">Micro V Belt</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹320</span><span class="product-price-mrp">MRP ₹480</span><span class="product-price-discount">33% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000285" data-part="4PK-720" data-name="Micro V Belt" data-brand="Fenner" aria-label="Add Micro V Belt to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/4pk-986spv-v-belt-mahindra-bolero" class="product-link" aria-label="View V Belt Mahindra Bolero"><img class="product-image-file" src="/assets/images/products/SVKS000286/1.webp" alt="V Belt Mahindra Bolero" loading="lazy" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000286" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fenner</div><div class="product-part-number">Part No. <strong>4PK-986SPV</strong></div><h3 class="product-title"><a href="/hi/products/4pk-986spv-v-belt-mahindra-bolero">V Belt Mahindra Bolero</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹749</span><span class="product-price-mrp">MRP ₹874</span><span class="product-price-discount">14% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000286" data-part="4PK-986SPV" data-name="V Belt Mahindra Bolero" data-brand="Fenner" aria-label="Add V Belt Mahindra Bolero to RFQ">RFQ में जोड़ें</button></div></article></div></div></section>
 
         </div>
 
@@ -1498,6 +1521,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ में जोड़ें"
+        },
+        navigation: {
+            home: "होम",
+            products: "उत्पाद",
+            brands: "ब्रांड",
+            vehicles: "वाहन",
+            categories: "श्रेणियाँ"
         }
     },
 

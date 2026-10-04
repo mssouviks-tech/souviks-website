@@ -285,7 +285,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-vehicles">
 
 
 <div class="top-bar">
@@ -927,6 +927,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="Account">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/en/login.html">
+                        Sign In
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/en/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">Account</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -984,6 +1003,10 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
+            <li class="breadcrumb-item">
+                <a href="/en/">Home</a>
+            </li>
+
             <li class="breadcrumb-item active" aria-current="page">Vehicles</li>
 
         </ol>
@@ -1029,7 +1052,7 @@ VEHICLES HERO
 
                         <span class="stat-number">
 
-                            27
+                            28
 
                         </span>
 
@@ -1153,7 +1176,8 @@ Reusable Search Component
                         <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Zm-5-3a5 5 0 0 0 10 0h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2Zm5 5a5 5 0 0 0 5-5h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2a5 5 0 0 0 5 5Z"/>
                     </svg>
                 </button>
-<div
+
+                <div
                     id="searchResults"
                     class="search-results">
                 </div>
@@ -1210,7 +1234,7 @@ CATALOGUE SUMMARY
 
                 <strong>
 
-                    03 October 2026
+                    04 October 2026
 
                 </strong>
 
@@ -1250,221 +1274,7 @@ FEATURED VEHICLES
 
         <div class="popular-vehicles-grid">
 
-
-            <!-- ==========================================
-                 TATA SIGNA
-            =========================================== -->
-
-            <a
-                href="/en/vehicles/tata-signa"
-                class="popular-vehicle-card">
-
-                <div class="popular-vehicle-image">
-
-                    <img
-                        src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp"
-                        width="400" height="400"
-                        alt="Tata Signa"
-                        loading="lazy">
-
-                </div>
-
-                <div class="popular-vehicle-content">
-
-                    <h3>
-
-                        Tata Signa
-
-                    </h3>
-
-                    <div class="popular-vehicle-count">
-
-                        37 Products
-
-                    </div>
-
-                    <span class="popular-vehicle-link">
-
-                        Browse Parts →
-
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <!-- ==========================================
-                 TATA PRIMA
-            =========================================== -->
-
-            <a
-                href="/en/vehicles/tata-prima"
-                class="popular-vehicle-card">
-
-                <div class="popular-vehicle-image">
-
-                    <img
-                        src="/assets/images/vehicles/TATA_PRIMA/thumbnail-400x300.webp"
-                        width="400" height="400"
-                        alt="Tata Prima"
-                        loading="lazy">
-
-                </div>
-
-                <div class="popular-vehicle-content">
-
-                    <h3>
-
-                        Tata Prima
-
-                    </h3>
-
-                    <div class="popular-vehicle-count">
-
-                        22 Products
-
-                    </div>
-
-                    <span class="popular-vehicle-link">
-
-                        Browse Parts →
-
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <!-- ==========================================
-                 TATA 2416
-            =========================================== -->
-
-            <a
-                href="/en/vehicles/tata-2416"
-                class="popular-vehicle-card">
-
-                <div class="popular-vehicle-image">
-
-                    <img
-                        src="/assets/images/vehicles/TATA_2416/thumbnail-400x300.webp"
-                        width="400" height="400"
-                        alt="Tata 2416"
-                        loading="lazy">
-
-                </div>
-
-                <div class="popular-vehicle-content">
-
-                    <h3>
-
-                        Tata 2416
-
-                    </h3>
-
-                    <div class="popular-vehicle-count">
-
-                        7 Products
-
-                    </div>
-
-                    <span class="popular-vehicle-link">
-
-                        Browse Parts →
-
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <!-- ==========================================
-                 ASHOK LEYLAND 2516
-            =========================================== -->
-
-            <a
-                href="/en/vehicles/ashok-leyland-2516"
-                class="popular-vehicle-card">
-
-                <div class="popular-vehicle-image">
-
-                    <img
-                        src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp"
-                        width="400" height="400"
-                        alt="Ashok Leyland 2516"
-                        loading="lazy">
-
-                </div>
-
-                <div class="popular-vehicle-content">
-
-                    <h3>
-
-                        Ashok Leyland 2516
-
-                    </h3>
-
-                    <div class="popular-vehicle-count">
-
-                        133 Products
-
-                    </div>
-
-                    <span class="popular-vehicle-link">
-
-                        Browse Parts →
-
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <!-- ==========================================
-                 ASHOK LEYLAND ECOMET
-            =========================================== -->
-
-            <a
-                href="/en/vehicles/ashok-leyland-ecomet"
-                class="popular-vehicle-card">
-
-                <div class="popular-vehicle-image">
-
-                    <img
-                        src="/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/thumbnail-400x300.webp"
-                        width="400" height="400"
-                        alt="Ashok Leyland Ecomet"
-                        loading="lazy">
-
-                </div>
-
-                <div class="popular-vehicle-content">
-
-                    <h3>
-
-                        Ashok Leyland Ecomet
-
-                    </h3>
-
-                    <div class="popular-vehicle-count">
-
-                        10 Products
-
-                    </div>
-
-                    <span class="popular-vehicle-link">
-
-                        Browse Parts →
-
-                    </span>
-
-                </div>
-
-            </a>
-
+            <a href="/en/vehicles/universal" class="popular-vehicle-card" data-vehicle-id="universal"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/UNIVERSAL/thumbnail-400x300.webp" alt="Universal" loading="lazy" decoding="async" width="400" height="400"></div><div class="popular-vehicle-content"><h3>Universal</h3><div class="popular-vehicle-count">311 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a><a href="/en/vehicles/tata-lpt" class="popular-vehicle-card" data-vehicle-id="tata-lpt"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async" width="400" height="400"></div><div class="popular-vehicle-content"><h3>Tata LPT</h3><div class="popular-vehicle-count">274 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a><a href="/en/vehicles/ashok-leyland-2516" class="popular-vehicle-card" data-vehicle-id="ashok-leyland-2516"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async" width="400" height="400"></div><div class="popular-vehicle-content"><h3>Ashok Leyland 2516</h3><div class="popular-vehicle-count">200 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a><a href="/en/vehicles/tata-ace" class="popular-vehicle-card" data-vehicle-id="tata-ace"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp" alt="Tata Ace" loading="lazy" decoding="async" width="400" height="400"></div><div class="popular-vehicle-content"><h3>Tata Ace</h3><div class="popular-vehicle-count">73 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a><a href="/en/vehicles/tata-signa" class="popular-vehicle-card" data-vehicle-id="tata-signa"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp" alt="Tata Signa" loading="lazy" decoding="async" width="400" height="400"></div><div class="popular-vehicle-content"><h3>Tata Signa</h3><div class="popular-vehicle-count">72 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a>
 
         </div>
 
@@ -1504,7 +1314,7 @@ ALL VEHICLES
                 class="entity-grid"
                 data-static-rendered="true">
 
-                <article class="vehicle-card"><a href="/en/vehicles/tata-signa" data-breadcrumb="Tata Signa"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp" alt="Tata Signa" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Signa</h3><div class="vehicle-count">72 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-lpt" data-breadcrumb="Tata LPT"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata LPT</h3><div class="vehicle-count">274 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-2516" data-breadcrumb="Ashok Leyland 2516"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland 2516</h3><div class="vehicle-count">200 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/eicher-pro-series" data-breadcrumb="Eicher Pro Series"><div class="vehicle-image"><img src="/assets/images/vehicles/EICHER_PRO_SERIES/thumbnail-400x300.webp" alt="Eicher Pro Series" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Eicher Pro Series</h3><div class="vehicle-count">43 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/eicher-1110" data-breadcrumb="Eicher 1110"><div class="vehicle-image"><img src="/assets/images/vehicles/EICHER_1110/thumbnail-400x300.webp" alt="Eicher 1110" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Eicher 1110</h3><div class="vehicle-count">14 Products</div></div></a></article><article class="vehicle-card vehicle-card--every"><a href="/en/vehicles/universal" data-breadcrumb="Every Vehicle"><div class="vehicle-image vehicle-image--every" aria-hidden="true"><img class="vehicle-every-icon" src="/assets/icons/vehicle.svg" alt="" width="64" height="64" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Every Vehicle</h3><div class="vehicle-count">311 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-ace" data-breadcrumb="Tata Ace"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp" alt="Tata Ace" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ace</h3><div class="vehicle-count">73 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-407" data-breadcrumb="Tata 407"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_407/thumbnail-400x300.webp" alt="Tata 407" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 407</h3><div class="vehicle-count">22 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-709" data-breadcrumb="Tata 709"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_709/thumbnail-400x300.webp" alt="Tata 709" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 709</h3><div class="vehicle-count">30 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-1109" data-breadcrumb="Tata 1109"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1109/thumbnail-400x300.webp" alt="Tata 1109" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1109</h3><div class="vehicle-count">55 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-1210" data-breadcrumb="Tata 1210"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1210/thumbnail-400x300.webp" alt="Tata 1210" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1210</h3><div class="vehicle-count">53 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-1312" data-breadcrumb="Tata 1312"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1312/thumbnail-400x300.webp" alt="Tata 1312" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1312</h3><div class="vehicle-count">63 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-1512" data-breadcrumb="Tata 1512"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1512/thumbnail-400x300.webp" alt="Tata 1512" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1512</h3><div class="vehicle-count">41 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-magic" data-breadcrumb="Tata Magic"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_MAGIC/thumbnail-400x300.webp" alt="Tata Magic" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Magic</h3><div class="vehicle-count">36 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-intra" data-breadcrumb="Tata Intra"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_INTRA/thumbnail-400x300.webp" alt="Tata Intra" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Intra</h3><div class="vehicle-count">21 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-prima" data-breadcrumb="Tata Prima"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_PRIMA/thumbnail-400x300.webp" alt="Tata Prima" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Prima</h3><div class="vehicle-count">36 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/mahindra-blazo" data-breadcrumb="Mahindra Blazo"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_BLAZO/thumbnail-400x300.webp" alt="Mahindra Blazo" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Blazo</h3><div class="vehicle-count">16 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-ultra" data-breadcrumb="Tata Ultra"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ULTRA/thumbnail-400x300.webp" alt="Tata Ultra" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ultra</h3><div class="vehicle-count">16 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tractors" data-breadcrumb="Tractors"><div class="vehicle-image"><img src="/assets/images/vehicles/TRACTORS/thumbnail-400x300.webp" alt="Tractors" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tractors</h3><div class="vehicle-count">16 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-ecomet" data-breadcrumb="Ashok Leyland Ecomet"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/thumbnail-400x300.webp" alt="Ashok Leyland Ecomet" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Ecomet</h3><div class="vehicle-count">19 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/mahindra-bolero-pik-upmaxx-pik-up" data-breadcrumb="Mahindra Bolero Pik-Up/MaXX Pik-Up"><div class="vehicle-image"><img src="/assets/images/placeholder.webp" alt="Mahindra Bolero Pik-Up/MaXX Pik-Up" loading="lazy" decoding="async" width="1200" height="1200"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Bolero Pik-Up/MaXX Pik-Up</h3><div class="vehicle-count">19 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-2416" data-breadcrumb="Tata 2416"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_2416/thumbnail-400x300.webp" alt="Tata 2416" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 2416</h3><div class="vehicle-count">35 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-u-truck" data-breadcrumb="Ashok Leyland U-Truck"><div class="vehicle-image"><img src="/assets/images/placeholder.webp" alt="Ashok Leyland U-Truck" loading="lazy" decoding="async" width="1200" height="1200"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland U-Truck</h3><div class="vehicle-count">18 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-captain" data-breadcrumb="Ashok Leyland Captain"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_CAPTAIN/thumbnail-400x300.webp" alt="Ashok Leyland Captain" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Captain</h3><div class="vehicle-count">13 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/mahindra-furio" data-breadcrumb="Mahindra Furio"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_FURIO/thumbnail-400x300.webp" alt="Mahindra Furio" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Furio</h3><div class="vehicle-count">2 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-boss" data-breadcrumb="Ashok Leyland Boss"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_BOSS/thumbnail-400x300.webp" alt="Ashok Leyland Boss" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Boss</h3><div class="vehicle-count">5 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-stallion" data-breadcrumb="Ashok Leyland Stallion"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_STALLION/thumbnail-400x300.webp" alt="Ashok Leyland Stallion" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Stallion</h3><div class="vehicle-count">3 Products</div></div></a></article>
+                <article class="vehicle-card"><a href="/en/vehicles/tata-signa" data-breadcrumb="Tata Signa"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp" alt="Tata Signa" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Signa</h3><div class="vehicle-count">72 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-lpt" data-breadcrumb="Tata LPT"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata LPT</h3><div class="vehicle-count">274 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-2516" data-breadcrumb="Ashok Leyland 2516"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland 2516</h3><div class="vehicle-count">200 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/eicher-pro-series" data-breadcrumb="Eicher Pro Series"><div class="vehicle-image"><img src="/assets/images/vehicles/EICHER_PRO_SERIES/thumbnail-400x300.webp" alt="Eicher Pro Series" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Eicher Pro Series</h3><div class="vehicle-count">43 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/eicher-1110" data-breadcrumb="Eicher 1110"><div class="vehicle-image"><img src="/assets/images/vehicles/EICHER_1110/thumbnail-400x300.webp" alt="Eicher 1110" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Eicher 1110</h3><div class="vehicle-count">14 Products</div></div></a></article><article class="vehicle-card vehicle-card--every"><a href="/en/vehicles/universal" data-breadcrumb="Every Vehicle"><div class="vehicle-image vehicle-image--every" aria-hidden="true"><img class="vehicle-every-icon" src="/assets/icons/vehicle.svg" alt="" width="64" height="64" decoding="async"></div><div class="vehicle-content"><h3 class="vehicle-title">Every Vehicle</h3><div class="vehicle-count">311 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-ace" data-breadcrumb="Tata Ace"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp" alt="Tata Ace" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ace</h3><div class="vehicle-count">73 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-407" data-breadcrumb="Tata 407"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_407/thumbnail-400x300.webp" alt="Tata 407" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 407</h3><div class="vehicle-count">22 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-709" data-breadcrumb="Tata 709"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_709/thumbnail-400x300.webp" alt="Tata 709" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 709</h3><div class="vehicle-count">30 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-1109" data-breadcrumb="Tata 1109"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1109/thumbnail-400x300.webp" alt="Tata 1109" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1109</h3><div class="vehicle-count">55 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-1210" data-breadcrumb="Tata 1210"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1210/thumbnail-400x300.webp" alt="Tata 1210" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1210</h3><div class="vehicle-count">53 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-1312" data-breadcrumb="Tata 1312"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1312/thumbnail-400x300.webp" alt="Tata 1312" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1312</h3><div class="vehicle-count">63 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-1512" data-breadcrumb="Tata 1512"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_1512/thumbnail-400x300.webp" alt="Tata 1512" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 1512</h3><div class="vehicle-count">41 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-magic" data-breadcrumb="Tata Magic"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_MAGIC/thumbnail-400x300.webp" alt="Tata Magic" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Magic</h3><div class="vehicle-count">36 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-intra" data-breadcrumb="Tata Intra"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_INTRA/thumbnail-400x300.webp" alt="Tata Intra" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Intra</h3><div class="vehicle-count">21 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-prima" data-breadcrumb="Tata Prima"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_PRIMA/thumbnail-400x300.webp" alt="Tata Prima" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Prima</h3><div class="vehicle-count">36 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/mahindra-blazo" data-breadcrumb="Mahindra Blazo"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_BLAZO/thumbnail-400x300.webp" alt="Mahindra Blazo" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Blazo</h3><div class="vehicle-count">16 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-ultra" data-breadcrumb="Tata Ultra"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_ULTRA/thumbnail-400x300.webp" alt="Tata Ultra" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata Ultra</h3><div class="vehicle-count">16 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tractors" data-breadcrumb="Tractors"><div class="vehicle-image"><img src="/assets/images/vehicles/TRACTORS/thumbnail-400x300.webp" alt="Tractors" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tractors</h3><div class="vehicle-count">16 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-ecomet" data-breadcrumb="Ashok Leyland Ecomet"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/thumbnail-400x300.webp" alt="Ashok Leyland Ecomet" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Ecomet</h3><div class="vehicle-count">19 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/mahindra-bolero-pik-up" data-breadcrumb="Mahindra Bolero Pik-Up"><div class="vehicle-image"><img src="/assets/images/placeholder.webp" alt="Mahindra Bolero Pik-Up" loading="lazy" decoding="async" width="1200" height="1200"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Bolero Pik-Up</h3><div class="vehicle-count">19 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/mahindra-bolero-maxx-pik-up" data-breadcrumb="Mahindra Bolero MaXX Pik-Up"><div class="vehicle-image"><img src="/assets/images/placeholder.webp" alt="Mahindra Bolero MaXX Pik-Up" loading="lazy" decoding="async" width="1200" height="1200"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Bolero MaXX Pik-Up</h3><div class="vehicle-count">19 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/tata-2416" data-breadcrumb="Tata 2416"><div class="vehicle-image"><img src="/assets/images/vehicles/TATA_2416/thumbnail-400x300.webp" alt="Tata 2416" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Tata 2416</h3><div class="vehicle-count">35 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-u-truck" data-breadcrumb="Ashok Leyland U-Truck"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/thumbnail-400x300.webp" alt="Ashok Leyland U-Truck" loading="lazy" decoding="async" width="400" height="300"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland U-Truck</h3><div class="vehicle-count">18 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-captain" data-breadcrumb="Ashok Leyland Captain"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_CAPTAIN/thumbnail-400x300.webp" alt="Ashok Leyland Captain" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Captain</h3><div class="vehicle-count">13 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/mahindra-furio" data-breadcrumb="Mahindra Furio"><div class="vehicle-image"><img src="/assets/images/vehicles/MAHINDRA_FURIO/thumbnail-400x300.webp" alt="Mahindra Furio" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Mahindra Furio</h3><div class="vehicle-count">2 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-boss" data-breadcrumb="Ashok Leyland Boss"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_BOSS/thumbnail-400x300.webp" alt="Ashok Leyland Boss" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Boss</h3><div class="vehicle-count">5 Products</div></div></a></article><article class="vehicle-card"><a href="/en/vehicles/ashok-leyland-stallion" data-breadcrumb="Ashok Leyland Stallion"><div class="vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_STALLION/thumbnail-400x300.webp" alt="Ashok Leyland Stallion" loading="lazy" decoding="async" width="400" height="400"></div><div class="vehicle-content"><h3 class="vehicle-title">Ashok Leyland Stallion</h3><div class="vehicle-count">3 Products</div></div></a></article>
 
             </div>
 
@@ -2134,6 +1944,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "Add To RFQ"
+        },
+        navigation: {
+            home: "Home",
+            products: "Products",
+            brands: "Brands",
+            vehicles: "Vehicles",
+            categories: "Categories"
         }
     },
 

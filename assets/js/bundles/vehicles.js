@@ -434,6 +434,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const topUserDropdown =
         document.getElementById("topUserDropdown");
 
+    const mobileNavSignIn =
+        document.getElementById("mobileNavSignIn");
+
+    const mobileNavUserMenu =
+        document.getElementById("mobileNavUserMenu");
+
+    const mobileNavUserName =
+        document.getElementById("mobileNavUserName");
+
 
     /*
     ----------------------------------------------------------
@@ -618,6 +627,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                 true
             );
 
+            setHidden(
+                mobileNavSignIn,
+                false
+            );
+
+            setHidden(
+                mobileNavUserMenu,
+                true
+            );
+
             closeDropdown();
 
             return;
@@ -713,6 +732,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         }
 
+        if (mobileNavUserName) {
+
+            mobileNavUserName.textContent =
+                fullName;
+
+        }
+
         setHidden(
             topSignIn,
             true
@@ -720,6 +746,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         setHidden(
             topUserMenu,
+            false
+        );
+
+        setHidden(
+            mobileNavSignIn,
+            true
+        );
+
+        setHidden(
+            mobileNavUserMenu,
             false
         );
 
@@ -1581,8 +1617,8 @@ document.addEventListener(
             button.focus();
         });
 
-        navigation.querySelectorAll(".navigation-menu a").forEach(link => {
-            link.addEventListener("click", () => setNavigationState(false));
+        navigation.querySelectorAll(".navigation-menu a, .mobile-nav-auth a, .mobile-nav-auth button").forEach(control => {
+            control.addEventListener("click", () => setNavigationState(false));
         });
 
         document.addEventListener("keydown", event => {
@@ -2638,7 +2674,6 @@ Features:
         if (!grid) return;
 
         const cards = Array.from(grid.querySelectorAll(".vehicle-card"));
-        if (visible) visible.textContent = String(cards.length);
 
         const expand = () => {
             document.body.classList.add("vehicles-expanded");
@@ -2647,19 +2682,28 @@ Features:
             showMore?.remove();
         };
 
-        showMore?.addEventListener("click", expand);
-        input?.addEventListener("input", event => {
-            const query = String(event.target.value || "").trim();
+        const applyQuery = query => {
+            const normalized = String(query || "").trim();
             let count = 0;
             cards.forEach(card => {
                 const text = String(card.textContent || "");
-                const match = !query || (window.SouviksSearchEngine?.matchesText ? SouviksSearchEngine.matchesText(text, query) : text.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+                const match = !normalized || (window.SouviksSearchEngine?.matchesText ? window.SouviksSearchEngine.matchesText(text, normalized) : text.toLocaleLowerCase().includes(normalized.toLocaleLowerCase()));
                 card.hidden = !match;
                 if (match) count += 1;
             });
-            if (query) expand();
+            if (normalized) expand();
             if (visible) visible.textContent = String(count);
-        });
+        };
+
+        if (visible) visible.textContent = String(cards.length);
+        showMore?.addEventListener("click", expand);
+        input?.addEventListener("input", event => applyQuery(event.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get("q") || "";
+        if (initialQuery) {
+            if (input) input.value = initialQuery;
+            applyQuery(initialQuery);
+        }
     });
 })();
 

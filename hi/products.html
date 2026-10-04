@@ -642,7 +642,7 @@ Reusable Head Component
 
 </head>
 
-<body class="products-page">
+<body class="site-page products-page page-products">
 
 
 <div class="top-bar">
@@ -1283,6 +1283,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="खाता">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/hi/login.html">
+                        साइन इन
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/hi/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">खाता</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            साइन आउट
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1341,7 +1360,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item active" aria-current="page">Products</li>
+            <li class="breadcrumb-item">
+                <a href="/hi/">होम</a>
+            </li>
+
+            <li class="breadcrumb-item active" aria-current="page">उत्पाद</li>
 
         </ol>
 
@@ -1467,7 +1490,7 @@ PRODUCTS HERO
 
                         <div class="stat-number">
 
-                            27
+                            28
 
                         </div>
 
@@ -1537,7 +1560,8 @@ Reusable Search Component
                         <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Zm-5-3a5 5 0 0 0 10 0h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2Zm5 5a5 5 0 0 0 5-5h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2a5 5 0 0 0 5 5Z"/>
                     </svg>
                 </button>
-<div
+
+                <div
                     id="searchResults"
                     class="search-results">
                 </div>
@@ -1784,17 +1808,6 @@ CATALOGUE SUMMARY
 
             </div>
 
-            <div class="catalogue-last-updated">
-
-                अंतिम अद्यतन
-
-                <strong>
-
-                    03 October 2026
-
-                </strong>
-
-            </div>
 
         </div>
 
@@ -1873,6 +1886,20 @@ Reusable Pagination Component
                 id="pagination"
 
                 class="pagination">
+
+            </div>
+
+            <!-- LAST UPDATED -->
+
+            <div class="catalogue-last-updated pagination-last-updated">
+
+                अंतिम अद्यतन
+
+                <strong>
+
+                    04 October 2026
+
+                </strong>
 
             </div>
 
@@ -2412,6 +2439,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ में जोड़ें"
+        },
+        navigation: {
+            home: "होम",
+            products: "उत्पाद",
+            brands: "ब्रांड",
+            vehicles: "वाहन",
+            categories: "श्रेणियाँ"
         }
     },
 

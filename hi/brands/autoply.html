@@ -315,7 +315,7 @@ Reusable Head Component
 
 </head>
 
-<body>
+<body class="site-page page-brand">
 
 
 <div class="top-bar">
@@ -956,6 +956,25 @@ Reusable Head Component
 
                 </ul>
 
+                <div class="mobile-nav-auth" aria-label="खाता">
+                    <a
+                        id="mobileNavSignIn"
+                        class="mobile-nav-auth-link"
+                        href="/hi/login.html">
+                        साइन इन
+                    </a>
+
+                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                        <a class="mobile-nav-auth-link" href="/hi/account.html">
+                            <span aria-hidden="true">◉</span>
+                            <span id="mobileNavUserName">खाता</span>
+                        </a>
+                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                            साइन आउट
+                        </button>
+                    </div>
+                </div>
+
             </nav>
 
 
@@ -1014,7 +1033,11 @@ SOUVIKS BREADCRUMB
             class="breadcrumb-list"
             id="breadcrumb-list">
 
-            <li class="breadcrumb-item"><a href="/hi/brands">Brands</a></li><li class="breadcrumb-item active" aria-current="page">AutoPly</li>
+            <li class="breadcrumb-item">
+                <a href="/hi/">होम</a>
+            </li>
+
+            <li class="breadcrumb-item"><a href="/hi/brands">ब्रांड</a></li><li class="breadcrumb-item active" aria-current="page">AutoPly</li>
 
         </ol>
 
@@ -1064,10 +1087,10 @@ BRAND PRODUCTS
 
         <div
             id="product-grid"
-            class="products-grid"
+            class="entity-product-galleries"
             data-static-rendered="true">
 
-            <article class="product-card"><div class="product-image"><a href="/hi/products/autoply-3896w-su-8-led-high-bright-24v-white" class="product-link" aria-label="View SU 8 LED High Bright   24V White"><img class="product-image-file" src="/assets/images/products/SVKS000670/1.webp" alt="SU 8 LED High Bright   24V White" loading="lazy" decoding="async" draggable="false" width="437" height="399"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000670" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">AutoPly</div><div class="product-part-number">Part No. <strong>3896W</strong></div><h3 class="product-title"><a href="/hi/products/autoply-3896w-su-8-led-high-bright-24v-white">SU 8 LED High Bright   24V White</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹750</span><span class="product-price-mrp">MRP ₹850</span><span class="product-price-discount">12% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000670" data-part="3896W" data-name="SU 8 LED High Bright   24V White" data-brand="AutoPly" aria-label="Add SU 8 LED High Bright   24V White to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/autoply-battery-terminal-cable-440-30mm" class="product-link" aria-label="View Battery (Terminal) Cable   440/.30mm"><img class="product-image-file" src="/assets/images/products/SVKS000671/1.webp" alt="Battery (Terminal) Cable   440/.30mm" loading="lazy" decoding="async" draggable="false" width="1600" height="1600"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000671" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">AutoPly</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/hi/products/autoply-battery-terminal-cable-440-30mm">Battery (Terminal) Cable   440/.30mm</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹300</span><span class="product-price-mrp">MRP ₹450</span><span class="product-price-discount">33% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000671" data-part="" data-name="Battery (Terminal) Cable   440/.30mm" data-brand="AutoPly" aria-label="Add Battery (Terminal) Cable   440/.30mm to RFQ">RFQ में जोड़ें</button></div></article>
+            <section class="entity-product-gallery" id="brand-autoply-electricals" aria-labelledby="brand-autoply-electricals-title"><div class="entity-product-gallery__header"><div><h2 id="brand-autoply-electricals-title">Electricals</h2><span class="entity-product-gallery__count">2 उत्पाद</span></div><a class="entity-product-gallery__view-all" href="/hi/products?brand_id=autoply&amp;category_id=electricals">सभी देखें<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Electricals products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/hi/products/autoply-3896w-su-8-led-high-bright-24v-white" class="product-link" aria-label="View SU 8 LED High Bright   24V White"><img class="product-image-file" src="/assets/images/products/SVKS000670/1.webp" alt="SU 8 LED High Bright   24V White" loading="lazy" decoding="async" draggable="false" width="437" height="399"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000670" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">AutoPly</div><div class="product-part-number">Part No. <strong>3896W</strong></div><h3 class="product-title"><a href="/hi/products/autoply-3896w-su-8-led-high-bright-24v-white">SU 8 LED High Bright   24V White</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹750</span><span class="product-price-mrp">MRP ₹850</span><span class="product-price-discount">12% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000670" data-part="3896W" data-name="SU 8 LED High Bright   24V White" data-brand="AutoPly" aria-label="Add SU 8 LED High Bright   24V White to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/autoply-battery-terminal-cable-440-30mm" class="product-link" aria-label="View Battery (Terminal) Cable   440/.30mm"><img class="product-image-file" src="/assets/images/products/SVKS000671/1.webp" alt="Battery (Terminal) Cable   440/.30mm" loading="lazy" decoding="async" draggable="false" width="1600" height="1600"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000671" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">AutoPly</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/hi/products/autoply-battery-terminal-cable-440-30mm">Battery (Terminal) Cable   440/.30mm</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹300</span><span class="product-price-mrp">MRP ₹450</span><span class="product-price-discount">33% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000671" data-part="" data-name="Battery (Terminal) Cable   440/.30mm" data-brand="AutoPly" aria-label="Add Battery (Terminal) Cable   440/.30mm to RFQ">RFQ में जोड़ें</button></div></article></div></div></section>
 
         </div>
 
@@ -1498,6 +1521,13 @@ window.souviks = {
     translations: {
         buttons: {
             add_to_rfq: "RFQ में जोड़ें"
+        },
+        navigation: {
+            home: "होम",
+            products: "उत्पाद",
+            brands: "ब्रांड",
+            vehicles: "वाहन",
+            categories: "श्रेणियाँ"
         }
     },
 
