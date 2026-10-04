@@ -7430,12 +7430,17 @@ Version : 1.1
                 return jsonResponse(await getJson(path, "Unable to load catalogue resource."));
             },
             souviks_navigate: async ({ destination }) => {
+                const language = ["en", "hi", "bn"].includes(
+                    String(document.documentElement.lang || "").toLowerCase()
+                )
+                    ? String(document.documentElement.lang).toLowerCase()
+                    : "en";
                 const destinations = {
-                    home: "/en/",
-                    products: "/en/products.html",
-                    brands: "/en/brands.html",
-                    categories: "/en/categories.html",
-                    vehicles: "/en/vehicles.html"
+                    home: `/${language}/`,
+                    products: `/${language}/products`,
+                    brands: `/${language}/brands`,
+                    categories: `/${language}/categories`,
+                    vehicles: `/${language}/vehicles`
                 };
                 const path = destinations[destination];
                 if (!path) throw new Error("Unknown Souviks destination.");
