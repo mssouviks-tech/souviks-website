@@ -3827,6 +3827,71 @@ ${galleryHtml}
 
 }
 
+/*
+==========================================================
+   HYDRATE STATIC VEHICLE CARDS
+----------------------------------------------------------
+Static-rendered PDPs already contain the vehicle cards in
+the HTML, so keep their image source synchronized with
+vehicles.json after the vehicle data is loaded.
+==========================================================
+*/
+
+document
+    .querySelectorAll("#product-detail .pdp-vehicle-card")
+    .forEach(card => {
+
+        const vehicleName =
+            card
+                .querySelector(".pdp-vehicle-content h4")
+                ?.textContent
+                ?.trim();
+
+        if (!vehicleName) {
+            return;
+        }
+
+        const vehicle =
+            allVehicles.find(
+                item =>
+                    String(item.model || "").trim() ===
+                    vehicleName
+            );
+
+        if (!vehicle?.image) {
+            return;
+        }
+
+        const image =
+            card.querySelector(
+                ".pdp-vehicle-image img"
+            );
+
+        if (!image) {
+            return;
+        }
+
+        image.src = vehicle.image;
+
+        if (
+            Array.isArray(vehicle.image_dimensions) &&
+            vehicle.image_dimensions.length === 2
+        ) {
+            const width = Number(vehicle.image_dimensions[0]);
+            const height = Number(vehicle.image_dimensions[1]);
+
+            if (
+                Number.isFinite(width) &&
+                width > 0 &&
+                Number.isFinite(height) &&
+                height > 0
+            ) {
+                image.width = width;
+                image.height = height;
+            }
+        }
+    });
+
 /* ==========================================
    PDP RFQ CONTROLS
 ========================================== */
