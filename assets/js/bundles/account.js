@@ -2058,7 +2058,15 @@ class SouviksAPI {
 
             const response = await fetch(
 
-                `${this.basePath}/${filename}`
+                `${this.basePath}/${filename}`,
+
+                {
+
+                    cache: "no-store",
+
+                    credentials: "same-origin"
+
+                }
 
             );
 
@@ -8387,7 +8395,10 @@ async function getAccountSavedProducts() {
         return AccountSavedState.cataloguePromise;
     }
 
-    AccountSavedState.cataloguePromise = fetch("/assets/data/products.json")
+    AccountSavedState.cataloguePromise = fetch("/assets/data/products.json", {
+        credentials: "same-origin",
+        cache: "no-store"
+    })
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Catalogue request failed (${response.status})`);
