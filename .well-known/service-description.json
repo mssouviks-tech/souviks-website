@@ -11,9 +11,9 @@
     "search":"https://www.souviks.co.in/assets/data/search.json"
   },
   "humanPages":{
-    "products":"https://www.souviks.co.in/en/products.html",
-    "brands":"https://www.souviks.co.in/en/brands.html",
-    "categories":"https://www.souviks.co.in/en/categories.html",
-    "vehicles":"https://www.souviks.co.in/en/vehicles.html"
+    "products":"https://www.souviks.co.in/en/products",
+    "brands":"https://www.souviks.co.in/en/brands",
+    "categories":"https://www.souviks.co.in/en/categories",
+    "vehicles":"https://www.souviks.co.in/en/vehicles"
   }
 }
