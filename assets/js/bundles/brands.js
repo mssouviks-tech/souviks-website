@@ -2672,11 +2672,13 @@ Features:
         const visible = document.getElementById("visibleBrands");
         const total = document.getElementById("totalBrands");
         const showMore = document.getElementById("showMoreBrands");
+        const noResults = document.getElementById("noResults");
         if (!grid) return;
 
         const cards = Array.from(grid.querySelectorAll(".brand-card"));
         if (total) total.textContent = String(cards.length);
         if (visible) visible.textContent = String(cards.length);
+        if (noResults) noResults.hidden = true;
 
         const expand = () => {
             document.body.classList.add("brands-expanded");
@@ -2695,6 +2697,7 @@ Features:
             });
             if (query) expand();
             if (visible) visible.textContent = String(count);
+            if (noResults) noResults.hidden = count !== 0;
         });
     });
 })();
