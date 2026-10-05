@@ -7,10 +7,10 @@
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /assets/data/*
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
 
 /assets/data/catalogue-index.json
-  Cache-Control: public, max-age=1800, stale-while-revalidate=86400
+  Cache-Control: public, max-age=0, must-revalidate
 
 /ads.txt
   Content-Type: text/plain; charset=utf-8
