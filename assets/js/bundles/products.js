@@ -2697,7 +2697,15 @@ class SouviksAPI {
 
             const response = await fetch(
 
-                `${this.basePath}/${filename}`
+                `${this.basePath}/${filename}`,
+
+                {
+
+                    cache: "no-store",
+
+                    credentials: "same-origin"
+
+                }
 
             );
 
@@ -3627,7 +3635,11 @@ constructor() {
         if (!frequentNeedsData && !relatedNeedsData) return;
 
         try {
-            const response = await fetch("/assets/data/catalogue-index.json", { headers: { Accept: "application/json" } });
+            const response = await fetch("/assets/data/catalogue-index.json", {
+                headers: { Accept: "application/json" },
+                cache: "no-store",
+                credentials: "same-origin"
+            });
             if (!response.ok) return;
             const catalogue = await response.json();
             if (!Array.isArray(catalogue) || !catalogue.length) return;
