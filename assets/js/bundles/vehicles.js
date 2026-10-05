@@ -2694,13 +2694,26 @@ Features:
             });
             if (normalized) expand();
             if (visible) visible.textContent = String(count);
-            if (noResults) noResults.hidden = count !== 0;
+            if (noResults) {
+                noResults.hidden = count !== 0;
+                noResults.setAttribute("aria-hidden", String(count !== 0));
+            }
         };
 
         if (visible) visible.textContent = String(cards.length);
-        if (noResults) noResults.hidden = true;
+        if (noResults) {
+            noResults.hidden = true;
+            noResults.setAttribute("aria-hidden", "true");
+        }
         showMore?.addEventListener("click", expand);
         input?.addEventListener("input", event => applyQuery(event.target.value));
+
+        document.getElementById("resetNoResultsFilters")?.addEventListener("click", () => {
+            if (input) input.value = "";
+            history.replaceState({}, "", window.location.pathname);
+            applyQuery("");
+            input?.focus();
+        });
 
         const initialQuery = new URLSearchParams(window.location.search).get("q") || "";
         if (initialQuery) {

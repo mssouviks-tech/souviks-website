@@ -2697,7 +2697,17 @@ Features:
             });
             if (query) expand();
             if (visible) visible.textContent = String(count);
-            if (noResults) noResults.hidden = count !== 0;
+            if (noResults) {
+                noResults.hidden = count !== 0;
+                noResults.setAttribute("aria-hidden", String(count !== 0));
+            }
+        });
+
+        document.getElementById("resetNoResultsFilters")?.addEventListener("click", () => {
+            if (input) input.value = "";
+            history.replaceState({}, "", window.location.pathname);
+            input?.dispatchEvent(new Event("input", { bubbles: true }));
+            input?.focus();
         });
     });
 })();
