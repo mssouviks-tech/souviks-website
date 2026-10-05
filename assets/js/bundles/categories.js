@@ -2670,10 +2670,12 @@ Features:
         const grid = document.getElementById("categoryGrid");
         const input = document.getElementById("searchInput");
         const visible = document.getElementById("visibleCategories");
+        const noResults = document.getElementById("noResults");
         if (!grid) return;
 
         const cards = Array.from(grid.querySelectorAll(".category-card"));
         if (visible) visible.textContent = String(cards.length);
+        if (noResults) noResults.hidden = true;
 
         input?.addEventListener("input", event => {
             const query = String(event.target.value || "").trim();
@@ -2685,6 +2687,7 @@ Features:
                 if (match) count += 1;
             });
             if (visible) visible.textContent = String(count);
+            if (noResults) noResults.hidden = count !== 0;
         });
     });
 })();
