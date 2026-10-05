@@ -2596,7 +2596,7 @@ Features:
             if (document.body.classList.contains("index-page")) return;
 
             const lang = window.souviks?.currentLanguage || document.documentElement.lang || "en";
-            const url = new URL(`/${lang}/products.html`, window.location.origin);
+            const url = new URL(`/${lang}/products`, window.location.origin);
             url.searchParams.set("q", query);
             window.location.assign(url.pathname + url.search);
         };
