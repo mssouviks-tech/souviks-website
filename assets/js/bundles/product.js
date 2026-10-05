@@ -2496,6 +2496,139 @@ constructor() {
         return "/assets/images/placeholder.webp";
     }
 
+
+
+    // ======================================================
+    // STATIC PDP SYNCHRONIZATION
+    // ======================================================
+
+    syncStaticProductGallery(product) {
+        const gallery = document.querySelector(".pdp-gallery");
+        if (!gallery) return;
+
+        const folder = String(product?.image_folder || "").trim();
+        const galleryFiles = Array.isArray(product?.gallery)
+            ? product.gallery.map(file => String(file || "").trim()).filter(Boolean)
+            : [];
+        const fallback = String(product?.image_url || "").trim() || "/assets/images/placeholder.webp";
+
+        const srcFor = filename => {
+            if (!filename) return fallback;
+            if (/^https?:\/\//i.test(filename) || filename.startsWith("/")) return filename;
+            if (folder) {
+                return `/assets/images/products/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`;
+            }
+            if (filename === product?.image && fallback) return fallback;
+            return fallback;
+        };
+
+        const dimensionsFor = filename => {
+            const dims = product?.gallery_dimensions?.[filename];
+            if (!Array.isArray(dims) || dims.length !== 2) return null;
+            const width = Number(dims[0]);
+            const height = Number(dims[1]);
+            return Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0
+                ? [width, height]
+                : null;
+        };
+
+        const mainImage = document.getElementById("pdpMainImage");
+        if (mainImage) {
+            const src = srcFor(galleryFiles[0] || String(product?.image || "").trim());
+            mainImage.src = src;
+            mainImage.alt = String(product?.product_name || product?.name || "Product image");
+            const dims = dimensionsFor(galleryFiles[0] || String(product?.image || "").trim());
+            if (dims) {
+                mainImage.width = dims[0];
+                mainImage.height = dims[1];
+            }
+        }
+
+        const thumbContainer = gallery.querySelector(".pdp-thumbnails");
+        if (!thumbContainer || !galleryFiles.length) return;
+
+        const existingButtons = Array.from(thumbContainer.querySelectorAll(".pdp-thumb"));
+        galleryFiles.forEach((filename, index) => {
+            let button = existingButtons[index];
+            if (!button) {
+                button = document.createElement("button");
+                button.type = "button";
+                button.className = "pdp-thumb";
+                thumbContainer.appendChild(button);
+            }
+            button.hidden = false;
+            button.setAttribute("type", "button");
+            button.setAttribute("aria-label", `View ${String(product?.product_name || product?.name || "Product")} image ${index + 1}`);
+            let img = button.querySelector("img");
+            if (!img) {
+                img = document.createElement("img");
+                button.appendChild(img);
+            }
+            img.src = srcFor(filename);
+            img.alt = `${String(product?.product_name || product?.name || "Product")} image ${index + 1}`;
+            img.loading = "lazy";
+            img.decoding = "async";
+            img.draggable = false;
+            const dims = dimensionsFor(filename);
+            if (dims) {
+                img.width = dims[0];
+                img.height = dims[1];
+            }
+        });
+
+        existingButtons.slice(galleryFiles.length).forEach(button => {
+            button.hidden = true;
+        });
+    }
+
+    async hydrateStaticRecommendations(product) {
+        const frequentSlider = document.querySelector(".pdp-frequent-slider");
+        const relatedSlider = document.querySelector(".pdp-related-slider-main");
+
+        const bindSlider = (slider, prev, next) => {
+            if (!slider || slider.dataset.recommendationControlsBound === "true") return;
+            slider.dataset.recommendationControlsBound = "true";
+            prev?.addEventListener("click", () => slider.scrollBy({ left: -600, behavior: "smooth" }));
+            next?.addEventListener("click", () => slider.scrollBy({ left: 600, behavior: "smooth" }));
+        };
+
+        bindSlider(frequentSlider, document.querySelector(".pdp-frequent-prev"), document.querySelector(".pdp-frequent-next"));
+        bindSlider(relatedSlider, document.querySelector(".pdp-related-prev-btn"), document.querySelector(".pdp-related-next-btn"));
+
+        const frequentNeedsData = Boolean(frequentSlider && !frequentSlider.querySelector(".product-card"));
+        const relatedNeedsData = Boolean(relatedSlider && !relatedSlider.querySelector(".product-card"));
+        if (!frequentNeedsData && !relatedNeedsData) return;
+
+        try {
+            const response = await fetch("/assets/data/catalogue-index.json", { headers: { Accept: "application/json" } });
+            if (!response.ok) return;
+            const catalogue = await response.json();
+            if (!Array.isArray(catalogue) || !catalogue.length) return;
+
+            const previousProducts = this.products;
+            this.products = catalogue;
+
+            const frequentlyProducts = this.frequentlyUsedWith(product, 6);
+            const frequentIds = new Set(frequentlyProducts.map(item => item.id));
+            const relatedProducts = this.related(product, 6, frequentIds);
+
+            if (frequentSlider && frequentNeedsData) {
+                frequentSlider.innerHTML = frequentlyProducts.map(item => this.card(item)).join("");
+            }
+            if (relatedSlider && relatedNeedsData) {
+                relatedSlider.innerHTML = relatedProducts.map(item => this.card(item)).join("");
+            }
+
+            this.products = previousProducts;
+
+            bindSlider(frequentSlider, document.querySelector(".pdp-frequent-prev"), document.querySelector(".pdp-frequent-next"));
+            bindSlider(relatedSlider, document.querySelector(".pdp-related-prev-btn"), document.querySelector(".pdp-related-next-btn"));
+            window.SavedProducts?.updateButtons?.();
+        } catch (error) {
+            console.warn("[Souviks PDP] Static recommendation hydration unavailable:", error);
+        }
+    }
+
     // ======================================================
     // PRODUCT CARD
     // ======================================================
@@ -3244,6 +3377,8 @@ async hydrateProductPage() {
     const embeddedProduct=window.SOUVIKS_PRODUCT_PAGE_DATA;
     if(staticTarget?.dataset.staticRendered==="true" && embeddedProduct?.id){
         this.bindPdpFastInteractions(embeddedProduct);
+        this.syncStaticProductGallery(embeddedProduct);
+        setTimeout(() => this.hydrateStaticRecommendations(embeddedProduct), 0);
         setTimeout(()=>this.initReviews(embeddedProduct),0);
         return;
     }
