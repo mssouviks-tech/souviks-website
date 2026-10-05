@@ -1581,6 +1581,52 @@ toggle.addEventListener(
     }
 );
 
+
+/* ===== static-brand-media-sync.js ===== */
+(() => {
+    document.addEventListener("DOMContentLoaded", async () => {
+        const image = document.querySelector("#brand-detail .brand-logo img");
+        const title = document.querySelector("#brand-detail .brand-info h1");
+        if (!image || !title || !String(image.getAttribute("src") || "").includes("/placeholder.webp")) {
+            return;
+        }
+
+        try {
+            const response = await fetch("/assets/data/brands.json", {
+                headers: { Accept: "application/json" }
+            });
+            if (!response.ok) return;
+
+            const brands = await response.json();
+            const slug = window.location.pathname
+                .split("/")
+                .filter(Boolean)
+                .pop()
+                ?.replace(/\.html$/i, "")
+                ?.toLowerCase();
+
+            const brand = Array.isArray(brands)
+                ? brands.find(item => String(item.slug || "").toLowerCase() === slug)
+                : null;
+
+            if (!brand?.logo) return;
+
+            image.src = brand.logo;
+            image.alt = brand.name || title.textContent.trim();
+            if (Array.isArray(brand.logo_dimensions) && brand.logo_dimensions.length === 2) {
+                const width = Number(brand.logo_dimensions[0]);
+                const height = Number(brand.logo_dimensions[1]);
+                if (Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0) {
+                    image.width = width;
+                    image.height = height;
+                }
+            }
+        } catch (error) {
+            console.warn("[Souviks Brand] Static logo synchronization unavailable:", error);
+        }
+    });
+})();
+
 /* ===== main.js ===== */
 document.addEventListener(
     "DOMContentLoaded",
