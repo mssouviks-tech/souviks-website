@@ -2671,6 +2671,7 @@ Features:
         const input = document.getElementById("searchInput");
         const visible = document.getElementById("visibleVehicles");
         const showMore = document.getElementById("showMoreVehicles");
+        const noResults = document.getElementById("noResults");
         if (!grid) return;
 
         const cards = Array.from(grid.querySelectorAll(".vehicle-card"));
@@ -2693,9 +2694,11 @@ Features:
             });
             if (normalized) expand();
             if (visible) visible.textContent = String(count);
+            if (noResults) noResults.hidden = count !== 0;
         };
 
         if (visible) visible.textContent = String(cards.length);
+        if (noResults) noResults.hidden = true;
         showMore?.addEventListener("click", expand);
         input?.addEventListener("input", event => applyQuery(event.target.value));
 
