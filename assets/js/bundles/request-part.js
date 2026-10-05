@@ -2230,10 +2230,12 @@ ${payload.requirement}`;
             whatsappMessage
         )}`;
 
+    const qrMessage = `Please help me with enquiry ${leadId}.`;
+    const qrWhatsAppUrl =
+        `https://wa.me/917908215701?text=${encodeURIComponent(qrMessage)}`;
     const qrUrl =
-
         `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(
-            whatsappUrl
+            qrWhatsAppUrl
         )}`;
 
     const modal = document.createElement(
