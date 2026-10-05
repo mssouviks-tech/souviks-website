@@ -3,10 +3,10 @@
   "name":"Souviks",
   "description":"Commercial vehicle spare-parts catalogue and enquiry website.",
   "primaryInformation":{
-    "productCatalogue":"https://www.souviks.co.in/en/products.html",
-    "brandIndex":"https://www.souviks.co.in/en/brands.html",
-    "categoryIndex":"https://www.souviks.co.in/en/categories.html",
-    "vehicleIndex":"https://www.souviks.co.in/en/vehicles.html"
+    "productCatalogue":"https://www.souviks.co.in/en/products",
+    "brandIndex":"https://www.souviks.co.in/en/brands",
+    "categoryIndex":"https://www.souviks.co.in/en/categories",
+    "vehicleIndex":"https://www.souviks.co.in/en/vehicles"
   },
   "machineReadableData":{
     "productCatalogue":"https://www.souviks.co.in/assets/data/products.json",
