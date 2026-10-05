@@ -1593,7 +1593,9 @@ toggle.addEventListener(
 
         try {
             const response = await fetch("/assets/data/brands.json", {
-                headers: { Accept: "application/json" }
+                headers: { Accept: "application/json" },
+                cache: "no-store",
+                credentials: "same-origin"
             });
             if (!response.ok) return;
 
