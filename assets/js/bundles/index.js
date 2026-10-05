@@ -2675,7 +2675,11 @@ document.addEventListener(
 function ensureSearchIndex() {
     if (Array.isArray(SEARCH_INDEX) && SEARCH_INDEX.length) return Promise.resolve(SEARCH_INDEX);
     if (!SEARCH_INDEX_PROMISE) {
-        SEARCH_INDEX_PROMISE = fetch("/assets/data/search.json", { headers: { Accept: "application/json" } })
+        SEARCH_INDEX_PROMISE = fetch("/assets/data/search.json", {
+            headers: { Accept: "application/json" },
+            cache: "no-store",
+            credentials: "same-origin"
+        })
             .then(response => response.ok ? response.json() : [])
             .then(data => { SEARCH_INDEX = Array.isArray(data) ? data : []; return SEARCH_INDEX; })
             .catch(error => { console.warn("Souviks search index unavailable:", error); SEARCH_INDEX = []; return SEARCH_INDEX; });
