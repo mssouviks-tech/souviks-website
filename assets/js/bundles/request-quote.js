@@ -331,6 +331,29 @@ Utils.emptyState = function(
 window.Utils = Utils;
 
 const LANG = window.souviks.currentLanguage;
+
+const RFQ_TEXT = {
+    en: {
+        empty: "RFQ Basket Empty",
+        decrease: "Decrease quantity",
+        increase: "Increase quantity",
+        remove: "Remove"
+    },
+    hi: {
+        empty: "RFQ बास्केट खाली है",
+        decrease: "मात्रा कम करें",
+        increase: "मात्रा बढ़ाएँ",
+        remove: "हटाएँ"
+    },
+    bn: {
+        empty: "RFQ ঝুড়ি খালি",
+        decrease: "পরিমাণ কমান",
+        increase: "পরিমাণ বাড়ান",
+        remove: "সরান"
+    }
+};
+
+const rfqText = RFQ_TEXT[LANG] || RFQ_TEXT.en;
 // ======================================================
 // RESPONSIVE PRODUCT IMAGE ATTRIBUTES
 // ======================================================
@@ -2964,7 +2987,7 @@ RFQ.renderPage = async function () {
 
                 <td colspan="5">
 
-                    RFQ Basket Empty
+                    ${rfqText.empty}
 
                 </td>
 
@@ -3042,7 +3065,7 @@ RFQ.renderPage = async function () {
                                     type="button"
                                     class="qty-minus"
                                     data-id="${id}"
-                                    aria-label="Decrease quantity"
+                                    aria-label="${rfqText.decrease}"
                                 >
 
                                     -
@@ -3061,7 +3084,7 @@ RFQ.renderPage = async function () {
                                     type="button"
                                     class="qty-plus"
                                     data-id="${id}"
-                                    aria-label="Increase quantity"
+                                    aria-label="${rfqText.increase}"
                                 >
 
                                     +
@@ -3080,7 +3103,7 @@ RFQ.renderPage = async function () {
                                 data-id="${id}"
                             >
 
-                                Remove
+                                ${rfqText.remove}
 
                             </button>
 
