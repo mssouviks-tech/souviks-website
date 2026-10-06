@@ -35220,7 +35220,7 @@
     "part_number": "J4035",
     "manufacturer_part_number": "IA207012",
     "manufacturer_part_numbers": [
-      "IC335562"
+      "IA207012"
     ],
     "alternate_part_numbers": [],
     "oem_numbers": [],
@@ -35251,8 +35251,7 @@
     "description": "JMP J4035 rear suspension hanger, part number IA207012, with an 8-hole jumbo configuration for Eicher Pro Series applications. This rear spring hanger is used in compatible commercial vehicle suspension assemblies.",
     "image_folder": "SVKS001031",
     "applications": [
-      "Rear spring rear hanger",
-      "8 hole"
+      "Rear spring rear hanger; 8 hole"
     ],
     "gallery": [],
     "gallery_dimensions": {}
