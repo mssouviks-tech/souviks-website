@@ -164,6 +164,101 @@ jobs:
           print("Catalogue integrity OK")
           print(json.dumps(expected, indent=2))
 
+      - name: Verify generated page parity and SEO invariants
+        shell: python
+        run: |
+          import json
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path(".")
+          products = [p for p in json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8")) if p.get("active") is not False]
+          brands = [b for b in json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8")) if b.get("active") is not False]
+          categories = [c for c in json.loads((root / "assets/data/categories.json").read_text(encoding="utf-8")) if c.get("active") is not False]
+          vehicles = [v for v in json.loads((root / "assets/data/vehicles.json").read_text(encoding="utf-8")) if v.get("active") is not False]
+
+          errors = []
+          missing = {"products": [], "brands": [], "categories": [], "vehicles": []}
+          orphan = {"products": [], "brands": [], "categories": [], "vehicles": []}
+
+          def check_directory(kind, entries, pattern):
+              expected = {root / pattern.format(lang=lang, slug=item["slug"]) for lang in ("en", "hi", "bn") for item in entries}
+              actual = set(root.glob(pattern.format(lang="*", slug="*")))
+              # pathlib does not expand nested * as a shell glob, so enumerate explicitly.
+              actual = set()
+              for lang in ("en", "hi", "bn"):
+                  actual.update((root / pattern.format(lang=lang, slug="*")).parent.glob("*.html"))
+              missing[kind] = sorted(str(p) for p in expected - actual)
+              orphan[kind] = sorted(str(p) for p in actual - expected)
+
+          check_directory("products", products, "{lang}/products/{slug}.html")
+          check_directory("brands", brands, "{lang}/brands/{slug}.html")
+          check_directory("categories", categories, "{lang}/categories/{slug}.html")
+          check_directory("vehicles", vehicles, "{lang}/vehicles/{slug}.html")
+
+          for kind in missing:
+              if missing[kind]:
+                  errors.append(f"Missing generated {kind} pages: " + ", ".join(missing[kind][:20]))
+
+          # Orphan checks are strict for generated entity directories.
+          for kind in orphan:
+              if orphan[kind]:
+                  errors.append(f"Orphan generated {kind} pages: " + ", ".join(orphan[kind][:20]))
+
+          # Every generated product page must carry the canonical URL, Product schema,
+          # and BreadcrumbList, and must not expose broken blank part-number text.
+          for lang in ("en", "hi", "bn"):
+              for product in products:
+                  path = root / lang / "products" / f"{product['slug']}.html"
+                  if not path.exists():
+                      continue
+                  html = path.read_text(encoding="utf-8")
+                  expected_url = f"https://www.souviks.co.in/{lang}/products/{product['slug']}"
+                  if f'<link rel="canonical" href="{expected_url}">' not in html:
+                      errors.append(f"Bad/missing canonical: {path}")
+                  if '"@type": "Product"' not in html:
+                      errors.append(f"Missing Product schema: {path}")
+                  if '"@type": "BreadcrumbList"' not in html:
+                      errors.append(f"Missing BreadcrumbList: {path}")
+                  if "Part Number: ." in html:
+                      errors.append(f"Broken blank part-number SEO text: {path}")
+                  if re.search(r"<strong>\s*Part Number\s*</strong>\s*<span>\s*</span>", html, re.I):
+                      errors.append(f"Blank part-number detail row: {path}")
+
+          page_schema_expectations = [
+              ("brands", "CollectionPage"),
+              ("categories", "CollectionPage"),
+              ("vehicles", "CollectionPage"),
+              ("products", "CollectionPage"),
+              ("about", "AboutPage"),
+              ("contact", "ContactPage"),
+          ]
+          for lang in ("en", "hi", "bn"):
+              for page_name, schema_type in page_schema_expectations:
+                  path = root / lang / f"{page_name}.html"
+                  if not path.exists():
+                      errors.append(f"Missing landing page: {path}")
+                      continue
+                  html = path.read_text(encoding="utf-8")
+                  if f'"@type": "{schema_type}"' not in html:
+                      errors.append(f"Missing {schema_type} schema: {path}")
+                  if '"@type": "BreadcrumbList"' not in html:
+                      errors.append(f"Missing BreadcrumbList: {path}")
+
+          # Report known data-quality gaps without blocking the deployment.
+          missing_parts = sum(not str(p.get("part_number") or p.get("partNumber") or "").strip() for p in products)
+          missing_prices = sum(p.get("selling_price") is None for p in products)
+          missing_mrps = sum(p.get("mrp") is None for p in products)
+          placeholder_images = sum("/assets/images/placeholder.webp" in str(p.get("image_url") or "") for p in products)
+          print(f"Data-quality report: {missing_parts} products missing part numbers; {missing_prices} missing selling prices; {missing_mrps} missing MRPs; {placeholder_images} using placeholder images.")
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+
+          print("Generated page parity and SEO invariants OK")
+
       - name: Verify sitemap counts
         shell: python
         run: |
