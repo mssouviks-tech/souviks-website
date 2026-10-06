@@ -105,11 +105,20 @@ jobs:
         shell: python
         run: |
           import pathlib, re, sys
+          catalogue = __import__("json").loads(pathlib.Path("assets/data/catalogue-index.json").read_text(encoding="utf-8"))
+          brands_data = __import__("json").loads(pathlib.Path("assets/data/brands.json").read_text(encoding="utf-8"))
+          categories_data = __import__("json").loads(pathlib.Path("assets/data/categories.json").read_text(encoding="utf-8"))
+          vehicles_data = __import__("json").loads(pathlib.Path("assets/data/vehicles.json").read_text(encoding="utf-8"))
+          expected = {
+              "products": sum(p.get("active") is not False for p in catalogue) * 3,
+              "brands": sum(b.get("active") is not False for b in brands_data) * 3,
+              "categories": sum(c.get("active") is not False for c in categories_data) * 3,
+              "vehicles": sum(v.get("active") is not False for v in vehicles_data) * 3,
+          }
           products = len(re.findall(r"<loc>https://www\\.souviks\\.co\\.in/(?:en|hi|bn)/products/", pathlib.Path("sitemaps/products.xml").read_text(encoding="utf-8")))
           brands = len(re.findall(r"<loc>https://www\\.souviks\\.co\\.in/(?:en|hi|bn)/brands/", pathlib.Path("sitemaps/brands.xml").read_text(encoding="utf-8")))
           categories = len(re.findall(r"<loc>https://www\\.souviks\\.co\\.in/(?:en|hi|bn)/categories/", pathlib.Path("sitemaps/categories.xml").read_text(encoding="utf-8")))
           vehicles = len(re.findall(r"<loc>https://www\\.souviks\\.co\\.in/(?:en|hi|bn)/vehicles/", pathlib.Path("sitemaps/vehicles.xml").read_text(encoding="utf-8")))
-          expected = {"products": 1022 * 3, "brands": 61 * 3, "categories": 12 * 3, "vehicles": 28 * 3}
           actual = {"products": products, "brands": brands, "categories": categories, "vehicles": vehicles}
           if actual != expected:
               print("Sitemap count mismatch")
