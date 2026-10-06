@@ -33,6 +33,77 @@ jobs:
           now = "2026-10-06T12:35:00+05:30"
 
           catalogue = json.loads(CATALOGUE_PATH.read_text(encoding="utf-8"))
+
+          # A temporary sheet override file is used for an exact workbook-to-catalogue
+          # reconciliation. It is deleted after the projection commit.
+          override_path = ROOT / "assets/data/catalogue_overrides.json"
+          if override_path.exists():
+              override = json.loads(override_path.read_text(encoding="utf-8"))
+              overrides = {text(p.get("id")): p for p in override.get("products", []) if p.get("id")}
+              category_updates = {text(p.get("id")): p for p in override.get("category_updates", []) if p.get("id")}
+
+              by_id = {text(p.get("id")): p for p in catalogue if p.get("id")}
+
+              for pid, sheet_row in overrides.items():
+                  current = by_id.get(pid)
+                  if current is None:
+                      current = {}
+                      catalogue.append(current)
+                      by_id[pid] = current
+
+                  part = text(sheet_row.get("part_number"))
+                  slug = text(sheet_row.get("slug"))
+                  current.update({
+                      "id": pid,
+                      "slug": slug,
+                      "part_number": part,
+                      "manufacturer_part_number": text(sheet_row.get("manufacturer_part_number")),
+                      "mrp": sheet_row.get("mrp"),
+                      "selling_price": sheet_row.get("selling_price"),
+                      "product_name": text(sheet_row.get("product_name")),
+                      "name": text(sheet_row.get("product_name")),
+                      "partNumber": part,
+                      "brand_id": text(sheet_row.get("brand_id")),
+                      "brand_name": text(sheet_row.get("brand_name")),
+                      "brand": text(sheet_row.get("brand_name")),
+                      "category_id": text(sheet_row.get("category_id")),
+                      "category_name": text(sheet_row.get("category_name")),
+                      "category": text(sheet_row.get("category_name")),
+                      "subcategory_id": text(sheet_row.get("subcategory_id")),
+                      "subcategory_name": text(sheet_row.get("subcategory_name")),
+                      "subcategory": text(sheet_row.get("subcategory_name")),
+                      "description": text(sheet_row.get("description")),
+                      "image_folder": text(sheet_row.get("image_folder") or pid),
+                      "vehicles": arr(sheet_row.get("vehicles")),
+                      "applications": arr(sheet_row.get("applications")),
+                      "featured": bool(sheet_row.get("featured")),
+                      "active": sheet_row.get("active") is not False,
+                      "catalogue_updated_at": text(override.get("updated_at")) or now,
+                  })
+                  current.setdefault("manufacturer_part_numbers", [])
+                  current.setdefault("alternate_part_numbers", [])
+                  current.setdefault("oem_numbers", [])
+                  current.setdefault("cross_references", [])
+                  current.setdefault("gallery", [])
+                  current.setdefault("gallery_dimensions", {})
+                  current.setdefault("image", "")
+                  current.setdefault("primary_image", "")
+                  current.setdefault("image_url", "/assets/images/placeholder.webp")
+
+              for pid, fix in category_updates.items():
+                  current = by_id.get(pid)
+                  if current is None:
+                      continue
+                  current["category_id"] = text(fix.get("category_id"))
+                  current["category_name"] = text(fix.get("category_name"))
+                  current["category"] = current["category_name"]
+                  current["subcategory_id"] = text(fix.get("subcategory_id"))
+                  current["subcategory_name"] = text(fix.get("subcategory_name"))
+                  current["subcategory"] = current["subcategory_name"]
+                  current["catalogue_updated_at"] = text(override.get("updated_at")) or now
+
+              CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
           active = [p for p in catalogue if p.get("active") is not False and p.get("id")]
           count = len(active)
 
@@ -274,6 +345,8 @@ jobs:
 
           PRODUCTS_PATH.write_text(json.dumps(products, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
           SEARCH_PATH.write_text(json.dumps(search, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          if override_path.exists():
+              override_path.unlink()
 
           subprocess.run(["git","config","user.name","github-actions[bot]"], check=True)
           subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"], check=True)
