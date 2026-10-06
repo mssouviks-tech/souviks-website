@@ -34,6 +34,14 @@ jobs:
 
           catalogue = json.loads(CATALOGUE_PATH.read_text(encoding="utf-8"))
 
+          def text(v):
+              return str(v or "").strip()
+
+          def arr(v):
+              if isinstance(v, list):
+                  return [text(x) for x in v if text(x)]
+              return [x.strip() for x in re.split(r"[,;]", text(v)) if x.strip()]
+
           # A temporary sheet override file is used for an exact workbook-to-catalogue
           # reconciliation. It is deleted after the projection commit.
           override_path = ROOT / "assets/data/catalogue_overrides.json"
@@ -106,14 +114,6 @@ jobs:
 
           active = [p for p in catalogue if p.get("active") is not False and p.get("id")]
           count = len(active)
-
-          def text(v):
-              return str(v or "").strip()
-
-          def arr(v):
-              if isinstance(v, list):
-                  return [text(x) for x in v if text(x)]
-              return [x.strip() for x in re.split(r"[,;]", text(v)) if x.strip()]
 
           def part_number(p):
               slug = text(p.get("slug"))
