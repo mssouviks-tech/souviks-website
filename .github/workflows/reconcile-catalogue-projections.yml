@@ -189,6 +189,14 @@ jobs:
                   name = text(product.get("product_name") or product.get("name"))
                   part = part_number(product)
                   title = f"{brand} - {part or name} - {name} | Souviks"
+                  old_name = text(data.get("product_name") or data.get("name"))
+
+                  data["slug"] = slug
+                  data["brand_id"] = text(product.get("brand_id"))
+                  data["brand_name"] = brand
+                  data["brand"] = brand
+                  data["product_name"] = name
+                  data["name"] = name
 
                   data["subcategory_id"] = text(product.get("subcategory_id"))
                   data["subcategory_name"] = text(product.get("subcategory_name") or product.get("subcategory"))
@@ -201,12 +209,15 @@ jobs:
                   data["updated_at"] = now
 
                   html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";" + html[match.end():]
+                  if old_name and old_name != name:
+                      html = html.replace(old_name, name)
                   html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title}</title>", html, count=1, flags=re.I)
                   html = re.sub(r'(<meta\s+property=["\']og:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title + m.group(2), html, count=1, flags=re.I)
                   html = re.sub(r'(<meta\s+name=["\']twitter:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title + m.group(2), html, count=1, flags=re.I)
                   html = re.sub(r'(<link\s+rel=["\']canonical["\']\s+href=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
                   html = re.sub(r'(<meta\s+property=["\']og:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
                   html = re.sub(r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
+                  html = re.sub(r'(currentPage:\s*)["\'][^"\']*["\']', lambda m: m.group(1) + json.dumps(name), html, count=1)
                   html = re.sub(
                       r'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']x-default["\']\s+href=["\'])[^"\']*(["\'])',
                       lambda m: m.group(1) + f"https://www.souviks.co.in/en/products/{slug}" + m.group(2),
