@@ -3632,7 +3632,7 @@ ${galleryHtml}
 
     <div class="pdp-row">
         <strong>Part Number</strong>
-        <span>${product.part_number || ""}</span>
+        <span>${String(product.part_number || product.partNumber || "").trim() || "Available on request"}</span>
     </div>
 
     <div class="pdp-row">
