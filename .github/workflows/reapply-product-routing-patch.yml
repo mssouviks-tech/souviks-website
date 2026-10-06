@@ -1,4 +1,4 @@
-name: Enforce Static Product Pages
+name: Validate Static Catalogue
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  enforce:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Check out main
@@ -18,31 +18,102 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Verify canonical static-only branch
-        run: git fetch origin fix/product-routing-static-only --depth=1
-
-      - name: Remove duplicate product routing layer
+      - name: Validate catalogue integrity and generated pages
+        shell: python
         run: |
-          git rm -f --ignore-unmatch \
-            "functions/products/[slug].js" \
-            "functions/en/products/[slug].js" \
-            "functions/bn/products/[slug].js" \
-            "functions/hi/products/[slug].js" \
-            "_routes.json"
+          import json
+          import pathlib
+          import re
+          import sys
 
-      - name: Commit cleanup if required
+          root = pathlib.Path(".")
+          catalogue = json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
+          brands = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
+          categories = json.loads((root / "assets/data/categories.json").read_text(encoding="utf-8"))
+          vehicles = json.loads((root / "assets/data/vehicles.json").read_text(encoding="utf-8"))
+
+          errors = []
+
+          def unique(field, rows, label):
+              values = [r.get(field) for r in rows]
+              if len(values) != len(set(values)):
+                  errors.append(f"Duplicate {field} in {label}")
+
+          unique("id", catalogue, "catalogue")
+          unique("slug", catalogue, "catalogue")
+          unique("slug", brands, "brands")
+          unique("slug", categories, "categories")
+          unique("slug", vehicles, "vehicles")
+
+          active_products = [p for p in catalogue if p.get("active") is not False]
+          active_brands = [b for b in brands if b.get("active") is not False]
+          active_categories = [c for c in categories if c.get("active") is not False]
+          active_vehicles = [v for v in vehicles if v.get("active") is not False]
+
+          for p in active_products:
+              if not p.get("id") or not p.get("slug") or not p.get("name"):
+                  errors.append(f"Product missing identity: {p.get('id')}")
+              if not p.get("brand_id"):
+                  errors.append(f"Product missing brand: {p.get('id')}")
+              if not p.get("category_id"):
+                  errors.append(f"Product missing category: {p.get('id')}")
+              if not p.get("image_url"):
+                  errors.append(f"Product missing image URL: {p.get('id')}")
+
+          expected = {
+              "products": len(active_products),
+              "brands": len(active_brands),
+              "categories": len(active_categories),
+              "vehicles": len(active_vehicles),
+          }
+
+          # Every public language must carry the same catalogue counters.
+          for lang in ("en", "hi", "bn"):
+              page = root / lang / "index.html"
+              text = page.read_text(encoding="utf-8")
+              for key, value in expected.items():
+                  if str(value) not in text:
+                      errors.append(f"{lang}/index.html does not contain current {key} count {value}")
+
+          # About pages must not drift from the catalogue.
+          for lang in ("en", "hi", "bn"):
+              page = root / lang / "about.html"
+              if page.exists():
+                  text = page.read_text(encoding="utf-8")
+                  if str(expected["products"]) not in text or str(expected["brands"]) not in text:
+                      errors.append(f"{lang}/about.html has stale catalogue counters")
+
+          # No temporary build artefacts are allowed in production assets.
+          forbidden = []
+          for p in root.rglob("*"):
+              if not p.is_file():
+                  continue
+              name = p.name.lower()
+              if name.startswith(".souviks_temp_") or name.endswith(".bak") or name.endswith(".old") or name == "txt.txt":
+                  forbidden.append(str(p))
+          if forbidden:
+              errors.append("Temporary production files remain: " + ", ".join(forbidden))
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+
+          print("Catalogue integrity OK")
+          print(json.dumps(expected, indent=2))
+
+      - name: Verify sitemap counts
+        shell: python
         run: |
-          if git diff --quiet HEAD -- \
-            "functions/products/[slug].js" \
-            "functions/en/products/[slug].js" \
-            "functions/bn/products/[slug].js" \
-            "functions/hi/products/[slug].js" \
-            "_routes.json"; then
-            echo "Static-only product routing is already present."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Remove duplicate product routing layer"
-          git push origin HEAD:main
+          import pathlib, re, sys
+          products = len(re.findall(r"<loc>https://www\\.souviks\\.co\\.in/(?:en|hi|bn)/products/", pathlib.Path("sitemaps/products.xml").read_text(encoding="utf-8")))
+          brands = len(re.findall(r"<loc>https://www\\.souviks\\.co\\.in/(?:en|hi|bn)/brands/", pathlib.Path("sitemaps/brands.xml").read_text(encoding="utf-8")))
+          categories = len(re.findall(r"<loc>https://www\\.souviks\\.co\\.in/(?:en|hi|bn)/categories/", pathlib.Path("sitemaps/categories.xml").read_text(encoding="utf-8")))
+          vehicles = len(re.findall(r"<loc>https://www\\.souviks\\.co\\.in/(?:en|hi|bn)/vehicles/", pathlib.Path("sitemaps/vehicles.xml").read_text(encoding="utf-8")))
+          expected = {"products": 1022 * 3, "brands": 61 * 3, "categories": 12 * 3, "vehicles": 28 * 3}
+          actual = {"products": products, "brands": brands, "categories": categories, "vehicles": vehicles}
+          if actual != expected:
+              print("Sitemap count mismatch")
+              print("Expected:", expected)
+              print("Actual:", actual)
+              sys.exit(1)
+          print("Sitemap integrity OK")
