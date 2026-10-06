@@ -177,7 +177,7 @@ jobs:
                   )
 
               text = re.sub(
-                  r'<article\s+class="product-card"\b.*?</article>',
+                  r'<article\s+class="product-card".*?</article>',
                   refresh_card,
                   text,
                   flags=re.S,
