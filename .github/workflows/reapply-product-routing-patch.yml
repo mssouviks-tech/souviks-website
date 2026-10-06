@@ -115,14 +115,14 @@ jobs:
 
                   main_src = image_url(product, gallery[0])
                   text, main_count = re.subn(
-                      r'(<img\\b[^>]*\\bid="pdpMainImage"[^>]*\\bsrc=")[^"]+(")',
+                      r'(<img\b[^>]*\bid="pdpMainImage"[^>]*\bsrc=")[^"]+(")',
                       lambda m: m.group(1) + main_src + m.group(2),
                       text,
                       count=1,
                   )
 
                   thumb_match = re.search(
-                      r'(<div\\s+class="pdp-thumbnails">).*?(</div><button\\s+class="pdp-thumb-next")',
+                      r'(<div\s+class="pdp-thumbnails">).*?(</div><button\s+class="pdp-thumb-next")',
                       text,
                       re.S,
                   )
@@ -170,14 +170,14 @@ jobs:
                       return card
 
                   return re.sub(
-                      r'(<img\\b[^>]*class="product-image-file"[^>]*\\bsrc=")[^"]+(")',
+                      r'(<img\b[^>]*class="product-image-file"[^>]*\bsrc=")[^"]+(")',
                       lambda m: m.group(1) + src + m.group(2),
                       card,
                       count=1,
                   )
 
               text = re.sub(
-                  r'<article\\s+class="product-card"\\b.*?</article>',
+                  r'<article\s+class="product-card"\b.*?</article>',
                   refresh_card,
                   text,
                   flags=re.S,
