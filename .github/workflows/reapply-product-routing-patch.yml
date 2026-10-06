@@ -50,6 +50,38 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Normalize blank part-number presentation
+        shell: python
+        run: |
+          import pathlib
+          changed = []
+          for lang in ("en", "hi", "bn"):
+              root = pathlib.Path(lang) / "products"
+              if not root.exists():
+                  continue
+              for path in root.glob("*.html"):
+                  text = path.read_text(encoding="utf-8")
+                  original = text
+                  text = text.replace("Part Number: .", "Part Number: available on request.")
+                  text = text.replace(
+                      "<strong>Part Number</strong><span></span>",
+                      "<strong>Part Number</strong><span>Available on request</span>"
+                  )
+                  if text != original:
+                      path.write_text(text, encoding="utf-8")
+                      changed.append(str(path))
+          if not changed:
+              print("No blank part-number presentation fixes required.")
+          else:
+              print(f"Normalized {len(changed)} product pages.")
+
+              import subprocess
+              subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
+              subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], check=True)
+              subprocess.run(["git", "add", "en/products", "hi/products", "bn/products"], check=True)
+              subprocess.run(["git", "commit", "-m", "Normalize blank part-number presentation"], check=True)
+              subprocess.run(["git", "push", "origin", "HEAD:main"], check=True)
+
       - name: Validate catalogue integrity and generated pages
         shell: python
         run: |
