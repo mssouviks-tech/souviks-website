@@ -81,7 +81,7 @@ jobs:
                   text = path.read_text(encoding="utf-8")
 
                   data_match = re.search(
-                      r'window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});',
+                      r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
                       text,
                       re.S,
                   )
