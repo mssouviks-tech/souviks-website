@@ -230,6 +230,166 @@ jobs:
               subprocess.run(["git", "commit", "-m", "Normalize blank part-number presentation"], check=True)
               subprocess.run(["git", "push", "origin", "HEAD:main"], check=True)
 
+      - name: Ensure product JSON-LD and canonical markup
+        shell: python
+        run: |
+          import json
+          import pathlib
+          import re
+          import subprocess
+
+          root = pathlib.Path(".")
+          catalogue = {
+              str(item.get("id")): item
+              for item in json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
+              if item.get("active") is not False and item.get("id")
+          }
+          changed = []
+
+          def canonical_url(lang, slug):
+              return f"https://www.souviks.co.in/{lang}/products/{slug}"
+
+          def image_urls(product):
+              folder = str(product.get("image_folder") or product.get("id") or "").strip()
+              gallery = product.get("gallery")
+              if folder and isinstance(gallery, list) and gallery:
+                  return [
+                      f"https://www.souviks.co.in/assets/images/products/{folder}/{str(name).strip()}"
+                      for name in gallery if str(name).strip()
+                  ]
+              image = str(product.get("image_url") or "").strip()
+              return [f"https://www.souviks.co.in{image}"] if image and image.startswith("/") else []
+
+          for lang in ("en", "hi", "bn"):
+              for path in (root / lang / "products").glob("*.html"):
+                  html = path.read_text(encoding="utf-8")
+                  data_match = re.search(
+                      r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                      html,
+                      re.S,
+                  )
+                  if not data_match:
+                      continue
+                  try:
+                      embedded = json.loads(data_match.group(1))
+                  except json.JSONDecodeError:
+                      continue
+
+                  product = catalogue.get(str(embedded.get("id")), embedded)
+                  slug = str(product.get("slug") or embedded.get("slug") or path.stem)
+                  url = canonical_url(lang, slug)
+
+                  jsonld_blocks = re.findall(
+                      r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+                      html,
+                      flags=re.I | re.S,
+                  )
+                  types = set()
+                  for block in jsonld_blocks:
+                      try:
+                          obj = json.loads(block.strip())
+                      except json.JSONDecodeError:
+                          continue
+                      graph = obj.get("@graph") if isinstance(obj, dict) else None
+                      nodes = graph if isinstance(graph, list) else [obj]
+                      for node in nodes:
+                          node_type = node.get("@type") if isinstance(node, dict) else None
+                          if isinstance(node_type, list):
+                              types.update(str(v) for v in node_type)
+                          elif node_type:
+                              types.add(str(node_type))
+
+                  original = html
+
+                  if "Product" not in types:
+                      name = str(product.get("product_name") or product.get("name") or "")
+                      description = str(product.get("description") or "").strip()
+                      images = image_urls(product)
+
+                      identifiers = []
+                      for value in (
+                          product.get("part_number"),
+                          product.get("manufacturer_part_number"),
+                          *(product.get("manufacturer_part_numbers") or []),
+                      ):
+                          value = str(value or "").strip()
+                          if value and not any(item["value"] == value for item in identifiers):
+                              identifiers.append({"propertyID": "part_number", "value": value})
+
+                      product_schema = {
+                          "@context": "https://schema.org",
+                          "@type": "Product",
+                          "@id": url + "#product",
+                          "name": name,
+                          "url": url,
+                          "mainEntityOfPage": url,
+                          "description": description,
+                          "image": images,
+                          "sku": str(product.get("id") or ""),
+                          "brand": {
+                              "@type": "Brand",
+                              "name": str(product.get("brand_name") or product.get("brand") or ""),
+                          },
+                          "category": str(product.get("category_name") or product.get("category") or ""),
+                      }
+
+                      mpn = str(product.get("manufacturer_part_number") or "").strip()
+                      if not mpn:
+                          mpn = str(product.get("part_number") or "").strip()
+                      if mpn:
+                          product_schema["mpn"] = mpn
+                      if identifiers:
+                          product_schema["identifier"] = identifiers
+
+                      selling_price = product.get("selling_price")
+                      try:
+                          numeric_price = float(selling_price)
+                      except (TypeError, ValueError):
+                          numeric_price = None
+                      if numeric_price is not None and numeric_price > 0:
+                          product_schema["offers"] = {
+                              "@type": "Offer",
+                              "url": url,
+                              "priceCurrency": "INR",
+                              "price": numeric_price,
+                              "seller": {
+                                  "@type": "Organization",
+                                  "name": "Souviks",
+                              },
+                          }
+
+                      schema_html = (
+                          '    <script type="application/ld+json">\n'
+                          + json.dumps(product_schema, ensure_ascii=False, indent=2)
+                          + '\n    </script>\n\n'
+                      )
+
+                      first_ld = re.search(
+                          r'\s*<script\b[^>]*type=["\']application/ld\+json["\']',
+                          html,
+                          flags=re.I,
+                      )
+                      if first_ld:
+                          html = html[:first_ld.start()] + "\n" + schema_html + html[first_ld.start():]
+                      else:
+                          head_close = re.search(r'</head>', html, flags=re.I)
+                          if head_close:
+                              html = html[:head_close.start()] + "\n" + schema_html + html[head_close.start():]
+
+                  if html != original:
+                      path.write_text(html, encoding="utf-8")
+                      changed.append(str(path))
+
+          if not changed:
+              print("Product JSON-LD is already complete.")
+          else:
+              print(f"Repaired Product JSON-LD in {len(changed)} pages.")
+              subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
+              subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], check=True)
+              subprocess.run(["git", "add", "en/products", "hi/products", "bn/products"], check=True)
+              subprocess.run(["git", "commit", "-m", "Repair product JSON-LD"], check=True)
+              subprocess.run(["git", "push", "origin", "HEAD:main"], check=True)
+
       - name: Validate catalogue integrity and generated pages
         shell: python
         run: |
@@ -364,11 +524,37 @@ jobs:
                       continue
                   html = path.read_text(encoding="utf-8")
                   expected_url = f"https://www.souviks.co.in/{lang}/products/{product['slug']}"
-                  if f'<link rel="canonical" href="{expected_url}">' not in html:
+                  canonical_match = re.search(
+                      r'<link\b[^>]*\brel=["\']canonical["\'][^>]*\bhref=["\']([^"\']+)',
+                      html,
+                      flags=re.I | re.S,
+                  )
+                  if not canonical_match or canonical_match.group(1).strip() != expected_url:
                       errors.append(f"Bad/missing canonical: {path}")
-                  if '"@type": "Product"' not in html:
+
+                  jsonld_blocks = re.findall(
+                      r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+                      html,
+                      flags=re.I | re.S,
+                  )
+                  jsonld_types = set()
+                  for block in jsonld_blocks:
+                      try:
+                          obj = json.loads(block.strip())
+                      except json.JSONDecodeError:
+                          continue
+                      graph = obj.get("@graph") if isinstance(obj, dict) else None
+                      nodes = graph if isinstance(graph, list) else [obj]
+                      for node in nodes:
+                          node_type = node.get("@type") if isinstance(node, dict) else None
+                          if isinstance(node_type, list):
+                              jsonld_types.update(str(v) for v in node_type)
+                          elif node_type:
+                              jsonld_types.add(str(node_type))
+
+                  if "Product" not in jsonld_types:
                       errors.append(f"Missing Product schema: {path}")
-                  if '"@type": "BreadcrumbList"' not in html:
+                  if "BreadcrumbList" not in jsonld_types:
                       errors.append(f"Missing BreadcrumbList: {path}")
                   if "Part Number: ." in html:
                       errors.append(f"Broken blank part-number SEO text: {path}")
