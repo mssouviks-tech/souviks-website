@@ -259,6 +259,61 @@ jobs:
 
           print("Generated page parity and SEO invariants OK")
 
+      - name: Verify catalogue image-folder parity
+        shell: python
+        run: |
+          import json
+          import pathlib
+          import sys
+
+          root = pathlib.Path(".")
+          catalogue = [p for p in json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8")) if p.get("active") is not False]
+          by_id = {str(p.get("id")): p for p in catalogue if p.get("id")}
+
+          errors = []
+          folders = set()
+
+          image_root = root / "assets/images/products"
+          if image_root.exists():
+              for folder in image_root.iterdir():
+                  if not folder.is_dir():
+                      continue
+                  files = sorted(
+                      p.name for p in folder.iterdir()
+                      if p.is_file() and p.suffix.lower() in {".webp", ".jpg", ".jpeg", ".png"}
+                  )
+                  if not files:
+                      continue
+
+                  folders.add(folder.name)
+                  product = by_id.get(folder.name)
+                  if product is None:
+                      continue
+
+                  image_url = str(product.get("image_url") or "").strip()
+                  if image_url.endswith("/placeholder.webp"):
+                      errors.append(f"Product {folder.name} has image files but catalogue still uses placeholder")
+
+                  gallery = product.get("gallery")
+                  if isinstance(gallery, list) and gallery:
+                      missing_gallery = [name for name in gallery if not (folder / str(name)).exists()]
+                      if missing_gallery:
+                          errors.append(f"Product {folder.name} gallery references missing files: {', '.join(missing_gallery)}")
+
+          missing_folders = [p["id"] for p in catalogue if p["id"] not in folders and not str(p.get("image_url") or "").endswith("/placeholder.webp")]
+          if missing_folders:
+              errors.append("Catalogue references missing image folders: " + ", ".join(missing_folders[:40]))
+
+          image_products = sum(p["id"] in folders for p in catalogue)
+          placeholder_products = sum(str(p.get("image_url") or "").endswith("/placeholder.webp") for p in catalogue)
+          print(f"Image-folder coverage: {image_products}/{len(catalogue)} products; {placeholder_products} placeholder references.")
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+
+          print("Catalogue image-folder parity OK")
+
       - name: Verify sitemap counts
         shell: python
         run: |
