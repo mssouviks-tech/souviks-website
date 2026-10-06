@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
       - name: Enforce static-only product routing
         shell: bash
         run: |
@@ -44,11 +48,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Remove duplicate product routing layer"
           git push origin HEAD:main
-
-
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
       - name: Normalize blank part-number presentation
         shell: python
