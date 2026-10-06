@@ -52166,31 +52166,34 @@
   {
     "id": "SVKS001031",
     "type": "product",
-    "title": "Bolter Wear Plate Eicher 6025",
-    "subtitle": "Part No. J4085",
+    "title": "R/S Rear Hanger 8 Holes Jumbo 20.16",
+    "subtitle": "Part No. J4035",
     "keywords": [
-      "Bolter Wear Plate Eicher 6025",
-      "J4085",
+      "R/S Rear Hanger 8 Holes Jumbo 20.16",
+      "J4035",
       "JMP",
       "Suspension & Steering",
       "Hanger",
+      "JMP J4035 rear suspension hanger, part number IA207012, with an 8-hole jumbo configuration for Eicher Pro Series applications. This rear spring hanger is used in compatible commercial vehicle suspension assemblies.",
       "Eicher Pro Series"
     ],
-    "description": "",
-    "applications": [],
+    "description": "JMP J4035 rear suspension hanger, part number IA207012, with an 8-hole jumbo configuration for Eicher Pro Series applications. This rear spring hanger is used in compatible commercial vehicle suspension assemblies.",
+    "applications": [
+      "Rear spring rear hanger; 8 hole"
+    ],
     "vehicles": [
       "Eicher Pro Series"
     ],
-    "part_number": "J4085",
-    "manufacturer_part_number": "IC335562",
+    "part_number": "J4035",
+    "manufacturer_part_number": "IA207012",
     "manufacturer_part_numbers": [
-      "IC335562"
+      "IA207012"
     ],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "slug": "jmp-j4085-bolter-wear-plate-eicher-6025",
-    "url": "/en/products/jmp-j4085-bolter-wear-plate-eicher-6025",
+    "slug": "jmp-j4035-r-s-rear-hanger-8-holes-jumbo-2016",
+    "url": "/en/products/jmp-j4035-r-s-rear-hanger-8-holes-jumbo-2016",
     "image": "",
     "icon": "",
     "category": {
