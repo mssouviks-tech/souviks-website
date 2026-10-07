@@ -665,6 +665,71 @@ jobs:
                   return None
               return value if value == value else None
 
+          products_projection = json.loads((root / "assets/data/products.json").read_text(encoding="utf-8"))
+          products_by_id = {
+              str(p.get("id") or "").strip(): p
+              for p in products_projection
+              if p.get("id")
+          }
+          catalogue_by_id = {
+              str(p.get("id") or "").strip(): p
+              for p in catalogue
+              if p.get("id")
+          }
+
+          expected_projection_fields = (
+              "slug", "part_number", "mrp", "selling_price", "product_name",
+              "name", "partNumber", "brand_id", "brand_name", "category_id",
+              "category_name", "subcategory_id", "subcategory_name", "image",
+              "primary_image", "image_url", "vehicles", "applications",
+              "featured", "active", "description", "image_folder", "gallery",
+          )
+
+          for pid, source in catalogue_by_id.items():
+              projected = products_by_id.get(pid)
+              if projected is None:
+                  errors.append(f"products.json missing catalogue product: {pid}")
+                  continue
+
+              for field in expected_projection_fields:
+                  if projected.get(field) != source.get(field) and not (
+                      field == "part_number"
+                      and not str(source.get(field) or "").strip()
+                      and str(projected.get(field) or "").strip() == re.sub(
+                          r"^tata-genuine-(\\d{12})-.*$", r"\\1", str(source.get("slug") or ""), flags=re.I
+                      )
+                  ):
+                      errors.append(
+                          f"products.json drift for {pid}: {field}"
+                      )
+
+          orphan_projection = sorted(set(products_by_id) - set(catalogue_by_id))
+          if orphan_projection:
+              errors.append(
+                  "products.json contains IDs absent from catalogue-index.json: "
+                  + ", ".join(orphan_projection[:40])
+              )
+
+          duplicate_projection_ids = [
+              pid for pid in products_by_id
+              if sum(1 for p in products_projection if str(p.get("id") or "").strip() == pid) > 1
+          ]
+          if duplicate_projection_ids:
+              errors.append(
+                  "Duplicate product IDs in products.json: "
+                  + ", ".join(sorted(set(duplicate_projection_ids))[:40])
+              )
+
+          search_projection = json.loads((root / "assets/data/search.json").read_text(encoding="utf-8"))
+          search_products = {
+              str(p.get("id") or "").strip(): p
+              for p in search_projection
+              if p.get("type") == "product" and p.get("id")
+          }
+          for pid in catalogue_by_id:
+              if pid not in search_products:
+                  errors.append(f"search.json missing catalogue product: {pid}")
+
           for p in active_products:
               if not p.get("id") or not p.get("slug") or not p.get("name"):
                   errors.append(f"Product missing identity: {p.get('id')}")
