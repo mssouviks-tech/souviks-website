@@ -1,0 +1,30 @@
+name: Catalogue Architecture Check
+
+on:
+  pull_request:
+    paths:
+      - "assets/data/catalogue-index.json"
+      - "assets/data/products.json"
+      - "assets/data/search.json"
+      - "assets/data/catalogue_overrides.json"
+      - "en/products/**"
+      - "bn/products/**"
+      - "hi/products/**"
+      - "sitemaps/products.xml"
+      - "scripts/catalogue/**"
+      - ".github/workflows/catalogue-architecture-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Validate static catalogue architecture
+        run: python3 scripts/catalogue/validate.py
