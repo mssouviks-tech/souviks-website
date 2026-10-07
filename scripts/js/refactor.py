@@ -80,7 +80,7 @@ def build_page_bundle(filename: str) -> str:
         )
 
     start = source.find(
-        SPECIAL_ENTITY_END if filename in {"brand.js", "category.js", "vehicle.js"} else COMMON_END
+        SPECIAL_ENTITY_END if filename == "brand.js" else COMMON_END
     )
     if start == -1:
         raise ValueError(f"{filename} is missing its page-runtime marker")
