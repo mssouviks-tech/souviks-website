@@ -1,6 +1,17 @@
 /* Shared core is loaded by the HTML page before this bundle. */
 
 /* ===== rfq.js ===== */
+const LANG =
+    (window.souviks?.currentLanguage || document.documentElement.lang || "en").trim().toLowerCase();
+
+const RFQ_TEXT = {
+    en: { empty: "No items added yet.", decrease: "Decrease quantity", increase: "Increase quantity", remove: "Remove" },
+    bn: { empty: "এখনও কোনো পণ্য যোগ করা হয়নি।", decrease: "পরিমাণ কমান", increase: "পরিমাণ বাড়ান", remove: "সরান" },
+    hi: { empty: "अभी तक कोई आइटम नहीं जोड़ा गया है।", decrease: "मात्रा कम करें", increase: "मात्रा बढ़ाएँ", remove: "हटाएँ" }
+};
+
+const rfqText = RFQ_TEXT[LANG] || RFQ_TEXT.en;
+
 /* ==========================================================
    SOUVIKS — RFQ
    Shared RFQ Basket Engine
@@ -16,6 +27,44 @@
        Account authenticated RFQ logic
    ========================================================== */
 
+
+const RFQ_MESSAGE = {
+    en: {
+        emptySubmit: "Your RFQ basket is empty. Add at least one product before submitting.",
+        namePhone: "Please enter your name and phone number.",
+        unavailable: "Notification service is unavailable. Please try again later.",
+        createdItems: ref => `Your RFQ was created as ${ref}, but its items could not be recorded. Please contact Souviks with this reference.`,
+        notificationFailed: ref => `Your RFQ was recorded successfully as ${ref}, but the notification could not be sent. Please contact Souviks with this reference.`,
+        submitting: rfqMessage.submitting,
+        success: ref => `RFQ submitted successfully. Reference: ${ref}`,
+        failed: rfqMessage.failed,
+        whatsappEmpty: rfqMessage.whatsappEmpty
+    },
+    bn: {
+        emptySubmit: "আপনার RFQ ঝুড়ি খালি। জমা দেওয়ার আগে অন্তত একটি পণ্য যোগ করুন।",
+        namePhone: "অনুগ্রহ করে আপনার নাম ও ফোন নম্বর লিখুন।",
+        unavailable: "নোটিফিকেশন পরিষেবা বর্তমানে উপলব্ধ নয়। পরে আবার চেষ্টা করুন।",
+        createdItems: ref => `আপনার RFQ ${ref} হিসেবে তৈরি হয়েছে, কিন্তু পণ্যগুলির তথ্য সংরক্ষণ করা যায়নি। এই রেফারেন্স দিয়ে Souviks-এর সঙ্গে যোগাযোগ করুন।`,
+        notificationFailed: ref => `আপনার RFQ ${ref} হিসেবে সফলভাবে রেকর্ড হয়েছে, কিন্তু নোটিফিকেশন পাঠানো যায়নি। এই রেফারেন্স দিয়ে Souviks-এর সঙ্গে যোগাযোগ করুন।`,
+        submitting: "আপনার RFQ জমা হচ্ছে…",
+        success: ref => `RFQ সফলভাবে জমা হয়েছে। রেফারেন্স: ${ref}`,
+        failed: "আপনার RFQ জমা দেওয়া যায়নি। আবার চেষ্টা করুন।",
+        whatsappEmpty: "আপনার RFQ ঝুড়ি খালি। আগে অন্তত একটি পণ্য যোগ করুন।"
+    },
+    hi: {
+        emptySubmit: "आपका RFQ बास्केट खाली है। सबमिट करने से पहले कम से कम एक उत्पाद जोड़ें।",
+        namePhone: "कृपया अपना नाम और फ़ोन नंबर दर्ज करें।",
+        unavailable: "नोटिफिकेशन सेवा अभी उपलब्ध नहीं है। कृपया बाद में फिर प्रयास करें।",
+        createdItems: ref => `आपका RFQ ${ref} के रूप में बनाया गया, लेकिन आइटम दर्ज नहीं किए जा सके। इस संदर्भ के साथ Souviks से संपर्क करें।`,
+        notificationFailed: ref => `आपका RFQ ${ref} के रूप में सफलतापूर्वक दर्ज हुआ, लेकिन नोटिफिकेशन नहीं भेजा जा सका। इस संदर्भ के साथ Souviks से संपर्क करें।`,
+        submitting: "आपका RFQ सबमिट हो रहा है…",
+        success: ref => `RFQ सफलतापूर्वक सबमिट हो गया। संदर्भ: ${ref}`,
+        failed: "आपका RFQ सबमिट नहीं किया जा सका। कृपया फिर प्रयास करें।",
+        whatsappEmpty: "आपका RFQ बास्केट खाली है। पहले कम से कम एक उत्पाद जोड़ें।"
+    }
+};
+
+const rfqMessage = RFQ_MESSAGE[LANG] || RFQ_MESSAGE.en;
 
 window.RFQ = {
 
@@ -2018,7 +2067,7 @@ RFQ.submitStandalone = async function (form) {
     const items = await RFQ.get();
 
     if (!items.length) {
-        throw new Error("Your RFQ basket is empty. Add at least one product before submitting.");
+        throw new Error(rfqMessage.emptySubmit);
     }
 
     const user = await RFQ.getUser();
@@ -2027,11 +2076,11 @@ RFQ.submitStandalone = async function (form) {
     const customer = RFQ.collectCustomerData(form);
 
     if (!customer.name || !customer.phone) {
-        throw new Error("Please enter your name and phone number.");
+        throw new Error(rfqMessage.namePhone);
     }
 
     if (typeof emailjs === "undefined") {
-        throw new Error("Notification service is unavailable. Please try again later.");
+        throw new Error(rfqMessage.unavailable);
     }
 
     if (user) {
@@ -2071,7 +2120,7 @@ RFQ.submitStandalone = async function (form) {
 
         if (itemsError) {
             throw new Error(
-                `Your RFQ was created as ${reference}, but its items could not be recorded. Please contact Souviks with this reference.`
+                rfqMessage.createdItems(reference)
             );
         }
 
@@ -2096,7 +2145,7 @@ RFQ.submitStandalone = async function (form) {
         } catch (error) {
             console.error("[Souviks RFQ] Notification failed after RFQ creation:", error);
             throw new Error(
-                `Your RFQ was recorded successfully as ${reference}, but the notification could not be sent. Please contact Souviks with this reference.`
+                rfqMessage.notificationFailed(reference)
             );
         }
 
@@ -2167,7 +2216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             RFQ.setSubmissionStatus(
                 status,
-                `RFQ submitted successfully. Reference: ${reference}`,
+                rfqMessage.success(reference),
                 "success"
             );
         } catch (error) {
