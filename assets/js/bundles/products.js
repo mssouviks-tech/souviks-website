@@ -1629,7 +1629,7 @@ constructor() {
     // PRODUCT CARD
     // ======================================================
 
-card(product) {
+card(product, prioritize = false) {
 
     const cardImage = this.productImageSrc(product);
 
@@ -1681,7 +1681,8 @@ card(product) {
                     class="product-image-file"
                     src="${cardImage}"
                     alt="${escape(name)}"
-                    loading="lazy"
+                    loading="${prioritize ? "eager" : "lazy"}"
+                    ${prioritize ? 'fetchpriority="high"' : ""}
                     decoding="async"
                     draggable="false">
             </a>
@@ -1775,9 +1776,9 @@ render() {
 
             .map(
 
-                product =>
+                (product, index) =>
 
-                    this.card(product)
+                    this.card(product, index < 4)
 
             )
 
