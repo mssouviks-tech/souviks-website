@@ -1,0 +1,54 @@
+name: Build Static Catalogue
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "assets/data/catalogue-index.json"
+      - "assets/data/catalogue_overrides.json"
+      - "assets/data/products.json"
+      - "assets/data/search.json"
+      - "assets/images/products/**"
+      - "en/products/**"
+      - "bn/products/**"
+      - "hi/products/**"
+      - "scripts/catalogue/build.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    concurrency:
+      group: souviks-catalogue-build
+      cancel-in-progress: false
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Build static catalogue
+        run: python3 scripts/catalogue/build.py
+
+      - name: Commit generated catalogue
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "Catalogue is already synchronized."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          git commit -m "Build static catalogue"
+          git push origin HEAD:main
