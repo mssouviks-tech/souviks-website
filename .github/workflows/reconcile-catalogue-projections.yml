@@ -120,7 +120,7 @@ jobs:
                   current["subcategory_id"] = text(fix.get("subcategory_id"))
                   current["subcategory_name"] = text(fix.get("subcategory_name"))
                   current["subcategory"] = current["subcategory_name"]
-                  current["catalogue_updated_at"] = text(override.get("updated_at")) or now
+                  current["catalogue_updated_at"] = text(override.get("updated_at")) or text(current.get("catalogue_updated_at"))
 
               CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -170,7 +170,7 @@ jobs:
                   "image_folder": text(p.get("image_folder") or p.get("id")),
                   "gallery": list(p.get("gallery") or []),
                   "gallery_dimensions": dict(p.get("gallery_dimensions") or {}),
-                  "catalogue_updated_at": text(p.get("catalogue_updated_at")) or now,
+                  "catalogue_updated_at": text(p.get("catalogue_updated_at")),
                   "updated_at": text(p.get("updated_at") or p.get("catalogue_updated_at")),
               }
 
