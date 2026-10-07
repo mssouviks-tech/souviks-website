@@ -1,3 +1,26 @@
+# Legacy .html page routes: permanently redirect to the clean public URLs.
+# Keep these ahead of the hostname catch-all rules.
+    
+/:lang/products.html /:lang/products 301
+/:lang/brands.html /:lang/brands 301
+/:lang/categories.html /:lang/categories 301
+/:lang/vehicles.html /:lang/vehicles 301
+/:lang/about.html /:lang/about 301
+/:lang/contact.html /:lang/contact 301
+/:lang/account.html /:lang/account 301
+/:lang/login.html /:lang/login 301
+/:lang/register.html /:lang/register 301
+/:lang/forgot-password.html /:lang/forgot-password 301
+/:lang/reset-password.html /:lang/reset-password 301
+/:lang/request-part.html /:lang/request-part 301
+/:lang/request-quote.html /:lang/request-quote 301
+/:lang/thank-you.html /:lang/thank-you 301
+
+/:lang/products/:slug.html /:lang/products/:slug 301
+/:lang/brands/:slug.html /:lang/brands/:slug 301
+/:lang/categories/:slug.html /:lang/categories/:slug 301
+/:lang/vehicles/:slug.html /:lang/vehicles/:slug 301
+
 # Paint-first root: serve the branded language bootstrap without an HTTP redirect.
 https://souviks.co.in/ /index.html 200
 
