@@ -6368,6 +6368,8 @@ Quantity: ${item.qty}
         --------------------------------------------------
         */
 
+        window.souviksAnalytics?.trackLead("rfq_account");
+
         let emailPayload;
 
 
