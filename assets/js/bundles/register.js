@@ -750,7 +750,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             if (
-                password.length < 6
+                password.length < 8
             ) {
 
                 showStatus(
