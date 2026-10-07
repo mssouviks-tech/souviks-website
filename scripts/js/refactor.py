@@ -19,6 +19,7 @@ KNOWN_BUNDLES = {
 }
 
 COMMON_END = "/* ===== main.js ===== */"
+COMMON_END_LABEL = "/* ===== image-protection.js ===== */"
 SPECIAL_ENTITY_END = "/* ===== static-brand-media-sync.js ===== */"
 READY = "window.SOUVIKS_SITE_CORE_READY = true;"
 
