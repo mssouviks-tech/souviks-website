@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 payload
             );
 
+            window.souviksAnalytics?.trackLead("contact");
             form.reset();
             setStatus(
                 status,
