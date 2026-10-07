@@ -3,7 +3,7 @@ name: Validate Static Catalogue
 on:
   workflow_run:
     workflows:
-      - Reconcile Catalogue Projections
+      - Build Static Catalogue
     types:
       - completed
   workflow_dispatch:
