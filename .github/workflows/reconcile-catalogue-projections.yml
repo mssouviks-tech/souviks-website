@@ -244,16 +244,37 @@ jobs:
           search = json.loads(SEARCH_PATH.read_text(encoding="utf-8"))
           search_by_id = {text(p.get("id")): p for p in search if p.get("type") == "product" and p.get("id")}
 
+          search_fields = (
+              "title", "subtitle", "keywords", "description", "applications",
+              "vehicles", "part_number", "manufacturer_part_number",
+              "manufacturer_part_numbers", "alternate_part_numbers",
+              "oem_numbers", "cross_references", "slug", "image",
+              "vehicle_count", "featured", "active",
+          )
+
           for p in active:
               pid = text(p.get("id"))
               current = search_by_id.get(pid)
+              desired = search_from_catalogue(p)
               if current is None:
-                  search.append(search_from_catalogue(p))
+                  search.append(desired)
+                  search_by_id[pid] = search[-1]
                   changed.add(str(SEARCH_PATH))
                   continue
-              desired_category = {"id": text(p.get("category_id")), "name": text(p.get("category_name") or p.get("category"))}
-              if current.get("category") != desired_category:
-                  current["category"] = desired_category
+
+              updates = {
+                  field: desired.get(field)
+                  for field in search_fields
+                  if current.get(field) != desired.get(field)
+              }
+              desired_category = desired.get("category")
+              desired_brand = desired.get("brand")
+              for field, value in (("category", desired_category), ("brand", desired_brand)):
+                  if current.get(field) != value:
+                      updates[field] = value
+
+              if updates:
+                  current.update(updates)
                   changed.add(str(SEARCH_PATH))
 
           by_id = {text(p.get("id")): p for p in active}
