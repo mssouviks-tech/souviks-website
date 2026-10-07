@@ -5334,9 +5334,23 @@ body.souviks-image-viewer-open {
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-image: linear-gradient(90deg, var(--overlay-white-98) 0%, var(--overlay-white-93) 36%, var(--overlay-white-22) 66%, var(--overlay-white-00) 100%), url("/assets/images/hero/index-hero.png");
-    background-size: cover;
-    background-position: center right;
+    overflow: hidden;
+}
+.home-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--overlay-white-98) 0%, var(--overlay-white-93) 36%, var(--overlay-white-22) 66%, var(--overlay-white-00) 100%);
+    pointer-events: none;
+}
+.home-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center right;
 }
 .home-hero-container { padding-top: 42px; padding-bottom: 42px; }
 .home-hero-copy { width: min(700px, 60%); position: relative; z-index: 1; }
@@ -5538,7 +5552,8 @@ body.souviks-image-viewer-open {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         overflow-x: visible;
     }
-    .home-hero-media { background-position: 66% center; opacity: .9; }
+    .home-hero-media { opacity: .9; }
+    .home-hero-image { object-position: 66% center; }
     .home-hero-copy { width: 72%; }
     .home-hero h1 { font-size: clamp(2.45rem, 7vw, 4rem); }
     .home-quick-actions { grid-template-columns: 1fr; max-width: 520px; }
@@ -5555,7 +5570,8 @@ body.souviks-image-viewer-open {
         overflow-x: visible;
     }
     .home-hero { min-height: 0; align-items: stretch; }
-    .home-hero-media { background-image: linear-gradient(180deg, var(--overlay-white-98) 0%, var(--overlay-white-93) 55%, var(--overlay-white-35) 100%), url("/assets/images/hero/index-hero.png"); background-position: center bottom; background-size: auto 100%; }
+    .home-hero-media::after { background: linear-gradient(180deg, var(--overlay-white-98) 0%, var(--overlay-white-93) 55%, var(--overlay-white-35) 100%); }
+    .home-hero-image { object-position: center bottom; }
     .home-hero-container { padding-top: 34px; padding-bottom: 30px; }
     .home-hero-copy { width: 100%; }
     .home-hero h1 { max-width: 620px; font-size: clamp(2.25rem, 11vw, 3.25rem); line-height: 1; }
