@@ -546,7 +546,7 @@ jobs:
 
                   # Ensure every product PDP has a valid BreadcrumbList.
                   jsonld_blocks_after = re.findall(
-                      r'<script\\b[^>]*type=["\\']application/ld\\+json["\\'][^>]*>(.*?)</script>',
+                      r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
                       html,
                       flags=re.I | re.S,
                   )
@@ -591,9 +591,9 @@ jobs:
                           ],
                       }
                       breadcrumb_html = (
-                          '    <script type="application/ld+json">\\n'
+                          '    <script type="application/ld+json">\n'
                           + json.dumps(breadcrumb, ensure_ascii=False, indent=2)
-                          + '\\n    </script>\\n\\n'
+                          + '\n    </script>\n\n'
                       )
                       head_close = re.search(r'</head>', html, flags=re.I)
                       if head_close:
@@ -1174,7 +1174,7 @@ jobs:
 
               html = file_path.read_text(encoding="utf-8", errors="ignore")
               robots = re.search(
-                  r'<meta\b[^>]*name=["\\\']robots["\\\'][^>]*content=["\\\']([^"\\\']+)',
+                  r'<meta\b[^>]*name=["\']robots["\'][^>]*content=["\']([^"\']+)',
                   html,
                   flags=re.I,
               )
@@ -1182,7 +1182,7 @@ jobs:
                   errors.append(f"Sitemap contains noindex page: {url}")
 
               canonical = re.search(
-                  r'<link\b[^>]*rel=["\\\']canonical["\\\'][^>]*href=["\\\']([^"\\\']+)',
+                  r'<link\b[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)',
                   html,
                   flags=re.I,
               )
