@@ -301,6 +301,55 @@ jobs:
 
                   original = html
 
+                      # Keep image-related metadata synchronized with the canonical catalogue.
+                      gallery_urls = image_urls(product)
+                      primary_image_url = gallery_urls[0] if gallery_urls else ""
+                      if primary_image_url:
+                          html = re.sub(
+                              r'(<meta\\b[^>]*property=["\']og:image["\'][^>]*content=["\'])[^"\']*(["\'])',
+                              lambda m: m.group(1) + primary_image_url + m.group(2),
+                              html,
+                              count=1,
+                              flags=re.I,
+                          )
+                          html = re.sub(
+                              r'(<meta\\b[^>]*name=["\']twitter:image["\'][^>]*content=["\'])[^"\']*(["\'])',
+                              lambda m: m.group(1) + primary_image_url + m.group(2),
+                              html,
+                              count=1,
+                              flags=re.I,
+                          )
+                          html = re.sub(
+                              r'(<link\\b[^>]*rel=["\']preload["\'][^>]*as=["\']image["\'][^>]*href=["\'])[^"\']*(["\'])',
+                              lambda m: m.group(1) + image_urls(product)[0].replace("https://www.souviks.co.in", "") + m.group(2),
+                              html,
+                              count=1,
+                              flags=re.I,
+                          )
+
+                      # Canonical and social URLs must match the generated language-specific PDP URL.
+                      html = re.sub(
+                          r'(<link\\b[^>]*rel=["\']canonical["\'][^>]*href=["\'])[^"\']*(["\'])',
+                          lambda m: m.group(1) + url + m.group(2),
+                          html,
+                          count=1,
+                          flags=re.I,
+                      )
+                      html = re.sub(
+                          r'(<meta\\b[^>]*property=["\']og:url["\'][^>]*content=["\'])[^"\']*(["\'])',
+                          lambda m: m.group(1) + url + m.group(2),
+                          html,
+                          count=1,
+                          flags=re.I,
+                      )
+                      html = re.sub(
+                          r'(<meta\\b[^>]*name=["\']twitter:url["\'][^>]*content=["\'])[^"\']*(["\'])',
+                          lambda m: m.group(1) + url + m.group(2),
+                          html,
+                          count=1,
+                          flags=re.I,
+                      )
+
                   if "Product" not in types:
                       name = str(product.get("product_name") or product.get("name") or "")
                       description = str(product.get("description") or "").strip()
@@ -375,6 +424,55 @@ jobs:
                           head_close = re.search(r'</head>', html, flags=re.I)
                           if head_close:
                               html = html[:head_close.start()] + "\n" + schema_html + html[head_close.start():]
+
+                  # Repair an existing Product node as well as creating a missing one.
+                  jsonld_blocks_repaired = []
+                  for match in re.finditer(
+                      r'<script\\b[^>]*type=["\']application/ld\\+json["\'][^>]*>(.*?)</script>',
+                      html,
+                      flags=re.I | re.S,
+                  ):
+                      block = match.group(1)
+                      try:
+                          obj = json.loads(block.strip())
+                      except json.JSONDecodeError:
+                          continue
+                      graph = obj.get("@graph") if isinstance(obj, dict) else None
+                      nodes = graph if isinstance(graph, list) else [obj]
+                      updated = False
+                      for node in nodes:
+                          if isinstance(node, dict) and node.get("@type") == "Product":
+                              node["name"] = str(product.get("product_name") or product.get("name") or node.get("name") or "")
+                              node["url"] = url
+                              node["mainEntityOfPage"] = url
+                              node["description"] = str(product.get("description") or node.get("description") or "")
+                              node["image"] = gallery_urls
+                              node["sku"] = str(product.get("id") or node.get("sku") or "")
+                              brand_name = str(product.get("brand_name") or product.get("brand") or "").strip()
+                              if brand_name:
+                                  node["brand"] = {"@type": "Brand", "name": brand_name}
+                              category_name = str(product.get("category_name") or product.get("category") or "").strip()
+                              if category_name:
+                                  node["category"] = category_name
+                              offers = node.get("offers") if isinstance(node.get("offers"), dict) else {}
+                              offers["@type"] = "Offer"
+                              offers["url"] = url
+                              offers["priceCurrency"] = "INR"
+                              selling_price = product.get("selling_price")
+                              try:
+                                  numeric_price = float(selling_price)
+                              except (TypeError, ValueError):
+                                  numeric_price = None
+                              if numeric_price is not None and numeric_price > 0:
+                                  offers["price"] = numeric_price
+                              node["offers"] = offers
+                              updated = True
+                      if updated:
+                          replacement = '<script type="application/ld+json">\\n' + json.dumps(obj, ensure_ascii=False, indent=2) + '\\n</script>'
+                          jsonld_blocks_repaired.append((match.start(), match.end(), replacement))
+
+                  for start, end, replacement in reversed(jsonld_blocks_repaired):
+                      html = html[:start] + replacement + html[end:]
 
                   # Ensure every product PDP has a valid BreadcrumbList.
                   jsonld_blocks_after = re.findall(
