@@ -21,7 +21,7 @@ jobs:
       - name: Reconcile catalogue projections
         shell: python
         run: |
-          import html
+          import html as html_module
           import json
           import pathlib
           import re
@@ -329,9 +329,9 @@ jobs:
                   if len(description) > 158:
                       description = description[:157].rsplit(" ", 1)[0].rstrip(" ,;:-") + "."
 
-                  title_text = html.escape(title, quote=False)
-                  title_attr = html.escape(title, quote=True)
-                  description_attr = html.escape(description, quote=True)
+                  title_text = html_module.escape(title, quote=False)
+                  title_attr = html_module.escape(title, quote=True)
+                  description_attr = html_module.escape(description, quote=True)
                   old_name = text(data.get("product_name") or data.get("name"))
 
                   data["slug"] = slug
