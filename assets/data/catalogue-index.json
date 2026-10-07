@@ -34953,16 +34953,16 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001024/1.webp",
     "vehicles": [
       "Tata Ace",
       "Tata Magic"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "Tata Genuine Parts speedometer cable with a 3.2 mm diameter and 2350 mm length for Tata Ace and Tata Magic applications. Part number 282954209902 identifies this speedometer control cable for compatible light commercial vehicles.",
     "image_folder": "SVKS001024",
     "applications": [
@@ -34970,7 +34970,15 @@
       "speedometer cable",
       "3.2 mm DIA",
       "2350 mm"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001025",
@@ -34995,23 +35003,31 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001025/1.webp",
     "vehicles": [
       "Tata Ace",
       "Tata Magic"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "Tata Genuine Parts clutch cable assembly for Tata Ace and Tata Magic, associated with BS IV applications. Part number 282929100140 identifies this clutch control cable for compatible light commercial vehicle clutch systems.",
     "image_folder": "SVKS001025",
     "applications": [
       "Clutch control",
       "clutch cable assembly",
       "BS IV"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001026",
@@ -35036,21 +35052,29 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001026/1.webp",
     "vehicles": [
       "Tata Ace"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "Tata Genuine Parts accelerator cable for Tata Ace applications. Part number 282930100181 identifies this accelerator control cable for compatible Tata Ace vehicles.",
     "image_folder": "SVKS001026",
     "applications": [
       "Accelerator control",
       "accelerator cable"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001027",
@@ -35075,15 +35099,15 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001027/1.webp",
     "vehicles": [
       "Tata Ace"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "Tata Genuine Parts accelerator cable assembly, 2526 mm long, for BS3 and BS4 Tata Ace applications. Part number 552330100125 identifies this accelerator control cable assembly.",
     "image_folder": "SVKS001027",
     "applications": [
@@ -35091,7 +35115,15 @@
       "accelerator cable assembly",
       "2526 mm",
       "BS3/BS4"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001028",
@@ -35116,15 +35148,15 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001028/1.webp",
     "vehicles": [
       "Tata LPT"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "Tata Genuine Parts accelerator cable, 3105 mm long, for BS3 Tata LPT applications. Part number 208230100108 identifies this accelerator control cable for compatible Tata LPT vehicles.",
     "image_folder": "SVKS001028",
     "applications": [
@@ -35132,7 +35164,15 @@
       "accelerator cable",
       "3105 mm",
       "BS3"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001029",
@@ -35157,22 +35197,30 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001029/1.webp",
     "vehicles": [
       "Tata Ace",
       "Tata Magic"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "Tata Genuine Parts accelerator cable for Tata Ace and Tata Magic applications. Part number 282930100132 identifies this accelerator control cable for compatible vehicles.",
     "image_folder": "SVKS001029",
     "applications": [
       "Accelerator control",
       "accelerator cable"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001030",
@@ -35199,22 +35247,30 @@
     "subcategory_id": "bracket",
     "subcategory_name": "Bracket",
     "subcategory": "Bracket",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001030/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J4036 rear suspension bracket, part number IC 924118, with a 6-hole and 30 mm configuration for Eicher Pro Series applications. This rear spring bracket is a suspension component for compatible commercial vehicle assemblies.",
     "image_folder": "SVKS001030",
     "applications": [
       "Rear spring suspension bracket",
       "6 hole",
       "30 mm"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001031",
@@ -35241,23 +35297,29 @@
     "subcategory_id": "hanger",
     "subcategory_name": "Hanger",
     "subcategory": "Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001031/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T22:18:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J4035 rear suspension hanger, part number IA207012, with an 8-hole jumbo configuration for Eicher Pro Series applications. This rear spring hanger is used in compatible commercial vehicle suspension assemblies.",
     "image_folder": "SVKS001031",
     "applications": [
       "Rear spring rear hanger",
       "8 hole"
     ],
-    "gallery": [],
-    "gallery_dimensions": {}
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001032",
@@ -35284,22 +35346,30 @@
     "subcategory_id": "hanger",
     "subcategory_name": "Hanger",
     "subcategory": "Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001032/1.webp",
     "vehicles": [
       "Ashok Leyland U-Truck"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J2465 left-hand double pin hanger, part number MB-336001, for Ashok Leyland U-Truck BS6 suspension applications. This suspension hanger is a component of compatible double-pin hanger assemblies.",
     "image_folder": "SVKS001032",
     "applications": [
       "Double pin hanger",
       "LH",
       "BS6"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001033",
@@ -35326,23 +35396,31 @@
     "subcategory_id": "bracket",
     "subcategory_name": "Bracket",
     "subcategory": "Bracket",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001033/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J1079 helper bracket, part number 2880 3240 3751, for new-model Tata heavy vehicle suspension applications including Tata Signa and Tata Prima. The product is identified as a threaded-type helper bracket.",
     "image_folder": "SVKS001033",
     "applications": [
       "Helper bracket",
       "new model",
       "threaded type"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001034",
@@ -35369,22 +35447,30 @@
     "subcategory_id": "hanger",
     "subcategory_name": "Hanger",
     "subcategory": "Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001034/1.webp",
     "vehicles": [
       "Ashok Leyland U-Truck"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J2466 right-hand double pin hanger, part number MB-336002, for Ashok Leyland U-Truck BS6 suspension applications. This suspension hanger is a component of compatible double-pin hanger assemblies.",
     "image_folder": "SVKS001034",
     "applications": [
       "Double pin hanger",
       "RH",
       "BS6"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001035",
@@ -35411,20 +35497,28 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001035/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J4037 front spring rear shackle, part number IC 334595, for Eicher Pro Series suspension applications. This shackle is a suspension linkage component associated with compatible front spring assemblies.",
     "image_folder": "SVKS001035",
     "applications": [
       "Front spring rear shackle"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001036",
@@ -35451,22 +35545,30 @@
     "subcategory_id": "bracket",
     "subcategory_name": "Bracket",
     "subcategory": "Bracket",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001036/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J4036A rear suspension front bracket, part number IC 324116, for Eicher Pro Series applications. The bracket has a 35 mm configuration with 17 mm chassis holes for compatible suspension assemblies.",
     "image_folder": "SVKS001036",
     "applications": [
       "Rear suspension front bracket",
       "35 mm",
       "17 mm chassis holes"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001037",
@@ -35491,21 +35593,29 @@
     "subcategory_id": "spring-hanger",
     "subcategory_name": "Spring Hanger",
     "subcategory": "Spring Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001037/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J4038 front spring rear hanger with a 3-hole configuration for Eicher Pro Series applications. This suspension hanger is a component of compatible front spring assemblies.",
     "image_folder": "SVKS001037",
     "applications": [
       "Front spring rear hanger",
       "3 hole"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001038",
@@ -35530,21 +35640,29 @@
     "subcategory_id": "hanger",
     "subcategory_name": "Hanger",
     "subcategory": "Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001038/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J4034 double pin hanger for Eicher Terra 25 suspension applications. This hanger is identified as a double-pin suspension component for the Eicher Terra 25.",
     "image_folder": "SVKS001038",
     "applications": [
       "Double pin hanger",
       "Eicher Terra 25"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001039",
@@ -35571,22 +35689,30 @@
     "subcategory_id": "spring-hanger",
     "subcategory_name": "Spring Hanger",
     "subcategory": "Spring Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001039/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J4039 front spring rear hanger, part number IC301606, with a 4-hole left-hand configuration for Eicher Pro Series applications. This suspension hanger is associated with compatible front spring assemblies.",
     "image_folder": "SVKS001039",
     "applications": [
       "Front spring rear hanger",
       "4 hole",
       "LH"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001040",
@@ -35613,15 +35739,15 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001040/1.webp",
     "vehicles": [
       "Ashok Leyland U-Truck"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J2473 left-hand spring seat, part number FZC00299, for the bogie and rear-axle suspension applications listed for Ashok Leyland U-Truck. This spring seat is a component of compatible commercial vehicle bogie assemblies.",
     "image_folder": "SVKS001040",
     "applications": [
@@ -35629,7 +35755,15 @@
       "LH",
       "bogie suspension",
       "rear axle"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001041",
@@ -35656,22 +35790,30 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001041/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J1067 left-hand shackle, part number 5039 3210 0114, for the first axle suspension of Tata Signa and Tata Prima applications. This shackle is part of the compatible first-axle spring assembly.",
     "image_folder": "SVKS001041",
     "applications": [
       "First axle shackle",
       "LH"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001042",
@@ -35698,22 +35840,30 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001042/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J1067A right-hand shackle, part number 5039 3210 0115, for the first axle suspension of Tata Signa and Tata Prima applications. This shackle is part of the corresponding first-axle spring assembly.",
     "image_folder": "SVKS001042",
     "applications": [
       "First axle shackle",
       "RH"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001043",
@@ -35740,22 +35890,30 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001043/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J1067B left-hand shackle, part number 5039 3210 0117, for the second axle suspension of Tata Signa and Tata Prima applications. This shackle is part of the compatible second-axle spring assembly.",
     "image_folder": "SVKS001043",
     "applications": [
       "Second axle shackle",
       "LH"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001044",
@@ -35782,22 +35940,30 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001044/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J1067C right-hand shackle, part number 5039 3210 0116, for the second axle suspension of Tata Signa and Tata Prima applications. This shackle is part of the corresponding second-axle spring assembly.",
     "image_folder": "SVKS001044",
     "applications": [
       "Second axle shackle",
       "RH"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001045",
@@ -35824,22 +35990,30 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001045/1.webp",
     "vehicles": [
       "Ashok Leyland U-Truck"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J2333 bell crank, part number X2402511, for Ashok Leyland U-Truck applications. This steering linkage component is listed as the small bell crank for compatible U-Truck assemblies.",
     "image_folder": "SVKS001045",
     "applications": [
       "Bell crank",
       "small",
       "U-Truck"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001046",
@@ -35866,20 +36040,28 @@
     "subcategory_id": "bracket",
     "subcategory_name": "Bracket",
     "subcategory": "Bracket",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001046/1.webp",
     "vehicles": [
       "Ashok Leyland 2516"
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
+    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "description": "JMP J2016 rear spring front bracket, part number X0404422, for Ashok Leyland 2516 applications and the 3516 New Model Taurus fitment listed in the JMP catalogue. This suspension bracket is associated with the rear spring mounting assembly.",
     "image_folder": "SVKS001046",
     "applications": [
       "Rear spring front bracket",
       "2516"
-    ]
+    ],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
+    "gallery_dimensions": {},
+    "updated_at": "2026-10-07T12:49:00+05:30"
   }
 ]

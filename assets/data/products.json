@@ -84697,9 +84697,9 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001024/1.webp",
     "vehicles": [
       "Tata Ace",
       "Tata Magic"
@@ -84709,10 +84709,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001024",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001025",
@@ -84737,9 +84742,9 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001025/1.webp",
     "vehicles": [
       "Tata Ace",
       "Tata Magic"
@@ -84749,10 +84754,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001025",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001026",
@@ -84777,9 +84787,9 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001026/1.webp",
     "vehicles": [
       "Tata Ace"
     ],
@@ -84788,10 +84798,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001026",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001027",
@@ -84816,9 +84831,9 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001027/1.webp",
     "vehicles": [
       "Tata Ace"
     ],
@@ -84827,10 +84842,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001027",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001028",
@@ -84855,9 +84875,9 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001028/1.webp",
     "vehicles": [
       "Tata LPT"
     ],
@@ -84866,10 +84886,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001028",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001029",
@@ -84894,9 +84919,9 @@
     "subcategory_id": "accelerator-cable",
     "subcategory_name": "Accelerator Cable",
     "subcategory": "Accelerator Cable",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001029/1.webp",
     "vehicles": [
       "Tata Ace",
       "Tata Magic"
@@ -84906,10 +84931,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001029",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001030",
@@ -84936,9 +84966,9 @@
     "subcategory_id": "bracket",
     "subcategory_name": "Bracket",
     "subcategory": "Bracket",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001030/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
@@ -84947,10 +84977,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001030",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001031",
@@ -84977,9 +85012,9 @@
     "subcategory_id": "hanger",
     "subcategory_name": "Hanger",
     "subcategory": "Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001031/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
@@ -84990,10 +85025,15 @@
     "active": true,
     "description": "JMP J4035 rear suspension hanger, part number IA207012, with an 8-hole jumbo configuration for Eicher Pro Series applications. This rear spring hanger is used in compatible commercial vehicle suspension assemblies.",
     "image_folder": "SVKS001031",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30",
+    "updated_at": "2026-10-07T12:49:00+05:30",
     "discount_percent": 9,
     "discountPercent": 9
   },
@@ -85022,9 +85062,9 @@
     "subcategory_id": "hanger",
     "subcategory_name": "Hanger",
     "subcategory": "Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001032/1.webp",
     "vehicles": [
       "Ashok Leyland U-Truck"
     ],
@@ -85033,10 +85073,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001032",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001033",
@@ -85063,9 +85108,9 @@
     "subcategory_id": "bracket",
     "subcategory_name": "Bracket",
     "subcategory": "Bracket",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001033/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
@@ -85075,10 +85120,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001033",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001034",
@@ -85105,9 +85155,9 @@
     "subcategory_id": "hanger",
     "subcategory_name": "Hanger",
     "subcategory": "Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001034/1.webp",
     "vehicles": [
       "Ashok Leyland U-Truck"
     ],
@@ -85116,10 +85166,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001034",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001035",
@@ -85146,9 +85201,9 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001035/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
@@ -85157,10 +85212,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001035",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001036",
@@ -85187,9 +85247,9 @@
     "subcategory_id": "bracket",
     "subcategory_name": "Bracket",
     "subcategory": "Bracket",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001036/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
@@ -85198,10 +85258,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001036",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001037",
@@ -85226,9 +85291,9 @@
     "subcategory_id": "spring-hanger",
     "subcategory_name": "Spring Hanger",
     "subcategory": "Spring Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001037/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
@@ -85237,10 +85302,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001037",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001038",
@@ -85265,9 +85335,9 @@
     "subcategory_id": "hanger",
     "subcategory_name": "Hanger",
     "subcategory": "Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001038/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
@@ -85276,10 +85346,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001038",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001039",
@@ -85306,9 +85381,9 @@
     "subcategory_id": "spring-hanger",
     "subcategory_name": "Spring Hanger",
     "subcategory": "Spring Hanger",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001039/1.webp",
     "vehicles": [
       "Eicher Pro Series"
     ],
@@ -85317,10 +85392,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001039",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001040",
@@ -85347,9 +85427,9 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001040/1.webp",
     "vehicles": [
       "Ashok Leyland U-Truck"
     ],
@@ -85358,10 +85438,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001040",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001041",
@@ -85388,9 +85473,9 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001041/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
@@ -85400,10 +85485,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001041",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001042",
@@ -85430,9 +85520,9 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001042/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
@@ -85442,10 +85532,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001042",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001043",
@@ -85472,9 +85567,9 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001043/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
@@ -85484,10 +85579,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001043",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001044",
@@ -85514,9 +85614,9 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001044/1.webp",
     "vehicles": [
       "Tata Signa",
       "Tata Prima"
@@ -85526,10 +85626,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001044",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001045",
@@ -85556,9 +85661,9 @@
     "subcategory_id": "shackle-plate",
     "subcategory_name": "Shackle Plate",
     "subcategory": "Shackle Plate",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001045/1.webp",
     "vehicles": [
       "Ashok Leyland U-Truck"
     ],
@@ -85567,10 +85672,15 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001045",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {
     "id": "SVKS001046",
@@ -85597,9 +85707,9 @@
     "subcategory_id": "bracket",
     "subcategory_name": "Bracket",
     "subcategory": "Bracket",
-    "image": "",
-    "primary_image": "",
-    "image_url": "/assets/images/placeholder.webp",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001046/1.webp",
     "vehicles": [
       "Ashok Leyland 2516"
     ],
@@ -85608,9 +85718,14 @@
     "active": true,
     "description": "",
     "image_folder": "SVKS001046",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-06T12:35:00+05:30",
-    "updated_at": "2026-10-06T12:35:00+05:30"
+    "updated_at": "2026-10-07T12:49:00+05:30"
   }
 ]
