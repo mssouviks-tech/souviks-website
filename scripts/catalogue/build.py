@@ -545,8 +545,12 @@ def sync_static_product_images():
     
         text = path.read_text(encoding="utf-8")
         original = text
+        is_products_listing = path.name == "products.html" and path.parent.name in {"en", "bn", "hi"}
+        card_index = 0
     
         def refresh_card(match):
+            nonlocal card_index
+            card_index += 1
             card = match.group(0)
             id_match = re.search(
                 r'data-saved-product-id="([^"]+)"|data-id="([^"]+)"',
@@ -570,9 +574,17 @@ def sync_static_product_images():
             if not src:
                 return card
     
+            def update_image(match):
+                attrs = match.group(0)
+                attrs = re.sub(r'\sloading="[^"]*"', "", attrs)
+                attrs = re.sub(r'\sfetchpriority="[^"]*"', "", attrs)
+                if is_products_listing and card_index <= 4:
+                    return attrs.replace("<img ", '<img loading="eager" fetchpriority="high" ', 1)
+                return attrs.replace("<img ", '<img loading="lazy" ', 1)
+
             return re.sub(
-                r'(<img\b[^>]*class="product-image-file"[^>]*\bsrc=")[^"]+(")',
-                lambda m: m.group(1) + src + m.group(2),
+                r'<img\b[^>]*class="product-image-file"[^>]*>',
+                update_image,
                 card,
                 count=1,
             )
