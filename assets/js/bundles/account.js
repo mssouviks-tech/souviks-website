@@ -394,7 +394,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             const emailRedirectTo =
-                `https://www.souviks.co.in/${language}/login.html`;
+                `https://www.souviks.co.in/${language}/login`;
 
 
             /*
@@ -790,7 +790,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            window.location.replace(`/${language()}/account.html`);
+            window.location.replace(`/${language()}/account`);
 
         } catch (error) {
             console.error("[Souviks Auth] Modal login error:", error);
@@ -884,7 +884,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const currentLanguage = language();
             const emailRedirectTo =
-                `https://www.souviks.co.in/${currentLanguage}/login.html?auth=login`;
+                `https://www.souviks.co.in/${currentLanguage}/login?auth=login`;
 
             const { data, error } =
                 await supabaseClient.auth.signUp({
@@ -1480,9 +1480,9 @@ document.addEventListener("click", async (event) => {
 
         /*
         ----------------------------------------------
-        /en/account.html
-        /hi/account.html
-        /bn/account.html
+        /en/account
+        /hi/account
+        /bn/account
         ----------------------------------------------
         */
 
@@ -1601,7 +1601,7 @@ document.addEventListener("click", async (event) => {
                 getCurrentLanguage();
 
             const loginPath =
-                `/${language}/login.html`;
+                `/${language}/login`;
 
 
             window.location.replace(
@@ -5264,7 +5264,7 @@ SavedProducts.handleAuthenticationRequired =
         */
 
         const loginUrl =
-            `/${encodeURIComponent(window.souviks?.currentLanguage || "en")}/login.html`;
+            `/${encodeURIComponent(window.souviks?.currentLanguage || "en")}/login`;
 
 
         const currentUrl =
@@ -9787,7 +9787,7 @@ function getVehiclePath(slug) {
 
 function getAccountPath(view) {
     const lang = document.documentElement.lang || window.souviks?.currentLanguage || "en";
-    return `/${encodeURIComponent(lang)}/account.html?view=${encodeURIComponent(view)}`;
+    return `/${encodeURIComponent(lang)}/account?view=${encodeURIComponent(view)}`;
 }
 
 
@@ -11127,7 +11127,7 @@ function updateNavigationState(
                     view ===
                     "account" &&
                     href.endsWith(
-                        "/account.html"
+                        "/account"
                     )
                 );
 
@@ -13247,7 +13247,7 @@ function redirectToLogin() {
 
 
     window.location.href =
-        `/${language}/login.html?redirect=${encodeURIComponent(
+        `/${language}/login?redirect=${encodeURIComponent(
             window.location.pathname +
             window.location.search
         )}`;

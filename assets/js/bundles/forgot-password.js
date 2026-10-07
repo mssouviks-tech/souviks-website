@@ -1082,7 +1082,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            window.location.replace(`/${language()}/account.html`);
+            window.location.replace(`/${language()}/account`);
 
         } catch (error) {
             console.error("[Souviks Auth] Modal login error:", error);
@@ -1176,7 +1176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const currentLanguage = language();
             const emailRedirectTo =
-                `https://www.souviks.co.in/${currentLanguage}/login.html?auth=login`;
+                `https://www.souviks.co.in/${currentLanguage}/login?auth=login`;
 
             const { data, error } =
                 await supabaseClient.auth.signUp({
@@ -1323,9 +1323,9 @@ document.addEventListener("click", async (event) => {
 
         /*
         ----------------------------------------------
-        /en/account.html
-        /hi/account.html
-        /bn/account.html
+        /en/account
+        /hi/account
+        /bn/account
         ----------------------------------------------
         */
 
@@ -1444,7 +1444,7 @@ document.addEventListener("click", async (event) => {
                 getCurrentLanguage();
 
             const loginPath =
-                `/${language}/login.html`;
+                `/${language}/login`;
 
 
             window.location.replace(
@@ -2302,7 +2302,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             const resetPasswordUrl =
-                `https://www.souviks.co.in/${language}/reset-password.html`;
+                `https://www.souviks.co.in/${language}/reset-password`;
 
 
             /*
