@@ -2021,6 +2021,9 @@ RFQ.submitStandalone = async function (form) {
         throw new Error("Your RFQ basket is empty. Add at least one product before submitting.");
     }
 
+    const user = await RFQ.getUser();
+    window.__SOUVIKS_RFQ_USER_EMAIL__ = user?.email?.trim() || "";
+
     const customer = RFQ.collectCustomerData(form);
 
     if (!customer.name || !customer.phone) {
@@ -2030,9 +2033,6 @@ RFQ.submitStandalone = async function (form) {
     if (typeof emailjs === "undefined") {
         throw new Error("Notification service is unavailable. Please try again later.");
     }
-
-    const user = await RFQ.getUser();
-    window.__SOUVIKS_RFQ_USER_EMAIL__ = user?.email?.trim() || "";
 
     if (user) {
         const { data: rfq, error: rfqError } = await supabaseClient
@@ -2221,7 +2221,10 @@ document.addEventListener("DOMContentLoaded", () => {
         anchor.href = `https://wa.me/917908215701?text=${encodeURIComponent(message)}`;
         anchor.target = "_blank";
         anchor.rel = "noopener noreferrer";
+        anchor.style.display = "none";
+        document.body.appendChild(anchor);
         anchor.click();
+        setTimeout(() => anchor.remove(), 0);
     });
 });
 
