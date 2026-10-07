@@ -28,8 +28,7 @@ def read(path: Path) -> str:
 
 
 def write(path: Path, content: str) -> None:
-    path.write_text(content, encoding="utf-8", newline="
-")
+    path.write_text(content, encoding="utf-8")
 
 
 def extract_core() -> str:
