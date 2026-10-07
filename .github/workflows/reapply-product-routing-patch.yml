@@ -277,6 +277,7 @@ jobs:
       - name: Ensure product JSON-LD and canonical markup
         shell: python
         run: |
+          import html as html_module
           import json
           import pathlib
           import re
