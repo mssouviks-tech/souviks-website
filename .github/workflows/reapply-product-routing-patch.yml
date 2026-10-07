@@ -645,15 +645,74 @@ jobs:
           active_categories = [c for c in categories if c.get("active") is not False]
           active_vehicles = [v for v in vehicles if v.get("active") is not False]
 
+          brand_by_id = {str(b.get("id") or "").strip(): b for b in active_brands if b.get("id")}
+          category_by_id = {str(c.get("id") or "").strip(): c for c in active_categories if c.get("id")}
+          vehicle_by_id = {
+              str(v.get("id") or "").strip(): v
+              for v in active_vehicles
+              if v.get("id")
+          }
+          vehicle_names = {
+              str(v.get("name") or "").strip().casefold()
+              for v in active_vehicles
+              if v.get("name")
+          }
+
+          def number(value):
+              try:
+                  value = float(value)
+              except (TypeError, ValueError):
+                  return None
+              return value if value == value else None
+
           for p in active_products:
               if not p.get("id") or not p.get("slug") or not p.get("name"):
                   errors.append(f"Product missing identity: {p.get('id')}")
               if not p.get("brand_id"):
                   errors.append(f"Product missing brand: {p.get('id')}")
+              elif str(p.get("brand_id")).strip() not in brand_by_id:
+                  errors.append(f"Product references unknown/inactive brand: {p.get('id')} -> {p.get('brand_id')}")
+
               if not p.get("category_id"):
                   errors.append(f"Product missing category: {p.get('id')}")
+              elif str(p.get("category_id")).strip() not in category_by_id:
+                  errors.append(f"Product references unknown/inactive category: {p.get('id')} -> {p.get('category_id')}")
+
               if not p.get("image_url"):
                   errors.append(f"Product missing image URL: {p.get('id')}")
+
+              slug = str(p.get("slug") or "").strip()
+              if slug and not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+                  errors.append(f"Product slug is not URL-safe: {p.get('id')} -> {slug}")
+
+              mrp = number(p.get("mrp"))
+              selling = number(p.get("selling_price"))
+              discount = number(p.get("discount_percent"))
+
+              if mrp is not None and mrp < 0:
+                  errors.append(f"Negative MRP: {p.get('id')} -> {mrp}")
+              if selling is not None and selling < 0:
+                  errors.append(f"Negative selling price: {p.get('id')} -> {selling}")
+              if mrp is not None and selling is not None and selling > mrp:
+                  errors.append(f"Selling price exceeds MRP: {p.get('id')} -> {selling} > {mrp}")
+
+              if discount is not None and not 0 <= discount <= 100:
+                  errors.append(f"Discount outside 0-100%: {p.get('id')} -> {discount}")
+              if mrp and selling is not None and discount is not None:
+                  expected_discount = round((mrp - selling) / mrp * 100)
+                  if abs(discount - expected_discount) > 1:
+                      errors.append(
+                          f"Discount mismatch: {p.get('id')} -> declared {discount}%, expected ~{expected_discount}%"
+                      )
+
+              for vehicle in p.get("vehicles") or []:
+                  vehicle_text = str(vehicle).strip()
+                  if not vehicle_text:
+                      continue
+                  if vehicle_text.casefold() not in vehicle_names and vehicle_text not in vehicle_by_id:
+                      errors.append(
+                          f"Product references unknown/inactive vehicle: {p.get('id')} -> {vehicle_text}"
+                      )
 
           expected = {
               "products": len(active_products),
