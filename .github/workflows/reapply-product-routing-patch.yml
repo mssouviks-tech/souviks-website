@@ -678,11 +678,11 @@ jobs:
           }
 
           expected_projection_fields = (
-              "slug", "part_number", "mrp", "selling_price", "product_name",
-              "name", "partNumber", "brand_id", "brand_name", "category_id",
-              "category_name", "subcategory_id", "subcategory_name", "image",
-              "primary_image", "image_url", "vehicles", "applications",
-              "featured", "active", "description", "image_folder", "gallery",
+              "slug", "mrp", "selling_price", "product_name", "name",
+              "brand_id", "brand_name", "category_id", "category_name",
+              "subcategory_id", "subcategory_name", "image", "primary_image",
+              "image_url", "vehicles", "applications", "featured", "active",
+              "description", "image_folder", "gallery",
           )
 
           for pid, source in catalogue_by_id.items():
@@ -692,13 +692,7 @@ jobs:
                   continue
 
               for field in expected_projection_fields:
-                  if projected.get(field) != source.get(field) and not (
-                      field == "part_number"
-                      and not str(source.get(field) or "").strip()
-                      and str(projected.get(field) or "").strip() == re.sub(
-                          r"^tata-genuine-(\\d{12})-.*$", r"\\1", str(source.get("slug") or ""), flags=re.I
-                      )
-                  ):
+                  if projected.get(field) != source.get(field):
                       errors.append(
                           f"products.json drift for {pid}: {field}"
                       )
@@ -1231,4 +1225,16 @@ jobs:
               print("Expected:", expected)
               print("Actual:", actual)
               sys.exit(1)
-          print("Sitemap integrity OK")
+          print("Sitemap integrity OK")              slug = str(source.get("slug") or "").strip()
+              derived_part = str(source.get("part_number") or source.get("partNumber") or "").strip()
+              tata_match = re.match(r"^tata-genuine-(\d{12})-.*$", slug, flags=re.I)
+              if tata_match:
+                  derived_part = tata_match.group(1)
+
+              for field in ("part_number", "partNumber"):
+                  if str(projected.get(field) or "").strip() != derived_part:
+                      errors.append(
+                          f"products.json drift for {pid}: {field}"
+                      )
+
+
