@@ -356,9 +356,27 @@ jobs:
                           count=1,
                           flags=re.I,
                       )
+                      image_alt = html.escape(
+                          str(product.get("product_name") or product.get("name") or "Product image"),
+                          quote=True,
+                      )
+                      html = re.sub(
+                          r'(<meta\b[^>]*property=["\']og:image:alt["\'][^>]*content=["\'])[^"\']*(["\'])',
+                          lambda m: m.group(1) + image_alt + m.group(2),
+                          html,
+                          count=1,
+                          flags=re.I,
+                      )
                       html = re.sub(
                           r'(<meta\b[^>]*name=["\']twitter:image["\'][^>]*content=["\'])[^"\']*(["\'])',
                           lambda m: m.group(1) + primary_image_url + m.group(2),
+                          html,
+                          count=1,
+                          flags=re.I,
+                      )
+                      html = re.sub(
+                          r'(<meta\b[^>]*name=["\']twitter:image:alt["\'][^>]*content=["\'])[^"\']*(["\'])',
+                          lambda m: m.group(1) + image_alt + m.group(2),
                           html,
                           count=1,
                           flags=re.I,
