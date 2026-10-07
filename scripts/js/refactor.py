@@ -51,6 +51,12 @@ def extract_core() -> str:
     )
 
 
+def strip_common_ui(source: str) -> str:
+    start = source.find(COMMON_END)
+    if start == -1:
+        raise ValueError("bundle is missing main.js marker")
+    return source[start:].lstrip()
+
 def request_quote_extra(source: str) -> str:
     start = source.find("const RFQ_TEXT = {")
     if start == -1:
@@ -73,21 +79,24 @@ def build_page_bundle(filename: str) -> str:
         start = source.find(COMMON_END)
         if start == -1:
             raise ValueError("request-quote.js is missing main.js marker")
+        page_start = source.find(COMMON_END_LABEL, start)
+        if page_start == -1:
+            raise ValueError("request-quote.js is missing image-protection marker")
         return (
             "/* Shared core is loaded by the HTML page before this bundle. */\n\n"
             + request_quote_extra(source)
-            + source[start:].lstrip()
+            + source[page_start + len(COMMON_END_LABEL):].lstrip()
         )
 
-    start = source.find(
-        SPECIAL_ENTITY_END if filename == "brand.js" else COMMON_END
-    )
+    start = source.find(COMMON_END)
     if start == -1:
-        raise ValueError(f"{filename} is missing its page-runtime marker")
-
+        raise ValueError(f"{filename} is missing main.js marker")
+    page_marker = source.find(COMMON_END_LABEL, start)
+    if page_marker == -1:
+        raise ValueError(f"{filename} is missing image-protection marker")
     return (
         "/* Shared core is loaded by the HTML page before this bundle. */\n\n"
-        + source[start:].lstrip()
+        + source[page_marker + len(COMMON_END_LABEL):].lstrip()
     )
 
 
