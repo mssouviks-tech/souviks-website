@@ -24,6 +24,63 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Normalize canonical public URLs in generated HTML and JavaScript
+        shell: python
+        run: |
+          import pathlib
+          import subprocess
+
+          root = pathlib.Path(".")
+          route_patterns = {
+              "/account.html": "/account",
+              "/login.html": "/login",
+              "/register.html": "/register",
+              "/forgot-password.html": "/forgot-password",
+              "/reset-password.html": "/reset-password",
+              "/request-part.html": "/request-part",
+              "/request-quote.html": "/request-quote",
+              "/thank-you.html": "/thank-you",
+              "/products.html": "/products",
+              "/brands.html": "/brands",
+              "/categories.html": "/categories",
+              "/vehicles.html": "/vehicles",
+              "/about.html": "/about",
+              "/contact.html": "/contact",
+              "/privacy-policy.html": "/privacy-policy",
+              "/terms.html": "/terms",
+              "/refund.html": "/refund",
+          }
+
+          changed = []
+          for extension in ("*.html", "*.js"):
+              for path in root.glob(f"**/{extension}"):
+                  source = path.read_text(encoding="utf-8")
+                  updated = source
+                  for old, new in route_patterns.items():
+                      updated = updated.replace(old, new)
+                  if updated != source:
+                      path.write_text(updated, encoding="utf-8")
+                      changed.append(str(path))
+
+          if changed:
+              subprocess.run(
+                  ["git", "config", "user.name", "github-actions[bot]"],
+                  check=True,
+              )
+              subprocess.run(
+                  ["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"],
+                  check=True,
+              )
+              subprocess.run(["git", "add", "--", "*.html", "*.js"], check=True)
+              subprocess.run(
+                  ["git", "commit", "-m", "Normalize canonical internal URLs"],
+                  check=True,
+              )
+              subprocess.run(["git", "push", "origin", "HEAD:main"], check=True)
+              print(f"Normalized {len(changed)} generated/source files.")
+          else:
+              print("Canonical public URLs already normalized.")
+
       - name: Enforce static-only product routing
         shell: bash
         run: |
