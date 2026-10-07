@@ -33,6 +33,9 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Compile catalogue builder
+        run: python3 -m py_compile scripts/catalogue/build.py scripts/catalogue/validate.py
+
       - name: Build static catalogue
         run: python3 scripts/catalogue/build.py
 
