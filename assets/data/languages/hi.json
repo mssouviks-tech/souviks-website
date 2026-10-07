@@ -42,7 +42,7 @@
     "something_went_wrong": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।",
     "full_name_required": "कृपया अपना पूरा नाम दर्ज करें।",
     "password_create_required": "कृपया एक पासवर्ड दर्ज करें।",
-    "password_min_length": "पासवर्ड कम से कम 6 अक्षरों का होना चाहिए।",
+    "password_min_length": "पासवर्ड कम से कम 8 अक्षरों का होना चाहिए।",
     "password_mismatch": "पासवर्ड मेल नहीं खाते।",
     "registration_failed": "आपका खाता नहीं बनाया जा सका। कृपया पुनः प्रयास करें।",
     "account_exists": "इस ईमेल पते से पहले से एक खाता मौजूद है।",
