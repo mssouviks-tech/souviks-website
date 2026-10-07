@@ -24,62 +24,30 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Normalize canonical public URLs in generated HTML and JavaScript
+      - name: Enforce clean public URLs
         shell: python
         run: |
           import pathlib
-          import subprocess
+          import re
+          import sys
 
           root = pathlib.Path(".")
-          route_patterns = {
-              "/account.html": "/account",
-              "/login.html": "/login",
-              "/register.html": "/register",
-              "/forgot-password.html": "/forgot-password",
-              "/reset-password.html": "/reset-password",
-              "/request-part.html": "/request-part",
-              "/request-quote.html": "/request-quote",
-              "/thank-you.html": "/thank-you",
-              "/products.html": "/products",
-              "/brands.html": "/brands",
-              "/categories.html": "/categories",
-              "/vehicles.html": "/vehicles",
-              "/about.html": "/about",
-              "/contact.html": "/contact",
-              "/privacy-policy.html": "/privacy-policy",
-              "/terms.html": "/terms",
-              "/refund.html": "/refund",
-          }
+          legacy = re.compile(
+              r"/(?:account|login|register|forgot-password|reset-password|request-part|request-quote|thank-you|products|brands|categories|vehicles|about|contact|privacy-policy|terms|refund)\\.html(?:[?#]|$)"
+          )
 
-          changed = []
-          for extension in ("*.html", "*.js"):
-              for path in root.glob(f"**/{extension}"):
-                  source = path.read_text(encoding="utf-8")
-                  updated = source
-                  for old, new in route_patterns.items():
-                      updated = updated.replace(old, new)
-                  if updated != source:
-                      path.write_text(updated, encoding="utf-8")
-                      changed.append(str(path))
+          offenders = []
+          for path in list(root.glob("**/*.html")) + list(root.glob("**/*.js")):
+              text = path.read_text(encoding="utf-8", errors="ignore")
+              if legacy.search(text):
+                  offenders.append(str(path))
 
-          if changed:
-              subprocess.run(
-                  ["git", "config", "user.name", "github-actions[bot]"],
-                  check=True,
-              )
-              subprocess.run(
-                  ["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"],
-                  check=True,
-              )
-              subprocess.run(["git", "add", "--", "*.html", "*.js"], check=True)
-              subprocess.run(
-                  ["git", "commit", "-m", "Normalize canonical internal URLs"],
-                  check=True,
-              )
-              subprocess.run(["git", "push", "origin", "HEAD:main"], check=True)
-              print(f"Normalized {len(changed)} generated/source files.")
-          else:
-              print("Canonical public URLs already normalized.")
+          if offenders:
+              print("Legacy .html public URLs found:")
+              print("\n".join(offenders[:100]))
+              sys.exit(1)
+
+          print("Clean public URL invariant OK.")
 
       - name: Enforce static-only product routing
         shell: bash
@@ -872,6 +840,101 @@ jobs:
               sys.exit(1)
 
           print("Catalogue image-folder parity OK")
+
+      - name: Verify sitemap structure, targets, canonical and indexation
+        shell: python
+        run: |
+          import pathlib
+          import re
+          import sys
+          import xml.etree.ElementTree as ET
+
+          root = pathlib.Path(".")
+          base = "https://www.souviks.co.in"
+          sitemap_index = root / "sitemap.xml"
+          expected_children = {
+              "/sitemaps/pages.xml",
+              "/sitemaps/products.xml",
+              "/sitemaps/brands.xml",
+              "/sitemaps/categories.xml",
+              "/sitemaps/vehicles.xml",
+          }
+
+          errors = []
+
+          def parse_sitemap(path):
+              try:
+                  tree = ET.parse(path)
+              except Exception as exc:
+                  errors.append(f"Invalid XML: {path}: {exc}")
+                  return []
+              ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+              return [node.text.strip() for node in tree.findall(".//sm:loc", ns) if node.text and node.text.strip()]
+
+          index_locs = set(parse_sitemap(sitemap_index))
+          if index_locs != {base + p for p in expected_children}:
+              errors.append(f"Sitemap index mismatch: {sorted(index_locs)}")
+
+          sitemap_files = [root / p.lstrip("/") for p in expected_children]
+          all_urls = []
+
+          for path in sitemap_files:
+              locs = parse_sitemap(path)
+              if len(locs) != len(set(locs)):
+                  errors.append(f"Duplicate URLs in {path}")
+              all_urls.extend(locs)
+
+          if len(all_urls) != len(set(all_urls)):
+              errors.append("Duplicate URL present across child sitemaps.")
+
+          for url in all_urls:
+              m = re.match(r"https://www\\.souviks\\.co\\.in/(en|hi|bn)(/.*)?$", url)
+              if not m:
+                  errors.append(f"Unexpected sitemap URL: {url}")
+                  continue
+
+              lang = m.group(1)
+              route = m.group(2) or "/"
+              if ".html" in route:
+                  errors.append(f"Legacy .html URL in sitemap: {url}")
+
+              if route == "/":
+                  file_path = root / lang / "index.html"
+              else:
+                  file_path = root / lang / (route.lstrip("/") + ".html")
+
+              if not file_path.exists():
+                  errors.append(f"Sitemap target has no generated page: {url} -> {file_path}")
+                  continue
+
+              html = file_path.read_text(encoding="utf-8", errors="ignore")
+              robots = re.search(
+                  r'<meta\\b[^>]*name=["\\\']robots["\\\'][^>]*content=["\\\']([^"\\\']+)',
+                  html,
+                  flags=re.I,
+              )
+              if robots and "noindex" in robots.group(1).lower():
+                  errors.append(f"Sitemap contains noindex page: {url}")
+
+              canonical = re.search(
+                  r'<link\\b[^>]*rel=["\\\']canonical["\\\'][^>]*href=["\\\']([^"\\\']+)',
+                  html,
+                  flags=re.I,
+              )
+              expected_canonical = url.rstrip("/") if route != "/" else url
+              if not canonical:
+                  errors.append(f"Sitemap target missing canonical: {url}")
+              elif canonical.group(1).strip().rstrip("/") != expected_canonical.rstrip("/"):
+                  errors.append(
+                      f"Sitemap target canonical mismatch: {url} -> {canonical.group(1).strip()}"
+                  )
+
+          print(f"Validated {len(all_urls)} sitemap URLs against generated HTML.")
+          if errors:
+              print("\n".join(errors[:200]))
+              sys.exit(1)
+
+          print("Sitemap structure, target, canonical and indexation invariants OK.")
 
       - name: Verify sitemap counts
         shell: python
