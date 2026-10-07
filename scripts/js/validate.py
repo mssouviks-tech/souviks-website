@@ -46,7 +46,7 @@ def main() -> None:
             )
 
     for language in ("en", "bn", "hi"):
-        for html_path in sorted((ROOT / language).glob("*.html")):
+        for html_path in sorted((ROOT / language).rglob("*.html")):
             html = html_path.read_text(encoding="utf-8")
             sources = script_sources(html)
             bundle_sources = [src for src in sources if "/assets/js/bundles/" in src]
