@@ -1,5 +1,7 @@
 /* Shared core is loaded by the HTML page before this bundle. */
 
+/* Shared core is loaded by the HTML page before this bundle. */
+
 /* ===== api.js ===== */
 /*
 ==========================================================
@@ -299,6 +301,7 @@ class SouviksAPI {
 
 window.API = new SouviksAPI();
 
+
 /* ===== breadcrumb.js ===== */
 /* ==========================================================
    SOUVIKS BREADCRUMB MANAGER
@@ -369,6 +372,7 @@ const Breadcrumb = {
         }).join("");
     }
 };
+
 
 /* ===== products.js ===== */
 /*
@@ -464,6 +468,8 @@ constructor() {
 
         return "/assets/images/placeholder.webp";
     }
+
+
 
     // ======================================================
     // STATIC PDP SYNCHRONIZATION
@@ -1417,6 +1423,7 @@ async hydrateProductPage() {
 
     Breadcrumb.render(product.product_name, breadcrumbItems);
 
+
 const brandLogo =
     brand?.logo || "";
 
@@ -1439,6 +1446,8 @@ const galleryImages =
 
 this.products =
     await API.products();
+
+
 
     const target =
         Utils.el("#product-detail");
@@ -2059,6 +2068,7 @@ const removeBtn =
         ".pdp-remove-btn"
     );
 
+
 /*
 ----------------------------------------------------------
 LOAD EXISTING RFQ ITEM
@@ -2074,7 +2084,9 @@ const rfqItem =
             item.id === product.id
     );
 
+
 let inRFQ = false;
+
 
 if (
     rfqItem &&
@@ -2095,6 +2107,7 @@ if (
         "block";
 
 }
+
 
 /*
 ----------------------------------------------------------
@@ -2119,6 +2132,7 @@ minusBtn?.addEventListener(
 
             );
 
+
         if (inRFQ) {
 
             rfqBtn.textContent =
@@ -2129,6 +2143,7 @@ minusBtn?.addEventListener(
     }
 
 );
+
 
 /*
 ----------------------------------------------------------
@@ -2147,6 +2162,7 @@ plusBtn?.addEventListener(
                 qtyInput.value
             ) + 1;
 
+
         if (inRFQ) {
 
             rfqBtn.textContent =
@@ -2157,6 +2173,7 @@ plusBtn?.addEventListener(
     }
 
 );
+
 
 /*
 ----------------------------------------------------------
@@ -2181,6 +2198,7 @@ qtyInput?.addEventListener(
 
 );
 
+
 /*
 ----------------------------------------------------------
 PDP — ADD / UPDATE RFQ
@@ -2204,6 +2222,7 @@ rfqBtn?.addEventListener(
 
             );
 
+
         const success =
             await RFQ.setQuantity(
 
@@ -2226,11 +2245,13 @@ rfqBtn?.addEventListener(
 
             );
 
+
         if (!success) {
 
             return;
 
         }
+
 
         inRFQ = true;
 
@@ -2243,6 +2264,7 @@ rfqBtn?.addEventListener(
     }
 
 );
+
 
 /*
 ----------------------------------------------------------
@@ -2259,6 +2281,7 @@ removeBtn?.addEventListener(
         await RFQ.remove(
             product.id
         );
+
 
         inRFQ = false;
 
@@ -2326,6 +2349,7 @@ if(
 }
 
 }
+
 
     // ======================================================
     // PRODUCT REVIEWS
@@ -2477,6 +2501,9 @@ if(
     }
 }
 
+
+
+
 window.Products = new ProductManager();
 
 /* ===== rfq.js ===== */
@@ -2495,6 +2522,7 @@ window.Products = new ProductManager();
        Account authenticated RFQ logic
    ========================================================== */
 
+
 window.RFQ = {
 
     table:
@@ -2504,6 +2532,7 @@ window.RFQ = {
         "souviks_rfq_guest"
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -2522,6 +2551,7 @@ RFQ.getUser = async function () {
 
     }
 
+
     try {
 
         const {
@@ -2529,6 +2559,7 @@ RFQ.getUser = async function () {
             error
         } =
             await supabaseClient.auth.getUser();
+
 
         if (error) {
 
@@ -2541,7 +2572,9 @@ RFQ.getUser = async function () {
 
         }
 
+
         return data?.user || null;
+
 
     } catch (error) {
 
@@ -2555,6 +2588,7 @@ RFQ.getUser = async function () {
     }
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -2575,6 +2609,7 @@ RFQ.escapeHTML = function (
             value ?? ""
         );
 
+
     return text.replace(
         /[&<>"']/g,
         character => {
@@ -2589,6 +2624,7 @@ RFQ.escapeHTML = function (
 
             };
 
+
             return entities[
                 character
             ];
@@ -2597,6 +2633,7 @@ RFQ.escapeHTML = function (
     );
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -2613,16 +2650,19 @@ RFQ.getGuestItems = function () {
                 RFQ.storageKey
             );
 
+
         if (!stored) {
 
             return [];
 
         }
 
+
         const parsed =
             JSON.parse(
                 stored
             );
+
 
         if (
             !Array.isArray(
@@ -2633,6 +2673,7 @@ RFQ.getGuestItems = function () {
             return [];
 
         }
+
 
         return parsed.map(
 
@@ -2665,6 +2706,7 @@ RFQ.getGuestItems = function () {
 
         );
 
+
     } catch (error) {
 
         console.error(
@@ -2677,6 +2719,7 @@ RFQ.getGuestItems = function () {
     }
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -2700,7 +2743,9 @@ RFQ.saveGuestItems = function (
 
         );
 
+
         return true;
+
 
     } catch (error) {
 
@@ -2714,6 +2759,7 @@ RFQ.saveGuestItems = function (
     }
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -2744,6 +2790,7 @@ RFQ.get = async function () {
     const user =
         await RFQ.getUser();
 
+
     /*
     ------------------------------------------------------
     ANONYMOUS
@@ -2755,6 +2802,7 @@ RFQ.get = async function () {
         return RFQ.getGuestItems();
 
     }
+
 
     /*
     ------------------------------------------------------
@@ -2774,6 +2822,7 @@ RFQ.get = async function () {
         return [];
 
     }
+
 
     const {
         data,
@@ -2802,6 +2851,7 @@ RFQ.get = async function () {
                 }
             );
 
+
     if (error) {
 
         console.error(
@@ -2812,6 +2862,7 @@ RFQ.get = async function () {
         return [];
 
     }
+
 
     return (
         data || []
@@ -2846,6 +2897,7 @@ RFQ.get = async function () {
 
 };
 
+
 /*
 ----------------------------------------------------------
 UPDATE RFQ BADGE
@@ -2856,6 +2908,7 @@ RFQ.updateBadge = async function () {
 
     const items =
         await RFQ.get();
+
 
     const total =
         items.reduce(
@@ -2875,6 +2928,7 @@ RFQ.updateBadge = async function () {
 
         );
 
+
     document
         .querySelectorAll(
             ".rfq-badge"
@@ -2890,9 +2944,11 @@ RFQ.updateBadge = async function () {
 
         );
 
+
     return total;
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -2923,8 +2979,10 @@ RFQ.setQuantity = async function (
             ) || 1
         );
 
+
     const user =
         await RFQ.getUser();
+
 
     /*
     ------------------------------------------------------
@@ -2937,6 +2995,7 @@ RFQ.setQuantity = async function (
         const items =
             RFQ.getGuestItems();
 
+
         const existingIndex =
             items.findIndex(
 
@@ -2945,6 +3004,7 @@ RFQ.setQuantity = async function (
                     productId
 
             );
+
 
         const normalizedProduct = {
 
@@ -2970,6 +3030,7 @@ RFQ.setQuantity = async function (
 
         };
 
+
         if (
             existingIndex >=
             0
@@ -2988,10 +3049,12 @@ RFQ.setQuantity = async function (
 
         }
 
+
         const saved =
             RFQ.saveGuestItems(
                 items
             );
+
 
         if (!saved) {
 
@@ -2999,13 +3062,16 @@ RFQ.setQuantity = async function (
 
         }
 
+
         await RFQ.updateBadge();
 
         await RFQ.renderPage();
 
+
         return true;
 
     }
+
 
     /*
     ------------------------------------------------------
@@ -3025,6 +3091,7 @@ RFQ.setQuantity = async function (
         return false;
 
     }
+
 
     /*
     ------------------------------------------------------
@@ -3058,6 +3125,7 @@ RFQ.setQuantity = async function (
 
             .maybeSingle();
 
+
     if (findError) {
 
         console.error(
@@ -3068,6 +3136,7 @@ RFQ.setQuantity = async function (
         return false;
 
     }
+
 
     /*
     ------------------------------------------------------
@@ -3103,6 +3172,7 @@ RFQ.setQuantity = async function (
                     user.id
                 );
 
+
         if (error) {
 
             console.error(
@@ -3115,6 +3185,7 @@ RFQ.setQuantity = async function (
         }
 
     }
+
 
     /*
     ------------------------------------------------------
@@ -3158,6 +3229,7 @@ RFQ.setQuantity = async function (
 
                 });
 
+
         if (error) {
 
             console.error(
@@ -3171,13 +3243,16 @@ RFQ.setQuantity = async function (
 
     }
 
+
     await RFQ.updateBadge();
 
     await RFQ.renderPage();
 
+
     return true;
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -3205,8 +3280,10 @@ RFQ.add = async function (
 
     }
 
+
     const items =
         await RFQ.get();
+
 
     const existing =
         items.find(
@@ -3216,6 +3293,7 @@ RFQ.add = async function (
                 product.id
 
         );
+
 
     if (existing) {
 
@@ -3231,6 +3309,7 @@ RFQ.add = async function (
 
     }
 
+
     return RFQ.setQuantity(
 
         product.id,
@@ -3242,6 +3321,7 @@ RFQ.add = async function (
     );
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -3260,13 +3340,16 @@ document.addEventListener(
                 ".add-to-cart"
             );
 
+
         if (!button) {
 
             return;
 
         }
 
+
         event.preventDefault();
+
 
         RFQ.add({
 
@@ -3316,6 +3399,7 @@ document.addEventListener(
 
 );
 
+
 /*
 ----------------------------------------------------------
 RENDER RFQ PAGE
@@ -3329,14 +3413,17 @@ RFQ.renderPage = async function () {
             "rfq-items"
         );
 
+
     if (!table) {
 
         return;
 
     }
 
+
     const items =
         await RFQ.get();
+
 
     if (!items.length) {
 
@@ -3357,6 +3444,7 @@ RFQ.renderPage = async function () {
         return;
 
     }
+
 
     table.innerHTML =
 
@@ -3391,6 +3479,7 @@ RFQ.renderPage = async function () {
                             item.qty
                         ) || 1
                     );
+
 
                 return `
 
@@ -3429,11 +3518,13 @@ RFQ.renderPage = async function () {
 
                                 </button>
 
+
                                 <span>
 
                                     ${qty}
 
                                 </span>
+
 
                                 <button
                                     type="button"
@@ -3474,6 +3565,7 @@ RFQ.renderPage = async function () {
 
 };
 
+
 /*
 ----------------------------------------------------------
 CHANGE QUANTITY
@@ -3490,6 +3582,7 @@ RFQ.changeQty = async function (
     const items =
         await RFQ.get();
 
+
     const item =
         items.find(
 
@@ -3503,11 +3596,13 @@ RFQ.changeQty = async function (
 
         );
 
+
     if (!item) {
 
         return;
 
     }
+
 
     const newQuantity =
         Number(
@@ -3516,6 +3611,7 @@ RFQ.changeQty = async function (
         Number(
             amount
         );
+
 
     /*
     ------------------------------------------------------
@@ -3536,6 +3632,7 @@ RFQ.changeQty = async function (
 
     }
 
+
     /*
     ------------------------------------------------------
     ANONYMOUS
@@ -3545,10 +3642,12 @@ RFQ.changeQty = async function (
     const user =
         await RFQ.getUser();
 
+
     if (!user) {
 
         const guestItems =
             RFQ.getGuestItems();
+
 
         const guestIndex =
             guestItems.findIndex(
@@ -3563,6 +3662,7 @@ RFQ.changeQty = async function (
 
             );
 
+
         if (
             guestIndex <
             0
@@ -3572,22 +3672,27 @@ RFQ.changeQty = async function (
 
         }
 
+
         guestItems[
             guestIndex
         ].qty =
             newQuantity;
 
+
         RFQ.saveGuestItems(
             guestItems
         );
+
 
         await RFQ.updateBadge();
 
         await RFQ.renderPage();
 
+
         return;
 
     }
+
 
     /*
     ------------------------------------------------------
@@ -3603,6 +3708,7 @@ RFQ.changeQty = async function (
         return;
 
     }
+
 
     const {
         data: dbItem,
@@ -3630,6 +3736,7 @@ RFQ.changeQty = async function (
 
             .maybeSingle();
 
+
     if (findError) {
 
         console.error(
@@ -3641,11 +3748,13 @@ RFQ.changeQty = async function (
 
     }
 
+
     if (!dbItem) {
 
         return;
 
     }
+
 
     const {
         error: updateError
@@ -3673,6 +3782,7 @@ RFQ.changeQty = async function (
                 user.id
             );
 
+
     if (updateError) {
 
         console.error(
@@ -3684,11 +3794,13 @@ RFQ.changeQty = async function (
 
     }
 
+
     await RFQ.updateBadge();
 
     await RFQ.renderPage();
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -3705,6 +3817,7 @@ RFQ.remove = async function (
     const user =
         await RFQ.getUser();
 
+
     /*
     ------------------------------------------------------
     ANONYMOUS
@@ -3715,6 +3828,7 @@ RFQ.remove = async function (
 
         const items =
             RFQ.getGuestItems();
+
 
         const filtered =
             items.filter(
@@ -3729,17 +3843,21 @@ RFQ.remove = async function (
 
             );
 
+
         RFQ.saveGuestItems(
             filtered
         );
+
 
         await RFQ.updateBadge();
 
         await RFQ.renderPage();
 
+
         return;
 
     }
+
 
     /*
     ------------------------------------------------------
@@ -3755,6 +3873,7 @@ RFQ.remove = async function (
         return;
 
     }
+
 
     const {
         error
@@ -3777,6 +3896,7 @@ RFQ.remove = async function (
                 productId
             );
 
+
     if (error) {
 
         console.error(
@@ -3788,11 +3908,13 @@ RFQ.remove = async function (
 
     }
 
+
     await RFQ.updateBadge();
 
     await RFQ.renderPage();
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -3811,6 +3933,7 @@ RFQ.clear = async function () {
 
     const user =
         await RFQ.getUser();
+
 
     /*
     ------------------------------------------------------
@@ -3835,13 +3958,16 @@ RFQ.clear = async function () {
 
         }
 
+
         await RFQ.updateBadge();
 
         await RFQ.renderPage();
 
+
         return true;
 
     }
+
 
     /*
     ------------------------------------------------------
@@ -3862,6 +3988,7 @@ RFQ.clear = async function () {
 
     }
 
+
     const {
         error
     } =
@@ -3878,6 +4005,7 @@ RFQ.clear = async function () {
                 user.id
             );
 
+
     if (error) {
 
         console.error(
@@ -3889,13 +4017,16 @@ RFQ.clear = async function () {
 
     }
 
+
     await RFQ.updateBadge();
 
     await RFQ.renderPage();
 
+
     return true;
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -3915,20 +4046,24 @@ RFQ.mergeGuestBasket = async function () {
     const user =
         await RFQ.getUser();
 
+
     if (!user) {
 
         return;
 
     }
 
+
     const guestItems =
         RFQ.getGuestItems();
+
 
     if (!guestItems.length) {
 
         return;
 
     }
+
 
     for (
         const item
@@ -3963,6 +4098,7 @@ RFQ.mergeGuestBasket = async function () {
 
                     .maybeSingle();
 
+
             if (error) {
 
                 console.error(
@@ -3973,6 +4109,7 @@ RFQ.mergeGuestBasket = async function () {
                 continue;
 
             }
+
 
             if (existing) {
 
@@ -4009,6 +4146,7 @@ RFQ.mergeGuestBasket = async function () {
                             "user_id",
                             user.id
                         );
+
 
                 if (updateError) {
 
@@ -4053,6 +4191,7 @@ RFQ.mergeGuestBasket = async function () {
 
                         });
 
+
                 if (insertError) {
 
                     console.error(
@@ -4075,6 +4214,7 @@ RFQ.mergeGuestBasket = async function () {
 
     }
 
+
     /*
     ------------------------------------------------------
     CLEAR GUEST BASKET ONLY AFTER MERGE ATTEMPT
@@ -4096,11 +4236,13 @@ RFQ.mergeGuestBasket = async function () {
 
     }
 
+
     await RFQ.updateBadge();
 
     await RFQ.renderPage();
 
 };
+
 
 /*
 ----------------------------------------------------------
@@ -4119,9 +4261,11 @@ document.addEventListener(
                 ".qty-plus"
             );
 
+
         if (plus) {
 
             event.preventDefault();
+
 
             RFQ.changeQty(
 
@@ -4131,18 +4275,22 @@ document.addEventListener(
 
             );
 
+
             return;
 
         }
+
 
         const minus =
             event.target.closest(
                 ".qty-minus"
             );
 
+
         if (minus) {
 
             event.preventDefault();
+
 
             RFQ.changeQty(
 
@@ -4152,18 +4300,22 @@ document.addEventListener(
 
             );
 
+
             return;
 
         }
+
 
         const remove =
             event.target.closest(
                 ".remove-rfq"
             );
 
+
         if (remove) {
 
             event.preventDefault();
+
 
             RFQ.remove(
 
@@ -4176,6 +4328,7 @@ document.addEventListener(
     }
 
 );
+
 
 /*
 ----------------------------------------------------------
@@ -4196,6 +4349,7 @@ document.addEventListener(
     }
 
 );
+
 
 /*
 ----------------------------------------------------------
@@ -4222,6 +4376,7 @@ document.addEventListener(
 
         }
 
+
         supabaseClient.auth.onAuthStateChange(
 
             (
@@ -4233,6 +4388,7 @@ document.addEventListener(
                     "[Souviks RFQ] Auth event:",
                     event
                 );
+
 
                 /*
                 ------------------------------------------
@@ -4261,9 +4417,11 @@ document.addEventListener(
 
                     );
 
+
                     return;
 
                 }
+
 
                 /*
                 ------------------------------------------
@@ -4322,7 +4480,9 @@ Database fields:
 ==========================================================
 */
 
+
 const SavedProducts = {};
+
 
 /*
 ==========================================================
@@ -4343,6 +4503,7 @@ SavedProducts.state = {
 
 };
 
+
 /*
 ==========================================================
 INITIALIZE
@@ -4359,8 +4520,10 @@ SavedProducts.init = async function () {
 
     }
 
+
     SavedProducts.state.initialized =
         true;
+
 
     /*
     ------------------------------------------------------
@@ -4381,6 +4544,7 @@ SavedProducts.init = async function () {
 
     }
 
+
     try {
 
         const {
@@ -4389,15 +4553,18 @@ SavedProducts.init = async function () {
         } =
             await supabaseClient.auth.getUser();
 
+
         if (error) {
 
             throw error;
 
         }
 
+
         SavedProducts.state.user =
             data?.user ||
             null;
+
 
         /*
         --------------------------------------------------
@@ -4413,9 +4580,11 @@ SavedProducts.init = async function () {
 
         }
 
+
         await SavedProducts.load();
 
         SavedProducts.updateButtons();
+
 
     }
 
@@ -4429,6 +4598,7 @@ SavedProducts.init = async function () {
     }
 
 };
+
 
 /*
 ==========================================================
@@ -4446,6 +4616,7 @@ SavedProducts.getUser = async function () {
 
     }
 
+
     if (
         typeof supabaseClient ===
         "undefined"
@@ -4455,6 +4626,7 @@ SavedProducts.getUser = async function () {
 
     }
 
+
     try {
 
         const {
@@ -4463,15 +4635,18 @@ SavedProducts.getUser = async function () {
         } =
             await supabaseClient.auth.getUser();
 
+
         if (error) {
 
             throw error;
 
         }
 
+
         SavedProducts.state.user =
             data?.user ||
             null;
+
 
         return (
             SavedProducts.state.user
@@ -4492,6 +4667,7 @@ SavedProducts.getUser = async function () {
 
 };
 
+
 /*
 ==========================================================
 LOAD SAVED PRODUCTS
@@ -4503,6 +4679,7 @@ SavedProducts.load = async function () {
     const user =
         await SavedProducts.getUser();
 
+
     if (!user) {
 
         SavedProducts.state.savedIds =
@@ -4511,6 +4688,7 @@ SavedProducts.load = async function () {
         return [];
 
     }
+
 
     const {
         data,
@@ -4531,6 +4709,7 @@ SavedProducts.load = async function () {
                 user.id
             );
 
+
     if (error) {
 
         console.error(
@@ -4542,8 +4721,10 @@ SavedProducts.load = async function () {
 
     }
 
+
     const rows =
         data || [];
+
 
     SavedProducts.state.savedIds =
         new Set(
@@ -4558,9 +4739,11 @@ SavedProducts.load = async function () {
 
         );
 
+
     return rows;
 
 };
+
 
 /*
 ==========================================================
@@ -4583,6 +4766,7 @@ SavedProducts.isSaved = function (
 
     }
 
+
     return SavedProducts.state.savedIds.has(
         String(
             productId
@@ -4590,6 +4774,7 @@ SavedProducts.isSaved = function (
     );
 
 };
+
 
 /*
 ==========================================================
@@ -4616,8 +4801,10 @@ SavedProducts.save = async function (
 
     }
 
+
     const user =
         await SavedProducts.getUser();
+
 
     /*
     ------------------------------------------------------
@@ -4633,10 +4820,12 @@ SavedProducts.save = async function (
 
     }
 
+
     const normalizedId =
         String(
             productId
         );
+
 
     /*
     ------------------------------------------------------
@@ -4653,6 +4842,7 @@ SavedProducts.save = async function (
         return true;
 
     }
+
 
     const {
         error
@@ -4672,6 +4862,7 @@ SavedProducts.save = async function (
                     normalizedId
 
             });
+
 
     if (error) {
 
@@ -4699,6 +4890,7 @@ SavedProducts.save = async function (
 
         }
 
+
         console.error(
             "[Souviks Saved] Failed to save product:",
             error
@@ -4708,17 +4900,21 @@ SavedProducts.save = async function (
 
     }
 
+
     SavedProducts.state.savedIds.add(
         normalizedId
     );
+
 
     SavedProducts.updateButton(
         normalizedId
     );
 
+
     return true;
 
 };
+
 
 /*
 ==========================================================
@@ -4741,8 +4937,10 @@ SavedProducts.remove = async function (
 
     }
 
+
     const user =
         await SavedProducts.getUser();
+
 
     if (!user) {
 
@@ -4752,10 +4950,12 @@ SavedProducts.remove = async function (
 
     }
 
+
     const normalizedId =
         String(
             productId
         );
+
 
     const {
         error
@@ -4778,6 +4978,7 @@ SavedProducts.remove = async function (
                 normalizedId
             );
 
+
     if (error) {
 
         console.error(
@@ -4789,13 +4990,16 @@ SavedProducts.remove = async function (
 
     }
 
+
     SavedProducts.state.savedIds.delete(
         normalizedId
     );
 
+
     SavedProducts.updateButton(
         normalizedId
     );
+
 
     /*
     ------------------------------------------------------
@@ -4812,9 +5016,11 @@ SavedProducts.remove = async function (
 
     }
 
+
     return true;
 
 };
+
 
 /*
 ==========================================================
@@ -4840,6 +5046,7 @@ SavedProducts.toggle = async function (
 
     }
 
+
     return (
         await SavedProducts.save(
             productId
@@ -4847,6 +5054,7 @@ SavedProducts.toggle = async function (
     );
 
 };
+
 
 /*
 ==========================================================
@@ -4861,6 +5069,7 @@ SavedProducts.updateButtons = function () {
             "[data-saved-product-id]"
         );
 
+
     buttons.forEach(
         button => {
 
@@ -4872,6 +5081,7 @@ SavedProducts.updateButtons = function () {
     );
 
 };
+
 
 /*
 ==========================================================
@@ -4892,6 +5102,7 @@ SavedProducts.updateButton = function (
             )}"]`
         );
 
+
     buttons.forEach(
         button => {
 
@@ -4903,6 +5114,7 @@ SavedProducts.updateButton = function (
     );
 
 };
+
 
 /*
 ==========================================================
@@ -4918,15 +5130,18 @@ SavedProducts.updateButtonElement =
         const productId =
             button.dataset.savedProductId;
 
+
         const saved =
             SavedProducts.isSaved(
                 productId
             );
 
+
         button.classList.toggle(
             "is-saved",
             saved
         );
+
 
         button.setAttribute(
             "aria-pressed",
@@ -4935,6 +5150,7 @@ SavedProducts.updateButtonElement =
             )
         );
 
+
         button.setAttribute(
             "data-saved",
             saved
@@ -4942,20 +5158,24 @@ SavedProducts.updateButtonElement =
                 : "false"
         );
 
+
         const label =
             saved
                 ? "Remove from saved products"
                 : "Save product";
+
 
         button.setAttribute(
             "aria-label",
             label
         );
 
+
         const text =
             button.querySelector(
                 "[data-saved-label]"
             );
+
 
         if (text) {
 
@@ -4966,10 +5186,12 @@ SavedProducts.updateButtonElement =
 
         }
 
+
         const icon =
             button.querySelector(
                 "[data-saved-icon]"
             );
+
 
         if (icon) {
 
@@ -4981,6 +5203,7 @@ SavedProducts.updateButtonElement =
         }
 
     };
+
 
 /*
 ==========================================================
@@ -5001,13 +5224,16 @@ SavedProducts.handleAuthenticationRequired =
         const loginUrl =
             `/${encodeURIComponent(window.souviks?.currentLanguage || "en")}/login`;
 
+
         const currentUrl =
             window.location.href;
+
 
         const separator =
             loginUrl.includes("?")
                 ? "&"
                 : "?";
+
 
         window.location.href =
             loginUrl +
@@ -5018,6 +5244,7 @@ SavedProducts.handleAuthenticationRequired =
             );
 
     };
+
 
 /*
 ==========================================================
@@ -5040,6 +5267,7 @@ document.addEventListener(
 
         }
 
+
         /*
         --------------------------------------------------
         Completely isolate Save-button clicks from the
@@ -5060,8 +5288,10 @@ document.addEventListener(
 
         }
 
+
         const productId =
             button.dataset.savedProductId;
+
 
         if (!productId) {
 
@@ -5069,13 +5299,16 @@ document.addEventListener(
 
         }
 
+
         if (button.disabled) {
 
             return;
 
         }
 
+
         button.disabled = true;
+
 
         try {
 
@@ -5104,6 +5337,7 @@ document.addEventListener(
     true
 );
 
+
 /*
 ==========================================================
 AUTH STATE
@@ -5124,6 +5358,7 @@ document.addEventListener(
     }
 );
 
+
 /*
 ==========================================================
 GLOBAL API
@@ -5141,3 +5376,4 @@ document.addEventListener(
         await Products.hydrateProductPage();
     }
 );
+
