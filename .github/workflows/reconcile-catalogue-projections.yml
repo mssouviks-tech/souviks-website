@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "assets/data/catalogue-index.json"
+      - "assets/data/catalogue_overrides.json"
+      - "assets/data/products.json"
+      - "assets/data/search.json"
+      - "en/products/**"
+      - "bn/products/**"
+      - "hi/products/**"
   workflow_dispatch:
 
 permissions:
@@ -11,7 +19,11 @@ permissions:
 
 jobs:
   reconcile:
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
+    concurrency:
+      group: souviks-catalogue-reconcile
+      cancel-in-progress: false
     steps:
       - name: Check out main
         uses: actions/checkout@v4
@@ -31,7 +43,6 @@ jobs:
           CATALOGUE_PATH = ROOT / "assets/data/catalogue-index.json"
           PRODUCTS_PATH = ROOT / "assets/data/products.json"
           SEARCH_PATH = ROOT / "assets/data/search.json"
-          now = "2026-10-06T12:35:00+05:30"
 
           catalogue = json.loads(CATALOGUE_PATH.read_text(encoding="utf-8"))
 
@@ -87,7 +98,7 @@ jobs:
                       "applications": arr(sheet_row.get("applications")),
                       "featured": bool(sheet_row.get("featured")),
                       "active": sheet_row.get("active") is not False,
-                      "catalogue_updated_at": text(override.get("updated_at")) or now,
+                      "catalogue_updated_at": text(override.get("updated_at")) or text(current.get("catalogue_updated_at")),
                   })
                   current.setdefault("manufacturer_part_numbers", [])
                   current.setdefault("alternate_part_numbers", [])
@@ -160,7 +171,7 @@ jobs:
                   "gallery": list(p.get("gallery") or []),
                   "gallery_dimensions": dict(p.get("gallery_dimensions") or {}),
                   "catalogue_updated_at": text(p.get("catalogue_updated_at")) or now,
-                  "updated_at": now,
+                  "updated_at": text(p.get("updated_at") or p.get("catalogue_updated_at")),
               }
 
           def search_from_catalogue(p):
@@ -349,7 +360,11 @@ jobs:
                   data["category"] = data["category_name"]
                   data["part_number"] = part
                   data["partNumber"] = part
-                  data["updated_at"] = now
+                  data["updated_at"] = text(
+                      product.get("updated_at")
+                      or product.get("catalogue_updated_at")
+                      or data.get("catalogue_updated_at")
+                  )
                   data["seo"] = dict(data.get("seo") or {})
                   data["seo"]["title"] = title
                   data["seo"]["description"] = description
@@ -434,10 +449,17 @@ jobs:
               print("Catalogue projections already synchronized.")
               raise SystemExit(0)
 
+          print(f"Prepared {len(changed)} catalogue projection file changes.")
+
           PRODUCTS_PATH.write_text(json.dumps(products, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
           SEARCH_PATH.write_text(json.dumps(search, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
           if override_path.exists():
               override_path.unlink()
+
+          subprocess.run(
+              ["python3", "scripts/catalogue/validate.py"],
+              check=True,
+          )
 
           subprocess.run(["git","config","user.name","github-actions[bot]"], check=True)
           subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"], check=True)
