@@ -33,7 +33,7 @@ jobs:
 
           root = pathlib.Path(".")
           legacy = re.compile(
-              r"/(?:account|login|register|forgot-password|reset-password|request-part|request-quote|thank-you|products|brands|categories|vehicles|about|contact|privacy-policy|terms|refund)\\.html(?:[?#]|$)"
+              r"/(?:account|login|register|forgot-password|reset-password|request-part|request-quote|thank-you|products|brands|categories|vehicles|about|contact|privacy-policy|terms|refund)\.html(?:[?#]|$)"
           )
 
           offenders = []
@@ -888,7 +888,7 @@ jobs:
               errors.append("Duplicate URL present across child sitemaps.")
 
           for url in all_urls:
-              m = re.match(r"https://www\\.souviks\\.co\\.in/(en|hi|bn)(/.*)?$", url)
+              m = re.match(r"https://www\.souviks\.co\.in/(en|hi|bn)(/.*)?$", url)
               if not m:
                   errors.append(f"Unexpected sitemap URL: {url}")
                   continue
@@ -909,7 +909,7 @@ jobs:
 
               html = file_path.read_text(encoding="utf-8", errors="ignore")
               robots = re.search(
-                  r'<meta\\b[^>]*name=["\\\']robots["\\\'][^>]*content=["\\\']([^"\\\']+)',
+                  r'<meta\b[^>]*name=["\\\']robots["\\\'][^>]*content=["\\\']([^"\\\']+)',
                   html,
                   flags=re.I,
               )
@@ -917,7 +917,7 @@ jobs:
                   errors.append(f"Sitemap contains noindex page: {url}")
 
               canonical = re.search(
-                  r'<link\\b[^>]*rel=["\\\']canonical["\\\'][^>]*href=["\\\']([^"\\\']+)',
+                  r'<link\b[^>]*rel=["\\\']canonical["\\\'][^>]*href=["\\\']([^"\\\']+)',
                   html,
                   flags=re.I,
               )
