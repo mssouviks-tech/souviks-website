@@ -83,7 +83,7 @@ jobs:
       - name: Sync static product images and galleries
         shell: python
         run: |
-          import html
+          import html as html_module
           import json
           import pathlib
           import re
@@ -165,7 +165,7 @@ jobs:
                       re.S,
                   )
                   if thumb_match:
-                      product_name = html.escape(str(refreshed.get("product_name") or refreshed.get("name") or "Product"), quote=True)
+                      product_name = html_module.escape(str(refreshed.get("product_name") or refreshed.get("name") or "Product"), quote=True)
                       thumbs = []
                       for index, filename in enumerate(gallery, start=1):
                           src = image_url(product, filename)
@@ -356,7 +356,7 @@ jobs:
                           count=1,
                           flags=re.I,
                       )
-                      image_alt = html.escape(
+                      image_alt = html_module.escape(
                           str(product.get("product_name") or product.get("name") or "Product image"),
                           quote=True,
                       )
