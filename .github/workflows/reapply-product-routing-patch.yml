@@ -376,12 +376,67 @@ jobs:
                           if head_close:
                               html = html[:head_close.start()] + "\n" + schema_html + html[head_close.start():]
 
+                  # Ensure every product PDP has a valid BreadcrumbList.
+                  jsonld_blocks_after = re.findall(
+                      r'<script\\b[^>]*type=["\\']application/ld\\+json["\\'][^>]*>(.*?)</script>',
+                      html,
+                      flags=re.I | re.S,
+                  )
+                  has_breadcrumb = False
+                  for block in jsonld_blocks_after:
+                      try:
+                          obj = json.loads(block.strip())
+                      except json.JSONDecodeError:
+                          continue
+                      graph = obj.get("@graph") if isinstance(obj, dict) else None
+                      nodes = graph if isinstance(graph, list) else [obj]
+                      for node in nodes:
+                          if isinstance(node, dict) and node.get("@type") == "BreadcrumbList":
+                              has_breadcrumb = True
+                              break
+                      if has_breadcrumb:
+                          break
+
+                  if not has_breadcrumb:
+                      breadcrumb = {
+                          "@context": "https://schema.org",
+                          "@type": "BreadcrumbList",
+                          "itemListElement": [
+                              {
+                                  "@type": "ListItem",
+                                  "position": 1,
+                                  "name": "Home",
+                                  "item": f"https://www.souviks.co.in/{lang}/",
+                              },
+                              {
+                                  "@type": "ListItem",
+                                  "position": 2,
+                                  "name": str(product.get("category_name") or product.get("category") or "Products"),
+                                  "item": f"https://www.souviks.co.in/{lang}/categories/{text(product.get('category_id'))}",
+                              },
+                              {
+                                  "@type": "ListItem",
+                                  "position": 3,
+                                  "name": name,
+                                  "item": url,
+                              },
+                          ],
+                      }
+                      breadcrumb_html = (
+                          '    <script type="application/ld+json">\\n'
+                          + json.dumps(breadcrumb, ensure_ascii=False, indent=2)
+                          + '\\n    </script>\\n\\n'
+                      )
+                      head_close = re.search(r'</head>', html, flags=re.I)
+                      if head_close:
+                          html = html[:head_close.start()] + breadcrumb_html + html[head_close.start():]
+
                   if html != original:
                       path.write_text(html, encoding="utf-8")
                       changed.append(str(path))
 
           if not changed:
-              print("Product JSON-LD is already complete.")
+              print("Product JSON-LD and BreadcrumbList are already complete.")
           else:
               print(f"Repaired Product JSON-LD in {len(changed)} pages.")
               subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
