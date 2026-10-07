@@ -750,6 +750,34 @@ jobs:
                       errors.append(f"Missing BreadcrumbList: {path}")
                   if "Part Number: ." in html:
                       errors.append(f"Broken blank part-number SEO text: {path}")
+
+                  title_match = re.search(r"<title>(.*?)</title>", html, flags=re.I | re.S)
+                  if not title_match:
+                      errors.append(f"Missing title: {path}")
+                  else:
+                      title_value = re.sub(r"<[^>]+>", "", title_match.group(1)).strip()
+                      if len(title_value) > 70:
+                          errors.append(f"Product title too long ({len(title_value)} chars): {path}")
+                      if title_value.count(" | Souviks") > 1:
+                          errors.append(f"Duplicated product title suffix: {path}")
+                      product_name = str(product.get("product_name") or product.get("name") or "").strip()
+                      if product_name and title_value.count(product_name) > 1:
+                          errors.append(f"Duplicated product name in title: {path}")
+
+                  description_match = re.search(
+                      r'<meta\b[^>]*name=["\']description["\'][^>]*content=["\']([^"\']*)',
+                      html,
+                      flags=re.I | re.S,
+                  )
+                  if not description_match:
+                      errors.append(f"Missing meta description: {path}")
+                  else:
+                      description_value = description_match.group(1).strip()
+                      if not 70 <= len(description_value) <= 170:
+                          errors.append(
+                              f"Product meta description length {len(description_value)} outside 70-170: {path}"
+                          )
+
                   if re.search(r"<strong>\s*Part Number\s*</strong>\s*<span>\s*</span>", html, re.I):
                       errors.append(f"Blank part-number detail row: {path}")
 
