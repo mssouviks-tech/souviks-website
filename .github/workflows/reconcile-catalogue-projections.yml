@@ -1,0 +1,355 @@
+name: Reconcile Catalogue Projections
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Reconcile catalogue projections
+        shell: python
+        run: |
+          import json
+          import pathlib
+          import re
+          import subprocess
+
+          ROOT = pathlib.Path(".")
+          CATALOGUE_PATH = ROOT / "assets/data/catalogue-index.json"
+          PRODUCTS_PATH = ROOT / "assets/data/products.json"
+          SEARCH_PATH = ROOT / "assets/data/search.json"
+          now = "2026-10-06T12:35:00+05:30"
+
+          catalogue = json.loads(CATALOGUE_PATH.read_text(encoding="utf-8"))
+
+          def text(v):
+              return str(v or "").strip()
+
+          def arr(v):
+              if isinstance(v, list):
+                  return [text(x) for x in v if text(x)]
+              return [x.strip() for x in re.split(r"[,;]", text(v)) if x.strip()]
+
+          # A temporary sheet override file is used for an exact workbook-to-catalogue
+          # reconciliation. It is deleted after the projection commit.
+          override_path = ROOT / "assets/data/catalogue_overrides.json"
+          if override_path.exists():
+              override = json.loads(override_path.read_text(encoding="utf-8"))
+              overrides = {text(p.get("id")): p for p in override.get("products", []) if p.get("id")}
+              category_updates = {text(p.get("id")): p for p in override.get("category_updates", []) if p.get("id")}
+
+              by_id = {text(p.get("id")): p for p in catalogue if p.get("id")}
+
+              for pid, sheet_row in overrides.items():
+                  current = by_id.get(pid)
+                  if current is None:
+                      current = {}
+                      catalogue.append(current)
+                      by_id[pid] = current
+
+                  part = text(sheet_row.get("part_number"))
+                  slug = text(sheet_row.get("slug"))
+                  current.update({
+                      "id": pid,
+                      "slug": slug,
+                      "part_number": part,
+                      "manufacturer_part_number": text(sheet_row.get("manufacturer_part_number")),
+                      "mrp": sheet_row.get("mrp"),
+                      "selling_price": sheet_row.get("selling_price"),
+                      "product_name": text(sheet_row.get("product_name")),
+                      "name": text(sheet_row.get("product_name")),
+                      "partNumber": part,
+                      "brand_id": text(sheet_row.get("brand_id")),
+                      "brand_name": text(sheet_row.get("brand_name")),
+                      "brand": text(sheet_row.get("brand_name")),
+                      "category_id": text(sheet_row.get("category_id")),
+                      "category_name": text(sheet_row.get("category_name")),
+                      "category": text(sheet_row.get("category_name")),
+                      "subcategory_id": text(sheet_row.get("subcategory_id")),
+                      "subcategory_name": text(sheet_row.get("subcategory_name")),
+                      "subcategory": text(sheet_row.get("subcategory_name")),
+                      "description": text(sheet_row.get("description")),
+                      "image_folder": text(sheet_row.get("image_folder") or pid),
+                      "vehicles": arr(sheet_row.get("vehicles")),
+                      "applications": arr(sheet_row.get("applications")),
+                      "featured": bool(sheet_row.get("featured")),
+                      "active": sheet_row.get("active") is not False,
+                      "catalogue_updated_at": text(override.get("updated_at")) or now,
+                  })
+                  current.setdefault("manufacturer_part_numbers", [])
+                  current.setdefault("alternate_part_numbers", [])
+                  current.setdefault("oem_numbers", [])
+                  current.setdefault("cross_references", [])
+                  current.setdefault("gallery", [])
+                  current.setdefault("gallery_dimensions", {})
+                  current.setdefault("image", "")
+                  current.setdefault("primary_image", "")
+                  current.setdefault("image_url", "/assets/images/placeholder.webp")
+
+              for pid, fix in category_updates.items():
+                  current = by_id.get(pid)
+                  if current is None:
+                      continue
+                  current["category_id"] = text(fix.get("category_id"))
+                  current["category_name"] = text(fix.get("category_name"))
+                  current["category"] = current["category_name"]
+                  current["subcategory_id"] = text(fix.get("subcategory_id"))
+                  current["subcategory_name"] = text(fix.get("subcategory_name"))
+                  current["subcategory"] = current["subcategory_name"]
+                  current["catalogue_updated_at"] = text(override.get("updated_at")) or now
+
+              CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+          active = [p for p in catalogue if p.get("active") is not False and p.get("id")]
+          count = len(active)
+
+          def part_number(p):
+              slug = text(p.get("slug"))
+              match = re.match(r"^tata-genuine-(\d{12})-", slug, re.I)
+              if match:
+                  return match.group(1)
+              return text(p.get("part_number") or p.get("partNumber"))
+
+          def product_from_catalogue(p):
+              part = part_number(p)
+              return {
+                  "id": text(p.get("id")),
+                  "slug": text(p.get("slug")),
+                  "part_number": part,
+                  "manufacturer_part_number": text(p.get("manufacturer_part_number")),
+                  "manufacturer_part_numbers": [text(p.get("manufacturer_part_number"))] if text(p.get("manufacturer_part_number")) else [],
+                  "alternate_part_numbers": list(p.get("alternate_part_numbers") or []),
+                  "oem_numbers": list(p.get("oem_numbers") or []),
+                  "cross_references": list(p.get("cross_references") or []),
+                  "mrp": p.get("mrp"),
+                  "selling_price": p.get("selling_price"),
+                  "product_name": text(p.get("product_name") or p.get("name")),
+                  "name": text(p.get("name") or p.get("product_name")),
+                  "partNumber": part,
+                  "brand_id": text(p.get("brand_id")),
+                  "brand_name": text(p.get("brand_name") or p.get("brand")),
+                  "brand": text(p.get("brand") or p.get("brand_name")),
+                  "category_id": text(p.get("category_id")),
+                  "category_name": text(p.get("category_name") or p.get("category")),
+                  "category": text(p.get("category") or p.get("category_name")),
+                  "subcategory_id": text(p.get("subcategory_id")),
+                  "subcategory_name": text(p.get("subcategory_name") or p.get("subcategory")),
+                  "subcategory": text(p.get("subcategory") or p.get("subcategory_name")),
+                  "image": text(p.get("image")),
+                  "primary_image": text(p.get("primary_image")),
+                  "image_url": text(p.get("image_url")) or "/assets/images/placeholder.webp",
+                  "vehicles": arr(p.get("vehicles")),
+                  "applications": arr(p.get("applications")),
+                  "featured": bool(p.get("featured")),
+                  "active": p.get("active") is not False,
+                  "description": text(p.get("description")),
+                  "image_folder": text(p.get("image_folder") or p.get("id")),
+                  "gallery": list(p.get("gallery") or []),
+                  "gallery_dimensions": dict(p.get("gallery_dimensions") or {}),
+                  "catalogue_updated_at": text(p.get("catalogue_updated_at")) or now,
+                  "updated_at": now,
+              }
+
+          def search_from_catalogue(p):
+              part = part_number(p)
+              name = text(p.get("product_name") or p.get("name"))
+              brand = text(p.get("brand_name") or p.get("brand"))
+              category = text(p.get("category_name") or p.get("category"))
+              vehicles = arr(p.get("vehicles"))
+              description = text(p.get("description"))
+              keywords = [v for v in [name, part, brand, category, text(p.get("subcategory_name") or p.get("subcategory")), description, *vehicles] if v]
+              return {
+                  "id": text(p.get("id")),
+                  "type": "product",
+                  "title": name,
+                  "subtitle": f"Part No. {part}" if part else "Part number on request",
+                  "keywords": keywords,
+                  "description": description,
+                  "applications": arr(p.get("applications")),
+                  "vehicles": vehicles,
+                  "part_number": part,
+                  "manufacturer_part_number": text(p.get("manufacturer_part_number")),
+                  "manufacturer_part_numbers": [text(p.get("manufacturer_part_number"))] if text(p.get("manufacturer_part_number")) else [],
+                  "alternate_part_numbers": list(p.get("alternate_part_numbers") or []),
+                  "oem_numbers": list(p.get("oem_numbers") or []),
+                  "cross_references": list(p.get("cross_references") or []),
+                  "slug": text(p.get("slug")),
+                  "url": f"/en/products/{text(p.get('slug'))}",
+                  "image": text(p.get("image")),
+                  "icon": "",
+                  "category": {"id": text(p.get("category_id")), "name": category},
+                  "brand": {"id": text(p.get("brand_id")), "name": brand},
+                  "vehicle_count": len(vehicles),
+                  "product_count": 0,
+                  "featured": bool(p.get("featured")),
+                  "active": p.get("active") is not False,
+                  "weight": 100,
+              }
+
+          changed = set()
+          products = json.loads(PRODUCTS_PATH.read_text(encoding="utf-8"))
+          product_by_id = {text(p.get("id")): p for p in products if p.get("id")}
+
+          for p in active:
+              pid = text(p.get("id"))
+              current = product_by_id.get(pid)
+              if current is None:
+                  products.append(product_from_catalogue(p))
+                  changed.add(str(PRODUCTS_PATH))
+                  continue
+
+              fields = {
+                  "category_id": text(p.get("category_id")),
+                  "category_name": text(p.get("category_name") or p.get("category")),
+                  "subcategory_id": text(p.get("subcategory_id")),
+                  "subcategory_name": text(p.get("subcategory_name") or p.get("subcategory")),
+              }
+              if any(text(current.get(k)) != text(v) for k, v in fields.items()):
+                  current.update(fields)
+                  current["category"] = fields["category_name"]
+                  current["subcategory"] = fields["subcategory_name"]
+                  current["updated_at"] = now
+                  changed.add(str(PRODUCTS_PATH))
+
+          search = json.loads(SEARCH_PATH.read_text(encoding="utf-8"))
+          search_by_id = {text(p.get("id")): p for p in search if p.get("type") == "product" and p.get("id")}
+
+          for p in active:
+              pid = text(p.get("id"))
+              current = search_by_id.get(pid)
+              if current is None:
+                  search.append(search_from_catalogue(p))
+                  changed.add(str(SEARCH_PATH))
+                  continue
+              desired_category = {"id": text(p.get("category_id")), "name": text(p.get("category_name") or p.get("category"))}
+              if current.get("category") != desired_category:
+                  current["category"] = desired_category
+                  changed.add(str(SEARCH_PATH))
+
+          by_id = {text(p.get("id")): p for p in active}
+          for lang in ("en", "hi", "bn"):
+              for path in (ROOT / lang / "products").glob("*.html"):
+                  html = path.read_text(encoding="utf-8")
+                  original = html
+                  match = re.search(r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});', html, re.S)
+                  if not match:
+                      continue
+                  try:
+                      data = json.loads(match.group(1))
+                  except json.JSONDecodeError:
+                      continue
+                  product = by_id.get(text(data.get("id")))
+                  if not product:
+                      continue
+
+                  slug = text(product.get("slug"))
+                  canonical = f"https://www.souviks.co.in/{lang}/products/{slug}"
+                  brand = text(product.get("brand_name") or product.get("brand"))
+                  name = text(product.get("product_name") or product.get("name"))
+                  part = part_number(product)
+                  title = f"{brand} - {part or name} - {name} | Souviks"
+                  old_name = text(data.get("product_name") or data.get("name"))
+
+                  data["slug"] = slug
+                  data["brand_id"] = text(product.get("brand_id"))
+                  data["brand_name"] = brand
+                  data["brand"] = brand
+                  data["product_name"] = name
+                  data["name"] = name
+
+                  data["subcategory_id"] = text(product.get("subcategory_id"))
+                  data["subcategory_name"] = text(product.get("subcategory_name") or product.get("subcategory"))
+                  data["subcategory"] = data["subcategory_name"]
+                  data["category_id"] = text(product.get("category_id"))
+                  data["category_name"] = text(product.get("category_name") or product.get("category"))
+                  data["category"] = data["category_name"]
+                  data["part_number"] = part
+                  data["partNumber"] = part
+                  data["updated_at"] = now
+
+                  html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";" + html[match.end():]
+                  if old_name and old_name != name:
+                      html = html.replace(old_name, name)
+                  html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title}</title>", html, count=1, flags=re.I)
+                  html = re.sub(r'(<meta\s+property=["\']og:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title + m.group(2), html, count=1, flags=re.I)
+                  html = re.sub(r'(<meta\s+name=["\']twitter:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title + m.group(2), html, count=1, flags=re.I)
+                  html = re.sub(r'(<link\s+rel=["\']canonical["\']\s+href=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
+                  html = re.sub(r'(<meta\s+property=["\']og:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
+                  html = re.sub(r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
+                  html = re.sub(r'(currentPage:\s*)["\'][^"\']*["\']', lambda m: m.group(1) + json.dumps(name), html, count=1)
+                  html = re.sub(
+                      r'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']x-default["\']\s+href=["\'])[^"\']*(["\'])',
+                      lambda m: m.group(1) + f"https://www.souviks.co.in/en/products/{slug}" + m.group(2),
+                      html, count=1, flags=re.I
+                  )
+
+                  sub_name = text(product.get("subcategory_name") or product.get("subcategory"))
+                  if sub_name:
+                      html = re.sub(
+                          r'(<div class=["\']pdp-row["\']>\s*<strong>\s*(?:Sub Category|उपश्रेणी|উপ-বিভাগ)\s*</strong>\s*<span>)[^<]*(</span>)',
+                          lambda m: m.group(1) + sub_name + m.group(2),
+                          html, count=1, flags=re.I
+                      )
+
+                  if html != original:
+                      path.write_text(html, encoding="utf-8")
+                      changed.add(str(path))
+
+          counter_files = [
+              "en/index.html","hi/index.html","bn/index.html",
+              "en/about.html","hi/about.html","bn/about.html",
+              "en/products.html","hi/products.html","bn/products.html",
+              "en/brands.html","hi/brands.html","bn/brands.html",
+              "en/vehicles.html","hi/vehicles.html","bn/vehicles.html",
+              "en/categories.html","hi/categories.html","bn/categories.html"
+          ]
+          for name in counter_files:
+              path = ROOT / name
+              if not path.exists():
+                  continue
+              html = path.read_text(encoding="utf-8")
+              original = html
+              html = html.replace("1022+", f"{count}+")
+              html = re.sub(r"(?<!\d)1022(?!\d)", str(count), html)
+              if html != original:
+                  path.write_text(html, encoding="utf-8")
+                  changed.add(str(path))
+
+          lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+          for lang in ("en","bn","hi"):
+              for p in active:
+                  slug = text(p.get("slug"))
+                  lines += ["  <url>", f"    <loc>https://www.souviks.co.in/{lang}/products/{slug}</loc>", "  </url>"]
+          lines.append("</urlset>")
+          sitemap = "\n".join(lines) + "\n"
+          sitemap_path = ROOT / "sitemaps/products.xml"
+          if sitemap_path.read_text(encoding="utf-8") != sitemap:
+              sitemap_path.write_text(sitemap, encoding="utf-8")
+              changed.add(str(sitemap_path))
+
+          if not changed:
+              print("Catalogue projections already synchronized.")
+              raise SystemExit(0)
+
+          PRODUCTS_PATH.write_text(json.dumps(products, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          SEARCH_PATH.write_text(json.dumps(search, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          if override_path.exists():
+              override_path.unlink()
+
+          subprocess.run(["git","config","user.name","github-actions[bot]"], check=True)
+          subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"], check=True)
+          subprocess.run(["git","add","assets/data/catalogue-index.json","assets/data/products.json","assets/data/search.json","en","hi","bn","sitemaps/products.xml"], check=True)
+          subprocess.run(["git","commit","-m","Reconcile catalogue projections"], check=True)
+          subprocess.run(["git","push","origin","HEAD:main"], check=True)

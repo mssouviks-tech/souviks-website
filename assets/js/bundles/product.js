@@ -3388,8 +3388,43 @@ async hydrateProductPage() {
     const staticTarget=Utils.el("#product-detail");
     const embeddedProduct=window.SOUVIKS_PRODUCT_PAGE_DATA;
     if(staticTarget?.dataset.staticRendered==="true" && embeddedProduct?.id){
+        // Keep the statically generated PDP fast, but refresh image/gallery metadata
+        // from the canonical catalogue index so newly added product images become
+        // visible without requiring 3 x N static HTML page rewrites.
         this.bindPdpFastInteractions(embeddedProduct);
         this.syncStaticProductGallery(embeddedProduct);
+
+        setTimeout(async () => {
+            try {
+                const response = await fetch("/assets/data/catalogue-index.json", {
+                    headers: { Accept: "application/json" },
+                    cache: "no-store",
+                    credentials: "same-origin"
+                });
+                if (!response.ok) return;
+                const catalogue = await response.json();
+                if (!Array.isArray(catalogue)) return;
+                const current = catalogue.find(item => String(item?.id || "") === String(embeddedProduct.id));
+                if (!current) return;
+
+                const refreshed = {
+                    ...embeddedProduct,
+                    image_folder: current.image_folder || embeddedProduct.image_folder,
+                    image: current.image || embeddedProduct.image,
+                    primary_image: current.primary_image || embeddedProduct.primary_image,
+                    image_url: current.image_url || embeddedProduct.image_url,
+                    gallery: Array.isArray(current.gallery) && current.gallery.length
+                        ? current.gallery
+                        : embeddedProduct.gallery,
+                    gallery_dimensions: current.gallery_dimensions || embeddedProduct.gallery_dimensions
+                };
+                this.syncStaticProductGallery(refreshed);
+                window.SOUVIKS_PRODUCT_PAGE_DATA = refreshed;
+            } catch (error) {
+                console.warn("[Souviks PDP] Current gallery metadata unavailable:", error);
+            }
+        }, 0);
+
         setTimeout(() => this.hydrateStaticRecommendations(embeddedProduct), 0);
         setTimeout(()=>this.initReviews(embeddedProduct),0);
         return;
