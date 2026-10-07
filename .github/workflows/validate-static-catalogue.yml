@@ -1,0 +1,678 @@
+name: Validate Static Catalogue
+
+on:
+  workflow_run:
+    workflows:
+      - Reconcile Catalogue Projections
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    concurrency:
+      group: souviks-static-catalogue-validate
+      cancel-in-progress: false
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Enforce clean public URLs
+        shell: python
+        run: |
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path(".")
+          legacy = re.compile(
+              r"/(?:account|login|register|forgot-password|reset-password|request-part|request-quote|thank-you|products|brands|categories|vehicles|about|contact|privacy-policy|terms|refund)\.html(?:[?#]|$)"
+          )
+
+          offenders = []
+          for path in list(root.glob("**/*.html")) + list(root.glob("**/*.js")):
+              text = path.read_text(encoding="utf-8", errors="ignore")
+              if legacy.search(text):
+                  offenders.append(str(path))
+
+          if offenders:
+              print("Legacy .html public URLs found:")
+              print("\n".join(offenders[:100]))
+              sys.exit(1)
+
+          print("Clean public URL invariant OK.")
+
+      - name: Validate catalogue architecture contract
+        run: python3 scripts/catalogue/validate.py
+      - name: Validate catalogue integrity and generated pages
+        shell: python
+        run: |
+          import json
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path(".")
+          catalogue = json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
+          brands = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
+          categories = json.loads((root / "assets/data/categories.json").read_text(encoding="utf-8"))
+          vehicles = json.loads((root / "assets/data/vehicles.json").read_text(encoding="utf-8"))
+
+          errors = []
+
+          def unique(field, rows, label):
+              values = [r.get(field) for r in rows]
+              if len(values) != len(set(values)):
+                  errors.append(f"Duplicate {field} in {label}")
+
+          unique("id", catalogue, "catalogue")
+          unique("slug", catalogue, "catalogue")
+          unique("slug", brands, "brands")
+          unique("slug", categories, "categories")
+          unique("slug", vehicles, "vehicles")
+
+          active_products = [p for p in catalogue if p.get("active") is not False]
+          active_brands = [b for b in brands if b.get("active") is not False]
+          active_categories = [c for c in categories if c.get("active") is not False]
+          active_vehicles = [v for v in vehicles if v.get("active") is not False]
+
+          brand_by_id = {str(b.get("id") or "").strip(): b for b in active_brands if b.get("id")}
+          category_by_id = {str(c.get("id") or "").strip(): c for c in active_categories if c.get("id")}
+          vehicle_by_id = {
+              str(v.get("id") or "").strip(): v
+              for v in active_vehicles
+              if v.get("id")
+          }
+          vehicle_names = {
+              str(v.get("name") or "").strip().casefold()
+              for v in active_vehicles
+              if v.get("name")
+          }
+
+          def number(value):
+              try:
+                  value = float(value)
+              except (TypeError, ValueError):
+                  return None
+              return value if value == value else None
+
+          products_projection = json.loads((root / "assets/data/products.json").read_text(encoding="utf-8"))
+          products_by_id = {
+              str(p.get("id") or "").strip(): p
+              for p in products_projection
+              if p.get("id")
+          }
+          catalogue_by_id = {
+              str(p.get("id") or "").strip(): p
+              for p in catalogue
+              if p.get("id")
+          }
+
+          expected_projection_fields = (
+              "slug", "mrp", "selling_price", "product_name", "name",
+              "brand_id", "brand_name", "category_id", "category_name",
+              "subcategory_id", "subcategory_name", "image", "primary_image",
+              "image_url", "vehicles", "applications", "featured", "active",
+              "description", "image_folder", "gallery",
+          )
+
+          for pid, source in catalogue_by_id.items():
+              projected = products_by_id.get(pid)
+              if projected is None:
+                  errors.append(f"products.json missing catalogue product: {pid}")
+                  continue
+
+              for field in expected_projection_fields:
+                  if projected.get(field) != source.get(field):
+                      errors.append(
+                          f"products.json drift for {pid}: {field}"
+                      )
+
+          orphan_projection = sorted(set(products_by_id) - set(catalogue_by_id))
+          if orphan_projection:
+              errors.append(
+                  "products.json contains IDs absent from catalogue-index.json: "
+                  + ", ".join(orphan_projection[:40])
+              )
+
+          duplicate_projection_ids = [
+              pid for pid in products_by_id
+              if sum(1 for p in products_projection if str(p.get("id") or "").strip() == pid) > 1
+          ]
+          if duplicate_projection_ids:
+              errors.append(
+                  "Duplicate product IDs in products.json: "
+                  + ", ".join(sorted(set(duplicate_projection_ids))[:40])
+              )
+
+          search_projection = json.loads((root / "assets/data/search.json").read_text(encoding="utf-8"))
+          search_products = {
+              str(p.get("id") or "").strip(): p
+              for p in search_projection
+              if p.get("type") == "product" and p.get("id")
+          }
+          for pid in catalogue_by_id:
+              if pid not in search_products:
+                  errors.append(f"search.json missing catalogue product: {pid}")
+
+          for p in active_products:
+              if not p.get("id") or not p.get("slug") or not p.get("name"):
+                  errors.append(f"Product missing identity: {p.get('id')}")
+              if not p.get("brand_id"):
+                  errors.append(f"Product missing brand: {p.get('id')}")
+              elif str(p.get("brand_id")).strip() not in brand_by_id:
+                  errors.append(f"Product references unknown/inactive brand: {p.get('id')} -> {p.get('brand_id')}")
+
+              if not p.get("category_id"):
+                  errors.append(f"Product missing category: {p.get('id')}")
+              elif str(p.get("category_id")).strip() not in category_by_id:
+                  errors.append(f"Product references unknown/inactive category: {p.get('id')} -> {p.get('category_id')}")
+
+              if not p.get("image_url"):
+                  errors.append(f"Product missing image URL: {p.get('id')}")
+
+              slug = str(p.get("slug") or "").strip()
+              if slug and not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+                  errors.append(f"Product slug is not URL-safe: {p.get('id')} -> {slug}")
+
+              mrp = number(p.get("mrp"))
+              selling = number(p.get("selling_price"))
+              discount = number(p.get("discount_percent"))
+
+              if mrp is not None and mrp < 0:
+                  errors.append(f"Negative MRP: {p.get('id')} -> {mrp}")
+              if selling is not None and selling < 0:
+                  errors.append(f"Negative selling price: {p.get('id')} -> {selling}")
+              if mrp is not None and selling is not None and selling > mrp:
+                  errors.append(f"Selling price exceeds MRP: {p.get('id')} -> {selling} > {mrp}")
+
+              if discount is not None and not 0 <= discount <= 100:
+                  errors.append(f"Discount outside 0-100%: {p.get('id')} -> {discount}")
+              if mrp and selling is not None and discount is not None:
+                  expected_discount = round((mrp - selling) / mrp * 100)
+                  if abs(discount - expected_discount) > 1:
+                      errors.append(
+                          f"Discount mismatch: {p.get('id')} -> declared {discount}%, expected ~{expected_discount}%"
+                      )
+
+              for vehicle in p.get("vehicles") or []:
+                  vehicle_text = str(vehicle).strip()
+                  if not vehicle_text:
+                      continue
+                  if vehicle_text.casefold() not in vehicle_names and vehicle_text not in vehicle_by_id:
+                      errors.append(
+                          f"Product references unknown/inactive vehicle: {p.get('id')} -> {vehicle_text}"
+                      )
+
+          expected = {
+              "products": len(active_products),
+              "brands": len(active_brands),
+              "categories": len(active_categories),
+              "vehicles": len(active_vehicles),
+          }
+
+          # Every public language must carry the same catalogue counters.
+          for lang in ("en", "hi", "bn"):
+              page = root / lang / "index.html"
+              text = page.read_text(encoding="utf-8")
+              for key, value in expected.items():
+                  if str(value) not in text:
+                      errors.append(f"{lang}/index.html does not contain current {key} count {value}")
+
+          # About pages must not drift from the catalogue.
+          for lang in ("en", "hi", "bn"):
+              page = root / lang / "about.html"
+              if page.exists():
+                  text = page.read_text(encoding="utf-8")
+                  if str(expected["products"]) not in text or str(expected["brands"]) not in text:
+                      errors.append(f"{lang}/about.html has stale catalogue counters")
+
+          # No temporary build artefacts are allowed in production assets.
+          forbidden = []
+          for p in root.rglob("*"):
+              if not p.is_file():
+                  continue
+              name = p.name.lower()
+              if name.startswith(".souviks_temp_") or name.endswith(".bak") or name.endswith(".old") or name == "txt.txt":
+                  forbidden.append(str(p))
+          if forbidden:
+              errors.append("Temporary production files remain: " + ", ".join(forbidden))
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+
+          print("Catalogue integrity OK")
+          print(json.dumps(expected, indent=2))
+
+      - name: Verify generated page parity and SEO invariants
+        shell: python
+        run: |
+          import json
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path(".")
+          products = [p for p in json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8")) if p.get("active") is not False]
+          brands = [b for b in json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8")) if b.get("active") is not False]
+          categories = [c for c in json.loads((root / "assets/data/categories.json").read_text(encoding="utf-8")) if c.get("active") is not False]
+          vehicles = [v for v in json.loads((root / "assets/data/vehicles.json").read_text(encoding="utf-8")) if v.get("active") is not False]
+
+          errors = []
+          missing = {"products": [], "brands": [], "categories": [], "vehicles": []}
+          orphan = {"products": [], "brands": [], "categories": [], "vehicles": []}
+
+          def check_directory(kind, entries, pattern):
+              expected = {root / pattern.format(lang=lang, slug=item["slug"]) for lang in ("en", "hi", "bn") for item in entries}
+              actual = set(root.glob(pattern.format(lang="*", slug="*")))
+              # pathlib does not expand nested * as a shell glob, so enumerate explicitly.
+              actual = set()
+              for lang in ("en", "hi", "bn"):
+                  actual.update((root / pattern.format(lang=lang, slug="*")).parent.glob("*.html"))
+              missing[kind] = sorted(str(p) for p in expected - actual)
+              orphan[kind] = sorted(str(p) for p in actual - expected)
+
+          check_directory("products", products, "{lang}/products/{slug}.html")
+          check_directory("brands", brands, "{lang}/brands/{slug}.html")
+          check_directory("categories", categories, "{lang}/categories/{slug}.html")
+          check_directory("vehicles", vehicles, "{lang}/vehicles/{slug}.html")
+
+          for kind in missing:
+              if missing[kind]:
+                  errors.append(f"Missing generated {kind} pages: " + ", ".join(missing[kind][:20]))
+
+          # Orphan checks are strict for generated entity directories.
+          for kind in orphan:
+              if orphan[kind]:
+                  errors.append(f"Orphan generated {kind} pages: " + ", ".join(orphan[kind][:20]))
+
+          # Every generated product page must carry the canonical URL, Product schema,
+          # and BreadcrumbList, and must not expose broken blank part-number text.
+          for lang in ("en", "hi", "bn"):
+              for product in products:
+                  path = root / lang / "products" / f"{product['slug']}.html"
+                  if not path.exists():
+                      continue
+                  html = path.read_text(encoding="utf-8")
+                  expected_url = f"https://www.souviks.co.in/{lang}/products/{product['slug']}"
+                  canonical_match = re.search(
+                      r'<link\b[^>]*\brel=["\']canonical["\'][^>]*\bhref=["\']([^"\']+)',
+                      html,
+                      flags=re.I | re.S,
+                  )
+                  if not canonical_match or canonical_match.group(1).strip() != expected_url:
+                      errors.append(f"Bad/missing canonical: {path}")
+
+                  jsonld_blocks = re.findall(
+                      r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+                      html,
+                      flags=re.I | re.S,
+                  )
+                  jsonld_types = set()
+                  for block in jsonld_blocks:
+                      try:
+                          obj = json.loads(block.strip())
+                      except json.JSONDecodeError:
+                          continue
+                      graph = obj.get("@graph") if isinstance(obj, dict) else None
+                      nodes = graph if isinstance(graph, list) else [obj]
+                      for node in nodes:
+                          node_type = node.get("@type") if isinstance(node, dict) else None
+                          if isinstance(node_type, list):
+                              jsonld_types.update(str(v) for v in node_type)
+                          elif node_type:
+                              jsonld_types.add(str(node_type))
+
+                  if "Product" not in jsonld_types:
+                      errors.append(f"Missing Product schema: {path}")
+                  if "BreadcrumbList" not in jsonld_types:
+                      errors.append(f"Missing BreadcrumbList: {path}")
+                  if "Part Number: ." in html:
+                      errors.append(f"Broken blank part-number SEO text: {path}")
+
+                  title_match = re.search(r"<title>(.*?)</title>", html, flags=re.I | re.S)
+                  if not title_match:
+                      errors.append(f"Missing title: {path}")
+                  else:
+                      title_value = re.sub(r"<[^>]+>", "", title_match.group(1)).strip()
+                      if len(title_value) > 70:
+                          errors.append(f"Product title too long ({len(title_value)} chars): {path}")
+                      if title_value.count(" | Souviks") > 1:
+                          errors.append(f"Duplicated product title suffix: {path}")
+                      product_name = str(product.get("product_name") or product.get("name") or "").strip()
+                      if product_name and title_value.count(product_name) > 1:
+                          errors.append(f"Duplicated product name in title: {path}")
+
+                  description_match = re.search(
+                      r'<meta\b[^>]*name=["\']description["\'][^>]*content=["\']([^"\']*)',
+                      html,
+                      flags=re.I | re.S,
+                  )
+                  if not description_match:
+                      errors.append(f"Missing meta description: {path}")
+                  else:
+                      description_value = description_match.group(1).strip()
+                      if not 70 <= len(description_value) <= 170:
+                          errors.append(
+                              f"Product meta description length {len(description_value)} outside 70-170: {path}"
+                          )
+
+                  if re.search(r"<strong>\s*Part Number\s*</strong>\s*<span>\s*</span>", html, re.I):
+                      errors.append(f"Blank part-number detail row: {path}")
+
+          page_schema_expectations = [
+              ("brands", "CollectionPage"),
+              ("categories", "CollectionPage"),
+              ("vehicles", "CollectionPage"),
+              ("products", "CollectionPage"),
+              ("about", "AboutPage"),
+              ("contact", "ContactPage"),
+          ]
+          for lang in ("en", "hi", "bn"):
+              for page_name, schema_type in page_schema_expectations:
+                  path = root / lang / f"{page_name}.html"
+                  if not path.exists():
+                      errors.append(f"Missing landing page: {path}")
+                      continue
+                  html = path.read_text(encoding="utf-8")
+                  if f'"@type": "{schema_type}"' not in html:
+                      errors.append(f"Missing {schema_type} schema: {path}")
+                  if '"@type": "BreadcrumbList"' not in html:
+                      errors.append(f"Missing BreadcrumbList: {path}")
+
+          # Report known data-quality gaps without blocking the deployment.
+          missing_parts = sum(not str(p.get("part_number") or p.get("partNumber") or "").strip() for p in products)
+          missing_prices = sum(p.get("selling_price") is None for p in products)
+          missing_mrps = sum(p.get("mrp") is None for p in products)
+          placeholder_images = sum("/assets/images/placeholder.webp" in str(p.get("image_url") or "") for p in products)
+          print(f"Data-quality report: {missing_parts} products missing part numbers; {missing_prices} missing selling prices; {missing_mrps} missing MRPs; {placeholder_images} using placeholder images.")
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+
+          print("Generated page parity and SEO invariants OK")
+
+      - name: Verify catalogue image-folder parity
+        shell: python
+        run: |
+          import json
+          import pathlib
+          import sys
+
+          root = pathlib.Path(".")
+          catalogue = [p for p in json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8")) if p.get("active") is not False]
+          by_id = {str(p.get("id")): p for p in catalogue if p.get("id")}
+
+          errors = []
+          folders = set()
+
+          image_root = root / "assets/images/products"
+          if image_root.exists():
+              for folder in image_root.iterdir():
+                  if not folder.is_dir():
+                      continue
+                  files = sorted(
+                      p.name for p in folder.iterdir()
+                      if p.is_file() and p.suffix.lower() in {".webp", ".jpg", ".jpeg", ".png"}
+                  )
+                  if not files:
+                      continue
+
+                  folders.add(folder.name)
+                  product = by_id.get(folder.name)
+                  if product is None:
+                      continue
+
+                  image_url = str(product.get("image_url") or "").strip()
+                  if image_url.endswith("/placeholder.webp"):
+                      errors.append(f"Product {folder.name} has image files but catalogue still uses placeholder")
+
+                  gallery = product.get("gallery")
+                  if isinstance(gallery, list) and gallery:
+                      missing_gallery = [name for name in gallery if not (folder / str(name)).exists()]
+                      if missing_gallery:
+                          errors.append(f"Product {folder.name} gallery references missing files: {', '.join(missing_gallery)}")
+
+          for product in catalogue:
+              pid = str(product.get("id") or "").strip()
+              gallery = product.get("gallery")
+              if not pid or not isinstance(gallery, list) or not gallery:
+                  continue
+
+              names = [str(name).strip() for name in gallery if str(name).strip()]
+              if not names:
+                  errors.append(f"Product {pid} has an empty gallery declaration.")
+                  continue
+
+              if len(names) > 4:
+                  errors.append(f"Product {pid} has {len(names)} gallery views; maximum is 4.")
+              if len(names) != len(set(names)):
+                  errors.append(f"Product {pid} has duplicate gallery filenames.")
+
+              expected_names = [f"{i}.webp" for i in range(1, len(names) + 1)]
+              if names != expected_names:
+                  errors.append(
+                      f"Product {pid} gallery filenames are not sequential 1.webp..N.webp: {names}"
+                  )
+
+              image_url = str(product.get("image_url") or "").strip()
+              if image_url.endswith("/placeholder.webp"):
+                  errors.append(f"Product {pid} has a real gallery but still references the placeholder image.")
+
+              if image_url and names:
+                  expected_image_url = f"/assets/images/products/{str(product.get('image_folder') or pid).strip()}/{names[0]}"
+                  if image_url != expected_image_url:
+                      errors.append(
+                          f"Product {pid} image_url does not point to gallery[0]: {image_url}"
+                      )
+
+              if str(product.get("image") or "").strip() != names[0]:
+                  errors.append(f"Product {pid} primary image does not match gallery[0].")
+              if str(product.get("primary_image") or "").strip() != names[0]:
+                  errors.append(f"Product {pid} primary_image does not match gallery[0].")
+
+              dimensions = product.get("gallery_dimensions")
+              if isinstance(dimensions, dict):
+                  stale = [name for name in dimensions if name not in names]
+                  if stale:
+                      errors.append(
+                          f"Product {pid} has stale gallery dimensions: " + ", ".join(map(str, stale))
+                      )
+
+          missing_folders = [p["id"] for p in catalogue if p["id"] not in folders and not str(p.get("image_url") or "").endswith("/placeholder.webp")]
+          if missing_folders:
+              errors.append("Catalogue references missing image folders: " + ", ".join(missing_folders[:40]))
+
+          image_products = sum(p["id"] in folders for p in catalogue)
+          placeholder_products = sum(str(p.get("image_url") or "").endswith("/placeholder.webp") for p in catalogue)
+          print(f"Image-folder coverage: {image_products}/{len(catalogue)} products; {placeholder_products} placeholder references.")
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+
+          print("Catalogue image-folder parity OK")
+
+      - name: Verify origin robots policy
+        shell: python
+        run: |
+          import pathlib
+          import re
+          import sys
+
+          robots_path = pathlib.Path("robots.txt")
+          if not robots_path.exists():
+              print("robots.txt is missing.")
+              sys.exit(1)
+
+          text = robots_path.read_text(encoding="utf-8", errors="ignore")
+          compact = re.sub(r"\s+", " ", text).lower()
+
+          required = [
+              "user-agent: *",
+              "allow: /",
+              "disallow: /assets/temp/",
+              "disallow: /drafts/",
+              "sitemap: https://www.souviks.co.in/sitemap.xml",
+          ]
+          errors = [item for item in required if item.lower() not in compact]
+
+          wildcard_match = re.search(
+              r"user-agent:\s*\*([\s\S]*?)(?=\n\s*user-agent:|\Z)",
+              text,
+              flags=re.I,
+          )
+          if wildcard_match and re.search(r"disallow:\s*/\s*$", wildcard_match.group(1), flags=re.I | re.M):
+              errors.append("Wildcard robots policy blocks the entire site.")
+
+          for blocked in ("/en/", "/hi/", "/bn/", "/sitemap.xml", "/sitemaps/"):
+              if re.search(rf"disallow:\s*{re.escape(blocked)}\s*$", text, flags=re.I | re.M):
+                  errors.append(f"robots.txt blocks required public path: {blocked}")
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+
+          print("Origin robots policy invariant OK.")
+
+      - name: Verify sitemap structure, targets, canonical and indexation
+        shell: python
+        run: |
+          import pathlib
+          import re
+          import sys
+          import xml.etree.ElementTree as ET
+
+          root = pathlib.Path(".")
+          base = "https://www.souviks.co.in"
+          sitemap_index = root / "sitemap.xml"
+          expected_children = {
+              "/sitemaps/pages.xml",
+              "/sitemaps/products.xml",
+              "/sitemaps/brands.xml",
+              "/sitemaps/categories.xml",
+              "/sitemaps/vehicles.xml",
+          }
+
+          errors = []
+
+          def parse_sitemap(path):
+              try:
+                  tree = ET.parse(path)
+              except Exception as exc:
+                  errors.append(f"Invalid XML: {path}: {exc}")
+                  return []
+              ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+              return [node.text.strip() for node in tree.findall(".//sm:loc", ns) if node.text and node.text.strip()]
+
+          index_locs = set(parse_sitemap(sitemap_index))
+          if index_locs != {base + p for p in expected_children}:
+              errors.append(f"Sitemap index mismatch: {sorted(index_locs)}")
+
+          sitemap_files = [root / p.lstrip("/") for p in expected_children]
+          all_urls = []
+
+          for path in sitemap_files:
+              locs = parse_sitemap(path)
+              if len(locs) != len(set(locs)):
+                  errors.append(f"Duplicate URLs in {path}")
+              all_urls.extend(locs)
+
+          if len(all_urls) != len(set(all_urls)):
+              errors.append("Duplicate URL present across child sitemaps.")
+
+          for url in all_urls:
+              m = re.match(r"https://www\.souviks\.co\.in/(en|hi|bn)(/.*)?$", url)
+              if not m:
+                  errors.append(f"Unexpected sitemap URL: {url}")
+                  continue
+
+              lang = m.group(1)
+              route = m.group(2) or "/"
+              if ".html" in route:
+                  errors.append(f"Legacy .html URL in sitemap: {url}")
+
+              if route == "/":
+                  file_path = root / lang / "index.html"
+              else:
+                  file_path = root / lang / (route.lstrip("/") + ".html")
+
+              if not file_path.exists():
+                  errors.append(f"Sitemap target has no generated page: {url} -> {file_path}")
+                  continue
+
+              html = file_path.read_text(encoding="utf-8", errors="ignore")
+              robots = re.search(
+                  r'<meta\b[^>]*name=["\']robots["\'][^>]*content=["\']([^"\']+)',
+                  html,
+                  flags=re.I,
+              )
+              if robots and "noindex" in robots.group(1).lower():
+                  errors.append(f"Sitemap contains noindex page: {url}")
+
+              canonical = re.search(
+                  r'<link\b[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)',
+                  html,
+                  flags=re.I,
+              )
+              expected_canonical = url.rstrip("/") if route != "/" else url
+              if not canonical:
+                  errors.append(f"Sitemap target missing canonical: {url}")
+              elif canonical.group(1).strip().rstrip("/") != expected_canonical.rstrip("/"):
+                  errors.append(
+                      f"Sitemap target canonical mismatch: {url} -> {canonical.group(1).strip()}"
+                  )
+
+          print(f"Validated {len(all_urls)} sitemap URLs against generated HTML.")
+          if errors:
+              print("\n".join(errors[:200]))
+              sys.exit(1)
+
+          print("Sitemap structure, target, canonical and indexation invariants OK.")
+
+      - name: Verify sitemap counts
+        shell: python
+        run: |
+          import pathlib, re, sys
+          catalogue = __import__("json").loads(pathlib.Path("assets/data/catalogue-index.json").read_text(encoding="utf-8"))
+          brands_data = __import__("json").loads(pathlib.Path("assets/data/brands.json").read_text(encoding="utf-8"))
+          categories_data = __import__("json").loads(pathlib.Path("assets/data/categories.json").read_text(encoding="utf-8"))
+          vehicles_data = __import__("json").loads(pathlib.Path("assets/data/vehicles.json").read_text(encoding="utf-8"))
+          expected = {
+              "products": sum(p.get("active") is not False for p in catalogue) * 3,
+              "brands": sum(b.get("active") is not False for b in brands_data) * 3,
+              "categories": sum(c.get("active") is not False for c in categories_data) * 3,
+              "vehicles": sum(v.get("active") is not False for v in vehicles_data) * 3,
+          }
+          products = len(re.findall(r"<loc>https://www\.souviks\.co\.in/(?:en|hi|bn)/products/", pathlib.Path("sitemaps/products.xml").read_text(encoding="utf-8")))
+          brands = len(re.findall(r"<loc>https://www\.souviks\.co\.in/(?:en|hi|bn)/brands/", pathlib.Path("sitemaps/brands.xml").read_text(encoding="utf-8")))
+          categories = len(re.findall(r"<loc>https://www\.souviks\.co\.in/(?:en|hi|bn)/categories/", pathlib.Path("sitemaps/categories.xml").read_text(encoding="utf-8")))
+          vehicles = len(re.findall(r"<loc>https://www\.souviks\.co\.in/(?:en|hi|bn)/vehicles/", pathlib.Path("sitemaps/vehicles.xml").read_text(encoding="utf-8")))
+          actual = {"products": products, "brands": brands, "categories": categories, "vehicles": vehicles}
+          if actual != expected:
+              print("Sitemap count mismatch")
+              print("Expected:", expected)
+              print("Actual:", actual)
+              sys.exit(1)
+          print("Sitemap integrity OK")              slug = str(source.get("slug") or "").strip()
+              derived_part = str(source.get("part_number") or source.get("partNumber") or "").strip()
+              tata_match = re.match(r"^tata-genuine-(\d{12})-.*$", slug, flags=re.I)
+              if tata_match:
+                  derived_part = tata_match.group(1)
+
+              for field in ("part_number", "partNumber"):
+                  if str(projected.get(field) or "").strip() != derived_part:
+                      errors.append(
+                          f"products.json drift for {pid}: {field}"
+                      )
+
+
