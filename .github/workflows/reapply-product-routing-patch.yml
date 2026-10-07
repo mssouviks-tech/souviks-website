@@ -912,6 +912,13 @@ jobs:
               if image_url.endswith("/placeholder.webp"):
                   errors.append(f"Product {pid} has a real gallery but still references the placeholder image.")
 
+              if image_url and names:
+                  expected_image_url = f"/assets/images/products/{str(product.get('image_folder') or pid).strip()}/{names[0]}"
+                  if image_url != expected_image_url:
+                      errors.append(
+                          f"Product {pid} image_url does not point to gallery[0]: {image_url}"
+                      )
+
               if str(product.get("image") or "").strip() != names[0]:
                   errors.append(f"Product {pid} primary image does not match gallery[0].")
               if str(product.get("primary_image") or "").strip() != names[0]:
