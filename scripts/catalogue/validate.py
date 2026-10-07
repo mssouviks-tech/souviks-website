@@ -105,6 +105,20 @@ def validate_search(active, search):
     validate_projection(active, products, "Search projection")
 
 
+def validate_static_routing_layer():
+    """Fail if a duplicate dynamic product-routing layer is committed."""
+    forbidden = (
+        ROOT / "functions/products/[slug].js",
+        ROOT / "functions/en/products/[slug].js",
+        ROOT / "functions/bn/products/[slug].js",
+        ROOT / "functions/hi/products/[slug].js",
+        ROOT / "_routes.json",
+    )
+    found = [str(path.relative_to(ROOT)) for path in forbidden if path.exists()]
+    if found:
+        fail("Static catalogue must not contain duplicate routing files: " + ", ".join(found))
+
+
 def validate_static_pages(active):
     expected = {str(p["slug"]).strip() for p in active}
 
@@ -186,6 +200,7 @@ def main() -> None:
     active = validate_master(catalogue)
     validate_projection(active, products, "Product projection")
     validate_search(active, search)
+    validate_static_routing_layer()
     validate_static_pages(active)
     validate_sitemap(active)
 
