@@ -443,19 +443,4 @@ jobs:
           subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"], check=True)
           subprocess.run(["git","add","assets/data/catalogue-index.json","assets/data/products.json","assets/data/search.json","en","hi","bn","sitemaps/products.xml"], check=True)
           subprocess.run(["git","commit","-m","Reconcile catalogue projections"], check=True)
-          subprocess.run(["git","push","origin","HEAD:main"], check=True)                  html = re.sub(
-                      r'(<meta\\s+name=["\\']description["\\']\\s+content=["\\'])[^"\\']*(["\\'])',
-                      lambda m: m.group(1) + description_attr + m.group(2),
-                      html, count=1, flags=re.I
-                  )
-                  html = re.sub(
-                      r'(<meta\\s+property=["\\']og:description["\\']\\s+content=["\\'])[^"\\']*(["\\'])',
-                      lambda m: m.group(1) + description_attr + m.group(2),
-                      html, count=1, flags=re.I
-                  )
-                  html = re.sub(
-                      r'(<meta\\s+name=["\\']twitter:description["\\']\\s+content=["\\'])[^"\\']*(["\\'])',
-                      lambda m: m.group(1) + description_attr + m.group(2),
-                      html, count=1, flags=re.I
-                  )
-
+          subprocess.run(["git","push","origin","HEAD:main"], check=True)
