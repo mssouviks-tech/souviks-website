@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 payload
             );
 
+            window.souviksAnalytics?.trackLead("request_part");
             form.reset();
             setStatus(
                 status,
