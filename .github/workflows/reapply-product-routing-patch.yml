@@ -841,6 +841,48 @@ jobs:
 
           print("Catalogue image-folder parity OK")
 
+      - name: Verify origin robots policy
+        shell: python
+        run: |
+          import pathlib
+          import re
+          import sys
+
+          robots_path = pathlib.Path("robots.txt")
+          if not robots_path.exists():
+              print("robots.txt is missing.")
+              sys.exit(1)
+
+          text = robots_path.read_text(encoding="utf-8", errors="ignore")
+          compact = re.sub(r"\s+", " ", text).lower()
+
+          required = [
+              "user-agent: *",
+              "allow: /",
+              "disallow: /assets/temp/",
+              "disallow: /drafts/",
+              "sitemap: https://www.souviks.co.in/sitemap.xml",
+          ]
+          errors = [item for item in required if item.lower() not in compact]
+
+          wildcard_match = re.search(
+              r"user-agent:\s*\*([\s\S]*?)(?=\n\s*user-agent:|\Z)",
+              text,
+              flags=re.I,
+          )
+          if wildcard_match and re.search(r"disallow:\s*/\s*$", wildcard_match.group(1), flags=re.I | re.M):
+              errors.append("Wildcard robots policy blocks the entire site.")
+
+          for blocked in ("/en/", "/hi/", "/bn/", "/sitemap.xml", "/sitemaps/"):
+              if re.search(rf"disallow:\s*{re.escape(blocked)}\s*$", text, flags=re.I | re.M):
+                  errors.append(f"robots.txt blocks required public path: {blocked}")
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+
+          print("Origin robots policy invariant OK.")
+
       - name: Verify sitemap structure, targets, canonical and indexation
         shell: python
         run: |
