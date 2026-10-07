@@ -757,8 +757,9 @@ def sync_product_seo_and_schema():
                 flags=re.I,
             )
     
+            name = str(product.get("product_name") or product.get("name") or "")
+
             if "Product" not in types:
-                name = str(product.get("product_name") or product.get("name") or "")
                 description = str(product.get("description") or "").strip()
                 images = image_urls(product)
     
