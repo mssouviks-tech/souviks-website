@@ -21,6 +21,7 @@ jobs:
       - name: Reconcile catalogue projections
         shell: python
         run: |
+          import html
           import json
           import pathlib
           import re
@@ -259,7 +260,38 @@ jobs:
                   brand = text(product.get("brand_name") or product.get("brand"))
                   name = text(product.get("product_name") or product.get("name"))
                   part = part_number(product)
-                  title = f"{brand} - {part or name} - {name} | Souviks"
+                  identity = part if part and part.casefold() != name.casefold() else ""
+                  if brand and identity:
+                      title = f"{brand} - {identity} - {name} | Souviks"
+                  elif brand:
+                      title = f"{brand} - {name} | Souviks"
+                  elif identity:
+                      title = f"{identity} - {name} | Souviks"
+                  else:
+                      title = f"{name} | Souviks"
+
+                  description = re.sub(r"\\s+", " ", text(product.get("description"))).strip()
+                  category = text(product.get("category_name") or product.get("category"))
+                  subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
+                  vehicles = arr(product.get("vehicles"))
+
+                  if not description or len(description) < 50:
+                      description = (
+                          f"{brand} {name}".strip()
+                          + (f" ({part})" if part else "")
+                          + f", a {subcategory or category or 'commercial vehicle'} spare part."
+                      )
+
+                  if vehicles:
+                      description += " Compatible with " + ", ".join(vehicles[:5]) + "."
+                  description += " Request availability from Souviks."
+                  description = re.sub(r"\\s+", " ", description).strip()
+                  if len(description) > 158:
+                      description = description[:157].rsplit(" ", 1)[0].rstrip(" ,;:-") + "."
+
+                  title_text = html.escape(title, quote=False)
+                  title_attr = html.escape(title, quote=True)
+                  description_attr = html.escape(description, quote=True)
                   old_name = text(data.get("product_name") or data.get("name"))
 
                   data["slug"] = slug
@@ -278,12 +310,16 @@ jobs:
                   data["part_number"] = part
                   data["partNumber"] = part
                   data["updated_at"] = now
+                  data["seo"] = dict(data.get("seo") or {})
+                  data["seo"]["title"] = title
+                  data["seo"]["description"] = description
+                  data["seo"]["canonical"] = canonical
 
                   html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";" + html[match.end():]
                   if old_name and old_name != name:
                       html = html.replace(old_name, name)
-                  html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title}</title>", html, count=1, flags=re.I)
-                  html = re.sub(r'(<meta\s+property=["\']og:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title + m.group(2), html, count=1, flags=re.I)
+                  html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title_text}</title>", html, count=1, flags=re.I)
+                  html = re.sub(r'(<meta\s+property=["\']og:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title_attr + m.group(2), html, count=1, flags=re.I)
                   html = re.sub(r'(<meta\s+name=["\']twitter:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title + m.group(2), html, count=1, flags=re.I)
                   html = re.sub(r'(<link\s+rel=["\']canonical["\']\s+href=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
                   html = re.sub(r'(<meta\s+property=["\']og:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
@@ -352,4 +388,19 @@ jobs:
           subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"], check=True)
           subprocess.run(["git","add","assets/data/catalogue-index.json","assets/data/products.json","assets/data/search.json","en","hi","bn","sitemaps/products.xml"], check=True)
           subprocess.run(["git","commit","-m","Reconcile catalogue projections"], check=True)
-          subprocess.run(["git","push","origin","HEAD:main"], check=True)
+          subprocess.run(["git","push","origin","HEAD:main"], check=True)                  html = re.sub(
+                      r'(<meta\\s+name=["\\']description["\\']\\s+content=["\\'])[^"\\']*(["\\'])',
+                      lambda m: m.group(1) + description_attr + m.group(2),
+                      html, count=1, flags=re.I
+                  )
+                  html = re.sub(
+                      r'(<meta\\s+property=["\\']og:description["\\']\\s+content=["\\'])[^"\\']*(["\\'])',
+                      lambda m: m.group(1) + description_attr + m.group(2),
+                      html, count=1, flags=re.I
+                  )
+                  html = re.sub(
+                      r'(<meta\\s+name=["\\']twitter:description["\\']\\s+content=["\\'])[^"\\']*(["\\'])',
+                      lambda m: m.group(1) + description_attr + m.group(2),
+                      html, count=1, flags=re.I
+                  )
+
