@@ -1,312 +1,199 @@
 /* Shared core is loaded by the HTML page before this bundle. */
 
 /* ===== pages/request-part.js ===== */
-/*
-==========================================================
-SOUVIKS REQUEST PART
-EMAILJS + WHATSAPP QR
-==========================================================
-*/
 
-document.addEventListener(
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("requestPartForm");
+    if (!form) return;
 
-    "DOMContentLoaded",
+    const submitButton = form.querySelector('button[type="submit"]');
+    const honeypot = document.getElementById("website");
+    const status = ensureStatus(form, "requestPartFormStatus");
 
-    () => {
+    emailjs.init("HYXrRpK5XSEAGf5s2");
 
-const formLoadTime = Date.now();
+    let submitting = false;
 
-        emailjs.init(
-            "HYXrRpK5XSEAGf5s2"
-        );
+    form.addEventListener("submit", async event => {
+        event.preventDefault();
 
-        const form =
+        if (submitting) return;
+        if (!form.reportValidity()) return;
+        if (honeypot?.value.trim()) return;
 
-            document.getElementById(
-                "requestPartForm"
+        const payload = {
+            lead_id: `ENQ-${Date.now()}`,
+            name: document.getElementById("name")?.value.trim() || "",
+            company: document.getElementById("company")?.value.trim() || "",
+            phone: document.getElementById("phone")?.value.trim() || "",
+            email: document.getElementById("email")?.value.trim() || "",
+            vehicle: document.getElementById("vehicle")?.value.trim() || "",
+            urgency: document.getElementById("urgency")?.value.trim() || "",
+            partnumber: document.getElementById("partnumber")?.value.trim() || "",
+            requirement: document.getElementById("requirement")?.value.trim() || ""
+        };
+
+        if (!payload.name || !payload.phone || !payload.requirement) return;
+
+        submitting = true;
+        setSubmitting(submitButton, true);
+        setStatus(status, "Sending your request…");
+
+        try {
+            if (typeof emailjs === "undefined") {
+                throw new Error("Email service unavailable.");
+            }
+
+            await emailjs.send(
+                "service_trsy6ll",
+                "template_gpvlrc8",
+                payload
             );
 
-        if (!form) {
-
-            return;
-
+            form.reset();
+            setStatus(
+                status,
+                getMessage("success", `Request submitted successfully. Reference: ${payload.lead_id}`),
+                "success"
+            );
+            showLeadSuccess(payload.lead_id, payload);
+        } catch (error) {
+            console.error("[Souviks Request Part] Submission failed:", error);
+            setStatus(
+                status,
+                getMessage("error", "Unable to submit your request. Please try again."),
+                "error"
+            );
+        } finally {
+            submitting = false;
+            setSubmitting(submitButton, false);
         }
+    });
+});
 
-        form.addEventListener(
+function ensureStatus(form, id) {
+    let status = document.getElementById(id);
+    if (status) return status;
 
-            "submit",
-
-            async event => {
-
-                event.preventDefault();
-
-const secondsOnPage =
-    (Date.now() - formLoadTime) / 1000;
-
-if (secondsOnPage < 3) {
-
-    console.warn(
-        "Submission blocked: too fast."
-    );
-
-    return;
-
+    status = document.createElement("div");
+    status.id = id;
+    status.className = "form-status";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+    form.appendChild(status);
+    return status;
 }
 
-                const leadId =
-
-                    "ENQ-" +
-
-                    Date.now();
-
-                const payload = {
-
-                    lead_id:
-                        leadId,
-
-                    name:
-                        document.getElementById(
-                            "name"
-                        )?.value || "",
-
-                    company:
-                        document.getElementById(
-                            "company"
-                        )?.value || "",
-
-                    phone:
-                        document.getElementById(
-                            "phone"
-                        )?.value || "",
-
-                    email:
-                        document.getElementById(
-                            "email"
-                        )?.value || "",
-
-                    vehicle:
-                        document.getElementById(
-                            "vehicle"
-                        )?.value || "",
-
-                    urgency:
-                        document.getElementById(
-                            "urgency"
-                        )?.value || "",
-
-                    partnumber:
-                        document.getElementById(
-                            "partnumber"
-                        )?.value || "",
-
-                    requirement:
-                        document.getElementById(
-                            "requirement"
-                        )?.value || ""
-
-                };
-
-                try {
-const honeypot =
-    document.getElementById(
-        "website"
-    );
-
-if (
-    honeypot &&
-    honeypot.value.trim() !== ""
-) {
-
-    return;
-
+function setStatus(element, message, type = "") {
+    if (!element) return;
+    element.textContent = message;
+    element.className = "form-status";
+    if (type) element.classList.add(type);
 }
-                    await emailjs.send(
 
-                        "service_trsy6ll",
+function setSubmitting(button, submitting) {
+    if (!button) return;
 
-                        "template_gpvlrc8",
-
-                        payload
-
-                    );
-
-                    showLeadSuccess(
-                        leadId,
-                        payload
-                    );
-
-                    form.reset();
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        error
-                    );
-
-                    alert(
-
-                        "Unable to submit request. Please try again."
-
-                    );
-
-                }
-
-            }
-
-        );
-
+    if (submitting) {
+        button.dataset.defaultText = button.textContent.trim();
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+        button.textContent = "Sending…";
+        return;
     }
 
-);
+    button.disabled = false;
+    button.removeAttribute("aria-busy");
+    button.textContent = button.dataset.defaultText || "Submit Request";
+}
 
-function showLeadSuccess(
+function getMessage(key, fallback) {
+    const lang = (document.documentElement.lang || "en").toLowerCase();
 
-    leadId,
+    const messages = {
+        bn: {
+            success: "আপনার অনুরোধ সফলভাবে পাঠানো হয়েছে।",
+            error: "আপনার অনুরোধ পাঠানো যায়নি। আবার চেষ্টা করুন।"
+        },
+        hi: {
+            success: "आपका अनुरोध सफलतापूर्वक भेज दिया गया है।",
+            error: "आपका अनुरोध भेजा नहीं जा सका। कृपया फिर प्रयास करें।"
+        }
+    };
 
-    payload
+    return messages[lang]?.[key] || fallback;
+}
 
-) {
+function showLeadSuccess(leadId, payload) {
+    document.querySelectorAll(".lead-success-modal").forEach(modal => modal.remove());
 
-    const whatsappMessage =
+    const closeReturnTarget = document.activeElement;
 
-`Lead ID: ${leadId}
+    const modal = document.createElement("div");
+    modal.className = "lead-success-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "requestPartSuccessTitle");
+    modal.tabIndex = -1;
 
-Name: ${payload.name}
-Company: ${payload.company}
-Phone: ${payload.phone}
-Email: ${payload.email}
+    const content = document.createElement("div");
+    content.className = "lead-success-content";
 
-Vehicle: ${payload.vehicle}
-Urgency: ${payload.urgency}
+    const title = document.createElement("h2");
+    title.id = "requestPartSuccessTitle";
+    title.textContent = "Request Submitted Successfully";
 
-Part Number:
-${payload.partnumber}
+    const referenceLabel = document.createElement("p");
+    referenceLabel.textContent = "Reference Number";
 
-Requirement:
-${payload.requirement}`;
+    const reference = document.createElement("h3");
+    reference.textContent = leadId;
 
-    const whatsappUrl =
+    const note = document.createElement("p");
+    note.textContent = "We have received your request. For a faster response, you can also share it with Souviks on WhatsApp.";
 
-        `https://wa.me/917908215701?text=${encodeURIComponent(
-            whatsappMessage
-        )}`;
+    const actions = document.createElement("div");
+    actions.style.display = "flex";
+    actions.style.gap = "12px";
+    actions.style.justifyContent = "center";
+    actions.style.marginTop = "20px";
+    actions.style.flexWrap = "wrap";
 
-    const qrMessage = `Please help me with enquiry ${leadId}.`;
-    const qrWhatsAppUrl =
-        `https://wa.me/917908215701?text=${encodeURIComponent(qrMessage)}`;
-    const qrUrl =
-        `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(
-            qrWhatsAppUrl
-        )}`;
+    const whatsapp = document.createElement("a");
+    whatsapp.href = `https://wa.me/917908215701?text=${encodeURIComponent(
+        `Request ${leadId}\n\nName: ${payload.name}\nCompany: ${payload.company}\nPhone: ${payload.phone}\nEmail: ${payload.email}\nVehicle: ${payload.vehicle}\nUrgency: ${payload.urgency}\nPart Number: ${payload.partnumber}\n\nRequirement:\n${payload.requirement}`
+    )}`;
+    whatsapp.target = "_blank";
+    whatsapp.rel = "noopener noreferrer";
+    whatsapp.className = "btn btn-primary";
+    whatsapp.textContent = "Open WhatsApp";
 
-    const modal = document.createElement(
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "btn btn-secondary";
+    close.textContent = "Close";
 
-        "div"
+    const onKeyDown = event => {
+        if (event.key !== "Escape") return;
+        event.preventDefault();
+        closeModal();
+    };
 
-    );
+    const closeModal = () => {
+        modal.remove();
+        document.removeEventListener("keydown", onKeyDown);
+        closeReturnTarget?.focus?.({ preventScroll: true });
+    };
 
-    modal.className =
+    close.addEventListener("click", closeModal);
+    modal.addEventListener("click", event => {
+        if (event.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", onKeyDown);
 
-        "lead-success-modal";
-
-    modal.innerHTML = `
-
-        <div class="lead-success-content">
-
-<h2>
-    Request Submitted Successfully
-</h2>
-
-<p>
-    Your reference number:
-</p>
-
-<h3>
-    ${leadId}
-</h3>
-
-<p>
-    We have received your enquiry by email.
-    For a faster response, you may also share it on WhatsApp using the QR code below.
-</p>
-
-            <img
-
-                src="${qrUrl}"
-
-                alt="WhatsApp QR"
-
-                style="
-                    max-width:250px;
-                    margin:20px auto;
-                    display:block;
-                "
-
-            >
-
-            <div
-                style="
-                    display:flex;
-                    gap:12px;
-                    justify-content:center;
-                    margin-top:20px;
-                "
-            >
-
-                <a
-
-                    href="${whatsappUrl}"
-
-                    target="_blank"
-
-                    class="btn btn-primary"
-
-                >
-
-                    Open WhatsApp
-
-                </a>
-
-                <button
-
-                    class="btn btn-secondary"
-
-                    id="closeLeadModal"
-
-                >
-
-                    Close
-
-                </button>
-
-            </div>
-
-        </div>
-
-    `;
-
-    document.body.appendChild(
-
-        modal
-
-    );
-
-    document
-        .getElementById(
-            "closeLeadModal"
-        )
-        .addEventListener(
-
-            "click",
-
-            () => {
-
-                modal.remove();
-
-            }
-
-        );
-
+    actions.append(whatsapp, close);
+    content.append(title, referenceLabel, reference, note, actions);
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+    close.focus({ preventScroll: true });
 }
