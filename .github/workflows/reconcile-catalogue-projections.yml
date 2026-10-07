@@ -203,25 +203,42 @@ jobs:
           products = json.loads(PRODUCTS_PATH.read_text(encoding="utf-8"))
           product_by_id = {text(p.get("id")): p for p in products if p.get("id")}
 
-          for p in active:
-              pid = text(p.get("id"))
+          catalogue_by_id = {
+              text(p.get("id")): p
+              for p in catalogue
+              if p.get("id")
+          }
+
+          # The catalogue index is the product master. Keep the JSON projection
+          # synchronized for every catalogue record, including active-state changes.
+          for pid, source in catalogue_by_id.items():
+              desired = product_from_catalogue(source)
               current = product_by_id.get(pid)
               if current is None:
-                  products.append(product_from_catalogue(p))
+                  products.append(desired)
+                  product_by_id[pid] = products[-1]
                   changed.add(str(PRODUCTS_PATH))
                   continue
 
-              fields = {
-                  "category_id": text(p.get("category_id")),
-                  "category_name": text(p.get("category_name") or p.get("category")),
-                  "subcategory_id": text(p.get("subcategory_id")),
-                  "subcategory_name": text(p.get("subcategory_name") or p.get("subcategory")),
+              projection_fields = (
+                  "slug", "part_number", "manufacturer_part_number",
+                  "manufacturer_part_numbers", "alternate_part_numbers",
+                  "oem_numbers", "cross_references", "mrp", "selling_price",
+                  "product_name", "name", "partNumber", "brand_id", "brand_name",
+                  "brand", "category_id", "category_name", "category",
+                  "subcategory_id", "subcategory_name", "subcategory",
+                  "image", "primary_image", "image_url", "vehicles",
+                  "applications", "featured", "active", "description",
+                  "image_folder", "gallery", "gallery_dimensions",
+                  "catalogue_updated_at", "updated_at",
+              )
+              updates = {
+                  field: desired.get(field)
+                  for field in projection_fields
+                  if current.get(field) != desired.get(field)
               }
-              if any(text(current.get(k)) != text(v) for k, v in fields.items()):
-                  current.update(fields)
-                  current["category"] = fields["category_name"]
-                  current["subcategory"] = fields["subcategory_name"]
-                  current["updated_at"] = now
+              if updates:
+                  current.update(updates)
                   changed.add(str(PRODUCTS_PATH))
 
           search = json.loads(SEARCH_PATH.read_text(encoding="utf-8"))
