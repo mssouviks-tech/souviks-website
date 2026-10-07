@@ -4849,6 +4849,43 @@ body.auth-modal-open {
    ACCESSIBILITY / MOTION
 ========================================================== */
 
+/* Keyboard skip navigation */
+.souviks-skip-link {
+    position: fixed;
+    left: 16px;
+    top: 12px;
+    z-index: 10000;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--bg-dark);
+    color: var(--bg-card);
+    font-weight: 700;
+    text-decoration: none;
+    transform: translateY(-160%);
+    transition: transform .16s ease;
+}
+
+.souviks-skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 2px;
+}
+
+main[id]:focus {
+    outline: none;
+}
+
+main[id]:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .souviks-skip-link {
+        transition: none;
+    }
+}
+
 :where(a, button, input, select, textarea):focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
