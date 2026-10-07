@@ -581,7 +581,7 @@ jobs:
                                   "@type": "ListItem",
                                   "position": 2,
                                   "name": str(product.get("category_name") or product.get("category") or "Products"),
-                                  "item": f"https://www.souviks.co.in/{lang}/categories/{text(product.get('category_id'))}",
+                                  "item": f"https://www.souviks.co.in/{lang}/categories/{str(product.get("category_id") or "").strip()}",
                               },
                               {
                                   "@type": "ListItem",
