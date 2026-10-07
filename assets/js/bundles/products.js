@@ -354,32 +354,7 @@ Features:
         return best;
     }
 
-    function trackSearch(query, resultCount, source = "search") {
-        const payload = {
-            query: String(query || "").trim().slice(0, 160),
-            resultCount: Number(resultCount) || 0,
-            source: String(source || "search"),
-            timestamp: new Date().toISOString()
-        };
-
-        try {
-            window.dispatchEvent(new CustomEvent("souviks:search", { detail: payload }));
-        } catch (error) {
-            // CustomEvent may be unavailable in older embedded browsers.
-        }
-
-        if (typeof window.gtag === "function" && payload.query) {
-            try {
-                window.gtag("event", "search", {
-                    search_term: payload.query,
-                    results_count: payload.resultCount,
-                    search_source: payload.source
-                });
-            } catch (error) {
-                // Analytics must never interfere with search.
-            }
-        }
-    }
+    
 
     function search(records, query, limit = 20) {
         const max = Math.min(Math.max(Number(limit) || 20, 1), 100);
@@ -513,7 +488,7 @@ Features:
         matchesText,
         filterProducts,
         suggestQueries,
-        trackSearch
+        trackSearch: (...args) => window.souviksAnalytics?.trackSearch?.(...args)
     };
 
 })();
