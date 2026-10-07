@@ -252,8 +252,10 @@ jobs:
               "vehicle_count", "featured", "active",
           )
 
-          for p in active:
+          for p in catalogue:
               pid = text(p.get("id"))
+              if not pid:
+                  continue
               current = search_by_id.get(pid)
               desired = search_from_catalogue(p)
               if current is None:
