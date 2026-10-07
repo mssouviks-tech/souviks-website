@@ -1,6 +1,12 @@
 name: Catalogue Architecture Check
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/catalogue/**"
+      - ".github/workflows/catalogue-architecture-check.yml"
   pull_request:
     paths:
       - "assets/data/catalogue-index.json"
