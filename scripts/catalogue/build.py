@@ -19,7 +19,7 @@ def reconcile_catalogue_projections():
     import pathlib
     import re
     
-    ROOT = pathlib.Path(".")
+    ROOT = pathlib.Path(__file__).resolve().parents[2]
     CATALOGUE_PATH = ROOT / "assets/data/catalogue-index.json"
     PRODUCTS_PATH = ROOT / "assets/data/products.json"
     SEARCH_PATH = ROOT / "assets/data/search.json"
@@ -443,7 +443,7 @@ def sync_static_product_images():
     import pathlib
     import re
     
-    root = pathlib.Path(".")
+    root = ROOT
     catalogue = json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
     products = {
         str(item.get("id")): item
@@ -597,7 +597,7 @@ def normalize_blank_part_numbers():
     import pathlib
     changed = []
     for lang in ("en", "hi", "bn"):
-        root = pathlib.Path(lang) / "products"
+        root = ROOT / lang / "products"
         if not root.exists():
             continue
         for path in root.glob("*.html"):
@@ -624,7 +624,7 @@ def sync_product_seo_and_schema():
     import pathlib
     import re
     
-    root = pathlib.Path(".")
+    root = ROOT
     catalogue = {
         str(item.get("id")): item
         for item in json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
