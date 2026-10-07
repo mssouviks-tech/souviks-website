@@ -407,8 +407,11 @@ def reconcile_catalogue_projections():
             continue
         html = path.read_text(encoding="utf-8")
         original = html
-        html = html.replace("1022+", f"{count}+")
-        html = re.sub(r"(?<!\d)1022(?!\d)", str(count), html)
+        html = re.sub(
+            r'(<span><strong>)\d+\+(</strong><small>Products</small></span>)',
+            lambda m: m.group(1) + f"{count}+" + m.group(2),
+            html,
+        )
         if html != original:
             path.write_text(html, encoding="utf-8")
             changed.add(str(path))
