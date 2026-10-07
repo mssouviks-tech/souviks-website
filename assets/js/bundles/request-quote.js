@@ -2100,6 +2100,7 @@ RFQ.submitStandalone = async function (form) {
             );
         }
 
+        window.souviksAnalytics?.trackLead("rfq");
         await RFQ.clear();
         return reference;
     }
@@ -2123,6 +2124,7 @@ RFQ.submitStandalone = async function (form) {
         payload
     );
 
+    window.souviksAnalytics?.trackLead("rfq_guest");
     await RFQ.clear();
     return reference;
 };
