@@ -1,4 +1,81 @@
 
+/* ===== accessibility/core-a11y.js ===== */
+(() => {
+    "use strict";
+
+    function ensureSkipLink() {
+        const main = document.querySelector("main:not(.souviks-loader)");
+        if (!main) return;
+
+        if (!main.id) main.id = "main-content";
+        main.tabIndex = -1;
+
+        if (document.querySelector(".souviks-skip-link")) return;
+
+        const link = document.createElement("a");
+        link.className = "souviks-skip-link";
+        link.href = "#main-content";
+        link.textContent = "Skip to main content";
+
+        link.addEventListener("click", () => {
+            window.setTimeout(() => {
+                document.getElementById("main-content")?.focus({ preventScroll: false });
+            }, 0);
+        });
+
+        document.body.insertBefore(link, document.body.firstChild);
+    }
+
+    function bindModalFocusTrap() {
+        const modal = document.getElementById("authModal");
+        const dialog = modal?.querySelector('[role="dialog"]');
+        if (!modal || !dialog || dialog.dataset.a11yFocusBound === "true") return;
+
+        dialog.dataset.a11yFocusBound = "true";
+
+        document.addEventListener("keydown", event => {
+            if (event.key !== "Tab" || modal.hidden) return;
+
+            const focusable = Array.from(dialog.querySelectorAll(
+                'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            )).filter(element => {
+                const style = window.getComputedStyle(element);
+                return style.visibility !== "hidden" && style.display !== "none";
+            });
+
+            if (!focusable.length) {
+                event.preventDefault();
+                return;
+            }
+
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (!dialog.contains(document.activeElement)) {
+                event.preventDefault();
+                first.focus();
+            } else if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
+    }
+
+    function initialise() {
+        ensureSkipLink();
+        bindModalFocusTrap();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initialise, { once: true });
+    } else {
+        initialise();
+    }
+})();
+
 /* ===== auth/supabase.js ===== */
 /* ==========================================================
    SOUVIKS — SUPABASE CLIENT
@@ -323,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 showStatus(
                     getAuthMessage(
                         "passwordMinLength",
-                        "Password must be at least 6 characters."
+                        "Password must be at least 8 characters."
                     ),
                     "error"
                 );
@@ -847,7 +924,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        if (password.length < 6) {
+        if (password.length < 8) {
             showStatus(
                 registerStatus,
                 message("passwordMinLength", "Password must be at least 6 characters."),
