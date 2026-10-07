@@ -135,10 +135,17 @@ jobs:
 
                   refreshed = dict(embedded)
                   refreshed["image_folder"] = product.get("image_folder") or embedded.get("image_folder") or product.get("id")
-                  refreshed["image"] = product.get("image") or gallery[0]
-                  refreshed["primary_image"] = product.get("primary_image") or gallery[0]
-                  refreshed["image_url"] = product.get("image_url") or image_url(product, gallery[0])
+                  refreshed["image"] = gallery[0]
+                  refreshed["primary_image"] = gallery[0]
+                  refreshed["image_url"] = image_url(product, gallery[0])
                   refreshed["gallery"] = gallery
+                  refreshed["gallery_dimensions"] = {
+                      str(name): product.get("gallery_dimensions", {}).get(str(name))
+                      for name in gallery
+                      if isinstance(product.get("gallery_dimensions"), dict)
+                      and isinstance(product.get("gallery_dimensions", {}).get(str(name)), list)
+                      and len(product.get("gallery_dimensions", {}).get(str(name))) == 2
+                  }
 
                   new_data = json.dumps(refreshed, ensure_ascii=False, separators=(",", ":"))
                   if new_data != data_match.group(1):
@@ -196,8 +203,14 @@ jobs:
                   if not product:
                       return card
 
-                  src = str(product.get("image_url") or "").strip()
-                  if not src or src.endswith("/placeholder.webp"):
+                  gallery = product.get("gallery")
+                  if isinstance(gallery, list) and gallery:
+                      gallery = [str(name).strip() for name in gallery if str(name).strip()]
+                  else:
+                      gallery = []
+
+                  src = image_url(product, gallery[0]) if gallery else str(product.get("image_url") or "").strip()
+                  if not src:
                       return card
 
                   return re.sub(
@@ -854,6 +867,45 @@ jobs:
                       missing_gallery = [name for name in gallery if not (folder / str(name)).exists()]
                       if missing_gallery:
                           errors.append(f"Product {folder.name} gallery references missing files: {', '.join(missing_gallery)}")
+
+          for product in catalogue:
+              pid = str(product.get("id") or "").strip()
+              gallery = product.get("gallery")
+              if not pid or not isinstance(gallery, list) or not gallery:
+                  continue
+
+              names = [str(name).strip() for name in gallery if str(name).strip()]
+              if not names:
+                  errors.append(f"Product {pid} has an empty gallery declaration.")
+                  continue
+
+              if len(names) > 4:
+                  errors.append(f"Product {pid} has {len(names)} gallery views; maximum is 4.")
+              if len(names) != len(set(names)):
+                  errors.append(f"Product {pid} has duplicate gallery filenames.")
+
+              expected_names = [f"{i}.webp" for i in range(1, len(names) + 1)]
+              if names != expected_names:
+                  errors.append(
+                      f"Product {pid} gallery filenames are not sequential 1.webp..N.webp: {names}"
+                  )
+
+              image_url = str(product.get("image_url") or "").strip()
+              if image_url.endswith("/placeholder.webp"):
+                  errors.append(f"Product {pid} has a real gallery but still references the placeholder image.")
+
+              if str(product.get("image") or "").strip() != names[0]:
+                  errors.append(f"Product {pid} primary image does not match gallery[0].")
+              if str(product.get("primary_image") or "").strip() != names[0]:
+                  errors.append(f"Product {pid} primary_image does not match gallery[0].")
+
+              dimensions = product.get("gallery_dimensions")
+              if isinstance(dimensions, dict):
+                  stale = [name for name in dimensions if name not in names]
+                  if stale:
+                      errors.append(
+                          f"Product {pid} has stale gallery dimensions: " + ", ".join(map(str, stale))
+                      )
 
           missing_folders = [p["id"] for p in catalogue if p["id"] not in folders and not str(p.get("image_url") or "").endswith("/placeholder.webp")]
           if missing_folders:
