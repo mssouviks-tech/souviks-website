@@ -5,6 +5,52 @@
 ========================================================== */
 
 
+/* ===== analytics/core-analytics.js ===== */
+(() => {
+    "use strict";
+
+    window.souviksAnalytics = window.souviksAnalytics || {
+        trackSearch(query, resultCount, source = "search") {
+            const payload = {
+                query: String(query || "").trim().slice(0, 160),
+                resultCount: Number(resultCount) || 0,
+                source: String(source || "search"),
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                window.dispatchEvent(new CustomEvent("souviks:search", { detail: payload }));
+            } catch (error) {
+                // Analytics must never interfere with site functionality.
+            }
+
+            if (typeof window.gtag === "function" && payload.query) {
+                try {
+                    window.gtag("event", "search", {
+                        search_term: payload.query,
+                        results_count: payload.resultCount,
+                        search_source: payload.source
+                    });
+                } catch (error) {
+                    // Analytics must never interfere with site functionality.
+                }
+            }
+        },
+
+        trackLead(type = "lead") {
+            if (typeof window.gtag !== "function") return;
+
+            try {
+                window.gtag("event", "generate_lead", {
+                    lead_type: String(type || "lead")
+                });
+            } catch (error) {
+                // Analytics must never interfere with lead submission.
+            }
+        }
+    };
+})();
+
 /* ===== accessibility/core-a11y.js ===== */
 /*
 ==========================================================
