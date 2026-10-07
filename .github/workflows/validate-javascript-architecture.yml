@@ -1,0 +1,33 @@
+name: Validate JavaScript Architecture
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/js/**"
+      - "en/*.html"
+      - "bn/*.html"
+      - "hi/*.html"
+      - "scripts/js/**"
+      - ".github/workflows/validate-javascript-architecture.yml"
+  pull_request:
+    paths:
+      - "assets/js/**"
+      - "en/*.html"
+      - "bn/*.html"
+      - "hi/*.html"
+      - "scripts/js/**"
+      - ".github/workflows/validate-javascript-architecture.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JavaScript architecture
+        run: python3 scripts/js/validate.py
