@@ -6755,9 +6755,49 @@ function updateNoResultsState(show) {
         pagination.setAttribute("aria-hidden", String(show));
     }
     if (!noResults) return;
+
+    const lang = String(
+        window.souviks?.currentLanguage ||
+        document.documentElement.lang ||
+        "en"
+    ).slice(0, 2);
+
+    const emptyCopy = {
+        en: {
+            title: "No Matching Products Found",
+            message: "We couldn't find any products matching your search criteria. Try changing your keywords or adjusting the selected filters.",
+            label: "No Results"
+        },
+        hi: {
+            title: "कोई मेल खाने वाला उत्पाद नहीं मिला",
+            message: "आपकी खोज या फ़िल्टर से मेल खाने वाला कोई उत्पाद नहीं मिला। कृपया कीवर्ड बदलें या फ़िल्टर समायोजित करें।",
+            label: "कोई परिणाम नहीं मिला"
+        },
+        bn: {
+            title: "কোনো মিলযুক্ত পণ্য পাওয়া যায়নি",
+            message: "আপনার অনুসন্ধান বা ফিল্টারের সাথে মিলে এমন কোনো পণ্য পাওয়া যায়নি। অনুগ্রহ করে কীওয়ার্ড বা ফিল্টার পরিবর্তন করুন।",
+            label: "কোন ফলাফল পাওয়া যায়নি"
+        }
+    }[lang] || {
+        title: "No Matching Products Found",
+        message: "We couldn't find any products matching your search criteria. Try changing your keywords or adjusting the selected filters.",
+        label: "No Results"
+    };
+
     noResults.hidden = !show;
     noResults.classList.toggle("hidden", !show);
     noResults.setAttribute("aria-hidden", String(!show));
+    noResults.setAttribute("aria-label", emptyCopy.label);
+
+    const title = noResults.querySelector("[data-empty-state-title]");
+    const message = noResults.querySelector("[data-empty-state-message]");
+    if (show) {
+        if (title) title.textContent = emptyCopy.title;
+        if (message) message.textContent = emptyCopy.message;
+    } else {
+        title?.replaceChildren();
+        message?.replaceChildren();
+    }
 
     const suggestionHost = document.getElementById("searchSuggestions");
     if (!suggestionHost) return;
