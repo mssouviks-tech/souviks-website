@@ -648,8 +648,12 @@ def sync_static_product_images():
         return f"/assets/images/products/{folder}/{name}"
     
     # 1) Reconcile every static PDP with the canonical catalogue gallery.
+    # When a catalogue slug is normalized or shortened, move the existing
+    # generated PDP to the canonical filename before validating internal links.
+    # The legacy filename remains covered by _redirects for inbound traffic.
     for lang in ("en", "hi", "bn"):
-        for path in (root / lang / "products").glob("*.html"):
+        directory = root / lang / "products"
+        for path in list(directory.glob("*.html")):
             text = path.read_text(encoding="utf-8")
     
             data_match = re.search(
@@ -666,6 +670,19 @@ def sync_static_product_images():
                 continue
     
             product = products.get(str(embedded.get("id")))
+            if product:
+                canonical_slug = str(product.get("slug") or path.stem).strip()
+                canonical_path = directory / f"{canonical_slug}.html"
+                if canonical_slug and canonical_path != path:
+                    if canonical_path.exists():
+                        print(
+                            f"WARNING: canonical product page already exists: "
+                            f"{canonical_path}"
+                        )
+                    else:
+                        path.rename(canonical_path)
+                        path = canonical_path
+                        text = path.read_text(encoding="utf-8")
             gallery = product.get("gallery") if product else None
             if not product or not isinstance(gallery, list) or not gallery:
                 continue
