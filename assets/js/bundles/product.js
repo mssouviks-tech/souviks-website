@@ -590,7 +590,7 @@ constructor() {
                 heading.innerHTML = `<a href="${href}" aria-label="View ${safeName} vehicle page">${safeName}</a>`;
             });
         } catch (error) {
-            console.warn("[Souviks PDP] Vehicle link hydration unavailable:", error);
+            SouviksErrors?.log("[Souviks PDP] Vehicle link hydration unavailable:", error, "warn");
         }
     }
 
@@ -642,7 +642,7 @@ constructor() {
             bindSlider(relatedSlider, document.querySelector(".pdp-related-prev-btn"), document.querySelector(".pdp-related-next-btn"));
             window.SavedProducts?.updateButtons?.();
         } catch (error) {
-            console.warn("[Souviks PDP] Static recommendation hydration unavailable:", error);
+            SouviksErrors?.log("[Souviks PDP] Static recommendation hydration unavailable:", error, "warn");
         }
     }
 
@@ -1442,7 +1442,7 @@ priceHtml(product) {
         void (async()=>{try{
             const item=(await RFQ.get()).find(entry=>entry.id===product.id);
             if(!item)return; inRFQ=true; qtyInput.value=item.qty; rfqBtn.textContent="Added ✓"; removeBtn.style.display="block";
-        }catch(error){console.warn("Souviks RFQ state unavailable:",error);}})();
+        }catch(error){SouviksErrors?.log("Souviks RFQ state unavailable:", error, "warn");}})();
     }
 
     // ======================================================
@@ -1490,7 +1490,7 @@ async hydrateProductPage() {
                 this.syncStaticProductGallery(refreshed);
                 window.SOUVIKS_PRODUCT_PAGE_DATA = refreshed;
             } catch (error) {
-                console.warn("[Souviks PDP] Current gallery metadata unavailable:", error);
+                SouviksErrors?.log("[Souviks PDP] Current gallery metadata unavailable:", error, "warn");
             }
         }, 0);
 
@@ -2539,7 +2539,7 @@ if(
                     : '<div class="pdp-review-empty">No customer reviews yet. Be the first to share your experience.</div>';
             }
         } catch (error) {
-            console.warn("Souviks reviews unavailable:", error);
+            SouviksErrors?.log("Souviks reviews unavailable:", error, "warn");
             if (list) list.innerHTML = '<div class="pdp-review-empty">No customer reviews have been published yet.</div>';
         }
 
@@ -2611,7 +2611,7 @@ if(
             }
 
             if (error) {
-                console.error("Souviks review submission failed:", error);
+                SouviksErrors?.log("Souviks review submission failed:", error, "error");
                 if (status) status.textContent = "We could not submit your review right now. Please try again.";
                 return;
             }
@@ -2686,10 +2686,7 @@ RFQ.getUser = async function () {
 
         if (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to get authenticated user:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to get authenticated user:", error, "error");
 
             return null;
 
@@ -2701,10 +2698,7 @@ RFQ.getUser = async function () {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unexpected authentication error:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unexpected authentication error:", error, "error");
 
         return null;
 
@@ -2832,10 +2826,7 @@ RFQ.getGuestItems = function () {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to read guest RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to read guest RFQ basket:", error, "error");
 
         return [];
 
@@ -2872,10 +2863,7 @@ RFQ.saveGuestItems = function (
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to save guest RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to save guest RFQ basket:", error, "error");
 
         return false;
 
@@ -2977,10 +2965,7 @@ RFQ.get = async function () {
 
     if (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to load RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to load RFQ basket:", error, "error");
 
         return [];
 
@@ -3251,10 +3236,7 @@ RFQ.setQuantity = async function (
 
     if (findError) {
 
-        console.error(
-            "[Souviks RFQ] Unable to find RFQ product:",
-            findError
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ product:", findError, "error");
 
         return false;
 
@@ -3298,10 +3280,7 @@ RFQ.setQuantity = async function (
 
         if (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to update RFQ quantity:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", error, "error");
 
             return false;
 
@@ -3355,10 +3334,7 @@ RFQ.setQuantity = async function (
 
         if (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to insert RFQ product:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to insert RFQ product:", error, "error");
 
             return false;
 
@@ -3509,10 +3485,7 @@ document.addEventListener(
 
             error => {
 
-                console.error(
-                    "[Souviks RFQ] Add-to-RFQ error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks RFQ] Add-to-RFQ error:", error, "error");
 
             }
 
@@ -3862,10 +3835,7 @@ RFQ.changeQty = async function (
 
     if (findError) {
 
-        console.error(
-            "[Souviks RFQ] Unable to find RFQ item:",
-            findError
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ item:", findError, "error");
 
         return;
 
@@ -3908,10 +3878,7 @@ RFQ.changeQty = async function (
 
     if (updateError) {
 
-        console.error(
-            "[Souviks RFQ] Unable to update RFQ quantity:",
-            updateError
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", updateError, "error");
 
         return;
 
@@ -4022,10 +3989,7 @@ RFQ.remove = async function (
 
     if (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to remove RFQ item:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to remove RFQ item:", error, "error");
 
         return;
 
@@ -4074,10 +4038,7 @@ RFQ.clear = async function () {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to clear guest RFQ basket:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to clear guest RFQ basket:", error, "error");
 
         }
 
@@ -4131,10 +4092,7 @@ RFQ.clear = async function () {
 
     if (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to clear RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to clear RFQ basket:", error, "error");
 
         return false;
 
@@ -4224,10 +4182,7 @@ RFQ.mergeGuestBasket = async function () {
 
             if (error) {
 
-                console.error(
-                    "[Souviks RFQ] Unable to check guest basket item:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks RFQ] Unable to check guest basket item:", error, "error");
 
                 continue;
 
@@ -4273,10 +4228,7 @@ RFQ.mergeGuestBasket = async function () {
 
                 if (updateError) {
 
-                    console.error(
-                        "[Souviks RFQ] Unable to merge guest RFQ item:",
-                        updateError
-                    );
+                    SouviksErrors?.log("[Souviks RFQ] Unable to merge guest RFQ item:", updateError, "error");
 
                 }
 
@@ -4317,10 +4269,7 @@ RFQ.mergeGuestBasket = async function () {
 
                 if (insertError) {
 
-                    console.error(
-                        "[Souviks RFQ] Unable to import guest RFQ item:",
-                        insertError
-                    );
+                    SouviksErrors?.log("[Souviks RFQ] Unable to import guest RFQ item:", insertError, "error");
 
                 }
 
@@ -4328,10 +4277,7 @@ RFQ.mergeGuestBasket = async function () {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] Unexpected guest RFQ merge error:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unexpected guest RFQ merge error:", error, "error");
 
         }
 
@@ -4352,10 +4298,7 @@ RFQ.mergeGuestBasket = async function () {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to clear guest RFQ storage:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to clear guest RFQ storage:", error, "error");
 
     }
 
@@ -4507,10 +4450,7 @@ document.addEventListener(
                 session
             ) => {
 
-                console.log(
-                    "[Souviks RFQ] Auth event:",
-                    event
-                );
+                
 
 
                 /*
@@ -4713,10 +4653,7 @@ SavedProducts.init = async function () {
 
     catch (error) {
 
-        console.error(
-            "[Souviks Saved] Initialization failed:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Initialization failed:", error, "error");
 
     }
 
@@ -4779,10 +4716,7 @@ SavedProducts.getUser = async function () {
 
     catch (error) {
 
-        console.error(
-            "[Souviks Saved] Unable to get user:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Unable to get user:", error, "error");
 
         return null;
 
@@ -4835,10 +4769,7 @@ SavedProducts.load = async function () {
 
     if (error) {
 
-        console.error(
-            "[Souviks Saved] Failed to load saved products:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Failed to load saved products:", error, "error");
 
         return [];
 
@@ -5014,10 +4945,7 @@ SavedProducts.save = async function (
         }
 
 
-        console.error(
-            "[Souviks Saved] Failed to save product:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Failed to save product:", error, "error");
 
         return false;
 
@@ -5104,10 +5032,7 @@ SavedProducts.remove = async function (
 
     if (error) {
 
-        console.error(
-            "[Souviks Saved] Failed to remove product:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Failed to remove product:", error, "error");
 
         return false;
 
@@ -5443,10 +5368,7 @@ document.addEventListener(
 
         catch (error) {
 
-            console.error(
-                "[Souviks Saved] Toggle failed:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Saved] Toggle failed:", error, "error");
 
         }
 
