@@ -2673,7 +2673,60 @@ window.RFQ = {
         "rfq_cart_items",
 
     storageKey:
-        "souviks_rfq_guest"
+        "souviks_rfq_guest",
+
+    // Client-side limits are abuse-resistance only; database constraints/RLS
+    // remain the authoritative security boundary.
+    MAX_QUANTITY:
+        9999,
+
+    MAX_ITEMS:
+        50
+
+};
+
+RFQ.normalizeQuantity = function (value) {
+
+    const numeric = Number(value);
+
+    if (!Number.isFinite(numeric)) {
+        return 1;
+    }
+
+    return Math.min(
+        RFQ.MAX_QUANTITY,
+        Math.max(
+            1,
+            Math.floor(numeric)
+        )
+    );
+
+};
+
+RFQ.normalizeText = function (value, maxLength = 500) {
+
+    return String(value ?? "")
+        .trim()
+        .slice(0, maxLength);
+
+};
+
+RFQ.normalizeItem = function (item) {
+
+    const id = RFQ.normalizeText(item?.id, 128);
+
+    if (!id) {
+        return null;
+    }
+
+    return {
+        id,
+        rowId: item?.rowId || null,
+        partNumber: RFQ.normalizeText(item?.partNumber, 128),
+        name: RFQ.normalizeText(item?.name, 300),
+        brand: RFQ.normalizeText(item?.brand, 160),
+        qty: RFQ.normalizeQuantity(item?.qty)
+    };
 
 };
 
@@ -2813,36 +2866,10 @@ RFQ.getGuestItems = function () {
         }
 
 
-        return parsed.map(
-
-            item => ({
-
-                id:
-                    item.id,
-
-                rowId:
-                    null,
-
-                partNumber:
-                    item.partNumber || "",
-
-                name:
-                    item.name || "",
-
-                brand:
-                    item.brand || "",
-
-                qty:
-                    Math.max(
-                        1,
-                        Number(
-                            item.qty
-                        ) || 1
-                    )
-
-            })
-
-        );
+        return parsed
+            .map(item => RFQ.normalizeItem(item))
+            .filter(Boolean)
+            .slice(0, RFQ.MAX_ITEMS);
 
 
     } catch (error) {
@@ -2868,16 +2895,16 @@ RFQ.saveGuestItems = function (
 
     try {
 
+        const normalizedItems =
+            (Array.isArray(items) ? items : [])
+                .map(item => RFQ.normalizeItem(item))
+                .filter(Boolean)
+                .slice(0, RFQ.MAX_ITEMS);
+
         localStorage.setItem(
-
             RFQ.storageKey,
-
-            JSON.stringify(
-                items
-            )
-
+            JSON.stringify(normalizedItems)
         );
-
 
         return true;
 
@@ -3100,14 +3127,20 @@ RFQ.setQuantity = async function (
 
 ) {
 
-    const qty =
-        Math.max(
-            1,
-            Number(
-                quantity
-            ) || 1
-        );
+    const normalizedProductId =
+        RFQ.normalizeText(productId, 128);
 
+    if (!normalizedProductId) {
+        SouviksErrors?.log(
+            "[Souviks RFQ] Invalid product identifier.",
+            { name: "ValidationError" },
+            "warn"
+        );
+        return false;
+    }
+
+    const qty =
+        RFQ.normalizeQuantity(quantity);
 
     const user =
         await RFQ.getUser();
@@ -3130,34 +3163,19 @@ RFQ.setQuantity = async function (
 
                 item =>
                     item.id ===
-                    productId
+                    normalizedProductId
 
             );
 
 
-        const normalizedProduct = {
-
-            id:
-                productId,
-
-            rowId:
-                null,
-
-            partNumber:
-                product?.partNumber ||
-                "",
-
-            name:
-                product?.name ||
-                "",
-
-            brand:
-                product?.brand ||
-                "",
-
-            qty
-
-        };
+        const normalizedProduct =
+            RFQ.normalizeItem({
+                id: normalizedProductId,
+                partNumber: product?.partNumber,
+                name: product?.name,
+                brand: product?.brand,
+                qty
+            });
 
 
         if (
@@ -3333,7 +3351,7 @@ RFQ.setQuantity = async function (
                         user.id,
 
                     product_id:
-                        productId,
+                    normalizedProductId,
 
                     part_number:
                         product?.partNumber ||
@@ -5917,6 +5935,21 @@ Quantity: ${item.qty}
         items
     ) {
 
+        if (
+            !Array.isArray(items) ||
+            !items.length
+        ) {
+            throw new Error("Your RFQ basket is empty.");
+        }
+
+        if (items.length > (RFQ.MAX_ITEMS || 50)) {
+            throw new Error(
+                "Your RFQ contains too many items. Please submit no more than " +
+                (RFQ.MAX_ITEMS || 50) +
+                " items at a time."
+            );
+        }
+
         const rows =
             items.map(
 
@@ -5943,12 +5976,7 @@ Quantity: ${item.qty}
                         null,
 
                     quantity:
-                        Math.max(
-                            1,
-                            Number(
-                                item.qty
-                            ) || 1
-                        )
+                        RFQ.normalizeQuantity(item.qty)
 
                 })
 
