@@ -499,13 +499,7 @@ def reconcile_catalogue_projections():
     else:
         print(f"Prepared {len(changed)} catalogue projection file changes.")
     
-    PRODUCTS_PATH.write_text(json.dumps(products, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    SEARCH_PATH.write_text(json.dumps(search, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    # Persist the normalized master before projections are written so all
-    # generated surfaces consume the exact same slug values.
-    CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    # Persist the normalized master before projections are written so all
-    # generated surfaces consume the exact same slug values.
+    # Persist the normalized master and all projections from one deterministic build.
     CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     PRODUCTS_PATH.write_text(json.dumps(products, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     SEARCH_PATH.write_text(json.dumps(search, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
