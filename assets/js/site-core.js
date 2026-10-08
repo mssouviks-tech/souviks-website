@@ -9,60 +9,101 @@
 (() => {
     "use strict";
 
-    window.souviksAnalytics = window.souviksAnalytics || {
-        trackEvent(name, params = {}) {
-            if (typeof window.gtag !== "function") return;
+    const GA_MEASUREMENT_ID = "G-FDLYP5QB8V";
 
-            try {
-                window.gtag("event", String(name || "event"), {
-                    ...params,
-                    page_location: window.location.href
-                });
-            } catch (error) {
-                // Analytics must never interfere with site functionality.
-            }
-        },
+    /*
+     * Keep analytics resilient across every page variant.
+     * Most HTML pages already include the standard Google tag in <head>, but
+     * the shared core also bootstraps it when a page is missing that snippet.
+     * This prevents conversion events from being silently dropped.
+     */
+    function ensureGoogleAnalytics() {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function gtag() {
+            window.dataLayer.push(arguments);
+        };
 
-        trackSearch(query, resultCount, source = "search") {
-            const payload = {
-                query: String(query || "").trim().slice(0, 160),
-                resultCount: Number(resultCount) || 0,
-                source: String(source || "search"),
-                timestamp: new Date().toISOString()
-            };
+        const hasMeasurementScript = Array.from(
+            document.scripts || []
+        ).some(script => {
+            const src = String(script.src || "");
+            return src.includes("googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID);
+        });
 
-            try {
-                window.dispatchEvent(new CustomEvent("souviks:search", { detail: payload }));
-            } catch (error) {
-                // Analytics must never interfere with site functionality.
-            }
+        if (hasMeasurementScript) {
+            return;
+        }
 
-            if (typeof window.gtag === "function" && payload.query) {
-                try {
-                    window.gtag("event", "search", {
-                        search_term: payload.query,
-                        results_count: payload.resultCount,
-                        search_source: payload.source
-                    });
-                } catch (error) {
-                    // Analytics must never interfere with site functionality.
-                }
-            }
-        },
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_MEASUREMENT_ID);
+        document.head.appendChild(script);
 
-        trackLead(type = "lead") {
-            if (typeof window.gtag !== "function") return;
+        window.gtag("js", new Date());
+        window.gtag("config", GA_MEASUREMENT_ID);
+    }
 
-            try {
-                window.gtag("event", "generate_lead", {
-                    lead_type: String(type || "lead"),
-                    page_location: window.location.href
-                });
-            } catch (error) {
-                // Analytics must never interfere with lead submission.
-            }
+    ensureGoogleAnalytics();
+
+    const analyticsApi = window.souviksAnalytics || {};
+
+    analyticsApi.trackEvent = function(name, params = {}) {
+        try {
+            window.gtag("event", String(name || "event"), {
+                ...params,
+                page_location: window.location.href,
+                page_title: document.title
+            });
+        } catch (error) {
+            // Analytics must never interfere with site functionality.
         }
     };
+
+    analyticsApi.trackSearch = function(query, resultCount, source = "search") {
+        const payload = {
+            query: String(query || "").trim().slice(0, 160),
+            resultCount: Number(resultCount) || 0,
+            source: String(source || "search"),
+            timestamp: new Date().toISOString()
+        };
+
+        try {
+            window.dispatchEvent(new CustomEvent("souviks:search", { detail: payload }));
+        } catch (error) {
+            // Analytics must never interfere with site functionality.
+        }
+
+        if (!payload.query) {
+            return;
+        }
+
+        try {
+            window.gtag("event", "search", {
+                search_term: payload.query,
+                results_count: payload.resultCount,
+                search_source: payload.source,
+                page_location: window.location.href,
+                page_title: document.title
+            });
+        } catch (error) {
+            // Analytics must never interfere with site functionality.
+        }
+    };
+
+    analyticsApi.trackLead = function(type = "lead", params = {}) {
+        try {
+            window.gtag("event", "generate_lead", {
+                lead_type: String(type || "lead"),
+                ...params,
+                page_location: window.location.href,
+                page_title: document.title
+            });
+        } catch (error) {
+            // Analytics must never interfere with lead submission.
+        }
+    };
+
+    window.souviksAnalytics = analyticsApi;
 
     function bindConversionClickTracking() {
         if (window.__SOUVIKS_ANALYTICS_CLICKS_BOUND__) return;
@@ -97,6 +138,24 @@
                 window.souviksAnalytics?.trackEvent("whatsapp_click", {
                     link_location: String(
                         whatsapp.className || whatsapp.getAttribute("aria-label") || "whatsapp"
+                    ).slice(0, 160)
+                });
+            }
+
+            const phone = target.closest('a[href^="tel:"]');
+            if (phone) {
+                window.souviksAnalytics?.trackEvent("phone_click", {
+                    link_location: String(
+                        phone.className || phone.getAttribute("aria-label") || "phone"
+                    ).slice(0, 160)
+                });
+            }
+
+            const email = target.closest('a[href^="mailto:"]');
+            if (email) {
+                window.souviksAnalytics?.trackEvent("email_click", {
+                    link_location: String(
+                        email.className || email.getAttribute("aria-label") || "email"
                     ).slice(0, 160)
                 });
             }
