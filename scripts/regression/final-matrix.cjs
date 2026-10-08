@@ -47,6 +47,14 @@ async function contextFor(view) {
     ignoreHTTPSErrors: false,
   });
 
+  await context.route("**/@emailjs/browser@4/dist/email.min.js", async route => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/javascript",
+      body: "/* deterministic regression stub */"
+    });
+  });
+
   // Keep the matrix deterministic: anonymous auth/account checks must not wait
   // on the live Supabase edge or mutate real data.
   await context.route("**cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js", async route => {
@@ -341,7 +349,7 @@ async function main() {
         await plus.click();
         await page.waitForTimeout(250);
         const qtyText = await row.locator(".rfq-qty").innerText();
-        const values = qtyText.match(/\\d+/g) || [];
+        const values = qtyText.match(/\d+/g) || [];
         const quantity = Number(values[0] || 0);
         const stored = await page.evaluate(() => {
           const raw = localStorage.getItem("souviks_rfq_guest");
@@ -354,7 +362,7 @@ async function main() {
 
       await check(`${view}/${lang}/RFQ removal`, async () => {
         const row = page.locator("#rfq-items tr").first();
-        const remove = row.locator('button[aria-label*="Remove"], button').last();
+        const remove = row.locator(".remove-rfq");
         if (!(await remove.count())) throw new Error("RFQ remove control missing");
         await remove.click();
         await page.waitForTimeout(300);
@@ -444,6 +452,7 @@ async function main() {
         await goto(page, BASE + langPath(lang, "request-part"));
         await page.locator("#requestPartForm").locator("#name").fill("Regression Test");
         await page.locator("#requestPartForm").locator("#phone").fill("9000000000");
+        await page.locator("#requestPartForm").locator("#requirement").fill("Regression test request");
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
@@ -463,9 +472,9 @@ async function main() {
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
-        const inputs = form.locator("input[required]");
-        if (await inputs.count() >= 1) await inputs.nth(0).fill("Regression Test");
-        if (await inputs.count() >= 2) await inputs.nth(1).fill("9000000000");
+        await form.locator("#contactName").fill("Regression Test");
+        await form.locator("#contactPhone").fill("9000000000");
+        await form.locator("#contactMessage").fill("Regression test enquiry");
         await form.locator("button[type=submit]").click();
         await page.waitForTimeout(500);
         const body = await page.locator("body").innerText();
@@ -500,18 +509,18 @@ async function main() {
         ["vehicles", "Vehicle"],
       ]) {
         await check(`${view}/${lang}/account ${viewName} view`, async () => {
-          await goto(page, BASE + langPath(lang, `account?view=${viewName}`));
-          const mainText = await page.locator("main").innerText().catch(() => "");
-          if (!mainText.trim()) throw new Error("account view empty");
+          await goto(page, BASE + langPath(lang, "account"));
+          const link = page.locator(`a.account-navigation-link[data-account-view="${viewName}"]`).first();
+          if (!(await link.count())) throw new Error("account navigation control missing");
+          await link.click();
+          await page.waitForTimeout(250);
 
-          const matching = page.locator(`[data-account-view="${viewName}"]`);
-          const hasMarker = (await matching.count()) > 0;
-          const normalisedText = mainText.toLowerCase();
+          const section = page.locator(`.account-view[data-account-view="${viewName}"]`).first();
+          if (!(await section.count())) throw new Error("account view section missing");
+          if (!(await section.isVisible())) throw new Error("account view section did not become visible");
 
-          if (!hasMarker && !normalisedText.includes(titleText.toLowerCase())) {
-            throw new Error("requested account view is not represented");
-          }
-
+          const sectionText = await section.innerText().catch(() => "");
+          if (!sectionText.trim()) throw new Error("account view empty");
           return titleText;
         });
       }
