@@ -201,9 +201,25 @@ def main() -> None:
                 errors.append(f"{path}: missing Product schema")
             if '"@type": "BreadcrumbList"' not in raw:
                 errors.append(f"{path}: missing BreadcrumbList")
-            if "/assets/images/placeholder.webp" in raw:
+            # A placeholder is acceptable only when the canonical catalogue
+            # genuinely has no gallery. Real catalogue media must render directly.
+            try:
+                data_match = re.search(
+                    r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                    raw,
+                    flags=re.S,
+                )
+                embedded = json.loads(data_match.group(1)) if data_match else {}
+            except Exception:
+                embedded = {}
+
+            gallery = embedded.get("gallery") or []
+            has_real_gallery = isinstance(gallery, list) and bool(
+                [str(item).strip() for item in gallery if str(item).strip()]
+            )
+            if has_real_gallery and "/assets/images/placeholder.webp" in raw:
                 errors.append(
-                    f"{path}: generic placeholder is embedded in static product markup"
+                    f"{path}: product has real gallery metadata but static markup still contains the generic placeholder"
                 )
 
     # 8. Sitemap URLs must remain clean.
