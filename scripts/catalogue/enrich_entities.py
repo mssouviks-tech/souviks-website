@@ -175,8 +175,8 @@ def enrich_entity_pages(kind, data, catalogue):
                 item["website"], item["country"] = meta["website"], meta["country"]
             cats = sorted(set(clean(p.get("category_name") or p.get("category")) for p in products if clean(p.get("category_name") or p.get("category"))))
             item.setdefault("seo", {})
-            item["description"] = f'Souviks lists {len(products)} active {clean(item.get("name"))} products across {list_text(cats, 5) or "the commercial-vehicle parts catalogue"}.'
-            item["short_description"] = f'{len(products)} active {clean(item.get("name"))} products across {list_text(cats, 5) or "commercial-vehicle parts"}.'
+            item["description"] = f'Souviks lists {len(products)} active {clean(item.get("name"))} products across {list_text(cats, 5) or "the commercial-vehicle parts catalogue"}. The current range covers common replacement areas such as {list_text(subs, 4) or "multiple service parts"} and applications including {list_text(top(arr_products(products, "vehicles"), 4), 4) or "commercial vehicles"}.'
+            item["short_description"] = f'{clean(item.get("name"))} products at Souviks cover {list_text(cats, 4) or "commercial-vehicle parts"} and applications across {list_text(top(arr_products(products, "vehicles"), 3), 3) or "commercial vehicles"}.'
             item["seo"]["description"] = item["description"]
         elif kind == "vehicle":
             name = clean(item.get("model") or item.get("name"))
@@ -198,8 +198,8 @@ def enrich_entity_pages(kind, data, catalogue):
             subs = top(arr_products(products, "subcategory_name"), 8)
             cats = top(arr_products(products, "category_name"), 8)
             item.setdefault("seo", {})
-            item["description"] = f'Souviks lists {len(products)} active spare parts for {name}, covering {list_text(cats, 5)} and common replacement areas such as {list_text(subs, 5)}.'
-            item["short_description"] = f'{len(products)} active spare parts are currently mapped to {name}.'
+            item["description"] = f'Souviks lists {len(products)} active spare parts for {name}, a {manufacturer_map.get(prefix, prefix) or "commercial-vehicle"} application. Current catalogue coverage includes {list_text(cats, 5)} and common replacement areas such as {list_text(subs, 5)}; listed brands include {list_text(top(arr_products(products, "brand_name"), 5), 5)}.'
+            item["short_description"] = f'{name}: {len(products)} active parts mapped across {list_text(cats, 4) or "commercial-vehicle systems"}.'
             item["seo"]["description"] = item["description"]
         else:
             products = [p for p in catalogue if p.get("active") is not False and clean(p.get("category_id")) == item_id]
@@ -217,8 +217,8 @@ def enrich_entity_pages(kind, data, catalogue):
             item["vehicles"] = sorted(vehicle_names)
             brands = [v for v in brand_pairs.values() if v]
             item.setdefault("seo", {})
-            item["description"] = f'The {clean(item.get("name"))} category contains {len(products)} active commercial-vehicle spare parts, with coverage from brands such as {list_text(sorted(set(brands)), 5)}.'
-            item["short_description"] = f'{len(products)} active commercial-vehicle spare parts in {clean(item.get("name"))}.'
+            item["description"] = f'{clean(item.get("name"))} covers {len(products)} active commercial-vehicle spare parts used across {list_text(sorted(vehicle_names), 5) or "truck, bus and commercial-vehicle applications"}. The category includes subcategories such as {list_text(sorted(set(sub_pairs.values())), 5) or "related replacement parts"} and brands including {list_text(sorted(set(brands)), 5) or "multiple suppliers"}.'
+            item["short_description"] = f'{clean(item.get("name"))}: {len(products)} active parts across {list_text(sorted(set(sub_pairs.values())), 4) or "related replacement parts"}.'
             item["seo"]["description"] = item["description"]
 
         for lang in LANGUAGES:
@@ -247,7 +247,7 @@ def enrich_entity_pages(kind, data, catalogue):
 def enrich_about():
     T = {
         "en": {
-            "cards": [("Store front", "A look at the Souviks storefront and customer-facing counter.", "store-front.jpg"), ("Inside the store", "Shelving and stock arranged for day-to-day parts trade.", "store-interior.jpg"), ("Parts counter", "The working counter used for customer enquiries and part identification.", "store-counter.jpg")],
+            "cards": [("Store tour", "A short look at the Souviks premises and stocked inventory.", "inventory-part1.mp4"), ("Inside the store", "Shelving and stock arranged for day-to-day parts trade.", "store-interior.jpg"), ("Parts counter", "The working counter used for customer enquiries and part identification.", "store-counter.jpg")],
             "b2b_title": "Built for B2B parts buyers",
             "b2b": ["Commercial-vehicle focus for workshops, retailers, fleet operators and distributors.", "Part-number, vehicle and application based assistance before you buy.", "Pan-India shipping for stocked parts, with dispatch and availability confirmed against the order.", "Catalogue coverage across filters, bearings, clutch parts, brakes, lubricants, electricals, engine parts and related systems."],
             "position_title": "Genuine OEM and aftermarket — clearly distinguished",
@@ -258,7 +258,7 @@ def enrich_about():
             "faq": [("Can Souviks help identify a part?", "Yes. Send the part number, vehicle details or a clear photograph and the team can help match the requirement against the catalogue."), ("Do you supply genuine and aftermarket parts?", "Yes. The catalogue contains both genuine/OE-specified and branded aftermarket products. They are not represented as the same thing."), ("Where do you ship?", "Souviks serves customers across India. Delivery timing and freight treatment depend on the order and destination.")],
         },
         "hi": {
-            "cards": [("स्टोर फ्रंट", "Souviks के स्टोर और ग्राहक काउंटर की झलक।", "store-front.jpg"), ("स्टोर के अंदर", "दैनिक पार्ट्स ट्रेड के लिए व्यवस्थित स्टॉक और शेल्फ।", "store-interior.jpg"), ("पार्ट्स काउंटर", "ग्राहक पूछताछ और पार्ट पहचान के लिए उपयोग होने वाला काउंटर।", "store-counter.jpg")],
+            "cards": [("स्टोर टूर", "Souviks परिसर और स्टॉक का एक छोटा वीडियो।", "inventory-part1.mp4"), ("स्टोर के अंदर", "दैनिक पार्ट्स ट्रेड के लिए व्यवस्थित स्टॉक और शेल्फ।", "store-interior.jpg"), ("पार्ट्स काउंटर", "ग्राहक पूछताछ और पार्ट पहचान के लिए उपयोग होने वाला काउंटर।", "store-counter.jpg")],
             "b2b_title": "B2B पार्ट्स खरीदारों के लिए बनाया गया",
             "b2b": ["वर्कशॉप, रिटेलर, फ्लीट ऑपरेटर और डिस्ट्रीब्यूटर के लिए कमर्शियल-व्हीकल फोकस।", "खरीद से पहले पार्ट नंबर, वाहन और एप्लिकेशन आधारित सहायता।", "स्टॉक किए गए पार्ट्स के लिए पूरे भारत में शिपिंग।", "फिल्टर, बेयरिंग, क्लच, ब्रेक, लुब्रिकेंट, इलेक्ट्रिकल और इंजन पार्ट्स सहित व्यापक कैटलॉग।"],
             "position_title": "Genuine OEM और aftermarket को स्पष्ट रूप से अलग रखा गया है",
@@ -269,7 +269,7 @@ def enrich_about():
             "faq": [("क्या Souviks पार्ट पहचानने में मदद कर सकता है?", "हाँ। पार्ट नंबर, वाहन विवरण या स्पष्ट फोटो भेजें; कैटलॉग में मिलान खोजने में सहायता की जा सकती है।"), ("क्या genuine और aftermarket दोनों पार्ट मिलते हैं?", "हाँ। दोनों प्रकार के उत्पाद अलग-अलग सूचीबद्ध हैं और उन्हें एक ही श्रेणी के रूप में प्रस्तुत नहीं किया जाता।"), ("कहाँ shipping होती है?", "Souviks पूरे भारत में ग्राहकों को सेवा देता है। डिलीवरी समय और freight ऑर्डर व destination पर निर्भर करते हैं।")],
         },
         "bn": {
-            "cards": [("স্টোরের সামনের অংশ", "Souviks স্টোর ও গ্রাহক কাউন্টারের একটি বাস্তব ছবি।", "store-front.jpg"), ("স্টোরের ভেতরে", "দৈনন্দিন পার্টস ব্যবসার জন্য সাজানো স্টক ও তাক।", "store-interior.jpg"), ("পার্টস কাউন্টার", "গ্রাহকের জিজ্ঞাসা ও পার্ট শনাক্তকরণের জন্য ব্যবহৃত কাউন্টার।", "store-counter.jpg")],
+            "cards": [("স্টোর ট্যুর", "Souviks স্টোর ও স্টকের একটি ছোট ভিডিও।", "inventory-part1.mp4"), ("স্টোরের ভেতরে", "দৈনন্দিন পার্টস ব্যবসার জন্য সাজানো স্টক ও তাক।", "store-interior.jpg"), ("পার্টস কাউন্টার", "গ্রাহকের জিজ্ঞাসা ও পার্ট শনাক্তকরণের জন্য ব্যবহৃত কাউন্টার।", "store-counter.jpg")],
             "b2b_title": "B2B পার্টস ক্রেতাদের জন্য তৈরি",
             "b2b": ["ওয়ার্কশপ, রিটেলার, ফ্লিট অপারেটর ও ডিস্ট্রিবিউটরদের জন্য কমার্শিয়াল-ভেহিকল ফোকাস।", "কেনার আগে পার্ট নম্বর, গাড়ি ও অ্যাপ্লিকেশন অনুযায়ী সহায়তা।", "স্টক থাকা পণ্যের জন্য সারা ভারতে শিপিং।", "ফিল্টার, বিয়ারিং, ক্লাচ, ব্রেক, লুব্রিক্যান্ট, ইলেকট্রিক্যাল ও ইঞ্জিন পার্টসসহ বিস্তৃত ক্যাটালগ।"],
             "position_title": "Genuine OEM ও aftermarket পরিষ্কারভাবে আলাদা",
@@ -289,7 +289,7 @@ def enrich_about():
         start = page.find('<div class="video-grid">')
         end = page.find('</div>\n\n    </div>\n\n</section>', start)
         if start >= 0 and end >= 0:
-            cards = ''.join(f'<div class="video-card about-photo-card"><img src="/assets/images/about/{fn}" width="400" height="400" loading="lazy" decoding="async" alt="{esc(title)}"><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>' for title, desc, fn in t["cards"])
+            cards = ''.join((f'<div class="video-card about-video-card"><video controls preload="metadata" playsinline width="400" height="400"><source src="/assets/images/about/{fn}" type="video/mp4"></video><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>' if fn.lower().endswith(".mp4") else f'<div class="video-card about-photo-card"><img src="/assets/images/about/{fn}" width="400" height="400" loading="lazy" decoding="async" alt="{esc(title)}"><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>') for title, desc, fn in t["cards"])
             page = page[:start] + '<div class="video-grid">' + cards + '</div>' + page[end+len('</div>\n\n    </div>\n\n</section>'):]
         page = page.replace('<span class="video-coming-soon">Video coming soon</span>', '')
         marker = '<!-- ABOUT_TRUST_CONTEXT -->'
