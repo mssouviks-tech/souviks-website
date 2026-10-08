@@ -307,13 +307,26 @@ def enrich_entity_pages(kind, data, catalogue):
             manufacturer_note = ""
             if meta and clean(meta.get("country")):
                 manufacturer_note = f' Manufacturer country: {clean(meta.get("country"))}.'
+            example_products = []
+            seen_example_ids = set()
+            for product in products:
+                pid = clean(product.get("id"))
+                pname = clean(product.get("product_name") or product.get("name"))
+                if pid and pname and pid not in seen_example_ids:
+                    example_products.append(pname)
+                    seen_example_ids.add(pid)
+                if len(example_products) >= 3:
+                    break
+
             item["description"] = (
                 f'Souviks currently lists {len(products)} active {clean(item.get("name"))} products across '
                 f'{list_text(cats, 5) or "the commercial-vehicle parts catalogue"}. '
                 f'The listed range is mapped to applications such as '
                 f'{list_text(vehicles, 5) or "commercial vehicle applications"} and common replacement areas including '
-                f'{list_text(subs, 5) or "related commercial-vehicle parts"}.'
-                f'{manufacturer_note} Use the part number, application and vehicle details when checking fitment.'
+                f'{list_text(subs, 5) or "related commercial-vehicle parts"}. '
+                f'{manufacturer_note} Current catalogue examples include '
+                f'{list_text(example_products, 3) or "multiple commercial-vehicle replacement parts"}. '
+                f'Use the part number, application and vehicle details when checking fitment.'
             )
             item["short_description"] = (
                 f'{clean(item.get("name"))} products at Souviks cover '
