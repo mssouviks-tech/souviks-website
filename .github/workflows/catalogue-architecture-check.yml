@@ -32,5 +32,18 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Compile catalogue and audit scripts
+        run: |
+          python3 -m py_compile \
+            scripts/catalogue/build.py \
+            scripts/catalogue/enrich_entities.py \
+            scripts/catalogue/sync_entity_sitemaps.py \
+            scripts/catalogue/validate.py \
+            scripts/audit/critical_build.py \
+            scripts/audit/structured_data.py
+
       - name: Validate static catalogue architecture
         run: python3 scripts/catalogue/validate.py
+
+      - name: Validate blocking production contract
+        run: python3 scripts/audit/critical_build.py
