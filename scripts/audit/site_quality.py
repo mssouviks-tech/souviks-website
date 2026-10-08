@@ -395,6 +395,68 @@ def trust_audit() -> dict[str, Any]:
     }
 
 
+def mobile_responsive_audit() -> dict[str, Any]:
+    html_files = sorted(ROOT.glob("**/*.html"))
+    missing_viewport = []
+    missing_mobile_navigation = []
+    missing_mobile_button_contract = []
+
+    for path in html_files:
+        content = path.read_text(encoding="utf-8", errors="ignore")
+
+        if not re.search(r'<meta\s+name=["\']viewport["\']', content, flags=re.I):
+            missing_viewport.append(str(path))
+
+        nav = re.search(
+            r'<nav\b[^>]*id=["\']mainNavigation["\'][^>]*>',
+            content,
+            flags=re.I,
+        )
+        if not nav:
+            missing_mobile_navigation.append(str(path))
+            continue
+
+        button = re.search(
+            r'<button\b[^>]*id=["\']mobileMenuButton["\'][^>]*>',
+            content,
+            flags=re.I,
+        )
+        if not button:
+            missing_mobile_button_contract.append(str(path))
+            continue
+
+        markup = button.group(0)
+        if not re.search(r'aria-expanded=["\'][^"\']+["\']', markup, flags=re.I):
+            missing_mobile_button_contract.append(str(path))
+        elif not re.search(r'aria-controls=["\']mainNavigation["\']', markup, flags=re.I):
+            missing_mobile_button_contract.append(str(path))
+
+    css_paths = sorted((ROOT / "assets/css/bundles").glob("*.css"))
+    css_text = "\n".join(
+        path.read_text(encoding="utf-8", errors="ignore")
+        for path in css_paths
+    )
+    base_css = ROOT / "assets/css/site-base.css"
+    if base_css.exists():
+        css_text += "\n" + base_css.read_text(encoding="utf-8", errors="ignore")
+
+    reduced_motion_navigation = bool(
+        re.search(
+            r'@media\s*\(prefers-reduced-motion:\s*reduce\).*?\.main-navigation',
+            css_text,
+            flags=re.I | re.S,
+        )
+    )
+
+    return {
+        "html_pages": len(html_files),
+        "missing_viewport": missing_viewport,
+        "missing_mobile_navigation": missing_mobile_navigation,
+        "missing_mobile_button_contract": missing_mobile_button_contract,
+        "reduced_motion_navigation_rule": reduced_motion_navigation,
+    }
+
+
 def main() -> int:
     catalogue_path = ROOT / "assets/data/catalogue-index.json"
     products_path = ROOT / "assets/data/products.json"
@@ -472,6 +534,7 @@ def main() -> int:
             for kind in ("brand", "category", "vehicle")
         },
         "rendering": html_state_audit(),
+        "mobile_responsive": mobile_responsive_audit(),
         "trust": trust_audit(),
     }
 
