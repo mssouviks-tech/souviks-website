@@ -6612,7 +6612,7 @@ function applyCatalogue({ resetPage = true } = {}) {
 
     Products.filtered = [...results];
     window.SouviksSearchEngine?.trackSearch?.(query, results.length, "product-catalogue");
-    const requestedPage = !resetPage ? Number(new URLSearchParams(window.location.search).get("page") || 1) : 1;
+    const requestedPage = !resetPage ? Utils.queryNumber("page", 1, 1, 1000000) : 1;
     const pageData = Pagination.update(results);
     Products.container.innerHTML = pageData.map(item => Products.card(item)).join("");
     if (!resetPage && Number.isFinite(requestedPage) && requestedPage > 1) Pagination.go(requestedPage);
@@ -6630,8 +6630,8 @@ function initialisePagination() {
             : Filters.results()
     );
 
-    const initialPage = Number(new URLSearchParams(window.location.search).get("page") || 1);
-    const initialPageSize = Number(new URLSearchParams(window.location.search).get("pageSize") || 20);
+    const initialPage = Utils.queryNumber("page", 1, 1, 1000000);
+    const initialPageSize = Utils.queryNumber("pageSize", 20, 1, 100);
     Pagination.init({
         data: initialResults,
         perPage: Number.isFinite(initialPageSize) && initialPageSize > 0 ? initialPageSize : 20,
