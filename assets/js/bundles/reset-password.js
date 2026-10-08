@@ -225,10 +225,7 @@ document.addEventListener(
 
             if (error) {
 
-                console.error(
-                    "[Souviks Auth] Recovery session check failed:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks Auth] Recovery session check failed:", error, "error");
 
                 showStatus(
                     getAuthMessage(
@@ -271,10 +268,7 @@ document.addEventListener(
 
         } catch (error) {
 
-            console.error(
-                "[Souviks Auth] Unexpected recovery session error:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Unexpected recovery session error:", error, "error");
 
             showStatus(
                 getAuthMessage(
@@ -396,10 +390,7 @@ document.addEventListener(
 
                     if (error) {
 
-                        console.error(
-                            "[Souviks Auth] Password update failed:",
-                            error
-                        );
+                        SouviksErrors?.log("[Souviks Auth] Password update failed:", error, "error");
 
                         showStatus(
                             getAuthMessage(
@@ -447,10 +438,7 @@ document.addEventListener(
 
                     if (signOutError) {
 
-                        console.error(
-                            "[Souviks Auth] Recovery session sign-out failed:",
-                            signOutError
-                        );
+                        SouviksErrors?.log("[Souviks Auth] Recovery session sign-out failed:", signOutError, "error");
 
                     }
 
@@ -479,10 +467,7 @@ document.addEventListener(
 
                 } catch (error) {
 
-                    console.error(
-                        "[Souviks Auth] Unexpected password update error:",
-                        error
-                    );
+                    SouviksErrors?.log("[Souviks Auth] Unexpected password update error:", error, "error");
 
                     showStatus(
                         getAuthMessage(
