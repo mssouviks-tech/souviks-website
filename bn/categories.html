@@ -1285,7 +1285,7 @@ CATEGORY DIRECTORY
     id="noResults"
     class="no-results"
     hidden
-    aria-live="polite"
+    aria-live="polite" aria-hidden="true"
     aria-label="কোন ফলাফল পাওয়া যায়নি">
 
     <div class="container">
@@ -1307,17 +1307,9 @@ CATEGORY DIRECTORY
 
             <div class="no-results-content">
 
-                <h2>
+                <h2 data-empty-state-title></h2>
 
-                    কোনো মিলযুক্ত ক্যাটাগরি পাওয়া যায়নি
-
-                </h2>
-
-                <p>
-
-                    আপনার অনুসন্ধানের সাথে মিলে এমন কোনো ক্যাটাগরি পাওয়া যায়নি। অনুগ্রহ করে অন্য কীওয়ার্ড ব্যবহার করুন।
-
-                </p>
+                <p data-empty-state-message></p>
 
                 <div
                     id="searchSuggestions"
