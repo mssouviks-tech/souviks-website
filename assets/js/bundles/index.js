@@ -620,7 +620,7 @@ function ensureSearchIndex() {
         })
             .then(response => response.ok ? response.json() : [])
             .then(data => { SEARCH_INDEX = Array.isArray(data) ? data : []; return SEARCH_INDEX; })
-            .catch(error => { console.warn("Souviks search index unavailable:", error); SEARCH_INDEX = []; return SEARCH_INDEX; });
+            .catch(error => { SouviksErrors?.log("Souviks search index unavailable:", error, "warn"); SEARCH_INDEX = []; return SEARCH_INDEX; });
     }
     return SEARCH_INDEX_PROMISE;
 }
@@ -875,7 +875,7 @@ let SEARCH_INDEX_PROMISE = null;
                 img.alt = String(product.product_name || product.name || img.alt || "Product");
             });
         } catch (error) {
-            console.warn("[Souviks] Static product image refresh unavailable:", error);
+            SouviksErrors?.log("[Souviks] Static product image refresh unavailable:", error, "warn");
         }
     };
 
