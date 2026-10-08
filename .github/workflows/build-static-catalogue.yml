@@ -14,6 +14,22 @@ on:
       - "bn/products/**"
       - "hi/products/**"
       - "scripts/catalogue/build.py"
+      - "scripts/catalogue/enrich_entities.py"
+      - "assets/data/brands.json"
+      - "assets/data/categories.json"
+      - "assets/data/vehicles.json"
+      - "en/brands/**"
+      - "hi/brands/**"
+      - "bn/brands/**"
+      - "en/categories/**"
+      - "hi/categories/**"
+      - "bn/categories/**"
+      - "en/vehicles/**"
+      - "hi/vehicles/**"
+      - "bn/vehicles/**"
+      - "en/about.html"
+      - "hi/about.html"
+      - "bn/about.html"
   workflow_dispatch:
 
 permissions:
@@ -33,8 +49,11 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Compile catalogue builder
-        run: python3 -m py_compile scripts/catalogue/build.py scripts/catalogue/validate.py
+      - name: Compile catalogue builders
+        run: python3 -m py_compile scripts/catalogue/build.py scripts/catalogue/enrich_entities.py scripts/catalogue/validate.py
+
+      - name: Enrich entity and trust content
+        run: python3 scripts/catalogue/enrich_entities.py
 
       - name: Build static catalogue
         run: python3 scripts/catalogue/build.py
