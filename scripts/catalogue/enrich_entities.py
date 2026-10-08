@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Enrich static brand, vehicle and category pages from the catalogue master."""
 
+# Entity records are projections of the active catalogue, not hand-maintained counts.
+
 from __future__ import annotations
 
 import html
