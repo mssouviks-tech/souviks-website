@@ -417,6 +417,60 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
         errors.append("Missing _redirects file")
         return
 
+    lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    rules = {}
+    for lineno, line in enumerate(lines, start=1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        parts = stripped.split()
+        if len(parts) < 2:
+            continue
+        source, destination = parts[:2]
+        status = parts[2] if len(parts) >= 3 else ""
+        rules[source] = (destination, status, lineno)
+
+    required_legacy_rules = {
+        "/index.html": ("/", "301"),
+        "/:lang/index.html": ("/:lang", "301"),
+    }
+    for page_name in (
+        "products",
+        "brands",
+        "categories",
+        "vehicles",
+        "about",
+        "contact",
+        "account",
+        "login",
+        "register",
+        "forgot-password",
+        "reset-password",
+        "request-part",
+        "request-quote",
+        "thank-you",
+        "privacy-policy",
+        "terms",
+        "refund",
+    ):
+        required_legacy_rules[f"/:lang/{page_name}.html"] = (
+            f"/:lang/{page_name}",
+            "301",
+        )
+
+    for source, (destination, status) in required_legacy_rules.items():
+        actual = rules.get(source)
+        if actual is None:
+            errors.append(
+                f"_redirects missing required legacy HTML redirect: {source}"
+            )
+            continue
+        if actual[0] != destination or actual[1] != status:
+            errors.append(
+                f"_redirects:{actual[2]}: legacy HTML redirect {source} "
+                f"must be {destination} {status}, found {actual[0]} {actual[1] or '<none>'}"
+            )
+
     for lineno, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
         stripped = line.strip()
         if not stripped or stripped.startswith("#"):
