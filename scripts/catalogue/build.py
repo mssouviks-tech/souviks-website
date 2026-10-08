@@ -233,7 +233,19 @@ def reconcile_catalogue_projections():
             changed.add(str(PRODUCTS_PATH))
     
     search = json.loads(SEARCH_PATH.read_text(encoding="utf-8"))
-    search_by_id = {text(p.get("id")): p for p in search if p.get("type") == "product" and p.get("id")}
+
+    # Search is a public discovery surface. It must contain only active
+    # catalogue products; inactive master records must never remain searchable.
+    active_ids = {text(p.get("id")) for p in active}
+    search = [
+        p for p in search
+        if p.get("type") != "product" or text(p.get("id")) in active_ids
+    ]
+    search_by_id = {
+        text(p.get("id")): p
+        for p in search
+        if p.get("type") == "product" and p.get("id")
+    }
     
     search_fields = (
         "title", "subtitle", "keywords", "description", "applications",
@@ -243,7 +255,7 @@ def reconcile_catalogue_projections():
         "vehicle_count", "featured", "active",
     )
     
-    for p in catalogue:
+    for p in active:
         pid = text(p.get("id"))
         if not pid:
             continue
