@@ -503,7 +503,6 @@ def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
             for name in static_names
         },
         "products.xml": {
-        "products.xml": {
             BASE + public_route("products", lang, text(p.get("slug")))
             for lang in LANGUAGES for p in records_by_kind["products"] if text(p.get("slug"))
         },
