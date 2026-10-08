@@ -242,6 +242,15 @@ def enrich_entity_pages(kind, data, catalogue):
             if not path.exists():
                 continue
             page = update_meta(path.read_text(encoding="utf-8"), clean(item.get("description")))
+            if kind == "vehicle" and len(products) <= 5:
+                robots_pattern = r'(<meta\\s+name=["\\']robots["\\']\\s+content=["\\'])[^"\\']*(["\\'])'
+                page = re.sub(
+                    robots_pattern,
+                    lambda m: m.group(1) + "noindex,follow,max-image-preview:large" + m.group(2),
+                    page,
+                    count=1,
+                    flags=re.I,
+                )
             if kind == "brand":
                 selector = r'(<div class="brand-info">\s*<h1>.*?</h1>\s*<p>)[\s\S]*?(</p>)'
             elif kind == "vehicle":
