@@ -10,6 +10,19 @@
     "use strict";
 
     window.souviksAnalytics = window.souviksAnalytics || {
+        trackEvent(name, params = {}) {
+            if (typeof window.gtag !== "function") return;
+
+            try {
+                window.gtag("event", String(name || "event"), {
+                    ...params,
+                    page_location: window.location.href
+                });
+            } catch (error) {
+                // Analytics must never interfere with site functionality.
+            }
+        },
+
         trackSearch(query, resultCount, source = "search") {
             const payload = {
                 query: String(query || "").trim().slice(0, 160),
@@ -42,15 +55,60 @@
 
             try {
                 window.gtag("event", "generate_lead", {
-                    lead_type: String(type || "lead")
+                    lead_type: String(type || "lead"),
+                    page_location: window.location.href
                 });
             } catch (error) {
                 // Analytics must never interfere with lead submission.
             }
         }
     };
-})();
 
+    function bindConversionClickTracking() {
+        if (window.__SOUVIKS_ANALYTICS_CLICKS_BOUND__) return;
+        window.__SOUVIKS_ANALYTICS_CLICKS_BOUND__ = true;
+
+        document.addEventListener("click", event => {
+            const target = event.target instanceof Element
+                ? event.target.closest("a, button")
+                : null;
+
+            if (!target) return;
+
+            const rfqControl = target.matches(".add-to-cart, .pdp-rfq-btn") ||
+                target.closest(".add-to-cart, .pdp-rfq-btn");
+
+            if (rfqControl) {
+                window.souviksAnalytics?.trackEvent("rfq_click", {
+                    product_id: target.dataset.id || target.closest("[data-id]")?.dataset.id || "",
+                    part_number: target.dataset.part || target.closest("[data-part]")?.dataset.part || ""
+                });
+            }
+
+            const requestPart = target.closest('a[href*="/request-part"]');
+            if (requestPart) {
+                window.souviksAnalytics?.trackEvent("request_part_click", {
+                    link_text: String(requestPart.textContent || "").trim().slice(0, 120)
+                });
+            }
+
+            const whatsapp = target.closest('a[href*="wa.me"]');
+            if (whatsapp) {
+                window.souviksAnalytics?.trackEvent("whatsapp_click", {
+                    link_location: String(
+                        whatsapp.className || whatsapp.getAttribute("aria-label") || "whatsapp"
+                    ).slice(0, 160)
+                });
+            }
+        }, true);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", bindConversionClickTracking, { once: true });
+    } else {
+        bindConversionClickTracking();
+    }
+})();
 /* ===== accessibility/core-a11y.js ===== */
 /*
 ==========================================================
