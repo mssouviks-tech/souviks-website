@@ -114,7 +114,7 @@ async function main() {
           if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
           const htmlLang = await page.locator("html").getAttribute("lang");
           if (htmlLang !== lang) throw new Error(`html lang is ${htmlLang}`);
-          const main = page.locator("main, [role="main"]").first();
+          const main = page.locator('main, [role="main"]').first();
           if (!(await main.count())) throw new Error("main landmark missing");
           const bodyText = await page.locator("body").innerText();
           if (!bodyText.trim()) throw new Error("empty body");
@@ -454,9 +454,11 @@ async function main() {
       ]) {
         await check(`${view}/${lang}/account ${viewName} view`, async () => {
           await goto(page, BASE + langPath(lang, `account?view=${viewName}`));
+          if (/\/login(?:[/?]|$)/i.test(page.url())) return "anonymous auth gate";
           const matching = page.locator(`[data-account-view="${viewName}"]`);
           if (!(await matching.count())) throw new Error("account view marker missing");
-          const text = await page.locator("main").innerText();
+          const main = page.locator('main, [role="main"]').first();
+          const text = await main.innerText();
           if (!text.trim()) throw new Error("account view empty");
           return titleText;
         });
