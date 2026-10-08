@@ -531,7 +531,7 @@ def reliability_audit(
         localized_404[language] = {
             "exists": path.exists(),
             "lang": re.search(
-                rf"<html\b[^>]*\blang=[\"']\${re.escape(language)}[\"']",
+                rf"<html\b[^>]*\blang=[\"\']{re.escape(language)}[\"\']",
                 raw,
                 flags=re.I,
             ) is not None,
