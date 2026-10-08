@@ -35,6 +35,12 @@ def main() -> None:
 
     errors: list[str] = []
 
+    # Bundle/module names use lowercase kebab-case; numeric utility pages are allowed.
+    js_name_pattern = re.compile(r"^(?:[0-9]+|[a-z0-9]+(?:-[a-z0-9]+)*)\\.js$")
+    for bundle in sorted(BUNDLES.glob("*.js")):
+        if not js_name_pattern.fullmatch(bundle.name):
+            errors.append(f"{bundle.relative_to(ROOT)} has a non-standard JS module name.")
+
     for bundle in sorted(BUNDLES.glob("*.js")):
         text = bundle.read_text(encoding="utf-8")
         markers = set(re.findall(r"/\* ===== ([^\n*]+?) ===== \*/", text))
