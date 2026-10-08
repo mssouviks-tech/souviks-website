@@ -57,6 +57,38 @@ def load_json(path: Path, errors: list[str]):
         return []
 
 
+def arrayish(value):
+    if isinstance(value, list):
+        values = value
+    elif value in (None, ""):
+        values = []
+    else:
+        values = re.split(r"[,;]", str(value))
+    return [text(v) for v in values if text(v)]
+
+
+def projection_value(source, field: str):
+    if field in {"applications", "vehicles"}:
+        return arrayish(source.get(field))
+    if field == "image_folder":
+        return text(source.get("image_folder") or source.get("id"))
+    if field == "image_url":
+        return text(source.get("image_url") or "/assets/images/placeholder.webp")
+    if field == "gallery":
+        value = source.get("gallery")
+        return [text(v) for v in (value or []) if text(v)] if isinstance(value, list) else []
+    if field == "gallery_dimensions":
+        value = source.get("gallery_dimensions")
+        return value if isinstance(value, dict) else {}
+    if field == "featured":
+        return bool(source.get("featured"))
+    if field == "active":
+        return source.get("active") is not False
+    if field in {"mrp", "selling_price"}:
+        return number(source.get(field))
+    return text(source.get(field)) if isinstance(source.get(field), str) else source.get(field)
+
+
 def unique(records, field: str, label: str, errors: list[str]) -> None:
     seen = {}
     for record in records if isinstance(records, list) else []:
@@ -473,7 +505,23 @@ def validate_critical_catalogue_contract(errors: list[str]) -> dict[str, list]:
             "image_url", "vehicles", "applications", "featured", "active",
             "description", "image_folder", "gallery", "gallery_dimensions",
         ):
-            if projection.get(field) != source.get(field):
+            expected = projection_value(source, field)
+            actual = projection.get(field)
+            if field in {"mrp", "selling_price"}:
+                actual = number(actual)
+            elif field in {"applications", "vehicles"}:
+                actual = arrayish(actual)
+            elif field == "image_folder":
+                actual = text(actual)
+            elif field == "image_url":
+                actual = text(actual or "/assets/images/placeholder.webp")
+            elif field == "gallery":
+                actual = [text(v) for v in (actual or []) if text(v)] if isinstance(actual, list) else []
+            elif field == "gallery_dimensions":
+                actual = actual if isinstance(actual, dict) else {}
+            elif field in {"featured", "active"}:
+                actual = bool(actual) if field == "featured" else actual is not False
+            if actual != expected:
                 errors.append(f"products.json parity failure {pid}: {field}")
 
     validate_price_integrity(active_catalogue, errors)
