@@ -253,7 +253,7 @@ async function main() {
         await page.waitForTimeout(400);
         const url = page.url();
         const modalVisible = await page.locator("#authModal").isVisible().catch(() => false);
-        if (!modalVisible && !/\\/login(?:\\?|$)/.test(url)) {
+        if (!modalVisible && !/\/login(?:\?|$)/.test(url)) {
           throw new Error(`anonymous save did not open auth gate: ${url}`);
         }
         return modalVisible ? "auth modal opened" : "login route opened";
