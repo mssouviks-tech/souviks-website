@@ -1,3 +1,9 @@
+# Normalized product slug migrations.
+# Preserve old mixed-case inbound links after canonicalizing the product slug.
+/en/products/42530003-psf-plus-power-steering-pump-assembly-BS6 /en/products/42530003-psf-plus-power-steering-pump-assembly-bs6 301
+/hi/products/42530003-psf-plus-power-steering-pump-assembly-BS6 /hi/products/42530003-psf-plus-power-steering-pump-assembly-bs6 301
+/bn/products/42530003-psf-plus-power-steering-pump-assembly-BS6 /bn/products/42530003-psf-plus-power-steering-pump-assembly-bs6 301
+
 # Legacy .html page routes: permanently redirect to the clean public URLs.
 # Keep these ahead of the hostname catch-all rules.
     
