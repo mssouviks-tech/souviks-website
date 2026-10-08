@@ -283,18 +283,22 @@ async function main() {
       });
 
       await check(`${view}/${lang}/RFQ quantity changes`, async () => {
-        const input = page.locator("#rfq-items .rfq-qty input[type=number]").first();
-        await input.fill("3");
-        await input.press("Tab");
-        await page.waitForTimeout(300);
-        const value = await input.inputValue();
-        if (value !== "3") throw new Error(`quantity is ${value}`);
+        const row = page.locator("#rfq-items tr").first();
+        const plus = row.locator(".rfq-qty .qty-plus");
+        if (!(await plus.count())) throw new Error("RFQ quantity increase control missing");
+        await plus.click();
+        await page.waitForTimeout(250);
+        await plus.click();
+        await page.waitForTimeout(250);
+        const qtyText = await row.locator(".rfq-qty").innerText();
+        const values = qtyText.match(/\\d+/g) || [];
+        const quantity = Number(values[0] || 0);
         const stored = await page.evaluate(() => {
           const raw = localStorage.getItem("souviks_rfq_guest");
           const items = raw ? JSON.parse(raw) : [];
           return Number(items?.[0]?.qty || 0);
         });
-        if (stored !== 3) throw new Error(`localStorage quantity is ${stored}`);
+        if (quantity !== 3 || stored !== 3) throw new Error(`quantity UI=${quantity}; localStorage=${stored}`);
         return "quantity=3";
       });
 
@@ -320,6 +324,9 @@ async function main() {
       await page.waitForTimeout(500);
 
       await check(`${view}/${lang}/RFQ submission`, async () => {
+        await page.addInitScript(() => {
+          window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
+        });
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
@@ -387,6 +394,9 @@ async function main() {
 
       // Forms
       await check(`${view}/${lang}/Request a Part form`, async () => {
+        await page.addInitScript(() => {
+          window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
+        });
         await goto(page, BASE + langPath(lang, "request-part"));
         await page.locator("#requestPartForm").locator("#name").fill("Regression Test");
         await page.locator("#requestPartForm").locator("#phone").fill("9000000000");
@@ -401,6 +411,9 @@ async function main() {
       });
 
       await check(`${view}/${lang}/Contact form`, async () => {
+        await page.addInitScript(() => {
+          window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
+        });
         await goto(page, BASE + langPath(lang, "contact"));
         const form = page.locator("form").first();
         if (!(await form.count())) throw new Error("contact form missing");
