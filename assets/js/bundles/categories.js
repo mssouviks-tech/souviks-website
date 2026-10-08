@@ -604,7 +604,6 @@ Features:
 
 
 /* ===== pages/categories-page.js ===== */
-/* Souviks — static Categories directory controller */
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         const grid = document.getElementById("categoryGrid");
@@ -614,23 +613,69 @@ Features:
         if (!grid) return;
 
         const cards = Array.from(grid.querySelectorAll(".category-card"));
+        const lang = String(
+            window.souviks?.currentLanguage ||
+            document.documentElement.lang ||
+            "en"
+        ).slice(0, 2);
+
+        const emptyCopy = {
+                  "en": {
+                            "title": "No Matching Categories Found",
+                            "message": "We couldn't find any categories matching your search. Try a different keyword.",
+                            "label": "No Results"
+                  },
+                  "hi": {
+                            "title": "कोई मेल खाती श्रेणियाँ नहीं मिलीं",
+                            "message": "आपकी खोज से मेल खाने वाली कोई श्रेणी नहीं मिली। कृपया कोई दूसरा कीवर्ड आज़माएँ।",
+                            "label": "कोई परिणाम नहीं मिला"
+                  },
+                  "bn": {
+                            "title": "কোনো মিলযুক্ত ক্যাটাগরি পাওয়া যায়নি",
+                            "message": "আপনার অনুসন্ধানের সাথে মিলে এমন কোনো ক্যাটাগরি পাওয়া যায়নি। অনুগ্রহ করে অন্য কীওয়ার্ড ব্যবহার করুন।",
+                            "label": "কোন ফলাফল পাওয়া যায়নি"
+                  }
+        };
+
+        const setNoResults = show => {
+            if (!noResults) return;
+            noResults.hidden = !show;
+            noResults.setAttribute("aria-hidden", String(!show));
+            noResults.setAttribute("aria-label", emptyCopy.label);
+
+            const title = noResults.querySelector("[data-empty-state-title]");
+            const message = noResults.querySelector("[data-empty-state-message]");
+            if (show) {
+                if (title) title.textContent = emptyCopy.title;
+                if (message) message.textContent = emptyCopy.message;
+            } else {
+                title?.replaceChildren();
+                message?.replaceChildren();
+            }
+        };
+
         if (visible) visible.textContent = String(cards.length);
-        if (noResults) noResults.hidden = true;
+        setNoResults(false);
+
 
         input?.addEventListener("input", event => {
             const query = String(event.target.value || "").trim();
             let count = 0;
+
             cards.forEach(card => {
                 const text = String(card.textContent || "");
-                const match = !query || (window.SouviksSearchEngine?.matchesText ? SouviksSearchEngine.matchesText(text, query) : text.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+                const match = !query || (
+                    window.SouviksSearchEngine?.matchesText
+                        ? SouviksSearchEngine.matchesText(text, query)
+                        : text.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+                );
                 card.hidden = !match;
                 if (match) count += 1;
             });
+
+            
             if (visible) visible.textContent = String(count);
-            if (noResults) {
-                noResults.hidden = count !== 0;
-                noResults.setAttribute("aria-hidden", String(count !== 0));
-            }
+            setNoResults(count === 0 && Boolean(query));
         });
 
         document.getElementById("resetNoResultsFilters")?.addEventListener("click", () => {
@@ -638,7 +683,6 @@ Features:
             history.replaceState({}, "", window.location.pathname);
             input?.dispatchEvent(new Event("input", { bubbles: true }));
             input?.focus();
-        });
+        })
     });
 })();
-
