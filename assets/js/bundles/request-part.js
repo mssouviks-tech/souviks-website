@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
             showLeadSuccess(payload.lead_id, payload);
         } catch (error) {
-            console.error("[Souviks Request Part] Submission failed:", error);
+            SouviksErrors?.log("[Souviks Request Part] Submission failed:", error, "error");
             setStatus(
                 status,
                 getMessage("error", "Unable to submit your request. Please try again."),
