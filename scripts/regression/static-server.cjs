@@ -31,26 +31,39 @@ function safePath(urlPath) {
   return candidate;
 }
 
-function htmlFallback(urlPath) {
+function resolvePage(urlPath) {
   const clean = urlPath.split("?")[0] || "/";
-  if (clean === "/") return path.join(ROOT, "index.html");
+
+  if (clean === "/") {
+    return { filePath: path.join(ROOT, "index.html"), status: 200 };
+  }
 
   const match = clean.match(/^\/(en|hi|bn)(?:\/|$)/);
   const language = match ? match[1] : "en";
 
   if (clean === "/" + language || clean === "/" + language + "/") {
-    return path.join(ROOT, language, "index.html");
+    return { filePath: path.join(ROOT, language, "index.html"), status: 200 };
   }
 
-  if (clean.endsWith(".html")) return safePath(clean);
+  if (clean.endsWith(".html")) {
+    const filePath = safePath(clean);
+    if (filePath && fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+      return { filePath, status: 200 };
+    }
+    return { filePath: path.join(ROOT, language, "404.html"), status: 404 };
+  }
 
   const direct = safePath(clean);
-  if (direct && fs.existsSync(direct) && fs.statSync(direct).isFile()) return direct;
+  if (direct && fs.existsSync(direct) && fs.statSync(direct).isFile()) {
+    return { filePath: direct, status: 200 };
+  }
 
   const withExt = safePath(clean + ".html");
-  if (withExt && fs.existsSync(withExt) && fs.statSync(withExt).isFile()) return withExt;
+  if (withExt && fs.existsSync(withExt) && fs.statSync(withExt).isFile()) {
+    return { filePath: withExt, status: 200 };
+  }
 
-  return path.join(ROOT, language, "404.html");
+  return { filePath: path.join(ROOT, language, "404.html"), status: 404 };
 }
 
 const server = http.createServer((req, res) => {
@@ -58,23 +71,14 @@ const server = http.createServer((req, res) => {
     const parsed = new URL(req.url || "/", "http://127.0.0.1");
     const requested = parsed.pathname;
 
-    let filePath = safePath(requested);
-    let status = 200;
+    const resolved = resolvePage(requested);
+    const filePath = resolved.filePath;
+    const status = resolved.status;
 
-    if (!filePath || !fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
-      filePath = htmlFallback(requested);
-
-      if (!filePath || !fs.existsSync(filePath)) {
-        res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
-        res.end("Not Found");
-        return;
-      }
-
-      if (!requested.endsWith(".html") &&
-          requested !== "/" &&
-          !/^\/(?:en|hi|bn)\/?$/.test(requested)) {
-        status = 404;
-      }
+    if (!filePath || !fs.existsSync(filePath)) {
+      res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+      res.end("Not Found");
+      return;
     }
 
     const ext = path.extname(filePath).toLowerCase();
