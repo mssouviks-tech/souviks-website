@@ -600,17 +600,59 @@ Features:
 })();
 
 /* ===== pages/vehicles-page.js ===== */
-/* Souviks — static Vehicles directory controller */
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         const grid = document.getElementById("vehicle-grid");
         const input = document.getElementById("searchInput");
         const visible = document.getElementById("visibleVehicles");
-        const showMore = document.getElementById("showMoreVehicles");
         const noResults = document.getElementById("noResults");
+        const showMore = document.getElementById("showMoreVehicles");
         if (!grid) return;
 
         const cards = Array.from(grid.querySelectorAll(".vehicle-card"));
+        const lang = String(
+            window.souviks?.currentLanguage ||
+            document.documentElement.lang ||
+            "en"
+        ).slice(0, 2);
+
+        const emptyCopy = {
+                  "en": {
+                            "title": "No Matching Vehicles Found",
+                            "message": "We couldn't find any vehicles matching your search. Try a different keyword.",
+                            "label": "No Results"
+                  },
+                  "hi": {
+                            "title": "कोई मेल खाता वाहन नहीं मिला",
+                            "message": "आपकी खोज से मेल खाने वाला कोई वाहन नहीं मिला। कृपया कोई दूसरा कीवर्ड आज़মाएँ।",
+                            "label": "कोई परिणाम नहीं मिला"
+                  },
+                  "bn": {
+                            "title": "কোনো মিলযুক্ত যানবাহন পাওয়া যায়নি",
+                            "message": "আপনার অনুসন্ধানের সাথে মিলে এমন কোনো যানবাহন পাওয়া যায়নি। অনুগ্রহ করে অন্য কীওয়ার্ড ব্যবহার করুন।",
+                            "label": "কোন ফলাফল পাওয়া যায়নি"
+                  }
+        };
+
+        const setNoResults = show => {
+            if (!noResults) return;
+            noResults.hidden = !show;
+            noResults.setAttribute("aria-hidden", String(!show));
+            noResults.setAttribute("aria-label", emptyCopy.label);
+
+            const title = noResults.querySelector("[data-empty-state-title]");
+            const message = noResults.querySelector("[data-empty-state-message]");
+            if (show) {
+                if (title) title.textContent = emptyCopy.title;
+                if (message) message.textContent = emptyCopy.message;
+            } else {
+                title?.replaceChildren();
+                message?.replaceChildren();
+            }
+        };
+
+        if (visible) visible.textContent = String(cards.length);
+        setNoResults(false);
 
         const expand = () => {
             document.body.classList.add("vehicles-expanded");
@@ -618,31 +660,27 @@ Features:
             document.getElementById("vehicleDirectoryWrapper")?.classList.remove("directory-collapsed");
             showMore?.remove();
         };
+        showMore?.addEventListener("click", expand);
 
         const applyQuery = query => {
             const normalized = String(query || "").trim();
             let count = 0;
+
             cards.forEach(card => {
                 const text = String(card.textContent || "");
-                const match = !normalized || (window.SouviksSearchEngine?.matchesText ? window.SouviksSearchEngine.matchesText(text, normalized) : text.toLocaleLowerCase().includes(normalized.toLocaleLowerCase()));
+                const match = !normalized || (
+                    window.SouviksSearchEngine?.matchesText
+                        ? SouviksSearchEngine.matchesText(text, normalized)
+                        : text.toLocaleLowerCase().includes(normalized.toLocaleLowerCase())
+                );
                 card.hidden = !match;
                 if (match) count += 1;
             });
+
             if (normalized) expand();
             if (visible) visible.textContent = String(count);
-            if (noResults) {
-                noResults.hidden = count !== 0;
-                noResults.setAttribute("aria-hidden", String(count !== 0));
-            }
+            setNoResults(count === 0 && Boolean(normalized));
         };
-
-        if (visible) visible.textContent = String(cards.length);
-        if (noResults) {
-            noResults.hidden = true;
-            noResults.setAttribute("aria-hidden", "true");
-        }
-        showMore?.addEventListener("click", expand);
-        input?.addEventListener("input", event => applyQuery(event.target.value));
 
         document.getElementById("resetNoResultsFilters")?.addEventListener("click", () => {
             if (input) input.value = "";
