@@ -33,7 +33,7 @@ jobs:
 
           root = pathlib.Path(".")
           legacy = re.compile(
-              r"/(?:account|login|register|forgot-password|reset-password|request-part|request-quote|thank-you|products|brands|categories|vehicles|about|contact|privacy-policy|terms|refund)\.html(?:[?#]|$)"
+              r"/(?:index|account|login|register|forgot-password|reset-password|request-part|request-quote|thank-you|products|brands|categories|vehicles|about|contact|privacy-policy|terms|refund)\.html(?:[?#]|$)"
           )
 
           offenders = []
