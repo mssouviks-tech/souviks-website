@@ -55,8 +55,8 @@ jobs:
       - name: Validate structured data
         run: python3 scripts/audit/structured_data.py --check-images
       - name: Audit content quality, rendering and business trust
-        shell: python
-        run: python scripts/audit/site_quality.py
+        shell: bash
+        run: python3 scripts/audit/site_quality.py
 
       - name: Validate catalogue integrity and generated pages
         shell: python
