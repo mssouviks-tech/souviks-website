@@ -607,6 +607,66 @@ def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
                     )
 
 
+def validate_static_product_vehicle_images(errors: list[str]) -> None:
+    """Ensure statically rendered PDPs use known vehicle imagery when available."""
+    vehicles = load_json(ROOT / "assets/data/vehicles.json", errors)
+    by_model = {
+        text(item.get("model")): item
+        for item in vehicles
+        if isinstance(item, dict)
+        and item.get("active") is not False
+        and text(item.get("model"))
+    }
+
+    for lang in LANGUAGES:
+        for path in (ROOT / lang / "products").glob("*.html"):
+            raw = path.read_text(encoding="utf-8", errors="ignore")
+            match = re.search(
+                r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                raw,
+                flags=re.S,
+            )
+            if not match:
+                continue
+
+            try:
+                product = json.loads(match.group(1))
+            except json.JSONDecodeError:
+                errors.append(f"{path}: invalid embedded product page data")
+                continue
+
+            product_vehicles = product.get("vehicles") or []
+            if not isinstance(product_vehicles, list):
+                continue
+
+            section_match = re.search(
+                r'<section\b[^>]*id=["\']vehicles-section["\'][^>]*>(.*?)</section>',
+                raw,
+                flags=re.I | re.S,
+            )
+            section = section_match.group(1) if section_match else ""
+
+            for vehicle_name in product_vehicles:
+                model = text(vehicle_name)
+                if not model:
+                    continue
+                vehicle = by_model.get(model)
+                image = text(vehicle.get("image")) if vehicle else ""
+                if not image:
+                    continue
+
+                if image not in section:
+                    errors.append(
+                        f"{path}: compatible vehicle {model!r} has a known image {image!r} "
+                        "but the static PDP does not render it"
+                    )
+
+                if "/assets/images/placeholder.webp" in section:
+                    errors.append(
+                        f"{path}: vehicles-section still contains generic product placeholder imagery"
+                    )
+
+
 def validate_internal_links(errors: list[str]) -> None:
     for html_path in ROOT.glob("**/*.html"):
         if any(part in {".git", "node_modules"} for part in html_path.parts):
@@ -735,6 +795,7 @@ def main() -> None:
     validate_redirects(expected_routes, errors)
     validate_robots_and_sitemap_index(errors)
     validate_sitemaps(records_by_kind, errors)
+    validate_static_product_vehicle_images(errors)
     validate_internal_links(errors)
 
     # The existing structured-data audit remains the detailed JSON-LD checker;
