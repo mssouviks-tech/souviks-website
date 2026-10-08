@@ -1,4 +1,95 @@
 /* ==========================================================
+   SOUVIKS — RUNTIME ERROR HANDLING
+   Sanitized diagnostics and graceful failure reporting.
+========================================================== */
+(() => {
+    "use strict";
+
+    const originalError = typeof console?.error === "function"
+        ? console.error.bind(console)
+        : null;
+    const originalWarn = typeof console?.warn === "function"
+        ? console.warn.bind(console)
+        : null;
+
+    function safeString(value) {
+        return String(value ?? "")
+            .replace(/https?:\/\/\S+/gi, "[url]")
+            .replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g, "[email]")
+            .replace(/[A-Za-z0-9_-]{32,}/g, "[redacted]");
+    }
+
+    function sanitiseError(error) {
+        const source = error instanceof Error ? error : null;
+        const name = source?.name || (error && typeof error === "object" && error.name) || "Error";
+        const status = Number(source?.status ?? error?.status);
+        const code = safeString(source?.code ?? error?.code ?? "");
+        return {
+            name: safeString(name).slice(0, 48),
+            ...(Number.isInteger(status) && status >= 100 && status <= 599 ? { status } : {}),
+            ...(code ? { code: code.slice(0, 48) } : {})
+        };
+    }
+
+    function log(context, error, level = "error") {
+        const label = safeString(context || "Runtime error").slice(0, 120);
+        const details = sanitiseError(error);
+        const logger = level === "warn" ? originalWarn : originalError;
+        if (logger) {
+            logger("[Souviks]", label, details);
+        }
+    }
+
+    function showGlobalFailure() {
+        if (!document.body || document.getElementById("souviks-runtime-error")) {
+            return;
+        }
+
+        const alert = document.createElement("div");
+        alert.id = "souviks-runtime-error";
+        alert.setAttribute("role", "alert");
+        alert.textContent = "Something went wrong. Please refresh the page and try again.";
+        Object.assign(alert.style, {
+            position: "fixed",
+            left: "12px",
+            right: "12px",
+            bottom: "12px",
+            zIndex: "10000",
+            padding: "12px 16px",
+            borderRadius: "10px",
+            background: "#243042",
+            color: "#fff",
+            fontSize: "14px",
+            lineHeight: "1.4",
+            boxShadow: "0 8px 30px rgba(0,0,0,.18)"
+        });
+
+        document.body.appendChild(alert);
+    }
+
+    window.SouviksErrors = {
+        log,
+        sanitise: sanitiseError
+    };
+
+    window.addEventListener("error", event => {
+        log(
+            "Unhandled browser error",
+            event?.error || { name: "Error" }
+        );
+        window.setTimeout(showGlobalFailure, 0);
+    });
+
+    window.addEventListener("unhandledrejection", event => {
+        log(
+            "Unhandled promise rejection",
+            event?.reason || { name: "Error" }
+        );
+        event?.preventDefault?.();
+        window.setTimeout(showGlobalFailure, 0);
+    });
+})();
+/* ==========================================================
    SOUVIKS — SHARED SITE JAVASCRIPT CORE
    Utilities, authentication and language handling.
    Page-specific behaviour remains in page bundles.
