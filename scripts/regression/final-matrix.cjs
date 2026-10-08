@@ -324,7 +324,7 @@ async function main() {
       await page.waitForTimeout(500);
 
       await check(`${view}/${lang}/RFQ submission`, async () => {
-        await page.addInitScript(() => {
+        await page.evaluate(() => {
           window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
         });
         await page.route("**/api.emailjs.com/**", route =>
