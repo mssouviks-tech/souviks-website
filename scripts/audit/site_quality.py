@@ -500,8 +500,16 @@ def _static_entity_route_audit(
         "orphan_pages": {},
     }
 
+    folders = {
+        "product": "products",
+        "brand": "brands",
+        "category": "categories",
+        "vehicle": "vehicles",
+    }
+    folder = folders.get(kind, f"{kind}s")
+
     for language in ("en", "hi", "bn"):
-        directory = ROOT / language / f"{kind}s"
+        directory = ROOT / language / folder
         actual = {
             path.stem
             for path in directory.glob("*.html")
