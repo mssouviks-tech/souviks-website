@@ -996,3 +996,13 @@
 .about-context-columns > div { padding: 22px; background: var(--surface-card, var(--bg-body)); border: 1px solid var(--border-color); border-radius: var(--radius-lg); }
 @media (max-width: 900px) { .entity-context-grid, .about-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .entity-context-grid, .about-proof-grid, .about-context-columns { grid-template-columns: 1fr; } }
+
+/* ==========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .main-navigation {
+        transition: none !important;
+    }
+}
