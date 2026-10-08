@@ -14,6 +14,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 # URL normalization keeps generated catalogue routes canonical.
 # Generated-output commits rebase before push to avoid concurrent catalogue races.
 # CI retries catalogue publication against the latest main revision.
+# Retrigger validation with the corrected audit command.
 
 def reconcile_catalogue_projections():
     
