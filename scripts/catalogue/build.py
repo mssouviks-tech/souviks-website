@@ -313,25 +313,32 @@ def reconcile_catalogue_projections():
             else:
                 title = f"{name} | Souviks"
     
-            description = re.sub(r"\s+", " ", text(product.get("description"))).strip()
+            raw_description = re.sub(r"\s+", " ", text(product.get("description"))).strip()
             category = text(product.get("category_name") or product.get("category"))
             subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
             vehicles = arr(product.get("vehicles"))
-    
-            if not description or len(description) < 50:
-                description = (
-                    f"{brand} {name}".strip()
-                    + (f" ({part})" if part else "")
-                    + f", a {subcategory or category or 'commercial vehicle'} spare part."
-                )
-    
-            if vehicles:
-                description += " Compatible with " + ", ".join(vehicles[:5]) + "."
+
+            # Keep the visible PDP useful when the source description is a
+            # placeholder or too thin to differentiate the product.
+            content_description = raw_description
+            if not content_description or len(content_description) < 50:
+                content_parts = [
+                    f"{brand} {name}".strip(),
+                    f"Part number {part}." if part else "",
+                    f"Product type: {subcategory or category}." if (subcategory or category) else "",
+                    f"Applications: {'; '.join(arr(product.get('applications'))[:4])}." if arr(product.get('applications')) else "",
+                    f"Compatible vehicles: {', '.join(vehicles[:5])}." if vehicles else "",
+                ]
+                content_description = " ".join(part for part in content_parts if part).strip()
+
+            description = content_description
+            if vehicles and "Compatible vehicles:" not in description:
+                description += " Compatible vehicles: " + ", ".join(vehicles[:5]) + "."
             description += " Request availability from Souviks."
             description = re.sub(r"\s+", " ", description).strip()
             if len(description) > 158:
                 description = description[:157].rsplit(" ", 1)[0].rstrip(" ,;:-") + "."
-    
+
             # Use the same generated buyer-facing description in Product
             # structured data so schema cannot retain a thin/raw legacy value.
             seo_description = description
@@ -363,12 +370,24 @@ def reconcile_catalogue_projections():
             )
             data["seo"] = dict(data.get("seo") or {})
             data["seo"]["title"] = title
+            data["description"] = content_description
             data["seo"]["description"] = description
             data["seo"]["canonical"] = canonical
     
             html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";" + html[match.end():]
             if old_name and old_name != name:
                 html = html.replace(old_name, name)
+
+            # Replace a thin/static Description paragraph with the same
+            # factual content used by the generated embedded product record.
+            description_html = html_module.escape(content_description, quote=False)
+            html = re.sub(
+                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*Description\s*</h3>\s*<p>)(.*?)(</p>)',
+                lambda m: m.group(1) + description_html + m.group(3),
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
             html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title_text}</title>", html, count=1, flags=re.I)
             html = re.sub(r'(<meta\s+property=["\']og:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title_attr + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(<meta\s+name=["\']twitter:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title_attr + m.group(2), html, count=1, flags=re.I)
