@@ -1196,6 +1196,55 @@ def sync_product_seo_and_schema():
         print(f"Repaired Product JSON-LD in {len(changed)} pages.")
 
 
+
+def normalize_internal_redirect_links():
+    """Rewrite internal links that still point at exact legacy redirect sources."""
+    redirect_path = ROOT / "_redirects"
+    if not redirect_path.is_file():
+        return 0
+
+    redirects = {}
+    for line in redirect_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        parts = stripped.split()
+        if len(parts) < 2:
+            continue
+        source, destination = parts[:2]
+        # Only normalize exact, concrete paths. Pattern redirects are runtime
+        # routing rules and must not be expanded into page HTML.
+        if any(token in source for token in (":splat", ":lang", ":slug", "*")):
+            continue
+        source_path = source
+        if source.startswith(BASE):
+            source_path = urlparse(source).path
+        destination_path = destination
+        if destination.startswith(BASE):
+            destination_path = urlparse(destination).path
+        if not source_path.startswith("/") or not destination_path.startswith("/"):
+            continue
+        redirects[source_path] = destination_path
+
+    if not redirects:
+        return 0
+
+    changed = 0
+    for path in ROOT.glob("**/*.html"):
+        html = path.read_text(encoding="utf-8", errors="ignore")
+        original = html
+        for source_path, destination_path in redirects.items():
+            # Handle root-relative links and fully-qualified Souviks links.
+            html = html.replace(source_path, destination_path)
+            html = html.replace(BASE + source_path, BASE + destination_path)
+        if html != original:
+            path.write_text(html, encoding="utf-8")
+            changed += 1
+
+    if changed:
+        print(f"Normalized internal links away from {changed} HTML files containing exact redirect sources.")
+    return changed
+
 def sync_organization_schema():
     """Ensure Souviks Organization schema nodes expose a crawlable logo."""
     import json
@@ -1270,6 +1319,7 @@ def main() -> None:
     sync_static_product_images()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
+    normalize_internal_redirect_links()
     sync_organization_schema()
     runpy.run_path(str(ROOT / "scripts/catalogue/validate.py"), run_name="__main__")
 
