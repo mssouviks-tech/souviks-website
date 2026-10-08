@@ -2056,6 +2056,15 @@ RFQ.submitStandalone = async function (form) {
     const customer = RFQ.collectCustomerData(form);
 
     if (user) {
+        // The authenticated account email is authoritative for stored RFQs.
+        customer.email = RFQ.normalizeText(user.email, 254).toLowerCase();
+    }
+
+    if (customer.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email)) {
+        throw new Error("Please enter a valid email address.");
+    }
+
+    if (user) {
         const { data: databaseResult, error: rfqError } =
             await supabaseClient.rpc("submit_rfq", {
                 p_customer_name: customer.name,
