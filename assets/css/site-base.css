@@ -3361,6 +3361,13 @@ p {
     outline-offset: -2px;
 }
 
+.search-no-results {
+    padding: 14px 18px;
+    color: var(--text-secondary);
+    font-size: .85rem;
+    line-height: 1.45;
+}
+
 
 /* Screen-reader-only content remains available to assistive technology without
    affecting the visual layout. */
