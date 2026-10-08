@@ -467,6 +467,26 @@ Utils.query = function(key) {
 
 };
 
+/* ======================================================
+   SAFE NUMERIC QUERY PARAMETER
+====================================================== */
+
+Utils.queryNumber = function(
+    key,
+    fallback = 1,
+    min = Number.NEGATIVE_INFINITY,
+    max = Number.POSITIVE_INFINITY
+) {
+    const raw = Utils.query(key);
+    if (raw === null || raw === "") return fallback;
+
+    const value = Number(raw);
+    if (!Number.isFinite(value)) return fallback;
+
+    const integer = Math.floor(value);
+    return Math.min(max, Math.max(min, integer));
+};
+
 // ======================================================
 // CURRENT SLUG
 // ======================================================
