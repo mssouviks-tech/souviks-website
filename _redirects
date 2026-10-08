@@ -1,5 +1,3 @@
-# Legacy Fleetguard FA0016700 short slug.
-/en/products/fleetguard-fa0016700-spicer-transmission-patti-type /en/products/fleetguard-fa0016700-154-90x49-20mm-spicer-transmission-tml-3118-4018-al-4018-amw-2518-eicher-mega-40-40-patti-type 301
 # Normalized product slug migrations.
 # Preserve old mixed-case inbound links after canonicalizing the product slug.
 /en/products/42530003-psf-plus-power-steering-pump-assembly-BS6 /en/products/42530003-psf-plus-power-steering-pump-assembly-bs6 301
@@ -7,6 +5,9 @@
 /bn/products/42530003-psf-plus-power-steering-pump-assembly-BS6 /bn/products/42530003-psf-plus-power-steering-pump-assembly-bs6 301
 
 # Long product slug migrations.
+ /en/products/fleetguard-fa0016700-154-90x49-20mm-spicer-transmission-tml-3118-4018-al-4018-amw-2518-eicher-mega-40-40-patti-type /en/products/fleetguard-fa0016700-spicer-transmission-patti-type 301
+ /hi/products/fleetguard-fa0016700-154-90x49-20mm-spicer-transmission-tml-3118-4018-al-4018-amw-2518-eicher-mega-40-40-patti-type /hi/products/fleetguard-fa0016700-spicer-transmission-patti-type 301
+ /bn/products/fleetguard-fa0016700-154-90x49-20mm-spicer-transmission-tml-3118-4018-al-4018-amw-2518-eicher-mega-40-40-patti-type /bn/products/fleetguard-fa0016700-spicer-transmission-patti-type 301
  /en/products/texspin-tx-6638sc-clutch-release-bearing-for-ashok-leyland-heavy-duty-truck-31ton-and-9speen-gb-380dia /en/products/texspin-tx-6638sc-clutch-release-bearing-ashok-leyland-31ton 301
  /hi/products/texspin-tx-6638sc-clutch-release-bearing-for-ashok-leyland-heavy-duty-truck-31ton-and-9speen-gb-380dia /hi/products/texspin-tx-6638sc-clutch-release-bearing-ashok-leyland-31ton 301
  /bn/products/texspin-tx-6638sc-clutch-release-bearing-for-ashok-leyland-heavy-duty-truck-31ton-and-9speen-gb-380dia /bn/products/texspin-tx-6638sc-clutch-release-bearing-ashok-leyland-31ton 301
@@ -31,6 +32,12 @@
 /:lang/request-part.html /:lang/request-part 301
 /:lang/request-quote.html /:lang/request-quote 301
 /:lang/thank-you.html /:lang/thank-you 301
+
+/:lang/privacy-policy.html /:lang/privacy-policy 301
+/:lang/terms.html /:lang/terms 301
+/:lang/refund.html /:lang/refund 301
+/:lang/index.html /:lang 301
+/index.html / 301
 
 /:lang/products/:slug.html /:lang/products/:slug 301
 /:lang/brands/:slug.html /:lang/brands/:slug 301
