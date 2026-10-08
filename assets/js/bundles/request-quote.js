@@ -72,7 +72,60 @@ window.RFQ = {
         "rfq_cart_items",
 
     storageKey:
-        "souviks_rfq_guest"
+        "souviks_rfq_guest",
+
+    // Client-side limits are abuse-resistance only; database constraints/RLS
+    // remain the authoritative security boundary.
+    MAX_QUANTITY:
+        9999,
+
+    MAX_ITEMS:
+        50
+
+};
+
+RFQ.normalizeQuantity = function (value) {
+
+    const numeric = Number(value);
+
+    if (!Number.isFinite(numeric)) {
+        return 1;
+    }
+
+    return Math.min(
+        RFQ.MAX_QUANTITY,
+        Math.max(
+            1,
+            Math.floor(numeric)
+        )
+    );
+
+};
+
+RFQ.normalizeText = function (value, maxLength = 500) {
+
+    return String(value ?? "")
+        .trim()
+        .slice(0, maxLength);
+
+};
+
+RFQ.normalizeItem = function (item) {
+
+    const id = RFQ.normalizeText(item?.id, 128);
+
+    if (!id) {
+        return null;
+    }
+
+    return {
+        id,
+        rowId: item?.rowId || null,
+        partNumber: RFQ.normalizeText(item?.partNumber, 128),
+        name: RFQ.normalizeText(item?.name, 300),
+        brand: RFQ.normalizeText(item?.brand, 160),
+        qty: RFQ.normalizeQuantity(item?.qty)
+    };
 
 };
 
@@ -212,36 +265,10 @@ RFQ.getGuestItems = function () {
         }
 
 
-        return parsed.map(
-
-            item => ({
-
-                id:
-                    item.id,
-
-                rowId:
-                    null,
-
-                partNumber:
-                    item.partNumber || "",
-
-                name:
-                    item.name || "",
-
-                brand:
-                    item.brand || "",
-
-                qty:
-                    Math.max(
-                        1,
-                        Number(
-                            item.qty
-                        ) || 1
-                    )
-
-            })
-
-        );
+        return parsed
+            .map(item => RFQ.normalizeItem(item))
+            .filter(Boolean)
+            .slice(0, RFQ.MAX_ITEMS);
 
 
     } catch (error) {
@@ -267,16 +294,16 @@ RFQ.saveGuestItems = function (
 
     try {
 
+        const normalizedItems =
+            (Array.isArray(items) ? items : [])
+                .map(item => RFQ.normalizeItem(item))
+                .filter(Boolean)
+                .slice(0, RFQ.MAX_ITEMS);
+
         localStorage.setItem(
-
             RFQ.storageKey,
-
-            JSON.stringify(
-                items
-            )
-
+            JSON.stringify(normalizedItems)
         );
-
 
         return true;
 
@@ -499,14 +526,20 @@ RFQ.setQuantity = async function (
 
 ) {
 
-    const qty =
-        Math.max(
-            1,
-            Number(
-                quantity
-            ) || 1
-        );
+    const normalizedProductId =
+        RFQ.normalizeText(productId, 128);
 
+    if (!normalizedProductId) {
+        SouviksErrors?.log(
+            "[Souviks RFQ] Invalid product identifier.",
+            { name: "ValidationError" },
+            "warn"
+        );
+        return false;
+    }
+
+    const qty =
+        RFQ.normalizeQuantity(quantity);
 
     const user =
         await RFQ.getUser();
@@ -529,34 +562,19 @@ RFQ.setQuantity = async function (
 
                 item =>
                     item.id ===
-                    productId
+                    normalizedProductId
 
             );
 
 
-        const normalizedProduct = {
-
-            id:
-                productId,
-
-            rowId:
-                null,
-
-            partNumber:
-                product?.partNumber ||
-                "",
-
-            name:
-                product?.name ||
-                "",
-
-            brand:
-                product?.brand ||
-                "",
-
-            qty
-
-        };
+        const normalizedProduct =
+            RFQ.normalizeItem({
+                id: normalizedProductId,
+                partNumber: product?.partNumber,
+                name: product?.name,
+                brand: product?.brand,
+                qty
+            });
 
 
         if (
@@ -1993,13 +2011,16 @@ RFQ.collectCustomerData = function (form) {
     const userEmail = window.__SOUVIKS_RFQ_USER_EMAIL__ || "";
 
     return {
-        name: document.getElementById("rfq-name")?.value.trim() || "",
-        company: document.getElementById("rfq-company")?.value.trim() || "",
-        phone: document.getElementById("rfq-phone")?.value.trim() || "",
-        email: document.getElementById("rfq-email")?.value.trim() || userEmail,
-        location: document.getElementById("rfq-location")?.value.trim() || "",
-        gst: document.getElementById("rfq-gst")?.value.trim().toUpperCase() || "",
-        message: document.getElementById("rfq-message")?.value.trim() || ""
+        name: RFQ.normalizeText(document.getElementById("rfq-name")?.value, 120),
+        company: RFQ.normalizeText(document.getElementById("rfq-company")?.value, 160),
+        phone: RFQ.normalizeText(document.getElementById("rfq-phone")?.value, 40),
+        email: RFQ.normalizeText(
+            document.getElementById("rfq-email")?.value || userEmail,
+            254
+        ).toLowerCase(),
+        location: RFQ.normalizeText(document.getElementById("rfq-location")?.value, 160),
+        gst: RFQ.normalizeText(document.getElementById("rfq-gst")?.value, 15).toUpperCase(),
+        message: RFQ.normalizeText(document.getElementById("rfq-message")?.value, 2000)
     };
 };
 
@@ -2014,6 +2035,17 @@ RFQ.submitStandalone = async function (form) {
     window.__SOUVIKS_RFQ_USER_EMAIL__ = user?.email?.trim() || "";
 
     const customer = RFQ.collectCustomerData(form);
+
+    if (user) {
+        // For authenticated submissions the Supabase auth identity is
+        // authoritative. Do not persist a customer-entered email as the
+        // account owner's email address.
+        customer.email = RFQ.normalizeText(user.email, 254).toLowerCase();
+    }
+
+    if (customer.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email)) {
+        throw new Error("Please enter a valid email address.");
+    }
 
     if (!customer.name || !customer.phone) {
         throw new Error(rfqMessage.namePhone);
@@ -2043,13 +2075,13 @@ RFQ.submitStandalone = async function (form) {
             throw rfqError || new Error("The RFQ could not be created.");
         }
 
-        const rows = items.map(item => ({
+        const rows = submissionItems.map(item => ({
             rfq_id: rfq.id,
             product_id: String(item.id),
             part_number: item.partNumber || null,
             product_name: item.name || "",
             brand: item.brand || null,
-            quantity: Math.max(1, Number(item.qty) || 1)
+            quantity: RFQ.normalizeQuantity(item.qty)
         }));
 
         const { error: itemsError } = await supabaseClient
@@ -2073,7 +2105,7 @@ RFQ.submitStandalone = async function (form) {
             gst: customer.gst,
             location: customer.location,
             message: customer.message,
-            rfq_items: RFQ.formatSubmissionItems(items)
+            rfq_items: RFQ.formatSubmissionItems(submissionItems)
         };
 
         try {
