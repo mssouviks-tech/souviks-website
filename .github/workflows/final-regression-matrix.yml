@@ -1,0 +1,52 @@
+name: Final Regression Matrix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/regression/final-matrix.cjs'
+      - '.github/workflows/final-regression-matrix.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: souviks-final-regression
+  cancel-in-progress: true
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: /dev/null
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install --no-save playwright@latest
+          npx playwright install --with-deps chromium
+
+      - name: Run final regression matrix
+        run: node scripts/regression/final-matrix.cjs
+
+      - name: Upload regression results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-regression-results
+          path: regression-results/final-regression-results.json
+          if-no-files-found: warn
