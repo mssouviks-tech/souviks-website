@@ -769,15 +769,25 @@ function renderSearchResults(
 ) {
 
     if (!matches.length) {
+        const query = String(
+            document.querySelector("#searchInput")?.value || ""
+        ).trim();
 
-        container.innerHTML = "";
+        container.replaceChildren();
 
-        container.classList.remove(
-            "active"
-        );
+        if (query) {
+            const empty = document.createElement("div");
+            empty.className = "search-no-results";
+            empty.setAttribute("role", "status");
+            empty.textContent =
+                'No matches for "' + query + '". Press Enter to search the catalogue.';
+            container.appendChild(empty);
+            container.classList.add("active");
+        } else {
+            container.classList.remove("active");
+        }
 
         return;
-
     }
 
     container.innerHTML =
