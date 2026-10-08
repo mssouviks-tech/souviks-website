@@ -1028,3 +1028,80 @@
     .language-button .language-icon { display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem; line-height: 1; }
     .language-button .language-arrow { display: none; }
 }
+
+
+/* ==========================================================
+   HOMEPAGE STORE CARD — CLEAN MOBILE PRESENTATION
+========================================================== */
+.home-store-card {
+    min-width: 0;
+    grid-template-rows: 240px auto;
+}
+
+.home-store-card > img {
+    display: block;
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.home-store-content {
+    min-width: 0;
+    background: var(--bg-card);
+}
+
+.home-store-content h2,
+.home-store-content p,
+.home-store-content dd {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+@media (max-width: 768px) {
+    .home-store-card {
+        grid-template-rows: 210px auto;
+    }
+
+    .home-store-content {
+        padding: 18px;
+    }
+
+    .home-store-content h2 {
+        font-size: 1.3rem;
+        line-height: 1.2;
+    }
+
+    .home-store-content p {
+        font-size: .84rem;
+        line-height: 1.55;
+    }
+
+    .home-store-content dl {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .home-store-content dl div {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .home-store-card {
+        grid-template-rows: 190px auto;
+    }
+
+    .home-store-content {
+        padding: 16px;
+    }
+
+    .home-store-content dl {
+        grid-template-columns: 1fr;
+    }
+
+    .home-store-content .btn {
+        width: 100%;
+    }
+}
