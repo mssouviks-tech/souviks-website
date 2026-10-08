@@ -302,10 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (error) {
 
-                    console.error(
-                        "[Souviks Auth] Password reset request failed:",
-                        error
-                    );
+                    SouviksErrors?.log("[Souviks Auth] Password reset request failed:", error, "error");
 
                     showStatus(
                         getAuthMessage(
@@ -349,10 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } catch (error) {
 
-                console.error(
-                    "[Souviks Auth] Unexpected password reset error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks Auth] Unexpected password reset error:", error, "error");
 
                 showStatus(
                     getAuthMessage(
