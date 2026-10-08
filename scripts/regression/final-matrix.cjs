@@ -588,8 +588,8 @@ async function main() {
           if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
 
           const source = await response.text();
-          if (!source.includes(`data-account-view="${viewName}"`)) {
-            throw new Error("account view marker missing from template");
+          if (!source.includes(`class="account-view"` + `\n` + `                        data-account-view="${viewName}"`)) {
+            throw new Error("account view section missing from template");
           }
           if (!source.toLowerCase().includes(titleText.toLowerCase())) {
             throw new Error("requested account view text missing from template");
