@@ -152,14 +152,16 @@ def validate_images(products, errors: list[str]) -> None:
             continue
         if not isinstance(gallery, list) or not gallery:
             image_url = text(product.get("image_url"))
-            # A catalogue record may legitimately have no gallery. Validate a
-            # real primary image when one is declared; placeholder-backed
-            # records remain explicitly identifiable rather than blocking build.
-            if image_url and not image_url.endswith("/placeholder.webp"):
-                if image_url.startswith("/assets/"):
-                    image_path = ROOT / image_url.lstrip("/")
-                    if not image_path.is_file():
-                        errors.append(f"{pid}: declared primary image file is missing: {image_url}")
+            # A product may use a single primary image, but the image must be
+            # explicit and real. Missing/placeholder imagery is a blocking defect.
+            if not image_url:
+                errors.append(f"{pid}: active product has no gallery and no explicit image_url")
+            elif image_url.endswith("/placeholder.webp") or image_url == "/assets/images/placeholder.webp":
+                errors.append(f"{pid}: active product has no gallery and resolves to placeholder image")
+            elif image_url.startswith("/assets/"):
+                image_path = ROOT / image_url.lstrip("/")
+                if not image_path.is_file():
+                    errors.append(f"{pid}: declared primary image file is missing: {image_url}")
             continue
 
         seen = set()
@@ -188,7 +190,11 @@ def html_path_for_route(route: str) -> Path | None:
     clean = urlsplit(route).path.rstrip("/")
     if clean in ("", "/"):
         return ROOT / "index.html"
+    if clean in ("/sitemap.xml", "/index.html"):
+        return ROOT / clean.lstrip("/")
     parts = [part for part in clean.split("/") if part]
+    if len(parts) == 1 and parts[0] in LANGUAGES:
+        return ROOT / parts[0] / "index.html"
     if len(parts) == 1:
         return ROOT / f"{parts[0]}.html"
     if len(parts) == 2 and parts[0] in LANGUAGES:
@@ -333,6 +339,33 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
                     if "window.SOUVIKS_PRODUCT_PAGE_DATA" not in raw:
                         errors.append(f"{path.relative_to(ROOT)}: missing embedded product data")
 
+    # Full multilingual parity: each language must expose the same entity
+    # product-set and the same indexability state for the same canonical slug.
+    for kind, records in records_by_kind.items():
+        for record in records:
+            slug = text(record.get("slug"))
+            if not slug:
+                continue
+            signatures = {}
+            for language in LANGUAGES:
+                path = ROOT / language / kind / f"{slug}.html"
+                raw = path.read_text(encoding="utf-8", errors="ignore")
+                ids = sorted(set(re.findall(r'data-saved-product-id=["\\']([^"\\']+)["\\']', raw, flags=re.I)))
+                signatures[language] = {
+                    "ids": ids,
+                    "robots": "noindex" in robots_from_html(raw),
+                }
+            baseline = signatures["en"]
+            for language, signature in signatures.items():
+                if signature["ids"] != baseline["ids"]:
+                    errors.append(
+                        f"{language}/{kind}/{slug}.html: multilingual product-set mismatch with en/{kind}/{slug}.html"
+                    )
+                if signature["robots"] != baseline["robots"]:
+                    errors.append(
+                        f"{language}/{kind}/{slug}.html: multilingual robots/noindex mismatch with en/{kind}/{slug}.html"
+                    )
+
     return expected_routes
 
 
@@ -351,13 +384,13 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
             errors.append(f"_redirects:{lineno}: malformed rule")
             continue
         source, destination = parts[:2]
-        if destination.endswith(".html"):
+        status = parts[2] if len(parts) >= 3 else ""
+        if destination.endswith(".html") and not (
+            status == "200" and destination == "/index.html" and source == "https://souviks.co.in/"
+        ):
             errors.append(f"_redirects:{lineno}: redirect target contains .html: {destination}")
         if ":splat" not in destination and ":lang" not in destination and ":slug" not in destination:
             dest_path = urlsplit(destination).path or destination
-            if dest_path in expected_routes:
-                continue
-            # Exact non-catalogue public pages are allowed if their HTML exists.
             target = html_path_for_route(dest_path)
             if target is None or not target.is_file():
                 errors.append(
