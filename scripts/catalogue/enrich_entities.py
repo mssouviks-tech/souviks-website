@@ -4,6 +4,7 @@
 # Entity records are projections of the active catalogue, not hand-maintained counts.
 # Regenerate entity pages whenever catalogue mappings change.
 # The post-build pass restores entity content after static generation.
+# Keep generated output deterministic and bytecode-free.
 
 from __future__ import annotations
 
