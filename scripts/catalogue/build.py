@@ -332,6 +332,10 @@ def reconcile_catalogue_projections():
             if len(description) > 158:
                 description = description[:157].rsplit(" ", 1)[0].rstrip(" ,;:-") + "."
     
+            # Use the same generated buyer-facing description in Product
+            # structured data so schema cannot retain a thin/raw legacy value.
+            seo_description = description
+    
             title_text = html_module.escape(title, quote=False)
             title_attr = html_module.escape(title, quote=True)
             description_attr = html_module.escape(description, quote=True)
@@ -784,7 +788,7 @@ def sync_product_seo_and_schema():
             name = str(product.get("product_name") or product.get("name") or "")
 
             if "Product" not in types:
-                description = str(product.get("description") or "").strip()
+                description = seo_description
                 images = image_urls(product)
     
                 identifiers = []
@@ -881,7 +885,7 @@ def sync_product_seo_and_schema():
                     node["name"] = str(product.get("product_name") or product.get("name") or node.get("name") or "")
                     node["url"] = url
                     node["mainEntityOfPage"] = url
-                    node["description"] = str(product.get("description") or node.get("description") or "")
+                    node["description"] = seo_description
                     if gallery_urls:
                         node["image"] = gallery_urls
                     node["sku"] = str(product.get("id") or node.get("sku") or "")
@@ -904,7 +908,9 @@ def sync_product_seo_and_schema():
                         numeric_price = None
                     if numeric_price is not None and numeric_price > 0:
                         offers["price"] = numeric_price
-                    node["offers"] = offers
+                        node["offers"] = offers
+                    else:
+                        node.pop("offers", None)
                     updated = True
     
                 if updated:
