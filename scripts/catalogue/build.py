@@ -1163,11 +1163,81 @@ def sync_product_seo_and_schema():
         print(f"Repaired Product JSON-LD in {len(changed)} pages.")
 
 
+def sync_organization_schema():
+    """Ensure Souviks Organization schema nodes expose a crawlable logo."""
+    import json
+    import re
+
+    logo_url = "https://www.souviks.co.in/assets/logo/souviks-logo.png"
+    changed = 0
+
+    for path in ROOT.glob("**/*.html"):
+        html = path.read_text(encoding="utf-8")
+        original = html
+        replacements = []
+
+        for match in re.finditer(
+            r'<script\\b[^>]*type=["\\']application/ld\\+json["\\'][^>]*>(.*?)</script>',
+            html,
+            flags=re.I | re.S,
+        ):
+            block = match.group(1)
+            try:
+                obj = json.loads(block.strip())
+            except json.JSONDecodeError:
+                continue
+
+            graph = obj.get("@graph") if isinstance(obj, dict) else None
+            nodes = graph if isinstance(graph, list) else [obj]
+            updated = False
+
+            for node in nodes:
+                if not isinstance(node, dict):
+                    continue
+                targets = []
+                node_type = node.get("@type")
+                if node_type == "Organization":
+                    targets.append(node)
+                publisher = node.get("publisher")
+                if isinstance(publisher, dict) and publisher.get("@type") == "Organization":
+                    targets.append(publisher)
+
+                for target in targets:
+                    if str(target.get("name") or "").strip().casefold() != "souviks":
+                        continue
+                    if not target.get("logo"):
+                        target["logo"] = {
+                            "@type": "ImageObject",
+                            "url": logo_url,
+                        }
+                        updated = True
+
+            if updated:
+                replacement = '<script type="application/ld+json">\\n' + json.dumps(
+                    obj, ensure_ascii=False, indent=2
+                ) + '\\n</script>'
+                replacements.append((match.start(), match.end(), replacement))
+
+        for start, end, replacement in reversed(replacements):
+            html = html[:start] + replacement + html[end:]
+
+        if html != original:
+            path.write_text(html, encoding="utf-8")
+            changed += 1
+
+    print(
+        "Organization schema logo synchronized in "
+        f"{changed} HTML files." if changed else
+        "Organization schema logos already synchronized."
+    )
+
+
 def main() -> None:
     reconcile_catalogue_projections()
     sync_static_product_images()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
+    sync_organization_schema()
     runpy.run_path(str(ROOT / "scripts/catalogue/validate.py"), run_name="__main__")
 
 
