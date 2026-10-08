@@ -1285,7 +1285,7 @@ CATEGORY DIRECTORY
     id="noResults"
     class="no-results"
     hidden
-    aria-live="polite"
+    aria-live="polite" aria-hidden="true"
     aria-label="कोई परिणाम नहीं मिला">
 
     <div class="container">
@@ -1307,17 +1307,9 @@ CATEGORY DIRECTORY
 
             <div class="no-results-content">
 
-                <h2>
+                <h2 data-empty-state-title></h2>
 
-                    कोई मेल खाती श्रेणियाँ नहीं मिलीं
-
-                </h2>
-
-                <p>
-
-                    आपकी खोज से मेल खाने वाली कोई श्रेणी नहीं मिली। कृपया कोई दूसरा कीवर्ड आज़माएँ।
-
-                </p>
+                <p data-empty-state-message></p>
 
                 <div
                     id="searchSuggestions"
