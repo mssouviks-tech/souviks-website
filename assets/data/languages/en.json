@@ -595,7 +595,7 @@
       },
       "cookies": {
         "p1": "Souviks may use cookies, local storage and similar technologies to operate the website, maintain sessions, remember preferences, improve performance, understand website usage and support security.",
-        "p2": "Where applicable, optional technologies may be controlled through available cookie or privacy settings. Third-party services integrated into the website may also use cookies or similar technologies subject to their own policies and applicable requirements.",
+        "p2": "Souviks currently does not provide a separate cookie-preference centre. Where available, browser or device privacy controls may be used to manage cookies and similar storage. Third-party services integrated into the website may also use cookies or similar technologies subject to their own policies and applicable requirements.",
         "li1": "Essential technologies required for core website functions, account sessions and security.",
         "li2": "Preference technologies used to remember language, settings or other choices.",
         "li3": "Analytics or performance technologies used, where enabled, to understand website usage and improve services.",
