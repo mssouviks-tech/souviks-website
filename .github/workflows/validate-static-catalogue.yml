@@ -91,9 +91,9 @@ jobs:
               if v.get("id")
           }
           vehicle_names = {
-              str(v.get("name") or "").strip().casefold()
+              str(v.get("name") or v.get("model") or "").strip().casefold()
               for v in active_vehicles
-              if v.get("name")
+              if v.get("name") or v.get("model")
           }
 
           def number(value):
