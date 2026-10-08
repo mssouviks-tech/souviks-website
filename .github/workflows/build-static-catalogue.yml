@@ -50,13 +50,22 @@ jobs:
           fetch-depth: 1
 
       - name: Compile catalogue builders
-        run: python3 -m py_compile scripts/catalogue/build.py scripts/catalogue/enrich_entities.py scripts/catalogue/validate.py
+        run: |
+          python3 - <<'PY'
+          import py_compile
+          for path in ("scripts/catalogue/build.py", "scripts/catalogue/enrich_entities.py", "scripts/catalogue/validate.py"):
+              py_compile.compile(path, cfile="/tmp/" + path.replace("/", "_") + ".pyc", doraise=True)
+          print("Python syntax OK")
+          PY
 
       - name: Enrich entity and trust content
         run: python3 scripts/catalogue/enrich_entities.py
 
       - name: Build static catalogue
         run: python3 scripts/catalogue/build.py
+
+      - name: Re-apply entity and trust content
+        run: python3 scripts/catalogue/enrich_entities.py
 
       - name: Commit generated catalogue
         shell: bash
