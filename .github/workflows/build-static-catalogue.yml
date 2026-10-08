@@ -67,6 +67,9 @@ jobs:
       - name: Re-apply entity and trust content
         run: python3 scripts/catalogue/enrich_entities.py
 
+      - name: Remove Python bytecode
+        run: find scripts -type d -name "__pycache__" -prune -exec rm -rf {} +
+
       - name: Commit generated catalogue
         shell: bash
         run: |
