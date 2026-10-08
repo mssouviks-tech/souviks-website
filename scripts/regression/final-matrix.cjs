@@ -75,18 +75,65 @@ async function contextFor(view, authenticated = false) {
     });
   });
 
-  if (authenticated) {
-    await context.route("**/auth/v1/user", async route => {
-      await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ id: "regression-test-user", aud: "authenticated", role: "authenticated", email: "regression@example.invalid", email_confirmed_at: new Date().toISOString(), user_metadata: { full_name: "Regression Test" } }) });
-    });
-    await context.route("**/rest/v1/profiles**", async route => {
-      await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify([{ id: "regression-test-user", full_name: "Regression Test", phone: "9000000000", company: "Regression Co.", is_business: true, gst_number: null }]) });
-    });
-  }
-
   await context.route("**supabase.co/**", async route => {
     const request = route.request();
     const url = request.url();
+
+    if (authenticated && /\/auth\/v1\/user$/i.test(url)) {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          id: "regression-test-user",
+          aud: "authenticated",
+          role: "authenticated",
+          email: "regression@example.invalid",
+          email_confirmed_at: new Date().toISOString(),
+          user_metadata: { full_name: "Regression Test" }
+        })
+      });
+      return;
+    }
+
+    if (authenticated && /\/auth\/v1\/session$/i.test(url)) {
+      const token = "regression-token";
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          access_token: token,
+          token_type: "bearer",
+          expires_in: 3600,
+          expires_at: Math.floor(Date.now() / 1000) + 3600,
+          refresh_token: "regression-refresh-token",
+          user: {
+            id: "regression-test-user",
+            aud: "authenticated",
+            role: "authenticated",
+            email: "regression@example.invalid",
+            email_confirmed_at: new Date().toISOString(),
+            user_metadata: { full_name: "Regression Test" }
+          }
+        })
+      });
+      return;
+    }
+
+    if (authenticated && /\/rest\/v1\/profiles/i.test(url)) {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify([{
+          id: "regression-test-user",
+          full_name: "Regression Test",
+          phone: "9000000000",
+          company: "Regression Co.",
+          is_business: true,
+          gst_number: null
+        }])
+      });
+      return;
+    }
 
     if (/\/auth\/v1\/(user|session)/i.test(url)) {
       await route.fulfill({
