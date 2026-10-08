@@ -124,6 +124,10 @@ def migrate_html() -> int:
     core_pattern = re.compile(
         r'<script\s+defer\s+src="/assets/js/site-core\.js(?:\?[^"]*)?"></script>'
     )
+    css_pattern = re.compile(
+        r'(<link\s+[^>]*href="/assets/css/)([^"?]+)(?:\?[^"]*)?(")',
+        re.IGNORECASE
+    )
 
     core_tag = f'<script defer src="{versioned_asset_url("assets/js/site-core.js")}"></script>'
 
@@ -150,6 +154,15 @@ def migrate_html() -> int:
             )
 
         new_content = bundle_pattern.sub(replace_bundle, new_content)
+
+        def replace_css(match: re.Match[str]) -> str:
+            relative_path = f"assets/css/{match.group(2)}"
+            return (
+                f'{match.group(1)}{match.group(2).split("?")[0]}'
+                f'?v={asset_version(ROOT / relative_path)}{match.group(3)}'
+            )
+
+        new_content = css_pattern.sub(replace_css, new_content)
 
         if new_content != content:
             write(path, new_content)
@@ -182,6 +195,10 @@ def validate() -> None:
     bundle_re = re.compile(
         r'<script\s+defer\s+src="/assets/js/bundles/([^"?]+)\?v=[0-9a-f]{12}"></script>'
     )
+    css_re = re.compile(
+        r'<link\s+[^>]*href="/assets/css/[^"?]+\?v=[0-9a-f]{12}"',
+        re.IGNORECASE
+    )
 
     paths = []
     for language in LANGUAGES:
@@ -195,9 +212,13 @@ def validate() -> None:
         if not matches:
             continue
         if "account.js" in matches:
+            if not css_re.search(content):
+                raise ValueError(f"Missing versioned CSS on {path}")
             continue
         if not core_re.search(content):
             raise ValueError(f"Missing versioned shared core on {path}")
+        if not css_re.search(content):
+            raise ValueError(f"Missing versioned CSS on {path}")
 
 
 def main() -> None:
