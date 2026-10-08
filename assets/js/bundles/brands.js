@@ -604,43 +604,84 @@ Features:
 
 
 /* ===== pages/brands-page.js ===== */
-/* Souviks — static Brands directory controller */
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         const grid = document.getElementById("brand-grid");
         const input = document.getElementById("searchInput");
         const visible = document.getElementById("visibleBrands");
-        const total = document.getElementById("totalBrands");
-        const showMore = document.getElementById("showMoreBrands");
         const noResults = document.getElementById("noResults");
+        const showMore = document.getElementById("showMoreBrands");
         if (!grid) return;
 
         const cards = Array.from(grid.querySelectorAll(".brand-card"));
-        if (total) total.textContent = String(cards.length);
+        const lang = String(
+            window.souviks?.currentLanguage ||
+            document.documentElement.lang ||
+            "en"
+        ).slice(0, 2);
+
+        const emptyCopy = {
+                  "en": {
+                            "title": "No Matching Brands Found",
+                            "message": "We couldn't find any brands matching your search. Try a different keyword.",
+                            "label": "No Results"
+                  },
+                  "hi": {
+                            "title": "कोई मेल खाता ब्रांड नहीं मिला",
+                            "message": "आपकी खोज से मेल खाने वाला कोई ब्रांड नहीं मिला। कृपया कोई दूसरा कीवर्ड आज़माएँ।",
+                            "label": "कोई परिणाम नहीं मिला"
+                  },
+                  "bn": {
+                            "title": "কোনো মিলযুক্ত ব্র্যান্ড পাওয়া যায়নি",
+                            "message": "আপনার অনুসন্ধানের সাথে মিলে এমন কোনো ব্র্যান্ড পাওয়া যায়নি। অনুগ্রহ করে অন্য কীওয়ার্ড ব্যবহার করুন।",
+                            "label": "কোন ফলাফল পাওয়া যায়নি"
+                  }
+        };
+
+        const setNoResults = show => {
+            if (!noResults) return;
+            noResults.hidden = !show;
+            noResults.setAttribute("aria-hidden", String(!show));
+            noResults.setAttribute("aria-label", emptyCopy.label);
+
+            const title = noResults.querySelector("[data-empty-state-title]");
+            const message = noResults.querySelector("[data-empty-state-message]");
+            if (show) {
+                if (title) title.textContent = emptyCopy.title;
+                if (message) message.textContent = emptyCopy.message;
+            } else {
+                title?.replaceChildren();
+                message?.replaceChildren();
+            }
+        };
+
         if (visible) visible.textContent = String(cards.length);
-        if (noResults) noResults.hidden = true;
+        setNoResults(false);
 
         const expand = () => {
             document.body.classList.add("brands-expanded");
             showMore?.remove();
         };
-
         showMore?.addEventListener("click", expand);
+
         input?.addEventListener("input", event => {
             const query = String(event.target.value || "").trim();
             let count = 0;
+
             cards.forEach(card => {
                 const text = String(card.textContent || "");
-                const match = !query || (window.SouviksSearchEngine?.matchesText ? SouviksSearchEngine.matchesText(text, query) : text.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+                const match = !query || (
+                    window.SouviksSearchEngine?.matchesText
+                        ? SouviksSearchEngine.matchesText(text, query)
+                        : text.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+                );
                 card.hidden = !match;
                 if (match) count += 1;
             });
+
             if (query) expand();
             if (visible) visible.textContent = String(count);
-            if (noResults) {
-                noResults.hidden = count !== 0;
-                noResults.setAttribute("aria-hidden", String(count !== 0));
-            }
+            setNoResults(count === 0 && Boolean(query));
         });
 
         document.getElementById("resetNoResultsFilters")?.addEventListener("click", () => {
@@ -648,7 +689,6 @@ Features:
             history.replaceState({}, "", window.location.pathname);
             input?.dispatchEvent(new Event("input", { bubbles: true }));
             input?.focus();
-        });
+        })
     });
 })();
-
