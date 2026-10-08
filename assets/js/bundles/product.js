@@ -1079,63 +1079,127 @@ renderPagination() {
     // PDP RECOMMENDATIONS
     // ======================================================
 
-frequentlyUsedWith(product, limit = 6, excludedIds = new Set()) {
+    hasUsableRecommendationMedia(item) {
+        if (!item || /placeholder|coming soon|image unavailable/i.test(String(item.product_name || ""))) {
+            return false;
+        }
 
-    const currentVehicles = new Set(
-        (product?.vehicles || []).map(v => String(v).trim()).filter(Boolean)
-    );
+        const folder = String(item.image_folder || "").trim();
+        const gallery = Array.isArray(item.gallery)
+            ? item.gallery.map(value => String(value || "").trim()).filter(Boolean)
+            : [];
+        const primary = String(item.primary_image || "").trim();
+        const imageUrl = String(item.image_url || "").trim();
 
-    if (!currentVehicles.size) return [];
+        if (folder && (gallery.length || primary)) return true;
+        return Boolean(imageUrl && !imageUrl.includes("/assets/images/placeholder.webp"));
+    }
 
-    const relevance = item => {
-        const itemVehicles = new Set(
-            (item?.vehicles || []).map(v => String(v).trim()).filter(Boolean)
+    recommendationTokens(value) {
+        return new Set(
+            String(value || "")
+                .toLocaleLowerCase()
+                .replace(/[^a-z0-9\u0900-\u097f\u0980-\u09ff]+/gu, " ")
+                .split(/\s+/)
+                .map(token => token.trim())
+                .filter(token => token.length >= 3)
         );
-        return [...currentVehicles].filter(v => itemVehicles.has(v)).length;
-    };
+    }
 
-    return this.products
-        .filter(item =>
-            item.id !== product.id &&
-            !excludedIds.has(item.id) &&
-            item.active !== false &&
-            relevance(item) > 0
-        )
-        .sort((a, b) => {
-            const scoreA = relevance(a);
-            const scoreB = relevance(b);
-            if (scoreB !== scoreA) return scoreB - scoreA;
-            if (a.subcategory_id === product.subcategory_id && b.subcategory_id !== product.subcategory_id) return -1;
-            if (b.subcategory_id === product.subcategory_id && a.subcategory_id !== product.subcategory_id) return 1;
-            if (a.category_id === product.category_id && b.category_id !== product.category_id) return -1;
-            if (b.category_id === product.category_id && a.category_id !== product.category_id) return 1;
-            return String(a.product_name || "").localeCompare(String(b.product_name || ""));
-        })
-        .slice(0, limit);
-}
+    recommendationOverlap(leftValues, rightValues) {
+        const left = new Set();
+        (Array.isArray(leftValues) ? leftValues : [leftValues]).forEach(value => {
+            this.recommendationTokens(value).forEach(token => left.add(token));
+        });
 
-related(product, limit = 6, excludedIds = new Set()) {
+        const right = new Set();
+        (Array.isArray(rightValues) ? rightValues : [rightValues]).forEach(value => {
+            this.recommendationTokens(value).forEach(token => right.add(token));
+        });
 
-    return this.products
-        .filter(item =>
-            item.id !== product.id &&
-            !excludedIds.has(item.id) &&
-            item.active !== false &&
-            item.category_id === product.category_id
-        )
-        .sort((a, b) => {
-            const subA = a.subcategory_id === product.subcategory_id ? 0 : 1;
-            const subB = b.subcategory_id === product.subcategory_id ? 0 : 1;
-            if (subA !== subB) return subA - subB;
+        let count = 0;
+        left.forEach(token => {
+            if (right.has(token)) count += 1;
+        });
+        return count;
+    }
 
-            const brandA = a.brand_id === product.brand_id ? 0 : 1;
-            const brandB = b.brand_id === product.brand_id ? 0 : 1;
-            if (brandA !== brandB) return brandA - brandB;
+    recommendationScore(product, candidate) {
+        const currentVehicles = Array.isArray(product?.vehicles) ? product.vehicles : [];
+        const candidateVehicles = Array.isArray(candidate?.vehicles) ? candidate.vehicles : [];
+        const currentVehicleSet = new Set(currentVehicles.map(value => String(value).trim().toLocaleLowerCase()).filter(Boolean));
+        const candidateVehicleSet = new Set(candidateVehicles.map(value => String(value).trim().toLocaleLowerCase()).filter(Boolean));
 
-            return String(a.product_name || "").localeCompare(String(b.product_name || ""));
-        })
-        .slice(0, limit);
-}
+        let sharedVehicles = 0;
+        currentVehicleSet.forEach(vehicle => {
+            if (candidateVehicleSet.has(vehicle)) sharedVehicles += 1;
+        });
+
+        const sharedApplications = this.recommendationOverlap(product?.applications, candidate?.applications);
+        const nameOverlap = this.recommendationOverlap(
+            [product?.product_name, product?.subcategory_name],
+            [candidate?.product_name, candidate?.subcategory_name]
+        );
+
+        let score = 0;
+        score += sharedVehicles * 40;
+        score += Math.min(sharedApplications, 3) * 15;
+        score += nameOverlap * 4;
+        if (candidate?.subcategory_id === product?.subcategory_id) score += 30;
+        if (candidate?.category_id === product?.category_id) score += 10;
+        if (candidate?.brand_id === product?.brand_id) score += 8;
+        if (candidate?.featured === true) score += 2;
+
+        return { score, sharedVehicles, sharedApplications };
+    }
+
+    frequentlyUsedWith(product, limit = 6, excludedIds = new Set()) {
+        const currentVehicles = new Set(
+            (product?.vehicles || []).map(v => String(v).trim()).filter(Boolean)
+        );
+        if (!currentVehicles.size) return [];
+
+        return this.products
+            .filter(item =>
+                item.id !== product.id &&
+                !excludedIds.has(item.id) &&
+                item.active !== false &&
+                this.hasUsableRecommendationMedia(item) &&
+                Array.isArray(item.vehicles) &&
+                item.vehicles.some(vehicle => currentVehicles.has(String(vehicle).trim()))
+            )
+            .map((item, index) => ({ item, index, relevance: this.recommendationScore(product, item) }))
+            .sort((a, b) =>
+                b.relevance.score - a.relevance.score ||
+                b.relevance.sharedVehicles - a.relevance.sharedVehicles ||
+                b.relevance.sharedApplications - a.relevance.sharedApplications ||
+                String(a.item.product_name || "").localeCompare(String(b.item.product_name || "")) ||
+                a.index - b.index
+            )
+            .slice(0, limit)
+            .map(entry => entry.item);
+    }
+
+    related(product, limit = 6, excludedIds = new Set()) {
+        return this.products
+            .filter(item =>
+                item.id !== product.id &&
+                !excludedIds.has(item.id) &&
+                item.active !== false &&
+                this.hasUsableRecommendationMedia(item) &&
+                item.category_id === product.category_id
+            )
+            .map((item, index) => ({ item, index, relevance: this.recommendationScore(product, item) }))
+            .sort((a, b) =>
+                b.relevance.score - a.relevance.score ||
+                (a.item.subcategory_id === product.subcategory_id ? 0 : 1) -
+                (b.item.subcategory_id === product.subcategory_id ? 0 : 1) ||
+                String(a.item.product_name || "").localeCompare(String(b.item.product_name || "")) ||
+                a.index - b.index
+            )
+            .slice(0, limit)
+            .map(entry => entry.item);
+    }
 
     // ======================================================
     // PRODUCT PRICING
