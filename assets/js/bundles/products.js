@@ -657,6 +657,10 @@ class SouviksAPI {
 
             const data = await response.json();
 
+            if (!Array.isArray(data)) {
+                throw new TypeError("Catalogue data must be an array");
+            }
+
             this.cache[filename] = data;
 
             return data;
@@ -665,7 +669,11 @@ class SouviksAPI {
 
         catch (error) {
 
-            console.error(error);
+            this.cache[filename] = [];
+            SouviksErrors?.log(
+                "Catalogue data load failed",
+                error
+            );
 
             return [];
 
@@ -678,11 +686,11 @@ class SouviksAPI {
 
     async products() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "products.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -719,11 +727,11 @@ class SouviksAPI {
 
     async brands() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "brands.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -756,11 +764,11 @@ class SouviksAPI {
 
     async categories() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "categories.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -793,11 +801,11 @@ class SouviksAPI {
 
     async vehicles() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "vehicles.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -880,15 +888,14 @@ class SouviksAPI {
     async productsByVehicle(vehicleName) {
 
         const products = await this.products();
+        const target = String(vehicleName ?? "").trim();
+        if (!target) return [];
 
         return products.filter(
 
-            product =>
-
-                product.vehicles.includes(
-
-                    vehicleName
-
+            product => Array.isArray(product?.vehicles) &&
+                product.vehicles.some(
+                    value => String(value ?? "").trim() === target
                 )
 
         );
@@ -2364,7 +2371,21 @@ async hydrateProductPage() {
     const slug = Utils.currentSlug();
     const product = await API.productBySlug(slug);
 
-    if (!product) return;
+    if (!product) {
+        const target = Utils.el("#product-detail");
+        if (target && target.dataset.staticRendered !== "true") {
+            target.innerHTML = `
+                <div class="container">
+                    <div class="empty-state" role="status" aria-live="polite">
+                        <h2>Product unavailable</h2>
+                        <p>This product is no longer available in the Souviks catalogue.</p>
+                        <a class="btn btn-primary" href="/${LANG}/products">Browse Products</a>
+                    </div>
+                </div>
+            `;
+        }
+        return;
+    }
 
     const brand = await API.brandById(product.brand_id);
     const category = await API.categoryById(product.category_id);
