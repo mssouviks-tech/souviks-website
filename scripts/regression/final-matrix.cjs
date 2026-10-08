@@ -391,6 +391,7 @@ async function main() {
         await goto(page, BASE + langPath(lang, "request-part"));
         await page.locator("#requestPartForm").locator("#name").fill("Regression Test");
         await page.locator("#requestPartForm").locator("#phone").fill("9000000000");
+        await page.locator("#requestPartForm").locator("#requirement").fill("Regression test part requirement");
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
@@ -414,8 +415,9 @@ async function main() {
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
         const inputs = form.locator("input[required]");
-        if (await inputs.count() >= 1) await inputs.nth(0).fill("Regression Test");
-        if (await inputs.count() >= 2) await inputs.nth(1).fill("9000000000");
+        await form.locator("#contactName").fill("Regression Test");
+        await form.locator("#contactPhone").fill("9000000000");
+        await form.locator("#contactMessage").fill("Regression test enquiry");
         await form.locator("button[type=submit]").click();
         const status = page.locator("#contactFormStatus");
         await status.waitFor({ state: "visible", timeout: 5000 });
