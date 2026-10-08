@@ -1416,9 +1416,15 @@ constructor() {
 
         }
 
-        this.products = source === "catalogue-index"
+        const sourceProducts = source === "catalogue-index"
             ? await API.catalogueIndex()
             : await API.products();
+
+        // Inactive master records are not customer-facing catalogue data.
+        // Filter them at the runtime boundary so search, facets, sorting and
+        // pagination can never expose a retired product.
+        this.products = (Array.isArray(sourceProducts) ? sourceProducts : [])
+            .filter(product => product && product.active !== false);
 
         this.filtered = [
 
