@@ -6,6 +6,7 @@ on:
     paths:
       - 'scripts/js/refactor.py'
       - 'assets/js/bundles/**'
+      - 'assets/css/bundles/**'
       - '.github/workflows/refactor-static-javascript.yml'
   workflow_dispatch:
 
@@ -18,7 +19,7 @@ concurrency:
 
 jobs:
   refactor:
-    if: ${{ github.actor != 'github-actions[bot]' }}
+    if: \${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -27,24 +28,44 @@ jobs:
           ref: main
           fetch-depth: 1
 
-      - name: Run deterministic refactor
-        run: python3 scripts/js/refactor.py
-
-      - name: Syntax-check JavaScript
+      - name: Refactor, validate and publish
+        shell: bash
         run: |
-          set -e
-          for file in assets/js/site-core.js assets/js/bundles/*.js; do
-            node --check "$file"
+          set -euo pipefail
+
+          for attempt in 1 2 3 4 5 6 7 8; do
+            echo "Refactor/publish attempt \${attempt}"
+
+            git fetch origin main
+            git rebase origin/main || {
+              git rebase --abort || true
+              git reset --hard origin/main
+            }
+
+            python3 scripts/js/refactor.py
+
+            node --check assets/js/site-core.js
+            for file in assets/js/bundles/*.js; do
+              node --check "$file"
+            done
+
+            git add -A
+
+            if git diff --cached --quiet; then
+              echo "No JavaScript architecture changes required."
+              exit 0
+            fi
+
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Refactor shared JavaScript runtime"
+
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            git reset --hard origin/main
           done
 
-      - name: Commit migration
-        run: |
-          if git diff --quiet; then
-            echo "No JavaScript architecture changes required."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Refactor shared JavaScript runtime"
-          git push origin main
+          echo "Unable to publish the JavaScript refactor after 8 attempts."
+          exit 1
