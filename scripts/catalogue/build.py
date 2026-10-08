@@ -1178,7 +1178,7 @@ def sync_organization_schema():
         replacements = []
 
         for match in re.finditer(
-            r'<script\\b[^>]*type=["\\']application/ld\\+json["\\'][^>]*>(.*?)</script>',
+            r"""<script\\b[^>]*type=["']application/ld\\+json["'][^>]*>(.*?)</script>""",
             html,
             flags=re.I | re.S,
         ):
