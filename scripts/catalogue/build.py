@@ -9,8 +9,10 @@ from __future__ import annotations
 
 import pathlib
 import runpy
+from urllib.parse import urlparse
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
 # Generated-output commits rebase before push to avoid concurrent catalogue races.
 # CI retries catalogue publication against the latest main revision.
