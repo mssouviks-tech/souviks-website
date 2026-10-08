@@ -54,6 +54,9 @@ jobs:
       - name: Validate blocking production contract
         run: python3 scripts/audit/critical_build.py
 
+      - name: Run final multilingual regression matrix
+        run: python3 scripts/audit/final_regression.py
+
       - name: Validate structured data
         run: python3 scripts/audit/structured_data.py --check-images
       - name: Audit content quality, rendering and business trust
