@@ -993,3 +993,46 @@
         transition: none !important;
     }
 }
+
+/* ==========================================================
+   MOBILE TOP-BAR CONTROL SPACING
+========================================================== */
+
+@media (max-width: 420px) {
+    .top-bar-tools {
+        flex: 0 0 auto;
+        gap: 6px;
+        margin-left: auto;
+    }
+
+    .top-bar-tools .top-whatsapp,
+    .top-bar .mobile-menu-button,
+    .language-button {
+        width: 44px;
+        min-width: 44px;
+        max-width: 44px;
+        height: 44px;
+    }
+
+    .top-bar-tools .top-whatsapp {
+        padding: 0;
+    }
+
+    .language-button {
+        gap: 0;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .language-button .language-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.05rem;
+        line-height: 1;
+    }
+
+    .language-button .language-arrow {
+        display: none;
+    }
+}
