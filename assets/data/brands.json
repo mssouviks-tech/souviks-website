@@ -12,8 +12,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 31 active Fleetguard products across Brakes, Filters.",
+    "short_description": "31 active Fleetguard products across Brakes, Filters.",
     "product_count": 31,
     "categories": [
       "brakes",
@@ -95,7 +95,7 @@
     "active": true,
     "seo": {
       "title": "Fleetguard Parts | Souviks",
-      "description": "Browse genuine and aftermarket Fleetguard spare parts available at Souviks.",
+      "description": "Souviks lists 31 active Fleetguard products across Brakes, Filters.",
       "keywords": [
         "Fleetguard",
         "commercial vehicle spare parts",
@@ -120,8 +120,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 129 active TVS Girling products across Air System, Brakes, Clutch Parts, Cooling System, Electricals and more.",
+    "short_description": "129 active TVS Girling products across Air System, Brakes, Clutch Parts, Cooling System, Electricals and more.",
     "product_count": 129,
     "categories": [
       "air-system",
@@ -317,7 +317,7 @@
     "active": true,
     "seo": {
       "title": "TVS Girling Parts | Souviks",
-      "description": "Browse genuine and aftermarket TVS Girling spare parts available at Souviks.",
+      "description": "Souviks lists 129 active TVS Girling products across Air System, Brakes, Clutch Parts, Cooling System, Electricals and more.",
       "keywords": [
         "TVS Girling",
         "commercial vehicle spare parts",
@@ -342,8 +342,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 31 active Rider products across Air System, Bearings, Rubber Parts.",
+    "short_description": "31 active Rider products across Air System, Bearings, Rubber Parts.",
     "product_count": 31,
     "categories": [
       "air-system",
@@ -411,7 +411,7 @@
     "active": true,
     "seo": {
       "title": "Rider Parts | Souviks",
-      "description": "Browse genuine and aftermarket Rider spare parts available at Souviks.",
+      "description": "Souviks lists 31 active Rider products across Air System, Bearings, Rubber Parts.",
       "keywords": [
         "Rider",
         "commercial vehicle spare parts",
@@ -436,8 +436,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 5 active Roots products across Electricals, Suspension & Steering.",
+    "short_description": "5 active Roots products across Electricals, Suspension & Steering.",
     "product_count": 5,
     "categories": [
       "electricals",
@@ -471,7 +471,7 @@
     "active": true,
     "seo": {
       "title": "Roots Parts | Souviks",
-      "description": "Browse genuine and aftermarket Roots spare parts available at Souviks.",
+      "description": "Souviks lists 5 active Roots products across Electricals, Suspension & Steering.",
       "keywords": [
         "Roots",
         "commercial vehicle spare parts",
@@ -496,8 +496,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 25 active GS products across Air System, Suspension & Steering.",
+    "short_description": "25 active GS products across Air System, Suspension & Steering.",
     "product_count": 25,
     "categories": [
       "air-system",
@@ -562,7 +562,7 @@
     "active": true,
     "seo": {
       "title": "GS Parts | Souviks",
-      "description": "Browse genuine and aftermarket GS spare parts available at Souviks.",
+      "description": "Souviks lists 25 active GS products across Air System, Suspension & Steering.",
       "keywords": [
         "GS",
         "commercial vehicle spare parts",
@@ -587,8 +587,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 5 active Spicer products across Brakes, Suspension & Steering.",
+    "short_description": "5 active Spicer products across Brakes, Suspension & Steering.",
     "product_count": 5,
     "categories": [
       "brakes",
@@ -623,7 +623,7 @@
     "active": true,
     "seo": {
       "title": "Spicer Parts | Souviks",
-      "description": "Browse genuine and aftermarket Spicer spare parts available at Souviks.",
+      "description": "Souviks lists 5 active Spicer products across Brakes, Suspension & Steering.",
       "keywords": [
         "Spicer",
         "commercial vehicle spare parts",
@@ -648,9 +648,9 @@
     "banner": "",
     "website": "https://www.customercare-cv.tatamotors.com/tata-genuine-parts/tgp-overview.aspx",
     "country": "India",
-    "description": "",
-    "short_description": "",
-    "product_count": 95,
+    "description": "Souviks lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling System, Electricals and more.",
+    "short_description": "101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling System, Electricals and more.",
+    "product_count": 101,
     "categories": [
       "bearings",
       "brakes",
@@ -664,6 +664,7 @@
       "suspension-steering"
     ],
     "subcategories": [
+      "accelerator-cable",
       "air-filter",
       "brake-disc",
       "brake-lining",
@@ -823,13 +824,19 @@
       "SVKS000986",
       "SVKS000987",
       "SVKS000988",
-      "SVKS000989"
+      "SVKS000989",
+      "SVKS001024",
+      "SVKS001025",
+      "SVKS001026",
+      "SVKS001027",
+      "SVKS001028",
+      "SVKS001029"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Tata Genuine Parts Parts | Souviks",
-      "description": "Browse genuine and aftermarket Tata Genuine Parts spare parts available at Souviks.",
+      "description": "Souviks lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling System, Electricals and more.",
       "keywords": [
         "Tata Genuine Parts",
         "commercial vehicle spare parts",
@@ -854,8 +861,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 34 active Harish products across Fasteners & Hardware, Suspension & Steering.",
+    "short_description": "34 active Harish products across Fasteners & Hardware, Suspension & Steering.",
     "product_count": 34,
     "categories": [
       "fasteners-hardware",
@@ -932,7 +939,7 @@
     "active": true,
     "seo": {
       "title": "Harish Parts | Souviks",
-      "description": "Browse genuine and aftermarket Harish spare parts available at Souviks.",
+      "description": "Souviks lists 34 active Harish products across Fasteners & Hardware, Suspension & Steering.",
       "keywords": [
         "Harish",
         "commercial vehicle spare parts",
@@ -957,8 +964,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 7 active Anupam products across Electricals.",
+    "short_description": "7 active Anupam products across Electricals.",
     "product_count": 7,
     "categories": [
       "electricals"
@@ -1000,7 +1007,7 @@
     "active": true,
     "seo": {
       "title": "Anupam Parts | Souviks",
-      "description": "Browse genuine and aftermarket Anupam spare parts available at Souviks.",
+      "description": "Souviks lists 7 active Anupam products across Electricals.",
       "keywords": [
         "Anupam",
         "commercial vehicle spare parts",
@@ -1025,8 +1032,8 @@
     "banner": "",
     "website": "https://www.unominda.com/",
     "country": "India",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 30 active UnoMinda products across Air System, Brakes, Electricals.",
+    "short_description": "30 active UnoMinda products across Air System, Brakes, Electricals.",
     "product_count": 30,
     "categories": [
       "air-system",
@@ -1116,7 +1123,7 @@
     "active": true,
     "seo": {
       "title": "UnoMinda Parts | Souviks",
-      "description": "Browse genuine and aftermarket UnoMinda spare parts available at Souviks.",
+      "description": "Souviks lists 30 active UnoMinda products across Air System, Brakes, Electricals.",
       "keywords": [
         "UnoMinda",
         "commercial vehicle spare parts",
@@ -1141,8 +1148,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 14 active ASK products across Brakes.",
+    "short_description": "14 active ASK products across Brakes.",
     "product_count": 14,
     "categories": [
       "brakes"
@@ -1189,7 +1196,7 @@
     "active": true,
     "seo": {
       "title": "ASK Parts | Souviks",
-      "description": "Browse genuine and aftermarket ASK spare parts available at Souviks.",
+      "description": "Souviks lists 14 active ASK products across Brakes.",
       "keywords": [
         "ASK",
         "commercial vehicle spare parts",
@@ -1214,8 +1221,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active ABC products across Bearings.",
+    "short_description": "1 active ABC products across Bearings.",
     "product_count": 1,
     "categories": [
       "bearings"
@@ -1236,7 +1243,7 @@
     "active": true,
     "seo": {
       "title": "ABC Parts | Souviks",
-      "description": "Browse genuine and aftermarket ABC spare parts available at Souviks.",
+      "description": "Souviks lists 1 active ABC products across Bearings.",
       "keywords": [
         "ABC",
         "commercial vehicle spare parts",
@@ -1261,8 +1268,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active Delphi-TVS products across Filters.",
+    "short_description": "1 active Delphi-TVS products across Filters.",
     "product_count": 1,
     "categories": [
       "filters"
@@ -1286,7 +1293,7 @@
     "active": true,
     "seo": {
       "title": "Delphi-TVS Parts | Souviks",
-      "description": "Browse genuine and aftermarket Delphi-TVS spare parts available at Souviks.",
+      "description": "Souviks lists 1 active Delphi-TVS products across Filters.",
       "keywords": [
         "Delphi-TVS",
         "commercial vehicle spare parts",
@@ -1311,8 +1318,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 3 active Alok products across Suspension & Steering.",
+    "short_description": "3 active Alok products across Suspension & Steering.",
     "product_count": 3,
     "categories": [
       "suspension-steering"
@@ -1339,7 +1346,7 @@
     "active": true,
     "seo": {
       "title": "Alok Parts | Souviks",
-      "description": "Browse genuine and aftermarket Alok spare parts available at Souviks.",
+      "description": "Souviks lists 3 active Alok products across Suspension & Steering.",
       "keywords": [
         "Alok",
         "commercial vehicle spare parts",
@@ -1364,8 +1371,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 5 active Valvoline products across Lubricants, Suspension & Steering.",
+    "short_description": "5 active Valvoline products across Lubricants, Suspension & Steering.",
     "product_count": 5,
     "categories": [
       "lubricants",
@@ -1396,7 +1403,7 @@
     "active": true,
     "seo": {
       "title": "Valvoline Parts | Souviks",
-      "description": "Browse genuine and aftermarket Valvoline spare parts available at Souviks.",
+      "description": "Souviks lists 5 active Valvoline products across Lubricants, Suspension & Steering.",
       "keywords": [
         "Valvoline",
         "commercial vehicle spare parts",
@@ -1421,8 +1428,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 2 active BIR products across Engine Components, Suspension & Steering.",
+    "short_description": "2 active BIR products across Engine Components, Suspension & Steering.",
     "product_count": 2,
     "categories": [
       "engine-components",
@@ -1449,7 +1456,7 @@
     "active": true,
     "seo": {
       "title": "BIR Parts | Souviks",
-      "description": "Browse genuine and aftermarket BIR spare parts available at Souviks.",
+      "description": "Souviks lists 2 active BIR products across Engine Components, Suspension & Steering.",
       "keywords": [
         "BIR",
         "commercial vehicle spare parts",
@@ -1474,8 +1481,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 11 active BGL products across Clutch Parts.",
+    "short_description": "11 active BGL products across Clutch Parts.",
     "product_count": 11,
     "categories": [
       "clutch-parts"
@@ -1523,7 +1530,7 @@
     "active": true,
     "seo": {
       "title": "BGL Parts | Souviks",
-      "description": "Browse genuine and aftermarket BGL spare parts available at Souviks.",
+      "description": "Souviks lists 11 active BGL products across Clutch Parts.",
       "keywords": [
         "BGL",
         "commercial vehicle spare parts",
@@ -1548,8 +1555,8 @@
     "banner": "",
     "website": "https://www.bosch.in/",
     "country": "Germany",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 34 active Bosch products across Electricals, Filters.",
+    "short_description": "34 active Bosch products across Electricals, Filters.",
     "product_count": 34,
     "categories": [
       "electricals",
@@ -1627,7 +1634,7 @@
     "active": true,
     "seo": {
       "title": "Bosch Parts | Souviks",
-      "description": "Browse genuine and aftermarket Bosch spare parts available at Souviks.",
+      "description": "Souviks lists 34 active Bosch products across Electricals, Filters.",
       "keywords": [
         "Bosch",
         "commercial vehicle spare parts",
@@ -1652,8 +1659,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 2 active Motherson products across Electricals.",
+    "short_description": "2 active Motherson products across Electricals.",
     "product_count": 2,
     "categories": [
       "electricals"
@@ -1676,7 +1683,7 @@
     "active": true,
     "seo": {
       "title": "Motherson Parts | Souviks",
-      "description": "Browse genuine and aftermarket Motherson spare parts available at Souviks.",
+      "description": "Souviks lists 2 active Motherson products across Electricals.",
       "keywords": [
         "Motherson",
         "commercial vehicle spare parts",
@@ -1701,8 +1708,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 2 active MSL products across Clutch Parts.",
+    "short_description": "2 active MSL products across Clutch Parts.",
     "product_count": 2,
     "categories": [
       "clutch-parts"
@@ -1726,7 +1733,7 @@
     "active": true,
     "seo": {
       "title": "MSL Parts | Souviks",
-      "description": "Browse genuine and aftermarket MSL spare parts available at Souviks.",
+      "description": "Souviks lists 2 active MSL products across Clutch Parts.",
       "keywords": [
         "MSL",
         "commercial vehicle spare parts",
@@ -1751,8 +1758,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active Compo products across Brakes.",
+    "short_description": "1 active Compo products across Brakes.",
     "product_count": 1,
     "categories": [
       "brakes"
@@ -1775,7 +1782,7 @@
     "active": true,
     "seo": {
       "title": "Compo Parts | Souviks",
-      "description": "Browse genuine and aftermarket Compo spare parts available at Souviks.",
+      "description": "Souviks lists 1 active Compo products across Brakes.",
       "keywords": [
         "Compo",
         "commercial vehicle spare parts",
@@ -1800,8 +1807,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active Comet products across Electricals.",
+    "short_description": "1 active Comet products across Electricals.",
     "product_count": 1,
     "categories": [
       "electricals"
@@ -1822,7 +1829,7 @@
     "active": true,
     "seo": {
       "title": "Comet Parts | Souviks",
-      "description": "Browse genuine and aftermarket Comet spare parts available at Souviks.",
+      "description": "Souviks lists 1 active Comet products across Electricals.",
       "keywords": [
         "Comet",
         "commercial vehicle spare parts",
@@ -1847,8 +1854,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 25 active Nirmal products across Fasteners & Hardware, Suspension & Steering.",
+    "short_description": "25 active Nirmal products across Fasteners & Hardware, Suspension & Steering.",
     "product_count": 25,
     "categories": [
       "fasteners-hardware",
@@ -1909,7 +1916,7 @@
     "active": true,
     "seo": {
       "title": "Nirmal Parts | Souviks",
-      "description": "Browse genuine and aftermarket Nirmal spare parts available at Souviks.",
+      "description": "Souviks lists 25 active Nirmal products across Fasteners & Hardware, Suspension & Steering.",
       "keywords": [
         "Nirmal",
         "commercial vehicle spare parts",
@@ -1934,9 +1941,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
-    "product_count": 36,
+    "description": "Souviks lists 53 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering.",
+    "short_description": "53 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering.",
+    "product_count": 53,
     "categories": [
       "brakes",
       "fasteners-hardware",
@@ -2011,13 +2018,30 @@
       "SVKS000738",
       "SVKS000771",
       "SVKS000795",
-      "SVKS000962"
+      "SVKS000962",
+      "SVKS001030",
+      "SVKS001031",
+      "SVKS001032",
+      "SVKS001033",
+      "SVKS001034",
+      "SVKS001035",
+      "SVKS001036",
+      "SVKS001037",
+      "SVKS001038",
+      "SVKS001039",
+      "SVKS001040",
+      "SVKS001041",
+      "SVKS001042",
+      "SVKS001043",
+      "SVKS001044",
+      "SVKS001045",
+      "SVKS001046"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "JMP Parts | Souviks",
-      "description": "Browse genuine and aftermarket JMP spare parts available at Souviks.",
+      "description": "Souviks lists 53 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering.",
       "keywords": [
         "JMP",
         "commercial vehicle spare parts",
@@ -2042,8 +2066,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 26 active Leyparts products across Brakes, Clutch Parts, Electricals, Engine Components, Filters and more.",
+    "short_description": "26 active Leyparts products across Brakes, Clutch Parts, Electricals, Engine Components, Filters and more.",
     "product_count": 26,
     "categories": [
       "brakes",
@@ -2121,7 +2145,7 @@
     "active": true,
     "seo": {
       "title": "Leyparts Parts | Souviks",
-      "description": "Browse genuine and aftermarket Leyparts spare parts available at Souviks.",
+      "description": "Souviks lists 26 active Leyparts products across Brakes, Clutch Parts, Electricals, Engine Components, Filters and more.",
       "keywords": [
         "Leyparts",
         "commercial vehicle spare parts",
@@ -2146,8 +2170,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 2 active Fenner products across Engine Components.",
+    "short_description": "2 active Fenner products across Engine Components.",
     "product_count": 2,
     "categories": [
       "engine-components"
@@ -2172,7 +2196,7 @@
     "active": true,
     "seo": {
       "title": "Fenner Parts | Souviks",
-      "description": "Browse genuine and aftermarket Fenner spare parts available at Souviks.",
+      "description": "Souviks lists 2 active Fenner products across Engine Components.",
       "keywords": [
         "Fenner",
         "commercial vehicle spare parts",
@@ -2197,8 +2221,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 8 active HP products across Lubricants.",
+    "short_description": "8 active HP products across Lubricants.",
     "product_count": 8,
     "categories": [
       "lubricants"
@@ -2235,7 +2259,7 @@
     "active": true,
     "seo": {
       "title": "HP Parts | Souviks",
-      "description": "Browse genuine and aftermarket HP spare parts available at Souviks.",
+      "description": "Souviks lists 8 active HP products across Lubricants.",
       "keywords": [
         "HP",
         "commercial vehicle spare parts",
@@ -2260,8 +2284,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 7 active Meritor products across Brakes, Clutch Parts.",
+    "short_description": "7 active Meritor products across Brakes, Clutch Parts.",
     "product_count": 7,
     "categories": [
       "brakes",
@@ -2299,7 +2323,7 @@
     "active": true,
     "seo": {
       "title": "Meritor Parts | Souviks",
-      "description": "Browse genuine and aftermarket Meritor spare parts available at Souviks.",
+      "description": "Souviks lists 7 active Meritor products across Brakes, Clutch Parts.",
       "keywords": [
         "Meritor",
         "commercial vehicle spare parts",
@@ -2324,8 +2348,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 7 active Phoenix products across Electricals.",
+    "short_description": "7 active Phoenix products across Electricals.",
     "product_count": 7,
     "categories": [
       "electricals"
@@ -2358,7 +2382,7 @@
     "active": true,
     "seo": {
       "title": "Phoenix Parts | Souviks",
-      "description": "Browse genuine and aftermarket Phoenix spare parts available at Souviks.",
+      "description": "Souviks lists 7 active Phoenix products across Electricals.",
       "keywords": [
         "Phoenix",
         "commercial vehicle spare parts",
@@ -2383,8 +2407,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 108 active JAI products across Suspension & Steering.",
+    "short_description": "108 active JAI products across Suspension & Steering.",
     "product_count": 108,
     "categories": [
       "suspension-steering"
@@ -2536,7 +2560,7 @@
     "active": true,
     "seo": {
       "title": "JAI Parts | Souviks",
-      "description": "Browse genuine and aftermarket JAI spare parts available at Souviks.",
+      "description": "Souviks lists 108 active JAI products across Suspension & Steering.",
       "keywords": [
         "JAI",
         "commercial vehicle spare parts",
@@ -2561,14 +2585,15 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 41 active RKI products across Suspension & Steering.",
+    "short_description": "41 active RKI products across Suspension & Steering.",
     "product_count": 41,
     "categories": [
       "suspension-steering"
     ],
     "subcategories": [
       "cross-joint",
+      "drive-flange",
       "flange",
       "slip-yoke",
       "stub-shaft"
@@ -2643,7 +2668,7 @@
     "active": true,
     "seo": {
       "title": "RKI Parts | Souviks",
-      "description": "Browse genuine and aftermarket RKI spare parts available at Souviks.",
+      "description": "Souviks lists 41 active RKI products across Suspension & Steering.",
       "keywords": [
         "RKI",
         "commercial vehicle spare parts",
@@ -2668,8 +2693,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 26 active KFL products across Bearings, Cooling System, Engine Components, Suspension & Steering.",
+    "short_description": "26 active KFL products across Bearings, Cooling System, Engine Components, Suspension & Steering.",
     "product_count": 26,
     "categories": [
       "bearings",
@@ -2748,7 +2773,7 @@
     "active": true,
     "seo": {
       "title": "KFL Parts | Souviks",
-      "description": "Browse genuine and aftermarket KFL spare parts available at Souviks.",
+      "description": "Souviks lists 26 active KFL products across Bearings, Cooling System, Engine Components, Suspension & Steering.",
       "keywords": [
         "KFL",
         "commercial vehicle spare parts",
@@ -2773,8 +2798,8 @@
     "banner": "",
     "website": "https://www.mahle.com/",
     "country": "Germany",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 8 active Mahle products across Filters.",
+    "short_description": "8 active Mahle products across Filters.",
     "product_count": 8,
     "categories": [
       "filters"
@@ -2817,7 +2842,7 @@
     "active": true,
     "seo": {
       "title": "Mahle Parts | Souviks",
-      "description": "Browse genuine and aftermarket Mahle spare parts available at Souviks.",
+      "description": "Souviks lists 8 active Mahle products across Filters.",
       "keywords": [
         "Mahle",
         "commercial vehicle spare parts",
@@ -2842,8 +2867,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 17 active NeoLite products across Electricals.",
+    "short_description": "17 active NeoLite products across Electricals.",
     "product_count": 17,
     "categories": [
       "electricals"
@@ -2897,7 +2922,7 @@
     "active": true,
     "seo": {
       "title": "NeoLite Parts | Souviks",
-      "description": "Browse genuine and aftermarket NeoLite spare parts available at Souviks.",
+      "description": "Souviks lists 17 active NeoLite products across Electricals.",
       "keywords": [
         "NeoLite",
         "commercial vehicle spare parts",
@@ -2922,8 +2947,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active NBC products across Bearings.",
+    "short_description": "1 active NBC products across Bearings.",
     "product_count": 1,
     "categories": [
       "bearings"
@@ -2945,7 +2970,7 @@
     "active": true,
     "seo": {
       "title": "NBC Parts | Souviks",
-      "description": "Browse genuine and aftermarket NBC spare parts available at Souviks.",
+      "description": "Souviks lists 1 active NBC products across Bearings.",
       "keywords": [
         "NBC",
         "commercial vehicle spare parts",
@@ -2970,8 +2995,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 6 active MEI products across Brakes, Clutch Parts.",
+    "short_description": "6 active MEI products across Brakes, Clutch Parts.",
     "product_count": 6,
     "categories": [
       "brakes",
@@ -3008,7 +3033,7 @@
     "active": true,
     "seo": {
       "title": "MEI Parts | Souviks",
-      "description": "Browse genuine and aftermarket MEI spare parts available at Souviks.",
+      "description": "Souviks lists 6 active MEI products across Brakes, Clutch Parts.",
       "keywords": [
         "MEI",
         "commercial vehicle spare parts",
@@ -3033,8 +3058,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 3 active Manu products across Suspension & Steering.",
+    "short_description": "3 active Manu products across Suspension & Steering.",
     "product_count": 3,
     "categories": [
       "suspension-steering"
@@ -3061,7 +3086,7 @@
     "active": true,
     "seo": {
       "title": "Manu Parts | Souviks",
-      "description": "Browse genuine and aftermarket Manu spare parts available at Souviks.",
+      "description": "Souviks lists 3 active Manu products across Suspension & Steering.",
       "keywords": [
         "Manu",
         "commercial vehicle spare parts",
@@ -3086,8 +3111,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 2 active CI products across Clutch Parts, Rubber Parts.",
+    "short_description": "2 active CI products across Clutch Parts, Rubber Parts.",
     "product_count": 2,
     "categories": [
       "clutch-parts",
@@ -3112,7 +3137,7 @@
     "active": true,
     "seo": {
       "title": "CI Parts | Souviks",
-      "description": "Browse genuine and aftermarket CI spare parts available at Souviks.",
+      "description": "Souviks lists 2 active CI products across Clutch Parts, Rubber Parts.",
       "keywords": [
         "CI",
         "commercial vehicle spare parts",
@@ -3137,8 +3162,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active Philips products across Electricals.",
+    "short_description": "1 active Philips products across Electricals.",
     "product_count": 1,
     "categories": [
       "electricals"
@@ -3159,7 +3184,7 @@
     "active": true,
     "seo": {
       "title": "Philips Parts | Souviks",
-      "description": "Browse genuine and aftermarket Philips spare parts available at Souviks.",
+      "description": "Souviks lists 1 active Philips products across Electricals.",
       "keywords": [
         "Philips",
         "commercial vehicle spare parts",
@@ -3184,8 +3209,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 16 active Pix products across Engine Components.",
+    "short_description": "16 active Pix products across Engine Components.",
     "product_count": 16,
     "categories": [
       "engine-components"
@@ -3235,7 +3260,7 @@
     "active": true,
     "seo": {
       "title": "Pix Parts | Souviks",
-      "description": "Browse genuine and aftermarket Pix spare parts available at Souviks.",
+      "description": "Souviks lists 16 active Pix products across Engine Components.",
       "keywords": [
         "Pix",
         "commercial vehicle spare parts",
@@ -3260,8 +3285,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 8 active Rane products across Air System, Bearings, Lubricants, Suspension & Steering.",
+    "short_description": "8 active Rane products across Air System, Bearings, Lubricants, Suspension & Steering.",
     "product_count": 8,
     "categories": [
       "air-system",
@@ -3310,7 +3335,7 @@
     "active": true,
     "seo": {
       "title": "Rane Parts | Souviks",
-      "description": "Browse genuine and aftermarket Rane spare parts available at Souviks.",
+      "description": "Souviks lists 8 active Rane products across Air System, Bearings, Lubricants, Suspension & Steering.",
       "keywords": [
         "Rane",
         "commercial vehicle spare parts",
@@ -3335,8 +3360,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 4 active Sargun products across Suspension & Steering.",
+    "short_description": "4 active Sargun products across Suspension & Steering.",
     "product_count": 4,
     "categories": [
       "suspension-steering"
@@ -3365,7 +3390,7 @@
     "active": true,
     "seo": {
       "title": "Sargun Parts | Souviks",
-      "description": "Browse genuine and aftermarket Sargun spare parts available at Souviks.",
+      "description": "Souviks lists 4 active Sargun products across Suspension & Steering.",
       "keywords": [
         "Sargun",
         "commercial vehicle spare parts",
@@ -3390,8 +3415,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active AMW products across Brakes.",
+    "short_description": "1 active AMW products across Brakes.",
     "product_count": 1,
     "categories": [
       "brakes"
@@ -3412,7 +3437,7 @@
     "active": true,
     "seo": {
       "title": "AMW Parts | Souviks",
-      "description": "Browse genuine and aftermarket AMW spare parts available at Souviks.",
+      "description": "Souviks lists 1 active AMW products across Brakes.",
       "keywords": [
         "AMW",
         "commercial vehicle spare parts",
@@ -3437,8 +3462,8 @@
     "banner": "",
     "website": "https://www.skf.com/",
     "country": "Sweden",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 2 active SKF products across Bearings.",
+    "short_description": "2 active SKF products across Bearings.",
     "product_count": 2,
     "categories": [
       "bearings"
@@ -3463,7 +3488,7 @@
     "active": true,
     "seo": {
       "title": "SKF Parts | Souviks",
-      "description": "Browse genuine and aftermarket SKF spare parts available at Souviks.",
+      "description": "Souviks lists 2 active SKF products across Bearings.",
       "keywords": [
         "SKF",
         "commercial vehicle spare parts",
@@ -3488,8 +3513,8 @@
     "banner": "",
     "website": "https://www.texspin.com/",
     "country": "India",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 103 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering.",
+    "short_description": "103 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering.",
     "product_count": 103,
     "categories": [
       "bearings",
@@ -3648,7 +3673,7 @@
     "active": true,
     "seo": {
       "title": "Texspin Parts | Souviks",
-      "description": "Browse genuine and aftermarket Texspin spare parts available at Souviks.",
+      "description": "Souviks lists 103 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering.",
       "keywords": [
         "Texspin",
         "commercial vehicle spare parts",
@@ -3673,8 +3698,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 4 active Tata AutoComp products across Filters, Lubricants.",
+    "short_description": "4 active Tata AutoComp products across Filters, Lubricants.",
     "product_count": 4,
     "categories": [
       "filters",
@@ -3709,7 +3734,7 @@
     "active": true,
     "seo": {
       "title": "Tata AutoComp Parts | Souviks",
-      "description": "Browse genuine and aftermarket Tata AutoComp spare parts available at Souviks.",
+      "description": "Souviks lists 4 active Tata AutoComp products across Filters, Lubricants.",
       "keywords": [
         "Tata AutoComp",
         "commercial vehicle spare parts",
@@ -3734,8 +3759,8 @@
     "banner": "",
     "website": "https://www.timken.com/",
     "country": "United States",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 5 active Timken products across Bearings.",
+    "short_description": "5 active Timken products across Bearings.",
     "product_count": 5,
     "categories": [
       "bearings"
@@ -3765,7 +3790,7 @@
     "active": true,
     "seo": {
       "title": "Timken Parts | Souviks",
-      "description": "Browse genuine and aftermarket Timken spare parts available at Souviks.",
+      "description": "Souviks lists 5 active Timken products across Bearings.",
       "keywords": [
         "Timken",
         "commercial vehicle spare parts",
@@ -3790,8 +3815,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active Everest products across Suspension & Steering.",
+    "short_description": "1 active Everest products across Suspension & Steering.",
     "product_count": 1,
     "categories": [
       "suspension-steering"
@@ -3813,7 +3838,7 @@
     "active": true,
     "seo": {
       "title": "Everest Parts | Souviks",
-      "description": "Browse genuine and aftermarket Everest spare parts available at Souviks.",
+      "description": "Souviks lists 1 active Everest products across Suspension & Steering.",
       "keywords": [
         "Everest",
         "commercial vehicle spare parts",
@@ -3838,8 +3863,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 29 active WABCO products across Air System, Brakes, Electricals, Rubber Parts.",
+    "short_description": "29 active WABCO products across Air System, Brakes, Electricals, Rubber Parts.",
     "product_count": 29,
     "categories": [
       "air-system",
@@ -3912,7 +3937,7 @@
     "active": true,
     "seo": {
       "title": "WABCO Parts | Souviks",
-      "description": "Browse genuine and aftermarket WABCO spare parts available at Souviks.",
+      "description": "Souviks lists 29 active WABCO products across Air System, Brakes, Electricals, Rubber Parts.",
       "keywords": [
         "WABCO",
         "commercial vehicle spare parts",
@@ -3937,8 +3962,8 @@
     "banner": "",
     "website": "https://lucas-tvs.com/",
     "country": "India",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 10 active Lucas TVS products across Electricals.",
+    "short_description": "10 active Lucas TVS products across Electricals.",
     "product_count": 10,
     "categories": [
       "electricals"
@@ -3989,7 +4014,7 @@
     "active": true,
     "seo": {
       "title": "Lucas TVS Parts | Souviks",
-      "description": "Browse genuine and aftermarket Lucas TVS spare parts available at Souviks.",
+      "description": "Souviks lists 10 active Lucas TVS products across Electricals.",
       "keywords": [
         "Lucas TVS",
         "commercial vehicle spare parts",
@@ -4014,8 +4039,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 2 active AutoPly products across Electricals.",
+    "short_description": "2 active AutoPly products across Electricals.",
     "product_count": 2,
     "categories": [
       "electricals"
@@ -4039,7 +4064,7 @@
     "active": true,
     "seo": {
       "title": "AutoPly Parts | Souviks",
-      "description": "Browse genuine and aftermarket AutoPly spare parts available at Souviks.",
+      "description": "Souviks lists 2 active AutoPly products across Electricals.",
       "keywords": [
         "AutoPly",
         "commercial vehicle spare parts",
@@ -4064,8 +4089,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 4 active Bapi products across Electricals.",
+    "short_description": "4 active Bapi products across Electricals.",
     "product_count": 4,
     "categories": [
       "electricals"
@@ -4097,7 +4122,7 @@
     "active": true,
     "seo": {
       "title": "Bapi Parts | Souviks",
-      "description": "Browse genuine and aftermarket Bapi spare parts available at Souviks.",
+      "description": "Souviks lists 4 active Bapi products across Electricals.",
       "keywords": [
         "Bapi",
         "commercial vehicle spare parts",
@@ -4122,8 +4147,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 2 active Gulf products across Lubricants.",
+    "short_description": "2 active Gulf products across Lubricants.",
     "product_count": 2,
     "categories": [
       "lubricants"
@@ -4147,7 +4172,7 @@
     "active": true,
     "seo": {
       "title": "Gulf Parts | Souviks",
-      "description": "Browse genuine and aftermarket Gulf spare parts available at Souviks.",
+      "description": "Souviks lists 2 active Gulf products across Lubricants.",
       "keywords": [
         "Gulf",
         "commercial vehicle spare parts",
@@ -4172,8 +4197,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active Luk products across Brakes.",
+    "short_description": "1 active Luk products across Brakes.",
     "product_count": 1,
     "categories": [
       "brakes"
@@ -4194,7 +4219,7 @@
     "active": true,
     "seo": {
       "title": "Luk Parts | Souviks",
-      "description": "Browse genuine and aftermarket Luk spare parts available at Souviks.",
+      "description": "Souviks lists 1 active Luk products across Brakes.",
       "keywords": [
         "Luk",
         "commercial vehicle spare parts",
@@ -4219,8 +4244,8 @@
     "banner": "",
     "website": "https://setcoauto.com/",
     "country": "India",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 12 active Setco products across Clutch Parts.",
+    "short_description": "12 active Setco products across Clutch Parts.",
     "product_count": 12,
     "categories": [
       "clutch-parts"
@@ -4269,7 +4294,7 @@
     "active": true,
     "seo": {
       "title": "Setco Parts | Souviks",
-      "description": "Browse genuine and aftermarket Setco spare parts available at Souviks.",
+      "description": "Souviks lists 12 active Setco products across Clutch Parts.",
       "keywords": [
         "Setco",
         "commercial vehicle spare parts",
@@ -4294,8 +4319,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 15 active Varroc products across Electricals.",
+    "short_description": "15 active Varroc products across Electricals.",
     "product_count": 15,
     "categories": [
       "electricals"
@@ -4345,7 +4370,7 @@
     "active": true,
     "seo": {
       "title": "Varroc Parts | Souviks",
-      "description": "Browse genuine and aftermarket Varroc spare parts available at Souviks.",
+      "description": "Souviks lists 15 active Varroc products across Electricals.",
       "keywords": [
         "Varroc",
         "commercial vehicle spare parts",
@@ -4370,8 +4395,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 6 active Toyo products across Suspension & Steering.",
+    "short_description": "6 active Toyo products across Suspension & Steering.",
     "product_count": 6,
     "categories": [
       "suspension-steering"
@@ -4404,7 +4429,7 @@
     "active": true,
     "seo": {
       "title": "Toyo Parts | Souviks",
-      "description": "Browse genuine and aftermarket Toyo spare parts available at Souviks.",
+      "description": "Souviks lists 6 active Toyo products across Suspension & Steering.",
       "keywords": [
         "Toyo",
         "commercial vehicle spare parts",
@@ -4429,8 +4454,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active Knorr-Bremse products across Air System.",
+    "short_description": "1 active Knorr-Bremse products across Air System.",
     "product_count": 1,
     "categories": [
       "air-system"
@@ -4451,7 +4476,7 @@
     "active": true,
     "seo": {
       "title": "Knorr-Bremse Parts | Souviks",
-      "description": "Browse genuine and aftermarket Knorr-Bremse spare parts available at Souviks.",
+      "description": "Souviks lists 1 active Knorr-Bremse products across Air System.",
       "keywords": [
         "Knorr-Bremse",
         "commercial vehicle spare parts",
@@ -4473,8 +4498,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active RXI products across Electricals.",
+    "short_description": "1 active RXI products across Electricals.",
     "product_count": 1,
     "categories": [
       "electricals"
@@ -4495,7 +4520,7 @@
     "active": true,
     "seo": {
       "title": "RXI Parts | Souviks",
-      "description": "Browse genuine and aftermarket RXI spare parts available at Souviks.",
+      "description": "Souviks lists 1 active RXI products across Electricals.",
       "keywords": [
         "RXI",
         "commercial vehicle spare parts",
@@ -4520,8 +4545,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active Suprajit products across Engine Components.",
+    "short_description": "1 active Suprajit products across Engine Components.",
     "product_count": 1,
     "categories": [
       "engine-components"
@@ -4542,7 +4567,7 @@
     "active": true,
     "seo": {
       "title": "Suprajit Parts | Souviks",
-      "description": "Browse genuine and aftermarket Suprajit spare parts available at Souviks.",
+      "description": "Souviks lists 1 active Suprajit products across Engine Components.",
       "keywords": [
         "Suprajit",
         "commercial vehicle spare parts",
@@ -4567,8 +4592,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "",
-    "short_description": "",
+    "description": "Souviks lists 1 active Trendy products across Engine Components.",
+    "short_description": "1 active Trendy products across Engine Components.",
     "product_count": 1,
     "categories": [
       "engine-components"
@@ -4589,7 +4614,7 @@
     "active": true,
     "seo": {
       "title": "Trendy Parts | Souviks",
-      "description": "Browse genuine and aftermarket Trendy spare parts available at Souviks.",
+      "description": "Souviks lists 1 active Trendy products across Engine Components.",
       "keywords": [
         "Trendy",
         "commercial vehicle spare parts",
