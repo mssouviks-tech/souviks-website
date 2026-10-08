@@ -1788,9 +1788,10 @@ document.addEventListener(
             }
 
             if (navigationHistoryPushed) {
-                navigationHistoryPushed = false;
                 if (!fromHistory) {
                     history.back();
+                } else {
+                    navigationHistoryPushed = false;
                 }
             }
 
