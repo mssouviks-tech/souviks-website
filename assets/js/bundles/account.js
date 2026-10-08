@@ -1,3 +1,29 @@
+/* ===== runtime-error-fallback.js ===== */
+(() => {
+    "use strict";
+
+    if (window.SouviksErrors) return;
+
+    const safeString = value => String(value ?? "")
+        .replace(/https?:\/\/\S+/gi, "[url]")
+        .replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g, "[email]")
+        .replace(/[A-Za-z0-9_-]{32,}/g, "[redacted]");
+
+    window.SouviksErrors = {
+        sanitise(error) {
+            return {
+                name: safeString(error?.name || "Error").slice(0, 48),
+                ...(error?.code ? { code: safeString(error.code).slice(0, 48) } : {})
+            };
+        },
+        log(context, error) {
+            if (typeof console !== "undefined" && typeof console.error === "function") {
+                console.error("[Souviks]", safeString(context || "Runtime error"), this.sanitise(error));
+            }
+        }
+    };
+})();
+
 /* ===== analytics/account-analytics.js ===== */
 (() => {
     "use strict";
