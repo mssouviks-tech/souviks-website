@@ -444,13 +444,15 @@ async function main() {
         await goto(page, BASE + langPath(lang, "request-part"));
         await page.locator("#requestPartForm").locator("#name").fill("Regression Test");
         await page.locator("#requestPartForm").locator("#phone").fill("9000000000");
+        await page.locator("#requestPartForm").locator("#requirement").fill("Regression test part requirement");
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
         await page.locator("#requestPartForm button[type=submit]").click();
-        await page.waitForTimeout(500);
-        const body = await page.locator("body").innerText();
-        if (!/success|submitted|received|thank/i.test(body)) throw new Error("request-part success feedback missing");
+        const status = page.locator("#requestPartFormStatus");
+        await status.waitFor({ state: "visible", timeout: 5000 });
+        const statusText = await status.innerText();
+        if (!/success|submitted|received|thank/i.test(statusText)) throw new Error(`request-part status: ${statusText || "missing"}`);
         await page.unroute("**/api.emailjs.com/**");
       });
 
@@ -464,12 +466,14 @@ async function main() {
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
         const inputs = form.locator("input[required]");
-        if (await inputs.count() >= 1) await inputs.nth(0).fill("Regression Test");
-        if (await inputs.count() >= 2) await inputs.nth(1).fill("9000000000");
+        await form.locator("#contactName").fill("Regression Test");
+        await form.locator("#contactPhone").fill("9000000000");
+        await form.locator("#contactMessage").fill("Regression test enquiry");
         await form.locator("button[type=submit]").click();
-        await page.waitForTimeout(500);
-        const body = await page.locator("body").innerText();
-        if (!/success|submitted|received|thank/i.test(body)) throw new Error("contact success feedback missing");
+        const status = page.locator("#contactFormStatus");
+        await status.waitFor({ state: "visible", timeout: 5000 });
+        const statusText = await status.innerText();
+        if (!/success|submitted|received|thank/i.test(statusText)) throw new Error(`contact status: ${statusText || "missing"}`);
         await page.unroute("**/api.emailjs.com/**");
       });
 
