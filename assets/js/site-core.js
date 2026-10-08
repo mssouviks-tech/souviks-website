@@ -1058,10 +1058,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks Auth] Unable to load profile name:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Unable to load profile name:", error, "error");
 
         }
 
@@ -1156,10 +1153,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
                 if (error) {
         
-                    console.error(
-                        "[Souviks Auth] Unable to retrieve session:",
-                        error
-                    );
+                    SouviksErrors?.log("[Souviks Auth] Unable to retrieve session:", error, "error");
         
                     return;
         
@@ -1171,10 +1165,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
             } catch (error) {
         
-                console.error(
-                    "[Souviks Auth] Unexpected auth-state error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks Auth] Unexpected auth-state error:", error, "error");
         
             }
     };
@@ -1204,10 +1195,7 @@ supabaseClient.auth.onAuthStateChange(
         session
     ) => {
 
-        console.log(
-            "[Souviks Auth] Auth event:",
-            event
-        );
+        
 
         /*
         * Do not perform Supabase operations directly
@@ -1461,7 +1449,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.replace(`/${language()}/account`);
 
         } catch (error) {
-            console.error("[Souviks Auth] Modal login error:", error);
+            SouviksErrors?.log("[Souviks Auth] Modal login error:", error, "error");
 
             showStatus(
                 loginStatus,
@@ -1589,10 +1577,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            console.log(
-                "[Souviks Auth] Modal registration successful:",
-                data
-            );
+            
 
             registerForm.reset();
 
@@ -1608,10 +1593,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setDisabled(registerForm, false);
 
         } catch (error) {
-            console.error(
-                "[Souviks Auth] Modal registration error:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Modal registration error:", error, "error");
 
             showStatus(
                 registerStatus,
@@ -1781,10 +1763,7 @@ document.addEventListener("click", async (event) => {
 
         if (error) {
 
-            console.error(
-                "[Souviks Auth] Logout failed:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Logout failed:", error, "error");
 
             logoutButton.disabled =
                 false;
@@ -1849,10 +1828,7 @@ document.addEventListener("click", async (event) => {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Auth] Unexpected logout error:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Auth] Unexpected logout error:", error, "error");
 
         logoutButton.disabled =
             false;
