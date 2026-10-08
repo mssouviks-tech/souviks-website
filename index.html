@@ -145,6 +145,19 @@
     }
 
     .souviks-loader-fallback a {
+        display: inline-block;
+        margin-left: 6px;
+    }
+
+    .souviks-loader-fallback a[hidden] {
+        display: none;
+    }
+
+    .souviks-loader-fallback:not(.is-visible) #souviksLoaderFallbackText {
+        display: none;
+    }
+
+    .souviks-loader-fallback a {
         color: var(--loader-red-dark);
         font-weight: 600;
         text-decoration: none;
@@ -193,7 +206,13 @@
         <span></span><span></span><span></span>
     </div>
 
-    <div class="souviks-loader-fallback">
+    <div class="souviks-loader-fallback" id="souviksLoaderFallback">
+        <span id="souviksLoaderFallbackText">
+            Still loading…
+        </span>
+        <a href="/en/" id="souviksLoaderFallbackLink">
+            Continue in English
+        </a>
         <noscript>
             JavaScript is required for automatic language selection.
             <a href="/en/">Continue in English</a>
@@ -254,14 +273,21 @@
         document.documentElement.lang = language;
         rememberLanguage(language);
 
-        // The production bare host is canonicalized only after the branded
-        // bootstrap has painted. Other hosts (including pages.dev/local QA)
-        // remain on the current origin.
         const canonicalOrigin = window.location.hostname === "souviks.co.in"
             ? "https://www.souviks.co.in"
             : window.location.origin;
 
         window.location.replace(canonicalOrigin + "/" + language + "/");
+    }
+
+    const fallback = document.getElementById("souviksLoaderFallback");
+    const fallbackLink = document.getElementById("souviksLoaderFallbackLink");
+    if (fallback && fallbackLink) {
+        fallbackLink.hidden = true;
+        window.setTimeout(() => {
+            fallbackLink.hidden = false;
+            fallback?.classList.add("is-visible");
+        }, 1800);
     }
 
     // Allow the branded shell to paint before language detection/navigation.
