@@ -13,6 +13,7 @@ JS_BUNDLES = (
 )
 
 MIGRATION = ROOT / "supabase/migrations/20261008_rfq_rls.sql"
+CLEANUP_MIGRATION = ROOT / "supabase/migrations/20261008_rfq_policy_drift_cleanup.sql"
 
 
 def fail(errors: list[str]) -> None:
@@ -55,6 +56,25 @@ def main() -> None:
             flags=re.I,
         ):
             errors.append("submit_rfq must not be executable by public/anon roles")
+
+    if not CLEANUP_MIGRATION.is_file():
+        errors.append(
+            f"missing RFQ cleanup migration: {CLEANUP_MIGRATION.relative_to(ROOT)}"
+        )
+    else:
+        cleanup_sql = CLEANUP_MIGRATION.read_text(encoding="utf-8", errors="ignore").lower()
+        required_cleanup = (
+            'drop policy if exists "users can create their own rfqs"',
+            'drop policy if exists "users can create items for their own rfqs"',
+            "revoke all on function public.handle_new_user()",
+            "revoke all on function public.rls_auto_enable()",
+            "alter function public.handle_new_user() set search_path = public, pg_catalog",
+            "alter function public.update_rfq_cart_items_updated_at() set search_path = public, pg_catalog",
+            "alter function public.set_customer_vehicles_updated_at() set search_path = public, pg_catalog",
+        )
+        for token in required_cleanup:
+            if token not in cleanup_sql:
+                errors.append(f"RFQ cleanup migration missing required contract: {token}")
 
     for path in JS_BUNDLES:
         if not path.is_file():
