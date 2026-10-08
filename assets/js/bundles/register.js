@@ -490,10 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 --------------------------------------------------
                 */
 
-                console.log(
-                    "[Souviks Auth] Registration successful:",
-                    data
-                );
+                
 
 
                 form.reset();
