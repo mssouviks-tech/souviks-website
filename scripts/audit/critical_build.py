@@ -508,6 +508,39 @@ def sitemap_urls(path: Path, errors: list[str]) -> set[str]:
     return set(re.findall(r"<loc>([^<]+)</loc>", raw))
 
 
+def validate_security_headers(errors: list[str]) -> None:
+    path = ROOT / "_headers"
+    if not path.is_file():
+        errors.append("Missing _headers file")
+        return
+
+    raw = path.read_text(encoding="utf-8", errors="ignore")
+    required = {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "frame-ancestors 'self'",
+    }
+
+    for header, value in required.items():
+        pattern = re.compile(
+            rf"^\\s*{re.escape(header)}\\s*:\\s*(.+?)\\s*$",
+            flags=re.I | re.M,
+        )
+        match = pattern.search(raw)
+        if not match:
+            errors.append(f"_headers missing required security header: {header}")
+            continue
+        actual = re.sub(r"\\s+", " ", match.group(1).strip())
+        expected = re.sub(r"\\s+", " ", value.strip())
+        if actual != expected:
+            errors.append(
+                f"_headers security header mismatch: {header}: {actual!r} != {expected!r}"
+            )
+
+
 def validate_robots_and_sitemap_index(errors: list[str]) -> None:
     robots_path = ROOT / "robots.txt"
     if not robots_path.is_file():
@@ -793,6 +826,7 @@ def main() -> None:
     records_by_kind = validate_critical_catalogue_contract(errors)
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
+    validate_security_headers(errors)
     validate_robots_and_sitemap_index(errors)
     validate_sitemaps(records_by_kind, errors)
     validate_static_product_vehicle_images(errors)
