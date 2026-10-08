@@ -1036,3 +1036,43 @@
         display: none;
     }
 }
+
+
+/* ==========================================================
+   MOBILE BRAND DIRECTORY — FINAL OVERRIDE
+   Prevent the desktop six-column rule from collapsing cards
+   into an unusable clustered mobile layout.
+========================================================== */
+@media (max-width: 1100px) {
+    .brand-grid,
+    .brands-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 14px !important;
+    }
+}
+@media (max-width: 768px) {
+    .brand-grid,
+    .brands-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+    }
+}
+@media (max-width: 420px) {
+    .brand-grid,
+    .brands-grid {
+        gap: 10px !important;
+    }
+    .brand-image {
+        height: 108px;
+        padding: 10px;
+    }
+    .brand-image img {
+        max-width: 82%;
+        max-height: 78px;
+    }
+    .brand-content,
+    .brand-content h3 {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+}
