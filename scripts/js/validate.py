@@ -27,7 +27,10 @@ def fail(message: str) -> None:
     raise SystemExit(1)
 
 def script_sources(html: str) -> list[str]:
-    return re.findall(r'<script[^>]+src=["\']([^"\']+)["\']', html, flags=re.I)
+    return [
+        src.split("?", 1)[0]
+        for src in re.findall(r'<script[^>]+src=["\']([^"\']+)["\']', html, flags=re.I)
+    ]
 
 def main() -> None:
     if not SITE_CORE.is_file():
