@@ -236,8 +236,12 @@ def enrich_entity_pages(kind, data, catalogue):
             marker = f'<!-- ENTITY_CONTEXT_{kind.upper()} -->'
             if marker not in page:
                 section = context_section(kind, item, products, lang)
-                anchor = f'<!-- {kind.upper()} PRODUCTS -->' if kind != "vehicle" else "<!-- COMPATIBLE PRODUCTS -->"
-                page = page.replace(anchor, marker + "\n" + section + "\n" + anchor, 1) if anchor in page else page.replace("</body>", marker + "\n" + section + "\n</body>", 1)
+                anchor_pattern = rf'<!--\\s*=+\\s*{kind.upper()} PRODUCTS\\s*=+\\s*-->' if kind != "vehicle" else r'<!--\\s*=+\\s*COMPATIBLE PRODUCTS\\s*=+\\s*-->'
+                anchor_match = re.search(anchor_pattern, page, flags=re.I)
+                if anchor_match:
+                    page = page[:anchor_match.start()] + marker + "\n" + section + "\n" + page[anchor_match.start():]
+                else:
+                    page = page.replace("</body>", marker + "\n" + section + "\n</body>", 1)
             path.write_text(page, encoding="utf-8")
 
 def enrich_about():
