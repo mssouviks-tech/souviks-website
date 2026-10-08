@@ -38,6 +38,16 @@
 /:lang/categories/:slug.html /:lang/categories/:slug 301
 /:lang/vehicles/:slug.html /:lang/vehicles/:slug 301
 
+# Legacy non-language entity/product routes now resolve to the English canonical route.
+/products/:slug /en/products/:slug 301
+/vehicles/:slug /en/vehicles/:slug 301
+/brands/:slug /en/brands/:slug 301
+/categories/:slug /en/categories/:slug 301
+https://souviks.co.in/products/:slug https://www.souviks.co.in/en/products/:slug 301
+https://souviks.co.in/vehicles/:slug https://www.souviks.co.in/en/vehicles/:slug 301
+https://souviks.co.in/brands/:slug https://www.souviks.co.in/en/brands/:slug 301
+https://souviks.co.in/categories/:slug https://www.souviks.co.in/en/categories/:slug 301
+
 # Paint-first root: serve the branded language bootstrap without an HTTP redirect.
 https://souviks.co.in/ /index.html 200
 

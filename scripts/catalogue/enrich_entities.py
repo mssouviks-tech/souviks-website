@@ -147,7 +147,8 @@ def context_section(kind, item, products, lang):
 '''
 
 def update_meta(page, description):
-    d = esc(description)
+    raw = clean(description)
+    d = esc(raw[:155].rsplit(" ", 1)[0].rstrip(" ,;:-") + "." if len(raw) > 158 else raw)
     for pattern in (
         r'(<meta\s+name=["\']description["\']\s+content=["\'])[^"\']*(["\'])',
         r'(<meta\s+property=["\']og:description["\']\s+content=["\'])[^"\']*(["\'])',
