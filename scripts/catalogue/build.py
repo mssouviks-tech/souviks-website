@@ -136,7 +136,10 @@ def reconcile_catalogue_projections():
 
         brand = text(product.get("brand_name") or product.get("brand"))
         name = text(product.get("product_name") or product.get("name"))
-        part = part_number(product)
+        part = text(product.get("part_number") or product.get("partNumber"))
+        tata_match = re.match(r"^tata-genuine-(\d{12})-", text(product.get("slug")), re.I)
+        if tata_match:
+            part = tata_match.group(1)
         category = text(product.get("category_name") or product.get("category"))
         subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
         applications = arr(product.get("applications"))
