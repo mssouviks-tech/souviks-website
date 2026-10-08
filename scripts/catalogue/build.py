@@ -45,7 +45,7 @@ def reconcile_catalogue_projections():
     # rebuilding projections/pages so one malformed source slug cannot produce
     # duplicate URL variants or leave an orphaned generated page behind.
     slug_overrides = {
-        "SVKS000686": "fleetguard-fa0016700-spicer-transmission-patti-type",
+        "SVKS000686": "fleetguard-fa0016700-154-90x49-20mm-spicer-transmission-tml-3118-4018-al-4018-amw-2518-eicher-mega-40-40-patti-type",
         "SVKS000947": "texspin-tx-6638sc-clutch-release-bearing-ashok-leyland-31ton",
         "SVKS000998": "texspin-tx-6647sc-clutch-release-bearing-ashok-leyland-1616",
     }
@@ -1284,7 +1284,7 @@ def sync_organization_schema():
         replacements = []
 
         for match in re.finditer(
-            r"""<script\\b[^>]*type=["']application/ld\\+json["'][^>]*>(.*?)</script>""",
+            r"""<script\b[^>]*type=["']application/ld\+json["'][^>]*>(.*?)</script>""",
             html,
             flags=re.I | re.S,
         ):
