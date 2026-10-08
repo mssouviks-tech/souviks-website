@@ -6331,6 +6331,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     Filters.init(allProducts);
     initialiseUrlFilters();
     populateFilters(allProducts);
+    updateCatalogueRobotsMeta();
     initialisePagination();
     bindFilters();
     bindSearch();
@@ -6360,6 +6361,9 @@ function initialiseUrlFilters() {
         const value = String(params.get(config.key) || "").trim();
         if (value) Filters.set(config.key, value);
     });
+
+    const urlSort = String(params.get("sort") || "").trim();
+    if (urlSort) currentSort = urlSort;
 }
 
 function normaliseComparable(value) {
@@ -6539,7 +6543,22 @@ function refreshFilterOptions() {
     });
 }
 
-function applyCatalogue() {
+function updateCatalogueRobotsMeta() {
+    if (!document.body.classList.contains("products-page")) return;
+    const params = new URLSearchParams(window.location.search);
+    const hasCatalogueState = [...params.keys()].some(key =>
+        ["q", "brand_id", "category_id", "subcategory_id", "vehicles", "page", "sort", "pageSize"].includes(key)
+    );
+    let meta = document.querySelector('meta[name="robots"]');
+    if (!meta) {
+        meta = document.createElement("meta");
+        meta.name = "robots";
+        document.head.appendChild(meta);
+    }
+    meta.content = hasCatalogueState ? "noindex,follow,max-image-preview:large" : "index,follow,max-image-preview:large";
+}
+
+function applyCatalogue({ resetPage = true } = {}) {
     preserveInitialStaticCatalogue = false;
 
     const searchInput = document.getElementById("searchInput");
@@ -6555,6 +6574,10 @@ function applyCatalogue() {
         });
         if (query) url.searchParams.set("q", query);
         else url.searchParams.delete("q");
+        if (currentSort && currentSort !== "featured") url.searchParams.set("sort", currentSort);
+        else url.searchParams.delete("sort");
+        if (resetPage) url.searchParams.delete("page");
+        updateCatalogueRobotsMeta();
         window.history.replaceState({}, "", url.pathname + url.search + url.hash);
     } catch (error) {
         // Ignore URL API failures in older/embedded environments.
@@ -6568,8 +6591,10 @@ function applyCatalogue() {
 
     Products.filtered = [...results];
     window.SouviksSearchEngine?.trackSearch?.(query, results.length, "product-catalogue");
+    const requestedPage = !resetPage ? Number(new URLSearchParams(window.location.search).get("page") || 1) : 1;
     const pageData = Pagination.update(results);
     Products.container.innerHTML = pageData.map(item => Products.card(item)).join("");
+    if (!resetPage && Number.isFinite(requestedPage) && requestedPage > 1) Pagination.go(requestedPage);
     updateCounters(results);
     updateNoResultsState(results.length === 0);
 }
@@ -6584,9 +6609,11 @@ function initialisePagination() {
             : Filters.results()
     );
 
+    const initialPage = Number(new URLSearchParams(window.location.search).get("page") || 1);
+    const initialPageSize = Number(new URLSearchParams(window.location.search).get("pageSize") || 20);
     Pagination.init({
         data: initialResults,
-        perPage: 20,
+        perPage: Number.isFinite(initialPageSize) && initialPageSize > 0 ? initialPageSize : 20,
         container: "#pagination",
         onChange: pageData => {
             Products.container.innerHTML = pageData.map(item => Products.card(item)).join("");
@@ -6595,12 +6622,13 @@ function initialisePagination() {
     });
 
     if (!preserveInitialStaticCatalogue || initialQuery) {
-        applyCatalogue();
+        applyCatalogue({ resetPage: false });
         return;
     }
 
     Products.filtered = initialResults;
     Pagination.update(initialResults);
+    if (Number.isFinite(initialPage) && initialPage > 1) Pagination.go(initialPage);
     Products.container.innerHTML = Pagination.pageData().map(item => Products.card(item)).join("");
     updateCounters(initialResults);
     preserveInitialStaticCatalogue = false;
@@ -6644,6 +6672,15 @@ function bindPageSize() {
         const value = Number(event.target.value);
         if (!Number.isFinite(value) || value < 1) return;
         Pagination.setPerPage(value, true);
+        try {
+            const url = new URL(window.location.href);
+            url.searchParams.set("pageSize", String(value));
+            url.searchParams.delete("page");
+            window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+            updateCatalogueRobotsMeta();
+        } catch (error) {
+            // Ignore URL API failures.
+        }
         renderCurrentPage();
     });
 }
@@ -6678,6 +6715,7 @@ function renderCurrentPage() {
     Products.container.innerHTML = pageData.map(item => Products.card(item)).join("");
     updateCounters(Pagination.data);
     updateNoResultsState(Pagination.data.length === 0);
+    updateCatalogueRobotsMeta();
 }
 
 function sentenceCase(value) {
