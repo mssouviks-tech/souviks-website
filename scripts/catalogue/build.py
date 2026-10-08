@@ -806,8 +806,48 @@ def sync_product_seo_and_schema():
     
             name = str(product.get("product_name") or product.get("name") or "")
 
+            # Rebuild the same factual product description inside this
+            # schema loop; this loop is separate from the static-page SEO loop.
+            schema_description = re.sub(
+                r"\\s+",
+                " ",
+                text(product.get("description"))
+            ).strip()
+            schema_category = text(product.get("category_name") or product.get("category"))
+            schema_subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
+            schema_vehicles = arr(product.get("vehicles"))
+            if not schema_description or len(schema_description) < 50:
+                schema_parts = [
+                    f"{brand} {name}".strip(),
+                    f"Part number {part}." if part else "",
+                    f"Product type: {schema_subcategory or schema_category}."
+                    if (schema_subcategory or schema_category) else "",
+                    (
+                        f"Applications: {'; '.join(arr(product.get('applications'))[:4])}."
+                        if arr(product.get("applications")) else ""
+                    ),
+                    (
+                        f"Compatible vehicles: {', '.join(schema_vehicles[:5])}."
+                        if schema_vehicles else ""
+                    ),
+                ]
+                schema_description = " ".join(
+                    item for item in schema_parts if item
+                ).strip()
+            if schema_vehicles and "Compatible vehicles:" not in schema_description:
+                schema_description += " Compatible vehicles: " + ", ".join(schema_vehicles[:5]) + "."
+            schema_description += " Request availability from Souviks."
+            schema_description = re.sub(r"\\s+", " ", schema_description).strip()
+            if len(schema_description) > 158:
+                schema_description = (
+                    schema_description[:157]
+                    .rsplit(" ", 1)[0]
+                    .rstrip(" ,;:-")
+                    + "."
+                )
+
             if "Product" not in types:
-                description = seo_description
+                description = schema_description
                 images = image_urls(product)
     
                 identifiers = []
@@ -904,7 +944,7 @@ def sync_product_seo_and_schema():
                     node["name"] = str(product.get("product_name") or product.get("name") or node.get("name") or "")
                     node["url"] = url
                     node["mainEntityOfPage"] = url
-                    node["description"] = seo_description
+                    node["description"] = schema_description
                     if gallery_urls:
                         node["image"] = gallery_urls
                     node["sku"] = str(product.get("id") or node.get("sku") or "")
