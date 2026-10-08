@@ -33,6 +33,12 @@
 /:lang/request-quote.html /:lang/request-quote 301
 /:lang/thank-you.html /:lang/thank-you 301
 
+/:lang/privacy-policy.html /:lang/privacy-policy 301
+/:lang/terms.html /:lang/terms 301
+/:lang/refund.html /:lang/refund 301
+/:lang/index.html /:lang 301
+/index.html / 301
+
 /:lang/products/:slug.html /:lang/products/:slug 301
 /:lang/brands/:slug.html /:lang/brands/:slug 301
 /:lang/categories/:slug.html /:lang/categories/:slug 301
