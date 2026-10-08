@@ -4,7 +4,7 @@ const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
 
-const BASE = "https://www.souviks.co.in";
+const BASE = process.env.REGRESSION_BASE_URL || "https://www.souviks.co.in";
 const LANGS = ["en", "hi", "bn"];
 const VIEWS = {
   desktop: { width: 1440, height: 900, isMobile: false },
