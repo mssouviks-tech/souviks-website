@@ -9,6 +9,8 @@ on:
       - "bn/*.html"
       - "hi/*.html"
       - "scripts/js/**"
+      - "scripts/audit/rfq_security.py"
+      - "supabase/migrations/**"
       - ".github/workflows/validate-javascript-architecture.yml"
   pull_request:
     paths:
@@ -31,6 +33,9 @@ jobs:
 
       - name: Validate JavaScript architecture
         run: python3 scripts/js/validate.py
+
+      - name: Validate RFQ security boundary
+        run: python3 scripts/audit/rfq_security.py
 
       - name: Report code quality debt
         run: python3 scripts/audit/code_quality.py
