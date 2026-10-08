@@ -141,6 +141,36 @@ def reconcile_catalogue_projections():
     
         CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     
+    # Migrate useful metadata that already exists in the legacy product
+    # projection into the catalogue master when the master field is blank.
+    # This is a one-way normalization step; once populated, the master remains
+    # authoritative for future projections.
+    legacy_projection = {}
+    if PRODUCTS_PATH.exists():
+        try:
+            legacy_records = json.loads(PRODUCTS_PATH.read_text(encoding="utf-8"))
+            legacy_projection = {
+                text(record.get("id")): record
+                for record in legacy_records
+                if isinstance(record, dict) and text(record.get("id"))
+            }
+        except (OSError, json.JSONDecodeError):
+            legacy_projection = {}
+
+    for product in catalogue:
+        legacy = legacy_projection.get(text(product.get("id")), {})
+        for field in ("applications", "image_folder", "gallery", "gallery_dimensions"):
+            master_value = product.get(field)
+            legacy_value = legacy.get(field)
+            master_empty = (
+                master_value is None or
+                master_value == "" or
+                master_value == [] or
+                master_value == {}
+            )
+            if master_empty and legacy_value not in (None, "", [], {}):
+                product[field] = legacy_value
+
     def ensure_product_description(product):
         current = text(product.get("description"))
         if len(current) >= 80:
