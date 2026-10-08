@@ -30,6 +30,11 @@ OFFICIAL_BRANDS = {
     "setco": {"website": "https://setcoauto.com/", "country": "India"},
 }
 
+# Explicit logo overrides for catalogue brands whose asset is intentionally queued separately.
+BRAND_LOGO_OVERRIDES = {
+    "rxi": "/assets/images/brands/rxi.png",
+}
+
 LABELS = {
     "en": {
         "products": "Products", "categories": "Categories", "vehicles": "Vehicle applications",
@@ -174,6 +179,9 @@ def enrich_entity_pages(kind, data, catalogue):
             meta = OFFICIAL_BRANDS.get(item_id)
             if meta:
                 item["website"], item["country"] = meta["website"], meta["country"]
+            logo_override = BRAND_LOGO_OVERRIDES.get(item_id)
+            if logo_override:
+                item["logo"] = logo_override
             cats = sorted(set(clean(p.get("category_name") or p.get("category")) for p in products if clean(p.get("category_name") or p.get("category"))))
             item.setdefault("seo", {})
             subs = top(arr_products(products, "subcategory_name"), 6)
@@ -253,6 +261,15 @@ def enrich_entity_pages(kind, data, catalogue):
                     flags=re.I,
                 )
             if kind == "brand":
+                logo = clean(item.get("logo"))
+                if logo:
+                    page = re.sub(
+                        r'(<div class="brand-logo">\s*<img\s+src=")[^"]+("',
+                        lambda m: m.group(1) + logo + m.group(2),
+                        page,
+                        count=1,
+                        flags=re.I,
+                    )
                 selector = r'(<div class="brand-info">\s*<h1>.*?</h1>\s*<p>)[\s\S]*?(</p>)'
             elif kind == "vehicle":
                 selector = r'(<div class="vehicle-info">\s*<h1>.*?</h1>\s*<p>)[\s\S]*?(</p>)'
