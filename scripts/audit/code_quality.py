@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+"""Report maintainability debt in the static Souviks frontend.
+
+This is intentionally non-blocking. It makes the Pointer 33 backlog measurable
+while the live bundles are migrated incrementally.
+"""
+
+from __future__ import annotations
+
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+JS_ROOT = ROOT / "assets" / "js"
+BUNDLES = JS_ROOT / "bundles"
+CSS_ROOT = ROOT / "assets" / "css" / "bundles"
+
+
+def files(root: Path, pattern: str):
+    return sorted(p for p in root.glob(pattern) if p.is_file())
+
+
+def occurrences(pattern: str, paths):
+    rx = re.compile(pattern, re.I | re.M)
+    rows = []
+    for path in paths:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        count = len(rx.findall(text))
+        if count:
+            rows.append((path.relative_to(ROOT).as_posix(), count))
+    return rows
+
+
+def main() -> int:
+    js_files = files(JS_ROOT, "**/*.js")
+    css_files = files(CSS_ROOT, "*.css")
+    html_files = files(ROOT, "**/*.html")
+
+    large_js = sorted(
+        (
+            (p.relative_to(ROOT).as_posix(), p.stat().st_size)
+            for p in js_files
+            if p.stat().st_size >= 100_000
+        ),
+        key=lambda item: item[1],
+        reverse=True,
+    )
+
+    duplicate_shared_markers = occurrences(
+        r"/\* ===== (?:utils\.js|auth/supabase\.js|main\.js|image-protection\.js) ===== \*/",
+        js_files,
+    )
+
+    auth_initializers = occurrences(
+        r"(?:createClient\s*\(|onAuthStateChange\s*\()",
+        js_files,
+    )
+
+    card_implementations = occurrences(
+        r"\b(?:function\s+card|card\s*\([^\)]*\)\s*\{|product_card_html\s*\()",
+        js_files + [ROOT / "scripts" / "catalogue" / "enrich_entities.py"],
+    )
+
+    schema_owners = occurrences(
+        r"(?:Product|BreadcrumbList|application/ld\+json)",
+        [
+            p for p in js_files + html_files
+            if p.name in {"build.py", "structured_data.py", "products.js", "product.js"}
+            or p.parent.name in {"scripts", "bundles"}
+        ],
+    )
+
+    nav_markup = occurrences(
+        r'id=["\']mainNavigation["\']',
+        html_files,
+    )
+
+    bad_js_names = [
+        p.relative_to(ROOT).as_posix()
+        for p in files(BUNDLES, "*.js")
+        if not re.fullmatch(r"(?:[0-9]+|[a-z0-9]+(?:-[a-z0-9]+)*)\.js", p.name)
+    ]
+    bad_css_names = [
+        p.relative_to(ROOT).as_posix()
+        for p in css_files
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*\.css", p.name)
+    ]
+
+    print("Pointer 33 code-quality report")
+    print("--------------------------------")
+    print(f"JavaScript files: {len(js_files)}")
+    print(f"CSS bundle files: {len(css_files)}")
+    print(f"HTML files: {len(html_files)}")
+
+    print("\nLargest JavaScript files (>=100 KB):")
+    for path, size in large_js:
+        print(f"  {path}: {size:,} bytes")
+    if not large_js:
+        print("  none")
+
+    print("\nShared-runtime duplication markers:")
+    if duplicate_shared_markers:
+        for path, count in duplicate_shared_markers:
+            print(f"  {path}: {count}")
+    else:
+        print("  none")
+
+    print("\nAuthentication initializers/listeners:")
+    for path, count in auth_initializers:
+        print(f"  {path}: {count}")
+
+    print("\nProduct-card implementations:")
+    for path, count in card_implementations:
+        print(f"  {path}: {count}")
+
+    print("\nNavigation markup copies:")
+    print(f"  {len(nav_markup)} HTML files contain #mainNavigation")
+
+    print("\nJS/CSS naming violations:")
+    for path in bad_js_names + bad_css_names:
+        print(f"  {path}")
+    if not bad_js_names and not bad_css_names:
+        print("  none")
+
+    print("\nRefactor ownership targets:")
+    print("  Shared navigation/session runtime: assets/js/site-core.js")
+    print("  Product catalogue runtime: assets/js/bundles/products.js")
+    print("  PDP runtime: assets/js/bundles/product.js")
+    print("  Static catalogue/schema generation: scripts/catalogue/build.py")
+    print("  Entity/static card generation: scripts/catalogue/enrich_entities.py")
+    print("  Remaining debt: account.js isolation, duplicated HTML navigation markup, and large page bundles.")
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

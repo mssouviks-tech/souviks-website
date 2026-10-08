@@ -31,3 +31,6 @@ jobs:
 
       - name: Validate JavaScript architecture
         run: python3 scripts/js/validate.py
+
+      - name: Report code quality debt
+        run: python3 scripts/audit/code_quality.py

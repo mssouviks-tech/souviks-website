@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
             showLeadSuccess(payload.lead_id, payload);
         } catch (error) {
-            console.error("[Souviks Contact] Submission failed:", error);
+            SouviksErrors?.log("[Souviks Contact] Submission failed:", error, "error");
             setStatus(
                 status,
                 getMessage("error", "Unable to submit your enquiry. Please try again."),

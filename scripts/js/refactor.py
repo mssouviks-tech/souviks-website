@@ -2,6 +2,7 @@
 """Deterministically split shared JS runtime from static page bundles."""
 
 from pathlib import Path
+import hashlib
 import re
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -73,6 +74,8 @@ def build_page_bundle(filename: str) -> str:
     source = read(BUNDLES / filename)
     if filename in EXCLUDE_BUNDLES:
         return source
+    if source.startswith("/* No page-specific JavaScript. Shared behavior is loaded by /assets/js/site-core.js. */"):
+        return source
     if source.startswith("/* Shared core is loaded by the HTML page before this bundle. */"):
         return source
 
@@ -101,34 +104,69 @@ def build_page_bundle(filename: str) -> str:
     )
 
 
+def asset_version(path: Path) -> str:
+    """Return a deterministic content hash used to bust edge caches."""
+    return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+
+
+def versioned_asset_url(relative_path: str) -> str:
+    path = ROOT / relative_path
+    if not path.is_file():
+        raise FileNotFoundError(f"Cannot version missing asset: {relative_path}")
+    return f"/{relative_path}?v={asset_version(path)}"
+
+
 def migrate_html() -> int:
     changed = 0
     bundle_pattern = re.compile(
-        r'<script\s+defer\s+src="(/assets/js/bundles/([^"]+))"></script>'
+        r'<script\s+defer\s+src="/assets/js/bundles/([^"?]+)(?:\?[^"]*)?"></script>'
+    )
+    core_pattern = re.compile(
+        r'<script\s+defer\s+src="/assets/js/site-core\.js(?:\?[^"]*)?"></script>'
+    )
+    css_pattern = re.compile(
+        r'(<link\s+[^>]*href="/assets/css/)([^"?]+)(?:\?[^"]*)?(")',
+        re.IGNORECASE
     )
 
+    core_tag = f'<script defer src="{versioned_asset_url("assets/js/site-core.js")}"></script>'
+
+    paths = []
     for language in LANGUAGES:
         root = ROOT / language
-        if not root.exists():
-            continue
+        if root.exists():
+            paths.extend(root.rglob("*.html"))
 
-        for path in root.rglob("*.html"):
-            content = read(path)
+    root_404 = ROOT / "404.html"
+    if root_404.exists():
+        paths.append(root_404)
 
-            def replace(match: re.Match[str]) -> str:
-                bundle_name = match.group(2)
-                if bundle_name == "account.js":
-                    return match.group(0)
+    for path in sorted(set(paths)):
+        content = read(path)
+        new_content = core_pattern.sub(core_tag, content)
 
-                core_tag = '<script defer src="/assets/js/site-core.js"></script>'
-                if core_tag in content:
-                    return match.group(0)
-                return core_tag + "\n\n" + match.group(0)
+        def replace_bundle(match: re.Match[str]) -> str:
+            bundle_name = match.group(1)
+            return (
+                f'<script defer src="{versioned_asset_url(
+                    f"assets/js/bundles/{bundle_name}"
+                )}"></script>'
+            )
 
-            new_content, count = bundle_pattern.subn(replace, content)
-            if count and new_content != content:
-                write(path, new_content)
-                changed += 1
+        new_content = bundle_pattern.sub(replace_bundle, new_content)
+
+        def replace_css(match: re.Match[str]) -> str:
+            relative_path = f"assets/css/{match.group(2)}"
+            return (
+                f'{match.group(1)}{match.group(2).split("?")[0]}'
+                f'?v={asset_version(ROOT / relative_path)}{match.group(3)}'
+            )
+
+        new_content = css_pattern.sub(replace_css, new_content)
+
+        if new_content != content:
+            write(path, new_content)
+            changed += 1
 
     return changed
 
@@ -144,23 +182,43 @@ def validate() -> None:
             raise ValueError(f"{filename} still embeds the shared utilities layer")
         if "/* ===== auth/supabase.js ===== */" in source:
             raise ValueError(f"{filename} still embeds the shared auth layer")
+        if source.startswith("/* No page-specific JavaScript. Shared behavior is loaded by /assets/js/site-core.js. */"):
+            continue
         if COMMON_END in source or COMMON_END_LABEL in source:
             raise ValueError(f"{filename} still embeds the shared navigation/image runtime")
         if "/* Shared core is loaded by the HTML page before this bundle. */" not in source:
             raise ValueError(f"{filename} is missing shared-core declaration")
 
+    core_re = re.compile(
+        r'<script\s+defer\s+src="/assets/js/site-core\.js\?v=[0-9a-f]{12}"></script>'
+    )
+    bundle_re = re.compile(
+        r'<script\s+defer\s+src="/assets/js/bundles/([^"?]+)\?v=[0-9a-f]{12}"></script>'
+    )
+    css_re = re.compile(
+        r'<link\s+[^>]*href="/assets/css/[^"?]+\?v=[0-9a-f]{12}"',
+        re.IGNORECASE
+    )
+
+    paths = []
     for language in LANGUAGES:
-        for path in (ROOT / language).rglob("*.html"):
-            content = read(path)
-            match = re.search(
-                r'<script\s+defer\s+src="(/assets/js/bundles/([^"]+))"></script>', content
-            )
-            if not match:
-                continue
-            if match.group(2) == "account.js":
-                continue
-            if '<script defer src="/assets/js/site-core.js"></script>' not in content:
-                raise ValueError(f"Missing shared core on {path}")
+        paths.extend((ROOT / language).rglob("*.html"))
+    if (ROOT / "404.html").exists():
+        paths.append(ROOT / "404.html")
+
+    for path in sorted(set(paths)):
+        content = read(path)
+        matches = bundle_re.findall(content)
+        if not matches:
+            continue
+        if "account.js" in matches:
+            if not css_re.search(content):
+                raise ValueError(f"Missing versioned CSS on {path}")
+            continue
+        if not core_re.search(content):
+            raise ValueError(f"Missing versioned shared core on {path}")
+        if not css_re.search(content):
+            raise ValueError(f"Missing versioned CSS on {path}")
 
 
 def main() -> None:

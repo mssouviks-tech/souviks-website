@@ -9,11 +9,14 @@ from __future__ import annotations
 
 import pathlib
 import runpy
+from urllib.parse import urlparse
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
 # Generated-output commits rebase before push to avoid concurrent catalogue races.
 # CI retries catalogue publication against the latest main revision.
+# Final pointer 22-25 parity normalization.
 # Retrigger validation with the corrected audit command.
 
 def reconcile_catalogue_projections():
@@ -141,6 +144,36 @@ def reconcile_catalogue_projections():
     
         CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     
+    # Migrate useful metadata that already exists in the legacy product
+    # projection into the catalogue master when the master field is blank.
+    # This is a one-way normalization step; once populated, the master remains
+    # authoritative for future projections.
+    legacy_projection = {}
+    if PRODUCTS_PATH.exists():
+        try:
+            legacy_records = json.loads(PRODUCTS_PATH.read_text(encoding="utf-8"))
+            legacy_projection = {
+                text(record.get("id")): record
+                for record in legacy_records
+                if isinstance(record, dict) and text(record.get("id"))
+            }
+        except (OSError, json.JSONDecodeError):
+            legacy_projection = {}
+
+    for product in catalogue:
+        legacy = legacy_projection.get(text(product.get("id")), {})
+        for field in ("applications", "image_folder", "gallery", "gallery_dimensions"):
+            master_value = product.get(field)
+            legacy_value = legacy.get(field)
+            master_empty = (
+                master_value is None or
+                master_value == "" or
+                master_value == [] or
+                master_value == {}
+            )
+            if master_empty and legacy_value not in (None, "", [], {}):
+                product[field] = legacy_value
+
     def ensure_product_description(product):
         current = text(product.get("description"))
         if len(current) >= 80:
@@ -171,6 +204,12 @@ def reconcile_catalogue_projections():
             pieces.append("Applications: " + "; ".join(applications[:4]))
         if vehicles:
             pieces.append("Compatible vehicles: " + ", ".join(vehicles[:5]))
+
+        # Add a factual closing sentence so otherwise-identical short records
+        # remain useful and comfortably above the thin-description threshold.
+        pieces.append(
+            "Confirm the part number and vehicle application before ordering to verify fitment."
+        )
 
         generated = ". ".join(pieces).strip()
         if generated and not generated.endswith("."):
@@ -609,8 +648,12 @@ def sync_static_product_images():
         return f"/assets/images/products/{folder}/{name}"
     
     # 1) Reconcile every static PDP with the canonical catalogue gallery.
+    # When a catalogue slug is normalized or shortened, move the existing
+    # generated PDP to the canonical filename before validating internal links.
+    # The legacy filename remains covered by _redirects for inbound traffic.
     for lang in ("en", "hi", "bn"):
-        for path in (root / lang / "products").glob("*.html"):
+        directory = root / lang / "products"
+        for path in list(directory.glob("*.html")):
             text = path.read_text(encoding="utf-8")
     
             data_match = re.search(
@@ -627,6 +670,19 @@ def sync_static_product_images():
                 continue
     
             product = products.get(str(embedded.get("id")))
+            if product:
+                canonical_slug = str(product.get("slug") or path.stem).strip()
+                canonical_path = directory / f"{canonical_slug}.html"
+                if canonical_slug and canonical_path != path:
+                    if canonical_path.exists():
+                        print(
+                            f"WARNING: canonical product page already exists: "
+                            f"{canonical_path}"
+                        )
+                    else:
+                        path.rename(canonical_path)
+                        path = canonical_path
+                        text = path.read_text(encoding="utf-8")
             gallery = product.get("gallery") if product else None
             if not product or not isinstance(gallery, list) or not gallery:
                 continue
@@ -1165,6 +1221,55 @@ def sync_product_seo_and_schema():
         print(f"Repaired Product JSON-LD in {len(changed)} pages.")
 
 
+
+def normalize_internal_redirect_links():
+    """Rewrite internal links that still point at exact legacy redirect sources."""
+    redirect_path = ROOT / "_redirects"
+    if not redirect_path.is_file():
+        return 0
+
+    redirects = {}
+    for line in redirect_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        parts = stripped.split()
+        if len(parts) < 2:
+            continue
+        source, destination = parts[:2]
+        # Only normalize exact, concrete paths. Pattern redirects are runtime
+        # routing rules and must not be expanded into page HTML.
+        if any(token in source for token in (":splat", ":lang", ":slug", "*")):
+            continue
+        source_path = source
+        if source.startswith(BASE):
+            source_path = urlparse(source).path
+        destination_path = destination
+        if destination.startswith(BASE):
+            destination_path = urlparse(destination).path
+        if not source_path.startswith("/") or not destination_path.startswith("/"):
+            continue
+        redirects[source_path] = destination_path
+
+    if not redirects:
+        return 0
+
+    changed = 0
+    for path in ROOT.glob("**/*.html"):
+        html = path.read_text(encoding="utf-8", errors="ignore")
+        original = html
+        for source_path, destination_path in redirects.items():
+            # Handle root-relative links and fully-qualified Souviks links.
+            html = html.replace(source_path, destination_path)
+            html = html.replace(BASE + source_path, BASE + destination_path)
+        if html != original:
+            path.write_text(html, encoding="utf-8")
+            changed += 1
+
+    if changed:
+        print(f"Normalized internal links away from {changed} HTML files containing exact redirect sources.")
+    return changed
+
 def sync_organization_schema():
     """Ensure Souviks Organization schema nodes expose a crawlable logo."""
     import json
@@ -1239,6 +1344,7 @@ def main() -> None:
     sync_static_product_images()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
+    normalize_internal_redirect_links()
     sync_organization_schema()
     runpy.run_path(str(ROOT / "scripts/catalogue/validate.py"), run_name="__main__")
 

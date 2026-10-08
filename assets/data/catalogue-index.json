@@ -19818,7 +19818,7 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 0,
+    "mrp": null,
     "selling_price": null,
     "product_name": "Trailer Hanger 952 (GS Auto Mach)",
     "name": "Trailer Hanger 952 (GS Auto Mach)",
@@ -19840,7 +19840,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-08T10:30:00+05:30",
     "description": "JMP Trailer Hanger 952 (GS Auto Mach). Part number J952. for Shackle Plate. Compatible vehicles: Universal."
   },
   {
@@ -19852,7 +19852,7 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 0,
+    "mrp": null,
     "selling_price": null,
     "product_name": "Trailer Double Pin Hanger",
     "name": "Trailer Double Pin Hanger",
@@ -19874,7 +19874,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-08T10:30:00+05:30",
     "description": "JMP Trailer Double Pin Hanger. for Brake Anchor Pin. Compatible vehicles: Universal."
   },
   {
@@ -23985,7 +23985,7 @@
   },
   {
     "id": "SVKS000686",
-    "slug": "fleetguard-fa0016700-154-90x49-20mm-spicer-transmission-tml-3118-4018-al-4018-amw-2518-eicher-mega-40-40-patti-type",
+    "slug": "fleetguard-fa0016700-spicer-transmission-patti-type",
     "part_number": "FA0016700",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -33136,7 +33136,7 @@
   },
   {
     "id": "SVKS000947",
-    "slug": "texspin-tx-6638sc-clutch-release-bearing-for-ashok-leyland-heavy-duty-truck-31ton-and-9speen-gb-380dia",
+    "slug": "texspin-tx-6638sc-clutch-release-bearing-ashok-leyland-31ton",
     "part_number": "TX 6638SC",
     "manufacturer_part_number": "FVB01300",
     "manufacturer_part_numbers": [
@@ -35007,7 +35007,7 @@
   },
   {
     "id": "SVKS000998",
-    "slug": "texspin-tx-6647sc-clutch-release-bearing-for-ashok-leyland-1-5-clutch-haulage-1616-all-model-pv-viking-cheetha",
+    "slug": "texspin-tx-6647sc-clutch-release-bearing-ashok-leyland-1616",
     "part_number": "TX 6647SC",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],

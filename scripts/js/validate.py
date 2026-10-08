@@ -27,13 +27,28 @@ def fail(message: str) -> None:
     raise SystemExit(1)
 
 def script_sources(html: str) -> list[str]:
-    return re.findall(r'<script[^>]+src=["\']([^"\']+)["\']', html, flags=re.I)
+    return [
+        src.split("?", 1)[0]
+        for src in re.findall(r'<script[^>]+src=["\']([^"\']+)["\']', html, flags=re.I)
+    ]
 
 def main() -> None:
     if not SITE_CORE.is_file():
         fail("assets/js/site-core.js is missing.")
 
     errors: list[str] = []
+
+    # Bundle/module names use lowercase kebab-case; numeric utility pages are allowed.
+    js_name_pattern = re.compile(r"^(?:[0-9]+|[a-z0-9]+(?:-[a-z0-9]+)*)\.js$")
+    for bundle in sorted(BUNDLES.glob("*.js")):
+        if not js_name_pattern.fullmatch(bundle.name):
+            errors.append(f"{bundle.relative_to(ROOT)} has a non-standard JS module name.")
+
+    css_root = ROOT / "assets" / "css" / "bundles"
+    css_name_pattern = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*\.css$")
+    for stylesheet in sorted(css_root.glob("*.css")):
+        if not css_name_pattern.fullmatch(stylesheet.name):
+            errors.append(f"{stylesheet.relative_to(ROOT)} has a non-standard CSS module name.")
 
     for bundle in sorted(BUNDLES.glob("*.js")):
         text = bundle.read_text(encoding="utf-8")

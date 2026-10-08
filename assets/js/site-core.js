@@ -1,4 +1,95 @@
 /* ==========================================================
+   SOUVIKS — RUNTIME ERROR HANDLING
+   Sanitized diagnostics and graceful failure reporting.
+========================================================== */
+(() => {
+    "use strict";
+
+    const originalError = typeof console?.error === "function"
+        ? console.error.bind(console)
+        : null;
+    const originalWarn = typeof console?.warn === "function"
+        ? console.warn.bind(console)
+        : null;
+
+    function safeString(value) {
+        return String(value ?? "")
+            .replace(/https?:\/\/\S+/gi, "[url]")
+            .replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g, "[email]")
+            .replace(/[A-Za-z0-9_-]{32,}/g, "[redacted]");
+    }
+
+    function sanitiseError(error) {
+        const source = error instanceof Error ? error : null;
+        const name = source?.name || (error && typeof error === "object" && error.name) || "Error";
+        const status = Number(source?.status ?? error?.status);
+        const code = safeString(source?.code ?? error?.code ?? "");
+        return {
+            name: safeString(name).slice(0, 48),
+            ...(Number.isInteger(status) && status >= 100 && status <= 599 ? { status } : {}),
+            ...(code ? { code: code.slice(0, 48) } : {})
+        };
+    }
+
+    function log(context, error, level = "error") {
+        const label = safeString(context || "Runtime error").slice(0, 120);
+        const details = sanitiseError(error);
+        const logger = level === "warn" ? originalWarn : originalError;
+        if (logger) {
+            logger("[Souviks]", label, details);
+        }
+    }
+
+    function showGlobalFailure() {
+        if (!document.body || document.getElementById("souviks-runtime-error")) {
+            return;
+        }
+
+        const alert = document.createElement("div");
+        alert.id = "souviks-runtime-error";
+        alert.setAttribute("role", "alert");
+        alert.textContent = "Something went wrong. Please refresh the page and try again.";
+        Object.assign(alert.style, {
+            position: "fixed",
+            left: "12px",
+            right: "12px",
+            bottom: "12px",
+            zIndex: "10000",
+            padding: "12px 16px",
+            borderRadius: "10px",
+            background: "#243042",
+            color: "#fff",
+            fontSize: "14px",
+            lineHeight: "1.4",
+            boxShadow: "0 8px 30px rgba(0,0,0,.18)"
+        });
+
+        document.body.appendChild(alert);
+    }
+
+    window.SouviksErrors = {
+        log,
+        sanitise: sanitiseError
+    };
+
+    window.addEventListener("error", event => {
+        log(
+            "Unhandled browser error",
+            event?.error || { name: "Error" }
+        );
+        window.setTimeout(showGlobalFailure, 0);
+    });
+
+    window.addEventListener("unhandledrejection", event => {
+        log(
+            "Unhandled promise rejection",
+            event?.reason || { name: "Error" }
+        );
+        event?.preventDefault?.();
+        window.setTimeout(showGlobalFailure, 0);
+    });
+})();
+/* ==========================================================
    SOUVIKS — SHARED SITE JAVASCRIPT CORE
    Utilities, authentication and language handling.
    Page-specific behaviour remains in page bundles.
@@ -9,60 +100,101 @@
 (() => {
     "use strict";
 
-    window.souviksAnalytics = window.souviksAnalytics || {
-        trackEvent(name, params = {}) {
-            if (typeof window.gtag !== "function") return;
+    const GA_MEASUREMENT_ID = "G-FDLYP5QB8V";
 
-            try {
-                window.gtag("event", String(name || "event"), {
-                    ...params,
-                    page_location: window.location.href
-                });
-            } catch (error) {
-                // Analytics must never interfere with site functionality.
-            }
-        },
+    /*
+     * Keep analytics resilient across every page variant.
+     * Most HTML pages already include the standard Google tag in <head>, but
+     * the shared core also bootstraps it when a page is missing that snippet.
+     * This prevents conversion events from being silently dropped.
+     */
+    function ensureGoogleAnalytics() {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function gtag() {
+            window.dataLayer.push(arguments);
+        };
 
-        trackSearch(query, resultCount, source = "search") {
-            const payload = {
-                query: String(query || "").trim().slice(0, 160),
-                resultCount: Number(resultCount) || 0,
-                source: String(source || "search"),
-                timestamp: new Date().toISOString()
-            };
+        const hasMeasurementScript = Array.from(
+            document.scripts || []
+        ).some(script => {
+            const src = String(script.src || "");
+            return src.includes("googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID);
+        });
 
-            try {
-                window.dispatchEvent(new CustomEvent("souviks:search", { detail: payload }));
-            } catch (error) {
-                // Analytics must never interfere with site functionality.
-            }
+        if (hasMeasurementScript) {
+            return;
+        }
 
-            if (typeof window.gtag === "function" && payload.query) {
-                try {
-                    window.gtag("event", "search", {
-                        search_term: payload.query,
-                        results_count: payload.resultCount,
-                        search_source: payload.source
-                    });
-                } catch (error) {
-                    // Analytics must never interfere with site functionality.
-                }
-            }
-        },
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_MEASUREMENT_ID);
+        document.head.appendChild(script);
 
-        trackLead(type = "lead") {
-            if (typeof window.gtag !== "function") return;
+        window.gtag("js", new Date());
+        window.gtag("config", GA_MEASUREMENT_ID);
+    }
 
-            try {
-                window.gtag("event", "generate_lead", {
-                    lead_type: String(type || "lead"),
-                    page_location: window.location.href
-                });
-            } catch (error) {
-                // Analytics must never interfere with lead submission.
-            }
+    ensureGoogleAnalytics();
+
+    const analyticsApi = window.souviksAnalytics || {};
+
+    analyticsApi.trackEvent = function(name, params = {}) {
+        try {
+            window.gtag("event", String(name || "event"), {
+                ...params,
+                page_location: window.location.href,
+                page_title: document.title
+            });
+        } catch (error) {
+            // Analytics must never interfere with site functionality.
         }
     };
+
+    analyticsApi.trackSearch = function(query, resultCount, source = "search") {
+        const payload = {
+            query: String(query || "").trim().slice(0, 160),
+            resultCount: Number(resultCount) || 0,
+            source: String(source || "search"),
+            timestamp: new Date().toISOString()
+        };
+
+        try {
+            window.dispatchEvent(new CustomEvent("souviks:search", { detail: payload }));
+        } catch (error) {
+            // Analytics must never interfere with site functionality.
+        }
+
+        if (!payload.query) {
+            return;
+        }
+
+        try {
+            window.gtag("event", "search", {
+                search_term: payload.query,
+                results_count: payload.resultCount,
+                search_source: payload.source,
+                page_location: window.location.href,
+                page_title: document.title
+            });
+        } catch (error) {
+            // Analytics must never interfere with site functionality.
+        }
+    };
+
+    analyticsApi.trackLead = function(type = "lead", params = {}) {
+        try {
+            window.gtag("event", "generate_lead", {
+                lead_type: String(type || "lead"),
+                ...params,
+                page_location: window.location.href,
+                page_title: document.title
+            });
+        } catch (error) {
+            // Analytics must never interfere with lead submission.
+        }
+    };
+
+    window.souviksAnalytics = analyticsApi;
 
     function bindConversionClickTracking() {
         if (window.__SOUVIKS_ANALYTICS_CLICKS_BOUND__) return;
@@ -97,6 +229,24 @@
                 window.souviksAnalytics?.trackEvent("whatsapp_click", {
                     link_location: String(
                         whatsapp.className || whatsapp.getAttribute("aria-label") || "whatsapp"
+                    ).slice(0, 160)
+                });
+            }
+
+            const phone = target.closest('a[href^="tel:"]');
+            if (phone) {
+                window.souviksAnalytics?.trackEvent("phone_click", {
+                    link_location: String(
+                        phone.className || phone.getAttribute("aria-label") || "phone"
+                    ).slice(0, 160)
+                });
+            }
+
+            const email = target.closest('a[href^="mailto:"]');
+            if (email) {
+                window.souviksAnalytics?.trackEvent("email_click", {
+                    link_location: String(
+                        email.className || email.getAttribute("aria-label") || "email"
                     ).slice(0, 160)
                 });
             }
@@ -315,6 +465,26 @@ Utils.query = function(key) {
 
     return params.get(key);
 
+};
+
+/* ======================================================
+   SAFE NUMERIC QUERY PARAMETER
+====================================================== */
+
+Utils.queryNumber = function(
+    key,
+    fallback = 1,
+    min = Number.NEGATIVE_INFINITY,
+    max = Number.POSITIVE_INFINITY
+) {
+    const raw = Utils.query(key);
+    if (raw === null || raw === "") return fallback;
+
+    const value = Number(raw);
+    if (!Number.isFinite(value)) return fallback;
+
+    const integer = Math.floor(value);
+    return Math.min(max, Math.max(min, integer));
 };
 
 // ======================================================
@@ -888,10 +1058,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks Auth] Unable to load profile name:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Unable to load profile name:", error, "error");
 
         }
 
@@ -986,10 +1153,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
                 if (error) {
         
-                    console.error(
-                        "[Souviks Auth] Unable to retrieve session:",
-                        error
-                    );
+                    SouviksErrors?.log("[Souviks Auth] Unable to retrieve session:", error, "error");
         
                     return;
         
@@ -1001,10 +1165,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
             } catch (error) {
         
-                console.error(
-                    "[Souviks Auth] Unexpected auth-state error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks Auth] Unexpected auth-state error:", error, "error");
         
             }
     };
@@ -1034,10 +1195,7 @@ supabaseClient.auth.onAuthStateChange(
         session
     ) => {
 
-        console.log(
-            "[Souviks Auth] Auth event:",
-            event
-        );
+        
 
         /*
         * Do not perform Supabase operations directly
@@ -1291,7 +1449,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.replace(`/${language()}/account`);
 
         } catch (error) {
-            console.error("[Souviks Auth] Modal login error:", error);
+            SouviksErrors?.log("[Souviks Auth] Modal login error:", error, "error");
 
             showStatus(
                 loginStatus,
@@ -1419,10 +1577,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            console.log(
-                "[Souviks Auth] Modal registration successful:",
-                data
-            );
+            
 
             registerForm.reset();
 
@@ -1438,10 +1593,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setDisabled(registerForm, false);
 
         } catch (error) {
-            console.error(
-                "[Souviks Auth] Modal registration error:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Modal registration error:", error, "error");
 
             showStatus(
                 registerStatus,
@@ -1611,10 +1763,7 @@ document.addEventListener("click", async (event) => {
 
         if (error) {
 
-            console.error(
-                "[Souviks Auth] Logout failed:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Logout failed:", error, "error");
 
             logoutButton.disabled =
                 false;
@@ -1679,10 +1828,7 @@ document.addEventListener("click", async (event) => {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Auth] Unexpected logout error:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Auth] Unexpected logout error:", error, "error");
 
         logoutButton.disabled =
             false;

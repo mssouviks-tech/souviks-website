@@ -457,6 +457,198 @@ def mobile_responsive_audit() -> dict[str, Any]:
     }
 
 
+
+def _json_contract_audit(paths: list[Path]) -> dict[str, list[str]]:
+    missing: list[str] = []
+    invalid: list[str] = []
+    non_array: list[str] = []
+
+    for path in paths:
+        if not path.exists():
+            missing.append(str(path))
+            continue
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            invalid.append(str(path))
+            continue
+        if not isinstance(payload, list):
+            non_array.append(str(path))
+
+    return {
+        "missing": missing,
+        "invalid": invalid,
+        "non_array": non_array,
+    }
+
+
+def _static_entity_route_audit(
+    kind: str,
+    records: list[dict[str, Any]],
+) -> dict[str, Any]:
+    active_slugs = {
+        text(record.get("slug"))
+        for record in records
+        if isinstance(record, dict)
+        and record.get("active") is not False
+        and text(record.get("slug"))
+    }
+
+    results: dict[str, Any] = {
+        "active_records": len(active_slugs),
+        "missing_pages": {},
+        "orphan_pages": {},
+    }
+
+    folders = {
+        "product": "products",
+        "brand": "brands",
+        "category": "categories",
+        "vehicle": "vehicles",
+    }
+    folder = folders.get(kind, f"{kind}s")
+
+    for language in ("en", "hi", "bn"):
+        directory = ROOT / language / folder
+        actual = {
+            path.stem
+            for path in directory.glob("*.html")
+        } if directory.exists() else set()
+
+        results["missing_pages"][language] = sorted(active_slugs - actual)
+        results["orphan_pages"][language] = sorted(actual - active_slugs)
+
+    return results
+
+
+def reliability_audit(
+    products: list[dict[str, Any]],
+    brands: list[dict[str, Any]],
+    categories: list[dict[str, Any]],
+    vehicles: list[dict[str, Any]],
+) -> dict[str, Any]:
+    localized_404: dict[str, Any] = {}
+    expected_404 = {
+        "en": ROOT / "en/404.html",
+        "hi": ROOT / "hi/404.html",
+        "bn": ROOT / "bn/404.html",
+    }
+
+    for language, path in expected_404.items():
+        raw = path.read_text(encoding="utf-8", errors="ignore") if path.exists() else ""
+        localized_404[language] = {
+            "exists": path.exists(),
+            "lang": re.search(
+                rf"<html\b[^>]*\blang=[\"\']{re.escape(language)}[\"\']",
+                raw,
+                flags=re.I,
+            ) is not None,
+            "noindex": re.search(
+                r'<meta\s+name=["\']robots["\'][^>]*content=["\'][^"\']*noindex',
+                raw,
+                flags=re.I,
+            ) is not None,
+            "error_asset": "/assets/images/404.svg" in raw,
+            "has_heading": bool(re.search(r"<h[1-3]\b[^>]*>[\s\S]*?</h[1-3]>", raw, flags=re.I)),
+            "has_local_home": f'href="/{language}/"' in raw,
+            "has_local_products": f'href="/{language}/products"' in raw,
+        }
+
+    json_contract = _json_contract_audit([
+        ROOT / "assets/data/products.json",
+        ROOT / "assets/data/brands.json",
+        ROOT / "assets/data/categories.json",
+        ROOT / "assets/data/vehicles.json",
+        ROOT / "assets/data/search.json",
+        ROOT / "assets/data/catalogue-index.json",
+    ])
+
+    core = (ROOT / "assets/js/site-core.js").read_text(encoding="utf-8", errors="ignore")
+    product_bundle = (ROOT / "assets/js/bundles/product.js").read_text(encoding="utf-8", errors="ignore")
+    products_bundle = (ROOT / "assets/js/bundles/products.js").read_text(encoding="utf-8", errors="ignore")
+    account_bundle = (ROOT / "assets/js/bundles/account.js").read_text(encoding="utf-8", errors="ignore")
+
+    js_sources = list((ROOT / "assets/js").rglob("*.js"))
+    raw_error_logging: list[str] = []
+    raw_error_pattern = re.compile(
+        r"console\.(?:error|warn)\(\s*(?:[\"'][^\"']*[\"']\s*,\s*)?"
+        r"(?:error|findError|createError|insertError|updateError|notificationError|loadError)\b",
+        flags=re.I,
+    )
+    for path in js_sources:
+        raw = path.read_text(encoding="utf-8", errors="ignore")
+        if raw_error_pattern.search(raw):
+            raw_error_logging.append(str(path))
+
+    malformed_query = {
+        "safe_numeric_helper": "Utils.queryNumber = function" in core,
+        "bounded_page_usage": 'Utils.queryNumber("page", 1, 1, 1000000)' in products_bundle,
+        "bounded_page_size_usage": 'Utils.queryNumber("pageSize", 20, 1, 100)' in products_bundle,
+    }
+
+    missing_image_metadata = []
+    for product in products:
+        if product.get("active") is False:
+            continue
+        image_values = [
+            product.get("image_url"),
+            product.get("image"),
+            product.get("primary_image"),
+            product.get("gallery"),
+        ]
+        has_image = any(
+            bool(value) and (not isinstance(value, list) or any(text(item) for item in value))
+            for value in image_values
+        )
+        if not has_image:
+            missing_image_metadata.append(text(product.get("id")))
+
+    runtime_boundary = {
+        "unhandled_error_listener": 'window.addEventListener("error"' in core,
+        "unhandled_rejection_listener": 'window.addEventListener("unhandledrejection"' in core,
+        "generic_failure_message": "Something went wrong. Please refresh the page and try again." in core,
+        "sanitized_error_logger": "function sanitiseError" in core and "window.SouviksErrors" in core,
+        "no_raw_error_objects_in_runtime_ui": "showGlobalFailure" in core and ".message" not in core[core.find("function showGlobalFailure"):core.find("function showGlobalFailure") + 5000],
+    }
+
+    partial_api = {
+        "account_dashboard_safe_requests": "const safeRequest = promise =>" in account_bundle,
+        "account_dashboard_continues_after_individual_failure": "Boolean(recentResult?.error)" in account_bundle,
+    }
+
+    catalogue_fallbacks = {
+        "product_missing_record_message": "Product unavailable" in product_bundle,
+        "products_missing_record_message": "Product unavailable" in products_bundle,
+        "image_placeholder_exists": (ROOT / "assets/images/placeholder.webp").exists(),
+        "image_error_fallback_listener": 'document.addEventListener("error", event =>' in core and "image.src = placeholder" in core,
+    }
+
+    return {
+        "localized_404": localized_404,
+        "server_500": {
+            "supported_as_static_page": (ROOT / "500.html").exists(),
+            "client_runtime_boundary_available": all(runtime_boundary.values()),
+            "note": "Static deployment has no repository-level 500 route; unhandled client errors are covered by the runtime boundary.",
+        },
+        "json_data": json_contract,
+        "missing_image_metadata": {
+            "active_products_without_image_metadata": missing_image_metadata,
+            "count": len(missing_image_metadata),
+        },
+        "malformed_query_parameters": malformed_query,
+        "unavailable_product_pages": _static_entity_route_audit("product", products),
+        "deleted_or_disabled_brands": _static_entity_route_audit("brand", brands),
+        "deleted_or_disabled_categories": _static_entity_route_audit("category", categories),
+        "deleted_or_disabled_vehicles": _static_entity_route_audit("vehicle", vehicles),
+        "partial_api_requests": partial_api,
+        "fallbacks": catalogue_fallbacks,
+        "browser_error_logging": {
+            "sanitized_runtime_logger": "window.SouviksErrors = {" in core,
+            "raw_error_logging_candidates": sorted(raw_error_logging),
+        },
+    }
+
+
 def main() -> int:
     catalogue_path = ROOT / "assets/data/catalogue-index.json"
     products_path = ROOT / "assets/data/products.json"
@@ -465,7 +657,11 @@ def main() -> int:
     vehicles_path = ROOT / "assets/data/vehicles.json"
 
     catalogue = load_json(catalogue_path)
-    products = load_json(products_path)
+    products_projection = load_json(products_path)
+    # Product content quality must use the catalogue master. The products.json
+    # file is a projection and may legitimately omit editorial fields in older
+    # versions; the build reconciles it from catalogue-index.json.
+    products = catalogue if isinstance(catalogue, list) else products_projection
     brands = load_json(brands_path)
     categories = load_json(categories_path)
     vehicles = load_json(vehicles_path)
@@ -535,6 +731,7 @@ def main() -> int:
         },
         "rendering": html_state_audit(),
         "mobile_responsive": mobile_responsive_audit(),
+        "reliability": reliability_audit(products, brands, categories, vehicles),
         "trust": trust_audit(),
     }
 

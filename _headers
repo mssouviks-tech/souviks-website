@@ -3,6 +3,9 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
 
+/
+  Cache-Control: public, no-cache, must-revalidate
+
 /en/*
   Cache-Control: public, no-cache, must-revalidate
 
@@ -14,6 +17,12 @@
 
 /sitemaps/*
   Cache-Control: public, no-cache, must-revalidate
+
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
 
 /assets/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800

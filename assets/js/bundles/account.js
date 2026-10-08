@@ -1,3 +1,54 @@
+/* ===== analytics/account-analytics.js ===== */
+(() => {
+    "use strict";
+
+    const GA_MEASUREMENT_ID = "G-FDLYP5QB8V";
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag() {
+        window.dataLayer.push(arguments);
+    };
+
+    const hasMeasurementScript = Array.from(document.scripts || []).some(script =>
+        String(script.src || "").includes(
+            "googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID
+        )
+    );
+
+    if (!hasMeasurementScript) {
+        const script = document.createElement("script");
+        script.async = true;
+        script.src =
+            "https://www.googletagmanager.com/gtag/js?id=" +
+            encodeURIComponent(GA_MEASUREMENT_ID);
+        document.head.appendChild(script);
+        window.gtag("js", new Date());
+        window.gtag("config", GA_MEASUREMENT_ID);
+    }
+
+    const analytics = window.souviksAnalytics || {};
+
+    analytics.trackEvent = function(name, params = {}) {
+        try {
+            window.gtag("event", String(name || "event"), {
+                ...params,
+                page_location: window.location.href,
+                page_title: document.title
+            });
+        } catch (error) {
+            // Analytics must never interfere with account functionality.
+        }
+    };
+
+    analytics.trackLead = function(type = "lead", params = {}) {
+        analytics.trackEvent("generate_lead", {
+            lead_type: String(type || "lead"),
+            ...params
+        });
+    };
+
+    window.souviksAnalytics = analytics;
+})();
 
 /* ===== accessibility/core-a11y.js ===== */
 (() => {
@@ -523,10 +574,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (error) {
 
-                    console.error(
-                        "[Souviks Auth] Registration failed:",
-                        error
-                    );
+                    SouviksErrors?.log("[Souviks Auth] Registration failed:", error, "error");
 
 
                     let message =
@@ -593,10 +641,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 --------------------------------------------------
                 */
 
-                console.log(
-                    "[Souviks Auth] Registration successful:",
-                    data
-                );
+                
 
 
                 form.reset();
@@ -615,10 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } catch (error) {
 
-                console.error(
-                    "[Souviks Auth] Unexpected registration error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks Auth] Unexpected registration error:", error, "error");
 
 
                 showStatus(
@@ -870,7 +912,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.replace(`/${language()}/account`);
 
         } catch (error) {
-            console.error("[Souviks Auth] Modal login error:", error);
+            SouviksErrors?.log("[Souviks Auth] Modal login error:", error, "error");
 
             showStatus(
                 loginStatus,
@@ -998,10 +1040,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            console.log(
-                "[Souviks Auth] Modal registration successful:",
-                data
-            );
+            
 
             registerForm.reset();
 
@@ -1017,10 +1056,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setDisabled(registerForm, false);
 
         } catch (error) {
-            console.error(
-                "[Souviks Auth] Modal registration error:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Modal registration error:", error, "error");
 
             showStatus(
                 registerStatus,
@@ -1321,10 +1357,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks Auth] Unable to load profile name:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Unable to load profile name:", error, "error");
 
         }
 
@@ -1419,10 +1452,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
                 if (error) {
         
-                    console.error(
-                        "[Souviks Auth] Unable to retrieve session:",
-                        error
-                    );
+                    SouviksErrors?.log("[Souviks Auth] Unable to retrieve session:", error, "error");
         
                     return;
         
@@ -1434,10 +1464,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
             } catch (error) {
         
-                console.error(
-                    "[Souviks Auth] Unexpected auth-state error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks Auth] Unexpected auth-state error:", error, "error");
         
             }
     };
@@ -1467,10 +1494,7 @@ supabaseClient.auth.onAuthStateChange(
         session
     ) => {
 
-        console.log(
-            "[Souviks Auth] Auth event:",
-            event
-        );
+        
 
         /*
         * Do not perform Supabase operations directly
@@ -1639,10 +1663,7 @@ document.addEventListener("click", async (event) => {
 
         if (error) {
 
-            console.error(
-                "[Souviks Auth] Logout failed:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Auth] Logout failed:", error, "error");
 
             logoutButton.disabled =
                 false;
@@ -1707,10 +1728,7 @@ document.addEventListener("click", async (event) => {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Auth] Unexpected logout error:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Auth] Unexpected logout error:", error, "error");
 
         logoutButton.disabled =
             false;
@@ -2159,6 +2177,10 @@ class SouviksAPI {
 
             const data = await response.json();
 
+            if (!Array.isArray(data)) {
+                throw new TypeError("Catalogue data must be an array");
+            }
+
             this.cache[filename] = data;
 
             return data;
@@ -2167,7 +2189,11 @@ class SouviksAPI {
 
         catch (error) {
 
-            console.error(error);
+            this.cache[filename] = [];
+            SouviksErrors?.log(
+                "Catalogue data load failed",
+                error
+            );
 
             return [];
 
@@ -2180,11 +2206,11 @@ class SouviksAPI {
 
     async products() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "products.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -2221,11 +2247,11 @@ class SouviksAPI {
 
     async brands() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "brands.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -2258,11 +2284,11 @@ class SouviksAPI {
 
     async categories() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "categories.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -2295,11 +2321,11 @@ class SouviksAPI {
 
     async vehicles() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "vehicles.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -2382,15 +2408,14 @@ class SouviksAPI {
     async productsByVehicle(vehicleName) {
 
         const products = await this.products();
+        const target = String(vehicleName ?? "").trim();
+        if (!target) return [];
 
         return products.filter(
 
-            product =>
-
-                product.vehicles.includes(
-
-                    vehicleName
-
+            product => Array.isArray(product?.vehicles) &&
+                product.vehicles.some(
+                    value => String(value ?? "").trim() === target
                 )
 
         );
@@ -2682,10 +2707,7 @@ RFQ.getUser = async function () {
 
         if (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to get authenticated user:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to get authenticated user:", error, "error");
 
             return null;
 
@@ -2697,10 +2719,7 @@ RFQ.getUser = async function () {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unexpected authentication error:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unexpected authentication error:", error, "error");
 
         return null;
 
@@ -2828,10 +2847,7 @@ RFQ.getGuestItems = function () {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to read guest RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to read guest RFQ basket:", error, "error");
 
         return [];
 
@@ -2868,10 +2884,7 @@ RFQ.saveGuestItems = function (
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to save guest RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to save guest RFQ basket:", error, "error");
 
         return false;
 
@@ -2973,10 +2986,7 @@ RFQ.get = async function () {
 
     if (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to load RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to load RFQ basket:", error, "error");
 
         return [];
 
@@ -3247,10 +3257,7 @@ RFQ.setQuantity = async function (
 
     if (findError) {
 
-        console.error(
-            "[Souviks RFQ] Unable to find RFQ product:",
-            findError
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ product:", findError, "error");
 
         return false;
 
@@ -3294,10 +3301,7 @@ RFQ.setQuantity = async function (
 
         if (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to update RFQ quantity:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", error, "error");
 
             return false;
 
@@ -3351,10 +3355,7 @@ RFQ.setQuantity = async function (
 
         if (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to insert RFQ product:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to insert RFQ product:", error, "error");
 
             return false;
 
@@ -3505,10 +3506,7 @@ document.addEventListener(
 
             error => {
 
-                console.error(
-                    "[Souviks RFQ] Add-to-RFQ error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks RFQ] Add-to-RFQ error:", error, "error");
 
             }
 
@@ -3858,10 +3856,7 @@ RFQ.changeQty = async function (
 
     if (findError) {
 
-        console.error(
-            "[Souviks RFQ] Unable to find RFQ item:",
-            findError
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ item:", findError, "error");
 
         return;
 
@@ -3904,10 +3899,7 @@ RFQ.changeQty = async function (
 
     if (updateError) {
 
-        console.error(
-            "[Souviks RFQ] Unable to update RFQ quantity:",
-            updateError
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", updateError, "error");
 
         return;
 
@@ -4018,10 +4010,7 @@ RFQ.remove = async function (
 
     if (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to remove RFQ item:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to remove RFQ item:", error, "error");
 
         return;
 
@@ -4070,10 +4059,7 @@ RFQ.clear = async function () {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to clear guest RFQ basket:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to clear guest RFQ basket:", error, "error");
 
         }
 
@@ -4127,10 +4113,7 @@ RFQ.clear = async function () {
 
     if (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to clear RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to clear RFQ basket:", error, "error");
 
         return false;
 
@@ -4220,10 +4203,7 @@ RFQ.mergeGuestBasket = async function () {
 
             if (error) {
 
-                console.error(
-                    "[Souviks RFQ] Unable to check guest basket item:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks RFQ] Unable to check guest basket item:", error, "error");
 
                 continue;
 
@@ -4269,10 +4249,7 @@ RFQ.mergeGuestBasket = async function () {
 
                 if (updateError) {
 
-                    console.error(
-                        "[Souviks RFQ] Unable to merge guest RFQ item:",
-                        updateError
-                    );
+                    SouviksErrors?.log("[Souviks RFQ] Unable to merge guest RFQ item:", updateError, "error");
 
                 }
 
@@ -4313,10 +4290,7 @@ RFQ.mergeGuestBasket = async function () {
 
                 if (insertError) {
 
-                    console.error(
-                        "[Souviks RFQ] Unable to import guest RFQ item:",
-                        insertError
-                    );
+                    SouviksErrors?.log("[Souviks RFQ] Unable to import guest RFQ item:", insertError, "error");
 
                 }
 
@@ -4324,10 +4298,7 @@ RFQ.mergeGuestBasket = async function () {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] Unexpected guest RFQ merge error:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unexpected guest RFQ merge error:", error, "error");
 
         }
 
@@ -4348,10 +4319,7 @@ RFQ.mergeGuestBasket = async function () {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to clear guest RFQ storage:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to clear guest RFQ storage:", error, "error");
 
     }
 
@@ -4503,10 +4471,7 @@ document.addEventListener(
                 session
             ) => {
 
-                console.log(
-                    "[Souviks RFQ] Auth event:",
-                    event
-                );
+                
 
 
                 /*
@@ -4709,10 +4674,7 @@ SavedProducts.init = async function () {
 
     catch (error) {
 
-        console.error(
-            "[Souviks Saved] Initialization failed:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Initialization failed:", error, "error");
 
     }
 
@@ -4775,10 +4737,7 @@ SavedProducts.getUser = async function () {
 
     catch (error) {
 
-        console.error(
-            "[Souviks Saved] Unable to get user:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Unable to get user:", error, "error");
 
         return null;
 
@@ -4831,10 +4790,7 @@ SavedProducts.load = async function () {
 
     if (error) {
 
-        console.error(
-            "[Souviks Saved] Failed to load saved products:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Failed to load saved products:", error, "error");
 
         return [];
 
@@ -5010,10 +4966,7 @@ SavedProducts.save = async function (
         }
 
 
-        console.error(
-            "[Souviks Saved] Failed to save product:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Failed to save product:", error, "error");
 
         return false;
 
@@ -5100,10 +5053,7 @@ SavedProducts.remove = async function (
 
     if (error) {
 
-        console.error(
-            "[Souviks Saved] Failed to remove product:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Failed to remove product:", error, "error");
 
         return false;
 
@@ -5439,10 +5389,7 @@ document.addEventListener(
 
         catch (error) {
 
-            console.error(
-                "[Souviks Saved] Toggle failed:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Saved] Toggle failed:", error, "error");
 
         }
 
@@ -5566,10 +5513,7 @@ window.RFQSubmission = {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to initialize EmailJS:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to initialize EmailJS:", error, "error");
 
             return false;
 
@@ -6331,10 +6275,7 @@ Quantity: ${item.qty}
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] RFQ item creation failed:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] RFQ item creation failed:", error, "error");
 
 
             /*
@@ -6393,10 +6334,7 @@ Quantity: ${item.qty}
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] Email notification failed:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Email notification failed:", error, "error");
 
 
             /*
@@ -6434,10 +6372,7 @@ Quantity: ${item.qty}
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] Basket clearing failed:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Basket clearing failed:", error, "error");
 
 
             /*
@@ -6870,10 +6805,7 @@ async function loadInquiries() {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Inquiries] Failed to load inquiries:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Inquiries] Failed to load inquiries:", error, "error");
 
 
         loading.hidden =
@@ -7816,10 +7748,7 @@ function initializeRepeatRFQ() {
 
                 } catch (error) {
 
-                    console.error(
-                        "[Souviks Inquiries] Repeat RFQ failed:",
-                        error
-                    );
+                    SouviksErrors?.log("[Souviks Inquiries] Repeat RFQ failed:", error, "error");
 
                     showRepeatStatus(
                         statusElement,
@@ -8431,10 +8360,7 @@ async function refreshAccountSaved() {
 
     catch (error) {
 
-        console.error(
-            "[Souviks Account] Failed to load saved products:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Account] Failed to load saved products:", error, "error");
 
 
         loading.hidden =
@@ -8651,7 +8577,7 @@ document.addEventListener("click", async event => {
                 return;
             }
         } catch (error) {
-            console.error("[Souviks Account] Unable to add saved product to RFQ:", error);
+            SouviksErrors?.log("[Souviks Account] Unable to add saved product to RFQ:", error, "error");
         }
         addButton.disabled = false;
         return;
@@ -8672,7 +8598,7 @@ document.addEventListener("click", async event => {
             }
         }
     } catch (error) {
-        console.error("[Souviks Account] Unable to remove saved product:", error);
+        SouviksErrors?.log("[Souviks Account] Unable to remove saved product:", error, "error");
     }
     removeButton.disabled = false;
 });
@@ -8720,7 +8646,7 @@ async function initializeAccountVehicles() {
         AccountVehiclesState.catalogue = await loadVehicleCatalogue();
         populateVehicleSelect();
     } catch (error) {
-        console.error("[Souviks Vehicles] Unable to load vehicle catalogue:", error);
+        SouviksErrors?.log("[Souviks Vehicles] Unable to load vehicle catalogue:", error, "error");
     }
 
     bindVehicleEvents();
@@ -8822,7 +8748,7 @@ async function loadAccountVehicles() {
         list.hidden = false;
 
     } catch (error) {
-        console.error("[Souviks Vehicles] Failed to load vehicles:", error);
+        SouviksErrors?.log("[Souviks Vehicles] Failed to load vehicles:", error, "error");
         loading.hidden = true;
         empty.hidden = false;
         empty.innerHTML = `
@@ -9173,7 +9099,7 @@ async function saveAccountVehicle() {
         document.getElementById("accountDashboardVehicleCount") && updateDashboardVehicleCount();
 
     } catch (error) {
-        console.error("[Souviks Vehicles] Failed to save vehicle:", error);
+        SouviksErrors?.log("[Souviks Vehicles] Failed to save vehicle:", error, "error");
         showVehicleFormStatus(getVehicleTranslation("vehicleSaveError", "Unable to save this vehicle. Please try again."), "error");
     } finally {
         AccountVehiclesState.busy = false;
@@ -9203,7 +9129,7 @@ async function removeAccountVehicle(vehicleId) {
         await loadAccountVehicles();
         await updateDashboardVehicleCount();
     } catch (error) {
-        console.error("[Souviks Vehicles] Failed to remove vehicle:", error);
+        SouviksErrors?.log("[Souviks Vehicles] Failed to remove vehicle:", error, "error");
         showVehicleStatus(getVehicleTranslation("vehicleSaveError", "Unable to update your vehicles. Please try again."), "error");
     }
 }
@@ -9407,7 +9333,7 @@ window.renderAccountVehicleRecommendations = async function(savedVehicles = []) 
         try {
             await loadVehicleRecommendationProducts();
         } catch (error) {
-            console.error("[Souviks Vehicle Parts] Product catalogue failed:", error);
+            SouviksErrors?.log("[Souviks Vehicle Parts] Product catalogue failed:", error, "error");
             renderVehicleRecommendationError();
             return;
         }
@@ -10152,10 +10078,7 @@ async function initializeAccount() {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Account] Initialization failed:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Account] Initialization failed:", error, "error");
 
 
         showAccountStatus(
@@ -10729,10 +10652,7 @@ async function loadDashboardData() {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Account] Unable to load RFQ dashboard count:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Account] Unable to load RFQ dashboard count:", error, "error");
 
     }
 
@@ -10745,76 +10665,95 @@ async function loadDashboardData() {
             return;
         }
 
+        const safeRequest = promise =>
+            Promise.resolve(promise).catch(error => ({
+                data: null,
+                error
+            }));
+
         const [
             inquiriesResult,
             savedResult,
             vehiclesResult,
             recentResult
         ] = await Promise.all([
-            supabaseClient
-                .from("rfqs")
-                .select("id", { count: "exact", head: true })
-                .eq("user_id", userId),
-            supabaseClient
-                .from("saved_products")
-                .select("product_id", { count: "exact", head: true })
-                .eq("user_id", userId),
-            supabaseClient
-                .from("customer_vehicles")
-                .select("id, vehicle_id, vehicle_model, nickname")
-                .eq("user_id", userId)
-                .order("created_at", { ascending: false }),
-            supabaseClient
-                .from("rfqs")
-                .select("id, rfq_number, status, created_at")
-                .eq("user_id", userId)
-                .order("created_at", { ascending: false })
-                .limit(3)
+            safeRequest(
+                supabaseClient
+                    .from("rfqs")
+                    .select("id", { count: "exact", head: true })
+                    .eq("user_id", userId)
+            ),
+            safeRequest(
+                supabaseClient
+                    .from("saved_products")
+                    .select("product_id", { count: "exact", head: true })
+                    .eq("user_id", userId)
+            ),
+            safeRequest(
+                supabaseClient
+                    .from("customer_vehicles")
+                    .select("id, vehicle_id, vehicle_model, nickname")
+                    .eq("user_id", userId)
+                    .order("created_at", { ascending: false })
+            ),
+            safeRequest(
+                supabaseClient
+                    .from("rfqs")
+                    .select("id, rfq_number, status, created_at")
+                    .eq("user_id", userId)
+                    .order("created_at", { ascending: false })
+                    .limit(3)
+            )
         ]);
 
-        if (inquiriesResult.error) {
-            throw inquiriesResult.error;
-        }
-
-        if (savedResult.error) {
-            throw savedResult.error;
-        }
+        [inquiriesResult, savedResult, vehiclesResult, recentResult]
+            .forEach((result, index) => {
+                if (result?.error) {
+                    SouviksErrors?.log(
+                        [
+                            "[Souviks Account] Dashboard inquiries request failed",
+                            "[Souviks Account] Dashboard saved-products request failed",
+                            "[Souviks Account] Dashboard vehicles request failed",
+                            "[Souviks Account] Dashboard recent-inquiries request failed"
+                        ][index],
+                        result.error
+                    );
+                }
+            });
 
         if (inquiryCount) {
             inquiryCount.textContent =
-                String(inquiriesResult.count ?? 0);
+                inquiriesResult?.error
+                    ? "—"
+                    : String(inquiriesResult.count ?? 0);
         }
 
         if (savedCount) {
             savedCount.textContent =
-                String(savedResult.count ?? 0);
+                savedResult?.error
+                    ? "—"
+                    : String(savedResult.count ?? 0);
         }
 
         if (vehicleCount) {
             vehicleCount.textContent =
-                vehiclesResult.error
+                vehiclesResult?.error
                     ? "—"
                     : String((vehiclesResult.data || []).length);
         }
 
         if (typeof renderAccountVehicleRecommendations === "function") {
-            renderAccountVehicleRecommendations(vehiclesResult.data || []);
-        }
-
-        if (recentResult.error) {
-            throw recentResult.error;
+            renderAccountVehicleRecommendations(vehiclesResult?.data || []);
         }
 
         renderRecentInquiries(
-            recentResult.data || []
+            recentResult?.data || [],
+            Boolean(recentResult?.error)
         );
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Account] Unable to load dashboard activity:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Account] Unable to load dashboard activity:", error, "error");
 
         renderRecentInquiries(
             [],
@@ -11967,10 +11906,7 @@ async function handleProfileSubmit(
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Account] Profile update failed:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Account] Profile update failed:", error, "error");
 
 
         showProfileStatus(
@@ -12412,7 +12348,7 @@ async function handleEmailChange(event) {
         input.value = "";
 
     } catch (error) {
-        console.error("[Souviks Account] Email update failed:", error);
+        SouviksErrors?.log("[Souviks Account] Email update failed:", error, "error");
         showSecurityFormStatus(
             "email",
             getTranslation(
@@ -12480,7 +12416,7 @@ async function handlePasswordChange(event) {
         resetPasswordInputsOnly();
 
     } catch (error) {
-        console.error("[Souviks Account] Password update failed:", error);
+        SouviksErrors?.log("[Souviks Account] Password update failed:", error, "error");
         showSecurityFormStatus(
             "password",
             getTranslation(
@@ -12654,10 +12590,7 @@ async function refreshAccountRFQ() {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Account] RFQ render failed:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Account] RFQ render failed:", error, "error");
 
     }
 
@@ -12903,10 +12836,7 @@ async function handleAccountRFQSubmit() {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Account] Unable to read RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Account] Unable to read RFQ basket:", error, "error");
 
 
         showRFQStatus(
@@ -12986,10 +12916,7 @@ async function handleAccountRFQSubmit() {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks Account] RFQ submission failed:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Account] RFQ submission failed:", error, "error");
 
 
         showRFQStatus(

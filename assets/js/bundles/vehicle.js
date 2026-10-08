@@ -121,10 +121,7 @@ SavedProducts.init = async function () {
 
     catch (error) {
 
-        console.error(
-            "[Souviks Saved] Initialization failed:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Initialization failed:", error, "error");
 
     }
 
@@ -181,10 +178,7 @@ SavedProducts.getUser = async function () {
 
     catch (error) {
 
-        console.error(
-            "[Souviks Saved] Unable to get user:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Unable to get user:", error, "error");
 
         return null;
 
@@ -233,10 +227,7 @@ SavedProducts.load = async function () {
 
     if (error) {
 
-        console.error(
-            "[Souviks Saved] Failed to load saved products:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Failed to load saved products:", error, "error");
 
         return [];
 
@@ -399,10 +390,7 @@ SavedProducts.save = async function (
 
         }
 
-        console.error(
-            "[Souviks Saved] Failed to save product:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Failed to save product:", error, "error");
 
         return false;
 
@@ -480,10 +468,7 @@ SavedProducts.remove = async function (
 
     if (error) {
 
-        console.error(
-            "[Souviks Saved] Failed to remove product:",
-            error
-        );
+        SouviksErrors?.log("[Souviks Saved] Failed to remove product:", error, "error");
 
         return false;
 
@@ -787,10 +772,7 @@ document.addEventListener(
 
         catch (error) {
 
-            console.error(
-                "[Souviks Saved] Toggle failed:",
-                error
-            );
+            SouviksErrors?.log("[Souviks Saved] Toggle failed:", error, "error");
 
         }
 
@@ -878,7 +860,7 @@ window.SavedProducts =
                 img.alt = String(product.product_name || product.name || img.alt || "Product");
             });
         } catch (error) {
-            console.warn("[Souviks] Static product image refresh unavailable:", error);
+            SouviksErrors?.log("[Souviks] Static product image refresh unavailable:", error, "warn");
         }
     };
 

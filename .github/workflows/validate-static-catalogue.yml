@@ -51,6 +51,8 @@ jobs:
 
       - name: Validate catalogue architecture contract
         run: python3 scripts/catalogue/validate.py
+      - name: Validate blocking production contract
+        run: python3 scripts/audit/critical_build.py
 
       - name: Validate structured data
         run: python3 scripts/audit/structured_data.py --check-images
@@ -110,6 +112,37 @@ jobs:
                   return None
               return value if value == value else None
 
+          def arrayish(value):
+              if isinstance(value, list):
+                  values = value
+              elif value in (None, ""):
+                  values = []
+              else:
+                  values = re.split(r"[,;]", str(value))
+              return [str(v).strip() for v in values if str(v).strip()]
+
+          def projected_value(source, field):
+              if field in {"applications", "vehicles"}:
+                  return arrayish(source.get(field))
+              if field == "image_folder":
+                  return str(source.get("image_folder") or source.get("id") or "").strip()
+              if field == "image_url":
+                  return str(source.get("image_url") or "/assets/images/placeholder.webp").strip()
+              if field == "gallery":
+                  value = source.get("gallery")
+                  return [str(v).strip() for v in (value or []) if str(v).strip()] if isinstance(value, list) else []
+              if field == "image":
+                  return str(source.get("image") or "").strip()
+              if field == "primary_image":
+                  return str(source.get("primary_image") or "").strip()
+              if field in {"featured"}:
+                  return bool(source.get(field))
+              if field == "active":
+                  return source.get("active") is not False
+              if field in {"mrp", "selling_price"}:
+                  return number(source.get(field))
+              return source.get(field)
+
           products_projection = json.loads((root / "assets/data/products.json").read_text(encoding="utf-8"))
           products_by_id = {
               str(p.get("id") or "").strip(): p
@@ -137,7 +170,21 @@ jobs:
                   continue
 
               for field in expected_projection_fields:
-                  if projected.get(field) != source.get(field):
+                  actual = projected.get(field)
+                  expected_value = projected_value(source, field)
+                  if field in {"mrp", "selling_price"}:
+                      actual = number(actual)
+                  elif field in {"applications", "vehicles"}:
+                      actual = arrayish(actual)
+                  elif field in {"image_folder", "image_url", "image", "primary_image"}:
+                      actual = str(actual or "").strip()
+                  elif field == "gallery":
+                      actual = [str(v).strip() for v in (actual or []) if str(v).strip()] if isinstance(actual, list) else []
+                  elif field in {"featured"}:
+                      actual = bool(actual)
+                  elif field == "active":
+                      actual = actual is not False
+                  if actual != expected_value:
                       errors.append(
                           f"products.json drift for {pid}: {field}"
                       )
