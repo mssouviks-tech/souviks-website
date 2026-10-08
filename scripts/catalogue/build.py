@@ -65,7 +65,10 @@ def reconcile_catalogue_projections():
             # Do not silently collide two existing product routes.
             raise SystemExit(f"Duplicate normalized product slug: {current_slug} -> {normalized_slug}")
         slug_seen.add(normalized_slug)
-        if normalized_slug != current_slug:
+        # An explicit slug override is authoritative and must be persisted into
+        # the catalogue master; otherwise later generators continue using the
+        # stale source slug and create links to a route that is not generated.
+        if normalized_slug != text(product.get("slug")):
             product["slug"] = normalized_slug
             product["catalogue_updated_at"] = text(product.get("catalogue_updated_at")) or ""
     
