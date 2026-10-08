@@ -74,6 +74,8 @@ def build_page_bundle(filename: str) -> str:
     source = read(BUNDLES / filename)
     if filename in EXCLUDE_BUNDLES:
         return source
+    if source.startswith("/* No page-specific JavaScript. Shared behavior is loaded by /assets/js/site-core.js. */"):
+        return source
     if source.startswith("/* Shared core is loaded by the HTML page before this bundle. */"):
         return source
 
