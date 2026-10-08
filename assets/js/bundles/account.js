@@ -2159,6 +2159,10 @@ class SouviksAPI {
 
             const data = await response.json();
 
+            if (!Array.isArray(data)) {
+                throw new TypeError("Catalogue data must be an array");
+            }
+
             this.cache[filename] = data;
 
             return data;
@@ -2167,7 +2171,11 @@ class SouviksAPI {
 
         catch (error) {
 
-            console.error(error);
+            this.cache[filename] = [];
+            SouviksErrors?.log(
+                "Catalogue data load failed",
+                error
+            );
 
             return [];
 
@@ -2180,11 +2188,11 @@ class SouviksAPI {
 
     async products() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "products.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -2221,11 +2229,11 @@ class SouviksAPI {
 
     async brands() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "brands.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -2258,11 +2266,11 @@ class SouviksAPI {
 
     async categories() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "categories.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -2295,11 +2303,11 @@ class SouviksAPI {
 
     async vehicles() {
 
-        return await this.fetchJson(
+        return (await this.fetchJson(
 
             "vehicles.json"
 
-        );
+        )).filter(item => item && item.active !== false);
 
     }
 
@@ -2382,15 +2390,14 @@ class SouviksAPI {
     async productsByVehicle(vehicleName) {
 
         const products = await this.products();
+        const target = String(vehicleName ?? "").trim();
+        if (!target) return [];
 
         return products.filter(
 
-            product =>
-
-                product.vehicles.includes(
-
-                    vehicleName
-
+            product => Array.isArray(product?.vehicles) &&
+                product.vehicles.some(
+                    value => String(value ?? "").trim() === target
                 )
 
         );
@@ -10745,68 +10752,90 @@ async function loadDashboardData() {
             return;
         }
 
+        const safeRequest = promise =>
+            Promise.resolve(promise).catch(error => ({
+                data: null,
+                error
+            }));
+
         const [
             inquiriesResult,
             savedResult,
             vehiclesResult,
             recentResult
         ] = await Promise.all([
-            supabaseClient
-                .from("rfqs")
-                .select("id", { count: "exact", head: true })
-                .eq("user_id", userId),
-            supabaseClient
-                .from("saved_products")
-                .select("product_id", { count: "exact", head: true })
-                .eq("user_id", userId),
-            supabaseClient
-                .from("customer_vehicles")
-                .select("id, vehicle_id, vehicle_model, nickname")
-                .eq("user_id", userId)
-                .order("created_at", { ascending: false }),
-            supabaseClient
-                .from("rfqs")
-                .select("id, rfq_number, status, created_at")
-                .eq("user_id", userId)
-                .order("created_at", { ascending: false })
-                .limit(3)
+            safeRequest(
+                supabaseClient
+                    .from("rfqs")
+                    .select("id", { count: "exact", head: true })
+                    .eq("user_id", userId)
+            ),
+            safeRequest(
+                supabaseClient
+                    .from("saved_products")
+                    .select("product_id", { count: "exact", head: true })
+                    .eq("user_id", userId)
+            ),
+            safeRequest(
+                supabaseClient
+                    .from("customer_vehicles")
+                    .select("id, vehicle_id, vehicle_model, nickname")
+                    .eq("user_id", userId)
+                    .order("created_at", { ascending: false })
+            ),
+            safeRequest(
+                supabaseClient
+                    .from("rfqs")
+                    .select("id, rfq_number, status, created_at")
+                    .eq("user_id", userId)
+                    .order("created_at", { ascending: false })
+                    .limit(3)
+            )
         ]);
 
-        if (inquiriesResult.error) {
-            throw inquiriesResult.error;
-        }
-
-        if (savedResult.error) {
-            throw savedResult.error;
-        }
+        [inquiriesResult, savedResult, vehiclesResult, recentResult]
+            .forEach((result, index) => {
+                if (result?.error) {
+                    SouviksErrors?.log(
+                        [
+                            "[Souviks Account] Dashboard inquiries request failed",
+                            "[Souviks Account] Dashboard saved-products request failed",
+                            "[Souviks Account] Dashboard vehicles request failed",
+                            "[Souviks Account] Dashboard recent-inquiries request failed"
+                        ][index],
+                        result.error
+                    );
+                }
+            });
 
         if (inquiryCount) {
             inquiryCount.textContent =
-                String(inquiriesResult.count ?? 0);
+                inquiriesResult?.error
+                    ? "—"
+                    : String(inquiriesResult.count ?? 0);
         }
 
         if (savedCount) {
             savedCount.textContent =
-                String(savedResult.count ?? 0);
+                savedResult?.error
+                    ? "—"
+                    : String(savedResult.count ?? 0);
         }
 
         if (vehicleCount) {
             vehicleCount.textContent =
-                vehiclesResult.error
+                vehiclesResult?.error
                     ? "—"
                     : String((vehiclesResult.data || []).length);
         }
 
         if (typeof renderAccountVehicleRecommendations === "function") {
-            renderAccountVehicleRecommendations(vehiclesResult.data || []);
-        }
-
-        if (recentResult.error) {
-            throw recentResult.error;
+            renderAccountVehicleRecommendations(vehiclesResult?.data || []);
         }
 
         renderRecentInquiries(
-            recentResult.data || []
+            recentResult?.data || [],
+            Boolean(recentResult?.error)
         );
 
     } catch (error) {
