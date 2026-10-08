@@ -14,12 +14,12 @@ permissions:
   contents: write
 
 concurrency:
-  group: souviks-js-refactor
+  group: souviks-main-publisher
   cancel-in-progress: false
 
 jobs:
   refactor:
-    if: \${{ github.actor != 'github-actions[bot]' }}
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -34,15 +34,14 @@ jobs:
           set -euo pipefail
 
           for attempt in 1 2 3 4 5 6 7 8; do
-            echo "Refactor/publish attempt \${attempt}"
+            echo "Refactor/publish attempt ${attempt}"
 
             git fetch origin main
-            git rebase origin/main || {
-              git rebase --abort || true
-              git reset --hard origin/main
-            }
+            git reset --hard origin/main
+            git clean -fd
 
             python3 scripts/js/refactor.py
+            python3 scripts/js/validate.py
 
             node --check assets/js/site-core.js
             for file in assets/js/bundles/*.js; do
@@ -64,7 +63,7 @@ jobs:
               exit 0
             fi
 
-            git reset --hard origin/main
+            echo "Remote main advanced; retrying the refactor from latest main."
           done
 
           echo "Unable to publish the JavaScript refactor after 8 attempts."
