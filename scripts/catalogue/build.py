@@ -352,23 +352,47 @@ def reconcile_catalogue_projections():
     expected_slugs = {text(p.get("slug")) for p in active if text(p.get("slug"))}
     for lang in ("en", "hi", "bn"):
         product_dir = ROOT / lang / "products"
-        for path in product_dir.glob("*.html"):
-            if path.stem not in expected_slugs:
-                path.unlink()
-                changed.add(str(path))
-                continue
+        for path in list(product_dir.glob("*.html")):
             html = path.read_text(encoding="utf-8")
             original = html
             match = re.search(r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});', html, re.S)
+
             if not match:
+                if path.stem not in expected_slugs:
+                    path.unlink()
+                    changed.add(str(path))
                 continue
+
             try:
                 data = json.loads(match.group(1))
             except json.JSONDecodeError:
+                if path.stem not in expected_slugs:
+                    path.unlink()
+                    changed.add(str(path))
                 continue
+
             product = by_id.get(text(data.get("id")))
             if not product:
+                path.unlink()
+                changed.add(str(path))
                 continue
+
+            target_path = product_dir / f"{text(product.get('slug'))}.html"
+            if path != target_path:
+                if target_path.exists():
+                    raise SystemExit(
+                        f"Cannot rename product page without collision: {path} -> {target_path}"
+                    )
+                path.rename(target_path)
+                changed.add(str(path))
+                changed.add(str(target_path))
+                path = target_path
+                html = path.read_text(encoding="utf-8")
+                original = html
+                match = re.search(r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});', html, re.S)
+                if not match:
+                    raise SystemExit(f"Renamed product page lost embedded data: {path}")
+                data = json.loads(match.group(1))
     
             slug = text(product.get("slug"))
             canonical = f"https://www.souviks.co.in/{lang}/products/{slug}"
