@@ -1313,7 +1313,7 @@ NO RESULTS
     id="noResults"
     class="no-results"
     hidden
-    aria-live="polite"
+    aria-live="polite" aria-hidden="true"
     aria-label="कोई परिणाम नहीं मिला">
 
     <div class="container">
@@ -1335,17 +1335,9 @@ NO RESULTS
 
             <div class="no-results-content">
 
-                <h2>
+                <h2 data-empty-state-title></h2>
 
-                    कोई मेल खाता ब्रांड नहीं मिला
-
-                </h2>
-
-                <p>
-
-                    आपकी खोज से मेल खाने वाला कोई ब्रांड नहीं मिला। कृपया कोई दूसरा कीवर्ड आज़माएँ।
-
-                </p>
+                <p data-empty-state-message></p>
 
                 <div
                     id="searchSuggestions"
