@@ -37,7 +37,7 @@ async function check(name, fn) {
   }
 }
 
-async function contextFor(view) {
+async function contextFor(view, authenticated = false) {
   const context = await browser.newContext({
     viewport: { width: VIEWS[view].width, height: VIEWS[view].height },
     isMobile: VIEWS[view].isMobile,
@@ -55,6 +55,16 @@ async function contextFor(view) {
     });
   });
 
+  if (authenticated) {
+    await context.addInitScript(() => {
+      const header = btoa(JSON.stringify({ alg: "none", typ: "JWT" }));
+      const payload = btoa(JSON.stringify({ sub: "regression-test-user", role: "authenticated", aud: "authenticated", email: "regression@example.invalid", exp: Math.floor(Date.now() / 1000) + 3600 }));
+      const token = header + "." + payload + ".regression-signature";
+      const session = { access_token: token, refresh_token: "regression-refresh-token", token_type: "bearer", expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: "regression-test-user", aud: "authenticated", role: "authenticated", email: "regression@example.invalid", email_confirmed_at: new Date().toISOString(), user_metadata: { full_name: "Regression Test" } } };
+      localStorage.setItem("sb-kjxrfmujzdxatpgegqcs-auth-token", JSON.stringify(session));
+    });
+  }
+
   // Keep the matrix deterministic: anonymous auth/account checks must not wait
   // on the live Supabase edge or mutate real data.
   await context.route("**cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js", async route => {
@@ -64,6 +74,15 @@ async function contextFor(view) {
       body: "window.emailjs={init:function(){},send:async function(){return {status:200,text:'OK'}}};"
     });
   });
+
+  if (authenticated) {
+    await context.route("**/auth/v1/user", async route => {
+      await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ id: "regression-test-user", aud: "authenticated", role: "authenticated", email: "regression@example.invalid", email_confirmed_at: new Date().toISOString(), user_metadata: { full_name: "Regression Test" } }) });
+    });
+    await context.route("**/rest/v1/profiles**", async route => {
+      await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify([{ id: "regression-test-user", full_name: "Regression Test", phone: "9000000000", company: "Regression Co.", is_business: true, gst_number: null }]) });
+    });
+  }
 
   await context.route("**supabase.co/**", async route => {
     const request = route.request();
@@ -367,8 +386,13 @@ async function main() {
         await remove.click();
         await page.waitForTimeout(300);
         const rows = page.locator("#rfq-items tr");
-        const text = await page.locator("#rfq-items").innerText();
-        if ((await rows.count()) !== 1 || !/No items|empty|add/i.test(text)) {
+        const removeControls = page.locator("#rfq-items .remove-rfq");
+        const plusControls = page.locator("#rfq-items .qty-plus");
+        const stored = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_rfq_guest");
+          return raw ? JSON.parse(raw) : [];
+        });
+        if ((await rows.count()) !== 1 || (await removeControls.count()) !== 0 || (await plusControls.count()) !== 0 || stored.length !== 0) {
           throw new Error("RFQ row was not removed");
         }
       });
@@ -501,6 +525,10 @@ async function main() {
       }
 
       // Account sub-views and anonymous auth gate/state surfaces.
+      const accountContext = await contextFor(view, true);
+      const accountPage = await accountContext.newPage();
+      accountPage.__view = view;
+
       for (const [viewName, titleText] of [
         ["account", "My Account"],
         ["rfq", "RFQ"],
@@ -509,13 +537,13 @@ async function main() {
         ["vehicles", "Vehicle"],
       ]) {
         await check(`${view}/${lang}/account ${viewName} view`, async () => {
-          await goto(page, BASE + langPath(lang, "account"));
-          const link = page.locator(`a.account-navigation-link[data-account-view="${viewName}"]`).first();
+          await goto(accountPage, BASE + langPath(lang, "account"));
+          const link = accountPage.locator(`a.account-navigation-link[data-account-view="${viewName}"]`).first();
           if (!(await link.count())) throw new Error("account navigation control missing");
           await link.click();
-          await page.waitForTimeout(250);
+          await accountPage.waitForTimeout(250);
 
-          const section = page.locator(`.account-view[data-account-view="${viewName}"]`).first();
+          const section = accountPage.locator(`.account-view[data-account-view="${viewName}"]`).first();
           if (!(await section.count())) throw new Error("account view section missing");
           if (!(await section.isVisible())) throw new Error("account view section did not become visible");
 
@@ -524,6 +552,8 @@ async function main() {
           return titleText;
         });
       }
+
+      await accountContext.close();
 
       await check(`${view}/${lang}/Sign Out anonymous state`, async () => {
         const session = await page.evaluate(async () => {
