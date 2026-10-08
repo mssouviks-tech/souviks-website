@@ -175,8 +175,24 @@ def enrich_entity_pages(kind, data, catalogue):
                 item["website"], item["country"] = meta["website"], meta["country"]
             cats = sorted(set(clean(p.get("category_name") or p.get("category")) for p in products if clean(p.get("category_name") or p.get("category"))))
             item.setdefault("seo", {})
-            item["description"] = f'Souviks lists {len(products)} active {clean(item.get("name"))} products across {list_text(cats, 5) or "the commercial-vehicle parts catalogue"}. The current range covers common replacement areas such as {list_text(subs, 4) or "multiple service parts"} and applications including {list_text(top(arr_products(products, "vehicles"), 4), 4) or "commercial vehicles"}.'
-            item["short_description"] = f'{clean(item.get("name"))} products at Souviks cover {list_text(cats, 4) or "commercial-vehicle parts"} and applications across {list_text(top(arr_products(products, "vehicles"), 3), 3) or "commercial vehicles"}.'
+            subs = top(arr_products(products, "subcategory_name"), 6)
+            vehicles = top(arr_products(products, "vehicles"), 6)
+            manufacturer_note = ""
+            if meta and clean(meta.get("country")):
+                manufacturer_note = f' Manufacturer country: {clean(meta.get("country"))}.'
+            item["description"] = (
+                f'Souviks currently lists {len(products)} active {clean(item.get("name"))} products across '
+                f'{list_text(cats, 5) or "the commercial-vehicle parts catalogue"}. '
+                f'The listed range is mapped to applications such as '
+                f'{list_text(vehicles, 5) or "commercial vehicle applications"} and common replacement areas including '
+                f'{list_text(subs, 5) or "related commercial-vehicle parts"}.'
+                f'{manufacturer_note} Use the part number, application and vehicle details when checking fitment.'
+            )
+            item["short_description"] = (
+                f'{clean(item.get("name"))} products at Souviks cover '
+                f'{list_text(cats, 4) or "commercial-vehicle parts"} and applications across '
+                f'{list_text(vehicles, 3) or "commercial vehicles"}.'
+            )
             item["seo"]["description"] = item["description"]
         elif kind == "vehicle":
             name = clean(item.get("model") or item.get("name"))
