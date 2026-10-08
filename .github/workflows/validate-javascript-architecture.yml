@@ -19,6 +19,8 @@ on:
       - "bn/*.html"
       - "hi/*.html"
       - "scripts/js/**"
+      - "scripts/audit/rfq_security.py"
+      - "supabase/migrations/**"
       - ".github/workflows/validate-javascript-architecture.yml"
 
 permissions:
