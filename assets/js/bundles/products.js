@@ -2510,21 +2510,25 @@ const vehiclesHtml =
                     v => v.model === vehicleName
                 );
 
+            const vehicleImage =
+                String(vehicle?.image || "").trim();
+
             return `
                 <div class="pdp-vehicle-card">
 
-                    <div class="pdp-vehicle-image">
-
-                        <img
-                            src="${
-                                vehicle?.image ||
-                                '/assets/images/vehicle-placeholder.webp'
-                            }"
-                            alt="${vehicleName}"
-                            loading="lazy"
-                            decoding="async">
-
-                    </div>
+                    ${
+                        vehicleImage
+                            ? `
+                            <div class="pdp-vehicle-image">
+                                <img
+                                    src="${vehicleImage}"
+                                    alt="${Breadcrumb.escape(vehicleName)}"
+                                    loading="lazy"
+                                    decoding="async">
+                            </div>
+                            `
+                            : ""
+                    }
 
                     <div class="pdp-vehicle-content">
 
