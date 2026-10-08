@@ -448,8 +448,61 @@ def sitemap_urls(path: Path, errors: list[str]) -> set[str]:
     return set(re.findall(r"<loc>([^<]+)</loc>", raw))
 
 
+def validate_robots_and_sitemap_index(errors: list[str]) -> None:
+    robots_path = ROOT / "robots.txt"
+    if not robots_path.is_file():
+        errors.append("Missing robots.txt")
+    else:
+        robots = robots_path.read_text(encoding="utf-8", errors="ignore")
+        sitemap_lines = [
+            text(line.split(":", 1)[1])
+            for line in robots.splitlines()
+            if line.strip().lower().startswith("sitemap:")
+            and ":" in line
+        ]
+        expected_robots_sitemap = BASE + "/sitemap.xml"
+        if sitemap_lines != [expected_robots_sitemap]:
+            errors.append(
+                "robots.txt must expose exactly one canonical sitemap: "
+                + ", ".join(sitemap_lines or ["<none>"])
+            )
+
+    index_path = ROOT / "sitemap.xml"
+    if not index_path.is_file():
+        errors.append("Missing sitemap.xml")
+        return
+    index_urls = sitemap_urls(index_path, errors)
+    expected_index_urls = {
+        BASE + "/sitemaps/pages.xml",
+        BASE + "/sitemaps/products.xml",
+        BASE + "/sitemaps/brands.xml",
+        BASE + "/sitemaps/categories.xml",
+        BASE + "/sitemaps/vehicles.xml",
+    }
+    missing = sorted(expected_index_urls - index_urls)
+    extra = sorted(index_urls - expected_index_urls)
+    for url in missing:
+        errors.append(f"sitemap.xml missing indexed sitemap: {url}")
+    for url in extra:
+        errors.append(f"sitemap.xml contains unexpected sitemap: {url}")
+    for url in index_urls:
+        path = ROOT / urlsplit(url).path.lstrip("/")
+        if not path.is_file():
+            errors.append(f"sitemap.xml points to missing sitemap file: {url}")
+
+
 def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
+    static_names = {
+        "index", "products", "brands", "categories", "vehicles",
+        "about", "contact", "privacy-policy", "terms", "refund",
+    }
     expected = {
+        "pages.xml": {
+            BASE + (f"/{lang}/" if name == "index" else f"/{lang}/{name}")
+            for lang in LANGUAGES
+            for name in static_names
+        },
+        "products.xml": {
         "products.xml": {
             BASE + public_route("products", lang, text(p.get("slug")))
             for lang in LANGUAGES for p in records_by_kind["products"] if text(p.get("slug"))
@@ -618,6 +671,7 @@ def main() -> None:
     records_by_kind = validate_critical_catalogue_contract(errors)
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
+    validate_robots_and_sitemap_index(errors)
     validate_sitemaps(records_by_kind, errors)
     validate_internal_links(errors)
 
