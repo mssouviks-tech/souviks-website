@@ -657,7 +657,11 @@ def main() -> int:
     vehicles_path = ROOT / "assets/data/vehicles.json"
 
     catalogue = load_json(catalogue_path)
-    products = load_json(products_path)
+    products_projection = load_json(products_path)
+    # Product content quality must use the catalogue master. The products.json
+    # file is a projection and may legitimately omit editorial fields in older
+    # versions; the build reconciles it from catalogue-index.json.
+    products = catalogue if isinstance(catalogue, list) else products_projection
     brands = load_json(brands_path)
     categories = load_json(categories_path)
     vehicles = load_json(vehicles_path)
