@@ -85,4 +85,5 @@ jobs:
 
           git add -A
           git commit -m "Build static catalogue"
+          git pull --rebase origin main
           git push origin HEAD:main
