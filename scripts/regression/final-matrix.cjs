@@ -114,7 +114,7 @@ async function main() {
           if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
           const htmlLang = await page.locator("html").getAttribute("lang");
           if (htmlLang !== lang) throw new Error(`html lang is ${htmlLang}`);
-          const main = page.locator("main").first();
+          const main = page.locator("main, [role="main"]").first();
           if (!(await main.count())) throw new Error("main landmark missing");
           const bodyText = await page.locator("body").innerText();
           if (!bodyText.trim()) throw new Error("empty body");
@@ -136,7 +136,8 @@ async function main() {
       const response = await goto(page, BASE + "/");
       if ((response?.status() || 500) >= 400) throw new Error(`HTTP ${response?.status()}`);
       const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
-      if (canonical !== BASE + "/") throw new Error(`canonical ${canonical}`);
+      const expectedCanonical = "https://www.souviks.co.in/";
+      if (canonical !== expectedCanonical) throw new Error(`canonical ${canonical}`);
     });
     await context.close();
   }
@@ -394,9 +395,12 @@ async function main() {
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
         await page.locator("#requestPartForm button[type=submit]").click();
-        await page.waitForTimeout(500);
-        const body = await page.locator("body").innerText();
-        if (!/success|submitted|received|thank/i.test(body)) throw new Error("request-part success feedback missing");
+        const status = page.locator("#requestPartFormStatus");
+        await status.waitFor({ state: "visible", timeout: 5000 });
+        const statusText = await status.innerText();
+        if (!/success|submitted|received|thank/i.test(statusText)) {
+          throw new Error(`request-part status: ${statusText || "missing"}`);
+        }
         await page.unroute("**/api.emailjs.com/**");
       });
 
@@ -413,9 +417,12 @@ async function main() {
         if (await inputs.count() >= 1) await inputs.nth(0).fill("Regression Test");
         if (await inputs.count() >= 2) await inputs.nth(1).fill("9000000000");
         await form.locator("button[type=submit]").click();
-        await page.waitForTimeout(500);
-        const body = await page.locator("body").innerText();
-        if (!/success|submitted|received|thank/i.test(body)) throw new Error("contact success feedback missing");
+        const status = page.locator("#contactFormStatus");
+        await status.waitFor({ state: "visible", timeout: 5000 });
+        const statusText = await status.innerText();
+        if (!/success|submitted|received|thank/i.test(statusText)) {
+          throw new Error(`contact status: ${statusText || "missing"}`);
+        }
         await page.unroute("**/api.emailjs.com/**");
       });
 
