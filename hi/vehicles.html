@@ -1338,7 +1338,7 @@ ALL VEHICLES
     id="noResults"
     class="no-results"
     hidden
-    aria-live="polite"
+    aria-live="polite" aria-hidden="true"
     aria-label="कोई परिणाम नहीं मिला">
 
     <div class="container">
@@ -1360,17 +1360,9 @@ ALL VEHICLES
 
             <div class="no-results-content">
 
-                <h2>
+                <h2 data-empty-state-title></h2>
 
-                    कोई मेल खाता वाहन नहीं मिला
-
-                </h2>
-
-                <p>
-
-                    आपकी खोज से मेल खाने वाला कोई वाहन नहीं मिला। कृपया कोई दूसरा कीवर्ड आज़माएँ।
-
-                </p>
+                <p data-empty-state-message></p>
 
                 <div
                     id="searchSuggestions"
@@ -1415,107 +1407,7 @@ SOUVIKS LOADING STATE
 Reusable Loading Component
 ========================================================== -->
 
-<section
 
-    id="loadingState"
-
-    class="loading-state hidden"
-
-    aria-live="polite"
-
-    aria-busy="true"
-
-    aria-label="सामग्री लोड हो रही है">
-
-    <div class="container">
-
-        <div class="loading-header">
-
-            <div class="loading-title skeleton"></div>
-
-            <div class="loading-subtitle skeleton"></div>
-
-        </div>
-
-        <div class="loading-grid">
-
-            <!-- CARD 1 -->
-
-            <article class="loading-card">
-
-                <div class="loading-image skeleton"></div>
-
-                <div class="loading-logo skeleton"></div>
-
-                <div class="loading-text skeleton"></div>
-
-                <div class="loading-text short skeleton"></div>
-
-                <div class="loading-pill skeleton"></div>
-
-                <div class="loading-button skeleton"></div>
-
-            </article>
-
-            <!-- CARD 2 -->
-
-            <article class="loading-card">
-
-                <div class="loading-image skeleton"></div>
-
-                <div class="loading-logo skeleton"></div>
-
-                <div class="loading-text skeleton"></div>
-
-                <div class="loading-text short skeleton"></div>
-
-                <div class="loading-pill skeleton"></div>
-
-                <div class="loading-button skeleton"></div>
-
-            </article>
-
-            <!-- CARD 3 -->
-
-            <article class="loading-card">
-
-                <div class="loading-image skeleton"></div>
-
-                <div class="loading-logo skeleton"></div>
-
-                <div class="loading-text skeleton"></div>
-
-                <div class="loading-text short skeleton"></div>
-
-                <div class="loading-pill skeleton"></div>
-
-                <div class="loading-button skeleton"></div>
-
-            </article>
-
-            <!-- CARD 4 -->
-
-            <article class="loading-card">
-
-                <div class="loading-image skeleton"></div>
-
-                <div class="loading-logo skeleton"></div>
-
-                <div class="loading-text skeleton"></div>
-
-                <div class="loading-text short skeleton"></div>
-
-                <div class="loading-pill skeleton"></div>
-
-                <div class="loading-button skeleton"></div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
 
 <div class="container">
 
