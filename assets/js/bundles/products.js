@@ -2371,14 +2371,32 @@ async hydrateProductPage() {
     const slug = Utils.currentSlug();
     const product = await API.productBySlug(slug);
 
+    const missingProductCopy = {
+        en: {
+            title: "Product unavailable",
+            message: "This product is no longer available in the Souviks catalogue."
+        },
+        hi: {
+            title: "उत्पाद उपलब्ध नहीं है",
+            message: "यह उत्पाद अब Souviks कैटलॉग में उपलब्ध नहीं है।"
+        },
+        bn: {
+            title: "পণ্যটি উপলভ্য নয়",
+            message: "এই পণ্যটি এখন আর Souviks ক্যাটালগে উপলভ্য নয়।"
+        }
+    }[LANG] || {
+        title: "Product unavailable",
+        message: "This product is no longer available in the Souviks catalogue."
+    };
+
     if (!product) {
         const target = Utils.el("#product-detail");
         if (target && target.dataset.staticRendered !== "true") {
             target.innerHTML = `
                 <div class="container">
                     <div class="empty-state" role="status" aria-live="polite">
-                        <h2>Product unavailable</h2>
-                        <p>This product is no longer available in the Souviks catalogue.</p>
+                        <h2>${missingProductCopy.title}</h2>
+                        <p>${missingProductCopy.message}</p>
                         <a class="btn btn-primary" href="/${LANG}/products">Browse Products</a>
                     </div>
                 </div>
