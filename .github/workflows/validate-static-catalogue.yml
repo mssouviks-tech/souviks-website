@@ -401,6 +401,10 @@ jobs:
 
           print("Generated page parity and SEO invariants OK")
 
+      - name: Audit content quality, rendering and business trust
+        shell: python
+        run: python scripts/audit/site_quality.py
+
       - name: Verify catalogue image-folder parity
         shell: python
         run: |
