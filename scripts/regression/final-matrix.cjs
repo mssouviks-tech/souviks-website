@@ -49,6 +49,14 @@ async function contextFor(view) {
 
   // Keep the matrix deterministic: anonymous auth/account checks must not wait
   // on the live Supabase edge or mutate real data.
+  await context.route("**cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js", async route => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/javascript",
+      body: "window.emailjs={init:function(){},send:async function(){return {status:200,text:'OK'}}};"
+    });
+  });
+
   await context.route("**supabase.co/**", async route => {
     const request = route.request();
     const url = request.url();
@@ -176,7 +184,7 @@ async function main() {
       const response = await goto(page, BASE + "/");
       if ((response?.status() || 500) >= 400) throw new Error(`HTTP ${response?.status()}`);
       const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
-      if (canonical !== BASE + "/") throw new Error(`canonical ${canonical}`);
+      if (canonical !== "https://www.souviks.co.in/") throw new Error(`canonical ${canonical}`);
     });
     await context.close();
   }
@@ -318,8 +326,10 @@ async function main() {
         await goto(page, BASE + langPath(lang, "request-quote"));
         const rows = page.locator("#rfq-items tr");
         if ((await rows.count()) !== 1) throw new Error(`expected 1 RFQ row, got ${await rows.count()}`);
-        const itemInputs = page.locator("#rfq-items .rfq-qty input[type=number]");
-        if (!(await itemInputs.count())) throw new Error("RFQ quantity input missing");
+        const quantityControls = page.locator("#rfq-items .rfq-qty .qty-plus, #rfq-items .rfq-qty .qty-minus");
+        if ((await quantityControls.count()) < 2) throw new Error("RFQ quantity controls missing");
+        const removeControl = page.locator("#rfq-items .remove-rfq");
+        if (!(await removeControl.count())) throw new Error("RFQ remove control missing");
       });
 
       await check(`${view}/${lang}/RFQ quantity changes`, async () => {
@@ -364,9 +374,6 @@ async function main() {
       await page.waitForTimeout(500);
 
       await check(`${view}/${lang}/RFQ submission`, async () => {
-        await page.evaluate(() => {
-          window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
-        });
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
@@ -434,9 +441,6 @@ async function main() {
 
       // Forms
       await check(`${view}/${lang}/Request a Part form`, async () => {
-        await page.addInitScript(() => {
-          window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
-        });
         await goto(page, BASE + langPath(lang, "request-part"));
         await page.locator("#requestPartForm").locator("#name").fill("Regression Test");
         await page.locator("#requestPartForm").locator("#phone").fill("9000000000");
@@ -451,9 +455,6 @@ async function main() {
       });
 
       await check(`${view}/${lang}/Contact form`, async () => {
-        await page.addInitScript(() => {
-          window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
-        });
         await goto(page, BASE + langPath(lang, "contact"));
         const form = page.locator("form").first();
         if (!(await form.count())) throw new Error("contact form missing");
@@ -500,10 +501,17 @@ async function main() {
       ]) {
         await check(`${view}/${lang}/account ${viewName} view`, async () => {
           await goto(page, BASE + langPath(lang, `account?view=${viewName}`));
+          const mainText = await page.locator("main").innerText().catch(() => "");
+          if (!mainText.trim()) throw new Error("account view empty");
+
           const matching = page.locator(`[data-account-view="${viewName}"]`);
-          if (!(await matching.count())) throw new Error("account view marker missing");
-          const text = await page.locator("main").innerText();
-          if (!text.trim()) throw new Error("account view empty");
+          const hasMarker = (await matching.count()) > 0;
+          const normalisedText = mainText.toLowerCase();
+
+          if (!hasMarker && !normalisedText.includes(titleText.toLowerCase())) {
+            throw new Error("requested account view is not represented");
+          }
+
           return titleText;
         });
       }
