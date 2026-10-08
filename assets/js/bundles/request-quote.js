@@ -2031,6 +2031,25 @@ RFQ.submitStandalone = async function (form) {
         throw new Error(rfqMessage.emptySubmit);
     }
 
+    if (items.length > RFQ.MAX_ITEMS) {
+        throw new Error(
+            "Your RFQ contains too many items. Please submit no more than " +
+            RFQ.MAX_ITEMS +
+            " items at a time."
+        );
+    }
+
+    const submissionItems =
+        items
+            .map(item => RFQ.normalizeItem(item))
+            .filter(Boolean);
+
+    if (submissionItems.length !== items.length) {
+        throw new Error(
+            "One or more RFQ items are invalid. Please remove them and add the products again."
+        );
+    }
+
     const user = await RFQ.getUser();
     window.__SOUVIKS_RFQ_USER_EMAIL__ = user?.email?.trim() || "";
 
@@ -2136,7 +2155,7 @@ RFQ.submitStandalone = async function (form) {
         gst: customer.gst,
         location: customer.location,
         message: customer.message,
-        rfq_items: RFQ.formatSubmissionItems(items)
+        rfq_items: RFQ.formatSubmissionItems(submissionItems)
     };
 
     await emailjs.send(
