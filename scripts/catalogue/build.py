@@ -38,11 +38,20 @@ def reconcile_catalogue_projections():
     # Public product URLs are lowercase ASCII slugs. Normalize the master before
     # rebuilding projections/pages so one malformed source slug cannot produce
     # duplicate URL variants or leave an orphaned generated page behind.
+    slug_overrides = {
+        "SVKS000686": "fleetguard-fa0016700-spicer-transmission-patti-type",
+        "SVKS000947": "texspin-tx-6638sc-clutch-release-bearing-ashok-leyland-31ton",
+        "SVKS000998": "texspin-tx-6647sc-clutch-release-bearing-ashok-leyland-1616",
+    }
+
     slug_seen = set()
     for product in catalogue:
         if not product.get("id"):
             continue
         current_slug = text(product.get("slug"))
+        override_slug = slug_overrides.get(text(product.get("id")))
+        if override_slug:
+            current_slug = override_slug
         normalized_slug = normalize_slug(current_slug)
         if not normalized_slug:
             continue
@@ -1049,6 +1058,7 @@ def sync_product_seo_and_schema():
                     if not isinstance(node, dict) or node.get("@type") != "Product":
                         continue
     
+                    node["@id"] = url + "#product"
                     node["name"] = str(product.get("product_name") or product.get("name") or node.get("name") or "")
                     node["url"] = url
                     node["mainEntityOfPage"] = url
