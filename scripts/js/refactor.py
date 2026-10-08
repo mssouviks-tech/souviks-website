@@ -169,6 +169,8 @@ def validate() -> None:
             raise ValueError(f"{filename} still embeds the shared utilities layer")
         if "/* ===== auth/supabase.js ===== */" in source:
             raise ValueError(f"{filename} still embeds the shared auth layer")
+        if source.startswith("/* No page-specific JavaScript. Shared behavior is loaded by /assets/js/site-core.js. */"):
+            continue
         if COMMON_END in source or COMMON_END_LABEL in source:
             raise ValueError(f"{filename} still embeds the shared navigation/image runtime")
         if "/* Shared core is loaded by the HTML page before this bundle. */" not in source:
