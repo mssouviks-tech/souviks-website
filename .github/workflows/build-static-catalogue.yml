@@ -62,6 +62,7 @@ jobs:
               "scripts/catalogue/validate.py",
               "scripts/audit/critical_build.py",
               "scripts/audit/structured_data.py",
+              "scripts/js/refactor.py",
           ):
               py_compile.compile(path, cfile="/tmp/" + path.replace("/", "_") + ".pyc", doraise=True)
           print("Python syntax OK")
@@ -77,6 +78,7 @@ jobs:
             python3 scripts/catalogue/build.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
+            python3 scripts/js/refactor.py
             python3 scripts/audit/critical_build.py
             python3 scripts/audit/structured_data.py
             python3 scripts/js/validate.py
@@ -122,6 +124,7 @@ jobs:
             python3 scripts/catalogue/build.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
+            python3 scripts/js/refactor.py
             python3 scripts/audit/critical_build.py
             python3 scripts/audit/structured_data.py
             python3 scripts/js/validate.py
