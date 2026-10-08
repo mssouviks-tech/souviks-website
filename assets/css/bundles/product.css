@@ -2586,3 +2586,13 @@ html {
     }
 }
 
+
+/* ==========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .main-navigation {
+        transition: none !important;
+    }
+}
