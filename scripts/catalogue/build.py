@@ -756,6 +756,14 @@ def sync_product_seo_and_schema():
     }
     changed = []
     
+    def text(value):
+        return str(value or "").strip()
+
+    def arr(value):
+        if isinstance(value, list):
+            return [text(item) for item in value if text(item)]
+        return [item.strip() for item in re.split(r"[,;]", text(value)) if item.strip()]
+
     def canonical_url(lang, slug):
         return f"https://www.souviks.co.in/{lang}/products/{slug}"
     
@@ -878,7 +886,9 @@ def sync_product_seo_and_schema():
                 flags=re.I,
             )
     
-            name = str(product.get("product_name") or product.get("name") or "")
+            name = text(product.get("product_name") or product.get("name"))
+            part = text(product.get("part_number") or product.get("partNumber"))
+            brand = text(product.get("brand_name") or product.get("brand"))
 
             # Rebuild the same factual product description inside this
             # schema loop; this loop is separate from the static-page SEO loop.
