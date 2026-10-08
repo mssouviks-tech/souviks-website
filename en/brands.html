@@ -1313,7 +1313,7 @@ NO RESULTS
     id="noResults"
     class="no-results"
     hidden
-    aria-live="polite"
+    aria-live="polite" aria-hidden="true"
     aria-label="No Results">
 
     <div class="container">
@@ -1335,17 +1335,9 @@ NO RESULTS
 
             <div class="no-results-content">
 
-                <h2>
+                <h2 data-empty-state-title></h2>
 
-                    No Matching Brands Found
-
-                </h2>
-
-                <p>
-
-                    We couldn't find any brands matching your search. Try a different keyword.
-
-                </p>
+                <p data-empty-state-message></p>
 
                 <div
                     id="searchSuggestions"
