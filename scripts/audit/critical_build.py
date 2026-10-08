@@ -358,6 +358,23 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
                     if "window.SOUVIKS_PRODUCT_PAGE_DATA" not in raw:
                         errors.append(f"{path.relative_to(ROOT)}: missing embedded product data")
 
+    # Canonical parity also applies to top-level language/static pages.
+    static_pages = []
+    for language in LANGUAGES:
+        for path in sorted((ROOT / language).glob("*.html")):
+            if path.name == "404.html":
+                continue
+            static_pages.append((language, path))
+    for language, path in static_pages:
+        raw = path.read_text(encoding="utf-8", errors="ignore")
+        expected_route = f"/{language}/" if path.stem == "index" else f"/{language}/{path.stem}"
+        expected_canonical = BASE + expected_route
+        canonical = canonical_from_html(raw)
+        if canonical.rstrip("/") != expected_canonical.rstrip("/"):
+            errors.append(
+                f"{path.relative_to(ROOT)}: canonical {canonical!r} != {expected_canonical!r}"
+            )
+
     # Full multilingual parity: each language must expose the same entity
     # product-set and the same indexability state for the same canonical slug.
     for kind, records in records_by_kind.items():
