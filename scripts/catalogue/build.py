@@ -868,7 +868,13 @@ def sync_product_seo_and_schema():
                 for name in gallery if str(name).strip()
             ]
         image = str(product.get("image_url") or "").strip()
-        return [f"https://www.souviks.co.in{image}"] if image and image.startswith("/") else []
+        if (
+            image
+            and image.startswith("/")
+            and not image.endswith("/placeholder.webp")
+        ):
+            return [f"https://www.souviks.co.in{image}"]
+        return []
     
     for lang in ("en", "hi", "bn"):
         for path in (root / lang / "products").glob("*.html"):
@@ -914,39 +920,45 @@ def sync_product_seo_and_schema():
             # Keep image-related metadata synchronized with the canonical catalogue.
             gallery_urls = image_urls(product)
             primary_image_url = gallery_urls[0] if gallery_urls else ""
+            social_image_url = (
+                primary_image_url
+                or "https://www.souviks.co.in/assets/images/og-image.png"
+            )
+            image_alt = html_module.escape(
+                str(product.get("product_name") or product.get("name") or "Product image"),
+                quote=True,
+            )
+
+            html = re.sub(
+                r'(<meta\b[^>]*property=["\']og:image["\'][^>]*content=["\'])[^"\']*(["\'])',
+                lambda m: m.group(1) + social_image_url + m.group(2),
+                html,
+                count=1,
+                flags=re.I,
+            )
+            html = re.sub(
+                r'(<meta\b[^>]*property=["\']og:image:alt["\'][^>]*content=["\'])[^"\']*(["\'])',
+                lambda m: m.group(1) + image_alt + m.group(2),
+                html,
+                count=1,
+                flags=re.I,
+            )
+            html = re.sub(
+                r'(<meta\b[^>]*name=["\']twitter:image["\'][^>]*content=["\'])[^"\']*(["\'])',
+                lambda m: m.group(1) + social_image_url + m.group(2),
+                html,
+                count=1,
+                flags=re.I,
+            )
+            html = re.sub(
+                r'(<meta\b[^>]*name=["\']twitter:image:alt["\'][^>]*content=["\'])[^"\']*(["\'])',
+                lambda m: m.group(1) + image_alt + m.group(2),
+                html,
+                count=1,
+                flags=re.I,
+            )
+
             if primary_image_url:
-                html = re.sub(
-                    r'(<meta\b[^>]*property=["\']og:image["\'][^>]*content=["\'])[^"\']*(["\'])',
-                    lambda m: m.group(1) + primary_image_url + m.group(2),
-                    html,
-                    count=1,
-                    flags=re.I,
-                )
-                image_alt = html_module.escape(
-                    str(product.get("product_name") or product.get("name") or "Product image"),
-                    quote=True,
-                )
-                html = re.sub(
-                    r'(<meta\b[^>]*property=["\']og:image:alt["\'][^>]*content=["\'])[^"\']*(["\'])',
-                    lambda m: m.group(1) + image_alt + m.group(2),
-                    html,
-                    count=1,
-                    flags=re.I,
-                )
-                html = re.sub(
-                    r'(<meta\b[^>]*name=["\']twitter:image["\'][^>]*content=["\'])[^"\']*(["\'])',
-                    lambda m: m.group(1) + primary_image_url + m.group(2),
-                    html,
-                    count=1,
-                    flags=re.I,
-                )
-                html = re.sub(
-                    r'(<meta\b[^>]*name=["\']twitter:image:alt["\'][^>]*content=["\'])[^"\']*(["\'])',
-                    lambda m: m.group(1) + image_alt + m.group(2),
-                    html,
-                    count=1,
-                    flags=re.I,
-                )
                 html = re.sub(
                     r'(<link\b[^>]*rel=["\']preload["\'][^>]*as=["\']image["\'][^>]*href=["\'])[^"\']*(["\'])',
                     lambda m: m.group(1) + primary_image_url.replace("https://www.souviks.co.in", "") + m.group(2),
@@ -1044,7 +1056,6 @@ def sync_product_seo_and_schema():
                     "url": url,
                     "mainEntityOfPage": url,
                     "description": description,
-                    "image": images,
                     "sku": str(product.get("id") or ""),
                     "brand": {
                         "@type": "Brand",
@@ -1053,6 +1064,9 @@ def sync_product_seo_and_schema():
                     "category": str(product.get("category_name") or product.get("category") or ""),
                 }
     
+                if images:
+                    product_schema["image"] = images
+
                 mpn = str(product.get("manufacturer_part_number") or "").strip()
                 if not mpn:
                     mpn = str(product.get("part_number") or "").strip()
@@ -1124,6 +1138,8 @@ def sync_product_seo_and_schema():
                     node["description"] = schema_description
                     if gallery_urls:
                         node["image"] = gallery_urls
+                    else:
+                        node.pop("image", None)
                     node["sku"] = str(product.get("id") or node.get("sku") or "")
     
                     brand_name = str(product.get("brand_name") or product.get("brand") or "").strip()
