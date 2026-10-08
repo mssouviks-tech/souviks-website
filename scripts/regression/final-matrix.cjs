@@ -38,7 +38,7 @@ async function check(name, fn) {
 }
 
 async function contextFor(view) {
-  return browser.newContext({
+  const context = await browser.newContext({
     viewport: { width: VIEWS[view].width, height: VIEWS[view].height },
     isMobile: VIEWS[view].isMobile,
     deviceScaleFactor: VIEWS[view].isMobile ? 2 : 1,
@@ -46,6 +46,46 @@ async function contextFor(view) {
     colorScheme: "light",
     ignoreHTTPSErrors: false,
   });
+
+  // Keep the matrix deterministic: anonymous auth/account checks must not wait
+  // on the live Supabase edge or mutate real data.
+  await context.route("**supabase.co/**", async route => {
+    const request = route.request();
+    const url = request.url();
+
+    if (/\/auth\/v1\/(user|session)/i.test(url)) {
+      await route.fulfill({
+        status: 401,
+        contentType: "application/json",
+        body: JSON.stringify({ error: "not_authenticated", message: "No active session" })
+      });
+      return;
+    }
+
+    if (/\/rest\/v1\//i.test(url)) {
+      const method = request.method();
+      const status = method === "POST" ? 201 : method === "DELETE" ? 204 : 200;
+      await route.fulfill({
+        status,
+        contentType: "application/json",
+        body: status === 204 ? "" : "[]"
+      });
+      return;
+    }
+
+    if (/\/auth\/v1\//i.test(url)) {
+      await route.fulfill({
+        status: 401,
+        contentType: "application/json",
+        body: JSON.stringify({ error: "not_authenticated" })
+      });
+      return;
+    }
+
+    await route.continue();
+  });
+
+  return context;
 }
 
 async function goto(page, url) {
