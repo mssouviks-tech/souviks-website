@@ -5,6 +5,7 @@
 # Regenerate entity pages whenever catalogue mappings change.
 # The post-build pass restores entity content after static generation.
 # Keep generated output deterministic and bytecode-free.
+# Validation treats vehicle model as the canonical display name.
 
 from __future__ import annotations
 
