@@ -593,3 +593,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# Build gate revision: 2026-10-08 multilingual/redirect/image contract.
