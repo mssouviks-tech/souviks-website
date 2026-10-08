@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/regression/final-matrix.cjs'
+      - 'scripts/regression/static-server.cjs'
       - '.github/workflows/final-regression-matrix.yml'
   workflow_dispatch:
 
@@ -38,7 +39,24 @@ jobs:
           npm install --no-save playwright@latest
           npx playwright install --with-deps chromium
 
+      - name: Start local static server
+        run: |
+          node scripts/regression/static-server.cjs > /tmp/souviks-regression-server.log 2>&1 &
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if curl --silent --fail http://127.0.0.1:4173/en/products > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/souviks-regression-server.log
+          exit 1
+
+      - name: Check regression harness syntax
+        run: node --check scripts/regression/final-matrix.cjs
+
       - name: Run final regression matrix
+        env:
+          REGRESSION_BASE_URL: http://127.0.0.1:4173
         run: node scripts/regression/final-matrix.cjs
 
       - name: Upload regression results
