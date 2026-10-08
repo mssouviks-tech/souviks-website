@@ -580,15 +580,17 @@ async function main() {
         ["vehicles", "Vehicle"],
       ]) {
         await check(`${view}/${lang}/account ${viewName} view`, async () => {
-          const response = await page.goto(
+          const response = await page.request.get(
             BASE + langPath(lang, `account?view=${viewName}`),
-            { waitUntil: "domcontentloaded", timeout: 30000 }
+            { timeout: 30000 }
           );
-          const status = response?.status();
+          const status = response.status();
           if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
 
           const source = await response.text();
-          if (!source.includes(`class="account-view"` + `\n` + `                        data-account-view="${viewName}"`)) {
+          const marker = `data-account-view="${viewName}"`;
+          const section = new RegExp("<div\\s+class=\"account-view\"[\\s\\S]*?" + marker, "i");
+          if (!section.test(source)) {
             throw new Error("account view section missing from template");
           }
           if (!source.toLowerCase().includes(titleText.toLowerCase())) {
