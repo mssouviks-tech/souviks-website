@@ -808,6 +808,126 @@ def sync_static_product_images():
         print(f"Synchronized static product images in {len(changed)} HTML files.")
 
 
+def sync_static_product_vehicle_cards():
+    """Synchronize compatible-vehicle cards on statically rendered PDPs."""
+    import html as html_module
+    import json
+    import re
+
+    root = ROOT
+    vehicle_path = root / "assets/data/vehicles.json"
+    if not vehicle_path.is_file():
+        print("Vehicle dataset missing; skipped static PDP vehicle-card synchronization.")
+        return
+
+    try:
+        vehicles = json.loads(
+            vehicle_path.read_text(encoding="utf-8")
+        )
+    except (OSError, json.JSONDecodeError):
+        print("Vehicle dataset could not be read; skipped static PDP vehicle-card synchronization.")
+        return
+
+    by_model = {
+        str(item.get("model") or "").strip(): item
+        for item in vehicles
+        if isinstance(item, dict) and str(item.get("model") or "").strip()
+    }
+
+    changed = []
+
+    for lang in ("en", "hi", "bn"):
+        product_root = root / lang / "products"
+        if not product_root.is_dir():
+            continue
+
+        for path in product_root.glob("*.html"):
+            html_text = path.read_text(encoding="utf-8")
+            data_match = re.search(
+                r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                html_text,
+                re.S,
+            )
+            if not data_match:
+                continue
+
+            try:
+                product = json.loads(data_match.group(1))
+            except json.JSONDecodeError:
+                continue
+
+            product_vehicles = product.get("vehicles") or []
+            if not isinstance(product_vehicles, list):
+                continue
+
+            cards = []
+            for vehicle_name in product_vehicles:
+                vehicle_name = str(vehicle_name or "").strip()
+                if not vehicle_name:
+                    continue
+
+                vehicle = by_model.get(vehicle_name)
+                vehicle_image = str(vehicle.get("image") or "").strip() if vehicle else ""
+                vehicle_slug = str(vehicle.get("slug") or "").strip() if vehicle else ""
+                safe_name = html_module.escape(vehicle_name, quote=True)
+
+                image_html = ""
+                if vehicle_image:
+                    dimensions = vehicle.get("image_dimensions")
+                    width = 400
+                    height = 300
+                    if (
+                        isinstance(dimensions, list)
+                        and len(dimensions) == 2
+                        and all(isinstance(value, int) and value > 0 for value in dimensions)
+                    ):
+                        width, height = dimensions
+
+                    image_html = (
+                        '<div class="pdp-vehicle-image">'
+                        f'<img src="{html_module.escape(vehicle_image, quote=True)}" '
+                        f'alt="{safe_name}" loading="lazy" decoding="async" '
+                        f'width="{width}" height="{height}">'
+                        '</div>'
+                    )
+
+                title_html = (
+                    f'<a href="/{lang}/vehicles/{html_module.escape(vehicle_slug, quote=True)}" '
+                    f'aria-label="View {safe_name} vehicle page">{safe_name}</a>'
+                    if vehicle_slug
+                    else safe_name
+                )
+
+                cards.append(
+                    '<div class="pdp-vehicle-card">'
+                    f'{image_html}'
+                    '<div class="pdp-vehicle-content">'
+                    f'<h4>{title_html}</h4>'
+                    '</div>'
+                    '</div>'
+                )
+
+            new_grid = '<div class="pdp-vehicle-grid">' + ''.join(cards) + '</div>'
+            pattern = re.compile(
+                r'(<div\s+class="pdp-vehicle-grid">).*?(</div>\s*</section>)',
+                re.S,
+            )
+            updated_text, count = pattern.subn(
+                lambda match: new_grid + match.group(2),
+                html_text,
+                count=1,
+            )
+
+            if count and updated_text != html_text:
+                path.write_text(updated_text, encoding="utf-8")
+                changed.append(str(path))
+
+    if not changed:
+        print("Static compatible-vehicle cards are already synchronized.")
+    else:
+        print(f"Synchronized compatible-vehicle cards in {len(changed)} HTML files.")
+
+
 def normalize_blank_part_numbers():
     
     import pathlib
@@ -1358,6 +1478,7 @@ def sync_organization_schema():
 def main() -> None:
     reconcile_catalogue_projections()
     sync_static_product_images()
+    sync_static_product_vehicle_cards()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
     normalize_internal_redirect_links()
