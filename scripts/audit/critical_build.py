@@ -350,7 +350,7 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
             for language in LANGUAGES:
                 path = ROOT / language / kind / f"{slug}.html"
                 raw = path.read_text(encoding="utf-8", errors="ignore")
-                ids = sorted(set(re.findall(r'data-saved-product-id=["\\']([^"\\']+)["\\']', raw, flags=re.I)))
+                ids = sorted(set(re.findall(r"""data-saved-product-id=["']([^"']+)["']""", raw, flags=re.I)))
                 signatures[language] = {
                     "ids": ids,
                     "robots": "noindex" in robots_from_html(raw),
