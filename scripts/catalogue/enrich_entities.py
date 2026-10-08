@@ -243,7 +243,7 @@ def enrich_entity_pages(kind, data, catalogue):
                 continue
             page = update_meta(path.read_text(encoding="utf-8"), clean(item.get("description")))
             if kind == "vehicle" and len(products) <= 5:
-                robots_pattern = r'(<meta\\s+name=["\\']robots["\\']\\s+content=["\\'])[^"\\']*(["\\'])'
+                robots_pattern = r'(<meta\s+name=["\']robots["\']\s+content=["\'])[^"\']*(["\'])'
                 page = re.sub(
                     robots_pattern,
                     lambda m: m.group(1) + "noindex,follow,max-image-preview:large" + m.group(2),
