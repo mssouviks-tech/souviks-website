@@ -5243,11 +5243,7 @@ Version : 1.1
                 });
                 controllers.push(controller);
             } catch (error) {
-                console.warn(
-                    "Souviks WebMCP tool registration failed:",
-                    tool.name,
-                    error
-                );
+                SouviksErrors?.log("Souviks WebMCP tool registration failed", error, "warn");
             }
         }
 
