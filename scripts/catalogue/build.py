@@ -129,6 +129,44 @@ def reconcile_catalogue_projections():
     
         CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     
+    def ensure_product_description(product):
+        current = text(product.get("description"))
+        if len(current) >= 80:
+            return current
+
+        brand = text(product.get("brand_name") or product.get("brand"))
+        name = text(product.get("product_name") or product.get("name"))
+        part = part_number(product)
+        category = text(product.get("category_name") or product.get("category"))
+        subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
+        applications = arr(product.get("applications"))
+        vehicles = arr(product.get("vehicles"))
+
+        pieces = []
+        identity = " ".join(value for value in (brand, name) if value).strip()
+        if identity:
+            pieces.append(identity)
+        if part:
+            pieces.append(f"Part number {part}")
+        if subcategory:
+            pieces.append(f"for {subcategory}")
+        elif category:
+            pieces.append(f"in {category}")
+        if applications:
+            pieces.append("Applications: " + "; ".join(applications[:4]))
+        if vehicles:
+            pieces.append("Compatible vehicles: " + ", ".join(vehicles[:5]))
+
+        generated = ". ".join(pieces).strip()
+        if generated and not generated.endswith("."):
+            generated += "."
+        return generated
+
+    for product in catalogue:
+        description = ensure_product_description(product)
+        if description and description != text(product.get("description")):
+            product["description"] = description
+
     active = [p for p in catalogue if p.get("active") is not False and p.get("id")]
     count = len(active)
     
