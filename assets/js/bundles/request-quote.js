@@ -106,10 +106,7 @@ RFQ.getUser = async function () {
 
         if (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to get authenticated user:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to get authenticated user:", error, "error");
 
             return null;
 
@@ -121,10 +118,7 @@ RFQ.getUser = async function () {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unexpected authentication error:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unexpected authentication error:", error, "error");
 
         return null;
 
@@ -252,10 +246,7 @@ RFQ.getGuestItems = function () {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to read guest RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to read guest RFQ basket:", error, "error");
 
         return [];
 
@@ -292,10 +283,7 @@ RFQ.saveGuestItems = function (
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to save guest RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to save guest RFQ basket:", error, "error");
 
         return false;
 
@@ -397,10 +385,7 @@ RFQ.get = async function () {
 
     if (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to load RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to load RFQ basket:", error, "error");
 
         return [];
 
@@ -671,10 +656,7 @@ RFQ.setQuantity = async function (
 
     if (findError) {
 
-        console.error(
-            "[Souviks RFQ] Unable to find RFQ product:",
-            findError
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ product:", findError, "error");
 
         return false;
 
@@ -718,10 +700,7 @@ RFQ.setQuantity = async function (
 
         if (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to update RFQ quantity:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", error, "error");
 
             return false;
 
@@ -775,10 +754,7 @@ RFQ.setQuantity = async function (
 
         if (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to insert RFQ product:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to insert RFQ product:", error, "error");
 
             return false;
 
@@ -929,10 +905,7 @@ document.addEventListener(
 
             error => {
 
-                console.error(
-                    "[Souviks RFQ] Add-to-RFQ error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks RFQ] Add-to-RFQ error:", error, "error");
 
             }
 
@@ -1282,10 +1255,7 @@ RFQ.changeQty = async function (
 
     if (findError) {
 
-        console.error(
-            "[Souviks RFQ] Unable to find RFQ item:",
-            findError
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ item:", findError, "error");
 
         return;
 
@@ -1328,10 +1298,7 @@ RFQ.changeQty = async function (
 
     if (updateError) {
 
-        console.error(
-            "[Souviks RFQ] Unable to update RFQ quantity:",
-            updateError
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", updateError, "error");
 
         return;
 
@@ -1442,10 +1409,7 @@ RFQ.remove = async function (
 
     if (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to remove RFQ item:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to remove RFQ item:", error, "error");
 
         return;
 
@@ -1494,10 +1458,7 @@ RFQ.clear = async function () {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] Unable to clear guest RFQ basket:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unable to clear guest RFQ basket:", error, "error");
 
         }
 
@@ -1551,10 +1512,7 @@ RFQ.clear = async function () {
 
     if (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to clear RFQ basket:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to clear RFQ basket:", error, "error");
 
         return false;
 
@@ -1644,10 +1602,7 @@ RFQ.mergeGuestBasket = async function () {
 
             if (error) {
 
-                console.error(
-                    "[Souviks RFQ] Unable to check guest basket item:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks RFQ] Unable to check guest basket item:", error, "error");
 
                 continue;
 
@@ -1693,10 +1648,7 @@ RFQ.mergeGuestBasket = async function () {
 
                 if (updateError) {
 
-                    console.error(
-                        "[Souviks RFQ] Unable to merge guest RFQ item:",
-                        updateError
-                    );
+                    SouviksErrors?.log("[Souviks RFQ] Unable to merge guest RFQ item:", updateError, "error");
 
                 }
 
@@ -1737,10 +1689,7 @@ RFQ.mergeGuestBasket = async function () {
 
                 if (insertError) {
 
-                    console.error(
-                        "[Souviks RFQ] Unable to import guest RFQ item:",
-                        insertError
-                    );
+                    SouviksErrors?.log("[Souviks RFQ] Unable to import guest RFQ item:", insertError, "error");
 
                 }
 
@@ -1748,10 +1697,7 @@ RFQ.mergeGuestBasket = async function () {
 
         } catch (error) {
 
-            console.error(
-                "[Souviks RFQ] Unexpected guest RFQ merge error:",
-                error
-            );
+            SouviksErrors?.log("[Souviks RFQ] Unexpected guest RFQ merge error:", error, "error");
 
         }
 
@@ -1772,10 +1718,7 @@ RFQ.mergeGuestBasket = async function () {
 
     } catch (error) {
 
-        console.error(
-            "[Souviks RFQ] Unable to clear guest RFQ storage:",
-            error
-        );
+        SouviksErrors?.log("[Souviks RFQ] Unable to clear guest RFQ storage:", error, "error");
 
     }
 
@@ -2143,7 +2086,7 @@ RFQ.submitStandalone = async function (form) {
                 payload
             );
         } catch (error) {
-            console.error("[Souviks RFQ] Notification failed after RFQ creation:", error);
+            SouviksErrors?.log("[Souviks RFQ] Notification failed after RFQ creation:", error, "error");
             throw new Error(
                 rfqMessage.notificationFailed(reference)
             );
@@ -2220,7 +2163,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "success"
             );
         } catch (error) {
-            console.error("[Souviks RFQ] Submission failed:", error);
+            SouviksErrors?.log("[Souviks RFQ] Submission failed:", error, "error");
             RFQ.setSubmissionStatus(
                 status,
                 error?.message || "Unable to submit your RFQ. Please try again.",
