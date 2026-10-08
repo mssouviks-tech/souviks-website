@@ -1741,7 +1741,25 @@ document.addEventListener(
 
         if (!button || !navigation) return;
 
-        const setNavigationState = isOpen => {
+        let navigationHistoryPushed = false;
+        let pendingNavigationHref = "";
+
+        const focusableSelector =
+            'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+        const getFocusable = () =>
+            Array.from(navigation.querySelectorAll(focusableSelector))
+                .filter(element => {
+                    const style = window.getComputedStyle(element);
+                    return !element.hidden &&
+                        style.display !== "none" &&
+                        style.visibility !== "hidden";
+                });
+
+        const setNavigationState = (isOpen, {
+            restoreFocus = true,
+            fromHistory = false
+        } = {}) => {
             navigation.classList.toggle("active", isOpen);
             button.setAttribute("aria-expanded", String(isOpen));
             button.setAttribute(
@@ -1752,11 +1770,38 @@ document.addEventListener(
             );
             navigation.setAttribute("aria-hidden", String(!isOpen));
             document.body.classList.toggle("mobile-navigation-open", isOpen);
+
+            if (isOpen) {
+                if (!fromHistory && !navigationHistoryPushed) {
+                    history.pushState(
+                        { ...(history.state || {}), souviksMobileNavigation: true },
+                        "",
+                        window.location.href
+                    );
+                    navigationHistoryPushed = true;
+                }
+
+                window.setTimeout(() => {
+                    getFocusable()[0]?.focus();
+                }, 0);
+                return;
+            }
+
+            if (navigationHistoryPushed) {
+                navigationHistoryPushed = false;
+                if (!fromHistory) {
+                    history.back();
+                }
+            }
+
+            if (restoreFocus) {
+                button.focus();
+            }
         };
 
         button.dataset.openLabel = button.getAttribute("aria-label") || "Open navigation";
         button.dataset.closeLabel = "Close navigation";
-        setNavigationState(false);
+        setNavigationState(false, { restoreFocus: false, fromHistory: true });
 
         button.addEventListener("click", () => {
             setNavigationState(!navigation.classList.contains("active"));
@@ -1764,17 +1809,81 @@ document.addEventListener(
 
         closeButton?.addEventListener("click", () => {
             setNavigationState(false);
-            button.focus();
+        });
+
+        navigation.addEventListener("click", event => {
+            if (event.target === navigation) {
+                setNavigationState(false);
+            }
         });
 
         navigation.querySelectorAll(".navigation-menu a, .mobile-nav-auth a, .mobile-nav-auth button").forEach(control => {
-            control.addEventListener("click", () => setNavigationState(false));
+            control.addEventListener("click", event => {
+                const href = control instanceof HTMLAnchorElement
+                    ? control.href
+                    : "";
+
+                if (href && href !== window.location.href) {
+                    event.preventDefault();
+                    pendingNavigationHref = href;
+                    setNavigationState(false, { restoreFocus: false });
+                    return;
+                }
+
+                setNavigationState(false);
+            });
+        });
+
+        document.addEventListener("click", event => {
+            if (
+                navigation.classList.contains("active") &&
+                !navigation.contains(event.target) &&
+                event.target !== button &&
+                !button.contains(event.target)
+            ) {
+                setNavigationState(false);
+            }
         });
 
         document.addEventListener("keydown", event => {
-            if (event.key === "Escape" && navigation.classList.contains("active")) {
+            if (!navigation.classList.contains("active")) return;
+
+            if (event.key === "Escape") {
+                event.preventDefault();
                 setNavigationState(false);
-                button.focus();
+                return;
+            }
+
+            if (event.key !== "Tab") return;
+
+            const focusable = getFocusable();
+            if (!focusable.length) {
+                event.preventDefault();
+                closeButton?.focus();
+                return;
+            }
+
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
+
+        window.addEventListener("popstate", () => {
+            if (navigationHistoryPushed) {
+                navigationHistoryPushed = false;
+                setNavigationState(false, { restoreFocus: true, fromHistory: true });
+                if (pendingNavigationHref) {
+                    const href = pendingNavigationHref;
+                    pendingNavigationHref = "";
+                    window.location.assign(href);
+                }
             }
         });
 
