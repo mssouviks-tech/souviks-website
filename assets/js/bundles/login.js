@@ -423,10 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 --------------------------------------------------
                 */
 
-                console.log(
-                    "[Souviks Auth] Login successful:",
-                    data.user
-                );
+                
 
 
                 /*
