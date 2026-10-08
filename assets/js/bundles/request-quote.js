@@ -2056,71 +2056,35 @@ RFQ.submitStandalone = async function (form) {
     const customer = RFQ.collectCustomerData(form);
 
     if (user) {
-        // For authenticated submissions the Supabase auth identity is
-        // authoritative. Do not persist a customer-entered email as the
-        // account owner's email address.
-        customer.email = RFQ.normalizeText(user.email, 254).toLowerCase();
-    }
+        const { data: databaseResult, error: rfqError } =
+            await supabaseClient.rpc("submit_rfq", {
+                p_customer_name: customer.name,
+                p_customer_phone: customer.phone,
+                p_company: customer.company || null,
+                p_gst_number: customer.gst || null,
+                p_message: customer.message || null,
+                p_items: submissionItems.map(item => ({
+                    id: item.id,
+                    partNumber: item.partNumber,
+                    name: item.name,
+                    brand: item.brand,
+                    quantity: RFQ.normalizeQuantity(item.qty)
+                }))
+            });
 
-    if (customer.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email)) {
-        throw new Error("Please enter a valid email address.");
-    }
-
-    if (!customer.name || !customer.phone) {
-        throw new Error(rfqMessage.namePhone);
-    }
-
-    if (typeof emailjs === "undefined") {
-        throw new Error(rfqMessage.unavailable);
-    }
-
-    if (user) {
-        const { data: rfq, error: rfqError } = await supabaseClient
-            .from("rfqs")
-            .insert({
-                user_id: user.id,
-                customer_name: customer.name,
-                customer_email: customer.email || user.email || null,
-                customer_phone: customer.phone,
-                company: customer.company || null,
-                gst_number: customer.gst || null,
-                is_business: Boolean(customer.company || customer.gst),
-                message: customer.message || null
-            })
-            .select("id, rfq_number, user_id, customer_name, customer_email, customer_phone, company, gst_number, is_business, message, status, created_at")
-            .single();
-
-        if (rfqError || !rfq) {
+        if (rfqError || !databaseResult?.rfq_number) {
             throw rfqError || new Error("The RFQ could not be created.");
         }
 
-        const rows = submissionItems.map(item => ({
-            rfq_id: rfq.id,
-            product_id: String(item.id),
-            part_number: item.partNumber || null,
-            product_name: item.name || "",
-            brand: item.brand || null,
-            quantity: RFQ.normalizeQuantity(item.qty)
-        }));
-
-        const { error: itemsError } = await supabaseClient
-            .from("rfq_items")
-            .insert(rows);
-
-        const reference = RFQ.formatReference(rfq.rfq_number);
-
-        if (itemsError) {
-            throw new Error(
-                rfqMessage.createdItems(reference)
-            );
-        }
+        const reference =
+            RFQ.formatReference(databaseResult.rfq_number);
 
         const payload = {
             lead_id: reference,
             name: customer.name,
             company: customer.company,
             phone: customer.phone,
-            email: customer.email || user.email || "",
+            email: customer.email,
             gst: customer.gst,
             location: customer.location,
             message: customer.message,
@@ -2134,7 +2098,7 @@ RFQ.submitStandalone = async function (form) {
                 payload
             );
         } catch (error) {
-            SouviksErrors?.log("[Souviks RFQ] Notification failed after RFQ creation:", error, "error");
+            SouviksErrors?.log("[Souviks RFQ] Notification failed after atomic RFQ creation:", error, "error");
             throw new Error(
                 rfqMessage.notificationFailed(reference)
             );
