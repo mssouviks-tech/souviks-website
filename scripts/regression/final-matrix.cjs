@@ -25,7 +25,7 @@ function record(name, status, detail = "") {
     status,
     detail: String(detail || "").replace(/\s+/g, " ").trim().slice(0, 500),
   });
-  console.log(\`[\${status}] \${name}\${detail ? " — " + detail : ""}\`);
+  console.log(`[${status}] ${name}${detail ? " — " + detail : ""}`);
 }
 
 async function check(name, fn) {
@@ -71,7 +71,7 @@ async function assertNoHorizontalOverflow(page) {
 }
 
 function langPath(lang, suffix) {
-  return \`/\${lang}/\${suffix}\`;
+  return `/${lang}/${suffix}`;
 }
 
 async function main() {
@@ -85,14 +85,14 @@ async function main() {
       page.__view = view;
 
       const routes = [
-        ["Homepage", \`/\${lang}/\`],
+        ["Homepage", `/${lang}/`],
         ["Products listing", langPath(lang, "products")],
         ["Brand directory", langPath(lang, "brands")],
-        ["Brand detail", langPath(lang, \`brands/\${BRAND_SLUG}\`)],
+        ["Brand detail", langPath(lang, `brands/${BRAND_SLUG}`)],
         ["Category directory", langPath(lang, "categories")],
-        ["Category detail", langPath(lang, \`categories/\${CATEGORY_SLUG}\`)],
+        ["Category detail", langPath(lang, `categories/${CATEGORY_SLUG}`)],
         ["Vehicle directory", langPath(lang, "vehicles")],
-        ["Vehicle detail", langPath(lang, \`vehicles/\${VEHICLE_SLUG}\`)],
+        ["Vehicle detail", langPath(lang, `vehicles/${VEHICLE_SLUG}`)],
         ["Request a Part", langPath(lang, "request-part")],
         ["Contact", langPath(lang, "contact")],
         ["About", langPath(lang, "about")],
@@ -108,18 +108,18 @@ async function main() {
       ];
 
       for (const [label, route] of routes) {
-        await check(\`\${view}/\${lang}/\${label}\`, async () => {
+        await check(`${view}/${lang}/${label}`, async () => {
           const response = await goto(page, BASE + route);
           const status = response?.status();
-          if (!status || status >= 400) throw new Error(\`HTTP \${status || "unknown"}\`);
+          if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
           const htmlLang = await page.locator("html").getAttribute("lang");
-          if (htmlLang !== lang) throw new Error(\`html lang is \${htmlLang}\`);
+          if (htmlLang !== lang) throw new Error(`html lang is ${htmlLang}`);
           const main = page.locator("main").first();
           if (!(await main.count())) throw new Error("main landmark missing");
           const bodyText = await page.locator("body").innerText();
           if (!bodyText.trim()) throw new Error("empty body");
           await assertNoHorizontalOverflow(page);
-          return \`HTTP \${status}\`;
+          return `HTTP ${status}`;
         });
       }
 
@@ -132,11 +132,11 @@ async function main() {
     const context = await contextFor(view);
     const page = await context.newPage();
     page.__view = view;
-    await check(\`\${view}/en/root homepage canonical route\`, async () => {
+    await check(`${view}/en/root homepage canonical route`, async () => {
       const response = await goto(page, BASE + "/");
-      if ((response?.status() || 500) >= 400) throw new Error(\`HTTP \${response?.status()}\`);
+      if ((response?.status() || 500) >= 400) throw new Error(`HTTP ${response?.status()}`);
       const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
-      if (canonical !== BASE + "/") throw new Error(\`canonical \${canonical}\`);
+      if (canonical !== BASE + "/") throw new Error(`canonical ${canonical}`);
     });
     await context.close();
   }
@@ -147,10 +147,10 @@ async function main() {
       const context = await contextFor(view);
       const page = await context.newPage();
       page.__view = view;
-      await check(\`\${view}/global/\${resource}\`, async () => {
+      await check(`${view}/global/${resource}`, async () => {
         const response = await goto(page, BASE + resource);
         const status = response?.status();
-        if (!status || status >= 400) throw new Error(\`HTTP \${status || "unknown"}\`);
+        if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
         const text = await response.text();
         if (!text.trim()) throw new Error("empty response");
         if (resource === "/robots.txt" && !/Sitemap:/i.test(text)) {
@@ -159,7 +159,7 @@ async function main() {
         if (resource === "/sitemap.xml" && !/<sitemap|<urlset/i.test(text)) {
           throw new Error("not a sitemap XML document");
         }
-        return \`HTTP \${status}\`;
+        return `HTTP ${status}`;
       });
       await context.close();
     }
@@ -171,15 +171,15 @@ async function main() {
       const context = await contextFor(view);
       const page = await context.newPage();
       page.__view = view;
-      await check(\`\${view}/\${lang}/404 page\`, async () => {
+      await check(`${view}/${lang}/404 page`, async () => {
         const response = await goto(page, BASE + langPath(lang, "this-route-does-not-exist-regression-34"));
         const status = response?.status();
         const text = await page.locator("body").innerText();
         if (status !== 404 && !/404|not found|page.*found/i.test(text)) {
-          throw new Error(\`expected 404, got HTTP \${status}\`);
+          throw new Error(`expected 404, got HTTP ${status}`);
         }
         await assertNoHorizontalOverflow(page);
-        return \`HTTP \${status}\`;
+        return `HTTP ${status}`;
       });
       await context.close();
     }
@@ -193,33 +193,33 @@ async function main() {
       page.__view = view;
 
       // Product listing + filters + pagination + search + save gate + add to RFQ
-      await check(\`\${view}/\${lang}/product listing cards\`, async () => {
+      await check(`${view}/${lang}/product listing cards`, async () => {
         await goto(page, BASE + langPath(lang, "products"));
         const cards = page.locator("#product-grid .product-card");
         const count = await cards.count();
         if (count < 1) throw new Error("no product cards");
-        return \`\${count} cards\`;
+        return `${count} cards`;
       });
 
-      await check(\`\${view}/\${lang}/product filters\`, async () => {
+      await check(`${view}/${lang}/product filters`, async () => {
         for (const selector of ["#brandFilter", "#categoryFilter"]) {
           const select = page.locator(selector);
-          if (!(await select.count())) throw new Error(\`\${selector} missing\`);
+          if (!(await select.count())) throw new Error(`${selector} missing`);
           const options = await select.locator("option").count();
-          if (options < 2) throw new Error(\`\${selector} has <2 options\`);
+          if (options < 2) throw new Error(`${selector} has <2 options`);
           const value = await select.locator("option").nth(1).getAttribute("value");
-          if (!value) throw new Error(\`\${selector} first real option empty\`);
+          if (!value) throw new Error(`${selector} first real option empty`);
           await select.selectOption(value);
           await page.waitForTimeout(350);
           if ((await page.locator("#product-grid .product-card").count()) < 1) {
-            throw new Error(\`\${selector} produced no cards\`);
+            throw new Error(`${selector} produced no cards`);
           }
           await select.selectOption("");
           await page.waitForTimeout(250);
         }
       });
 
-      await check(\`\${view}/\${lang}/product pagination\`, async () => {
+      await check(`${view}/${lang}/product pagination`, async () => {
         const next = page.locator("#pagination .pagination-next");
         const status = page.locator("#pagination .pagination-status");
         if (!(await next.count()) || !(await status.count())) throw new Error("pagination controls missing");
@@ -230,10 +230,10 @@ async function main() {
         if (before === after) throw new Error("next page did not change");
         await page.locator("#pagination .pagination-prev").click();
         await page.waitForTimeout(250);
-        return \`\${before} -> \${after}\`;
+        return `${before} -> ${after}`;
       });
 
-      await check(\`\${view}/\${lang}/product search\`, async () => {
+      await check(`${view}/${lang}/product search`, async () => {
         const input = page.locator("#searchInput");
         await input.fill("69050050");
         await page.waitForTimeout(300);
@@ -246,7 +246,7 @@ async function main() {
         return "69050050 found";
       });
 
-      await check(\`\${view}/\${lang}/save product auth gate\`, async () => {
+      await check(`${view}/${lang}/save product auth gate`, async () => {
         const button = page.locator("[data-saved-product-id]").first();
         if (!(await button.count())) throw new Error("save product control missing");
         await button.click();
@@ -254,7 +254,7 @@ async function main() {
         const url = page.url();
         const modalVisible = await page.locator("#authModal").isVisible().catch(() => false);
         if (!modalVisible && !/\\/login(?:\\?|$)/.test(url)) {
-          throw new Error(\`anonymous save did not open auth gate: \${url}\`);
+          throw new Error(`anonymous save did not open auth gate: ${url}`);
         }
         return modalVisible ? "auth modal opened" : "login route opened";
       });
@@ -263,42 +263,42 @@ async function main() {
       await page.waitForTimeout(500);
       await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
 
-      await check(\`\${view}/\${lang}/add to RFQ\`, async () => {
+      await check(`${view}/${lang}/add to RFQ`, async () => {
         const button = page.locator(".add-to-cart").first();
         if (!(await button.count())) throw new Error("Add To RFQ control missing");
         await button.click();
         await page.waitForTimeout(400);
         const badge = await page.locator(".rfq-badge").first().innerText();
-        if (Number(badge) !== 1) throw new Error(\`RFQ badge is \${badge}\`);
+        if (Number(badge) !== 1) throw new Error(`RFQ badge is ${badge}`);
         return "badge=1";
       });
 
       // RFQ basket: item presence, quantity, removal, submission.
-      await check(\`\${view}/\${lang}/RFQ basket\`, async () => {
+      await check(`${view}/${lang}/RFQ basket`, async () => {
         await goto(page, BASE + langPath(lang, "request-quote"));
         const rows = page.locator("#rfq-items tr");
-        if ((await rows.count()) !== 1) throw new Error(\`expected 1 RFQ row, got \${await rows.count()}\`);
+        if ((await rows.count()) !== 1) throw new Error(`expected 1 RFQ row, got ${await rows.count()}`);
         const itemInputs = page.locator("#rfq-items .rfq-qty input[type=number]");
         if (!(await itemInputs.count())) throw new Error("RFQ quantity input missing");
       });
 
-      await check(\`\${view}/\${lang}/RFQ quantity changes\`, async () => {
+      await check(`${view}/${lang}/RFQ quantity changes`, async () => {
         const input = page.locator("#rfq-items .rfq-qty input[type=number]").first();
         await input.fill("3");
         await input.press("Tab");
         await page.waitForTimeout(300);
         const value = await input.inputValue();
-        if (value !== "3") throw new Error(\`quantity is \${value}\`);
+        if (value !== "3") throw new Error(`quantity is ${value}`);
         const stored = await page.evaluate(() => {
           const raw = localStorage.getItem("souviks_rfq_guest");
           const items = raw ? JSON.parse(raw) : [];
           return Number(items?.[0]?.qty || 0);
         });
-        if (stored !== 3) throw new Error(\`localStorage quantity is \${stored}\`);
+        if (stored !== 3) throw new Error(`localStorage quantity is ${stored}`);
         return "quantity=3";
       });
 
-      await check(\`\${view}/\${lang}/RFQ removal\`, async () => {
+      await check(`${view}/${lang}/RFQ removal`, async () => {
         const row = page.locator("#rfq-items tr").first();
         const remove = row.locator('button[aria-label*="Remove"], button').last();
         if (!(await remove.count())) throw new Error("RFQ remove control missing");
@@ -319,7 +319,7 @@ async function main() {
       await page.goto(BASE + langPath(lang, "request-quote"), { waitUntil: "domcontentloaded" });
       await page.waitForTimeout(500);
 
-      await check(\`\${view}/\${lang}/RFQ submission\`, async () => {
+      await check(`${view}/${lang}/RFQ submission`, async () => {
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
@@ -330,51 +330,51 @@ async function main() {
         const status = page.locator("#rfqFormStatus");
         const text = await status.innerText().catch(() => "");
         if (!/success|submitted|RFQ/i.test(text)) {
-          throw new Error(\`submission status: \${text || "missing"}\`);
+          throw new Error(`submission status: ${text || "missing"}`);
         }
         await page.unroute("**/api.emailjs.com/**");
         return "client submission path completed";
       });
 
       // PDP
-      await check(\`\${view}/\${lang}/product detail\`, async () => {
-        await goto(page, BASE + langPath(lang, \`products/\${PRODUCT_SLUG}\`));
+      await check(`${view}/${lang}/product detail`, async () => {
+        await goto(page, BASE + langPath(lang, `products/${PRODUCT_SLUG}`));
         if (!(await page.locator("#product-detail").count())) throw new Error("product detail root missing");
         if (!(await page.locator(".pdp-title").count())) throw new Error("PDP title missing");
       });
 
-      await check(\`\${view}/\${lang}/product gallery\`, async () => {
+      await check(`${view}/${lang}/product gallery`, async () => {
         const thumbs = page.locator(".pdp-thumbnails .pdp-thumb");
         const count = await thumbs.count();
-        if (count < 4) throw new Error(\`gallery has \${count} thumbnails\`);
+        if (count < 4) throw new Error(`gallery has ${count} thumbnails`);
         const main = page.locator("#pdpMainImage");
         const before = await main.getAttribute("src");
         await thumbs.nth(1).click();
         await page.waitForTimeout(250);
         const after = await main.getAttribute("src");
         if (before === after) throw new Error("main image did not change");
-        return \`4+ thumbnails; main image changed\`;
+        return `4+ thumbnails; main image changed`;
       });
 
-      await check(\`\${view}/\${lang}/related products\`, async () => {
+      await check(`${view}/${lang}/related products`, async () => {
         const count = await page.locator(".pdp-related-slider-main .product-card").count();
         if (count < 1) throw new Error("related products empty");
-        return \`\${count} related\`;
+        return `${count} related`;
       });
 
-      await check(\`\${view}/\${lang}/frequently used products\`, async () => {
+      await check(`${view}/${lang}/frequently used products`, async () => {
         const count = await page.locator(".pdp-frequent-slider .product-card").count();
         if (count < 1) throw new Error("frequently used products empty");
-        return \`\${count} frequently used\`;
+        return `${count} frequently used`;
       });
 
-      await check(\`\${view}/\${lang}/PDP quantity + Add to RFQ\`, async () => {
+      await check(`${view}/${lang}/PDP quantity + Add to RFQ`, async () => {
         await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
         const qty = page.locator("#pdpQty");
         await qty.fill("2");
         await page.locator(".pdp-qty-plus").click();
         const value = await qty.inputValue();
-        if (value !== "3") throw new Error(\`PDP qty is \${value}\`);
+        if (value !== "3") throw new Error(`PDP qty is ${value}`);
         await page.locator(".pdp-rfq-btn").click();
         await page.waitForTimeout(300);
         const stored = await page.evaluate(() => {
@@ -382,11 +382,11 @@ async function main() {
           const items = raw ? JSON.parse(raw) : [];
           return items?.[0]?.qty;
         });
-        if (Number(stored) !== 3) throw new Error(\`RFQ stored qty is \${stored}\`);
+        if (Number(stored) !== 3) throw new Error(`RFQ stored qty is ${stored}`);
       });
 
       // Forms
-      await check(\`\${view}/\${lang}/Request a Part form\`, async () => {
+      await check(`${view}/${lang}/Request a Part form`, async () => {
         await goto(page, BASE + langPath(lang, "request-part"));
         await page.locator("#requestPartForm").locator("#name").fill("Regression Test");
         await page.locator("#requestPartForm").locator("#phone").fill("9000000000");
@@ -400,7 +400,7 @@ async function main() {
         await page.unroute("**/api.emailjs.com/**");
       });
 
-      await check(\`\${view}/\${lang}/Contact form\`, async () => {
+      await check(`${view}/${lang}/Contact form`, async () => {
         await goto(page, BASE + langPath(lang, "contact"));
         const form = page.locator("form").first();
         if (!(await form.count())) throw new Error("contact form missing");
@@ -426,7 +426,7 @@ async function main() {
         ["Forgot Password form", "forgot-password", "form"],
         ["Reset Password form", "reset-password", "form"],
       ]) {
-        await check(\`\${view}/\${lang}/\${label}\`, async () => {
+        await check(`${view}/${lang}/${label}`, async () => {
           await goto(page, BASE + langPath(lang, route));
           const form = page.locator(formSelector).first();
           if (!(await form.count())) throw new Error("form missing");
@@ -445,9 +445,9 @@ async function main() {
         ["saved", "Saved"],
         ["vehicles", "Vehicle"],
       ]) {
-        await check(\`\${view}/\${lang}/account \${viewName} view\`, async () => {
-          await goto(page, BASE + langPath(lang, \`account?view=\${viewName}\`));
-          const matching = page.locator(\`[data-account-view="\${viewName}"]\`);
+        await check(`${view}/${lang}/account ${viewName} view`, async () => {
+          await goto(page, BASE + langPath(lang, `account?view=${viewName}`));
+          const matching = page.locator(`[data-account-view="${viewName}"]`);
           if (!(await matching.count())) throw new Error("account view marker missing");
           const text = await page.locator("main").innerText();
           if (!text.trim()) throw new Error("account view empty");
@@ -455,7 +455,7 @@ async function main() {
         });
       }
 
-      await check(\`\${view}/\${lang}/Sign Out anonymous state\`, async () => {
+      await check(`${view}/${lang}/Sign Out anonymous state`, async () => {
         const session = await page.evaluate(async () => {
           if (typeof supabaseClient === "undefined") return null;
           const result = await supabaseClient.auth.getUser();
@@ -483,7 +483,7 @@ async function main() {
   }, null, 2));
 
   const failed = results.filter(r => r.status === "FAIL");
-  console.log(\`SUMMARY: \${results.length} checks, \${results.length - failed.length} passed, \${failed.length} failed\`);
+  console.log(`SUMMARY: ${results.length} checks, ${results.length - failed.length} passed, ${failed.length} failed`);
   process.exitCode = failed.length ? 1 : 0;
 
   await browser.close();
