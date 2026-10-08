@@ -1,5 +1,48 @@
 /* Shared core is loaded by the HTML page before this bundle. */
 
+/**
+ * @typedef {Object} CatalogueProduct
+ * @property {string} id
+ * @property {string} slug
+ * @property {string} product_name
+ * @property {string} [name]
+ * @property {string} [part_number]
+ * @property {string} brand_id
+ * @property {string} brand_name
+ * @property {string} category_id
+ * @property {string} category_name
+ * @property {string} [subcategory_id]
+ * @property {string} [subcategory_name]
+ * @property {number|null} [mrp]
+ * @property {number|null} [selling_price]
+ * @property {string} [image_url]
+ * @property {string} [image]
+ * @property {string} [primary_image]
+ * @property {string[]} [gallery]
+ * @property {string[]} [vehicles]
+ * @property {string[]} [applications]
+ * @property {boolean} [featured]
+ * @property {boolean} [active]
+ * @property {string} [description]
+ */
+
+/**
+ * @typedef {Object} CatalogueFilterState
+ * @property {string} brand_id
+ * @property {string} category_id
+ * @property {string} subcategory_id
+ * @property {string} vehicles
+ */
+
+/**
+ * @typedef {Object} CatalogueQueryState
+ * @property {string} q
+ * @property {string} sort
+ * @property {number} page
+ * @property {number} pageSize
+ */
+
+
 /* ===== search-engine.js ===== */
 /*
 ==========================================================
