@@ -6,9 +6,13 @@ on:
       - main
     paths:
       - "scripts/catalogue/**"
+      - "scripts/audit/critical_build.py"
+      - "_redirects"
       - ".github/workflows/catalogue-architecture-check.yml"
   pull_request:
     paths:
+      - "_redirects"
+      - "scripts/audit/critical_build.py"
       - "assets/data/catalogue-index.json"
       - "assets/data/products.json"
       - "assets/data/search.json"
