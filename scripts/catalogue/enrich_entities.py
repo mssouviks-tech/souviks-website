@@ -385,7 +385,7 @@ def enrich_entity_pages(kind, data, catalogue):
                 logo = clean(item.get("logo"))
                 if logo:
                     page = re.sub(
-                        r'(<div class="brand-logo">\s*<img\s+src=")[^"]+(")',
+                        r'(<div class="brand-logo">.*?<img\s+src=")[^"]+"',
                         lambda m: m.group(1) + logo + m.group(2),
                         page,
                         count=1,
