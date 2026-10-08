@@ -5139,3 +5139,159 @@ body.souviks-image-viewer-open {
         display: none;
     }
 }
+
+
+/* ==========================================================
+   MOBILE TOOLBAR — ICON ONLY
+   Keep the header compact on phones. Text labels were causing
+   clipping/overlap around WhatsApp and Language controls.
+========================================================== */
+@media (max-width: 768px) {
+    .top-bar .container {
+        min-width: 0;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .top-bar-tools {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 0 0 auto;
+        gap: 6px;
+        margin-left: auto;
+    }
+
+    .top-bar-tools .top-email,
+    .top-bar-tools .top-phone,
+    .top-bar-tools .top-signin {
+        display: none !important;
+    }
+
+    .top-bar-tools .top-whatsapp,
+    .top-bar-tools .language-switcher,
+    .top-bar .mobile-menu-button {
+        width: 44px;
+        min-width: 44px;
+        max-width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+    }
+
+    .top-bar-tools .top-whatsapp {
+        padding: 0;
+        font-size: 0;
+        border-radius: 50%;
+        gap: 0;
+    }
+
+    .top-bar-tools .top-whatsapp .top-icon {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+    }
+
+    .language-button {
+        width: 44px;
+        min-width: 44px;
+        max-width: 44px;
+        height: 44px;
+        padding: 0;
+        justify-content: center;
+        gap: 0;
+        border-radius: 50%;
+    }
+
+    .language-button .language-text,
+    .language-button .language-arrow {
+        display: none !important;
+    }
+
+    .language-button .language-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.05rem;
+        line-height: 1;
+    }
+
+    .top-bar .mobile-menu-button {
+        margin: 0;
+    }
+}
+
+/* ==========================================================
+   FOOTER — UNIFORM MOBILE ALIGNMENT
+========================================================== */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 44px 0 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        align-items: start;
+    }
+
+    .footer-section {
+        width: 100%;
+        min-width: 0;
+        text-align: left !important;
+    }
+
+    .footer-logo {
+        display: inline-flex;
+        margin-bottom: 14px;
+    }
+
+    .footer-description {
+        max-width: 100%;
+        margin: 0 0 18px;
+    }
+
+    .footer-social {
+        justify-content: flex-start;
+    }
+
+    .footer-section h3 {
+        text-align: left;
+        margin-bottom: 14px;
+    }
+
+    .footer-section ul {
+        text-align: left;
+    }
+
+    .footer-contact {
+        align-items: flex-start;
+    }
+
+    .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 16px;
+        margin-top: 34px;
+        padding-top: 20px;
+    }
+
+    .footer-bottom-links {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 8px 12px;
+    }
+
+    .footer-bottom-links a {
+        white-space: normal;
+    }
+}
+
+/* ==========================================================
+   LOGIN PAGE — REMOVE REDUNDANT PAGE HEADING
+========================================================== */
+.page-login .page-header {
+    display: none;
+}
