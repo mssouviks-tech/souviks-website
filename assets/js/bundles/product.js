@@ -554,6 +554,39 @@ constructor() {
         });
     }
 
+    async hydrateStaticVehicleLinks(product) {
+        const cards = Array.from(
+            document.querySelectorAll("#product-detail .pdp-vehicle-card")
+        );
+        if (!cards.length) return;
+
+        try {
+            const vehicles = await API.vehicles();
+            if (!Array.isArray(vehicles)) return;
+
+            cards.forEach(card => {
+                const heading = card.querySelector(".pdp-vehicle-content h4");
+                if (!heading || heading.querySelector("a")) return;
+
+                const name = String(heading.textContent || "").trim();
+                if (!name) return;
+
+                const vehicle = vehicles.find(item => {
+                    const candidate = String(item?.model || item?.name || "").trim();
+                    return candidate && candidate.localeCompare(name, undefined, { sensitivity: "base" }) === 0;
+                });
+
+                if (!vehicle?.slug) return;
+
+                const safeName = Breadcrumb.escape(name);
+                const href = `/${LANG}/vehicles/${encodeURIComponent(String(vehicle.slug))}`;
+                heading.innerHTML = `<a href="${href}" aria-label="View ${safeName} vehicle page">${safeName}</a>`;
+            });
+        } catch (error) {
+            console.warn("[Souviks PDP] Vehicle link hydration unavailable:", error);
+        }
+    }
+
     async hydrateStaticRecommendations(product) {
         const frequentSlider = document.querySelector(".pdp-frequent-slider");
         const relatedSlider = document.querySelector(".pdp-related-slider-main");
@@ -1454,6 +1487,7 @@ async hydrateProductPage() {
             }
         }, 0);
 
+        setTimeout(() => this.hydrateStaticVehicleLinks(embeddedProduct), 0);
         setTimeout(() => this.hydrateStaticRecommendations(embeddedProduct), 0);
         setTimeout(()=>this.initReviews(embeddedProduct),0);
         return;
@@ -1547,7 +1581,11 @@ const vehiclesHtml =
 
                     <div class="pdp-vehicle-content">
 
-                        <h4>${vehicleName}</h4>
+                        <h4>${
+                            vehicle?.slug
+                                ? `<a href="/${LANG}/vehicles/${encodeURIComponent(String(vehicle.slug))}" aria-label="View ${Breadcrumb.escape(vehicleName)} vehicle page">${Breadcrumb.escape(vehicleName)}</a>`
+                                : Breadcrumb.escape(vehicleName)
+                        }</h4>
 
                     </div>
 
