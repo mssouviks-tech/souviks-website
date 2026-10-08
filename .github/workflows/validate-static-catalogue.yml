@@ -51,6 +51,8 @@ jobs:
 
       - name: Validate catalogue architecture contract
         run: python3 scripts/catalogue/validate.py
+      - name: Validate blocking production contract
+        run: python3 scripts/audit/critical_build.py
 
       - name: Validate structured data
         run: python3 scripts/audit/structured_data.py --check-images
