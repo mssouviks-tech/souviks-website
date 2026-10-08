@@ -41,6 +41,7 @@ LABELS = {
         "brands": "Brands", "common": "Common replacement areas", "manufacturer": "Manufacturer",
         "country": "Country", "website": "Manufacturer website", "guidance": "Part identification guidance",
         "guidance_text": "Use the part number, vehicle model and application details when requesting a part. If the number is unclear, send a photo and the vehicle details and Souviks can help identify the closest catalogue match.",
+        "vehicle_fitment_note": "For vehicle families or listings without a verified variant, year or powertrain in the catalogue, confirm the exact model, year and engine/fuel before ordering.",
         "faq": "Frequently asked questions",
         "intro_brand": "Souviks currently lists {count} active {name} products across {categories}. The catalogue links these products to the vehicle applications and replacement areas shown below.",
         "intro_vehicle": "Souviks currently lists {count} active spare parts for {name}. The catalogue coverage below shows the systems, brands and common replacement areas represented for this vehicle application.",
@@ -54,6 +55,7 @@ LABELS = {
         "common": "सामान्य रिप्लेसमेंट क्षेत्र", "manufacturer": "निर्माता", "country": "देश", "website": "निर्माता वेबसाइट",
         "guidance": "पार्ट पहचान सहायता",
         "guidance_text": "पार्ट नंबर, वाहन मॉडल और एप्लिकेशन की जानकारी दें। नंबर स्पष्ट न हो तो फोटो और वाहन विवरण भेजें; Souviks उपलब्ध कैटलॉग में सही मिलान खोजने में सहायता कर सकता है।",
+        "vehicle_fitment_note": "जिन वाहन परिवारों या लिस्टिंग में सत्यापित वैरिएंट, वर्ष या पावरट्रेन उपलब्ध नहीं है, उनके लिए ऑर्डर से पहले सटीक मॉडल, वर्ष और इंजन/ईंधन की पुष्टि करें।",
         "faq": "अक्सर पूछे जाने वाले प्रश्न",
         "intro_brand": "Souviks के कैटलॉग में अभी {name} के {count} सक्रिय उत्पाद हैं, जो {categories} श्रेणियों में आते हैं। नीचे दिए गए अनुप्रयोग और रिप्लेसमेंट क्षेत्र वास्तविक कैटलॉग मैपिंग पर आधारित हैं।",
         "intro_vehicle": "Souviks के कैटलॉग में {name} के लिए अभी {count} सक्रिय स्पेयर पार्ट्स सूचीबद्ध हैं। नीचे इस वाहन के लिए उपलब्ध सिस्टम, ब्रांड और सामान्य रिप्लेसमेंट क्षेत्रों की जानकारी दी गई है।",
@@ -67,6 +69,7 @@ LABELS = {
         "common": "সাধারণ রিপ্লেসমেন্ট এলাকা", "manufacturer": "প্রস্তুতকারক", "country": "দেশ", "website": "প্রস্তুতকারকের ওয়েবসাইট",
         "guidance": "পার্ট শনাক্তকরণ সহায়তা",
         "guidance_text": "পার্ট নম্বর, গাড়ির মডেল এবং অ্যাপ্লিকেশনের তথ্য দিন। নম্বর পরিষ্কার না হলে ছবি ও গাড়ির তথ্য পাঠান; Souviks ক্যাটালগে উপযুক্ত মিল খুঁজতে সাহায্য করতে পারে।",
+        "vehicle_fitment_note": "যেসব গাড়ির পরিবার বা লিস্টিংয়ে যাচাই করা ভ্যারিয়েন্ট, বছর বা পাওয়ারট্রেন দেওয়া নেই, অর্ডারের আগে সঠিক মডেল, বছর এবং ইঞ্জিন/জ্বালানি নিশ্চিত করুন।",
         "faq": "সাধারণ জিজ্ঞাসা",
         "intro_brand": "Souviks-এর ক্যাটালগে বর্তমানে {name}-এর {count}টি সক্রিয় পণ্য রয়েছে, যা {categories} বিভাগে বিস্তৃত। নিচের গাড়ি ও রিপ্লেসমেন্ট তথ্য বাস্তব ক্যাটালগ ম্যাপিং থেকে নেওয়া।",
         "intro_vehicle": "Souviks-এর ক্যাটালগে {name}-এর জন্য বর্তমানে {count}টি সক্রিয় স্পেয়ার পার্ট রয়েছে। নিচে এই গাড়ির জন্য তালিকাভুক্ত সিস্টেম, ব্র্যান্ড ও সাধারণ রিপ্লেসমেন্ট এলাকার তথ্য দেওয়া হয়েছে।",
@@ -103,6 +106,121 @@ def list_text(items, limit=7):
 
 def card(label, value):
     return f'<div class="entity-context-card"><span>{esc(label)}</span><strong>{esc(value)}</strong></div>'
+
+
+def first_image(product):
+    """Return the first catalogue gallery image path and its native dimensions."""
+    folder = clean(product.get("image_folder") or product.get("id"))
+    gallery = product.get("gallery") or []
+    dimensions = product.get("gallery_dimensions") or {}
+    filename = ""
+    if isinstance(gallery, list) and gallery:
+        first = gallery[0]
+        if isinstance(first, dict):
+            filename = clean(first.get("filename") or first.get("file") or first.get("name"))
+        else:
+            filename = clean(first)
+    if not filename:
+        raw = clean(product.get("image") or product.get("primary_image"))
+        filename = raw.rsplit("/", 1)[-1] if raw else ""
+    if not filename:
+        filename = "1.webp"
+    dim = dimensions.get(filename) if isinstance(dimensions, dict) else None
+    if not dim and filename.rsplit(".", 1)[0] in dimensions:
+        dim = dimensions.get(filename.rsplit(".", 1)[0])
+    if isinstance(dim, (list, tuple)) and len(dim) >= 2:
+        width, height = dim[0], dim[1]
+    else:
+        width = product.get("image_width") or 400
+        height = product.get("image_height") or 400
+    return f"/assets/images/products/{folder}/{filename}", str(width), str(height)
+
+def format_money(value):
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return ""
+    if abs(number - round(number)) < 0.00001:
+        return f"₹{int(round(number)):,}"
+    return f"₹{number:,.2f}".rstrip("0").rstrip(".")
+
+def product_card_html(product, lang):
+    labels = {
+        "en": {"part": "Part No.", "request": "Get current price", "add": "Add To RFQ"},
+        "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "add": "RFQ में जोड़ें"},
+        "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "add": "RFQ-তে যোগ করুন"},
+    }[lang]
+    slug = clean(product.get("slug"))
+    pid = clean(product.get("id"))
+    name = clean(product.get("product_name") or product.get("name"))
+    brand = clean(product.get("brand_name") or product.get("brand"))
+    part = clean(product.get("part_number") or product.get("partNumber"))
+    img, width, height = first_image(product)
+    price = format_money(product.get("selling_price"))
+    mrp = format_money(product.get("mrp"))
+    discount = ""
+    try:
+        if float(product.get("selling_price")) > 0 and float(product.get("mrp")) > float(product.get("selling_price")):
+            discount = str(round((float(product["mrp"]) - float(product["selling_price"])) / float(product["mrp"]) * 100))
+    except (TypeError, ValueError, ZeroDivisionError):
+        pass
+    price_html = (
+        f'<div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">{esc(price)}</span>'
+        f'<span class="product-price-mrp">MRP {esc(mrp)}</span><span class="product-price-discount">{esc(discount)}% OFF</span></div>'
+        if price and mrp and discount
+        else f'<div class="product-price product-price-current" aria-label="Price">{esc(price)}</div>' if price
+        else f'<div class="product-price product-price-on-request" aria-label="Price">{esc(labels["request"])}</div>'
+    )
+    part_html = f'<div class="product-part-number">Part No. <strong>{esc(part)}</strong></div>' if part else f'<div class="product-part-number product-part-number-empty">{esc(labels["part"])} on request</div>'
+    aria = esc(f"View {name}")
+    return (
+        f'<article class="product-card"><div class="product-image"><a href="/{lang}/products/{esc(slug)}" class="product-link" aria-label="{aria}">'
+        f'<img loading="lazy" class="product-image-file" src="{esc(img)}" alt="{esc(name)}" decoding="async" draggable="false" width="{esc(width)}" height="{esc(height)}"></a>'
+        f'<button type="button" class="product-save-button" data-saved-product-id="{esc(pid)}" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div>'
+        f'<div class="product-content"><div class="product-brand-label">{esc(brand)}</div>{part_html}<h3 class="product-title"><a href="/{lang}/products/{esc(slug)}">{esc(name)}</a></h3>'
+        f'{price_html}<button type="button" class="btn btn-primary add-to-cart" data-id="{esc(pid)}" data-part="{esc(part)}" data-name="{esc(name)}" data-brand="{esc(brand)}" aria-label="Add {aria} to RFQ">{labels["add"]}</button></div></article>'
+    )
+
+def entity_product_galleries(kind, item, products, lang):
+    product_groups = {}
+    for product in products:
+        if kind == "brand":
+            group_id = clean(product.get("category_id"))
+            group_name = clean(product.get("category_name") or product.get("category"))
+        elif kind == "category":
+            group_id = clean(product.get("subcategory_id"))
+            group_name = clean(product.get("subcategory_name") or product.get("subcategory"))
+        else:
+            group_id = clean(product.get("category_id"))
+            group_name = clean(product.get("category_name") or product.get("category"))
+        if not group_id:
+            continue
+        product_groups.setdefault((group_id, group_name), []).append(product)
+    labels = {"en": "View All", "hi": "सभी देखें", "bn": "সব দেখুন"}
+    sections = []
+    item_id = clean(item.get("id"))
+    for (group_id, group_name), group_products in sorted(product_groups.items(), key=lambda x: x[0][1].casefold()):
+        if not group_products:
+            continue
+        if kind == "brand":
+            query = f"brand_id={item_id}&category_id={group_id}"
+            prefix = "brand"
+        elif kind == "category":
+            query = f"category_id={item_id}&subcategory_id={group_id}"
+            prefix = "category"
+        else:
+            query = f"vehicles={item_id}&category_id={group_id}"
+            prefix = "vehicle"
+        cards = "".join(product_card_html(product, lang) for product in group_products)
+        section_id = f"{prefix}-{item_id}-{group_id}"
+        sections.append(
+            f'<section class="entity-product-gallery" id="{esc(section_id)}" aria-labelledby="{esc(section_id)}-title">'
+            f'<div class="entity-product-gallery__header"><div><h2 id="{esc(section_id)}-title">{esc(group_name)}</h2>'
+            f'<span class="entity-product-gallery__count">{len(group_products)} Products</span></div>'
+            f'<a class="entity-product-gallery__view-all" href="/{lang}/products?{query}">{labels[lang]}<span aria-hidden="true"> →</span></a></div>'
+            f'<div class="entity-product-gallery__viewport" tabindex="0" aria-label="{esc(group_name)} products"><div class="entity-product-gallery__track">{cards}</div></div></section>'
+        )
+    return "\n".join(sections)
 
 def context_section(kind, item, products, lang):
     L = LABELS[lang]
@@ -145,7 +263,7 @@ def context_section(kind, item, products, lang):
       <p>{esc(intro)}</p>
     </div>
     <div class="entity-context-grid">{"".join(rows)}</div>
-    <div class="entity-guidance"><h3>{esc(L["guidance"])}</h3><p>{esc(L["guidance_text"])}</p></div>
+    <div class="entity-guidance"><h3>{esc(L["guidance"])}</h3><p>{esc(L["guidance_text"])}</p>{"<p>" + esc(L["vehicle_fitment_note"]) + "</p>" if kind == "vehicle" else ""}</div>
     <div class="entity-faq"><h3>{esc(L["faq"])}</h3>{faq_html}</div>
   </div>
 </section>
@@ -251,6 +369,9 @@ def enrich_entity_pages(kind, data, catalogue):
             if not path.exists():
                 continue
             page = update_meta(path.read_text(encoding="utf-8"), clean(item.get("description")))
+            gallery_html = entity_product_galleries(kind, item, products, lang)
+            grid_pattern = r'(<div\s+id=["\']product-grid["\'][^>]*data-static-rendered=["\']true["\'][^>]*>)[\s\S]*?(\n\s*</div>\s*\n\s*</div>\s*\n\s*</section>)'
+            page = re.sub(grid_pattern, lambda m: m.group(1) + "\n\n" + gallery_html + m.group(2), page, count=1, flags=re.I)
             if kind == "vehicle" and len(products) <= 5:
                 robots_pattern = r'(<meta\s+name=["\']robots["\']\s+content=["\'])[^"\']*(["\'])'
                 page = re.sub(
