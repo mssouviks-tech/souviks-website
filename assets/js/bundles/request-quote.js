@@ -1,7 +1,7 @@
 /* Shared core is loaded by the HTML page before this bundle. */
 
 /* ===== rfq.js ===== */
-const LANG =
+const RFQ_LANG =
     (window.souviks?.currentLanguage || document.documentElement.lang || "en").trim().toLowerCase();
 
 const RFQ_TEXT = {
@@ -10,7 +10,7 @@ const RFQ_TEXT = {
     hi: { empty: "अभी तक कोई आइटम नहीं जोड़ा गया है।", decrease: "मात्रा कम करें", increase: "मात्रा बढ़ाएँ", remove: "हटाएँ" }
 };
 
-const rfqText = RFQ_TEXT[LANG] || RFQ_TEXT.en;
+const rfqText = RFQ_TEXT[RFQ_LANG] || RFQ_TEXT.en;
 
 /* ==========================================================
    SOUVIKS — RFQ
@@ -64,7 +64,7 @@ const RFQ_MESSAGE = {
     }
 };
 
-const rfqMessage = RFQ_MESSAGE[LANG] || RFQ_MESSAGE.en;
+const rfqMessage = RFQ_MESSAGE[RFQ_LANG] || RFQ_MESSAGE.en;
 
 window.RFQ = {
 
