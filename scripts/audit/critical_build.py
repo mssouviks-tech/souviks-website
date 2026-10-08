@@ -295,6 +295,25 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
         if path is None or not path.is_file():
             errors.append(f"Missing generated route: {route}")
 
+    # Top-level language pages must exist as a matched set.  The default
+    # root 404 page is intentionally outside this parity contract.
+    top_level = []
+    for language in LANGUAGES:
+        language_dir = ROOT / language
+        top_level.append({
+            p.name for p in language_dir.glob("*.html")
+            if p.name != "404.html"
+        })
+    if top_level:
+        baseline = top_level[0]
+        for language, names in zip(LANGUAGES, top_level):
+            missing = sorted(baseline - names)
+            extra = sorted(names - baseline)
+            if missing:
+                errors.append(f"{language}: missing top-level multilingual pages: {', '.join(missing[:30])}")
+            if extra:
+                errors.append(f"{language}: unexpected top-level multilingual pages: {', '.join(extra[:30])}")
+
     for language in LANGUAGES:
         for kind in ENTITY_KINDS.values():
             directory = ROOT / language / kind
@@ -391,6 +410,8 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
             errors.append(f"_redirects:{lineno}: redirect target contains .html: {destination}")
         if ":splat" not in destination and ":lang" not in destination and ":slug" not in destination:
             dest_path = urlsplit(destination).path or destination
+            if dest_path in expected_routes:
+                continue
             target = html_path_for_route(dest_path)
             if target is None or not target.is_file():
                 errors.append(
@@ -462,7 +483,12 @@ def validate_internal_links(errors: list[str]) -> None:
         if any(part in {".git", "node_modules"} for part in html_path.parts):
             continue
         raw = html_path.read_text(encoding="utf-8", errors="ignore")
-        for href in re.findall(r'\bhref\s*=\s*["\']([^"\']+)["\']', raw, flags=re.I):
+        link_values = re.findall(
+            r'\b(?:href|src|poster)\s*=\s*["\']([^"\']+)["\']',
+            raw,
+            flags=re.I,
+        )
+        for href in link_values:
             href = text(href)
             lower = href.lower()
             if not href or lower.startswith(SKIP_LINK_PREFIXES) or href.startswith("//"):
