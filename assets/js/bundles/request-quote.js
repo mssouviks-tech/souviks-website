@@ -1870,10 +1870,7 @@ document.addEventListener(
                 session
             ) => {
 
-                console.log(
-                    "[Souviks RFQ] Auth event:",
-                    event
-                );
+                
 
 
                 /*
