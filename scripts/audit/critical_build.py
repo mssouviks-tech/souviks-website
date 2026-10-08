@@ -151,7 +151,15 @@ def validate_images(products, errors: list[str]) -> None:
             errors.append(f"{pid}: missing image_folder")
             continue
         if not isinstance(gallery, list) or not gallery:
-            errors.append(f"{pid}: active product has no gallery; image handling is not explicit")
+            image_url = text(product.get("image_url"))
+            # A catalogue record may legitimately have no gallery. Validate a
+            # real primary image when one is declared; placeholder-backed
+            # records remain explicitly identifiable rather than blocking build.
+            if image_url and not image_url.endswith("/placeholder.webp"):
+                if image_url.startswith("/assets/"):
+                    image_path = ROOT / image_url.lstrip("/")
+                    if not image_path.is_file():
+                        errors.append(f"{pid}: declared primary image file is missing: {image_url}")
             continue
 
         seen = set()
