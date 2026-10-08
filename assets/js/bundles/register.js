@@ -423,10 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (error) {
 
-                    console.error(
-                        "[Souviks Auth] Registration failed:",
-                        error
-                    );
+                    SouviksErrors?.log("[Souviks Auth] Registration failed:", error, "error");
 
 
                     let message =
@@ -515,10 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } catch (error) {
 
-                console.error(
-                    "[Souviks Auth] Unexpected registration error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks Auth] Unexpected registration error:", error, "error");
 
 
                 showStatus(
