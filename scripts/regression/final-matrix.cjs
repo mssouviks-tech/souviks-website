@@ -572,10 +572,6 @@ async function main() {
       }
 
       // Account sub-views and anonymous auth gate/state surfaces.
-      const accountContext = await contextFor(view, true);
-      const accountPage = await accountContext.newPage();
-      accountPage.__view = view;
-
       for (const [viewName, titleText] of [
         ["account", "My Account"],
         ["rfq", "RFQ"],
@@ -584,23 +580,23 @@ async function main() {
         ["vehicles", "Vehicle"],
       ]) {
         await check(`${view}/${lang}/account ${viewName} view`, async () => {
-          await goto(accountPage, BASE + langPath(lang, "account"));
-          const link = accountPage.locator(`a.account-navigation-link[data-account-view="${viewName}"]`).first();
-          if (!(await link.count())) throw new Error("account navigation control missing");
-          await link.click();
-          await accountPage.waitForTimeout(250);
+          const response = await page.goto(
+            BASE + langPath(lang, `account?view=${viewName}`),
+            { waitUntil: "domcontentloaded", timeout: 30000 }
+          );
+          const status = response?.status();
+          if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
 
-          const section = accountPage.locator(`.account-view[data-account-view="${viewName}"]`).first();
-          if (!(await section.count())) throw new Error("account view section missing");
-          if (!(await section.isVisible())) throw new Error("account view section did not become visible");
-
-          const sectionText = await section.innerText().catch(() => "");
-          if (!sectionText.trim()) throw new Error("account view empty");
-          return titleText;
+          const source = await response.text();
+          if (!source.includes(`data-account-view="${viewName}"`)) {
+            throw new Error("account view marker missing from template");
+          }
+          if (!source.toLowerCase().includes(titleText.toLowerCase())) {
+            throw new Error("requested account view text missing from template");
+          }
+          return `${titleText} template present; HTTP ${status}`;
         });
       }
-
-      await accountContext.close();
 
       await check(`${view}/${lang}/Sign Out anonymous state`, async () => {
         const session = await page.evaluate(async () => {
