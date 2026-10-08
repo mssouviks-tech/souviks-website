@@ -11,6 +11,7 @@ import pathlib
 import runpy
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+# URL normalization keeps generated catalogue routes canonical.
 
 def reconcile_catalogue_projections():
     
@@ -28,6 +29,30 @@ def reconcile_catalogue_projections():
     
     def text(v):
         return str(v or "").strip()
+
+    def normalize_slug(value):
+        value = text(value).casefold()
+        value = re.sub(r"[^a-z0-9]+", "-", value)
+        return re.sub(r"-{2,}", "-", value).strip("-")
+    
+    # Public product URLs are lowercase ASCII slugs. Normalize the master before
+    # rebuilding projections/pages so one malformed source slug cannot produce
+    # duplicate URL variants or leave an orphaned generated page behind.
+    slug_seen = set()
+    for product in catalogue:
+        if not product.get("id"):
+            continue
+        current_slug = text(product.get("slug"))
+        normalized_slug = normalize_slug(current_slug)
+        if not normalized_slug:
+            continue
+        if normalized_slug in slug_seen and normalized_slug != current_slug:
+            # Do not silently collide two existing product routes.
+            raise SystemExit(f"Duplicate normalized product slug: {current_slug} -> {normalized_slug}")
+        slug_seen.add(normalized_slug)
+        if normalized_slug != current_slug:
+            product["slug"] = normalized_slug
+            product["catalogue_updated_at"] = text(product.get("catalogue_updated_at")) or ""
     
     def arr(v):
         if isinstance(v, list):
@@ -283,8 +308,14 @@ def reconcile_catalogue_projections():
             changed.add(str(SEARCH_PATH))
     
     by_id = {text(p.get("id")): p for p in active}
+    expected_slugs = {text(p.get("slug")) for p in active if text(p.get("slug"))}
     for lang in ("en", "hi", "bn"):
-        for path in (ROOT / lang / "products").glob("*.html"):
+        product_dir = ROOT / lang / "products"
+        for path in product_dir.glob("*.html"):
+            if path.stem not in expected_slugs:
+                path.unlink()
+                changed.add(str(path))
+                continue
             html = path.read_text(encoding="utf-8")
             original = html
             match = re.search(r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});', html, re.S)
@@ -468,6 +499,14 @@ def reconcile_catalogue_projections():
     else:
         print(f"Prepared {len(changed)} catalogue projection file changes.")
     
+    PRODUCTS_PATH.write_text(json.dumps(products, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    SEARCH_PATH.write_text(json.dumps(search, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Persist the normalized master before projections are written so all
+    # generated surfaces consume the exact same slug values.
+    CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Persist the normalized master before projections are written so all
+    # generated surfaces consume the exact same slug values.
+    CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     PRODUCTS_PATH.write_text(json.dumps(products, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     SEARCH_PATH.write_text(json.dumps(search, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if override_path.exists():
