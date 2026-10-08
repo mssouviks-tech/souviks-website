@@ -319,10 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (error) {
 
-                    console.error(
-                        "[Souviks Auth] Login failed:",
-                        error
-                    );
+                    SouviksErrors?.log("[Souviks Auth] Login failed:", error, "error");
 
 
                     const errorMessage =
@@ -452,10 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } catch (error) {
 
-                console.error(
-                    "[Souviks Auth] Unexpected login error:",
-                    error
-                );
+                SouviksErrors?.log("[Souviks Auth] Unexpected login error:", error, "error");
 
 
                 showStatus(
