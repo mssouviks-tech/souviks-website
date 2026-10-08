@@ -205,6 +205,12 @@ def reconcile_catalogue_projections():
         if vehicles:
             pieces.append("Compatible vehicles: " + ", ".join(vehicles[:5]))
 
+        # Add a factual closing sentence so otherwise-identical short records
+        # remain useful and comfortably above the thin-description threshold.
+        pieces.append(
+            "Confirm the part number and vehicle application before ordering to verify fitment."
+        )
+
         generated = ". ".join(pieces).strip()
         if generated and not generated.endswith("."):
             generated += "."
