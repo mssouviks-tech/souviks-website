@@ -97,5 +97,6 @@ jobs:
 
           npm run lint:js
           npm run check:js
+          npm run format:check
 
           echo "Catalogue release gate passed."
