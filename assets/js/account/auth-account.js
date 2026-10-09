@@ -37,17 +37,10 @@ document.addEventListener(
         ======================================================
         */
 
-        if (
-            typeof supabaseClient ===
-            "undefined"
-        ) {
-
-            console.error(
-                "[Souviks Account] Supabase client unavailable."
-            );
-
+        if (typeof supabaseClient === "undefined") {
+            console.error("[Souviks Account] Supabase client unavailable; redirecting to sign-in.");
+            redirectToLogin();
             return;
-
         }
 
 
@@ -94,22 +87,17 @@ async function initializeAccount() {
         ------------------------------------------------------
         */
 
-        const {
-            data,
-            error
-        } =
-            await supabaseClient.auth.getUser();
+        const { data, error } = await supabaseClient.auth.getUser();
 
-
+        // Fail closed when the session cannot be verified. Some Supabase
+        // auth failures say "No active session" rather than including "auth".
         if (error) {
-
-            throw error;
-
+            SouviksErrors?.log("[Souviks Account] Authentication check failed; redirecting to sign-in.", error, "warn");
+            redirectToLogin();
+            return;
         }
 
-
-        const user =
-            data?.user;
+        const user = data?.user;
 
 
         /*
@@ -251,13 +239,13 @@ async function initializeAccount() {
         ------------------------------------------------------
         */
 
+        const statusCode = Number(error?.status ?? error?.statusCode ?? 0);
+        const errorMessage = String(error?.message || "");
         if (
-            error?.message?.toLowerCase()
-                .includes("auth")
+            statusCode === 401 ||
+            /auth|session|unauthenticated|jwt|token.*expired/i.test(errorMessage)
         ) {
-
             redirectToLogin();
-
         }
 
     }
@@ -3357,36 +3345,22 @@ function getTranslation(
     fallback
 ) {
 
-    const html =
-        document.documentElement;
+    const html = document.documentElement;
+    const messages = document.getElementById("accountMessages");
+    const candidates = [key];
 
+    // Existing account messages use both account-prefixed keys and their
+    // shorter equivalents (for example data-name-required).
+    if (key.startsWith("account") && key.length > 7) {
+        candidates.push(key.charAt(7).toLowerCase() + key.slice(8));
+    }
 
-    /*
-    ------------------------------------------------------
-    The builder can expose translated values through
-    data attributes if present.
-    ------------------------------------------------------
-    */
+    for (const candidate of candidates) {
+        const value = messages?.dataset?.[candidate] || html.dataset?.[candidate];
+        if (value) return value;
+    }
 
-    const datasetKey =
-        key
-            .replace(
-                /[A-Z]/g,
-                letter =>
-                    `-${letter.toLowerCase()}`
-            );
-
-
-    const value =
-        html.dataset[
-            datasetKey
-        ];
-
-
-    return (
-        value ||
-        fallback
-    );
+    return fallback;
 
 }
 
