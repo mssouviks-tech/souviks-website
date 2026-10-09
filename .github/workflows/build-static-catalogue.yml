@@ -158,6 +158,11 @@ jobs:
             git reset --hard origin/main
             git clean -fd
 
+            # git clean removes ignored and untracked build artifacts. Reinstall
+            # tooling before rebuilding after a rejected push; never rely on the
+            # pre-reset node_modules directory.
+            npm install --no-package-lock --no-audit --no-fund
+
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
             python3 scripts/catalogue/enrich_entities.py
