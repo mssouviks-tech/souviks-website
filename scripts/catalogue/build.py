@@ -295,7 +295,7 @@ def reconcile_catalogue_projections():
         return False
 
     def image_sort_key(path):
-        match = re.match(r"^(\\d+)", path.stem)
+        match = re.match(r"^(\d+)", path.stem)
         extension_rank = {".webp": 0, ".jpg": 1, ".jpeg": 2, ".png": 3, ".gif": 4}
         if match:
             return (0, int(match.group(1)), extension_rank.get(path.suffix.casefold(), 9), path.name.casefold())
