@@ -1,11 +1,24 @@
 name: Final Regression Matrix
 
 on:
+  pull_request:
+    paths:
+      - 'assets/**'
+      - 'en/**'
+      - 'hi/**'
+      - 'bn/**'
+      - 'scripts/catalogue/**'
+      - 'scripts/regression/**'
+      - '.github/workflows/final-regression-matrix.yml'
   push:
     branches: [main]
     paths:
-      - 'scripts/regression/final-matrix.cjs'
-      - 'scripts/regression/static-server.cjs'
+      - 'assets/**'
+      - 'en/**'
+      - 'hi/**'
+      - 'bn/**'
+      - 'scripts/catalogue/**'
+      - 'scripts/regression/**'
       - '.github/workflows/final-regression-matrix.yml'
   workflow_dispatch:
 
@@ -13,7 +26,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: souviks-final-regression
+  group: souviks-final-regression-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -22,11 +35,22 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - name: Check out main
+      - name: Check out revision
         uses: actions/checkout@v4
         with:
-          ref: main
           fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Prepare generated catalogue candidate
+        run: |
+          python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/build.py
+          python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/sync_entity_sitemaps.py
 
       - name: Set up Node
         uses: actions/setup-node@v4
