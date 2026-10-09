@@ -502,7 +502,7 @@ async function main() {
       await page.waitForTimeout(350);
       if ((await grid.count()) < 1) throw new Error("whitespace-only search did not restore the catalogue");
 
-      const hostileQuery = 'no-match-probe <img src=x onerror=alert(1)> 💥';
+      const hostileQuery = 'zzzzregressionnomatch87654321 <img src=x onerror=alert(1)> 💥';
       await input.fill(hostileQuery);
       await page.waitForTimeout(350);
       if (!(await page.locator("#noResults").isVisible())) {
@@ -674,7 +674,7 @@ async function main() {
       page.__view = "desktop";
       const runtimeErrors = [];
       page.on("pageerror", error => runtimeErrors.push(error?.message || String(error)));
-      await goto(page, BASE + "/en/login");
+      await goto(page, BASE + "/en/login?auth=login");
       await page.route("**/auth/v1/token*", async route => {
         await route.fulfill({
           status: 503,
@@ -682,16 +682,16 @@ async function main() {
           body: JSON.stringify({ message: "Authentication service temporarily unavailable" })
         });
       });
-      await page.locator("#email").fill("regression@example.invalid");
-      await page.locator("#password").fill("not-a-real-password");
-      await page.locator('#loginForm button[type="submit"]').click();
+      await page.locator("#authModalLoginEmail").fill("regression@example.invalid");
+      await page.locator("#authModalLoginPassword").fill("not-a-real-password");
+      await page.locator('#authModalLoginForm button[type="submit"]').click();
       await page.waitForFunction(() => /authentication service is unavailable/i.test(
-        document.querySelector("#loginStatus")?.textContent || ""
+        document.querySelector("#authModalLoginStatus")?.textContent || ""
       ), null, { timeout: 8000 });
       const message = (await page.locator("#loginStatus").innerText()).trim();
       if (/invalid email or password/i.test(message)) throw new Error("service outage was reported as invalid credentials");
       if (runtimeErrors.length) throw new Error("uncaught browser error: " + runtimeErrors[0]);
-      if (await page.locator('#loginForm button[type="submit"]').isDisabled()) {
+      if (await page.locator('#authModalLoginForm button[type="submit"]').isDisabled()) {
         throw new Error("login submit button remained disabled after service failure");
       }
       return message;
@@ -705,16 +705,16 @@ async function main() {
     try {
       const page = await context.newPage();
       page.__view = "desktop";
-      await goto(page, BASE + "/en/login");
+      await goto(page, BASE + "/en/login?auth=login");
       await page.route("**/auth/v1/token*", async route => route.abort("failed"));
-      await page.locator("#email").fill("regression@example.invalid");
-      await page.locator("#password").fill("not-a-real-password");
-      await page.locator('#loginForm button[type="submit"]').click();
+      await page.locator("#authModalLoginEmail").fill("regression@example.invalid");
+      await page.locator("#authModalLoginPassword").fill("not-a-real-password");
+      await page.locator('#authModalLoginForm button[type="submit"]').click();
       await page.waitForFunction(() => /unable to connect to the authentication service/i.test(
-        document.querySelector("#loginStatus")?.textContent || ""
+        document.querySelector("#authModalLoginStatus")?.textContent || ""
       ), null, { timeout: 8000 });
       const message = (await page.locator("#loginStatus").innerText()).trim();
-      if (await page.locator('#loginForm button[type="submit"]').isDisabled()) {
+      if (await page.locator('#authModalLoginForm button[type="submit"]').isDisabled()) {
         throw new Error("login submit button remained disabled after network failure");
       }
       return message;
@@ -967,36 +967,36 @@ async function main() {
       });
 
       await check(`${view}/${lang}/entity gallery missing-image fallback loads`, async () => {
-        await goto(page, BASE + langPath(lang, "brands/bapi"));
-        const missingImages = page.locator('.entity-product-galleries img[data-image-state="missing"]');
-        const count = await missingImages.count();
-        if (count < 1) throw new Error("fixture no longer contains a missing-image product");
-        const image = missingImages.first();
-        await image.scrollIntoViewIfNeeded();
-        const state = await image.evaluate(async element => {
-          if (!element.complete) {
-            await new Promise(resolve => {
-              element.addEventListener("load", resolve, { once: true });
-              element.addEventListener("error", resolve, { once: true });
-              setTimeout(resolve, 4000);
-            });
-          }
-          return {
-            src: element.getAttribute("src") || "",
-            width: element.naturalWidth,
-            complete: element.complete
-          };
+        // Inject a deterministic image failure instead of depending on a live
+        // catalogue record remaining permanently without gallery imagery.
+        await page.route("**/assets/images/products/**", async route => {
+          await route.fulfill({ status: 404, contentType: "image/webp", body: "entity image failure fixture" });
         });
-        if (!state.src.endsWith("/assets/images/placeholder.webp")) {
-          throw new Error(`missing-image fallback URL was ${state.src}`);
+        await goto(page, BASE + langPath(lang, "brands/bapi"));
+        const images = page.locator(".entity-product-galleries .product-card img");
+        if ((await images.count()) < 1) throw new Error("entity product gallery contains no testable image");
+        const image = images.first();
+        await image.scrollIntoViewIfNeeded();
+        await page.waitForFunction(() => {
+          const element = document.querySelector(".entity-product-galleries .product-card img");
+          return element &&
+            (element.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
+            element.complete && element.naturalWidth > 0;
+        }, null, { timeout: 8000 });
+        const state = await image.evaluate(element => ({
+          src: element.getAttribute("src") || "",
+          width: element.naturalWidth,
+          complete: element.complete
+        }));
+        if (!state.src.endsWith("/assets/images/placeholder.webp") || !state.complete || state.width < 1) {
+          throw new Error(`entity image did not recover to a valid placeholder: ${state.src}`);
         }
-        if (!state.complete || state.width < 1) {
-          throw new Error(`fallback image failed to load: ${state.src}`);
-        }
-        return "explicit placeholder loaded; no broken product image URL";
+        return "forced image 404 recovered to the valid placeholder";
       });
 
       await check(`${view}/${lang}/PDP quantity + Add to RFQ`, async () => {
+        // The prior missing-image check navigates away to a brand page.
+        await goto(page, BASE + langPath(lang, `products/${PRODUCT_SLUG}`));
         await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
         const qty = page.locator("#pdpQty");
         await qty.fill("2");
