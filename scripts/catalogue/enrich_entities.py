@@ -209,6 +209,30 @@ def update_meta(page, description):
         page = re.sub(pattern, lambda m: m.group(1) + d + m.group(2), page, count=1, flags=re.I)
     return page
 
+def ensure_main_landmark(page):
+    """Ensure generated entity pages expose their central content as <main>."""
+    if re.search(r"<main\b", page, flags=re.I):
+        return page
+
+    header_end = re.search(r"</header\s*>", page, flags=re.I)
+    if not header_end:
+        raise ValueError("Cannot add main landmark: entity page has no closing header")
+
+    footer = re.search(r"<footer\b", page[header_end.end():], flags=re.I)
+    if not footer:
+        raise ValueError("Cannot add main landmark: entity page has no footer")
+
+    content_start = header_end.end()
+    content_end = content_start + footer.start()
+    return (
+        page[:content_start]
+        + "\n<main id=\"main-content\">\n"
+        + page[content_start:content_end]
+        + "\n</main>\n\n"
+        + page[content_end:]
+    )
+
+
 def enrich_entity_pages(kind, data, catalogue):
     for item in data:
         if item.get("active") is False:
@@ -348,6 +372,7 @@ def enrich_entity_pages(kind, data, catalogue):
                     page = page[:anchor_match.start()] + marker + "\n" + section + "\n" + page[anchor_match.start():]
                 else:
                     page = page.replace("</body>", marker + "\n" + section + "\n</body>", 1)
+            page = ensure_main_landmark(page)
             path.write_text(page, encoding="utf-8")
 
 def enrich_about():
