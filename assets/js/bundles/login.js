@@ -364,9 +364,18 @@ document.addEventListener("DOMContentLoaded", () => {
                             );
 
                     } else if (
-                        errorMessage.includes(
-                            "network"
-                        )
+                        Number(error?.status) >= 500 ||
+                        /service unavailable|temporarily unavailable|server error/.test(errorMessage)
+                    ) {
+
+                        message =
+                            getAuthMessage(
+                                "authenticationUnavailable",
+                                "Authentication service is unavailable. Please try again later."
+                            );
+
+                    } else if (
+                        /network|failed to fetch|fetch failed|load failed|timeout/.test(errorMessage)
                     ) {
 
                         message =
@@ -448,15 +457,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 SouviksErrors?.log("[Souviks Auth] Unexpected login error:", error, "error");
 
+                const errorMessage = String(error?.message || "").toLowerCase();
+                const networkFailure =
+                    /network|failed to fetch|fetch failed|load failed|timeout/.test(errorMessage);
 
                 showStatus(
                     getAuthMessage(
-                        "somethingWentWrong",
-                        "Something went wrong. Please try again."
+                        networkFailure ? "networkError" : "somethingWentWrong",
+                        networkFailure
+                            ? "Unable to connect to the authentication service. Please try again."
+                            : "Something went wrong. Please try again."
                     ),
                     "error"
                 );
-
 
                 setSubmitting(false);
 
