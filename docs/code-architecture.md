@@ -7,10 +7,12 @@
 | Catalogue product data | `assets/data/catalogue-index.json` | Canonical |
 | Product projection/search | `scripts/catalogue/build.py` | Generated deterministically |
 | Product entity pages | `scripts/catalogue/enrich_entities.py` | Generated deterministically |
-| Product gallery/static card rendering | `scripts/catalogue/enrich_entities.py` | Build-time |
-| Product filtering/runtime cards | `assets/js/bundles/products.js` | Runtime |
-| Product detail runtime | `assets/js/bundles/product.js` | Runtime |
+| Product gallery/static card rendering | `scripts/catalogue/product_card.py` | Build-time |
+| Product listing runtime | `assets/js/products/` | Ordered page modules |
+| Product detail runtime | `assets/js/product/` | Ordered page modules |
 | Shared site navigation/session utilities | `assets/js/site-core.js` | Shared runtime |
+| Account page runtime | `assets/js/account/` | Ordered page modules; consumes shared cores |
+| RFQ page runtime | `assets/js/request-quote/` | Ordered page modules; consumes shared cores |
 | Product schema/BreadcrumbList | `scripts/catalogue/build.py` | Build-time |
 | Structured-data validation | `scripts/audit/structured_data.py` | CI |
 | Critical production contract | `scripts/audit/critical_build.py` | Blocking CI |
@@ -30,7 +32,7 @@ Numeric utility pages such as `404.js` are permitted.
 
 ## Current intentional exceptions
 
-`assets/js/bundles/account.js` remains self-contained because its dependency order and account-page lifecycle differ from the normal page-bundle model. This is now tracked as refactor debt rather than treated as an undocumented special case.
+The top-level files under `assets/js/bundles/` remain as compatibility entrypoints for older direct references. They are not authoritative implementations and are kept below the enforced 4 KB stub limit.
 
 ## Refactor targets
 
@@ -44,7 +46,7 @@ The normal site runtime should own Supabase client/session state. Account-page c
 
 ### Product cards
 
-Runtime catalogue cards belong to `products.js`. Build-time entity cards belong to `enrich_entities.py`. The next refactor should introduce a shared card contract/template so the two implementations cannot drift in fields, URLs, pricing or accessibility attributes.
+Build-time product-card markup belongs to `scripts/catalogue/product_card.py`; runtime listing/PDP rendering belongs to the ordered modules under `assets/js/products/` and `assets/js/product/`. The data contract is shared through catalogue projections and blocking parity checks.
 
 ### Schema and breadcrumbs
 
@@ -52,7 +54,7 @@ Schema and breadcrumb generation belong to `scripts/catalogue/build.py`. Generat
 
 ### Utilities / services / controllers
 
-Large bundles remain the main maintainability debt. Refactors should separate data access, formatting utilities, UI components and page controllers without changing public URL or DOM contracts.
+Legacy compatibility bundles are no longer the source of page behaviour. The remaining maintainability debt is concentrated in individual page modules and shared service boundaries. Refactors should separate data access, formatting utilities, UI components and page controllers without changing public URL or DOM contracts.
 
 ## CI rules
 
@@ -68,4 +70,9 @@ The blocking build contract checks:
 - generated internal links
 - basic generated HTML structural integrity
 
-The JavaScript architecture checks enforce shared-core boundaries, script ordering and module naming. The code-quality report remains non-blocking until the large bundles are migrated incrementally.
+The JavaScript architecture checks enforce shared-core boundaries, script ordering and module naming. The code-quality report remains non-blocking for informational debt metrics; structural JS boundaries and syntax are blocking CI checks.
+
+
+## Release boundary
+
+The catalogue release gate builds and validates the candidate tree before the main-branch publisher commits generated projections. The JavaScript refactor workflow is read-only; `build-static-catalogue.yml` is the sole generated-catalogue publisher.

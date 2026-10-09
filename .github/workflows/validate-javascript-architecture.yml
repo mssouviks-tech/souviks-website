@@ -10,15 +10,6 @@ on:
       - "hi/*.html"
       - "scripts/js/**"
       - ".github/workflows/validate-javascript-architecture.yml"
-  pull_request:
-    paths:
-      - "assets/js/**"
-      - "en/*.html"
-      - "bn/*.html"
-      - "hi/*.html"
-      - "scripts/js/**"
-      - ".github/workflows/validate-javascript-architecture.yml"
-
 permissions:
   contents: read
 

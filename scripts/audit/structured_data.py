@@ -76,6 +76,37 @@ def expected_image(product: dict) -> str:
     return ""
 
 
+def validate_breadcrumb_node(path: Path, node: dict, canonical: str, errors: list[str]) -> None:
+    items = node.get("itemListElement")
+    if not isinstance(items, list) or not items:
+        errors.append(f"{path}: BreadcrumbList.itemListElement must be a non-empty array")
+        return
+
+    for expected_position, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            errors.append(f"{path}: BreadcrumbList item {expected_position} is not an object")
+            continue
+        if item.get("@type") != "ListItem":
+            errors.append(f"{path}: BreadcrumbList item {expected_position} is not a ListItem")
+        if item.get("position") != expected_position:
+            errors.append(
+                f"{path}: BreadcrumbList position {item.get('position')!r} != {expected_position}"
+            )
+        if not str(item.get("name") or "").strip():
+            errors.append(f"{path}: BreadcrumbList item {expected_position} has no name")
+        item_url = item.get("item")
+        if item_url is not None:
+            if not isinstance(item_url, str) or not item_url.startswith(BASE):
+                errors.append(
+                    f"{path}: BreadcrumbList item {expected_position} has invalid item URL: {item_url!r}"
+                )
+
+    last_item = items[-1] if isinstance(items[-1], dict) else {}
+    last_url = last_item.get("item")
+    if canonical and isinstance(last_url, str) and normalize_url(last_url) != normalize_url(canonical):
+        errors.append(f"{path}: BreadcrumbList last item {last_url!r} != canonical {canonical!r}")
+
+
 def walk_schema_images(value):
     found: list[str] = []
     if isinstance(value, dict):
@@ -109,6 +140,7 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
         expected_product = next((p for p in catalogue.values() if str(p.get("slug") or "").strip() == slug), None)
 
     product_nodes = []
+    breadcrumb_nodes = []
 
     for index, block in enumerate(blocks, start=1):
         try:
@@ -126,6 +158,8 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
             types = schema_types(node)
             if "Product" in types:
                 product_nodes.append(node)
+            if "BreadcrumbList" in types:
+                breadcrumb_nodes.append(node)
 
             if types.intersection({"Product", "WebPage", "CollectionPage", "AboutPage", "ContactPage", "SearchResultsPage"}):
                 for field in ("url", "mainEntityOfPage"):
@@ -141,19 +175,48 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
                     if canonical and normalize_url(id_base) != normalize_url(canonical):
                         errors.append(f"{path}: schema @id {node_id!r} does not resolve to canonical {canonical!r}")
 
-    if not expected_product or not product_nodes:
+    if not expected_product:
         return
+
+    if not breadcrumb_nodes:
+        errors.append(f"{path}: missing BreadcrumbList schema")
+    else:
+        for breadcrumb_node in breadcrumb_nodes:
+            validate_breadcrumb_node(path, breadcrumb_node, canonical, errors)
+
+    if len(product_nodes) != 1:
+        errors.append(f"{path}: expected exactly one Product schema node, found {len(product_nodes)}")
+        if not product_nodes:
+            return
 
     product_node = product_nodes[0]
     expected_name = str(expected_product.get("product_name") or expected_product.get("name") or "").strip()
     schema_name = str(product_node.get("name") or "").strip()
+    if not schema_name:
+        errors.append(f"{path}: Product.name is missing")
     if expected_name and schema_name != expected_name:
         errors.append(f"{path}: Product schema name {schema_name!r} != catalogue {expected_name!r}")
 
+    product_images = product_node.get("image")
+    if not product_images or (isinstance(product_images, list) and not any(str(item).strip() for item in product_images)):
+        errors.append(f"{path}: Product.image is missing or empty")
+
+    sku = str(product_node.get("sku") or "").strip()
+    if not sku:
+        errors.append(f"{path}: Product.sku is missing")
+
+    brand = product_node.get("brand")
+    if not isinstance(brand, dict) or not str(brand.get("name") or "").strip():
+        errors.append(f"{path}: Product.brand.name is missing")
+
     expected_offer_price = expected_product.get("selling_price")
     offers = product_node.get("offers")
+    if offers is None and expected_offer_price not in (None, ""):
+        errors.append(f"{path}: catalogue has selling_price but Product offers is missing")
     if isinstance(offers, dict):
         schema_price = offers.get("price")
+        if offers.get("priceCurrency") != "INR":
+            errors.append(f"{path}: Offer.priceCurrency must be INR")
         if expected_offer_price is None or str(expected_offer_price).strip() == "":
             errors.append(f"{path}: Offer exists without a current selling price in catalogue")
         else:

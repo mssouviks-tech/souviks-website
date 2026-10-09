@@ -54,21 +54,20 @@ def reconcile_catalogue_projections():
     for product in catalogue:
         if not product.get("id"):
             continue
-        current_slug = text(product.get("slug"))
+        original_slug = text(product.get("slug"))
         override_slug = slug_overrides.get(text(product.get("id")))
-        if override_slug:
-            current_slug = override_slug
-        normalized_slug = normalize_slug(current_slug)
+        normalized_slug = normalize_slug(override_slug or original_slug)
         if not normalized_slug:
-            continue
-        if normalized_slug in slug_seen and normalized_slug != current_slug:
-            # Do not silently collide two existing product routes.
-            raise SystemExit(f"Duplicate normalized product slug: {current_slug} -> {normalized_slug}")
+            raise SystemExit(f"{text(product.get('id'))}: product slug normalizes to an empty route")
+        if normalized_slug in slug_seen:
+            raise SystemExit(
+                f"Duplicate normalized product slug for {text(product.get('id'))}: {normalized_slug}"
+            )
         slug_seen.add(normalized_slug)
-        # An explicit slug override is authoritative and must be persisted into
-        # the catalogue master; otherwise later generators continue using the
-        # stale source slug and create links to a route that is not generated.
-        if normalized_slug != text(product.get("slug")):
+        # Compare against the persisted slug, not the override candidate. The
+        # old code selected override_slug as current_slug and consequently
+        # failed to write overrides when the candidate itself was normalized.
+        if normalized_slug != original_slug:
             product["slug"] = normalized_slug
             product["catalogue_updated_at"] = text(product.get("catalogue_updated_at")) or ""
     
@@ -560,6 +559,16 @@ def reconcile_catalogue_projections():
             html = re.sub(r'(<meta\s+property=["\']og:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(currentPage:\s*)["\'][^"\']*["\']', lambda m: m.group(1) + json.dumps(name), html, count=1)
+            # Keep every language alternate on the current canonical slug.
+            # This prevents stale mixed-case or pre-normalization product URLs
+            # from surviving in generated hreflang metadata.
+            for alternate_lang in ("en", "bn", "hi"):
+                alternate_url = f"https://www.souviks.co.in/{alternate_lang}/products/{slug}"
+                html = re.sub(
+                    rf'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']{alternate_lang}["\']\s+href=["\'])[^"\']*(["\'])',
+                    lambda m, target=alternate_url: m.group(1) + target + m.group(2),
+                    html, count=1, flags=re.I
+                )
             html = re.sub(
                 r'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']x-default["\']\s+href=["\'])[^"\']*(["\'])',
                 lambda m: m.group(1) + f"https://www.souviks.co.in/en/products/{slug}" + m.group(2),
@@ -1159,6 +1168,42 @@ def sync_product_seo_and_schema():
             for start, end, replacement in reversed(repaired_blocks):
                 html = html[:start] + replacement + html[end:]
     
+            # Repair the final breadcrumb item when a legacy PDP JSON-LD
+            # block already exists, then fall back to creating a new list.
+            breadcrumb_repaired = []
+            for match in re.finditer(
+                r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+                html, flags=re.I | re.S
+            ):
+                block = match.group(1)
+                try:
+                    obj = json.loads(block.strip())
+                except json.JSONDecodeError:
+                    continue
+                graph = obj.get("@graph") if isinstance(obj, dict) else None
+                nodes = graph if isinstance(graph, list) else [obj]
+                updated = False
+                for node in nodes:
+                    if not isinstance(node, dict) or node.get("@type") != "BreadcrumbList":
+                        continue
+                    items = node.get("itemListElement")
+                    if isinstance(items, list) and items and isinstance(items[-1], dict):
+                        if items[-1].get("item") != url:
+                            items[-1]["item"] = url
+                            updated = True
+                if updated:
+                    breadcrumb_repaired.append(
+                        (
+                            match.start(),
+                            match.end(),
+                            '<script type="application/ld+json">\n'
+                            + json.dumps(obj, ensure_ascii=False, indent=2)
+                            + '\\n</script>'
+                        )
+                    )
+            for start, end, replacement in reversed(breadcrumb_repaired):
+                html = html[:start] + replacement + html[end:]
+
             # Ensure every product PDP has a valid BreadcrumbList.
             jsonld_blocks_after = re.findall(
                 r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',

@@ -1,70 +1,50 @@
 name: Refactor Static JavaScript
 
 on:
-  push:
-    branches: [main]
+  pull_request:
     paths:
       - 'scripts/js/refactor.py'
-      - 'assets/js/bundles/**'
-      - 'assets/css/bundles/**'
+      - 'assets/js/**'
+      - 'assets/css/**'
+      - 'en/*.html'
+      - 'bn/*.html'
+      - 'hi/*.html'
       - '.github/workflows/refactor-static-javascript.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: souviks-main-publisher
-  cancel-in-progress: false
+  group: souviks-static-js-validate
+  cancel-in-progress: true
 
 jobs:
   refactor:
-    if: ${{ github.actor != 'github-actions[bot]' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
+      - name: Checkout candidate
         uses: actions/checkout@v4
         with:
-          ref: main
           fetch-depth: 1
 
-      - name: Refactor, validate and publish
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install JavaScript build tools
+        run: npm install --no-package-lock --no-audit --no-fund
+
+      - name: Refactor and validate candidate
         shell: bash
         run: |
           set -euo pipefail
 
-          for attempt in 1 2 3 4 5 6 7 8; do
-            echo "Refactor/publish attempt ${attempt}"
+          python3 scripts/js/refactor.py
+          python3 scripts/js/validate.py
+          npm run lint:js
+          npm run check:js
 
-            git fetch origin main
-            git reset --hard origin/main
-            git clean -fd
-
-            python3 scripts/js/refactor.py
-            python3 scripts/js/validate.py
-
-            node --check assets/js/site-core.js
-            for file in assets/js/bundles/*.js; do
-              node --check "$file"
-            done
-
-            git add -A
-
-            if git diff --cached --quiet; then
-              echo "No JavaScript architecture changes required."
-              exit 0
-            fi
-
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "Refactor shared JavaScript runtime"
-
-            if git push origin HEAD:main; then
-              exit 0
-            fi
-
-            echo "Remote main advanced; retrying the refactor from latest main."
-          done
-
-          echo "Unable to publish the JavaScript refactor after 8 attempts."
-          exit 1
+          echo "JavaScript architecture candidate validated. Publishing is owned by Build Static Catalogue."

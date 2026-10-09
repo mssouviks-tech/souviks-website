@@ -45,6 +45,15 @@ def main() -> int:
         key=lambda item: item[1],
         reverse=True,
     )
+    legacy_bundle_sizes = sorted(
+        (
+            (p.relative_to(ROOT).as_posix(), p.stat().st_size)
+            for p in files(BUNDLES, "*.js")
+            if p.stat().st_size >= 25_000
+        ),
+        key=lambda item: item[1],
+        reverse=True,
+    )
 
     duplicate_shared_markers = occurrences(
         r"/\* ===== (?:utils\.js|auth/supabase\.js|main\.js|image-protection\.js) ===== \*/",
@@ -60,15 +69,14 @@ def main() -> int:
         r"\b(?:function\s+card|card\s*\([^\)]*\)\s*\{|product_card_html\s*\()",
         js_files + [ROOT / "scripts" / "catalogue" / "enrich_entities.py"],
     )
-
-    schema_owners = occurrences(
-        r"(?:Product|BreadcrumbList|application/ld\+json)",
-        [
-            p for p in js_files + html_files
-            if p.name in {"build.py", "structured_data.py", "products.js", "product.js"}
-            or p.parent.name in {"scripts", "bundles"}
-        ],
-    )
+    runtime_card_sources = [
+        path for path in (
+            ROOT / "assets" / "js" / "components" / "product-card.js",
+            ROOT / "assets" / "js" / "products" / "products.js",
+            ROOT / "assets" / "js" / "product" / "products.js",
+        )
+        if path.is_file() and "return ProductCard.render" in path.read_text(encoding="utf-8", errors="ignore")
+    ]
 
     nav_markup = occurrences(
         r'id=["\']mainNavigation["\']',
@@ -98,6 +106,13 @@ def main() -> int:
     if not large_js:
         print("  none")
 
+    print("\nLegacy compatibility bundles still over 25 KB:")
+    if legacy_bundle_sizes:
+        for path, size in legacy_bundle_sizes:
+            print(f"  {path}: {size:,} bytes")
+    else:
+        print("  none")
+
     print("\nShared-runtime duplication markers:")
     if duplicate_shared_markers:
         for path, count in duplicate_shared_markers:
@@ -124,11 +139,19 @@ def main() -> int:
 
     print("\nRefactor ownership targets:")
     print("  Shared navigation/session runtime: assets/js/site-core.js")
-    print("  Product catalogue runtime: assets/js/bundles/products.js")
-    print("  PDP runtime: assets/js/bundles/product.js")
+    print("  Catalogue shared runtime: assets/js/catalogue-core.js")
+    print("  Primary navigation markup/source: scripts/catalogue/navigation.py")
+    print("  Primary navigation synchronization: scripts/catalogue/sync_navigation.py")
+    print("  Product-card markup/source: scripts/catalogue/product_card.py")
+    print("  Product-card synchronization: scripts/catalogue/sync_product_cards.py")
+    print("  Product listing runtime modules: assets/js/products/")
+    print("  PDP runtime modules: assets/js/product/")
+    print("  Account runtime modules: assets/js/account/")
     print("  Static catalogue/schema generation: scripts/catalogue/build.py")
-    print("  Entity/static card generation: scripts/catalogue/enrich_entities.py")
-    print("  Remaining debt: account.js isolation, duplicated HTML navigation markup, and large page bundles.")
+    print("  Entity page generation: scripts/catalogue/enrich_entities.py")
+    print("  Remaining debt: utility/component/service separation, full JS dependency packaging, "
+          "TypeScript/JSDoc strengthening, and automated lint/formatting.")
+
 
     return 0
 
