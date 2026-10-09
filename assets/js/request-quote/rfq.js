@@ -34,10 +34,10 @@ const RFQ_MESSAGE = {
         unavailable: "Notification service is unavailable. Please try again later.",
         createdItems: ref => `Your RFQ was created as ${ref}, but its items could not be recorded. Please contact Souviks with this reference.`,
         notificationFailed: ref => `Your RFQ was recorded successfully as ${ref}, but the notification could not be sent. Please contact Souviks with this reference.`,
-        submitting: rfqMessage.submitting,
+        submitting: "Submitting your RFQ…",
         success: ref => `RFQ submitted successfully. Reference: ${ref}`,
-        failed: rfqMessage.failed,
-        whatsappEmpty: rfqMessage.whatsappEmpty
+        failed: "Unable to submit your RFQ. Please try again.",
+        whatsappEmpty: "Your RFQ basket is empty. Add at least one product before opening WhatsApp."
     },
     bn: {
         emptySubmit: "আপনার RFQ ঝুড়ি খালি। জমা দেওয়ার আগে অন্তত একটি পণ্য যোগ করুন।",
