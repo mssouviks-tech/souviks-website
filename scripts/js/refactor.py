@@ -22,7 +22,7 @@ KNOWN_BUNDLES = {
 COMMON_END = "/* ===== main.js ===== */"
 COMMON_END_LABEL = "/* ===== image-protection.js ===== */"
 READY = "window.SOUVIKS_SITE_CORE_READY = true;"
-READY_RE = re.compile(r"window\\.SOUVIKS_SITE_CORE_READY\\s*=\\s*(?:true|!0)\\s*;?")
+READY_RE = re.compile(r"window\.SOUVIKS_SITE_CORE_READY\s*=\s*(?:true|!0)\s*;?")
 SHARED_CORE_PREFIX = "/* Shared core is loaded by the HTML page before this bundle. */"
 
 CATALOGUE_SHARED_MARKERS = {
