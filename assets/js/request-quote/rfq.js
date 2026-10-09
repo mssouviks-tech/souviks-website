@@ -38,7 +38,7 @@ const RFQ_MESSAGE = {
         success: ref => `RFQ submitted successfully. Reference: ${ref}`,
         failed: "Your RFQ could not be submitted. Please try again.",
         whatsappEmpty: "Your RFQ basket is empty. Add at least one product first.",
-        basketClearFailed: "Your RFQ was submitted, but the basket could not be cleared from this browser. Check the reference before submitting again."
+        basketClearFailed: "Your RFQ was submitted, but the basket could not be cleared. Check the reference before submitting again."
     },
     bn: {
         emptySubmit: "আপনার RFQ ঝুড়ি খালি। জমা দেওয়ার আগে অন্তত একটি পণ্য যোগ করুন।",
@@ -50,7 +50,7 @@ const RFQ_MESSAGE = {
         success: ref => `RFQ সফলভাবে জমা হয়েছে। রেফারেন্স: ${ref}`,
         failed: "আপনার RFQ জমা দেওয়া যায়নি। আবার চেষ্টা করুন।",
         whatsappEmpty: "আপনার RFQ ঝুড়ি খালি। আগে অন্তত একটি পণ্য যোগ করুন।",
-        basketClearFailed: "আপনার RFQ জমা হয়েছে, কিন্তু ব্রাউজার থেকে ঝুড়ি খালি করা যায়নি। আবার জমা দেওয়ার আগে রেফারেন্সটি যাচাই করুন."
+        basketClearFailed: "আপনার RFQ জমা হয়েছে, কিন্তু ঝুড়ি খালি করা যায়নি। আবার জমা দেওয়ার আগে রেফারেন্সটি যাচাই করুন."
     },
     hi: {
         emptySubmit: "आपका RFQ बास्केट खाली है। सबमिट करने से पहले कम से कम एक उत्पाद जोड़ें।",
@@ -62,7 +62,7 @@ const RFQ_MESSAGE = {
         success: ref => `RFQ सफलतापूर्वक सबमिट हो गया। संदर्भ: ${ref}`,
         failed: "आपका RFQ सबमिट नहीं किया जा सका। कृपया फिर प्रयास करें।",
         whatsappEmpty: "आपका RFQ बास्केट खाली है। पहले कम से कम एक उत्पाद जोड़ें।",
-        basketClearFailed: "आपका RFQ जमा हो गया, लेकिन ब्राउज़र से बास्केट खाली नहीं हो सका। दोबारा जमा करने से पहले संदर्भ जाँच लें."
+        basketClearFailed: "आपका RFQ जमा हो गया, लेकिन बास्केट खाली नहीं हो सका। दोबारा जमा करने से पहले संदर्भ जाँच लें."
     }
 };
 
