@@ -16,6 +16,8 @@
 | Critical production contract | `scripts/audit/critical_build.py` | Blocking CI |
 | Entity sitemap generation | `scripts/catalogue/sync_entity_sitemaps.py` | Build-time |
 | JavaScript architecture validation | `scripts/js/validate.py` | CI |
+| Browser regression matrix | `scripts/regression/final-matrix.cjs` | Blocking PR/main CI |
+| Production edge smoke test | `scripts/audit/production_smoke.py` | Main/manual CI |
 
 ## Naming convention
 
@@ -30,17 +32,17 @@ Numeric utility pages such as `404.js` are permitted.
 
 ## Current intentional exceptions
 
-`assets/js/bundles/account.js` remains self-contained because its dependency order and account-page lifecycle differ from the normal page-bundle model. This is now tracked as refactor debt rather than treated as an undocumented special case.
+There is no longer an account-bundle exception. `account.js` consumes the shared `site-core.js` runtime, while retaining only account-specific modules and page lifecycle code.
 
 ## Refactor targets
 
 ### Shared navigation
 
-The runtime navigation logic already belongs to `site-core.js`. The remaining duplication is the navigation HTML present in every language/page file. The target architecture is a single build-time navigation partial rendered into each page, while keeping the resulting HTML crawlable and language-specific.
+The runtime navigation logic belongs to `site-core.js`. The remaining duplication is the navigation HTML present in every language/page file. The target architecture is a single build-time navigation partial rendered into each page, while keeping the resulting HTML crawlable and language-specific.
 
 ### Authentication/session
 
-The normal site runtime should own Supabase client/session state. Account-page code should consume that shared session layer rather than initialize its own client. This removes the remaining duplicated authentication boundary.
+The normal site runtime owns Supabase client/session state. Account-page code consumes that shared session layer rather than initialize a second client. RFQ basket ownership and authenticated submission remain enforced by Supabase RLS/RPC on the database side.
 
 ### Product cards
 
@@ -67,5 +69,9 @@ The blocking build contract checks:
 - robots/sitemap consistency
 - generated internal links
 - basic generated HTML structural integrity
+- RFQ security boundary and database migration shape
+- final multilingual/static regression
 
-The JavaScript architecture checks enforce shared-core boundaries, script ordering and module naming. The code-quality report remains non-blocking until the large bundles are migrated incrementally.
+The JavaScript architecture checks enforce shared-core boundaries, script ordering and module naming. The browser regression workflow now runs against pull requests as well as main, so route, form, catalogue and mobile interaction regressions are caught before merge.
+
+The production edge smoke workflow verifies the deployed public HTTP contract on main/manual runs, including security headers, redirects, robots, sitemap XML and 404 behavior. Cloudflare dashboard WAF/bot settings and live authenticated Supabase RLS behavior remain external controls and are not represented as closed by source-only checks.
