@@ -6,6 +6,10 @@ on:
       - main
     paths:
       - "scripts/catalogue/**"
+      - "scripts/audit/critical_build.py"
+      - "scripts/audit/final_regression.py"
+      - "supabase/migrations/**"
+      - "_redirects"
       - ".github/workflows/catalogue-architecture-check.yml"
   pull_request:
     paths:
@@ -31,6 +35,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+
+      - name: Compile catalogue and audit scripts
+        run: |
+          python3 -m py_compile \
+            scripts/catalogue/build.py \
+            scripts/catalogue/enrich_entities.py \
+            scripts/catalogue/sync_entity_sitemaps.py \
+            scripts/catalogue/validate.py \
+            scripts/audit/critical_build.py \
+            scripts/audit/structured_data.py \
+            scripts/audit/final_regression.py
+
+
+      - name: Build catalogue candidate from source of truth
+        run: |
+          python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/build.py
+          python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/sync_entity_sitemaps.py
 
       - name: Validate static catalogue architecture
         run: python3 scripts/catalogue/validate.py
