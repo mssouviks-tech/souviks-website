@@ -55,6 +55,7 @@ ACCOUNT_MODULES = (
 PAGE_MODULES = {
     "account.js": tuple(f"assets/js/account/{module}" for module in ACCOUNT_MODULES),
     "products.js": (
+        "assets/js/account/rfq.js",
         "assets/js/components/product-card.js",
         "assets/js/products/search-engine.js",
         "assets/js/products/voice-search.js",
@@ -66,6 +67,7 @@ PAGE_MODULES = {
         "assets/js/products/souviks-refresh-static-product-card-images-from-canonical-catalogue.js",
     ),
     "product.js": (
+        "assets/js/account/rfq.js",
         "assets/js/components/product-card.js",
         "assets/js/product/products.js",
         "assets/js/product/product-page.js",
@@ -188,6 +190,19 @@ def versioned_asset_url(relative_path: str) -> str:
     return f"/{relative_path}?v={asset_version(path)}"
 
 
+def expected_page_bundle(html_path: Path, language: str) -> str | None:
+    """Return the direct-module entrypoint that applies to a generated page."""
+    if html_path.name == "account.html":
+        return "account.js"
+    if html_path.name == "products.html" and html_path.parent.name == language:
+        return "products.js"
+    if html_path.name == "request-quote.html":
+        return "request-quote.js"
+    if html_path.parent.name == "products" and html_path.parent.parent.name == language:
+        return "product.js"
+    return None
+
+
 def migrate_html() -> int:
     changed = 0
     bundle_pattern = re.compile(
@@ -282,6 +297,47 @@ def migrate_html() -> int:
             )
 
         new_content = bundle_pattern.sub(replace_bundle, new_content)
+
+        # Reconcile existing split-module pages as well as legacy bundle tags.
+        # This ensures every page gets its declared modules in the validated order.
+        language = next((part for part in path.parts if part in LANGUAGES), None)
+        entrypoint = expected_page_bundle(path, language) if language else None
+        if entrypoint:
+            module_paths = PAGE_MODULES[entrypoint]
+            all_page_modules = {
+                "/" + module_path.lstrip("/")
+                for modules in PAGE_MODULES.values()
+                for module_path in modules
+            }
+            page_module_pattern = re.compile(
+                r'<script\s+defer\s+src="(?P<src>/assets/js/[^"?]+\.js)(?:\?v=[0-9a-f]{12})?"></script>'
+            )
+            current_module_tags = [
+                match for match in page_module_pattern.finditer(new_content)
+                if match.group("src") in all_page_modules
+            ]
+            token = "__SOUVIKS_PAGE_MODULES__"
+            if current_module_tags:
+                first = current_module_tags[0]
+                new_content = new_content[:first.start()] + token + new_content[first.end():]
+            else:
+                core_match = core_pattern.search(new_content)
+                catalogue_match = catalogue_core_pattern.search(new_content)
+                anchor = catalogue_match if catalogue_match else core_match
+                if anchor:
+                    new_content = new_content[:anchor.end()] + "\\n" + token + new_content[anchor.end():]
+                else:
+                    raise ValueError(f"Cannot place page modules on {path}: shared site core is missing")
+
+            def strip_page_module(match: re.Match[str]) -> str:
+                return "" if match.group("src") in all_page_modules else match.group(0)
+
+            new_content = page_module_pattern.sub(strip_page_module, new_content)
+            ordered_tags = "\\n".join(
+                f'<script defer src="{versioned_asset_url(module_path)}"></script>'
+                for module_path in module_paths
+            )
+            new_content = new_content.replace(token, ordered_tags)
 
         def replace_css(match: re.Match[str]) -> str:
             relative_path = f"assets/css/{match.group(2)}"
