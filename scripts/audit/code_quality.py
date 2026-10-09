@@ -2,7 +2,7 @@
 """Report maintainability debt in the static Souviks frontend.
 
 This is intentionally non-blocking. It makes the Pointer 33 backlog measurable
-while the live bundles are migrated incrementally.
+while larger bundles and duplicated build-time markup are migrated incrementally.
 """
 
 from __future__ import annotations
@@ -113,6 +113,9 @@ def main() -> int:
     for path, count in card_implementations:
         print(f"  {path}: {count}")
 
+    print("\nSchema/breadcrumb ownership markers:")
+    print(f"  {sum(count for _, count in schema_owners):,} markers across owned validation/build files")
+
     print("\nNavigation markup copies:")
     print(f"  {len(nav_markup)} HTML files contain #mainNavigation")
 
@@ -128,7 +131,7 @@ def main() -> int:
     print("  PDP runtime: assets/js/bundles/product.js")
     print("  Static catalogue/schema generation: scripts/catalogue/build.py")
     print("  Entity/static card generation: scripts/catalogue/enrich_entities.py")
-    print("  Remaining debt: account.js isolation, duplicated HTML navigation markup, and large page bundles.")
+    print("  Remaining debt: duplicated HTML navigation markup and large page bundles.")
 
     return 0
 
