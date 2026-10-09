@@ -230,7 +230,11 @@ Reusable Head Component
   "publisher": {
     "@type": "Organization",
     "name": "Souviks",
-    "url": "https://www.souviks.co.in"
+    "url": "https://www.souviks.co.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.souviks.co.in/assets/logo/souviks-logo.png"
+    }
   },
   "mainEntity": {
     "@type": "ItemList",
@@ -844,131 +848,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="প্রধান নেভিগেশন">
+            <nav id="mainNavigation" class="main-navigation" aria-label="প্রধান নেভিগেশন">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/bn/" class="nav-link ">হোম</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/products" class="nav-link ">পণ্যসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/brands" class="nav-link active">ব্র্যান্ডসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/vehicles" class="nav-link ">যানবাহন</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/categories" class="nav-link ">বিভাগসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/about" class="nav-link ">আমাদের সম্পর্কে</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/contact" class="nav-link ">যোগাযোগ</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/bn/login">
+                                    সাইন ইন
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/bn/"
-                            class="nav-link ">
-
-                            হোম
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/products"
-                            class="nav-link ">
-
-                            পণ্যসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/brands"
-                            class="nav-link active">
-
-                            ব্র্যান্ডসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/vehicles"
-                            class="nav-link ">
-
-                            যানবাহন
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/categories"
-                            class="nav-link ">
-
-                            বিভাগসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/about"
-                            class="nav-link ">
-
-                            আমাদের সম্পর্কে
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/contact"
-                            class="nav-link ">
-
-                            যোগাযোগ
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/bn/login">
-                        সাইন ইন
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/bn/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            সাইন আউট
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/bn/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        সাইন আউট
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1047,7 +972,7 @@ BRAND HERO
     <div class="container">
 
         <div id="brand-detail" data-static-rendered="true">
-            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/knorr-bremse.png" alt="Knorr-Bremse" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Knorr-Bremse</h1><p>Souviks currently lists 1 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as Universal and common replacement areas including Valve. Use the part number, application and vehicle details when checking fitment.</p></div></div>
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/knorr-bremse.png" alt="Knorr-Bremse" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Knorr-Bremse</h1><p>Souviks currently lists 1 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as Universal and common replacement areas including Valve.  Current catalogue examples include Relay Valve (Type V). Use the part number, application and vehicle details when checking fitment.</p></div></div>
         </div>
 
     </div>
@@ -1083,7 +1008,7 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-knorr-bremse-air-system" aria-labelledby="brand-knorr-bremse-air-system-title"><div class="entity-product-gallery__header"><div><h2 id="brand-knorr-bremse-air-system-title">Air System</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=knorr-bremse&category_id=air-system">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Air System products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/knorr-bremse-b13tm1000150-relay-valve-type-v" class="product-link" aria-label="View Relay Valve (Type V)"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000963/1.webp" alt="Relay Valve (Type V)" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000963" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Knorr-Bremse</div><div class="product-part-number">Part No. <strong>B13TM1000150</strong></div><h3 class="product-title"><a href="/bn/products/knorr-bremse-b13tm1000150-relay-valve-type-v">Relay Valve (Type V)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,900</span><span class="product-price-mrp">MRP ₹2,280</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000963" data-part="B13TM1000150" data-name="Relay Valve (Type V)" data-brand="Knorr-Bremse" aria-label="Add View Relay Valve (Type V) to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-knorr-bremse-air-system" aria-labelledby="brand-knorr-bremse-air-system-title"><div class="entity-product-gallery__header"><div><h2 id="brand-knorr-bremse-air-system-title">Air System</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=knorr-bremse&category_id=air-system">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Air System products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/knorr-bremse-b13tm1000150-relay-valve-type-v" class="product-link" aria-label="View Relay Valve (Type V)"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000963/1.webp" alt="Relay Valve (Type V)" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000963" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Knorr-Bremse</div><div class="product-part-number">Part No. <strong>B13TM1000150</strong></div><h3 class="product-title"><a href="/bn/products/knorr-bremse-b13tm1000150-relay-valve-type-v">Relay Valve (Type V)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,900</span><span class="product-price-mrp">MRP ₹2,280</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000963" data-part="B13TM1000150" data-name="Relay Valve (Type V)" data-brand="Knorr-Bremse" aria-label="Add View Relay Valve (Type V) to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
 
         </div>
 
@@ -1562,9 +1487,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

@@ -230,7 +230,11 @@ Reusable Head Component
   "publisher": {
     "@type": "Organization",
     "name": "Souviks",
-    "url": "https://www.souviks.co.in"
+    "url": "https://www.souviks.co.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.souviks.co.in/assets/logo/souviks-logo.png"
+    }
   },
   "mainEntity": {
     "@type": "ItemList",
@@ -851,131 +855,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="Primary Navigation">
+            <nav id="mainNavigation" class="main-navigation" aria-label="Primary Navigation">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/en/" class="nav-link ">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/en/products" class="nav-link ">Products</a>
+                                </li>
+                                <li>
+                                    <a href="/en/brands" class="nav-link active">Brands</a>
+                                </li>
+                                <li>
+                                    <a href="/en/vehicles" class="nav-link ">Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="/en/categories" class="nav-link ">Categories</a>
+                                </li>
+                                <li>
+                                    <a href="/en/about" class="nav-link ">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="/en/contact" class="nav-link ">Contact</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="Account">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/en/login">
+                                    Sign In
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/en/"
-                            class="nav-link ">
-
-                            Home
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/products"
-                            class="nav-link ">
-
-                            Products
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/brands"
-                            class="nav-link active">
-
-                            Brands
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/vehicles"
-                            class="nav-link ">
-
-                            Vehicles
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/categories"
-                            class="nav-link ">
-
-                            Categories
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/about"
-                            class="nav-link ">
-
-                            About Us
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/contact"
-                            class="nav-link ">
-
-                            Contact
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="Account">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/en/login">
-                        Sign In
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/en/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">Account</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            Sign Out
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/en/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">Account</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1054,7 +979,7 @@ BRAND HERO
     <div class="container">
 
         <div id="brand-detail" data-static-rendered="true">
-            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/motherson.png" alt="Motherson" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Motherson</h1><p>Souviks currently lists 2 active Motherson products across Electricals. The listed range is mapped to applications such as Universal and common replacement areas including Wire. Use the part number, application and vehicle details when checking fitment.</p></div></div>
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/motherson.png" alt="Motherson" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Motherson</h1><p>Souviks currently lists 2 active Motherson products across Electricals. The listed range is mapped to applications such as Universal and common replacement areas including Wire.  Current catalogue examples include 1.0 sq mm Thin Wall PVC Cbl - black 25m, 1.0 sq mm Thin Wall PVC Cbl - black 25m. Use the part number, application and vehicle details when checking fitment.</p></div></div>
         </div>
 
     </div>
@@ -1090,7 +1015,7 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-motherson-electricals" aria-labelledby="brand-motherson-electricals-title"><div class="entity-product-gallery__header"><div><h2 id="brand-motherson-electricals-title">Electricals</h2><span class="entity-product-gallery__count">2 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=motherson&category_id=electricals">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Electricals products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/cbau003bk-10-sq-mm-thin-wall-pvc-cbl-black-25m" class="product-link" aria-label="View 1.0 sq mm Thin Wall PVC Cbl - black 25m"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000243/1.webp" alt="1.0 sq mm Thin Wall PVC Cbl - black 25m" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000243" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Motherson</div><div class="product-part-number">Part No. <strong>CBAU003BK</strong></div><h3 class="product-title"><a href="/en/products/cbau003bk-10-sq-mm-thin-wall-pvc-cbl-black-25m">1.0 sq mm Thin Wall PVC Cbl - black 25m</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹10</span><span class="product-price-mrp">MRP ₹18</span><span class="product-price-discount">44% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000243" data-part="CBAU003BK" data-name="1.0 sq mm Thin Wall PVC Cbl - black 25m" data-brand="Motherson" aria-label="Add View 1.0 sq mm Thin Wall PVC Cbl - black 25m to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/cbau003rd-10-sq-mm-thin-wall-pvc-cbl-black-25m" class="product-link" aria-label="View 1.0 sq mm Thin Wall PVC Cbl - black 25m"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000244/1.webp" alt="1.0 sq mm Thin Wall PVC Cbl - black 25m" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000244" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Motherson</div><div class="product-part-number">Part No. <strong>CBAU003RD</strong></div><h3 class="product-title"><a href="/en/products/cbau003rd-10-sq-mm-thin-wall-pvc-cbl-black-25m">1.0 sq mm Thin Wall PVC Cbl - black 25m</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹10</span><span class="product-price-mrp">MRP ₹18</span><span class="product-price-discount">44% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000244" data-part="CBAU003RD" data-name="1.0 sq mm Thin Wall PVC Cbl - black 25m" data-brand="Motherson" aria-label="Add View 1.0 sq mm Thin Wall PVC Cbl - black 25m to RFQ">Add To RFQ</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-motherson-electricals" aria-labelledby="brand-motherson-electricals-title"><div class="entity-product-gallery__header"><div><h2 id="brand-motherson-electricals-title">Electricals</h2><span class="entity-product-gallery__count">2 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=motherson&category_id=electricals">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Electricals products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/cbau003bk-10-sq-mm-thin-wall-pvc-cbl-black-25m" class="product-link" aria-label="View 1.0 sq mm Thin Wall PVC Cbl - black 25m"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000243/1.webp" alt="1.0 sq mm Thin Wall PVC Cbl - black 25m" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000243" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Motherson</div><div class="product-part-number">Part No. <strong>CBAU003BK</strong></div><h3 class="product-title"><a href="/en/products/cbau003bk-10-sq-mm-thin-wall-pvc-cbl-black-25m">1.0 sq mm Thin Wall PVC Cbl - black 25m</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹10</span><span class="product-price-mrp">MRP ₹18</span><span class="product-price-discount">44% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000243" data-part="CBAU003BK" data-name="1.0 sq mm Thin Wall PVC Cbl - black 25m" data-brand="Motherson" aria-label="Add View 1.0 sq mm Thin Wall PVC Cbl - black 25m to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/cbau003rd-10-sq-mm-thin-wall-pvc-cbl-black-25m" class="product-link" aria-label="View 1.0 sq mm Thin Wall PVC Cbl - black 25m"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000244/1.webp" alt="1.0 sq mm Thin Wall PVC Cbl - black 25m" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000244" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Motherson</div><div class="product-part-number">Part No. <strong>CBAU003RD</strong></div><h3 class="product-title"><a href="/en/products/cbau003rd-10-sq-mm-thin-wall-pvc-cbl-black-25m">1.0 sq mm Thin Wall PVC Cbl - black 25m</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹10</span><span class="product-price-mrp">MRP ₹18</span><span class="product-price-discount">44% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000244" data-part="CBAU003RD" data-name="1.0 sq mm Thin Wall PVC Cbl - black 25m" data-brand="Motherson" aria-label="Add View 1.0 sq mm Thin Wall PVC Cbl - black 25m to RFQ">Add To RFQ</button></div></article></div></div></section>
 
         </div>
 
@@ -1569,9 +1494,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

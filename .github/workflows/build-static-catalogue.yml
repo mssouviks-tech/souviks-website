@@ -17,9 +17,24 @@ on:
       - "scripts/catalogue/enrich_entities.py"
       - "scripts/catalogue/sync_entity_sitemaps.py"
       - "scripts/audit/critical_build.py"
+      - "package.json"
+      - "scripts/js/**"
       - "assets/data/brands.json"
       - "assets/data/categories.json"
       - "assets/data/vehicles.json"
+      - "assets/js/**"
+      - "assets/css/**"
+      - "scripts/catalogue/navigation.py"
+      - "scripts/catalogue/sync_navigation.py"
+      - "scripts/catalogue/product_card.py"
+      - "scripts/catalogue/sync_product_cards.py"
+      - "scripts/audit/structured_data.py"
+      - "scripts/audit/site_quality.py"
+      - "scripts/audit/code_quality.py"
+      - "eslint.config.js"
+      - ".prettierrc.json"
+      - "docs/code-architecture.md"
+      - ".github/workflows/**"
       - "en/brands/**"
       - "hi/brands/**"
       - "bn/brands/**"
@@ -51,6 +66,14 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install JavaScript build tools
+        run: npm install --no-package-lock --no-audit --no-fund
+
       - name: Compile catalogue builders
         run: |
           python3 - <<'PY'
@@ -60,9 +83,14 @@ jobs:
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
               "scripts/catalogue/validate.py",
+              "scripts/catalogue/navigation.py",
+              "scripts/catalogue/sync_navigation.py",
+              "scripts/catalogue/product_card.py",
+              "scripts/catalogue/sync_product_cards.py",
               "scripts/audit/critical_build.py",
               "scripts/audit/structured_data.py",
               "scripts/js/refactor.py",
+              "scripts/js/refresh_versions.py",
           ):
               py_compile.compile(path, cfile="/tmp/" + path.replace("/", "_") + ".pyc", doraise=True)
           print("Python syntax OK")
@@ -73,19 +101,29 @@ jobs:
         run: |
           set -euo pipefail
 
+          run_candidate_checks() {
+            python3 scripts/catalogue/validate.py
+            python3 scripts/audit/critical_build.py
+            python3 scripts/audit/structured_data.py
+            python3 scripts/audit/site_quality.py
+            python3 scripts/js/validate.py
+            python3 scripts/audit/code_quality.py
+            npm run lint:js
+            npm run check:js
+            npm run format:check
+            git diff --check
+          }
+
           prepare_candidate() {
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
             python3 scripts/catalogue/enrich_entities.py
+            python3 scripts/catalogue/sync_navigation.py
+            python3 scripts/catalogue/sync_product_cards.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
             python3 scripts/js/refactor.py
-            python3 scripts/audit/critical_build.py
-            python3 scripts/audit/structured_data.py
-            python3 scripts/js/validate.py
-            node --check assets/js/site-core.js
-            for file in assets/js/bundles/*.js; do
-              node --check "$file"
-            done
+            npm run build:js
+            run_candidate_checks
           }
 
           prepare_candidate
@@ -123,15 +161,12 @@ jobs:
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
             python3 scripts/catalogue/enrich_entities.py
+            python3 scripts/catalogue/sync_navigation.py
+            python3 scripts/catalogue/sync_product_cards.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
             python3 scripts/js/refactor.py
-            python3 scripts/audit/critical_build.py
-            python3 scripts/audit/structured_data.py
-            python3 scripts/js/validate.py
-            node --check assets/js/site-core.js
-            for file in assets/js/bundles/*.js; do
-              node --check "$file"
-            done
+            npm run build:js
+            run_candidate_checks
           done
 
           echo "Unable to publish the generated catalogue after 8 attempts."

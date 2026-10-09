@@ -15,6 +15,8 @@ import re
 from collections import Counter
 from pathlib import Path
 
+from product_card import product_card_html
+
 ROOT = Path(__file__).resolve().parents[2]
 LANGUAGES = ("en", "hi", "bn")
 
@@ -107,79 +109,6 @@ def list_text(items, limit=7):
 def card(label, value):
     return f'<div class="entity-context-card"><span>{esc(label)}</span><strong>{esc(value)}</strong></div>'
 
-
-def first_image(product):
-    """Return the first catalogue gallery image path and its native dimensions."""
-    folder = clean(product.get("image_folder") or product.get("id"))
-    gallery = product.get("gallery") or []
-    dimensions = product.get("gallery_dimensions") or {}
-    filename = ""
-    if isinstance(gallery, list) and gallery:
-        first = gallery[0]
-        if isinstance(first, dict):
-            filename = clean(first.get("filename") or first.get("file") or first.get("name"))
-        else:
-            filename = clean(first)
-    if not filename:
-        raw = clean(product.get("image") or product.get("primary_image"))
-        filename = raw.rsplit("/", 1)[-1] if raw else ""
-    if not filename:
-        filename = "1.webp"
-    dim = dimensions.get(filename) if isinstance(dimensions, dict) else None
-    if not dim and filename.rsplit(".", 1)[0] in dimensions:
-        dim = dimensions.get(filename.rsplit(".", 1)[0])
-    if isinstance(dim, (list, tuple)) and len(dim) >= 2:
-        width, height = dim[0], dim[1]
-    else:
-        width = product.get("image_width") or 400
-        height = product.get("image_height") or 400
-    return f"/assets/images/products/{folder}/{filename}", str(width), str(height)
-
-def format_money(value):
-    try:
-        number = float(value)
-    except (TypeError, ValueError):
-        return ""
-    if abs(number - round(number)) < 0.00001:
-        return f"₹{int(round(number)):,}"
-    return f"₹{number:,.2f}".rstrip("0").rstrip(".")
-
-def product_card_html(product, lang):
-    labels = {
-        "en": {"part": "Part No.", "request": "Get current price", "add": "Add To RFQ"},
-        "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "add": "RFQ में जोड़ें"},
-        "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "add": "RFQ-তে যোগ করুন"},
-    }[lang]
-    slug = clean(product.get("slug"))
-    pid = clean(product.get("id"))
-    name = clean(product.get("product_name") or product.get("name"))
-    brand = clean(product.get("brand_name") or product.get("brand"))
-    part = clean(product.get("part_number") or product.get("partNumber"))
-    img, width, height = first_image(product)
-    price = format_money(product.get("selling_price"))
-    mrp = format_money(product.get("mrp"))
-    discount = ""
-    try:
-        if float(product.get("selling_price")) > 0 and float(product.get("mrp")) > float(product.get("selling_price")):
-            discount = str(round((float(product["mrp"]) - float(product["selling_price"])) / float(product["mrp"]) * 100))
-    except (TypeError, ValueError, ZeroDivisionError):
-        pass
-    price_html = (
-        f'<div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">{esc(price)}</span>'
-        f'<span class="product-price-mrp">MRP {esc(mrp)}</span><span class="product-price-discount">{esc(discount)}% OFF</span></div>'
-        if price and mrp and discount
-        else f'<div class="product-price product-price-current" aria-label="Price">{esc(price)}</div>' if price
-        else f'<div class="product-price product-price-on-request" aria-label="Price">{esc(labels["request"])}</div>'
-    )
-    part_html = f'<div class="product-part-number">Part No. <strong>{esc(part)}</strong></div>' if part else f'<div class="product-part-number product-part-number-empty">{esc(labels["part"])} on request</div>'
-    aria = esc(f"View {name}")
-    return (
-        f'<article class="product-card"><div class="product-image"><a href="/{lang}/products/{esc(slug)}" class="product-link" aria-label="{aria}">'
-        f'<img loading="lazy" class="product-image-file" src="{esc(img)}" alt="{esc(name)}" decoding="async" draggable="false" width="{esc(width)}" height="{esc(height)}"></a>'
-        f'<button type="button" class="product-save-button" data-saved-product-id="{esc(pid)}" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div>'
-        f'<div class="product-content"><div class="product-brand-label">{esc(brand)}</div>{part_html}<h3 class="product-title"><a href="/{lang}/products/{esc(slug)}">{esc(name)}</a></h3>'
-        f'{price_html}<button type="button" class="btn btn-primary add-to-cart" data-id="{esc(pid)}" data-part="{esc(part)}" data-name="{esc(name)}" data-brand="{esc(brand)}" aria-label="Add {aria} to RFQ">{labels["add"]}</button></div></article>'
-    )
 
 def entity_product_galleries(kind, item, products, lang):
     product_groups = {}
@@ -279,6 +208,30 @@ def update_meta(page, description):
     ):
         page = re.sub(pattern, lambda m: m.group(1) + d + m.group(2), page, count=1, flags=re.I)
     return page
+
+def ensure_main_landmark(page):
+    """Ensure generated entity pages expose their central content as <main>."""
+    if re.search(r"<main\b", page, flags=re.I):
+        return page
+
+    header_end = re.search(r"</header\s*>", page, flags=re.I)
+    if not header_end:
+        raise ValueError("Cannot add main landmark: entity page has no closing header")
+
+    footer = re.search(r"<footer\b", page[header_end.end():], flags=re.I)
+    if not footer:
+        raise ValueError("Cannot add main landmark: entity page has no footer")
+
+    content_start = header_end.end()
+    content_end = content_start + footer.start()
+    return (
+        page[:content_start]
+        + "\n<main id=\"main-content\">\n"
+        + page[content_start:content_end]
+        + "\n</main>\n\n"
+        + page[content_end:]
+    )
+
 
 def enrich_entity_pages(kind, data, catalogue):
     for item in data:
@@ -419,6 +372,7 @@ def enrich_entity_pages(kind, data, catalogue):
                     page = page[:anchor_match.start()] + marker + "\n" + section + "\n" + page[anchor_match.start():]
                 else:
                     page = page.replace("</body>", marker + "\n" + section + "\n</body>", 1)
+            page = ensure_main_landmark(page)
             path.write_text(page, encoding="utf-8")
 
 def enrich_about():

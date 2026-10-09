@@ -824,131 +824,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="প্রধান নেভিগেশন">
+            <nav id="mainNavigation" class="main-navigation" aria-label="প্রধান নেভিগেশন">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/bn/" class="nav-link ">হোম</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/products" class="nav-link ">পণ্যসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/brands" class="nav-link ">ব্র্যান্ডসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/vehicles" class="nav-link ">যানবাহন</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/categories" class="nav-link ">বিভাগসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/about" class="nav-link active">আমাদের সম্পর্কে</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/contact" class="nav-link ">যোগাযোগ</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/bn/login">
+                                    সাইন ইন
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/bn/"
-                            class="nav-link ">
-
-                            হোম
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/products"
-                            class="nav-link ">
-
-                            পণ্যসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/brands"
-                            class="nav-link ">
-
-                            ব্র্যান্ডসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/vehicles"
-                            class="nav-link ">
-
-                            যানবাহন
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/categories"
-                            class="nav-link ">
-
-                            বিভাগসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/about"
-                            class="nav-link active">
-
-                            আমাদের সম্পর্কে
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/contact"
-                            class="nav-link ">
-
-                            যোগাযোগ
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/bn/login">
-                        সাইন ইন
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/bn/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            সাইন আউট
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/bn/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        সাইন আউট
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1410,6 +1331,7 @@ VIDEOS
     <div class="about-context-columns"><div><h3>Genuine OEM ও aftermarket পরিষ্কারভাবে আলাদা</h3><p>ক্যাটালগে যে পণ্য genuine/OE-specified হিসেবে চিহ্নিত, সেটিকে সেইভাবেই দেখানো হয়। ব্র্যান্ডেড aftermarket পণ্য আলাদা করে তালিকাভুক্ত এবং শুধু একই অ্যাপ্লিকেশনে ব্যবহারযোগ্য বলেই OEM হিসেবে দেখানো হয় না।</p></div><div><h3>কেনাকাটা ও ডিস্ট্রিবিউশন সহায়তা</h3><p>পার্ট নম্বর, গাড়ির মডেল, অ্যাপ্লিকেশন ও পণ্যের ছবি ব্যবহার করে পার্ট শনাক্ত করতে সাহায্য করা হয়। সারা ভারতে অর্ডার সরবরাহ করা যায়; dispatch-এর আগে availability, price ও compatibility নিশ্চিত করা উচিত।</p></div></div>
     <div class="entity-faq"><h3>সাধারণ জিজ্ঞাসা</h3><details class="entity-faq-item"><summary>Souviks কি পার্ট শনাক্ত করতে সাহায্য করতে পারে?</summary><p>হ্যাঁ। পার্ট নম্বর, গাড়ির তথ্য বা পরিষ্কার ছবি পাঠালে ক্যাটালগে মিল খুঁজতে সাহায্য করা যায়।</p></details><details class="entity-faq-item"><summary>Genuine ও aftermarket দু ধরনের পার্ট কি পাওয়া যায়?</summary><p>হ্যাঁ। দু ধরনের পণ্য আলাদা ভাবে তালিকাভুক্ত এবং একই জিনিস হিসেবে উপস্থাপন করা হয় না।</p></details><details class="entity-faq-item"><summary>কোথায় shipping হয়?</summary><p>Souviks সারা ভারতের গ্রাহকদের পরিষেবা দেয়। delivery time ও freight অর্ডার এবং গন্তব্যের উপর নির্ভর করে।</p></details></div>
   </div>
+</section>
 </section>
 
 <div class="container">
@@ -1885,7 +1807,7 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
 <script defer src="/assets/js/bundles/about.js?v=fe0e4422e3be"></script>
 

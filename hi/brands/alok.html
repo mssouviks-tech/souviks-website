@@ -230,7 +230,11 @@ Reusable Head Component
   "publisher": {
     "@type": "Organization",
     "name": "Souviks",
-    "url": "https://www.souviks.co.in"
+    "url": "https://www.souviks.co.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.souviks.co.in/assets/logo/souviks-logo.png"
+    }
   },
   "mainEntity": {
     "@type": "ItemList",
@@ -858,131 +862,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="मुख्य नेविगेशन">
+            <nav id="mainNavigation" class="main-navigation" aria-label="मुख्य नेविगेशन">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/hi/" class="nav-link ">होम</a>
+                                </li>
+                                <li>
+                                    <a href="/hi/products" class="nav-link ">उत्पाद</a>
+                                </li>
+                                <li>
+                                    <a href="/hi/brands" class="nav-link active">ब्रांड</a>
+                                </li>
+                                <li>
+                                    <a href="/hi/vehicles" class="nav-link ">वाहन</a>
+                                </li>
+                                <li>
+                                    <a href="/hi/categories" class="nav-link ">श्रेणियाँ</a>
+                                </li>
+                                <li>
+                                    <a href="/hi/about" class="nav-link ">हमारे बारे में</a>
+                                </li>
+                                <li>
+                                    <a href="/hi/contact" class="nav-link ">संपर्क करें</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="खाता">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/hi/login">
+                                    साइन इन
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/hi/"
-                            class="nav-link ">
-
-                            होम
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/hi/products"
-                            class="nav-link ">
-
-                            उत्पाद
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/hi/brands"
-                            class="nav-link active">
-
-                            ब्रांड
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/hi/vehicles"
-                            class="nav-link ">
-
-                            वाहन
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/hi/categories"
-                            class="nav-link ">
-
-                            श्रेणियाँ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/hi/about"
-                            class="nav-link ">
-
-                            हमारे बारे में
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/hi/contact"
-                            class="nav-link ">
-
-                            संपर्क करें
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="खाता">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/hi/login">
-                        साइन इन
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/hi/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">खाता</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            साइन आउट
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/hi/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">खाता</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        साइन आउट
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1061,7 +986,7 @@ BRAND HERO
     <div class="container">
 
         <div id="brand-detail" data-static-rendered="true">
-            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/alok.png" alt="Alok" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Alok</h1><p>Souviks currently lists 3 active Alok products across Suspension &amp; Steering. The listed range is mapped to applications such as Tata Ace, Tata Intra and common replacement areas including Tie Rod End, Drag Link. Use the part number, application and vehicle details when checking fitment.</p></div></div>
+            <div class="brand-detail"><div class="brand-logo"><img src="/assets/images/brands/alok.png" alt="Alok" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-info"><h1>Alok</h1><p>Souviks currently lists 3 active Alok products across Suspension &amp; Steering. The listed range is mapped to applications such as Tata Ace, Tata Intra and common replacement areas including Tie Rod End, Drag Link.  Current catalogue examples include Drag Link End T. Intra, Tie Rod End T. ACE Mega L=R, Tie Rod End RH/LH T. Ace H/T. Use the part number, application and vehicle details when checking fitment.</p></div></div>
         </div>
 
     </div>
@@ -1097,7 +1022,7 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-alok-suspension-steering" aria-labelledby="brand-alok-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-alok-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">3 Products</span></div><a class="entity-product-gallery__view-all" href="/hi/products?brand_id=alok&category_id=suspension-steering">सभी देखें<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/hi/products/alk-1014-drag-link-end-t-intra" class="product-link" aria-label="View Drag Link End T. Intra"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000224/1.webp" alt="Drag Link End T. Intra" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000224" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 1014</strong></div><h3 class="product-title"><a href="/hi/products/alk-1014-drag-link-end-t-intra">Drag Link End T. Intra</a></h3><div class="product-price product-price-on-request" aria-label="Price">वर्तमान कीमत प्राप्त करें</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000224" data-part="ALK 1014" data-name="Drag Link End T. Intra" data-brand="Alok" aria-label="Add View Drag Link End T. Intra to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/alk-2312-tie-rod-end-t-ace-mega-lr" class="product-link" aria-label="View Tie Rod End T. ACE Mega L=R"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000225/1.webp" alt="Tie Rod End T. ACE Mega L=R" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000225" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2312</strong></div><h3 class="product-title"><a href="/hi/products/alk-2312-tie-rod-end-t-ace-mega-lr">Tie Rod End T. ACE Mega L=R</a></h3><div class="product-price product-price-on-request" aria-label="Price">वर्तमान कीमत प्राप्त करें</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000225" data-part="ALK 2312" data-name="Tie Rod End T. ACE Mega L=R" data-brand="Alok" aria-label="Add View Tie Rod End T. ACE Mega L=R to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/alk-2314-tie-rod-end-rhlh-t-ace-ht" class="product-link" aria-label="View Tie Rod End RH/LH T. Ace H/T"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000226/1.webp" alt="Tie Rod End RH/LH T. Ace H/T" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000226" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2314</strong></div><h3 class="product-title"><a href="/hi/products/alk-2314-tie-rod-end-rhlh-t-ace-ht">Tie Rod End RH/LH T. Ace H/T</a></h3><div class="product-price product-price-on-request" aria-label="Price">वर्तमान कीमत प्राप्त करें</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000226" data-part="ALK 2314" data-name="Tie Rod End RH/LH T. Ace H/T" data-brand="Alok" aria-label="Add View Tie Rod End RH/LH T. Ace H/T to RFQ">RFQ में जोड़ें</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-alok-suspension-steering" aria-labelledby="brand-alok-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-alok-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">3 Products</span></div><a class="entity-product-gallery__view-all" href="/hi/products?brand_id=alok&category_id=suspension-steering">सभी देखें<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/hi/products/alk-1014-drag-link-end-t-intra" class="product-link" aria-label="View Drag Link End T. Intra"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000224/1.webp" alt="Drag Link End T. Intra" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000224" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 1014</strong></div><h3 class="product-title"><a href="/hi/products/alk-1014-drag-link-end-t-intra">Drag Link End T. Intra</a></h3><div class="product-price product-price-on-request" aria-label="Price">वर्तमान कीमत प्राप्त करें</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000224" data-part="ALK 1014" data-name="Drag Link End T. Intra" data-brand="Alok" aria-label="Add View Drag Link End T. Intra to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/alk-2312-tie-rod-end-t-ace-mega-lr" class="product-link" aria-label="View Tie Rod End T. ACE Mega L=R"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000225/1.webp" alt="Tie Rod End T. ACE Mega L=R" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000225" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2312</strong></div><h3 class="product-title"><a href="/hi/products/alk-2312-tie-rod-end-t-ace-mega-lr">Tie Rod End T. ACE Mega L=R</a></h3><div class="product-price product-price-on-request" aria-label="Price">वर्तमान कीमत प्राप्त करें</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000225" data-part="ALK 2312" data-name="Tie Rod End T. ACE Mega L=R" data-brand="Alok" aria-label="Add View Tie Rod End T. ACE Mega L=R to RFQ">RFQ में जोड़ें</button></div></article><article class="product-card"><div class="product-image"><a href="/hi/products/alk-2314-tie-rod-end-rhlh-t-ace-ht" class="product-link" aria-label="View Tie Rod End RH/LH T. Ace H/T"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000226/1.webp" alt="Tie Rod End RH/LH T. Ace H/T" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000226" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2314</strong></div><h3 class="product-title"><a href="/hi/products/alk-2314-tie-rod-end-rhlh-t-ace-ht">Tie Rod End RH/LH T. Ace H/T</a></h3><div class="product-price product-price-on-request" aria-label="Price">वर्तमान कीमत प्राप्त करें</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000226" data-part="ALK 2314" data-name="Tie Rod End RH/LH T. Ace H/T" data-brand="Alok" aria-label="Add View Tie Rod End RH/LH T. Ace H/T to RFQ">RFQ में जोड़ें</button></div></article></div></div></section>
 
         </div>
 
@@ -1576,9 +1501,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

@@ -230,7 +230,11 @@ Reusable Head Component
   "publisher": {
     "@type": "Organization",
     "name": "Souviks",
-    "url": "https://www.souviks.co.in"
+    "url": "https://www.souviks.co.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.souviks.co.in/assets/logo/souviks-logo.png"
+    }
   },
   "image": "https://www.souviks.co.in/assets/images/categories/air-system.png",
   "mainEntity": {
@@ -1188,131 +1192,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="প্রধান নেভিগেশন">
+            <nav id="mainNavigation" class="main-navigation" aria-label="প্রধান নেভিগেশন">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/bn/" class="nav-link ">হোম</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/products" class="nav-link ">পণ্যসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/brands" class="nav-link ">ব্র্যান্ডসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/vehicles" class="nav-link ">যানবাহন</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/categories" class="nav-link active">বিভাগসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/about" class="nav-link ">আমাদের সম্পর্কে</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/contact" class="nav-link ">যোগাযোগ</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/bn/login">
+                                    সাইন ইন
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/bn/"
-                            class="nav-link ">
-
-                            হোম
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/products"
-                            class="nav-link ">
-
-                            পণ্যসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/brands"
-                            class="nav-link ">
-
-                            ব্র্যান্ডসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/vehicles"
-                            class="nav-link ">
-
-                            যানবাহন
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/categories"
-                            class="nav-link active">
-
-                            বিভাগসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/about"
-                            class="nav-link ">
-
-                            আমাদের সম্পর্কে
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/contact"
-                            class="nav-link ">
-
-                            যোগাযোগ
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/bn/login">
-                        সাইন ইন
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/bn/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            সাইন আউট
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/bn/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        সাইন আউট
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1906,9 +1831,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/category.js?v=ff57bd3b7a0a"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/category.js?v=16708db1b584"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

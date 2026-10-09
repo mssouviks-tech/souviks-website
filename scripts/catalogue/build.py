@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
+# Product title lengths are capped in visible characters; HTML entities are
+# decoded by the SEO validation check before it measures the title length.
 # Generated-output commits rebase before push to avoid concurrent catalogue races.
 # CI retries catalogue publication against the latest main revision.
 # Final pointer 22-25 parity normalization.
@@ -54,21 +56,20 @@ def reconcile_catalogue_projections():
     for product in catalogue:
         if not product.get("id"):
             continue
-        current_slug = text(product.get("slug"))
+        original_slug = text(product.get("slug"))
         override_slug = slug_overrides.get(text(product.get("id")))
-        if override_slug:
-            current_slug = override_slug
-        normalized_slug = normalize_slug(current_slug)
+        normalized_slug = normalize_slug(override_slug or original_slug)
         if not normalized_slug:
-            continue
-        if normalized_slug in slug_seen and normalized_slug != current_slug:
-            # Do not silently collide two existing product routes.
-            raise SystemExit(f"Duplicate normalized product slug: {current_slug} -> {normalized_slug}")
+            raise SystemExit(f"{text(product.get('id'))}: product slug normalizes to an empty route")
+        if normalized_slug in slug_seen:
+            raise SystemExit(
+                f"Duplicate normalized product slug for {text(product.get('id'))}: {normalized_slug}"
+            )
         slug_seen.add(normalized_slug)
-        # An explicit slug override is authoritative and must be persisted into
-        # the catalogue master; otherwise later generators continue using the
-        # stale source slug and create links to a route that is not generated.
-        if normalized_slug != text(product.get("slug")):
+        # Compare against the persisted slug, not the override candidate. The
+        # old code selected override_slug as current_slug and consequently
+        # failed to write overrides when the candidate itself was normalized.
+        if normalized_slug != original_slug:
             product["slug"] = normalized_slug
             product["catalogue_updated_at"] = text(product.get("catalogue_updated_at")) or ""
     
@@ -223,6 +224,46 @@ def reconcile_catalogue_projections():
         description = ensure_product_description(product)
         if description and description != text(product.get("description")):
             product["description"] = description
+
+    # The public PDP gallery is limited to four native-resolution views per
+    # product. Do not resize or rewrite image files; trim catalogue references
+    # and keep primary-image metadata aligned with the first retained view.
+    for product in catalogue:
+        gallery = product.get("gallery")
+        if not isinstance(gallery, list) or len(gallery) <= 4:
+            continue
+
+        names = []
+        for entry in gallery:
+            if isinstance(entry, dict):
+                filename = text(entry.get("filename") or entry.get("file") or entry.get("name"))
+            else:
+                filename = text(entry)
+            if filename and filename not in names:
+                names.append(filename)
+            if len(names) == 4:
+                break
+
+        if not names:
+            product["gallery"] = []
+            product["gallery_dimensions"] = {}
+            continue
+
+        product["gallery"] = names
+        dimensions = product.get("gallery_dimensions")
+        if isinstance(dimensions, dict):
+            product["gallery_dimensions"] = {
+                key: value for key, value in dimensions.items()
+                if text(key) in set(names)
+            }
+        else:
+            product["gallery_dimensions"] = {}
+
+        folder = text(product.get("image_folder") or product.get("id"))
+        product["image"] = names[0]
+        product["primary_image"] = names[0]
+        if folder:
+            product["image_url"] = f"/assets/images/products/{folder}/{names[0]}"
 
     active = [p for p in catalogue if p.get("active") is not False and p.get("id")]
     count = len(active)
@@ -454,14 +495,45 @@ def reconcile_catalogue_projections():
             name = text(product.get("product_name") or product.get("name"))
             part = part_number(product)
             identity = part if part and part.casefold() != name.casefold() else ""
+
+            # SEO titles must stay within the repository's 70-character
+            # invariant. Keep the full brand and part identity first; shorten
+            # only the trailing product-name segment, at a word boundary.
+            title_suffix = " | Souviks"
+            title_limit = 70
             if brand and identity:
-                title = f"{brand} - {identity} - {name} | Souviks"
+                title_lead = f"{brand} - {identity}"
             elif brand:
-                title = f"{brand} - {name} | Souviks"
+                title_lead = brand
             elif identity:
-                title = f"{identity} - {name} | Souviks"
+                title_lead = identity
             else:
-                title = f"{name} | Souviks"
+                title_lead = ""
+
+            if title_lead:
+                joiner = " - " if name else ""
+                available_name = title_limit - len(title_suffix) - len(title_lead) - len(joiner)
+                if available_name > 0:
+                    name_part = name
+                    if len(name_part) > available_name:
+                        shortened = name_part[: available_name + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+                        if not shortened:
+                            shortened = name_part[:available_name].rstrip(" ,;:-")
+                        name_part = shortened
+                    title_prefix = f"{title_lead}{joiner}{name_part}".rstrip(" -")
+                else:
+                    # Defensive fallback for an unusually long identity.
+                    title_prefix = title_lead[: title_limit - len(title_suffix)].rstrip(" -")
+                title = title_prefix + title_suffix
+            else:
+                available_name = title_limit - len(title_suffix)
+                name_part = name
+                if len(name_part) > available_name:
+                    shortened = name_part[: available_name + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+                    if not shortened:
+                        shortened = name_part[:available_name].rstrip(" ,;:-")
+                    name_part = shortened
+                title = name_part + title_suffix
     
             raw_description = re.sub(r"\s+", " ", text(product.get("description"))).strip()
             category = text(product.get("category_name") or product.get("category"))
@@ -560,6 +632,16 @@ def reconcile_catalogue_projections():
             html = re.sub(r'(<meta\s+property=["\']og:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(currentPage:\s*)["\'][^"\']*["\']', lambda m: m.group(1) + json.dumps(name), html, count=1)
+            # Keep every language alternate on the current canonical slug.
+            # This prevents stale mixed-case or pre-normalization product URLs
+            # from surviving in generated hreflang metadata.
+            for alternate_lang in ("en", "bn", "hi"):
+                alternate_url = f"https://www.souviks.co.in/{alternate_lang}/products/{slug}"
+                html = re.sub(
+                    rf'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']{alternate_lang}["\']\s+href=["\'])[^"\']*(["\'])',
+                    lambda m, target=alternate_url: m.group(1) + target + m.group(2),
+                    html, count=1, flags=re.I
+                )
             html = re.sub(
                 r'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']x-default["\']\s+href=["\'])[^"\']*(["\'])',
                 lambda m: m.group(1) + f"https://www.souviks.co.in/en/products/{slug}" + m.group(2),
@@ -1159,6 +1241,42 @@ def sync_product_seo_and_schema():
             for start, end, replacement in reversed(repaired_blocks):
                 html = html[:start] + replacement + html[end:]
     
+            # Repair the final breadcrumb item when a legacy PDP JSON-LD
+            # block already exists, then fall back to creating a new list.
+            breadcrumb_repaired = []
+            for match in re.finditer(
+                r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+                html, flags=re.I | re.S
+            ):
+                block = match.group(1)
+                try:
+                    obj = json.loads(block.strip())
+                except json.JSONDecodeError:
+                    continue
+                graph = obj.get("@graph") if isinstance(obj, dict) else None
+                nodes = graph if isinstance(graph, list) else [obj]
+                updated = False
+                for node in nodes:
+                    if not isinstance(node, dict) or node.get("@type") != "BreadcrumbList":
+                        continue
+                    items = node.get("itemListElement")
+                    if isinstance(items, list) and items and isinstance(items[-1], dict):
+                        if items[-1].get("item") != url:
+                            items[-1]["item"] = url
+                            updated = True
+                if updated:
+                    breadcrumb_repaired.append(
+                        (
+                            match.start(),
+                            match.end(),
+                            '<script type="application/ld+json">\n'
+                            + json.dumps(obj, ensure_ascii=False, indent=2)
+                            + '\\n</script>'
+                        )
+                    )
+            for start, end, replacement in reversed(breadcrumb_repaired):
+                html = html[:start] + replacement + html[end:]
+
             # Ensure every product PDP has a valid BreadcrumbList.
             jsonld_blocks_after = re.findall(
                 r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
@@ -1323,9 +1441,9 @@ def sync_organization_schema():
                         updated = True
 
             if updated:
-                replacement = '<script type="application/ld+json">\\n' + json.dumps(
+                replacement = '<script type="application/ld+json">\n' + json.dumps(
                     obj, ensure_ascii=False, indent=2
-                ) + '\\n</script>'
+                ) + '\n</script>'
                 replacements.append((match.start(), match.end(), replacement))
 
         for start, end, replacement in reversed(replacements):
