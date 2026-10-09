@@ -1700,23 +1700,8 @@ function getInquiryTranslation(
     ------------------------------------------------------
     */
 
-    const html =
-        document.documentElement;
-
-
-    const datasetKey =
-        key.replace(
-            /[A-Z]/g,
-            letter =>
-                `-${letter.toLowerCase()}`
-        );
-
-
-    return (
-        html.dataset[
-            datasetKey
-        ] ||
-        fallback
-    );
+    const messages = document.getElementById("accountMessages");
+    const html = document.documentElement;
+    return messages?.dataset?.[key] || html.dataset?.[key] || fallback;
 
 }
