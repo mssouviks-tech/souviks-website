@@ -14,8 +14,6 @@ from urllib.parse import urlparse
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
-# Product title lengths are capped in visible characters; HTML entities are
-# decoded by the SEO validation check before it measures the title length.
 # Generated-output commits rebase before push to avoid concurrent catalogue races.
 # CI retries catalogue publication against the latest main revision.
 # Final pointer 22-25 parity normalization.
@@ -56,20 +54,21 @@ def reconcile_catalogue_projections():
     for product in catalogue:
         if not product.get("id"):
             continue
-        original_slug = text(product.get("slug"))
+        current_slug = text(product.get("slug"))
         override_slug = slug_overrides.get(text(product.get("id")))
-        normalized_slug = normalize_slug(override_slug or original_slug)
+        if override_slug:
+            current_slug = override_slug
+        normalized_slug = normalize_slug(current_slug)
         if not normalized_slug:
-            raise SystemExit(f"{text(product.get('id'))}: product slug normalizes to an empty route")
-        if normalized_slug in slug_seen:
-            raise SystemExit(
-                f"Duplicate normalized product slug for {text(product.get('id'))}: {normalized_slug}"
-            )
+            continue
+        if normalized_slug in slug_seen and normalized_slug != current_slug:
+            # Do not silently collide two existing product routes.
+            raise SystemExit(f"Duplicate normalized product slug: {current_slug} -> {normalized_slug}")
         slug_seen.add(normalized_slug)
-        # Compare against the persisted slug, not the override candidate. The
-        # old code selected override_slug as current_slug and consequently
-        # failed to write overrides when the candidate itself was normalized.
-        if normalized_slug != original_slug:
+        # An explicit slug override is authoritative and must be persisted into
+        # the catalogue master; otherwise later generators continue using the
+        # stale source slug and create links to a route that is not generated.
+        if normalized_slug != text(product.get("slug")):
             product["slug"] = normalized_slug
             product["catalogue_updated_at"] = text(product.get("catalogue_updated_at")) or ""
     
@@ -224,46 +223,6 @@ def reconcile_catalogue_projections():
         description = ensure_product_description(product)
         if description and description != text(product.get("description")):
             product["description"] = description
-
-    # The public PDP gallery is limited to four native-resolution views per
-    # product. Do not resize or rewrite image files; trim catalogue references
-    # and keep primary-image metadata aligned with the first retained view.
-    for product in catalogue:
-        gallery = product.get("gallery")
-        if not isinstance(gallery, list) or len(gallery) <= 4:
-            continue
-
-        names = []
-        for entry in gallery:
-            if isinstance(entry, dict):
-                filename = text(entry.get("filename") or entry.get("file") or entry.get("name"))
-            else:
-                filename = text(entry)
-            if filename and filename not in names:
-                names.append(filename)
-            if len(names) == 4:
-                break
-
-        if not names:
-            product["gallery"] = []
-            product["gallery_dimensions"] = {}
-            continue
-
-        product["gallery"] = names
-        dimensions = product.get("gallery_dimensions")
-        if isinstance(dimensions, dict):
-            product["gallery_dimensions"] = {
-                key: value for key, value in dimensions.items()
-                if text(key) in set(names)
-            }
-        else:
-            product["gallery_dimensions"] = {}
-
-        folder = text(product.get("image_folder") or product.get("id"))
-        product["image"] = names[0]
-        product["primary_image"] = names[0]
-        if folder:
-            product["image_url"] = f"/assets/images/products/{folder}/{names[0]}"
 
     active = [p for p in catalogue if p.get("active") is not False and p.get("id")]
     count = len(active)
@@ -495,45 +454,14 @@ def reconcile_catalogue_projections():
             name = text(product.get("product_name") or product.get("name"))
             part = part_number(product)
             identity = part if part and part.casefold() != name.casefold() else ""
-
-            # SEO titles must stay within the repository's 70-character
-            # invariant. Keep the full brand and part identity first; shorten
-            # only the trailing product-name segment, at a word boundary.
-            title_suffix = " | Souviks"
-            title_limit = 70
             if brand and identity:
-                title_lead = f"{brand} - {identity}"
+                title = f"{brand} - {identity} - {name} | Souviks"
             elif brand:
-                title_lead = brand
+                title = f"{brand} - {name} | Souviks"
             elif identity:
-                title_lead = identity
+                title = f"{identity} - {name} | Souviks"
             else:
-                title_lead = ""
-
-            if title_lead:
-                joiner = " - " if name else ""
-                available_name = title_limit - len(title_suffix) - len(title_lead) - len(joiner)
-                if available_name > 0:
-                    name_part = name
-                    if len(name_part) > available_name:
-                        shortened = name_part[: available_name + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
-                        if not shortened:
-                            shortened = name_part[:available_name].rstrip(" ,;:-")
-                        name_part = shortened
-                    title_prefix = f"{title_lead}{joiner}{name_part}".rstrip(" -")
-                else:
-                    # Defensive fallback for an unusually long identity.
-                    title_prefix = title_lead[: title_limit - len(title_suffix)].rstrip(" -")
-                title = title_prefix + title_suffix
-            else:
-                available_name = title_limit - len(title_suffix)
-                name_part = name
-                if len(name_part) > available_name:
-                    shortened = name_part[: available_name + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
-                    if not shortened:
-                        shortened = name_part[:available_name].rstrip(" ,;:-")
-                    name_part = shortened
-                title = name_part + title_suffix
+                title = f"{name} | Souviks"
     
             raw_description = re.sub(r"\s+", " ", text(product.get("description"))).strip()
             category = text(product.get("category_name") or product.get("category"))
@@ -632,16 +560,6 @@ def reconcile_catalogue_projections():
             html = re.sub(r'(<meta\s+property=["\']og:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(currentPage:\s*)["\'][^"\']*["\']', lambda m: m.group(1) + json.dumps(name), html, count=1)
-            # Keep every language alternate on the current canonical slug.
-            # This prevents stale mixed-case or pre-normalization product URLs
-            # from surviving in generated hreflang metadata.
-            for alternate_lang in ("en", "bn", "hi"):
-                alternate_url = f"https://www.souviks.co.in/{alternate_lang}/products/{slug}"
-                html = re.sub(
-                    rf'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']{alternate_lang}["\']\s+href=["\'])[^"\']*(["\'])',
-                    lambda m, target=alternate_url: m.group(1) + target + m.group(2),
-                    html, count=1, flags=re.I
-                )
             html = re.sub(
                 r'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']x-default["\']\s+href=["\'])[^"\']*(["\'])',
                 lambda m: m.group(1) + f"https://www.souviks.co.in/en/products/{slug}" + m.group(2),
@@ -893,6 +811,127 @@ def sync_static_product_images():
         print(f"Synchronized static product images in {len(changed)} HTML files.")
 
 
+def sync_static_product_vehicle_cards():
+    """Synchronize compatible-vehicle cards on statically rendered PDPs."""
+    import html as html_module
+    import json
+    import re
+
+    root = ROOT
+    vehicle_path = root / "assets/data/vehicles.json"
+    if not vehicle_path.is_file():
+        print("Vehicle dataset missing; skipped static PDP vehicle-card synchronization.")
+        return
+
+    try:
+        vehicles = json.loads(
+            vehicle_path.read_text(encoding="utf-8")
+        )
+    except (OSError, json.JSONDecodeError):
+        print("Vehicle dataset could not be read; skipped static PDP vehicle-card synchronization.")
+        return
+
+    by_model = {
+        str(item.get("model") or "").strip(): item
+        for item in vehicles
+        if isinstance(item, dict) and str(item.get("model") or "").strip()
+    }
+
+    changed = []
+
+    for lang in ("en", "hi", "bn"):
+        product_root = root / lang / "products"
+        if not product_root.is_dir():
+            continue
+
+        for path in product_root.glob("*.html"):
+            html_text = path.read_text(encoding="utf-8")
+            data_match = re.search(
+                r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                html_text,
+                re.S,
+            )
+            if not data_match:
+                continue
+
+            try:
+                product = json.loads(data_match.group(1))
+            except json.JSONDecodeError:
+                continue
+
+            product_vehicles = product.get("vehicles") or []
+            if not isinstance(product_vehicles, list):
+                continue
+
+            cards = []
+            for vehicle_name in product_vehicles:
+                vehicle_name = str(vehicle_name or "").strip()
+                if not vehicle_name:
+                    continue
+
+                vehicle = by_model.get(vehicle_name)
+                vehicle_image = str(vehicle.get("image") or "").strip() if vehicle else ""
+                vehicle_slug = str(vehicle.get("slug") or "").strip() if vehicle else ""
+                safe_name = html_module.escape(vehicle_name, quote=True)
+
+                image_html = ""
+                if vehicle_image:
+                    dimensions = vehicle.get("image_dimensions")
+                    width = 400
+                    height = 300
+                    if (
+                        isinstance(dimensions, list)
+                        and len(dimensions) == 2
+                        and all(isinstance(value, int) and value > 0 for value in dimensions)
+                    ):
+                        width, height = dimensions
+
+                    image_html = (
+                        '<div class="pdp-vehicle-image">'
+                        f'<img src="{html_module.escape(vehicle_image, quote=True)}" '
+                        f'alt="{safe_name}" loading="lazy" decoding="async" '
+                        f'width="{width}" height="{height}">'
+                        '</div>'
+                    )
+
+                title_html = (
+                    f'<a href="/{lang}/vehicles/{html_module.escape(vehicle_slug, quote=True)}" '
+                    f'aria-label="View {safe_name} vehicle page">{safe_name}</a>'
+                    if vehicle_slug
+                    else safe_name
+                )
+
+                cards.append(
+                    '<div class="pdp-vehicle-card">'
+                    f'{image_html}'
+                    '<div class="pdp-vehicle-content">'
+                    f'<h4>{title_html}</h4>'
+                    '</div>'
+                    '</div>'
+                )
+
+            new_grid = '<div class="pdp-vehicle-grid">' + ''.join(cards) + '</div>'
+            pattern = re.compile(
+                r'(<div\s+class="pdp-vehicle-grid">).*?(</div>\s*</section>)',
+                re.S,
+            )
+            updated_text, count = pattern.subn(
+                lambda match: new_grid + match.group(2),
+                html_text,
+                count=1,
+            )
+
+            if count and updated_text != html_text:
+                path.write_text(updated_text, encoding="utf-8")
+                changed.append(str(path))
+
+    if not changed:
+        print("Static compatible-vehicle cards are already synchronized.")
+    else:
+        print(f"Synchronized compatible-vehicle cards in {len(changed)} HTML files.")
+
+
+
 def normalize_blank_part_numbers():
     
     import pathlib
@@ -953,7 +992,13 @@ def sync_product_seo_and_schema():
                 for name in gallery if str(name).strip()
             ]
         image = str(product.get("image_url") or "").strip()
-        return [f"https://www.souviks.co.in{image}"] if image and image.startswith("/") else []
+        if (
+            image
+            and image.startswith("/")
+            and not image.endswith("/placeholder.webp")
+        ):
+            return [f"https://www.souviks.co.in{image}"]
+        return []
     
     for lang in ("en", "hi", "bn"):
         for path in (root / lang / "products").glob("*.html"):
@@ -1129,7 +1174,6 @@ def sync_product_seo_and_schema():
                     "url": url,
                     "mainEntityOfPage": url,
                     "description": description,
-                    "image": images,
                     "sku": str(product.get("id") or ""),
                     "brand": {
                         "@type": "Brand",
@@ -1137,6 +1181,9 @@ def sync_product_seo_and_schema():
                     },
                     "category": str(product.get("category_name") or product.get("category") or ""),
                 }
+
+                if images:
+                    product_schema["image"] = images
     
                 mpn = str(product.get("manufacturer_part_number") or "").strip()
                 if not mpn:
@@ -1241,42 +1288,6 @@ def sync_product_seo_and_schema():
             for start, end, replacement in reversed(repaired_blocks):
                 html = html[:start] + replacement + html[end:]
     
-            # Repair the final breadcrumb item when a legacy PDP JSON-LD
-            # block already exists, then fall back to creating a new list.
-            breadcrumb_repaired = []
-            for match in re.finditer(
-                r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
-                html, flags=re.I | re.S
-            ):
-                block = match.group(1)
-                try:
-                    obj = json.loads(block.strip())
-                except json.JSONDecodeError:
-                    continue
-                graph = obj.get("@graph") if isinstance(obj, dict) else None
-                nodes = graph if isinstance(graph, list) else [obj]
-                updated = False
-                for node in nodes:
-                    if not isinstance(node, dict) or node.get("@type") != "BreadcrumbList":
-                        continue
-                    items = node.get("itemListElement")
-                    if isinstance(items, list) and items and isinstance(items[-1], dict):
-                        if items[-1].get("item") != url:
-                            items[-1]["item"] = url
-                            updated = True
-                if updated:
-                    breadcrumb_repaired.append(
-                        (
-                            match.start(),
-                            match.end(),
-                            '<script type="application/ld+json">\n'
-                            + json.dumps(obj, ensure_ascii=False, indent=2)
-                            + '\\n</script>'
-                        )
-                    )
-            for start, end, replacement in reversed(breadcrumb_repaired):
-                html = html[:start] + replacement + html[end:]
-
             # Ensure every product PDP has a valid BreadcrumbList.
             jsonld_blocks_after = re.findall(
                 r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
@@ -1341,6 +1352,120 @@ def sync_product_seo_and_schema():
     else:
         print(f"Repaired Product JSON-LD in {len(changed)} pages.")
 
+
+
+def finalize_product_canonical_routes():
+    """Final pass: force every generated PDP filename and canonical to master slug."""
+    import json
+    import re
+
+    root = ROOT
+    catalogue = json.loads(
+        (root / "assets/data/catalogue-index.json").read_text(encoding="utf-8")
+    )
+    by_id = {
+        str(item.get("id")).strip(): item
+        for item in catalogue
+        if item.get("active") is not False and item.get("id")
+    }
+    changed = 0
+
+    for lang in ("en", "hi", "bn"):
+        directory = root / lang / "products"
+        for path in list(directory.glob("*.html")):
+            html = path.read_text(encoding="utf-8")
+            match = re.search(
+                r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                html,
+                re.S,
+            )
+            if not match:
+                continue
+            try:
+                embedded = json.loads(match.group(1))
+            except json.JSONDecodeError:
+                continue
+
+            product = by_id.get(str(embedded.get("id") or "").strip())
+            if not product:
+                continue
+
+            slug = str(product.get("slug") or "").strip()
+            if not slug:
+                continue
+
+            target = directory / f"{slug}.html"
+            if path != target:
+                if target.exists():
+                    raise SystemExit(
+                        f"Duplicate canonical PDP route collision: {path} -> {target}"
+                    )
+                path.rename(target)
+                path = target
+                html = path.read_text(encoding="utf-8")
+                match = re.search(
+                    r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                    html,
+                    re.S,
+                )
+                if not match:
+                    raise SystemExit(f"Canonical PDP rename lost embedded data: {path}")
+                embedded = json.loads(match.group(1))
+
+            canonical = f"https://www.souviks.co.in/{lang}/products/{slug}"
+            embedded["slug"] = slug
+            embedded["seo"] = dict(embedded.get("seo") or {})
+            embedded["seo"]["canonical"] = canonical
+            updated_data = json.dumps(embedded, ensure_ascii=False, indent=2)
+            html = (
+                html[:match.start()]
+                + "window.SOUVIKS_PRODUCT_PAGE_DATA = "
+                + updated_data
+                + ";"
+                + html[match.end():]
+            )
+
+            html = re.sub(
+                r'(<link\s+rel=["\']canonical["\']\s+href=["\'])[^"\']*(["\'])',
+                lambda m: m.group(1) + canonical + m.group(2),
+                html,
+                count=1,
+                flags=re.I,
+            )
+            html = re.sub(
+                r'(<meta\s+property=["\']og:url["\']\s+content=["\'])[^"\']*(["\'])',
+                lambda m: m.group(1) + canonical + m.group(2),
+                html,
+                count=1,
+                flags=re.I,
+            )
+            html = re.sub(
+                r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])',
+                lambda m: m.group(1) + canonical + m.group(2),
+                html,
+                count=1,
+                flags=re.I,
+            )
+            for alt_lang in ("en", "hi", "bn"):
+                alt = f"https://www.souviks.co.in/{alt_lang}/products/{slug}"
+                html = re.sub(
+                    rf'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']{alt_lang}["\']\s+href=["\'])[^"\']*(["\'])',
+                    lambda m, value=alt: m.group(1) + value + m.group(2),
+                    html,
+                    count=1,
+                    flags=re.I,
+                )
+            html = re.sub(
+                r'(<link\s+rel=["\']alternate["\']\s+hreflang=["\']x-default["\']\s+href=["\'])[^"\']*(["\'])',
+                lambda m: m.group(1) + f"https://www.souviks.co.in/en/products/{slug}" + m.group(2),
+                html,
+                count=1,
+                flags=re.I,
+            )
+            path.write_text(html, encoding="utf-8")
+            changed += 1
+
+    print(f"Final PDP canonical route pass: {changed} files synchronized.")
 
 
 def normalize_internal_redirect_links():
@@ -1441,9 +1566,9 @@ def sync_organization_schema():
                         updated = True
 
             if updated:
-                replacement = '<script type="application/ld+json">\n' + json.dumps(
+                replacement = '<script type="application/ld+json">\\n' + json.dumps(
                     obj, ensure_ascii=False, indent=2
-                ) + '\n</script>'
+                ) + '\\n</script>'
                 replacements.append((match.start(), match.end(), replacement))
 
         for start, end, replacement in reversed(replacements):
@@ -1463,8 +1588,10 @@ def sync_organization_schema():
 def main() -> None:
     reconcile_catalogue_projections()
     sync_static_product_images()
+    sync_static_product_vehicle_cards()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
+    finalize_product_canonical_routes()
     normalize_internal_redirect_links()
     sync_organization_schema()
     runpy.run_path(str(ROOT / "scripts/catalogue/validate.py"), run_name="__main__")
