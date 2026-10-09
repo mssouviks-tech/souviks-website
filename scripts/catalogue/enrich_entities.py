@@ -109,7 +109,7 @@ def card(label, value):
 
 
 def first_image(product):
-    """Return the first catalogue gallery image path and its native dimensions."""
+    """Return a verified catalogue image, or the shared placeholder when none exists."""
     folder = clean(product.get("image_folder") or product.get("id"))
     gallery = product.get("gallery") or []
     dimensions = product.get("gallery_dimensions") or {}
@@ -120,20 +120,31 @@ def first_image(product):
             filename = clean(first.get("filename") or first.get("file") or first.get("name"))
         else:
             filename = clean(first)
-    if not filename:
-        raw = clean(product.get("image") or product.get("primary_image"))
-        filename = raw.rsplit("/", 1)[-1] if raw else ""
-    if not filename:
-        filename = "1.webp"
-    dim = dimensions.get(filename) if isinstance(dimensions, dict) else None
-    if not dim and filename.rsplit(".", 1)[0] in dimensions:
-        dim = dimensions.get(filename.rsplit(".", 1)[0])
-    if isinstance(dim, (list, tuple)) and len(dim) >= 2:
-        width, height = dim[0], dim[1]
-    else:
-        width = product.get("image_width") or 400
-        height = product.get("image_height") or 400
-    return f"/assets/images/products/{folder}/{filename}", str(width), str(height)
+
+    if filename and folder:
+        candidate = ROOT / "assets" / "images" / "products" / folder / filename
+        if candidate.is_file():
+            dim = dimensions.get(filename) if isinstance(dimensions, dict) else None
+            if not dim and isinstance(dimensions, dict) and filename.rsplit(".", 1)[0] in dimensions:
+                dim = dimensions.get(filename.rsplit(".", 1)[0])
+            if isinstance(dim, (list, tuple)) and len(dim) >= 2:
+                width, height = dim[0], dim[1]
+            else:
+                width = product.get("image_width") or 400
+                height = product.get("image_height") or 400
+            return f"/assets/images/products/{folder}/{filename}", str(width), str(height)
+
+    # Never manufacture a per-product 1.webp path when that file does not exist.
+    # The critical catalogue audit separately keeps products without real images
+    # blocked until their genuine gallery assets are supplied.
+    image_url = clean(product.get("image_url"))
+    if image_url:
+        if image_url.startswith(("https://", "http://")):
+            return image_url, "400", "400"
+        if image_url.startswith("/") and (ROOT / image_url.lstrip("/")).is_file():
+            return image_url, "400", "400"
+
+    return "/assets/images/placeholder.webp", "400", "400"
 
 def format_money(value):
     try:
