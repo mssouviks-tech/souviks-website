@@ -2,11 +2,29 @@ name: Catalogue Architecture Check
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
       - "scripts/catalogue/**"
+      - "scripts/audit/critical_build.py"
+      - "supabase/migrations/**"
+      - "_redirects"
       - ".github/workflows/catalogue-architecture-check.yml"
+  pull_request:
+    paths:
+      - "assets/data/catalogue-index.json"
+      - "assets/data/products.json"
+      - "assets/data/search.json"
+      - "assets/data/catalogue_overrides.json"
+      - "en/products/**"
+      - "bn/products/**"
+      - "hi/products/**"
+      - "sitemaps/products.xml"
+      - "scripts/catalogue/**"
+      - "scripts/audit/critical_build.py"
+      - "scripts/audit/structured_data.py"
+      - "_redirects"
+      - ".github/workflows/catalogue-architecture-check.yml"
+
 permissions:
   contents: read
 
@@ -19,5 +37,28 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Compile catalogue and audit scripts
+        run: |
+          python3 -m py_compile \
+            scripts/catalogue/build.py \
+            scripts/catalogue/enrich_entities.py \
+            scripts/catalogue/sync_entity_sitemaps.py \
+            scripts/catalogue/validate.py \
+            scripts/audit/critical_build.py \
+            scripts/audit/structured_data.py
+
+      - name: Build catalogue candidate from source of truth
+        run: |
+          python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/build.py
+          python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/sync_entity_sitemaps.py
+
       - name: Validate static catalogue architecture
         run: python3 scripts/catalogue/validate.py
+
+      - name: Validate critical build contract
+        run: python3 scripts/audit/critical_build.py
+
+      - name: Validate structured data
+        run: python3 scripts/audit/structured_data.py
