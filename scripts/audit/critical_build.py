@@ -239,6 +239,71 @@ def validate_images(products, errors: list[str]) -> None:
             errors.append(f"{pid}: primary_image does not match the first gallery image")
 
 
+def validate_product_card_images(records_by_kind, errors: list[str]) -> None:
+    """Keep every generated product card bound to its active catalogue image."""
+    products = {
+        text(product.get("id")): product
+        for product in records_by_kind.get("products", [])
+        if text(product.get("id"))
+    }
+
+    checked = 0
+    for html_path in ROOT.glob("**/*.html"):
+        if any(part in {".git", "node_modules"} for part in html_path.parts):
+            continue
+        raw = html_path.read_text(encoding="utf-8", errors="ignore")
+        for card_match in re.finditer(
+            r"<article\b[^>]*class\s*=\s*['\"][^'\"]*\bproduct-card\b[^'\"]*['\"][^>]*>.*?</article>",
+            raw,
+            flags=re.I | re.S,
+        ):
+            card = card_match.group(0)
+            id_match = re.search(
+                r"\bdata-saved-product-id\s*=\s*['\"]([^'\"]+)['\"]|\bdata-id\s*=\s*['\"]([^'\"]+)['\"]",
+                card,
+                flags=re.I,
+            )
+            if not id_match:
+                errors.append(f"{html_path.relative_to(ROOT)}: product card is missing a product ID")
+                continue
+            pid = text(id_match.group(1) or id_match.group(2))
+            product = products.get(pid)
+            if product is None:
+                errors.append(
+                    f"{html_path.relative_to(ROOT)}: product card references inactive or unknown product {pid}"
+                )
+                continue
+
+            image_match = re.search(
+                r"<img\b(?=[^>]*\bclass\s*=\s*['\"][^'\"]*\bproduct-image-file\b[^'\"]*['\"])[^>]*>",
+                card,
+                flags=re.I | re.S,
+            )
+            if not image_match:
+                errors.append(f"{html_path.relative_to(ROOT)}: product card {pid} has no product image element")
+                continue
+
+            tag = image_match.group(0)
+            src_match = re.search(r"\bsrc\s*=\s*['\"]([^'\"]+)['\"]", tag, flags=re.I)
+            state_match = re.search(r"\bdata-image-state\s*=\s*['\"]([^'\"]+)['\"]", tag, flags=re.I)
+            src = text(src_match.group(1)) if src_match else ""
+            state = text(state_match.group(1)) if state_match else ""
+            expected_src = text(product.get("image_url"))
+            if src != expected_src:
+                errors.append(
+                    f"{html_path.relative_to(ROOT)}: product card {pid} src {src!r} "
+                    f"does not match catalogue image_url {expected_src!r}"
+                )
+            if state != "catalogue":
+                errors.append(
+                    f"{html_path.relative_to(ROOT)}: active product card {pid} has "
+                    f"data-image-state={state!r}, expected 'catalogue'"
+                )
+            checked += 1
+
+    print(f"[critical build] checked {checked} generated product-card image references.")
+
+
 def public_route(kind: str, lang: str, slug: str) -> str:
     return f"/{lang}/{kind}/{slug}"
 
@@ -549,6 +614,11 @@ class HTMLContractParser(html.parser.HTMLParser):
 
 def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> dict[str, Path]:
     expected_routes: dict[str, Path] = {}
+    products_by_slug = {
+        text(record.get("slug")): record
+        for record in records_by_kind.get("products", [])
+        if text(record.get("slug"))
+    }
     for kind, records in records_by_kind.items():
         for record in records:
             slug = text(record.get("slug"))
@@ -624,8 +694,96 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
                     errors.append(f"{path.relative_to(ROOT)}: missing viewport declaration")
 
                 if kind == "products":
-                    if "window.SOUVIKS_PRODUCT_PAGE_DATA" not in raw:
-                        errors.append(f"{path.relative_to(ROOT)}: missing embedded product data")
+                    page_label = str(path.relative_to(ROOT))
+                    data_match = re.search(
+                        r"window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});",
+                        raw,
+                        flags=re.S,
+                    )
+                    if not data_match:
+                        errors.append(f"{page_label}: missing embedded product data")
+                    else:
+                        try:
+                            embedded = json.loads(data_match.group(1))
+                        except json.JSONDecodeError as exc:
+                            errors.append(f"{page_label}: invalid embedded product JSON: {exc}")
+                            embedded = None
+
+                        source = products_by_slug.get(path.stem)
+                        if source is None:
+                            errors.append(f"{page_label}: no active master product maps to this page")
+                        elif embedded is not None:
+                            expected_gallery = [
+                                text(name) for name in (source.get("gallery") or [])
+                                if text(name)
+                            ]
+                            expected_folder = text(source.get("image_folder") or source.get("id"))
+                            expected_image = expected_gallery[0] if expected_gallery else ""
+                            expected_url = (
+                                f"/assets/images/products/{expected_folder}/{expected_image}"
+                                if expected_folder and expected_image else ""
+                            )
+                            for field, expected in (
+                                ("image_folder", expected_folder),
+                                ("gallery", expected_gallery),
+                                ("image", expected_image),
+                                ("primary_image", expected_image),
+                                ("image_url", expected_url),
+                            ):
+                                actual = embedded.get(field)
+                                if field == "gallery":
+                                    actual = [text(name) for name in actual if text(name)] if isinstance(actual, list) else []
+                                else:
+                                    actual = text(actual)
+                                if actual != expected:
+                                    errors.append(
+                                        f"{page_label}: embedded {field} {actual!r} does not match "
+                                        f"catalogue value {expected!r}"
+                                    )
+
+                            main_image_match = re.search(
+                                r"<img\b(?=[^>]*\bid\s*=\s*['\"]pdpMainImage['\"])[^>]*>",
+                                raw,
+                                flags=re.I | re.S,
+                            )
+                            if not main_image_match:
+                                errors.append(f"{page_label}: missing PDP main image element")
+                            else:
+                                main_src_match = re.search(
+                                    r"\bsrc\s*=\s*['\"]([^'\"]+)['\"]",
+                                    main_image_match.group(0),
+                                    flags=re.I,
+                                )
+                                main_src = text(main_src_match.group(1)) if main_src_match else ""
+                                if main_src != expected_url:
+                                    errors.append(
+                                        f"{page_label}: PDP main image src {main_src!r} does not "
+                                        f"match catalogue primary image {expected_url!r}"
+                                    )
+
+                            thumbs_match = re.search(
+                                r"<div\b[^>]*class\s*=\s*['\"][^'\"]*\bpdp-thumbnails\b[^'\"]*['\"][^>]*>"
+                                r"(.*?)</div>\s*<button\b[^>]*class\s*=\s*['\"][^'\"]*\bpdp-thumb-next\b[^'\"]*['\"]",
+                                raw,
+                                flags=re.I | re.S,
+                            )
+                            if not thumbs_match:
+                                errors.append(f"{page_label}: missing PDP thumbnail gallery")
+                            else:
+                                actual_thumbs = re.findall(
+                                    r"<img\b[^>]*\bsrc\s*=\s*['\"]([^'\"]+)['\"][^>]*>",
+                                    thumbs_match.group(1),
+                                    flags=re.I | re.S,
+                                )
+                                expected_thumbs = [
+                                    f"/assets/images/products/{expected_folder}/{name}"
+                                    for name in expected_gallery
+                                ]
+                                if actual_thumbs != expected_thumbs:
+                                    errors.append(
+                                        f"{page_label}: thumbnail URLs do not match catalogue gallery "
+                                        f"(expected {expected_thumbs!r}, found {actual_thumbs!r})"
+                                    )
 
     # Canonical parity also applies to top-level language/static pages.
     static_pages = []
@@ -963,7 +1121,7 @@ def validate_critical_catalogue_contract(errors: list[str]) -> dict[str, list]:
             elif field == "image_folder":
                 actual = text(actual)
             elif field == "image_url":
-                actual = text(actual or "/assets/images/placeholder.webp")
+                actual = text(actual)
             elif field == "gallery":
                 actual = [text(v) for v in (actual or []) if text(v)] if isinstance(actual, list) else []
             elif field == "gallery_dimensions":
@@ -984,6 +1142,7 @@ def main() -> None:
     validate_security_headers(errors)
     records_by_kind = validate_critical_catalogue_contract(errors)
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
+    validate_product_card_images(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
     validate_robots_and_sitemap_index(errors)
     validate_sitemaps(records_by_kind, errors)
