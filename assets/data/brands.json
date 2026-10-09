@@ -1941,9 +1941,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 53 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata Signa, Eicher Pro Series, Tata LPT, Tata Prima, Tata 2416 and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata Signa, Eicher Pro Series, Tata LPT, Tata Prima, Tata 2416 and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "JMP products at Souviks cover Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering and applications across Tata Signa, Eicher Pro Series, Tata LPT and more.",
-    "product_count": 53,
+    "product_count": 52,
     "categories": [
       "brakes",
       "fasteners-hardware",
@@ -2018,7 +2018,6 @@
       "SVKS000738",
       "SVKS000771",
       "SVKS000795",
-      "SVKS000962",
       "SVKS001030",
       "SVKS001031",
       "SVKS001032",
@@ -2041,7 +2040,7 @@
     "active": true,
     "seo": {
       "title": "JMP Parts | Souviks",
-      "description": "Souviks currently lists 53 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata Signa, Eicher Pro Series, Tata LPT, Tata Prima, Tata 2416 and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata Signa, Eicher Pro Series, Tata LPT, Tata Prima, Tata 2416 and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "JMP",
         "commercial vehicle spare parts",
@@ -4395,9 +4394,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 6 active Toyo products across Suspension & Steering. The listed range is mapped to applications such as Eicher Pro Series, Ashok Leyland Ecomet, Ashok Leyland U-Truck and common replacement areas including Leaf Spring.  Current catalogue examples include E Comet Front - Main Leaf, E Comet Front - 2nd Leaf, U Truck Front - Main Leaf. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Toyo products at Souviks cover Suspension & Steering and applications across Eicher Pro Series, Ashok Leyland Ecomet, Ashok Leyland U-Truck.",
-    "product_count": 6,
+    "description": "Souviks currently lists 5 active Toyo products across Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland U-Truck, Eicher Pro Series, Ashok Leyland Ecomet and common replacement areas including Leaf Spring.  Current catalogue examples include E Comet Front - Main Leaf, E Comet Front - 2nd Leaf, U Truck Front - Main Leaf. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Toyo products at Souviks cover Suspension & Steering and applications across Ashok Leyland U-Truck, Eicher Pro Series, Ashok Leyland Ecomet.",
+    "product_count": 5,
     "categories": [
       "suspension-steering"
     ],
@@ -4422,14 +4421,13 @@
       "SVKS000879",
       "SVKS000880",
       "SVKS000881",
-      "SVKS000882",
-      "SVKS000883"
+      "SVKS000882"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Toyo Parts | Souviks",
-      "description": "Souviks currently lists 6 active Toyo products across Suspension & Steering. The listed range is mapped to applications such as Eicher Pro Series, Ashok Leyland Ecomet, Ashok Leyland U-Truck and common replacement areas including Leaf Spring.  Current catalogue examples include E Comet Front - Main Leaf, E Comet Front - 2nd Leaf, U Truck Front - Main Leaf. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 5 active Toyo products across Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland U-Truck, Eicher Pro Series, Ashok Leyland Ecomet and common replacement areas including Leaf Spring.  Current catalogue examples include E Comet Front - Main Leaf, E Comet Front - 2nd Leaf, U Truck Front - Main Leaf. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Toyo",
         "commercial vehicle spare parts",
