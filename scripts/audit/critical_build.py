@@ -226,6 +226,8 @@ def validate_images(products, errors: list[str]) -> None:
         if not isinstance(gallery, list) or not gallery:
             errors.append(f"{pid}: active product has no usable product gallery")
             continue
+        if len(gallery) > 4:
+            errors.append(f"{pid}: product gallery exceeds the four-angle limit ({len(gallery)} images)")
 
         seen_names = set()
         seen_fingerprints = set()
