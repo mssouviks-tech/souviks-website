@@ -33,10 +33,18 @@ def write(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
+def has_ready_marker(source: str) -> bool:
+    """Accept readable and minified JavaScript boolean literals for readiness."""
+    return re.search(
+        r"window\.SOUVIKS_SITE_CORE_READY\s*=\s*(?:true|!0)\s*;?",
+        source,
+    ) is not None
+
+
 def extract_core() -> str:
     if CORE_PATH.exists():
         core = read(CORE_PATH)
-        if READY not in core:
+        if not has_ready_marker(core):
             raise ValueError("Existing site-core.js is missing readiness marker")
         return core
 
@@ -196,7 +204,7 @@ def migrate_html() -> int:
 
 def validate() -> None:
     core = read(CORE_PATH)
-    if READY not in core:
+    if not has_ready_marker(core):
         raise ValueError("site-core.js readiness marker missing")
 
     for filename in sorted(KNOWN_BUNDLES - EXCLUDE_BUNDLES):
