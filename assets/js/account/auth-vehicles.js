@@ -339,7 +339,7 @@ function syncVehiclePicker() {
     const selected = AccountVehiclesState.catalogue.find(item => String(item.id) === String(select.value));
     const model = selected?.model || "";
     if (valueEl) valueEl.textContent = model || getVehicleTranslation("selectVehicle", "Select a vehicle");
-    if (hintEl) hintEl.textContent = model ? "Vehicle model" : "Choose from the catalogue";
+    if (hintEl) hintEl.textContent = model ? getVehicleTranslation("vehicleModel", "Vehicle model") : getVehicleTranslation("chooseFromCatalogue", "Choose from the catalogue");
     trigger?.classList.toggle("has-value", !!model);
 }
 
