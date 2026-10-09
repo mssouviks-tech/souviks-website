@@ -855,131 +855,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="প্রধান নেভিগেশন">
+            <nav id="mainNavigation" class="main-navigation" aria-label="প্রধান নেভিগেশন">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/bn/" class="nav-link ">হোম</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/products" class="nav-link ">পণ্যসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/brands" class="nav-link active">ব্র্যান্ডসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/vehicles" class="nav-link ">যানবাহন</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/categories" class="nav-link ">বিভাগসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/about" class="nav-link ">আমাদের সম্পর্কে</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/contact" class="nav-link ">যোগাযোগ</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/bn/login">
+                                    সাইন ইন
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/bn/"
-                            class="nav-link ">
-
-                            হোম
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/products"
-                            class="nav-link ">
-
-                            পণ্যসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/brands"
-                            class="nav-link active">
-
-                            ব্র্যান্ডসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/vehicles"
-                            class="nav-link ">
-
-                            যানবাহন
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/categories"
-                            class="nav-link ">
-
-                            বিভাগসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/about"
-                            class="nav-link ">
-
-                            আমাদের সম্পর্কে
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/contact"
-                            class="nav-link ">
-
-                            যোগাযোগ
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/bn/login">
-                        সাইন ইন
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/bn/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            সাইন আউট
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/bn/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        সাইন আউট
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1094,8 +1015,8 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-bir-engine-components" aria-labelledby="brand-bir-engine-components-title"><div class="entity-product-gallery__header"><div><h2 id="brand-bir-engine-components-title">Engine Components</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=bir&category_id=engine-components">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Engine Components products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/b-1151-rear-engine-mount-signa-16mm" class="product-link" aria-label="View Rear Engine Mount Signa 16mm"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000229/1.webp" alt="Rear Engine Mount Signa 16mm" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000229" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BIR</div><div class="product-part-number">Part No. <strong>B 1151</strong></div><h3 class="product-title"><a href="/bn/products/b-1151-rear-engine-mount-signa-16mm">Rear Engine Mount Signa 16mm</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000229" data-part="B 1151" data-name="Rear Engine Mount Signa 16mm" data-brand="BIR" aria-label="Add View Rear Engine Mount Signa 16mm to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
-<section class="entity-product-gallery" id="brand-bir-suspension-steering" aria-labelledby="brand-bir-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-bir-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=bir&category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/b-1145-balance-rod-bush" class="product-link" aria-label="View Balance Rod Bush"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000228/1.webp" alt="Balance Rod Bush" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000228" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BIR</div><div class="product-part-number">Part No. <strong>B 1145</strong></div><h3 class="product-title"><a href="/bn/products/b-1145-balance-rod-bush">Balance Rod Bush</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000228" data-part="B 1145" data-name="Balance Rod Bush" data-brand="BIR" aria-label="Add View Balance Rod Bush to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-bir-engine-components" aria-labelledby="brand-bir-engine-components-title"><div class="entity-product-gallery__header"><div><h2 id="brand-bir-engine-components-title">Engine Components</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=bir&category_id=engine-components">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Engine Components products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/b-1151-rear-engine-mount-signa-16mm" class="product-link" aria-label="View Rear Engine Mount Signa 16mm"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000229/1.webp" alt="Rear Engine Mount Signa 16mm" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000229" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BIR</div><div class="product-part-number">Part No. <strong>B 1151</strong></div><h3 class="product-title"><a href="/bn/products/b-1151-rear-engine-mount-signa-16mm">Rear Engine Mount Signa 16mm</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000229" data-part="B 1151" data-name="Rear Engine Mount Signa 16mm" data-brand="BIR" aria-label="Add View Rear Engine Mount Signa 16mm to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-bir-suspension-steering" aria-labelledby="brand-bir-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-bir-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=bir&category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/b-1145-balance-rod-bush" class="product-link" aria-label="View Balance Rod Bush"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000228/1.webp" alt="Balance Rod Bush" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000228" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BIR</div><div class="product-part-number">Part No. <strong>B 1145</strong></div><h3 class="product-title"><a href="/bn/products/b-1145-balance-rod-bush">Balance Rod Bush</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000228" data-part="B 1145" data-name="Balance Rod Bush" data-brand="BIR" aria-label="Add View Balance Rod Bush to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
 
         </div>
 
@@ -1574,9 +1495,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

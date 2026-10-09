@@ -862,131 +862,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="প্রধান নেভিগেশন">
+            <nav id="mainNavigation" class="main-navigation" aria-label="প্রধান নেভিগেশন">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/bn/" class="nav-link ">হোম</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/products" class="nav-link ">পণ্যসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/brands" class="nav-link active">ব্র্যান্ডসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/vehicles" class="nav-link ">যানবাহন</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/categories" class="nav-link ">বিভাগসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/about" class="nav-link ">আমাদের সম্পর্কে</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/contact" class="nav-link ">যোগাযোগ</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/bn/login">
+                                    সাইন ইন
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/bn/"
-                            class="nav-link ">
-
-                            হোম
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/products"
-                            class="nav-link ">
-
-                            পণ্যসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/brands"
-                            class="nav-link active">
-
-                            ব্র্যান্ডসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/vehicles"
-                            class="nav-link ">
-
-                            যানবাহন
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/categories"
-                            class="nav-link ">
-
-                            বিভাগসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/about"
-                            class="nav-link ">
-
-                            আমাদের সম্পর্কে
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/contact"
-                            class="nav-link ">
-
-                            যোগাযোগ
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/bn/login">
-                        সাইন ইন
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/bn/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            সাইন আউট
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/bn/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        সাইন আউট
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1101,7 +1022,7 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-alok-suspension-steering" aria-labelledby="brand-alok-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-alok-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">3 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=alok&category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/alk-1014-drag-link-end-t-intra" class="product-link" aria-label="View Drag Link End T. Intra"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000224/1.webp" alt="Drag Link End T. Intra" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000224" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 1014</strong></div><h3 class="product-title"><a href="/bn/products/alk-1014-drag-link-end-t-intra">Drag Link End T. Intra</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000224" data-part="ALK 1014" data-name="Drag Link End T. Intra" data-brand="Alok" aria-label="Add View Drag Link End T. Intra to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr" class="product-link" aria-label="View Tie Rod End T. ACE Mega L=R"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000225/1.webp" alt="Tie Rod End T. ACE Mega L=R" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000225" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2312</strong></div><h3 class="product-title"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr">Tie Rod End T. ACE Mega L=R</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000225" data-part="ALK 2312" data-name="Tie Rod End T. ACE Mega L=R" data-brand="Alok" aria-label="Add View Tie Rod End T. ACE Mega L=R to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht" class="product-link" aria-label="View Tie Rod End RH/LH T. Ace H/T"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000226/1.webp" alt="Tie Rod End RH/LH T. Ace H/T" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000226" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2314</strong></div><h3 class="product-title"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht">Tie Rod End RH/LH T. Ace H/T</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000226" data-part="ALK 2314" data-name="Tie Rod End RH/LH T. Ace H/T" data-brand="Alok" aria-label="Add View Tie Rod End RH/LH T. Ace H/T to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-alok-suspension-steering" aria-labelledby="brand-alok-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-alok-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">3 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=alok&category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/alk-1014-drag-link-end-t-intra" class="product-link" aria-label="View Drag Link End T. Intra"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000224/1.webp" alt="Drag Link End T. Intra" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000224" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 1014</strong></div><h3 class="product-title"><a href="/bn/products/alk-1014-drag-link-end-t-intra">Drag Link End T. Intra</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000224" data-part="ALK 1014" data-name="Drag Link End T. Intra" data-brand="Alok" aria-label="Add View Drag Link End T. Intra to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr" class="product-link" aria-label="View Tie Rod End T. ACE Mega L=R"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000225/1.webp" alt="Tie Rod End T. ACE Mega L=R" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000225" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2312</strong></div><h3 class="product-title"><a href="/bn/products/alk-2312-tie-rod-end-t-ace-mega-lr">Tie Rod End T. ACE Mega L=R</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000225" data-part="ALK 2312" data-name="Tie Rod End T. ACE Mega L=R" data-brand="Alok" aria-label="Add View Tie Rod End T. ACE Mega L=R to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht" class="product-link" aria-label="View Tie Rod End RH/LH T. Ace H/T"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000226/1.webp" alt="Tie Rod End RH/LH T. Ace H/T" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000226" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Alok</div><div class="product-part-number">Part No. <strong>ALK 2314</strong></div><h3 class="product-title"><a href="/bn/products/alk-2314-tie-rod-end-rhlh-t-ace-ht">Tie Rod End RH/LH T. Ace H/T</a></h3><div class="product-price product-price-on-request" aria-label="Price">বর্তমান মূল্য জানুন</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000226" data-part="ALK 2314" data-name="Tie Rod End RH/LH T. Ace H/T" data-brand="Alok" aria-label="Add View Tie Rod End RH/LH T. Ace H/T to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
 
         </div>
 
@@ -1580,9 +1501,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

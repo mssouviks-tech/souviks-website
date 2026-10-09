@@ -890,131 +890,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="Primary Navigation">
+            <nav id="mainNavigation" class="main-navigation" aria-label="Primary Navigation">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/en/" class="nav-link ">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/en/products" class="nav-link ">Products</a>
+                                </li>
+                                <li>
+                                    <a href="/en/brands" class="nav-link active">Brands</a>
+                                </li>
+                                <li>
+                                    <a href="/en/vehicles" class="nav-link ">Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="/en/categories" class="nav-link ">Categories</a>
+                                </li>
+                                <li>
+                                    <a href="/en/about" class="nav-link ">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="/en/contact" class="nav-link ">Contact</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="Account">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/en/login">
+                                    Sign In
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/en/"
-                            class="nav-link ">
-
-                            Home
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/products"
-                            class="nav-link ">
-
-                            Products
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/brands"
-                            class="nav-link active">
-
-                            Brands
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/vehicles"
-                            class="nav-link ">
-
-                            Vehicles
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/categories"
-                            class="nav-link ">
-
-                            Categories
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/about"
-                            class="nav-link ">
-
-                            About Us
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/contact"
-                            class="nav-link ">
-
-                            Contact
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="Account">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/en/login">
-                        Sign In
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/en/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">Account</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            Sign Out
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/en/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">Account</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1129,7 +1050,7 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-anupam-electricals" aria-labelledby="brand-anupam-electricals-title"><div class="entity-product-gallery__header"><div><h2 id="brand-anupam-electricals-title">Electricals</h2><span class="entity-product-gallery__count">7 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=anupam&category_id=electricals">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Electricals products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/76-1512-a-dx-combination-switch-leyland-nm" class="product-link" aria-label="View Combination Switch Leyland N/M"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000175/1.webp" alt="Combination Switch Leyland N/M" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000175" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 468</strong></div><h3 class="product-title"><a href="/en/products/76-1512-a-dx-combination-switch-leyland-nm">Combination Switch Leyland N/M</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,900</span><span class="product-price-mrp">MRP ₹5,070</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000175" data-part="AI 468" data-name="Combination Switch Leyland N/M" data-brand="Anupam" aria-label="Add View Combination Switch Leyland N/M to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-421-combination-switch-tata-ace" class="product-link" aria-label="View Combination Switch TATA ACE"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000218/1.webp" alt="Combination Switch TATA ACE" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000218" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 421</strong></div><h3 class="product-title"><a href="/en/products/ai-421-combination-switch-tata-ace">Combination Switch TATA ACE</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,040</span><span class="product-price-mrp">MRP ₹1,352</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000218" data-part="AI 421" data-name="Combination Switch TATA ACE" data-brand="Anupam" aria-label="Add View Combination Switch TATA ACE to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-425-combination-switch-tata-1109" class="product-link" aria-label="View Combination Switch TATA 1109"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000219/1.webp" alt="Combination Switch TATA 1109" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000219" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 425</strong></div><h3 class="product-title"><a href="/en/products/ai-425-combination-switch-tata-1109">Combination Switch TATA 1109</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,326</span><span class="product-price-mrp">MRP ₹1,723.8</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000219" data-part="AI 425" data-name="Combination Switch TATA 1109" data-brand="Anupam" aria-label="Add View Combination Switch TATA 1109 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-461-combination-switch-tata-1210-metal" class="product-link" aria-label="View Combination Switch TATA 1210 Metal"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000220/1.webp" alt="Combination Switch TATA 1210 Metal" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000220" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 461</strong></div><h3 class="product-title"><a href="/en/products/ai-461-combination-switch-tata-1210-metal">Combination Switch TATA 1210 Metal</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹715</span><span class="product-price-mrp">MRP ₹929.5</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000220" data-part="AI 461" data-name="Combination Switch TATA 1210 Metal" data-brand="Anupam" aria-label="Add View Combination Switch TATA 1210 Metal to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-463-combination-switch-tata-16121210" class="product-link" aria-label="View Combination Switch TATA 1612/1210"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000221/1.webp" alt="Combination Switch TATA 1612/1210" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000221" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 463</strong></div><h3 class="product-title"><a href="/en/products/ai-463-combination-switch-tata-16121210">Combination Switch TATA 1612/1210</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹721.5</span><span class="product-price-mrp">MRP ₹937.95</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000221" data-part="AI 463" data-name="Combination Switch TATA 1612/1210" data-brand="Anupam" aria-label="Add View Combination Switch TATA 1612/1210 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-487-combination-switch-eicher" class="product-link" aria-label="View Combination Switch Eicher"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000222/1.webp" alt="Combination Switch Eicher" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000222" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 487</strong></div><h3 class="product-title"><a href="/en/products/ai-487-combination-switch-eicher">Combination Switch Eicher</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,250</span><span class="product-price-mrp">MRP ₹4,225</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000222" data-part="AI 487" data-name="Combination Switch Eicher" data-brand="Anupam" aria-label="Add View Combination Switch Eicher to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/anupam-ai-422-combination-switch-magic" class="product-link" aria-label="View Combination Switch Magic"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000669/1.webp" alt="Combination Switch Magic" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000669" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 422</strong></div><h3 class="product-title"><a href="/en/products/anupam-ai-422-combination-switch-magic">Combination Switch Magic</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,274.94</span><span class="product-price-mrp">MRP ₹1,385.8</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000669" data-part="AI 422" data-name="Combination Switch Magic" data-brand="Anupam" aria-label="Add View Combination Switch Magic to RFQ">Add To RFQ</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-anupam-electricals" aria-labelledby="brand-anupam-electricals-title"><div class="entity-product-gallery__header"><div><h2 id="brand-anupam-electricals-title">Electricals</h2><span class="entity-product-gallery__count">7 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=anupam&category_id=electricals">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Electricals products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/76-1512-a-dx-combination-switch-leyland-nm" class="product-link" aria-label="View Combination Switch Leyland N/M"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000175/1.webp" alt="Combination Switch Leyland N/M" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000175" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 468</strong></div><h3 class="product-title"><a href="/en/products/76-1512-a-dx-combination-switch-leyland-nm">Combination Switch Leyland N/M</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,900</span><span class="product-price-mrp">MRP ₹5,070</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000175" data-part="AI 468" data-name="Combination Switch Leyland N/M" data-brand="Anupam" aria-label="Add View Combination Switch Leyland N/M to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-421-combination-switch-tata-ace" class="product-link" aria-label="View Combination Switch TATA ACE"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000218/1.webp" alt="Combination Switch TATA ACE" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000218" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 421</strong></div><h3 class="product-title"><a href="/en/products/ai-421-combination-switch-tata-ace">Combination Switch TATA ACE</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,040</span><span class="product-price-mrp">MRP ₹1,352</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000218" data-part="AI 421" data-name="Combination Switch TATA ACE" data-brand="Anupam" aria-label="Add View Combination Switch TATA ACE to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-425-combination-switch-tata-1109" class="product-link" aria-label="View Combination Switch TATA 1109"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000219/1.webp" alt="Combination Switch TATA 1109" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000219" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 425</strong></div><h3 class="product-title"><a href="/en/products/ai-425-combination-switch-tata-1109">Combination Switch TATA 1109</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,326</span><span class="product-price-mrp">MRP ₹1,723.8</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000219" data-part="AI 425" data-name="Combination Switch TATA 1109" data-brand="Anupam" aria-label="Add View Combination Switch TATA 1109 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-461-combination-switch-tata-1210-metal" class="product-link" aria-label="View Combination Switch TATA 1210 Metal"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000220/1.webp" alt="Combination Switch TATA 1210 Metal" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000220" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 461</strong></div><h3 class="product-title"><a href="/en/products/ai-461-combination-switch-tata-1210-metal">Combination Switch TATA 1210 Metal</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹715</span><span class="product-price-mrp">MRP ₹929.5</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000220" data-part="AI 461" data-name="Combination Switch TATA 1210 Metal" data-brand="Anupam" aria-label="Add View Combination Switch TATA 1210 Metal to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-463-combination-switch-tata-16121210" class="product-link" aria-label="View Combination Switch TATA 1612/1210"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000221/1.webp" alt="Combination Switch TATA 1612/1210" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000221" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 463</strong></div><h3 class="product-title"><a href="/en/products/ai-463-combination-switch-tata-16121210">Combination Switch TATA 1612/1210</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹721.5</span><span class="product-price-mrp">MRP ₹937.95</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000221" data-part="AI 463" data-name="Combination Switch TATA 1612/1210" data-brand="Anupam" aria-label="Add View Combination Switch TATA 1612/1210 to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/ai-487-combination-switch-eicher" class="product-link" aria-label="View Combination Switch Eicher"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000222/1.webp" alt="Combination Switch Eicher" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000222" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 487</strong></div><h3 class="product-title"><a href="/en/products/ai-487-combination-switch-eicher">Combination Switch Eicher</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,250</span><span class="product-price-mrp">MRP ₹4,225</span><span class="product-price-discount">23% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000222" data-part="AI 487" data-name="Combination Switch Eicher" data-brand="Anupam" aria-label="Add View Combination Switch Eicher to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/anupam-ai-422-combination-switch-magic" class="product-link" aria-label="View Combination Switch Magic"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000669/1.webp" alt="Combination Switch Magic" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000669" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Anupam</div><div class="product-part-number">Part No. <strong>AI 422</strong></div><h3 class="product-title"><a href="/en/products/anupam-ai-422-combination-switch-magic">Combination Switch Magic</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,274.94</span><span class="product-price-mrp">MRP ₹1,385.8</span><span class="product-price-discount">8% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000669" data-part="AI 422" data-name="Combination Switch Magic" data-brand="Anupam" aria-label="Add View Combination Switch Magic to RFQ">Add To RFQ</button></div></article></div></div></section>
 
         </div>
 
@@ -1608,9 +1529,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

@@ -848,131 +848,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="প্রধান নেভিগেশন">
+            <nav id="mainNavigation" class="main-navigation" aria-label="প্রধান নেভিগেশন">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/bn/" class="nav-link ">হোম</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/products" class="nav-link ">পণ্যসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/brands" class="nav-link active">ব্র্যান্ডসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/vehicles" class="nav-link ">যানবাহন</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/categories" class="nav-link ">বিভাগসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/about" class="nav-link ">আমাদের সম্পর্কে</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/contact" class="nav-link ">যোগাযোগ</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/bn/login">
+                                    সাইন ইন
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/bn/"
-                            class="nav-link ">
-
-                            হোম
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/products"
-                            class="nav-link ">
-
-                            পণ্যসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/brands"
-                            class="nav-link active">
-
-                            ব্র্যান্ডসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/vehicles"
-                            class="nav-link ">
-
-                            যানবাহন
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/categories"
-                            class="nav-link ">
-
-                            বিভাগসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/about"
-                            class="nav-link ">
-
-                            আমাদের সম্পর্কে
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/contact"
-                            class="nav-link ">
-
-                            যোগাযোগ
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/bn/login">
-                        সাইন ইন
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/bn/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            সাইন আউট
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/bn/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        সাইন আউট
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1087,7 +1008,7 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-trendy-engine-components" aria-labelledby="brand-trendy-engine-components-title"><div class="entity-product-gallery__header"><div><h2 id="brand-trendy-engine-components-title">Engine Components</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=trendy&category_id=engine-components">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Engine Components products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/trendy-0117-t-1569-turbo-connector-3118" class="product-link" aria-label="View Turbo Connector [3118]"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS001004/1.webp" alt="Turbo Connector [3118]" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS001004" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Trendy</div><div class="product-part-number">Part No. <strong>0117 T 1569</strong></div><h3 class="product-title"><a href="/bn/products/trendy-0117-t-1569-turbo-connector-3118">Turbo Connector [3118]</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹840</span><span class="product-price-mrp">MRP ₹1,186</span><span class="product-price-discount">29% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS001004" data-part="0117 T 1569" data-name="Turbo Connector [3118]" data-brand="Trendy" aria-label="Add View Turbo Connector [3118] to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-trendy-engine-components" aria-labelledby="brand-trendy-engine-components-title"><div class="entity-product-gallery__header"><div><h2 id="brand-trendy-engine-components-title">Engine Components</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=trendy&category_id=engine-components">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Engine Components products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/trendy-0117-t-1569-turbo-connector-3118" class="product-link" aria-label="View Turbo Connector [3118]"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS001004/1.webp" alt="Turbo Connector [3118]" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS001004" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Trendy</div><div class="product-part-number">Part No. <strong>0117 T 1569</strong></div><h3 class="product-title"><a href="/bn/products/trendy-0117-t-1569-turbo-connector-3118">Turbo Connector [3118]</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹840</span><span class="product-price-mrp">MRP ₹1,186</span><span class="product-price-discount">29% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS001004" data-part="0117 T 1569" data-name="Turbo Connector [3118]" data-brand="Trendy" aria-label="Add View Turbo Connector [3118] to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
 
         </div>
 
@@ -1566,9 +1487,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

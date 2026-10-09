@@ -862,131 +862,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="প্রধান নেভিগেশন">
+            <nav id="mainNavigation" class="main-navigation" aria-label="প্রধান নেভিগেশন">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/bn/" class="nav-link ">হোম</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/products" class="nav-link ">পণ্যসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/brands" class="nav-link active">ব্র্যান্ডসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/vehicles" class="nav-link ">যানবাহন</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/categories" class="nav-link ">বিভাগসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/about" class="nav-link ">আমাদের সম্পর্কে</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/contact" class="nav-link ">যোগাযোগ</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/bn/login">
+                                    সাইন ইন
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/bn/"
-                            class="nav-link ">
-
-                            হোম
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/products"
-                            class="nav-link ">
-
-                            পণ্যসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/brands"
-                            class="nav-link active">
-
-                            ব্র্যান্ডসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/vehicles"
-                            class="nav-link ">
-
-                            যানবাহন
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/categories"
-                            class="nav-link ">
-
-                            বিভাগসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/about"
-                            class="nav-link ">
-
-                            আমাদের সম্পর্কে
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/contact"
-                            class="nav-link ">
-
-                            যোগাযোগ
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/bn/login">
-                        সাইন ইন
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/bn/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            সাইন আউট
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/bn/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        সাইন আউট
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1101,7 +1022,7 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-manu-suspension-steering" aria-labelledby="brand-manu-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-manu-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">3 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=manu&category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/mp168-bell-crank-set-50-mm" class="product-link" aria-label="View Bell Crank Set 50 mm"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000372/1.webp" alt="Bell Crank Set 50 mm" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000372" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Manu</div><div class="product-part-number">Part No. <strong>MP168</strong></div><h3 class="product-title"><a href="/bn/products/mp168-bell-crank-set-50-mm">Bell Crank Set 50 mm</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,350</span><span class="product-price-mrp">MRP ₹1,980</span><span class="product-price-discount">32% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000372" data-part="MP168" data-name="Bell Crank Set 50 mm" data-brand="Manu" aria-label="Add View Bell Crank Set 50 mm to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/manu-mp-58-bell-crank-bush-l-l" class="product-link" aria-label="View Bell Crank Bush L/L"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000766/1.webp" alt="Bell Crank Bush L/L" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000766" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Manu</div><div class="product-part-number">Part No. <strong>MP 58</strong></div><h3 class="product-title"><a href="/bn/products/manu-mp-58-bell-crank-bush-l-l">Bell Crank Bush L/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,710</span><span class="product-price-mrp">MRP ₹1,900</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000766" data-part="MP 58" data-name="Bell Crank Bush L/L" data-brand="Manu" aria-label="Add View Bell Crank Bush L/L to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/manu-mp-45-bell-crank-bush-tata-2416" class="product-link" aria-label="View Bell Crank Bush Tata 2416"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000767/1.webp" alt="Bell Crank Bush Tata 2416" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000767" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Manu</div><div class="product-part-number">Part No. <strong>MP 45</strong></div><h3 class="product-title"><a href="/bn/products/manu-mp-45-bell-crank-bush-tata-2416">Bell Crank Bush Tata 2416</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,305</span><span class="product-price-mrp">MRP ₹1,450</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000767" data-part="MP 45" data-name="Bell Crank Bush Tata 2416" data-brand="Manu" aria-label="Add View Bell Crank Bush Tata 2416 to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-manu-suspension-steering" aria-labelledby="brand-manu-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-manu-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">3 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=manu&category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/mp168-bell-crank-set-50-mm" class="product-link" aria-label="View Bell Crank Set 50 mm"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000372/1.webp" alt="Bell Crank Set 50 mm" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000372" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Manu</div><div class="product-part-number">Part No. <strong>MP168</strong></div><h3 class="product-title"><a href="/bn/products/mp168-bell-crank-set-50-mm">Bell Crank Set 50 mm</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,350</span><span class="product-price-mrp">MRP ₹1,980</span><span class="product-price-discount">32% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000372" data-part="MP168" data-name="Bell Crank Set 50 mm" data-brand="Manu" aria-label="Add View Bell Crank Set 50 mm to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/manu-mp-58-bell-crank-bush-l-l" class="product-link" aria-label="View Bell Crank Bush L/L"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000766/1.webp" alt="Bell Crank Bush L/L" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000766" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Manu</div><div class="product-part-number">Part No. <strong>MP 58</strong></div><h3 class="product-title"><a href="/bn/products/manu-mp-58-bell-crank-bush-l-l">Bell Crank Bush L/L</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,710</span><span class="product-price-mrp">MRP ₹1,900</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000766" data-part="MP 58" data-name="Bell Crank Bush L/L" data-brand="Manu" aria-label="Add View Bell Crank Bush L/L to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/manu-mp-45-bell-crank-bush-tata-2416" class="product-link" aria-label="View Bell Crank Bush Tata 2416"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000767/1.webp" alt="Bell Crank Bush Tata 2416" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000767" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Manu</div><div class="product-part-number">Part No. <strong>MP 45</strong></div><h3 class="product-title"><a href="/bn/products/manu-mp-45-bell-crank-bush-tata-2416">Bell Crank Bush Tata 2416</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,305</span><span class="product-price-mrp">MRP ₹1,450</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000767" data-part="MP 45" data-name="Bell Crank Bush Tata 2416" data-brand="Manu" aria-label="Add View Bell Crank Bush Tata 2416 to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
 
         </div>
 
@@ -1580,9 +1501,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

@@ -897,131 +897,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="প্রধান নেভিগেশন">
+            <nav id="mainNavigation" class="main-navigation" aria-label="প্রধান নেভিগেশন">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/bn/" class="nav-link ">হোম</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/products" class="nav-link ">পণ্যসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/brands" class="nav-link active">ব্র্যান্ডসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/vehicles" class="nav-link ">যানবাহন</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/categories" class="nav-link ">বিভাগসমূহ</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/about" class="nav-link ">আমাদের সম্পর্কে</a>
+                                </li>
+                                <li>
+                                    <a href="/bn/contact" class="nav-link ">যোগাযোগ</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/bn/login">
+                                    সাইন ইন
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/bn/"
-                            class="nav-link ">
-
-                            হোম
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/products"
-                            class="nav-link ">
-
-                            পণ্যসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/brands"
-                            class="nav-link active">
-
-                            ব্র্যান্ডসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/vehicles"
-                            class="nav-link ">
-
-                            যানবাহন
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/categories"
-                            class="nav-link ">
-
-                            বিভাগসমূহ
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/about"
-                            class="nav-link ">
-
-                            আমাদের সম্পর্কে
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/bn/contact"
-                            class="nav-link ">
-
-                            যোগাযোগ
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/bn/login">
-                        সাইন ইন
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/bn/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">অ্যাকাউন্ট</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            সাইন আউট
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/bn/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">অ্যাকাউন্ট</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        সাইন আউট
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1136,10 +1057,10 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-rane-air-system" aria-labelledby="brand-rane-air-system-title"><div class="entity-product-gallery__header"><div><h2 id="brand-rane-air-system-title">Air System</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=rane&category_id=air-system">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Air System products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/rane-300003094-rg2-valve-kit" class="product-link" aria-label="View RG2 Valve Kit"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000791/1.webp" alt="RG2 Valve Kit" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000791" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>300003094</strong></div><h3 class="product-title"><a href="/bn/products/rane-300003094-rg2-valve-kit">RG2 Valve Kit</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,080</span><span class="product-price-mrp">MRP ₹1,200</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000791" data-part="300003094" data-name="RG2 Valve Kit" data-brand="Rane" aria-label="Add View RG2 Valve Kit to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
-<section class="entity-product-gallery" id="brand-rane-bearings" aria-labelledby="brand-rane-bearings-title"><div class="entity-product-gallery__header"><div><h2 id="brand-rane-bearings-title">Bearings</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=rane&category_id=bearings">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Bearings products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/rane-cj016002b-cj-bkt-2515-n-m-with-brg-6211-2rs" class="product-link" aria-label="View CJ BKT 2515 N/M With BRG [6211-2RS]"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000967/1.webp" alt="CJ BKT 2515 N/M With BRG [6211-2RS]" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000967" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>CJ016002B</strong></div><h3 class="product-title"><a href="/bn/products/rane-cj016002b-cj-bkt-2515-n-m-with-brg-6211-2rs">CJ BKT 2515 N/M With BRG [6211-2RS]</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹595.09</span><span class="product-price-mrp">MRP ₹714.11</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000967" data-part="CJ016002B" data-name="CJ BKT 2515 N/M With BRG [6211-2RS]" data-brand="Rane" aria-label="Add View CJ BKT 2515 N/M With BRG [6211-2RS] to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
-<section class="entity-product-gallery" id="brand-rane-lubricants" aria-labelledby="brand-rane-lubricants-title"><div class="entity-product-gallery__header"><div><h2 id="brand-rane-lubricants-title">Lubricants</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=rane&category_id=lubricants">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Lubricants products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/rane-90cruiseecotq-1-1ltr-eco-tq" class="product-link" aria-label="View 1Ltr Eco TQ"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000794/1.webp" alt="1Ltr Eco TQ" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000794" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>90CruiseEcoTQ 1</strong></div><h3 class="product-title"><a href="/bn/products/rane-90cruiseecotq-1-1ltr-eco-tq">1Ltr Eco TQ</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹391.5</span><span class="product-price-mrp">MRP ₹435</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000794" data-part="90CruiseEcoTQ 1" data-name="1Ltr Eco TQ" data-brand="Rane" aria-label="Add View 1Ltr Eco TQ to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
-<section class="entity-product-gallery" id="brand-rane-suspension-steering" aria-labelledby="brand-rane-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-rane-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">5 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=rane&category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/30230073-power-steering-pump-assembly" class="product-link" aria-label="View Power Steering Pump Assembly"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000426/1.webp" alt="Power Steering Pump Assembly" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000426" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>30230073</strong></div><h3 class="product-title"><a href="/bn/products/30230073-power-steering-pump-assembly">Power Steering Pump Assembly</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,789</span><span class="product-price-mrp">MRP ₹7,122</span><span class="product-price-discount">19% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000426" data-part="30230073" data-name="Power Steering Pump Assembly" data-brand="Rane" aria-label="Add View Power Steering Pump Assembly to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/rane-42490111-psf-plus-pump-assy-kit-tml-2518" class="product-link" aria-label="View PSF Plus Pump Assy Kit TML 2518"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000792/1.webp" alt="PSF Plus Pump Assy Kit TML 2518" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000792" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>42490111</strong></div><h3 class="product-title"><a href="/bn/products/rane-42490111-psf-plus-pump-assy-kit-tml-2518">PSF Plus Pump Assy Kit TML 2518</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹8,722.8</span><span class="product-price-mrp">MRP ₹9,692</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000792" data-part="42490111" data-name="PSF Plus Pump Assy Kit TML 2518" data-brand="Rane" aria-label="Add View PSF Plus Pump Assy Kit TML 2518 to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/rane-704020600-power-steering-reservoir-a-l-fvdp" class="product-link" aria-label="View Power Steering Reservoir A/L FVDP"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000793/1.webp" alt="Power Steering Reservoir A/L FVDP" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000793" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>704020600</strong></div><h3 class="product-title"><a href="/bn/products/rane-704020600-power-steering-reservoir-a-l-fvdp">Power Steering Reservoir A/L FVDP</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,346.4</span><span class="product-price-mrp">MRP ₹1,496</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000793" data-part="704020600" data-name="Power Steering Reservoir A/L FVDP" data-brand="Rane" aria-label="Add View Power Steering Reservoir A/L FVDP to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/30230092-power-steering-pump-assembly-bs3" class="product-link" aria-label="View Power Steering Pump Assembly BS3"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000935/1.webp" alt="Power Steering Pump Assembly BS3" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000935" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>30210092</strong></div><h3 class="product-title"><a href="/bn/products/30230092-power-steering-pump-assembly-bs3">Power Steering Pump Assembly BS3</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,459</span><span class="product-price-mrp">MRP ₹6,687</span><span class="product-price-discount">18% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000935" data-part="30210092" data-name="Power Steering Pump Assembly BS3" data-brand="Rane" aria-label="Add View Power Steering Pump Assembly BS3 to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/42530003-psf-plus-power-steering-pump-assembly-bs6" class="product-link" aria-label="View PSF Plus Power Steering Pump Assembly BS6"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000936/1.webp" alt="PSF Plus Power Steering Pump Assembly BS6" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000936" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>42530003</strong></div><h3 class="product-title"><a href="/bn/products/42530003-psf-plus-power-steering-pump-assembly-bs6">PSF Plus Power Steering Pump Assembly BS6</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹7,979</span><span class="product-price-mrp">MRP ₹8,587</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000936" data-part="42530003" data-name="PSF Plus Power Steering Pump Assembly BS6" data-brand="Rane" aria-label="Add View PSF Plus Power Steering Pump Assembly BS6 to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-rane-air-system" aria-labelledby="brand-rane-air-system-title"><div class="entity-product-gallery__header"><div><h2 id="brand-rane-air-system-title">Air System</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=rane&category_id=air-system">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Air System products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/rane-300003094-rg2-valve-kit" class="product-link" aria-label="View RG2 Valve Kit"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000791/1.webp" alt="RG2 Valve Kit" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000791" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>300003094</strong></div><h3 class="product-title"><a href="/bn/products/rane-300003094-rg2-valve-kit">RG2 Valve Kit</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,080</span><span class="product-price-mrp">MRP ₹1,200</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000791" data-part="300003094" data-name="RG2 Valve Kit" data-brand="Rane" aria-label="Add View RG2 Valve Kit to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-rane-bearings" aria-labelledby="brand-rane-bearings-title"><div class="entity-product-gallery__header"><div><h2 id="brand-rane-bearings-title">Bearings</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=rane&category_id=bearings">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Bearings products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/rane-cj016002b-cj-bkt-2515-n-m-with-brg-6211-2rs" class="product-link" aria-label="View CJ BKT 2515 N/M With BRG [6211-2RS]"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000967/1.webp" alt="CJ BKT 2515 N/M With BRG [6211-2RS]" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000967" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>CJ016002B</strong></div><h3 class="product-title"><a href="/bn/products/rane-cj016002b-cj-bkt-2515-n-m-with-brg-6211-2rs">CJ BKT 2515 N/M With BRG [6211-2RS]</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹595.09</span><span class="product-price-mrp">MRP ₹714.11</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000967" data-part="CJ016002B" data-name="CJ BKT 2515 N/M With BRG [6211-2RS]" data-brand="Rane" aria-label="Add View CJ BKT 2515 N/M With BRG [6211-2RS] to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-rane-lubricants" aria-labelledby="brand-rane-lubricants-title"><div class="entity-product-gallery__header"><div><h2 id="brand-rane-lubricants-title">Lubricants</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=rane&category_id=lubricants">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Lubricants products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/rane-90cruiseecotq-1-1ltr-eco-tq" class="product-link" aria-label="View 1Ltr Eco TQ"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000794/1.webp" alt="1Ltr Eco TQ" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000794" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>90CruiseEcoTQ 1</strong></div><h3 class="product-title"><a href="/bn/products/rane-90cruiseecotq-1-1ltr-eco-tq">1Ltr Eco TQ</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹391.5</span><span class="product-price-mrp">MRP ₹435</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000794" data-part="90CruiseEcoTQ 1" data-name="1Ltr Eco TQ" data-brand="Rane" aria-label="Add View 1Ltr Eco TQ to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-rane-suspension-steering" aria-labelledby="brand-rane-suspension-steering-title"><div class="entity-product-gallery__header"><div><h2 id="brand-rane-suspension-steering-title">Suspension &amp; Steering</h2><span class="entity-product-gallery__count">5 Products</span></div><a class="entity-product-gallery__view-all" href="/bn/products?brand_id=rane&category_id=suspension-steering">সব দেখুন<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Suspension &amp; Steering products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/bn/products/30230073-power-steering-pump-assembly" class="product-link" aria-label="View Power Steering Pump Assembly"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000426/1.webp" alt="Power Steering Pump Assembly" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000426" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>30230073</strong></div><h3 class="product-title"><a href="/bn/products/30230073-power-steering-pump-assembly">Power Steering Pump Assembly</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,789</span><span class="product-price-mrp">MRP ₹7,122</span><span class="product-price-discount">19% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000426" data-part="30230073" data-name="Power Steering Pump Assembly" data-brand="Rane" aria-label="Add View Power Steering Pump Assembly to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/rane-42490111-psf-plus-pump-assy-kit-tml-2518" class="product-link" aria-label="View PSF Plus Pump Assy Kit TML 2518"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000792/1.webp" alt="PSF Plus Pump Assy Kit TML 2518" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000792" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>42490111</strong></div><h3 class="product-title"><a href="/bn/products/rane-42490111-psf-plus-pump-assy-kit-tml-2518">PSF Plus Pump Assy Kit TML 2518</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹8,722.8</span><span class="product-price-mrp">MRP ₹9,692</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000792" data-part="42490111" data-name="PSF Plus Pump Assy Kit TML 2518" data-brand="Rane" aria-label="Add View PSF Plus Pump Assy Kit TML 2518 to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/rane-704020600-power-steering-reservoir-a-l-fvdp" class="product-link" aria-label="View Power Steering Reservoir A/L FVDP"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000793/1.webp" alt="Power Steering Reservoir A/L FVDP" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000793" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>704020600</strong></div><h3 class="product-title"><a href="/bn/products/rane-704020600-power-steering-reservoir-a-l-fvdp">Power Steering Reservoir A/L FVDP</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,346.4</span><span class="product-price-mrp">MRP ₹1,496</span><span class="product-price-discount">10% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000793" data-part="704020600" data-name="Power Steering Reservoir A/L FVDP" data-brand="Rane" aria-label="Add View Power Steering Reservoir A/L FVDP to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/30230092-power-steering-pump-assembly-bs3" class="product-link" aria-label="View Power Steering Pump Assembly BS3"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000935/1.webp" alt="Power Steering Pump Assembly BS3" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000935" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>30210092</strong></div><h3 class="product-title"><a href="/bn/products/30230092-power-steering-pump-assembly-bs3">Power Steering Pump Assembly BS3</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,459</span><span class="product-price-mrp">MRP ₹6,687</span><span class="product-price-discount">18% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000935" data-part="30210092" data-name="Power Steering Pump Assembly BS3" data-brand="Rane" aria-label="Add View Power Steering Pump Assembly BS3 to RFQ">RFQ-তে যোগ করুন</button></div></article><article class="product-card"><div class="product-image"><a href="/bn/products/42530003-psf-plus-power-steering-pump-assembly-bs6" class="product-link" aria-label="View PSF Plus Power Steering Pump Assembly BS6"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000936/1.webp" alt="PSF Plus Power Steering Pump Assembly BS6" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000936" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Rane</div><div class="product-part-number">Part No. <strong>42530003</strong></div><h3 class="product-title"><a href="/bn/products/42530003-psf-plus-power-steering-pump-assembly-bs6">PSF Plus Power Steering Pump Assembly BS6</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹7,979</span><span class="product-price-mrp">MRP ₹8,587</span><span class="product-price-discount">7% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000936" data-part="42530003" data-name="PSF Plus Power Steering Pump Assembly BS6" data-brand="Rane" aria-label="Add View PSF Plus Power Steering Pump Assembly BS6 to RFQ">RFQ-তে যোগ করুন</button></div></article></div></div></section>
 
         </div>
 
@@ -1618,9 +1539,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

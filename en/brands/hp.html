@@ -897,131 +897,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="Primary Navigation">
+            <nav id="mainNavigation" class="main-navigation" aria-label="Primary Navigation">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/en/" class="nav-link ">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/en/products" class="nav-link ">Products</a>
+                                </li>
+                                <li>
+                                    <a href="/en/brands" class="nav-link active">Brands</a>
+                                </li>
+                                <li>
+                                    <a href="/en/vehicles" class="nav-link ">Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="/en/categories" class="nav-link ">Categories</a>
+                                </li>
+                                <li>
+                                    <a href="/en/about" class="nav-link ">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="/en/contact" class="nav-link ">Contact</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="Account">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/en/login">
+                                    Sign In
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/en/"
-                            class="nav-link ">
-
-                            Home
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/products"
-                            class="nav-link ">
-
-                            Products
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/brands"
-                            class="nav-link active">
-
-                            Brands
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/vehicles"
-                            class="nav-link ">
-
-                            Vehicles
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/categories"
-                            class="nav-link ">
-
-                            Categories
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/about"
-                            class="nav-link ">
-
-                            About Us
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/contact"
-                            class="nav-link ">
-
-                            Contact
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="Account">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/en/login">
-                        Sign In
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/en/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">Account</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            Sign Out
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/en/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">Account</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1136,7 +1057,7 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-hp-lubricants" aria-labelledby="brand-hp-lubricants-title"><div class="entity-product-gallery__header"><div><h2 id="brand-hp-lubricants-title">Lubricants</h2><span class="entity-product-gallery__count">8 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=hp&category_id=lubricants">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Lubricants products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/atf-10-x-1-ltr" class="product-link" aria-label="View ATF (10 x 1 Ltr)"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000320/1.webp" alt="ATF (10 x 1 Ltr)" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000320" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/atf-10-x-1-ltr">ATF (10 x 1 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹300</span><span class="product-price-mrp">MRP ₹385</span><span class="product-price-discount">22% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000320" data-part="" data-name="ATF (10 x 1 Ltr)" data-brand="HP" aria-label="Add View ATF (10 x 1 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/gear-oil-80w90-10-x-1-ltr" class="product-link" aria-label="View Gear Oil 80W90 (10 x 1 Ltr)"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000321/1.webp" alt="Gear Oil 80W90 (10 x 1 Ltr)" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000321" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/gear-oil-80w90-10-x-1-ltr">Gear Oil 80W90 (10 x 1 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹350</span><span class="product-price-mrp">MRP ₹425</span><span class="product-price-discount">18% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000321" data-part="" data-name="Gear Oil 80W90 (10 x 1 Ltr)" data-brand="HP" aria-label="Add View Gear Oil 80W90 (10 x 1 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/gear-oil-80w90-4-x-5-ltr" class="product-link" aria-label="View Gear Oil 80W90 (4 x 5 Ltr)"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000322/1.webp" alt="Gear Oil 80W90 (4 x 5 Ltr)" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000322" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/gear-oil-80w90-4-x-5-ltr">Gear Oil 80W90 (4 x 5 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,900</span><span class="product-price-mrp">MRP ₹2,548</span><span class="product-price-discount">25% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000322" data-part="" data-name="Gear Oil 80W90 (4 x 5 Ltr)" data-brand="HP" aria-label="Add View Gear Oil 80W90 (4 x 5 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hydraulic-oil-enklo-68-hydraulic-oil-enklo-68-20-ltr" class="product-link" aria-label="View Hydraulic Oil ENKLO 68 - 20 Ltr"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000323/1.webp" alt="Hydraulic Oil ENKLO 68 - 20 Ltr" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000323" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number">Part No. <strong>Hydraulic Oil ENKLO 68</strong></div><h3 class="product-title"><a href="/en/products/hydraulic-oil-enklo-68-hydraulic-oil-enklo-68-20-ltr">Hydraulic Oil ENKLO 68 - 20 Ltr</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,800</span><span class="product-price-mrp">MRP ₹7,800</span><span class="product-price-discount">51% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000323" data-part="Hydraulic Oil ENKLO 68" data-name="Hydraulic Oil ENKLO 68 - 20 Ltr" data-brand="HP" aria-label="Add View Hydraulic Oil ENKLO 68 - 20 Ltr to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hp-gear-drive-85w140-10-x-1-ltr" class="product-link" aria-label="View Gear Drive 85W140 (10 x 1 Ltr)"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000697/1.webp" alt="Gear Drive 85W140 (10 x 1 Ltr)" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000697" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/hp-gear-drive-85w140-10-x-1-ltr">Gear Drive 85W140 (10 x 1 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹350</span><span class="product-price-mrp">MRP ₹425</span><span class="product-price-discount">18% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000697" data-part="" data-name="Gear Drive 85W140 (10 x 1 Ltr)" data-brand="HP" aria-label="Add View Gear Drive 85W140 (10 x 1 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hp-gear-oil-85w140-12ltr" class="product-link" aria-label="View Gear Oil 85W140 12Ltr"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000698/1.webp" alt="Gear Oil 85W140 12Ltr" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000698" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/hp-gear-oil-85w140-12ltr">Gear Oil 85W140 12Ltr</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,850</span><span class="product-price-mrp">MRP ₹4,450</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000698" data-part="" data-name="Gear Oil 85W140 12Ltr" data-brand="HP" aria-label="Add View Gear Oil 85W140 12Ltr to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hp-gear-drive-80w140-4-x-5-ltr" class="product-link" aria-label="View Gear Drive 80W140 (4 x 5 Ltr)"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000959/1.webp" alt="Gear Drive 80W140 (4 x 5 Ltr)" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000959" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/hp-gear-drive-80w140-4-x-5-ltr">Gear Drive 80W140 (4 x 5 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,750</span><span class="product-price-mrp">MRP ₹2,100</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000959" data-part="" data-name="Gear Drive 80W140 (4 x 5 Ltr)" data-brand="HP" aria-label="Add View Gear Drive 80W140 (4 x 5 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hp-gear-oil-80w90-7-ltr" class="product-link" aria-label="View Gear Oil 80W90 7 Ltr"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000960/1.webp" alt="Gear Oil 80W90 7 Ltr" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000960" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/hp-gear-oil-80w90-7-ltr">Gear Oil 80W90 7 Ltr</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,450</span><span class="product-price-mrp">MRP ₹2,940</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000960" data-part="" data-name="Gear Oil 80W90 7 Ltr" data-brand="HP" aria-label="Add View Gear Oil 80W90 7 Ltr to RFQ">Add To RFQ</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-hp-lubricants" aria-labelledby="brand-hp-lubricants-title"><div class="entity-product-gallery__header"><div><h2 id="brand-hp-lubricants-title">Lubricants</h2><span class="entity-product-gallery__count">8 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=hp&category_id=lubricants">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Lubricants products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/atf-10-x-1-ltr" class="product-link" aria-label="View ATF (10 x 1 Ltr)"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000320/1.webp" alt="ATF (10 x 1 Ltr)" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000320" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/atf-10-x-1-ltr">ATF (10 x 1 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹300</span><span class="product-price-mrp">MRP ₹385</span><span class="product-price-discount">22% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000320" data-part="" data-name="ATF (10 x 1 Ltr)" data-brand="HP" aria-label="Add View ATF (10 x 1 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/gear-oil-80w90-10-x-1-ltr" class="product-link" aria-label="View Gear Oil 80W90 (10 x 1 Ltr)"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000321/1.webp" alt="Gear Oil 80W90 (10 x 1 Ltr)" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000321" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/gear-oil-80w90-10-x-1-ltr">Gear Oil 80W90 (10 x 1 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹350</span><span class="product-price-mrp">MRP ₹425</span><span class="product-price-discount">18% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000321" data-part="" data-name="Gear Oil 80W90 (10 x 1 Ltr)" data-brand="HP" aria-label="Add View Gear Oil 80W90 (10 x 1 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/gear-oil-80w90-4-x-5-ltr" class="product-link" aria-label="View Gear Oil 80W90 (4 x 5 Ltr)"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000322/1.webp" alt="Gear Oil 80W90 (4 x 5 Ltr)" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000322" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/gear-oil-80w90-4-x-5-ltr">Gear Oil 80W90 (4 x 5 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,900</span><span class="product-price-mrp">MRP ₹2,548</span><span class="product-price-discount">25% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000322" data-part="" data-name="Gear Oil 80W90 (4 x 5 Ltr)" data-brand="HP" aria-label="Add View Gear Oil 80W90 (4 x 5 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hydraulic-oil-enklo-68-hydraulic-oil-enklo-68-20-ltr" class="product-link" aria-label="View Hydraulic Oil ENKLO 68 - 20 Ltr"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000323/1.webp" alt="Hydraulic Oil ENKLO 68 - 20 Ltr" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000323" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number">Part No. <strong>Hydraulic Oil ENKLO 68</strong></div><h3 class="product-title"><a href="/en/products/hydraulic-oil-enklo-68-hydraulic-oil-enklo-68-20-ltr">Hydraulic Oil ENKLO 68 - 20 Ltr</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,800</span><span class="product-price-mrp">MRP ₹7,800</span><span class="product-price-discount">51% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000323" data-part="Hydraulic Oil ENKLO 68" data-name="Hydraulic Oil ENKLO 68 - 20 Ltr" data-brand="HP" aria-label="Add View Hydraulic Oil ENKLO 68 - 20 Ltr to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hp-gear-drive-85w140-10-x-1-ltr" class="product-link" aria-label="View Gear Drive 85W140 (10 x 1 Ltr)"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000697/1.webp" alt="Gear Drive 85W140 (10 x 1 Ltr)" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000697" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/hp-gear-drive-85w140-10-x-1-ltr">Gear Drive 85W140 (10 x 1 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹350</span><span class="product-price-mrp">MRP ₹425</span><span class="product-price-discount">18% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000697" data-part="" data-name="Gear Drive 85W140 (10 x 1 Ltr)" data-brand="HP" aria-label="Add View Gear Drive 85W140 (10 x 1 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hp-gear-oil-85w140-12ltr" class="product-link" aria-label="View Gear Oil 85W140 12Ltr"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000698/1.webp" alt="Gear Oil 85W140 12Ltr" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000698" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/hp-gear-oil-85w140-12ltr">Gear Oil 85W140 12Ltr</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹3,850</span><span class="product-price-mrp">MRP ₹4,450</span><span class="product-price-discount">13% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000698" data-part="" data-name="Gear Oil 85W140 12Ltr" data-brand="HP" aria-label="Add View Gear Oil 85W140 12Ltr to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hp-gear-drive-80w140-4-x-5-ltr" class="product-link" aria-label="View Gear Drive 80W140 (4 x 5 Ltr)"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000959/1.webp" alt="Gear Drive 80W140 (4 x 5 Ltr)" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000959" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/hp-gear-drive-80w140-4-x-5-ltr">Gear Drive 80W140 (4 x 5 Ltr)</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,750</span><span class="product-price-mrp">MRP ₹2,100</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000959" data-part="" data-name="Gear Drive 80W140 (4 x 5 Ltr)" data-brand="HP" aria-label="Add View Gear Drive 80W140 (4 x 5 Ltr) to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/hp-gear-oil-80w90-7-ltr" class="product-link" aria-label="View Gear Oil 80W90 7 Ltr"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000960/1.webp" alt="Gear Oil 80W90 7 Ltr" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000960" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">HP</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/hp-gear-oil-80w90-7-ltr">Gear Oil 80W90 7 Ltr</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,450</span><span class="product-price-mrp">MRP ₹2,940</span><span class="product-price-discount">17% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000960" data-part="" data-name="Gear Oil 80W90 7 Ltr" data-brand="HP" aria-label="Add View Gear Oil 80W90 7 Ltr to RFQ">Add To RFQ</button></div></article></div></div></section>
 
         </div>
 
@@ -1615,9 +1536,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

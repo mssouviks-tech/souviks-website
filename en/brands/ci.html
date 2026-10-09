@@ -855,131 +855,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="Primary Navigation">
+            <nav id="mainNavigation" class="main-navigation" aria-label="Primary Navigation">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/en/" class="nav-link ">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/en/products" class="nav-link ">Products</a>
+                                </li>
+                                <li>
+                                    <a href="/en/brands" class="nav-link active">Brands</a>
+                                </li>
+                                <li>
+                                    <a href="/en/vehicles" class="nav-link ">Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="/en/categories" class="nav-link ">Categories</a>
+                                </li>
+                                <li>
+                                    <a href="/en/about" class="nav-link ">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="/en/contact" class="nav-link ">Contact</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="Account">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/en/login">
+                                    Sign In
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/en/"
-                            class="nav-link ">
-
-                            Home
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/products"
-                            class="nav-link ">
-
-                            Products
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/brands"
-                            class="nav-link active">
-
-                            Brands
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/vehicles"
-                            class="nav-link ">
-
-                            Vehicles
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/categories"
-                            class="nav-link ">
-
-                            Categories
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/about"
-                            class="nav-link ">
-
-                            About Us
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/contact"
-                            class="nav-link ">
-
-                            Contact
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="Account">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/en/login">
-                        Sign In
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/en/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">Account</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            Sign Out
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/en/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">Account</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1094,8 +1015,8 @@ BRAND PRODUCTS
             class="entity-product-galleries"
             data-static-rendered="true">
 
-<section class="entity-product-gallery" id="brand-ci-clutch-parts" aria-labelledby="brand-ci-clutch-parts-title"><div class="entity-product-gallery__header"><div><h2 id="brand-ci-clutch-parts-title">Clutch Parts</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=ci&category_id=clutch-parts">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Clutch Parts products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/gear-lever-knob" class="product-link" aria-label="View Gear Lever Knob"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000373/1.webp" alt="Gear Lever Knob" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000373" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">CI</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/gear-lever-knob">Gear Lever Knob</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹466</span><span class="product-price-mrp">MRP ₹759</span><span class="product-price-discount">39% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000373" data-part="" data-name="Gear Lever Knob" data-brand="CI" aria-label="Add View Gear Lever Knob to RFQ">Add To RFQ</button></div></article></div></div></section>
-<section class="entity-product-gallery" id="brand-ci-rubber-parts" aria-labelledby="brand-ci-rubber-parts-title"><div class="entity-product-gallery__header"><div><h2 id="brand-ci-rubber-parts-title">Rubber Parts</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=ci&category_id=rubber-parts">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Rubber Parts products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/urea-cap-bs6-urea-cap-bs6-def-tank-cap" class="product-link" aria-label="View Urea Cap BS6 - DEF Tank Cap"><img loading="lazy" class="product-image-file" src="/assets/images/products/SVKS000576/1.webp" alt="Urea Cap BS6 - DEF Tank Cap" data-image-available="true" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000576" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">CI</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/urea-cap-bs6-urea-cap-bs6-def-tank-cap">Urea Cap BS6 - DEF Tank Cap</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹76</span><span class="product-price-mrp">MRP ₹85</span><span class="product-price-discount">11% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000576" data-part="" data-name="Urea Cap BS6 - DEF Tank Cap" data-brand="CI" aria-label="Add View Urea Cap BS6 - DEF Tank Cap to RFQ">Add To RFQ</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-ci-clutch-parts" aria-labelledby="brand-ci-clutch-parts-title"><div class="entity-product-gallery__header"><div><h2 id="brand-ci-clutch-parts-title">Clutch Parts</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=ci&category_id=clutch-parts">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Clutch Parts products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/gear-lever-knob" class="product-link" aria-label="View Gear Lever Knob"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000373/1.webp" alt="Gear Lever Knob" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000373" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">CI</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/gear-lever-knob">Gear Lever Knob</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹466</span><span class="product-price-mrp">MRP ₹759</span><span class="product-price-discount">39% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000373" data-part="" data-name="Gear Lever Knob" data-brand="CI" aria-label="Add View Gear Lever Knob to RFQ">Add To RFQ</button></div></article></div></div></section>
+<section class="entity-product-gallery" id="brand-ci-rubber-parts" aria-labelledby="brand-ci-rubber-parts-title"><div class="entity-product-gallery__header"><div><h2 id="brand-ci-rubber-parts-title">Rubber Parts</h2><span class="entity-product-gallery__count">1 Products</span></div><a class="entity-product-gallery__view-all" href="/en/products?brand_id=ci&category_id=rubber-parts">View All<span aria-hidden="true"> →</span></a></div><div class="entity-product-gallery__viewport" tabindex="0" aria-label="Rubber Parts products"><div class="entity-product-gallery__track"><article class="product-card"><div class="product-image"><a href="/en/products/urea-cap-bs6-urea-cap-bs6-def-tank-cap" class="product-link" aria-label="View Urea Cap BS6 - DEF Tank Cap"><img loading="lazy" class="product-image-file" data-image-state="catalogue" src="/assets/images/products/SVKS000576/1.webp" alt="Urea Cap BS6 - DEF Tank Cap" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000576" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">CI</div><div class="product-part-number product-part-number-empty">Part No. on request</div><h3 class="product-title"><a href="/en/products/urea-cap-bs6-urea-cap-bs6-def-tank-cap">Urea Cap BS6 - DEF Tank Cap</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹76</span><span class="product-price-mrp">MRP ₹85</span><span class="product-price-discount">11% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000576" data-part="" data-name="Urea Cap BS6 - DEF Tank Cap" data-brand="CI" aria-label="Add View Urea Cap BS6 - DEF Tank Cap to RFQ">Add To RFQ</button></div></article></div></div></section>
 
         </div>
 
@@ -1574,9 +1495,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/brand.js?v=0daa3731cb1b"></script>
+<script defer src="/assets/js/catalogue-core.js?v=877ba1755bbe"></script>
+<script defer src="/assets/js/bundles/brand.js?v=b997d9dd2fd3"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

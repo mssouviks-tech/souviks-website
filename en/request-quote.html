@@ -782,131 +782,52 @@ Reusable Head Component
 
         <div class="header-wrapper">
 
-            <nav
-                id="mainNavigation"
-                class="main-navigation"
-                aria-label="Primary Navigation">
+            <nav id="mainNavigation" class="main-navigation" aria-label="Primary Navigation">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.png" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
 
-                <div class="mobile-navigation-header">
-                    <img
-                        src="/assets/logo/souviks-logo-white.png"
-                        alt="Souviks"
-                        class="mobile-navigation-logo" width="1024" height="1024">
-                    <button
-                        id="mobileNavigationClose"
-                        class="mobile-navigation-close"
-                        type="button"
-                        aria-label="Close Navigation">×</button>
-                </div>
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/en/" class="nav-link ">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/en/products" class="nav-link ">Products</a>
+                                </li>
+                                <li>
+                                    <a href="/en/brands" class="nav-link ">Brands</a>
+                                </li>
+                                <li>
+                                    <a href="/en/vehicles" class="nav-link ">Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="/en/categories" class="nav-link ">Categories</a>
+                                </li>
+                                <li>
+                                    <a href="/en/about" class="nav-link ">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="/en/contact" class="nav-link ">Contact</a>
+                                </li>
+                            </ul>
 
-                <ul class="navigation-menu">
+                            <div class="mobile-nav-auth" aria-label="Account">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/en/login">
+                                    Sign In
+                                </a>
 
-                    <li>
-
-                        <a
-                            href="/en/"
-                            class="nav-link ">
-
-                            Home
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/products"
-                            class="nav-link ">
-
-                            Products
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/brands"
-                            class="nav-link ">
-
-                            Brands
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/vehicles"
-                            class="nav-link ">
-
-                            Vehicles
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/categories"
-                            class="nav-link ">
-
-                            Categories
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/about"
-                            class="nav-link ">
-
-                            About Us
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            href="/en/contact"
-                            class="nav-link ">
-
-                            Contact
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-                <div class="mobile-nav-auth" aria-label="Account">
-                    <a
-                        id="mobileNavSignIn"
-                        class="mobile-nav-auth-link"
-                        href="/en/login">
-                        Sign In
-                    </a>
-
-                    <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
-                        <a class="mobile-nav-auth-link" href="/en/account">
-                            <span aria-hidden="true">◉</span>
-                            <span id="mobileNavUserName">Account</span>
-                        </a>
-                        <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
-                            Sign Out
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/en/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">Account</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
 
 
             <!-- ==========================================
@@ -1696,9 +1617,10 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=f0dc80180c8e"></script>
+<script defer src="/assets/js/site-core.js?v=f51d8cf34f06"></script>
 
-<script defer src="/assets/js/bundles/request-quote.js?v=4c735fd82ab9"></script>
+<script defer src="/assets/js/request-quote/rfq.js?v=a154431affa0"></script>
+<script defer src="/assets/js/request-quote/standalone-rfq-submission.js?v=27cf7c6b55dc"></script>
 
 <!-- ==========================================
      PAGE-SPECIFIC SCRIPTS

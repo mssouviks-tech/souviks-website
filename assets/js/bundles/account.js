@@ -1,1 +1,1 @@
-/* Compatibility entrypoint retained for older links. Account pages load ordered modules under /assets/js/account/. */
+/* Page runtime modules are loaded directly by the page. This compatibility bundle is intentionally empty. */
