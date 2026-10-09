@@ -917,21 +917,50 @@ async function main() {
       await page.goto(BASE + langPath(lang, "request-quote"), { waitUntil: "domcontentloaded" });
       await page.waitForTimeout(500);
 
-      await check(`${view}/${lang}/RFQ submission`, async () => {
+      await check(`${view}/${lang}/RFQ failed-submission recovery`, async () => {
         await page.route("**/api.emailjs.com/**", route =>
-          route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
+          route.fulfill({ status: 500, contentType: "text/plain", body: "Forced regression failure" })
         );
         await page.locator("#rfq-name").fill("Regression Test");
         await page.locator("#rfq-phone").fill("9000000000");
         await page.locator("#rfq-form button[type=submit]").click();
         await page.waitForTimeout(600);
+
         const status = page.locator("#rfqFormStatus");
         const text = await status.innerText().catch(() => "");
-        if (!/success|submitted|RFQ/i.test(text)) {
-          throw new Error(`submission status: ${text || "missing"}`);
+        const isError = await status.evaluate(element => element.classList.contains("error")).catch(() => false);
+        const stored = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_rfq_guest");
+          return raw ? JSON.parse(raw) : [];
+        });
+        if (!isError || !text.trim() || /submitted successfully|successfully submitted/i.test(text)) {
+          throw new Error(`failed submission feedback incorrect: ${text || "missing"}`);
         }
+        if (stored.length !== 1) throw new Error(`failed submission lost the basket; stored items=${stored.length}`);
         await page.unroute("**/api.emailjs.com/**");
-        return "client submission path completed";
+        return "failure shown; basket preserved";
+      });
+
+      await check(`${view}/${lang}/RFQ successful submission`, async () => {
+        await page.route("**/api.emailjs.com/**", route =>
+          route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
+        );
+        await page.locator("#rfq-form button[type=submit]").click();
+        await page.waitForTimeout(600);
+
+        const status = page.locator("#rfqFormStatus");
+        const text = await status.innerText().catch(() => "");
+        const isSuccess = await status.evaluate(element => element.classList.contains("success")).catch(() => false);
+        const stored = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_rfq_guest");
+          return raw ? JSON.parse(raw) : [];
+        });
+        if (!isSuccess || !text.trim() || /submitting/i.test(text)) {
+          throw new Error(`submission success feedback incorrect: ${text || "missing"}`);
+        }
+        if (stored.length !== 0) throw new Error(`successful submission did not clear basket; stored items=${stored.length}`);
+        await page.unroute("**/api.emailjs.com/**");
+        return "success status confirmed; basket cleared";
       });
 
       // PDP
