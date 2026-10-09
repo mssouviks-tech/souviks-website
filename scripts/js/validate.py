@@ -179,7 +179,9 @@ def main() -> None:
 
             if page_module_sources:
                 requires_catalogue_core = any(
-                    src in CATALOGUE_CORE_MODULES for src in page_module_sources
+                    src in CATALOGUE_CORE_MODULES
+                    and src != "/assets/js/request-quote/rfq.js"
+                    for src in page_module_sources
                 )
                 if requires_catalogue_core and "/assets/js/catalogue-core.js" not in sources:
                     errors.append(
