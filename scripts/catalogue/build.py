@@ -780,6 +780,24 @@ def sync_static_product_images():
     
             def update_image(match):
                 attrs = match.group(0)
+                # The catalogue projection is authoritative for each card image.
+                # Replace stale static paths, not just loading attributes.
+                escaped_src = html_module.escape(src, quote=True)
+                attrs, _ = re.subn(
+                    r'\bsrc="[^"]*"',
+                    lambda _: f'src="{escaped_src}"',
+                    attrs,
+                    count=1,
+                )
+                product_name = str(product.get("product_name") or product.get("name") or "").strip()
+                if product_name:
+                    escaped_alt = html_module.escape(product_name, quote=True)
+                    attrs, _ = re.subn(
+                        r'\balt="[^"]*"',
+                        lambda _: f'alt="{escaped_alt}"',
+                        attrs,
+                        count=1,
+                    )
                 attrs = re.sub(r'\sloading="[^"]*"', "", attrs)
                 attrs = re.sub(r'\sfetchpriority="[^"]*"', "", attrs)
                 if is_products_listing and card_index <= 4:
