@@ -45,7 +45,7 @@ def reconcile_catalogue_projections():
     # rebuilding projections/pages so one malformed source slug cannot produce
     # duplicate URL variants or leave an orphaned generated page behind.
     slug_overrides = {
-        "SVKS000686": "fleetguard-fa0016700-spicer-transmission-patti-type",
+        "SVKS000686": "fleetguard-fa0016700-154-90x49-20mm-spicer-transmission-tml-3118-4018-al-4018-amw-2518-eicher-mega-40-40-patti-type",
         "SVKS000947": "texspin-tx-6638sc-clutch-release-bearing-ashok-leyland-31ton",
         "SVKS000998": "texspin-tx-6647sc-clutch-release-bearing-ashok-leyland-1616",
     }
@@ -65,7 +65,10 @@ def reconcile_catalogue_projections():
             # Do not silently collide two existing product routes.
             raise SystemExit(f"Duplicate normalized product slug: {current_slug} -> {normalized_slug}")
         slug_seen.add(normalized_slug)
-        if normalized_slug != current_slug:
+        # An explicit slug override is authoritative and must be persisted into
+        # the catalogue master; otherwise later generators continue using the
+        # stale source slug and create links to a route that is not generated.
+        if normalized_slug != text(product.get("slug")):
             product["slug"] = normalized_slug
             product["catalogue_updated_at"] = text(product.get("catalogue_updated_at")) or ""
     
@@ -1284,7 +1287,7 @@ def sync_organization_schema():
         replacements = []
 
         for match in re.finditer(
-            r"""<script\\b[^>]*type=["']application/ld\\+json["'][^>]*>(.*?)</script>""",
+            r"""<script\b[^>]*type=["']application/ld\+json["'][^>]*>(.*?)</script>""",
             html,
             flags=re.I | re.S,
         ):

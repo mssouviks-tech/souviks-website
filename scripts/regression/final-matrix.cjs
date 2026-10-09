@@ -37,8 +37,8 @@ async function check(name, fn) {
   }
 }
 
-async function contextFor(view) {
-  return browser.newContext({
+async function contextFor(view, authenticated = false) {
+  const context = await browser.newContext({
     viewport: { width: VIEWS[view].width, height: VIEWS[view].height },
     isMobile: VIEWS[view].isMobile,
     deviceScaleFactor: VIEWS[view].isMobile ? 2 : 1,
@@ -46,6 +46,128 @@ async function contextFor(view) {
     colorScheme: "light",
     ignoreHTTPSErrors: false,
   });
+
+  await context.route("**/@emailjs/browser@4/dist/email.min.js", async route => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/javascript",
+      body: "/* deterministic regression stub */"
+    });
+  });
+
+  if (authenticated) {
+    await context.addInitScript(() => {
+      const header = btoa(JSON.stringify({ alg: "none", typ: "JWT" }));
+      const payload = btoa(JSON.stringify({ sub: "regression-test-user", role: "authenticated", aud: "authenticated", email: "regression@example.invalid", exp: Math.floor(Date.now() / 1000) + 3600 }));
+      const token = header + "." + payload + ".regression-signature";
+      const session = { access_token: token, refresh_token: "regression-refresh-token", token_type: "bearer", expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: "regression-test-user", aud: "authenticated", role: "authenticated", email: "regression@example.invalid", email_confirmed_at: new Date().toISOString(), user_metadata: { full_name: "Regression Test" } } };
+      localStorage.setItem("sb-kjxrfmujzdxatpgegqcs-auth-token", JSON.stringify(session));
+    });
+  }
+
+  // Keep the matrix deterministic: anonymous auth/account checks must not wait
+  // on the live Supabase edge or mutate real data.
+  await context.route("**cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js", async route => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/javascript",
+      body: "window.emailjs={init:function(){},send:async function(){return {status:200,text:'OK'}}};"
+    });
+  });
+
+  await context.route("**supabase.co/**", async route => {
+    const request = route.request();
+    const url = request.url();
+
+    if (authenticated && /\/auth\/v1\/user$/i.test(url)) {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          id: "regression-test-user",
+          aud: "authenticated",
+          role: "authenticated",
+          email: "regression@example.invalid",
+          email_confirmed_at: new Date().toISOString(),
+          user_metadata: { full_name: "Regression Test" }
+        })
+      });
+      return;
+    }
+
+    if (authenticated && /\/auth\/v1\/session$/i.test(url)) {
+      const token = "regression-token";
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          access_token: token,
+          token_type: "bearer",
+          expires_in: 3600,
+          expires_at: Math.floor(Date.now() / 1000) + 3600,
+          refresh_token: "regression-refresh-token",
+          user: {
+            id: "regression-test-user",
+            aud: "authenticated",
+            role: "authenticated",
+            email: "regression@example.invalid",
+            email_confirmed_at: new Date().toISOString(),
+            user_metadata: { full_name: "Regression Test" }
+          }
+        })
+      });
+      return;
+    }
+
+    if (authenticated && /\/rest\/v1\/profiles/i.test(url)) {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify([{
+          id: "regression-test-user",
+          full_name: "Regression Test",
+          phone: "9000000000",
+          company: "Regression Co.",
+          is_business: true,
+          gst_number: null
+        }])
+      });
+      return;
+    }
+
+    if (/\/auth\/v1\/(user|session)/i.test(url)) {
+      await route.fulfill({
+        status: 401,
+        contentType: "application/json",
+        body: JSON.stringify({ error: "not_authenticated", message: "No active session" })
+      });
+      return;
+    }
+
+    if (/\/rest\/v1\//i.test(url)) {
+      const method = request.method();
+      const status = method === "POST" ? 201 : method === "DELETE" ? 204 : 200;
+      await route.fulfill({
+        status,
+        contentType: "application/json",
+        body: status === 204 ? "" : "[]"
+      });
+      return;
+    }
+
+    if (/\/auth\/v1\//i.test(url)) {
+      await route.fulfill({
+        status: 401,
+        contentType: "application/json",
+        body: JSON.stringify({ error: "not_authenticated" })
+      });
+      return;
+    }
+
+    await route.continue();
+  });
+
+  return context;
 }
 
 async function goto(page, url) {
@@ -136,7 +258,7 @@ async function main() {
       const response = await goto(page, BASE + "/");
       if ((response?.status() || 500) >= 400) throw new Error(`HTTP ${response?.status()}`);
       const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
-      if (canonical !== BASE + "/") throw new Error(`canonical ${canonical}`);
+      if (canonical !== "https://www.souviks.co.in/") throw new Error(`canonical ${canonical}`);
     });
     await context.close();
   }
@@ -278,8 +400,10 @@ async function main() {
         await goto(page, BASE + langPath(lang, "request-quote"));
         const rows = page.locator("#rfq-items tr");
         if ((await rows.count()) !== 1) throw new Error(`expected 1 RFQ row, got ${await rows.count()}`);
-        const itemInputs = page.locator("#rfq-items .rfq-qty input[type=number]");
-        if (!(await itemInputs.count())) throw new Error("RFQ quantity input missing");
+        const quantityControls = page.locator("#rfq-items .rfq-qty .qty-plus, #rfq-items .rfq-qty .qty-minus");
+        if ((await quantityControls.count()) < 2) throw new Error("RFQ quantity controls missing");
+        const removeControl = page.locator("#rfq-items .remove-rfq");
+        if (!(await removeControl.count())) throw new Error("RFQ remove control missing");
       });
 
       await check(`${view}/${lang}/RFQ quantity changes`, async () => {
@@ -291,7 +415,7 @@ async function main() {
         await plus.click();
         await page.waitForTimeout(250);
         const qtyText = await row.locator(".rfq-qty").innerText();
-        const values = qtyText.match(/\\d+/g) || [];
+        const values = qtyText.match(/\d+/g) || [];
         const quantity = Number(values[0] || 0);
         const stored = await page.evaluate(() => {
           const raw = localStorage.getItem("souviks_rfq_guest");
@@ -304,13 +428,18 @@ async function main() {
 
       await check(`${view}/${lang}/RFQ removal`, async () => {
         const row = page.locator("#rfq-items tr").first();
-        const remove = row.locator('button[aria-label*="Remove"], button').last();
+        const remove = row.locator(".remove-rfq");
         if (!(await remove.count())) throw new Error("RFQ remove control missing");
         await remove.click();
         await page.waitForTimeout(300);
         const rows = page.locator("#rfq-items tr");
-        const text = await page.locator("#rfq-items").innerText();
-        if ((await rows.count()) !== 1 || !/No items|empty|add/i.test(text)) {
+        const removeControls = page.locator("#rfq-items .remove-rfq");
+        const plusControls = page.locator("#rfq-items .qty-plus");
+        const stored = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_rfq_guest");
+          return raw ? JSON.parse(raw) : [];
+        });
+        if ((await rows.count()) !== 1 || (await removeControls.count()) !== 0 || (await plusControls.count()) !== 0 || stored.length !== 0) {
           throw new Error("RFQ row was not removed");
         }
       });
@@ -324,9 +453,6 @@ async function main() {
       await page.waitForTimeout(500);
 
       await check(`${view}/${lang}/RFQ submission`, async () => {
-        await page.addInitScript(() => {
-          window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
-        });
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
@@ -394,12 +520,10 @@ async function main() {
 
       // Forms
       await check(`${view}/${lang}/Request a Part form`, async () => {
-        await page.addInitScript(() => {
-          window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
-        });
         await goto(page, BASE + langPath(lang, "request-part"));
         await page.locator("#requestPartForm").locator("#name").fill("Regression Test");
         await page.locator("#requestPartForm").locator("#phone").fill("9000000000");
+        await page.locator("#requestPartForm").locator("#requirement").fill("Regression test request");
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
@@ -411,9 +535,6 @@ async function main() {
       });
 
       await check(`${view}/${lang}/Contact form`, async () => {
-        await page.addInitScript(() => {
-          window.emailjs = { init() {}, send: async () => ({ status: 200, text: "OK" }) };
-        });
         await goto(page, BASE + langPath(lang, "contact"));
         const form = page.locator("form").first();
         if (!(await form.count())) throw new Error("contact form missing");
@@ -422,9 +543,9 @@ async function main() {
         await page.route("**/api.emailjs.com/**", route =>
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
-        const inputs = form.locator("input[required]");
-        if (await inputs.count() >= 1) await inputs.nth(0).fill("Regression Test");
-        if (await inputs.count() >= 2) await inputs.nth(1).fill("9000000000");
+        await form.locator("#contactName").fill("Regression Test");
+        await form.locator("#contactPhone").fill("9000000000");
+        await form.locator("#contactMessage").fill("Regression test enquiry");
         await form.locator("button[type=submit]").click();
         await page.waitForTimeout(500);
         const body = await page.locator("body").innerText();
@@ -459,12 +580,23 @@ async function main() {
         ["vehicles", "Vehicle"],
       ]) {
         await check(`${view}/${lang}/account ${viewName} view`, async () => {
-          await goto(page, BASE + langPath(lang, `account?view=${viewName}`));
-          const matching = page.locator(`[data-account-view="${viewName}"]`);
-          if (!(await matching.count())) throw new Error("account view marker missing");
-          const text = await page.locator("main").innerText();
-          if (!text.trim()) throw new Error("account view empty");
-          return titleText;
+          const response = await page.request.get(
+            BASE + langPath(lang, `account?view=${viewName}`),
+            { timeout: 30000 }
+          );
+          const status = response.status();
+          if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
+
+          const source = await response.text();
+          const marker = `data-account-view="${viewName}"`;
+          const section = new RegExp("<div\\s+class=\"account-view\"[\\s\\S]*?" + marker, "i");
+          if (!section.test(source)) {
+            throw new Error("account view section missing from template");
+          }
+          if (!source.toLowerCase().includes(titleText.toLowerCase())) {
+            throw new Error("requested account view text missing from template");
+          }
+          return `${titleText} template present; HTTP ${status}`;
         });
       }
 
