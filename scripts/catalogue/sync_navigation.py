@@ -38,7 +38,13 @@ def sync_file(path: Path, language: str) -> bool:
         raise ValueError(f"{path.relative_to(ROOT)}: missing #mainNavigation")
 
     indent = match.group("indent")
-    replacement = indent + expected.replace("\n", "\n" + indent)
+    # Indent non-empty navigation lines only. Prefixing every newline also
+    # adds whitespace to blank lines, which makes git diff --check fail across
+    # thousands of generated pages.
+    replacement = "\n".join(
+        indent + line if line else ""
+        for line in expected.split("\n")
+    )
     updated = source[:match.start()] + replacement + source[match.end():]
 
     if updated != source:
