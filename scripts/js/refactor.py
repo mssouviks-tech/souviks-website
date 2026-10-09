@@ -10,7 +10,7 @@ BUNDLES = ROOT / "assets" / "js" / "bundles"
 CORE_PATH = ROOT / "assets" / "js" / "site-core.js"
 LANGUAGES = ("en", "bn", "hi")
 
-EXCLUDE_BUNDLES = {"account.js"}
+EXCLUDE_BUNDLES = set()
 KNOWN_BUNDLES = {
     "404.js", "about.js", "brand.js", "brands.js", "categories.js", "category.js",
     "contact.js", "forgot-password.js", "index.js", "login.js", "privacy-policy.js",
@@ -78,6 +78,14 @@ def build_page_bundle(filename: str) -> str:
         return source
     if source.startswith("/* Shared core is loaded by the HTML page before this bundle. */"):
         return source
+
+    if filename == "account.js":
+        # Account pages now load the shared core explicitly; this bundle contains
+        # account-specific modules only and must not reintroduce shared runtime.
+        return (
+            "/* Shared core is loaded by the HTML page before this bundle. */\n\n"
+            + source.lstrip()
+        )
 
     if filename == "request-quote.js":
         start = source.find(COMMON_END)
@@ -211,10 +219,6 @@ def validate() -> None:
         matches = bundle_re.findall(content)
         if not matches:
             continue
-        if "account.js" in matches:
-            if not css_re.search(content):
-                raise ValueError(f"Missing versioned CSS on {path}")
-            continue
         if not core_re.search(content):
             raise ValueError(f"Missing versioned shared core on {path}")
         if not css_re.search(content):
@@ -235,7 +239,7 @@ def main() -> None:
         f"{len(KNOWN_BUNDLES) - len(EXCLUDE_BUNDLES)} bundles processed; "
         f"{changed} HTML pages updated."
     )
-    print("account.js intentionally remains isolated because its dependency order differs.")
+    print("All page bundles use shared site-core.js; account.js contains account-specific modules only.")
 
 
 if __name__ == "__main__":
