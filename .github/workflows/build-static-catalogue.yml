@@ -110,6 +110,7 @@ jobs:
             python3 scripts/audit/code_quality.py
             npm run lint:js
             npm run check:js
+            npm run format:check
             git diff --check
           }
 
