@@ -7,6 +7,11 @@ on:
       - 'scripts/regression/final-matrix.cjs'
       - 'scripts/regression/static-server.cjs'
       - '.github/workflows/final-regression-matrix.yml'
+  pull_request:
+    paths:
+      - 'scripts/regression/final-matrix.cjs'
+      - 'scripts/regression/static-server.cjs'
+      - '.github/workflows/final-regression-matrix.yml'
   workflow_dispatch:
 
 permissions:
@@ -22,10 +27,10 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - name: Check out main
+      - name: Check out regression candidate
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 1
 
       - name: Set up Node
