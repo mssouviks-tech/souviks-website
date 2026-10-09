@@ -34,10 +34,11 @@ const RFQ_MESSAGE = {
         unavailable: "Notification service is unavailable. Please try again later.",
         createdItems: ref => `Your RFQ was created as ${ref}, but its items could not be recorded. Please contact Souviks with this reference.`,
         notificationFailed: ref => `Your RFQ was recorded successfully as ${ref}, but the notification could not be sent. Please contact Souviks with this reference.`,
-        submitting: rfqMessage.submitting,
+        submitting: "Submitting your RFQ…",
         success: ref => `RFQ submitted successfully. Reference: ${ref}`,
-        failed: rfqMessage.failed,
-        whatsappEmpty: rfqMessage.whatsappEmpty
+        failed: "Your RFQ could not be submitted. Please try again.",
+        whatsappEmpty: "Your RFQ basket is empty. Add at least one product first.",
+        basketClearFailed: "Your RFQ was submitted, but the basket could not be cleared from this browser. Check the reference before submitting again."
     },
     bn: {
         emptySubmit: "আপনার RFQ ঝুড়ি খালি। জমা দেওয়ার আগে অন্তত একটি পণ্য যোগ করুন।",
@@ -48,7 +49,8 @@ const RFQ_MESSAGE = {
         submitting: "আপনার RFQ জমা হচ্ছে…",
         success: ref => `RFQ সফলভাবে জমা হয়েছে। রেফারেন্স: ${ref}`,
         failed: "আপনার RFQ জমা দেওয়া যায়নি। আবার চেষ্টা করুন।",
-        whatsappEmpty: "আপনার RFQ ঝুড়ি খালি। আগে অন্তত একটি পণ্য যোগ করুন।"
+        whatsappEmpty: "আপনার RFQ ঝুড়ি খালি। আগে অন্তত একটি পণ্য যোগ করুন।",
+        basketClearFailed: "আপনার RFQ জমা হয়েছে, কিন্তু ব্রাউজার থেকে ঝুড়ি খালি করা যায়নি। আবার জমা দেওয়ার আগে রেফারেন্সটি যাচাই করুন."
     },
     hi: {
         emptySubmit: "आपका RFQ बास्केट खाली है। सबमिट करने से पहले कम से कम एक उत्पाद जोड़ें।",
@@ -59,7 +61,8 @@ const RFQ_MESSAGE = {
         submitting: "आपका RFQ सबमिट हो रहा है…",
         success: ref => `RFQ सफलतापूर्वक सबमिट हो गया। संदर्भ: ${ref}`,
         failed: "आपका RFQ सबमिट नहीं किया जा सका। कृपया फिर प्रयास करें।",
-        whatsappEmpty: "आपका RFQ बास्केट खाली है। पहले कम से कम एक उत्पाद जोड़ें।"
+        whatsappEmpty: "आपका RFQ बास्केट खाली है। पहले कम से कम एक उत्पाद जोड़ें।",
+        basketClearFailed: "आपका RFQ जमा हो गया, लेकिन ब्राउज़र से बास्केट खाली नहीं हो सका। दोबारा जमा करने से पहले संदर्भ जाँच लें."
     }
 };
 
@@ -527,8 +530,7 @@ RFQ.setQuantity = async function (
             items.findIndex(
 
                 item =>
-                    item.id ===
-                    productId
+                    String(item.id) === String(productId)
 
             );
 
@@ -807,8 +809,7 @@ RFQ.add = async function (
         items.find(
 
             item =>
-                item.id ===
-                product.id
+                    String(item.id) === String(product.id)
 
         );
 
@@ -921,163 +922,59 @@ RENDER RFQ PAGE
 ----------------------------------------------------------
 */
 
+RFQ.renderGuestMergeWarning = async function (table) {
+    table.querySelector("#rfq-merge-warning")?.remove();
+    const user = await RFQ.getUser();
+    const remainingGuestItems = RFQ.getGuestItems();
+    if (!user || !remainingGuestItems.length) return;
+
+    const row = document.createElement("tr");
+    row.id = "rfq-merge-warning";
+    const cell = document.createElement("td");
+    cell.colSpan = 5;
+    cell.setAttribute("role", "alert");
+    cell.textContent =
+        `${remainingGuestItems.length} guest RFQ item(s) could not be transferred to your account. They remain saved in this browser. Please retry after checking your connection.`;
+    row.appendChild(cell);
+    table.appendChild(row);
+};
+
 RFQ.renderPage = async function () {
+    const table = document.getElementById("rfq-items");
+    if (!table) return;
 
-    const table =
-        document.getElementById(
-            "rfq-items"
-        );
-
-
-    if (!table) {
-
-        return;
-
-    }
-
-
-    const items =
-        await RFQ.get();
-
-
+    const items = await RFQ.get();
     if (!items.length) {
-
-        table.innerHTML = `
-
-            <tr>
-
-                <td colspan="5">
-
-                    ${rfqText.empty}
-
-                </td>
-
-            </tr>
-
-        `;
-
+        table.innerHTML = '<tr><td colspan="5">RFQ Basket Empty</td></tr>';
+        await RFQ.renderGuestMergeWarning(table);
         return;
-
     }
 
+    table.innerHTML = items.map(item => {
+        const id = RFQ.escapeHTML(item.id);
+        const partNumber = RFQ.escapeHTML(item.partNumber);
+        const name = RFQ.escapeHTML(item.name);
+        const brand = RFQ.escapeHTML(item.brand);
+        const qty = Math.max(1, Number(item.qty) || 1);
 
-    table.innerHTML =
+        return `
+            <tr>
+                <td>${partNumber}</td>
+                <td>${name}</td>
+                <td>${brand}</td>
+                <td>
+                    <div class="rfq-qty">
+                        <button type="button" class="qty-minus" data-id="${id}" aria-label="Decrease quantity">-</button>
+                        <span>${qty}</span>
+                        <button type="button" class="qty-plus" data-id="${id}" aria-label="Increase quantity">+</button>
+                    </div>
+                </td>
+                <td><button type="button" class="remove-rfq" data-id="${id}">Remove</button></td>
+            </tr>
+        `;
+    }).join("");
 
-        items.map(
-
-            item => {
-
-                const id =
-                    RFQ.escapeHTML(
-                        item.id
-                    );
-
-                const partNumber =
-                    RFQ.escapeHTML(
-                        item.partNumber
-                    );
-
-                const name =
-                    RFQ.escapeHTML(
-                        item.name
-                    );
-
-                const brand =
-                    RFQ.escapeHTML(
-                        item.brand
-                    );
-
-                const qty =
-                    Math.max(
-                        1,
-                        Number(
-                            item.qty
-                        ) || 1
-                    );
-
-
-                return `
-
-                    <tr>
-
-                        <td>
-
-                            ${partNumber}
-
-                        </td>
-
-                        <td>
-
-                            ${name}
-
-                        </td>
-
-                        <td>
-
-                            ${brand}
-
-                        </td>
-
-                        <td>
-
-                            <div class="rfq-qty">
-
-                                <button
-                                    type="button"
-                                    class="qty-minus"
-                                    data-id="${id}"
-                                    aria-label="${rfqText.decrease}"
-                                >
-
-                                    -
-
-                                </button>
-
-
-                                <span>
-
-                                    ${qty}
-
-                                </span>
-
-
-                                <button
-                                    type="button"
-                                    class="qty-plus"
-                                    data-id="${id}"
-                                    aria-label="${rfqText.increase}"
-                                >
-
-                                    +
-
-                                </button>
-
-                            </div>
-
-                        </td>
-
-                        <td>
-
-                            <button
-                                type="button"
-                                class="remove-rfq"
-                                data-id="${id}"
-                            >
-
-                                ${rfqText.remove}
-
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                `;
-
-            }
-
-        ).join("");
-
+    await RFQ.renderGuestMergeWarning(table);
 };
 
 
@@ -1194,17 +1091,10 @@ RFQ.changeQty = async function (
             newQuantity;
 
 
-        RFQ.saveGuestItems(
-            guestItems
-        );
-
-
+        if (!RFQ.saveGuestItems(guestItems)) return false;
         await RFQ.updateBadge();
-
         await RFQ.renderPage();
-
-
-        return;
+        return true;
 
     }
 
@@ -1317,108 +1207,36 @@ REMOVE PRODUCT
 ----------------------------------------------------------
 */
 
-RFQ.remove = async function (
-
-    productId
-
-) {
-
-    const user =
-        await RFQ.getUser();
-
-
-    /*
-    ------------------------------------------------------
-    ANONYMOUS
-    ------------------------------------------------------
-    */
+RFQ.remove = async function (productId) {
+    const user = await RFQ.getUser();
 
     if (!user) {
-
-        const items =
-            RFQ.getGuestItems();
-
-
-        const filtered =
-            items.filter(
-
-                item =>
-                    String(
-                        item.id
-                    ) !==
-                    String(
-                        productId
-                    )
-
-            );
-
-
-        RFQ.saveGuestItems(
-            filtered
+        const filtered = RFQ.getGuestItems().filter(
+            item => String(item.id) !== String(productId)
         );
-
-
+        if (!RFQ.saveGuestItems(filtered)) return false;
         await RFQ.updateBadge();
-
         await RFQ.renderPage();
-
-
-        return;
-
+        return true;
     }
 
+    if (typeof supabaseClient === "undefined") return false;
 
-    /*
-    ------------------------------------------------------
-    AUTHENTICATED
-    ------------------------------------------------------
-    */
-
-    if (
-        typeof supabaseClient ===
-        "undefined"
-    ) {
-
-        return;
-
-    }
-
-
-    const {
-        error
-    } =
-        await supabaseClient
-
-            .from(
-                RFQ.table
-            )
-
+    try {
+        const { error } = await supabaseClient
+            .from(RFQ.table)
             .delete()
+            .eq("user_id", user.id)
+            .eq("product_id", productId);
 
-            .eq(
-                "user_id",
-                user.id
-            )
-
-            .eq(
-                "product_id",
-                productId
-            );
-
-
-    if (error) {
-
+        if (error) throw error;
+        await RFQ.updateBadge();
+        await RFQ.renderPage();
+        return true;
+    } catch (error) {
         SouviksErrors?.log("[Souviks RFQ] Unable to remove RFQ item:", error, "error");
-
-        return;
-
+        return false;
     }
-
-
-    await RFQ.updateBadge();
-
-    await RFQ.renderPage();
-
 };
 
 
@@ -1436,95 +1254,40 @@ Anonymous:
 */
 
 RFQ.clear = async function () {
-
-    const user =
-        await RFQ.getUser();
-
-
-    /*
-    ------------------------------------------------------
-    ANONYMOUS
-    ------------------------------------------------------
-    */
+    const user = await RFQ.getUser();
 
     if (!user) {
-
         try {
-
-            localStorage.removeItem(
-                RFQ.storageKey
-            );
-
+            localStorage.removeItem(RFQ.storageKey);
         } catch (error) {
-
             SouviksErrors?.log("[Souviks RFQ] Unable to clear guest RFQ basket:", error, "error");
-
+            return false;
         }
 
-
         await RFQ.updateBadge();
-
         await RFQ.renderPage();
-
-
         return true;
-
     }
 
-
-    /*
-    ------------------------------------------------------
-    AUTHENTICATED
-    ------------------------------------------------------
-    */
-
-    if (
-        typeof supabaseClient ===
-        "undefined"
-    ) {
-
-        console.error(
-            "[Souviks RFQ] Supabase client unavailable."
-        );
-
+    if (typeof supabaseClient === "undefined") {
+        console.error("[Souviks RFQ] Supabase client unavailable.");
         return false;
-
     }
 
-
-    const {
-        error
-    } =
-        await supabaseClient
-
-            .from(
-                RFQ.table
-            )
-
+    try {
+        const { error } = await supabaseClient
+            .from(RFQ.table)
             .delete()
+            .eq("user_id", user.id);
 
-            .eq(
-                "user_id",
-                user.id
-            );
-
-
-    if (error) {
-
+        if (error) throw error;
+        await RFQ.updateBadge();
+        await RFQ.renderPage();
+        return true;
+    } catch (error) {
         SouviksErrors?.log("[Souviks RFQ] Unable to clear RFQ basket:", error, "error");
-
         return false;
-
     }
-
-
-    await RFQ.updateBadge();
-
-    await RFQ.renderPage();
-
-
-    return true;
-
 };
 
 
@@ -1542,190 +1305,81 @@ quantities are combined.
 */
 
 RFQ.mergeGuestBasket = async function () {
-
-    const user =
-        await RFQ.getUser();
-
-
-    if (!user) {
-
-        return;
-
-    }
-
-
-    const guestItems =
-        RFQ.getGuestItems();
-
-
-    if (!guestItems.length) {
-
-        return;
-
-    }
-
-
-    for (
-        const item
-        of guestItems
-    ) {
-
-        try {
-
-            const {
-                data: existing,
-                error
-            } =
-                await supabaseClient
-
-                    .from(
-                        RFQ.table
-                    )
-
-                    .select(
-                        "id, quantity"
-                    )
-
-                    .eq(
-                        "user_id",
-                        user.id
-                    )
-
-                    .eq(
-                        "product_id",
-                        item.id
-                    )
-
-                    .maybeSingle();
-
-
-            if (error) {
-
-                SouviksErrors?.log("[Souviks RFQ] Unable to check guest basket item:", error, "error");
-
-                continue;
-
-            }
-
-
-            if (existing) {
-
-                const {
-                    error:
-                        updateError
-                } =
-                    await supabaseClient
-
-                        .from(
-                            RFQ.table
-                        )
-
-                        .update({
-
-                            quantity:
-                                Number(
-                                    existing.quantity ||
-                                    0
-                                ) +
-                                Number(
-                                    item.qty ||
-                                    0
-                                )
-
-                        })
-
-                        .eq(
-                            "id",
-                            existing.id
-                        )
-
-                        .eq(
-                            "user_id",
-                            user.id
-                        );
-
-
-                if (updateError) {
-
-                    SouviksErrors?.log("[Souviks RFQ] Unable to merge guest RFQ item:", updateError, "error");
-
-                }
-
-            } else {
-
-                const {
-                    error:
-                        insertError
-                } =
-                    await supabaseClient
-
-                        .from(
-                            RFQ.table
-                        )
-
-                        .insert({
-
-                            user_id:
-                                user.id,
-
-                            product_id:
-                                item.id,
-
-                            part_number:
-                                item.partNumber,
-
-                            product_name:
-                                item.name,
-
-                            brand:
-                                item.brand,
-
-                            quantity:
-                                item.qty
-
-                        });
-
-
-                if (insertError) {
-
-                    SouviksErrors?.log("[Souviks RFQ] Unable to import guest RFQ item:", insertError, "error");
-
-                }
-
-            }
-
-        } catch (error) {
-
-            SouviksErrors?.log("[Souviks RFQ] Unexpected guest RFQ merge error:", error, "error");
-
-        }
-
-    }
-
-
-    /*
-    ------------------------------------------------------
-    CLEAR GUEST BASKET ONLY AFTER MERGE ATTEMPT
-    ------------------------------------------------------
-    */
+    if (RFQ._mergeInProgress) return false;
+    RFQ._mergeInProgress = true;
 
     try {
+        const user = await RFQ.getUser();
+        if (!user) return false;
+        if (typeof supabaseClient === "undefined") {
+            SouviksErrors?.log("[Souviks RFQ] Supabase client unavailable during guest basket merge.", null, "error");
+            return false;
+        }
 
-        localStorage.removeItem(
-            RFQ.storageKey
-        );
+        let pendingItems = RFQ.getGuestItems();
+        if (!pendingItems.length) return true;
 
-    } catch (error) {
+        // Retain each guest row until its authenticated write has succeeded.
+        for (const item of [...pendingItems]) {
+            try {
+                const { data: existing, error } = await supabaseClient
+                    .from(RFQ.table)
+                    .select("id, quantity")
+                    .eq("user_id", user.id)
+                    .eq("product_id", item.id)
+                    .maybeSingle();
+                if (error) throw error;
 
-        SouviksErrors?.log("[Souviks RFQ] Unable to clear guest RFQ storage:", error, "error");
+                if (existing) {
+                    const { error: updateError } = await supabaseClient
+                        .from(RFQ.table)
+                        .update({
+                            quantity: Number(existing.quantity || 0) + Math.max(1, Number(item.qty) || 1)
+                        })
+                        .eq("id", existing.id)
+                        .eq("user_id", user.id);
+                    if (updateError) throw updateError;
+                } else {
+                    const { error: insertError } = await supabaseClient
+                        .from(RFQ.table)
+                        .insert({
+                            user_id: user.id,
+                            product_id: item.id,
+                            part_number: item.partNumber || "",
+                            product_name: item.name || "",
+                            brand: item.brand || "",
+                            quantity: Math.max(1, Number(item.qty) || 1)
+                        });
+                    if (insertError) throw insertError;
+                }
 
+                const remainingItems = pendingItems.filter(
+                    pending => String(pending.id) !== String(item.id)
+                );
+                if (!RFQ.saveGuestItems(remainingItems)) {
+                    SouviksErrors?.log(
+                        "[Souviks RFQ] An item was merged, but the remaining guest basket could not be saved. Review the basket before retrying.",
+                        { productId: item.id },
+                        "error"
+                    );
+                    return false;
+                }
+                pendingItems = remainingItems;
+            } catch (error) {
+                SouviksErrors?.log(
+                    "[Souviks RFQ] Guest RFQ item was retained because merge failed:",
+                    { productId: item.id, error },
+                    "error"
+                );
+            }
+        }
+
+        await RFQ.updateBadge();
+        await RFQ.renderPage();
+        return pendingItems.length === 0;
+    } finally {
+        RFQ._mergeInProgress = false;
     }
-
-
-    await RFQ.updateBadge();
-
-    await RFQ.renderPage();
-
 };
 
 
@@ -1827,8 +1481,8 @@ document.addEventListener(
 
     async () => {
 
+        await RFQ.mergeGuestBasket();
         await RFQ.updateBadge();
-
         await RFQ.renderPage();
 
     }
