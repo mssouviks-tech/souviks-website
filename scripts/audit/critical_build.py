@@ -8,6 +8,7 @@ commit from being published by this workflow.
 
 from __future__ import annotations
 
+import hashlib
 import html.parser
 import json
 import math
@@ -31,12 +32,7 @@ VOID_TAGS = {
 }
 SKIP_LINK_PREFIXES = ("#", "mailto:", "tel:", "javascript:", "data:", "blob:")
 
-# Known transient asset explicitly queued for the next Git push. This remains
-# visible in the audit output but does not mask missing product imagery.
-PENDING_ASSETS = {
-    "assets/images/brands/rxi.png",
-}
-PENDING_IMAGE_GAPS: set[str] = set()
+# Image assets are strict requirements: no missing-file or placeholder allowlists.
 
 
 def fail(errors: list[str]) -> None:
@@ -81,7 +77,7 @@ def projection_value(source, field: str):
     if field == "image_folder":
         return text(source.get("image_folder") or source.get("id"))
     if field == "image_url":
-        return text(source.get("image_url") or "/assets/images/placeholder.webp")
+        return text(source.get("image_url"))
     if field == "gallery":
         value = source.get("gallery")
         return [text(v) for v in (value or []) if text(v)] if isinstance(value, list) else []
@@ -166,47 +162,81 @@ def validate_price_integrity(products, errors: list[str]) -> None:
                 )
 
 
+def is_loadable_image(path: Path) -> bool:
+    """Reject missing, empty, or obviously malformed image files by signature."""
+    try:
+        if not path.is_file() or path.stat().st_size < 16:
+            return False
+        with path.open("rb") as stream:
+            header = stream.read(12)
+    except OSError:
+        return False
+
+    suffix = path.suffix.casefold()
+    if suffix == ".webp":
+        return len(header) >= 12 and header[:4] == b"RIFF" and header[8:12] == b"WEBP"
+    if suffix == ".png":
+        return header[:8] == b"\x89PNG\r\n\x1a\n"
+    if suffix in {".jpg", ".jpeg"}:
+        return header[:3] == b"\xff\xd8\xff"
+    if suffix == ".gif":
+        return header[:6] in {b"GIF87a", b"GIF89a"}
+    return False
+
+
 def validate_images(products, errors: list[str]) -> None:
     for product in products:
         pid = text(product.get("id"))
         folder = text(product.get("image_folder") or pid)
         gallery = product.get("gallery")
-        if not folder:
-            errors.append(f"{pid}: missing image_folder")
+        if not folder or Path(folder).name != folder:
+            errors.append(f"{pid}: missing or unsafe image_folder")
             continue
-
         if not isinstance(gallery, list) or not gallery:
-            image_url = text(product.get("image_url"))
-            # Explicit price-on-request style handling for imagery is valid:
-            # /assets/images/placeholder.webp is a real, intentional fallback.
-            if not image_url:
-                errors.append(f"{pid}: active product has no gallery and no explicit image_url")
-            elif image_url.endswith("/placeholder.webp") or image_url == "/assets/images/placeholder.webp":
-                PENDING_IMAGE_GAPS.add(pid)
-            elif image_url.startswith("/assets/"):
-                image_path = ROOT / image_url.lstrip("/")
-                if not image_path.is_file():
-                    errors.append(f"{pid}: declared primary image file is missing: {image_url}")
+            errors.append(f"{pid}: active product has no usable product gallery")
             continue
 
-        seen = set()
-        for index, filename in enumerate(gallery, start=1):
-            filename = text(filename)
+        seen_names = set()
+        seen_fingerprints = set()
+        for index, raw_filename in enumerate(gallery, start=1):
+            filename = text(raw_filename)
             if not filename:
                 errors.append(f"{pid}: gallery image {index} is blank")
                 continue
-            if filename in seen:
+            if Path(filename).name != filename or Path(filename).is_absolute():
+                errors.append(f"{pid}: unsafe gallery filename: {filename}")
+                continue
+            if filename in seen_names:
                 errors.append(f"{pid}: duplicate gallery filename: {filename}")
-            seen.add(filename)
+                continue
+            seen_names.add(filename)
             if filename.casefold() in {"placeholder.webp", "placeholder.jpg", "placeholder.png"}:
                 errors.append(f"{pid}: placeholder image is not allowed in gallery: {filename}")
+                continue
             image_path = ROOT / "assets" / "images" / "products" / folder / filename
             if not image_path.is_file():
                 errors.append(f"{pid}: missing product image file: assets/images/products/{folder}/{filename}")
+                continue
+            if not is_loadable_image(image_path):
+                errors.append(f"{pid}: product image is empty or has an invalid file signature: assets/images/products/{folder}/{filename}")
+                continue
+            try:
+                fingerprint = hashlib.sha256(image_path.read_bytes()).hexdigest()
+            except OSError:
+                errors.append(f"{pid}: cannot read product image: assets/images/products/{folder}/{filename}")
+                continue
+            if fingerprint in seen_fingerprints:
+                errors.append(f"{pid}: gallery contains duplicate image content: {filename}")
+            seen_fingerprints.add(fingerprint)
 
-        image_url = text(product.get("image_url"))
-        if image_url.endswith("/placeholder.webp") or image_url == "/assets/images/placeholder.webp":
-            errors.append(f"{pid}: gallery exists but declared image_url is placeholder")
+        first = text(gallery[0]) if gallery else ""
+        expected_url = f"/assets/images/products/{folder}/{first}" if first else ""
+        if text(product.get("image_url")) != expected_url:
+            errors.append(f"{pid}: image_url does not point to the first gallery image")
+        if text(product.get("image")) != first:
+            errors.append(f"{pid}: image does not match the first gallery image")
+        if text(product.get("primary_image")) != first:
+            errors.append(f"{pid}: primary_image does not match the first gallery image")
 
 
 def public_route(kind: str, lang: str, slug: str) -> str:
@@ -858,10 +888,8 @@ def validate_internal_links(errors: list[str]) -> None:
             if path.startswith("/assets/"):
                 target = ROOT / path.lstrip("/")
                 relative_asset = path.lstrip("/")
-                if not target.is_file() and relative_asset not in PENDING_ASSETS:
+                if not target.is_file():
                     errors.append(f"{html_path.relative_to(ROOT)}: broken asset link {href}")
-                elif not target.is_file() and relative_asset in PENDING_ASSETS:
-                    print(f"[critical build] pending asset explicitly allowlisted: {relative_asset}")
                 continue
             if path.startswith("/sitemaps/"):
                 target = ROOT / path.lstrip("/")
@@ -970,16 +998,6 @@ def main() -> None:
         f"{len(records_by_kind['categories'])} categories, "
         f"{len(records_by_kind['vehicles'])} vehicles."
     )
-    if PENDING_ASSETS:
-        print("[critical build] pending asset allowlist:")
-        for asset in sorted(PENDING_ASSETS):
-            print(f"  - {asset}")
-    if PENDING_IMAGE_GAPS:
-        print(
-            f"[critical build] {len(PENDING_IMAGE_GAPS)} active products still need real imagery; "
-            "working placeholder URLs are used until product photos are added."
-        )
-        print("[critical build] pending image product IDs: " + ", ".join(sorted(PENDING_IMAGE_GAPS)))
     fail(errors)
     print("[critical build] PASS")
 
