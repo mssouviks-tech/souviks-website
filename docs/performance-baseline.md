@@ -2,22 +2,22 @@
 
 Updated: 2026-10-08
 
-## Measured from source
+## Measured from current main
 
-These are source-byte sizes from the current repository, not compressed network-transfer sizes:
+These are source-byte sizes from the current `main` revision on 2026-10-08, not compressed network-transfer sizes:
 
 | Asset | Bytes |
 |---|---:|
-| assets/js/site-core.js | 58,488 |
-| assets/js/bundles/index.js | 31,913 |
-| assets/js/bundles/products.js | 171,122 |
-| assets/js/bundles/product.js | 113,768 |
-| assets/js/bundles/account.js | 284,915 |
-| assets/css/site-base.css | 89,124 |
-| assets/css/bundles/index.css | 31,713 |
-| assets/css/bundles/products.css | 25,139 |
-| assets/css/bundles/product.css | 43,011 |
-| assets/css/bundles/account.css | 74,544 |
+| assets/js/site-core.js | 65,901 |
+| assets/js/bundles/index.js | 31,941 |
+| assets/js/bundles/products.js | 175,235 |
+| assets/js/bundles/product.js | 116,583 |
+| assets/js/bundles/account.js | 286,432 |
+| assets/css/site-base.css | 93,640 |
+| assets/css/bundles/index.css | 34,101 |
+| assets/css/bundles/products.css | 26,140 |
+| assets/css/bundles/product.css | 44,012 |
+| assets/css/bundles/account.css | 75,545 |
 
 ## Current delivery safeguards
 
@@ -29,6 +29,7 @@ These are source-byte sizes from the current repository, not compressed network-
 - Static assets receive long-lived browser/CDN cache headers through `_headers`.
 - Catalogue JSON is deliberately revalidated rather than held stale for days.
 - The bare-root language bootstrap has a timeout fallback so a language-detection failure cannot leave the loader permanently blocking navigation.
+- `scripts/audit/performance_guard.py` blocks source-size regressions above 12% of the current-main baseline and rejects obvious runtime script-loading regressions such as non-deferred page bundles.
 
 ## Largest source bundles
 
@@ -38,9 +39,9 @@ Do not split or defer these blindly. Measure route-specific execution cost first
 
 ## Not yet measured
 
-Lighthouse/PageSpeed scores, LCP, CLS, INP, TBT and Speed Index remain open because the available live-browser runner currently has insufficient execution credits and direct PageSpeed report fetching is unavailable in this environment.
+Lighthouse/PageSpeed scores, LCP, CLS, INP, TBT and Speed Index remain external performance measurements rather than source-only checks. The repository now prevents material source-byte and script-loading regressions, but those user-perceived metrics still require a live browser/network measurement.
 
-Actual Cloudflare response headers and Brotli delivery should likewise be verified from a real browser/network session; repository `_headers` configuration alone is not proof of edge behavior.
+Brotli delivery and other CDN negotiation details also require a live browser/network session. The production edge smoke workflow verifies observable security headers, redirects, robots, sitemap XML and 404 behavior after changes reach `main`.
 
 ## Next performance tests
 
