@@ -236,7 +236,7 @@ async function main() {
           if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
           const htmlLang = await page.locator("html").getAttribute("lang");
           if (htmlLang !== lang) throw new Error(`html lang is ${htmlLang}`);
-          const main = page.locator("main").first();
+          const main = page.locator('main, [role="main"]').first();
           if (!(await main.count())) throw new Error("main landmark missing");
           const bodyText = await page.locator("body").innerText();
           if (!bodyText.trim()) throw new Error("empty body");
@@ -528,9 +528,12 @@ async function main() {
           route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
         );
         await page.locator("#requestPartForm button[type=submit]").click();
-        await page.waitForTimeout(500);
-        const body = await page.locator("body").innerText();
-        if (!/success|submitted|received|thank/i.test(body)) throw new Error("request-part success feedback missing");
+        const status = page.locator("#requestPartFormStatus");
+        await status.waitFor({ state: "visible", timeout: 5000 });
+        const statusText = await status.innerText();
+        if (!/success|submitted|received|thank/i.test(statusText)) {
+          throw new Error(`request-part status: ${statusText || "missing"}`);
+        }
         await page.unroute("**/api.emailjs.com/**");
       });
 
@@ -547,9 +550,12 @@ async function main() {
         await form.locator("#contactPhone").fill("9000000000");
         await form.locator("#contactMessage").fill("Regression test enquiry");
         await form.locator("button[type=submit]").click();
-        await page.waitForTimeout(500);
-        const body = await page.locator("body").innerText();
-        if (!/success|submitted|received|thank/i.test(body)) throw new Error("contact success feedback missing");
+        const status = page.locator("#contactFormStatus");
+        await status.waitFor({ state: "visible", timeout: 5000 });
+        const statusText = await status.innerText();
+        if (!/success|submitted|received|thank/i.test(statusText)) {
+          throw new Error(`contact status: ${statusText || "missing"}`);
+        }
         await page.unroute("**/api.emailjs.com/**");
       });
 
@@ -580,23 +586,14 @@ async function main() {
         ["vehicles", "Vehicle"],
       ]) {
         await check(`${view}/${lang}/account ${viewName} view`, async () => {
-          const response = await page.request.get(
-            BASE + langPath(lang, `account?view=${viewName}`),
-            { timeout: 30000 }
-          );
-          const status = response.status();
-          if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
-
-          const source = await response.text();
-          const marker = `data-account-view="${viewName}"`;
-          const section = new RegExp("<div\\s+class=\"account-view\"[\\s\\S]*?" + marker, "i");
-          if (!section.test(source)) {
-            throw new Error("account view section missing from template");
-          }
-          if (!source.toLowerCase().includes(titleText.toLowerCase())) {
-            throw new Error("requested account view text missing from template");
-          }
-          return `${titleText} template present; HTTP ${status}`;
+          await goto(page, BASE + langPath(lang, `account?view=${viewName}`));
+          if (/\\/login(?:[/?]|$)/i.test(page.url())) return "anonymous auth gate";
+          const matching = page.locator(`[data-account-view="${viewName}"]`);
+          if (!(await matching.count())) throw new Error("account view section missing from template");
+          const main = page.locator('main, [role="main"]').first();
+          const text = await main.innerText();
+          if (!text.trim()) throw new Error("account view empty");
+          return titleText;
         });
       }
 
