@@ -2,8 +2,8 @@
 """Validate Souviks JavaScript bundle boundaries.
 
 The site uses classic scripts: site-core.js owns shared runtime behaviour,
-while page bundles own page-specific behaviour. Account pages are the one
-intentional exception because account.js is self-contained.
+while page bundles own page-specific behaviour. All page bundles depend on
+site-core.js, including account.js.
 """
 
 from pathlib import Path
@@ -19,7 +19,6 @@ SHARED_MARKERS = {
     "image-protection.js",
 }
 
-ACCOUNT_BUNDLE = "account.js"
 SITE_CORE = JS_ROOT / "site-core.js"
 
 def fail(message: str) -> None:
@@ -55,7 +54,7 @@ def main() -> None:
         markers = set(re.findall(r"/\* ===== ([^\n*]+?) ===== \*/", text))
         shared = sorted(markers & SHARED_MARKERS)
 
-        if shared and bundle.name != ACCOUNT_BUNDLE:
+        if shared:
             errors.append(
                 f"{bundle.relative_to(ROOT)} contains shared modules: {', '.join(shared)}"
             )
@@ -68,16 +67,9 @@ def main() -> None:
             if not bundle_sources:
                 continue
 
-            is_account = any(src.endswith("/account.js") for src in bundle_sources)
             has_core = "/assets/js/site-core.js" in sources
 
-            if is_account:
-                if has_core:
-                    errors.append(
-                        f"{html_path.relative_to(ROOT)} loads both site-core.js and account.js; "
-                        "account.js is intentionally self-contained."
-                    )
-            elif not has_core:
+            if not has_core:
                 errors.append(
                     f"{html_path.relative_to(ROOT)} loads a page bundle without site-core.js."
                 )
