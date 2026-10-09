@@ -619,8 +619,7 @@ function getVehicleRecommendationTranslation(key, fallback) {
     const messages = document.getElementById("accountMessages");
     if (!messages) return fallback;
 
-    const datasetKey = key.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
-    return messages.dataset[datasetKey] || fallback;
+    return messages.dataset[key] || fallback;
 }
 
 
