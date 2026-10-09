@@ -267,7 +267,7 @@ function ensureVehiclePicker() {
         const selected = AccountVehiclesState.catalogue.find(item => String(item.id) === String(select.value));
         const model = selected?.model || "";
         valueEl.textContent = model || getVehicleTranslation("selectVehicle", "Select a vehicle");
-        hintEl.textContent = model ? "Vehicle model" : "Choose from the catalogue";
+        hintEl.textContent = model ? getVehicleTranslation("vehicleModel", "Vehicle model") : getVehicleTranslation("chooseFromCatalogue", "Choose from the catalogue");
         trigger.classList.toggle("has-value", !!model);
         [...options.querySelectorAll("[data-vehicle-picker-id]")].forEach(option => {
             const active = String(option.dataset.vehiclePickerId) === String(select.value);
@@ -576,8 +576,7 @@ function showVehicleFormStatus(message, type = "") {
 function getVehicleTranslation(key, fallback) {
     const messages = document.getElementById("accountMessages");
     if (!messages) return fallback;
-    const datasetKey = key.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
-    return messages.dataset[datasetKey] || fallback;
+    return messages.dataset[key] || fallback;
 }
 
 
