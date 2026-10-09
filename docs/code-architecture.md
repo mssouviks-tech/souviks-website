@@ -7,17 +7,17 @@
 | Catalogue product data | `assets/data/catalogue-index.json` | Canonical |
 | Product projection/search | `scripts/catalogue/build.py` | Generated deterministically |
 | Product entity pages | `scripts/catalogue/enrich_entities.py` | Generated deterministically |
-| Product gallery/static card rendering | `scripts/catalogue/product_card.py` | Build-time |
-| Product listing runtime | `assets/js/products/` | Ordered page modules |
-| Product detail runtime | `assets/js/product/` | Ordered page modules |
+| Product gallery/static card rendering | `scripts/catalogue/enrich_entities.py` | Build-time |
+| Product filtering/runtime cards | `assets/js/bundles/products.js` | Runtime |
+| Product detail runtime | `assets/js/bundles/product.js` | Runtime |
 | Shared site navigation/session utilities | `assets/js/site-core.js` | Shared runtime |
-| Account page runtime | `assets/js/account/` | Ordered page modules; consumes shared cores |
-| RFQ page runtime | `assets/js/request-quote/` | Ordered page modules; consumes shared cores |
 | Product schema/BreadcrumbList | `scripts/catalogue/build.py` | Build-time |
 | Structured-data validation | `scripts/audit/structured_data.py` | CI |
 | Critical production contract | `scripts/audit/critical_build.py` | Blocking CI |
 | Entity sitemap generation | `scripts/catalogue/sync_entity_sitemaps.py` | Build-time |
 | JavaScript architecture validation | `scripts/js/validate.py` | CI |
+| Browser regression matrix | `scripts/regression/final-matrix.cjs` | Blocking PR/main CI |
+| Production edge smoke test | `scripts/audit/production_smoke.py` | Main/manual CI |
 
 ## Naming convention
 
@@ -32,21 +32,21 @@ Numeric utility pages such as `404.js` are permitted.
 
 ## Current intentional exceptions
 
-The top-level files under `assets/js/bundles/` remain as compatibility entrypoints for older direct references. They are not authoritative implementations and are kept below the enforced 4 KB stub limit.
+There is no longer an account-bundle exception. `account.js` consumes the shared `site-core.js` runtime, while retaining only account-specific modules and page lifecycle code.
 
 ## Refactor targets
 
 ### Shared navigation
 
-The runtime navigation logic belongs to `site-core.js`; `scripts/catalogue/navigation.py` is the single source for navigation markup, and `scripts/catalogue/sync_navigation.py` renders it into each static page. The resulting HTML is intentionally present in every page so links remain crawlable and the site remains usable without runtime rendering. CI verifies the generated markup and rejects whitespace-only output changes.
+The runtime navigation logic belongs to `site-core.js`. The remaining duplication is the navigation HTML present in every language/page file. The target architecture is a single build-time navigation partial rendered into each page, while keeping the resulting HTML crawlable and language-specific.
 
 ### Authentication/session
 
-Supabase client creation and the single auth-state subscription belong to `assets/js/site-core.js`. Account modules use the shared session state, and the RFQ module listens to the dispatched `souviks:auth-state` event instead of subscribing directly to Supabase. The architecture validator blocks duplicate client creation or auth-state listeners.
+The normal site runtime owns Supabase client/session state. Account-page code consumes that shared session layer rather than initialize a second client. RFQ basket ownership and authenticated submission remain enforced by Supabase RLS/RPC on the database side.
 
 ### Product cards
 
-Build-time product-card markup belongs to `scripts/catalogue/product_card.py`; runtime listing/PDP rendering belongs to the ordered modules under `assets/js/products/` and `assets/js/product/`. The data contract is shared through catalogue projections and blocking parity checks.
+Runtime catalogue cards belong to `products.js`. Build-time entity cards belong to `enrich_entities.py`. The next refactor should introduce a shared card contract/template so the two implementations cannot drift in fields, URLs, pricing or accessibility attributes.
 
 ### Schema and breadcrumbs
 
@@ -54,7 +54,7 @@ Schema and breadcrumb generation belong to `scripts/catalogue/build.py`. Generat
 
 ### Utilities / services / controllers
 
-Legacy compatibility bundles are no longer the source of page behaviour. The remaining maintainability debt is concentrated in individual page modules and shared service boundaries. Refactors should separate data access, formatting utilities, UI components and page controllers without changing public URL or DOM contracts.
+Large bundles remain the main maintainability debt. Refactors should separate data access, formatting utilities, UI components and page controllers without changing public URL or DOM contracts.
 
 ## CI rules
 
@@ -69,16 +69,9 @@ The blocking build contract checks:
 - robots/sitemap consistency
 - generated internal links
 - basic generated HTML structural integrity
+- RFQ security boundary and database migration shape
+- final multilingual/static regression
 
-The JavaScript architecture checks enforce shared-core boundaries, page-module order, module naming, and auth ownership. ESLint, Node syntax checks, Prettier formatting checks, and `git diff --check` are blocking CI gates. The code-quality report remains non-blocking for informational debt metrics.
+The JavaScript architecture checks enforce shared-core boundaries, script ordering and module naming. The browser regression workflow now runs against pull requests as well as main, so route, form, catalogue and mobile interaction regressions are caught before merge.
 
-
-## Release boundary
-
-The catalogue release gate builds and validates the candidate tree before the main-branch publisher commits generated projections. The JavaScript refactor workflow is read-only; `build-static-catalogue.yml` is the sole generated-catalogue publisher.
-
-The transition is deployment-safe: account pages are migrated alongside their modules in the PR, while the existing `product.js` and `products.js` compatibility implementations remain intact in the merge commit. The publisher then validates and commits the generated product-page module references and compatibility stubs together, avoiding an intermediate deployment where legacy pages would reference empty bundles.
-
-## Required repository setting
-
-The `main` branch currently has no branch protection/ruleset. CI workflows pass on pull requests, but GitHub does not enforce those checks against direct pushes until repository rules require the `Catalogue PR Release Gate / validate` and `Refactor Static JavaScript / refactor` checks and restrict bypasses. This is an administrator setting outside the repository files; do not treat the CI workflow alone as enforcement.
+The production edge smoke workflow verifies the deployed public HTTP contract on main/manual runs, including security headers, redirects, robots, sitemap XML and 404 behavior. Cloudflare dashboard WAF/bot settings and live authenticated Supabase RLS behavior remain external controls and are not represented as closed by source-only checks.
