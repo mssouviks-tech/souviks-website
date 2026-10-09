@@ -993,11 +993,7 @@ def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
     }
     expected = {
         "pages.xml": {
-            BASE + (
-                "/" if name == "index" and lang == "en"
-                else f"/{lang}/" if name == "index"
-                else f"/{lang}/{name}"
-            )
+            BASE + (("/" if lang == "en" else f"/{lang}/") if name == "index" else f"/{lang}/{name}")
             for lang in LANGUAGES
             for name in static_names
         },
