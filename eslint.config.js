@@ -1,9 +1,6 @@
 export default [
   {
-    ignores: [
-      "assets/js/bundles/**",
-      "assets/js/check-syntax.js",
-    ],
+    ignores: ["assets/js/bundles/**", "assets/js/check-syntax.js"],
   },
   {
     files: [
