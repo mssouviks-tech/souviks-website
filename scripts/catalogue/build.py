@@ -979,9 +979,9 @@ def sync_static_product_images():
             )
     
             thumb_match = re.search(
-                r'(<div\s+class="pdp-thumbnails">).*?(</div><button\s+class="pdp-thumb-next")',
+                r'(<div\b[^>]*class=["\'][^"\']*\bpdp-thumbnails\b[^"\']*["\'][^>]*>)(.*?)(</div>)',
                 text,
-                re.S,
+                flags=re.I | re.S,
             )
             if thumb_match:
                 product_name = html_module.escape(str(refreshed.get("product_name") or refreshed.get("name") or "Product"), quote=True)
@@ -992,7 +992,7 @@ def sync_static_product_images():
                         f'<button class="pdp-thumb" type="button" aria-label="View {product_name} image {index}">'
                         f'<img src="{src}" alt="{product_name} image {index}" loading="lazy" decoding="async" draggable="false"></button>'
                     )
-                replacement = thumb_match.group(1) + "".join(thumbs) + thumb_match.group(2)
+                replacement = thumb_match.group(1) + "".join(thumbs) + thumb_match.group(3)
                 text = text[:thumb_match.start()] + replacement + text[thumb_match.end():]
     
             if text != path.read_text(encoding="utf-8"):
