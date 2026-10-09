@@ -55,6 +55,7 @@ ACCOUNT_MODULES = (
 PAGE_MODULES = {
     "account.js": tuple(f"assets/js/account/{module}" for module in ACCOUNT_MODULES),
     "products.js": (
+        "assets/js/request-quote/rfq.js",
         "assets/js/components/product-card.js",
         "assets/js/products/search-engine.js",
         "assets/js/products/voice-search.js",
@@ -66,6 +67,7 @@ PAGE_MODULES = {
         "assets/js/products/souviks-refresh-static-product-card-images-from-canonical-catalogue.js",
     ),
     "product.js": (
+        "assets/js/request-quote/rfq.js",
         "assets/js/components/product-card.js",
         "assets/js/product/products.js",
         "assets/js/product/product-page.js",
@@ -272,6 +274,23 @@ def migrate_html() -> int:
                         + first_module.group(0)
                         + new_content[first_module.end():]
                     )
+
+        # The RFQ engine also owns product-card clicks and PDP quantity state.
+        # Some already-migrated HTML files no longer have the legacy bundle tag,
+        # so ensure the shared RFQ module is still injected before page modules.
+        is_products_listing = path.name == "products.html" and path.parent.name in LANGUAGES
+        is_product_detail = path.parent.name == "products" and path.parent.parent.name in LANGUAGES
+        rfq_module = "assets/js/request-quote/rfq.js"
+        rfq_tag_pattern = re.compile(
+            rf'<script\\s+defer\\s+src="/{re.escape(rfq_module)}(?:\\?v=[0-9a-f]{{12}})?"></script>'
+        )
+        if (is_products_listing or is_product_detail) and not rfq_tag_pattern.search(new_content):
+            first_page_module = re.compile(
+                r'<script\\s+defer\\s+src="/assets/js/(?:components/product-card\\.js|products/products-page\\.js|product/products\\.js)\\?v=[0-9a-f]{12}"></script>'
+            ).search(new_content)
+            if first_page_module:
+                rfq_tag = f'<script defer src="{versioned_asset_url(rfq_module)}"></script>\\n'
+                new_content = new_content[:first_page_module.start()] + rfq_tag + new_content[first_page_module.start():]
 
         def replace_bundle(match: re.Match[str]) -> str:
             bundle_name = match.group(1)
