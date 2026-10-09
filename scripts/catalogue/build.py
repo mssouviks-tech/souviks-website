@@ -225,6 +225,46 @@ def reconcile_catalogue_projections():
         if description and description != text(product.get("description")):
             product["description"] = description
 
+    # The public PDP gallery is limited to four native-resolution views per
+    # product. Do not resize or rewrite image files; trim catalogue references
+    # and keep primary-image metadata aligned with the first retained view.
+    for product in catalogue:
+        gallery = product.get("gallery")
+        if not isinstance(gallery, list) or len(gallery) <= 4:
+            continue
+
+        names = []
+        for entry in gallery:
+            if isinstance(entry, dict):
+                filename = text(entry.get("filename") or entry.get("file") or entry.get("name"))
+            else:
+                filename = text(entry)
+            if filename and filename not in names:
+                names.append(filename)
+            if len(names) == 4:
+                break
+
+        if not names:
+            product["gallery"] = []
+            product["gallery_dimensions"] = {}
+            continue
+
+        product["gallery"] = names
+        dimensions = product.get("gallery_dimensions")
+        if isinstance(dimensions, dict):
+            product["gallery_dimensions"] = {
+                key: value for key, value in dimensions.items()
+                if text(key) in set(names)
+            }
+        else:
+            product["gallery_dimensions"] = {}
+
+        folder = text(product.get("image_folder") or product.get("id"))
+        product["image"] = names[0]
+        product["primary_image"] = names[0]
+        if folder:
+            product["image_url"] = f"/assets/images/products/{folder}/{names[0]}"
+
     active = [p for p in catalogue if p.get("active") is not False and p.get("id")]
     count = len(active)
     
