@@ -287,24 +287,305 @@ async function main() {
     }
   }
 
-  // 404 matrix
+  // 404 matrix: require an actual HTTP 404 and the correct translated page.
+  const expected404Headings = {
+    en: "Page Not Found",
+    hi: "पृष्ठ नहीं मिला",
+    bn: "পৃষ্ঠা পাওয়া যায়নি",
+  };
   for (const view of Object.keys(VIEWS)) {
     for (const lang of LANGS) {
       const context = await contextFor(view);
       const page = await context.newPage();
       page.__view = view;
-      await check(`${view}/${lang}/404 page`, async () => {
+      await check(view + "/" + lang + "/404 page", async () => {
         const response = await goto(page, BASE + langPath(lang, "this-route-does-not-exist-regression-34"));
         const status = response?.status();
-        const text = await page.locator("body").innerText();
-        if (status !== 404 && !/404|not found|page.*found/i.test(text)) {
-          throw new Error(`expected 404, got HTTP ${status}`);
-        }
+        if (status !== 404) throw new Error("expected HTTP 404, got " + (status || "unknown"));
+        const htmlLang = await page.locator("html").getAttribute("lang");
+        if (htmlLang !== lang) throw new Error("404 page language was " + htmlLang + ", expected " + lang);
+        const heading = (await page.locator("main h1").first().innerText()).trim();
+        if (!heading.includes(expected404Headings[lang])) throw new Error("unexpected translated 404 heading: " + heading);
+        if (!(await page.locator('main a[href^="/' + lang + '/"]').count())) throw new Error("404 page has no language-local navigation links");
         await assertNoHorizontalOverflow(page);
-        return `HTTP ${status}`;
+        return "HTTP 404; translated heading confirmed";
       });
       await context.close();
     }
+  }
+
+  // Reliability fault-injection tests. These use disposable contexts and do not weaken
+  // or skip any of the standard feature regression checks.
+  await check("reliability/malformed URL parameters fail safely", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      const response = await goto(page, BASE + "/en/products?page=not-a-number&pageSize=-1&sort=unexpected&brand_id=%3Cscript%3Ealert(1)%3C%2Fscript%3E&q=%3Cscript%3Ealert(1)%3C%2Fscript%3E");
+      if (!response || response.status() >= 400) throw new Error("malformed query parameters returned an HTTP error");
+      if (!(await page.locator("main").count()) || !(await page.locator("#product-grid").count())) {
+        throw new Error("catalogue landmarks disappeared after malformed parameters");
+      }
+      if (await page.locator("#product-grid script, #noResults script, #noResults img[onerror], #noResults svg[onload]").count()) {
+        throw new Error("query content was interpreted as executable markup");
+      }
+      return "catalogue rendered without executing or injecting query markup";
+    } finally {
+      await context.close();
+    }
+  });
+
+  await check("reliability/empty and unexpected searches recover", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      await goto(page, BASE + "/en/products");
+      const input = page.locator("#searchInput");
+      const grid = page.locator("#product-grid .product-card");
+      await input.fill("   ");
+      await page.waitForTimeout(350);
+      if ((await grid.count()) < 1) throw new Error("whitespace-only search did not restore the catalogue");
+
+      const hostileQuery = 'no-match-probe <img src=x onerror=alert(1)> 💥';
+      await input.fill(hostileQuery);
+      await page.waitForTimeout(350);
+      if (!(await page.locator("#noResults").isVisible())) {
+        throw new Error("unexpected search did not show the no-results message");
+      }
+      if (await page.locator("#noResults img, #noResults script, #noResults svg").count()) {
+        throw new Error("unexpected search input was inserted as HTML");
+      }
+
+      await input.fill("");
+      await page.waitForTimeout(350);
+      if ((await grid.count()) < 1) throw new Error("catalogue did not recover after clearing search");
+      return "blank input restores products; unexpected input gives a safe empty state; clearing recovers";
+    } finally {
+      await context.close();
+    }
+  });
+
+  await check("reliability/missing JSON resource returns 404", async () => {
+    const context = await browser.newContext();
+    try {
+      const response = await context.request.get(BASE + "/assets/data/regression-missing-file.json", { timeout: 10000 });
+      if (response.status() !== 404) throw new Error("missing JSON resource returned HTTP " + response.status() + " instead of 404");
+      if (!(await response.text()).trim()) throw new Error("missing JSON response body was empty");
+      return "HTTP 404 response confirmed";
+    } finally {
+      await context.close();
+    }
+  });
+
+  await check("reliability/malformed JSON data does not break the catalogue", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      let intercepted = 0;
+      await page.route("**/assets/data/products.json", async route => {
+        intercepted += 1;
+        await route.fulfill({ status: 200, contentType: "application/json", body: "{ malformed JSON" });
+      });
+      await goto(page, BASE + "/en/products");
+      const probe = await page.evaluate(async () => {
+        try {
+          const response = await fetch("/assets/data/products.json", { cache: "no-store" });
+          await response.json();
+          return { rejected: false };
+        } catch (error) {
+          return { rejected: true, message: String(error?.message || error) };
+        }
+      });
+      if (!probe.rejected || !intercepted) throw new Error("malformed JSON was not rejected as expected");
+      if ((await page.locator("#product-grid .product-card").count()) < 1) {
+        throw new Error("static product cards disappeared after a malformed JSON response");
+      }
+      await page.locator("#searchInput").fill("69050050");
+      await page.waitForTimeout(350);
+      if (!(await page.locator("#product-grid").innerText()).includes("69050050")) {
+        throw new Error("client-side search became unusable after malformed JSON");
+      }
+      return "malformed data rejected; pre-rendered products and search remain usable";
+    } finally {
+      await context.close();
+    }
+  });
+
+  await check("reliability/unavailable catalogue API does not break the page", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      let intercepted = 0;
+      await page.route("**/assets/data/products.json", async route => {
+        intercepted += 1;
+        await route.fulfill({
+          status: 503,
+          contentType: "application/json",
+          body: JSON.stringify({ error: "service_unavailable", message: "Temporarily unavailable" })
+        });
+      });
+      await goto(page, BASE + "/en/products");
+      const status = await page.evaluate(async () => {
+        const response = await fetch("/assets/data/products.json", { cache: "no-store" });
+        return response.status;
+      });
+      if (status !== 503 || !intercepted) throw new Error("could not verify injected HTTP 503 response");
+      if ((await page.locator("#product-grid .product-card").count()) < 1) {
+        throw new Error("static products disappeared when the data endpoint returned 503");
+      }
+      await page.locator("#searchInput").fill("69050050");
+      await page.waitForTimeout(350);
+      if (!(await page.locator("#product-grid").innerText()).includes("69050050")) {
+        throw new Error("catalogue search stopped working during an API outage");
+      }
+      return "HTTP 503 confirmed; static catalogue and client-side search remain usable";
+    } finally {
+      await context.close();
+    }
+  });
+
+  await check("reliability/broken product images fall back without disabling RFQ", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      await page.route("**/assets/images/products/**", async route => {
+        await route.fulfill({ status: 404, contentType: "image/webp", body: "missing image fixture" });
+      });
+      await goto(page, BASE + "/en/products/10-x-15-nut");
+      await page.waitForFunction(() => {
+        const image = document.querySelector("#pdpMainImage");
+        return image && (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp");
+      }, null, { timeout: 8000 });
+      await page.waitForFunction(() => {
+        const image = document.querySelector("#pdpMainImage");
+        return image && image.complete && image.naturalWidth > 0;
+      }, null, { timeout: 8000 });
+      const fallback = await page.locator("#pdpMainImage").evaluate(image => ({
+        src: image.getAttribute("src") || "", width: image.naturalWidth, complete: image.complete
+      }));
+      if (!fallback.src.endsWith("/assets/images/placeholder.webp") || !fallback.complete || fallback.width < 1) {
+        throw new Error("failed product image did not load the valid placeholder");
+      }
+      if (!(await page.locator("main h1").innerText()).includes("10 x 1.5 Nut")) {
+        throw new Error("product content disappeared when its image failed");
+      }
+      await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
+      await page.locator(".pdp-rfq-btn").click();
+      const saved = await page.evaluate(() => {
+        const raw = localStorage.getItem("souviks_rfq_guest");
+        return raw ? JSON.parse(raw) : [];
+      });
+      if (!Array.isArray(saved) || !saved.length) throw new Error("Add to RFQ stopped working after image failures");
+      return "placeholder loaded; product details and Add to RFQ remain functional";
+    } finally {
+      await context.close();
+    }
+  });
+
+  await check("reliability/missing brand logo leaves brand content usable", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      let intercepted = false;
+      await page.route("**/assets/images/brands/abc.png", async route => {
+        intercepted = true;
+        await route.fulfill({ status: 404, contentType: "image/png", body: "missing brand logo fixture" });
+      });
+      await goto(page, BASE + "/en/brands/abc");
+      await page.locator("#brand-detail .brand-logo img").scrollIntoViewIfNeeded();
+      await page.waitForTimeout(250);
+      if (!intercepted) throw new Error("brand logo 404 was not injected");
+      if (!(await page.locator("#brand-detail h1").innerText()).includes("ABC")) {
+        throw new Error("brand heading disappeared when the logo failed");
+      }
+      if ((await page.locator(".entity-product-galleries .product-card").count()) < 1) {
+        throw new Error("brand product gallery disappeared when the logo failed");
+      }
+      return "brand logo failed; brand name and product gallery remain available";
+    } finally {
+      await context.close();
+    }
+  });
+
+  await check("reliability/authentication HTTP 503 shows service-unavailable feedback", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      const runtimeErrors = [];
+      page.on("pageerror", error => runtimeErrors.push(error?.message || String(error)));
+      await goto(page, BASE + "/en/login");
+      await page.route("**/auth/v1/token*", async route => {
+        await route.fulfill({
+          status: 503,
+          contentType: "application/json",
+          body: JSON.stringify({ message: "Authentication service temporarily unavailable" })
+        });
+      });
+      await page.locator("#email").fill("regression@example.invalid");
+      await page.locator("#password").fill("not-a-real-password");
+      await page.locator('#loginForm button[type="submit"]').click();
+      await page.waitForFunction(() => /authentication service is unavailable/i.test(
+        document.querySelector("#loginStatus")?.textContent || ""
+      ), null, { timeout: 8000 });
+      const message = (await page.locator("#loginStatus").innerText()).trim();
+      if (/invalid email or password/i.test(message)) throw new Error("service outage was reported as invalid credentials");
+      if (runtimeErrors.length) throw new Error("uncaught browser error: " + runtimeErrors[0]);
+      if (await page.locator('#loginForm button[type="submit"]').isDisabled()) {
+        throw new Error("login submit button remained disabled after service failure");
+      }
+      return message;
+    } finally {
+      await context.close();
+    }
+  });
+
+  await check("reliability/authentication network failure gives retry guidance", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      await goto(page, BASE + "/en/login");
+      await page.route("**/auth/v1/token*", async route => route.abort("failed"));
+      await page.locator("#email").fill("regression@example.invalid");
+      await page.locator("#password").fill("not-a-real-password");
+      await page.locator('#loginForm button[type="submit"]').click();
+      await page.waitForFunction(() => /unable to connect to the authentication service/i.test(
+        document.querySelector("#loginStatus")?.textContent || ""
+      ), null, { timeout: 8000 });
+      const message = (await page.locator("#loginStatus").innerText()).trim();
+      if (await page.locator('#loginForm button[type="submit"]').isDisabled()) {
+        throw new Error("login submit button remained disabled after network failure");
+      }
+      return message;
+    } finally {
+      await context.close();
+    }
+  });
+
+  if (["127.0.0.1", "localhost"].includes(new URL(BASE).hostname)) {
+    await check("reliability/static server 500 response is understandable", async () => {
+      const context = await browser.newContext();
+      try {
+        const response = await context.request.get(BASE + "/en/%E0%A4%A", { timeout: 10000 });
+        if (response.status() !== 500) {
+          throw new Error("malformed percent-encoding returned HTTP " + response.status() + " instead of 500");
+        }
+        if (!/internal server error/i.test(await response.text())) {
+          throw new Error("500 response did not return a safe failure message");
+        }
+        return "HTTP 500 and generic error message confirmed on the local static regression server";
+      } finally {
+        await context.close();
+      }
+    });
+  } else {
+    record("reliability/static server 500 response", "SKIP", "Production static hosting does not expose the local Node error handler.");
   }
 
   // Feature matrix: product catalogue, PDP, and guest RFQ in every language + viewport.
