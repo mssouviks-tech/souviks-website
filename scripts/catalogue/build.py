@@ -1070,7 +1070,7 @@ def sync_product_seo_and_schema():
             # Rebuild the same factual product description inside this
             # schema loop; this loop is separate from the static-page SEO loop.
             schema_description = re.sub(
-                r"\\s+",
+                r"\s+",
                 " ",
                 text(product.get("description"))
             ).strip()
@@ -1098,7 +1098,7 @@ def sync_product_seo_and_schema():
             if schema_vehicles and "Compatible vehicles:" not in schema_description:
                 schema_description += " Compatible vehicles: " + ", ".join(schema_vehicles[:5]) + "."
             schema_description += " Request availability from Souviks."
-            schema_description = re.sub(r"\\s+", " ", schema_description).strip()
+            schema_description = re.sub(r"\s+", " ", schema_description).strip()
             if len(schema_description) > 158:
                 schema_description = (
                     schema_description[:157]
@@ -1260,6 +1260,11 @@ def sync_product_seo_and_schema():
                     if not isinstance(node, dict) or node.get("@type") != "BreadcrumbList":
                         continue
                     items = node.get("itemListElement")
+                    if isinstance(items, list) and items and isinstance(items[0], dict):
+                        home_url = f"{BASE}/" if lang == "en" else f"{BASE}/{lang}/"
+                        if items[0].get("item") != home_url:
+                            items[0]["item"] = home_url
+                            updated = True
                     if isinstance(items, list) and items and isinstance(items[-1], dict):
                         if items[-1].get("item") != url:
                             items[-1]["item"] = url
@@ -1307,7 +1312,7 @@ def sync_product_seo_and_schema():
                             "@type": "ListItem",
                             "position": 1,
                             "name": "Home",
-                            "item": f"https://www.souviks.co.in/{lang}/",
+                            "item": f"{BASE}/" if lang == "en" else f"{BASE}/{lang}/",
                         },
                         {
                             "@type": "ListItem",

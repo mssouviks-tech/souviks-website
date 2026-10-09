@@ -231,13 +231,160 @@ def html_path_for_route(route: str) -> Path | None:
     return None
 
 
-def canonical_from_html(raw: str) -> str:
+def canonical_tags_from_html(raw: str) -> list[str]:
+    """Return every canonical URL, so duplicate tags cannot pass unnoticed."""
+    values = []
     for tag in re.findall(r"<link\b[^>]*>", raw, flags=re.I):
-        if re.search(r'\brel\s*=\s*["\'][^"\']*\bcanonical\b[^"\']*["\']', tag, flags=re.I):
-            match = re.search(r'\bhref\s*=\s*["\']([^"\']+)["\']', tag, flags=re.I)
-            return text(match.group(1)) if match else ""
-    return ""
+        rel_match = re.search(r"""\brel\s*=\s*["']([^"']+)["']""", tag, flags=re.I)
+        if not rel_match or "canonical" not in rel_match.group(1).lower().split():
+            continue
+        href_match = re.search(r"""\bhref\s*=\s*["']([^"']+)["']""", tag, flags=re.I)
+        values.append(text(href_match.group(1)) if href_match else "")
+    return values
 
+
+def canonical_from_html(raw: str) -> str:
+    values = canonical_tags_from_html(raw)
+    return values[0] if values else ""
+
+
+def metadata_values(raw: str, selector_attribute: str, selector_value: str) -> list[str]:
+    """Return content values for matching meta property/name attributes."""
+    values = []
+    selector_pattern = re.compile(
+        rf"""\b{re.escape(selector_attribute)}\s*=\s*["']([^"']+)["']""",
+        flags=re.I,
+    )
+    content_pattern = re.compile(r"""\bcontent\s*=\s*["']([^"']*)["']""", flags=re.I)
+    for tag in re.findall(r"<meta\b[^>]*>", raw, flags=re.I):
+        selector = selector_pattern.search(tag)
+        if not selector or selector.group(1).strip().casefold() != selector_value.casefold():
+            continue
+        content = content_pattern.search(tag)
+        values.append(text(content.group(1)) if content else "")
+    return values
+
+
+def validate_homepage_url_contract(errors: list[str]) -> None:
+    """Enforce one exact public URL contract for every homepage representation."""
+    expected_canonicals = {
+        "index.html": BASE + "/",
+        "en/index.html": BASE + "/",
+        "bn/index.html": BASE + "/bn/",
+        "hi/index.html": BASE + "/hi/",
+    }
+    expected_hreflang = {
+        "en": BASE + "/",
+        "bn": BASE + "/bn/",
+        "hi": BASE + "/hi/",
+        "x-default": BASE + "/",
+    }
+
+    for relative_path, expected_canonical in expected_canonicals.items():
+        path = ROOT / relative_path
+        if not path.is_file():
+            errors.append(f"Missing homepage file required by canonical contract: {relative_path}")
+            continue
+
+        raw = path.read_text(encoding="utf-8", errors="ignore")
+        canonicals = canonical_tags_from_html(raw)
+        if len(canonicals) != 1:
+            errors.append(
+                f"{relative_path}: expected exactly one canonical tag, found {len(canonicals)}"
+            )
+        elif canonicals[0] != expected_canonical:
+            errors.append(
+                f"{relative_path}: canonical {canonicals[0]!r} != {expected_canonical!r}"
+            )
+
+        links = hreflang_links(raw)
+        for code, expected_url in expected_hreflang.items():
+            values = links.get(code, [])
+            if len(values) != 1:
+                errors.append(
+                    f"{relative_path}: expected exactly one hreflang={code}, found {len(values)}"
+                )
+            elif values[0] != expected_url:
+                errors.append(
+                    f"{relative_path}: hreflang={code} {values[0]!r} != {expected_url!r}"
+                )
+
+    # The English homepage's share-card URLs must not keep the obsolete /en/ URL.
+    english_path = ROOT / "en" / "index.html"
+    if english_path.is_file():
+        raw = english_path.read_text(encoding="utf-8", errors="ignore")
+        for attribute, key in (("property", "og:url"), ("name", "twitter:url")):
+            values = metadata_values(raw, attribute, key)
+            if len(values) != 1:
+                errors.append(
+                    f"en/index.html: expected exactly one {key} meta tag, found {len(values)}"
+                )
+            elif values[0] != BASE + "/":
+                errors.append(
+                    f"en/index.html: {key} {values[0]!r} != canonical homepage {BASE + '/'}"
+                )
+
+
+def validate_security_headers(errors: list[str]) -> None:
+    """Validate headers in the site's root _headers file."""
+    path = ROOT / "_headers"
+    if not path.is_file():
+        errors.append("Missing _headers security-header configuration")
+        return
+
+    blocks: dict[str, dict[str, str]] = {}
+    current_block = None
+    header_pattern = re.compile(r"^\s*([^:]+?)\s*:\s*(.*?)\s*$")
+
+    for lineno, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if not line[0].isspace():
+            current_block = stripped
+            blocks.setdefault(current_block, {})
+            continue
+
+        match = header_pattern.match(line)
+        if not match:
+            errors.append(f"_headers:{lineno}: malformed header declaration")
+            continue
+        if current_block is None:
+            errors.append(f"_headers:{lineno}: header appears before a path block")
+            continue
+
+        name = match.group(1).strip().casefold()
+        value = match.group(2).strip()
+        if name in blocks[current_block]:
+            errors.append(f"_headers:{lineno}: duplicate {name} header in {current_block}")
+        blocks[current_block][name] = value
+
+    root_headers = blocks.get("/*", {})
+    hsts = root_headers.get("strict-transport-security", "")
+    if not hsts:
+        errors.append("_headers /* block is missing Strict-Transport-Security")
+    else:
+        max_age_ok = re.search(
+            r"(?:^|;)\s*max-age\s*=\s*31536000(?:\s*;|$)",
+            hsts,
+            flags=re.I,
+        )
+        directives = {part.strip().casefold() for part in hsts.split(";")}
+        if not max_age_ok or "includesubdomains" not in directives or "preload" not in directives:
+            errors.append(
+                "_headers /* Strict-Transport-Security must include max-age=31536000, includeSubDomains and preload"
+            )
+
+    expected_values = {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+    }
+    for name, expected_value in expected_values.items():
+        actual = root_headers.get(name, "")
+        if actual.casefold() != expected_value.casefold():
+            errors.append(
+                f"_headers /* {name} {actual!r} != required {expected_value!r}"
+            )
 
 def robots_from_html(raw: str) -> str:
     for tag in re.findall(r"<meta\b[^>]*>", raw, flags=re.I):
@@ -432,7 +579,8 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
                 parser.finish()
 
                 expected_route = f"/{language}/{kind}/{path.stem}"
-                expected_canonical = (BASE + "/" if path.stem == "index" and language == "en" else BASE + expected_route)
+                # The root canonical belongs only to the English homepage, not entity pages.
+                expected_canonical = BASE + expected_route
                 canonical = canonical_from_html(raw)
                 if canonical.rstrip("/") != expected_canonical.rstrip("/"):
                     errors.append(
@@ -624,7 +772,11 @@ def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
     }
     expected = {
         "pages.xml": {
-            BASE + (f"/{lang}/" if name == "index" else f"/{lang}/{name}")
+            BASE + (
+                "/" if name == "index" and lang == "en"
+                else f"/{lang}/" if name == "index"
+                else f"/{lang}/{name}"
+            )
             for lang in LANGUAGES
             for name in static_names
         },
@@ -660,6 +812,10 @@ def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
         if orphan:
             errors.append(
                 f"{filename}: contains {len(orphan)} unexpected URLs: {', '.join(orphan[:15])}"
+            )
+        if filename == "pages.xml" and BASE + "/en/" in actual:
+            errors.append(
+                f"pages.xml: English homepage must use {BASE + '/'}; {BASE + '/en/'} is not its canonical URL"
             )
 
         for url in sorted(actual):
@@ -796,6 +952,8 @@ def validate_critical_catalogue_contract(errors: list[str]) -> dict[str, list]:
 
 def main() -> None:
     errors: list[str] = []
+    validate_homepage_url_contract(errors)
+    validate_security_headers(errors)
     records_by_kind = validate_critical_catalogue_contract(errors)
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
