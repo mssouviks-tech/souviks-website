@@ -1158,9 +1158,15 @@ async function main() {
             inquiryLabel: getInquiryTranslation("inquiriesProducts", "missing translation"),
             savedLabel: getAccountSavedTranslation("savedViewProduct", "missing translation"),
             vehicleLabel: getVehicleTranslation("searchVehicle", "missing translation"),
+            rfqSummary: getTranslation("accountRfqSummary", "missing translation"),
+            rfqEmpty: getTranslation("accountRfqSummaryEmpty", "missing translation"),
+            rfqSubmit: getTranslation("rfqSubmit", "missing translation"),
             messageInquiryLabel: document.getElementById("accountMessages")?.dataset?.inquiriesProducts || "",
             messageSavedLabel: document.getElementById("accountMessages")?.dataset?.savedViewProduct || "",
             messageVehicleLabel: document.getElementById("accountMessages")?.dataset?.searchVehicle || "",
+            messageRfqSummary: document.getElementById("accountMessages")?.dataset?.accountRfqSummary || "",
+            messageRfqEmpty: document.getElementById("accountMessages")?.dataset?.accountRfqSummaryEmpty || "",
+            messageRfqSubmit: document.getElementById("accountMessages")?.dataset?.rfqSubmit || "",
           }));
           if (!translated.messageInquiryLabel || translated.inquiryLabel !== translated.messageInquiryLabel) {
             throw new Error("inquiry labels did not resolve from this language's account messages");
@@ -1170,6 +1176,15 @@ async function main() {
           }
           if (!translated.messageVehicleLabel || translated.vehicleLabel !== translated.messageVehicleLabel) {
             throw new Error("vehicle labels did not resolve from this language's account messages");
+          }
+          if (!translated.messageRfqSummary || translated.rfqSummary !== translated.messageRfqSummary) {
+            throw new Error("RFQ summary did not resolve from this language's account messages");
+          }
+          if (!translated.messageRfqEmpty || translated.rfqEmpty !== translated.messageRfqEmpty) {
+            throw new Error("empty RFQ summary did not resolve from this language's account messages");
+          }
+          if (!translated.messageRfqSubmit || translated.rfqSubmit !== translated.messageRfqSubmit) {
+            throw new Error("RFQ submit label did not resolve from this language's account messages");
           }
 
           for (const table of ["rfqs", "saved_products", "customer_vehicles"]) {
