@@ -149,8 +149,8 @@ def main() -> int:
     print("  Account runtime modules: assets/js/account/")
     print("  Static catalogue/schema generation: scripts/catalogue/build.py")
     print("  Entity page generation: scripts/catalogue/enrich_entities.py")
-    print("  Remaining debt: utility/component/service separation, full JS dependency packaging, "
-          "TypeScript/JSDoc strengthening, and automated lint/formatting.")
+    print("  Remaining debt: deeper utility/component/service separation, page-module bundling, "
+          "and broader TypeScript/JSDoc adoption. ESLint, syntax checks, and Prettier run in CI.")
 
 
     return 0
