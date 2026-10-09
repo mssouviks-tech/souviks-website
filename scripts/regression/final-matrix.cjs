@@ -879,16 +879,32 @@ async function main() {
         await page.waitForTimeout(250);
         await plus.click();
         await page.waitForTimeout(250);
-        const qtyText = await row.locator(".rfq-qty").innerText();
-        const values = qtyText.match(/\d+/g) || [];
-        const quantity = Number(values[0] || 0);
-        const stored = await page.evaluate(() => {
+        const minus = row.locator(".rfq-qty .qty-minus");
+        if (!(await minus.count())) throw new Error("RFQ quantity decrease control missing");
+        await minus.click();
+        await page.waitForTimeout(250);
+        let qtyText = await row.locator(".rfq-qty").innerText();
+        let values = qtyText.match(/\d+/g) || [];
+        let quantity = Number(values[0] || 0);
+        let stored = await page.evaluate(() => {
           const raw = localStorage.getItem("souviks_rfq_guest");
           const items = raw ? JSON.parse(raw) : [];
           return Number(items?.[0]?.qty || 0);
         });
-        if (quantity !== 3 || stored !== 3) throw new Error(`quantity UI=${quantity}; localStorage=${stored}`);
-        return "quantity=3";
+        if (quantity !== 2 || stored !== 2) throw new Error(`decrease failed: UI=${quantity}; localStorage=${stored}`);
+
+        await plus.click();
+        await page.waitForTimeout(250);
+        qtyText = await row.locator(".rfq-qty").innerText();
+        values = qtyText.match(/\d+/g) || [];
+        quantity = Number(values[0] || 0);
+        stored = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_rfq_guest");
+          const items = raw ? JSON.parse(raw) : [];
+          return Number(items?.[0]?.qty || 0);
+        });
+        if (quantity !== 3 || stored !== 3) throw new Error(`increase failed: UI=${quantity}; localStorage=${stored}`);
+        return "increase/decrease persisted: 3 → 2 → 3";
       });
 
       await check(`${view}/${lang}/RFQ removal`, async () => {
@@ -904,8 +920,9 @@ async function main() {
           const raw = localStorage.getItem("souviks_rfq_guest");
           return raw ? JSON.parse(raw) : [];
         });
-        if ((await rows.count()) !== 1 || (await removeControls.count()) !== 0 || (await plusControls.count()) !== 0 || stored.length !== 0) {
-          throw new Error("RFQ row was not removed");
+        const badge = Number(await page.locator(".rfq-badge").first().innerText());
+        if ((await rows.count()) !== 1 || (await removeControls.count()) !== 0 || (await plusControls.count()) !== 0 || stored.length !== 0 || badge !== 0) {
+          throw new Error(`RFQ row/basket/badge not cleared; rows=${await rows.count()}, saved=${stored.length}, badge=${badge}`);
         }
       });
 
