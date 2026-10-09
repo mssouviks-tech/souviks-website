@@ -136,6 +136,21 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          # This step runs in a separate shell from candidate validation.
+          # Re-declare the full gate so remote-main retry attempts are validated too.
+          run_candidate_checks() {
+            python3 scripts/catalogue/validate.py
+            python3 scripts/audit/critical_build.py
+            python3 scripts/audit/structured_data.py
+            python3 scripts/audit/site_quality.py
+            python3 scripts/js/validate.py
+            python3 scripts/audit/code_quality.py
+            npm run lint:js
+            npm run check:js
+            npm run format:check
+            git diff --check
+          }
+
           for attempt in 1 2 3 4 5 6 7 8; do
             echo "Catalogue publish attempt ${attempt}"
 
