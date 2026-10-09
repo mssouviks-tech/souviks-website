@@ -309,6 +309,7 @@ jobs:
       - name: Verify generated page parity and SEO invariants
         shell: python
         run: |
+          import html as html_module
           import json
           import pathlib
           import re
@@ -396,7 +397,9 @@ jobs:
                   if not title_match:
                       errors.append(f"Missing title: {path}")
                   else:
-                      title_value = re.sub(r"<[^>]+>", "", title_match.group(1)).strip()
+                      title_value = html_module.unescape(
+                          re.sub(r"<[^>]+>", "", title_match.group(1)).strip()
+                      )
                       if len(title_value) > 70:
                           errors.append(f"Product title too long ({len(title_value)} chars): {path}")
                       if title_value.count(" | Souviks") > 1:
