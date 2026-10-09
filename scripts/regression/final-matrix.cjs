@@ -532,7 +532,7 @@ async function main() {
 
       await check(`${view}/${lang}/entity gallery missing-image fallback loads`, async () => {
         await goto(page, BASE + langPath(lang, "brands/bapi"));
-        const missingImages = page.locator('.entity-product-galleries img[data-image-available="false"]');
+        const missingImages = page.locator('.entity-product-galleries img[data-image-state="missing"]');
         const count = await missingImages.count();
         if (count < 1) throw new Error("fixture no longer contains a missing-image product");
         const image = missingImages.first();
