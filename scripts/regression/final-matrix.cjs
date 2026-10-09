@@ -170,6 +170,161 @@ async function contextFor(view, authenticated = false) {
   return context;
 }
 
+async function mockAuthenticatedAccountApi(context) {
+  const testUser = {
+    id: "regression-test-user",
+    aud: "authenticated",
+    role: "authenticated",
+    email: "regression@example.invalid",
+    email_confirmed_at: "2026-10-09T10:00:00.000Z",
+    user_metadata: { full_name: "Regression Test" },
+  };
+  const rfq = {
+    id: "regression-rfq-001",
+    rfq_number: "RFQ-REGRESSION-001",
+    customer_name: "Regression Test",
+    customer_email: "regression@example.invalid",
+    customer_phone: "9000000000",
+    company: "Regression Co.",
+    gst_number: null,
+    is_business: true,
+    message: "Regression account render test",
+    status: "submitted",
+    created_at: "2026-10-09T10:00:00.000Z",
+    updated_at: "2026-10-09T10:00:00.000Z",
+    user_id: testUser.id,
+  };
+  const tables = {
+    profiles: [{
+      id: testUser.id,
+      full_name: "Regression Test",
+      phone: "9000000000",
+      company: "Regression Co.",
+      is_business: true,
+      gst_number: null,
+    }],
+    rfqs: [rfq],
+    rfq_items: [{
+      id: "regression-rfq-item-001",
+      rfq_id: rfq.id,
+      product_id: "SVKS000025",
+      part_number: "TEST-PART",
+      product_name: "Regression Test Part",
+      brand: "Test Brand",
+      quantity: 2,
+      created_at: rfq.created_at,
+    }],
+    saved_products: [{
+      user_id: testUser.id,
+      product_id: "SVKS000025",
+      created_at: rfq.created_at,
+    }],
+    customer_vehicles: [{
+      id: "regression-vehicle-001",
+      user_id: testUser.id,
+      vehicle_id: "regression-vehicle",
+      vehicle_model: "Regression Test Vehicle",
+      nickname: "Regression Truck",
+      registration_number: "WB-00-TEST",
+      variant: "Regression",
+      model_year: 2024,
+      notes: "Regression fixture",
+      created_at: rfq.created_at,
+      updated_at: rfq.updated_at,
+    }],
+  };
+
+  await context.route("**supabase.co/**", async route => {
+    const request = route.request();
+    const url = new URL(request.url());
+    const headers = {
+      "access-control-allow-origin": "*",
+      "access-control-allow-headers": "*",
+      "access-control-allow-methods": "GET, HEAD, POST, PATCH, DELETE, OPTIONS",
+      "content-type": "application/json",
+    };
+
+    if (request.method() === "OPTIONS") {
+      await route.fulfill({ status: 204, headers, body: "" });
+      return;
+    }
+    if (/\/auth\/v1\/user$/i.test(url.pathname)) {
+      await route.fulfill({ status: 200, headers, body: JSON.stringify(testUser) });
+      return;
+    }
+    if (/\/auth\/v1\/session$/i.test(url.pathname)) {
+      await route.fulfill({
+        status: 200,
+        headers,
+        body: JSON.stringify({
+          access_token: "regression-token",
+          token_type: "bearer",
+          expires_in: 3600,
+          expires_at: Math.floor(Date.now() / 1000) + 3600,
+          refresh_token: "regression-refresh-token",
+          user: testUser,
+        }),
+      });
+      return;
+    }
+    if (/\/rest\/v1\//i.test(url.pathname)) {
+      const table = url.pathname.split("/").pop();
+      const rows = tables[table] || [];
+      const responseHeaders = {
+        ...headers,
+        "content-range": rows.length ? `0-${rows.length - 1}/${rows.length}` : "*/0",
+      };
+      if (request.method() === "HEAD") {
+        await route.fulfill({ status: 200, headers: responseHeaders, body: "" });
+        return;
+      }
+      if (request.method() === "GET") {
+        await route.fulfill({
+          status: 200,
+          headers: responseHeaders,
+          body: JSON.stringify(rows),
+        });
+        return;
+      }
+      const status = request.method() === "POST" ? 201 : request.method() === "DELETE" ? 204 : 200;
+      await route.fulfill({
+        status,
+        headers: responseHeaders,
+        body: status === 204 ? "" : JSON.stringify(rows),
+      });
+      return;
+    }
+    await route.continue();
+  });
+
+  await context.route("**/assets/data/products.json", async route => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify([{
+        id: "SVKS000025",
+        slug: "regression-test-part",
+        product_name: "Regression Test Part",
+        name: "Regression Test Part",
+        brand_name: "Test Brand",
+        brand: "Test Brand",
+        part_number: "TEST-PART",
+        image_url: "/assets/images/placeholder.webp",
+        image_folder: "SVKS000025",
+        active: true,
+      }]),
+    });
+  });
+  await context.route("**/assets/data/vehicles.json", async route => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify([{ id: "regression-vehicle", model: "Regression Test Vehicle", active: true }]),
+    });
+  });
+}
+
+
 async function goto(page, url) {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error?.message || String(error)));
@@ -911,15 +1066,18 @@ async function main() {
         });
       }
 
-      // Account sub-views and anonymous auth gate/state surfaces.
-      for (const [viewName, titleText] of [
-        ["account", "My Account"],
-        ["rfq", "RFQ"],
-        ["inquiries", "Inquiries"],
-        ["saved", "Saved"],
-        ["vehicles", "Vehicle"],
-      ]) {
-        await check(`${view}/${lang}/account ${viewName} view`, async () => {
+      // Match account views by their shared class/data contract instead of
+      // hard-coding <div>; some real views are <section> elements.
+      const accountViewSelectors = [
+        ["account", "#accountDashboardTitle"],
+        ["rfq", "#accountRfqSummary"],
+        ["inquiries", "#accountInquiries"],
+        ["saved", "#accountSavedList"],
+        ["vehicles", "#accountVehiclesList"],
+      ];
+
+      for (const [viewName, childSelector] of accountViewSelectors) {
+        await check(`${view}/${lang}/account ${viewName} template structure`, async () => {
           const response = await page.request.get(
             BASE + langPath(lang, `account?view=${viewName}`),
             { timeout: 30000 }
@@ -928,17 +1086,103 @@ async function main() {
           if (!status || status >= 400) throw new Error(`HTTP ${status || "unknown"}`);
 
           const source = await response.text();
-          const marker = `data-account-view="${viewName}"`;
-          const section = new RegExp("<div\\s+class=\"account-view\"[\\s\\S]*?" + marker, "i");
-          if (!section.test(source)) {
-            throw new Error("account view section missing from template");
-          }
-          if (!source.toLowerCase().includes(titleText.toLowerCase())) {
-            throw new Error("requested account view text missing from template");
-          }
-          return `${titleText} template present; HTTP ${status}`;
+          const structure = await page.evaluate(({ html, viewName, childSelector }) => {
+            const documentCopy = new DOMParser().parseFromString(html, "text/html");
+            const section = documentCopy.querySelector(`.account-view[data-account-view="${viewName}"]`);
+            return {
+              element: section?.tagName?.toLowerCase() || "",
+              childExists: Boolean(section?.querySelector(childSelector)),
+              heading: section?.querySelector("h1, h2, h3")?.textContent?.trim() || "",
+            };
+          }, { html: source, viewName, childSelector });
+
+          if (!structure.element) throw new Error("account view element missing from template");
+          if (!structure.childExists) throw new Error(`required view selector missing: ${childSelector}`);
+          if (!structure.heading) throw new Error("account view heading missing");
+          return `<${structure.element}> with ${childSelector}; HTTP ${status}`;
         });
       }
+
+      await check(`${view}/${lang}/anonymous account sign-in gate`, async () => {
+        await goto(page, BASE + langPath(lang, "account?view=inquiries"));
+        await page.waitForURL(url => url.pathname === langPath(lang, "login"), { timeout: 10000 });
+        const redirect = new URL(page.url()).searchParams.get("redirect") || "";
+        if (!redirect.startsWith(langPath(lang, "account") + "?view=inquiries")) {
+          throw new Error(`sign-in redirect target was not preserved: ${redirect}`);
+        }
+        return `redirected to ${langPath(lang, "login")} with the requested account view retained`;
+      });
+
+      await check(`${view}/${lang}/authenticated account views render and stay owner-scoped`, async () => {
+        const accountContext = await contextFor(view, true);
+        await mockAuthenticatedAccountApi(accountContext);
+        const accountPage = await accountContext.newPage();
+        accountPage.__view = view;
+        const accountRequests = [];
+        accountPage.on("request", request => {
+          const url = new URL(request.url());
+          if (!/\/rest\/v1\/(profiles|rfqs|rfq_items|saved_products|customer_vehicles)$/i.test(url.pathname)) return;
+          accountRequests.push({
+            method: request.method(),
+            table: url.pathname.split("/").pop(),
+            params: url.searchParams,
+          });
+        });
+
+        try {
+          for (const [viewName, renderedSelector, expectedText] of [
+            ["account", "#accountDashboardTitle", "Regression Test"],
+            ["rfq", "#accountRfqSummary", ""],
+            ["inquiries", ".account-inquiry-card", "RFQ-REGRESSION-001"],
+            ["saved", ".account-saved-card", "Regression Test Part"],
+            ["vehicles", ".account-vehicle-card", "Regression Truck"],
+          ]) {
+            await goto(accountPage, BASE + langPath(lang, `account?view=${viewName}`));
+            await accountPage.locator("body.account-authenticated").waitFor({ state: "attached", timeout: 10000 });
+            const viewElement = accountPage.locator(`.account-view[data-account-view="${viewName}"]`);
+            await viewElement.waitFor({ state: "visible", timeout: 8000 });
+            const rendered = accountPage.locator(renderedSelector).first();
+            await rendered.waitFor({ state: "visible", timeout: 8000 });
+            if (expectedText && !(await rendered.innerText()).includes(expectedText)) {
+              throw new Error(`${viewName} content did not include "${expectedText}"`);
+            }
+          }
+
+          const translated = await accountPage.evaluate(() => ({
+            inquiryLabel: getInquiryTranslation("inquiriesProducts", "missing translation"),
+            savedLabel: getAccountSavedTranslation("savedViewProduct", "missing translation"),
+            vehicleLabel: getVehicleTranslation("searchVehicle", "missing translation"),
+            messageInquiryLabel: document.getElementById("accountMessages")?.dataset?.inquiriesProducts || "",
+            messageSavedLabel: document.getElementById("accountMessages")?.dataset?.savedViewProduct || "",
+            messageVehicleLabel: document.getElementById("accountMessages")?.dataset?.searchVehicle || "",
+          }));
+          if (!translated.messageInquiryLabel || translated.inquiryLabel !== translated.messageInquiryLabel) {
+            throw new Error("inquiry labels did not resolve from this language's account messages");
+          }
+          if (!translated.messageSavedLabel || translated.savedLabel !== translated.messageSavedLabel) {
+            throw new Error("saved-product labels did not resolve from this language's account messages");
+          }
+          if (!translated.messageVehicleLabel || translated.vehicleLabel !== translated.messageVehicleLabel) {
+            throw new Error("vehicle labels did not resolve from this language's account messages");
+          }
+
+          for (const table of ["rfqs", "saved_products", "customer_vehicles"]) {
+            const queries = accountRequests.filter(request => request.table === table && request.method === "GET");
+            if (!queries.length) throw new Error(`no authenticated query observed for ${table}`);
+            if (queries.some(request => request.params.get("user_id") !== "eq.regression-test-user")) {
+              throw new Error(`${table} query did not constrain results to the authenticated user`);
+            }
+          }
+          const profileQueries = accountRequests.filter(request => request.table === "profiles" && request.method === "GET");
+          if (!profileQueries.length || profileQueries.some(request => request.params.get("id") !== "eq.regression-test-user")) {
+            throw new Error("profile query did not constrain results to the authenticated user");
+          }
+
+          return "overview, RFQ basket, RFQ history, saved products and vehicles rendered; data requests were scoped to the signed-in test user";
+        } finally {
+          await accountContext.close();
+        }
+      });
 
       await check(`${view}/${lang}/Sign Out anonymous state`, async () => {
         const session = await page.evaluate(async () => {
