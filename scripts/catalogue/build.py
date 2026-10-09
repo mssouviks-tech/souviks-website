@@ -454,14 +454,45 @@ def reconcile_catalogue_projections():
             name = text(product.get("product_name") or product.get("name"))
             part = part_number(product)
             identity = part if part and part.casefold() != name.casefold() else ""
+
+            # SEO titles must stay within the repository's 70-character
+            # invariant. Keep the full brand and part identity first; shorten
+            # only the trailing product-name segment, at a word boundary.
+            title_suffix = " | Souviks"
+            title_limit = 70
             if brand and identity:
-                title = f"{brand} - {identity} - {name} | Souviks"
+                title_lead = f"{brand} - {identity}"
             elif brand:
-                title = f"{brand} - {name} | Souviks"
+                title_lead = brand
             elif identity:
-                title = f"{identity} - {name} | Souviks"
+                title_lead = identity
             else:
-                title = f"{name} | Souviks"
+                title_lead = ""
+
+            if title_lead:
+                joiner = " - " if name else ""
+                available_name = title_limit - len(title_suffix) - len(title_lead) - len(joiner)
+                if available_name > 0:
+                    name_part = name
+                    if len(name_part) > available_name:
+                        shortened = name_part[: available_name + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+                        if not shortened:
+                            shortened = name_part[:available_name].rstrip(" ,;:-")
+                        name_part = shortened
+                    title_prefix = f"{title_lead}{joiner}{name_part}".rstrip(" -")
+                else:
+                    # Defensive fallback for an unusually long identity.
+                    title_prefix = title_lead[: title_limit - len(title_suffix)].rstrip(" -")
+                title = title_prefix + title_suffix
+            else:
+                available_name = title_limit - len(title_suffix)
+                name_part = name
+                if len(name_part) > available_name:
+                    shortened = name_part[: available_name + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+                    if not shortened:
+                        shortened = name_part[:available_name].rstrip(" ,;:-")
+                    name_part = shortened
+                title = name_part + title_suffix
     
             raw_description = re.sub(r"\s+", " ", text(product.get("description"))).strip()
             category = text(product.get("category_name") or product.get("category"))
