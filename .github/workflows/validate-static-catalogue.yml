@@ -648,20 +648,25 @@ jobs:
               errors.append("Duplicate URL present across child sitemaps.")
 
           for url in all_urls:
-              m = re.match(r"https://www\.souviks\.co\.in/(en|hi|bn)(/.*)?$", url)
-              if not m:
-                  errors.append(f"Unexpected sitemap URL: {url}")
-                  continue
-
-              lang = m.group(1)
-              route = m.group(2) or "/"
-              if ".html" in route:
-                  errors.append(f"Legacy .html URL in sitemap: {url}")
-
-              if route == "/":
-                  file_path = root / lang / "index.html"
+              if url == base + "/":
+                  # The root is the canonical English homepage; /en/ is a duplicate alias.
+                  lang, route, file_path = "en", "/", root / "index.html"
               else:
-                  file_path = root / lang / (route.lstrip("/") + ".html")
+                  m = re.match(r"https://www\.souviks\.co\.in/(en|hi|bn)(/.*)?$", url)
+                  if not m:
+                      errors.append(f"Unexpected sitemap URL: {url}")
+                      continue
+                  lang = m.group(1)
+                  route = m.group(2) or "/"
+                  if route == "/" and lang == "en":
+                      errors.append("Non-canonical /en/ homepage must not appear in sitemap.")
+                      continue
+                  if ".html" in route:
+                      errors.append(f"Legacy .html URL in sitemap: {url}")
+                  if route == "/":
+                      file_path = root / lang / "index.html"
+                  else:
+                      file_path = root / lang / (route.lstrip("/") + ".html")
 
               if not file_path.exists():
                   errors.append(f"Sitemap target has no generated page: {url} -> {file_path}")
