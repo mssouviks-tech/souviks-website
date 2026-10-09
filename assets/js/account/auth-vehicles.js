@@ -43,6 +43,14 @@ async function initializeAccountVehicles() {
 
     bindVehicleEvents();
     window.refreshAccountVehicles = loadAccountVehicles;
+
+    // Account authentication and this module initialize asynchronously.
+    // If navigation selected Vehicles before the catalogue finished loading,
+    // honour that request once the refresh function is ready.
+    const vehiclesView = document.querySelector('.account-view[data-account-view="vehicles"]');
+    if (vehiclesView && !vehiclesView.hidden) {
+        await loadAccountVehicles();
+    }
 }
 
 
