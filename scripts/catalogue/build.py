@@ -1014,48 +1014,101 @@ def sync_static_product_images():
             nonlocal card_index
             card_index += 1
             card = match.group(0)
+
             id_match = re.search(
-                r'data-saved-product-id="([^"]+)"|data-id="([^"]+)"',
+                r'\bdata-saved-product-id\s*=\s*(["\'])(.*?)\1|\bdata-id\s*=\s*(["\'])(.*?)\3',
                 card,
+                flags=re.I,
             )
-            if not id_match:
-                return card
-    
-            product_id = id_match.group(1) or id_match.group(2)
-            product = products.get(str(product_id))
+            product_id = ""
+            if id_match:
+                product_id = str(id_match.group(2) or id_match.group(4) or "").strip()
+            product = products.get(product_id) if product_id else None
+
+            # Product-card markup is generated catalogue output. Never publish a stale
+            # card whose product is inactive/unknown, or one that cannot map to a slug.
             if not product:
-                return card
-    
+                return ""
+            slug = str(product.get("slug") or "").strip()
+            if not slug:
+                return ""
+
+            relative_parts = path.relative_to(root).parts
+            language = relative_parts[0] if relative_parts and relative_parts[0] in {"en", "hi", "bn"} else "en"
+            canonical_product_url = f"/{language}/products/{slug}"
+
+            def refresh_product_link(anchor_match):
+                anchor = anchor_match.group(0)
+                href_match = re.search(
+                    r'\bhref\s*=\s*(["\'])(.*?)\1',
+                    anchor,
+                    flags=re.I,
+                )
+                if not href_match or not re.match(
+                    r"^/(?:en|hi|bn)/products(?:/|$)",
+                    href_match.group(2),
+                    flags=re.I,
+                ):
+                    return anchor
+                start_href, end_href = href_match.span(2)
+                return (
+                    anchor[:start_href]
+                    + canonical_product_url
+                    + anchor[end_href:]
+                )
+
+            card = re.sub(r"<a\b[^>]*>", refresh_product_link, card, flags=re.I)
+
             gallery = product.get("gallery")
             if isinstance(gallery, list) and gallery:
                 gallery = [str(name).strip() for name in gallery if str(name).strip()]
             else:
                 gallery = []
-    
-            src = image_url(product, gallery[0]) if gallery else str(product.get("image_url") or "").strip()
+
+            if gallery:
+                src = image_url(product, gallery[0])
+                image_state = "catalogue"
+            else:
+                src = str(product.get("image_url") or "/assets/images/placeholder.webp").strip()
+                image_state = "missing"
+
             if not src:
-                return card
-    
-            def update_image(match):
-                attrs = match.group(0)
-                attrs = re.sub(r'\sloading="[^"]*"', "", attrs)
-                attrs = re.sub(r'\sfetchpriority="[^"]*"', "", attrs)
+                src = "/assets/images/placeholder.webp"
+                image_state = "missing"
+
+            def update_image(image_match):
+                attrs = image_match.group(0)
+                attrs = re.sub(r'\sloading\s*=\s*(["\']).*?\1', "", attrs, flags=re.I)
+                attrs = re.sub(r'\sfetchpriority\s*=\s*(["\']).*?\1', "", attrs, flags=re.I)
+                attrs = re.sub(r'\sdata-image-state\s*=\s*(["\']).*?\1', "", attrs, flags=re.I)
+                attrs = re.sub(r'\ssrc\s*=\s*(["\']).*?\1', "", attrs, flags=re.I)
+
                 if is_products_listing and card_index <= 4:
-                    return attrs.replace("<img ", '<img loading="eager" fetchpriority="high" ', 1)
-                return attrs.replace("<img ", '<img loading="lazy" ', 1)
+                    loading_attrs = 'loading="eager" fetchpriority="high"'
+                else:
+                    loading_attrs = 'loading="lazy"'
+
+                state_attr = html_module.escape(image_state, quote=True)
+                src_attr = html_module.escape(src, quote=True)
+                return attrs.replace(
+                    "<img ",
+                    f'<img {loading_attrs} data-image-state="{state_attr}" src="{src_attr}" ',
+                    1,
+                )
 
             return re.sub(
-                r'<img\b[^>]*class="product-image-file"[^>]*>',
+                r'<img\b(?=[^>]*\bclass\s*=\s*["\'][^"\']*\bproduct-image-file\b[^"\']*["\'])[^>]*>',
                 update_image,
                 card,
                 count=1,
+                flags=re.I | re.S,
             )
-    
+
         text = re.sub(
-            r'<article\s+class="product-card".*?</article>',
+            r'<article\b(?=[^>]*\bclass\s*=\s*["\'][^"\']*\bproduct-card\b[^"\']*["\'])[^>]*>.*?</article>',
             refresh_card,
             text,
-            flags=re.S,
+            flags=re.I | re.S,
         )
     
         if text != original:
