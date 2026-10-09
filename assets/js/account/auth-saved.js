@@ -237,14 +237,7 @@ async function refreshAccountSaved() {
             false;
 
 
-        empty.innerHTML = `
-
-            <p>
-                Unable to load your saved products.
-                Please try again.
-            </p>
-
-        `;
+        empty.innerHTML = `<p>${escapeSavedHTML(getAccountSavedTranslation("savedLoadError", "Unable to load your saved products. Please try again."))}</p>`;
 
     }
 
@@ -299,6 +292,12 @@ async function getAccountSavedProducts() {
 RENDER SAVED PRODUCT
 ==========================================================
 */
+
+function getAccountSavedTranslation(key, fallback) {
+    const messages = document.getElementById("accountMessages");
+    return messages?.dataset?.[key] || fallback;
+}
+
 
 function renderAccountSavedProduct(
     product
@@ -377,7 +376,7 @@ function renderAccountSavedProduct(
                     <a
                         href="${Utils.productUrl(product)}"
                         class="btn btn-secondary">
-                        View Product
+                        ${escapeSavedHTML(getAccountSavedTranslation("savedViewProduct", "View Product"))}
                     </a>
 
                     <button
@@ -388,14 +387,14 @@ function renderAccountSavedProduct(
                         data-part="${escapeSavedHTML(product.part_number || product.partNumber || "")}"
                         data-name="${escapeSavedHTML(product.product_name || product.name || "")}"
                         data-brand="${escapeSavedHTML(product.brand_name || product.brand || "")}">
-                        Add to RFQ
+                        ${escapeSavedHTML(getAccountSavedTranslation("addToRFQ", "Add to RFQ"))}
                     </button>
 
                     <button
                         type="button"
                         class="btn btn-link account-saved-remove"
                         data-account-saved-remove="${productId}">
-                        Remove
+                        ${escapeSavedHTML(getAccountSavedTranslation("savedRemove", "Remove"))}
                     </button>
 
                 </div>
@@ -435,7 +434,7 @@ document.addEventListener("click", async event => {
             });
             if (added) {
                 const original = addButton.textContent;
-                addButton.textContent = "Added to RFQ";
+                addButton.textContent = getAccountSavedTranslation("savedAddedToRFQ", "Added to RFQ");
                 window.setTimeout(() => {
                     addButton.textContent = original;
                     addButton.disabled = false;
