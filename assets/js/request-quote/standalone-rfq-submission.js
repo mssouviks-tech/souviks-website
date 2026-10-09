@@ -146,8 +146,8 @@ RFQ.submitStandalone = async function (form) {
         }
 
         window.souviksAnalytics?.trackLead("rfq");
-        await RFQ.clear();
-        return reference;
+        const basketCleared = await RFQ.clear();
+        return { reference, basketCleared };
     }
 
     const reference = `RFQ-${Date.now()}`;
@@ -170,8 +170,8 @@ RFQ.submitStandalone = async function (form) {
     );
 
     window.souviksAnalytics?.trackLead("rfq_guest");
-    await RFQ.clear();
-    return reference;
+    const basketCleared = await RFQ.clear();
+    return { reference, basketCleared };
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -204,7 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
         RFQ.setSubmissionStatus(status, "Submitting your RFQ…");
 
         try {
-            const reference = await RFQ.submitStandalone(form);
+            const submission = await RFQ.submitStandalone(form);
+            const reference = submission.reference;
+            const successMessage = rfqMessage.success(reference);
+            const statusMessage = submission.basketCleared === false
+                ? `${successMessage} ${rfqMessage.basketClearFailed || "The basket could not be cleared. Check the reference before submitting again."}`
+                : successMessage;
 
             form.reset();
             await RFQ.updateBadge();
@@ -212,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             RFQ.setSubmissionStatus(
                 status,
-                rfqMessage.success(reference),
+                statusMessage,
                 "success"
             );
         } catch (error) {
