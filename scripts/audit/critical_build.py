@@ -35,7 +35,6 @@ SKIP_LINK_PREFIXES = ("#", "mailto:", "tel:", "javascript:", "data:", "blob:")
 PENDING_ASSETS = {
     "assets/images/brands/rxi.png",
 }
-PENDING_IMAGE_GAPS = set()
 
 
 def fail(errors: list[str]) -> None:
@@ -164,10 +163,7 @@ def validate_images(products, errors: list[str]) -> None:
             if not image_url:
                 errors.append(f"{pid}: active product has no gallery and no explicit image_url")
             elif image_url.endswith("/placeholder.webp") or image_url == "/assets/images/placeholder.webp":
-                # Preserve deployment while keeping missing real imagery explicit.
-                # Entity pages use a working shared placeholder until photos are added.
-                PENDING_IMAGE_GAPS.add(pid)
-                print(f"[critical build] imagery gap (non-blocking): {pid}")
+                errors.append(f"{pid}: active product has no gallery and resolves to placeholder image")
             elif image_url.startswith("/assets/"):
                 image_path = ROOT / image_url.lstrip("/")
                 if not image_path.is_file():
@@ -379,10 +375,6 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
         raw = path.read_text(encoding="utf-8", errors="ignore")
         expected_route = f"/{language}/" if path.stem == "index" else f"/{language}/{path.stem}"
         expected_canonical = BASE + expected_route
-        # The root URL is the single canonical English homepage.
-        # /en/ is a language-route alias and must not compete with it in search.
-        if language == "en" and path.stem == "index":
-            expected_canonical = BASE + "/"
         canonical = canonical_from_html(raw)
         if canonical.rstrip("/") != expected_canonical.rstrip("/"):
             errors.append(
@@ -425,6 +417,60 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
         errors.append("Missing _redirects file")
         return
 
+    lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    rules = {}
+    for lineno, line in enumerate(lines, start=1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        parts = stripped.split()
+        if len(parts) < 2:
+            continue
+        source, destination = parts[:2]
+        status = parts[2] if len(parts) >= 3 else ""
+        rules[source] = (destination, status, lineno)
+
+    required_legacy_rules = {
+        "/index.html": ("/", "301"),
+        "/:lang/index.html": ("/:lang", "301"),
+    }
+    for page_name in (
+        "products",
+        "brands",
+        "categories",
+        "vehicles",
+        "about",
+        "contact",
+        "account",
+        "login",
+        "register",
+        "forgot-password",
+        "reset-password",
+        "request-part",
+        "request-quote",
+        "thank-you",
+        "privacy-policy",
+        "terms",
+        "refund",
+    ):
+        required_legacy_rules[f"/:lang/{page_name}.html"] = (
+            f"/:lang/{page_name}",
+            "301",
+        )
+
+    for source, (destination, status) in required_legacy_rules.items():
+        actual = rules.get(source)
+        if actual is None:
+            errors.append(
+                f"_redirects missing required legacy HTML redirect: {source}"
+            )
+            continue
+        if actual[0] != destination or actual[1] != status:
+            errors.append(
+                f"_redirects:{actual[2]}: legacy HTML redirect {source} "
+                f"must be {destination} {status}, found {actual[0]} {actual[1] or '<none>'}"
+            )
+
     for lineno, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
         stripped = line.strip()
         if not stripped or stripped.startswith("#"):
@@ -460,6 +506,39 @@ def sitemap_urls(path: Path, errors: list[str]) -> set[str]:
     if "<urlset" not in raw and "<sitemapindex" not in raw:
         errors.append(f"{path.relative_to(ROOT)}: malformed sitemap root")
     return set(re.findall(r"<loc>([^<]+)</loc>", raw))
+
+
+def validate_security_headers(errors: list[str]) -> None:
+    path = ROOT / "_headers"
+    if not path.is_file():
+        errors.append("Missing _headers file")
+        return
+
+    raw = path.read_text(encoding="utf-8", errors="ignore")
+    required = {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "frame-ancestors 'self'",
+    }
+
+    for header, value in required.items():
+        pattern = re.compile(
+            rf"^\\s*{re.escape(header)}\\s*:\\s*(.+?)\\s*$",
+            flags=re.I | re.M,
+        )
+        match = pattern.search(raw)
+        if not match:
+            errors.append(f"_headers missing required security header: {header}")
+            continue
+        actual = re.sub(r"\\s+", " ", match.group(1).strip())
+        expected = re.sub(r"\\s+", " ", value.strip())
+        if actual != expected:
+            errors.append(
+                f"_headers security header mismatch: {header}: {actual!r} != {expected!r}"
+            )
 
 
 def validate_robots_and_sitemap_index(errors: list[str]) -> None:
@@ -558,6 +637,66 @@ def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
                 if "noindex" in robots:
                     errors.append(
                         f"{filename}: URL is in sitemap but generated page is noindex: {url}"
+                    )
+
+
+def validate_static_product_vehicle_images(errors: list[str]) -> None:
+    """Ensure statically rendered PDPs use known vehicle imagery when available."""
+    vehicles = load_json(ROOT / "assets/data/vehicles.json", errors)
+    by_model = {
+        text(item.get("model")): item
+        for item in vehicles
+        if isinstance(item, dict)
+        and item.get("active") is not False
+        and text(item.get("model"))
+    }
+
+    for lang in LANGUAGES:
+        for path in (ROOT / lang / "products").glob("*.html"):
+            raw = path.read_text(encoding="utf-8", errors="ignore")
+            match = re.search(
+                r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                raw,
+                flags=re.S,
+            )
+            if not match:
+                continue
+
+            try:
+                product = json.loads(match.group(1))
+            except json.JSONDecodeError:
+                errors.append(f"{path}: invalid embedded product page data")
+                continue
+
+            product_vehicles = product.get("vehicles") or []
+            if not isinstance(product_vehicles, list):
+                continue
+
+            section_match = re.search(
+                r'<section\b[^>]*id=["\']vehicles-section["\'][^>]*>(.*?)</section>',
+                raw,
+                flags=re.I | re.S,
+            )
+            section = section_match.group(1) if section_match else ""
+
+            for vehicle_name in product_vehicles:
+                model = text(vehicle_name)
+                if not model:
+                    continue
+                vehicle = by_model.get(model)
+                image = text(vehicle.get("image")) if vehicle else ""
+                if not image:
+                    continue
+
+                if image not in section:
+                    errors.append(
+                        f"{path}: compatible vehicle {model!r} has a known image {image!r} "
+                        "but the static PDP does not render it"
+                    )
+
+                if "/assets/images/placeholder.webp" in section:
+                    errors.append(
+                        f"{path}: vehicles-section still contains generic product placeholder imagery"
                     )
 
 
@@ -687,8 +826,10 @@ def main() -> None:
     records_by_kind = validate_critical_catalogue_contract(errors)
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
+    validate_security_headers(errors)
     validate_robots_and_sitemap_index(errors)
     validate_sitemaps(records_by_kind, errors)
+    validate_static_product_vehicle_images(errors)
     validate_internal_links(errors)
 
     # The existing structured-data audit remains the detailed JSON-LD checker;
@@ -704,12 +845,6 @@ def main() -> None:
         print("[critical build] pending asset allowlist:")
         for asset in sorted(PENDING_ASSETS):
             print(f"  - {asset}")
-    if PENDING_IMAGE_GAPS:
-        print(
-            f"[critical build] {len(PENDING_IMAGE_GAPS)} active products still need real imagery; "
-            "working placeholder URLs are used until product photos are added."
-        )
-        print("[critical build] pending image product IDs: " + ", ".join(sorted(PENDING_IMAGE_GAPS)))
     fail(errors)
     print("[critical build] PASS")
 
