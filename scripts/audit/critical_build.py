@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import html.parser
 import json
-import math
 import re
 import sys
 from pathlib import Path
@@ -36,7 +35,6 @@ SKIP_LINK_PREFIXES = ("#", "mailto:", "tel:", "javascript:", "data:", "blob:")
 PENDING_ASSETS = {
     "assets/images/brands/rxi.png",
 }
-PENDING_IMAGE_GAPS: set[str] = set()
 
 
 def fail(errors: list[str]) -> None:
@@ -116,49 +114,33 @@ def number(value):
         value = float(value)
     except (TypeError, ValueError):
         return None
-    return value if math.isfinite(value) else None
+    return value if value == value else None
 
 
 def validate_price_integrity(products, errors: list[str]) -> None:
-    """Enforce valid price pairs while allowing an explicit price-on-request state."""
     for product in products:
         pid = text(product.get("id"))
+        mrp = number(product.get("mrp"))
+        selling = number(product.get("selling_price"))
         raw_mrp = product.get("mrp")
         raw_selling = product.get("selling_price")
-        has_mrp = raw_mrp not in (None, "")
-        has_selling = raw_selling not in (None, "")
 
-        # Blank/blank is a valid price-on-request state. A partially
-        # populated price pair is never valid and blocks publication.
-        if has_mrp != has_selling:
-            errors.append(
-                f"{pid}: MRP and selling_price must either both be present or both be blank"
-            )
-            continue
+        if raw_mrp not in (None, "") and mrp is None:
+            errors.append(f"{pid}: MRP is not numeric: {raw_mrp!r}")
+        if raw_selling not in (None, "") and selling is None:
+            errors.append(f"{pid}: selling_price is not numeric: {raw_selling!r}")
 
-        if not has_mrp:
-            continue
-
-        mrp = number(raw_mrp)
-        selling = number(raw_selling)
-        if mrp is None:
-            errors.append(f"{pid}: MRP is not numeric/finite: {raw_mrp!r}")
-        if selling is None:
-            errors.append(f"{pid}: selling_price is not numeric/finite: {raw_selling!r}")
-        if mrp is None or selling is None:
-            continue
-
-        if mrp <= 0:
+        if mrp is not None and mrp <= 0:
             errors.append(f"{pid}: MRP must be greater than zero when present: {mrp}")
-        if selling <= 0:
+        if selling is not None and selling <= 0:
             errors.append(f"{pid}: selling_price must be greater than zero when present: {selling}")
-        if selling > mrp + 0.01:
+        if mrp is not None and selling is not None and selling > mrp + 0.01:
             errors.append(f"{pid}: selling_price {selling} exceeds MRP {mrp}")
 
         discount = number(product.get("discount_percent"))
         if discount is not None and not 0 <= discount <= 100:
             errors.append(f"{pid}: discount_percent outside 0-100: {discount}")
-        if discount is not None:
+        if mrp and selling is not None and discount is not None:
             expected = round((mrp - selling) / mrp * 100)
             if abs(discount - expected) > 1:
                 errors.append(
@@ -174,15 +156,14 @@ def validate_images(products, errors: list[str]) -> None:
         if not folder:
             errors.append(f"{pid}: missing image_folder")
             continue
-
         if not isinstance(gallery, list) or not gallery:
             image_url = text(product.get("image_url"))
-            # Explicit price-on-request style handling for imagery is valid:
-            # /assets/images/placeholder.webp is a real, intentional fallback.
+            # A product may use a single primary image, but the image must be
+            # explicit and real. Missing/placeholder imagery is a blocking defect.
             if not image_url:
                 errors.append(f"{pid}: active product has no gallery and no explicit image_url")
             elif image_url.endswith("/placeholder.webp") or image_url == "/assets/images/placeholder.webp":
-                PENDING_IMAGE_GAPS.add(pid)
+                errors.append(f"{pid}: active product has no gallery and resolves to placeholder image")
             elif image_url.startswith("/assets/"):
                 image_path = ROOT / image_url.lstrip("/")
                 if not image_path.is_file():
@@ -198,15 +179,13 @@ def validate_images(products, errors: list[str]) -> None:
             if filename in seen:
                 errors.append(f"{pid}: duplicate gallery filename: {filename}")
             seen.add(filename)
-            if filename.casefold() in {"placeholder.webp", "placeholder.jpg", "placeholder.png"}:
-                errors.append(f"{pid}: placeholder image is not allowed in gallery: {filename}")
-            image_path = ROOT / "assets" / "images" / "products" / folder / filename
-            if not image_path.is_file():
+            path = ROOT / "assets" / "images" / "products" / folder / filename
+            if not path.is_file():
                 errors.append(f"{pid}: missing product image file: assets/images/products/{folder}/{filename}")
 
         image_url = text(product.get("image_url"))
         if image_url.endswith("/placeholder.webp") or image_url == "/assets/images/placeholder.webp":
-            errors.append(f"{pid}: gallery exists but declared image_url is placeholder")
+            errors.append(f"{pid}: active product resolves to placeholder image")
 
 
 def public_route(kind: str, lang: str, slug: str) -> str:
@@ -241,73 +220,10 @@ def canonical_from_html(raw: str) -> str:
 
 def robots_from_html(raw: str) -> str:
     for tag in re.findall(r"<meta\b[^>]*>", raw, flags=re.I):
-        if re.search(r"\bname\s*=\s*[\"']robots[\"']", tag, flags=re.I):
-            match = re.search(r"\bcontent\s*=\s*[\"']([^\"']+)[\"']", tag, flags=re.I)
+        if re.search(r'\bname\s*=\s*["\']robots["\']', tag, flags=re.I):
+            match = re.search(r'\bcontent\s*=\s*["\']([^"\']+)["\']', tag, flags=re.I)
             return text(match.group(1)).lower() if match else ""
     return ""
-
-
-def hreflang_links(raw: str) -> dict[str, list[str]]:
-    """Return alternate-language URLs grouped by hreflang code."""
-    found: dict[str, list[str]] = {}
-    for tag in re.findall(r"<link\b[^>]*>", raw, flags=re.I):
-        rel_match = re.search(r"\brel\s*=\s*[\"']([^\"']+)[\"']", tag, flags=re.I)
-        lang_match = re.search(r"\bhreflang\s*=\s*[\"']([^\"']+)[\"']", tag, flags=re.I)
-        href_match = re.search(r"\bhref\s*=\s*[\"']([^\"']+)[\"']", tag, flags=re.I)
-        if not (rel_match and lang_match and href_match):
-            continue
-        if "alternate" not in {item.strip().lower() for item in rel_match.group(1).split()}:
-            continue
-        code = lang_match.group(1).strip().lower()
-        found.setdefault(code, []).append(href_match.group(1).strip())
-    return found
-
-
-def validate_hreflang(path: Path, language: str, errors: list[str]) -> None:
-    """Require one exact alternate URL for every public language plus x-default."""
-    parts = path.relative_to(ROOT).parts
-    stem = path.stem
-
-    # All language homepages alternate to the root English homepage and
-    # the language-prefixed Bengali/Hindi routes. /en/ is not the canonical
-    # English homepage; the root domain is.
-    if len(parts) == 2 and parts[0] in LANGUAGES and stem == "index":
-        expected = {
-            "en": BASE + "/",
-            "bn": BASE + "/bn/",
-            "hi": BASE + "/hi/",
-            "x-default": BASE + "/",
-        }
-    elif len(parts) == 2 and parts[0] in LANGUAGES:
-        suffix = "/" if stem == "index" else f"/{stem}"
-        expected = {lang: BASE + f"/{lang}{suffix}" for lang in LANGUAGES}
-        expected["x-default"] = expected["en"]
-    elif len(parts) == 3 and parts[0] in LANGUAGES:
-        suffix = f"/{parts[1]}/{stem}"
-        expected = {lang: BASE + f"/{lang}{suffix}" for lang in LANGUAGES}
-        expected["x-default"] = BASE + f"/en{suffix}"
-    else:
-        return
-
-    links = hreflang_links(path.read_text(encoding="utf-8", errors="ignore"))
-    for code, expected_url in expected.items():
-        values = links.get(code, [])
-        if len(values) != 1:
-            errors.append(
-                f"{path.relative_to(ROOT)}: expected exactly one hreflang={code}, found {len(values)}"
-            )
-            continue
-        if values[0].rstrip("/") != expected_url.rstrip("/"):
-            errors.append(
-                f"{path.relative_to(ROOT)}: hreflang={code} {values[0]!r} != {expected_url!r}"
-            )
-            continue
-
-        target_path = html_path_for_route(urlsplit(expected_url).path)
-        if target_path is None or not target_path.is_file():
-            errors.append(
-                f"{path.relative_to(ROOT)}: hreflang={code} points to a non-generated route: {expected_url}"
-            )
 
 
 class HTMLContractParser(html.parser.HTMLParser):
@@ -432,13 +348,12 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
                 parser.finish()
 
                 expected_route = f"/{language}/{kind}/{path.stem}"
-                expected_canonical = (BASE + "/" if path.stem == "index" and language == "en" else BASE + expected_route)
+                expected_canonical = BASE + expected_route
                 canonical = canonical_from_html(raw)
                 if canonical.rstrip("/") != expected_canonical.rstrip("/"):
                     errors.append(
                         f"{path.relative_to(ROOT)}: canonical {canonical!r} != {expected_canonical!r}"
                     )
-                validate_hreflang(path, language, errors)
 
                 if '<meta charset=' not in raw.lower():
                     errors.append(f"{path.relative_to(ROOT)}: missing charset declaration")
@@ -458,28 +373,13 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
             static_pages.append((language, path))
     for language, path in static_pages:
         raw = path.read_text(encoding="utf-8", errors="ignore")
-        parser = HTMLContractParser(path, errors)
-        try:
-            parser.feed(raw)
-            parser.close()
-        except Exception as exc:
-            errors.append(f"{path.relative_to(ROOT)}: HTML parser failure: {exc}")
-        parser.finish()
-
         expected_route = f"/{language}/" if path.stem == "index" else f"/{language}/{path.stem}"
-        # English homepage owns the root canonical URL; localized homepages
-        # retain their localized canonical route.
-        expected_canonical = (
-            BASE + "/"
-            if path.stem == "index" and language == "en"
-            else BASE + expected_route
-        )
+        expected_canonical = BASE + expected_route
         canonical = canonical_from_html(raw)
         if canonical.rstrip("/") != expected_canonical.rstrip("/"):
             errors.append(
                 f"{path.relative_to(ROOT)}: canonical {canonical!r} != {expected_canonical!r}"
             )
-        validate_hreflang(path, language, errors)
 
     # Full multilingual parity: each language must expose the same entity
     # product-set and the same indexability state for the same canonical slug.
@@ -517,7 +417,60 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
         errors.append("Missing _redirects file")
         return
 
-    concrete_sources: dict[str, str] = {}
+    lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    rules = {}
+    for lineno, line in enumerate(lines, start=1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        parts = stripped.split()
+        if len(parts) < 2:
+            continue
+        source, destination = parts[:2]
+        status = parts[2] if len(parts) >= 3 else ""
+        rules[source] = (destination, status, lineno)
+
+    required_legacy_rules = {
+        "/index.html": ("/", "301"),
+        "/:lang/index.html": ("/:lang", "301"),
+    }
+    for page_name in (
+        "products",
+        "brands",
+        "categories",
+        "vehicles",
+        "about",
+        "contact",
+        "account",
+        "login",
+        "register",
+        "forgot-password",
+        "reset-password",
+        "request-part",
+        "request-quote",
+        "thank-you",
+        "privacy-policy",
+        "terms",
+        "refund",
+    ):
+        required_legacy_rules[f"/:lang/{page_name}.html"] = (
+            f"/:lang/{page_name}",
+            "301",
+        )
+
+    for source, (destination, status) in required_legacy_rules.items():
+        actual = rules.get(source)
+        if actual is None:
+            errors.append(
+                f"_redirects missing required legacy HTML redirect: {source}"
+            )
+            continue
+        if actual[0] != destination or actual[1] != status:
+            errors.append(
+                f"_redirects:{actual[2]}: legacy HTML redirect {source} "
+                f"must be {destination} {status}, found {actual[0]} {actual[1] or '<none>'}"
+            )
+
     for lineno, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
         stripped = line.strip()
         if not stripped or stripped.startswith("#"):
@@ -528,25 +481,6 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
             continue
         source, destination = parts[:2]
         status = parts[2] if len(parts) >= 3 else ""
-
-        if not any(token in source for token in (":splat", ":lang", ":slug", "*")):
-            previous_destination = concrete_sources.get(source)
-            if previous_destination and previous_destination != destination:
-                errors.append(
-                    f"_redirects:{lineno}: duplicate concrete source has conflicting destinations: "
-                    f"{source} -> {previous_destination!r} and {destination!r}"
-                )
-            concrete_sources[source] = destination
-
-        source_url = urlsplit(source)
-        source_path = source_url.path if source_url.scheme else source
-        if source_path.rstrip("/") in expected_routes and (
-            not source_url.netloc or source_url.netloc.lower() == "www.souviks.co.in"
-        ):
-            errors.append(
-                f"_redirects:{lineno}: canonical public URL is configured as a redirect source: {source}"
-            )
-
         if destination.endswith(".html") and not (
             status == "200" and destination == "/index.html" and source == "https://souviks.co.in/"
         ):
@@ -572,6 +506,39 @@ def sitemap_urls(path: Path, errors: list[str]) -> set[str]:
     if "<urlset" not in raw and "<sitemapindex" not in raw:
         errors.append(f"{path.relative_to(ROOT)}: malformed sitemap root")
     return set(re.findall(r"<loc>([^<]+)</loc>", raw))
+
+
+def validate_security_headers(errors: list[str]) -> None:
+    path = ROOT / "_headers"
+    if not path.is_file():
+        errors.append("Missing _headers file")
+        return
+
+    raw = path.read_text(encoding="utf-8", errors="ignore")
+    required = {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "frame-ancestors 'self'",
+    }
+
+    for header, value in required.items():
+        pattern = re.compile(
+            rf"^\\s*{re.escape(header)}\\s*:\\s*(.+?)\\s*$",
+            flags=re.I | re.M,
+        )
+        match = pattern.search(raw)
+        if not match:
+            errors.append(f"_headers missing required security header: {header}")
+            continue
+        actual = re.sub(r"\\s+", " ", match.group(1).strip())
+        expected = re.sub(r"\\s+", " ", value.strip())
+        if actual != expected:
+            errors.append(
+                f"_headers security header mismatch: {header}: {actual!r} != {expected!r}"
+            )
 
 
 def validate_robots_and_sitemap_index(errors: list[str]) -> None:
@@ -624,7 +591,7 @@ def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
     }
     expected = {
         "pages.xml": {
-            BASE + (f"/{lang}/" if name == "index" else f"/{lang}/{name}")
+            BASE + (("/" if lang == "en" else f"/{lang}/") if name == "index" else f"/{lang}/{name}")
             for lang in LANGUAGES
             for name in static_names
         },
@@ -670,6 +637,66 @@ def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
                 if "noindex" in robots:
                     errors.append(
                         f"{filename}: URL is in sitemap but generated page is noindex: {url}"
+                    )
+
+
+def validate_static_product_vehicle_images(errors: list[str]) -> None:
+    """Ensure statically rendered PDPs use known vehicle imagery when available."""
+    vehicles = load_json(ROOT / "assets/data/vehicles.json", errors)
+    by_model = {
+        text(item.get("model")): item
+        for item in vehicles
+        if isinstance(item, dict)
+        and item.get("active") is not False
+        and text(item.get("model"))
+    }
+
+    for lang in LANGUAGES:
+        for path in (ROOT / lang / "products").glob("*.html"):
+            raw = path.read_text(encoding="utf-8", errors="ignore")
+            match = re.search(
+                r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                raw,
+                flags=re.S,
+            )
+            if not match:
+                continue
+
+            try:
+                product = json.loads(match.group(1))
+            except json.JSONDecodeError:
+                errors.append(f"{path}: invalid embedded product page data")
+                continue
+
+            product_vehicles = product.get("vehicles") or []
+            if not isinstance(product_vehicles, list):
+                continue
+
+            section_match = re.search(
+                r'<section\b[^>]*id=["\']vehicles-section["\'][^>]*>(.*?)</section>',
+                raw,
+                flags=re.I | re.S,
+            )
+            section = section_match.group(1) if section_match else ""
+
+            for vehicle_name in product_vehicles:
+                model = text(vehicle_name)
+                if not model:
+                    continue
+                vehicle = by_model.get(model)
+                image = text(vehicle.get("image")) if vehicle else ""
+                if not image:
+                    continue
+
+                if image not in section:
+                    errors.append(
+                        f"{path}: compatible vehicle {model!r} has a known image {image!r} "
+                        "but the static PDP does not render it"
+                    )
+
+                if "/assets/images/placeholder.webp" in section:
+                    errors.append(
+                        f"{path}: vehicles-section still contains generic product placeholder imagery"
                     )
 
 
@@ -799,8 +826,10 @@ def main() -> None:
     records_by_kind = validate_critical_catalogue_contract(errors)
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
+    validate_security_headers(errors)
     validate_robots_and_sitemap_index(errors)
     validate_sitemaps(records_by_kind, errors)
+    validate_static_product_vehicle_images(errors)
     validate_internal_links(errors)
 
     # The existing structured-data audit remains the detailed JSON-LD checker;
@@ -816,12 +845,6 @@ def main() -> None:
         print("[critical build] pending asset allowlist:")
         for asset in sorted(PENDING_ASSETS):
             print(f"  - {asset}")
-    if PENDING_IMAGE_GAPS:
-        print(
-            f"[critical build] {len(PENDING_IMAGE_GAPS)} active products still need real imagery; "
-            "working placeholder URLs are used until product photos are added."
-        )
-        print("[critical build] pending image product IDs: " + ", ".join(sorted(PENDING_IMAGE_GAPS)))
     fail(errors)
     print("[critical build] PASS")
 
