@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import re
 import sys
@@ -245,30 +246,52 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
 
 
 def check_remote_images(images: set[str], errors: list[str]):
-    failures = 0
-    for url in sorted(images):
+    """Check public image URLs concurrently with a bounded worker pool and error cap."""
+    def check_one(url: str) -> str | None:
         parsed = urlparse(url)
         if parsed.scheme != "https" or parsed.netloc != "www.souviks.co.in":
-            errors.append(f"Schema image is not a public Souviks HTTPS URL: {url}")
-            failures += 1
-            if failures >= 50:
-                break
-            continue
+            return f"Schema image is not a public Souviks HTTPS URL: {url}"
+
         request = urllib.request.Request(
             url,
             method="GET",
-            headers={"User-Agent": "Souviks-Structured-Data-Audit/1.0", "Range": "bytes=0-0"},
+            headers={
+                "User-Agent": "Souviks-Structured-Data-Audit/1.0",
+                "Range": "bytes=0-0",
+            },
         )
         try:
-            with urllib.request.urlopen(request, timeout=15) as response:
+            with urllib.request.urlopen(request, timeout=10) as response:
                 if response.status < 200 or response.status >= 400:
-                    errors.append(f"Schema image returned HTTP {response.status}: {url}")
+                    return f"Schema image returned HTTP {response.status}: {url}"
         except urllib.error.HTTPError as exc:
-            errors.append(f"Schema image returned HTTP {exc.code}: {url}")
+            return f"Schema image returned HTTP {exc.code}: {url}"
         except Exception as exc:
-            errors.append(f"Schema image check failed for {url}: {exc}")
-        if len([e for e in errors if "Schema image" in e]) >= 50:
-            break
+            return f"Schema image check failed for {url}: {exc}"
+        return None
+
+    urls = sorted(images)
+    if not urls:
+        return
+
+    image_errors = []
+    worker_count = min(24, len(urls))
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        futures = {executor.submit(check_one, url): url for url in urls}
+        for future in as_completed(futures):
+            try:
+                error = future.result()
+            except Exception as exc:
+                error = f"Schema image checker crashed for {futures[future]}: {exc}"
+            if error:
+                image_errors.append(error)
+                if len(image_errors) >= 50:
+                    for pending in futures:
+                        if not pending.done():
+                            pending.cancel()
+                    break
+
+    errors.extend(image_errors[:50])
 
 
 def main() -> None:
