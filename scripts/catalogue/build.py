@@ -265,6 +265,172 @@ def reconcile_catalogue_projections():
         if folder:
             product["image_url"] = f"/assets/images/products/{folder}/{names[0]}"
 
+    # Reconcile image references against the actual product folders before deriving
+    # any projections or HTML. This restores metadata-only gaps without resizing or
+    # rewriting source files, and quarantines products whose folders contain no
+    # usable photo instead of publishing a placeholder as if it were a product image.
+    import hashlib
+
+    image_root = ROOT / "assets" / "images" / "products"
+    supported_image_extensions = {".webp", ".jpg", ".jpeg", ".png", ".gif"}
+
+    def valid_product_image(path):
+        try:
+            if not path.is_file() or path.stat().st_size < 16:
+                return False
+            with path.open("rb") as stream:
+                header = stream.read(12)
+        except OSError:
+            return False
+
+        suffix = path.suffix.casefold()
+        if suffix == ".webp":
+            return len(header) >= 12 and header[:4] == b"RIFF" and header[8:12] == b"WEBP"
+        if suffix == ".png":
+            return header[:8] == b"\x89PNG\r\n\x1a\n"
+        if suffix in {".jpg", ".jpeg"}:
+            return header[:3] == b"\xff\xd8\xff"
+        if suffix == ".gif":
+            return header[:6] in {b"GIF87a", b"GIF89a"}
+        return False
+
+    def image_sort_key(path):
+        match = re.match(r"^(\\d+)", path.stem)
+        extension_rank = {".webp": 0, ".jpg": 1, ".jpeg": 2, ".png": 3, ".gif": 4}
+        if match:
+            return (0, int(match.group(1)), extension_rank.get(path.suffix.casefold(), 9), path.name.casefold())
+        return (1, path.name.casefold(), 0, path.name.casefold())
+
+    images_reconciled = 0
+    images_quarantined = []
+    images_reactivated = []
+
+    for product in catalogue:
+        pid = text(product.get("id"))
+        if not pid:
+            continue
+        folder = text(product.get("image_folder") or pid)
+        if not folder or pathlib.Path(folder).name != folder:
+            folder = pid
+        folder_path = image_root / folder
+
+        files_by_name = {}
+        if folder_path.is_dir():
+            for candidate in folder_path.iterdir():
+                if (
+                    candidate.is_file()
+                    and candidate.suffix.casefold() in supported_image_extensions
+                    and candidate.name.casefold() not in {"placeholder.webp", "placeholder.jpg", "placeholder.png"}
+                    and valid_product_image(candidate)
+                ):
+                    files_by_name[candidate.name] = candidate
+
+        current_gallery = product.get("gallery")
+        preferred_names = []
+        if isinstance(current_gallery, list):
+            for entry in current_gallery:
+                if isinstance(entry, dict):
+                    raw_name = text(entry.get("filename") or entry.get("file") or entry.get("name"))
+                else:
+                    raw_name = text(entry)
+                if raw_name:
+                    preferred_names.append(pathlib.Path(raw_name).name)
+
+        for field in ("image", "primary_image"):
+            raw_name = text(product.get(field))
+            if raw_name:
+                preferred_names.append(pathlib.Path(raw_name).name)
+
+        if len(files_by_name) > 1:
+            ordered_files = sorted(files_by_name.values(), key=image_sort_key)
+        else:
+            ordered_files = list(files_by_name.values())
+
+        ordered_names = []
+        for name in preferred_names + [path.name for path in ordered_files]:
+            if name in files_by_name and name not in ordered_names:
+                ordered_names.append(name)
+
+        selected_names = []
+        fingerprints = set()
+        for name in ordered_names:
+            path = files_by_name[name]
+            try:
+                digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            except OSError:
+                continue
+            if digest in fingerprints:
+                continue
+            fingerprints.add(digest)
+            selected_names.append(name)
+            if len(selected_names) == 4:
+                break
+
+        was_active = product.get("active") is not False
+        old_values = (
+            product.get("image_folder"),
+            product.get("gallery"),
+            product.get("image"),
+            product.get("primary_image"),
+            product.get("image_url"),
+            product.get("active"),
+        )
+
+        if selected_names:
+            product["image_folder"] = folder
+            product["gallery"] = selected_names
+            dimensions = product.get("gallery_dimensions")
+            if isinstance(dimensions, dict):
+                keep_keys = set(selected_names) | {pathlib.Path(name).stem for name in selected_names}
+                product["gallery_dimensions"] = {
+                    key: value for key, value in dimensions.items() if key in keep_keys
+                }
+            else:
+                product["gallery_dimensions"] = {}
+            product["image"] = selected_names[0]
+            product["primary_image"] = selected_names[0]
+            product["image_url"] = f"/assets/images/products/{folder}/{selected_names[0]}"
+
+            if product.get("image_review_status") == "inactive-no-usable-image":
+                product["active"] = True
+                product.pop("image_review_status", None)
+                product.pop("inactive_reason", None)
+                images_reactivated.append(pid)
+
+            new_values = (
+                product.get("image_folder"),
+                product.get("gallery"),
+                product.get("image"),
+                product.get("primary_image"),
+                product.get("image_url"),
+                product.get("active"),
+            )
+            if new_values != old_values:
+                images_reconciled += 1
+        else:
+            # Only auto-reactivate products previously quarantined by this rule.
+            # Products manually marked inactive for unrelated reasons stay inactive.
+            if was_active or product.get("image_review_status") == "inactive-no-usable-image":
+                if was_active:
+                    images_quarantined.append(pid)
+                product["active"] = False
+                product["featured"] = False
+                product["image_review_status"] = "inactive-no-usable-image"
+                product["inactive_reason"] = "No valid local product photo is available; awaiting source imagery."
+                product["gallery"] = []
+                product["gallery_dimensions"] = {}
+                product["image"] = ""
+                product["primary_image"] = ""
+                product["image_url"] = ""
+
+    if images_reconciled:
+        print(f"[catalogue images] restored or normalized image metadata for {images_reconciled} products.")
+    if images_reactivated:
+        print("[catalogue images] reactivated products with newly available photos: " + ", ".join(sorted(images_reactivated)))
+    if images_quarantined:
+        print(f"[catalogue images] deactivated {len(images_quarantined)} products without a valid local photo.")
+        print("[catalogue images] quarantined product IDs: " + ", ".join(sorted(images_quarantined)))
+
     active = [p for p in catalogue if p.get("active") is not False and p.get("id")]
     count = len(active)
     
@@ -392,7 +558,17 @@ def reconcile_catalogue_projections():
         if updates:
             current.update(updates)
             changed.add(str(PRODUCTS_PATH))
-    
+
+    # The public product projection contains active catalogue products only.
+    # Inactive master records remain in catalogue-index.json for traceability,
+    # but must not stay in the public browse/search projection.
+    active_product_ids = {text(p.get("id")) for p in active}
+    filtered_products = [p for p in products if text(p.get("id")) in active_product_ids]
+    if len(filtered_products) != len(products):
+        changed.add(str(PRODUCTS_PATH))
+    products = filtered_products
+    product_by_id = {text(p.get("id")): p for p in products if text(p.get("id"))}
+
     search = json.loads(SEARCH_PATH.read_text(encoding="utf-8"))
 
     # Search is a public discovery surface. It must contain only active
