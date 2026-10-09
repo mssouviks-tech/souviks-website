@@ -282,14 +282,14 @@ def migrate_html() -> int:
         is_product_detail = path.parent.name == "products" and path.parent.parent.name in LANGUAGES
         rfq_module = "assets/js/request-quote/rfq.js"
         rfq_tag_pattern = re.compile(
-            rf'<script\\s+defer\\s+src="/{re.escape(rfq_module)}(?:\\?v=[0-9a-f]{{12}})?"></script>'
+            rf'<script\s+defer\s+src="/{re.escape(rfq_module)}(?:\?v=[0-9a-f]{{12}})?"></script>'
         )
         if (is_products_listing or is_product_detail) and not rfq_tag_pattern.search(new_content):
             first_page_module = re.compile(
-                r'<script\\s+defer\\s+src="/assets/js/(?:components/product-card\\.js|products/products-page\\.js|product/products\\.js)\\?v=[0-9a-f]{12}"></script>'
+                r'<script\s+defer\s+src="/assets/js/(?:components/product-card\.js|products/products-page\.js|product/products\.js)\?v=[0-9a-f]{12}"></script>'
             ).search(new_content)
             if first_page_module:
-                rfq_tag = f'<script defer src="{versioned_asset_url(rfq_module)}"></script>\\n'
+                rfq_tag = f'<script defer src="{versioned_asset_url(rfq_module)}"></script>\n'
                 new_content = new_content[:first_page_module.start()] + rfq_tag + new_content[first_page_module.start():]
 
         def replace_bundle(match: re.Match[str]) -> str:
