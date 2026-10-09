@@ -2512,20 +2512,7 @@ const vehiclesHtml =
 
             return `
                 <div class="pdp-vehicle-card">
-
-                    <div class="pdp-vehicle-image">
-
-                        <img
-                            src="${
-                                vehicle?.image ||
-                                '/assets/images/vehicle-placeholder.webp'
-                            }"
-                            alt="${vehicleName}"
-                            loading="lazy"
-                            decoding="async">
-
-                    </div>
-
+                    ${vehicle?.image ? `<div class="pdp-vehicle-image"><img src="${vehicle.image}" alt="${vehicleName}" loading="lazy" decoding="async"></div>` : ""}
                     <div class="pdp-vehicle-content">
 
                         <h4>${vehicleName}</h4>
