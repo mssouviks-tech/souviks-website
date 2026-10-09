@@ -325,7 +325,7 @@ def migrate_html() -> int:
                 catalogue_match = catalogue_core_pattern.search(new_content)
                 anchor = catalogue_match if catalogue_match else core_match
                 if anchor:
-                    new_content = new_content[:anchor.end()] + "\\n" + token + new_content[anchor.end():]
+                    new_content = new_content[:anchor.end()] + "\n" + token + new_content[anchor.end():]
                 else:
                     raise ValueError(f"Cannot place page modules on {path}: shared core is missing")
 
@@ -333,7 +333,7 @@ def migrate_html() -> int:
                 return "" if match.group("src") in all_page_modules else match.group(0)
 
             new_content = page_module_pattern.sub(strip_page_module, new_content)
-            ordered_tags = "\\n".join(
+            ordered_tags = "\n".join(
                 f'<script defer src="{versioned_asset_url(module_path)}"></script>'
                 for module_path in module_paths
             )
