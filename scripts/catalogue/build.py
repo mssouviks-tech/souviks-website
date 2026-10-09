@@ -1276,7 +1276,7 @@ def sync_product_seo_and_schema():
                             match.end(),
                             '<script type="application/ld+json">\n'
                             + json.dumps(obj, ensure_ascii=False, indent=2)
-                            + '\\n</script>'
+                            + '\n</script>'
                         )
                     )
             for start, end, replacement in reversed(breadcrumb_repaired):
