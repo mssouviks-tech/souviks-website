@@ -7,19 +7,6 @@ on:
     paths:
       - "scripts/catalogue/**"
       - ".github/workflows/catalogue-architecture-check.yml"
-  pull_request:
-    paths:
-      - "assets/data/catalogue-index.json"
-      - "assets/data/products.json"
-      - "assets/data/search.json"
-      - "assets/data/catalogue_overrides.json"
-      - "en/products/**"
-      - "bn/products/**"
-      - "hi/products/**"
-      - "sitemaps/products.xml"
-      - "scripts/catalogue/**"
-      - ".github/workflows/catalogue-architecture-check.yml"
-
 permissions:
   contents: read
 

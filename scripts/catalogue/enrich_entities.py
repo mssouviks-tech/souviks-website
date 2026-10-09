@@ -15,6 +15,8 @@ import re
 from collections import Counter
 from pathlib import Path
 
+from product_card import product_card_html
+
 ROOT = Path(__file__).resolve().parents[2]
 LANGUAGES = ("en", "hi", "bn")
 
@@ -107,84 +109,6 @@ def list_text(items, limit=7):
 def card(label, value):
     return f'<div class="entity-context-card"><span>{esc(label)}</span><strong>{esc(value)}</strong></div>'
 
-
-def first_image(product):
-    """Return an existing product image, or an explicit placeholder without inventing a product photo."""
-    folder = clean(product.get("image_folder") or product.get("id"))
-    gallery = product.get("gallery") or []
-    dimensions = product.get("gallery_dimensions") or {}
-    filename = ""
-    if isinstance(gallery, list) and gallery:
-        first = gallery[0]
-        if isinstance(first, dict):
-            filename = clean(first.get("filename") or first.get("file") or first.get("name"))
-        else:
-            filename = clean(first)
-    if not filename:
-        raw = clean(product.get("image") or product.get("primary_image"))
-        filename = raw.rsplit("/", 1)[-1] if raw else ""
-
-    if filename:
-        candidate = ROOT / "assets" / "images" / "products" / folder / filename
-        if candidate.is_file():
-            dim = dimensions.get(filename) if isinstance(dimensions, dict) else None
-            if not dim and filename.rsplit(".", 1)[0] in dimensions:
-                dim = dimensions.get(filename.rsplit(".", 1)[0])
-            if isinstance(dim, (list, tuple)) and len(dim) >= 2:
-                width, height = dim[0], dim[1]
-            else:
-                width = product.get("image_width") or 400
-                height = product.get("image_height") or 400
-            return f"/assets/images/products/{folder}/{filename}", str(width), str(height), True
-
-    return "/assets/images/placeholder.webp", "400", "400", False
-
-def format_money(value):
-    try:
-        number = float(value)
-    except (TypeError, ValueError):
-        return ""
-    if abs(number - round(number)) < 0.00001:
-        return f"₹{int(round(number)):,}"
-    return f"₹{number:,.2f}".rstrip("0").rstrip(".")
-
-def product_card_html(product, lang):
-    labels = {
-        "en": {"part": "Part No.", "request": "Get current price", "add": "Add To RFQ"},
-        "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "add": "RFQ में जोड़ें"},
-        "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "add": "RFQ-তে যোগ করুন"},
-    }[lang]
-    slug = clean(product.get("slug"))
-    pid = clean(product.get("id"))
-    name = clean(product.get("product_name") or product.get("name"))
-    brand = clean(product.get("brand_name") or product.get("brand"))
-    part = clean(product.get("part_number") or product.get("partNumber"))
-    img, width, height, image_available = first_image(product)
-    image_alt = esc(name if image_available else f"Product image unavailable for {name}")
-    price = format_money(product.get("selling_price"))
-    mrp = format_money(product.get("mrp"))
-    discount = ""
-    try:
-        if float(product.get("selling_price")) > 0 and float(product.get("mrp")) > float(product.get("selling_price")):
-            discount = str(round((float(product["mrp"]) - float(product["selling_price"])) / float(product["mrp"]) * 100))
-    except (TypeError, ValueError, ZeroDivisionError):
-        pass
-    price_html = (
-        f'<div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">{esc(price)}</span>'
-        f'<span class="product-price-mrp">MRP {esc(mrp)}</span><span class="product-price-discount">{esc(discount)}% OFF</span></div>'
-        if price and mrp and discount
-        else f'<div class="product-price product-price-current" aria-label="Price">{esc(price)}</div>' if price
-        else f'<div class="product-price product-price-on-request" aria-label="Price">{esc(labels["request"])}</div>'
-    )
-    part_html = f'<div class="product-part-number">Part No. <strong>{esc(part)}</strong></div>' if part else f'<div class="product-part-number product-part-number-empty">{esc(labels["part"])} on request</div>'
-    aria = esc(f"View {name}")
-    return (
-        f'<article class="product-card"><div class="product-image"><a href="/{lang}/products/{esc(slug)}" class="product-link" aria-label="{aria}">'
-        f'<img loading="lazy" class="product-image-file" src="{esc(img)}" alt="{image_alt}" data-image-available="{str(image_available).lower()}" decoding="async" draggable="false" width="{esc(width)}" height="{esc(height)}"></a>'
-        f'<button type="button" class="product-save-button" data-saved-product-id="{esc(pid)}" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div>'
-        f'<div class="product-content"><div class="product-brand-label">{esc(brand)}</div>{part_html}<h3 class="product-title"><a href="/{lang}/products/{esc(slug)}">{esc(name)}</a></h3>'
-        f'{price_html}<button type="button" class="btn btn-primary add-to-cart" data-id="{esc(pid)}" data-part="{esc(part)}" data-name="{esc(name)}" data-brand="{esc(brand)}" aria-label="Add {aria} to RFQ">{labels["add"]}</button></div></article>'
-    )
 
 def entity_product_galleries(kind, item, products, lang):
     product_groups = {}

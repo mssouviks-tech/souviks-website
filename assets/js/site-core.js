@@ -1195,24 +1195,34 @@ supabaseClient.auth.onAuthStateChange(
         session
     ) => {
 
-        
-
         /*
-        * Do not perform Supabase operations directly
-        * inside the auth-state callback.
-        */
-
+         * Do not perform Supabase operations directly
+         * inside the auth-state callback.
+         */
         setTimeout(
             async () => {
+                await applyAuthState(session);
 
-                await applyAuthState(
-                    session
-                );
-
+                /*
+                 * Page-specific modules subscribe to this event instead of
+                 * attaching competing Supabase listeners of their own.
+                 */
+                try {
+                    document.dispatchEvent(
+                        new CustomEvent("souviks:auth-state", {
+                            detail: { event, session }
+                        })
+                    );
+                } catch (error) {
+                    SouviksErrors?.log(
+                        "[Souviks Auth] Unable to dispatch auth-state event:",
+                        error,
+                        "warn"
+                    );
+                }
             },
             0
         );
-
     }
 );
 
