@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
+# Product title lengths are capped in visible characters; HTML entities are
+# decoded by the SEO validation check before it measures the title length.
 # Generated-output commits rebase before push to avoid concurrent catalogue races.
 # CI retries catalogue publication against the latest main revision.
 # Final pointer 22-25 parity normalization.
