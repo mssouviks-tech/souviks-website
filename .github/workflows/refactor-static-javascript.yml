@@ -46,5 +46,6 @@ jobs:
           python3 scripts/js/validate.py
           npm run lint:js
           npm run check:js
+          npm run format:check
 
           echo "JavaScript architecture candidate validated. Publishing is owned by Build Static Catalogue."
