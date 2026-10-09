@@ -1323,9 +1323,9 @@ def sync_organization_schema():
                         updated = True
 
             if updated:
-                replacement = '<script type="application/ld+json">\\n' + json.dumps(
+                replacement = '<script type="application/ld+json">\n' + json.dumps(
                     obj, ensure_ascii=False, indent=2
-                ) + '\\n</script>'
+                ) + '\n</script>'
                 replacements.append((match.start(), match.end(), replacement))
 
         for start, end, replacement in reversed(replacements):
