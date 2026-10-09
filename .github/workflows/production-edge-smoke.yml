@@ -1,0 +1,45 @@
+name: Production Edge Smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "_headers"
+      - "_redirects"
+      - "robots.txt"
+      - "sitemap.xml"
+      - "sitemaps/**"
+      - "en/**"
+      - "hi/**"
+      - "bn/**"
+      - "404.html"
+      - "assets/**"
+      - "scripts/catalogue/**"
+      - "scripts/audit/production_smoke.py"
+      - ".github/workflows/production-edge-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: souviks-production-edge-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out revision
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Smoke-test deployed production edge
+        env:
+          SMOKE_BASE_URL: https://www.souviks.co.in
+        run: python3 scripts/audit/production_smoke.py
