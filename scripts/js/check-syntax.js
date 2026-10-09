@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readdir, readFile } from "node:fs/promises";
+import { readdir } from "node:fs/promises";
 import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -14,7 +14,7 @@ async function collect(directory) {
   for (const entry of entries) {
     const full = path.join(directory, entry.name);
     if (entry.isDirectory()) {
-      result.push(...await collect(full));
+      result.push(...(await collect(full)));
     } else if (entry.isFile() && entry.name.endsWith(".js")) {
       result.push(full);
     }
@@ -27,7 +27,9 @@ const failures = [];
 
 for (const file of files) {
   try {
-    await execFileAsync(process.execPath, ["--check", file], { maxBuffer: 1024 * 1024 });
+    await execFileAsync(process.execPath, ["--check", file], {
+      maxBuffer: 1024 * 1024,
+    });
   } catch (error) {
     failures.push({ file, stderr: error.stderr || error.message });
   }
