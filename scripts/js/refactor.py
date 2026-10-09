@@ -22,6 +22,7 @@ KNOWN_BUNDLES = {
 COMMON_END = "/* ===== main.js ===== */"
 COMMON_END_LABEL = "/* ===== image-protection.js ===== */"
 READY = "window.SOUVIKS_SITE_CORE_READY = true;"
+READY_RE = re.compile(r"window\\.SOUVIKS_SITE_CORE_READY\\s*=\\s*(?:true|!0)\\s*;?")
 SHARED_CORE_PREFIX = "/* Shared core is loaded by the HTML page before this bundle. */"
 
 CATALOGUE_SHARED_MARKERS = {
@@ -89,7 +90,7 @@ def write(path: Path, content: str) -> None:
 def extract_core() -> str:
     if CORE_PATH.exists():
         core = read(CORE_PATH)
-        if READY not in core:
+        if not READY_RE.search(core):
             raise ValueError("Existing site-core.js is missing readiness marker")
         return core
 
@@ -300,7 +301,7 @@ def migrate_html() -> int:
 
 def validate() -> None:
     core = read(CORE_PATH)
-    if READY not in core:
+    if not READY_RE.search(core):
         raise ValueError("site-core.js readiness marker missing")
     catalogue_core = ROOT / "assets" / "js" / "catalogue-core.js"
     if not catalogue_core.is_file():
