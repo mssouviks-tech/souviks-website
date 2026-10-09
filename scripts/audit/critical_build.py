@@ -9,6 +9,7 @@ commit from being published by this workflow.
 from __future__ import annotations
 
 import hashlib
+from collections import Counter
 import html.parser
 import json
 import math
@@ -35,10 +36,40 @@ SKIP_LINK_PREFIXES = ("#", "mailto:", "tel:", "javascript:", "data:", "blob:")
 # Image assets are strict requirements: no missing-file or placeholder allowlists.
 
 
+def error_signature(error: str) -> str:
+    """Normalize per-file values so CI summarizes root causes, not thousands of near-duplicates."""
+    message = re.sub(
+        r"^(?:[^:]+\.html|_headers:\d+|sitemaps/[^:]+):\s*",
+        "",
+        error,
+    )
+    message = re.sub(r"\bSVKS\d+\b", "<PRODUCT_ID>", message)
+    message = re.sub(
+        r"https://www\.souviks\.co\.in/[^\s'\"<>]*",
+        "<URL>",
+        message,
+    )
+    message = re.sub(
+        r"/assets/images/products/[^/'\" ]+/[^/'\" ]+",
+        "<PRODUCT_IMAGE>",
+        message,
+    )
+    message = re.sub(r"\b\d+(?:\.\d+)?\b", "<N>", message)
+    return message[:200]
+
+
 def fail(errors: list[str]) -> None:
     if not errors:
         return
     print("[critical build] BLOCKED")
+    if len(errors) > 300:
+        signatures = Counter(error_signature(error) for error in errors)
+        print(
+            f"[critical build] {len(errors)} errors across {len(signatures)} normalized categories."
+        )
+        print("[critical build] Most frequent error categories:")
+        for signature, count in signatures.most_common(30):
+            print(f"  [{count}] {signature}")
     for error in errors[:300]:
         print(error)
     if len(errors) > 300:
@@ -762,8 +793,8 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
                                     )
 
                             thumbs_match = re.search(
-                                r"<div\b[^>]*class\s*=\s*['\"][^'\"]*\bpdp-thumbnails\b[^'\"]*['\"][^>]*>"
-                                r"(.*?)</div>\s*<button\b[^>]*class\s*=\s*['\"][^'\"]*\bpdp-thumb-next\b[^'\"]*['\"]",
+                                r"(<div\b[^>]*class\s*=\s*['\"][^'\"]*\bpdp-thumbnails\b[^'\"]*['\"][^>]*>)"
+                                r"(.*?)</div>",
                                 raw,
                                 flags=re.I | re.S,
                             )
@@ -772,7 +803,7 @@ def validate_generated_html_and_routes(records_by_kind, errors: list[str]) -> di
                             else:
                                 actual_thumbs = re.findall(
                                     r"<img\b[^>]*\bsrc\s*=\s*['\"]([^'\"]+)['\"][^>]*>",
-                                    thumbs_match.group(1),
+                                    thumbs_match.group(2),
                                     flags=re.I | re.S,
                                 )
                                 expected_thumbs = [
