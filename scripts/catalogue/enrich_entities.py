@@ -424,6 +424,19 @@ def enrich_entity_pages(kind, data, catalogue):
                     page = page[:anchor_match.start()] + marker + "\n" + section + "\n" + page[anchor_match.start():]
                 else:
                     page = page.replace("</body>", marker + "\n" + section + "\n</body>", 1)
+            if not re.search(r"<main\b", page, flags=re.I):
+                nav_end = page.lower().find("</nav>")
+                content_start = page.find("<section", nav_end + 6)
+                footer_start = page.lower().find("<footer", content_start + 1)
+                if nav_end >= 0 and content_start > nav_end and footer_start > content_start:
+                    page = (
+                        page[:content_start]
+                        + '<main class="site-main">\n'
+                        + page[content_start:footer_start]
+                        + '\n</main>\n'
+                        + page[footer_start:]
+                    )
+
             path.write_text(page, encoding="utf-8")
 
 def enrich_about():
