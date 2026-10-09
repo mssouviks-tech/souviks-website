@@ -1104,13 +1104,19 @@ async function main() {
       }
 
       await check(`${view}/${lang}/anonymous account sign-in gate`, async () => {
-        await goto(page, BASE + langPath(lang, "account?view=inquiries"));
-        await page.waitForURL(url => url.pathname === langPath(lang, "login"), { timeout: 10000 });
-        const redirect = new URL(page.url()).searchParams.get("redirect") || "";
-        if (!redirect.startsWith(langPath(lang, "account") + "?view=inquiries")) {
-          throw new Error(`sign-in redirect target was not preserved: ${redirect}`);
+        const gatePage = await context.newPage();
+        gatePage.__view = view;
+        try {
+          await goto(gatePage, BASE + langPath(lang, "account?view=inquiries"));
+          await gatePage.waitForURL(url => url.pathname === langPath(lang, "login"), { timeout: 10000 });
+          const redirect = new URL(gatePage.url()).searchParams.get("redirect") || "";
+          if (!redirect.startsWith(langPath(lang, "account") + "?view=inquiries")) {
+            throw new Error(`sign-in redirect target was not preserved: ${redirect}`);
+          }
+          return `redirected to ${langPath(lang, "login")} with the requested account view retained`;
+        } finally {
+          await gatePage.close();
         }
-        return `redirected to ${langPath(lang, "login")} with the requested account view retained`;
       });
 
       await check(`${view}/${lang}/authenticated account views render and stay owner-scoped`, async () => {
