@@ -911,8 +911,11 @@ def sync_static_product_vehicle_cards():
                 )
 
             new_grid = '<div class="pdp-vehicle-grid">' + ''.join(cards) + '</div>'
+            # The replacement grid already includes its closing </div>.
+            # Capture only the enclosing </section> to avoid duplicating the grid
+            # closer and generating malformed PDP HTML across every language.
             pattern = re.compile(
-                r'(<div\s+class="pdp-vehicle-grid">).*?(</div>\s*</section>)',
+                r'(<div\s+class="pdp-vehicle-grid">).*?</div>\s*(</section>)',
                 re.S,
             )
             updated_text, count = pattern.subn(
