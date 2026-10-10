@@ -149,10 +149,12 @@ jobs:
               for p in products_projection
               if p.get("id")
           }
+          # Public projections contain active products only. Inactive master
+          # records remain for traceability and must not be required in products.json/search.json.
           catalogue_by_id = {
               str(p.get("id") or "").strip(): p
               for p in catalogue
-              if p.get("id")
+              if p.get("id") and p.get("active") is not False
           }
 
           expected_projection_fields = (
