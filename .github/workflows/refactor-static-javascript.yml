@@ -16,7 +16,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: souviks-static-js-validate
+  # Isolate validations per PR; a push on another PR must not cancel these checks.
+  group: souviks-static-js-validate-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
