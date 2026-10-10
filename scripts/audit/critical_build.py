@@ -456,7 +456,7 @@ def validate_homepage_url_contract(errors: list[str]) -> None:
 def validate_page_config_syntax(errors: list[str]) -> None:
     """Detect the malformed window.souviks object that disables the shared runtime."""
     missing_comma = re.compile(
-        r'(?m)^[ \t]*currentPage:[ \t]*\r?\n[ \t]*"(?:\\.|[^"\\])*"[ \t]*\r?\n[ \t]*currentPageType[ \t]*:'
+        r'(?m)^[ \t]*currentPage:[ \t]*\r?\n[ \t]*"(?:\\.|[^"\\])*"[ \t]*(?:\r?\n[ \t]*)+currentPageType[ \t]*:'
     )
     paths = [ROOT / "404.html"]
     for language in LANGUAGES:
