@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   production-smoke:
-    if: \${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -40,8 +40,8 @@ jobs:
 
       - name: Wait for Cloudflare Pages to deploy the latest main revision
         env:
-          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: \${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: python3 scripts/audit/production_smoke.py --wait-only
 
       - name: Test live desktop/mobile navigation and guest RFQ interactions
@@ -52,6 +52,6 @@ jobs:
       - name: Verify live HTTP routes, headers, redirects, sitemaps, 404 and main revision
         env:
           PRODUCTION_BASE_URL: https://www.souviks.co.in
-          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: \${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: python3 scripts/audit/production_smoke.py
