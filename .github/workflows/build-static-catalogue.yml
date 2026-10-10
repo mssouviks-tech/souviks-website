@@ -89,6 +89,7 @@ jobs:
               "scripts/catalogue/product_card.py",
               "scripts/catalogue/sync_product_cards.py",
               "scripts/audit/critical_build.py",
+              "scripts/audit/production_smoke.py",
               "scripts/audit/structured_data.py",
               "scripts/js/refactor.py",
               "scripts/js/refresh_versions.py",
