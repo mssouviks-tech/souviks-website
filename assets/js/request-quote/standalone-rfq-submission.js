@@ -66,10 +66,28 @@ RFQ.submitStandalone = async function (form) {
         throw new Error(rfqMessage.emptySubmit);
     }
 
+    if (items.length > RFQ.MAX_ITEMS) {
+        throw new Error("Your RFQ contains too many items. Please submit no more than 50 items at a time.");
+    }
+
+    const normalizedItems = items
+        .map(item => RFQ.normalizeItem(item))
+        .filter(Boolean);
+    if (normalizedItems.length !== items.length) {
+        throw new Error("One or more RFQ items are missing required product details. Please remove and add them again.");
+    }
+
     const user = await RFQ.getUser();
     window.__SOUVIKS_RFQ_USER_EMAIL__ = user?.email?.trim() || "";
 
     const customer = RFQ.collectCustomerData(form);
+    customer.name = RFQ.normalizeText(customer.name, 120);
+    customer.company = RFQ.normalizeText(customer.company, 160);
+    customer.phone = RFQ.normalizeText(customer.phone, 40);
+    customer.email = RFQ.normalizeText(customer.email || user?.email || "", 254).toLowerCase();
+    customer.location = RFQ.normalizeText(customer.location, 200);
+    customer.gst = RFQ.normalizeText(customer.gst, 15).toUpperCase();
+    customer.message = RFQ.normalizeText(customer.message, 2000);
 
     if (!customer.name || !customer.phone) {
         throw new Error(rfqMessage.namePhone);
@@ -79,59 +97,49 @@ RFQ.submitStandalone = async function (form) {
         throw new Error(rfqMessage.unavailable);
     }
 
-    if (user) {
-        const { data: rfq, error: rfqError } = await supabaseClient
-            .from("rfqs")
-            .insert({
-                user_id: user.id,
-                customer_name: customer.name,
-                customer_email: customer.email || user.email || null,
-                customer_phone: customer.phone,
-                company: customer.company || null,
-                gst_number: customer.gst || null,
-                is_business: Boolean(customer.company || customer.gst),
-                message: customer.message || null
-            })
-            .select("id, rfq_number, user_id, customer_name, customer_email, customer_phone, company, gst_number, is_business, message, status, created_at")
-            .single();
+    const rfqItemsText = RFQ.formatSubmissionItems(normalizedItems);
 
-        if (rfqError || !rfq) {
+    if (user) {
+        if (typeof supabaseClient === "undefined") {
+            throw new Error(rfqMessage.unavailable);
+        }
+
+        customer.email = RFQ.normalizeText(user.email, 254).toLowerCase();
+
+        const { data: databaseResult, error: rfqError } = await supabaseClient.rpc("submit_rfq", {
+            p_customer_name: customer.name,
+            p_customer_phone: customer.phone,
+            p_company: customer.company || null,
+            p_gst_number: customer.gst || null,
+            p_message: customer.message || null,
+            p_items: normalizedItems.map(item => ({
+                id: item.id,
+                partNumber: item.partNumber,
+                name: item.name,
+                brand: item.brand,
+                quantity: RFQ.normalizeQuantity(item.qty)
+            }))
+        });
+
+        if (rfqError || !databaseResult?.rfq_number) {
+            SouviksErrors?.log("[Souviks RFQ] Atomic RFQ submission failed:", rfqError, "error");
             throw rfqError || new Error("The RFQ could not be created.");
         }
 
-        const rows = items.map(item => ({
-            rfq_id: rfq.id,
-            product_id: String(item.id),
-            part_number: item.partNumber || null,
-            product_name: item.name || "",
-            brand: item.brand || null,
-            quantity: Math.max(1, Number(item.qty) || 1)
-        }));
-
-        const { error: itemsError } = await supabaseClient
-            .from("rfq_items")
-            .insert(rows);
-
-        const reference = RFQ.formatReference(rfq.rfq_number);
-
-        if (itemsError) {
-            throw new Error(
-                rfqMessage.createdItems(reference)
-            );
-        }
-
+        const reference = RFQ.formatReference(databaseResult.rfq_number);
         const payload = {
             lead_id: reference,
             name: customer.name,
             company: customer.company,
             phone: customer.phone,
-            email: customer.email || user.email || "",
+            email: customer.email,
             gst: customer.gst,
             location: customer.location,
             message: customer.message,
-            rfq_items: RFQ.formatSubmissionItems(items)
+            rfq_items: rfqItemsText
         };
 
+        let notificationSent = true;
         try {
             await emailjs.send(
                 "service_trsy6ll",
@@ -139,15 +147,13 @@ RFQ.submitStandalone = async function (form) {
                 payload
             );
         } catch (error) {
-            SouviksErrors?.log("[Souviks RFQ] Notification failed after RFQ creation:", error, "error");
-            throw new Error(
-                rfqMessage.notificationFailed(reference)
-            );
+            notificationSent = false;
+            SouviksErrors?.log("[Souviks RFQ] Notification failed after atomic RFQ creation:", error, "error");
         }
 
         window.souviksAnalytics?.trackLead("rfq");
         const basketCleared = await RFQ.clear();
-        return { reference, basketCleared };
+        return { reference, basketCleared, notificationSent };
     }
 
     const reference = `RFQ-${Date.now()}`;
@@ -160,7 +166,7 @@ RFQ.submitStandalone = async function (form) {
         gst: customer.gst,
         location: customer.location,
         message: customer.message,
-        rfq_items: RFQ.formatSubmissionItems(items)
+        rfq_items: rfqItemsText
     };
 
     await emailjs.send(
@@ -171,7 +177,7 @@ RFQ.submitStandalone = async function (form) {
 
     window.souviksAnalytics?.trackLead("rfq_guest");
     const basketCleared = await RFQ.clear();
-    return { reference, basketCleared };
+    return { reference, basketCleared, notificationSent: true };
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -206,7 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const submission = await RFQ.submitStandalone(form);
             const reference = submission.reference;
-            const successMessage = rfqMessage.success(reference);
+            const successMessage = submission.notificationSent === false
+                ? rfqMessage.notificationFailed(reference)
+                : rfqMessage.success(reference);
             const statusMessage = submission.basketCleared === false
                 ? `${successMessage} ${rfqMessage.basketClearFailed || "The basket could not be cleared. Check the reference before submitting again."}`
                 : successMessage;
