@@ -1182,6 +1182,12 @@ def sync_static_product_images():
         for item in catalogue
         if item.get("active") is not False and item.get("id")
     }
+    brand_records = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
+    brands_by_id = {
+        str(item.get("id") or "").strip().casefold(): item
+        for item in brand_records
+        if isinstance(item, dict) and str(item.get("id") or "").strip()
+    }
     
     changed = []
     
@@ -1216,6 +1222,85 @@ def sync_static_product_images():
     
             product = products.get(str(embedded.get("id")))
             if product:
+                # Product pages are sometimes cloned from an unrelated active
+                # PDP shell. Rebind the brand badge to this product's canonical
+                # brand record so a Toyo page cannot retain a JAI logo.
+                brand_id = str(product.get("brand_id") or "").strip().casefold()
+                brand_record = brands_by_id.get(brand_id, {})
+                brand_logo = str(brand_record.get("logo") or "").strip()
+                brand_name = str(product.get("brand_name") or product.get("brand") or "").strip()
+                if brand_logo and brand_name:
+                    def sync_brand_badge(badge_match):
+                        opening, inner, closing = badge_match.group(1), badge_match.group(2), badge_match.group(3)
+                        if not re.search(r"<img\\b", inner, flags=re.I):
+                            inner = (
+                                f'<img src="{html_module.escape(brand_logo, quote=True)}" '
+                                f'alt="{html_module.escape(brand_name, quote=True)}" '
+                                'loading="lazy" decoding="async" width="56" height="56">'
+                            )
+                        else:
+                            inner = re.sub(
+                                r'\\bsrc\\s*=\\s*(["\\\']).*?\\1',
+                                lambda m: m.group(0).split("=")[0] + '=' + m.group(0)[m.group(0).index(m.group(0).split("=")[1][0]):m.start(0)] if False else m.group(0),
+                                inner,
+                                count=0,
+                                flags=re.I,
+                            )
+                            inner = re.sub(
+                                r'\\bsrc\\s*=\\s*(["\\\'])[^"\\\']*\\1',
+                                lambda m: f'src="{html_module.escape(brand_logo, quote=True)}"',
+                                inner,
+                                count=1,
+                                flags=re.I,
+                            )
+                            if re.search(r'\\balt\\s*=', inner, flags=re.I):
+                                inner = re.sub(
+                                    r'\\balt\\s*=\\s*(["\\\'])[^"\\\']*\\1',
+                                    lambda m: f'alt="{html_module.escape(brand_name, quote=True)}"',
+                                    inner,
+                                    count=1,
+                                    flags=re.I,
+                                )
+                            else:
+                                inner = re.sub(r"<img\\b", lambda m: m.group(0) + f' alt="{html_module.escape(brand_name, quote=True)}"', inner, count=1, flags=re.I)
+                        return opening + inner + closing
+
+                    text, badge_count = re.subn(
+                        r'(<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-brand-badge\\b[^"\\']*["\\'][^>]*>)(.*?)(</div>)',
+                        sync_brand_badge,
+                        text,
+                        count=1,
+                        flags=re.I | re.S,
+                    )
+                    if badge_count != 1:
+                        raise SystemExit(f"{path}: missing canonical brand badge for {brand_id}")
+
+                # The vehicle list is catalogue context, not a product photo gallery.
+                # Avoid showing a generic placeholder image as if it depicts a
+                # specific vehicle; keep each mapped vehicle name visible.
+                vehicle_names = [
+                    str(vehicle).strip()
+                    for vehicle in (product.get("vehicles") or [])
+                    if str(vehicle).strip()
+                ]
+                vehicle_cards = (
+                    '<div class="pdp-vehicle-grid">'
+                    + ''.join(
+                        '<div class="pdp-vehicle-card"><div class="pdp-vehicle-content">'
+                        f'<h4>{html_module.escape(vehicle, quote=False)}</h4>'
+                        '</div></div>'
+                        for vehicle in vehicle_names
+                    )
+                    + '</div>'
+                ) if vehicle_names else '<p class="pdp-empty-state">Confirm vehicle application before ordering.</p>'
+                text = re.sub(
+                    r'(<div\\s+class=["\\']pdp-vehicle-grid["\\']\\s*>).*?(</div>\\s*</section>)',
+                    lambda m: m.group(1) + vehicle_cards + m.group(2),
+                    text,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+
                 canonical_slug = str(product.get("slug") or path.stem).strip()
                 canonical_path = directory / f"{canonical_slug}.html"
                 if canonical_slug and canonical_path != path:
