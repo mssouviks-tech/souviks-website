@@ -388,10 +388,7 @@ RFQ.get = async function () {
                 item.brand,
 
             qty:
-                Number(
-                    item.quantity ||
-                    0
-                )
+                RFQ.normalizeQuantity(item.quantity)
 
         })
 
