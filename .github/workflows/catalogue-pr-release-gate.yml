@@ -50,6 +50,7 @@ jobs:
           for path in (
               "scripts/catalogue/build.py",
               "scripts/catalogue/normalize_page_config.py",
+              "scripts/catalogue/sync_rfq_module.py",
               "scripts/audit/production_smoke.py",
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
@@ -85,6 +86,7 @@ jobs:
           python3 scripts/catalogue/sync_product_cards.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/normalize_page_config.py
+            python3 scripts/catalogue/sync_rfq_module.py
           python3 scripts/catalogue/sync_entity_sitemaps.py
           python3 scripts/js/refactor.py
           npm run build:js
