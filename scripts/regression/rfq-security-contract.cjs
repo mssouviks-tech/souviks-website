@@ -113,7 +113,7 @@ for (const label of ["accountSubmit", "standaloneSubmit"]) {
 }
 assert.match(source.standaloneSubmit, /RFQ\.validateSubmissionCustomer/, "standalone path must validate customer fields");
 
-const sql = fs.readFileSync(path.join(ROOT, "docs/security/rfq_submission_hardening.sql"), "utf8");
+const sql = fs.readFileSync(path.join(ROOT, "supabase/migrations/20261010111730_rfq_submission_hardening.sql"), "utf8");
 assert.match(sql, /SECURITY DEFINER/i);
 assert.match(sql, /SET search_path TO 'pg_catalog'/i);
 assert.match(sql, /v_user_id := auth\.uid\(\)/i);
