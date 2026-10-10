@@ -1052,7 +1052,7 @@ async function main() {
         await page.waitForFunction(() => {
           const images = Array.from(document.querySelectorAll(".entity-product-galleries img"));
           return images.some(image =>
-            image.dataset.souviksFallbackApplied === "true" &&
+            image.dataset.souviksImageFallback === "done" &&
             (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
             image.complete && image.naturalWidth > 0
           );
@@ -1062,12 +1062,12 @@ async function main() {
         }
         const state = await page.evaluate(() => {
           const image = Array.from(document.querySelectorAll(".entity-product-galleries img"))
-            .find(element => element.dataset.souviksFallbackApplied === "true");
+            .find(element => element.dataset.souviksImageFallback === "done");
           return image ? {
             src: image.getAttribute("src") || "",
             width: image.naturalWidth,
             complete: image.complete,
-            fallbackApplied: image.dataset.souviksFallbackApplied
+            fallbackApplied: image.dataset.souviksImageFallback
           } : null;
         });
         if (!state || !state.src.endsWith("/assets/images/placeholder.webp")) {
