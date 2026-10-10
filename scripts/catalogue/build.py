@@ -828,7 +828,7 @@ def reconcile_catalogue_projections():
                     'decoding="async" width="56" height="56">'
                 )
                 html, logo_count = re.subn(
-                    r'<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-brand-badge\\b[^"\\']*["\\'][^>]*>.*?</div>',
+                    r'<div\b[^>]*class=["\'][^"\']*\bpdp-brand-badge\b[^"\']*["\'][^>]*>.*?</div>',
                     lambda _: '<div class="pdp-brand-badge">' + logo_tag + '</div>',
                     html,
                     count=1,
@@ -851,7 +851,7 @@ def reconcile_catalogue_projections():
                 + '</div>'
             ) if vehicles else '<p class="pdp-empty-state">Confirm vehicle application before ordering.</p>'
             html = re.sub(
-                r'<div\\s+class=["\\']pdp-vehicle-grid["\\']\\s*>.*?</div>\\s*</section>',
+                r'<div\s+class=["\']pdp-vehicle-grid["\']\s*>.*?</div>\s*</section>',
                 lambda _: vehicle_grid + '</section>',
                 html,
                 count=1,
