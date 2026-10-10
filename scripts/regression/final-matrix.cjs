@@ -647,7 +647,6 @@ async function main() {
       const page = await context.newPage();
       page.__view = "desktop";
       let interceptedLogo = false;
-      let interceptedPlaceholder = false;
       await page.route("**/assets/images/brands/abc.png", async route => {
         interceptedLogo = true;
         await route.fulfill({ status: 404, contentType: "image/png", body: "missing brand logo fixture" });
