@@ -743,3 +743,38 @@ jobs:
               print("Actual:", actual)
               sys.exit(1)
           print("Sitemap integrity OK")
+
+          # Verify product projection parity independently of the sitemap counts.
+          products_projection = __import__("json").loads(
+              pathlib.Path("assets/data/products.json").read_text(encoding="utf-8")
+          )
+          products_by_id = {
+              str(product.get("id") or "").strip(): product
+              for product in products_projection
+              if product.get("id")
+          }
+          parity_errors = []
+          for source in catalogue:
+              pid = str(source.get("id") or "").strip()
+              if not pid:
+                  continue
+              projected = products_by_id.get(pid)
+              if source.get("active") is False:
+                  if projected is not None:
+                      parity_errors.append(f"inactive product still projected: {pid}")
+                  continue
+              if projected is None:
+                  parity_errors.append(f"active product missing from products.json: {pid}")
+                  continue
+              slug = str(source.get("slug") or "").strip()
+              part = str(source.get("part_number") or source.get("partNumber") or "").strip()
+              tata_match = re.match(r"^tata-genuine-(\d{12})-.*$", slug, flags=re.I)
+              if tata_match:
+                  part = tata_match.group(1)
+              for field in ("part_number", "partNumber"):
+                  if str(projected.get(field) or "").strip() != part:
+                      parity_errors.append(f"products.json drift for {pid}: {field}")
+          if parity_errors:
+              print("\n".join(parity_errors[:100]))
+              sys.exit(1)
+          print("Product projection parity OK.")

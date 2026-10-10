@@ -809,6 +809,82 @@ def reconcile_catalogue_projections():
                 flags=re.I | re.S,
             )
 
+            # Regenerated PDPs may inherit the shell's former product brand logo.
+            # Always bind the brand badge to the target catalogue record, not the
+            # template page that happened to be selected as a shell.
+            brand_id = text(product.get("brand_id")).casefold()
+            brands_path = ROOT / "assets/data/brands.json"
+            brands_by_id = {
+                text(item.get("id")).casefold(): item
+                for item in json.loads(brands_path.read_text(encoding="utf-8"))
+                if isinstance(item, dict) and text(item.get("id"))
+            }
+            brand_record = brands_by_id.get(brand_id, {})
+            brand_logo = text(brand_record.get("logo"))
+            if brand_logo:
+                def sync_brand_badge(badge_match):
+                    opening, inner, closing = badge_match.group(1), badge_match.group(2), badge_match.group(3)
+                    if not re.search(r"<img\b", inner, flags=re.I):
+                        inner = (
+                            f'<img src="{html_module.escape(brand_logo, quote=True)}" '
+                            f'alt="{html_module.escape(brand, quote=True)}" loading="lazy" '
+                            'decoding="async" width="56" height="56">'
+                        )
+                    else:
+                        inner = re.sub(
+                            r'\bsrc\s*=\s*(["\'])[^"\']*\1',
+                            lambda _: f'src="{html_module.escape(brand_logo, quote=True)}"',
+                            inner,
+                            count=1,
+                            flags=re.I,
+                        )
+                        if re.search(r'\balt\s*=', inner, flags=re.I):
+                            inner = re.sub(
+                                r'\balt\s*=\s*(["\'])[^"\']*\1',
+                                lambda _: f'alt="{html_module.escape(brand, quote=True)}"',
+                                inner,
+                                count=1,
+                                flags=re.I,
+                            )
+                        else:
+                            inner = re.sub(
+                                r"<img\b",
+                                lambda m: m.group(0) + f' alt="{html_module.escape(brand, quote=True)}"',
+                                inner,
+                                count=1,
+                                flags=re.I,
+                            )
+                    return opening + inner + closing
+
+                html, _ = re.subn(
+                    r'(<div\b[^>]*class=["\'][^"\']*\bpdp-brand-badge\b[^"\']*["\'][^>]*>)(.*?)(</div>)',
+                    sync_brand_badge,
+                    html,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+
+            # Remove unrelated vehicle placeholder photos from regenerated PDPs.
+            # Keep the vehicle names and fitment information, but don't present a
+            # generic placeholder as if it were vehicle-specific imagery.
+            vehicle_grid = (
+                '<div class="pdp-vehicle-grid">'
+                + ''.join(
+                    '<div class="pdp-vehicle-card"><div class="pdp-vehicle-content">'
+                    f'<h4>{html_module.escape(vehicle, quote=False)}</h4>'
+                    '</div></div>'
+                    for vehicle in vehicles
+                )
+                + '</div>'
+            ) if vehicles else '<p class="pdp-empty-state">Confirm vehicle application before ordering.</p>'
+            html = re.sub(
+                r'<div\s+class=["\']pdp-vehicle-grid["\']\s*>.*?</div>\s*</section>',
+                lambda _: vehicle_grid + '</section>',
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
+
             # Keep the primary image and alt text tied to this product.
             primary_image = text(seeded.get("image_url"))
             page = re.sub(
@@ -993,7 +1069,7 @@ def reconcile_catalogue_projections():
             data["seo"]["description"] = description
             data["seo"]["canonical"] = canonical
     
-            html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";" + html[match.end():]
+            html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";" + html[match.end():]
             if old_name and old_name != name:
                 html = html.replace(old_name, name)
 
@@ -1133,6 +1209,12 @@ def sync_static_product_images():
         for item in catalogue
         if item.get("active") is not False and item.get("id")
     }
+    brand_records = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
+    brands_by_id = {
+        str(item.get("id") or "").strip().casefold(): item
+        for item in brand_records
+        if isinstance(item, dict) and str(item.get("id") or "").strip()
+    }
     
     changed = []
     
@@ -1167,6 +1249,84 @@ def sync_static_product_images():
     
             product = products.get(str(embedded.get("id")))
             if product:
+                # Product pages are sometimes cloned from an unrelated active
+                # PDP shell. Rebind the brand badge to this product's canonical
+                # brand record so a Toyo page cannot retain a JAI logo.
+                brand_id = str(product.get("brand_id") or "").strip().casefold()
+                brand_record = brands_by_id.get(brand_id, {})
+                brand_logo = str(brand_record.get("logo") or "").strip()
+                brand_name = str(product.get("brand_name") or product.get("brand") or "").strip()
+                if brand_logo and brand_name:
+                    def sync_brand_badge(badge_match):
+                        opening, inner, closing = badge_match.group(1), badge_match.group(2), badge_match.group(3)
+                        if not re.search(r"<img\b", inner, flags=re.I):
+                            inner = (
+                                f'<img src="{html_module.escape(brand_logo, quote=True)}" '
+                                f'alt="{html_module.escape(brand_name, quote=True)}" '
+                                'loading="lazy" decoding="async" width="56" height="56">'
+                            )
+                        else:
+                            inner = re.sub(
+                                r'\bsrc\s*=\s*(["\'])[^"\']*\1',
+                                lambda _: f'src="{html_module.escape(brand_logo, quote=True)}"',
+                                inner,
+                                count=1,
+                                flags=re.I,
+                            )
+                            if re.search(r'\balt\s*=', inner, flags=re.I):
+                                inner = re.sub(
+                                    r'\balt\s*=\s*(["\'])[^"\']*\1',
+                                    lambda _: f'alt="{html_module.escape(brand_name, quote=True)}"',
+                                    inner,
+                                    count=1,
+                                    flags=re.I,
+                                )
+                            else:
+                                inner = re.sub(
+                                    r"<img\b",
+                                    lambda m: m.group(0) + f' alt="{html_module.escape(brand_name, quote=True)}"',
+                                    inner,
+                                    count=1,
+                                    flags=re.I,
+                                )
+                        return opening + inner + closing
+
+                    text, badge_count = re.subn(
+                        r'(<div\b[^>]*class=["\'][^"\']*\bpdp-brand-badge\b[^"\']*["\'][^>]*>)(.*?)(</div>)',
+                        sync_brand_badge,
+                        text,
+                        count=1,
+                        flags=re.I | re.S,
+                    )
+                    # Some valid PDP templates intentionally have no badge.
+                    # Update it when present; absence alone must not abort a build.
+
+                # The vehicle list is catalogue context, not a product photo gallery.
+                # Avoid showing a generic placeholder image as if it depicts a
+                # specific vehicle; keep each mapped vehicle name visible.
+                vehicle_names = [
+                    str(vehicle).strip()
+                    for vehicle in (product.get("vehicles") or [])
+                    if str(vehicle).strip()
+                ]
+                vehicle_cards = (
+                    '<div class="pdp-vehicle-grid">'
+                    + ''.join(
+                        '<div class="pdp-vehicle-card"><div class="pdp-vehicle-content">'
+                        f'<h4>{html_module.escape(vehicle, quote=False)}</h4>'
+                        '</div></div>'
+                        for vehicle in vehicle_names
+                    )
+                    + '</div>'
+                ) if vehicle_names else '<p class="pdp-empty-state">Confirm vehicle application before ordering.</p>'
+                text = re.sub(
+                    r'(<div\s+class=["\']pdp-vehicle-grid["\']\s*>).*?(</div>\s*</section>)',
+                    lambda m: m.group(1) + vehicle_cards + m.group(2),
+                    text,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+
                 canonical_slug = str(product.get("slug") or path.stem).strip()
                 canonical_path = directory / f"{canonical_slug}.html"
                 if canonical_slug and canonical_path != path:
@@ -1404,6 +1564,13 @@ def sync_product_seo_and_schema():
         if isinstance(value, list):
             return [text(item) for item in value if text(item)]
         return [item.strip() for item in re.split(r"[,;]", text(value)) if item.strip()]
+
+    brand_records = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
+    brands_by_id = {
+        str(item.get("id") or "").strip().casefold(): item
+        for item in brand_records
+        if isinstance(item, dict) and str(item.get("id") or "").strip()
+    }
 
     def canonical_url(lang, slug):
         return f"https://www.souviks.co.in/{lang}/products/{slug}"
@@ -1733,13 +1900,34 @@ def sync_product_seo_and_schema():
                         if items[-1].get("item") != url:
                             items[-1]["item"] = url
                             updated = True
+
+                    # A generated PDP must breadcrumb to its canonical brand,
+                    # not the brand belonging to a copied template page.
+                    brand_id = text(product.get("brand_id")).casefold()
+                    brand_record = brands_by_id.get(brand_id, {})
+                    brand_name = text(product.get("brand_name") or product.get("brand"))
+                    brand_slug = text(brand_record.get("slug") or brand_id)
+                    brand_url = f"{BASE}/{lang}/brands/{brand_slug}" if brand_slug else ""
+                    if isinstance(items, list) and brand_name and brand_url:
+                        for crumb in items:
+                            if not isinstance(crumb, dict):
+                                continue
+                            crumb_url = text(crumb.get("item"))
+                            if "/brands/" not in crumb_url:
+                                continue
+                            if crumb.get("name") != brand_name:
+                                crumb["name"] = brand_name
+                                updated = True
+                            if crumb_url != brand_url:
+                                crumb["item"] = brand_url
+                                updated = True
                 if updated:
                     breadcrumb_repaired.append(
                         (
                             match.start(),
                             match.end(),
                             '<script type="application/ld+json">\n'
-                            + json.dumps(obj, ensure_ascii=False, indent=2)
+                            + json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
                             + '\n</script>'
                         )
                     )
