@@ -87,8 +87,8 @@ RFQ.normalizeText = function (value, maxLength = 500) {
 
 RFQ.normalizeItem = function (item) {
     const id = RFQ.normalizeText(item?.id, 128);
-    const name = RFQ.normalizeText(item?.name, 300);
-    if (!id || !name) return null;
+    if (!id) return null;
+    const name = RFQ.normalizeText(item?.name, 300) || `Product ${id}`;
 
     return {
         id,
