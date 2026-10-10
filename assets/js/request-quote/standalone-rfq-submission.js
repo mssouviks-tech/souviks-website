@@ -60,72 +60,69 @@ RFQ.collectCustomerData = function (form) {
 };
 
 RFQ.submitStandalone = async function (form) {
-    const items = await RFQ.get();
-
-    if (!items.length) {
-        throw new Error(rfqMessage.emptySubmit);
-    }
-
+    const storedItems = await RFQ.get();
+    const items = RFQ.validateSubmissionItems(storedItems);
     const user = await RFQ.getUser();
     window.__SOUVIKS_RFQ_USER_EMAIL__ = user?.email?.trim() || "";
 
-    const customer = RFQ.collectCustomerData(form);
-
-    if (!customer.name || !customer.phone) {
-        throw new Error(rfqMessage.namePhone);
-    }
+    const customer = RFQ.validateSubmissionCustomer(
+        RFQ.collectCustomerData(form)
+    );
 
     if (typeof emailjs === "undefined") {
         throw new Error(rfqMessage.unavailable);
     }
 
     if (user) {
-        const { data: rfq, error: rfqError } = await supabaseClient
-            .from("rfqs")
-            .insert({
-                user_id: user.id,
-                customer_name: customer.name,
-                customer_email: customer.email || user.email || null,
-                customer_phone: customer.phone,
-                company: customer.company || null,
-                gst_number: customer.gst || null,
-                is_business: Boolean(customer.company || customer.gst),
-                message: customer.message || null
-            })
-            .select("id, rfq_number, user_id, customer_name, customer_email, customer_phone, company, gst_number, is_business, message, status, created_at")
-            .single();
-
-        if (rfqError || !rfq) {
-            throw rfqError || new Error("The RFQ could not be created.");
+        if (typeof supabaseClient === "undefined") {
+            throw new Error(rfqMessage.failed);
         }
 
-        const rows = items.map(item => ({
-            rfq_id: rfq.id,
-            product_id: String(item.id),
-            part_number: item.partNumber || null,
-            product_name: item.name || "",
-            brand: item.brand || null,
-            quantity: Math.max(1, Number(item.qty) || 1)
+        const rpcItems = items.map(item => ({
+            id: item.id,
+            partNumber: item.partNumber,
+            name: item.name,
+            brand: item.brand,
+            quantity: item.quantity
         }));
 
-        const { error: itemsError } = await supabaseClient
-            .from("rfq_items")
-            .insert(rows);
+        const { data: rfq, error: rfqError } = await supabaseClient.rpc(
+            "submit_rfq",
+            {
+                p_customer_name: customer.name,
+                p_customer_phone: customer.phone,
+                p_company: customer.company || null,
+                p_gst_number: customer.gst || null,
+                p_message: customer.message || null,
+                p_items: rpcItems
+            }
+        );
 
-        const reference = RFQ.formatReference(rfq.rfq_number);
-
-        if (itemsError) {
-            throw new Error(
-                rfqMessage.createdItems(reference)
+        if (rfqError) {
+            SouviksErrors?.log(
+                "[Souviks RFQ] Atomic RFQ submission failed:",
+                rfqError,
+                "error"
             );
+            throw new Error(rfqMessage.failed);
         }
 
+        if (
+            !rfq ||
+            typeof rfq !== "object" ||
+            !rfq.id ||
+            !Number.isSafeInteger(Number(rfq.rfq_number)) || Number(rfq.rfq_number) < 1
+        ) {
+            throw new Error(rfqMessage.failed);
+        }
+
+        const reference = RFQ.formatReference(rfq.rfq_number);
         const payload = {
             lead_id: reference,
             name: customer.name,
             company: customer.company,
             phone: customer.phone,
-            email: customer.email || user.email || "",
+            email: user.email?.trim() || customer.email,
             gst: customer.gst,
             location: customer.location,
             message: customer.message,
@@ -139,18 +136,37 @@ RFQ.submitStandalone = async function (form) {
                 payload
             );
         } catch (error) {
-            SouviksErrors?.log("[Souviks RFQ] Notification failed after RFQ creation:", error, "error");
+            SouviksErrors?.log(
+                "[Souviks RFQ] Notification failed after RFQ creation:",
+                error,
+                "error"
+            );
             throw new Error(
                 rfqMessage.notificationFailed(reference)
             );
         }
 
         window.souviksAnalytics?.trackLead("rfq");
-        await RFQ.clear();
+        try {
+            const cleared = await RFQ.clear();
+            if (cleared === false) {
+                SouviksErrors?.log(
+                    "[Souviks RFQ] Basket could not be cleared after successful submission.",
+                    new Error("Basket clear returned false."),
+                    "warn"
+                );
+            }
+        } catch (error) {
+            SouviksErrors?.log(
+                "[Souviks RFQ] Basket clear failed after successful submission:",
+                error,
+                "error"
+            );
+        }
         return reference;
     }
 
-    const reference = `RFQ-${Date.now()}`;
+    const reference = "RFQ-" + Date.now();
     const payload = {
         lead_id: reference,
         name: customer.name,
@@ -170,7 +186,22 @@ RFQ.submitStandalone = async function (form) {
     );
 
     window.souviksAnalytics?.trackLead("rfq_guest");
-    await RFQ.clear();
+    try {
+        const cleared = await RFQ.clear();
+        if (cleared === false) {
+            SouviksErrors?.log(
+                "[Souviks RFQ] Guest basket could not be cleared after successful submission.",
+                new Error("Basket clear returned false."),
+                "warn"
+            );
+        }
+    } catch (error) {
+        SouviksErrors?.log(
+            "[Souviks RFQ] Guest basket clear failed after successful submission:",
+            error,
+            "error"
+        );
+    }
     return reference;
 };
 
