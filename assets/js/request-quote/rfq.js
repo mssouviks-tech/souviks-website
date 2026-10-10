@@ -34,10 +34,10 @@ const RFQ_MESSAGE = {
         unavailable: "Notification service is unavailable. Please try again later.",
         createdItems: ref => `Your RFQ was created as ${ref}, but its items could not be recorded. Please contact Souviks with this reference.`,
         notificationFailed: ref => `Your RFQ was recorded successfully as ${ref}, but the notification could not be sent. Please contact Souviks with this reference.`,
-        submitting: rfqMessage.submitting,
+        submitting: "Submitting your RFQ…",
         success: ref => `RFQ submitted successfully. Reference: ${ref}`,
-        failed: rfqMessage.failed,
-        whatsappEmpty: rfqMessage.whatsappEmpty
+        failed: "Unable to submit your RFQ. Please try again.",
+        whatsappEmpty: "Your RFQ basket is empty. Add at least one product first."
     },
     bn: {
         emptySubmit: "আপনার RFQ ঝুড়ি খালি। জমা দেওয়ার আগে অন্তত একটি পণ্য যোগ করুন।",
@@ -73,6 +73,154 @@ window.RFQ = {
     storageKey:
         "souviks_rfq_guest"
 
+};
+
+
+
+RFQ.SUBMISSION_LIMITS = Object.freeze({
+    maxItems: 50,
+    maxQuantity: 9999,
+    productId: 128,
+    partNumber: 128,
+    productName: 300,
+    brand: 160,
+    customerName: 120,
+    customerPhone: 40,
+    company: 160,
+    gst: 15,
+    message: 2000,
+    email: 254,
+    location: 200
+});
+
+RFQ.submissionMessage = function (key) {
+    const messages = {
+        en: {
+            empty: "Your RFQ basket is empty. Add at least one product.",
+            tooMany: "An RFQ can contain at most 50 different products.",
+            duplicate: "Your RFQ contains duplicate products. Remove duplicates and try again.",
+            quantity: "Each quantity must be a whole number from 1 to 9,999.",
+            product: "One or more products have invalid details. Refresh the basket and try again.",
+            customer: "Please enter your name and phone number.",
+            fieldLength: "One or more fields exceed the permitted length."
+        },
+        hi: {
+            empty: "आपका RFQ बास्केट खाली है। कम से कम एक उत्पाद जोड़ें।",
+            tooMany: "एक RFQ में अधिकतम 50 अलग-अलग उत्पाद हो सकते हैं।",
+            duplicate: "आपके RFQ में डुप्लिकेट उत्पाद हैं। उन्हें हटाकर फिर प्रयास करें।",
+            quantity: "प्रत्येक मात्रा 1 से 9,999 के बीच पूर्ण संख्या होनी चाहिए।",
+            product: "एक या अधिक उत्पादों का विवरण अमान्य है। बास्केट रीफ़्रेश करके फिर प्रयास करें।",
+            customer: "कृपया अपना नाम और फ़ोन नंबर दर्ज करें।",
+            fieldLength: "एक या अधिक फ़ील्ड अनुमत लंबाई से अधिक हैं।"
+        },
+        bn: {
+            empty: "আপনার RFQ ঝুড়ি খালি। অন্তত একটি পণ্য যোগ করুন।",
+            tooMany: "একটি RFQ-তে সর্বাধিক ৫০টি আলাদা পণ্য থাকতে পারে।",
+            duplicate: "আপনার RFQ-তে একই পণ্য একাধিকবার আছে। ডুপ্লিকেট সরিয়ে আবার চেষ্টা করুন।",
+            quantity: "প্রতিটি পরিমাণ ১ থেকে ৯,৯৯৯-এর মধ্যে পূর্ণ সংখ্যা হতে হবে।",
+            product: "এক বা একাধিক পণ্যের বিবরণ অবৈধ। ঝুড়ি রিফ্রেশ করে আবার চেষ্টা করুন।",
+            customer: "অনুগ্রহ করে আপনার নাম ও ফোন নম্বর লিখুন।",
+            fieldLength: "এক বা একাধিক ফিল্ড অনুমোদিত দৈর্ঘ্যের বেশি।"
+        }
+    };
+    const language = String(
+        window.souviks?.currentLanguage ||
+        document.documentElement.lang ||
+        "en"
+    ).slice(0, 2).toLowerCase();
+    return (messages[language] || messages.en)[key] || messages.en.product;
+};
+
+RFQ.validateSubmissionItems = function (items) {
+    const limits = RFQ.SUBMISSION_LIMITS;
+    const message = key => RFQ.submissionMessage(key);
+
+    if (!Array.isArray(items) || items.length === 0) {
+        throw new Error(message("empty"));
+    }
+    if (items.length > limits.maxItems) {
+        throw new Error(message("tooMany"));
+    }
+
+    const asText = value =>
+        typeof value === "string" || typeof value === "number"
+            ? String(value).trim()
+            : "";
+    const seenIds = new Set();
+
+    return items.map(item => {
+        if (!item || typeof item !== "object" || Array.isArray(item)) {
+            throw new Error(message("product"));
+        }
+
+        const id = asText(item.id);
+        const partNumber = asText(item.partNumber);
+        const name = asText(item.name);
+        const brand = asText(item.brand);
+
+        if (
+            !id ||
+            id.length > limits.productId ||
+            !name ||
+            name.length > limits.productName ||
+            partNumber.length > limits.partNumber ||
+            brand.length > limits.brand
+        ) {
+            throw new Error(message("product"));
+        }
+        if (seenIds.has(id)) {
+            throw new Error(message("duplicate"));
+        }
+        seenIds.add(id);
+
+        const quantityText = asText(item.qty ?? item.quantity);
+        if (!/^[0-9]{1,4}$/.test(quantityText)) {
+            throw new Error(message("quantity"));
+        }
+        const quantity = Number(quantityText);
+        if (
+            !Number.isSafeInteger(quantity) ||
+            quantity < 1 ||
+            quantity > limits.maxQuantity
+        ) {
+            throw new Error(message("quantity"));
+        }
+
+        return { id, partNumber, name, brand, qty: quantity, quantity };
+    });
+};
+
+RFQ.validateSubmissionCustomer = function (customer = {}) {
+    const limits = RFQ.SUBMISSION_LIMITS;
+    const asText = value =>
+        typeof value === "string" || typeof value === "number"
+            ? String(value).trim()
+            : "";
+    const result = {
+        name: asText(customer.name),
+        phone: asText(customer.phone),
+        company: asText(customer.company),
+        gst: asText(customer.gst).toUpperCase(),
+        message: asText(customer.message),
+        email: asText(customer.email),
+        location: asText(customer.location)
+    };
+
+    if (!result.name || !result.phone) {
+        throw new Error(RFQ.submissionMessage("customer"));
+    }
+    if (
+        result.name.length > limits.customerName ||
+        result.phone.length > limits.customerPhone ||
+        result.company.length > limits.company ||
+        result.gst.length > limits.gst ||
+        result.message.length > limits.message ||
+        result.email.length > limits.email ||
+        result.location.length > limits.location
+    ) {
+        throw new Error(RFQ.submissionMessage("fieldLength"));
+    }
+    return result;
 };
 
 
@@ -498,13 +646,20 @@ RFQ.setQuantity = async function (
 
 ) {
 
-    const qty =
-        Math.max(
-            1,
-            Number(
-                quantity
-            ) || 1
+    const qty = Number(quantity);
+
+    if (
+        !Number.isSafeInteger(qty) ||
+        qty < 1 ||
+        qty > RFQ.SUBMISSION_LIMITS.maxQuantity
+    ) {
+        SouviksErrors?.log(
+            "[Souviks RFQ] Rejected quantity outside the permitted range.",
+            new Error("Quantity must be an integer from 1 to 9999."),
+            "warn"
         );
+        return false;
+    }
 
 
     const user =
@@ -813,6 +968,15 @@ RFQ.add = async function (
         );
 
 
+    if (!existing && items.length >= RFQ.SUBMISSION_LIMITS.maxItems) {
+        SouviksErrors?.log(
+            "[Souviks RFQ] RFQ basket item limit reached.",
+            new Error("An RFQ can contain at most 50 different products."),
+            "warn"
+        );
+        return false;
+    }
+
     if (existing) {
 
         return RFQ.setQuantity(
@@ -821,7 +985,7 @@ RFQ.add = async function (
 
             product,
 
-            existing.qty + 1
+            Number(existing.qty) + 1
 
         );
 
@@ -1147,6 +1311,17 @@ RFQ.changeQty = async function (
 
     }
 
+    if (
+        !Number.isSafeInteger(newQuantity) ||
+        newQuantity > RFQ.SUBMISSION_LIMITS.maxQuantity
+    ) {
+        SouviksErrors?.log(
+            "[Souviks RFQ] Rejected quantity change outside the permitted range.",
+            new Error("Quantity must be an integer from 1 to 9999."),
+            "warn"
+        );
+        return false;
+    }
 
     /*
     ------------------------------------------------------
