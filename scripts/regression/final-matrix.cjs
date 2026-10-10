@@ -641,32 +641,83 @@ async function main() {
     }
   });
 
-  await check("reliability/missing brand logo leaves brand content usable", async () => {
+  await check("reliability/missing brand logo falls back to loaded placeholder", async () => {
     const context = await contextFor("desktop");
     try {
       const page = await context.newPage();
       page.__view = "desktop";
-      let intercepted = false;
+      let interceptedLogo = false;
+      let interceptedPlaceholder = false;
       await page.route("**/assets/images/brands/abc.png", async route => {
-        intercepted = true;
+        interceptedLogo = true;
         await route.fulfill({ status: 404, contentType: "image/png", body: "missing brand logo fixture" });
       });
       await goto(page, BASE + "/en/brands/abc");
-      await page.locator("#brand-detail .brand-logo img").scrollIntoViewIfNeeded();
-      await page.waitForTimeout(250);
-      if (!intercepted) throw new Error("brand logo 404 was not injected");
+      const logo = page.locator("#brand-detail .brand-logo img");
+      await page.waitForFunction(() => {
+        const image = document.querySelector("#brand-detail .brand-logo img");
+        return image && image.dataset.souviksImageFallback === "done" &&
+          (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
+          image.complete && image.naturalWidth > 0 && !image.hidden &&
+          getComputedStyle(image).visibility === "visible";
+      }, null, { timeout: 8000 });
+      if (!interceptedLogo) throw new Error("brand logo 404 was not injected");
+      if ((await logo.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") === false) {
+        throw new Error("brand logo was not switched to the shared placeholder");
+      }
+      const imageState = await logo.evaluate(image => ({
+        complete: image.complete, width: image.naturalWidth, hidden: image.hidden,
+        visibility: getComputedStyle(image).visibility
+      }));
+      if (!imageState.complete || imageState.width < 1 || imageState.hidden || imageState.visibility !== "visible") {
+        throw new Error("brand placeholder did not render correctly: " + JSON.stringify(imageState));
+      }
       if (!(await page.locator("#brand-detail h1").innerText()).includes("ABC")) {
         throw new Error("brand heading disappeared when the logo failed");
       }
       if ((await page.locator(".entity-product-galleries .product-card").count()) < 1) {
         throw new Error("brand product gallery disappeared when the logo failed");
       }
-      return "brand logo failed; brand name and product gallery remain available";
+      return "logo 404 recovered to a loaded placeholder; brand heading and product gallery remain available";
     } finally {
       await context.close();
     }
   });
 
+  await check("reliability/missing brand logo and missing placeholder hide broken image", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      await page.route("**/assets/images/brands/abc.png", async route => {
+        await route.fulfill({ status: 404, contentType: "image/png", body: "missing brand logo fixture" });
+      });
+      await page.route("**/assets/images/placeholder.webp", async route => {
+        await route.fulfill({ status: 404, contentType: "image/webp", body: "missing placeholder fixture" });
+      });
+      await goto(page, BASE + "/en/brands/abc");
+      await page.waitForFunction(() => {
+        const image = document.querySelector("#brand-detail .brand-logo img");
+        return image && image.dataset.souviksImageFallback === "done" && image.hidden;
+      }, null, { timeout: 8000 });
+      const imageState = await page.locator("#brand-detail .brand-logo img").evaluate(image => ({
+        src: image.getAttribute("src") || "", hidden: image.hidden,
+        visibility: getComputedStyle(image).visibility
+      }));
+      if (!imageState.src.endsWith("/assets/images/placeholder.webp") || !imageState.hidden || imageState.visibility !== "hidden") {
+        throw new Error("failed placeholder was not hidden safely: " + JSON.stringify(imageState));
+      }
+      if (!(await page.locator("#brand-detail h1").innerText()).includes("ABC")) {
+        throw new Error("brand heading disappeared when both logo and placeholder failed");
+      }
+      if ((await page.locator(".entity-product-galleries .product-card").count()) < 1) {
+        throw new Error("brand product gallery disappeared when both logo and placeholder failed");
+      }
+      return "failed logo and failed placeholder hidden safely; brand content remains available";
+    } finally {
+      await context.close();
+    }
+  });
   await check("reliability/authentication HTTP 503 shows service-unavailable feedback", async () => {
     const context = await contextFor("desktop");
     try {
