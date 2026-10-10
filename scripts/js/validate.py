@@ -130,10 +130,10 @@ def validate_rfq_submission(errors: list[str]) -> None:
     submission = submission_path.read_text(encoding="utf-8", errors="ignore")
     migration = migration_path.read_text(encoding="utf-8", errors="ignore")
 
-    if not re.search(r'\.rpc\(\s*["\\']submit_rfq["\\']', submission):
+    if not re.search(r"\.rpc\(\s*['\"]submit_rfq['\"]", submission):
         errors.append("Authenticated RFQ submission must call the atomic submit_rfq RPC.")
     if re.search(
-        r'\.from\(\s*["\\'](?:rfqs|rfq_items)["\\']\s*\)\s*\.insert\s*\(',
+        r"\.from\(\s*['\"](?:rfqs|rfq_items)['\"]\s*\)\s*\.insert\s*\(",
         submission,
         flags=re.S,
     ):
