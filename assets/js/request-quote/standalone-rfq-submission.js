@@ -111,7 +111,7 @@ RFQ.submitStandalone = async function (form) {
             !rfq ||
             typeof rfq !== "object" ||
             !rfq.id ||
-            !/^\\d+$/.test(String(rfq.rfq_number || ""))
+            !Number.isSafeInteger(Number(rfq.rfq_number)) || Number(rfq.rfq_number) < 1
         ) {
             throw new Error(rfqMessage.failed);
         }
