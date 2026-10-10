@@ -164,7 +164,7 @@ def validate_rfq_submission(errors: list[str]) -> None:
 
     # Direct INSERTs into submitted RFQ tables bypass the atomic validation path.
     direct_insert_pattern = re.compile(
-        r"\\.from\\(\\s*['\\"](?:rfqs|rfq_items)['\\"]\\s*\\)\\s*\\.insert\\s*\\(",
+        r"\.from\(\s*['\"](?:rfqs|rfq_items)['\"]\s*\)\s*\.insert\s*\(",
         flags=re.S,
     )
     for module in sorted(JS_ROOT.glob("**/*.js")):
