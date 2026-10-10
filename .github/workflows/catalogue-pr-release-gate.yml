@@ -97,6 +97,7 @@ jobs:
 
           npm run lint:js
           npm run check:js
+          node scripts/regression/rfq-security-contract.cjs
           npm run format:check
 
           echo "Catalogue release gate passed."
