@@ -400,6 +400,35 @@ async function main() {
         });
       }
 
+      await check(`${view}/${lang}/homepage Add To RFQ updates basket and badge`, async () => {
+        await goto(page, BASE + `/${lang}/`);
+        await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
+        const engineLoaded = await page.evaluate(() => typeof window.RFQ !== "undefined");
+        if (!engineLoaded) throw new Error("shared RFQ engine did not load on the homepage");
+
+        const button = page.locator(".home-product-track .add-to-cart").first();
+        if (!(await button.count())) throw new Error("homepage has no Add To RFQ product button");
+        await button.click();
+
+        await page.waitForFunction(() => {
+          const raw = localStorage.getItem("souviks_rfq_guest");
+          let items = [];
+          try { items = raw ? JSON.parse(raw) : []; } catch { return false; }
+          const badge = document.querySelector(".rfq-badge");
+          return Array.isArray(items) && items.length > 0 && Number(badge?.textContent || 0) > 0;
+        }, { timeout: 5000 }).catch(() => {
+          throw new Error("clicking Add To RFQ did not persist an item and update the basket badge");
+        });
+        const state = await page.evaluate(() => ({
+          badge: Number(document.querySelector(".rfq-badge")?.textContent || 0),
+          items: JSON.parse(localStorage.getItem("souviks_rfq_guest") || "[]").length
+        }));
+        if (state.items !== 1 || state.badge < 1) {
+          throw new Error(`unexpected basket state: ${JSON.stringify(state)}`);
+        }
+        return "RFQ item persisted and badge updated";
+      });
+
       await context.close();
     }
   }
