@@ -347,14 +347,14 @@ def migrate_html() -> int:
         # on home, brand, category, and vehicle pages. Ensure those pages load the
         # same basket engine, not just the products-list and PDP entrypoints.
         rfq_ui_pattern = re.compile(
-            r'<[^>]+\\bclass=["\\'][^"\\']*\\b(?:rfq-badge|add-to-cart|pdp-rfq-btn)\\b[^"\\']*["\\'][^>]*>',
+            r'<[^>]+\bclass=["\'][^"\']*\b(?:rfq-badge|add-to-cart|pdp-rfq-btn)\b[^"\']*["\'][^>]*>',
             re.IGNORECASE,
         )
         account_rfq_pattern = re.compile(
-            r'<script\\s+defer\\s+src="/assets/js/account/rfq\\.js(?:\\?[^" ]*)?"></script>'
+            r'<script\s+defer\s+src="/assets/js/account/rfq\.js(?:\?[^" ]*)?"></script>'
         )
         standalone_rfq_pattern = re.compile(
-            r'<script\\s+defer\\s+src="/assets/js/request-quote/rfq\\.js(?:\\?[^" ]*)?"></script>'
+            r'<script\s+defer\s+src="/assets/js/request-quote/rfq\.js(?:\?[^" ]*)?"></script>'
         )
         if (
             rfq_ui_pattern.search(new_content)
@@ -364,7 +364,7 @@ def migrate_html() -> int:
             rfq_tag = f'<script defer src="{versioned_asset_url("assets/js/account/rfq.js")}"></script>'
             anchor = catalogue_core_pattern.search(new_content) or core_pattern.search(new_content)
             if anchor:
-                new_content = new_content[:anchor.end()] + "\\n" + rfq_tag + new_content[anchor.end():]
+                new_content = new_content[:anchor.end()] + "\n" + rfq_tag + new_content[anchor.end():]
 
         def replace_css(match: re.Match[str]) -> str:
             relative_path = f"assets/css/{match.group(2)}"
