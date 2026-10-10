@@ -1,12 +1,11 @@
 #!/usr/bin/env node
-import assert from "node:assert/strict";
-import fs from "node:fs";
-import path from "node:path";
-import vm from "node:vm";
-import { createHash } from "node:crypto";
-import { fileURLToPath } from "node:url";
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const vm = require("node:vm");
+const { createHash } = require("node:crypto");
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+const ROOT = path.resolve(__dirname, "../..");
 const paths = {
   accountBasket: "assets/js/account/rfq.js",
   quoteBasket: "assets/js/request-quote/rfq.js",
