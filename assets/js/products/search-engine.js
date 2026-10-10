@@ -182,7 +182,7 @@ Features:
 
         let matched = 0;
         queryTokens.forEach(token => {
-            if (textTokens.some(candidate => candidate === token || candidate.includes(token) || token.includes(candidate))) {
+            if (textTokens.some(candidate => candidate === token || candidate.includes(token))) {
                 matched += 1;
             }
         });
@@ -226,7 +226,7 @@ Features:
         for (const qToken of queryTokens) {
             let matched = false;
             for (const token of textTokens) {
-                if (token.includes(qToken) || qToken.includes(token)) {
+                if (token.includes(qToken)) {
                     total += 1;
                     matched = true;
                     break;
