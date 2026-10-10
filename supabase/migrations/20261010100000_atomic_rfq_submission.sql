@@ -51,7 +51,7 @@ BEGIN
             USING errcode = '22023';
     END IF;
 
-    IF jsonb_typeof(p_items) <> 'array' THEN
+    IF p_items IS NULL OR jsonb_typeof(p_items) <> 'array' THEN
         RAISE EXCEPTION 'RFQ items must be a JSON array'
             USING errcode = '22023';
     END IF;
