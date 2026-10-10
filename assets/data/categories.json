@@ -2825,5 +2825,71 @@
     "schema": {},
     "created_at": "2026-10-04T18:42:42.974884",
     "updated_at": "2026-10-04T18:42:42.974884"
+  },
+  {
+    "id": "cooling-pump",
+    "slug": "cooling-pump",
+    "name": "Cooling Pump",
+    "short_name": "Cooling Pump",
+    "icon": "/assets/images/products/SVKS000748/1.webp",
+    "image": "/assets/images/products/SVKS000748/1.webp",
+    "banner": "",
+    "description": "Cooling Pump covers 5 active commercial-vehicle spare parts. The category includes Water Pump products for commercial-vehicle applications.",
+    "short_description": "Cooling Pump: 5 active parts across Water Pump.",
+    "parent_category": "",
+    "subcategories": [
+      {
+        "id": "water-pump",
+        "name": "Water Pump"
+      }
+    ],
+    "brands": [
+      {
+        "id": "tata-genuine-parts",
+        "name": "Tata Genuine Parts"
+      },
+      {
+        "id": "kfl",
+        "name": "KFL"
+      }
+    ],
+    "vehicles": [
+      "Tata Ace",
+      "Tata Intra",
+      "Tata LPT",
+      "Tata Magic",
+      "Universal"
+    ],
+    "featured_products": [
+      "SVKS000748",
+      "SVKS000149",
+      "SVKS000151",
+      "SVKS000188",
+      "SVKS000189"
+    ],
+    "products": [
+      "SVKS000748",
+      "SVKS000149",
+      "SVKS000151",
+      "SVKS000188",
+      "SVKS000189"
+    ],
+    "product_count": 5,
+    "featured": false,
+    "active": true,
+    "seo": {
+      "title": "Cooling Pump Parts | Souviks",
+      "description": "Cooling Pump parts including Water Pump products for commercial vehicles. Check the part number and vehicle application before ordering.",
+      "keywords": [
+        "Cooling Pump",
+        "Water Pump",
+        "commercial vehicle spare parts",
+        "truck spare parts"
+      ],
+      "canonical": "https://www.souviks.co.in/en/categories/cooling-pump"
+    },
+    "schema": {},
+    "created_at": "2026-10-10T12:16:00+05:30",
+    "updated_at": "2026-10-10T12:16:00+05:30"
   }
 ]
