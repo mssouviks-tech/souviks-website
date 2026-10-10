@@ -22,8 +22,18 @@ function recoverFailedImage(image) {
     if (!(image instanceof HTMLImageElement) || !image.matches(IMAGE_FALLBACK_SELECTOR)) return;
     const placeholder = "/assets/images/placeholder.webp";
     if (image.dataset.souviksImageFallback === "done") {
-        image.style.visibility = "hidden";
-        image.hidden = true;
+        // A delayed error from the original image may arrive after src has
+        // already been changed to the placeholder. Do not hide a replacement
+        // that is still loading or has loaded successfully. Hide only when the
+        // placeholder itself has definitively failed.
+        if (
+            image.getAttribute("src") === placeholder &&
+            image.complete &&
+            image.naturalWidth === 0
+        ) {
+            image.style.visibility = "hidden";
+            image.hidden = true;
+        }
         return;
     }
     image.dataset.souviksImageFallback = "done";
