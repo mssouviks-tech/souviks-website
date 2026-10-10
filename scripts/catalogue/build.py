@@ -787,6 +787,21 @@ def reconcile_catalogue_projections():
                 flags=re.I | re.S,
             )
 
+            vehicle_cards = "".join(
+                '<div class="pdp-vehicle-card"><div class="pdp-vehicle-image">'
+                f'<img src="/assets/images/placeholder.webp" alt="{html_module.escape(vehicle, quote=True)}" width="1200" height="1200">'
+                '</div><div class="pdp-vehicle-content">'
+                f'<h4>{html_module.escape(vehicle, quote=False)}</h4></div></div>'
+                for vehicle in vehicles
+            ) or '<p class="pdp-empty-state">Confirm vehicle application before ordering.</p>'
+            page = re.sub(
+                r'(<div\s+class=["\']pdp-vehicle-grid["\']\s*>).*?(</div>\s*</section>)',
+                lambda match: match.group(1) + vehicle_cards + match.group(2),
+                page,
+                count=1,
+                flags=re.I | re.S,
+            )
+
             # Keep the primary image and alt text tied to this product.
             primary_image = text(seeded.get("image_url"))
             page = re.sub(
