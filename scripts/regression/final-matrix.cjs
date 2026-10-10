@@ -416,7 +416,7 @@ async function main() {
           try { items = raw ? JSON.parse(raw) : []; } catch { return false; }
           const badge = document.querySelector(".rfq-badge");
           return Array.isArray(items) && items.length > 0 && Number(badge?.textContent || 0) > 0;
-        }, { timeout: 5000 }).catch(() => {
+        }, undefined, { timeout: 5000 }).catch(() => {
           throw new Error("clicking Add To RFQ did not persist an item and update the basket badge");
         });
         const state = await page.evaluate(() => ({
