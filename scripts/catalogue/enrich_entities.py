@@ -236,7 +236,7 @@ def ensure_main_landmark(page):
 def replace_static_product_grid(page: str, gallery_html: str) -> str:
     """Replace the full contents of an entity page static product grid."""
     opening = re.search(
-        r'<div\\b(?=[^>]*\\bid="product-grid")(?=[^>]*\\bdata-static-rendered="true")[^>]*>',
+        r'<div\b(?=[^>]*\bid="product-grid")(?=[^>]*\bdata-static-rendered="true")[^>]*>',
         page,
         flags=re.I,
     )
@@ -244,15 +244,15 @@ def replace_static_product_grid(page: str, gallery_html: str) -> str:
         return page
 
     depth = 1
-    tag_pattern = re.compile(r'</?div\\b[^>]*>', flags=re.I)
+    tag_pattern = re.compile(r'</?div\b[^>]*>', flags=re.I)
     for tag in tag_pattern.finditer(page, opening.end()):
         token = tag.group(0)
-        if re.match(r'</div\\b', token, flags=re.I):
+        if re.match(r'</div\b', token, flags=re.I):
             depth -= 1
             if depth == 0:
-                inner = "\\n\\n" + gallery_html + "\\n\\n"
+                inner = "\n\n" + gallery_html + "\n\n"
                 return page[:opening.end()] + inner + page[tag.start():]
-        elif not re.search(r'/\\s*>$', token):
+        elif not re.search(r'/\s*>$', token):
             depth += 1
 
     raise ValueError("Entity page has an unclosed #product-grid container.")
