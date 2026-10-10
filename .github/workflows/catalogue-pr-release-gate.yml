@@ -50,6 +50,7 @@ jobs:
           for path in (
               "scripts/catalogue/build.py",
               "scripts/catalogue/normalize_page_config.py",
+              "scripts/audit/production_smoke.py",
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
               "scripts/catalogue/validate.py",
