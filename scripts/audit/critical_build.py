@@ -453,6 +453,24 @@ def validate_homepage_url_contract(errors: list[str]) -> None:
                 )
 
 
+def validate_page_config_syntax(errors: list[str]) -> None:
+    """Detect the malformed window.souviks object that disables the shared runtime."""
+    missing_comma = re.compile(
+        r'(?m)^[ \t]*currentPage:[ \t]*\r?\n[ \t]*"(?:\\.|[^"\\])*"[ \t]*\r?\n[ \t]*currentPageType[ \t]*:'
+    )
+    paths = [ROOT / "404.html"]
+    for language in LANGUAGES:
+        paths.extend(sorted((ROOT / language).rglob("*.html")))
+    for path in sorted(set(paths)):
+        if not path.is_file():
+            continue
+        raw = path.read_text(encoding="utf-8", errors="ignore")
+        if missing_comma.search(raw):
+            errors.append(
+                f"{path.relative_to(ROOT)}: window.souviks currentPage is missing a comma before currentPageType"
+            )
+
+
 def validate_security_headers(errors: list[str]) -> None:
     """Validate headers in the site's root _headers file."""
     path = ROOT / "_headers"
@@ -1176,6 +1194,7 @@ def main() -> None:
     errors: list[str] = []
     validate_homepage_url_contract(errors)
     validate_security_headers(errors)
+    validate_page_config_syntax(errors)
     records_by_kind = validate_critical_catalogue_contract(errors)
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_product_card_images(records_by_kind, errors)
