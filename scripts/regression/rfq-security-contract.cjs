@@ -105,12 +105,12 @@ for (const label of ["accountBasket", "quoteBasket"]) {
 }
 
 const accountCreateRFQ = source.accountSubmit.match(
-  /async createRFQ\\([\\s\\S]*?\\n    \\},\\n\\n/
+  /async createRFQ\([\s\S]*?\n    \},\n\n/
 )?.[0] || "";
 const customerValidation = accountCreateRFQ.match(
-  /RFQ\\.validateSubmissionCustomer\\(\\{([\\s\\S]*?)\\}\\)/
+  /RFQ\.validateSubmissionCustomer\(\{([\s\S]*?)\}\)/
 )?.[1] || "";
-assert.match(customerValidation, /\\bemail:\\s*user\\.email\\b/, "account path must apply the email length limit to the authenticated email");
+assert.match(customerValidation, /\bemail:\s*user\.email\b/, "account path must apply the email length limit to the authenticated email");
 
 for (const label of ["accountSubmit", "standaloneSubmit"]) {
   const code = source[label];
