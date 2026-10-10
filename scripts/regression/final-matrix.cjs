@@ -1175,6 +1175,14 @@ async function main() {
         const accountPage = await accountContext.newPage();
         accountPage.__view = view;
         const accountRequests = [];
+          // Collect browser exceptions for the entire authenticated view flow, not just navigation.
+          const accountRuntimeErrors = [];
+          accountPage.on("pageerror", error => accountRuntimeErrors.push(error?.message || String(error)));
+          accountPage.on("console", message => {
+            if (message.type() === "error" && /uncaught|uncaught exception|uncaught error/i.test(message.text())) {
+              accountRuntimeErrors.push(message.text());
+            }
+          });
         accountPage.on("request", request => {
           const url = new URL(request.url());
           if (!/\/rest\/v1\/(profiles|rfqs|rfq_items|saved_products|customer_vehicles)$/i.test(url.pathname)) return;
@@ -1237,6 +1245,10 @@ async function main() {
             throw new Error("RFQ submit label did not resolve from this language's account messages");
           }
 
+          if (accountRuntimeErrors.length) {
+            throw new Error("uncaught browser errors while rendering account views: " + accountRuntimeErrors.slice(0, 5).join(" | "));
+          }
+
           for (const table of ["rfqs", "saved_products", "customer_vehicles"]) {
             const queries = accountRequests.filter(request => request.table === table && request.method === "GET");
             if (!queries.length) throw new Error(`no authenticated query observed for ${table}`);
@@ -1249,7 +1261,7 @@ async function main() {
             throw new Error("profile query did not constrain results to the authenticated user");
           }
 
-          return "overview, RFQ basket, RFQ history, saved products and vehicles rendered; data requests were scoped to the signed-in test user";
+          return "overview, RFQ basket, RFQ history, saved products and vehicles rendered with populated fixtures; owner-scoped data requests verified; no uncaught browser errors";
         } finally {
           await accountContext.close();
         }
