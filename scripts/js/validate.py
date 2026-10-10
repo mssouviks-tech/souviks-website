@@ -116,43 +116,52 @@ def validate_auth_ownership(errors: list[str]) -> None:
         )
 
 def validate_rfq_submission(errors: list[str]) -> None:
-    """Keep authenticated RFQ creation atomic and tracked in migrations."""
-    submission_path = JS_ROOT / "request-quote" / "standalone-rfq-submission.js"
+    """Keep all authenticated RFQ creation atomic and tracked in migrations."""
+    submission_paths = (
+        JS_ROOT / "request-quote" / "standalone-rfq-submission.js",
+        JS_ROOT / "account" / "rfq-submit.js",
+    )
     migration_path = ROOT / "supabase" / "migrations" / "20261010100000_atomic_rfq_submission.sql"
+    policy_migration_path = ROOT / "supabase" / "migrations" / "20261010110000_require_atomic_rfq_submission.sql"
 
-    if not submission_path.is_file():
-        errors.append("Standalone RFQ submission module is missing.")
-        return
+    for submission_path in submission_paths:
+        if not submission_path.is_file():
+            errors.append(f"{submission_path.relative_to(ROOT)} is missing.")
+            continue
+
+        submission = submission_path.read_text(encoding="utf-8", errors="ignore")
+        if not re.search(r"\.rpc\(\s*['\"]submit_rfq['\"]", submission):
+            errors.append(
+                f"{submission_path.relative_to(ROOT)} must call the atomic submit_rfq RPC."
+            )
+        if re.search(
+            r"\.from\(\s*['\"](?:rfqs|rfq_items)['\"]\s*\)\s*\.insert\s*\(",
+            submission,
+            flags=re.S,
+        ):
+            errors.append(
+                f"{submission_path.relative_to(ROOT)} must not insert the RFQ parent/items separately."
+            )
+
     if not migration_path.is_file():
         errors.append("Atomic RFQ submission migration is missing.")
         return
-
-    submission = submission_path.read_text(encoding="utf-8", errors="ignore")
-    migration = migration_path.read_text(encoding="utf-8", errors="ignore")
-    policy_migration_path = ROOT / "supabase" / "migrations" / "20261010110000_require_atomic_rfq_submission.sql"
     if not policy_migration_path.is_file():
         errors.append("Atomic RFQ insert-policy cleanup migration is missing.")
         return
+
+    migration = migration_path.read_text(encoding="utf-8", errors="ignore")
     policy_migration = policy_migration_path.read_text(encoding="utf-8", errors="ignore")
-
-    if not re.search(r"DROP POLICY IF EXISTS [\"']rfqs_insert_own[\"']", policy_migration, flags=re.I):
-        errors.append("RFQ security migration must remove the direct parent INSERT policy.")
-    if not re.search(r"DROP POLICY IF EXISTS [\"']rfq_items_insert_own[\"']", policy_migration, flags=re.I):
-        errors.append("RFQ security migration must remove the direct item INSERT policy.")
-
-    if not re.search(r"\.rpc\(\s*['\"]submit_rfq['\"]", submission):
-        errors.append("Authenticated RFQ submission must call the atomic submit_rfq RPC.")
-    if re.search(
-        r"\.from\(\s*['\"](?:rfqs|rfq_items)['\"]\s*\)\s*\.insert\s*\(",
-        submission,
-        flags=re.S,
-    ):
-        errors.append("Standalone RFQ submission must not insert the RFQ parent/items in separate calls.")
 
     if "SECURITY DEFINER" not in migration.upper() or "AUTH.UID()" not in migration.upper():
         errors.append("Atomic RFQ migration must enforce authenticated ownership inside the database.")
     if not re.search(r"GRANT EXECUTE ON FUNCTION public\.submit_rfq.*TO authenticated", migration, flags=re.I | re.S):
         errors.append("Atomic RFQ migration must grant submit_rfq execution to authenticated users.")
+    if not re.search(r"DROP POLICY IF EXISTS [\"']rfqs_insert_own[\"']", policy_migration, flags=re.I):
+        errors.append("RFQ policy cleanup must remove the direct parent INSERT policy.")
+    if not re.search(r"DROP POLICY IF EXISTS [\"']rfq_items_insert_own[\"']", policy_migration, flags=re.I):
+        errors.append("RFQ policy cleanup must remove the direct item INSERT policy.")
+
 
 
 def main() -> None:
