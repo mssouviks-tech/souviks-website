@@ -336,6 +336,13 @@ def reconcile_catalogue_projections():
                 if raw_name:
                     preferred_names.append(pathlib.Path(raw_name).name)
 
+        # If the persisted gallery references a file that no longer exists, its
+        # order is stale (for example, duplicate-content images were compacted).
+        # Fall back to the current folder's sorted, valid files instead of keeping
+        # gaps such as 1.webp, 2.webp, 4.webp in the generated gallery.
+        if any(name not in files_by_name for name in preferred_names):
+            preferred_names = []
+
         for field in ("image", "primary_image"):
             raw_name = text(product.get(field))
             if raw_name:
