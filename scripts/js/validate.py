@@ -129,6 +129,16 @@ def validate_rfq_submission(errors: list[str]) -> None:
 
     submission = submission_path.read_text(encoding="utf-8", errors="ignore")
     migration = migration_path.read_text(encoding="utf-8", errors="ignore")
+    policy_migration_path = ROOT / "supabase" / "migrations" / "20261010110000_require_atomic_rfq_submission.sql"
+    if not policy_migration_path.is_file():
+        errors.append("Atomic RFQ insert-policy cleanup migration is missing.")
+        return
+    policy_migration = policy_migration_path.read_text(encoding="utf-8", errors="ignore")
+
+    if not re.search(r"DROP POLICY IF EXISTS [\"']rfqs_insert_own[\"']", policy_migration, flags=re.I):
+        errors.append("RFQ security migration must remove the direct parent INSERT policy.")
+    if not re.search(r"DROP POLICY IF EXISTS [\"']rfq_items_insert_own[\"']", policy_migration, flags=re.I):
+        errors.append("RFQ security migration must remove the direct item INSERT policy.")
 
     if not re.search(r"\.rpc\(\s*['\"]submit_rfq['\"]", submission):
         errors.append("Authenticated RFQ submission must call the atomic submit_rfq RPC.")
