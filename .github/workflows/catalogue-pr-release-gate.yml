@@ -49,6 +49,7 @@ jobs:
           import py_compile
           for path in (
               "scripts/catalogue/build.py",
+              "scripts/catalogue/normalize_page_config.py",
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
               "scripts/catalogue/validate.py",
@@ -82,6 +83,7 @@ jobs:
           python3 scripts/catalogue/sync_navigation.py
           python3 scripts/catalogue/sync_product_cards.py
           python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/normalize_page_config.py
           python3 scripts/catalogue/sync_entity_sitemaps.py
           python3 scripts/js/refactor.py
           npm run build:js
