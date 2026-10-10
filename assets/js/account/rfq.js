@@ -501,8 +501,7 @@ RFQ.setQuantity = async function (productId, product, quantity) {
         }
 
         if (!RFQ.saveGuestItems(items)) return false;
-        await RFQ.updateBadge();
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
         return true;
     }
 
@@ -764,6 +763,24 @@ CHANGE QUANTITY
 ----------------------------------------------------------
 */
 
+RFQ.refreshUI = async function () {
+    let refreshed = true;
+    try {
+        await RFQ.updateBadge();
+    } catch (error) {
+        refreshed = false;
+        SouviksErrors?.log("[Souviks RFQ] Unable to refresh RFQ badge:", error, "warn");
+    }
+    try {
+        await RFQ.renderPage();
+    } catch (error) {
+        refreshed = false;
+        SouviksErrors?.log("[Souviks RFQ] Unable to refresh RFQ page:", error, "warn");
+    }
+    return refreshed;
+};
+
+
 RFQ.changeQty = async function (productId, amount) {
     try {
         const items = await RFQ.get();
@@ -814,8 +831,7 @@ RFQ.changeQty = async function (productId, amount) {
             return false;
         }
 
-        await RFQ.updateBadge();
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
         return true;
     } catch (error) {
         SouviksErrors?.log("[Souviks RFQ] Unexpected quantity update failure:", error, "error");
@@ -838,8 +854,7 @@ RFQ.remove = async function (productId) {
             item => String(item.id) !== String(productId)
         );
         if (!RFQ.saveGuestItems(filtered)) return false;
-        await RFQ.updateBadge();
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
         return true;
     }
 
@@ -853,8 +868,7 @@ RFQ.remove = async function (productId) {
             .eq("product_id", productId);
 
         if (error) throw error;
-        await RFQ.updateBadge();
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
         return true;
     } catch (error) {
         SouviksErrors?.log("[Souviks RFQ] Unable to remove RFQ item:", error, "error");
@@ -887,8 +901,7 @@ RFQ.clear = async function () {
             return false;
         }
 
-        await RFQ.updateBadge();
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
         return true;
     }
 
@@ -904,8 +917,7 @@ RFQ.clear = async function () {
             .eq("user_id", user.id);
 
         if (error) throw error;
-        await RFQ.updateBadge();
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
         return true;
     } catch (error) {
         SouviksErrors?.log("[Souviks RFQ] Unable to clear RFQ basket:", error, "error");
@@ -997,8 +1009,7 @@ RFQ.mergeGuestBasket = async function () {
             }
         }
 
-        await RFQ.updateBadge();
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
         return pendingItems.length === 0;
     } finally {
         RFQ._mergeInProgress = false;
@@ -1110,8 +1121,7 @@ document.addEventListener(
     async () => {
 
         await RFQ.mergeGuestBasket();
-        await RFQ.updateBadge();
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
 
     }
 
