@@ -807,7 +807,7 @@ def reconcile_catalogue_projections():
             data_match = data_pattern.search(page)
             if not data_match:
                 raise SystemExit(f"Generated PDP template has no embedded data: {template_path}")
-            page = page[:data_match.start(1)] + json.dumps(seeded, ensure_ascii=False, indent=2) + ";" + page[data_match.end(1):]
+            page = page[:data_match.start(1)] + json.dumps(seeded, ensure_ascii=False, indent=2) + page[data_match.end(1):]
 
             target_path = product_dir / f"{slug}.html"
             if target_path.exists():
