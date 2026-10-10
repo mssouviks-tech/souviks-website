@@ -581,8 +581,7 @@ RFQ.setQuantity = async function (productId, product, quantity) {
         }
     }
 
-    await RFQ.updateBadge();
-    await RFQ.renderPage();
+    await RFQ.refreshUI();
     return true;
 };
 
