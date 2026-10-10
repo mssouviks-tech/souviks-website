@@ -687,6 +687,13 @@ RFQ.setQuantity = async function (
 
             );
 
+        if (
+            existingIndex < 0 &&
+            items.length >= RFQ.SUBMISSION_LIMITS.maxItems
+        ) {
+            return false;
+        }
+
 
         const normalizedProduct = {
 
@@ -814,6 +821,25 @@ RFQ.setQuantity = async function (
 
         return false;
 
+    }
+
+    if (!existing) {
+        const { count, error: countError } = await supabaseClient
+            .from(RFQ.table)
+            .select("id", { count: "exact", head: true })
+            .eq("user_id", user.id);
+
+        if (countError) {
+            SouviksErrors?.log(
+                "[Souviks RFQ] Unable to validate RFQ basket item count:",
+                countError,
+                "error"
+            );
+            return false;
+        }
+        if (Number(count) >= RFQ.SUBMISSION_LIMITS.maxItems) {
+            return false;
+        }
     }
 
 
