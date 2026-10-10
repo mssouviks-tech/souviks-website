@@ -1,6 +1,18 @@
 name: Final Regression Matrix
 
 on:
+  pull_request:
+    paths:
+      - 'assets/js/**'
+      - 'assets/data/**'
+      - 'en/**'
+      - 'hi/**'
+      - 'bn/**'
+      - 'scripts/catalogue/**'
+      - 'scripts/audit/critical_build.py'
+      - 'scripts/regression/**'
+      - '_headers'
+      - '.github/workflows/final-regression-matrix.yml'
   push:
     branches: [main]
     paths:
@@ -13,7 +25,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: souviks-final-regression
+  group: souviks-final-regression-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -22,10 +34,9 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - name: Check out main
+      - name: Check out candidate
         uses: actions/checkout@v4
         with:
-          ref: main
           fetch-depth: 1
 
       - name: Set up Node
