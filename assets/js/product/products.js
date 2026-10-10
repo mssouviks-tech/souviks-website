@@ -950,40 +950,123 @@ priceHtml(product) {
     }
 
     bindPdpFastInteractions(product) {
-        const qtyInput=document.getElementById("pdpQty");
-        const minusBtn=document.querySelector(".pdp-qty-minus");
-        const plusBtn=document.querySelector(".pdp-qty-plus");
-        const rfqBtn=document.querySelector(".pdp-rfq-btn");
-        const removeBtn=document.querySelector(".pdp-remove-btn");
+        const qtyInput = document.getElementById("pdpQty");
+        const minusBtn = document.querySelector(".pdp-qty-minus");
+        const plusBtn = document.querySelector(".pdp-qty-plus");
+        const rfqBtn = document.querySelector(".pdp-rfq-btn");
+        const removeBtn = document.querySelector(".pdp-remove-btn");
+
         const bindSlider = (sliderSelector, prevSelector, nextSelector) => {
             const slider = document.querySelector(sliderSelector);
-            document.querySelector(prevSelector)?.addEventListener("click", () =>
-                slider?.scrollBy({ left: -600, behavior: "smooth" })
-            );
-            document.querySelector(nextSelector)?.addEventListener("click", () =>
-                slider?.scrollBy({ left: 600, behavior: "smooth" })
-            );
+            document.querySelector(prevSelector)?.addEventListener("click", () => {
+                slider?.scrollBy({ left: -600, behavior: "smooth" });
+            });
+            document.querySelector(nextSelector)?.addEventListener("click", () => {
+                slider?.scrollBy({ left: 600, behavior: "smooth" });
+            });
         };
+
         bindSlider(".pdp-frequent-slider", ".pdp-frequent-prev", ".pdp-frequent-next");
         bindSlider(".pdp-related-slider-main", ".pdp-related-prev-btn", ".pdp-related-next-btn");
-        if(!qtyInput||!rfqBtn||!removeBtn||typeof RFQ==="undefined") return;
-        let inRFQ=false;
-        const markChanged=()=>{if(inRFQ) rfqBtn.textContent="Update RFQ";};
-        minusBtn?.addEventListener("click",()=>{qtyInput.value=Math.max(1,Number(qtyInput.value)-1);markChanged();});
-        plusBtn?.addEventListener("click",()=>{qtyInput.value=Math.max(1,Number(qtyInput.value)+1);markChanged();});
-        qtyInput.addEventListener("input",markChanged);
-        rfqBtn.addEventListener("click",async()=>{
-            const qty=Math.max(1,Number(qtyInput.value)||1);
-            const ok=await RFQ.setQuantity(product.id,{partNumber:product.part_number,name:product.product_name,brand:product.brand_name},qty);
-            if(!ok)return; inRFQ=true; rfqBtn.textContent="Added ✓"; removeBtn.style.display="block";
+
+        if (!qtyInput || !rfqBtn || !removeBtn || typeof RFQ === "undefined") return;
+
+        let inRFQ = false;
+        let saving = false;
+        const markChanged = () => {
+            if (inRFQ) rfqBtn.textContent = "Update RFQ";
+        };
+        const setBusy = busy => {
+            saving = busy;
+            rfqBtn.disabled = busy;
+            rfqBtn.setAttribute("aria-busy", String(busy));
+        };
+
+        minusBtn?.addEventListener("click", () => {
+            qtyInput.value = Math.max(1, (Number(qtyInput.value) || 1) - 1);
+            markChanged();
         });
-        removeBtn.addEventListener("click",async()=>{
-            await RFQ.remove(product.id); inRFQ=false; qtyInput.value=1; rfqBtn.textContent="Add To RFQ"; removeBtn.style.display="none";
+        plusBtn?.addEventListener("click", () => {
+            qtyInput.value = Math.max(1, (Number(qtyInput.value) || 1) + 1);
+            markChanged();
         });
-        void (async()=>{try{
-            const item=(await RFQ.get()).find(entry=>entry.id===product.id);
-            if(!item)return; inRFQ=true; qtyInput.value=item.qty; rfqBtn.textContent="Added ✓"; removeBtn.style.display="block";
-        }catch(error){SouviksErrors?.log("Souviks RFQ state unavailable:", error, "warn");}})();
+        qtyInput.addEventListener("input", markChanged);
+
+        rfqBtn.addEventListener("click", async () => {
+            if (saving) return;
+            const qty = Math.max(1, Math.floor(Number(qtyInput.value) || 1));
+            qtyInput.value = qty;
+            setBusy(true);
+
+            try {
+                const ok = await RFQ.setQuantity(
+                    product.id,
+                    {
+                        partNumber: product.part_number,
+                        name: product.product_name,
+                        brand: product.brand_name
+                    },
+                    qty
+                );
+
+                if (!ok) {
+                    RFQ.showActionStatus?.(rfqBtn, "addFailed");
+                    return;
+                }
+
+                inRFQ = true;
+                rfqBtn.textContent = "Added ✓";
+                removeBtn.style.display = "block";
+                RFQ.showActionStatus?.(rfqBtn, "added", "success");
+            } catch (error) {
+                SouviksErrors?.log("[Souviks PDP] Unable to add/update RFQ item:", error, "error");
+                RFQ.showActionStatus?.(rfqBtn, "addFailed");
+            } finally {
+                setBusy(false);
+            }
+        });
+
+        removeBtn.addEventListener("click", async () => {
+            if (saving) return;
+            removeBtn.disabled = true;
+            removeBtn.setAttribute("aria-busy", "true");
+
+            try {
+                const removed = await RFQ.remove(product.id);
+                if (!removed) {
+                    RFQ.showActionStatus?.(removeBtn, "removeFailed");
+                    return;
+                }
+
+                inRFQ = false;
+                qtyInput.value = 1;
+                rfqBtn.textContent = "Add To RFQ";
+                removeBtn.style.display = "none";
+                RFQ.showActionStatus?.(removeBtn, "removeSuccess", "success");
+            } catch (error) {
+                SouviksErrors?.log("[Souviks PDP] Unable to remove RFQ item:", error, "error");
+                RFQ.showActionStatus?.(removeBtn, "removeFailed");
+            } finally {
+                removeBtn.disabled = false;
+                removeBtn.removeAttribute("aria-busy");
+            }
+        });
+
+        void (async () => {
+            try {
+                const item = (await RFQ.get()).find(
+                    entry => String(entry.id) === String(product.id)
+                );
+                if (!item) return;
+
+                inRFQ = true;
+                qtyInput.value = item.qty;
+                rfqBtn.textContent = "Added ✓";
+                removeBtn.style.display = "block";
+            } catch (error) {
+                SouviksErrors?.log("[Souviks PDP] RFQ state unavailable:", error, "warn");
+            }
+        })();
     }
 
     // ======================================================
@@ -1721,264 +1804,7 @@ document
         }
     });
 
-/* ==========================================
-   PDP RFQ CONTROLS
-========================================== */
-
-const qtyInput =
-    document.getElementById(
-        "pdpQty"
-    );
-
-const minusBtn =
-    document.querySelector(
-        ".pdp-qty-minus"
-    );
-
-const plusBtn =
-    document.querySelector(
-        ".pdp-qty-plus"
-    );
-
-const rfqBtn =
-    document.querySelector(
-        ".pdp-rfq-btn"
-    );
-
-const removeBtn =
-    document.querySelector(
-        ".pdp-remove-btn"
-    );
-
-
-/*
-----------------------------------------------------------
-LOAD EXISTING RFQ ITEM
-----------------------------------------------------------
-*/
-
-const rfqItems =
-    await RFQ.get();
-
-const rfqItem =
-    rfqItems.find(
-        item =>
-            item.id === product.id
-    );
-
-
-let inRFQ = false;
-
-
-if (
-    rfqItem &&
-    qtyInput &&
-    rfqBtn &&
-    removeBtn
-) {
-
-    inRFQ = true;
-
-    qtyInput.value =
-        rfqItem.qty;
-
-    rfqBtn.textContent =
-        "Added ✓";
-
-    removeBtn.style.display =
-        "block";
-
-}
-
-
-/*
-----------------------------------------------------------
-PDP QUANTITY — MINUS
-----------------------------------------------------------
-*/
-
-minusBtn?.addEventListener(
-
-    "click",
-
-    () => {
-
-        qtyInput.value =
-            Math.max(
-
-                1,
-
-                Number(
-                    qtyInput.value
-                ) - 1
-
-            );
-
-
-        if (inRFQ) {
-
-            rfqBtn.textContent =
-                "Update RFQ";
-
-        }
-
-    }
-
-);
-
-
-/*
-----------------------------------------------------------
-PDP QUANTITY — PLUS
-----------------------------------------------------------
-*/
-
-plusBtn?.addEventListener(
-
-    "click",
-
-    () => {
-
-        qtyInput.value =
-            Number(
-                qtyInput.value
-            ) + 1;
-
-
-        if (inRFQ) {
-
-            rfqBtn.textContent =
-                "Update RFQ";
-
-        }
-
-    }
-
-);
-
-
-/*
-----------------------------------------------------------
-PDP QUANTITY — MANUAL INPUT
-----------------------------------------------------------
-*/
-
-qtyInput?.addEventListener(
-
-    "input",
-
-    () => {
-
-        if (inRFQ) {
-
-            rfqBtn.textContent =
-                "Update RFQ";
-
-        }
-
-    }
-
-);
-
-
-/*
-----------------------------------------------------------
-PDP — ADD / UPDATE RFQ
-----------------------------------------------------------
-*/
-
-rfqBtn?.addEventListener(
-
-    "click",
-
-    async () => {
-
-        const qty =
-            Math.max(
-
-                1,
-
-                Number(
-                    qtyInput.value
-                ) || 1
-
-            );
-
-
-        const success =
-            await RFQ.setQuantity(
-
-                product.id,
-
-                {
-
-                    partNumber:
-                        product.part_number,
-
-                    name:
-                        product.product_name,
-
-                    brand:
-                        product.brand_name
-
-                },
-
-                qty
-
-            );
-
-
-        if (!success) {
-
-            return;
-
-        }
-
-
-        inRFQ = true;
-
-        rfqBtn.textContent =
-            "Added ✓";
-
-        removeBtn.style.display =
-            "block";
-
-    }
-
-);
-
-
-/*
-----------------------------------------------------------
-PDP — REMOVE FROM RFQ
-----------------------------------------------------------
-*/
-
-removeBtn?.addEventListener(
-
-    "click",
-
-    async () => {
-
-        await RFQ.remove(
-            product.id
-        );
-
-
-        inRFQ = false;
-
-        qtyInput.value =
-            1;
-
-        rfqBtn.textContent =
-            "Add To RFQ";
-
-        removeBtn.style.display =
-            "none";
-
-    }
-
-);
+this.bindPdpFastInteractions(product);
 
 this.bindGallery(product);
 this.initReviews(product);
