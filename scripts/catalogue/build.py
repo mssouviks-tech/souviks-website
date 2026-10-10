@@ -1232,7 +1232,7 @@ def sync_static_product_images():
                 if brand_logo and brand_name:
                     def sync_brand_badge(badge_match):
                         opening, inner, closing = badge_match.group(1), badge_match.group(2), badge_match.group(3)
-                        if not re.search(r"<img\\b", inner, flags=re.I):
+                        if not re.search(r"<img\b", inner, flags=re.I):
                             inner = (
                                 f'<img src="{html_module.escape(brand_logo, quote=True)}" '
                                 f'alt="{html_module.escape(brand_name, quote=True)}" '
@@ -1240,15 +1240,15 @@ def sync_static_product_images():
                             )
                         else:
                             inner = re.sub(
-                                r'\\bsrc\\s*=\\s*(["\\\'])[^"\\\']*\\1',
+                                r'\bsrc\s*=\s*(["\'])[^"\']*\1',
                                 lambda _: f'src="{html_module.escape(brand_logo, quote=True)}"',
                                 inner,
                                 count=1,
                                 flags=re.I,
                             )
-                            if re.search(r'\\balt\\s*=', inner, flags=re.I):
+                            if re.search(r'\balt\s*=', inner, flags=re.I):
                                 inner = re.sub(
-                                    r'\\balt\\s*=\\s*(["\\\'])[^"\\\']*\\1',
+                                    r'\balt\s*=\s*(["\'])[^"\']*\1',
                                     lambda _: f'alt="{html_module.escape(brand_name, quote=True)}"',
                                     inner,
                                     count=1,
@@ -1256,7 +1256,7 @@ def sync_static_product_images():
                                 )
                             else:
                                 inner = re.sub(
-                                    r"<img\\b",
+                                    r"<img\b",
                                     lambda m: m.group(0) + f' alt="{html_module.escape(brand_name, quote=True)}"',
                                     inner,
                                     count=1,
@@ -1265,7 +1265,7 @@ def sync_static_product_images():
                         return opening + inner + closing
 
                     text, badge_count = re.subn(
-                        r'(<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-brand-badge\\b[^"\\']*["\\'][^>]*>)(.*?)(</div>)',
+                        r'(<div\b[^>]*class=["\'][^"\']*\bpdp-brand-badge\b[^"\']*["\'][^>]*>)(.*?)(</div>)',
                         sync_brand_badge,
                         text,
                         count=1,
