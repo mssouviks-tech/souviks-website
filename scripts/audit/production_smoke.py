@@ -400,4 +400,12 @@ def run_smoke() -> int:
 
 
 if __name__ == "__main__":
+    if "--wait-only" in sys.argv[1:]:
+        try:
+            deployed_sha = wait_for_latest_main_deployment()
+            print(f"[PASS] Cloudflare Pages deployed latest main revision: {deployed_sha}")
+            sys.exit(0)
+        except Exception as exc:
+            print(f"[FAIL] deployment revision: {exc}", file=sys.stderr)
+            sys.exit(1)
     sys.exit(run_smoke())
