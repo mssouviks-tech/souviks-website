@@ -238,8 +238,7 @@ RFQ.getGuestItems = function () {
 
         return parsed
             .map(item => RFQ.normalizeItem({ ...item, rowId: null }))
-            .filter(Boolean)
-            .slice(0, RFQ.MAX_ITEMS);
+            .filter(Boolean);
 
 
     } catch (error) {
@@ -489,295 +488,105 @@ Anonymous:
 ----------------------------------------------------------
 */
 
-RFQ.setQuantity = async function (
+RFQ.setQuantity = async function (productId, product, quantity) {
+    const normalizedId = RFQ.normalizeText(productId, 128);
+    if (!normalizedId) return false;
 
-    productId,
-    product,
-    quantity
+    const normalizedProduct = RFQ.normalizeItem({
+        id: normalizedId,
+        rowId: null,
+        partNumber: product?.partNumber,
+        name: product?.name,
+        brand: product?.brand,
+        qty: quantity
+    });
+    if (!normalizedProduct) return false;
 
-) {
-
-    const qty =
-        Math.max(
-            1,
-            Number(
-                quantity
-            ) || 1
-        );
-
-
-    const user =
-        await RFQ.getUser();
-
-
-    /*
-    ------------------------------------------------------
-    ANONYMOUS
-    ------------------------------------------------------
-    */
+    const qty = normalizedProduct.qty;
+    const user = await RFQ.getUser();
 
     if (!user) {
-
-        const items =
-            RFQ.getGuestItems();
-
-
-        const existingIndex =
-            items.findIndex(
-
-                item =>
-                    String(item.id) === String(productId)
-
-            );
-
-
-        const normalizedProduct = {
-
-            id:
-                productId,
-
-            rowId:
-                null,
-
-            partNumber:
-                product?.partNumber ||
-                "",
-
-            name:
-                product?.name ||
-                "",
-
-            brand:
-                product?.brand ||
-                "",
-
-            qty
-
-        };
-
-
-        if (
-            existingIndex >=
-            0
-        ) {
-
-            items[
-                existingIndex
-            ] =
-                normalizedProduct;
-
-        } else {
-
-            items.push(
-                normalizedProduct
-            );
-
-        }
-
-
-        const saved =
-            RFQ.saveGuestItems(
-                items
-            );
-
-
-        if (!saved) {
-
-            return false;
-
-        }
-
-
-        await RFQ.updateBadge();
-
-        await RFQ.renderPage();
-
-
-        return true;
-
-    }
-
-
-    /*
-    ------------------------------------------------------
-    AUTHENTICATED
-    ------------------------------------------------------
-    */
-
-    if (
-        typeof supabaseClient ===
-        "undefined"
-    ) {
-
-        console.error(
-            "[Souviks RFQ] Supabase client unavailable."
+        const items = RFQ.getGuestItems();
+        const existingIndex = items.findIndex(
+            item => String(item.id) === String(normalizedId)
         );
 
-        return false;
+        if (existingIndex < 0 && items.length >= RFQ.MAX_ITEMS) return false;
 
+        if (existingIndex >= 0) {
+            items[existingIndex] = normalizedProduct;
+        } else {
+            items.push(normalizedProduct);
+        }
+
+        if (!RFQ.saveGuestItems(items)) return false;
+        await RFQ.updateBadge();
+        await RFQ.renderPage();
+        return true;
     }
 
+    if (typeof supabaseClient === "undefined") {
+        console.error("[Souviks RFQ] Supabase client unavailable.");
+        return false;
+    }
 
-    /*
-    ------------------------------------------------------
-    FIND EXISTING PRODUCT
-    ------------------------------------------------------
-    */
-
-    const {
-        data: existing,
-        error: findError
-    } =
-        await supabaseClient
-
-            .from(
-                RFQ.table
-            )
-
-            .select(
-                "id, quantity"
-            )
-
-            .eq(
-                "user_id",
-                user.id
-            )
-
-            .eq(
-                "product_id",
-                productId
-            )
-
-            .maybeSingle();
-
+    const { data: existing, error: findError } = await supabaseClient
+        .from(RFQ.table)
+        .select("id, quantity")
+        .eq("user_id", user.id)
+        .eq("product_id", normalizedId)
+        .maybeSingle();
 
     if (findError) {
-
         SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ product:", findError, "error");
-
         return false;
-
     }
-
-
-    /*
-    ------------------------------------------------------
-    UPDATE EXISTING PRODUCT
-    ------------------------------------------------------
-    */
 
     if (existing) {
-
-        const {
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    RFQ.table
-                )
-
-                .update({
-
-                    quantity:
-                        qty
-
-                })
-
-                .eq(
-                    "id",
-                    existing.id
-                )
-
-                .eq(
-                    "user_id",
-                    user.id
-                );
-
+        const { error } = await supabaseClient
+            .from(RFQ.table)
+            .update({ quantity: qty })
+            .eq("id", existing.id)
+            .eq("user_id", user.id);
 
         if (error) {
-
             SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", error, "error");
-
             return false;
-
         }
+    } else {
+        const { count, error: countError } = await supabaseClient
+            .from(RFQ.table)
+            .select("id", { count: "exact", head: true })
+            .eq("user_id", user.id);
 
-    }
+        if (countError) {
+            SouviksErrors?.log("[Souviks RFQ] Unable to check RFQ basket size:", countError, "error");
+            return false;
+        }
+        if (Number(count || 0) >= RFQ.MAX_ITEMS) return false;
 
-
-    /*
-    ------------------------------------------------------
-    INSERT NEW PRODUCT
-    ------------------------------------------------------
-    */
-
-    else {
-
-        const {
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    RFQ.table
-                )
-
-                .insert({
-
-                    user_id:
-                        user.id,
-
-                    product_id:
-                        productId,
-
-                    part_number:
-                        product?.partNumber ||
-                        "",
-
-                    product_name:
-                        product?.name ||
-                        "",
-
-                    brand:
-                        product?.brand ||
-                        "",
-
-                    quantity:
-                        qty
-
-                });
-
+        const { error } = await supabaseClient
+            .from(RFQ.table)
+            .insert({
+                user_id: user.id,
+                product_id: normalizedId,
+                part_number: normalizedProduct.partNumber,
+                product_name: normalizedProduct.name,
+                brand: normalizedProduct.brand,
+                quantity: qty
+            });
 
         if (error) {
-
             SouviksErrors?.log("[Souviks RFQ] Unable to insert RFQ product:", error, "error");
-
             return false;
-
         }
-
     }
-
 
     await RFQ.updateBadge();
-
     await RFQ.renderPage();
-
-
     return true;
-
 };
 
-
-/*
-----------------------------------------------------------
-ADD PRODUCT
-----------------------------------------------------------
-
-Used by product cards and product detail pages.
-----------------------------------------------------------
-*/
 
 RFQ.add = async function (
     product
