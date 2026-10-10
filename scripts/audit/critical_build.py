@@ -506,6 +506,11 @@ def validate_security_headers(errors: list[str]) -> None:
     expected_values = {
         "x-content-type-options": "nosniff",
         "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "sameorigin",
+        "permissions-policy": (
+            "camera=(), microphone=(), geolocation=(), payment=(), usb=(), "
+            "accelerometer=(), gyroscope=(), magnetometer=()"
+        ),
     }
     for name, expected_value in expected_values.items():
         actual = root_headers.get(name, "")
@@ -513,6 +518,72 @@ def validate_security_headers(errors: list[str]) -> None:
             errors.append(
                 f"_headers /* {name} {actual!r} != required {expected_value!r}"
             )
+
+    csp = root_headers.get("content-security-policy", "")
+    if not csp:
+        errors.append("_headers /* is missing Content-Security-Policy")
+    else:
+        directives: dict[str, set[str]] = {}
+        for section in csp.split(";"):
+            tokens = section.strip().split()
+            if not tokens:
+                continue
+            directive = tokens[0].casefold()
+            if directive in directives:
+                errors.append(f"_headers /* CSP contains duplicate {directive} directive")
+            directives[directive] = {token.casefold() for token in tokens[1:]}
+
+        required_sources = {
+            "default-src": {"'self'"},
+            "base-uri": {"'self'"},
+            "object-src": {"'none'"},
+            "frame-ancestors": {"'self'"},
+            "form-action": {"'self'"},
+            "script-src": {
+                "'self'", "'unsafe-inline'",
+                "https://cdn.jsdelivr.net",
+                "https://www.googletagmanager.com",
+            },
+            "script-src-attr": {"'unsafe-inline'"},
+            "style-src": {"'self'", "'unsafe-inline'", "https://fonts.googleapis.com"},
+            "style-src-attr": {"'unsafe-inline'"},
+            "img-src": {"'self'", "data:", "blob:"},
+            "font-src": {"'self'", "data:", "https://fonts.gstatic.com"},
+            "connect-src": {
+                "'self'",
+                "https://kjxrfmujzdxatpgegqcs.supabase.co",
+                "https://api.emailjs.com",
+                "https://www.google-analytics.com",
+                "https://region1.google-analytics.com",
+                "https://analytics.google.com",
+                "https://stats.g.doubleclick.net",
+                "https://www.googletagmanager.com",
+            },
+            "frame-src": {"'self'", "https://www.google.com", "https://maps.google.com"},
+            "manifest-src": {"'self'"},
+            "worker-src": {"'self'", "blob:"},
+        }
+        for directive, sources in required_sources.items():
+            actual_sources = directives.get(directive, set())
+            missing = sources - actual_sources
+            if missing:
+                errors.append(
+                    f"_headers /* CSP {directive} is missing required sources: "
+                    + ", ".join(sorted(missing))
+                )
+
+        # This is a deliberate compatibility trade-off for existing static HTML:
+        # pages use inline script blocks, script attributes and inline styles.
+        # Keep external script/connect/frame origins explicitly allowlisted and
+        # never allow eval(), arbitrary HTTPS hosts, data scripts, or plugins.
+        forbidden_sources = {"'unsafe-eval'", "https:", "*", "data:"}
+        for directive in ("default-src", "script-src", "style-src", "connect-src", "frame-src"):
+            unexpected = directives.get(directive, set()) & forbidden_sources
+            if unexpected:
+                errors.append(
+                    f"_headers /* CSP {directive} contains overly broad source(s): "
+                    + ", ".join(sorted(unexpected))
+                )
 
 def robots_from_html(raw: str) -> str:
     for tag in re.findall(r"<meta\b[^>]*>", raw, flags=re.I):
