@@ -1293,7 +1293,7 @@ def sync_static_product_images():
                     + '</div>'
                 ) if vehicle_names else '<p class="pdp-empty-state">Confirm vehicle application before ordering.</p>'
                 text = re.sub(
-                    r'(<div\\s+class=["\\']pdp-vehicle-grid["\\']\\s*>).*?(</div>\\s*</section>)',
+                    r'(<div\s+class=["\']pdp-vehicle-grid["\']\s*>).*?(</div>\s*</section>)',
                     lambda m: m.group(1) + vehicle_cards + m.group(2),
                     text,
                     count=1,
