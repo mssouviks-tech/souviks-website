@@ -29,12 +29,21 @@ async function check(name, fn) {
 
 async function attachPageErrors(page) {
   page.__souviksPageErrors = [];
+  page.__souviksConsoleErrors = [];
   page.on("pageerror", error => page.__souviksPageErrors.push(error?.message || String(error)));
+  page.on("console", message => {
+    if (message.type() !== "error") return;
+    const text = message.text();
+    if (/net::ERR_ABORTED|net::ERR_CANCELED|Navigation interrupted/i.test(text)) return;
+    page.__souviksConsoleErrors.push(text);
+  });
 }
 
 function assertNoPageErrors(page) {
-  const found = page.__souviksPageErrors.splice(0);
-  if (found.length) throw new Error("uncaught browser page error: " + found.slice(0, 4).join(" | "));
+  const uncaught = page.__souviksPageErrors.splice(0);
+  const consoleErrors = page.__souviksConsoleErrors.splice(0);
+  const found = [...uncaught.map(error => "pageerror: " + error), ...consoleErrors.map(error => "console: " + error)];
+  if (found.length) throw new Error("browser JavaScript/console error: " + found.slice(0, 6).join(" | "));
 }
 
 async function goto(page, path) {
