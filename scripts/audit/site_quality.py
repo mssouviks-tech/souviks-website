@@ -621,7 +621,7 @@ def reliability_audit(
         "products_missing_record_message": "Product unavailable" in products_bundle,
         "image_placeholder_exists": (ROOT / "assets/images/placeholder.webp").exists(),
         "image_error_fallback_listener": bool(
-            re.search(r'document\\.addEventListener\\(["\\']error["\\'],\\s*[\\w$]+\\s*=>', core)
+            re.search(r'document\.addEventListener\(["\']error["\'],\s*[\w$]+\s*=>', core)
         ) and "souviksFallbackApplied" in core and "/assets/images/placeholder.webp" in core,
     }
 
