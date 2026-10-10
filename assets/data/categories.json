@@ -1982,8 +1982,8 @@
       400
     ],
     "banner": "",
-    "description": "Bearings covers 90 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Eicher 1110 and more. The category includes subcategories such as Ball Bearings, Center Bearing, Clutch Release Bearing, Hub Units & Wheel Bearings, Kingpin Bearings and more and brands including ABC, KFL, NBC, Rane, Rider and more.",
-    "short_description": "Bearings: 90 active parts across Ball Bearings, Center Bearing, Clutch Release Bearing, Hub Units & Wheel Bearings and more.",
+    "description": "Bearings covers 86 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Eicher 1110 and more. The category includes subcategories such as Ball Bearings, Center Bearing, Clutch Release Bearing, Hub Units & Wheel Bearings, Kingpin Bearings and more and brands including ABC, KFL, NBC, Rane, Rider and more.",
+    "short_description": "Bearings: 86 active parts across Ball Bearings, Center Bearing, Clutch Release Bearing, Hub Units & Wheel Bearings and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -2013,10 +2013,6 @@
       {
         "id": "timing-components",
         "name": "Timing Components"
-      },
-      {
-        "id": "water-pump-bearings",
-        "name": "Water Pump Bearings"
       }
     ],
     "brands": [
@@ -2094,11 +2090,7 @@
       "SVKS000064",
       "SVKS000109",
       "SVKS000147",
-      "SVKS000149",
-      "SVKS000151",
       "SVKS000184",
-      "SVKS000188",
-      "SVKS000189",
       "SVKS000211",
       "SVKS000363",
       "SVKS000427",
@@ -2182,12 +2174,12 @@
       "SVKS001002",
       "SVKS001003"
     ],
-    "product_count": 90,
+    "product_count": 86,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Bearings Parts | Souviks",
-      "description": "Bearings covers 90 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Eicher 1110 and more. The category includes subcategories such as Ball Bearings, Center Bearing, Clutch Release Bearing, Hub Units & Wheel Bearings, Kingpin Bearings and more and brands including ABC, KFL, NBC, Rane, Rider and more.",
+      "description": "Bearings covers 86 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Eicher 1110 and more. The category includes subcategories such as Ball Bearings, Center Bearing, Clutch Release Bearing, Hub Units & Wheel Bearings, Kingpin Bearings and more and brands including ABC, KFL, NBC, Rane, Rider and more.",
       "keywords": [
         "Bearings",
         "commercial vehicle spare parts",
@@ -2765,24 +2757,16 @@
       400
     ],
     "banner": "",
-    "description": "Cooling System covers 4 active commercial-vehicle spare parts used across Tata Ace, Tata Magic, Universal. The category includes subcategories such as Radiator, Water Pump Bearings and brands including KFL, TVS Girling, Tata Genuine Parts.",
-    "short_description": "Cooling System: 4 active parts across Radiator, Water Pump Bearings.",
+    "description": "Cooling System covers 3 active commercial-vehicle spare parts used across Tata Ace, Tata Magic, Universal. The category includes subcategories such as Radiator and brands including TVS Girling, Tata Genuine Parts.",
+    "short_description": "Cooling System: 3 active parts across Radiator.",
     "parent_category": "",
     "subcategories": [
       {
         "id": "radiator",
         "name": "Radiator"
-      },
-      {
-        "id": "water-pump-bearings",
-        "name": "Water Pump Bearings"
       }
     ],
     "brands": [
-      {
-        "id": "kfl",
-        "name": "KFL"
-      },
       {
         "id": "tata-genuine-parts",
         "name": "Tata Genuine Parts"
@@ -2805,16 +2789,15 @@
     ],
     "products": [
       "SVKS000466",
-      "SVKS000748",
       "SVKS000808",
       "SVKS000809"
     ],
-    "product_count": 4,
+    "product_count": 3,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Cooling System Parts | Souviks",
-      "description": "Cooling System covers 4 active commercial-vehicle spare parts used across Tata Ace, Tata Magic, Universal. The category includes subcategories such as Radiator, Water Pump Bearings and brands including KFL, TVS Girling, Tata Genuine Parts.",
+      "description": "Cooling System covers 3 active commercial-vehicle spare parts used across Tata Ace, Tata Magic, Universal. The category includes subcategories such as Radiator and brands including TVS Girling, Tata Genuine Parts.",
       "keywords": [
         "Cooling System",
         "commercial vehicle spare parts",
@@ -2834,7 +2817,7 @@
     "icon": "/assets/images/products/SVKS000748/1.webp",
     "image": "/assets/images/products/SVKS000748/1.webp",
     "banner": "",
-    "description": "Cooling Pump covers 5 active commercial-vehicle spare parts. The category includes Water Pump products for commercial-vehicle applications.",
+    "description": "Cooling Pump covers 5 active commercial-vehicle spare parts used across Tata Ace, Tata Intra, Tata LPT, Tata Magic, Universal. The category includes subcategories such as Water Pump and brands including KFL, Tata Genuine Parts.",
     "short_description": "Cooling Pump: 5 active parts across Water Pump.",
     "parent_category": "",
     "subcategories": [
@@ -2845,12 +2828,12 @@
     ],
     "brands": [
       {
-        "id": "tata-genuine-parts",
-        "name": "Tata Genuine Parts"
-      },
-      {
         "id": "kfl",
         "name": "KFL"
+      },
+      {
+        "id": "tata-genuine-parts",
+        "name": "Tata Genuine Parts"
       }
     ],
     "vehicles": [
@@ -2868,18 +2851,18 @@
       "SVKS000189"
     ],
     "products": [
-      "SVKS000748",
       "SVKS000149",
       "SVKS000151",
       "SVKS000188",
-      "SVKS000189"
+      "SVKS000189",
+      "SVKS000748"
     ],
     "product_count": 5,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Cooling Pump Parts | Souviks",
-      "description": "Cooling Pump parts including Water Pump products for commercial vehicles. Check the part number and vehicle application before ordering.",
+      "description": "Cooling Pump covers 5 active commercial-vehicle spare parts used across Tata Ace, Tata Intra, Tata LPT, Tata Magic, Universal. The category includes subcategories such as Water Pump and brands including KFL, Tata Genuine Parts.",
       "keywords": [
         "Cooling Pump",
         "Water Pump",

@@ -8827,12 +8827,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
-    "subcategory_id": "water-pump-bearings",
-    "subcategory_name": "Water Pump Bearings",
-    "subcategory": "Water Pump Bearings",
+    "category_id": "cooling-pump",
+    "category_name": "Cooling Pump",
+    "category": "Cooling Pump",
+    "subcategory_id": "water-pump",
+    "subcategory_name": "Water Pump",
+    "subcategory": "Water Pump",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -8840,7 +8840,7 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "Tata Genuine Parts Assy. Water Pump (ACE Mega). Part number 571020100106. for Water Pump Bearings. Compatible vehicles: Tata Ace, Tata Magic.",
+    "description": "Tata Genuine Parts Assy. Water Pump (ACE Mega). Part number 571020100106. for Water Pump. Compatible vehicles: Tata Ace, Tata Magic.",
     "image_folder": "SVKS000149",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -8865,8 +8865,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:24.953058",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-10T12:16:00+05:30",
+    "catalogue_updated_at": "2026-10-10T12:16:00+05:30"
   },
   {
     "id": "SVKS000150",
@@ -8946,12 +8946,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
-    "subcategory_id": "water-pump-bearings",
-    "subcategory_name": "Water Pump Bearings",
-    "subcategory": "Water Pump Bearings",
+    "category_id": "cooling-pump",
+    "category_name": "Cooling Pump",
+    "category": "Cooling Pump",
+    "subcategory_id": "water-pump",
+    "subcategory_name": "Water Pump",
+    "subcategory": "Water Pump",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -8959,7 +8959,7 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "Tata Genuine Parts Pump Water BS6. Part number 573720999901. for Water Pump Bearings. Compatible vehicles: Tata Intra.",
+    "description": "Tata Genuine Parts Pump Water BS6. Part number 573720999901. for Water Pump. Compatible vehicles: Tata Intra.",
     "image_folder": "SVKS000151",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -8983,8 +8983,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:25.000836",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-10T12:16:00+05:30",
+    "catalogue_updated_at": "2026-10-10T12:16:00+05:30"
   },
   {
     "id": "SVKS000152",
@@ -11130,12 +11130,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
-    "subcategory_id": "water-pump-bearings",
-    "subcategory_name": "Water Pump Bearings",
-    "subcategory": "Water Pump Bearings",
+    "category_id": "cooling-pump",
+    "category_name": "Cooling Pump",
+    "category": "Cooling Pump",
+    "subcategory_id": "water-pump",
+    "subcategory_name": "Water Pump",
+    "subcategory": "Water Pump",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -11143,7 +11143,7 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "Tata Genuine Parts Assy. Water Pump TATA ACE/Magic. Part number 886720000003. for Water Pump Bearings. Compatible vehicles: Tata Ace, Tata Magic.",
+    "description": "Tata Genuine Parts Assy. Water Pump TATA ACE/Magic. Part number 886720000003. for Water Pump. Compatible vehicles: Tata Ace, Tata Magic.",
     "image_folder": "SVKS000188",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -11168,8 +11168,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:26.132810",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-10T12:16:00+05:30",
+    "catalogue_updated_at": "2026-10-10T12:16:00+05:30"
   },
   {
     "id": "SVKS000189",
@@ -11190,12 +11190,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
-    "subcategory_id": "water-pump-bearings",
-    "subcategory_name": "Water Pump Bearings",
-    "subcategory": "Water Pump Bearings",
+    "category_id": "cooling-pump",
+    "category_name": "Cooling Pump",
+    "category": "Cooling Pump",
+    "subcategory_id": "water-pump",
+    "subcategory_name": "Water Pump",
+    "subcategory": "Water Pump",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -11203,7 +11203,7 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "Tata Genuine Parts Water Pump 2518 E3 Mod. High Flow. Part number 886720000004. for Water Pump Bearings. Compatible vehicles: Tata LPT.",
+    "description": "Tata Genuine Parts Water Pump 2518 E3 Mod. High Flow. Part number 886720000004. for Water Pump. Compatible vehicles: Tata LPT.",
     "image_folder": "SVKS000189",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -11227,8 +11227,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:26.166100",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-10T12:16:00+05:30",
+    "catalogue_updated_at": "2026-10-10T12:16:00+05:30"
   },
   {
     "id": "SVKS000190",
@@ -44545,12 +44545,12 @@
     "brand_id": "kfl",
     "brand_name": "KFL",
     "brand": "KFL",
-    "category_id": "cooling-system",
-    "category_name": "Cooling System",
-    "category": "Cooling System",
-    "subcategory_id": "water-pump-bearings",
-    "subcategory_name": "Water Pump Bearings",
-    "subcategory": "Water Pump Bearings",
+    "category_id": "cooling-pump",
+    "category_name": "Cooling Pump",
+    "category": "Cooling Pump",
+    "subcategory_id": "water-pump",
+    "subcategory_name": "Water Pump",
+    "subcategory": "Water Pump",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -44558,7 +44558,7 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "KFL Water Pump. Part number KF427. for Water Pump Bearings. Compatible vehicles: Universal.",
+    "description": "KFL Water Pump. Part number KF427. for Water Pump. Compatible vehicles: Universal.",
     "image_folder": "SVKS000748",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -44582,8 +44582,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:38.167950",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-10T12:16:00+05:30",
+    "catalogue_updated_at": "2026-10-10T12:16:00+05:30"
   },
   {
     "id": "SVKS000749",

@@ -37,6 +37,9 @@
     <loc>https://www.souviks.co.in/en/categories/cooling-system</loc>
   </url>
   <url>
+    <loc>https://www.souviks.co.in/en/categories/cooling-pump</loc>
+  </url>
+  <url>
     <loc>https://www.souviks.co.in/bn/categories/filters</loc>
   </url>
   <url>
@@ -73,6 +76,9 @@
     <loc>https://www.souviks.co.in/bn/categories/cooling-system</loc>
   </url>
   <url>
+    <loc>https://www.souviks.co.in/bn/categories/cooling-pump</loc>
+  </url>
+  <url>
     <loc>https://www.souviks.co.in/hi/categories/filters</loc>
   </url>
   <url>
@@ -107,5 +113,8 @@
   </url>
   <url>
     <loc>https://www.souviks.co.in/hi/categories/cooling-system</loc>
+  </url>
+  <url>
+    <loc>https://www.souviks.co.in/hi/categories/cooling-pump</loc>
   </url>
 </urlset>

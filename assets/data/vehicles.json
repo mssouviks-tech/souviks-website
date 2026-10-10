@@ -301,6 +301,10 @@
         "name": "Clutch Parts"
       },
       {
+        "id": "cooling-pump",
+        "name": "Cooling Pump"
+      },
+      {
         "id": "electricals",
         "name": "Electricals"
       },
@@ -1621,6 +1625,10 @@
         "name": "Clutch Parts"
       },
       {
+        "id": "cooling-pump",
+        "name": "Cooling Pump"
+      },
+      {
         "id": "cooling-system",
         "name": "Cooling System"
       },
@@ -2203,6 +2211,10 @@
       {
         "id": "clutch-parts",
         "name": "Clutch Parts"
+      },
+      {
+        "id": "cooling-pump",
+        "name": "Cooling Pump"
       },
       {
         "id": "cooling-system",
@@ -3489,7 +3501,7 @@
     "cutout": "/assets/images/vehicles/TATA_MAGIC/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_MAGIC/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 39 active spare parts for Tata Magic, a Tata Motors application. Current catalogue coverage includes Filters, Clutch Parts, Suspension & Steering, Engine Components, Bearings and more and common replacement areas such as Leaf Spring, Fuel Filter, Accelerator Cable, Oil Filter, Water Pump Bearings and more; listed brands include Tata Genuine Parts, JAI, Anupam, Compo.",
+    "description": "Souviks lists 39 active spare parts for Tata Magic, a Tata Motors application. Current catalogue coverage includes Filters, Clutch Parts, Suspension & Steering, Engine Components, Rubber Parts and more and common replacement areas such as Leaf Spring, Fuel Filter, Accelerator Cable, Oil Filter, Water Pump and more; listed brands include Tata Genuine Parts, JAI, Anupam, Compo.",
     "short_description": "Tata Magic: 39 active parts mapped across Filters, Clutch Parts, Suspension & Steering, Engine Components and more.",
     "categories": [
       {
@@ -3503,6 +3515,10 @@
       {
         "id": "clutch-parts",
         "name": "Clutch Parts"
+      },
+      {
+        "id": "cooling-pump",
+        "name": "Cooling Pump"
       },
       {
         "id": "cooling-system",
@@ -3603,7 +3619,7 @@
     "active": true,
     "seo": {
       "title": "Tata Magic Parts | Souviks",
-      "description": "Souviks lists 39 active spare parts for Tata Magic, a Tata Motors application. Current catalogue coverage includes Filters, Clutch Parts, Suspension & Steering, Engine Components, Bearings and more and common replacement areas such as Leaf Spring, Fuel Filter, Accelerator Cable, Oil Filter, Water Pump Bearings and more; listed brands include Tata Genuine Parts, JAI, Anupam, Compo.",
+      "description": "Souviks lists 39 active spare parts for Tata Magic, a Tata Motors application. Current catalogue coverage includes Filters, Clutch Parts, Suspension & Steering, Engine Components, Rubber Parts and more and common replacement areas such as Leaf Spring, Fuel Filter, Accelerator Cable, Oil Filter, Water Pump and more; listed brands include Tata Genuine Parts, JAI, Anupam, Compo.",
       "keywords": [
         "Tata Magic",
         "commercial vehicle spare parts",
@@ -3638,7 +3654,7 @@
     "cutout": "/assets/images/vehicles/TATA_INTRA/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_INTRA/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 21 active spare parts for Tata Intra, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Brakes, Bearings, Filters and common replacement areas such as Leaf Spring, Brake Disc, Clutch Disc, Clutch Master Cylinder, Clutch Cover and more; listed brands include Tata Genuine Parts, JAI, Alok, Compo, KFL.",
+    "description": "Souviks lists 21 active spare parts for Tata Intra, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Brakes, Bearings, Cooling Pump and more and common replacement areas such as Leaf Spring, Brake Disc, Clutch Disc, Clutch Master Cylinder, Clutch Cover and more; listed brands include Tata Genuine Parts, JAI, Alok, Compo, KFL.",
     "short_description": "Tata Intra: 21 active parts mapped across Suspension & Steering, Clutch Parts, Brakes, Bearings and more.",
     "categories": [
       {
@@ -3652,6 +3668,10 @@
       {
         "id": "clutch-parts",
         "name": "Clutch Parts"
+      },
+      {
+        "id": "cooling-pump",
+        "name": "Cooling Pump"
       },
       {
         "id": "filters",
@@ -3726,7 +3746,7 @@
     "active": true,
     "seo": {
       "title": "Tata Intra Parts | Souviks",
-      "description": "Souviks lists 21 active spare parts for Tata Intra, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Brakes, Bearings, Filters and common replacement areas such as Leaf Spring, Brake Disc, Clutch Disc, Clutch Master Cylinder, Clutch Cover and more; listed brands include Tata Genuine Parts, JAI, Alok, Compo, KFL.",
+      "description": "Souviks lists 21 active spare parts for Tata Intra, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Brakes, Bearings, Cooling Pump and more and common replacement areas such as Leaf Spring, Brake Disc, Clutch Disc, Clutch Master Cylinder, Clutch Cover and more; listed brands include Tata Genuine Parts, JAI, Alok, Compo, KFL.",
       "keywords": [
         "Tata Intra",
         "commercial vehicle spare parts",
