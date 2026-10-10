@@ -1,0 +1,11 @@
+# Node/JavaScript build dependencies
+node_modules/
+
+# Python bytecode and build cache
+__pycache__/
+*.py[cod]
+
+# Local editor and OS metadata
+.DS_Store
+Thumbs.db
+.vscode/
