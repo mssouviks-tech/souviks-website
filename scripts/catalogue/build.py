@@ -1555,12 +1555,6 @@ def sync_product_seo_and_schema():
         for item in json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
         if item.get("active") is not False and item.get("id")
     }
-    brand_records = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
-    brands_by_id = {
-        text(item.get("id")).casefold(): item
-        for item in brand_records
-        if isinstance(item, dict) and text(item.get("id"))
-    }
     changed = []
     
     def text(value):
@@ -1570,6 +1564,13 @@ def sync_product_seo_and_schema():
         if isinstance(value, list):
             return [text(item) for item in value if text(item)]
         return [item.strip() for item in re.split(r"[,;]", text(value)) if item.strip()]
+
+    brand_records = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
+    brands_by_id = {
+        text(item.get("id")).casefold(): item
+        for item in brand_records
+        if isinstance(item, dict) and text(item.get("id"))
+    }
 
     def canonical_url(lang, slug):
         return f"https://www.souviks.co.in/{lang}/products/{slug}"
