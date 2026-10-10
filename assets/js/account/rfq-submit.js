@@ -381,6 +381,7 @@ Quantity: ${item.qty}
             phone: profile.phone,
             company: profile.company,
             gst: profile.gst_number,
+            email: user.email,
             message
         });
 
