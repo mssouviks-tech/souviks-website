@@ -735,8 +735,8 @@ def reconcile_catalogue_projections():
             # Bring visible PDP identity fields across with the embedded data.
             page = replace_row_value(page, ("Part Number", "भाग संख्या", "पार्ट नंबर", "পার্ট নম্বর", "পার্ট নং"), part or "Available on request")
             page = replace_row_value(page, ("Brand", "ब्रांड", "ব্র্যান্ড"), brand or "—")
-            page = replace_row_value(page, ("Category", "श्रेणी", "विभाग", "ক্যাটাগরি"), category or "—")
-            page = replace_row_value(page, ("Sub Category", "उपश्रेणी", "उप-विभाग", "উপ-বিভাগ"), subcategory or "—")
+            page = replace_row_value(page, ("Category", "श्रेणी", "विभाग", "বিভাগ", "ক্যাটাগরি"), category or "—")
+            page = replace_row_value(page, ("Sub Category", "Subcategory", "उपश्रेणी", "उप-विभाग", "উপ-বিভাগ", "উপবিভাগ"), subcategory or "—")
             page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "অ্যাপ্লিকেশন"), ", ".join(applications) if applications else "Confirm by part number")
             page = replace_row_value(page, ("Compatible Vehicles", "संगत वाहन", "उपयुक्त वाहन", "সামঞ্জস্যপূর্ণ গাড়ি", "উপযুক্ত গাড়ি"), ", ".join(vehicles) if vehicles else "Confirm vehicle application")
 
@@ -1121,11 +1121,19 @@ def reconcile_catalogue_projections():
                 html, count=1, flags=re.I
             )
     
+            category_name = text(product.get("category_name") or product.get("category"))
+            if category_name:
+                html = re.sub(
+                    r'(<div class=["\']pdp-row["\']>\s*<strong>\s*(?:Category|श्रेणी|विभाग|বিভাগ|ক্যাটাগরি)\s*</strong>\s*<span>)[^<]*(</span>)',
+                    lambda m: m.group(1) + html_module.escape(category_name, quote=False) + m.group(2),
+                    html, count=1, flags=re.I
+                )
+
             sub_name = text(product.get("subcategory_name") or product.get("subcategory"))
             if sub_name:
                 html = re.sub(
-                    r'(<div class=["\']pdp-row["\']>\s*<strong>\s*(?:Sub Category|उपश्रेणी|উপ-বিভাগ)\s*</strong>\s*<span>)[^<]*(</span>)',
-                    lambda m: m.group(1) + sub_name + m.group(2),
+                    r'(<div class=["\']pdp-row["\']>\s*<strong>\s*(?:Sub Category|Subcategory|उपश्रेणी|उप-विभाग|উপ-বিভাগ|উপবিভাগ)\s*</strong>\s*<span>)[^<]*(</span>)',
+                    lambda m: m.group(1) + html_module.escape(sub_name, quote=False) + m.group(2),
                     html, count=1, flags=re.I
                 )
     
