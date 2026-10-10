@@ -1,0 +1,40 @@
+{
+  "updated_at": "2026-10-10T06:55:00Z",
+  "category_updates": [
+    {
+      "id": "SVKS000748",
+      "category_id": "cooling-pump",
+      "category_name": "Cooling Pump",
+      "subcategory_id": "water-pump",
+      "subcategory_name": "Water Pump"
+    },
+    {
+      "id": "SVKS000149",
+      "category_id": "cooling-pump",
+      "category_name": "Cooling Pump",
+      "subcategory_id": "water-pump",
+      "subcategory_name": "Water Pump"
+    },
+    {
+      "id": "SVKS000151",
+      "category_id": "cooling-pump",
+      "category_name": "Cooling Pump",
+      "subcategory_id": "water-pump",
+      "subcategory_name": "Water Pump"
+    },
+    {
+      "id": "SVKS000188",
+      "category_id": "cooling-pump",
+      "category_name": "Cooling Pump",
+      "subcategory_id": "water-pump",
+      "subcategory_name": "Water Pump"
+    },
+    {
+      "id": "SVKS000189",
+      "category_id": "cooling-pump",
+      "category_name": "Cooling Pump",
+      "subcategory_id": "water-pump",
+      "subcategory_name": "Water Pump"
+    }
+  ]
+}
