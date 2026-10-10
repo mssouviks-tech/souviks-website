@@ -1060,7 +1060,7 @@ REMOVE PRODUCT
 ----------------------------------------------------------
 */
 
- (productId) {
+RFQ.remove = async function (productId) {
     const user = await RFQ.getUser();
 
     if (!user) {
