@@ -1023,7 +1023,20 @@ RFQ.mergeGuestBasket = async function () {
         let pendingItems = RFQ.getGuestItems();
         if (!pendingItems.length) return true;
 
+        const { data: currentRows, error: currentRowsError } = await supabaseClient
+            .from(RFQ.table)
+            .select("product_id")
+            .eq("user_id", user.id);
+        if (currentRowsError) {
+            SouviksErrors?.log("[Souviks RFQ] Unable to inspect account basket before merge:", currentRowsError, "error");
+            return false;
+        }
+        const currentProductIds = new Set(
+            (currentRows || []).map(row => String(row.product_id))
+        );
+
         // Retain each guest row until its authenticated write has succeeded.
+        // Guest items that exceed the account limit stay in localStorage.
         for (const item of [...pendingItems]) {
             try {
                 const { data: existing, error } = await supabaseClient
@@ -1038,23 +1051,36 @@ RFQ.mergeGuestBasket = async function () {
                     const { error: updateError } = await supabaseClient
                         .from(RFQ.table)
                         .update({
-                            quantity: Number(existing.quantity || 0) + Math.max(1, Number(item.qty) || 1)
+                            quantity: RFQ.normalizeQuantity(
+                                Number(existing.quantity || 0) + RFQ.normalizeQuantity(item.qty)
+                            )
                         })
                         .eq("id", existing.id)
                         .eq("user_id", user.id);
                     if (updateError) throw updateError;
+                    currentProductIds.add(String(item.id));
                 } else {
+                    if (currentProductIds.size >= RFQ.MAX_ITEMS) {
+                        SouviksErrors?.log(
+                            "[Souviks RFQ] Account basket reached its item limit; remaining guest items were kept locally.",
+                            { productId: item.id },
+                            "warn"
+                        );
+                        break;
+                    }
+
                     const { error: insertError } = await supabaseClient
                         .from(RFQ.table)
                         .insert({
                             user_id: user.id,
                             product_id: item.id,
                             part_number: item.partNumber || "",
-                            product_name: item.name || "",
+                            product_name: item.name || `Product ${item.id}`,
                             brand: item.brand || "",
-                            quantity: Math.max(1, Number(item.qty) || 1)
+                            quantity: RFQ.normalizeQuantity(item.qty)
                         });
                     if (insertError) throw insertError;
+                    currentProductIds.add(String(item.id));
                 }
 
                 const remainingItems = pendingItems.filter(
