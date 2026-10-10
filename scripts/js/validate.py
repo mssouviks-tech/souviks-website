@@ -61,6 +61,7 @@ CATALOGUE_CORE_MODULES = {
     path
     for name in ("account.js", "products.js", "product.js")
     for path in PAGE_MODULES[name]
+    if path != "/assets/js/account/rfq.js"
 }
 
 
@@ -156,6 +157,21 @@ def main() -> None:
         for html_path in sorted((ROOT / language).rglob("*.html")):
             html = html_path.read_text(encoding="utf-8")
             sources = script_sources(html)
+            has_rfq_ui = bool(re.search(
+                r'<[^>]+\\bclass=["\\'][^"\\']*\\b(?:rfq-badge|add-to-cart|pdp-rfq-btn)\\b[^"\\']*["\\'][^>]*>',
+                html,
+                flags=re.I,
+            ))
+            has_standalone_rfq = "/assets/js/request-quote/rfq.js" in sources
+            if (
+                has_rfq_ui
+                and not has_standalone_rfq
+                and "/assets/js/account/rfq.js" not in sources
+            ):
+                errors.append(
+                    f"{html_path.relative_to(ROOT)} exposes RFQ UI without loading the shared RFQ engine."
+                )
+
             bundle_sources = [src for src in sources if "/assets/js/bundles/" in src]
             page_module_sources = [
                 src for src in sources
