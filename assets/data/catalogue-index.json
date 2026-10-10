@@ -37573,21 +37573,24 @@
     "subcategory_id": "leaf-spring",
     "subcategory_name": "Leaf Spring",
     "subcategory": "Leaf Spring",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS000883/1.webp",
     "vehicles": [
       "Eicher Pro Series",
       "Ashok Leyland Ecomet"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
     "description": "Toyo E Comet Rear - Main Leaf. Part number 209. for Leaf Spring. Compatible vehicles: Eicher Pro Series, Ashok Leyland Ecomet.",
     "image_folder": "SVKS000883",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery.",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {}
   },
   {
