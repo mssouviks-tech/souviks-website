@@ -344,8 +344,8 @@ def migrate_html() -> int:
             new_content = new_content.replace(token, ordered_tags)
 
         # RFQ badges are part of the shared header and product cards also appear
-        # on home, brand, category, and vehicle pages. Ensure those pages load the
-        # same basket engine, not just the products-list and PDP entrypoints.
+        # on home, brand, category, vehicle, and post-submission pages. Every page
+        # exposing RFQ UI must load site-core first and then exactly one basket engine.
         rfq_ui_pattern = re.compile(
             r'<[^>]+\bclass=["\'][^"\']*\b(?:rfq-badge|add-to-cart|pdp-rfq-btn)\b[^"\']*["\'][^>]*>',
             re.IGNORECASE,
@@ -356,15 +356,38 @@ def migrate_html() -> int:
         standalone_rfq_pattern = re.compile(
             r'<script\s+defer\s+src="/assets/js/request-quote/rfq\.js(?:\?[^" ]*)?"></script>'
         )
-        if (
-            rfq_ui_pattern.search(new_content)
-            and not account_rfq_pattern.search(new_content)
-            and not standalone_rfq_pattern.search(new_content)
-        ):
-            rfq_tag = f'<script defer src="{versioned_asset_url("assets/js/account/rfq.js")}"></script>'
-            anchor = catalogue_core_pattern.search(new_content) or core_pattern.search(new_content)
-            if anchor:
-                new_content = new_content[:anchor.end()] + "\n" + rfq_tag + new_content[anchor.end():]
+        if rfq_ui_pattern.search(new_content):
+            additions = []
+            if not core_pattern.search(new_content):
+                additions.append(core_tag)
+
+            if (
+                not account_rfq_pattern.search(new_content)
+                and not standalone_rfq_pattern.search(new_content)
+            ):
+                additions.append(
+                    f'<script defer src="{versioned_asset_url("assets/js/account/rfq.js")}"></script>'
+                )
+
+            if additions:
+                anchor = catalogue_core_pattern.search(new_content) or core_pattern.search(new_content)
+                if anchor:
+                    new_content = (
+                        new_content[:anchor.end()]
+                        + "\n"
+                        + "\n".join(additions if core_pattern.search(new_content) else additions[1:])
+                        + new_content[anchor.end():]
+                    )
+                else:
+                    closing_body = re.search(r"</body\s*>", new_content, re.IGNORECASE)
+                    if not closing_body:
+                        raise ValueError(f"Cannot load RFQ runtime on {path}: no </body> anchor")
+                    new_content = (
+                        new_content[:closing_body.start()]
+                        + "\n".join(additions)
+                        + "\n"
+                        + new_content[closing_body.start():]
+                    )
 
         def replace_css(match: re.Match[str]) -> str:
             relative_path = f"assets/css/{match.group(2)}"
