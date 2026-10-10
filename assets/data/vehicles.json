@@ -1269,8 +1269,8 @@
     "cutout": "/assets/images/vehicles/EICHER_PRO_SERIES/transparent-cutout.png",
     "hero": "/assets/images/vehicles/EICHER_PRO_SERIES/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 49 active spare parts for Eicher Pro Series, a Eicher application. Current catalogue coverage includes Suspension & Steering, Filters, Electricals, Air System, Bearings and more and common replacement areas such as Bracket, Air Repair Kit, Spring Leaf Side Washer, Oil Filter, Clutch Release Bearing and more; listed brands include JMP, UnoMinda, Harish, Bosch, Texspin.",
-    "short_description": "Eicher Pro Series: 49 active parts mapped across Suspension & Steering, Filters, Electricals, Air System and more.",
+    "description": "Souviks lists 50 active spare parts for Eicher Pro Series, a Eicher application. Current catalogue coverage includes Suspension & Steering, Filters, Electricals, Air System, Bearings and more and common replacement areas such as Bracket, Air Repair Kit, Spring Leaf Side Washer, Oil Filter, Clutch Release Bearing and more; listed brands include JMP, UnoMinda, Harish, Bosch, Texspin.",
+    "short_description": "Eicher Pro Series: 50 active parts mapped across Suspension & Steering, Filters, Electricals, Air System and more.",
     "categories": [
       {
         "id": "air-system",
@@ -1416,6 +1416,7 @@
       "SVKS000875",
       "SVKS000878",
       "SVKS000879",
+      "SVKS000883",
       "SVKS001030",
       "SVKS001031",
       "SVKS001035",
@@ -1424,12 +1425,12 @@
       "SVKS001038",
       "SVKS001039"
     ],
-    "product_count": 49,
+    "product_count": 50,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Eicher Pro Series Parts | Souviks",
-      "description": "Souviks lists 49 active spare parts for Eicher Pro Series, a Eicher application. Current catalogue coverage includes Suspension & Steering, Filters, Electricals, Air System, Bearings and more and common replacement areas such as Bracket, Air Repair Kit, Spring Leaf Side Washer, Oil Filter, Clutch Release Bearing and more; listed brands include JMP, UnoMinda, Harish, Bosch, Texspin.",
+      "description": "Souviks lists 50 active spare parts for Eicher Pro Series, a Eicher application. Current catalogue coverage includes Suspension & Steering, Filters, Electricals, Air System, Bearings and more and common replacement areas such as Bracket, Air Repair Kit, Spring Leaf Side Washer, Oil Filter, Clutch Release Bearing and more; listed brands include JMP, UnoMinda, Harish, Bosch, Texspin.",
       "keywords": [
         "Eicher Pro Series",
         "commercial vehicle spare parts",
@@ -4313,8 +4314,8 @@
     "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/transparent-cutout.png",
     "hero": "/assets/images/vehicles/ASHOK_LEYLAND_ECOMET/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 18 active spare parts for Ashok Leyland Ecomet, a Ashok Leyland application. Current catalogue coverage includes Suspension & Steering, Filters, Electricals, Clutch Parts, Bearings and common replacement areas such as Fuel Filter, Head Light, Bracket, Leaf Spring, Fuel Water Separator and more; listed brands include Leyparts, JMP, Fleetguard, UnoMinda, Toyo.",
-    "short_description": "Ashok Leyland Ecomet: 18 active parts mapped across Suspension & Steering, Filters, Electricals, Clutch Parts and more.",
+    "description": "Souviks lists 19 active spare parts for Ashok Leyland Ecomet, a Ashok Leyland application. Current catalogue coverage includes Suspension & Steering, Filters, Electricals, Clutch Parts, Bearings and common replacement areas such as Leaf Spring, Fuel Filter, Head Light, Bracket, Fuel Water Separator and more; listed brands include Leyparts, JMP, Toyo, Fleetguard, UnoMinda.",
+    "short_description": "Ashok Leyland Ecomet: 19 active parts mapped across Suspension & Steering, Filters, Electricals, Clutch Parts and more.",
     "categories": [
       {
         "id": "bearings",
@@ -4399,14 +4400,15 @@
       "SVKS000751",
       "SVKS000755",
       "SVKS000878",
-      "SVKS000879"
+      "SVKS000879",
+      "SVKS000883"
     ],
-    "product_count": 18,
+    "product_count": 19,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Ashok Leyland Ecomet Parts | Souviks",
-      "description": "Souviks lists 18 active spare parts for Ashok Leyland Ecomet, a Ashok Leyland application. Current catalogue coverage includes Suspension & Steering, Filters, Electricals, Clutch Parts, Bearings and common replacement areas such as Fuel Filter, Head Light, Bracket, Leaf Spring, Fuel Water Separator and more; listed brands include Leyparts, JMP, Fleetguard, UnoMinda, Toyo.",
+      "description": "Souviks lists 19 active spare parts for Ashok Leyland Ecomet, a Ashok Leyland application. Current catalogue coverage includes Suspension & Steering, Filters, Electricals, Clutch Parts, Bearings and common replacement areas such as Leaf Spring, Fuel Filter, Head Light, Bracket, Fuel Water Separator and more; listed brands include Leyparts, JMP, Toyo, Fleetguard, UnoMinda.",
       "keywords": [
         "Ashok Leyland Ecomet",
         "commercial vehicle spare parts",

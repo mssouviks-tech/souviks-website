@@ -4394,9 +4394,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 5 active Toyo products across Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland U-Truck, Eicher Pro Series, Ashok Leyland Ecomet and common replacement areas including Leaf Spring.  Current catalogue examples include E Comet Front - Main Leaf, E Comet Front - 2nd Leaf, U Truck Front - Main Leaf. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Toyo products at Souviks cover Suspension & Steering and applications across Ashok Leyland U-Truck, Eicher Pro Series, Ashok Leyland Ecomet.",
-    "product_count": 5,
+    "description": "Souviks currently lists 6 active Toyo products across Suspension & Steering. The listed range is mapped to applications such as Eicher Pro Series, Ashok Leyland Ecomet, Ashok Leyland U-Truck and common replacement areas including Leaf Spring.  Current catalogue examples include E Comet Front - Main Leaf, E Comet Front - 2nd Leaf, U Truck Front - Main Leaf. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Toyo products at Souviks cover Suspension & Steering and applications across Eicher Pro Series, Ashok Leyland Ecomet, Ashok Leyland U-Truck.",
+    "product_count": 6,
     "categories": [
       "suspension-steering"
     ],
@@ -4421,13 +4421,14 @@
       "SVKS000879",
       "SVKS000880",
       "SVKS000881",
-      "SVKS000882"
+      "SVKS000882",
+      "SVKS000883"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Toyo Parts | Souviks",
-      "description": "Souviks currently lists 5 active Toyo products across Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland U-Truck, Eicher Pro Series, Ashok Leyland Ecomet and common replacement areas including Leaf Spring.  Current catalogue examples include E Comet Front - Main Leaf, E Comet Front - 2nd Leaf, U Truck Front - Main Leaf. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 6 active Toyo products across Suspension & Steering. The listed range is mapped to applications such as Eicher Pro Series, Ashok Leyland Ecomet, Ashok Leyland U-Truck and common replacement areas including Leaf Spring.  Current catalogue examples include E Comet Front - Main Leaf, E Comet Front - 2nd Leaf, U Truck Front - Main Leaf. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Toyo",
         "commercial vehicle spare parts",
