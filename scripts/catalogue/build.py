@@ -1064,11 +1064,25 @@ def reconcile_catalogue_projections():
             continue
         html = path.read_text(encoding="utf-8")
         original = html
-        html = re.sub(
-            r'(<span><strong>)\d+\+(</strong><small>Products</small></span>)',
-            lambda m: m.group(1) + f"{count}+" + m.group(2),
-            html,
-        )
+        # Update product totals by the semantic product icon, not the visible
+        # label. Homepage labels are localized, so matching "Products" only
+        # updated English and left Hindi/Bengali counters stale.
+        if name in {"en/index.html", "hi/index.html", "bn/index.html"}:
+            html = re.sub(
+                r'(<div\b[^>]*class=["\'][^"\']*\bhome-trust-item\b[^"\']*["\'][^>]*>.*?<img\b(?=[^>]*\bsrc=["\'][^"\']*/assets/icons/products\.svg["\'])[^>]*>.*?<strong>\s*)\d[\d,]*\+(\s*</strong>)',
+                lambda m: m.group(1) + f"{count}+" + m.group(2),
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
+        elif name in {"en/about.html", "hi/about.html", "bn/about.html"}:
+            html = re.sub(
+                r'(<div\b[^>]*class=["\'][^"\']*\bhero-stat\b[^"\']*["\'][^>]*>.*?<img\b(?=[^>]*\bsrc=["\'][^"\']*/assets/icons/products\.svg["\'])[^>]*>.*?<div\b[^>]*class=["\'][^"\']*\bstat-number\b[^"\']*["\'][^>]*>\s*)\d[\d,]*(\s*</div>)',
+                lambda m: m.group(1) + str(count) + m.group(2),
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
         if html != original:
             path.write_text(html, encoding="utf-8")
             changed.add(str(path))
