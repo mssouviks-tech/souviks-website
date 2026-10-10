@@ -375,200 +375,52 @@ Quantity: ${item.qty}
         items,
         message = ""
     ) {
-
-        const {
-            data,
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    "rfqs"
-                )
-
-                .insert({
-
-                    user_id:
-                        user.id,
-
-                    customer_name:
-                        profile.full_name
-                            ?.trim() ||
-                        "",
-
-                    customer_email:
-                        user.email
-                            ?.trim() ||
-                        null,
-
-                    customer_phone:
-                        profile.phone
-                            ?.trim() ||
-                        "",
-
-                    company:
-                        profile.company
-                            ?.trim() ||
-                        null,
-
-                    gst_number:
-                        profile.gst_number
-                            ?.trim() ||
-                        null,
-
-                    is_business:
-                        Boolean(
-                            profile.is_business
-                        ),
-
-                    message:
-                        (
-                            message ||
-                            ""
-                        ).trim() ||
-                        null
-
-                })
-
-                .select(
-                    `
-                    id,
-                    rfq_number,
-                    user_id,
-                    customer_name,
-                    customer_email,
-                    customer_phone,
-                    company,
-                    gst_number,
-                    is_business,
-                    message,
-                    status,
-                    created_at
-                    `
-                )
-
-                .single();
-
-
-        if (error) {
-
-            throw error;
-
+        if (typeof RFQ === "undefined" || typeof supabaseClient === "undefined") {
+            throw new Error("RFQ submission services are unavailable.");
         }
 
-
-        if (!data) {
-
+        const normalizedItems = items
+            .map(item => RFQ.normalizeItem(item))
+            .filter(Boolean);
+        if (!normalizedItems.length || normalizedItems.length !== items.length) {
+            throw new Error("One or more RFQ items are invalid.");
+        }
+        if (normalizedItems.length > RFQ.MAX_ITEMS) {
             throw new Error(
-                "The RFQ could not be created."
+                "Your RFQ contains too many items. Please submit no more than " +
+                RFQ.MAX_ITEMS +
+                " items at a time."
             );
-
         }
 
+        const { data: databaseResult, error } = await supabaseClient.rpc("submit_rfq", {
+            p_customer_name: RFQ.normalizeText(profile.full_name, 120),
+            p_customer_phone: RFQ.normalizeText(profile.phone, 40),
+            p_company: RFQ.normalizeText(profile.company, 160) || null,
+            p_gst_number: RFQ.normalizeText(profile.gst_number, 15).toUpperCase() || null,
+            p_message: RFQ.normalizeText(message, 2000) || null,
+            p_items: normalizedItems.map(item => ({
+                id: item.id,
+                partNumber: item.partNumber,
+                name: item.name,
+                brand: item.brand,
+                quantity: RFQ.normalizeQuantity(item.qty)
+            }))
+        });
 
-        return data;
+        if (error || !databaseResult?.rfq_number) {
+            SouviksErrors?.log("[Souviks RFQ] Atomic account RFQ creation failed:", error, "error");
+            throw error || new Error("The RFQ could not be created.");
+        }
 
+        return {
+            id: databaseResult.id,
+            rfq_number: databaseResult.rfq_number,
+            user_id: user.id,
+            item_count: databaseResult.item_count
+        };
     },
 
-
-    /*
-    ======================================================
-    CREATE RFQ ITEMS
-    ======================================================
-    */
-
-    async createItems(
-        rfq,
-        items
-    ) {
-
-        const rows =
-            items.map(
-
-                item => ({
-
-                    rfq_id:
-                        rfq.id,
-
-                    product_id:
-                        String(
-                            item.id
-                        ),
-
-                    part_number:
-                        item.partNumber ||
-                        null,
-
-                    product_name:
-                        item.name ||
-                        "",
-
-                    brand:
-                        item.brand ||
-                        null,
-
-                    quantity:
-                        Math.max(
-                            1,
-                            Number(
-                                item.qty
-                            ) || 1
-                        )
-
-                })
-
-            );
-
-
-        const {
-            data,
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    "rfq_items"
-                )
-
-                .insert(
-                    rows
-                )
-
-                .select(
-                    "id, rfq_id, product_id, part_number, product_name, brand, quantity"
-                );
-
-
-        if (error) {
-
-            throw error;
-
-        }
-
-
-        if (
-            !data ||
-            data.length !==
-            rows.length
-        ) {
-
-            throw new Error(
-                "One or more RFQ items could not be created."
-            );
-
-        }
-
-
-        return data;
-
-    },
-
-
-    /*
-    ======================================================
-    SEND EMAIL NOTIFICATION
-    ======================================================
-    */
 
     async sendEmail(
         reference,
@@ -820,53 +672,8 @@ Quantity: ${item.qty}
             );
 
 
-        /*
-        --------------------------------------------------
-        CREATE RFQ ITEMS
-        --------------------------------------------------
-        */
-
-        let createdItems;
-
-
-        try {
-
-            createdItems =
-                await this.createItems(
-                    rfq,
-                    items
-                );
-
-
-        } catch (error) {
-
-            SouviksErrors?.log("[Souviks RFQ] RFQ item creation failed:", error, "error");
-
-
-            /*
-            --------------------------------------------------
-            IMPORTANT
-
-            The RFQ parent has already been created.
-
-            We deliberately do not attempt a client-side
-            DELETE here because no DELETE RLS policy has
-            been created.
-
-            This failure should therefore be logged and
-            handled rather than silently pretending the RFQ
-            was never created.
-            --------------------------------------------------
-            */
-
-            throw new Error(
-                "Your RFQ was created, but its items could not be recorded. Please contact Souviks with reference " +
-                reference +
-                "."
-            );
-
-        }
-
+        // submit_rfq atomically creates the RFQ and all of its items.
+        const createdItems = items;
 
         /*
         --------------------------------------------------
