@@ -1240,15 +1240,8 @@ def sync_static_product_images():
                             )
                         else:
                             inner = re.sub(
-                                r'\\bsrc\\s*=\\s*(["\\\']).*?\\1',
-                                lambda m: m.group(0).split("=")[0] + '=' + m.group(0)[m.group(0).index(m.group(0).split("=")[1][0]):m.start(0)] if False else m.group(0),
-                                inner,
-                                count=0,
-                                flags=re.I,
-                            )
-                            inner = re.sub(
                                 r'\\bsrc\\s*=\\s*(["\\\'])[^"\\\']*\\1',
-                                lambda m: f'src="{html_module.escape(brand_logo, quote=True)}"',
+                                lambda _: f'src="{html_module.escape(brand_logo, quote=True)}"',
                                 inner,
                                 count=1,
                                 flags=re.I,
@@ -1256,13 +1249,19 @@ def sync_static_product_images():
                             if re.search(r'\\balt\\s*=', inner, flags=re.I):
                                 inner = re.sub(
                                     r'\\balt\\s*=\\s*(["\\\'])[^"\\\']*\\1',
-                                    lambda m: f'alt="{html_module.escape(brand_name, quote=True)}"',
+                                    lambda _: f'alt="{html_module.escape(brand_name, quote=True)}"',
                                     inner,
                                     count=1,
                                     flags=re.I,
                                 )
                             else:
-                                inner = re.sub(r"<img\\b", lambda m: m.group(0) + f' alt="{html_module.escape(brand_name, quote=True)}"', inner, count=1, flags=re.I)
+                                inner = re.sub(
+                                    r"<img\\b",
+                                    lambda m: m.group(0) + f' alt="{html_module.escape(brand_name, quote=True)}"',
+                                    inner,
+                                    count=1,
+                                    flags=re.I,
+                                )
                         return opening + inner + closing
 
                     text, badge_count = re.subn(
