@@ -578,7 +578,7 @@ Used by product cards and product detail pages.
 ----------------------------------------------------------
 */
 
- (
+RFQ.add = async function (
     product
 ) {
 
