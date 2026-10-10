@@ -1017,33 +1017,51 @@ async function main() {
       });
 
       await check(`${view}/${lang}/entity gallery missing-image fallback loads`, async () => {
-        await goto(page, BASE + langPath(lang, "brands/bapi"));
-        const missingImages = page.locator('.entity-product-galleries img[data-image-state="missing"]');
-        const count = await missingImages.count();
-        if (count < 1) throw new Error("fixture no longer contains a missing-image product");
-        const image = missingImages.first();
-        await image.scrollIntoViewIfNeeded();
-        const state = await image.evaluate(async element => {
-          if (!element.complete) {
-            await new Promise(resolve => {
-              element.addEventListener("load", resolve, { once: true });
-              element.addEventListener("error", resolve, { once: true });
-              setTimeout(resolve, 4000);
+        let interceptedBrokenImage = false;
+        await page.route("**/assets/images/products/**", async route => {
+          if (!interceptedBrokenImage) {
+            interceptedBrokenImage = true;
+            await route.fulfill({
+              status: 404,
+              contentType: "image/webp",
+              body: "deterministic missing-image fixture"
             });
+          } else {
+            await route.continue();
           }
-          return {
-            src: element.getAttribute("src") || "",
-            width: element.naturalWidth,
-            complete: element.complete
-          };
         });
-        if (!state.src.endsWith("/assets/images/placeholder.webp")) {
-          throw new Error(`missing-image fallback URL was ${state.src}`);
+        await goto(page, BASE + langPath(lang, "brands/bapi"));
+        if ((await page.locator(".entity-product-galleries img").count()) < 1) {
+          throw new Error("brand product gallery has no images");
         }
-        if (!state.complete || state.width < 1) {
-          throw new Error(`fallback image failed to load: ${state.src}`);
+        await page.waitForFunction(() => {
+          const images = Array.from(document.querySelectorAll(".entity-product-galleries img"));
+          return images.some(image =>
+            image.dataset.souviksFallbackApplied === "true" &&
+            (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
+            image.complete && image.naturalWidth > 0
+          );
+        }, null, { timeout: 8000 });
+        if (!interceptedBrokenImage) {
+          throw new Error("the deterministic product-image 404 fixture was not triggered");
         }
-        return "explicit placeholder loaded; no broken product image URL";
+        const state = await page.evaluate(() => {
+          const image = Array.from(document.querySelectorAll(".entity-product-galleries img"))
+            .find(element => element.dataset.souviksFallbackApplied === "true");
+          return image ? {
+            src: image.getAttribute("src") || "",
+            width: image.naturalWidth,
+            complete: image.complete,
+            fallbackApplied: image.dataset.souviksFallbackApplied
+          } : null;
+        });
+        if (!state || !state.src.endsWith("/assets/images/placeholder.webp")) {
+          throw new Error("injected image failure did not switch to the shared placeholder");
+        }
+        if (!state.complete || state.width < 1 || state.fallbackApplied !== "true") {
+          throw new Error("fallback image failed to load: " + JSON.stringify(state));
+        }
+        return "injected a real product-image 404; shared placeholder loaded; gallery remained usable";
       });
 
       await check(`${view}/${lang}/PDP quantity + Add to RFQ`, async () => {
