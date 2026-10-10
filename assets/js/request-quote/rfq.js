@@ -100,6 +100,79 @@ RFQ.normalizeItem = function (item) {
     };
 };
 
+const RFQ_UI_MESSAGES = {
+    en: {
+        added: "Product added to your RFQ basket.",
+        addFailed: "Could not add this product to your RFQ basket. Please try again.",
+        quantityFailed: "Could not update the RFQ quantity. Please try again.",
+        removeFailed: "Could not remove this product from your RFQ basket. Please try again."
+    },
+    hi: {
+        added: "उत्पाद आपके RFQ बास्केट में जोड़ दिया गया है।",
+        addFailed: "उत्पाद RFQ बास्केट में नहीं जोड़ा जा सका। कृपया फिर प्रयास करें।",
+        quantityFailed: "RFQ की मात्रा अपडेट नहीं हो सकी। कृपया फिर प्रयास करें।",
+        removeFailed: "उत्पाद RFQ बास्केट से हटाया नहीं जा सका। कृपया फिर प्रयास करें।"
+    },
+    bn: {
+        added: "পণ্যটি আপনার RFQ ঝুড়িতে যোগ করা হয়েছে।",
+        addFailed: "পণ্যটি RFQ ঝুড়িতে যোগ করা যায়নি। আবার চেষ্টা করুন।",
+        quantityFailed: "RFQ-এর পরিমাণ আপডেট করা যায়নি। আবার চেষ্টা করুন।",
+        removeFailed: "পণ্যটি RFQ ঝুড়ি থেকে সরানো যায়নি। আবার চেষ্টা করুন।"
+    }
+};
+
+RFQ.showActionStatus = function (anchor, messageKey, type = "error") {
+    const lang = (
+        document.documentElement.lang ||
+        window.souviks?.currentLanguage ||
+        "en"
+    ).trim().toLowerCase();
+    const dictionary = RFQ_UI_MESSAGES[lang] || RFQ_UI_MESSAGES.en;
+    const message = dictionary[messageKey] || RFQ_UI_MESSAGES.en[messageKey] || "";
+    if (!message) return;
+
+    const control = anchor instanceof Element ? anchor : null;
+    let host = null;
+    let insertAfter = null;
+
+    const card = control?.closest(".product-card");
+    const pdpActions = control?.closest(".pdp-actions");
+    const basketBody = control?.closest("#rfq-items");
+
+    if (card) {
+        host = card.querySelector(".product-content") || card;
+    } else if (pdpActions) {
+        host = pdpActions;
+    } else if (basketBody) {
+        insertAfter = basketBody.closest("table");
+        host = insertAfter?.parentElement || basketBody.parentElement;
+    } else {
+        host = control?.closest("#rfq-form") ||
+            document.getElementById("rfq-form") ||
+            document.querySelector("main") ||
+            document.body;
+    }
+    if (!host) return;
+
+    let status = host.querySelector(":scope > .rfq-inline-status");
+    if (!status) {
+        status = document.createElement("div");
+        status.className = "form-status rfq-inline-status";
+        status.setAttribute("role", "status");
+        status.setAttribute("aria-live", "polite");
+    }
+
+    status.textContent = message;
+    status.className = "form-status rfq-inline-status";
+    if (type) status.classList.add(type);
+
+    if (insertAfter && status.previousElementSibling !== insertAfter) {
+        insertAfter.insertAdjacentElement("afterend", status);
+    } else if (status.parentElement !== host) {
+        host.appendChild(status);
+    }
+};
+
 
 /*
 ----------------------------------------------------------
@@ -671,46 +744,31 @@ document.addEventListener(
         event.preventDefault();
 
 
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+
         RFQ.add({
-
-            id:
-                button.dataset.id,
-
-            partNumber:
-                button.dataset.part,
-
-            name:
-                button.dataset.name,
-
-            brand:
-                button.dataset.brand
-
+            id: button.dataset.id,
+            partNumber: button.dataset.part,
+            name: button.dataset.name,
+            brand: button.dataset.brand
         })
-
-        .then(
-
-            added => {
-
+            .then(added => {
                 if (added) {
-
-                    button.textContent =
-                        "Added";
-
+                    button.textContent = "Added";
+                    RFQ.showActionStatus(button, "added", "success");
+                } else {
+                    RFQ.showActionStatus(button, "addFailed");
                 }
-
-            }
-
-        )
-
-        .catch(
-
-            error => {
-
+            })
+            .catch(error => {
                 SouviksErrors?.log("[Souviks RFQ] Add-to-RFQ error:", error, "error");
-
-            }
-
-        );
+                RFQ.showActionStatus(button, "addFailed");
+            })
+            .finally(() => {
+                button.disabled = false;
+                button.removeAttribute("aria-busy");
+            });
 
     }
 
