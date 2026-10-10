@@ -1047,6 +1047,9 @@ async function main() {
       });
 
       await check(`${view}/${lang}/PDP quantity + Add to RFQ`, async () => {
+        // The preceding missing-image fallback check navigates to a brand page.
+        // Return to the PDP before asserting PDP-specific quantity and RFQ controls.
+        await goto(page, BASE + langPath(lang, `products/${PRODUCT_SLUG}`));
         await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
         const qty = page.locator("#pdpQty");
         await qty.fill("2");
