@@ -60,6 +60,7 @@ jobs:
               "scripts/catalogue/product_card.py",
               "scripts/catalogue/sync_product_cards.py",
               "scripts/audit/critical_build.py",
+              "scripts/audit/performance_guard.py",
               "scripts/audit/structured_data.py",
               "scripts/audit/site_quality.py",
               "scripts/audit/code_quality.py",
@@ -96,6 +97,7 @@ jobs:
           python3 scripts/audit/structured_data.py
           python3 scripts/audit/site_quality.py
           python3 scripts/audit/code_quality.py
+          python3 scripts/audit/performance_guard.py
           python3 scripts/js/validate.py
 
           git diff --check

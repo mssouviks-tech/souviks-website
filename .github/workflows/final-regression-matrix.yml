@@ -10,9 +10,10 @@ on:
       - 'bn/**'
       - 'scripts/catalogue/**'
       - 'scripts/audit/critical_build.py'
+      - 'scripts/audit/performance_guard.py'
       - 'scripts/regression/**'
       - '_headers'
-      - '.github/workflows/final-regression-matrix.yml'
+      - '.github/workflows/**'
   push:
     branches: [main]
     paths:
