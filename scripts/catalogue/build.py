@@ -1298,8 +1298,8 @@ def sync_static_product_images():
                         count=1,
                         flags=re.I | re.S,
                     )
-                    if badge_count != 1:
-                        raise SystemExit(f"{path}: missing canonical brand badge for {brand_id}")
+                    # Some valid PDP templates intentionally have no badge.
+                    # Update it when present; absence alone must not abort a build.
 
                 # The vehicle list is catalogue context, not a product photo gallery.
                 # Avoid showing a generic placeholder image as if it depicts a
