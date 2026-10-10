@@ -1069,7 +1069,7 @@ def reconcile_catalogue_projections():
             data["seo"]["description"] = description
             data["seo"]["canonical"] = canonical
     
-            html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";" + html[match.end():]
+            html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";" + html[match.end():]
             if old_name and old_name != name:
                 html = html.replace(old_name, name)
 
