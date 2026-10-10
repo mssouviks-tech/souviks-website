@@ -254,8 +254,6 @@ SAVE GUEST ITEMS
 RFQ.saveGuestItems = function (items) {
     try {
         const source = Array.isArray(items) ? items : [];
-        if (source.length > RFQ.MAX_ITEMS) return false;
-
         const normalized = source.map(item => RFQ.normalizeItem(item)).filter(Boolean);
         if (normalized.length !== source.length) return false;
 
