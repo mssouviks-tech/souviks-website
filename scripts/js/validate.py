@@ -7,6 +7,7 @@ shared core; account.js retains only account-specific behaviour.
 """
 
 from pathlib import Path
+import hashlib
 import re
 import sys
 
@@ -88,6 +89,48 @@ def script_sources(html: str) -> list[str]:
     ]
 
 
+
+VERSIONED_ASSET_RE = re.compile(
+    r'(?P<asset>/(?:assets/js/(?:site-core|catalogue-core)\\.js|assets/js/bundles/[^"?]+\\.js|assets/js/(?:account|products|product|request-quote|components)/[^"?]+\\.js))'
+    r'(?P<query>\\?v=(?P<version>[0-9a-f]{12}))?'
+)
+
+
+def validate_asset_versions(errors: list[str]) -> None:
+    """Fail the build when HTML references a stale or unversioned local JS asset."""
+    html_paths = [
+        ROOT / "404.html",
+        *sorted((ROOT / "en").rglob("*.html")),
+        *sorted((ROOT / "hi").rglob("*.html")),
+        *sorted((ROOT / "bn").rglob("*.html")),
+    ]
+    digest_cache: dict[str, str] = {}
+
+    for html_path in html_paths:
+        if not html_path.is_file():
+            continue
+        html = html_path.read_text(encoding="utf-8")
+        for match in VERSIONED_ASSET_RE.finditer(html):
+            asset_rel = match.group("asset").lstrip("/")
+            asset_path = ROOT / asset_rel
+            if not asset_path.is_file():
+                errors.append(
+                    f"{html_path.relative_to(ROOT)} references missing JavaScript asset {asset_rel}."
+                )
+                continue
+
+            if asset_rel not in digest_cache:
+                digest_cache[asset_rel] = hashlib.sha256(asset_path.read_bytes()).hexdigest()[:12]
+
+            expected = digest_cache[asset_rel]
+            actual = match.group("version")
+            if actual != expected:
+                observed = f"?v={actual}" if actual else "no version query"
+                errors.append(
+                    f"{html_path.relative_to(ROOT)} has a stale JavaScript cache version for "
+                    f"{asset_rel}: expected ?v={expected}, got {observed}."
+                )
+
 def validate_auth_ownership(errors: list[str]) -> None:
     """Ensure the shared core is the sole owner of Supabase auth lifecycle."""
     candidates = sorted(set(JS_ROOT.glob("**/*.js")))
@@ -117,6 +160,7 @@ def main() -> None:
         fail("assets/js/site-core.js is missing.")
 
     errors: list[str] = []
+    validate_asset_versions(errors)
     validate_auth_ownership(errors)
 
     # All browser JavaScript modules use lowercase kebab-case; numeric utility
