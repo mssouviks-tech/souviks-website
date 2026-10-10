@@ -1567,9 +1567,9 @@ def sync_product_seo_and_schema():
 
     brand_records = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
     brands_by_id = {
-        text(item.get("id")).casefold(): item
+        str(item.get("id") or "").strip().casefold(): item
         for item in brand_records
-        if isinstance(item, dict) and text(item.get("id"))
+        if isinstance(item, dict) and str(item.get("id") or "").strip()
     }
 
     def canonical_url(lang, slug):
