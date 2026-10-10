@@ -856,15 +856,13 @@ def reconcile_catalogue_projections():
                             )
                     return opening + inner + closing
 
-                html, logo_count = re.subn(
+                html, _ = re.subn(
                     r'(<div\b[^>]*class=["\'][^"\']*\bpdp-brand-badge\b[^"\']*["\'][^>]*>)(.*?)(</div>)',
                     sync_brand_badge,
                     html,
                     count=1,
                     flags=re.I | re.S,
                 )
-                if logo_count not in {0, 1}:
-                    raise SystemExit(f"{path}: could not synchronize PDP brand badge for {brand_id}")
 
             # Remove unrelated vehicle placeholder photos from regenerated PDPs.
             # Keep the vehicle names and fitment information, but don't present a
