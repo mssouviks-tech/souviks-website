@@ -356,7 +356,10 @@ def enrich_entity_pages(kind, data, catalogue):
             item["seo"]["description"] = item["description"]
 
         for lang in LANGUAGES:
-            path = ROOT / lang / (kind + "s") / f'{clean(item.get("slug"))}.html'
+            entity_directory = {"brand": "brands", "category": "categories", "vehicle": "vehicles"}.get(kind)
+            if not entity_directory:
+                raise ValueError(f"Unsupported entity kind: {kind}")
+            path = ROOT / lang / entity_directory / f'{clean(item.get("slug"))}.html'
             if not path.exists():
                 continue
             page = update_meta(path.read_text(encoding="utf-8"), clean(item.get("description")))
