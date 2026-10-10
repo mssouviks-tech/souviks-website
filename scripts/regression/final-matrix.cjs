@@ -1267,6 +1267,25 @@ async function main() {
         }
       });
 
+      await check(`${view}/${lang}/primary navigation left-click navigates`, async () => {
+        const destination = `/${lang}/brands`;
+        await goto(page, BASE + langPath(lang, "products"));
+        const navigation = page.locator("#mainNavigation");
+        const link = navigation.locator(`.navigation-menu a[href="${destination}"]`).first();
+        if (!(await link.count())) throw new Error("primary navigation Brands link is missing");
+
+        if (VIEWS[view].isMobile) {
+          await page.locator("#mobileMenuButton").click();
+          await page.waitForFunction(() => document.querySelector("#mainNavigation")?.classList.contains("active"));
+        } else if (await navigation.evaluate(element => element.classList.contains("active"))) {
+          throw new Error("desktop navigation should not require the mobile-menu active state");
+        }
+
+        await link.click();
+        await page.waitForURL(url => url.pathname === destination, { timeout: 10000 });
+        return `left-click navigated to ${destination}`;
+      });
+
       await check(`${view}/${lang}/Sign Out anonymous state`, async () => {
         const session = await page.evaluate(async () => {
           if (typeof supabaseClient === "undefined") return null;
