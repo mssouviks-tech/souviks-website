@@ -1084,27 +1084,45 @@ def reconcile_catalogue_projections():
                 flags=re.I | re.S,
             )
             html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title_text}</title>", html, count=1, flags=re.I)
-            html = re.sub(r'(<meta\s+property=["\']og:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title_attr + m.group(2), html, count=1, flags=re.I)
-            html = re.sub(r'(<meta\s+name=["\']twitter:title["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + title_attr + m.group(2), html, count=1, flags=re.I)
+            # Replace the entire tag so legacy trailing fragments from malformed quoted titles are removed.
             html = re.sub(
-                r'(<meta\s+name=["\']description["\']\s+content=["\'])[^"\']*(["\'])',
-                lambda m: m.group(1) + description_attr + m.group(2),
+                r'<meta\b(?=[^>]*\bproperty=["\']og:title["\'])[^>]*>',
+                lambda _: f'<meta\n        property="og:title"\n        content="{title_attr}">',
+                html,
+                count=1,
+                flags=re.I,
+            )
+            html = re.sub(
+                r'<meta\b(?=[^>]*\bname=["\']twitter:title["\'])[^>]*>',
+                lambda _: f'<meta\n        name="twitter:title"\n        content="{title_attr}">',
+                html,
+                count=1,
+                flags=re.I,
+            )
+            html = re.sub(
+                r'<meta\b(?=[^>]*\bname=["\']description["\'])[^>]*>',
+                lambda _: f'<meta\n        name="description"\n        content="{description_attr}">',
                 html, count=1, flags=re.I
             )
             html = re.sub(
-                r'(<meta\s+property=["\']og:description["\']\s+content=["\'])[^"\']*(["\'])',
-                lambda m: m.group(1) + description_attr + m.group(2),
+                r'<meta\b(?=[^>]*\bproperty=["\']og:description["\'])[^>]*>',
+                lambda _: f'<meta\n        property="og:description"\n        content="{description_attr}">',
                 html, count=1, flags=re.I
             )
             html = re.sub(
-                r'(<meta\s+name=["\']twitter:description["\']\s+content=["\'])[^"\']*(["\'])',
-                lambda m: m.group(1) + description_attr + m.group(2),
+                r'<meta\b(?=[^>]*\bname=["\']twitter:description["\'])[^>]*>',
+                lambda _: f'<meta\n        name="twitter:description"\n        content="{description_attr}">',
                 html, count=1, flags=re.I
             )
             html = re.sub(r'(<link\s+rel=["\']canonical["\']\s+href=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(<meta\s+property=["\']og:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
-            html = re.sub(r'(currentPage:\s*)("(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\')', lambda m: m.group(1) + json.dumps(name), html, count=1)
+            html = re.sub(
+                r'(?m)(currentPage:[ \t]*\r?\n[ \t]*)[^\r\n]*',
+                lambda m: m.group(1) + json.dumps(name),
+                html,
+                count=1,
+            )
             # Keep every language alternate on the current canonical slug.
             # This prevents stale mixed-case or pre-normalization product URLs
             # from surviving in generated hreflang metadata.
