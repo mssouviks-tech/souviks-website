@@ -1768,6 +1768,21 @@ const rfqItem =
 
 
 let inRFQ = false;
+let pdpRfqSaving = false;
+
+const setPdpRfqBusy = busy => {
+    pdpRfqSaving = busy;
+    [qtyInput, minusBtn, plusBtn, rfqBtn, removeBtn].forEach(control => {
+        if (!control) return;
+        control.disabled = busy;
+        if (busy) control.setAttribute("aria-busy", "true");
+        else control.removeAttribute("aria-busy");
+    });
+};
+
+const markPdpRfqChanged = () => {
+    if (inRFQ && rfqBtn) rfqBtn.textContent = "Update RFQ";
+};
 
 
 if (
@@ -1797,64 +1812,18 @@ PDP QUANTITY — MINUS
 ----------------------------------------------------------
 */
 
-minusBtn?.addEventListener(
+minusBtn?.addEventListener("click", () => {
+    if (pdpRfqSaving || !qtyInput) return;
+    qtyInput.value = Math.max(1, (Number(qtyInput.value) || 1) - 1);
+    markPdpRfqChanged();
+});
 
-    "click",
-
-    () => {
-
-        qtyInput.value =
-            Math.max(
-
-                1,
-
-                Number(
-                    qtyInput.value
-                ) - 1
-
-            );
-
-
-        if (inRFQ) {
-
-            rfqBtn.textContent =
-                "Update RFQ";
-
-        }
-
-    }
-
-);
-
-
-/*
-----------------------------------------------------------
-PDP QUANTITY — PLUS
-----------------------------------------------------------
-*/
-
-plusBtn?.addEventListener(
-
-    "click",
-
-    () => {
-
-        qtyInput.value =
-            Number(
-                qtyInput.value
-            ) + 1;
-
-
-        if (inRFQ) {
-
-            rfqBtn.textContent =
-                "Update RFQ";
-
-        }
-
-    }
-
-);
+plusBtn?.addEventListener("click", () => {
+    if (pdpRfqSaving || !qtyInput) return;
+    const max = Number(RFQ.SUBMISSION_LIMITS?.maxQuantity) || 9999;
+    qtyInput.value = Math.min(max, Math.max(1, Number(qtyInput.value) || 1) + 1);
+    markPdpRfqChanged();
+});
 
 
 /*
@@ -1863,22 +1832,7 @@ PDP QUANTITY — MANUAL INPUT
 ----------------------------------------------------------
 */
 
-qtyInput?.addEventListener(
-
-    "input",
-
-    () => {
-
-        if (inRFQ) {
-
-            rfqBtn.textContent =
-                "Update RFQ";
-
-        }
-
-    }
-
-);
+qtyInput?.addEventListener("input", markPdpRfqChanged);
 
 
 /*
@@ -1887,65 +1841,33 @@ PDP — ADD / UPDATE RFQ
 ----------------------------------------------------------
 */
 
-rfqBtn?.addEventListener(
-
-    "click",
-
-    async () => {
-
-        const qty =
-            Math.max(
-
-                1,
-
-                Number(
-                    qtyInput.value
-                ) || 1
-
-            );
-
-
-        const success =
-            await RFQ.setQuantity(
-
-                product.id,
-
-                {
-
-                    partNumber:
-                        product.part_number,
-
-                    name:
-                        product.product_name,
-
-                    brand:
-                        product.brand_name
-
-                },
-
-                qty
-
-            );
-
-
-        if (!success) {
-
+rfqBtn?.addEventListener("click", async () => {
+    if (pdpRfqSaving || !rfqBtn) return;
+    const max = Number(RFQ.SUBMISSION_LIMITS?.maxQuantity) || 9999;
+    const qty = Math.min(max, Math.max(1, Math.floor(Number(qtyInput?.value) || 1)));
+    if (qtyInput) qtyInput.value = String(qty);
+    setPdpRfqBusy(true);
+    try {
+        const added = await RFQ.setQuantity(product.id, {
+            partNumber: product.part_number,
+            name: product.product_name,
+            brand: product.brand_name
+        }, qty);
+        if (added === false) {
+            RFQ.showActionStatus?.(rfqBtn, "addFailed");
             return;
-
         }
-
-
         inRFQ = true;
-
-        rfqBtn.textContent =
-            "Added ✓";
-
-        removeBtn.style.display =
-            "block";
-
+        rfqBtn.textContent = "Added ✓";
+        if (removeBtn) removeBtn.style.display = "block";
+        RFQ.showActionStatus?.(rfqBtn, "added", "success");
+    } catch (error) {
+        SouviksErrors?.log("[Souviks PDP] Unable to add/update RFQ item:", error, "error");
+        RFQ.showActionStatus?.(rfqBtn, "addFailed");
+    } finally {
+        setPdpRfqBusy(false);
     }
-
-);
+});
 
 
 /*
@@ -1954,31 +1876,28 @@ PDP — REMOVE FROM RFQ
 ----------------------------------------------------------
 */
 
-removeBtn?.addEventListener(
-
-    "click",
-
-    async () => {
-
-        await RFQ.remove(
-            product.id
-        );
-
-
+removeBtn?.addEventListener("click", async () => {
+    if (pdpRfqSaving || !removeBtn) return;
+    setPdpRfqBusy(true);
+    try {
+        const removed = await RFQ.remove(product.id);
+        if (removed === false || removed === undefined) {
+            RFQ.showActionStatus?.(removeBtn, "removeFailed");
+            return;
+        }
         inRFQ = false;
-
-        qtyInput.value =
-            1;
-
-        rfqBtn.textContent =
-            "Add To RFQ";
-
-        removeBtn.style.display =
-            "none";
-
+        if (qtyInput) qtyInput.value = "1";
+        if (rfqBtn) rfqBtn.textContent = "Add To RFQ";
+        removeBtn.style.display = "none";
+        RFQ.showActionStatus?.(removeBtn, "removeSuccess", "success");
+    } catch (error) {
+        SouviksErrors?.log("[Souviks PDP] Unable to remove RFQ item:", error, "error");
+        RFQ.showActionStatus?.(removeBtn, "removeFailed");
+    } finally {
+        setPdpRfqBusy(false);
     }
+});
 
-);
 
 this.bindGallery(product);
 this.initReviews(product);
