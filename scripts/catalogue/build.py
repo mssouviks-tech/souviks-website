@@ -809,6 +809,55 @@ def reconcile_catalogue_projections():
                 flags=re.I | re.S,
             )
 
+            # Regenerated PDPs may inherit the shell's former product brand logo.
+            # Always bind the brand badge to the target catalogue record, not the
+            # template page that happened to be selected as a shell.
+            brand_id = text(product.get("brand_id")).casefold()
+            brands_path = ROOT / "assets/data/brands.json"
+            brands_by_id = {
+                text(item.get("id")).casefold(): item
+                for item in json.loads(brands_path.read_text(encoding="utf-8"))
+                if isinstance(item, dict) and text(item.get("id"))
+            }
+            brand_record = brands_by_id.get(brand_id, {})
+            brand_logo = text(brand_record.get("logo"))
+            if brand_logo:
+                logo_tag = (
+                    f'<img src="{html_module.escape(brand_logo, quote=True)}" '
+                    f'alt="{html_module.escape(brand, quote=True)}" loading="lazy" '
+                    'decoding="async" width="56" height="56">'
+                )
+                html, logo_count = re.subn(
+                    r'<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-brand-badge\\b[^"\\']*["\\'][^>]*>.*?</div>',
+                    lambda _: '<div class="pdp-brand-badge">' + logo_tag + '</div>',
+                    html,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+                if logo_count != 1:
+                    raise SystemExit(f"{path}: could not synchronize PDP brand badge for {brand_id}")
+
+            # Remove unrelated vehicle placeholder photos from regenerated PDPs.
+            # Keep the vehicle names and fitment information, but don't present a
+            # generic placeholder as if it were vehicle-specific imagery.
+            vehicle_grid = (
+                '<div class="pdp-vehicle-grid">'
+                + ''.join(
+                    '<div class="pdp-vehicle-card"><div class="pdp-vehicle-content">'
+                    f'<h4>{html_module.escape(vehicle, quote=False)}</h4>'
+                    '</div></div>'
+                    for vehicle in vehicles
+                )
+                + '</div>'
+            ) if vehicles else '<p class="pdp-empty-state">Confirm vehicle application before ordering.</p>'
+            html = re.sub(
+                r'<div\\s+class=["\\']pdp-vehicle-grid["\\']\\s*>.*?</div>\\s*</section>',
+                lambda _: vehicle_grid + '</section>',
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
+
             # Keep the primary image and alt text tied to this product.
             primary_image = text(seeded.get("image_url"))
             page = re.sub(
