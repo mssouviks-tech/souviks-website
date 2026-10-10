@@ -562,8 +562,7 @@ RFQ.setQuantity = async function (productId, product, quantity) {
         }
     }
 
-    await RFQ.updateBadge();
-    await RFQ.renderPage();
+    await RFQ.refreshUI();
     return true;
 };
 
@@ -800,8 +799,7 @@ RFQ.changeQty = async function (productId, amount) {
 
             guestItems[guestIndex].qty = newQuantity;
             if (!RFQ.saveGuestItems(guestItems)) return false;
-            await RFQ.updateBadge();
-            await RFQ.renderPage();
+            await RFQ.refreshUI();
             return true;
         }
 
@@ -1146,16 +1144,14 @@ document.addEventListener(
         if (authEvent === "SIGNED_IN") {
             setTimeout(async () => {
                 await RFQ.mergeGuestBasket();
-                await RFQ.updateBadge();
-                await RFQ.renderPage();
+                await RFQ.refreshUI();
             }, 0);
             return;
         }
 
         if (authEvent === "SIGNED_OUT") {
             setTimeout(async () => {
-                await RFQ.updateBadge();
-                await RFQ.renderPage();
+                await RFQ.refreshUI();
             }, 0);
         }
     }
