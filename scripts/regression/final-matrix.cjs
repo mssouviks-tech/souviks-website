@@ -502,15 +502,25 @@ async function main() {
       await page.waitForTimeout(350);
       if ((await grid.count()) < 1) throw new Error("whitespace-only search did not restore the catalogue");
 
-      const hostileQuery = 'zzzxqvnotfound9051 <img src=x onerror=alert(1)> 💥';
-      await input.fill(hostileQuery);
+      const noMatchQuery = "zzzxqvnotfound9051";
+      await input.fill(noMatchQuery);
       await page.waitForTimeout(350);
       await page.locator("#noResults").waitFor({ state: "visible", timeout: 3000 });
       if (!(await page.locator("#noResults").isVisible())) {
         throw new Error("unexpected search did not show the no-results message");
       }
-      if (await page.locator("#noResults img, #noResults script, #noResults svg").count()) {
-        throw new Error("unexpected search input was inserted as HTML");
+      if ((await grid.count()) !== 0) {
+        throw new Error("no-match search still rendered product cards");
+      }
+      if ((await page.locator("#totalResults").innerText()).trim() !== "0") {
+        throw new Error("no-match search did not report zero results");
+      }
+
+      const hostileQuery = '<img src=x onerror=alert(1)> 💥';
+      await input.fill(hostileQuery);
+      await page.waitForTimeout(350);
+      if (await page.locator('#product-grid img[src="x"], #product-grid [onerror], #product-grid script, #product-grid svg[onload], #noResults img[src="x"], #noResults [onerror], #noResults script, #noResults svg[onload]').count()) {
+        throw new Error("unexpected search input was interpreted as executable markup");
       }
 
       await input.fill("");

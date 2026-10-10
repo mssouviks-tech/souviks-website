@@ -518,9 +518,28 @@ function updateCounters(results) {
 }
 
 function updateNoResultsState(show) {
-    const noResults = document.getElementById("noResults");
+    let noResults = document.getElementById("noResults");
     const pagination = document.getElementById("pagination");
     const productGrid = document.getElementById("product-grid");
+
+    // Some generated catalogue pages predate the static empty-state markup.
+    // Create the state safely with DOM APIs instead of leaving a blank grid.
+    if (!noResults && productGrid) {
+        noResults = document.createElement("section");
+        noResults.id = "noResults";
+        noResults.className = "no-results";
+        noResults.hidden = true;
+        noResults.setAttribute("role", "status");
+        noResults.setAttribute("aria-live", "polite");
+        noResults.setAttribute("aria-hidden", "true");
+
+        const title = document.createElement("h2");
+        title.dataset.emptyStateTitle = "";
+        const message = document.createElement("p");
+        message.dataset.emptyStateMessage = "";
+        noResults.append(title, message);
+        productGrid.insertAdjacentElement("afterend", noResults);
+    }
 
     // A zero-result state is mutually exclusive with the result grid and
     // pagination. This prevents an empty page indicator from appearing under

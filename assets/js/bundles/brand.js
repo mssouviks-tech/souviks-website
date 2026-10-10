@@ -362,7 +362,13 @@
             return;
         }
 
-        image.hidden = true;
+        // site-core may have selected the placeholder during the same captured
+        // error event. If it has already loaded, reveal it immediately; otherwise
+        // keep the load listener above active. A subsequent placeholder error
+        // re-enters the guard at the top and hides the broken image safely.
+        if (image.complete && image.naturalWidth > 0) {
+            revealFallback();
+        }
     }
 
     document.addEventListener("error", event => {
