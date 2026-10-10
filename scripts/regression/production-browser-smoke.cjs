@@ -97,6 +97,25 @@ async function main() {
         const page = await context.newPage();
         await attachPageErrors(page);
         try {
+          if (lang === "en") {
+            await check(view.name + "/root homepage language redirect and hero", async () => {
+              const response = await page.goto(BASE + "/", { waitUntil: "domcontentloaded", timeout: 30000 });
+              if (!response || response.status() !== 200) {
+                throw new Error("root homepage returned HTTP " + (response?.status() || "unknown"));
+              }
+              await page.waitForURL(url => ["/en/", "/hi/", "/bn/"].includes(url.pathname), { timeout: 10000 });
+              await page.waitForFunction(() => {
+                const heading = document.querySelector(".home-hero h1");
+                return heading && heading.textContent.trim().length > 0;
+              }, null, { timeout: 10000 });
+              const heading = (await page.locator(".home-hero h1").innerText()).trim();
+              if (!heading || /Still loading|Continue in English/i.test(await page.locator("body").innerText())) {
+                throw new Error("homepage remained on the language-loading shell");
+              }
+              assertNoPageErrors(page);
+            });
+          }
+
           await check(view.name + "/" + lang + "/page runtime and product listing", async () => {
             await goto(page, "/" + lang + "/products");
             const configLanguage = await page.evaluate(() => window.souviks?.currentLanguage || "");
