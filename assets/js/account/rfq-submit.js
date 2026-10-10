@@ -416,7 +416,7 @@ Quantity: ${item.qty}
             !data ||
             typeof data !== "object" ||
             !data.id ||
-            !/^\\d+$/.test(String(data.rfq_number || ""))
+            !Number.isSafeInteger(Number(data.rfq_number)) || Number(data.rfq_number) < 1
         ) {
             throw new Error(
                 "The RFQ service returned an invalid confirmation. Please contact Souviks before retrying."
