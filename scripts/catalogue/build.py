@@ -1927,7 +1927,7 @@ def sync_product_seo_and_schema():
                             match.start(),
                             match.end(),
                             '<script type="application/ld+json">\n'
-                            + json.dumps(obj, ensure_ascii=False, indent=2)
+                            + json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
                             + '\n</script>'
                         )
                     )
