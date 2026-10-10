@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -246,7 +247,7 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
 
 
 def check_remote_images(images: set[str], errors: list[str]):
-    """Check public image URLs concurrently with a bounded worker pool and error cap."""
+    """Verify public JSON-LD images with bounded concurrency and transient-failure retries."""
     def check_one(url: str) -> str | None:
         parsed = urlparse(url)
         if parsed.scheme != "https" or parsed.netloc != "www.souviks.co.in":
@@ -260,22 +261,34 @@ def check_remote_images(images: set[str], errors: list[str]):
                 "Range": "bytes=0-0",
             },
         )
-        try:
-            with urllib.request.urlopen(request, timeout=10) as response:
-                if response.status < 200 or response.status >= 400:
-                    return f"Schema image returned HTTP {response.status}: {url}"
-        except urllib.error.HTTPError as exc:
-            return f"Schema image returned HTTP {exc.code}: {url}"
-        except Exception as exc:
-            return f"Schema image check failed for {url}: {exc}"
-        return None
+
+        last_error = None
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(request, timeout=12) as response:
+                    if 200 <= response.status < 400:
+                        return None
+                    last_error = f"Schema image returned HTTP {response.status}: {url}"
+                    if response.status not in {408, 425, 429} and response.status < 500:
+                        return last_error
+            except urllib.error.HTTPError as exc:
+                last_error = f"Schema image returned HTTP {exc.code}: {url}"
+                if exc.code not in {408, 425, 429} and exc.code < 500:
+                    return last_error
+            except Exception as exc:
+                last_error = f"Schema image check failed for {url}: {exc}"
+
+            if attempt < 2:
+                time.sleep(0.35 * (attempt + 1))
+
+        return last_error or f"Schema image check failed after retries: {url}"
 
     urls = sorted(images)
     if not urls:
         return
 
     image_errors = []
-    worker_count = min(24, len(urls))
+    worker_count = min(12, len(urls))
     with ThreadPoolExecutor(max_workers=worker_count) as executor:
         futures = {executor.submit(check_one, url): url for url in urls}
         for future in as_completed(futures):
