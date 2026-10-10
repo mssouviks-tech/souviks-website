@@ -324,40 +324,58 @@
             !!target.closest(PROTECTED_SELECTOR);
     }
 
-    // Product assets can fail independently of the product record being valid
-    // (for example a stale CDN edge or a legacy filename). Replace the failed
-    // request immediately with the known-good global placeholder and remove
-    // responsive URL attributes so no second broken request is attempted.
-    document.addEventListener("error", event => {
-        const image = event.target;
-        if (!(image instanceof HTMLImageElement)) return;
-        if (!image.closest(".product-image, .pdp-main-image, .pdp-thumbnails")) return;
+    // Product and brand images can fail independently of the page content.
+    // Retry with the shared placeholder, and hide the image if even that asset fails.
+    const IMAGE_FALLBACK_SELECTOR = [
+        ".product-image img",
+        ".pdp-main-image img",
+        ".pdp-thumbnails img",
+        ".brand-logo img"
+    ].join(", ");
+    const IMAGE_PLACEHOLDER = "/assets/images/placeholder.webp";
 
-        const placeholder = "/assets/images/placeholder.webp";
-        if (image.dataset.souviksImageFallback === "done") return;
+    function recoverFailedImage(image) {
+        if (!(image instanceof HTMLImageElement)) return;
+        if (!image.matches(IMAGE_FALLBACK_SELECTOR)) return;
+
+        // The fallback can fail too. In that case, keep the layout and content
+        // but remove the broken-image glyph rather than retrying indefinitely.
+        if (image.dataset.souviksImageFallback === "done") {
+            image.style.visibility = "hidden";
+            image.hidden = true;
+            return;
+        }
 
         image.dataset.souviksImageFallback = "done";
         image.removeAttribute("srcset");
         image.removeAttribute("sizes");
-
-        // Hide the failed element while the known-good placeholder loads so
-        // the browser cannot leave its native broken-image glyph visible.
         image.style.visibility = "hidden";
+
         const revealFallback = () => {
             image.style.visibility = "visible";
             image.hidden = false;
         };
-
         image.addEventListener("load", revealFallback, { once: true });
 
-        if (image.getAttribute("src") !== placeholder) {
-            image.src = placeholder;
+        if (image.getAttribute("src") !== IMAGE_PLACEHOLDER) {
+            image.src = IMAGE_PLACEHOLDER;
             return;
         }
 
-        // Even the placeholder must not leave a native broken-image glyph.
         image.hidden = true;
+    }
+
+    document.addEventListener("error", event => {
+        recoverFailedImage(event.target);
     }, true);
+
+    // Deferred scripts can start after an image request already failed. Inspect
+    // completed images once at startup so those failures receive the same fallback.
+    document.querySelectorAll(IMAGE_FALLBACK_SELECTOR).forEach(image => {
+        if (image.complete && image.naturalWidth === 0) {
+            recoverFailedImage(image);
+        }
+    });
 
     // Use capture-phase delegation so later catalogue/PDP handlers cannot
     // swallow the click before the viewer sees it.
