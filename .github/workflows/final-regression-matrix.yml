@@ -1,6 +1,18 @@
 name: Final Regression Matrix
 
 on:
+  pull_request:
+    paths:
+      - 'assets/js/**'
+      - 'assets/data/**'
+      - 'en/**'
+      - 'hi/**'
+      - 'bn/**'
+      - 'scripts/catalogue/**'
+      - 'scripts/audit/critical_build.py'
+      - 'scripts/regression/**'
+      - '_headers'
+      - '.github/workflows/final-regression-matrix.yml'
   push:
     branches: [main]
     paths:
@@ -13,7 +25,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: souviks-final-regression
+  group: souviks-final-regression-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -22,10 +34,9 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - name: Check out main
+      - name: Check out candidate
         uses: actions/checkout@v4
         with:
-          ref: main
           fetch-depth: 1
 
       - name: Set up Node
@@ -33,11 +44,26 @@ jobs:
         with:
           node-version: 24
 
-      - name: Install Playwright
+      - name: Install project and browser test dependencies
         run: |
-          npm init -y
-          npm install --no-save playwright@latest
+          npm install --no-package-lock --no-audit --no-fund
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright@latest
           npx playwright install --with-deps chromium
+
+      - name: Build candidate static output
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/build.py
+          python3 scripts/catalogue/sync_navigation.py
+          python3 scripts/catalogue/sync_product_cards.py
+          python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/normalize_page_config.py
+          python3 scripts/catalogue/sync_rfq_module.py
+          python3 scripts/catalogue/sync_entity_sitemaps.py
+          python3 scripts/js/refactor.py
+          npm run build:js
 
       - name: Start local static server
         run: |
@@ -52,7 +78,9 @@ jobs:
           exit 1
 
       - name: Check regression harness syntax
-        run: node --check scripts/regression/final-matrix.cjs
+        run: |
+          node --check scripts/regression/final-matrix.cjs
+          node --check scripts/regression/production-browser-smoke.cjs
 
       - name: Run final regression matrix
         env:

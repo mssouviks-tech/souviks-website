@@ -1119,7 +1119,7 @@ def reconcile_catalogue_projections():
             html = re.sub(r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(
                 r'(?m)(currentPage:[ \t]*\r?\n[ \t]*)[^\r\n]*',
-                lambda m: m.group(1) + json.dumps(name),
+                lambda m: m.group(1) + json.dumps(name) + ",",
                 html,
                 count=1,
             )
@@ -2150,6 +2150,8 @@ def main() -> None:
     sync_product_seo_and_schema()
     normalize_internal_redirect_links()
     sync_organization_schema()
+    runpy.run_path(str(ROOT / "scripts/catalogue/normalize_page_config.py"), run_name="__main__")
+    runpy.run_path(str(ROOT / "scripts/catalogue/sync_rfq_module.py"), run_name="__main__")
     runpy.run_path(str(ROOT / "scripts/catalogue/validate.py"), run_name="__main__")
 
 

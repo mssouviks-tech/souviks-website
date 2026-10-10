@@ -1,0 +1,57 @@
+name: Production Deployment Smoke
+
+on:
+  workflow_run:
+    workflows: ["Build Static Catalogue"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: read
+
+concurrency:
+  group: souviks-production-deployment-smoke
+  cancel-in-progress: false
+
+jobs:
+  production-smoke:
+    if: \${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install JavaScript build tools and Playwright
+        run: |
+          npm install --no-package-lock --no-audit --no-fund
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright@latest
+          npx playwright install --with-deps chromium
+
+      - name: Wait for Cloudflare Pages to deploy the latest main revision
+        env:
+          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: \${{ github.repository }}
+        run: python3 scripts/audit/production_smoke.py --wait-only
+
+      - name: Test live desktop/mobile navigation and guest RFQ interactions
+        env:
+          PRODUCTION_BASE_URL: https://www.souviks.co.in
+        run: node scripts/regression/production-browser-smoke.cjs
+
+      - name: Verify live HTTP routes, headers, redirects, sitemaps, 404 and main revision
+        env:
+          PRODUCTION_BASE_URL: https://www.souviks.co.in
+          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: \${{ github.repository }}
+        run: python3 scripts/audit/production_smoke.py

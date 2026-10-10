@@ -502,9 +502,10 @@ async function main() {
       await page.waitForTimeout(350);
       if ((await grid.count()) < 1) throw new Error("whitespace-only search did not restore the catalogue");
 
-      const hostileQuery = 'no-match-probe <img src=x onerror=alert(1)> 💥';
+      const hostileQuery = 'zzzxqvnotfound9051 <img src=x onerror=alert(1)> 💥';
       await input.fill(hostileQuery);
       await page.waitForTimeout(350);
+      await page.locator("#noResults").waitFor({ state: "visible", timeout: 3000 });
       if (!(await page.locator("#noResults").isVisible())) {
         throw new Error("unexpected search did not show the no-results message");
       }
@@ -625,7 +626,7 @@ async function main() {
       if (!fallback.src.endsWith("/assets/images/placeholder.webp") || !fallback.complete || fallback.width < 1) {
         throw new Error("failed product image did not load the valid placeholder");
       }
-      if (!(await page.locator("main h1").innerText()).includes("10 x 1.5 Nut")) {
+      if (!(await page.locator(".pdp-title").innerText()).includes("10 x 1.5 Nut")) {
         throw new Error("product content disappeared when its image failed");
       }
       await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
@@ -653,6 +654,7 @@ async function main() {
       });
       await goto(page, BASE + "/en/brands/abc");
       const logo = page.locator("#brand-detail .brand-logo img");
+      await logo.scrollIntoViewIfNeeded();
       await page.waitForFunction(() => {
         const image = document.querySelector("#brand-detail .brand-logo img");
         return image && image.dataset.souviksImageFallback === "done" &&
@@ -671,7 +673,7 @@ async function main() {
       if (!imageState.complete || imageState.width < 1 || imageState.hidden || imageState.visibility !== "visible") {
         throw new Error("brand placeholder did not render correctly: " + JSON.stringify(imageState));
       }
-      if (!(await page.locator("#brand-detail h1").innerText()).includes("ABC")) {
+      if (!(await page.locator("#brand-detail .brand-info h1").innerText()).includes("ABC")) {
         throw new Error("brand heading disappeared when the logo failed");
       }
       if ((await page.locator(".entity-product-galleries .product-card").count()) < 1) {
@@ -695,6 +697,7 @@ async function main() {
         await route.fulfill({ status: 404, contentType: "image/webp", body: "missing placeholder fixture" });
       });
       await goto(page, BASE + "/en/brands/abc");
+      await page.locator("#brand-detail .brand-logo img").scrollIntoViewIfNeeded();
       await page.waitForFunction(() => {
         const image = document.querySelector("#brand-detail .brand-logo img");
         return image && image.dataset.souviksImageFallback === "done" && image.hidden;
@@ -706,7 +709,7 @@ async function main() {
       if (!imageState.src.endsWith("/assets/images/placeholder.webp") || !imageState.hidden || imageState.visibility !== "hidden") {
         throw new Error("failed placeholder was not hidden safely: " + JSON.stringify(imageState));
       }
-      if (!(await page.locator("#brand-detail h1").innerText()).includes("ABC")) {
+      if (!(await page.locator("#brand-detail .brand-info h1").innerText()).includes("ABC")) {
         throw new Error("brand heading disappeared when both logo and placeholder failed");
       }
       if ((await page.locator(".entity-product-galleries .product-card").count()) < 1) {
@@ -724,7 +727,7 @@ async function main() {
       page.__view = "desktop";
       const runtimeErrors = [];
       page.on("pageerror", error => runtimeErrors.push(error?.message || String(error)));
-      await goto(page, BASE + "/en/login");
+      await goto(page, BASE + "/en/login?auth=login");
       await page.route("**/auth/v1/token*", async route => {
         await route.fulfill({
           status: 503,
@@ -732,16 +735,16 @@ async function main() {
           body: JSON.stringify({ message: "Authentication service temporarily unavailable" })
         });
       });
-      await page.locator("#email").fill("regression@example.invalid");
-      await page.locator("#password").fill("not-a-real-password");
-      await page.locator('#loginForm button[type="submit"]').click();
+      await page.locator("#authModalLoginEmail").fill("regression@example.invalid");
+      await page.locator("#authModalLoginPassword").fill("not-a-real-password");
+      await page.locator('#authModalLoginForm button[type="submit"]').click();
       await page.waitForFunction(() => /authentication service is unavailable/i.test(
-        document.querySelector("#loginStatus")?.textContent || ""
+        document.querySelector("#authModalLoginStatus")?.textContent || ""
       ), null, { timeout: 8000 });
-      const message = (await page.locator("#loginStatus").innerText()).trim();
+      const message = (await page.locator("#authModalLoginStatus").innerText()).trim();
       if (/invalid email or password/i.test(message)) throw new Error("service outage was reported as invalid credentials");
       if (runtimeErrors.length) throw new Error("uncaught browser error: " + runtimeErrors[0]);
-      if (await page.locator('#loginForm button[type="submit"]').isDisabled()) {
+      if (await page.locator('#authModalLoginForm button[type="submit"]').isDisabled()) {
         throw new Error("login submit button remained disabled after service failure");
       }
       return message;
@@ -755,16 +758,16 @@ async function main() {
     try {
       const page = await context.newPage();
       page.__view = "desktop";
-      await goto(page, BASE + "/en/login");
+      await goto(page, BASE + "/en/login?auth=login");
       await page.route("**/auth/v1/token*", async route => route.abort("failed"));
-      await page.locator("#email").fill("regression@example.invalid");
-      await page.locator("#password").fill("not-a-real-password");
-      await page.locator('#loginForm button[type="submit"]').click();
+      await page.locator("#authModalLoginEmail").fill("regression@example.invalid");
+      await page.locator("#authModalLoginPassword").fill("not-a-real-password");
+      await page.locator('#authModalLoginForm button[type="submit"]').click();
       await page.waitForFunction(() => /unable to connect to the authentication service/i.test(
-        document.querySelector("#loginStatus")?.textContent || ""
+        document.querySelector("#authModalLoginStatus")?.textContent || ""
       ), null, { timeout: 8000 });
-      const message = (await page.locator("#loginStatus").innerText()).trim();
-      if (await page.locator('#loginForm button[type="submit"]').isDisabled()) {
+      const message = (await page.locator("#authModalLoginStatus").innerText()).trim();
+      if (await page.locator('#authModalLoginForm button[type="submit"]').isDisabled()) {
         throw new Error("login submit button remained disabled after network failure");
       }
       return message;
@@ -1017,36 +1020,58 @@ async function main() {
       });
 
       await check(`${view}/${lang}/entity gallery missing-image fallback loads`, async () => {
-        await goto(page, BASE + langPath(lang, "brands/bapi"));
-        const missingImages = page.locator('.entity-product-galleries img[data-image-state="missing"]');
-        const count = await missingImages.count();
-        if (count < 1) throw new Error("fixture no longer contains a missing-image product");
-        const image = missingImages.first();
-        await image.scrollIntoViewIfNeeded();
-        const state = await image.evaluate(async element => {
-          if (!element.complete) {
-            await new Promise(resolve => {
-              element.addEventListener("load", resolve, { once: true });
-              element.addEventListener("error", resolve, { once: true });
-              setTimeout(resolve, 4000);
+        let interceptedBrokenImage = false;
+        await page.route("**/assets/images/products/**", async route => {
+          if (!interceptedBrokenImage) {
+            interceptedBrokenImage = true;
+            await route.fulfill({
+              status: 404,
+              contentType: "image/webp",
+              body: "deterministic missing-image fixture"
             });
+          } else {
+            await route.continue();
           }
-          return {
-            src: element.getAttribute("src") || "",
-            width: element.naturalWidth,
-            complete: element.complete
-          };
         });
-        if (!state.src.endsWith("/assets/images/placeholder.webp")) {
-          throw new Error(`missing-image fallback URL was ${state.src}`);
+        await goto(page, BASE + langPath(lang, "brands/bapi"));
+        const galleryImages = page.locator(".entity-product-galleries img");
+        if ((await galleryImages.count()) < 1) {
+          throw new Error("brand product gallery has no images");
         }
-        if (!state.complete || state.width < 1) {
-          throw new Error(`fallback image failed to load: ${state.src}`);
+        await galleryImages.first().scrollIntoViewIfNeeded();
+        await page.waitForFunction(() => {
+          const images = Array.from(document.querySelectorAll(".entity-product-galleries img"));
+          return images.some(image =>
+            image.dataset.souviksFallbackApplied === "true" &&
+            (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
+            image.complete && image.naturalWidth > 0
+          );
+        }, null, { timeout: 8000 });
+        if (!interceptedBrokenImage) {
+          throw new Error("the deterministic product-image 404 fixture was not triggered");
         }
-        return "explicit placeholder loaded; no broken product image URL";
+        const state = await page.evaluate(() => {
+          const image = Array.from(document.querySelectorAll(".entity-product-galleries img"))
+            .find(element => element.dataset.souviksFallbackApplied === "true");
+          return image ? {
+            src: image.getAttribute("src") || "",
+            width: image.naturalWidth,
+            complete: image.complete,
+            fallbackApplied: image.dataset.souviksFallbackApplied
+          } : null;
+        });
+        if (!state || !state.src.endsWith("/assets/images/placeholder.webp")) {
+          throw new Error("injected image failure did not switch to the shared placeholder");
+        }
+        if (!state.complete || state.width < 1 || state.fallbackApplied !== "true") {
+          throw new Error("fallback image failed to load: " + JSON.stringify(state));
+        }
+        return "injected a real product-image 404; shared placeholder loaded; gallery remained usable";
       });
 
       await check(`${view}/${lang}/PDP quantity + Add to RFQ`, async () => {
+        // The preceding gallery fallback test navigates away from the PDP.
+        await goto(page, BASE + langPath(lang, `products/${PRODUCT_SLUG}`));
         await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
         const qty = page.locator("#pdpQty");
         await qty.fill("2");
