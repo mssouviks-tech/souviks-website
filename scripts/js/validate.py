@@ -162,6 +162,18 @@ def validate_rfq_submission(errors: list[str]) -> None:
     if not re.search(r"DROP POLICY IF EXISTS [\"']rfq_items_insert_own[\"']", policy_migration, flags=re.I):
         errors.append("RFQ policy cleanup must remove the direct item INSERT policy.")
 
+    # Direct INSERTs into submitted RFQ tables bypass the atomic validation path.
+    direct_insert_pattern = re.compile(
+        r"\\.from\\(\\s*['\\\"](?:rfqs|rfq_items)['\\\"]\\s*\\)\\s*\\.insert\\s*\\(",
+        flags=re.S,
+    )
+    for module in sorted(JS_ROOT.glob("**/*.js")):
+        source = module.read_text(encoding="utf-8", errors="ignore")
+        if direct_insert_pattern.search(source):
+            errors.append(
+                f"{module.relative_to(ROOT)} writes RFQ parents/items directly; use submit_rfq RPC."
+            )
+
 
 
 def main() -> None:
