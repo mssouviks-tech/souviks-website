@@ -786,10 +786,9 @@ RFQ.changeQty = async function (productId, amount) {
         const item = items.find(entry => String(entry.id) === String(productId));
         if (!item) return false;
 
-        const newQuantity = Number(item.qty) + Number(amount);
-        if (newQuantity <= 0) {
-            return await RFQ.remove(productId);
-        }
+        const rawQuantity = Number(item.qty) + Number(amount);
+        if (rawQuantity <= 0) return await RFQ.remove(productId);
+        const newQuantity = RFQ.normalizeQuantity(rawQuantity);
 
         const user = await RFQ.getUser();
         if (!user) {
@@ -837,12 +836,6 @@ RFQ.changeQty = async function (productId, amount) {
     }
 };
 
-
-/*
-----------------------------------------------------------
-REMOVE PRODUCT
-----------------------------------------------------------
-*/
 
 RFQ.remove = async function (productId) {
     const user = await RFQ.getUser();
