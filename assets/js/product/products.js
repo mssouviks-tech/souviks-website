@@ -978,8 +978,15 @@ priceHtml(product) {
         };
         const setBusy = busy => {
             saving = busy;
-            rfqBtn.disabled = busy;
-            rfqBtn.setAttribute("aria-busy", String(busy));
+            [qtyInput, minusBtn, plusBtn, rfqBtn, removeBtn].forEach(control => {
+                if (!control) return;
+                control.disabled = busy;
+                if (busy) {
+                    control.setAttribute("aria-busy", "true");
+                } else {
+                    control.removeAttribute("aria-busy");
+                }
+            });
         };
 
         minusBtn?.addEventListener("click", () => {
@@ -1028,8 +1035,7 @@ priceHtml(product) {
 
         removeBtn.addEventListener("click", async () => {
             if (saving) return;
-            removeBtn.disabled = true;
-            removeBtn.setAttribute("aria-busy", "true");
+            setBusy(true);
 
             try {
                 const removed = await RFQ.remove(product.id);
@@ -1047,8 +1053,7 @@ priceHtml(product) {
                 SouviksErrors?.log("[Souviks PDP] Unable to remove RFQ item:", error, "error");
                 RFQ.showActionStatus?.(removeBtn, "removeFailed");
             } finally {
-                removeBtn.disabled = false;
-                removeBtn.removeAttribute("aria-busy");
+                setBusy(false);
             }
         });
 
