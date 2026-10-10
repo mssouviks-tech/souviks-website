@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -90,7 +91,7 @@ for (const label of ["accountBasket", "quoteBasket"]) {
     company: "c".repeat(160),
     gst: "g".repeat(15),
     message: "m".repeat(2000),
-    email: "a".repeat(242) + "@test.invalid",
+    email: "a".repeat(241) + "@test.invalid",
     location: "l".repeat(200),
   });
   assert.equal(goodCustomer.name.length, 120);
@@ -125,4 +126,16 @@ assert.match(sql, /REVOKE INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER\
 assert.match(sql, /REVOKE ALL ON FUNCTION public\.submit_rfq\([^;]+\)\s+FROM PUBLIC, anon/i);
 assert.match(sql, /GRANT EXECUTE ON FUNCTION public\.submit_rfq\([^;]+\)\s+TO authenticated/i);
 
+const versionPaths = [
+  "assets/js/account/rfq.js",
+  "assets/js/request-quote/rfq.js",
+  "assets/js/account/rfq-submit.js",
+  "assets/js/request-quote/standalone-rfq-submission.js",
+];
+const versions = versionPaths.map(relative => {
+  const bytes = fs.readFileSync(path.join(ROOT, relative));
+  const digest = createHash("sha256").update(bytes).digest("hex").slice(0, 12);
+  return `${relative}?v=${digest}`;
+});
+console.log("[RFQ security contract] cache versions: " + versions.join(" | "));
 console.log("[RFQ security contract] PASS — client limits, atomic RPC usage, owner source, and write grants verified.");
