@@ -17,13 +17,35 @@
 
 
 window.RFQ = {
+    table: "rfq_cart_items",
+    storageKey: "souviks_rfq_guest",
+    MAX_QUANTITY: 9999,
+    MAX_ITEMS: 50
+};
 
-    table:
-        "rfq_cart_items",
+RFQ.normalizeQuantity = function (value) {
+    const numeric = Number(value);
+    if (!Number.isFinite(numeric)) return 1;
+    return Math.min(RFQ.MAX_QUANTITY, Math.max(1, Math.floor(numeric)));
+};
 
-    storageKey:
-        "souviks_rfq_guest"
+RFQ.normalizeText = function (value, maxLength = 500) {
+    return String(value ?? "").trim().slice(0, maxLength);
+};
 
+RFQ.normalizeItem = function (item) {
+    const id = RFQ.normalizeText(item?.id, 128);
+    if (!id) return null;
+    const name = RFQ.normalizeText(item?.name, 300) || `Product ${id}`;
+
+    return {
+        id,
+        rowId: item?.rowId || null,
+        partNumber: RFQ.normalizeText(item?.partNumber, 128),
+        name,
+        brand: RFQ.normalizeText(item?.brand, 160),
+        qty: RFQ.normalizeQuantity(item?.qty)
+    };
 };
 
 const RFQ_UI_MESSAGES = {
@@ -206,79 +228,20 @@ GET GUEST ITEMS
 */
 
 RFQ.getGuestItems = function () {
-
     try {
+        const stored = localStorage.getItem(RFQ.storageKey);
+        if (!stored) return [];
 
-        const stored =
-            localStorage.getItem(
-                RFQ.storageKey
-            );
+        const parsed = JSON.parse(stored);
+        if (!Array.isArray(parsed)) return [];
 
-
-        if (!stored) {
-
-            return [];
-
-        }
-
-
-        const parsed =
-            JSON.parse(
-                stored
-            );
-
-
-        if (
-            !Array.isArray(
-                parsed
-            )
-        ) {
-
-            return [];
-
-        }
-
-
-        return parsed.map(
-
-            item => ({
-
-                id:
-                    item.id,
-
-                rowId:
-                    null,
-
-                partNumber:
-                    item.partNumber || "",
-
-                name:
-                    item.name || "",
-
-                brand:
-                    item.brand || "",
-
-                qty:
-                    Math.max(
-                        1,
-                        Number(
-                            item.qty
-                        ) || 1
-                    )
-
-            })
-
-        );
-
-
+        // Keep all valid legacy rows visible so a basket over the current limit
+        // can be reduced by the customer instead of silently dropping products.
+        return parsed.map(item => RFQ.normalizeItem({ ...item, rowId: null })).filter(Boolean);
     } catch (error) {
-
         SouviksErrors?.log("[Souviks RFQ] Unable to read guest RFQ basket:", error, "error");
-
         return [];
-
     }
-
 };
 
 
@@ -288,34 +251,20 @@ SAVE GUEST ITEMS
 ----------------------------------------------------------
 */
 
-RFQ.saveGuestItems = function (
-    items
-) {
-
+RFQ.saveGuestItems = function (items) {
     try {
+        const source = Array.isArray(items) ? items : [];
+        if (source.length > RFQ.MAX_ITEMS) return false;
 
-        localStorage.setItem(
+        const normalized = source.map(item => RFQ.normalizeItem(item)).filter(Boolean);
+        if (normalized.length !== source.length) return false;
 
-            RFQ.storageKey,
-
-            JSON.stringify(
-                items
-            )
-
-        );
-
-
+        localStorage.setItem(RFQ.storageKey, JSON.stringify(normalized));
         return true;
-
-
     } catch (error) {
-
         SouviksErrors?.log("[Souviks RFQ] Unable to save guest RFQ basket:", error, "error");
-
         return false;
-
     }
-
 };
 
 
