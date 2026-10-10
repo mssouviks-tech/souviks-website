@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 LANGUAGES = ("en", "hi", "bn")
 MISSING_COMMA = re.compile(
-    r'(?m)(^[ \t]*currentPage:[ \t]*\r?\n[ \t]*"(?:\\.|[^"\\])*")[ \t]*(\r?\n[ \t]*currentPageType[ \t]*:)'
+    r'(?m)(^[ \t]*currentPage:[ \t]*\r?\n[ \t]*"(?:\\.|[^"\\])*")(?P<separator>[ \t]*(?:\r?\n[ \t]*)+(?=currentPageType[ \t]*:))'
 )
 
 
@@ -28,7 +28,7 @@ def normalize_page_config() -> int:
         if not path.is_file():
             continue
         original = path.read_text(encoding="utf-8")
-        updated, count = MISSING_COMMA.subn(r"\1,\2", original)
+        updated, count = MISSING_COMMA.subn(r"\1,\g<separator>", original)
         if updated == original:
             continue
         path.write_text(updated, encoding="utf-8")
