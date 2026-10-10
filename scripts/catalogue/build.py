@@ -822,19 +822,48 @@ def reconcile_catalogue_projections():
             brand_record = brands_by_id.get(brand_id, {})
             brand_logo = text(brand_record.get("logo"))
             if brand_logo:
-                logo_tag = (
-                    f'<img src="{html_module.escape(brand_logo, quote=True)}" '
-                    f'alt="{html_module.escape(brand, quote=True)}" loading="lazy" '
-                    'decoding="async" width="56" height="56">'
-                )
+                def sync_brand_badge(badge_match):
+                    opening, inner, closing = badge_match.group(1), badge_match.group(2), badge_match.group(3)
+                    if not re.search(r"<img\b", inner, flags=re.I):
+                        inner = (
+                            f'<img src="{html_module.escape(brand_logo, quote=True)}" '
+                            f'alt="{html_module.escape(brand, quote=True)}" loading="lazy" '
+                            'decoding="async" width="56" height="56">'
+                        )
+                    else:
+                        inner = re.sub(
+                            r'\bsrc\s*=\s*(["\'])[^"\']*\1',
+                            lambda _: f'src="{html_module.escape(brand_logo, quote=True)}"',
+                            inner,
+                            count=1,
+                            flags=re.I,
+                        )
+                        if re.search(r'\balt\s*=', inner, flags=re.I):
+                            inner = re.sub(
+                                r'\balt\s*=\s*(["\'])[^"\']*\1',
+                                lambda _: f'alt="{html_module.escape(brand, quote=True)}"',
+                                inner,
+                                count=1,
+                                flags=re.I,
+                            )
+                        else:
+                            inner = re.sub(
+                                r"<img\b",
+                                lambda m: m.group(0) + f' alt="{html_module.escape(brand, quote=True)}"',
+                                inner,
+                                count=1,
+                                flags=re.I,
+                            )
+                    return opening + inner + closing
+
                 html, logo_count = re.subn(
-                    r'<div\b[^>]*class=["\'][^"\']*\bpdp-brand-badge\b[^"\']*["\'][^>]*>.*?</div>',
-                    lambda _: '<div class="pdp-brand-badge">' + logo_tag + '</div>',
+                    r'(<div\b[^>]*class=["\'][^"\']*\bpdp-brand-badge\b[^"\']*["\'][^>]*>)(.*?)(</div>)',
+                    sync_brand_badge,
                     html,
                     count=1,
                     flags=re.I | re.S,
                 )
-                if logo_count != 1:
+                if logo_count not in {0, 1}:
                     raise SystemExit(f"{path}: could not synchronize PDP brand badge for {brand_id}")
 
             # Remove unrelated vehicle placeholder photos from regenerated PDPs.
