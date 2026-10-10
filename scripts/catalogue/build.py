@@ -621,8 +621,207 @@ def reconcile_catalogue_projections():
     
     by_id = {text(p.get("id")): p for p in active}
     expected_slugs = {text(p.get("slug")) for p in active if text(p.get("slug"))}
+
+    def materialize_missing_product_pages(lang, product_dir):
+        """Re-create PDPs for products that became active after receiving valid images."""
+        current_slugs = {path.stem for path in product_dir.glob("*.html")}
+        missing_products = [
+            product for product in active
+            if text(product.get("slug")) and text(product.get("slug")) not in current_slugs
+        ]
+        if not missing_products:
+            return 0
+
+        template_path = None
+        template_html = ""
+        template_data = None
+        data_pattern = re.compile(
+            r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+            flags=re.S,
+        )
+        for candidate in sorted(product_dir.glob("*.html")):
+            candidate_html = candidate.read_text(encoding="utf-8", errors="ignore")
+            match = data_pattern.search(candidate_html)
+            if not match:
+                continue
+            try:
+                candidate_data = json.loads(match.group(1))
+            except json.JSONDecodeError:
+                continue
+            # Clone only a valid PDP mapped to a currently active product.
+            if text(candidate_data.get("id")) in by_id:
+                template_path = candidate
+                template_html = candidate_html
+                template_data = candidate_data
+                break
+
+        if template_path is None or template_data is None:
+            raise SystemExit(
+                f"Cannot generate {lang} PDPs: no valid active product page is available as a template"
+            )
+
+        old_id = text(template_data.get("id"))
+        old_slug = text(template_data.get("slug") or template_path.stem)
+        old_name = text(template_data.get("product_name") or template_data.get("name"))
+        created = 0
+
+        def money(value):
+            try:
+                amount = float(value)
+            except (TypeError, ValueError):
+                return "On request"
+            if not (amount > 0):
+                return "On request"
+            if abs(amount - round(amount)) < 0.00001:
+                return f"₹{int(round(amount)):,}"
+            return f"₹{amount:,.2f}".rstrip("0").rstrip(".")
+
+        def replace_row_value(page, labels, value):
+            label_pattern = "|".join(re.escape(label) for label in labels)
+            pattern = (
+                r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>'
+                r'\s*<strong>\s*(?:' + label_pattern + r')\s*</strong>\s*<span>)(.*?)(</span>)'
+            )
+            return re.sub(
+                pattern,
+                lambda match: match.group(1) + html_module.escape(str(value), quote=False) + match.group(3),
+                page,
+                count=1,
+                flags=re.I | re.S,
+            )
+
+        for product in missing_products:
+            slug = text(product.get("slug"))
+            product_id = text(product.get("id"))
+            name = text(product.get("product_name") or product.get("name"))
+            brand = text(product.get("brand_name") or product.get("brand"))
+            category = text(product.get("category_name") or product.get("category"))
+            subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
+            part = part_number(product)
+            description = text(product.get("description"))
+            applications = arr(product.get("applications"))
+            vehicles = arr(product.get("vehicles"))
+
+            # Start with a known-good localized PDP shell, then replace its
+            # embedded record with canonical catalogue fields before normalizers run.
+            page = template_html
+            if old_name:
+                page = page.replace(old_name, name)
+            if old_slug:
+                page = page.replace(old_slug, slug)
+            if old_id and product_id:
+                page = page.replace(old_id, product_id)
+
+            seeded = dict(template_data)
+            seeded.update(product_from_catalogue(product))
+            seeded["seo"] = dict(template_data.get("seo") or {})
+            seeded["seo"]["canonical"] = f"{BASE}/{lang}/products/{slug}"
+            seeded["seo"]["title"] = f"{brand} - {part} - {name} | Souviks" if brand and part else f"{brand or name} | Souviks"
+            seeded["seo"]["description"] = description[:158]
+            seeded["seo"]["keywords"] = [value for value in (name, part, "commercial vehicle spare parts", "truck spare parts") if value]
+            seeded["schema"] = {}
+            seeded["created_at"] = text(product.get("created_at") or template_data.get("created_at"))
+            seeded["updated_at"] = text(product.get("updated_at") or product.get("catalogue_updated_at"))
+            seeded["manufacturer_part_number"] = text(product.get("manufacturer_part_number"))
+            seeded["manufacturer_part_numbers"] = list(product.get("manufacturer_part_numbers") or ([seeded["manufacturer_part_number"]] if seeded["manufacturer_part_number"] else []))
+
+            # Bring visible PDP identity fields across with the embedded data.
+            page = replace_row_value(page, ("Part Number", "भाग संख्या", "पार्ट नंबर", "পার্ট নম্বর", "পার্ট নং"), part or "Available on request")
+            page = replace_row_value(page, ("Brand", "ब्रांड", "ব্র্যান্ড"), brand or "—")
+            page = replace_row_value(page, ("Category", "श्रेणी", "विभाग", "ক্যাটাগরি"), category or "—")
+            page = replace_row_value(page, ("Sub Category", "उपश्रेणी", "उप-विभाग", "উপ-বিভাগ"), subcategory or "—")
+            page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "অ্যাপ্লিকেশন"), ", ".join(applications) if applications else "Confirm by part number")
+            page = replace_row_value(page, ("Compatible Vehicles", "संगत वाहन", "उपयुक्त वाहन", "সামঞ্জস্যপূর্ণ গাড়ি", "উপযুক্ত গাড়ি"), ", ".join(vehicles) if vehicles else "Confirm vehicle application")
+
+            # Replace the visible price values in MRP-then-selling-price order.
+            price_re = re.compile(
+                r'(<span\b[^>]*class=["\'][^"\']*\bpdp-price-value\b[^"\']*["\'][^>]*>)(.*?)(</span>)',
+                flags=re.I | re.S,
+            )
+            price_values = iter((money(product.get("mrp")), money(product.get("selling_price"))))
+            page = price_re.sub(
+                lambda match: match.group(1) + next(price_values, "On request") + match.group(3),
+                page,
+                count=2,
+            )
+            try:
+                mrp_value = float(product.get("mrp"))
+                selling_value = float(product.get("selling_price"))
+            except (TypeError, ValueError):
+                mrp_value = selling_value = 0.0
+            if mrp_value and selling_value and selling_value < mrp_value:
+                discount = round((mrp_value - selling_value) / mrp_value * 100)
+                page = re.sub(
+                    r'(<span\b[^>]*class=["\'][^"\']*\bpdp-price-discount\b[^"\']*["\'][^>]*>).*?(</span>)',
+                    lambda match: match.group(1) + f"{discount}% OFF" + match.group(2),
+                    page,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+            else:
+                page = re.sub(
+                    r'<span\b[^>]*class=["\'][^"\']*\bpdp-price-discount\b[^"\']*["\'][^>]*>.*?</span>',
+                    "",
+                    page,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+
+            # Align the static description and application list so the page is
+            # meaningful even before JavaScript enhancement has run.
+            page = re.sub(
+                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*Description\s*</h3>\s*<p>).*?(</p>)',
+                lambda match: match.group(1) + html_module.escape(description, quote=False) + match.group(2),
+                page,
+                count=1,
+                flags=re.I | re.S,
+            )
+            application_items = "".join(
+                f"<li>{html_module.escape(item, quote=False)}</li>" for item in applications
+            ) or "<li>Confirm by part number</li>"
+            page = re.sub(
+                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*(?:Applications|अनुप्रयोग|অ্যাপ্লিকেশন)\s*</h3>\s*<ul>).*?(</ul>)',
+                lambda match: match.group(1) + application_items + match.group(2),
+                page,
+                count=1,
+                flags=re.I | re.S,
+            )
+
+            # Keep the primary image and alt text tied to this product.
+            primary_image = text(seeded.get("image_url"))
+            page = re.sub(
+                r'(<img\b[^>]*\bid=["\']pdpMainImage["\'][^>]*\bsrc=["\'])[^"\']*(["\'])',
+                lambda match: match.group(1) + primary_image + match.group(2),
+                page,
+                count=1,
+                flags=re.I,
+            )
+            page = re.sub(
+                r'(<img\b[^>]*\bid=["\']pdpMainImage["\'][^>]*\balt=["\'])[^"\']*(["\'])',
+                lambda match: match.group(1) + html_module.escape(name, quote=True) + match.group(2),
+                page,
+                count=1,
+                flags=re.I,
+            )
+
+            data_match = data_pattern.search(page)
+            if not data_match:
+                raise SystemExit(f"Generated PDP template has no embedded data: {template_path}")
+            page = page[:data_match.start(1)] + json.dumps(seeded, ensure_ascii=False, indent=2) + ";" + page[data_match.end(1):]
+
+            target_path = product_dir / f"{slug}.html"
+            if target_path.exists():
+                raise SystemExit(f"Refusing to overwrite an existing PDP while generating: {target_path}")
+            target_path.write_text(page, encoding="utf-8")
+            created += 1
+
+        if created:
+            print(f"Generated {created} missing {lang} product pages from the canonical catalogue.")
+        return created
+
     for lang in ("en", "hi", "bn"):
         product_dir = ROOT / lang / "products"
+        materialize_missing_product_pages(lang, product_dir)
         for path in list(product_dir.glob("*.html")):
             html = path.read_text(encoding="utf-8")
             original = html
