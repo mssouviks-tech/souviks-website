@@ -158,7 +158,7 @@ def main() -> None:
             html = html_path.read_text(encoding="utf-8")
             sources = script_sources(html)
             has_rfq_ui = bool(re.search(
-                r'<[^>]+\\bclass=["\\'][^"\\']*\\b(?:rfq-badge|add-to-cart|pdp-rfq-btn)\\b[^"\\']*["\\'][^>]*>',
+                r'<[^>]+\bclass=["\'][^"\']*\b(?:rfq-badge|add-to-cart|pdp-rfq-btn)\b[^"\']*["\'][^>]*>',
                 html,
                 flags=re.I,
             ))
