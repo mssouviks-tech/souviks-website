@@ -506,6 +506,9 @@ def validate_security_headers(errors: list[str]) -> None:
     expected_values = {
         "x-content-type-options": "nosniff",
         "referrer-policy": "strict-origin-when-cross-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "frame-ancestors 'self'",
     }
     for name, expected_value in expected_values.items():
         actual = root_headers.get(name, "")
