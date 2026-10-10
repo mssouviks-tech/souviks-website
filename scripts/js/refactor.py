@@ -357,37 +357,40 @@ def migrate_html() -> int:
             r'<script\s+defer\s+src="/assets/js/request-quote/rfq\.js(?:\?[^" ]*)?"></script>'
         )
         if rfq_ui_pattern.search(new_content):
-            additions = []
             if not core_pattern.search(new_content):
-                additions.append(core_tag)
+                catalogue_anchor = catalogue_core_pattern.search(new_content)
+                if catalogue_anchor:
+                    new_content = (
+                        new_content[:catalogue_anchor.start()]
+                        + core_tag
+                        + "\n"
+                        + new_content[catalogue_anchor.start():]
+                    )
+                else:
+                    closing_body = re.search(r"</body\s*>", new_content, re.IGNORECASE)
+                    if not closing_body:
+                        raise ValueError(f"Cannot load site core on RFQ page {path}: no </body> anchor")
+                    new_content = (
+                        new_content[:closing_body.start()]
+                        + core_tag
+                        + "\n"
+                        + new_content[closing_body.start():]
+                    )
 
             if (
                 not account_rfq_pattern.search(new_content)
                 and not standalone_rfq_pattern.search(new_content)
             ):
-                additions.append(
-                    f'<script defer src="{versioned_asset_url("assets/js/account/rfq.js")}"></script>'
-                )
-
-            if additions:
+                rfq_tag = f'<script defer src="{versioned_asset_url("assets/js/account/rfq.js")}"></script>'
                 anchor = catalogue_core_pattern.search(new_content) or core_pattern.search(new_content)
-                if anchor:
-                    new_content = (
-                        new_content[:anchor.end()]
-                        + "\n"
-                        + "\n".join(additions if core_pattern.search(new_content) else additions[1:])
-                        + new_content[anchor.end():]
-                    )
-                else:
-                    closing_body = re.search(r"</body\s*>", new_content, re.IGNORECASE)
-                    if not closing_body:
-                        raise ValueError(f"Cannot load RFQ runtime on {path}: no </body> anchor")
-                    new_content = (
-                        new_content[:closing_body.start()]
-                        + "\n".join(additions)
-                        + "\n"
-                        + new_content[closing_body.start():]
-                    )
+                if not anchor:
+                    raise ValueError(f"Cannot load RFQ engine on {path}: shared core is missing")
+                new_content = (
+                    new_content[:anchor.end()]
+                    + "\n"
+                    + rfq_tag
+                    + new_content[anchor.end():]
+                )
 
         def replace_css(match: re.Match[str]) -> str:
             relative_path = f"assets/css/{match.group(2)}"
