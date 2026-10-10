@@ -1104,7 +1104,7 @@ def reconcile_catalogue_projections():
             html = re.sub(r'(<link\s+rel=["\']canonical["\']\s+href=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(<meta\s+property=["\']og:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
-            html = re.sub(r'(currentPage:\s*)["\'][^"\']*["\']', lambda m: m.group(1) + json.dumps(name), html, count=1)
+            html = re.sub(r'(currentPage:\s*)("(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\')', lambda m: m.group(1) + json.dumps(name), html, count=1)
             # Keep every language alternate on the current canonical slug.
             # This prevents stale mixed-case or pre-normalization product URLs
             # from surviving in generated hreflang metadata.
