@@ -115,12 +115,43 @@ def validate_auth_ownership(errors: list[str]) -> None:
             f"assets/js/site-core.js; found {auth_listeners}"
         )
 
+def validate_rfq_submission(errors: list[str]) -> None:
+    """Keep authenticated RFQ creation atomic and tracked in migrations."""
+    submission_path = JS_ROOT / "request-quote" / "standalone-rfq-submission.js"
+    migration_path = ROOT / "supabase" / "migrations" / "20261010100000_atomic_rfq_submission.sql"
+
+    if not submission_path.is_file():
+        errors.append("Standalone RFQ submission module is missing.")
+        return
+    if not migration_path.is_file():
+        errors.append("Atomic RFQ submission migration is missing.")
+        return
+
+    submission = submission_path.read_text(encoding="utf-8", errors="ignore")
+    migration = migration_path.read_text(encoding="utf-8", errors="ignore")
+
+    if not re.search(r'\.rpc\(\s*["\\']submit_rfq["\\']', submission):
+        errors.append("Authenticated RFQ submission must call the atomic submit_rfq RPC.")
+    if re.search(
+        r'\.from\(\s*["\\'](?:rfqs|rfq_items)["\\']\s*\)\s*\.insert\s*\(',
+        submission,
+        flags=re.S,
+    ):
+        errors.append("Standalone RFQ submission must not insert the RFQ parent/items in separate calls.")
+
+    if "SECURITY DEFINER" not in migration.upper() or "AUTH.UID()" not in migration.upper():
+        errors.append("Atomic RFQ migration must enforce authenticated ownership inside the database.")
+    if not re.search(r"GRANT EXECUTE ON FUNCTION public\.submit_rfq.*TO authenticated", migration, flags=re.I | re.S):
+        errors.append("Atomic RFQ migration must grant submit_rfq execution to authenticated users.")
+
+
 def main() -> None:
     if not SITE_CORE.is_file():
         fail("assets/js/site-core.js is missing.")
 
     errors: list[str] = []
     validate_auth_ownership(errors)
+    validate_rfq_submission(errors)
 
     # All browser JavaScript modules use lowercase kebab-case; numeric utility
     # pages such as 404.js are explicitly permitted.
