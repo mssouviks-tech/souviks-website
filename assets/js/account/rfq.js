@@ -994,220 +994,63 @@ CHANGE QUANTITY
 ----------------------------------------------------------
 */
 
-RFQ.changeQty = async function (
+RFQ.changeQty = async function (productId, amount) {
+    try {
+        const items = await RFQ.get();
+        const item = items.find(entry => String(entry.id) === String(productId));
+        if (!item) return false;
 
-    productId,
-    amount
-
-) {
-
-    const items =
-        await RFQ.get();
-
-
-    const item =
-        items.find(
-
-            entry =>
-                String(
-                    entry.id
-                ) ===
-                String(
-                    productId
-                )
-
-        );
-
-
-    if (!item) {
-
-        return;
-
-    }
-
-
-    const newQuantity =
-        Number(
-            item.qty
-        ) +
-        Number(
-            amount
-        );
-
-
-    /*
-    ------------------------------------------------------
-    REMOVE WHEN QUANTITY REACHES ZERO
-    ------------------------------------------------------
-    */
-
-    if (
-        newQuantity <=
-        0
-    ) {
-
-        await RFQ.remove(
-            productId
-        );
-
-        return;
-
-    }
-
-
-    /*
-    ------------------------------------------------------
-    ANONYMOUS
-    ------------------------------------------------------
-    */
-
-    const user =
-        await RFQ.getUser();
-
-
-    if (!user) {
-
-        const guestItems =
-            RFQ.getGuestItems();
-
-
-        const guestIndex =
-            guestItems.findIndex(
-
-                entry =>
-                    String(
-                        entry.id
-                    ) ===
-                    String(
-                        productId
-                    )
-
-            );
-
-
-        if (
-            guestIndex <
-            0
-        ) {
-
-            return;
-
+        const newQuantity = Number(item.qty) + Number(amount);
+        if (newQuantity <= 0) {
+            return await RFQ.remove(productId);
         }
 
+        const user = await RFQ.getUser();
+        if (!user) {
+            const guestItems = RFQ.getGuestItems();
+            const guestIndex = guestItems.findIndex(entry => String(entry.id) === String(productId));
+            if (guestIndex < 0) return false;
 
-        guestItems[
-            guestIndex
-        ].qty =
-            newQuantity;
+            guestItems[guestIndex].qty = newQuantity;
+            if (!RFQ.saveGuestItems(guestItems)) return false;
+            await RFQ.updateBadge();
+            await RFQ.renderPage();
+            return true;
+        }
 
+        if (typeof supabaseClient === "undefined") return false;
 
-        if (!RFQ.saveGuestItems(guestItems)) return false;
+        const { data: dbItem, error: findError } = await supabaseClient
+            .from(RFQ.table)
+            .select("id, quantity")
+            .eq("user_id", user.id)
+            .eq("product_id", productId)
+            .maybeSingle();
+
+        if (findError) {
+            SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ item:", findError, "error");
+            return false;
+        }
+        if (!dbItem) return false;
+
+        const { error: updateError } = await supabaseClient
+            .from(RFQ.table)
+            .update({ quantity: newQuantity })
+            .eq("id", dbItem.id)
+            .eq("user_id", user.id);
+
+        if (updateError) {
+            SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", updateError, "error");
+            return false;
+        }
+
         await RFQ.updateBadge();
         await RFQ.renderPage();
         return true;
-
+    } catch (error) {
+        SouviksErrors?.log("[Souviks RFQ] Unexpected quantity update failure:", error, "error");
+        return false;
     }
-
-
-    /*
-    ------------------------------------------------------
-    AUTHENTICATED
-    ------------------------------------------------------
-    */
-
-    if (
-        typeof supabaseClient ===
-        "undefined"
-    ) {
-
-        return;
-
-    }
-
-
-    const {
-        data: dbItem,
-        error: findError
-    } =
-        await supabaseClient
-
-            .from(
-                RFQ.table
-            )
-
-            .select(
-                "id, quantity"
-            )
-
-            .eq(
-                "user_id",
-                user.id
-            )
-
-            .eq(
-                "product_id",
-                productId
-            )
-
-            .maybeSingle();
-
-
-    if (findError) {
-
-        SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ item:", findError, "error");
-
-        return;
-
-    }
-
-
-    if (!dbItem) {
-
-        return;
-
-    }
-
-
-    const {
-        error: updateError
-    } =
-        await supabaseClient
-
-            .from(
-                RFQ.table
-            )
-
-            .update({
-
-                quantity:
-                    newQuantity
-
-            })
-
-            .eq(
-                "id",
-                dbItem.id
-            )
-
-            .eq(
-                "user_id",
-                user.id
-            );
-
-
-    if (updateError) {
-
-        SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", updateError, "error");
-
-        return;
-
-    }
-
-
-    await RFQ.updateBadge();
-
-    await RFQ.renderPage();
-
 };
 
 
@@ -1217,7 +1060,7 @@ REMOVE PRODUCT
 ----------------------------------------------------------
 */
 
-RFQ.remove = async function (productId) {
+ (productId) {
     const user = await RFQ.getUser();
 
     if (!user) {
@@ -1416,13 +1259,14 @@ document.addEventListener(
             event.preventDefault();
 
 
-            RFQ.changeQty(
-
-                plus.dataset.id,
-
-                1
-
-            );
+            RFQ.changeQty(plus.dataset.id, 1)
+                .then(updated => {
+                    if (!updated) RFQ.showActionStatus(plus, "quantityFailed");
+                })
+                .catch(error => {
+                    SouviksErrors?.log("[Souviks RFQ] Increase quantity failed:", error, "error");
+                    RFQ.showActionStatus(plus, "quantityFailed");
+                });
 
 
             return;
@@ -1441,13 +1285,14 @@ document.addEventListener(
             event.preventDefault();
 
 
-            RFQ.changeQty(
-
-                minus.dataset.id,
-
-                -1
-
-            );
+            RFQ.changeQty(minus.dataset.id, -1)
+                .then(updated => {
+                    if (!updated) RFQ.showActionStatus(minus, "quantityFailed");
+                })
+                .catch(error => {
+                    SouviksErrors?.log("[Souviks RFQ] Decrease quantity failed:", error, "error");
+                    RFQ.showActionStatus(minus, "quantityFailed");
+                });
 
 
             return;
@@ -1466,11 +1311,14 @@ document.addEventListener(
             event.preventDefault();
 
 
-            RFQ.remove(
-
-                remove.dataset.id
-
-            );
+            RFQ.remove(remove.dataset.id)
+                .then(removed => {
+                    if (!removed) RFQ.showActionStatus(remove, "removeFailed");
+                })
+                .catch(error => {
+                    SouviksErrors?.log("[Souviks RFQ] Remove product failed:", error, "error");
+                    RFQ.showActionStatus(remove, "removeFailed");
+                });
 
         }
 
