@@ -220,8 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 : successMessage;
 
             form.reset();
-            await RFQ.updateBadge();
-            await RFQ.renderPage();
+            await RFQ.refreshUI();
 
             RFQ.setSubmissionStatus(
                 status,
