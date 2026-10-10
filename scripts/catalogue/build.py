@@ -1528,6 +1528,12 @@ def sync_product_seo_and_schema():
         for item in json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
         if item.get("active") is not False and item.get("id")
     }
+    brand_records = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
+    brands_by_id = {
+        text(item.get("id")).casefold(): item
+        for item in brand_records
+        if isinstance(item, dict) and text(item.get("id"))
+    }
     changed = []
     
     def text(value):
@@ -1866,6 +1872,27 @@ def sync_product_seo_and_schema():
                         if items[-1].get("item") != url:
                             items[-1]["item"] = url
                             updated = True
+
+                    # A generated PDP must breadcrumb to its canonical brand,
+                    # not the brand belonging to a copied template page.
+                    brand_id = text(product.get("brand_id")).casefold()
+                    brand_record = brands_by_id.get(brand_id, {})
+                    brand_name = text(product.get("brand_name") or product.get("brand"))
+                    brand_slug = text(brand_record.get("slug") or brand_id)
+                    brand_url = f"{BASE}/{lang}/brands/{brand_slug}" if brand_slug else ""
+                    if isinstance(items, list) and brand_name and brand_url:
+                        for crumb in items:
+                            if not isinstance(crumb, dict):
+                                continue
+                            crumb_url = text(crumb.get("item"))
+                            if "/brands/" not in crumb_url:
+                                continue
+                            if crumb.get("name") != brand_name:
+                                crumb["name"] = brand_name
+                                updated = True
+                            if crumb_url != brand_url:
+                                crumb["item"] = brand_url
+                                updated = True
                 if updated:
                     breadcrumb_repaired.append(
                         (
