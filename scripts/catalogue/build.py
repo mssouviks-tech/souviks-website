@@ -2151,6 +2151,7 @@ def main() -> None:
     normalize_internal_redirect_links()
     sync_organization_schema()
     runpy.run_path(str(ROOT / "scripts/catalogue/normalize_page_config.py"), run_name="__main__")
+    runpy.run_path(str(ROOT / "scripts/catalogue/sync_rfq_module.py"), run_name="__main__")
     runpy.run_path(str(ROOT / "scripts/catalogue/validate.py"), run_name="__main__")
 
 
