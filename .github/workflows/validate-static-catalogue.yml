@@ -191,6 +191,18 @@ jobs:
                           f"products.json drift for {pid}: {field}"
                       )
 
+              slug = str(source.get("slug") or "").strip()
+              derived_part = str(source.get("part_number") or source.get("partNumber") or "").strip()
+              tata_match = re.match(r"^tata-genuine-(\d{12})-.*$", slug, flags=re.I)
+              if tata_match:
+                  derived_part = tata_match.group(1)
+
+              for field in ("part_number", "partNumber"):
+                  if str(projected.get(field) or "").strip() != derived_part:
+                      errors.append(
+                          f"products.json drift for {pid}: {field}"
+                      )
+
           orphan_projection = sorted(set(products_by_id) - set(catalogue_by_id))
           if orphan_projection:
               errors.append(
@@ -715,7 +727,10 @@ jobs:
               "products": sum(p.get("active") is not False for p in catalogue) * 3,
               "brands": sum(b.get("active") is not False for b in brands_data) * 3,
               "categories": sum(c.get("active") is not False for c in categories_data) * 3,
-              "vehicles": sum(v.get("active") is not False for v in vehicles_data) * 3,
+              "vehicles": sum(
+                  v.get("active") is not False and len(v.get("products") or []) > 5
+                  for v in vehicles_data
+              ) * 3,
           }
           products = len(re.findall(r"<loc>https://www\.souviks\.co\.in/(?:en|hi|bn)/products/", pathlib.Path("sitemaps/products.xml").read_text(encoding="utf-8")))
           brands = len(re.findall(r"<loc>https://www\.souviks\.co\.in/(?:en|hi|bn)/brands/", pathlib.Path("sitemaps/brands.xml").read_text(encoding="utf-8")))
@@ -727,16 +742,4 @@ jobs:
               print("Expected:", expected)
               print("Actual:", actual)
               sys.exit(1)
-          print("Sitemap integrity OK")              slug = str(source.get("slug") or "").strip()
-              derived_part = str(source.get("part_number") or source.get("partNumber") or "").strip()
-              tata_match = re.match(r"^tata-genuine-(\d{12})-.*$", slug, flags=re.I)
-              if tata_match:
-                  derived_part = tata_match.group(1)
-
-              for field in ("part_number", "partNumber"):
-                  if str(projected.get(field) or "").strip() != derived_part:
-                      errors.append(
-                          f"products.json drift for {pid}: {field}"
-                      )
-
-
+          print("Sitemap integrity OK")
