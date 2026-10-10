@@ -1112,13 +1112,14 @@ document.addEventListener(
             event.preventDefault();
 
 
-            RFQ.changeQty(
-
-                plus.dataset.id,
-
-                1
-
-            );
+            RFQ.changeQty(plus.dataset.id, 1)
+                .then(updated => {
+                    if (!updated) RFQ.showActionStatus(plus, "quantityFailed");
+                })
+                .catch(error => {
+                    SouviksErrors?.log("[Souviks RFQ] Increase quantity failed:", error, "error");
+                    RFQ.showActionStatus(plus, "quantityFailed");
+                });
 
 
             return;
@@ -1137,13 +1138,14 @@ document.addEventListener(
             event.preventDefault();
 
 
-            RFQ.changeQty(
-
-                minus.dataset.id,
-
-                -1
-
-            );
+            RFQ.changeQty(minus.dataset.id, -1)
+                .then(updated => {
+                    if (!updated) RFQ.showActionStatus(minus, "quantityFailed");
+                })
+                .catch(error => {
+                    SouviksErrors?.log("[Souviks RFQ] Decrease quantity failed:", error, "error");
+                    RFQ.showActionStatus(minus, "quantityFailed");
+                });
 
 
             return;
@@ -1162,11 +1164,14 @@ document.addEventListener(
             event.preventDefault();
 
 
-            RFQ.remove(
-
-                remove.dataset.id
-
-            );
+            RFQ.remove(remove.dataset.id)
+                .then(removed => {
+                    if (!removed) RFQ.showActionStatus(remove, "removeFailed");
+                })
+                .catch(error => {
+                    SouviksErrors?.log("[Souviks RFQ] Remove product failed:", error, "error");
+                    RFQ.showActionStatus(remove, "removeFailed");
+                });
 
         }
 
