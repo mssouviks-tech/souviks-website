@@ -504,7 +504,10 @@ async function main() {
 
       const noMatchQuery = "zzzxqvnotfound9051";
       await input.fill(noMatchQuery);
-      await page.waitForTimeout(350);
+      await page.waitForFunction(() => {
+        const total = document.getElementById("totalResults");
+        return total && total.textContent.trim() === "0";
+      }, null, { timeout: 4000 });
       await page.locator("#noResults").waitFor({ state: "visible", timeout: 3000 });
       if (!(await page.locator("#noResults").isVisible())) {
         throw new Error("unexpected search did not show the no-results message");
@@ -618,18 +621,27 @@ async function main() {
     try {
       const page = await context.newPage();
       page.__view = "desktop";
-      await page.route("**/assets/images/products/**", async route => {
-        await route.fulfill({ status: 404, contentType: "image/webp", body: "missing image fixture" });
-      });
       await goto(page, BASE + "/en/products/10-x-15-nut");
+      const image = page.locator("#pdpMainImage");
+      const failedImageUrl = await image.evaluate(element =>
+        new URL(element.getAttribute("src") || element.src, window.location.href).href
+      );
+      let interceptedMainImage = false;
+      await page.route(failedImageUrl, async route => {
+        interceptedMainImage = true;
+        await route.fulfill({ status: 404, contentType: "image/webp", body: "missing main image fixture" });
+      });
+      // Reload so this exact main-image request is intercepted; other lazy
+      // gallery/recommendation requests must not consume the failure fixture.
+      await page.reload({ waitUntil: "domcontentloaded" });
+      await page.waitForTimeout(350);
       await page.waitForFunction(() => {
         const image = document.querySelector("#pdpMainImage");
-        return image && (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp");
+        return image &&
+          (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
+          image.complete && image.naturalWidth > 0;
       }, null, { timeout: 8000 });
-      await page.waitForFunction(() => {
-        const image = document.querySelector("#pdpMainImage");
-        return image && image.complete && image.naturalWidth > 0;
-      }, null, { timeout: 8000 });
+      if (!interceptedMainImage) throw new Error("the deterministic main-image 404 fixture was not triggered");
       const fallback = await page.locator("#pdpMainImage").evaluate(image => ({
         src: image.getAttribute("src") || "", width: image.naturalWidth, complete: image.complete
       }));
@@ -1030,46 +1042,56 @@ async function main() {
       });
 
       await check(`${view}/${lang}/entity gallery missing-image fallback loads`, async () => {
-        let interceptedBrokenImage = false;
-        await page.route("**/assets/images/products/**", async route => {
-          if (!interceptedBrokenImage) {
-            interceptedBrokenImage = true;
-            await route.fulfill({
-              status: 404,
-              contentType: "image/webp",
-              body: "deterministic missing-image fixture"
-            });
-          } else {
-            await route.continue();
-          }
-        });
         await goto(page, BASE + langPath(lang, "brands/bapi"));
         const galleryImages = page.locator(".entity-product-galleries img");
         if ((await galleryImages.count()) < 1) {
           throw new Error("brand product gallery has no images");
         }
-        await galleryImages.first().scrollIntoViewIfNeeded();
-        await page.waitForFunction(() => {
-          const images = Array.from(document.querySelectorAll(".entity-product-galleries img"));
-          return images.some(image =>
-            image.dataset.souviksImageFallback === "done" &&
-            (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
-            image.complete && image.naturalWidth > 0
-          );
-        }, null, { timeout: 8000 });
-        if (!interceptedBrokenImage) {
-          throw new Error("the deterministic product-image 404 fixture was not triggered");
-        }
-        const state = await page.evaluate(() => {
-          const image = Array.from(document.querySelectorAll(".entity-product-galleries img"))
-            .find(element => element.dataset.souviksImageFallback === "done");
-          return image ? {
-            src: image.getAttribute("src") || "",
-            width: image.naturalWidth,
-            complete: image.complete,
-            fallbackApplied: image.dataset.souviksImageFallback
-          } : null;
+
+        const targetImage = galleryImages.first();
+        await targetImage.scrollIntoViewIfNeeded();
+        const brokenUrl = await targetImage.evaluate(image => {
+          const url = new URL(image.getAttribute("src") || image.src, window.location.href);
+          url.searchParams.set("souviks-regression-missing-image", "1");
+          return url.href;
         });
+        let interceptedBrokenImage = false;
+        await page.route(brokenUrl, async route => {
+          interceptedBrokenImage = true;
+          await route.fulfill({
+            status: 404,
+            contentType: "image/webp",
+            body: "deterministic missing-image fixture"
+          });
+        });
+        await targetImage.evaluate((image, url) => {
+          image.removeAttribute("srcset");
+          image.removeAttribute("sizes");
+          delete image.dataset.souviksImageFallback;
+          delete image.dataset.souviksFallbackApplied;
+          image.src = url;
+        }, brokenUrl);
+
+        const targetHandle = await targetImage.elementHandle();
+        await page.waitForFunction(image =>
+          image &&
+          image.dataset.souviksImageFallback === "done" &&
+          (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
+          image.complete && image.naturalWidth > 0 &&
+          !image.hidden && getComputedStyle(image).visibility === "visible"
+        , targetHandle, { timeout: 8000 });
+
+        if (!interceptedBrokenImage) {
+          throw new Error("the targeted gallery-image 404 fixture was not triggered");
+        }
+        const state = await targetImage.evaluate(image => ({
+          src: image.getAttribute("src") || "",
+          width: image.naturalWidth,
+          complete: image.complete,
+          hidden: image.hidden,
+          visibility: getComputedStyle(image).visibility,
+          fallbackApplied: image.dataset.souviksImageFallback || ""
+        }));
         if (!state || !state.src.endsWith("/assets/images/placeholder.webp")) {
           throw new Error("injected image failure did not switch to the shared placeholder");
         }
