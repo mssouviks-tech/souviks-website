@@ -1,24 +1,27 @@
 name: Validate JavaScript Architecture
 
 on:
-  push:
+  # Generated HTML and cache-busting references are updated by the catalogue
+  # publisher. Validate after that publisher completes so this workflow never
+  # races it or the shared-JS cache-version refresh workflow.
+  workflow_run:
+    workflows: ["Build Static Catalogue"]
+    types: [completed]
     branches: [main]
-    paths:
-      - "assets/js/**"
-      - "en/*.html"
-      - "bn/*.html"
-      - "hi/*.html"
-      - "scripts/js/**"
-      - ".github/workflows/validate-javascript-architecture.yml"
+  workflow_dispatch:
+
 permissions:
   contents: read
 
 jobs:
   validate:
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout the published main revision
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Validate JavaScript architecture
         run: python3 scripts/js/validate.py
