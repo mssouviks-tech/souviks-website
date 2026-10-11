@@ -42,23 +42,13 @@
 /vehicles/:slug /en/vehicles/:slug 301
 /brands/:slug /en/brands/:slug 301
 /categories/:slug /en/categories/:slug 301
-https://souviks.co.in/products/:slug https://www.souviks.co.in/en/products/:slug 301
-https://souviks.co.in/vehicles/:slug https://www.souviks.co.in/en/vehicles/:slug 301
-https://souviks.co.in/brands/:slug https://www.souviks.co.in/en/brands/:slug 301
-https://souviks.co.in/categories/:slug https://www.souviks.co.in/en/categories/:slug 301
+
+# Host redirects are handled by functions/_middleware.js; Pages _redirects matches URL paths, not hostnames.
 
 # Canonicalize the bare-host homepage explicitly, then catch all other paths.
-https://souviks.co.in/ https://www.souviks.co.in/ 301
-https://souviks.co.in/* https://www.souviks.co.in/:splat 301
 
-https://w.souviks.co.in/* https://www.souviks.co.in/:splat 301
 
-https://ww.souviks.co.in/* https://www.souviks.co.in/:splat 301
 
-https://ww2.souviks.co.in/* https://www.souviks.co.in/:splat 301
 
-https://wwe.souviks.co.in/* https://www.souviks.co.in/:splat 301
 
-https://wwww.souviks.co.in/* https://www.souviks.co.in/:splat 301
 
-https://qqq.souviks.co.in/* https://www.souviks.co.in/:splat 301
