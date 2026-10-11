@@ -404,7 +404,15 @@ async function main() {
     if (!(await robotsResponse.text()).includes("Sitemap:")) {
       throw new Error("middleware did not preserve the static asset body");
     }
-    return "legacy host 301 preserves path/query; static body and six security headers preserved";
+
+    const routeConfig = JSON.parse(fs.readFileSync(path.join(__dirname, "../../_routes.json"), "utf8"));
+    if (routeConfig.version !== 1 || JSON.stringify(routeConfig.include) !== JSON.stringify(["/*"])) {
+      throw new Error("Pages route config must include all application routes for middleware");
+    }
+    if (JSON.stringify(routeConfig.exclude) !== JSON.stringify(["/assets/*"])) {
+      throw new Error("Pages route config must exclude only /assets/* to avoid invoking Functions for heavy static assets");
+    }
+    return "legacy host 301 preserves path/query; six headers added; robots routed through middleware while /assets bypasses Functions";
   });
 
   // 1. Route matrix
