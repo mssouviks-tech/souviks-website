@@ -355,6 +355,79 @@ function langPath(lang, suffix) {
 async function main() {
   browser = await chromium.launch({ headless: true });
 
+  await check("reliability/E Comet PDP brand breadcrumb matches the Toyo master record", async () => {
+    const cataloguePath = path.join(__dirname, "../../assets/data/products.json");
+    const products = JSON.parse(fs.readFileSync(cataloguePath, "utf8"));
+    const master = products.find(item => item && item.id === "SVKS000883");
+    if (!master || master.active === false) throw new Error("SVKS000883 master product is missing or inactive");
+    if (master.brand_id !== "toyo" || (master.brand_name || master.brand) !== "Toyo") {
+      throw new Error("SVKS000883 master brand is not Toyo");
+    }
+
+    for (const lang of ["en", "hi", "bn"]) {
+      const relative = lang + "/products/0209-e-comet-rear-main-leaf.html";
+      const html = fs.readFileSync(path.join(__dirname, "../../", relative), "utf8");
+      const embeddedMatch = html.match(/window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});/s);
+      if (!embeddedMatch) throw new Error(relative + " embedded product data is missing");
+      const embedded = JSON.parse(embeddedMatch[1]);
+      if (embedded.id !== master.id || embedded.brand_id !== "toyo") {
+        throw new Error(relative + " embedded product does not match the Toyo master record");
+      }
+
+      const breadcrumbs = [...html.matchAll(/<li\b[^>]*class=["'][^"']*\bbreadcrumb-item\b[^"']*["'][^>]*>\s*<a\b[^>]*href=["']([^"']*\/brands\/[^"']+)["'][^>]*>(.*?)<\/a>\s*<\/li>/gis)];
+      if (breadcrumbs.length !== 1 ||
+          !breadcrumbs[0][1].includes("/" + lang + "/brands/toyo") ||
+          breadcrumbs[0][2].replace(/<[^>]*>/g, "").trim() !== "Toyo") {
+        throw new Error(relative + " brand breadcrumb does not point to Toyo");
+      }
+
+      if (!/<img\b[^>]*src=["']\/assets\/images\/brands\/toyo\.png["'][^>]*alt=["']Toyo["']/i.test(html)) {
+        throw new Error(relative + " Toyo brand badge is missing or incorrect");
+      }
+      const mainImage = html.match(/<img\b[^>]*id=["']pdpMainImage["'][^>]*>/i);
+      if (!mainImage || !mainImage[0].includes("/assets/images/products/SVKS000883/1.webp")) {
+        throw new Error(relative + " main product image is not bound to SVKS000883/1.webp");
+      }
+    }
+    return "English, Hindi and Bengali PDPs use Toyo breadcrumb/logo and the real four-image product gallery";
+  });
+
+  await check("reliability/static catalogue totals match active product records", async () => {
+    const indexPath = path.join(__dirname, "../../assets/data/catalogue-index.json");
+    const records = JSON.parse(fs.readFileSync(indexPath, "utf8"));
+    if (!Array.isArray(records)) throw new Error("catalogue index is not an array");
+    const activeCount = records.filter(item => item && item.id && item.active !== false).length;
+    if (!activeCount) throw new Error("active product count unexpectedly empty");
+
+    const pages = [
+      "en/products.html", "hi/products.html", "bn/products.html",
+      "en/brands.html", "hi/brands.html", "bn/brands.html",
+      "en/categories.html", "hi/categories.html", "bn/categories.html",
+      "en/vehicles.html", "hi/vehicles.html", "bn/vehicles.html",
+    ];
+    const readIdCount = (html, id) => {
+      const match = html.match(new RegExp('id="' + id + '"[^>]*>\\s*(\\d+)\\s*</', "i"));
+      return match ? Number(match[1]) : null;
+    };
+
+    for (const relative of pages) {
+      const html = fs.readFileSync(path.join(__dirname, "../../", relative), "utf8");
+      const productStat = html.match(/<div\b[^>]*class=["'][^"']*\bhero-stat["'][^>]*>\s*<img\b(?=[^>]*\bsrc=["'][^"']*\/products\.svg(?:[?#][^"']*)?["'])[^>]*>\s*<div\b[^>]*>\s*<(?:div|span)\b(?=[^>]*\bclass=["'][^"']*\bstat-number\b)[^>]*>\s*(\d+)\s*<\/(?:div|span)>/is);
+      if (!productStat || Number(productStat[1]) !== activeCount) {
+        throw new Error(relative + " Products hero count was " + (productStat ? productStat[1] : "not found") + "; expected " + activeCount);
+      }
+
+      if (relative.endsWith("/products.html")) {
+        for (const id of ["totalProducts", "totalResults"]) {
+          const value = readIdCount(html, id);
+          if (value !== activeCount) throw new Error(relative + " " + id + " was " + value + "; expected " + activeCount);
+        }
+      }
+    }
+
+    return activeCount + " active products synchronized across 12 static catalogue pages";
+  });
+
   await check("reliability/Pages middleware canonicalizes host and hardens responses", async () => {
     const middlewarePath = path.join(__dirname, "../../functions/_middleware.js");
     let source = fs.readFileSync(middlewarePath, "utf8");

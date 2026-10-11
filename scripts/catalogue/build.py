@@ -1324,6 +1324,26 @@ def sync_static_product_images():
                         count=1,
                         flags=re.I | re.S,
                     )
+                    # The visible breadcrumb must follow the target product's brand,
+                    # not the brand from the static PDP shell being repaired.
+                    brand_slug = str(brand_record.get("slug") or brand_id).strip()
+                    brand_url = f"{BASE}/{lang}/brands/{brand_slug}" if brand_slug else ""
+                    if brand_url:
+                        text, _ = re.subn(
+                            r'(<li\b[^>]*class=["\'][^"\']*\bbreadcrumb-item\b[^"\']*["\'][^>]*>\s*'
+                            r'<a\b[^>]*href=["\'])[^"\']*/brands/[^"\']*(["\'][^>]*>).*?(</a>\s*</li>)',
+                            lambda match: (
+                                match.group(1)
+                                + html_module.escape(brand_url, quote=True)
+                                + match.group(2)
+                                + html_module.escape(brand_name, quote=False)
+                                + match.group(3)
+                            ),
+                            text,
+                            count=1,
+                            flags=re.I | re.S,
+                        )
+
                     # Some valid PDP templates intentionally have no badge.
                     # Update it when present; absence alone must not abort a build.
 
@@ -2196,9 +2216,116 @@ def sync_product_listing_meta_descriptions() -> None:
             path.write_text(html, encoding="utf-8")
             changed += 1
     print(f"Localized product-listing meta descriptions synchronized in {changed} HTML files.")
+def sync_active_catalogue_counts() -> None:
+    """Keep server-rendered catalogue totals aligned with the active master records."""
+    import json
+    import re
+
+    catalogue_path = ROOT / "assets" / "data" / "catalogue-index.json"
+    catalogue = json.loads(catalogue_path.read_text(encoding="utf-8"))
+    if not isinstance(catalogue, list):
+        raise ValueError("catalogue-index.json must contain an array")
+
+    active_count = sum(
+        1 for product in catalogue
+        if isinstance(product, dict)
+        and product.get("id")
+        and product.get("active") is not False
+    )
+    if active_count <= 0:
+        raise ValueError("Refusing to write empty active catalogue counts")
+
+    # The count shown in a hero statistic is identified semantically by the
+    # Products icon, not by replacing every matching number (which could alter
+    # product IDs such as SVKS001045 or unrelated category/vehicle statistics).
+    hero_open = re.compile(
+        r'<div\b[^>]*class=["\'][^"\']*\bhero-stat["\'][^>]*>',
+        flags=re.I,
+    )
+    stat_number = re.compile(
+        r'(<(?:div|span)\b(?=[^>]*\bclass=["\'][^"\']*\bstat-number\b)[^>]*>\s*)'
+        r'\d+(\s*</(?:div|span)\s*>)',
+        flags=re.I,
+    )
+
+    product_pages = (
+        "en/products.html",
+        "hi/products.html",
+        "bn/products.html",
+    )
+    collection_pages = (
+        "en/brands.html", "hi/brands.html", "bn/brands.html",
+        "en/categories.html", "hi/categories.html", "bn/categories.html",
+        "en/vehicles.html", "hi/vehicles.html", "bn/vehicles.html",
+    )
+    page_counts = {}
+
+    for relative in (*product_pages, *collection_pages):
+        path = ROOT / relative
+        if not path.is_file():
+            raise FileNotFoundError(f"Expected generated catalogue page is missing: {relative}")
+
+        html = path.read_text(encoding="utf-8")
+        original = html
+
+        # Update only count slots whose HTML id explicitly defines the count.
+        updated_ids = {}
+        for element_id in ("totalProducts", "totalResults"):
+            pattern = re.compile(
+                r'(<(?P<tag>[a-z][\w:-]*)\b(?=[^>]*\bid=["\']'
+                + re.escape(element_id)
+                + r'["\'])[^>]*>\s*)'
+                r'\d+'
+                r'(\s*</(?P=tag)\s*>)',
+                flags=re.I,
+            )
+            html, replacements = pattern.subn(
+                lambda match: f"{match.group(1)}{active_count}{match.group(3)}",
+                html,
+                count=1,
+            )
+            updated_ids[element_id] = replacements
+
+        if relative in product_pages:
+            if updated_ids != {"totalProducts": 1, "totalResults": 1}:
+                raise ValueError(
+                    f"{relative}: expected exactly one totalProducts and totalResults count slot; "
+                    f"found {updated_ids}"
+                )
+
+            # Match the Products icon and its stat-number within the same hero-stat
+        # element. Never scan through the remainder of the document: that could
+        # accidentally make a later statistic (such as Vehicles) look like Products.
+        product_stat = re.compile(
+            r'(<div\b[^>]*class=["\'][^"\']*\bhero-stat["\'][^>]*>\s*'
+            r'<img\b(?=[^>]*\bsrc=["\'][^"\']*/products\.svg(?:[?#][^"\']*)?["\'])[^>]*>\s*'
+            r'<div\b[^>]*>\s*<(?:div|span)\b(?=[^>]*\bclass=["\'][^"\']*\bstat-number\b)[^>]*>\s*)'
+            r'\d+'
+            r'(\s*</(?:div|span)\s*>)',
+            flags=re.I | re.S,
+        )
+        html, product_stat_updates = product_stat.subn(
+            lambda match: f"{match.group(1)}{active_count}{match.group(2)}",
+            html,
+            count=1,
+        )
+        if product_stat_updates != 1:
+            raise ValueError(f"{relative}: could not find the Products hero-stat count to synchronize")
+
+        if html != original:
+            path.write_text(html, encoding="utf-8")
+        page_counts[relative] = active_count
+
+    print(
+        f"Synchronized active catalogue count ({active_count}) across "
+        f"{len(page_counts)} generated catalogue pages."
+    )
+
+
 def main() -> None:
     sync_product_listing_meta_descriptions()
     reconcile_catalogue_projections()
+    sync_active_catalogue_counts()
     sync_static_product_images()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
