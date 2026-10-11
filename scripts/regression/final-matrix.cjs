@@ -894,9 +894,16 @@ async function main() {
         const loginForm = page.locator("#authModalLoginForm");
         const providerButtons = loginForm.locator("[data-auth-provider]");
         await providerButtons.first().waitFor({ state: "visible", timeout: 8000 });
-        const providers = await providerButtons.evaluateAll(buttons => buttons.map(button => button.dataset.authProvider));
-        if (providers.join(",") !== "google,facebook,x") {
-          throw new Error(lang + " login provider order was " + providers.join(","));
+        const providers = await providerButtons.evaluateAll(buttons => buttons.map(button => ({
+          provider: button.dataset.authProvider,
+          visibleSymbol: button.innerText.trim(),
+          accessibleName: button.getAttribute("aria-label") || ""
+        })));
+        if (providers.map(button => button.provider).join(",") !== "google,facebook,x") {
+          throw new Error(lang + " login provider order was " + providers.map(button => button.provider).join(","));
+        }
+        if (providers.some(button => !button.visibleSymbol || button.visibleSymbol.length > 2 || !button.accessibleName)) {
+          throw new Error(lang + " social buttons must show symbols only and retain accessible names");
         }
         const formOrder = await loginForm.evaluate(form => {
           const actions = form.querySelector(".auth-form-actions");
@@ -911,7 +918,7 @@ async function main() {
         const registerProviders = page.locator("#authModalRegisterForm [data-auth-provider]");
         await registerProviders.first().waitFor({ state: "visible", timeout: 3000 });
         const registerOrder = await registerProviders.evaluateAll(buttons => buttons.map(button => button.dataset.authProvider));
-        if (registerOrder.join(",") !== "google,facebook,twitter") {
+        if (registerOrder.join(",") !== "google,facebook,x") {
           throw new Error(lang + " registration provider order was " + registerOrder.join(","));
         }
       }
