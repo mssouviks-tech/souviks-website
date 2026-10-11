@@ -58,6 +58,7 @@ jobs:
         run: node scripts/regression/production-browser-smoke.cjs
 
       - name: Verify live HTTP routes, headers, redirects, sitemaps, 404 and main revision
+        if: always()
         env:
           PRODUCTION_BASE_URL: https://www.souviks.co.in
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
