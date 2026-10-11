@@ -624,7 +624,7 @@ async function main() {
       await goto(page, BASE + "/en/products/10-x-15-nut");
       const image = page.locator("#pdpMainImage");
       const failedImageUrl = await image.evaluate(element =>
-        new URL(element.getAttribute("src") || element.src, window.location.href).href
+        new URL(element.currentSrc || element.getAttribute("src") || element.src, window.location.href).href
       );
       let interceptedMainImage = false;
       await page.route(failedImageUrl, async route => {
@@ -1095,7 +1095,7 @@ async function main() {
         if (!state || !state.src.endsWith("/assets/images/placeholder.webp")) {
           throw new Error("injected image failure did not switch to the shared placeholder");
         }
-        if (!state.complete || state.width < 1 || state.fallbackApplied !== "true") {
+        if (!state.complete || state.width < 1 || state.fallbackApplied !== "done") {
           throw new Error("fallback image failed to load: " + JSON.stringify(state));
         }
         return "injected a real product-image 404; shared placeholder loaded; gallery remained usable";
