@@ -50,7 +50,7 @@ jobs:
             return { status: response.status, ok: response.ok && payload?.success === true, payload };
           }
           const zoneId = process.env.CLOUDFLARE_ZONE_ID || process.env.CF_ZONE_ID || "";
-          const accountId = process.env.CLOUDFLARE_ACCOUNT_ID || process.env.CF_ACCOUNT_ID || "";
+          const accountId = process.env.CLOUDFLARE_ACCOUNT_ID || process.env.CF_ACCOUNT_ID || "d88f7d40c65eb68eea794b8e6cee7379";
           console.log("Configured identifiers:", {
             zoneIdPresent: Boolean(zoneId),
             accountIdPresent: Boolean(accountId),
@@ -80,17 +80,15 @@ jobs:
 
           if (!zone) {
             console.log("Could not discover the souviks.co.in zone with the available token/zone ID.");
-            if (accountId) {
-              for (const phase of ["http_request_firewall_custom", "http_request_firewall_managed"]) {
-                const result = await api("/accounts/" + encodeURIComponent(accountId) + "/rulesets/phases/" + phase + "/entrypoint");
-                console.log("Account-level " + phase + " access:", "HTTP", result.status, "API success:", result.ok);
-                if (result.ok) {
-                  console.log("Account-level " + phase + " rules:", (result.payload.result.rules || []).map(rule => ({
-                    id: rule.id, description: rule.description, action: rule.action, enabled: rule.enabled,
-                  })));
-                } else {
-                  console.log("Account-level " + phase + " error codes:", (result.payload?.errors || []).map(e => e.code));
-                }
+            for (const phase of ["http_request_firewall_custom", "http_request_firewall_managed", "http_request_sbfm"]) {
+              const result = await api("/accounts/" + encodeURIComponent(accountId) + "/rulesets/phases/" + phase + "/entrypoint");
+              console.log("Account-level " + phase + " access:", "HTTP", result.status, "API success:", result.ok);
+              if (result.ok) {
+                console.log("Account-level " + phase + " rules:", (result.payload.result.rules || []).map(rule => ({
+                  id: rule.id, description: rule.description, action: rule.action, enabled: rule.enabled,
+                })));
+              } else {
+                console.log("Account-level " + phase + " error codes:", (result.payload?.errors || []).map(e => e.code));
               }
             }
             console.log("No rule changes were attempted.");
