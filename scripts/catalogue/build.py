@@ -2196,9 +2196,124 @@ def sync_product_listing_meta_descriptions() -> None:
             path.write_text(html, encoding="utf-8")
             changed += 1
     print(f"Localized product-listing meta descriptions synchronized in {changed} HTML files.")
+def sync_active_catalogue_counts() -> None:
+    """Keep server-rendered catalogue totals aligned with the active master records."""
+    import json
+    import re
+
+    catalogue_path = ROOT / "assets" / "data" / "catalogue-index.json"
+    catalogue = json.loads(catalogue_path.read_text(encoding="utf-8"))
+    if not isinstance(catalogue, list):
+        raise ValueError("catalogue-index.json must contain an array")
+
+    active_count = sum(
+        1 for product in catalogue
+        if isinstance(product, dict)
+        and product.get("id")
+        and product.get("active") is not False
+    )
+    if active_count <= 0:
+        raise ValueError("Refusing to write empty active catalogue counts")
+
+    # The count shown in a hero statistic is identified semantically by the
+    # Products icon, not by replacing every matching number (which could alter
+    # product IDs such as SVKS001045 or unrelated category/vehicle statistics).
+    hero_open = re.compile(
+        r'<div\\b[^>]*class=["\'][^"\']*\\bhero-stat\\b[^"\']*["\'][^>]*>',
+        flags=re.I,
+    )
+    stat_number = re.compile(
+        r'(<(?:div|span)\\b(?=[^>]*\\bclass=["\'][^"\']*\\bstat-number\\b)[^>]*>\\s*)'
+        r'\\d+(\\s*</(?:div|span)\\s*>)',
+        flags=re.I,
+    )
+
+    product_pages = (
+        "en/products.html",
+        "hi/products.html",
+        "bn/products.html",
+    )
+    collection_pages = (
+        "en/brands.html", "hi/brands.html", "bn/brands.html",
+        "en/categories.html", "hi/categories.html", "bn/categories.html",
+        "en/vehicles.html", "hi/vehicles.html", "bn/vehicles.html",
+    )
+    page_counts = {}
+
+    for relative in (*product_pages, *collection_pages):
+        path = ROOT / relative
+        if not path.is_file():
+            raise FileNotFoundError(f"Expected generated catalogue page is missing: {relative}")
+
+        html = path.read_text(encoding="utf-8")
+        original = html
+
+        # Update only count slots whose HTML id explicitly defines the count.
+        updated_ids = {}
+        for element_id in ("totalProducts", "totalResults"):
+            pattern = re.compile(
+                r'(<(?P<tag>[a-z][\\w:-]*)\\b(?=[^>]*\\bid=["\']'
+                + re.escape(element_id)
+                + r'["\'])[^>]*>\\s*)'
+                r'\\d+'
+                r'(\\s*</(?P=tag)\\s*>)',
+                flags=re.I,
+            )
+            html, replacements = pattern.subn(
+                lambda match: f"{match.group(1)}{active_count}{match.group(3)}",
+                html,
+                count=1,
+            )
+            updated_ids[element_id] = replacements
+
+        if relative in product_pages:
+            if updated_ids != {"totalProducts": 1, "totalResults": 1}:
+                raise ValueError(
+                    f"{relative}: expected exactly one totalProducts and totalResults count slot; "
+                    f"found {updated_ids}"
+                )
+
+        # Each hero-stat block ends where the next hero-stat block begins. Only
+        # update the block carrying the localized Products icon/label.
+        starts = list(hero_open.finditer(html))
+        product_stat_updates = 0
+        for index, match in enumerate(starts):
+            end = starts[index + 1].start() if index + 1 < len(starts) else len(html)
+            segment = html[match.start():end]
+            carries_products_icon = bool(
+                re.search(r'\\balt=["\'][^"\']*(?:products?|उत्पाद|পণ্য)[^"\']*["\']', segment, flags=re.I)
+                or re.search(r'/products\\.svg(?:["\'\\s?#]|$)', segment, flags=re.I)
+            )
+            if not carries_products_icon:
+                continue
+
+            updated_segment, replacements = stat_number.subn(
+                lambda value: f"{value.group(1)}{active_count}{value.group(2)}",
+                segment,
+                count=1,
+            )
+            if replacements == 1:
+                html = html[:match.start()] + updated_segment + html[end:]
+                product_stat_updates += 1
+                break
+
+        if product_stat_updates != 1:
+            raise ValueError(f"{relative}: could not find the Products hero-stat count to synchronize")
+
+        if html != original:
+            path.write_text(html, encoding="utf-8")
+        page_counts[relative] = active_count
+
+    print(
+        f"Synchronized active catalogue count ({active_count}) across "
+        f"{len(page_counts)} generated catalogue pages."
+    )
+
+
 def main() -> None:
     sync_product_listing_meta_descriptions()
     reconcile_catalogue_projections()
+    sync_active_catalogue_counts()
     sync_static_product_images()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
