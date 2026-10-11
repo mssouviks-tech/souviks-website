@@ -44,6 +44,80 @@ RFQ.SUBMISSION_LIMITS = Object.freeze({
     location: 200
 });
 
+const RFQ_UI_MESSAGES = {
+    en: {
+        added: "Product added to your RFQ basket.",
+        addFailed: "Could not add this product to your RFQ basket. Please try again.",
+        quantityFailed: "Could not update the RFQ quantity. Please try again.",
+        removeFailed: "Could not remove this product from your RFQ basket. Please try again.",
+        removeSuccess: "Product removed from your RFQ basket."
+    },
+    hi: {
+        added: "उत्पाद आपके RFQ बास्केट में जोड़ दिया गया है।",
+        addFailed: "उत्पाद RFQ बास्केट में नहीं जोड़ा जा सका। कृपया फिर प्रयास करें।",
+        quantityFailed: "RFQ की मात्रा अपडेट नहीं हो सकी। कृपया फिर प्रयास करें।",
+        removeFailed: "उत्पाद RFQ बास्केट से हटाया नहीं जा सका। कृपया फिर प्रयास करें।",
+        removeSuccess: "उत्पाद RFQ बास्केट से हटा दिया गया है।"
+    },
+    bn: {
+        added: "পণ্যটি আপনার RFQ ঝুড়িতে যোগ করা হয়েছে।",
+        addFailed: "পণ্যটি RFQ ঝুড়িতে যোগ করা যায়নি। আবার চেষ্টা করুন।",
+        quantityFailed: "RFQ-এর পরিমাণ আপডেট করা যায়নি। আবার চেষ্টা করুন।",
+        removeFailed: "পণ্যটি RFQ ঝুড়ি থেকে সরানো যায়নি। আবার চেষ্টা করুন।",
+        removeSuccess: "পণ্যটি RFQ ঝুড়ি থেকে সরানো হয়েছে।"
+    }
+};
+
+RFQ.showActionStatus = function (anchor, messageKey, type = "error") {
+    const language = String(
+        document.documentElement.lang ||
+        window.souviks?.currentLanguage ||
+        "en"
+    ).slice(0, 2).toLowerCase();
+    const dictionary = RFQ_UI_MESSAGES[language] || RFQ_UI_MESSAGES.en;
+    const message = dictionary[messageKey] || RFQ_UI_MESSAGES.en[messageKey] || "";
+    if (!message) return;
+
+    const control = anchor instanceof Element ? anchor : null;
+    const card = control?.closest(".product-card");
+    const pdpActions = control?.closest(".pdp-actions");
+    const basketBody = control?.closest("#rfq-items");
+    let host = null;
+    let insertAfter = null;
+
+    if (card) {
+        host = card.querySelector(".product-content") || card;
+    } else if (pdpActions) {
+        host = pdpActions;
+    } else if (basketBody) {
+        insertAfter = basketBody.closest("table");
+        host = insertAfter?.parentElement || basketBody.parentElement;
+    } else {
+        host = control?.closest("#rfq-form") ||
+            document.getElementById("rfq-form") ||
+            document.querySelector("main") ||
+            document.body;
+    }
+    if (!host) return;
+
+    let status = host.querySelector(":scope > .rfq-inline-status");
+    if (!status) {
+        status = document.createElement("div");
+        status.className = "form-status rfq-inline-status";
+        status.setAttribute("role", "status");
+        status.setAttribute("aria-live", "polite");
+    }
+    status.textContent = message;
+    status.className = "form-status rfq-inline-status";
+    if (type) status.classList.add(type);
+
+    if (insertAfter && status.previousElementSibling !== insertAfter) {
+        insertAfter.insertAdjacentElement("afterend", status);
+    } else if (status.parentElement !== host) {
+        host.appendChild(status);
+    }
+};
+
 RFQ.submissionMessage = function (key) {
     const messages = {
         en: {
@@ -703,9 +777,7 @@ RFQ.setQuantity = async function (
         }
 
 
-        await RFQ.updateBadge();
-
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
 
 
         return true;
@@ -894,9 +966,7 @@ RFQ.setQuantity = async function (
     }
 
 
-    await RFQ.updateBadge();
-
-    await RFQ.renderPage();
+    await RFQ.refreshUI();
 
 
     return true;
@@ -988,72 +1058,38 @@ ADD TO RFQ — PRODUCT CARD
 ----------------------------------------------------------
 */
 
-document.addEventListener(
+/* RFQ item actions always report a confirmed write result. */
+document.addEventListener("click", event => {
+    const button = event.target instanceof Element ? event.target.closest(".add-to-cart") : null;
+    if (!button) return;
+    event.preventDefault();
+    if (button.disabled) return;
 
-    "click",
-
-    event => {
-
-        const button =
-            event.target.closest(
-                ".add-to-cart"
-            );
-
-
-        if (!button) {
-
-            return;
-
-        }
-
-
-        event.preventDefault();
-
-
-        RFQ.add({
-
-            id:
-                button.dataset.id,
-
-            partNumber:
-                button.dataset.part,
-
-            name:
-                button.dataset.name,
-
-            brand:
-                button.dataset.brand
-
+    button.disabled = true;
+    button.setAttribute("aria-busy", "true");
+    RFQ.add({
+        id: button.dataset.id,
+        partNumber: button.dataset.part,
+        name: button.dataset.name,
+        brand: button.dataset.brand
+    })
+        .then(added => {
+            if (added) {
+                button.textContent = "Added";
+                RFQ.showActionStatus(button, "added", "success");
+            } else {
+                RFQ.showActionStatus(button, "addFailed");
+            }
         })
-
-        .then(
-
-            added => {
-
-                if (added) {
-
-                    button.textContent =
-                        "Added";
-
-                }
-
-            }
-
-        )
-
-        .catch(
-
-            error => {
-
-                SouviksErrors?.log("[Souviks RFQ] Add-to-RFQ error:", error, "error");
-
-            }
-
-        );
-
-    }
-
-);
+        .catch(error => {
+            SouviksErrors?.log("[Souviks RFQ] Add-to-RFQ error:", error, "error");
+            RFQ.showActionStatus(button, "addFailed");
+        })
+        .finally(() => {
+            button.disabled = false;
+            button.removeAttribute("aria-busy");
+        });
+});
 
 
 /*
@@ -1228,6 +1264,19 @@ CHANGE QUANTITY
 ----------------------------------------------------------
 */
 
+RFQ.refreshUI = async function () {
+    try {
+        await RFQ.updateBadge();
+    } catch (error) {
+        SouviksErrors?.log("[Souviks RFQ] Unable to refresh RFQ badge:", error, "warn");
+    }
+    try {
+        await RFQ.renderPage();
+    } catch (error) {
+        SouviksErrors?.log("[Souviks RFQ] Unable to refresh RFQ page:", error, "warn");
+    }
+};
+
 RFQ.changeQty = async function (
 
     productId,
@@ -1255,7 +1304,7 @@ RFQ.changeQty = async function (
 
     if (!item) {
 
-        return;
+        return false;
 
     }
 
@@ -1275,18 +1324,7 @@ RFQ.changeQty = async function (
     ------------------------------------------------------
     */
 
-    if (
-        newQuantity <=
-        0
-    ) {
-
-        await RFQ.remove(
-            productId
-        );
-
-        return;
-
-    }
+    if (newQuantity <= 0) return await RFQ.remove(productId);
 
     if (
         !Number.isSafeInteger(newQuantity) ||
@@ -1335,7 +1373,7 @@ RFQ.changeQty = async function (
             0
         ) {
 
-            return;
+            return false;
 
         }
 
@@ -1346,17 +1384,9 @@ RFQ.changeQty = async function (
             newQuantity;
 
 
-        RFQ.saveGuestItems(
-            guestItems
-        );
-
-
-        await RFQ.updateBadge();
-
-        await RFQ.renderPage();
-
-
-        return;
+        if (!RFQ.saveGuestItems(guestItems)) return false;
+        await RFQ.refreshUI();
+        return true;
 
     }
 
@@ -1372,7 +1402,7 @@ RFQ.changeQty = async function (
         "undefined"
     ) {
 
-        return;
+        return false;
 
     }
 
@@ -1408,14 +1438,14 @@ RFQ.changeQty = async function (
 
         SouviksErrors?.log("[Souviks RFQ] Unable to find RFQ item:", findError, "error");
 
-        return;
+        return false;
 
     }
 
 
     if (!dbItem) {
 
-        return;
+        return false;
 
     }
 
@@ -1451,14 +1481,12 @@ RFQ.changeQty = async function (
 
         SouviksErrors?.log("[Souviks RFQ] Unable to update RFQ quantity:", updateError, "error");
 
-        return;
+        return false;
 
     }
 
 
-    await RFQ.updateBadge();
-
-    await RFQ.renderPage();
+    await RFQ.refreshUI();
 
 };
 
@@ -1505,17 +1533,9 @@ RFQ.remove = async function (
             );
 
 
-        RFQ.saveGuestItems(
-            filtered
-        );
-
-
-        await RFQ.updateBadge();
-
-        await RFQ.renderPage();
-
-
-        return;
+        if (!RFQ.saveGuestItems(filtered)) return false;
+        await RFQ.refreshUI();
+        return true;
 
     }
 
@@ -1531,7 +1551,7 @@ RFQ.remove = async function (
         "undefined"
     ) {
 
-        return;
+        return false;
 
     }
 
@@ -1562,14 +1582,12 @@ RFQ.remove = async function (
 
         SouviksErrors?.log("[Souviks RFQ] Unable to remove RFQ item:", error, "error");
 
-        return;
+        return false;
 
     }
 
 
-    await RFQ.updateBadge();
-
-    await RFQ.renderPage();
+    await RFQ.refreshUI();
 
 };
 
@@ -1610,13 +1628,11 @@ RFQ.clear = async function () {
         } catch (error) {
 
             SouviksErrors?.log("[Souviks RFQ] Unable to clear guest RFQ basket:", error, "error");
-
+            return false;
         }
 
 
-        await RFQ.updateBadge();
-
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
 
 
         return true;
@@ -1670,9 +1686,7 @@ RFQ.clear = async function () {
     }
 
 
-    await RFQ.updateBadge();
-
-    await RFQ.renderPage();
+    await RFQ.refreshUI();
 
 
     return true;
@@ -1874,9 +1888,7 @@ RFQ.mergeGuestBasket = async function () {
     }
 
 
-    await RFQ.updateBadge();
-
-    await RFQ.renderPage();
+    await RFQ.refreshUI();
 
 };
 
@@ -1887,84 +1899,48 @@ RFQ PAGE BUTTONS
 ----------------------------------------------------------
 */
 
-document.addEventListener(
+/* Basket actions are serialized per control and report failures. */
+document.addEventListener("click", event => {
+    const target = event.target instanceof Element ? event.target : null;
+    const plus = target?.closest(".qty-plus");
+    const minus = target?.closest(".qty-minus");
+    const remove = target?.closest(".remove-rfq");
+    const control = plus || minus || remove;
+    if (!control || control.disabled) return;
+    event.preventDefault();
 
-    "click",
-
-    event => {
-
-        const plus =
-            event.target.closest(
-                ".qty-plus"
-            );
-
-
-        if (plus) {
-
-            event.preventDefault();
-
-
-            RFQ.changeQty(
-
-                plus.dataset.id,
-
-                1
-
-            );
-
-
-            return;
-
-        }
-
-
-        const minus =
-            event.target.closest(
-                ".qty-minus"
-            );
-
-
-        if (minus) {
-
-            event.preventDefault();
-
-
-            RFQ.changeQty(
-
-                minus.dataset.id,
-
-                -1
-
-            );
-
-
-            return;
-
-        }
-
-
-        const remove =
-            event.target.closest(
-                ".remove-rfq"
-            );
-
-
-        if (remove) {
-
-            event.preventDefault();
-
-
-            RFQ.remove(
-
-                remove.dataset.id
-
-            );
-
-        }
-
+    control.disabled = true;
+    control.setAttribute("aria-busy", "true");
+    let operation;
+    let failureKey;
+    if (plus) {
+        operation = RFQ.changeQty(plus.dataset.id, 1);
+        failureKey = "quantityFailed";
+    } else if (minus) {
+        operation = RFQ.changeQty(minus.dataset.id, -1);
+        failureKey = "quantityFailed";
+    } else {
+        operation = RFQ.remove(remove.dataset.id);
+        failureKey = "removeFailed";
     }
 
-);
+    Promise.resolve(operation)
+        .then(result => {
+            if (result === false || result === undefined) {
+                RFQ.showActionStatus(control, failureKey);
+            } else if (remove) {
+                RFQ.showActionStatus(control, "removeSuccess", "success");
+            }
+        })
+        .catch(error => {
+            SouviksErrors?.log("[Souviks RFQ] Basket action failed:", error, "error");
+            RFQ.showActionStatus(control, failureKey);
+        })
+        .finally(() => {
+            control.disabled = false;
+            control.removeAttribute("aria-busy");
+        });
+});
 
 
 /*
@@ -1979,9 +1955,7 @@ document.addEventListener(
 
     async () => {
 
-        await RFQ.updateBadge();
-
-        await RFQ.renderPage();
+        await RFQ.refreshUI();
 
     }
 
@@ -2006,16 +1980,14 @@ document.addEventListener(
         if (authEvent === "SIGNED_IN") {
             setTimeout(async () => {
                 await RFQ.mergeGuestBasket();
-                await RFQ.updateBadge();
-                await RFQ.renderPage();
+                await RFQ.refreshUI();
             }, 0);
             return;
         }
 
         if (authEvent === "SIGNED_OUT") {
             setTimeout(async () => {
-                await RFQ.updateBadge();
-                await RFQ.renderPage();
+                await RFQ.refreshUI();
             }, 0);
         }
     }

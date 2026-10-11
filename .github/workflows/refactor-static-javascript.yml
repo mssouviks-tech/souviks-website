@@ -44,6 +44,7 @@ jobs:
           set -euo pipefail
 
           python3 scripts/js/refactor.py
+          npm run build:js
           python3 scripts/js/validate.py
           npm run lint:js
           npm run check:js

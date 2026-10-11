@@ -1119,7 +1119,7 @@ def reconcile_catalogue_projections():
             html = re.sub(r'(<meta\s+name=["\']twitter:url["\']\s+content=["\'])[^"\']*(["\'])', lambda m: m.group(1) + canonical + m.group(2), html, count=1, flags=re.I)
             html = re.sub(
                 r'(?m)(currentPage:[ \t]*\r?\n[ \t]*)[^\r\n]*',
-                lambda m: m.group(1) + json.dumps(name),
+                lambda m: m.group(1) + json.dumps(name) + ",",
                 html,
                 count=1,
             )
@@ -2113,6 +2113,17 @@ def sync_organization_schema():
                 if isinstance(publisher, dict) and publisher.get("@type") == "Organization":
                     targets.append(publisher)
 
+                # Product offers use a nested seller Organization rather than
+                # a publisher field. Add the same canonical logo there too.
+                offers = node.get("offers")
+                offer_nodes = offers if isinstance(offers, list) else [offers]
+                for offer in offer_nodes:
+                    if not isinstance(offer, dict):
+                        continue
+                    seller = offer.get("seller")
+                    if isinstance(seller, dict) and seller.get("@type") == "Organization":
+                        targets.append(seller)
+
                 for target in targets:
                     if str(target.get("name") or "").strip().casefold() != "souviks":
                         continue
@@ -2143,13 +2154,58 @@ def sync_organization_schema():
     )
 
 
+def sync_product_listing_meta_descriptions() -> None:
+    """Use distinct, useful localized descriptions on the three catalogue landing pages."""
+    import html as html_module
+    import re
+    descriptions = {
+        "en": (
+            "Shop commercial vehicle spare parts at Souviks: clutch, brake, bearing, "
+            "filter and lubricant components for Tata, Ashok Leyland and Eicher vehicles across India."
+        ),
+        "hi": (
+            "Souviks पर टाटा, अशोक लेलैंड और आइशर वाहनों के लिए क्लच, ब्रेक, बेयरिंग, "
+            "फ़िल्टर और लुब्रिकेंट के स्पेयर पार्ट्स खोजें। पूरे भारत में आपूर्ति।"
+        ),
+        "bn": (
+            "Souviks-এ টাটা, অশোক লেল্যান্ড ও আইশার গাড়ির জন্য ক্লাচ, ব্রেক, বিয়ারিং, "
+            "ফিল্টার ও লুব্রিকেন্টের স্পেয়ার পার্টস খুঁজুন। সারা ভারতে সরবরাহ।"
+        ),
+    }
+    changed = 0
+    for language, description in descriptions.items():
+        path = ROOT / language / "products.html"
+        if not path.is_file():
+            continue
+        html = path.read_text(encoding="utf-8")
+        original = html
+        value = html_module.escape(description, quote=True)
+        replacements = (
+            (r"<meta\b(?=[^>]*\bname=['\"]description['\"])[^>]*>",
+             f'<meta name="description" content="{value}">'),
+            (r"<meta\b(?=[^>]*\bproperty=['\"]og:description['\"])[^>]*>",
+             f'<meta property="og:description" content="{value}">'),
+            (r"<meta\b(?=[^>]*\bname=['\"]twitter:description['\"])[^>]*>",
+             f'<meta name="twitter:description" content="{value}">'),
+        )
+        for index, (pattern, replacement) in enumerate(replacements):
+            html, count = re.subn(pattern, lambda _: replacement, html, count=1, flags=re.I)
+            if count == 0 and index == 0:
+                html = re.sub(r"</head>", f"    {replacement}\n</head>", html, count=1, flags=re.I)
+        if html != original:
+            path.write_text(html, encoding="utf-8")
+            changed += 1
+    print(f"Localized product-listing meta descriptions synchronized in {changed} HTML files.")
 def main() -> None:
+    sync_product_listing_meta_descriptions()
     reconcile_catalogue_projections()
     sync_static_product_images()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
     normalize_internal_redirect_links()
     sync_organization_schema()
+    runpy.run_path(str(ROOT / "scripts/catalogue/normalize_page_config.py"), run_name="__main__")
+    runpy.run_path(str(ROOT / "scripts/catalogue/sync_rfq_module.py"), run_name="__main__")
     runpy.run_path(str(ROOT / "scripts/catalogue/validate.py"), run_name="__main__")
 
 

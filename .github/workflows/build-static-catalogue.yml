@@ -17,6 +17,7 @@ on:
       - "scripts/catalogue/enrich_entities.py"
       - "scripts/catalogue/sync_entity_sitemaps.py"
       - "scripts/audit/critical_build.py"
+      - "scripts/audit/performance_guard.py"
       - "package.json"
       - "scripts/js/**"
       - "assets/data/brands.json"
@@ -80,6 +81,8 @@ jobs:
           import py_compile
           for path in (
               "scripts/catalogue/build.py",
+              "scripts/catalogue/normalize_page_config.py",
+              "scripts/catalogue/sync_rfq_module.py",
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
               "scripts/catalogue/validate.py",
@@ -88,6 +91,8 @@ jobs:
               "scripts/catalogue/product_card.py",
               "scripts/catalogue/sync_product_cards.py",
               "scripts/audit/critical_build.py",
+              "scripts/audit/performance_guard.py",
+              "scripts/audit/production_smoke.py",
               "scripts/audit/structured_data.py",
               "scripts/js/refactor.py",
               "scripts/js/refresh_versions.py",
@@ -108,6 +113,7 @@ jobs:
             python3 scripts/audit/site_quality.py
             python3 scripts/js/validate.py
             python3 scripts/audit/code_quality.py
+            python3 scripts/audit/performance_guard.py
             npm run lint:js
             npm run check:js
             npm run format:check
@@ -118,6 +124,8 @@ jobs:
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
             python3 scripts/catalogue/enrich_entities.py
+            python3 scripts/catalogue/normalize_page_config.py
+            python3 scripts/catalogue/sync_rfq_module.py
             python3 scripts/catalogue/sync_navigation.py
             python3 scripts/catalogue/sync_product_cards.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
@@ -145,6 +153,7 @@ jobs:
             python3 scripts/audit/site_quality.py
             python3 scripts/js/validate.py
             python3 scripts/audit/code_quality.py
+            python3 scripts/audit/performance_guard.py
             npm run lint:js
             npm run check:js
             npm run format:check
@@ -173,9 +182,14 @@ jobs:
             git reset --hard origin/main
             git clean -fd
 
+            # Reinstall tooling after the retry reset so publication does not depend on cached dependencies.
+            npm install --no-package-lock --no-audit --no-fund
+
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
             python3 scripts/catalogue/enrich_entities.py
+            python3 scripts/catalogue/normalize_page_config.py
+            python3 scripts/catalogue/sync_rfq_module.py
             python3 scripts/catalogue/sync_navigation.py
             python3 scripts/catalogue/sync_product_cards.py
             python3 scripts/catalogue/sync_entity_sitemaps.py

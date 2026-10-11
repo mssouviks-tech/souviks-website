@@ -4,6 +4,7 @@
 from pathlib import Path
 import hashlib
 import re
+import runpy
 
 ROOT = Path(__file__).resolve().parents[2]
 BUNDLES = ROOT / "assets" / "js" / "bundles"
@@ -55,6 +56,7 @@ ACCOUNT_MODULES = (
 PAGE_MODULES = {
     "account.js": tuple(f"assets/js/account/{module}" for module in ACCOUNT_MODULES),
     "products.js": (
+        "assets/js/account/rfq.js",
         "assets/js/components/product-card.js",
         "assets/js/products/search-engine.js",
         "assets/js/products/voice-search.js",
@@ -66,6 +68,7 @@ PAGE_MODULES = {
         "assets/js/products/souviks-refresh-static-product-card-images-from-canonical-catalogue.js",
     ),
     "product.js": (
+        "assets/js/account/rfq.js",
         "assets/js/components/product-card.js",
         "assets/js/product/products.js",
         "assets/js/product/product-page.js",
@@ -406,6 +409,11 @@ def validate() -> None:
 
 
 def main() -> None:
+    # Normalize generated pages and guarantee the shared RFQ engine is loaded
+    # before page modules bind the product-card and product-detail controls.
+    runpy.run_path(str(ROOT / "scripts/catalogue/normalize_page_config.py"), run_name="__main__")
+    runpy.run_path(str(ROOT / "scripts/catalogue/sync_rfq_module.py"), run_name="__main__")
+
     write(CORE_PATH, extract_core())
 
     for filename in sorted(KNOWN_BUNDLES):

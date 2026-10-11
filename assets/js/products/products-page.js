@@ -186,22 +186,32 @@ function searchProducts(products, query) {
     const needle = String(query || "").trim();
     if (!needle) return products;
 
+    const normalizedNeedle = needle.toLocaleLowerCase();
+    const compactNeedle = normalizedNeedle.replace(/[^a-z0-9]+/g, "");
+    const matchesValue = value => {
+        if (Array.isArray(value)) return value.some(item => matchesValue(item));
+        const text = String(value ?? "").toLocaleLowerCase();
+        if (!text) return false;
+        if (text.includes(normalizedNeedle)) return true;
+        const compact = text.replace(/[^a-z0-9]+/g, "");
+        return Boolean(compactNeedle && compact.includes(compactNeedle));
+    };
+
+    // Long, uninterrupted alphanumeric terms are usually part numbers or
+    // pasted identifiers. Do not let prose typo-tolerance turn them into
+    // unrelated product matches; use exact/compact substring matching only.
+    if (/^[a-z0-9]{16,}$/i.test(needle)) {
+        return products.filter(product =>
+            SEARCH_FIELDS.some(field => matchesValue(product?.[field]))
+        );
+    }
+
     if (
         window.SouviksSearchEngine &&
         typeof SouviksSearchEngine.filterProducts === "function"
     ) {
         return SouviksSearchEngine.filterProducts(products, needle);
     }
-
-    const compactNeedle = needle.toLocaleLowerCase().replace(/[^a-z0-9]+/g, "");
-    const matchesValue = value => {
-        if (Array.isArray(value)) return value.some(item => matchesValue(item));
-        const text = String(value ?? "").toLocaleLowerCase();
-        if (!text) return false;
-        if (text.includes(needle.toLocaleLowerCase())) return true;
-        const compact = text.replace(/[^a-z0-9]+/g, "");
-        return Boolean(compactNeedle && compact.includes(compactNeedle));
-    };
 
     return products.filter(product =>
         SEARCH_FIELDS.some(field => matchesValue(product?.[field]))
@@ -518,9 +528,28 @@ function updateCounters(results) {
 }
 
 function updateNoResultsState(show) {
-    const noResults = document.getElementById("noResults");
+    let noResults = document.getElementById("noResults");
     const pagination = document.getElementById("pagination");
     const productGrid = document.getElementById("product-grid");
+
+    // Some generated catalogue pages predate the static empty-state markup.
+    // Create the state safely with DOM APIs instead of leaving a blank grid.
+    if (!noResults && productGrid) {
+        noResults = document.createElement("section");
+        noResults.id = "noResults";
+        noResults.className = "no-results";
+        noResults.hidden = true;
+        noResults.setAttribute("role", "status");
+        noResults.setAttribute("aria-live", "polite");
+        noResults.setAttribute("aria-hidden", "true");
+
+        const title = document.createElement("h2");
+        title.dataset.emptyStateTitle = "";
+        const message = document.createElement("p");
+        message.dataset.emptyStateMessage = "";
+        noResults.append(title, message);
+        productGrid.insertAdjacentElement("afterend", noResults);
+    }
 
     // A zero-result state is mutually exclusive with the result grid and
     // pagination. This prevents an empty page indicator from appearing under
