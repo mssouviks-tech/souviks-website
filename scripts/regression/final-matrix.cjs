@@ -355,6 +355,51 @@ function langPath(lang, suffix) {
 async function main() {
   browser = await chromium.launch({ headless: true });
 
+  await check("reliability/static catalogue totals match active product records", async () => {
+    const indexPath = path.join(__dirname, "../../assets/data/catalogue-index.json");
+    const records = JSON.parse(fs.readFileSync(indexPath, "utf8"));
+    if (!Array.isArray(records)) throw new Error("catalogue index is not an array");
+    const activeCount = records.filter(item => item && item.id && item.active !== false).length;
+    if (!activeCount) throw new Error("active product count unexpectedly empty");
+
+    const pages = [
+      "en/products.html", "hi/products.html", "bn/products.html",
+      "en/brands.html", "hi/brands.html", "bn/brands.html",
+      "en/categories.html", "hi/categories.html", "bn/categories.html",
+      "en/vehicles.html", "hi/vehicles.html", "bn/vehicles.html",
+    ];
+    const readIdCount = (html, id) => {
+      const match = html.match(new RegExp('id="' + id + '"[^>]*>\\\\s*(\\\\d+)\\\\s*</', "i"));
+      return match ? Number(match[1]) : null;
+    };
+
+    for (const relative of pages) {
+      const html = fs.readFileSync(path.join(__dirname, "../../", relative), "utf8");
+      const heroStarts = [...html.matchAll(/<div\\b[^>]*class=["'][^"']*\\bhero-stat\\b[^"']*["'][^>]*>/gi)];
+      const counts = [];
+      for (let i = 0; i < heroStarts.length; i++) {
+        const start = heroStarts[i].index;
+        const end = i + 1 < heroStarts.length ? heroStarts[i + 1].index : html.length;
+        const block = html.slice(start, end);
+        if (!(/\\balt=["'][^"']*(?:products?|उत्पाद|পণ্য)[^"']*["']/i.test(block) || /\\/products\\.svg/i.test(block))) continue;
+        const stat = block.match(/<(?:div|span)\\b[^>]*class=["'][^"']*\\bstat-number\\b[^>]*>\\s*(\\d+)\\s*<\\/(?:div|span)>/i);
+        if (stat) counts.push(Number(stat[1]));
+      }
+      if (counts.length !== 1 || counts[0] !== activeCount) {
+        throw new Error(relative + " product hero count was " + JSON.stringify(counts) + "; expected " + activeCount);
+      }
+
+      if (relative.endsWith("/products.html")) {
+        for (const id of ["totalProducts", "totalResults"]) {
+          const value = readIdCount(html, id);
+          if (value !== activeCount) throw new Error(relative + " " + id + " was " + value + "; expected " + activeCount);
+        }
+      }
+    }
+
+    return activeCount + " active products synchronized across 12 static catalogue pages";
+  });
+
   await check("reliability/Pages middleware canonicalizes host and hardens responses", async () => {
     const middlewarePath = path.join(__dirname, "../../functions/_middleware.js");
     let source = fs.readFileSync(middlewarePath, "utf8");
