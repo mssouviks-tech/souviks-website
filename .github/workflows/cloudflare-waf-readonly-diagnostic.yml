@@ -19,6 +19,10 @@ jobs:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
           CF_TOKEN: ${{ secrets.CF_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
           node --input-type=module <<'NODE'
           const candidates = [
@@ -45,20 +49,53 @@ jobs:
             try { payload = await response.json(); } catch {}
             return { status: response.status, ok: response.ok && payload?.success === true, payload };
           }
-          const zoneResponse = await api("/zones?name=souviks.co.in");
-          console.log("Zone lookup HTTP:", zoneResponse.status, "API success:", zoneResponse.ok);
-          if (!zoneResponse.ok) {
-            console.log("Cloudflare API error codes:", (zoneResponse.payload?.errors || []).map(e => e.code));
+          const zoneId = process.env.CLOUDFLARE_ZONE_ID || process.env.CF_ZONE_ID || "";
+          const accountId = process.env.CLOUDFLARE_ACCOUNT_ID || process.env.CF_ACCOUNT_ID || "";
+          console.log("Configured identifiers:", {
+            zoneIdPresent: Boolean(zoneId),
+            accountIdPresent: Boolean(accountId),
+          });
+
+          let zone = null;
+          if (zoneId) {
+            const zoneResponse = await api("/zones/" + encodeURIComponent(zoneId));
+            console.log("Direct zone lookup HTTP:", zoneResponse.status, "API success:", zoneResponse.ok);
+            if (zoneResponse.ok && zoneResponse.payload.result?.name === "souviks.co.in") {
+              zone = zoneResponse.payload.result;
+            } else if (!zoneResponse.ok) {
+              console.log("Direct zone lookup error codes:", (zoneResponse.payload?.errors || []).map(e => e.code));
+            }
+          }
+
+          if (!zone) {
+            const zoneResponse = await api("/zones?per_page=50");
+            console.log("Accessible-zone listing HTTP:", zoneResponse.status, "API success:", zoneResponse.ok);
+            if (!zoneResponse.ok) {
+              console.log("Accessible-zone listing error codes:", (zoneResponse.payload?.errors || []).map(e => e.code));
+              console.log("No rule changes were attempted.");
+              process.exit(0);
+            }
+            zone = (zoneResponse.payload.result || []).find(candidate => candidate.name === "souviks.co.in") || null;
+          }
+
+          if (!zone) {
+            console.log("Could not discover the souviks.co.in zone with the available token/zone ID.");
+            if (accountId) {
+              for (const phase of ["http_request_firewall_custom", "http_request_firewall_managed"]) {
+                const result = await api("/accounts/" + encodeURIComponent(accountId) + "/rulesets/phases/" + phase + "/entrypoint");
+                console.log("Account-level " + phase + " access:", "HTTP", result.status, "API success:", result.ok);
+                if (result.ok) {
+                  console.log("Account-level " + phase + " rules:", (result.payload.result.rules || []).map(rule => ({
+                    id: rule.id, description: rule.description, action: rule.action, enabled: rule.enabled,
+                  })));
+                } else {
+                  console.log("Account-level " + phase + " error codes:", (result.payload?.errors || []).map(e => e.code));
+                }
+              }
+            }
             console.log("No rule changes were attempted.");
             process.exit(0);
           }
-
-          const zones = zoneResponse.payload.result || [];
-          if (!zones.length) {
-            console.log("No matching zone returned for souviks.co.in; no changes attempted.");
-            process.exit(0);
-          }
-          const zone = zones[0];
           console.log("Zone:", { id: zone.id, name: zone.name, status: zone.status, plan: zone.plan?.name });
 
           const checks = [
