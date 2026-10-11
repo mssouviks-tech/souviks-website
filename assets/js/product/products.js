@@ -1010,6 +1010,10 @@ async hydrateProductPage() {
         // visible without requiring 3 x N static HTML page rewrites.
         this.bindPdpFastInteractions(embeddedProduct);
         this.syncStaticProductGallery(embeddedProduct);
+        // Static PDPs return before the dynamic render path. Bind the gallery
+        // anyway so main-image errors recover to the placeholder and thumbnails
+        // retain their normal keyboard/click behaviour.
+        this.bindGallery(embeddedProduct);
 
         setTimeout(async () => {
             try {
