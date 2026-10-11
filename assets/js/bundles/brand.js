@@ -341,8 +341,17 @@
         // The fallback can fail too. In that case, keep the layout and content
         // but remove the broken-image glyph rather than retrying indefinitely.
         if (image.dataset.souviksImageFallback === "done") {
-            image.style.visibility = "hidden";
-            image.hidden = true;
+            // The shared core may have switched to the placeholder earlier
+            // in this same capture-phase error event. Hide only if the
+            // placeholder itself has completed with no decoded pixels.
+            if (
+                image.getAttribute("src") === IMAGE_PLACEHOLDER &&
+                image.complete &&
+                image.naturalWidth === 0
+            ) {
+                image.style.visibility = "hidden";
+                image.hidden = true;
+            }
             return;
         }
 
