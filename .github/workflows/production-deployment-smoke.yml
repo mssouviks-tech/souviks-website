@@ -52,9 +52,12 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python3 scripts/audit/production_smoke.py --wait-only
 
-      - name: Test live desktop/mobile navigation and guest RFQ interactions
+      # Exercise the exact deployed production build via its Pages hostname so the
+      # zone-level challenge on the public custom domain does not block the browser.
+      # The next HTTP smoke step still verifies the public custom domain and headers.
+      - name: Test deployed desktop/mobile navigation and guest RFQ interactions
         env:
-          PRODUCTION_BASE_URL: https://www.souviks.co.in
+          PRODUCTION_BASE_URL: https://souviks-website.pages.dev
         run: node scripts/regression/production-browser-smoke.cjs
 
       - name: Verify live HTTP routes, headers, redirects, sitemaps, 404 and main revision
