@@ -2219,7 +2219,7 @@ def sync_active_catalogue_counts() -> None:
     # Products icon, not by replacing every matching number (which could alter
     # product IDs such as SVKS001045 or unrelated category/vehicle statistics).
     hero_open = re.compile(
-        r'<div\b[^>]*class=["\'][^"\']*\bhero-stat\b[^"\']*["\'][^>]*>',
+        r'<div\b[^>]*class=["\'][^"\']*\bhero-stat["\'][^>]*>',
         flags=re.I,
     )
     stat_number = re.compile(
