@@ -2273,24 +2273,24 @@ def sync_active_catalogue_counts() -> None:
                     f"found {updated_ids}"
                 )
 
-        # Match the Products icon and its stat-number within the same hero-stat
-    # element. Never scan through the remainder of the document: that could
-    # accidentally make a later statistic (such as Vehicles) look like Products.
-    product_stat = re.compile(
-        r'(<div\b[^>]*class=["\'][^"\']*\bhero-stat["\'][^>]*>\s*'
-        r'<img\b(?=[^>]*\bsrc=["\'][^"\']*/products\.svg(?:[?#][^"\']*)?["\'])[^>]*>\s*'
-        r'<div\b[^>]*>\s*<(?:div|span)\b(?=[^>]*\bclass=["\'][^"\']*\bstat-number\b)[^>]*>\s*)'
-        r'\d+'
-        r'(\s*</(?:div|span)\s*>)',
-        flags=re.I | re.S,
-    )
-    html, product_stat_updates = product_stat.subn(
-        lambda match: f"{match.group(1)}{active_count}{match.group(2)}",
-        html,
-        count=1,
-    )
+            # Match the Products icon and its stat-number within the same hero-stat
+        # element. Never scan through the remainder of the document: that could
+        # accidentally make a later statistic (such as Vehicles) look like Products.
+        product_stat = re.compile(
+            r'(<div\b[^>]*class=["\'][^"\']*\bhero-stat["\'][^>]*>\s*'
+            r'<img\b(?=[^>]*\bsrc=["\'][^"\']*/products\.svg(?:[?#][^"\']*)?["\'])[^>]*>\s*'
+            r'<div\b[^>]*>\s*<(?:div|span)\b(?=[^>]*\bclass=["\'][^"\']*\bstat-number\b)[^>]*>\s*)'
+            r'\d+'
+            r'(\s*</(?:div|span)\s*>)',
+            flags=re.I | re.S,
+        )
+        html, product_stat_updates = product_stat.subn(
+            lambda match: f"{match.group(1)}{active_count}{match.group(2)}",
+            html,
+            count=1,
+        )
         if product_stat_updates != 1:
-        raise ValueError(f"{relative}: could not find the Products hero-stat count to synchronize")
+            raise ValueError(f"{relative}: could not find the Products hero-stat count to synchronize")
 
         if html != original:
             path.write_text(html, encoding="utf-8")
