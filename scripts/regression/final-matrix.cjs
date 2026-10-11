@@ -621,25 +621,14 @@ async function main() {
     try {
       const page = await context.newPage();
       page.__view = "desktop";
-      await goto(page, BASE + "/en/products/10-x-15-nut");
-      const image = page.locator("#pdpMainImage");
-      const urls = await image.evaluate(element => {
-        const primaryUrl = new URL(
-          element.getAttribute("src") || element.src,
-          window.location.href
-        ).href;
-        const broken = new URL(primaryUrl);
-        broken.searchParams.set("souviks-regression-main-image", "1");
-        return { primaryUrl, brokenUrl: broken.href };
-      });
+      let interceptedMainImage = false;
 
-      let interceptedBrokenImage = false;
-      let interceptedPrimaryRetry = false;
-      await page.route(url =>
-        url.href === urls.brokenUrl || url.href === urls.primaryUrl,
-      async route => {
-        if (route.request().url() === urls.brokenUrl) interceptedBrokenImage = true;
-        if (route.request().url() === urls.primaryUrl) interceptedPrimaryRetry = true;
+      // Fail every packaged image for only this product before navigation.
+      // This catches the initial request and any retry, without relying on
+      // cache state, srcset selection, reload timing or URL-pattern quirks.
+      await page.route("**/assets/images/products/SVKS000006/**", async route => {
+        const url = new URL(route.request().url());
+        if (url.pathname.endsWith("/1.webp")) interceptedMainImage = true;
         await route.fulfill({
           status: 404,
           contentType: "image/webp",
@@ -647,16 +636,8 @@ async function main() {
         });
       });
 
-      // Inject a one-off failing source, then fail the gallery controller's
-      // primary-image retry as well. This proves the final placeholder path,
-      // rather than relying on cache state or a reload race with srcset.
-      await image.evaluate((element, brokenUrl) => {
-        element.removeAttribute("srcset");
-        element.removeAttribute("sizes");
-        delete element.dataset.souviksImageFallback;
-        element.src = brokenUrl;
-      }, urls.brokenUrl);
-
+      await goto(page, BASE + "/en/products/10-x-15-nut");
+      const image = page.locator("#pdpMainImage");
       await page.waitForFunction(() => {
         const element = document.querySelector("#pdpMainImage");
         return element &&
@@ -664,11 +645,8 @@ async function main() {
           element.complete && element.naturalWidth > 0;
       }, null, { timeout: 8000 });
 
-      if (!interceptedBrokenImage) {
-        throw new Error("the deterministic PDP-image 404 fixture was not triggered");
-      }
-      if (!interceptedPrimaryRetry) {
-        throw new Error("the canonical primary-image retry was not intercepted");
+      if (!interceptedMainImage) {
+        throw new Error("the deterministic PDP main-image 404 fixture was not triggered");
       }
       const fallback = await image.evaluate(element => ({
         src: element.getAttribute("src") || "",
@@ -688,7 +666,7 @@ async function main() {
         return raw ? JSON.parse(raw) : [];
       });
       if (!Array.isArray(saved) || !saved.length) throw new Error("Add to RFQ stopped working after image failures");
-      return "initial image and primary retry failed; placeholder loaded; product details and Add to RFQ remain functional";
+      return "all main-image retries failed; valid placeholder loaded; product details and Add to RFQ remain functional";
     } finally {
       await context.close();
     }
