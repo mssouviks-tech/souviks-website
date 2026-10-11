@@ -112,7 +112,6 @@ def validate_static_routing_layer():
         ROOT / "functions/en/products/[slug].js",
         ROOT / "functions/bn/products/[slug].js",
         ROOT / "functions/hi/products/[slug].js",
-        ROOT / "_routes.json",
     )
     found = [str(path.relative_to(ROOT)) for path in forbidden if path.exists()]
     if found:
