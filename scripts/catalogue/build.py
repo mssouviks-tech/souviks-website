@@ -2273,32 +2273,24 @@ def sync_active_catalogue_counts() -> None:
                     f"found {updated_ids}"
                 )
 
-        # Each hero-stat block ends where the next hero-stat block begins. Only
-        # update the block carrying the localized Products icon/label.
-        starts = list(hero_open.finditer(html))
-        product_stat_updates = 0
-        for index, match in enumerate(starts):
-            end = starts[index + 1].start() if index + 1 < len(starts) else len(html)
-            segment = html[match.start():end]
-            carries_products_icon = bool(
-                re.search(r'\balt=["\'][^"\']*(?:products?|उत्पाद|পণ্য)[^"\']*["\']', segment, flags=re.I)
-                or re.search(r'/products\.svg(?:["\'\s?#]|$)', segment, flags=re.I)
-            )
-            if not carries_products_icon:
-                continue
-
-            updated_segment, replacements = stat_number.subn(
-                lambda value: f"{value.group(1)}{active_count}{value.group(2)}",
-                segment,
-                count=1,
-            )
-            if replacements == 1:
-                html = html[:match.start()] + updated_segment + html[end:]
-                product_stat_updates += 1
-                break
-
-        if product_stat_updates != 1:
-            raise ValueError(f"{relative}: could not find the Products hero-stat count to synchronize")
+        # Match the Products icon and its stat-number within the same hero-stat
+    # element. Never scan through the remainder of the document: that could
+    # accidentally make a later statistic (such as Vehicles) look like Products.
+    product_stat = re.compile(
+        r'(<div\\b[^>]*class=["\\'][^"\\']*\\bhero-stat["\\'][^>]*>\\s*'
+        r'<img\\b(?=[^>]*\\bsrc=["\\'][^"\\']*/products\\.svg(?:[?#][^"\\']*)?["\\'])[^>]*>\\s*'
+        r'<div\\b[^>]*>\\s*<(?:div|span)\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bstat-number\\b)[^>]*>\\s*)'
+        r'\\d+'
+        r'(\\s*</(?:div|span)\\s*>)',
+        flags=re.I | re.S,
+    )
+    html, product_stat_updates = product_stat.subn(
+        lambda match: f"{match.group(1)}{active_count}{match.group(2)}",
+        html,
+        count=1,
+    )
+    if product_stat_updates != 1:
+        raise ValueError(f"{relative}: could not find the Products hero-stat count to synchronize")
 
         if html != original:
             path.write_text(html, encoding="utf-8")
