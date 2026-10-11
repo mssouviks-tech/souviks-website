@@ -16,6 +16,7 @@ on:
       - "robots.txt"
       - "sitemap.xml"
       - "sitemaps/**"
+      - "supabase/migrations/**"
 
 permissions:
   contents: read
