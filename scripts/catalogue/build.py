@@ -2113,6 +2113,17 @@ def sync_organization_schema():
                 if isinstance(publisher, dict) and publisher.get("@type") == "Organization":
                     targets.append(publisher)
 
+                # Product offers use a nested seller Organization rather than
+                # a publisher field. Add the same canonical logo there too.
+                offers = node.get("offers")
+                offer_nodes = offers if isinstance(offers, list) else [offers]
+                for offer in offer_nodes:
+                    if not isinstance(offer, dict):
+                        continue
+                    seller = offer.get("seller")
+                    if isinstance(seller, dict) and seller.get("@type") == "Organization":
+                        targets.append(seller)
+
                 for target in targets:
                     if str(target.get("name") or "").strip().casefold() != "souviks":
                         continue
