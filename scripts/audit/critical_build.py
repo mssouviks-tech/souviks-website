@@ -1029,6 +1029,48 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
         if source == destination:
             errors.append(f"_redirects:{lineno}: self-redirect: {source}")
 
+def validate_pages_routes(errors: list[str]) -> None:
+    """Keep required HTML/SEO responses on middleware while avoiding function calls for heavy assets."""
+    path = ROOT / "_routes.json"
+    if not path.is_file():
+        errors.append("Missing _routes.json for explicit Pages Function routing")
+        return
+
+    try:
+        config = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"_routes.json: invalid JSON: {exc}")
+        return
+
+    include = config.get("include", [])
+    exclude = config.get("exclude", [])
+    if config.get("version") != 1:
+        errors.append("_routes.json: expected schema version 1")
+    if not isinstance(include, list) or "/*" not in include:
+        errors.append('_routes.json: include must contain "/*" so middleware covers app routes')
+        return
+    if not isinstance(exclude, list):
+        errors.append("_routes.json: exclude must be an array")
+        return
+    if "/assets/*" not in exclude:
+        errors.append('_routes.json: exclude must contain "/assets/*" to avoid invoking Functions for product images, scripts and data')
+
+    def matches(pattern: str, route: str) -> bool:
+        if not isinstance(pattern, str):
+            return False
+        return re.fullmatch(re.escape(pattern).replace(r"\*", ".*"), route) is not None
+
+    for route in ("/", "/robots.txt", "/sitemap.xml", "/sitemaps/pages.xml", "/en/products"):
+        included = any(matches(pattern, route) for pattern in include)
+        excluded = any(matches(pattern, route) for pattern in exclude)
+        if not included or excluded:
+            errors.append(f"_routes.json: {route} must pass through Pages middleware")
+
+    for route in ("/assets/data/products.json", "/assets/js/site-core.js"):
+        if not any(matches(pattern, route) for pattern in exclude):
+            errors.append(f"_routes.json: {route} should bypass middleware as a static asset")
+
+
 def validate_pages_middleware(errors: list[str]) -> None:
     """Guard hostname redirects and hardening that Pages _redirects/_headers cannot guarantee."""
     path = ROOT / "functions" / "_middleware.js"
@@ -1314,6 +1356,7 @@ def main() -> None:
     validate_product_card_images(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
     validate_pages_middleware(errors)
+    validate_pages_routes(errors)
     validate_robots_and_sitemap_index(errors)
     validate_sitemaps(records_by_kind, errors)
     validate_internal_links(errors)
