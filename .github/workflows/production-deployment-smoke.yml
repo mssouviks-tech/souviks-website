@@ -5,6 +5,14 @@ on:
     workflows: ["Build Static Catalogue"]
     types: [completed]
     branches: [main]
+  # Re-run the smoke when its diagnostics or HTTP verification code changes,
+  # without requiring an unrelated catalogue rebuild.
+  push:
+    branches: [main]
+    paths:
+      - "scripts/regression/production-browser-smoke.cjs"
+      - "scripts/audit/production_smoke.py"
+      - ".github/workflows/production-deployment-smoke.yml"
   workflow_dispatch:
 
 permissions:
@@ -17,7 +25,7 @@ concurrency:
 
 jobs:
   production-smoke:
-    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -50,6 +58,7 @@ jobs:
         run: node scripts/regression/production-browser-smoke.cjs
 
       - name: Verify live HTTP routes, headers, redirects, sitemaps, 404 and main revision
+        if: always()
         env:
           PRODUCTION_BASE_URL: https://www.souviks.co.in
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
