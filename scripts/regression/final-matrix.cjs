@@ -3,6 +3,7 @@
 const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
+const vm = require("node:vm");
 
 const BASE = process.env.REGRESSION_BASE_URL || "https://www.souviks.co.in";
 const LANGS = ["en", "hi", "bn"];
@@ -353,6 +354,58 @@ function langPath(lang, suffix) {
 
 async function main() {
   browser = await chromium.launch({ headless: true });
+
+  await check("reliability/Pages middleware canonicalizes host and hardens responses", async () => {
+    const middlewarePath = path.join(__dirname, "../../functions/_middleware.js");
+    let source = fs.readFileSync(middlewarePath, "utf8");
+    source = source.replace("export async function onRequest", "async function onRequest");
+    const sandbox = {
+      module: { exports: {} },
+      URL,
+      Request,
+      Response,
+      Headers,
+    };
+    vm.runInNewContext(source + "\\nmodule.exports = { onRequest };", sandbox, {
+      filename: middlewarePath,
+      timeout: 1000,
+    });
+    const { onRequest } = sandbox.module.exports;
+    if (typeof onRequest !== "function") throw new Error("Pages middleware onRequest export is missing");
+
+    const aliasRequest = new Request("https://souviks.co.in/en/products/part?brand=abc");
+    const redirect = await onRequest({
+      request: aliasRequest,
+      next: async () => new Response("should not reach static assets"),
+    });
+    if (redirect.status !== 301) throw new Error("legacy host did not return HTTP 301");
+    if (redirect.headers.get("location") !== "https://www.souviks.co.in/en/products/part?brand=abc") {
+      throw new Error("legacy host redirect did not preserve path/query on canonical host");
+    }
+
+    const robotsResponse = await onRequest({
+      request: new Request("https://www.souviks.co.in/robots.txt"),
+      next: async () => new Response("Sitemap: https://www.souviks.co.in/sitemap.xml", {
+        status: 200,
+        headers: { "content-type": "text/plain; charset=utf-8" },
+      }),
+    });
+    if (robotsResponse.status !== 200) throw new Error("middleware changed the static asset status");
+    for (const header of [
+      "strict-transport-security",
+      "x-content-type-options",
+      "referrer-policy",
+      "x-frame-options",
+      "permissions-policy",
+      "content-security-policy",
+    ]) {
+      if (!robotsResponse.headers.get(header)) throw new Error("missing response header: " + header);
+    }
+    if (!(await robotsResponse.text()).includes("Sitemap:")) {
+      throw new Error("middleware did not preserve the static asset body");
+    }
+    return "legacy host 301 preserves path/query; static body and six security headers preserved";
+  });
 
   // 1. Route matrix
   for (const view of Object.keys(VIEWS)) {
