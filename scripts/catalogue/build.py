@@ -2219,12 +2219,12 @@ def sync_active_catalogue_counts() -> None:
     # Products icon, not by replacing every matching number (which could alter
     # product IDs such as SVKS001045 or unrelated category/vehicle statistics).
     hero_open = re.compile(
-        r'<div\\b[^>]*class=["\'][^"\']*\\bhero-stat\\b[^"\']*["\'][^>]*>',
+        r'<div\b[^>]*class=["\'][^"\']*\bhero-stat\b[^"\']*["\'][^>]*>',
         flags=re.I,
     )
     stat_number = re.compile(
-        r'(<(?:div|span)\\b(?=[^>]*\\bclass=["\'][^"\']*\\bstat-number\\b)[^>]*>\\s*)'
-        r'\\d+(\\s*</(?:div|span)\\s*>)',
+        r'(<(?:div|span)\b(?=[^>]*\bclass=["\'][^"\']*\bstat-number\b)[^>]*>\s*)'
+        r'\d+(\s*</(?:div|span)\s*>)',
         flags=re.I,
     )
 
@@ -2252,11 +2252,11 @@ def sync_active_catalogue_counts() -> None:
         updated_ids = {}
         for element_id in ("totalProducts", "totalResults"):
             pattern = re.compile(
-                r'(<(?P<tag>[a-z][\\w:-]*)\\b(?=[^>]*\\bid=["\']'
+                r'(<(?P<tag>[a-z][\w:-]*)\b(?=[^>]*\bid=["\']'
                 + re.escape(element_id)
-                + r'["\'])[^>]*>\\s*)'
-                r'\\d+'
-                r'(\\s*</(?P=tag)\\s*>)',
+                + r'["\'])[^>]*>\s*)'
+                r'\d+'
+                r'(\s*</(?P=tag)\s*>)',
                 flags=re.I,
             )
             html, replacements = pattern.subn(
@@ -2281,8 +2281,8 @@ def sync_active_catalogue_counts() -> None:
             end = starts[index + 1].start() if index + 1 < len(starts) else len(html)
             segment = html[match.start():end]
             carries_products_icon = bool(
-                re.search(r'\\balt=["\'][^"\']*(?:products?|उत्पाद|পণ্য)[^"\']*["\']', segment, flags=re.I)
-                or re.search(r'/products\\.svg(?:["\'\\s?#]|$)', segment, flags=re.I)
+                re.search(r'\balt=["\'][^"\']*(?:products?|उत्पाद|পণ্য)[^"\']*["\']', segment, flags=re.I)
+                or re.search(r'/products\.svg(?:["\'\s?#]|$)', segment, flags=re.I)
             )
             if not carries_products_icon:
                 continue
