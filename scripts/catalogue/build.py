@@ -2277,11 +2277,11 @@ def sync_active_catalogue_counts() -> None:
     # element. Never scan through the remainder of the document: that could
     # accidentally make a later statistic (such as Vehicles) look like Products.
     product_stat = re.compile(
-        r'(<div\\b[^>]*class=["\\'][^"\\']*\\bhero-stat["\\'][^>]*>\\s*'
-        r'<img\\b(?=[^>]*\\bsrc=["\\'][^"\\']*/products\\.svg(?:[?#][^"\\']*)?["\\'])[^>]*>\\s*'
-        r'<div\\b[^>]*>\\s*<(?:div|span)\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bstat-number\\b)[^>]*>\\s*)'
-        r'\\d+'
-        r'(\\s*</(?:div|span)\\s*>)',
+        r'(<div\b[^>]*class=["\'][^"\']*\bhero-stat["\'][^>]*>\s*'
+        r'<img\b(?=[^>]*\bsrc=["\'][^"\']*/products\.svg(?:[?#][^"\']*)?["\'])[^>]*>\s*'
+        r'<div\b[^>]*>\s*<(?:div|span)\b(?=[^>]*\bclass=["\'][^"\']*\bstat-number\b)[^>]*>\s*)'
+        r'\d+'
+        r'(\s*</(?:div|span)\s*>)',
         flags=re.I | re.S,
     )
     html, product_stat_updates = product_stat.subn(
@@ -2289,7 +2289,7 @@ def sync_active_catalogue_counts() -> None:
         html,
         count=1,
     )
-    if product_stat_updates != 1:
+        if product_stat_updates != 1:
         raise ValueError(f"{relative}: could not find the Products hero-stat count to synchronize")
 
         if html != original:
