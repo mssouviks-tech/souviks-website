@@ -46,10 +46,29 @@ function assertNoPageErrors(page) {
   if (found.length) throw new Error("browser JavaScript/console error: " + found.slice(0, 6).join(" | "));
 }
 
+async function httpFailureDetails(response) {
+  if (!response) return "no HTTP response";
+  const headers = await response.allHeaders().catch(() => ({}));
+  let body = "";
+  try {
+    body = (await response.text()).replace(/\\s+/g, " ").trim().slice(0, 240);
+  } catch (_) {
+    body = "response body unavailable";
+  }
+  const details = {};
+  for (const name of ["server", "cf-ray", "cf-mitigated", "cf-cache-status", "content-type", "location"]) {
+    if (headers[name]) details[name] = headers[name];
+  }
+  details.body = body;
+  return JSON.stringify(details);
+}
+
 async function goto(page, path) {
   const response = await page.goto(BASE + path, { waitUntil: "domcontentloaded", timeout: 30000 });
   if (!response) throw new Error("no HTTP response for " + path);
-  if (response.status() !== 200) throw new Error(path + " returned HTTP " + response.status());
+  if (response.status() !== 200) {
+    throw new Error(path + " returned HTTP " + response.status() + "; " + await httpFailureDetails(response));
+  }
   await page.waitForTimeout(500);
   assertNoPageErrors(page);
   const language = await page.evaluate(() => window.souviks?.currentLanguage || "");
@@ -110,7 +129,7 @@ async function main() {
             await check(view.name + "/root homepage language redirect and hero", async () => {
               const response = await page.goto(BASE + "/", { waitUntil: "domcontentloaded", timeout: 30000 });
               if (!response || response.status() !== 200) {
-                throw new Error("root homepage returned HTTP " + (response?.status() || "unknown"));
+                throw new Error("root homepage returned HTTP " + (response?.status() || "unknown") + "; " + await httpFailureDetails(response));
               }
               await page.waitForURL(url => ["/en/", "/hi/", "/bn/"].includes(url.pathname), { timeout: 10000 });
               await page.waitForFunction(() => {
