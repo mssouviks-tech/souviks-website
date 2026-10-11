@@ -94,13 +94,22 @@ async function clickPrimaryLink(page, view, lang, destination) {
     throw new Error("desktop navigation link " + destination + " is not visible");
   }
 
-  const navResult = await Promise.all([
-    page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: 15000 }),
-    link.click(),
-  ]);
-  const response = navResult[0];
-  if (!response || response.status() !== 200) {
-    throw new Error(destination + " click returned HTTP " + (response?.status() || "unknown"));
+  // The mobile navigation is allowed to use the History API. In that case
+  // Playwright resolves waitForNavigation with null even though route changes.
+  // Assert the destination URL and rendered page, and validate HTTP status only
+  // when a full document navigation actually produced a response.
+  const navigationPromise = page
+    .waitForNavigation({ waitUntil: "domcontentloaded", timeout: 15000 })
+    .catch(() => null);
+  const destinationPromise = page.waitForURL(
+    url => url.pathname === destination,
+    { timeout: 10000 }
+  );
+  await link.click();
+  await destinationPromise;
+  const response = await navigationPromise;
+  if (response && response.status() !== 200) {
+    throw new Error(destination + " click returned HTTP " + response.status() + "; " + await httpFailureDetails(response));
   }
   if (new URL(page.url()).pathname !== destination) {
     throw new Error("clicked " + destination + ", landed at " + new URL(page.url()).pathname);
@@ -227,7 +236,7 @@ async function main() {
         if (afterRemove.length !== 0) throw new Error("RFQ removal did not clear the guest basket");
 
         await goto(page, "/en/products/10-x-15-nut");
-        const heading = (await page.locator("main h1").innerText()).trim();
+        const heading = (await page.locator(".pdp-title").innerText()).trim();
         if (!heading.toLowerCase().includes("10 x 1.5 nut")) {
           throw new Error("unexpected product detail heading: " + heading);
         }
