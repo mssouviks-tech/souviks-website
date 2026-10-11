@@ -5304,11 +5304,13 @@ body.souviks-image-viewer-open {
 
 .auth-social-options {
     display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px;
     margin-top: 18px;
 }
 
 .auth-social-divider {
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -5330,21 +5332,17 @@ body.souviks-image-viewer-open {
 }
 
 .auth-social-button {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
     width: 100%;
-    min-height: 46px;
-    padding: 10px 14px;
+    min-height: 48px;
+    padding: 10px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     background: var(--bg-card);
     color: var(--text-primary);
     font: inherit;
-    font-size: .92rem;
-    font-weight: 650;
-    line-height: 1.35;
     cursor: pointer;
     transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
 }
