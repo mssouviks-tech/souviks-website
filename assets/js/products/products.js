@@ -139,10 +139,18 @@ constructor() {
         const mainImage = document.getElementById("pdpMainImage");
         if (mainImage) {
             const src = srcFor(galleryFiles[0] || String(product?.image || "").trim());
-            mainImage.src = src;
+            // The catalogue-index refresh can finish after a failed image has
+            // already recovered to the placeholder. Never resurrect the same
+            // broken source once the gallery has recorded a terminal fallback.
+            const mainImageFallbackComplete =
+                mainImage.dataset.galleryFallback === "done" ||
+                String(mainImage.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp");
+            if (!mainImageFallbackComplete) {
+                mainImage.src = src;
+            }
             mainImage.alt = String(product?.product_name || product?.name || "Product image");
             const dims = dimensionsFor(galleryFiles[0] || String(product?.image || "").trim());
-            if (dims) {
+            if (dims && !mainImageFallbackComplete) {
                 mainImage.width = dims[0];
                 mainImage.height = dims[1];
             }
