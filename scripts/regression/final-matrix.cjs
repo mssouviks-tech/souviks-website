@@ -367,24 +367,24 @@ async function main() {
     for (const lang of ["en", "hi", "bn"]) {
       const relative = lang + "/products/0209-e-comet-rear-main-leaf.html";
       const html = fs.readFileSync(path.join(__dirname, "../../", relative), "utf8");
-      const embeddedMatch = html.match(/window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});/s);
+      const embeddedMatch = html.match(/window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});/s);
       if (!embeddedMatch) throw new Error(relative + " embedded product data is missing");
       const embedded = JSON.parse(embeddedMatch[1]);
       if (embedded.id !== master.id || embedded.brand_id !== "toyo") {
         throw new Error(relative + " embedded product does not match the Toyo master record");
       }
 
-      const breadcrumbs = [...html.matchAll(/<li\\b[^>]*class=["'][^"']*\\bbreadcrumb-item\\b[^"']*["'][^>]*>\\s*<a\\b[^>]*href=["']([^"']*\\/brands\\/[^"']+)["'][^>]*>(.*?)<\\/a>\\s*<\\/li>/gis)];
+      const breadcrumbs = [...html.matchAll(/<li\b[^>]*class=["'][^"']*\bbreadcrumb-item\b[^"']*["'][^>]*>\s*<a\b[^>]*href=["']([^"']*\/brands\/[^"']+)["'][^>]*>(.*?)<\/a>\s*<\/li>/gis)];
       if (breadcrumbs.length !== 1 ||
           !breadcrumbs[0][1].includes("/" + lang + "/brands/toyo") ||
           breadcrumbs[0][2].replace(/<[^>]*>/g, "").trim() !== "Toyo") {
         throw new Error(relative + " brand breadcrumb does not point to Toyo");
       }
 
-      if (!/<img\\b[^>]*src=["']\\/assets\\/images\\/brands\\/toyo\\.png["'][^>]*alt=["']Toyo["']/i.test(html)) {
+      if (!/<img\b[^>]*src=["']\/assets\/images\/brands\/toyo\.png["'][^>]*alt=["']Toyo["']/i.test(html)) {
         throw new Error(relative + " Toyo brand badge is missing or incorrect");
       }
-      const mainImage = html.match(/<img\\b[^>]*id=["']pdpMainImage["'][^>]*>/i);
+      const mainImage = html.match(/<img\b[^>]*id=["']pdpMainImage["'][^>]*>/i);
       if (!mainImage || !mainImage[0].includes("/assets/images/products/SVKS000883/1.webp")) {
         throw new Error(relative + " main product image is not bound to SVKS000883/1.webp");
       }
