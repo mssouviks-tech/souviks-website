@@ -5386,7 +5386,7 @@ body.souviks-image-viewer-open {
     font-size: 1.3rem;
 }
 
-.auth-social-button[data-auth-provider="twitter"] .auth-social-icon {
+.auth-social-button[data-auth-provider="x"] .auth-social-icon {
     color: var(--text-primary);
 }
 
