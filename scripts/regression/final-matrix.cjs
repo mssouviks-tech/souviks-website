@@ -369,20 +369,20 @@ async function main() {
       "en/vehicles.html", "hi/vehicles.html", "bn/vehicles.html",
     ];
     const readIdCount = (html, id) => {
-      const match = html.match(new RegExp('id="' + id + '"[^>]*>\\\\s*(\\\\d+)\\\\s*</', "i"));
+      const match = html.match(new RegExp('id="' + id + '"[^>]*>\\s*(\\d+)\\s*</', "i"));
       return match ? Number(match[1]) : null;
     };
 
     for (const relative of pages) {
       const html = fs.readFileSync(path.join(__dirname, "../../", relative), "utf8");
-      const heroStarts = [...html.matchAll(/<div\\b[^>]*class=["'][^"']*\\bhero-stat\\b[^"']*["'][^>]*>/gi)];
+      const heroStarts = [...html.matchAll(/<div\b[^>]*class=["'][^"']*\bhero-stat\b[^"']*["'][^>]*>/gi)];
       const counts = [];
       for (let i = 0; i < heroStarts.length; i++) {
         const start = heroStarts[i].index;
         const end = i + 1 < heroStarts.length ? heroStarts[i + 1].index : html.length;
         const block = html.slice(start, end);
-        if (!(/\\balt=["'][^"']*(?:products?|उत्पाद|পণ্য)[^"']*["']/i.test(block) || /\\/products\\.svg/i.test(block))) continue;
-        const stat = block.match(/<(?:div|span)\\b[^>]*class=["'][^"']*\\bstat-number\\b[^>]*>\\s*(\\d+)\\s*<\\/(?:div|span)>/i);
+        if (!(/\balt=["'][^"']*(?:products?|उत्पाद|পণ্য)[^"']*["']/i.test(block) || /\/products\.svg/i.test(block))) continue;
+        const stat = block.match(/<(?:div|span)\b[^>]*class=["'][^"']*\bstat-number\b[^>]*>\s*(\d+)\s*<\/(?:div|span)>/i);
         if (stat) counts.push(Number(stat[1]));
       }
       if (counts.length !== 1 || counts[0] !== activeCount) {
