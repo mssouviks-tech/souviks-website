@@ -327,6 +327,10 @@ RFQ.getUser = async function () {
 
         if (error) {
 
+            if (error?.name === "AuthSessionMissingError") {
+                return null;
+            }
+
             SouviksErrors?.log("[Souviks RFQ] Unable to get authenticated user:", error, "error");
 
             return null;
@@ -339,7 +343,9 @@ RFQ.getUser = async function () {
 
     } catch (error) {
 
-        SouviksErrors?.log("[Souviks RFQ] Unexpected authentication error:", error, "error");
+        if (error?.name !== "AuthSessionMissingError") {
+            SouviksErrors?.log("[Souviks RFQ] Unexpected authentication error:", error, "error");
+        }
 
         return null;
 
