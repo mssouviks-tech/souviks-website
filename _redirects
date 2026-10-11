@@ -47,8 +47,7 @@ https://souviks.co.in/vehicles/:slug https://www.souviks.co.in/en/vehicles/:slug
 https://souviks.co.in/brands/:slug https://www.souviks.co.in/en/brands/:slug 301
 https://souviks.co.in/categories/:slug https://www.souviks.co.in/en/categories/:slug 301
 
-# Paint-first root: serve the branded language bootstrap without an HTTP redirect.
-https://souviks.co.in/ /index.html 200
+# Canonicalize bare-host requests, including the homepage, to www.
 
 # Canonical host for every non-root bare-host request.
 https://souviks.co.in/* https://www.souviks.co.in/:splat 301
