@@ -375,7 +375,7 @@ async function main() {
 
     for (const relative of pages) {
       const html = fs.readFileSync(path.join(__dirname, "../../", relative), "utf8");
-      const heroStarts = [...html.matchAll(/<div\b[^>]*class=["'][^"']*\bhero-stat\b[^"']*["'][^>]*>/gi)];
+      const heroStarts = [...html.matchAll(/<div\b[^>]*class=["'][^"']*\bhero-stat["'][^>]*>/gi)];
       const counts = [];
       for (let i = 0; i < heroStarts.length; i++) {
         const start = heroStarts[i].index;
