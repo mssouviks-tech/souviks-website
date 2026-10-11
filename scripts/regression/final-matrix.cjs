@@ -895,7 +895,7 @@ async function main() {
         const providerButtons = loginForm.locator("[data-auth-provider]");
         await providerButtons.first().waitFor({ state: "visible", timeout: 8000 });
         const providers = await providerButtons.evaluateAll(buttons => buttons.map(button => button.dataset.authProvider));
-        if (providers.join(",") !== "google,facebook,twitter") {
+        if (providers.join(",") !== "google,facebook,x") {
           throw new Error(lang + " login provider order was " + providers.join(","));
         }
         const formOrder = await loginForm.evaluate(form => {
