@@ -976,6 +976,7 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
         return
 
     concrete_sources: dict[str, str] = {}
+    canonical_host_redirect_found = False
     for lineno, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
         stripped = line.strip()
         if not stripped or stripped.startswith("#"):
@@ -986,6 +987,17 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
             continue
         source, destination = parts[:2]
         status = parts[2] if len(parts) >= 3 else ""
+
+        if source == "https://souviks.co.in/" and status == "200":
+            errors.append(
+                f"_redirects:{lineno}: bare-host homepage must redirect to the canonical www hostname"
+            )
+        if (
+            source == "https://souviks.co.in/*"
+            and destination == "https://www.souviks.co.in/:splat"
+            and status == "301"
+        ):
+            canonical_host_redirect_found = True
 
         if not any(token in source for token in (":splat", ":lang", ":slug", "*")):
             previous_destination = concrete_sources.get(source)
@@ -1005,9 +1017,7 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
                 f"_redirects:{lineno}: canonical public URL is configured as a redirect source: {source}"
             )
 
-        if destination.endswith(".html") and not (
-            status == "200" and destination == "/index.html" and source == "https://souviks.co.in/"
-        ):
+        if destination.endswith(".html"):
             errors.append(f"_redirects:{lineno}: redirect target contains .html: {destination}")
         if ":splat" not in destination and ":lang" not in destination and ":slug" not in destination:
             dest_path = urlsplit(destination).path or destination
@@ -1020,6 +1030,11 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
                 )
         if source == destination:
             errors.append(f"_redirects:{lineno}: self-redirect: {source}")
+
+    if not canonical_host_redirect_found:
+        errors.append(
+            "_redirects: missing permanent catch-all redirect from souviks.co.in to www.souviks.co.in"
+        )
 
 
 def sitemap_urls(path: Path, errors: list[str]) -> set[str]:
