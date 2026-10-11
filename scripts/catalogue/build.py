@@ -1324,6 +1324,26 @@ def sync_static_product_images():
                         count=1,
                         flags=re.I | re.S,
                     )
+                    # The visible breadcrumb must follow the target product's brand,
+                    # not the brand from the static PDP shell being repaired.
+                    brand_slug = str(brand_record.get("slug") or brand_id).strip()
+                    brand_url = f"{BASE}/{lang}/brands/{brand_slug}" if brand_slug else ""
+                    if brand_url:
+                        text, _ = re.subn(
+                            r'(<li\b[^>]*class=["\'][^"\']*\bbreadcrumb-item\b[^"\']*["\'][^>]*>\s*'
+                            r'<a\b[^>]*href=["\'])[^"\']*/brands/[^"\']*(["\'][^>]*>).*?(</a>\s*</li>)',
+                            lambda match: (
+                                match.group(1)
+                                + html_module.escape(brand_url, quote=True)
+                                + match.group(2)
+                                + html_module.escape(brand_name, quote=False)
+                                + match.group(3)
+                            ),
+                            text,
+                            count=1,
+                            flags=re.I | re.S,
+                        )
+
                     # Some valid PDP templates intentionally have no badge.
                     # Update it when present; absence alone must not abort a build.
 
