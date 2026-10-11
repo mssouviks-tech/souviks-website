@@ -976,8 +976,6 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
         return
 
     concrete_sources: dict[str, str] = {}
-    canonical_host_redirect_found = False
-    bare_host_root_redirect_found = False
     for lineno, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
         stripped = line.strip()
         if not stripped or stripped.startswith("#"):
@@ -991,20 +989,13 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
 
         if source == "https://souviks.co.in/" and status == "200":
             errors.append(
-                f"_redirects:{lineno}: bare-host homepage must redirect to the canonical www hostname"
+                f"_redirects:{lineno}: host-based root 200 rules are unsupported; use functions/_middleware.js"
             )
-        if (
-            source == "https://souviks.co.in/"
-            and destination == "https://www.souviks.co.in/"
-            and status == "301"
-        ):
-            bare_host_root_redirect_found = True
-        if (
-            source == "https://souviks.co.in/*"
-            and destination == "https://www.souviks.co.in/:splat"
-            and status == "301"
-        ):
-            canonical_host_redirect_found = True
+        source_url_for_host_rule = urlsplit(source)
+        if source_url_for_host_rule.scheme and source_url_for_host_rule.netloc.lower() != "www.souviks.co.in":
+            errors.append(
+                f"_redirects:{lineno}: host-based source rules are unsupported by Pages _redirects; use functions/_middleware.js"
+            )
 
         if not any(token in source for token in (":splat", ":lang", ":slug", "*")):
             previous_destination = concrete_sources.get(source)
@@ -1038,14 +1029,43 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
         if source == destination:
             errors.append(f"_redirects:{lineno}: self-redirect: {source}")
 
-    if not bare_host_root_redirect_found:
-        errors.append(
-            "_redirects: missing permanent bare-host homepage redirect to https://www.souviks.co.in/"
-        )
-    if not canonical_host_redirect_found:
-        errors.append(
-            "_redirects: missing permanent catch-all redirect from souviks.co.in to www.souviks.co.in"
-        )
+def validate_pages_middleware(errors: list[str]) -> None:
+    """Guard hostname redirects and hardening that Pages _redirects/_headers cannot guarantee."""
+    path = ROOT / "functions" / "_middleware.js"
+    if not path.is_file():
+        errors.append("Missing functions/_middleware.js for canonical hostname redirects and response headers")
+        return
+
+    source = path.read_text(encoding="utf-8", errors="ignore")
+    required_hosts = (
+        "souviks.co.in",
+        "w.souviks.co.in",
+        "ww.souviks.co.in",
+        "ww2.souviks.co.in",
+        "wwe.souviks.co.in",
+        "wwww.souviks.co.in",
+        "qqq.souviks.co.in",
+    )
+    for host in required_hosts:
+        if f'"{host}"' not in source:
+            errors.append(f"functions/_middleware.js: missing legacy host {host}")
+
+    required_fragments = (
+        "new URL(request.url)",
+        'url.hostname = CANONICAL_HOST',
+        "Response.redirect(url.toString(), 301)",
+        "const response = await next()",
+        '"Strict-Transport-Security"',
+        '"X-Content-Type-Options"',
+        '"Referrer-Policy"',
+        '"X-Frame-Options"',
+        '"Permissions-Policy"',
+        '"Content-Security-Policy"',
+        "headers.set(name, value)",
+    )
+    for fragment in required_fragments:
+        if fragment not in source:
+            errors.append(f"functions/_middleware.js: missing required behavior {fragment!r}")
 
 
 def sitemap_urls(path: Path, errors: list[str]) -> set[str]:
@@ -1293,6 +1313,7 @@ def main() -> None:
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_product_card_images(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
+    validate_pages_middleware(errors)
     validate_robots_and_sitemap_index(errors)
     validate_sitemaps(records_by_kind, errors)
     validate_internal_links(errors)
