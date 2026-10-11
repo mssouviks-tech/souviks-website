@@ -1058,7 +1058,7 @@ def validate_pages_routes(errors: list[str]) -> None:
     def matches(pattern: str, route: str) -> bool:
         if not isinstance(pattern, str):
             return False
-        return re.fullmatch(re.escape(pattern).replace(r"\\*", ".*"), route) is not None
+        return re.fullmatch(re.escape(pattern).replace(r"\*", ".*"), route) is not None
 
     for route in ("/", "/robots.txt", "/sitemap.xml", "/sitemaps/pages.xml", "/en/products"):
         included = any(matches(pattern, route) for pattern in include)
