@@ -375,18 +375,9 @@ async function main() {
 
     for (const relative of pages) {
       const html = fs.readFileSync(path.join(__dirname, "../../", relative), "utf8");
-      const heroStarts = [...html.matchAll(/<div\b[^>]*class=["'][^"']*\bhero-stat["'][^>]*>/gi)];
-      const counts = [];
-      for (let i = 0; i < heroStarts.length; i++) {
-        const start = heroStarts[i].index;
-        const end = i + 1 < heroStarts.length ? heroStarts[i + 1].index : html.length;
-        const block = html.slice(start, end);
-        if (!(/\balt=["'][^"']*(?:products?|उत्पाद|পণ্য)[^"']*["']/i.test(block) || /\/products\.svg/i.test(block))) continue;
-        const stat = block.match(/<(?:div|span)\b[^>]*class=["'][^"']*\bstat-number\b[^>]*>\s*(\d+)\s*<\/(?:div|span)>/i);
-        if (stat) counts.push(Number(stat[1]));
-      }
-      if (counts.length !== 1 || counts[0] !== activeCount) {
-        throw new Error(relative + " product hero count was " + JSON.stringify(counts) + "; expected " + activeCount);
+      const productStat = html.match(/<div\b[^>]*class=["'][^"']*\bhero-stat["'][^>]*>\s*<img\b(?=[^>]*\bsrc=["'][^"']*\/products\.svg(?:[?#][^"']*)?["'])[^>]*>\s*<div\b[^>]*>\s*<(?:div|span)\b(?=[^>]*\bclass=["'][^"']*\bstat-number\b)[^>]*>\s*(\d+)\s*<\/(?:div|span)>/is);
+      if (!productStat || Number(productStat[1]) !== activeCount) {
+        throw new Error(relative + " Products hero count was " + (productStat ? productStat[1] : "not found") + "; expected " + activeCount);
       }
 
       if (relative.endsWith("/products.html")) {
