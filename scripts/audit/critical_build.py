@@ -977,6 +977,7 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
 
     concrete_sources: dict[str, str] = {}
     canonical_host_redirect_found = False
+    bare_host_root_redirect_found = False
     for lineno, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
         stripped = line.strip()
         if not stripped or stripped.startswith("#"):
@@ -992,6 +993,12 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
             errors.append(
                 f"_redirects:{lineno}: bare-host homepage must redirect to the canonical www hostname"
             )
+        if (
+            source == "https://souviks.co.in/"
+            and destination == "https://www.souviks.co.in/"
+            and status == "301"
+        ):
+            bare_host_root_redirect_found = True
         if (
             source == "https://souviks.co.in/*"
             and destination == "https://www.souviks.co.in/:splat"
@@ -1031,6 +1038,10 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
         if source == destination:
             errors.append(f"_redirects:{lineno}: self-redirect: {source}")
 
+    if not bare_host_root_redirect_found:
+        errors.append(
+            "_redirects: missing permanent bare-host homepage redirect to https://www.souviks.co.in/"
+        )
     if not canonical_host_redirect_found:
         errors.append(
             "_redirects: missing permanent catch-all redirect from souviks.co.in to www.souviks.co.in"
