@@ -623,27 +623,57 @@ async function main() {
       page.__view = "desktop";
       await goto(page, BASE + "/en/products/10-x-15-nut");
       const image = page.locator("#pdpMainImage");
-      const failedImageUrl = await image.evaluate(element =>
-        new URL(element.currentSrc || element.getAttribute("src") || element.src, window.location.href).href
-      );
-      let interceptedMainImage = false;
-      await page.route(failedImageUrl, async route => {
-        interceptedMainImage = true;
-        await route.fulfill({ status: 404, contentType: "image/webp", body: "missing main image fixture" });
+      const urls = await image.evaluate(element => {
+        const primaryUrl = new URL(
+          element.getAttribute("src") || element.src,
+          window.location.href
+        ).href;
+        const broken = new URL(primaryUrl);
+        broken.searchParams.set("souviks-regression-main-image", "1");
+        return { primaryUrl, brokenUrl: broken.href };
       });
-      // Reload so this exact main-image request is intercepted; other lazy
-      // gallery/recommendation requests must not consume the failure fixture.
-      await page.reload({ waitUntil: "domcontentloaded" });
-      await page.waitForTimeout(350);
+
+      let interceptedBrokenImage = false;
+      let interceptedPrimaryRetry = false;
+      await page.route(url =>
+        url.href === urls.brokenUrl || url.href === urls.primaryUrl,
+      async route => {
+        if (route.request().url() === urls.brokenUrl) interceptedBrokenImage = true;
+        if (route.request().url() === urls.primaryUrl) interceptedPrimaryRetry = true;
+        await route.fulfill({
+          status: 404,
+          contentType: "image/webp",
+          body: "deterministic PDP image failure fixture"
+        });
+      });
+
+      // Inject a one-off failing source, then fail the gallery controller's
+      // primary-image retry as well. This proves the final placeholder path,
+      // rather than relying on cache state or a reload race with srcset.
+      await image.evaluate((element, brokenUrl) => {
+        element.removeAttribute("srcset");
+        element.removeAttribute("sizes");
+        delete element.dataset.souviksImageFallback;
+        element.src = brokenUrl;
+      }, urls.brokenUrl);
+
       await page.waitForFunction(() => {
-        const image = document.querySelector("#pdpMainImage");
-        return image &&
-          (image.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
-          image.complete && image.naturalWidth > 0;
+        const element = document.querySelector("#pdpMainImage");
+        return element &&
+          (element.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp") &&
+          element.complete && element.naturalWidth > 0;
       }, null, { timeout: 8000 });
-      if (!interceptedMainImage) throw new Error("the deterministic main-image 404 fixture was not triggered");
-      const fallback = await page.locator("#pdpMainImage").evaluate(image => ({
-        src: image.getAttribute("src") || "", width: image.naturalWidth, complete: image.complete
+
+      if (!interceptedBrokenImage) {
+        throw new Error("the deterministic PDP-image 404 fixture was not triggered");
+      }
+      if (!interceptedPrimaryRetry) {
+        throw new Error("the canonical primary-image retry was not intercepted");
+      }
+      const fallback = await image.evaluate(element => ({
+        src: element.getAttribute("src") || "",
+        width: element.naturalWidth,
+        complete: element.complete
       }));
       if (!fallback.src.endsWith("/assets/images/placeholder.webp") || !fallback.complete || fallback.width < 1) {
         throw new Error("failed product image did not load the valid placeholder");
@@ -658,7 +688,7 @@ async function main() {
         return raw ? JSON.parse(raw) : [];
       });
       if (!Array.isArray(saved) || !saved.length) throw new Error("Add to RFQ stopped working after image failures");
-      return "placeholder loaded; product details and Add to RFQ remain functional";
+      return "initial image and primary retry failed; placeholder loaded; product details and Add to RFQ remain functional";
     } finally {
       await context.close();
     }
