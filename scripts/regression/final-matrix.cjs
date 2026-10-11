@@ -366,7 +366,7 @@ async function main() {
       Response,
       Headers,
     };
-    vm.runInNewContext(source + "\\nmodule.exports = { onRequest };", sandbox, {
+    vm.runInNewContext(source + "\nmodule.exports = { onRequest };", sandbox, {
       filename: middlewarePath,
       timeout: 1000,
     });
