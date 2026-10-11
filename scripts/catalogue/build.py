@@ -2179,23 +2179,21 @@ def sync_product_listing_meta_descriptions() -> None:
         original = html
         value = html_module.escape(description, quote=True)
         replacements = (
-            (r'<meta\\b(?=[^>]*\\bname=["\\']description["\\'])[^>]*>',
+            (r"<meta\b(?=[^>]*\bname=['\"]description['\"])[^>]*>",
              f'<meta name="description" content="{value}">'),
-            (r'<meta\\b(?=[^>]*\\bproperty=["\\']og:description["\\'])[^>]*>',
+            (r"<meta\b(?=[^>]*\bproperty=['\"]og:description['\"])[^>]*>",
              f'<meta property="og:description" content="{value}">'),
-            (r'<meta\\b(?=[^>]*\\bname=["\\']twitter:description["\\'])[^>]*>',
+            (r"<meta\b(?=[^>]*\bname=['\"]twitter:description['\"])[^>]*>",
              f'<meta name="twitter:description" content="{value}">'),
         )
-        for pattern, replacement in replacements:
+        for index, (pattern, replacement) in enumerate(replacements):
             html, count = re.subn(pattern, lambda _: replacement, html, count=1, flags=re.I)
-            if count == 0 and pattern.startswith(r'<meta\\b(?=[^>]*\\bname=["\\']description'):
-                html = re.sub(r'</head>', f'    {replacement}\\n</head>', html, count=1, flags=re.I)
+            if count == 0 and index == 0:
+                html = re.sub(r"</head>", f"    {replacement}\n</head>", html, count=1, flags=re.I)
         if html != original:
             path.write_text(html, encoding="utf-8")
             changed += 1
     print(f"Localized product-listing meta descriptions synchronized in {changed} HTML files.")
-
-
 def main() -> None:
     sync_product_listing_meta_descriptions()
     reconcile_catalogue_projections()
