@@ -863,7 +863,7 @@ priceHtml(product) {
 
         // Main image: current source -> canonical primary -> global placeholder.
         mainImage.dataset.galleryFallback = "primary";
-        mainImage.addEventListener("error", () => {
+        const handleMainImageError = () => {
             if (mainImage.dataset.galleryFallback === "primary" &&
                 primary &&
                 mainImage.src !== new URL(primary, window.location.href).href) {
@@ -874,7 +874,14 @@ priceHtml(product) {
 
             mainImage.dataset.galleryFallback = "done";
             mainImage.src = placeholder;
-        });
+        };
+        mainImage.addEventListener("error", handleMainImageError);
+
+        // Static HTML can start loading the image before this module executes.
+        // Handle an already-failed request rather than waiting for a new error.
+        if (mainImage.complete && mainImage.naturalWidth === 0) {
+            handleMainImageError();
+        }
 
         const thumbs = [...gallery.querySelectorAll(".pdp-thumb")];
         const validThumbs = thumbs.length ? thumbs : [];
