@@ -897,13 +897,14 @@ async function main() {
         const providers = await providerButtons.evaluateAll(buttons => buttons.map(button => ({
           provider: button.dataset.authProvider,
           visibleSymbol: button.innerText.trim(),
-          accessibleName: button.getAttribute("aria-label") || ""
+          accessibleName: button.getAttribute("aria-label") || "",
+          tooltip: button.getAttribute("title") || ""
         })));
         if (providers.map(button => button.provider).join(",") !== "google,facebook,x") {
           throw new Error(lang + " login provider order was " + providers.map(button => button.provider).join(","));
         }
-        if (providers.some(button => !button.visibleSymbol || button.visibleSymbol.length > 2 || !button.accessibleName)) {
-          throw new Error(lang + " social buttons must show symbols only and retain accessible names");
+        if (providers.some(button => !button.visibleSymbol || button.visibleSymbol.length > 2 || !button.accessibleName || button.tooltip)) {
+          throw new Error(lang + " social buttons must show symbols only, retain accessible names and omit visible label tooltips");
         }
         const formOrder = await loginForm.evaluate(form => {
           const actions = form.querySelector(".auth-form-actions");
