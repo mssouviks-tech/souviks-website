@@ -2157,6 +2157,7 @@ def sync_organization_schema():
 def sync_product_listing_meta_descriptions() -> None:
     """Use distinct, useful localized descriptions on the three catalogue landing pages."""
     import html as html_module
+    import re
     descriptions = {
         "en": (
             "Shop commercial vehicle spare parts at Souviks: clutch, brake, bearing, "
