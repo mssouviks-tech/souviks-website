@@ -533,6 +533,17 @@ def enrich_about():
                     + page[marker_at:]
                 )
 
+        # The legacy malformed page already carried the video-section closing
+        # tag after the B2B section. Once that closing tag is restored before
+        # the B2B section, remove the now-orphaned duplicate after it.
+        page = re.sub(
+            r'(<!-- ABOUT_TRUST_CONTEXT -->\s*<section class="about-trust-context section-spacing">[\s\S]*?</section>)\s*</section>(\s*<div class="container">\s*<div class="cta-wrapper">)',
+            r'\1\2',
+            page,
+            count=1,
+            flags=re.I,
+        )
+
         path.write_text(page, encoding="utf-8")
 
 def main():
