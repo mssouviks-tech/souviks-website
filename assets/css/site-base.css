@@ -5304,7 +5304,7 @@ body.souviks-image-viewer-open {
 
 .auth-social-options {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
     margin-top: 18px;
 }
@@ -5376,12 +5376,6 @@ body.souviks-image-viewer-open {
 
 .auth-social-button[data-auth-provider="google"] .auth-social-icon {
     color: #4285F4;
-}
-
-.auth-social-button[data-auth-provider="facebook"] .auth-social-icon {
-    color: #1877F2;
-    font-family: Arial, sans-serif;
-    font-size: 1.3rem;
 }
 
 .auth-social-button[data-auth-provider="x"] .auth-social-icon {
