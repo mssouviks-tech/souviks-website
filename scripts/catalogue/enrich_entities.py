@@ -445,56 +445,22 @@ def enrich_about():
         page = path.read_text(encoding="utf-8")
         t = T[lang]
         grid_open = re.search(
-            r'<div\\b[^>]*class=["\\'][^"\\']*\\bvideo-grid\\b[^"\\']*["\\'][^>]*>',
+            r"""<div\b[^>]*class=["'][^"']*\bvideo-grid\b[^"']*["'][^>]*>""",
             page,
             flags=re.I,
         )
         if grid_open:
             grid_close_start = None
             div_depth = 1
-            div_tags = re.compile(r'</?div\\b[^>]*>', flags=re.I)
+            div_tags = re.compile(r"</?div\b[^>]*>", flags=re.I)
             for div_tag in div_tags.finditer(page, grid_open.end()):
                 token = div_tag.group(0)
-                if re.match(r'</div\\b', token, flags=re.I):
+                if re.match(r"</div\b", token, flags=re.I):
                     div_depth -= 1
                     if div_depth == 0:
                         grid_close_start = div_tag.start()
                         break
-                elif not re.search(r'/\\s*>        page = page.replace('<span class="video-coming-soon">Video coming soon</span>', '')
-        marker = '<!-- ABOUT_TRUST_CONTEXT -->'
-        if marker not in page:
-            faq = ''.join(f'<details class="entity-faq-item"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q,a in t["faq"])
-            proof = ''.join(f'<div class="why-card"><p>{esc(x)}</p></div>' for x in t["b2b"])
-            section = f'''{marker}
-<section class="about-trust-context section-spacing">
-  <div class="container">
-    <div class="section-heading"><h2>{esc(t["b2b_title"])}</h2></div>
-    <div class="about-proof-grid">{proof}</div>
-    <div class="about-context-columns"><div><h3>{esc(t["position_title"])}</h3><p>{esc(t["position"])}</p></div><div><h3>{esc(t["service_title"])}</h3><p>{esc(t["service"])}</p></div></div>
-    <div class="entity-faq"><h3>{esc(t["faq_title"])}</h3>{faq}</div>
-  </div>
-</section>
-'''
-            anchor = '<div class="container">\n\n    <div class="cta-wrapper">'
-            page = page.replace(anchor, section + '\n' + anchor, 1)
-        path.write_text(page, encoding="utf-8")
-
-def main():
-    catalogue = json.loads((ROOT / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
-    brands = json.loads((ROOT / "assets/data/brands.json").read_text(encoding="utf-8"))
-    categories = json.loads((ROOT / "assets/data/categories.json").read_text(encoding="utf-8"))
-    vehicles = json.loads((ROOT / "assets/data/vehicles.json").read_text(encoding="utf-8"))
-    enrich_entity_pages("brand", brands, catalogue)
-    enrich_entity_pages("category", categories, catalogue)
-    enrich_entity_pages("vehicle", vehicles, catalogue)
-    (ROOT / "assets/data/brands.json").write_text(json.dumps(brands, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (ROOT / "assets/data/categories.json").write_text(json.dumps(categories, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (ROOT / "assets/data/vehicles.json").write_text(json.dumps(vehicles, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    enrich_about()
-
-if __name__ == "__main__":
-    main()
-, token):
+                elif not re.search(r"/\s*>$", token):
                     div_depth += 1
 
             if grid_close_start is None:
@@ -504,12 +470,11 @@ if __name__ == "__main__":
                 (
                     f'<div class="video-card about-video-card"><video controls preload="metadata" playsinline width="400" height="225"><source src="/assets/images/about/{fn}" type="video/mp4"></video><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>'
                     if fn.lower().endswith(".mp4")
-                    else f'<div class="video-card about-photo-card"><img src="/assets/images/about/{fn}" width="400" height="225" loading="lazy" decoding="async" alt="{esc(title)}"><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>'
+                    else f'<div class="video-card about-photo-card"><img src="/assets/images/about/{fn}" width="400" height="400" loading="lazy" decoding="async" alt="{esc(title)}"><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>'
                 )
                 for title, desc, fn in t["cards"]
             )
-            # Replace only the grid contents. Keep its own closing div and the
-            # parent container/section closures; dropping them nests later sections.
+            # Only replace the video-grid contents; preserve parent closers.
             page = page[:grid_open.end()] + cards + page[grid_close_start:]
         page = page.replace('<span class="video-coming-soon">Video coming soon</span>', '')
         marker = '<!-- ABOUT_TRUST_CONTEXT -->'
@@ -528,6 +493,46 @@ if __name__ == "__main__":
 '''
             anchor = '<div class="container">\n\n    <div class="cta-wrapper">'
             page = page.replace(anchor, section + '\n' + anchor, 1)
+
+        # Always normalize the boundary between the video section and the B2B
+        # section. The previous card-refresh logic removed these parent closers.
+        video_section_start = page.find('<section class="store-videos section-spacing">')
+        marker_at = page.find(marker, video_section_start) if video_section_start >= 0 else -1
+        if video_section_start >= 0 and marker_at >= 0:
+            grid_match = re.search(
+                r"""<div\b[^>]*class=["'][^"']*\bvideo-grid\b[^"']*["'][^>]*>""",
+                page[video_section_start:marker_at],
+                flags=re.I,
+            )
+            if grid_match:
+                grid_open_end = video_section_start + grid_match.end()
+                div_depth = 1
+                grid_close_end = None
+                div_tags = re.compile(r"</?div\b[^>]*>", flags=re.I)
+                for div_tag in div_tags.finditer(page, grid_open_end, marker_at):
+                    token = div_tag.group(0)
+                    if re.match(r"</div\b", token, flags=re.I):
+                        div_depth -= 1
+                        if div_depth == 0:
+                            grid_close_end = div_tag.end()
+                            break
+                    elif not re.search(r"/\s*>$", token):
+                        div_depth += 1
+
+                if grid_close_end is None:
+                    raise ValueError(f"Unclosed About page video grid: {path}")
+
+                between = page[grid_close_end:marker_at]
+                unexpected = re.sub(r"</(?:div|section)\s*>", "", between, flags=re.I).strip()
+                if unexpected:
+                    raise ValueError(f"Unexpected markup between About video grid and B2B section: {path}")
+                # Reconstruct the expected container and section closers exactly once.
+                page = (
+                    page[:grid_close_end]
+                    + "\n\n    </div>\n\n</section>\n\n"
+                    + page[marker_at:]
+                )
+
         path.write_text(page, encoding="utf-8")
 
 def main():
