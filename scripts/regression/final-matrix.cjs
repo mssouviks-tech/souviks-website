@@ -900,7 +900,7 @@ async function main() {
           accessibleName: button.getAttribute("aria-label") || "",
           tooltip: button.getAttribute("title") || ""
         })));
-        if (providers.map(button => button.provider).join(",") !== "google,facebook,x") {
+        if (providers.map(button => button.provider).join(",") !== "google,x") {
           throw new Error(lang + " login provider order was " + providers.map(button => button.provider).join(","));
         }
         if (providers.some(button => !button.visibleSymbol || button.visibleSymbol.length > 2 || !button.accessibleName || button.tooltip)) {
@@ -919,11 +919,11 @@ async function main() {
         const registerProviders = page.locator("#authModalRegisterForm [data-auth-provider]");
         await registerProviders.first().waitFor({ state: "visible", timeout: 3000 });
         const registerOrder = await registerProviders.evaluateAll(buttons => buttons.map(button => button.dataset.authProvider));
-        if (registerOrder.join(",") !== "google,facebook,x") {
+        if (registerOrder.join(",") !== "google,x") {
           throw new Error(lang + " registration provider order was " + registerOrder.join(","));
         }
       }
-      return "Google, Facebook and X render in order below the email/password form in English, Hindi and Bengali";
+      return "Google and X render in order below the email/password form in English, Hindi and Bengali";
     } finally {
       await context.close();
     }
