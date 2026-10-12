@@ -884,6 +884,51 @@ async function main() {
       await context.close();
     }
   });
+  await check("authentication/social providers render below email/password in all locales", async () => {
+    const context = await contextFor("desktop");
+    try {
+      const page = await context.newPage();
+      page.__view = "desktop";
+      for (const lang of ["en", "hi", "bn"]) {
+        await goto(page, BASE + "/" + lang + "/login?auth=login");
+        const loginForm = page.locator("#authModalLoginForm");
+        const providerButtons = loginForm.locator("[data-auth-provider]");
+        await providerButtons.first().waitFor({ state: "visible", timeout: 8000 });
+        const providers = await providerButtons.evaluateAll(buttons => buttons.map(button => ({
+          provider: button.dataset.authProvider,
+          visibleSymbol: button.innerText.trim(),
+          accessibleName: button.getAttribute("aria-label") || "",
+          tooltip: button.getAttribute("title") || ""
+        })));
+        if (providers.map(button => button.provider).join(",") !== "google,x") {
+          throw new Error(lang + " login provider order was " + providers.map(button => button.provider).join(","));
+        }
+        if (providers.some(button => !button.visibleSymbol || button.visibleSymbol.length > 2 || !button.accessibleName || button.tooltip)) {
+          throw new Error(lang + " social buttons must show symbols only, retain accessible names and omit visible label tooltips");
+        }
+        const formOrder = await loginForm.evaluate(form => {
+          const actions = form.querySelector(".auth-form-actions");
+          const social = form.querySelector(".auth-social-options");
+          const accountSwitch = form.querySelector(".auth-modal-switch");
+          return !!actions && !!social && !!accountSwitch &&
+            !!(actions.compareDocumentPosition(social) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+            !!(social.compareDocumentPosition(accountSwitch) & Node.DOCUMENT_POSITION_FOLLOWING);
+        });
+        if (!formOrder) throw new Error(lang + " social options are not between primary sign-in and account switch");
+        await page.locator('[data-auth-tab="register"]').first().click();
+        const registerProviders = page.locator("#authModalRegisterForm [data-auth-provider]");
+        await registerProviders.first().waitFor({ state: "visible", timeout: 3000 });
+        const registerOrder = await registerProviders.evaluateAll(buttons => buttons.map(button => button.dataset.authProvider));
+        if (registerOrder.join(",") !== "google,x") {
+          throw new Error(lang + " registration provider order was " + registerOrder.join(","));
+        }
+      }
+      return "Google and X render in order below the email/password form in English, Hindi and Bengali";
+    } finally {
+      await context.close();
+    }
+  });
+
   await check("reliability/authentication HTTP 503 shows service-unavailable feedback", async () => {
     const context = await contextFor("desktop");
     try {

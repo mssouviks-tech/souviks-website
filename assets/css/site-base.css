@@ -5295,3 +5295,99 @@ body.souviks-image-viewer-open {
 .page-login .page-header {
     display: none;
 }
+
+
+/* ==========================================================
+   SOCIAL AUTHENTICATION OPTIONS
+   Email/password remains the primary authentication method.
+========================================================== */
+
+.auth-social-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.auth-social-divider {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 2px 0 4px;
+    color: var(--text-secondary);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.auth-social-divider::before,
+.auth-social-divider::after {
+    content: "";
+    height: 1px;
+    flex: 1 1 auto;
+    background: var(--border-color);
+}
+
+.auth-social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font: inherit;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.auth-social-button:hover {
+    border-color: #9CA3AF;
+    background: var(--surface-subtle);
+}
+
+.auth-social-button:focus-visible {
+    outline: 3px solid var(--color-primary-alpha-16);
+    outline-offset: 2px;
+}
+
+.auth-social-button:disabled {
+    opacity: .65;
+    cursor: wait;
+}
+
+.auth-social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    font-size: 1.08rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.auth-social-button[data-auth-provider="google"] .auth-social-icon {
+    color: #4285F4;
+}
+
+.auth-social-button[data-auth-provider="x"] .auth-social-icon {
+    color: var(--text-primary);
+}
+
+.auth-modal .auth-social-options {
+    margin-top: 18px;
+}
+
+@media (max-width: 560px) {
+    .auth-social-button {
+        min-height: 44px;
+    }
+}
