@@ -2247,6 +2247,7 @@ body:not(.account-auth-pending)
 .account-rfq-add-more:hover { text-decoration:underline; }
 .account-rfq-actions { display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:18px; }
 .account-rfq-actions .btn:disabled { opacity:.55; cursor:not-allowed; }
+.account-rfq-success[hidden] { display:none; }
 .account-rfq-success { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:14px; margin-top:20px; padding:16px 18px; background:var(--color-success-alpha-06); border:1px solid var(--color-success-alpha-20); border-radius:var(--radius-lg); }
 .account-rfq-success-icon { width:34px; height:34px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:var(--color-success-alpha-12); color:var(--color-success); font-weight:900; }
 .account-rfq-success-copy { min-width:0; }

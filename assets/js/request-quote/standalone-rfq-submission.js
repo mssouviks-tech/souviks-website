@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
             SouviksErrors?.log("[Souviks RFQ] Submission failed:", error, "error");
             window.RFQ.setSubmissionStatus(
                 status,
-                error?.message || "Unable to submit your window.RFQ. Please try again.",
+                error?.message || "Unable to submit your RFQ. Please try again.",
                 "error"
             );
         } finally {

@@ -8,8 +8,9 @@ const vm = require("node:vm");
 const BASE = process.env.REGRESSION_BASE_URL || "https://www.souviks.co.in";
 const LANGS = ["en", "hi", "bn"];
 const VIEWS = {
-  desktop: { width: 1440, height: 900, isMobile: false },
-  mobile: { width: 390, height: 844, isMobile: true },
+  desktop: { width: 1440, height: 900, isMobile: false, mobileNavigation: false },
+  tablet: { width: 768, height: 1024, isMobile: false, mobileNavigation: true },
+  mobile: { width: 390, height: 844, isMobile: true, mobileNavigation: true },
 };
 
 const PRODUCT_SLUG = "10-x-15-nut";
@@ -1186,16 +1187,53 @@ async function main() {
         await page.locator("#rfq-name").fill("Regression Test");
         await page.locator("#rfq-phone").fill("9000000000");
         await page.locator("#rfq-form button[type=submit]").click();
-        await page.waitForTimeout(600);
+        await page.waitForFunction(() => {
+          const status = document.getElementById("rfqFormStatus");
+          return status?.classList.contains("success") && Boolean(status.textContent.trim());
+        }, null, { timeout: 5000 });
         const status = page.locator("#rfqFormStatus");
-        const text = await status.innerText().catch(() => "");
-        if (!/success|submitted|RFQ/i.test(text)) {
-          throw new Error(`submission status: ${text || "missing"}`);
+        const message = (await status.innerText().catch(() => "")).trim();
+        const successPatterns = {
+          en: /^RFQ submitted successfully\. Reference: RFQ-\d+$/i,
+          bn: /^RFQ সফলভাবে জমা হয়েছে। রেফারেন্স: RFQ-\d+$/i,
+          hi: /^RFQ सफलतापूर्वक सबमिट हो गया। संदर्भ: RFQ-\d+$/i
+        };
+        if (!(successPatterns[lang] || successPatterns.en).test(message)) {
+          throw new Error(`submission did not show an explicit localized success reference: ${message || "missing"}`);
         }
         await page.unroute("**/api.emailjs.com/**");
-        return "client submission path completed";
+        return `explicit success reference confirmed: ${message}`;
       });
 
+      await check(`${view}/${lang}/RFQ failure does not show success`, async () => {
+        await goto(page, BASE + langPath(lang, "products"));
+        const addButton = page.locator(".add-to-cart").first();
+        if (!(await addButton.count())) throw new Error("cannot seed RFQ basket for failure test");
+        await addButton.click();
+        await goto(page, BASE + langPath(lang, "request-quote"));
+        await page.locator("#rfq-name").fill("Regression Failure Test");
+        await page.locator("#rfq-phone").fill("9000000000");
+        const initialItems = await page.locator("#rfq-items tr").count();
+        if (initialItems < 1) throw new Error("RFQ basket was not populated before failure test");
+        await page.evaluate(() => {
+          window.RFQ.submitStandalone = async () => {
+            throw new Error("deterministic regression failure");
+          };
+        });
+        await page.locator("#rfq-form button[type=submit]").click();
+        await page.waitForFunction(() => {
+          const status = document.getElementById("rfqFormStatus");
+          return status?.classList.contains("error") && /deterministic regression failure/.test(status.textContent || "");
+        }, null, { timeout: 5000 });
+        const message = (await page.locator("#rfqFormStatus").innerText()).trim();
+        if (/submitted successfully|successfully submitted|সফলভাবে জমা|सफलतापूर्वक सबमिट/i.test(message)) {
+          throw new Error(`failed submission displayed a success message: ${message}`);
+        }
+        if ((await page.locator("#rfq-items tr").count()) !== initialItems) {
+          throw new Error("failed submission changed or cleared the RFQ basket");
+        }
+        return "deterministic submission error shown; no success message; basket preserved";
+      });
       // PDP
       await check(`${view}/${lang}/product detail`, async () => {
         await goto(page, BASE + langPath(lang, `products/${PRODUCT_SLUG}`));
@@ -1449,6 +1487,16 @@ async function main() {
             await accountPage.locator("body.account-authenticated").waitFor({ state: "attached", timeout: 10000 });
             const viewElement = accountPage.locator(`.account-view[data-account-view="${viewName}"]`);
             await viewElement.waitFor({ state: "visible", timeout: 8000 });
+            if (viewName === "rfq") {
+              const successPanel = accountPage.locator("#accountRfqSuccess");
+              const panelState = await successPanel.evaluate(element => ({
+                hidden: element.hidden,
+                display: getComputedStyle(element).display,
+              }));
+              if (!panelState.hidden || panelState.display !== "none") {
+                throw new Error(`RFQ success panel is visible before submission (hidden=${panelState.hidden}, display=${panelState.display})`);
+              }
+            }
             const rendered = accountPage.locator(renderedSelector).first();
             await rendered.waitFor({ state: "visible", timeout: 8000 });
             if (expectedText && !(await rendered.innerText()).includes(expectedText)) {
@@ -1518,7 +1566,7 @@ async function main() {
         const link = navigation.locator(`.navigation-menu a[href="${destination}"]`).first();
         if (!(await link.count())) throw new Error("primary navigation Brands link is missing");
 
-        if (VIEWS[view].isMobile) {
+        if (VIEWS[view].mobileNavigation || VIEWS[view].isMobile) {
           await page.locator("#mobileMenuButton").click();
           await page.waitForFunction(() => document.querySelector("#mainNavigation")?.classList.contains("active"));
         } else if (await navigation.evaluate(element => element.classList.contains("active"))) {
