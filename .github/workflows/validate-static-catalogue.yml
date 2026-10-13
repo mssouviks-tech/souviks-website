@@ -56,6 +56,8 @@ jobs:
 
       - name: Validate structured data
         run: python3 scripts/audit/structured_data.py --check-images
+      - name: Validate SEO snippets and image alt text
+        run: python3 scripts/audit/seo_contract.py
       - name: Audit content quality, rendering and business trust
         shell: bash
         run: python3 scripts/audit/site_quality.py

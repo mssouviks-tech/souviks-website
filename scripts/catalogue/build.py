@@ -1895,7 +1895,38 @@ def sync_product_seo_and_schema():
                     category_name = str(product.get("category_name") or product.get("category") or "").strip()
                     if category_name:
                         node["category"] = category_name
-    
+
+                    # Refresh identifiers on legacy Product nodes too. The old
+                    # repair path updated other schema fields but left stale or
+                    # blank MPNs untouched.
+                    mpn = str(
+                        product.get("manufacturer_part_number")
+                        or product.get("part_number")
+                        or product.get("partNumber")
+                        or ""
+                    ).strip()
+                    if mpn:
+                        node["mpn"] = re.sub(r"\s+", " ", mpn)
+                    else:
+                        node.pop("mpn", None)
+
+                    identifiers = []
+                    for value in (
+                        product.get("part_number"),
+                        product.get("manufacturer_part_number"),
+                        *(product.get("manufacturer_part_numbers") or []),
+                    ):
+                        value = re.sub(r"\s+", " ", str(value or "").strip())
+                        if value and value not in identifiers:
+                            identifiers.append(value)
+                    if identifiers:
+                        node["identifier"] = [
+                            {"propertyID": "part_number", "value": value}
+                            for value in identifiers
+                        ]
+                    else:
+                        node.pop("identifier", None)
+
                     offers = node.get("offers") if isinstance(node.get("offers"), dict) else {}
                     offers["@type"] = "Offer"
                     offers["url"] = url
