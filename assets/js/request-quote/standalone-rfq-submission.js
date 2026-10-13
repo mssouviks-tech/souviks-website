@@ -1,6 +1,6 @@
 /* request-quote.js module extracted from legacy section: standalone RFQ submission */
 
-RFQ.ensureSubmissionStatus = function (form) {
+window.RFQ.ensureSubmissionStatus = function (form) {
     let status = document.getElementById("rfqFormStatus");
     if (status) return status;
 
@@ -20,7 +20,7 @@ RFQ.ensureSubmissionStatus = function (form) {
     return status;
 };
 
-RFQ.setSubmissionStatus = function (status, message, type = "") {
+window.RFQ.setSubmissionStatus = function (status, message, type = "") {
     if (!status) return;
 
     status.textContent = message;
@@ -31,7 +31,7 @@ RFQ.setSubmissionStatus = function (status, message, type = "") {
     }
 };
 
-RFQ.formatSubmissionItems = function (items) {
+window.RFQ.formatSubmissionItems = function (items) {
     return items.map((item, index) => [
         `Part Number: ${item.partNumber || "Available on request"}`,
         `Product: ${item.name || "Unnamed product"}`,
@@ -41,11 +41,11 @@ RFQ.formatSubmissionItems = function (items) {
     ].filter(Boolean).join("\n")).join("\n");
 };
 
-RFQ.formatReference = function (number) {
+window.RFQ.formatReference = function (number) {
     return "RFQ" + String(number).padStart(6, "0");
 };
 
-RFQ.collectCustomerData = function (form) {
+window.RFQ.collectCustomerData = function (form) {
     const userEmail = window.__SOUVIKS_RFQ_USER_EMAIL__ || "";
 
     return {
@@ -59,23 +59,23 @@ RFQ.collectCustomerData = function (form) {
     };
 };
 
-RFQ.submitStandalone = async function (form) {
-    const storedItems = await RFQ.get();
-    const items = RFQ.validateSubmissionItems(storedItems);
-    const user = await RFQ.getUser();
+window.RFQ.submitStandalone = async function (form) {
+    const storedItems = await window.RFQ.get();
+    const items = window.RFQ.validateSubmissionItems(storedItems);
+    const user = await window.RFQ.getUser();
     window.__SOUVIKS_RFQ_USER_EMAIL__ = user?.email?.trim() || "";
 
-    const customer = RFQ.validateSubmissionCustomer(
-        RFQ.collectCustomerData(form)
+    const customer = window.RFQ.validateSubmissionCustomer(
+        window.RFQ.collectCustomerData(form)
     );
 
     if (typeof emailjs === "undefined") {
-        throw new Error(rfqMessage.unavailable);
+        throw new Error(window.RFQ.messages.unavailable);
     }
 
     if (user) {
         if (typeof supabaseClient === "undefined") {
-            throw new Error(rfqMessage.failed);
+            throw new Error(window.RFQ.messages.failed);
         }
 
         const rpcItems = items.map(item => ({
@@ -104,7 +104,7 @@ RFQ.submitStandalone = async function (form) {
                 rfqError,
                 "error"
             );
-            throw new Error(rfqMessage.failed);
+            throw new Error(window.RFQ.messages.failed);
         }
 
         if (
@@ -113,10 +113,10 @@ RFQ.submitStandalone = async function (form) {
             !rfq.id ||
             !Number.isSafeInteger(Number(rfq.rfq_number)) || Number(rfq.rfq_number) < 1
         ) {
-            throw new Error(rfqMessage.failed);
+            throw new Error(window.RFQ.messages.failed);
         }
 
-        const reference = RFQ.formatReference(rfq.rfq_number);
+        const reference = window.RFQ.formatReference(rfq.rfq_number);
         const payload = {
             lead_id: reference,
             name: customer.name,
@@ -126,7 +126,7 @@ RFQ.submitStandalone = async function (form) {
             gst: customer.gst,
             location: customer.location,
             message: customer.message,
-            rfq_items: RFQ.formatSubmissionItems(items)
+            rfq_items: window.RFQ.formatSubmissionItems(items)
         };
 
         try {
@@ -142,13 +142,13 @@ RFQ.submitStandalone = async function (form) {
                 "error"
             );
             throw new Error(
-                rfqMessage.notificationFailed(reference)
+                window.RFQ.messages.notificationFailed(reference)
             );
         }
 
         window.souviksAnalytics?.trackLead("rfq");
         try {
-            const cleared = await RFQ.clear();
+            const cleared = await window.RFQ.clear();
             if (cleared === false) {
                 SouviksErrors?.log(
                     "[Souviks RFQ] Basket could not be cleared after successful submission.",
@@ -176,7 +176,7 @@ RFQ.submitStandalone = async function (form) {
         gst: customer.gst,
         location: customer.location,
         message: customer.message,
-        rfq_items: RFQ.formatSubmissionItems(items)
+        rfq_items: window.RFQ.formatSubmissionItems(items)
     };
 
     await emailjs.send(
@@ -187,7 +187,7 @@ RFQ.submitStandalone = async function (form) {
 
     window.souviksAnalytics?.trackLead("rfq_guest");
     try {
-        const cleared = await RFQ.clear();
+        const cleared = await window.RFQ.clear();
         if (cleared === false) {
             SouviksErrors?.log(
                 "[Souviks RFQ] Guest basket could not be cleared after successful submission.",
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("rfq-form");
     if (!form) return;
 
-    const status = RFQ.ensureSubmissionStatus(form);
+    const status = window.RFQ.ensureSubmissionStatus(form);
     const submitButton = form.querySelector('button[type="submit"]');
     const honeypot = document.getElementById("website");
     const whatsappButton = document.getElementById("rfq-whatsapp");
@@ -232,25 +232,25 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.setAttribute("aria-busy", "true");
         const originalText = submitButton.textContent.trim();
         submitButton.textContent = "Submitting…";
-        RFQ.setSubmissionStatus(status, "Submitting your RFQ…");
+        window.RFQ.setSubmissionStatus(status, "Submitting your RFQ…");
 
         try {
-            const reference = await RFQ.submitStandalone(form);
+            const reference = await window.RFQ.submitStandalone(form);
 
             form.reset();
-            await RFQ.updateBadge();
-            await RFQ.renderPage();
+            await window.RFQ.updateBadge();
+            await window.RFQ.renderPage();
 
-            RFQ.setSubmissionStatus(
+            window.RFQ.setSubmissionStatus(
                 status,
-                rfqMessage.success(reference),
+                window.RFQ.messages.success(reference),
                 "success"
             );
         } catch (error) {
             SouviksErrors?.log("[Souviks RFQ] Submission failed:", error, "error");
-            RFQ.setSubmissionStatus(
+            window.RFQ.setSubmissionStatus(
                 status,
-                error?.message || "Unable to submit your RFQ. Please try again.",
+                error?.message || "Unable to submit your window.RFQ. Please try again.",
                 "error"
             );
         } finally {
@@ -264,10 +264,10 @@ document.addEventListener("DOMContentLoaded", () => {
     whatsappButton?.addEventListener("click", async event => {
         event.preventDefault();
 
-        const items = await RFQ.get();
+        const items = await window.RFQ.get();
 
         if (!items.length) {
-            RFQ.setSubmissionStatus(
+            window.RFQ.setSubmissionStatus(
                 status,
                 "Your RFQ basket is empty. Add at least one product first.",
                 "error"
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const customer = RFQ.collectCustomerData(form);
+        const customer = window.RFQ.collectCustomerData(form);
         const reference = `RFQ-${Date.now()}`;
 
         const message = [
@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `GST: ${customer.gst || "—"}`,
             "",
             "Requested Parts:",
-            RFQ.formatSubmissionItems(items),
+            window.RFQ.formatSubmissionItems(items),
             "",
             "Additional Notes:",
             customer.message || "—"
