@@ -249,8 +249,8 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
         or expected_product.get("partNumber")
         or ""
     ).strip()
-    schema_mpn = re.sub(r"\\s+", " ", str(product_node.get("mpn") or "").strip())
-    expected_mpn_normalized = re.sub(r"\\s+", " ", expected_mpn)
+    schema_mpn = re.sub(r"\s+", " ", str(product_node.get("mpn") or "").strip())
+    expected_mpn_normalized = re.sub(r"\s+", " ", expected_mpn)
     if expected_mpn_normalized and schema_mpn != expected_mpn_normalized:
         errors.append(
             f"{path}: Product.mpn {schema_mpn!r} != catalogue part number {expected_mpn_normalized!r}"
