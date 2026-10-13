@@ -537,6 +537,22 @@ def validate_security_headers(errors: list[str]) -> None:
                 f"_headers /* {name} {actual!r} != required {expected_value!r}"
             )
 
+    # robots.txt is a critical static endpoint; pin its security headers explicitly
+    # so edge/static handling cannot silently bypass the global header contract.
+    robots_headers = blocks.get("/robots.txt", {})
+    for name in (
+        "strict-transport-security",
+        "x-content-type-options",
+        "referrer-policy",
+        "x-frame-options",
+        "permissions-policy",
+        "content-security-policy",
+    ):
+        if not robots_headers.get(name):
+            errors.append(f"_headers /robots.txt is missing {name}")
+        elif robots_headers.get(name, "").casefold() != root_headers.get(name, "").casefold():
+            errors.append(f"_headers /robots.txt {name} must match the global security policy")
+
     csp = root_headers.get("content-security-policy", "")
     if not csp:
         errors.append("_headers /* is missing Content-Security-Policy")
