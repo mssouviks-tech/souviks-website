@@ -78,6 +78,24 @@ def expected_image(product: dict) -> str:
     return ""
 
 
+def generated_path_for_url(value: str) -> Path | None:
+    parsed = urlparse(value)
+    if parsed.scheme != "https" or parsed.netloc != "www.souviks.co.in":
+        return None
+    parts = [part for part in parsed.path.split("/") if part]
+    if not parts:
+        return ROOT / "index.html"
+    if parts[0] not in {"en", "hi", "bn"}:
+        return None
+    if len(parts) == 1:
+        return ROOT / parts[0] / "index.html"
+    if len(parts) == 2:
+        return ROOT / parts[0] / f"{parts[1]}.html"
+    if len(parts) == 3:
+        return ROOT / parts[0] / parts[1] / f"{parts[2]}.html"
+    return None
+
+
 def validate_breadcrumb_node(path: Path, node: dict, canonical: str, errors: list[str]) -> None:
     items = node.get("itemListElement")
     if not isinstance(items, list) or not items:
@@ -97,11 +115,20 @@ def validate_breadcrumb_node(path: Path, node: dict, canonical: str, errors: lis
         if not str(item.get("name") or "").strip():
             errors.append(f"{path}: BreadcrumbList item {expected_position} has no name")
         item_url = item.get("item")
-        if item_url is not None:
-            if not isinstance(item_url, str) or not item_url.startswith(BASE):
+        if not isinstance(item_url, str) or not item_url.strip():
+            errors.append(f"{path}: BreadcrumbList item {expected_position} has no URL")
+        else:
+            parsed = urlparse(item_url)
+            if parsed.scheme != "https" or parsed.netloc != "www.souviks.co.in":
                 errors.append(
-                    f"{path}: BreadcrumbList item {expected_position} has invalid item URL: {item_url!r}"
+                    f"{path}: BreadcrumbList item {expected_position} must use the canonical HTTPS host: {item_url!r}"
                 )
+            else:
+                target = generated_path_for_url(item_url)
+                if target is None or not target.is_file():
+                    errors.append(
+                        f"{path}: BreadcrumbList item {expected_position} points to a non-generated route: {item_url!r}"
+                    )
 
     last_item = items[-1] if isinstance(items[-1], dict) else {}
     last_url = last_item.get("item")
@@ -180,11 +207,10 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
     if not expected_product:
         return
 
-    if not breadcrumb_nodes:
-        errors.append(f"{path}: missing BreadcrumbList schema")
-    else:
-        for breadcrumb_node in breadcrumb_nodes:
-            validate_breadcrumb_node(path, breadcrumb_node, canonical, errors)
+    if len(breadcrumb_nodes) != 1:
+        errors.append(f"{path}: expected exactly one BreadcrumbList schema node, found {len(breadcrumb_nodes)}")
+    for breadcrumb_node in breadcrumb_nodes:
+        validate_breadcrumb_node(path, breadcrumb_node, canonical, errors)
 
     if len(product_nodes) != 1:
         errors.append(f"{path}: expected exactly one Product schema node, found {len(product_nodes)}")
@@ -204,12 +230,28 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
         errors.append(f"{path}: Product.image is missing or empty")
 
     sku = str(product_node.get("sku") or "").strip()
+    expected_sku = str(expected_product.get("id") or "").strip()
     if not sku:
         errors.append(f"{path}: Product.sku is missing")
+    elif expected_sku and sku != expected_sku:
+        errors.append(f"{path}: Product.sku {sku!r} != catalogue product ID {expected_sku!r}")
 
     brand = product_node.get("brand")
+    expected_brand = str(expected_product.get("brand_name") or expected_product.get("brand") or "").strip()
     if not isinstance(brand, dict) or not str(brand.get("name") or "").strip():
         errors.append(f"{path}: Product.brand.name is missing")
+    elif expected_brand and str(brand.get("name") or "").strip() != expected_brand:
+        errors.append(f"{path}: Product.brand.name {brand.get('name')!r} != catalogue brand {expected_brand!r}")
+
+    expected_mpn = str(
+        expected_product.get("manufacturer_part_number")
+        or expected_product.get("part_number")
+        or expected_product.get("partNumber")
+        or ""
+    ).strip()
+    schema_mpn = str(product_node.get("mpn") or "").strip()
+    if expected_mpn and schema_mpn != expected_mpn:
+        errors.append(f"{path}: Product.mpn {schema_mpn!r} != catalogue part number {expected_mpn!r}")
 
     expected_offer_price = expected_product.get("selling_price")
     offers = product_node.get("offers")
@@ -244,6 +286,21 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
     schema_image_values = [schema_images] if isinstance(schema_images, str) else [str(item) for item in (schema_images or []) if item] if isinstance(schema_images, list) else []
     if expected_img and schema_image_values and normalize_url(schema_image_values[0]) != normalize_url(expected_img):
         errors.append(f"{path}: Product.image {schema_image_values[0]!r} != catalogue image {expected_img!r}")
+
+    folder = str(expected_product.get("image_folder") or expected_product.get("id") or "").strip()
+    gallery = expected_product.get("gallery") or []
+    if folder and isinstance(gallery, list) and gallery:
+        expected_images = [
+            f"{BASE}/assets/images/products/{folder}/{str(filename).strip()}"
+            for filename in gallery if str(filename).strip()
+        ]
+        if schema_image_values and [normalize_url(value) for value in schema_image_values] != [
+            normalize_url(value) for value in expected_images
+        ]:
+            errors.append(f"{path}: Product.image gallery does not match the catalogue gallery URLs")
+
+    if offers is not None and not isinstance(offers, dict):
+        errors.append(f"{path}: Product.offers must be a single Offer object")
 
 
 def check_remote_images(images: set[str], errors: list[str]):
