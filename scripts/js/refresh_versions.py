@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh deterministic version hashes for locally served JavaScript assets."""
+"""Refresh deterministic content hashes for locally served JavaScript and CSS assets."""
 
 from __future__ import annotations
 
@@ -9,7 +9,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 ASSET_RE = re.compile(
-    r'(?P<prefix>/(?:assets/js/(?:site-core|catalogue-core)\.js|assets/js/bundles/[^"?]+\.js|assets/js/(?:account|products|product|request-quote|components)/[^"?]+\.js))(?:\?v=[0-9a-f]{12})?'
+    r'(?P<prefix>/(?:assets/js/(?:site-core|catalogue-core)\.js'
+    r'|assets/js/bundles/[^"?]+\.js'
+    r'|assets/js/(?:account|products|product|request-quote|components)/[^"?]+\.js'
+    r'|assets/css/[^"?]+\.css))'
+    r'(?:\?[^\'"#\s>]*)?'
 )
 
 
@@ -19,10 +23,16 @@ def version(path: Path) -> str:
 
 def main() -> int:
     changed = 0
-    for html in [ROOT / "404.html", *sorted((ROOT / "en").rglob("*.html")),
-                 *sorted((ROOT / "hi").rglob("*.html")),
-                 *sorted((ROOT / "bn").rglob("*.html"))]:
+    html_paths = [
+        *sorted(ROOT.glob("*.html")),
+        *sorted((ROOT / "en").rglob("*.html")),
+        *sorted((ROOT / "hi").rglob("*.html")),
+        *sorted((ROOT / "bn").rglob("*.html")),
+    ]
+
+    for html in html_paths:
         source = html.read_text(encoding="utf-8")
+
         def replace(match: re.Match[str]) -> str:
             asset = ROOT / match.group("prefix").lstrip("/")
             if not asset.is_file():
@@ -36,7 +46,7 @@ def main() -> int:
             html.write_text(updated, encoding="utf-8")
             changed += 1
 
-    print(f"JavaScript asset versions refreshed: {changed} HTML files changed.")
+    print(f"Static asset cache versions refreshed: {changed} HTML files changed.")
     return 0
 
 
