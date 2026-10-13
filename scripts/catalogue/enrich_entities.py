@@ -444,11 +444,38 @@ def enrich_about():
             continue
         page = path.read_text(encoding="utf-8")
         t = T[lang]
-        start = page.find('<div class="video-grid">')
-        end = page.find('</div>\n\n    </div>\n\n</section>', start)
-        if start >= 0 and end >= 0:
-            cards = ''.join((f'<div class="video-card about-video-card"><video controls preload="metadata" playsinline width="400" height="400"><source src="/assets/images/about/{fn}" type="video/mp4"></video><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>' if fn.lower().endswith(".mp4") else f'<div class="video-card about-photo-card"><img src="/assets/images/about/{fn}" width="400" height="400" loading="lazy" decoding="async" alt="{esc(title)}"><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>') for title, desc, fn in t["cards"])
-            page = page[:start] + '<div class="video-grid">' + cards + '</div>' + page[end+len('</div>\n\n    </div>\n\n</section>'):]
+        grid_open = re.search(
+            r"""<div\b[^>]*class=["'][^"']*\bvideo-grid\b[^"']*["'][^>]*>""",
+            page,
+            flags=re.I,
+        )
+        if grid_open:
+            grid_close_start = None
+            div_depth = 1
+            div_tags = re.compile(r"</?div\b[^>]*>", flags=re.I)
+            for div_tag in div_tags.finditer(page, grid_open.end()):
+                token = div_tag.group(0)
+                if re.match(r"</div\b", token, flags=re.I):
+                    div_depth -= 1
+                    if div_depth == 0:
+                        grid_close_start = div_tag.start()
+                        break
+                elif not re.search(r"/\s*>$", token):
+                    div_depth += 1
+
+            if grid_close_start is None:
+                raise ValueError(f"Unclosed About page video grid: {path}")
+
+            cards = ''.join(
+                (
+                    f'<div class="video-card about-video-card"><video controls preload="metadata" playsinline width="400" height="225"><source src="/assets/images/about/{fn}" type="video/mp4"></video><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>'
+                    if fn.lower().endswith(".mp4")
+                    else f'<div class="video-card about-photo-card"><img src="/assets/images/about/{fn}" width="400" height="400" loading="lazy" decoding="async" alt="{esc(title)}"><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>'
+                )
+                for title, desc, fn in t["cards"]
+            )
+            # Only replace the video-grid contents; preserve parent closers.
+            page = page[:grid_open.end()] + cards + page[grid_close_start:]
         page = page.replace('<span class="video-coming-soon">Video coming soon</span>', '')
         marker = '<!-- ABOUT_TRUST_CONTEXT -->'
         if marker not in page:
@@ -466,6 +493,57 @@ def enrich_about():
 '''
             anchor = '<div class="container">\n\n    <div class="cta-wrapper">'
             page = page.replace(anchor, section + '\n' + anchor, 1)
+
+        # Always normalize the boundary between the video section and the B2B
+        # section. The previous card-refresh logic removed these parent closers.
+        video_section_start = page.find('<section class="store-videos section-spacing">')
+        marker_at = page.find(marker, video_section_start) if video_section_start >= 0 else -1
+        if video_section_start >= 0 and marker_at >= 0:
+            grid_match = re.search(
+                r"""<div\b[^>]*class=["'][^"']*\bvideo-grid\b[^"']*["'][^>]*>""",
+                page[video_section_start:marker_at],
+                flags=re.I,
+            )
+            if grid_match:
+                grid_open_end = video_section_start + grid_match.end()
+                div_depth = 1
+                grid_close_end = None
+                div_tags = re.compile(r"</?div\b[^>]*>", flags=re.I)
+                for div_tag in div_tags.finditer(page, grid_open_end, marker_at):
+                    token = div_tag.group(0)
+                    if re.match(r"</div\b", token, flags=re.I):
+                        div_depth -= 1
+                        if div_depth == 0:
+                            grid_close_end = div_tag.end()
+                            break
+                    elif not re.search(r"/\s*>$", token):
+                        div_depth += 1
+
+                if grid_close_end is None:
+                    raise ValueError(f"Unclosed About page video grid: {path}")
+
+                between = page[grid_close_end:marker_at]
+                unexpected = re.sub(r"</(?:div|section)\s*>", "", between, flags=re.I).strip()
+                if unexpected:
+                    raise ValueError(f"Unexpected markup between About video grid and B2B section: {path}")
+                # Reconstruct the expected container and section closers exactly once.
+                page = (
+                    page[:grid_close_end]
+                    + "\n\n    </div>\n\n</section>\n\n"
+                    + page[marker_at:]
+                )
+
+        # The legacy malformed page already carried the video-section closing
+        # tag after the B2B section. Once that closing tag is restored before
+        # the B2B section, remove the now-orphaned duplicate after it.
+        page = re.sub(
+            r'(<!-- ABOUT_TRUST_CONTEXT -->\s*<section class="about-trust-context section-spacing">[\s\S]*?</section>)\s*</section>(\s*<div class="container">\s*<div class="cta-wrapper">)',
+            r'\1\2',
+            page,
+            count=1,
+            flags=re.I,
+        )
+
         path.write_text(page, encoding="utf-8")
 
 def main():

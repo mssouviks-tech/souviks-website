@@ -483,3 +483,265 @@
         display: none;
     }
 }
+
+
+/* ==========================================================
+   ABOUT PAGE LAYOUT
+   Explicit desktop grids and responsive cards for the store
+   gallery, store videos and B2B trust context.
+========================================================== */
+
+.site-page .about-story .section-heading {
+    max-width: 900px;
+}
+
+.site-page .store-gallery-large {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+.site-page .store-gallery-large img {
+    display: block;
+    width: 100%;
+    height: clamp(190px, 22vw, 290px);
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+}
+
+.site-page .store-gallery-small {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.site-page .store-gallery-small img {
+    display: block;
+    width: 100%;
+    height: clamp(110px, 13vw, 170px);
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+}
+
+.site-page .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
+.site-page .video-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.site-page .video-card video,
+.site-page .video-card img {
+    display: block;
+    width: 100%;
+    height: clamp(190px, 20vw, 250px);
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    background: #111;
+}
+
+.site-page .video-card h3 {
+    margin: 0;
+    padding: 16px 18px 8px;
+    color: var(--text-primary);
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+.site-page .video-card p {
+    flex: 1;
+    margin: 0;
+    padding: 0 18px 18px;
+    color: var(--text-secondary);
+    font-size: .92rem;
+    line-height: 1.55;
+}
+
+.site-page .about-trust-context {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-body);
+}
+
+.site-page .about-trust-context .section-heading {
+    margin-bottom: 20px;
+}
+
+.site-page .about-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+.site-page .about-proof-grid .why-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 0;
+    min-height: 130px;
+    padding: 22px;
+    text-align: left;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.site-page .about-proof-grid .why-card p {
+    margin: 0;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.site-page .about-context-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.site-page .about-context-columns > div {
+    min-width: 0;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.site-page .about-context-columns h3 {
+    margin: 0 0 10px;
+    color: var(--text-primary);
+    font-size: 1.08rem;
+    line-height: 1.4;
+}
+
+.site-page .about-context-columns p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+.site-page .entity-faq {
+    max-width: 960px;
+    margin: 28px auto 0;
+    padding: 22px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.site-page .entity-faq > h3 {
+    margin: 0 0 12px;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.site-page .entity-faq-item {
+    padding: 14px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.site-page .entity-faq-item summary {
+    color: var(--text-primary);
+    font-weight: 650;
+    line-height: 1.45;
+    cursor: pointer;
+}
+
+.site-page .entity-faq-item p {
+    margin: 10px 0 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+    .site-page .store-gallery-large {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .site-page .store-gallery-small {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .site-page .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .site-page .about-proof-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .site-page .store-gallery-large {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .site-page .store-gallery-large img {
+        height: clamp(190px, 58vw, 280px);
+    }
+
+    .site-page .store-gallery-small {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .site-page .store-gallery-small img {
+        height: clamp(76px, 22vw, 120px);
+    }
+
+    .site-page .video-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .site-page .video-card video,
+    .site-page .video-card img {
+        height: clamp(190px, 58vw, 300px);
+    }
+
+    .site-page .about-proof-grid,
+    .site-page .about-context-columns {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .site-page .about-proof-grid .why-card,
+    .site-page .about-context-columns > div {
+        min-height: 0;
+        padding: 18px;
+    }
+
+    .site-page .entity-faq {
+        margin-top: 18px;
+        padding: 18px;
+    }
+}
