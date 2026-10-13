@@ -2322,10 +2322,140 @@ def sync_active_catalogue_counts() -> None:
     )
 
 
+
+def sync_catalogue_summary_counts() -> None:
+    """Reconcile public summary counts from the active catalogue and entity directories."""
+    import json
+    import re
+
+    data_dir = ROOT / "assets" / "data"
+    catalogue = json.loads((data_dir / "catalogue-index.json").read_text(encoding="utf-8"))
+    brands_path = data_dir / "brands.json"
+    categories_path = data_dir / "categories.json"
+    brands = json.loads(brands_path.read_text(encoding="utf-8"))
+    categories = json.loads(categories_path.read_text(encoding="utf-8"))
+
+    active_products = [
+        p for p in catalogue
+        if isinstance(p, dict) and p.get("id") and p.get("active") is not False
+    ]
+    product_count = len(active_products)
+    active_brands = [
+        b for b in brands
+        if isinstance(b, dict) and b.get("active") is not False and str(b.get("slug") or "").strip()
+    ]
+    brand_count = len(active_brands)
+    if product_count <= 0 or brand_count <= 0:
+        raise ValueError("Refusing to publish empty product or brand summary counts")
+
+    # Category counts are based on active master records, never on stale prose or
+    # the number of cards pre-rendered on a paginated category page.
+    counts_by_category = {}
+    for product in active_products:
+        category_id = str(product.get("category_id") or "").strip()
+        if category_id:
+            counts_by_category[category_id] = counts_by_category.get(category_id, 0) + 1
+
+    count_before_parts = re.compile(
+        r"(?<![\\w])\\d[\\d,]*\\+?(?=\\s+(?:active\\s+)?"
+        r"(?:commercial-vehicle\\s+)?(?:spare\\s+)?(?:parts|products)\\b)",
+        flags=re.I,
+    )
+
+    changed_files = 0
+
+    # Align visible homepage trust stats in all three language variants.
+    for lang in ("en", "hi", "bn"):
+        home = ROOT / lang / "index.html"
+        if home.is_file():
+            html = home.read_text(encoding="utf-8")
+            original = html
+            for icon_name, count in (("products.svg", product_count), ("brands.svg", brand_count)):
+                pattern = re.compile(
+                    r'(<div\\b[^>]*class=["\\'][^"\\']*\\bhome-trust-item\\b[^"\\']*["\\'][^>]*>'
+                    r'(?:(?!</div>).)*?<img\\b(?=[^>]*src=["\\'][^"\\']*/'
+                    + re.escape(icon_name)
+                    + r'(?:[?#][^"\\']*)?["\\'])[^>]*>'
+                    r'(?:(?!</div>).)*?<strong>)[^<]*(</strong>)',
+                    flags=re.I | re.S,
+                )
+                html, replacements = pattern.subn(
+                    lambda m: m.group(1) + f"{count}+" + m.group(2), html, count=1
+                )
+                if replacements != 1:
+                    raise ValueError(f"{home.relative_to(ROOT)}: could not uniquely locate {icon_name} summary")
+            if html != original:
+                home.write_text(html, encoding="utf-8")
+                changed_files += 1
+
+    # About pages previously contained a stale product total. Only replace a
+    # number when it directly qualifies a product/brand count phrase.
+    for lang in ("en", "hi", "bn"):
+        about = ROOT / lang / "about.html"
+        if not about.is_file():
+            continue
+        html = about.read_text(encoding="utf-8")
+        original = html
+        html = count_before_parts.sub(lambda _: str(product_count), html)
+        html = re.sub(
+            r"(?<![\\w])\\d[\\d,]*\\+?(?=\\s+brands?\\b)",
+            str(brand_count),
+            html,
+            flags=re.I,
+        )
+        if html != original:
+            about.write_text(html, encoding="utf-8")
+            changed_files += 1
+
+    # Keep category descriptions and each localized category page consistent
+    # with the active master records for that category.
+    categories_changed = False
+    for category in categories:
+        if not isinstance(category, dict):
+            continue
+        category_id = str(category.get("id") or "").strip()
+        if not category_id:
+            continue
+        category_count = counts_by_category.get(category_id, 0)
+        for field in ("description", "short_description"):
+            value = category.get(field)
+            if isinstance(value, str):
+                updated = count_before_parts.sub(lambda _: str(category_count), value)
+                if updated != value:
+                    category[field] = updated
+                    categories_changed = True
+
+        slug = str(category.get("slug") or category_id).strip()
+        for lang in ("en", "hi", "bn"):
+            page = ROOT / lang / "categories" / f"{slug}.html"
+            if not page.is_file():
+                continue
+            html = page.read_text(encoding="utf-8")
+            original = html
+            html = count_before_parts.sub(lambda _: str(category_count), html)
+            if html != original:
+                page.write_text(html, encoding="utf-8")
+                changed_files += 1
+
+    if categories_changed:
+        categories_path.write_text(
+            json.dumps(categories, ensure_ascii=False, indent=2) + "\\n",
+            encoding="utf-8",
+        )
+        changed_files += 1
+
+    print(
+        f"Catalogue summary counts synchronized: {product_count} active products, "
+        f"{brand_count} active brands, {len(counts_by_category)} categories with active products; "
+        f"{changed_files} files updated."
+    )
+
+
 def main() -> None:
     sync_product_listing_meta_descriptions()
     reconcile_catalogue_projections()
     sync_active_catalogue_counts()
+    sync_catalogue_summary_counts()
     sync_static_product_images()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
