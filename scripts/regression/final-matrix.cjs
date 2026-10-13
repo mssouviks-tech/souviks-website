@@ -1187,16 +1187,50 @@ async function main() {
         await page.locator("#rfq-name").fill("Regression Test");
         await page.locator("#rfq-phone").fill("9000000000");
         await page.locator("#rfq-form button[type=submit]").click();
-        await page.waitForTimeout(600);
+        await page.waitForFunction(() => {
+          const status = document.getElementById("rfqFormStatus");
+          return status?.classList.contains("success") && Boolean(status.textContent.trim());
+        }, null, { timeout: 5000 });
         const status = page.locator("#rfqFormStatus");
-        const text = await status.innerText().catch(() => "");
-        if (!/success|submitted|RFQ/i.test(text)) {
-          throw new Error(`submission status: ${text || "missing"}`);
+        const message = (await status.innerText().catch(() => "")).trim();
+        const successPatterns = {
+          en: /^RFQ submitted successfully\. Reference: RFQ-\d+$/i,
+          bn: /^RFQ সফলভাবে জমা দেওয়া হয়েছে। রেফারেন্স: RFQ-\d+$/i,
+          hi: /^RFQ सफलतापूर्वक सबमिट हो गया। संदर्भ: RFQ-\d+$/i
+        };
+        if (!(successPatterns[lang] || successPatterns.en).test(message)) {
+          throw new Error(`submission did not show an explicit localized success reference: ${message || "missing"}`);
         }
         await page.unroute("**/api.emailjs.com/**");
-        return "client submission path completed";
+        return `explicit success reference confirmed: ${message}`;
       });
 
+      await check(`${view}/${lang}/RFQ failure does not show success`, async () => {
+        await goto(page, BASE + langPath(lang, "products"));
+        const addButton = page.locator(".add-to-cart").first();
+        if (!(await addButton.count())) throw new Error("cannot seed RFQ basket for failure test");
+        await addButton.click();
+        await goto(page, BASE + langPath(lang, "request-quote"));
+        await page.locator("#rfq-name").fill("Regression Failure Test");
+        await page.locator("#rfq-phone").fill("9000000000");
+        await page.route("**/api.emailjs.com/**", route =>
+          route.fulfill({ status: 500, contentType: "application/json", body: JSON.stringify({ error: "deterministic regression failure" }) })
+        );
+        await page.locator("#rfq-form button[type=submit]").click();
+        await page.waitForFunction(() => {
+          const status = document.getElementById("rfqFormStatus");
+          return status?.classList.contains("error") && Boolean(status.textContent.trim());
+        }, null, { timeout: 5000 });
+        const message = (await page.locator("#rfqFormStatus").innerText()).trim();
+        if (/submitted successfully|successfully submitted|সফলভাবে জমা|सफलतापूर्वक सबमिट/i.test(message)) {
+          throw new Error(`failed submission displayed a success message: ${message}`);
+        }
+        if ((await page.locator("#rfq-items tr").count()) < 1) {
+          throw new Error("failed submission cleared the RFQ basket");
+        }
+        await page.unroute("**/api.emailjs.com/**");
+        return "error feedback shown; no success message; basket preserved";
+      });
       // PDP
       await check(`${view}/${lang}/product detail`, async () => {
         await goto(page, BASE + langPath(lang, `products/${PRODUCT_SLUG}`));
