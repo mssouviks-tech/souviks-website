@@ -1195,7 +1195,7 @@ async function main() {
         const message = (await status.innerText().catch(() => "")).trim();
         const successPatterns = {
           en: /^RFQ submitted successfully\. Reference: RFQ-\d+$/i,
-          bn: /^RFQ সফলভাবে জমা দেওয়া হয়েছে। রেফারেন্স: RFQ-\d+$/i,
+          bn: /^RFQ সফলভাবে জমা হয়েছে। রেফারেন্স: RFQ-\d+$/i,
           hi: /^RFQ सफलतापूर्वक सबमिट हो गया। संदर्भ: RFQ-\d+$/i
         };
         if (!(successPatterns[lang] || successPatterns.en).test(message)) {
