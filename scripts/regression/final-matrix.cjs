@@ -8,8 +8,9 @@ const vm = require("node:vm");
 const BASE = process.env.REGRESSION_BASE_URL || "https://www.souviks.co.in";
 const LANGS = ["en", "hi", "bn"];
 const VIEWS = {
-  desktop: { width: 1440, height: 900, isMobile: false },
-  mobile: { width: 390, height: 844, isMobile: true },
+  desktop: { width: 1440, height: 900, isMobile: false, mobileNavigation: false },
+  tablet: { width: 768, height: 1024, isMobile: false, mobileNavigation: true },
+  mobile: { width: 390, height: 844, isMobile: true, mobileNavigation: true },
 };
 
 const PRODUCT_SLUG = "10-x-15-nut";
@@ -1518,7 +1519,7 @@ async function main() {
         const link = navigation.locator(`.navigation-menu a[href="${destination}"]`).first();
         if (!(await link.count())) throw new Error("primary navigation Brands link is missing");
 
-        if (VIEWS[view].isMobile) {
+        if (VIEWS[view].mobileNavigation || VIEWS[view].isMobile) {
           await page.locator("#mobileMenuButton").click();
           await page.waitForFunction(() => document.querySelector("#mainNavigation")?.classList.contains("active"));
         } else if (await navigation.evaluate(element => element.classList.contains("active"))) {
