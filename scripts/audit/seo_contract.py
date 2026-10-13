@@ -64,7 +64,7 @@ def meta_values(raw: str, name: str) -> list[str]:
 
 
 def is_public_indexable(path: Path, raw: str) -> bool:
-    if any(part in {".git", "node_modules"} for part in path.parts):
+    if any(part in {".git", "node_modules", ".well-known"} for part in path.parts):
         return False
     if path.name == "404.html":
         return False
