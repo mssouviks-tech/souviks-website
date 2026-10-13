@@ -31,7 +31,7 @@ def tags(raw: str, pattern: str) -> list[str]:
 
 def canonical_values(raw: str) -> list[str]:
     values = []
-    for tag in re.findall(r"<link\\b[^>]*>", raw, flags=re.I):
+    for tag in re.findall(r"<link\b[^>]*>", raw, flags=re.I):
         rel = re.search(r"""\brel=["']([^"']+)["']""", tag, flags=re.I)
         href = re.search(r"""\bhref=["']([^"']*)["']""", tag, flags=re.I)
         if rel and "canonical" in rel.group(1).casefold().split():
