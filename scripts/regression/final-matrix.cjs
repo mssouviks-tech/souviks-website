@@ -1484,6 +1484,16 @@ async function main() {
             await accountPage.locator("body.account-authenticated").waitFor({ state: "attached", timeout: 10000 });
             const viewElement = accountPage.locator(`.account-view[data-account-view="${viewName}"]`);
             await viewElement.waitFor({ state: "visible", timeout: 8000 });
+            if (viewName === "rfq") {
+              const successPanel = accountPage.locator("#accountRfqSuccess");
+              const panelState = await successPanel.evaluate(element => ({
+                hidden: element.hidden,
+                display: getComputedStyle(element).display,
+              }));
+              if (!panelState.hidden || panelState.display !== "none") {
+                throw new Error(`RFQ success panel is visible before submission (hidden=${panelState.hidden}, display=${panelState.display})`);
+              }
+            }
             const rendered = accountPage.locator(renderedSelector).first();
             await rendered.waitFor({ state: "visible", timeout: 8000 });
             if (expectedText && !(await rendered.innerText()).includes(expectedText)) {
