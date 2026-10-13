@@ -123,7 +123,7 @@ assert.match(source.standaloneSubmit, /window\.RFQ\.validateSubmissionCustomer/,
 assert.match(source.quoteBasket, /messages:\s*rfqMessages/, "quote basket must expose its localized submission messages");
 assert.match(source.standaloneSubmit, /window\.RFQ\.messages\.(?:unavailable|failed|success|notificationFailed)/, "standalone submission must use the explicitly exported message namespace");
 assert.doesNotMatch(source.standaloneSubmit, /\brfqMessage\b/, "standalone submission must not depend on a free rfqMessage binding");
-assert.doesNotMatch(source.standaloneSubmit, /(^|[^.\\w$])\\bRFQ\\.[A-Za-z_$]/m, "standalone submission must not use an unqualified RFQ property reference");
+assert.doesNotMatch(source.standaloneSubmit, /(^|[^.\w$])\bRFQ\.[A-Za-z_$]/m, "standalone submission must not use an unqualified RFQ property reference");
 
 const sql = fs.readFileSync(path.join(ROOT, "supabase/migrations/20261010111730_rfq_submission_hardening.sql"), "utf8");
 assert.match(sql, /SECURITY DEFINER/i);
