@@ -8,6 +8,7 @@ later once the current catalogue has been cleaned.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -651,6 +652,130 @@ def reliability_audit(
     }
 
 
+
+def product_image_integrity_audit(products: list[dict[str, Any]], brands: list[dict[str, Any]]) -> dict[str, Any]:
+    """Report missing image references and byte-identical primary images shared across products.
+
+    Cross-product duplicates are review candidates, not automatic failures: some
+    manufacturer images can legitimately be shared by related variants.
+    """
+    missing_files = []
+    invalid_references = []
+    primary_images: dict[str, list[dict[str, str]]] = defaultdict(list)
+
+    for product in products:
+        if product.get("active") is False:
+            continue
+
+        product_id = text(product.get("id"))
+        folder = text(product.get("image_folder") or product_id)
+        if not product_id or not folder or Path(folder).name != folder:
+            invalid_references.append({
+                "id": product_id,
+                "reason": "missing product ID or unsafe image folder",
+            })
+            continue
+
+        gallery = product.get("gallery")
+        filenames = [text(item) for item in gallery] if isinstance(gallery, list) else []
+        filenames = [name for name in filenames if name]
+        if not filenames:
+            fallback_name = text(product.get("primary_image") or product.get("image"))
+            if fallback_name:
+                filenames = [fallback_name]
+
+        if not filenames:
+            missing_files.append({
+                "id": product_id,
+                "name": text(product.get("product_name") or product.get("name")),
+                "reason": "no primary image or gallery metadata",
+            })
+            continue
+
+        for index, filename in enumerate(filenames):
+            if Path(filename).name != filename or Path(filename).is_absolute():
+                invalid_references.append({
+                    "id": product_id,
+                    "filename": filename,
+                    "reason": "unsafe image filename",
+                })
+                continue
+
+            image_path = ROOT / "assets" / "images" / "products" / folder / filename
+            if not image_path.is_file():
+                missing_files.append({
+                    "id": product_id,
+                    "name": text(product.get("product_name") or product.get("name")),
+                    "filename": filename,
+                    "reason": "referenced image file does not exist",
+                })
+                continue
+
+            if index == 0:
+                try:
+                    fingerprint = hashlib.sha256(image_path.read_bytes()).hexdigest()
+                except OSError:
+                    invalid_references.append({
+                        "id": product_id,
+                        "filename": filename,
+                        "reason": "image file could not be read",
+                    })
+                    continue
+                primary_images[fingerprint].append({
+                    "id": product_id,
+                    "name": text(product.get("product_name") or product.get("name")),
+                    "brand": text(product.get("brand_name") or product.get("brand")),
+                    "path": str(image_path.relative_to(ROOT)).replace("\\", "/"),
+                })
+
+    duplicate_groups = []
+    for fingerprint, records in primary_images.items():
+        distinct_ids = {record["id"] for record in records}
+        if len(distinct_ids) < 2:
+            continue
+        duplicate_groups.append({
+            "sha256": fingerprint,
+            "product_count": len(distinct_ids),
+            "products": sorted(records, key=lambda item: item["id"]),
+        })
+    duplicate_groups.sort(key=lambda group: (-group["product_count"], group["sha256"]))
+
+    missing_brand_logos = []
+    for brand in brands:
+        logo = text(brand.get("logo"))
+        if not logo or not logo.startswith("/assets/"):
+            continue
+        logo_path = ROOT / logo.lstrip("/")
+        if not logo_path.is_file():
+            missing_brand_logos.append({
+                "id": text(brand.get("id")),
+                "name": text(brand.get("name")),
+                "logo": logo,
+            })
+
+    return {
+        "active_products_checked": sum(product.get("active") is not False for product in products),
+        "missing_or_unreadable_image_references": {
+            "count": len(missing_files),
+            "items": missing_files[:100],
+        },
+        "unsafe_or_unreadable_references": {
+            "count": len(invalid_references),
+            "items": invalid_references[:100],
+        },
+        "missing_brand_logos": {
+            "count": len(missing_brand_logos),
+            "items": missing_brand_logos[:100],
+        },
+        "byte_identical_primary_image_groups": {
+            "count": len(duplicate_groups),
+            "products_affected": sum(group["product_count"] for group in duplicate_groups),
+            "review_note": "Exact primary-image byte matches across different product IDs require visual/source review. They are not automatically classified as defects because some manufacturer images may be shared by related variants.",
+            "largest_groups": duplicate_groups[:30],
+        },
+    }
+
+
 def main() -> int:
     catalogue_path = ROOT / "assets/data/catalogue-index.json"
     products_path = ROOT / "assets/data/products.json"
@@ -734,6 +859,7 @@ def main() -> int:
         "rendering": html_state_audit(),
         "mobile_responsive": mobile_responsive_audit(),
         "reliability": reliability_audit(products, brands, categories, vehicles),
+        "product_image_integrity": product_image_integrity_audit(products, brands),
         "trust": trust_audit(),
     }
 
