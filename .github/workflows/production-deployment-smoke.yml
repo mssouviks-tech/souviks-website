@@ -12,6 +12,10 @@ on:
     paths:
       - "scripts/regression/production-browser-smoke.cjs"
       - "scripts/audit/production_smoke.py"
+      - "_headers"
+      - "_routes.json"
+      - "functions/_middleware.js"
+      - "robots.txt"
       - ".github/workflows/production-deployment-smoke.yml"
   workflow_dispatch:
 
