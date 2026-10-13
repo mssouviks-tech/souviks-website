@@ -2348,8 +2348,6 @@ def sync_catalogue_summary_counts() -> None:
     if product_count <= 0 or brand_count <= 0:
         raise ValueError("Refusing to publish empty product or brand summary counts")
 
-    # Category counts are based on active master records, never on stale prose or
-    # the number of cards pre-rendered on a paginated category page.
     counts_by_category = {}
     for product in active_products:
         category_id = str(product.get("category_id") or "").strip()
@@ -2357,39 +2355,35 @@ def sync_catalogue_summary_counts() -> None:
             counts_by_category[category_id] = counts_by_category.get(category_id, 0) + 1
 
     count_before_parts = re.compile(
-        r"(?<![\\w])\\d[\\d,]*\\+?(?=\\s+(?:active\\s+)?"
-        r"(?:commercial-vehicle\\s+)?(?:spare\\s+)?(?:parts|products)\\b)",
+        r"(?<![\w])\d[\d,]*\+?(?=\s+(?:active\s+)?"
+        r"(?:commercial-vehicle\s+)?(?:spare\s+)?(?:parts|products)\b)",
         flags=re.I,
     )
-
     changed_files = 0
 
-    # Align visible homepage trust stats in all three language variants.
     for lang in ("en", "hi", "bn"):
         home = ROOT / lang / "index.html"
-        if home.is_file():
-            html = home.read_text(encoding="utf-8")
-            original = html
-            for icon_name, count in (("products.svg", product_count), ("brands.svg", brand_count)):
-                pattern = re.compile(
-                    r'(<div\\b[^>]*class=["\\'][^"\\']*\\bhome-trust-item\\b[^"\\']*["\\'][^>]*>'
-                    r'(?:(?!</div>).)*?<img\\b(?=[^>]*src=["\\'][^"\\']*/'
-                    + re.escape(icon_name)
-                    + r'(?:[?#][^"\\']*)?["\\'])[^>]*>'
-                    r'(?:(?!</div>).)*?<strong>)[^<]*(</strong>)',
-                    flags=re.I | re.S,
-                )
-                html, replacements = pattern.subn(
-                    lambda m: m.group(1) + f"{count}+" + m.group(2), html, count=1
-                )
-                if replacements != 1:
-                    raise ValueError(f"{home.relative_to(ROOT)}: could not uniquely locate {icon_name} summary")
-            if html != original:
-                home.write_text(html, encoding="utf-8")
-                changed_files += 1
+        if not home.is_file():
+            continue
+        html = home.read_text(encoding="utf-8")
+        original = html
+        for icon_name, count in (("products.svg", product_count), ("brands.svg", brand_count)):
+            pattern = re.compile(
+                r'(<div\b[^>]*class="[^"]*\bhome-trust-item\b[^"]*"[^>]*>'
+                r'(?:(?!</div>).)*?<img\b(?=[^>]*src="[^"]*/'
+                + re.escape(icon_name)
+                + r'(?:[?#][^"]*)?")[^>]*>(?:(?!</div>).)*?<strong>)[^<]*(</strong>)',
+                flags=re.I | re.S,
+            )
+            html, replacements = pattern.subn(
+                lambda m: m.group(1) + f"{count}+" + m.group(2), html, count=1
+            )
+            if replacements != 1:
+                raise ValueError(f"{home.relative_to(ROOT)}: could not uniquely locate {icon_name} summary")
+        if html != original:
+            home.write_text(html, encoding="utf-8")
+            changed_files += 1
 
-    # About pages previously contained a stale product total. Only replace a
-    # number when it directly qualifies a product/brand count phrase.
     for lang in ("en", "hi", "bn"):
         about = ROOT / lang / "about.html"
         if not about.is_file():
@@ -2398,7 +2392,7 @@ def sync_catalogue_summary_counts() -> None:
         original = html
         html = count_before_parts.sub(lambda _: str(product_count), html)
         html = re.sub(
-            r"(?<![\\w])\\d[\\d,]*\\+?(?=\\s+brands?\\b)",
+            r"(?<![\w])\d[\d,]*\+?(?=\s+brands?\b)",
             str(brand_count),
             html,
             flags=re.I,
@@ -2407,8 +2401,6 @@ def sync_catalogue_summary_counts() -> None:
             about.write_text(html, encoding="utf-8")
             changed_files += 1
 
-    # Keep category descriptions and each localized category page consistent
-    # with the active master records for that category.
     categories_changed = False
     for category in categories:
         if not isinstance(category, dict):
@@ -2439,7 +2431,7 @@ def sync_catalogue_summary_counts() -> None:
 
     if categories_changed:
         categories_path.write_text(
-            json.dumps(categories, ensure_ascii=False, indent=2) + "\\n",
+            json.dumps(categories, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
         changed_files += 1
@@ -2449,7 +2441,6 @@ def sync_catalogue_summary_counts() -> None:
         f"{brand_count} active brands, {len(counts_by_category)} categories with active products; "
         f"{changed_files} files updated."
     )
-
 
 def main() -> None:
     sync_product_listing_meta_descriptions()
