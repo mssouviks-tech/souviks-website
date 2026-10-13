@@ -1213,23 +1213,26 @@ async function main() {
         await goto(page, BASE + langPath(lang, "request-quote"));
         await page.locator("#rfq-name").fill("Regression Failure Test");
         await page.locator("#rfq-phone").fill("9000000000");
-        await page.route("**/api.emailjs.com/**", route =>
-          route.fulfill({ status: 500, contentType: "application/json", body: JSON.stringify({ error: "deterministic regression failure" }) })
-        );
+        const initialItems = await page.locator("#rfq-items tr").count();
+        if (initialItems < 1) throw new Error("RFQ basket was not populated before failure test");
+        await page.evaluate(() => {
+          window.RFQ.submitStandalone = async () => {
+            throw new Error("deterministic regression failure");
+          };
+        });
         await page.locator("#rfq-form button[type=submit]").click();
         await page.waitForFunction(() => {
           const status = document.getElementById("rfqFormStatus");
-          return status?.classList.contains("error") && Boolean(status.textContent.trim());
+          return status?.classList.contains("error") && /deterministic regression failure/.test(status.textContent || "");
         }, null, { timeout: 5000 });
         const message = (await page.locator("#rfqFormStatus").innerText()).trim();
         if (/submitted successfully|successfully submitted|সফলভাবে জমা|सफलतापूर्वक सबमिट/i.test(message)) {
           throw new Error(`failed submission displayed a success message: ${message}`);
         }
-        if ((await page.locator("#rfq-items tr").count()) < 1) {
-          throw new Error("failed submission cleared the RFQ basket");
+        if ((await page.locator("#rfq-items tr").count()) !== initialItems) {
+          throw new Error("failed submission changed or cleared the RFQ basket");
         }
-        await page.unroute("**/api.emailjs.com/**");
-        return "error feedback shown; no success message; basket preserved";
+        return "deterministic submission error shown; no success message; basket preserved";
       });
       // PDP
       await check(`${view}/${lang}/product detail`, async () => {
