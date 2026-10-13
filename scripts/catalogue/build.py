@@ -1906,7 +1906,7 @@ def sync_product_seo_and_schema():
                         or ""
                     ).strip()
                     if mpn:
-                        node["mpn"] = re.sub(r"\\s+", " ", mpn)
+                        node["mpn"] = re.sub(r"\s+", " ", mpn)
                     else:
                         node.pop("mpn", None)
 
@@ -1916,7 +1916,7 @@ def sync_product_seo_and_schema():
                         product.get("manufacturer_part_number"),
                         *(product.get("manufacturer_part_numbers") or []),
                     ):
-                        value = re.sub(r"\\s+", " ", str(value or "").strip())
+                        value = re.sub(r"\s+", " ", str(value or "").strip())
                         if value and value not in identifiers:
                             identifiers.append(value)
                     if identifiers:
