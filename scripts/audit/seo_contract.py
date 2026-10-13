@@ -107,6 +107,15 @@ def main() -> int:
         scanned += 1
         label = path.relative_to(ROOT).as_posix()
 
+        canonicals = canonical_values(raw)
+        expected_url = expected_canonical(path)
+        if len(canonicals) != 1 or not canonicals[0]:
+            errors.append(f"{label}: expected exactly one non-empty canonical URL, found {len(canonicals)}")
+        elif not canonicals[0].startswith(BASE + "/"):
+            errors.append(f"{label}: canonical must use HTTPS on www.souviks.co.in ({canonicals[0]!r})")
+        elif expected_url and canonicals[0].rstrip("/") != expected_url.rstrip("/"):
+            errors.append(f"{label}: canonical {canonicals[0]!r} != expected route {expected_url!r}")
+
         title_values = tags(raw, r"<title\b[^>]*>(.*?)</title>")
         if len(title_values) != 1 or not clean(title_values[0]):
             errors.append(f"{label}: expected exactly one non-empty title, found {len(title_values)}")
