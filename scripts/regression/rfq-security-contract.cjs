@@ -117,9 +117,13 @@ for (const label of ["accountSubmit", "standaloneSubmit"]) {
   assert.match(code, /\.rpc\(\s*["']submit_rfq["']/s, `${label}: must call submit_rfq RPC`);
   assert.doesNotMatch(code, /\.from\(\s*["']rfqs["']\s*\)\s*\.insert/s, `${label}: direct RFQ parent inserts forbidden`);
   assert.doesNotMatch(code, /\.from\(\s*["']rfq_items["']\s*\)\s*\.insert/s, `${label}: direct RFQ item inserts forbidden`);
-  assert.match(code, /RFQ\.validateSubmissionItems/, `${label}: item validation must run before submit`);
+  assert.match(code, /(?:window\.)?RFQ\.validateSubmissionItems/, `${label}: item validation must run before submit`);
 }
-assert.match(source.standaloneSubmit, /RFQ\.validateSubmissionCustomer/, "standalone path must validate customer fields");
+assert.match(source.standaloneSubmit, /window\.RFQ\.validateSubmissionCustomer/, "standalone path must validate customer fields");
+assert.match(source.quoteBasket, /messages:\s*rfqMessages/, "quote basket must expose its localized submission messages");
+assert.match(source.standaloneSubmit, /window\.RFQ\.messages\.(?:unavailable|failed|success|notificationFailed)/, "standalone submission must use the explicitly exported message namespace");
+assert.doesNotMatch(source.standaloneSubmit, /\brfqMessage\b/, "standalone submission must not depend on a free rfqMessage binding");
+assert.doesNotMatch(source.standaloneSubmit, /(^|[^.])\bRFQ\./m, "standalone submission must use the explicit window.RFQ namespace");
 
 const sql = fs.readFileSync(path.join(ROOT, "supabase/migrations/20261010111730_rfq_submission_hardening.sql"), "utf8");
 assert.match(sql, /SECURITY DEFINER/i);

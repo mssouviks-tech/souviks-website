@@ -63,7 +63,7 @@ const RFQ_MESSAGE = {
     }
 };
 
-const rfqMessage = RFQ_MESSAGE[RFQ_LANG] || RFQ_MESSAGE.en;
+const rfqMessages = RFQ_MESSAGE[RFQ_LANG] || RFQ_MESSAGE.en;
 
 window.RFQ = {
 
@@ -71,7 +71,9 @@ window.RFQ = {
         "rfq_cart_items",
 
     storageKey:
-        "souviks_rfq_guest"
+        "souviks_rfq_guest",
+
+    messages: rfqMessages
 
 };
 
