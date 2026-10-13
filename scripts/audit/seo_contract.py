@@ -29,6 +29,30 @@ def tags(raw: str, pattern: str) -> list[str]:
     return re.findall(pattern, raw, flags=re.I | re.S)
 
 
+def canonical_values(raw: str) -> list[str]:
+    values = []
+    for tag in re.findall(r"<link\\b[^>]*>", raw, flags=re.I):
+        rel = re.search(r'\\brel=["\\']([^"\\']+)["\\']', tag, flags=re.I)
+        href = re.search(r'\\bhref=["\\']([^"\\']*)["\\']', tag, flags=re.I)
+        if rel and "canonical" in rel.group(1).casefold().split():
+            values.append(href.group(1).strip() if href else "")
+    return values
+
+
+def expected_canonical(path: Path) -> str:
+    relative = path.relative_to(ROOT).as_posix()
+    if relative == "index.html" or relative == "en/index.html":
+        return BASE + "/"
+    if relative in {"hi/index.html", "bn/index.html"}:
+        return BASE + "/" + relative.split("/", 1)[0] + "/"
+    parts = Path(relative).parts
+    if len(parts) == 3 and parts[0] in LANGUAGES:
+        return BASE + "/" + parts[0] + "/" + parts[1] + "/" + Path(parts[2]).stem
+    if len(parts) == 2 and parts[0] in LANGUAGES:
+        return BASE + "/" + parts[0] + "/" + Path(parts[1]).stem
+    return ""
+
+
 def meta_values(raw: str, name: str) -> list[str]:
     found = []
     for tag in re.findall(r"<meta\b[^>]*>", raw, flags=re.I):
