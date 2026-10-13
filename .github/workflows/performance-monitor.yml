@@ -1,0 +1,48 @@
+name: Production Performance Monitor
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_run:
+    workflows: ["Build Static Catalogue"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: read
+
+concurrency:
+  group: souviks-production-performance
+  cancel-in-progress: false
+
+jobs:
+  lighthouse:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Wait for latest main revision to deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 scripts/audit/production_smoke.py --wait-only
+
+      - name: Measure mobile performance and Core Web Vitals proxies
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://souviks-website.pages.dev/
+            https://souviks-website.pages.dev/en/products
+            https://souviks-website.pages.dev/en/products/10-x-15-nut
+          configPath: .lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: false
+          runs: 1
