@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  checks: read
 
 jobs:
   validate:
@@ -53,6 +54,11 @@ jobs:
         run: python3 scripts/catalogue/validate.py
       - name: Validate blocking production contract
         run: python3 scripts/audit/critical_build.py
+
+      - name: Wait for latest main revision to deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/audit/production_smoke.py --wait-only
 
       - name: Validate structured data
         run: python3 scripts/audit/structured_data.py --check-images
