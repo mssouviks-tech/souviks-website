@@ -220,6 +220,7 @@ def add_product_hero_preloads(mapping: dict[str, str]) -> int:
 
 
 def main() -> None:
+    # Run this before generation and again after generation to catch templates.
     mapping: dict[str, str] = {}
     saved_bytes = 0
     converted = 0
