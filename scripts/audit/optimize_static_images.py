@@ -70,43 +70,48 @@ def create_webp(source: Path, quality: int, max_dimensions: tuple[int, int]) -> 
 
 def rewrite_references(mapping: dict[str, str]) -> int:
     changed = 0
-    for path in ROOT.rglob("*"):
-        if not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
+    for directory, dirnames, filenames in __import__("os").walk(ROOT):
+        relative_dir = Path(directory).relative_to(ROOT)
+        parts = relative_dir.parts
+        if any(part in SKIP_DIRS for part in parts):
+            dirnames[:] = []
             continue
-        relative_parts = path.relative_to(ROOT).parts
-        if any(part in SKIP_DIRS for part in relative_parts):
+        if parts and (parts[0] in {"scripts", "docs"} or parts[:2] == ("assets", "images")):
+            dirnames[:] = []
             continue
-        if relative_parts[0] in {"scripts", "docs"}:
-            continue
-        try:
-            text = path.read_text(encoding="utf-8")
-        except (UnicodeDecodeError, OSError):
-            continue
-        original = text
-        for old, new in mapping.items():
-            text = text.replace(old, new)
-        # Keep image preloads' MIME type consistent with their WebP URL.
-        text = re.sub(
-            r'(<link\b[^>]*href=["\'][^"\']+\.webp["\'][^>]*type=["\'])image/(?:png|jpe?g)(["\'])',
-            r'\1image/webp\2',
-            text,
-            flags=re.IGNORECASE,
-        )
-        # The about-page support illustration was incorrectly declared at
-        # source resolution even though it is displayed as a small UI graphic.
-        text = re.sub(
-            r'(<img\b(?=[^>]*src=["\'][^"\']*/assets/icons/support\.webp["\'])[^>]*?)width=["\']1254["\']',
-            r'\1width="256"', text, flags=re.IGNORECASE | re.DOTALL,
-        )
-        text = re.sub(
-            r'(<img\b(?=[^>]*src=["\'][^"\']*/assets/icons/support\.webp["\'])[^>]*?)height=["\']1254["\']',
-            r'\1height="256"', text, flags=re.IGNORECASE | re.DOTALL,
-        )
-        if text != original:
-            path.write_text(text, encoding="utf-8", newline="")
-            changed += 1
+        dirnames[:] = [name for name in dirnames if name not in SKIP_DIRS]
+        for filename in filenames:
+            path = Path(directory) / filename
+            if path.suffix.lower() not in TEXT_SUFFIXES:
+                continue
+            try:
+                text = path.read_text(encoding="utf-8")
+            except (UnicodeDecodeError, OSError):
+                continue
+            original = text
+            for old, new in mapping.items():
+                text = text.replace(old, new)
+            # Keep image preloads' MIME type consistent with their WebP URL.
+            text = re.sub(
+                r'(<link\b[^>]*href=["\'][^"\']+\.webp["\'][^>]*type=["\'])image/(?:png|jpe?g)(["\'])',
+                r'\1image/webp\2',
+                text,
+                flags=re.IGNORECASE,
+            )
+            # The about-page support illustration was incorrectly declared at
+            # source resolution even though it is displayed as a small UI graphic.
+            text = re.sub(
+                r'(<img\b(?=[^>]*src=["\'][^"\']*/assets/icons/support\.webp["\'])[^>]*?)width=["\']1254["\']',
+                r'\1width="256"', text, flags=re.IGNORECASE | re.DOTALL,
+            )
+            text = re.sub(
+                r'(<img\b(?=[^>]*src=["\'][^"\']*/assets/icons/support\.webp["\'])[^>]*?)height=["\']1254["\']',
+                r'\1height="256"', text, flags=re.IGNORECASE | re.DOTALL,
+            )
+            if text != original:
+                path.write_text(text, encoding="utf-8", newline="")
+                changed += 1
     return changed
-
 
 def main() -> None:
     mapping: dict[str, str] = {}
