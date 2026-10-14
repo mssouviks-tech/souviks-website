@@ -240,8 +240,7 @@ function getFacetScope(excludeKey) {
     );
 }
 
-function getFacetOptions(config) {
-    const scope = getFacetScope(config.key);
+function getFacetOptions(config, scope = getFacetScope(config.key)) {
     const selected = Filters.filters[config.key];
     const options = new Map();
 
@@ -289,8 +288,9 @@ function refreshFilterOptions() {
         if (!select) return;
 
         const selected = Filters.filters[config.key] || "";
-        const options = getFacetOptions(config);
-        populateSelect(config.id, options, selected, getFacetScope(config.key));
+        const scope = getFacetScope(config.key);
+        const options = getFacetOptions(config, scope);
+        populateSelect(config.id, options, selected, scope);
     });
 }
 
@@ -478,8 +478,36 @@ function sentenceCase(value) {
     return text;
 }
 
-function populateFilters(products) {
-    refreshFilterOptions();
+function populateFilters() {
+    // Facet construction scans the full catalogue. Populate one select per
+    // idle task so the initial product page can paint and respond first.
+    let index = 0;
+    const schedule = callback => {
+        if (typeof window.requestIdleCallback === "function") {
+            window.requestIdleCallback(callback, { timeout: 500 });
+        } else {
+            window.setTimeout(callback, 0);
+        }
+    };
+
+    const populateNext = () => {
+        const config = FILTER_CONFIGS[index++];
+        if (!config) return;
+
+        const select = document.getElementById(config.id);
+        if (select) {
+            select.disabled = true;
+            const selected = Filters.filters[config.key] || "";
+            const scope = getFacetScope(config.key);
+            const options = getFacetOptions(config, scope);
+            populateSelect(config.id, options, selected, scope);
+            select.disabled = false;
+        }
+
+        if (index < FILTER_CONFIGS.length) schedule(populateNext);
+    };
+
+    schedule(populateNext);
 }
 
 function populateSelect(id, options, selectedValue = "", scope = allProducts) {
