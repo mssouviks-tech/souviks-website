@@ -665,6 +665,7 @@ def main():
     vehicles = json.loads((ROOT / "assets/data/vehicles.json").read_text(encoding="utf-8"))
     enrich_entity_pages("brand", brands, catalogue)
     enrich_entity_pages("category", categories, catalogue)
+    sync_category_listing_pages(categories)
     enrich_entity_pages("vehicle", vehicles, catalogue)
     (ROOT / "assets/data/brands.json").write_text(json.dumps(brands, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (ROOT / "assets/data/categories.json").write_text(json.dumps(categories, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
