@@ -18,6 +18,7 @@ on:
       - "scripts/catalogue/sync_entity_sitemaps.py"
       - "scripts/audit/critical_build.py"
       - "scripts/audit/performance_guard.py"
+      - "scripts/audit/optimize_static_images.py"
       - "package.json"
       - "scripts/js/**"
       - "assets/data/brands.json"
@@ -67,6 +68,9 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Install image optimisation dependency
+        run: python3 -m pip install --user --break-system-packages Pillow
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -92,6 +96,7 @@ jobs:
               "scripts/catalogue/sync_product_cards.py",
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
+              "scripts/audit/optimize_static_images.py",
               "scripts/audit/production_smoke.py",
               "scripts/audit/structured_data.py",
               "scripts/js/refactor.py",
@@ -121,6 +126,8 @@ jobs:
           }
 
           prepare_candidate() {
+            python3 scripts/audit/optimize_static_images.py
+            python3 scripts/audit/optimize_static_images.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
             python3 scripts/catalogue/enrich_entities.py
