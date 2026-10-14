@@ -1364,6 +1364,96 @@ def validate_critical_catalogue_contract(errors: list[str]) -> dict[str, list]:
     return records_by_kind
 
 
+
+def validate_category_counter_parity(categories: list[dict], errors: list[str]) -> None:
+    """Keep the active category master, visible listing counters and category sitemap in parity."""
+    active = [
+        category for category in categories
+        if isinstance(category, dict) and category.get("active") is not False
+    ]
+    expected_count = len(active)
+    expected_slugs = {
+        text(category.get("slug"))
+        for category in active
+        if text(category.get("slug"))
+    }
+    if len(expected_slugs) != expected_count:
+        errors.append(
+            "categories master: every active category must have a unique non-empty slug "
+            "for the visible counter and sitemap to remain in parity"
+        )
+
+    for language in ("en", "hi", "bn"):
+        listing = ROOT / language / "categories.html"
+        if not listing.is_file():
+            errors.append(f"{listing.relative_to(ROOT)}: missing category listing for A51 counter check")
+            continue
+        raw = listing.read_text(encoding="utf-8", errors="ignore")
+        counters = re.findall(
+            r"""<span\b(?=[^>]*\bid=["']visibleCategories["'])[^>]*>([\s\S]*?)</span>""",
+            raw,
+            flags=re.I,
+        )
+        if len(counters) != 1:
+            errors.append(
+                f"{listing.relative_to(ROOT)}: expected exactly one #visibleCategories counter, found {len(counters)}"
+            )
+        else:
+            counter_text = re.sub(r"<[^>]+>", "", counters[0]).strip()
+            counter_text = re.sub(r"[,\s]", "", counter_text)
+            if not counter_text.isdigit() or int(counter_text) != expected_count:
+                errors.append(
+                    f"{listing.relative_to(ROOT)}: #visibleCategories is {counter_text!r}; "
+                    f"active categories master requires {expected_count}"
+                )
+
+        if not re.search(r"""<[^>]+\bid=["']categoryGrid["']""", raw, flags=re.I):
+            errors.append(f"{listing.relative_to(ROOT)}: missing #categoryGrid for A51 counter check")
+        cards = re.findall(
+            r"""<article\b(?=[^>]*\bclass=["'][^"']*\bcategory-card\b[^"']*["'])""",
+            raw,
+            flags=re.I,
+        )
+        if len(cards) != expected_count:
+            errors.append(
+                f"{listing.relative_to(ROOT)}: found {len(cards)} category cards; "
+                f"active categories master requires {expected_count}"
+            )
+
+    sitemap_path = ROOT / "sitemaps" / "categories.xml"
+    sitemap = sitemap_urls(sitemap_path, errors)
+    for language in ("en", "hi", "bn"):
+        prefix = BASE + f"/{language}/categories/"
+        actual_urls = {url for url in sitemap if url.startswith(prefix)}
+        expected_urls = {
+            BASE + f"/{language}/categories/{slug}"
+            for slug in expected_slugs
+        }
+        if len(actual_urls) != expected_count:
+            errors.append(
+                f"sitemaps/categories.xml: {language} has {len(actual_urls)} category URLs; "
+                f"active categories master requires {expected_count}"
+            )
+        missing = sorted(expected_urls - actual_urls)
+        extra = sorted(actual_urls - expected_urls)
+        if missing:
+            errors.append(
+                f"sitemaps/categories.xml: {language} is missing active category URLs: "
+                + ", ".join(missing[:10])
+            )
+        if extra:
+            errors.append(
+                f"sitemaps/categories.xml: {language} has URLs absent from the active category master: "
+                + ", ".join(extra[:10])
+            )
+
+    total_expected = expected_count * 3
+    if len(sitemap) != total_expected:
+        errors.append(
+            f"sitemaps/categories.xml: has {len(sitemap)} unique URLs; "
+            f"active categories master requires {total_expected} across en/hi/bn"
+        )
+
 def main() -> None:
     errors: list[str] = []
     validate_homepage_url_contract(errors)
@@ -1377,6 +1467,7 @@ def main() -> None:
     validate_pages_routes(errors)
     validate_robots_and_sitemap_index(errors)
     validate_sitemaps(records_by_kind, errors)
+    validate_category_counter_parity(records_by_kind["categories"], errors)
     validate_internal_links(errors)
 
     # The existing structured-data audit remains the detailed JSON-LD checker;
