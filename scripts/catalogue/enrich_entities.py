@@ -390,6 +390,14 @@ def enrich_entity_pages(kind, data, catalogue):
             else:
                 selector = r'(<div class="category-info">\s*<h1>.*?</h1>\s*<p>)[\s\S]*?(</p>)'
             page = re.sub(selector, lambda m: m.group(1) + esc(item.get("description")) + m.group(2), page, count=1, flags=re.I)
+            if kind == "category":
+                page = re.sub(
+                    r'(<div>\s*Products:\s*)\d+(\s*</div>)',
+                    lambda m: m.group(1) + str(len(products)) + m.group(2),
+                    page,
+                    count=1,
+                    flags=re.I,
+                )
             marker = f'<!-- ENTITY_CONTEXT_{kind.upper()} -->'
             if marker not in page:
                 section = context_section(kind, item, products, lang)
@@ -401,6 +409,110 @@ def enrich_entity_pages(kind, data, catalogue):
                     page = page.replace("</body>", marker + "\n" + section + "\n</body>", 1)
             page = ensure_main_landmark(page)
             path.write_text(page, encoding="utf-8")
+
+def replace_static_grid(page: str, element_id: str, inner_html: str) -> str:
+    """Replace a complete static-rendered grid by its element ID."""
+    opening = re.search(
+        r'<div\b(?=[^>]*\bid=["\']' + re.escape(element_id) +
+        r'["\'])(?=[^>]*\bdata-static-rendered=["\']true["\'])[^>]*>',
+        page,
+        flags=re.I,
+    )
+    if not opening:
+        return page
+
+    depth = 1
+    tag_pattern = re.compile(r'</?div\b[^>]*>', flags=re.I)
+    for tag in tag_pattern.finditer(page, opening.end()):
+        token = tag.group(0)
+        if re.match(r'</div\b', token, flags=re.I):
+            depth -= 1
+            if depth == 0:
+                return page[:opening.end()] + "\n\n" + inner_html + "\n\n" + page[tag.start():]
+        elif not re.search(r'/\s*>$', token):
+            depth += 1
+    raise ValueError(f"Unclosed static-rendered #{element_id} grid.")
+
+
+def category_card(category: dict, language: str) -> str:
+    slug = clean(category.get("slug"))
+    name = clean(category.get("name"))
+    image = clean(category.get("image") or category.get("icon")) or "/assets/images/category-placeholder.webp"
+    count = int(category.get("product_count") or 0)
+    count_labels = {"en": "Products", "hi": "उत्पाद", "bn": "পণ্যসমূহ"}
+    return (
+        f'<article class="category-card"><a href="/{language}/categories/{esc(slug)}" '
+        f'data-breadcrumb="{esc(name)}"><div class="category-image"><img src="{esc(image)}" '
+        f'alt="{esc(name)}" loading="lazy" decoding="async" width="400" height="400"></div>'
+        f'<div class="category-content"><h3 class="category-title">{esc(name)}</h3>'
+        f'<div class="category-count">{count} {count_labels[language]}</div></div></a></article>'
+    )
+
+
+def sync_category_listing_pages(categories: list[dict]) -> None:
+    """Keep category listing cards, visible totals and homepage badges on the category master."""
+    active = [
+        category for category in categories
+        if isinstance(category, dict)
+        and category.get("active") is not False
+        and clean(category.get("slug"))
+    ]
+    if not active:
+        raise ValueError("Refusing to publish an empty category listing.")
+
+    for language in LANGUAGES:
+        listing = ROOT / language / "categories.html"
+        if not listing.is_file():
+            raise ValueError(f"Missing category listing: {listing.relative_to(ROOT)}")
+        page = listing.read_text(encoding="utf-8")
+        cards = "".join(category_card(category, language) for category in active)
+        updated = replace_static_grid(page, "categoryGrid", cards)
+        updated, count_replacements = re.subn(
+            r'(<span\b(?=[^>]*\bid=["\']visibleCategories["\'])[^>]*>)[\s\S]*?(</span>)',
+            lambda match: match.group(1) + "\n\n                        " + str(len(active)) + "\n\n                    " + match.group(2),
+            updated,
+            count=1,
+            flags=re.I,
+        )
+        if count_replacements != 1:
+            raise ValueError(f"{listing.relative_to(ROOT)}: missing #visibleCategories counter.")
+        if updated != page:
+            listing.write_text(updated, encoding="utf-8")
+
+        home = ROOT / language / "index.html"
+        if not home.is_file():
+            continue
+        home_page = home.read_text(encoding="utf-8")
+        category_by_slug = {clean(item.get("slug")): item for item in active}
+        card_pattern = re.compile(r'<article class="category-card">[\s\S]*?</article>', flags=re.I)
+
+        def update_home_card(match):
+            card_html = match.group(0)
+            href = re.search(
+                r'href=["\']/' + re.escape(language) + r'/categories/([^"?#/]+)',
+                card_html,
+                flags=re.I,
+            )
+            if not href:
+                return card_html
+            category = category_by_slug.get(href.group(1))
+            if not category:
+                return card_html
+            label = {"en": "Products", "hi": "उत्पाद", "bn": "পণ্যসমূহ"}[language]
+            count = int(category.get("product_count") or 0)
+            updated_card, replacements = re.subn(
+                r'(<div class=["\']category-count["\']>)[^<]*(</div>)',
+                lambda m: m.group(1) + f"{count} {label}" + m.group(2),
+                card_html,
+                count=1,
+                flags=re.I,
+            )
+            return updated_card if replacements else card_html
+
+        updated_home = card_pattern.sub(update_home_card, home_page)
+        if updated_home != home_page:
+            home.write_text(updated_home, encoding="utf-8")
+
 
 def enrich_about():
     T = {
@@ -553,6 +665,7 @@ def main():
     vehicles = json.loads((ROOT / "assets/data/vehicles.json").read_text(encoding="utf-8"))
     enrich_entity_pages("brand", brands, catalogue)
     enrich_entity_pages("category", categories, catalogue)
+    sync_category_listing_pages(categories)
     enrich_entity_pages("vehicle", vehicles, catalogue)
     (ROOT / "assets/data/brands.json").write_text(json.dumps(brands, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (ROOT / "assets/data/categories.json").write_text(json.dumps(categories, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
