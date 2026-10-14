@@ -4,8 +4,8 @@
     "slug": "filters",
     "name": "Filters",
     "short_name": "Filters",
-    "icon": "/assets/images/categories/filters.png",
-    "image": "/assets/images/categories/filters.png",
+    "icon": "/assets/images/categories/filters.webp",
+    "image": "/assets/images/categories/filters.webp",
     "image_dimensions": [
       400,
       400
@@ -224,8 +224,8 @@
     "slug": "fasteners-hardware",
     "name": "Fasteners & Hardware",
     "short_name": "Fasteners & Hardware",
-    "icon": "/assets/images/categories/fasteners-hardware.png",
-    "image": "/assets/images/categories/fasteners-hardware.png",
+    "icon": "/assets/images/categories/fasteners-hardware.webp",
+    "image": "/assets/images/categories/fasteners-hardware.webp",
     "image_dimensions": [
       400,
       400
@@ -425,8 +425,8 @@
     "slug": "air-system",
     "name": "Air System",
     "short_name": "Air System",
-    "icon": "/assets/images/categories/air-system.png",
-    "image": "/assets/images/categories/air-system.png",
+    "icon": "/assets/images/categories/air-system.webp",
+    "image": "/assets/images/categories/air-system.webp",
     "image_dimensions": [
       400,
       400
@@ -611,8 +611,8 @@
     "slug": "suspension-steering",
     "name": "Suspension & Steering",
     "short_name": "Suspension & Steering",
-    "icon": "/assets/images/categories/suspension-steering.png",
-    "image": "/assets/images/categories/suspension-steering.png",
+    "icon": "/assets/images/categories/suspension-steering.webp",
+    "image": "/assets/images/categories/suspension-steering.webp",
     "image_dimensions": [
       400,
       400
@@ -1202,8 +1202,8 @@
     "slug": "electricals",
     "name": "Electricals",
     "short_name": "Electricals",
-    "icon": "/assets/images/categories/electricals.png",
-    "image": "/assets/images/categories/electricals.png",
+    "icon": "/assets/images/categories/electricals.webp",
+    "image": "/assets/images/categories/electricals.webp",
     "image_dimensions": [
       400,
       400
@@ -1590,8 +1590,8 @@
     "slug": "brakes",
     "name": "Brakes",
     "short_name": "Brakes",
-    "icon": "/assets/images/categories/brakes.png",
-    "image": "/assets/images/categories/brakes.png",
+    "icon": "/assets/images/categories/brakes.webp",
+    "image": "/assets/images/categories/brakes.webp",
     "image_dimensions": [
       400,
       400
@@ -1804,8 +1804,8 @@
     "slug": "engine-components",
     "name": "Engine Components",
     "short_name": "Engine Components",
-    "icon": "/assets/images/categories/engine-components.png",
-    "image": "/assets/images/categories/engine-components.png",
+    "icon": "/assets/images/categories/engine-components.webp",
+    "image": "/assets/images/categories/engine-components.webp",
     "image_dimensions": [
       400,
       400
@@ -1975,8 +1975,8 @@
     "slug": "bearings",
     "name": "Bearings",
     "short_name": "Bearings",
-    "icon": "/assets/images/categories/bearings.png",
-    "image": "/assets/images/categories/bearings.png",
+    "icon": "/assets/images/categories/bearings.webp",
+    "image": "/assets/images/categories/bearings.webp",
     "image_dimensions": [
       400,
       400
@@ -2196,8 +2196,8 @@
     "slug": "rubber-parts",
     "name": "Rubber Parts",
     "short_name": "Rubber Parts",
-    "icon": "/assets/images/categories/rubber-parts.png",
-    "image": "/assets/images/categories/rubber-parts.png",
+    "icon": "/assets/images/categories/rubber-parts.webp",
+    "image": "/assets/images/categories/rubber-parts.webp",
     "image_dimensions": [
       400,
       400
@@ -2323,8 +2323,8 @@
     "slug": "clutch-parts",
     "name": "Clutch Parts",
     "short_name": "Clutch Parts",
-    "icon": "/assets/images/categories/clutch-parts.png",
-    "image": "/assets/images/categories/clutch-parts.png",
+    "icon": "/assets/images/categories/clutch-parts.webp",
+    "image": "/assets/images/categories/clutch-parts.webp",
     "image_dimensions": [
       400,
       400
@@ -2592,8 +2592,8 @@
     "slug": "lubricants",
     "name": "Lubricants",
     "short_name": "Lubricants",
-    "icon": "/assets/images/categories/lubricants.png",
-    "image": "/assets/images/categories/lubricants.png",
+    "icon": "/assets/images/categories/lubricants.webp",
+    "image": "/assets/images/categories/lubricants.webp",
     "image_dimensions": [
       400,
       400
@@ -2750,8 +2750,8 @@
     "slug": "cooling-system",
     "name": "Cooling System",
     "short_name": "Cooling System",
-    "icon": "/assets/images/categories/cooling-system.png",
-    "image": "/assets/images/categories/cooling-system.png",
+    "icon": "/assets/images/categories/cooling-system.webp",
+    "image": "/assets/images/categories/cooling-system.webp",
     "image_dimensions": [
       400,
       400

@@ -665,7 +665,7 @@ section {
 .catalogue-hero,
 .categories-hero {
 
-    --hero-image: url("/assets/images/hero/catalogue-hero.png");
+    --hero-image: url("/assets/images/hero/catalogue-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -675,7 +675,7 @@ section {
 
 .request-quote-hero {
 
-    --hero-image: url("/assets/images/hero/request-quote-hero.png");
+    --hero-image: url("/assets/images/hero/request-quote-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -685,7 +685,7 @@ section {
 
 .contact-hero {
 
-    --hero-image: url("/assets/images/hero/contact-hero.png");
+    --hero-image: url("/assets/images/hero/contact-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -695,7 +695,7 @@ section {
 
 .about-hero {
 
-    --hero-image: url("/assets/images/hero/about-hero.png");
+    --hero-image: url("/assets/images/hero/about-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -705,7 +705,7 @@ section {
 
 .products-hero {
 
-    --hero-image: url("/assets/images/hero/product-hero.png");
+    --hero-image: url("/assets/images/hero/product-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -715,7 +715,7 @@ section {
 
 .vehicles-hero {
 
-    --hero-image: url("/assets/images/hero/vehicle-hero.jpg");
+    --hero-image: url("/assets/images/hero/vehicle-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -725,7 +725,7 @@ section {
 
 .brands-hero {
 
-    --hero-image: url("/assets/images/hero/brand-hero.jpg");
+    --hero-image: url("/assets/images/hero/brand-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -735,7 +735,7 @@ section {
 
 .privacy-hero {
 
-    --hero-image: url("/assets/images/hero/privacy-hero.png");
+    --hero-image: url("/assets/images/hero/privacy-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -745,7 +745,7 @@ section {
 
 .terms-hero {
 
-    --hero-image: url("/assets/images/hero/terms-hero.png");
+    --hero-image: url("/assets/images/hero/terms-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -755,7 +755,7 @@ section {
 
 .refund-hero {
 
-    --hero-image: url("/assets/images/hero/refund-hero.png");
+    --hero-image: url("/assets/images/hero/refund-hero.webp");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -780,7 +780,7 @@ section {
             var(--overlay-slate-55),
             var(--overlay-slate-55)
         ),
-        url("/assets/images/hero/index-hero.png");
+        url("/assets/images/hero/index-hero.webp");
 
     background-size: cover;
 

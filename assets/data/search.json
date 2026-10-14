@@ -46615,8 +46615,8 @@
     "part_number": "",
     "slug": "air-system",
     "url": "/en/categories/air-system",
-    "image": "/assets/images/categories/air-system.png",
-    "icon": "/assets/images/categories/air-system.png",
+    "image": "/assets/images/categories/air-system.webp",
+    "icon": "/assets/images/categories/air-system.webp",
     "category": {
       "id": "air-system",
       "name": "Air System"
@@ -46650,8 +46650,8 @@
     "part_number": "",
     "slug": "bearings",
     "url": "/en/categories/bearings",
-    "image": "/assets/images/categories/bearings.png",
-    "icon": "/assets/images/categories/bearings.png",
+    "image": "/assets/images/categories/bearings.webp",
+    "icon": "/assets/images/categories/bearings.webp",
     "category": {
       "id": "bearings",
       "name": "Bearings"
@@ -46686,8 +46686,8 @@
     "part_number": "",
     "slug": "brakes",
     "url": "/en/categories/brakes",
-    "image": "/assets/images/categories/brakes.png",
-    "icon": "/assets/images/categories/brakes.png",
+    "image": "/assets/images/categories/brakes.webp",
+    "icon": "/assets/images/categories/brakes.webp",
     "category": {
       "id": "brakes",
       "name": "Brakes"
@@ -46730,8 +46730,8 @@
     "part_number": "",
     "slug": "clutch-parts",
     "url": "/en/categories/clutch-parts",
-    "image": "/assets/images/categories/clutch-parts.png",
-    "icon": "/assets/images/categories/clutch-parts.png",
+    "image": "/assets/images/categories/clutch-parts.webp",
+    "icon": "/assets/images/categories/clutch-parts.webp",
     "category": {
       "id": "clutch-parts",
       "name": "Clutch Parts"
@@ -46759,8 +46759,8 @@
     "part_number": "",
     "slug": "cooling-system",
     "url": "/en/categories/cooling-system",
-    "image": "/assets/images/categories/cooling-system.png",
-    "icon": "/assets/images/categories/cooling-system.png",
+    "image": "/assets/images/categories/cooling-system.webp",
+    "icon": "/assets/images/categories/cooling-system.webp",
     "category": {
       "id": "cooling-system",
       "name": "Cooling System"
@@ -46814,8 +46814,8 @@
     "part_number": "",
     "slug": "electricals",
     "url": "/en/categories/electricals",
-    "image": "/assets/images/categories/electricals.png",
-    "icon": "/assets/images/categories/electricals.png",
+    "image": "/assets/images/categories/electricals.webp",
+    "icon": "/assets/images/categories/electricals.webp",
     "category": {
       "id": "electricals",
       "name": "Electricals"
@@ -46849,8 +46849,8 @@
     "part_number": "",
     "slug": "engine-components",
     "url": "/en/categories/engine-components",
-    "image": "/assets/images/categories/engine-components.png",
-    "icon": "/assets/images/categories/engine-components.png",
+    "image": "/assets/images/categories/engine-components.webp",
+    "icon": "/assets/images/categories/engine-components.webp",
     "category": {
       "id": "engine-components",
       "name": "Engine Components"
@@ -46883,8 +46883,8 @@
     "part_number": "",
     "slug": "fasteners-hardware",
     "url": "/en/categories/fasteners-hardware",
-    "image": "/assets/images/categories/fasteners-hardware.png",
-    "icon": "/assets/images/categories/fasteners-hardware.png",
+    "image": "/assets/images/categories/fasteners-hardware.webp",
+    "icon": "/assets/images/categories/fasteners-hardware.webp",
     "category": {
       "id": "fasteners-hardware",
       "name": "Fasteners & Hardware"
@@ -46920,8 +46920,8 @@
     "part_number": "",
     "slug": "filters",
     "url": "/en/categories/filters",
-    "image": "/assets/images/categories/filters.png",
-    "icon": "/assets/images/categories/filters.png",
+    "image": "/assets/images/categories/filters.webp",
+    "icon": "/assets/images/categories/filters.webp",
     "category": {
       "id": "filters",
       "name": "Filters"
@@ -46957,8 +46957,8 @@
     "part_number": "",
     "slug": "lubricants",
     "url": "/en/categories/lubricants",
-    "image": "/assets/images/categories/lubricants.png",
-    "icon": "/assets/images/categories/lubricants.png",
+    "image": "/assets/images/categories/lubricants.webp",
+    "icon": "/assets/images/categories/lubricants.webp",
     "category": {
       "id": "lubricants",
       "name": "Lubricants"
@@ -46991,8 +46991,8 @@
     "part_number": "",
     "slug": "rubber-parts",
     "url": "/en/categories/rubber-parts",
-    "image": "/assets/images/categories/rubber-parts.png",
-    "icon": "/assets/images/categories/rubber-parts.png",
+    "image": "/assets/images/categories/rubber-parts.webp",
+    "icon": "/assets/images/categories/rubber-parts.webp",
     "category": {
       "id": "rubber-parts",
       "name": "Rubber Parts"
@@ -47044,8 +47044,8 @@
     "part_number": "",
     "slug": "suspension-steering",
     "url": "/en/categories/suspension-steering",
-    "image": "/assets/images/categories/suspension-steering.png",
-    "icon": "/assets/images/categories/suspension-steering.png",
+    "image": "/assets/images/categories/suspension-steering.webp",
+    "icon": "/assets/images/categories/suspension-steering.webp",
     "category": {
       "id": "suspension-steering",
       "name": "Suspension & Steering"
