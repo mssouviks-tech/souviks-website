@@ -48,11 +48,6 @@ def candidate_images() -> list[tuple[Path, int]]:
 
 def create_webp(source: Path, quality: int, max_dimensions: tuple[int, int]) -> Path | None:
     target = source.with_suffix(".webp")
-    if target.exists() and target.stat().st_mtime >= source.stat().st_mtime:
-        if target.stat().st_size < source.stat().st_size * 0.95:
-            return target
-        target.unlink()
-
     with Image.open(source) as original:
         original.load()
         # Preserve transparency and aspect ratio. Only downscale shared UI
@@ -130,11 +125,15 @@ def main() -> None:
             max_dimensions = MAX_DIMENSIONS["logo"]
 
         target = create_webp(source, quality, max_dimensions)
+        relative_source = source.relative_to(ROOT).as_posix()
+        relative_target = source.with_suffix(".webp").relative_to(ROOT).as_posix()
         if target is None:
+            # If an earlier build had rewritten this path, restore the original
+            # source reference when the updated source no longer benefits from WebP.
+            mapping[relative_source] = relative_source
+            mapping[relative_target] = relative_source
             print(f"[IMAGE] Keeping source format (WebP savings below 5%): {relative}")
             continue
-        relative_source = source.relative_to(ROOT).as_posix()
-        relative_target = target.relative_to(ROOT).as_posix()
         mapping[relative_source] = relative_target
         saved = original_size - target.stat().st_size
         saved_bytes += saved
