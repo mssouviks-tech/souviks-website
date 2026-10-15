@@ -1531,12 +1531,19 @@ def validate_category_counter_parity(categories: list[dict], errors: list[str]) 
         )
         for stat in stat_pattern.finditer(raw):
             following = raw[stat.end():stat.end() + 450]
+            next_stat = re.search(
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b',
+                following,
+                re.I,
+            )
             label_match = re.search(
                 r'<span\b[^>]*class=["\'][^"\']*\bstat-label\b[^"\']*["\'][^>]*>([\s\S]*?)</span>',
                 following,
                 re.I,
             )
             label = re.sub(r"<[^>]+>", "", label_match.group(1)).strip() if label_match else ""
+            if next_stat and label_match and next_stat.start() < label_match.start():
+                continue
             if any(token in label for token in category_labels):
                 value = re.sub(r"<[^>]+>", "", stat.group(1)).strip()
                 category_stat_values.append(value)
