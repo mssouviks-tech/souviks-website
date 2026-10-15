@@ -408,6 +408,9 @@ Quantity: ${item.qty}
                 error,
                 "error"
             );
+            if (String(error.message || "").includes("RFQ_RATE_LIMITED")) {
+                throw new Error(RFQ.submissionMessage("rateLimited"));
+            }
             throw new Error(
                 "Unable to record your RFQ. Check the basket and profile details, then try again."
             );

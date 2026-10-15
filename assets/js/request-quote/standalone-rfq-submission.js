@@ -104,6 +104,9 @@ window.RFQ.submitStandalone = async function (form) {
                 rfqError,
                 "error"
             );
+            if (String(rfqError.message || "").includes("RFQ_RATE_LIMITED")) {
+                throw new Error(window.RFQ.messages.rateLimited);
+            }
             throw new Error(window.RFQ.messages.failed);
         }
 

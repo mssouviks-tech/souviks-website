@@ -137,6 +137,20 @@ assert.match(sql, /REVOKE INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER\
 assert.match(sql, /REVOKE ALL ON FUNCTION public\.submit_rfq\([^;]+\)\s+FROM PUBLIC, anon/i);
 assert.match(sql, /GRANT EXECUTE ON FUNCTION public\.submit_rfq\([^;]+\)\s+TO authenticated/i);
 
+const rateLimitSql = fs.readFileSync(
+  path.join(ROOT, "supabase/migrations/20261015114500_rfq_submission_rate_limit.sql"),
+  "utf8"
+);
+assert.match(rateLimitSql, /pg_advisory_xact_lock/i, "RFQ rate limits must serialize concurrent requests per user");
+assert.match(rateLimitSql, /created_at >= pg_catalog\.now\(\) - interval '10 minutes'/i, "RFQ rate limit must enforce a rolling 10-minute window");
+assert.match(rateLimitSql, /\) >= 5 THEN/i, "RFQ rate limit must cap each account at five submissions per 10 minutes");
+assert.match(rateLimitSql, /created_at >= pg_catalog\.now\(\) - interval '24 hours'/i, "RFQ rate limit must enforce a rolling 24-hour window");
+assert.match(rateLimitSql, /\) >= 30 THEN/i, "RFQ rate limit must cap each account at 30 submissions per 24 hours");
+assert.match(rateLimitSql, /RAISE EXCEPTION 'RFQ_RATE_LIMITED'/i, "RFQ throttling must use a stable client-mappable error marker");
+assert.match(source.accountSubmit, /RFQ\.submissionMessage\(["']rateLimited["']\)/, "account RFQ path must show localized throttling feedback");
+assert.match(source.standaloneSubmit, /window\.RFQ\.messages\.rateLimited/, "standalone RFQ path must show localized throttling feedback");
+
+
 const versionPaths = [
   "assets/js/account/rfq.js",
   "assets/js/request-quote/rfq.js",

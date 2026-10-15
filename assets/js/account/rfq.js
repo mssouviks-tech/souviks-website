@@ -127,7 +127,8 @@ RFQ.submissionMessage = function (key) {
             quantity: "Each quantity must be a whole number from 1 to 9,999.",
             product: "One or more products have invalid details. Refresh the basket and try again.",
             customer: "Please enter your name and phone number.",
-            fieldLength: "One or more fields exceed the permitted length."
+            fieldLength: "One or more fields exceed the permitted length.",
+            rateLimited: "You have submitted several RFQs recently. Please wait a few minutes before trying again."
         },
         hi: {
             empty: "आपका RFQ बास्केट खाली है। कम से कम एक उत्पाद जोड़ें।",
@@ -136,7 +137,8 @@ RFQ.submissionMessage = function (key) {
             quantity: "प्रत्येक मात्रा 1 से 9,999 के बीच पूर्ण संख्या होनी चाहिए।",
             product: "एक या अधिक उत्पादों का विवरण अमान्य है। बास्केट रीफ़्रेश करके फिर प्रयास करें।",
             customer: "कृपया अपना नाम और फ़ोन नंबर दर्ज करें।",
-            fieldLength: "एक या अधिक फ़ील्ड अनुमत लंबाई से अधिक हैं।"
+            fieldLength: "एक या अधिक फ़ील्ड अनुमत लंबाई से अधिक हैं।",
+            rateLimited: "आपने हाल ही में कई RFQ सबमिट किए हैं। कृपया कुछ मिनट बाद फिर प्रयास करें।"
         },
         bn: {
             empty: "আপনার RFQ ঝুড়ি খালি। অন্তত একটি পণ্য যোগ করুন।",
@@ -145,7 +147,8 @@ RFQ.submissionMessage = function (key) {
             quantity: "প্রতিটি পরিমাণ ১ থেকে ৯,৯৯৯-এর মধ্যে পূর্ণ সংখ্যা হতে হবে।",
             product: "এক বা একাধিক পণ্যের বিবরণ অবৈধ। ঝুড়ি রিফ্রেশ করে আবার চেষ্টা করুন।",
             customer: "অনুগ্রহ করে আপনার নাম ও ফোন নম্বর লিখুন।",
-            fieldLength: "এক বা একাধিক ফিল্ড অনুমোদিত দৈর্ঘ্যের বেশি।"
+            fieldLength: "এক বা একাধিক ফিল্ড অনুমোদিত দৈর্ঘ্যের বেশি।",
+            rateLimited: "আপনি সম্প্রতি একাধিক RFQ জমা দিয়েছেন। অনুগ্রহ করে কয়েক মিনিট পরে আবার চেষ্টা করুন।"
         }
     };
     const language = String(
