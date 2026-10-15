@@ -489,7 +489,7 @@ def sync_category_listing_pages(categories: list[dict]) -> None:
         if denominator_replacements != 1:
             raise ValueError(f"{listing.relative_to(ROOT)}: missing category total denominator after #visibleCategories.")
 
-        hero_pattern = re.compile(r'<div\\b[^>]*class=["\\'][^"\\']*\\bhero-stat\\b[^"\\']*["\\'][^>]*>[\\s\\S]*?</div>', re.I)
+        hero_pattern = re.compile(r'<div\b[^>]*class=["\'][^"\']*\bhero-stat\b[^"\']*["\'][^>]*>[\s\S]*?</div>', re.I)
         hero_stats = list(hero_pattern.finditer(updated))
         category_labels = {
             "en": ("Categories",),
@@ -499,12 +499,12 @@ def sync_category_listing_pages(categories: list[dict]) -> None:
         category_stat_updated = False
         for hero in hero_stats:
             block = hero.group(0)
-            label_match = re.search(r'<span\\b[^>]*class=["\\'][^"\\']*\\bstat-label\\b[^"\\']*["\\'][^>]*>([\\s\\S]*?)</span>', block, re.I)
+            label_match = re.search(r'<span\b[^>]*class=["\'][^"\']*\bstat-label\b[^"\']*["\'][^>]*>([\s\S]*?)</span>', block, re.I)
             label = re.sub(r'<[^>]+>', '', label_match.group(1)).strip() if label_match else ""
             if not any(token in label for token in category_labels):
                 continue
             block_updated, replacements = re.subn(
-                r'(<span\\b[^>]*class=["\\'][^"\\']*\\bstat-number\\b[^"\\']*["\\'][^>]*>)[\\s\\S]*?(</span>)',
+                r'(<span\b[^>]*class=["\'][^"\']*\bstat-number\b[^"\']*["\'][^>]*>)[\s\S]*?(</span>)',
                 lambda match: match.group(1) + str(len(active)) + match.group(2),
                 block,
                 count=1,
