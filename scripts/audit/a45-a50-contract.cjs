@@ -102,6 +102,20 @@ for (const language of languages) {
     }
 }
 
+const formContracts = [
+    { page: "en/contact.html", formId: "contactForm", fields: ["contactName", "contactPhone", "contactEmail", "contactMessage"] },
+    { page: "en/request-part.html", formId: "requestPartForm", fields: ["name", "phone", "email", "requirement"] }
+];
+for (const contract of formContracts) {
+    const html = read(contract.page);
+    const formMatch = html.match(new RegExp('<form\\\\b[^>]*id="' + contract.formId + '"[\\\\s\\\\S]*?<\\\\/form>', "i"));
+    assert.ok(formMatch, `${contract.page} must contain ${contract.formId}`);
+    for (const fieldId of contract.fields) {
+        assert.ok(formMatch[0].includes(`id="${fieldId}"`) && formMatch[0].includes(`for="${fieldId}"`),
+            `${contract.page} field ${fieldId} must have an associated label`);
+    }
+}
+
 for (const file of ["assets/js/bundles/contact.js", "assets/js/bundles/request-part.js"]) {
     const js = read(file);
     assert.ok(js.includes('aria-live'), `${file} must announce form status changes`);
