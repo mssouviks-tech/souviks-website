@@ -17,6 +17,7 @@ This checklist separates deterministic repository checks from evidence that must
 - [ ] Business owner to confirm whether the free-shipping threshold is strictly above ₹45,000 or inclusive of exactly ₹45,000.
 - [ ] Confirm the one-hour delivery-damage report window, general seven-day return/exchange request window, lubricant exclusion and inspection/approval process against actual operations.
 - [ ] Have the policy reviewed by an appropriately qualified Indian legal professional. Automated consistency is not legal advice.
+- [ ] Include a pre-effective-date review of the Consumer Protection (E-Commerce) (Amendment) Rules, 2026. The Department of Consumer Affairs announced that these amendments come into force on 1 January 2027; confirm applicability to Souviks and update disclosures before that date if required: https://www.pib.gov.in/newsite/erelcontent.aspx?lang=2&reg=48&relid=294532
 
 ## A48 — Enquiry conversion and delivery
 
