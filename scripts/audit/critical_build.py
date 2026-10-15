@@ -1544,7 +1544,7 @@ def validate_category_counter_parity(categories: list[dict], errors: list[str]) 
             label = re.sub(r"<[^>]+>", "", label_match.group(1)).strip() if label_match else ""
             if next_stat and label_match and next_stat.start() < label_match.start():
                 continue
-            if any(token in label for token in category_labels):
+            if label in category_labels:
                 value = re.sub(r"<[^>]+>", "", stat.group(1)).strip()
                 category_stat_values.append(value)
         if len(category_stat_values) != 1 or not category_stat_values[0].isdigit() or int(category_stat_values[0]) != expected_count:
