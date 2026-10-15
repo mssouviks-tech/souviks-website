@@ -1381,7 +1381,7 @@ def validate_catalogue_reference_integrity(
     for review instead of blocking publication until the source data is curated.
     """
     def key(value) -> str:
-        return re.sub(r"\\s+", " ", text(value)).casefold()
+        return re.sub(r"\s+", " ", text(value)).casefold()
 
     brand_by_id = {
         text(item.get("id")): item for item in brands
@@ -1560,16 +1560,16 @@ def main() -> None:
     records_by_kind = validate_critical_catalogue_contract(errors)
     reference_warnings: list[str] = []
     validate_catalogue_reference_integrity(
-        records_by_kind[\"products\"], records_by_kind[\"brands\"],
-        records_by_kind[\"categories\"], records_by_kind[\"vehicles\"],
+        records_by_kind["products"], records_by_kind["brands"],
+        records_by_kind["categories"], records_by_kind["vehicles"],
         errors, reference_warnings,
     )
     if reference_warnings:
-        print(f\"[critical build] catalogue reference warnings: {len(reference_warnings)}\")
+        print(f"[critical build] catalogue reference warnings: {len(reference_warnings)}")
         for warning in reference_warnings[:30]:
-            print(f\"[catalogue reference warning] {warning}\")
+            print(f"[catalogue reference warning] {warning}")
         if len(reference_warnings) > 30:
-            print(f\"[catalogue reference warning] ... and {len(reference_warnings) - 30} more\")
+            print(f"[catalogue reference warning] ... and {len(reference_warnings) - 30} more")
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_product_card_images(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
