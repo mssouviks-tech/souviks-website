@@ -514,7 +514,7 @@ def sync_category_listing_pages(categories: list[dict]) -> None:
             label = re.sub(r'<[^>]+>', '', label_match.group(1)).strip() if label_match else ""
             if next_stat and label_match and next_stat.start() < label_match.start():
                 continue
-            if not any(token in label for token in category_labels):
+            if label not in category_labels:
                 continue
             stat_html = stat.group(0)
             number_match = re.search(r'>([\s\S]*?)</span>$', stat_html, re.I)
