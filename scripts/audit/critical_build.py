@@ -1365,6 +1365,104 @@ def validate_critical_catalogue_contract(errors: list[str]) -> dict[str, list]:
 
 
 
+
+def validate_catalogue_reference_integrity(
+    products: list[dict],
+    brands: list[dict],
+    categories: list[dict],
+    vehicles: list[dict],
+    errors: list[str],
+    warnings: list[str],
+) -> None:
+    """Check catalogue foreign keys against the approved entity masters.
+
+    Product vehicle applications are currently stored as display labels rather
+    than consistently-normalized IDs, so unresolved vehicle labels are reported
+    for review instead of blocking publication until the source data is curated.
+    """
+    def key(value) -> str:
+        return re.sub(r"\s+", " ", text(value)).casefold()
+
+    brand_by_id = {
+        text(item.get("id")): item for item in brands
+        if text(item.get("id"))
+    }
+    category_by_id = {
+        text(item.get("id")): item for item in categories
+        if text(item.get("id"))
+    }
+    subcategories_by_category = {}
+    for category_id, category in category_by_id.items():
+        subcategories_by_category[category_id] = {
+            text(sub.get("id")): sub
+            for sub in category.get("subcategories", [])
+            if isinstance(sub, dict) and text(sub.get("id"))
+        }
+
+    vehicle_aliases = set()
+    for vehicle in vehicles:
+        for field in ("id", "slug", "model", "name"):
+            alias = key(vehicle.get(field))
+            if alias:
+                vehicle_aliases.add(alias)
+        model = text(vehicle.get("model"))
+        variant = text(vehicle.get("variant"))
+        if model and variant:
+            vehicle_aliases.add(key(f"{model} {variant}"))
+
+    for product in products:
+        pid = text(product.get("id")) or "<missing-id>"
+        brand_id = text(product.get("brand_id"))
+        category_id = text(product.get("category_id"))
+        subcategory_id = text(product.get("subcategory_id"))
+
+        if brand_id and brand_id not in brand_by_id:
+            errors.append(f"{pid}: brand_id {brand_id!r} is absent from active brands.json")
+        elif brand_id:
+            expected_name = key(brand_by_id[brand_id].get("name"))
+            actual_name = key(product.get("brand_name") or product.get("brand"))
+            if expected_name and actual_name and expected_name != actual_name:
+                warnings.append(
+                    f"{pid}: brand label {product.get('brand_name') or product.get('brand')!r} "
+                    f"differs from brands.json label {brand_by_id[brand_id].get('name')!r}"
+                )
+
+        if not category_id:
+            errors.append(f"{pid}: active product has no category_id")
+        elif category_id not in category_by_id:
+            errors.append(f"{pid}: category_id {category_id!r} is absent from active categories.json")
+        else:
+            category = category_by_id[category_id]
+            expected_name = key(category.get("name"))
+            actual_name = key(product.get("category_name") or product.get("category"))
+            if expected_name and actual_name and expected_name != actual_name:
+                warnings.append(
+                    f"{pid}: category label {product.get('category_name') or product.get('category')!r} "
+                    f"differs from categories.json label {category.get('name')!r}"
+                )
+            if subcategory_id:
+                subcategory = subcategories_by_category.get(category_id, {}).get(subcategory_id)
+                if subcategory is None:
+                    errors.append(
+                        f"{pid}: subcategory_id {subcategory_id!r} is not defined under category {category_id!r}"
+                    )
+                else:
+                    expected_subcategory = key(subcategory.get("name"))
+                    actual_subcategory = key(product.get("subcategory_name") or product.get("subcategory"))
+                    if expected_subcategory and actual_subcategory and expected_subcategory != actual_subcategory:
+                        warnings.append(
+                            f"{pid}: subcategory label {product.get('subcategory_name') or product.get('subcategory')!r} "
+                            f"differs from categories.json label {subcategory.get('name')!r}"
+                        )
+
+        for vehicle_value in arrayish(product.get("vehicles")):
+            if key(vehicle_value) not in vehicle_aliases:
+                warnings.append(
+                    f"{pid}: vehicle application {vehicle_value!r} does not exactly resolve to vehicles.json"
+                )
+
+
+
 def validate_category_counter_parity(categories: list[dict], errors: list[str]) -> None:
     """Keep the active category master, visible listing counters and category sitemap in parity."""
     active = [
@@ -1460,6 +1558,18 @@ def main() -> None:
     validate_security_headers(errors)
     validate_page_config_syntax(errors)
     records_by_kind = validate_critical_catalogue_contract(errors)
+    reference_warnings: list[str] = []
+    validate_catalogue_reference_integrity(
+        records_by_kind["products"], records_by_kind["brands"],
+        records_by_kind["categories"], records_by_kind["vehicles"],
+        errors, reference_warnings,
+    )
+    if reference_warnings:
+        print(f"[critical build] catalogue reference warnings: {len(reference_warnings)}")
+        for warning in reference_warnings[:30]:
+            print(f"[catalogue reference warning] {warning}")
+        if len(reference_warnings) > 30:
+            print(f"[catalogue reference warning] ... and {len(reference_warnings) - 30} more")
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_product_card_images(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
