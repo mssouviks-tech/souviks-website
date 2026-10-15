@@ -108,10 +108,13 @@ const formContracts = [
 ];
 for (const contract of formContracts) {
     const html = read(contract.page);
-    const formMatch = html.match(new RegExp('<form\\\\b[^>]*id="' + contract.formId + '"[\\\\s\\\\S]*?<\\\\/form>', "i"));
-    assert.ok(formMatch, `${contract.page} must contain ${contract.formId}`);
+    const formIdPosition = html.indexOf(`id="${contract.formId}"`);
+    const formStart = formIdPosition >= 0 ? html.lastIndexOf("<form", formIdPosition) : -1;
+    const formEnd = formIdPosition >= 0 ? html.indexOf("</form>", formIdPosition) : -1;
+    assert.ok(formStart >= 0 && formEnd >= formStart, `${contract.page} must contain ${contract.formId}`);
+    const formMarkup = html.slice(formStart, formEnd + "</form>".length);
     for (const fieldId of contract.fields) {
-        assert.ok(formMatch[0].includes(`id="${fieldId}"`) && formMatch[0].includes(`for="${fieldId}"`),
+        assert.ok(formMarkup.includes(`id="${fieldId}"`) && formMarkup.includes(`for="${fieldId}"`),
             `${contract.page} field ${fieldId} must have an associated label`);
     }
 }
