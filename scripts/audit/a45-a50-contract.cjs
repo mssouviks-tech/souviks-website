@@ -71,7 +71,8 @@ for (const language of languages) {
     const brandPage = read(`${language}/brands.html`);
     const translations = json(`assets/data/languages/${language}.json`);
 
-    const metricMatches = [...about.matchAll(/<div class="stat-number">\\s*([^<\\s]+)\\s*<\\/div>\\s*<div class="stat-label">\\s*([^<]+)\\s*<\\/div>/g)];
+    const metricRegex = new RegExp('<div class="stat-number">\\s*([^<\\s]+)\\s*</div>\\s*<div class="stat-label">\\s*([^<]+)\\s*</div>', "g");
+    const metricMatches = [...about.matchAll(metricRegex)];
     assert.ok(metricMatches.length >= 3, `${language}/about.html must publish catalogue metrics`);
     assert.equal(Number(metricMatches[1][1]), activeProducts.length,
         `${language}/about.html product count must match active products`);
@@ -111,7 +112,7 @@ for (const file of ["assets/js/bundles/contact.js", "assets/js/bundles/request-p
 
 for (const file of ["assets/css/bundles/brands.css", "assets/css/bundles/vehicles.css"]) {
     const css = read(file);
-    assert.ok(css.includes(".search-suggestion:focus-visible") && /outline:\\s*2px solid/.test(css),
+    assert.ok(css.includes(".search-suggestion:focus-visible") && /outline:\s*2px solid/.test(css),
         `${file} search suggestions must have a visible keyboard focus indicator`);
     assert.ok(css.includes(".catalogue-search .search-input:focus-visible"),
         `${file} catalogue search input must have a visible keyboard focus indicator`);
