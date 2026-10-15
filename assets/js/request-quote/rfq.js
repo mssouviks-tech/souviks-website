@@ -37,6 +37,7 @@ const RFQ_MESSAGE = {
         submitting: "Submitting your RFQ…",
         success: ref => `RFQ submitted successfully. Reference: ${ref}`,
         failed: "Unable to submit your RFQ. Please try again.",
+        rateLimited: "You have submitted several RFQs recently. Please wait a few minutes before trying again.",
         whatsappEmpty: "Your RFQ basket is empty. Add at least one product first."
     },
     bn: {
@@ -48,6 +49,7 @@ const RFQ_MESSAGE = {
         submitting: "আপনার RFQ জমা হচ্ছে…",
         success: ref => `RFQ সফলভাবে জমা হয়েছে। রেফারেন্স: ${ref}`,
         failed: "আপনার RFQ জমা দেওয়া যায়নি। আবার চেষ্টা করুন।",
+        rateLimited: "আপনি সম্প্রতি একাধিক RFQ জমা দিয়েছেন। অনুগ্রহ করে কয়েক মিনিট পরে আবার চেষ্টা করুন।",
         whatsappEmpty: "আপনার RFQ ঝুড়ি খালি। আগে অন্তত একটি পণ্য যোগ করুন।"
     },
     hi: {
@@ -59,6 +61,7 @@ const RFQ_MESSAGE = {
         submitting: "आपका RFQ सबमिट हो रहा है…",
         success: ref => `RFQ सफलतापूर्वक सबमिट हो गया। संदर्भ: ${ref}`,
         failed: "आपका RFQ सबमिट नहीं किया जा सका। कृपया फिर प्रयास करें।",
+        rateLimited: "आपने हाल ही में कई RFQ सबमिट किए हैं। कृपया कुछ मिनट बाद फिर प्रयास करें।",
         whatsappEmpty: "आपका RFQ बास्केट खाली है। पहले कम से कम एक उत्पाद जोड़ें।"
     }
 };
