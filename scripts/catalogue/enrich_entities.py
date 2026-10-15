@@ -501,12 +501,19 @@ def sync_category_listing_pages(categories: list[dict]) -> None:
         category_stat_updated = False
         for stat in stat_pattern.finditer(updated):
             following = updated[stat.end():stat.end() + 450]
+            next_stat = re.search(
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b',
+                following,
+                re.I,
+            )
             label_match = re.search(
                 r'<span\b[^>]*class=["\'][^"\']*\bstat-label\b[^"\']*["\'][^>]*>([\s\S]*?)</span>',
                 following,
                 re.I,
             )
             label = re.sub(r'<[^>]+>', '', label_match.group(1)).strip() if label_match else ""
+            if next_stat and label_match and next_stat.start() < label_match.start():
+                continue
             if not any(token in label for token in category_labels):
                 continue
             stat_html = stat.group(0)
