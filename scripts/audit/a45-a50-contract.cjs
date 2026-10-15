@@ -105,7 +105,7 @@ for (const language of languages) {
 for (const file of ["assets/js/bundles/contact.js", "assets/js/bundles/request-part.js"]) {
     const js = read(file);
     assert.ok(js.includes('aria-live'), `${file} must announce form status changes`);
-    assert.ok(js.includes("focusableSelector") && js.includes('event.key === "Tab"'),
+    assert.ok(js.includes("focusableSelector") && js.includes('"Tab"') && js.includes("focusable[focusable.length - 1]"),
         `${file} success dialog must keep keyboard focus within the dialog`);
     assert.ok(js.includes('event.key === "Escape"'), `${file} success dialog must support Escape`);
 }
