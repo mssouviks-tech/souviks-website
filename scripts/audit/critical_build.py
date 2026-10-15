@@ -1526,13 +1526,13 @@ def validate_category_counter_parity(categories: list[dict], errors: list[str]) 
         }[language]
         category_stat_values = []
         stat_pattern = re.compile(
-            r'<span\\b[^>]*class=["\\'][^"\\']*\\bstat-number\\b[^"\\']*["\\'][^>]*>([\\s\\S]*?)</span>',
+            r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b[^"\']*["\'][^>]*>([\s\S]*?)</span>',
             re.I,
         )
         for stat in stat_pattern.finditer(raw):
             following = raw[stat.end():stat.end() + 450]
             label_match = re.search(
-                r'<span\\b[^>]*class=["\\'][^"\\']*\\bstat-label\\b[^"\\']*["\\'][^>]*>([\\s\\S]*?)</span>',
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-label\b[^"\']*["\'][^>]*>([\s\S]*?)</span>',
                 following,
                 re.I,
             )
@@ -1547,7 +1547,7 @@ def validate_category_counter_parity(categories: list[dict], errors: list[str]) 
             )
 
         after_counter = re.search(
-            r'<span\\b(?=[^>]*\\bid=["\\']visibleCategories["\\'])[^>]*>[\\s\\S]*?</span>([\\s\\S]{0,160}?<span\\b[^>]*>)([\\s\\S]*?)(</span>)',
+            r'<span\b(?=[^>]*\bid=["\']visibleCategories["\'])[^>]*>[\s\S]*?</span>([\s\S]{0,160}?<span\b[^>]*>)([\s\S]*?)(</span>)',
             raw,
             flags=re.I,
         )
@@ -1555,7 +1555,7 @@ def validate_category_counter_parity(categories: list[dict], errors: list[str]) 
             errors.append(f"{listing.relative_to(ROOT)}: missing category total denominator after #visibleCategories")
         else:
             denominator = re.sub(r"<[^>]+>", "", after_counter.group(2)).strip()
-            denominator = re.sub(r"[,\\s]", "", denominator)
+            denominator = re.sub(r"[,\s]", "", denominator)
             if not denominator.isdigit() or int(denominator) != expected_count:
                 errors.append(
                     f"{listing.relative_to(ROOT)}: category total denominator is {denominator!r}; "
