@@ -447,13 +447,13 @@ async function main() {
     for (const lang of LANGS) {
       const relative = lang + "/products/0209-e-comet-rear-main-leaf.html";
       const html = fs.readFileSync(path.join(__dirname, "../../", relative), "utf8");
-      const main = html.match(/<img\\b[^>]*id=["']pdpMainImage["'][^>]*>/i);
+      const main = html.match(/<img\b[^>]*id=["']pdpMainImage["'][^>]*>/i);
       if (!main || !main[0].includes("/assets/images/products/SVKS000883/" + gallery[0])) {
         throw new Error(relative + " main image does not match the master gallery");
       }
-      const thumbSection = html.match(/<div\\b[^>]*class=["'][^"']*\\bpdp-thumbnails\\b[^"']*["'][^>]*>([\\s\\S]*?)<\\/div>/i);
+      const thumbSection = html.match(/<div\b[^>]*class=["'][^"']*\bpdp-thumbnails\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i);
       if (!thumbSection) throw new Error(relative + " gallery thumbnails are missing");
-      const paths = [...thumbSection[1].matchAll(/<img\\b[^>]*src=["']([^"']+)["']/gi)].map(match => match[1]);
+      const paths = [...thumbSection[1].matchAll(/<img\b[^>]*src=["']([^"']+)["']/gi)].map(match => match[1]);
       if (paths.length !== gallery.length || paths.some((src, index) => !src.endsWith("/" + gallery[index]))) {
         throw new Error(relative + " thumbnail paths/count differ from the master gallery");
       }
