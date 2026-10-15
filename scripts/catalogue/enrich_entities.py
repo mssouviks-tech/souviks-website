@@ -480,7 +480,7 @@ def sync_category_listing_pages(categories: list[dict]) -> None:
         # Keep the denominator and hero category statistic in sync as well.
         # Older generated pages could show "13 of 12" while the cards were correct.
         updated, denominator_replacements = re.subn(
-            r'(<span\\b(?=[^>]*\\bid=["\\']visibleCategories["\\'])[^>]*>[\\s\\S]*?</span>[\\s\\S]{0,160}?<span\\b[^>]*>)[\\s\\S]*?(</span>)',
+            r'(<span\b(?=[^>]*\bid=["\']visibleCategories["\'])[^>]*>[\s\S]*?</span>[\s\S]{0,160}?<span\b[^>]*>)[\s\S]*?(</span>)',
             lambda match: match.group(1) + str(len(active)) + match.group(2),
             updated,
             count=1,
@@ -495,14 +495,14 @@ def sync_category_listing_pages(categories: list[dict]) -> None:
             "bn": ("বিভাগসমূহ", "বিভাগ"),
         }[language]
         stat_pattern = re.compile(
-            r'<span\\b[^>]*class=["\\'][^"\\']*\\bstat-number\\b[^"\\']*["\\'][^>]*>[\\s\\S]*?</span>',
+            r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b[^"\']*["\'][^>]*>[\s\S]*?</span>',
             re.I,
         )
         category_stat_updated = False
         for stat in stat_pattern.finditer(updated):
             following = updated[stat.end():stat.end() + 450]
             label_match = re.search(
-                r'<span\\b[^>]*class=["\\'][^"\\']*\\bstat-label\\b[^"\\']*["\\'][^>]*>([\\s\\S]*?)</span>',
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-label\b[^"\']*["\'][^>]*>([\s\S]*?)</span>',
                 following,
                 re.I,
             )
@@ -510,7 +510,7 @@ def sync_category_listing_pages(categories: list[dict]) -> None:
             if not any(token in label for token in category_labels):
                 continue
             stat_html = stat.group(0)
-            number_match = re.search(r'>([\\s\\S]*?)</span>$', stat_html, re.I)
+            number_match = re.search(r'>([\s\S]*?)</span>$', stat_html, re.I)
             if not number_match:
                 raise ValueError(f"{listing.relative_to(ROOT)}: category hero statistic is missing its number.")
             replacement = stat_html[:number_match.start(1)] + str(len(active)) + stat_html[number_match.end(1):]
