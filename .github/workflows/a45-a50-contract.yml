@@ -1,0 +1,48 @@
+name: A45-A50 Business and Accessibility Contract
+
+on:
+  pull_request:
+    paths:
+      - "assets/data/products.json"
+      - "assets/data/brands.json"
+      - "assets/data/languages/**"
+      - "assets/js/bundles/contact.js"
+      - "assets/js/bundles/request-part.js"
+      - "assets/css/bundles/brands.css"
+      - "assets/css/bundles/vehicles.css"
+      - "en/**"
+      - "hi/**"
+      - "bn/**"
+      - "scripts/audit/a45-a50-contract.cjs"
+      - ".github/workflows/a45-a50-contract.yml"
+  push:
+    branches: [main]
+    paths:
+      - "assets/data/products.json"
+      - "assets/data/brands.json"
+      - "assets/data/languages/**"
+      - "assets/js/bundles/contact.js"
+      - "assets/js/bundles/request-part.js"
+      - "assets/css/bundles/brands.css"
+      - "assets/css/bundles/vehicles.css"
+      - "en/**"
+      - "hi/**"
+      - "bn/**"
+      - "scripts/audit/a45-a50-contract.cjs"
+      - ".github/workflows/a45-a50-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  business-accessibility-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Validate catalogue claims, price arithmetic, policy presence and keyboard contracts
+        run: node scripts/audit/a45-a50-contract.cjs
