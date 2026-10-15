@@ -393,6 +393,74 @@ async function main() {
     return "English, Hindi and Bengali PDPs use Toyo breadcrumb/logo and the real four-image product gallery";
   });
 
+  await check("catalogue/SVKS000962 remains excluded until restoration is explicitly approved", async () => {
+    const productsPath = path.join(__dirname, "../../assets/data/products.json");
+    const indexPath = path.join(__dirname, "../../assets/data/catalogue-index.json");
+    const products = JSON.parse(fs.readFileSync(productsPath, "utf8"));
+    const index = JSON.parse(fs.readFileSync(indexPath, "utf8"));
+    const master = products.find(item => item && item.id === "SVKS000962");
+    const projected = index.find(item => item && item.id === "SVKS000962");
+
+    if (master && master.active !== false) {
+      throw new Error("SVKS000962 is active without verified product imagery and restoration approval");
+    }
+    if (projected && projected.active !== false) {
+      throw new Error("SVKS000962 is exposed as active in catalogue-index.json");
+    }
+
+    const generatedPages = [];
+    for (const lang of LANGS) {
+      const root = path.join(__dirname, "../../", lang, "products");
+      if (!fs.existsSync(root)) continue;
+      for (const filename of fs.readdirSync(root)) {
+        if (!filename.endsWith(".html")) continue;
+        const html = fs.readFileSync(path.join(root, filename), "utf8");
+        if (html.includes("SVKS000962")) generatedPages.push(lang + "/products/" + filename);
+      }
+    }
+    if (generatedPages.length) {
+      throw new Error("SVKS000962 appears in generated customer-facing pages: " + generatedPages.slice(0, 5).join(", "));
+    }
+    return "product is absent or explicitly inactive in master/index data and has no generated English, Hindi or Bengali PDP";
+  });
+
+  await check("catalogue/E Comet gallery stays product-bound and distinct in all languages", async () => {
+    const productsPath = path.join(__dirname, "../../assets/data/products.json");
+    const products = JSON.parse(fs.readFileSync(productsPath, "utf8"));
+    const master = products.find(item => item && item.id === "SVKS000883");
+    if (!master || master.active === false) throw new Error("SVKS000883 is missing or inactive");
+    if (master.brand_id !== "toyo" || (master.brand_name || master.brand) !== "Toyo") {
+      throw new Error("SVKS000883 master brand is not Toyo");
+    }
+    const folder = String(master.image_folder || master.id);
+    const gallery = Array.isArray(master.gallery) ? master.gallery : [];
+    if (gallery.length < 1 || gallery.length > 4) {
+      throw new Error("SVKS000883 gallery must contain between one and four source images");
+    }
+    if (new Set(gallery).size !== gallery.length) {
+      throw new Error("SVKS000883 gallery contains repeated filenames");
+    }
+    for (const filename of gallery) {
+      const imagePath = path.join(__dirname, "../../assets/images/products", folder, filename);
+      if (!fs.existsSync(imagePath)) throw new Error("Missing E Comet source image: " + imagePath);
+    }
+    for (const lang of LANGS) {
+      const relative = lang + "/products/0209-e-comet-rear-main-leaf.html";
+      const html = fs.readFileSync(path.join(__dirname, "../../", relative), "utf8");
+      const main = html.match(/<img\b[^>]*id=["']pdpMainImage["'][^>]*>/i);
+      if (!main || !main[0].includes("/assets/images/products/SVKS000883/" + gallery[0])) {
+        throw new Error(relative + " main image does not match the master gallery");
+      }
+      const thumbSection = html.match(/<div\b[^>]*class=["'][^"']*\bpdp-thumbnails\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i);
+      if (!thumbSection) throw new Error(relative + " gallery thumbnails are missing");
+      const paths = [...thumbSection[1].matchAll(/<img\b[^>]*src=["']([^"']+)["']/gi)].map(match => match[1]);
+      if (paths.length !== gallery.length || paths.some((src, index) => !src.endsWith("/" + gallery[index]))) {
+        throw new Error(relative + " thumbnail paths/count differ from the master gallery");
+      }
+    }
+    return gallery.length + " distinct master images bound to the Toyo E Comet PDP in English, Hindi and Bengali";
+  });
+
   await check("reliability/static catalogue totals match active product records", async () => {
     const indexPath = path.join(__dirname, "../../assets/data/catalogue-index.json");
     const records = JSON.parse(fs.readFileSync(indexPath, "utf8"));
