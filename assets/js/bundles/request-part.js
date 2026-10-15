@@ -174,10 +174,34 @@ function showLeadSuccess(leadId, payload) {
     close.className = "btn btn-secondary";
     close.textContent = "Close";
 
+    const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
     const onKeyDown = event => {
-        if (event.key !== "Escape") return;
-        event.preventDefault();
-        closeModal();
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeModal();
+            return;
+        }
+
+        if (event.key !== "Tab") return;
+
+        const focusable = [...modal.querySelectorAll(focusableSelector)].filter(element =>
+            !element.hasAttribute("hidden") && element.getAttribute("aria-hidden") !== "true"
+        );
+        if (!focusable.length) {
+            event.preventDefault();
+            modal.focus();
+            return;
+        }
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && (document.activeElement === first || document.activeElement === modal)) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
     };
 
     const closeModal = () => {
