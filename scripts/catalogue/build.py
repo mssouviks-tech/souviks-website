@@ -856,10 +856,10 @@ def reconcile_catalogue_projections():
                             )
                     return opening + inner + closing
 
-                html, _ = re.subn(
+                page, _ = re.subn(
                     r'(<div\b[^>]*class=["\'][^"\']*\bpdp-brand-badge\b[^"\']*["\'][^>]*>)(.*?)(</div>)',
                     sync_brand_badge,
-                    html,
+                    page,
                     count=1,
                     flags=re.I | re.S,
                 )
