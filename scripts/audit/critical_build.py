@@ -1518,6 +1518,57 @@ def validate_category_counter_parity(categories: list[dict], errors: list[str]) 
                 f"active categories master requires {expected_count}"
             )
 
+        # Check the hero statistic and both sides of the "shown of total" counter.
+        category_labels = {
+            "en": ("Categories",),
+            "hi": ("श्रेणियाँ", "श्रेणियां"),
+            "bn": ("বিভাগসমূহ", "বিভাগ"),
+        }[language]
+        category_stat_values = []
+        stat_pattern = re.compile(
+            r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b[^"\']*["\'][^>]*>([\s\S]*?)</span>',
+            re.I,
+        )
+        for stat in stat_pattern.finditer(raw):
+            following = raw[stat.end():stat.end() + 450]
+            next_stat = re.search(
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b',
+                following,
+                re.I,
+            )
+            label_match = re.search(
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-label\b[^"\']*["\'][^>]*>([\s\S]*?)</span>',
+                following,
+                re.I,
+            )
+            label = re.sub(r"<[^>]+>", "", label_match.group(1)).strip() if label_match else ""
+            if next_stat and label_match and next_stat.start() < label_match.start():
+                continue
+            if label in category_labels:
+                value = re.sub(r"<[^>]+>", "", stat.group(1)).strip()
+                category_stat_values.append(value)
+        if len(category_stat_values) != 1 or not category_stat_values[0].isdigit() or int(category_stat_values[0]) != expected_count:
+            errors.append(
+                f"{listing.relative_to(ROOT)}: category hero statistic is {category_stat_values!r}; "
+                f"active categories master requires {expected_count}"
+            )
+
+        after_counter = re.search(
+            r'<span\b(?=[^>]*\bid=["\']visibleCategories["\'])[^>]*>[\s\S]*?</span>([\s\S]{0,160}?<span\b[^>]*>)([\s\S]*?)(</span>)',
+            raw,
+            flags=re.I,
+        )
+        if not after_counter:
+            errors.append(f"{listing.relative_to(ROOT)}: missing category total denominator after #visibleCategories")
+        else:
+            denominator = re.sub(r"<[^>]+>", "", after_counter.group(2)).strip()
+            denominator = re.sub(r"[,\s]", "", denominator)
+            if not denominator.isdigit() or int(denominator) != expected_count:
+                errors.append(
+                    f"{listing.relative_to(ROOT)}: category total denominator is {denominator!r}; "
+                    f"active categories master requires {expected_count}"
+                )
+
     sitemap_path = ROOT / "sitemaps" / "categories.xml"
     sitemap = sitemap_urls(sitemap_path, errors)
     for language in ("en", "hi", "bn"):

@@ -476,6 +476,57 @@ def sync_category_listing_pages(categories: list[dict]) -> None:
         )
         if count_replacements != 1:
             raise ValueError(f"{listing.relative_to(ROOT)}: missing #visibleCategories counter.")
+
+        # Keep the denominator and hero category statistic in sync as well.
+        # Older generated pages could show "13 of 12" while the cards were correct.
+        updated, denominator_replacements = re.subn(
+            r'(<span\b(?=[^>]*\bid=["\']visibleCategories["\'])[^>]*>[\s\S]*?</span>[\s\S]{0,160}?<span\b[^>]*>)[\s\S]*?(</span>)',
+            lambda match: match.group(1) + str(len(active)) + match.group(2),
+            updated,
+            count=1,
+            flags=re.I,
+        )
+        if denominator_replacements != 1:
+            raise ValueError(f"{listing.relative_to(ROOT)}: missing category total denominator after #visibleCategories.")
+
+        category_labels = {
+            "en": ("Categories",),
+            "hi": ("श्रेणियाँ", "श्रेणियां"),
+            "bn": ("বিভাগসমূহ", "বিভাগ"),
+        }[language]
+        stat_pattern = re.compile(
+            r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b[^"\']*["\'][^>]*>[\s\S]*?</span>',
+            re.I,
+        )
+        category_stat_updated = False
+        for stat in stat_pattern.finditer(updated):
+            following = updated[stat.end():stat.end() + 450]
+            next_stat = re.search(
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b',
+                following,
+                re.I,
+            )
+            label_match = re.search(
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-label\b[^"\']*["\'][^>]*>([\s\S]*?)</span>',
+                following,
+                re.I,
+            )
+            label = re.sub(r'<[^>]+>', '', label_match.group(1)).strip() if label_match else ""
+            if next_stat and label_match and next_stat.start() < label_match.start():
+                continue
+            if label not in category_labels:
+                continue
+            stat_html = stat.group(0)
+            number_match = re.search(r'>([\s\S]*?)</span>$', stat_html, re.I)
+            if not number_match:
+                raise ValueError(f"{listing.relative_to(ROOT)}: category hero statistic is missing its number.")
+            replacement = stat_html[:number_match.start(1)] + str(len(active)) + stat_html[number_match.end(1):]
+            updated = updated[:stat.start()] + replacement + updated[stat.end():]
+            category_stat_updated = True
+            break
+        if not category_stat_updated:
+            raise ValueError(f"{listing.relative_to(ROOT)}: category hero statistic not found.")
+
         if updated != page:
             listing.write_text(updated, encoding="utf-8")
 
