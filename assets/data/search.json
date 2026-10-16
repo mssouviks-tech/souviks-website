@@ -50020,5 +50020,568 @@
     "featured": false,
     "active": true,
     "weight": 100
+  },
+  {
+    "id": "SVKS001069",
+    "type": "product",
+    "title": "Bolt w/ Nut 20 x 92 x 10\" FR",
+    "subtitle": "Part No. NIRMAL/UB/368A",
+    "keywords": [
+      "Bolt w/ Nut 20 x 92 x 10\" FR",
+      "NIRMAL/UB/368A",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 20 x 92 x 10\" FR. Part number NIRMAL/UB/368A. for U Bolt. Applications: Leyland BS-6. Compatible vehicles: ashok-leyland-u-truck, ashok-leyland-captain. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "ashok-leyland-u-truck",
+      "ashok-leyland-captain"
+    ],
+    "description": "Nirmal Bolt w/ Nut 20 x 92 x 10\" FR. Part number NIRMAL/UB/368A. for U Bolt. Applications: Leyland BS-6. Compatible vehicles: ashok-leyland-u-truck, ashok-leyland-captain. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Leyland BS-6"
+    ],
+    "vehicles": [
+      "ashok-leyland-u-truck",
+      "ashok-leyland-captain"
+    ],
+    "part_number": "NIRMAL/UB/368A",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-368a-u-bolt",
+    "url": "/en/products/nirmal-368a-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001070",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 92 x 9\" HR",
+    "subtitle": "Part No. NIRMAL/UB/790",
+    "keywords": [
+      "Bolt w/ Nut 22 x 92 x 9\" HR",
+      "NIRMAL/UB/790",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 92 x 9\" HR. Part number NIRMAL/UB/790. for U Bolt. Applications: Tata BS-6; front. Compatible vehicles: tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 92 x 9\" HR. Part number NIRMAL/UB/790. for U Bolt. Applications: Tata BS-6; front. Compatible vehicles: tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata BS-6",
+      "front"
+    ],
+    "vehicles": [
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/790",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-790-u-bolt",
+    "url": "/en/products/nirmal-790-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001071",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 82 x 18\" FR",
+    "subtitle": "Part No. NIRMAL/UB/266",
+    "keywords": [
+      "Bolt w/ Nut 22 x 82 x 18\" FR",
+      "NIRMAL/UB/266",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 82 x 18\" FR. Part number NIRMAL/UB/266. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 82 x 18\" FR. Part number NIRMAL/UB/266. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
+      "rear"
+    ],
+    "vehicles": [
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/266",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-266-u-bolt",
+    "url": "/en/products/nirmal-266-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 4,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001072",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 82 x 17\" FR",
+    "subtitle": "Part No. NIRMAL/UB/265",
+    "keywords": [
+      "Bolt w/ Nut 22 x 82 x 17\" FR",
+      "NIRMAL/UB/265",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 82 x 17\" FR. Part number NIRMAL/UB/265. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 82 x 17\" FR. Part number NIRMAL/UB/265. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
+      "rear"
+    ],
+    "vehicles": [
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/265",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-265-u-bolt",
+    "url": "/en/products/nirmal-265-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 4,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001073",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 82 x 19\" FR",
+    "subtitle": "Part No. NIRMAL/UB/267",
+    "keywords": [
+      "Bolt w/ Nut 22 x 82 x 19\" FR",
+      "NIRMAL/UB/267",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 82 x 19\" FR. Part number NIRMAL/UB/267. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 82 x 19\" FR. Part number NIRMAL/UB/267. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
+      "rear"
+    ],
+    "vehicles": [
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/267",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-267-u-bolt",
+    "url": "/en/products/nirmal-267-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 4,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001074",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 82 x 20\" FR",
+    "subtitle": "Part No. NIRMAL/UB/268",
+    "keywords": [
+      "Bolt w/ Nut 22 x 82 x 20\" FR",
+      "NIRMAL/UB/268",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 82 x 20\" FR. Part number NIRMAL/UB/268. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 82 x 20\" FR. Part number NIRMAL/UB/268. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
+      "rear"
+    ],
+    "vehicles": [
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/268",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-268-u-bolt",
+    "url": "/en/products/nirmal-268-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 4,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001075",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 82 x 21\" FR",
+    "subtitle": "Part No. NIRMAL/UB/269",
+    "keywords": [
+      "Bolt w/ Nut 22 x 82 x 21\" FR",
+      "NIRMAL/UB/269",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 82 x 21\" FR. Part number NIRMAL/UB/269. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 82 x 21\" FR. Part number NIRMAL/UB/269. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
+      "rear"
+    ],
+    "vehicles": [
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/269",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-269-u-bolt",
+    "url": "/en/products/nirmal-269-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 4,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001076",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 82 x 22\" FR",
+    "subtitle": "Part No. NIRMAL/UB/270",
+    "keywords": [
+      "Bolt w/ Nut 22 x 82 x 22\" FR",
+      "NIRMAL/UB/270",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 82 x 22\" FR. Part number NIRMAL/UB/270. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 82 x 22\" FR. Part number NIRMAL/UB/270. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
+      "rear"
+    ],
+    "vehicles": [
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/270",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-270-u-bolt",
+    "url": "/en/products/nirmal-270-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 4,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001077",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 82 x 23\" FR",
+    "subtitle": "Part No. NIRMAL/UB/271",
+    "keywords": [
+      "Bolt w/ Nut 22 x 82 x 23\" FR",
+      "NIRMAL/UB/271",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 82 x 23\" FR. Part number NIRMAL/UB/271. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 82 x 23\" FR. Part number NIRMAL/UB/271. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
+      "rear"
+    ],
+    "vehicles": [
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/271",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-271-u-bolt",
+    "url": "/en/products/nirmal-271-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 4,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001078",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 82 x 24\" FR",
+    "subtitle": "Part No. NIRMAL/UB/272",
+    "keywords": [
+      "Bolt w/ Nut 22 x 82 x 24\" FR",
+      "NIRMAL/UB/272",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 82 x 24\" FR. Part number NIRMAL/UB/272. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 82 x 24\" FR. Part number NIRMAL/UB/272. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
+      "rear"
+    ],
+    "vehicles": [
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/272",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-272-u-bolt",
+    "url": "/en/products/nirmal-272-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 4,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001079",
+    "type": "product",
+    "title": "Bolt w/ Nut 22 x 82 x 25\" FR",
+    "subtitle": "Part No. NIRMAL/UB/273",
+    "keywords": [
+      "Bolt w/ Nut 22 x 82 x 25\" FR",
+      "NIRMAL/UB/273",
+      "Nirmal",
+      "Suspension & Steering",
+      "U Bolt",
+      "Nirmal Bolt w/ Nut 22 x 82 x 25\" FR. Part number NIRMAL/UB/273. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "description": "Nirmal Bolt w/ Nut 22 x 82 x 25\" FR. Part number NIRMAL/UB/273. for U Bolt. Applications: Tata 1612 / 2416 / 1510 T.C. / 2515 EX; rear. Compatible vehicles: tata-2416, tata-1512, tata-signa, tata-lpt. Confirm the part number and vehicle application before ordering to verify fitment.",
+    "applications": [
+      "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
+      "rear"
+    ],
+    "vehicles": [
+      "tata-2416",
+      "tata-1512",
+      "tata-signa",
+      "tata-lpt"
+    ],
+    "part_number": "NIRMAL/UB/273",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "nirmal-273-u-bolt",
+    "url": "/en/products/nirmal-273-u-bolt",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "nirmal",
+      "name": "Nirmal"
+    },
+    "vehicle_count": 4,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
   }
 ]

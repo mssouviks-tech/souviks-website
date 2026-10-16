@@ -22,8 +22,8 @@
     "cutout": "/assets/images/vehicles/TATA_SIGNA/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_SIGNA/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 86 active spare parts for Tata Signa, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Bearings, Electricals, Clutch Parts, Brakes and more and common replacement areas such as Shackle Plate, Clutch Release Bearing, Center Bearing, Leaf Spring, Spring Pin and more; listed brands include Texspin, JMP, JAI, Harish, NeoLite.",
-    "short_description": "Tata Signa: 86 active parts mapped across Suspension & Steering, Bearings, Electricals, Clutch Parts and more.",
+    "description": "Souviks lists 96 active spare parts for Tata Signa, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Bearings, Electricals, Clutch Parts, Brakes and more and common replacement areas such as U Bolt, Shackle Plate, Clutch Release Bearing, Center Bearing, Leaf Spring and more; listed brands include Nirmal, Texspin, JMP, JAI, Harish.",
+    "short_description": "Tata Signa: 96 active parts mapped across Suspension & Steering, Bearings, Electricals, Clutch Parts and more.",
     "categories": [
       {
         "id": "air-system",
@@ -248,14 +248,24 @@
       "SVKS001060",
       "SVKS001061",
       "SVKS001065",
-      "SVKS001068"
+      "SVKS001068",
+      "SVKS001070",
+      "SVKS001071",
+      "SVKS001072",
+      "SVKS001073",
+      "SVKS001074",
+      "SVKS001075",
+      "SVKS001076",
+      "SVKS001077",
+      "SVKS001078",
+      "SVKS001079"
     ],
-    "product_count": 86,
+    "product_count": 96,
     "featured": true,
     "active": true,
     "seo": {
       "title": "Tata Signa Parts | Souviks",
-      "description": "Souviks lists 86 active spare parts for Tata Signa, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Bearings, Electricals, Clutch Parts, Brakes and more and common replacement areas such as Shackle Plate, Clutch Release Bearing, Center Bearing, Leaf Spring, Spring Pin and more; listed brands include Texspin, JMP, JAI, Harish, NeoLite.",
+      "description": "Souviks lists 96 active spare parts for Tata Signa, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Bearings, Electricals, Clutch Parts, Brakes and more and common replacement areas such as U Bolt, Shackle Plate, Clutch Release Bearing, Center Bearing, Leaf Spring and more; listed brands include Nirmal, Texspin, JMP, JAI, Harish.",
       "keywords": [
         "Tata Signa",
         "commercial vehicle spare parts",
@@ -290,8 +300,8 @@
     "cutout": "/assets/images/vehicles/TATA_LPT/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_LPT/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 281 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Bearings, Electricals and more and common replacement areas such as Cross Joint, Spring Pin, Leaf Spring, Brake Lining, Center Bolt and more; listed brands include RKI, JAI, Tata Genuine Parts, Harish, Texspin.",
-    "short_description": "Tata LPT: 281 active parts mapped across Suspension & Steering, Clutch Parts, Filters, Bearings and more.",
+    "description": "Souviks lists 291 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Bearings, Electricals and more and common replacement areas such as Cross Joint, Spring Pin, U Bolt, Leaf Spring, Brake Lining and more; listed brands include RKI, JAI, Nirmal, Tata Genuine Parts, Harish.",
+    "short_description": "Tata LPT: 291 active parts mapped across Suspension & Steering, Clutch Parts, Filters, Bearings and more.",
     "categories": [
       {
         "id": "air-system",
@@ -795,14 +805,24 @@
       "SVKS001060",
       "SVKS001061",
       "SVKS001065",
-      "SVKS001068"
+      "SVKS001068",
+      "SVKS001070",
+      "SVKS001071",
+      "SVKS001072",
+      "SVKS001073",
+      "SVKS001074",
+      "SVKS001075",
+      "SVKS001076",
+      "SVKS001077",
+      "SVKS001078",
+      "SVKS001079"
     ],
-    "product_count": 281,
+    "product_count": 291,
     "featured": true,
     "active": true,
     "seo": {
       "title": "Tata LPT Parts | Souviks",
-      "description": "Souviks lists 281 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Bearings, Electricals and more and common replacement areas such as Cross Joint, Spring Pin, Leaf Spring, Brake Lining, Center Bolt and more; listed brands include RKI, JAI, Tata Genuine Parts, Harish, Texspin.",
+      "description": "Souviks lists 291 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Bearings, Electricals and more and common replacement areas such as Cross Joint, Spring Pin, U Bolt, Leaf Spring, Brake Lining and more; listed brands include RKI, JAI, Nirmal, Tata Genuine Parts, Harish.",
       "keywords": [
         "Tata LPT",
         "commercial vehicle spare parts",
@@ -3359,8 +3379,8 @@
     "cutout": "/assets/images/vehicles/TATA_1512/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_1512/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 41 active spare parts for Tata 1512, a Tata Motors application. Current catalogue coverage includes Engine Components, Bearings, Electricals, Brakes, Clutch Parts and more and common replacement areas such as Timing Belt, Taper Roller Bearing, Clutch Release Bearing, Head Light, Combination Switch and more; listed brands include Pix, Texspin, UnoMinda, NeoLite, Tata Genuine Parts.",
-    "short_description": "Tata 1512: 41 active parts mapped across Engine Components, Bearings, Electricals, Brakes and more.",
+    "description": "Souviks lists 50 active spare parts for Tata 1512, a Tata Motors application. Current catalogue coverage includes Engine Components, Bearings, Suspension & Steering, Electricals, Brakes and more and common replacement areas such as Timing Belt, U Bolt, Taper Roller Bearing, Clutch Release Bearing, Head Light and more; listed brands include Pix, Texspin, Nirmal, UnoMinda, NeoLite.",
+    "short_description": "Tata 1512: 50 active parts mapped across Engine Components, Bearings, Suspension & Steering, Electricals and more.",
     "categories": [
       {
         "id": "bearings",
@@ -3419,6 +3439,10 @@
       {
         "id": "neolite",
         "name": "NeoLite"
+      },
+      {
+        "id": "nirmal",
+        "name": "Nirmal"
       },
       {
         "id": "pix",
@@ -3496,14 +3520,23 @@
       "SVKS000574",
       "SVKS000684",
       "SVKS000737",
-      "SVKS000778"
+      "SVKS000778",
+      "SVKS001071",
+      "SVKS001072",
+      "SVKS001073",
+      "SVKS001074",
+      "SVKS001075",
+      "SVKS001076",
+      "SVKS001077",
+      "SVKS001078",
+      "SVKS001079"
     ],
-    "product_count": 41,
+    "product_count": 50,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Tata 1512 Parts | Souviks",
-      "description": "Souviks lists 41 active spare parts for Tata 1512, a Tata Motors application. Current catalogue coverage includes Engine Components, Bearings, Electricals, Brakes, Clutch Parts and more and common replacement areas such as Timing Belt, Taper Roller Bearing, Clutch Release Bearing, Head Light, Combination Switch and more; listed brands include Pix, Texspin, UnoMinda, NeoLite, Tata Genuine Parts.",
+      "description": "Souviks lists 50 active spare parts for Tata 1512, a Tata Motors application. Current catalogue coverage includes Engine Components, Bearings, Suspension & Steering, Electricals, Brakes and more and common replacement areas such as Timing Belt, U Bolt, Taper Roller Bearing, Clutch Release Bearing, Head Light and more; listed brands include Pix, Texspin, Nirmal, UnoMinda, NeoLite.",
       "keywords": [
         "Tata 1512",
         "commercial vehicle spare parts",
@@ -4730,8 +4763,8 @@
     "cutout": "/assets/images/vehicles/TATA_2416/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_2416/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 36 active spare parts for Tata 2416, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Bearings, Electricals, Filters, Rubber Parts and common replacement areas such as Spring Pin, Bracket, Head Light, Taper Roller Bearing, Suspension Bush and more; listed brands include JMP, JAI, Texspin, Nirmal, Varroc.",
-    "short_description": "Tata 2416: 36 active parts mapped across Suspension & Steering, Bearings, Electricals, Filters and more.",
+    "description": "Souviks lists 45 active spare parts for Tata 2416, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Bearings, Electricals, Filters, Rubber Parts and common replacement areas such as Spring Pin, U Bolt, Bracket, Head Light, Taper Roller Bearing and more; listed brands include Nirmal, JMP, JAI, Texspin, Varroc.",
+    "short_description": "Tata 2416: 45 active parts mapped across Suspension & Steering, Bearings, Electricals, Filters and more.",
     "categories": [
       {
         "id": "bearings",
@@ -4850,14 +4883,23 @@
       "SVKS000858",
       "SVKS000859",
       "SVKS001003",
-      "SVKS001055"
+      "SVKS001055",
+      "SVKS001071",
+      "SVKS001072",
+      "SVKS001073",
+      "SVKS001074",
+      "SVKS001075",
+      "SVKS001076",
+      "SVKS001077",
+      "SVKS001078",
+      "SVKS001079"
     ],
-    "product_count": 36,
+    "product_count": 45,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Tata 2416 Parts | Souviks",
-      "description": "Souviks lists 36 active spare parts for Tata 2416, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Bearings, Electricals, Filters, Rubber Parts and common replacement areas such as Spring Pin, Bracket, Head Light, Taper Roller Bearing, Suspension Bush and more; listed brands include JMP, JAI, Texspin, Nirmal, Varroc.",
+      "description": "Souviks lists 45 active spare parts for Tata 2416, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Bearings, Electricals, Filters, Rubber Parts and common replacement areas such as Spring Pin, U Bolt, Bracket, Head Light, Taper Roller Bearing and more; listed brands include Nirmal, JMP, JAI, Texspin, Varroc.",
       "keywords": [
         "Tata 2416",
         "commercial vehicle spare parts",
@@ -4892,8 +4934,8 @@
     "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/transparent-cutout.png",
     "hero": "/assets/images/vehicles/ASHOK_LEYLAND_U_TRUCK/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 24 active spare parts for Ashok Leyland U-Truck, a Ashok Leyland application. Current catalogue coverage includes Suspension & Steering, Electricals, Brakes, Bearings and common replacement areas such as Slip Yoke, Shackle Plate, Leaf Spring, Air Spring, Stub Shaft and more; listed brands include RKI, JMP, Toyo, TVS Girling, UnoMinda.",
-    "short_description": "Ashok Leyland U-Truck: 24 active parts mapped across Suspension & Steering, Electricals, Brakes, Bearings.",
+    "description": "Souviks lists 25 active spare parts for Ashok Leyland U-Truck, a Ashok Leyland application. Current catalogue coverage includes Suspension & Steering, Electricals, Brakes, Bearings and common replacement areas such as Slip Yoke, Shackle Plate, Leaf Spring, Air Spring, Stub Shaft and more; listed brands include RKI, JMP, Toyo, TVS Girling, Nirmal.",
+    "short_description": "Ashok Leyland U-Truck: 25 active parts mapped across Suspension & Steering, Electricals, Brakes, Bearings.",
     "categories": [
       {
         "id": "bearings",
@@ -4988,14 +5030,15 @@
       "SVKS001040",
       "SVKS001045",
       "SVKS001048",
-      "SVKS001062"
+      "SVKS001062",
+      "SVKS001069"
     ],
-    "product_count": 24,
+    "product_count": 25,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Ashok Leyland U-Truck Parts | Souviks",
-      "description": "Souviks lists 24 active spare parts for Ashok Leyland U-Truck, a Ashok Leyland application. Current catalogue coverage includes Suspension & Steering, Electricals, Brakes, Bearings and common replacement areas such as Slip Yoke, Shackle Plate, Leaf Spring, Air Spring, Stub Shaft and more; listed brands include RKI, JMP, Toyo, TVS Girling, UnoMinda.",
+      "description": "Souviks lists 25 active spare parts for Ashok Leyland U-Truck, a Ashok Leyland application. Current catalogue coverage includes Suspension & Steering, Electricals, Brakes, Bearings and common replacement areas such as Slip Yoke, Shackle Plate, Leaf Spring, Air Spring, Stub Shaft and more; listed brands include RKI, JMP, Toyo, TVS Girling, Nirmal.",
       "keywords": [
         "Ashok Leyland U-Truck",
         "commercial vehicle spare parts",
@@ -5030,8 +5073,8 @@
     "cutout": "/assets/images/vehicles/ASHOK_LEYLAND_CAPTAIN/transparent-cutout.png",
     "hero": "/assets/images/vehicles/ASHOK_LEYLAND_CAPTAIN/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 13 active spare parts for Ashok Leyland Captain, a Ashok Leyland application. Current catalogue coverage includes Brakes, Bearings, Electricals, Suspension & Steering, Filters and common replacement areas such as Brake Slack Adjuster, Taper Roller Bearing, Brake Lining, Sensor, Starter and more; listed brands include MEI, Leyparts, SKF, Texspin, UnoMinda.",
-    "short_description": "Ashok Leyland Captain: 13 active parts mapped across Brakes, Bearings, Electricals, Suspension & Steering and more.",
+    "description": "Souviks lists 14 active spare parts for Ashok Leyland Captain, a Ashok Leyland application. Current catalogue coverage includes Brakes, Bearings, Electricals, Suspension & Steering, Filters and common replacement areas such as Brake Slack Adjuster, Taper Roller Bearing, Brake Lining, Sensor, Starter and more; listed brands include MEI, Leyparts, SKF, Texspin, UnoMinda.",
+    "short_description": "Ashok Leyland Captain: 14 active parts mapped across Brakes, Bearings, Electricals, Suspension & Steering and more.",
     "categories": [
       {
         "id": "bearings",
@@ -5076,6 +5119,10 @@
         "name": "MEI"
       },
       {
+        "id": "nirmal",
+        "name": "Nirmal"
+      },
+      {
         "id": "skf",
         "name": "SKF"
       },
@@ -5111,14 +5158,15 @@
       "SVKS000574",
       "SVKS000625",
       "SVKS000655",
-      "SVKS000681"
+      "SVKS000681",
+      "SVKS001069"
     ],
-    "product_count": 13,
+    "product_count": 14,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Ashok Leyland Captain Parts | Souviks",
-      "description": "Souviks lists 13 active spare parts for Ashok Leyland Captain, a Ashok Leyland application. Current catalogue coverage includes Brakes, Bearings, Electricals, Suspension & Steering, Filters and common replacement areas such as Brake Slack Adjuster, Taper Roller Bearing, Brake Lining, Sensor, Starter and more; listed brands include MEI, Leyparts, SKF, Texspin, UnoMinda.",
+      "description": "Souviks lists 14 active spare parts for Ashok Leyland Captain, a Ashok Leyland application. Current catalogue coverage includes Brakes, Bearings, Electricals, Suspension & Steering, Filters and common replacement areas such as Brake Slack Adjuster, Taper Roller Bearing, Brake Lining, Sensor, Starter and more; listed brands include MEI, Leyparts, SKF, Texspin, UnoMinda.",
       "keywords": [
         "Ashok Leyland Captain",
         "commercial vehicle spare parts",
