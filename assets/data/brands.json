@@ -1855,9 +1855,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 25 active Nirmal products across Fasteners & Hardware, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Universal, Tata 2416, Tata Signa and more and common replacement areas including Spring Pin, U Bolt, Cotter Bolt, Cotter Pin.  Current catalogue examples include Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE, Lever Pin 42 x 170, Spring Pin 32 x 151. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 32 active Nirmal products across Fasteners & Hardware, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Universal, Tata 2416, Tata Signa and more and common replacement areas including U Bolt, Spring Pin, Cotter Bolt, Cotter Pin.  Current catalogue examples include Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE, Lever Pin 42 x 170, Spring Pin 32 x 151. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Nirmal products at Souviks cover Fasteners & Hardware, Suspension & Steering and applications across Tata LPT, Ashok Leyland 2516, Universal and more.",
-    "product_count": 25,
+    "product_count": 32,
     "categories": [
       "fasteners-hardware",
       "suspension-steering"
@@ -1874,7 +1874,15 @@
       "Tata 2416",
       "Tata LPT",
       "Tata Signa",
-      "Universal"
+      "Universal",
+      "ashok-leyland-u-truck",
+      "mahindra-blazo",
+      "tata-1210",
+      "tata-1312",
+      "tata-lpt",
+      "tata-prima",
+      "tata-signa",
+      "tata-ultra"
     ],
     "featured_products": [
       "SVKS000251",
@@ -1911,13 +1919,20 @@
       "SVKS000768",
       "SVKS000964",
       "SVKS000965",
-      "SVKS000966"
+      "SVKS000966",
+      "SVKS001062",
+      "SVKS001063",
+      "SVKS001064",
+      "SVKS001065",
+      "SVKS001066",
+      "SVKS001067",
+      "SVKS001068"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Nirmal Parts | Souviks",
-      "description": "Souviks currently lists 25 active Nirmal products across Fasteners & Hardware, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Universal, Tata 2416, Tata Signa and more and common replacement areas including Spring Pin, U Bolt, Cotter Bolt, Cotter Pin.  Current catalogue examples include Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE, Lever Pin 42 x 170, Spring Pin 32 x 151. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 32 active Nirmal products across Fasteners & Hardware, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Universal, Tata 2416, Tata Signa and more and common replacement areas including U Bolt, Spring Pin, Cotter Bolt, Cotter Pin.  Current catalogue examples include Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE, Lever Pin 42 x 170, Spring Pin 32 x 151. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Nirmal",
         "commercial vehicle spare parts",
@@ -3513,9 +3528,9 @@
     "banner": "",
     "website": "https://www.texspin.com/",
     "country": "India",
-    "description": "Souviks currently lists 103 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Collector Ring, Center Bearing, Grease and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 118 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, Collector Ring, Grease and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Texspin products at Souviks cover Bearings, Clutch Parts, Lubricants, Suspension & Steering and applications across Ashok Leyland 2516, Universal, Tata LPT and more.",
-    "product_count": 103,
+    "product_count": 118,
     "categories": [
       "bearings",
       "clutch-parts",
@@ -3552,7 +3567,20 @@
       "Tata Prima",
       "Tata Signa",
       "Tractors",
-      "Universal"
+      "Universal",
+      "ashok-leyland-2516",
+      "ashok-leyland-ecomet",
+      "ashok-leyland-u-truck",
+      "eicher-1110",
+      "eicher-pro-series",
+      "mahindra-bolero-pik-up",
+      "tata-1109",
+      "tata-2416",
+      "tata-407",
+      "tata-709",
+      "tata-lpt",
+      "tata-prima",
+      "tata-signa"
     ],
     "featured_products": [
       "SVKS000486",
@@ -3667,13 +3695,28 @@
       "SVKS001000",
       "SVKS001001",
       "SVKS001002",
-      "SVKS001003"
+      "SVKS001003",
+      "SVKS001047",
+      "SVKS001048",
+      "SVKS001049",
+      "SVKS001050",
+      "SVKS001051",
+      "SVKS001052",
+      "SVKS001053",
+      "SVKS001054",
+      "SVKS001055",
+      "SVKS001056",
+      "SVKS001057",
+      "SVKS001058",
+      "SVKS001059",
+      "SVKS001060",
+      "SVKS001061"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Texspin Parts | Souviks",
-      "description": "Souviks currently lists 103 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Collector Ring, Center Bearing, Grease and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 118 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, Collector Ring, Grease and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Texspin",
         "commercial vehicle spare parts",
