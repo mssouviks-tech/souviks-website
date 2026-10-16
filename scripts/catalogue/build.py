@@ -877,10 +877,10 @@ def reconcile_catalogue_projections():
                 )
                 + '</div>'
             ) if vehicles else '<p class="pdp-empty-state">Confirm vehicle application before ordering.</p>'
-            html = re.sub(
+            page = re.sub(
                 r'<div\s+class=["\']pdp-vehicle-grid["\']\s*>.*?</div>\s*</section>',
                 lambda _: vehicle_grid + '</section>',
-                html,
+                page,
                 count=1,
                 flags=re.I | re.S,
             )
