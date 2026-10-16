@@ -21,6 +21,58 @@ BASE = "https://www.souviks.co.in"
 # Final pointer 22-25 parity normalization.
 # Retrigger validation with the corrected audit command.
 
+def replace_product_name_markup(source: str, old_name: str, new_name: str) -> str:
+    """Replace a product name safely in HTML and JSON-LD contexts.
+
+    Text/attribute markup must HTML-escape quotes, while JSON-LD strings must
+    be updated as data and serialized back to valid JSON. A raw global replace
+    breaks JSON-LD whenever product names contain inch marks or quotation marks.
+    """
+    import html
+    import json
+    import re
+
+    if not old_name or old_name == new_name:
+        return source
+
+    jsonld_pattern = re.compile(
+        r'(<script\b(?=[^>]*\btype=["\']application/ld\+json["\'])[^>]*>)(.*?)(</script\s*>)',
+        flags=re.I | re.S,
+    )
+    chunks = []
+    cursor = 0
+    for match in jsonld_pattern.finditer(source):
+        chunks.append(source[cursor:match.start()].replace(
+            old_name, html.escape(new_name, quote=True)
+        ))
+        raw_json = match.group(2)
+        try:
+            parsed = json.loads(raw_json.strip())
+        except json.JSONDecodeError:
+            # Leave an already-invalid script untouched so the blocking audit
+            # reports the actual source rather than masking it with string edits.
+            replacement_json = raw_json
+        else:
+            def update_value(value):
+                if isinstance(value, str):
+                    return value.replace(old_name, new_name)
+                if isinstance(value, list):
+                    return [update_value(item) for item in value]
+                if isinstance(value, dict):
+                    return {key: update_value(item) for key, item in value.items()}
+                return value
+
+            replacement_json = json.dumps(
+                update_value(parsed), ensure_ascii=False, separators=(",", ":")
+            )
+        chunks.append(match.group(1) + replacement_json + match.group(3))
+        cursor = match.end()
+    chunks.append(source[cursor:].replace(
+        old_name, html.escape(new_name, quote=True)
+    ))
+    return "".join(chunks)
+
+
 def reconcile_catalogue_projections():
     
     import html as html_module
@@ -713,7 +765,7 @@ def reconcile_catalogue_projections():
             # embedded record with canonical catalogue fields before normalizers run.
             page = template_html
             if old_name:
-                page = page.replace(old_name, name)
+                page = replace_product_name_markup(page, old_name, name)
             if old_slug:
                 page = page.replace(old_slug, slug)
             if old_id and product_id:
@@ -1071,7 +1123,7 @@ def reconcile_catalogue_projections():
     
             html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";" + html[match.end():]
             if old_name and old_name != name:
-                html = html.replace(old_name, name)
+                html = replace_product_name_markup(html, old_name, name)
 
             # Replace a thin/static Description paragraph with the same
             # factual content used by the generated embedded product record.
