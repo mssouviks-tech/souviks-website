@@ -124,11 +124,16 @@ def entity_product_galleries(kind, item, products, lang):
             group_name = clean(product.get("category_name") or product.get("category"))
         if not group_id:
             continue
-        product_groups.setdefault((group_id, group_name), []).append(product)
+        group = product_groups.setdefault(group_id, {"name": group_name, "products": []})
+        if not group["name"] and group_name:
+            group["name"] = group_name
+        group["products"].append(product)
     labels = {"en": "View All", "hi": "सभी देखें", "bn": "সব দেখুন"}
     sections = []
     item_id = clean(item.get("id"))
-    for (group_id, group_name), group_products in sorted(product_groups.items(), key=lambda x: x[0][1].casefold()):
+    for group_id, group_data in sorted(product_groups.items(), key=lambda x: x[1]["name"].casefold()):
+        group_name = group_data["name"]
+        group_products = group_data["products"]
         if not group_products:
             continue
         if kind == "brand":
