@@ -343,7 +343,7 @@ def enrich_entity_pages(kind, data, catalogue):
             item["seo"]["description"] = item["description"]
         elif kind == "vehicle":
             name = clean(item.get("model") or item.get("name"))
-            products = [p for p in catalogue if p.get("active") is not False and name in [clean(v) for v in (p.get("vehicles") or [])]]
+            products = [p for p in catalogue if p.get("active") is not False and any(clean(v) in {item_id, name} for v in (p.get("vehicles") or []))]
             prefix = name.split()[0] if name else ""
             manufacturer_map = {"Tata": "Tata Motors", "Ashok": "Ashok Leyland", "Eicher": "Eicher", "Mahindra": "Mahindra", "Universal": "Multi-brand / Universal", "Tractors": "Multiple manufacturers"}
             item.setdefault("manufacturer", {})
