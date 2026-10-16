@@ -233,6 +233,35 @@ def ensure_main_landmark(page):
     )
 
 
+def deduplicate_entity_product_galleries(page: str) -> str:
+    """Keep one rendered gallery per entity/category ID across a generated page.
+
+    Entity pages can contain a legacy gallery outside #product-grid as well as
+    the rebuilt gallery inside it. Keep the last matching section so the current
+    catalogue rendering (written later in the build) wins over stale markup.
+    """
+    gallery_pattern = re.compile(
+        r'<section\b(?=[^>]*\bclass=["\'][^"\']*\bentity-product-gallery\b[^"\']*["\'])[^>]*>.*?</section>',
+        flags=re.I | re.S,
+    )
+    matches = list(gallery_pattern.finditer(page))
+    seen_ids = set()
+    remove_spans = []
+    for match in reversed(matches):
+        opening = match.group(0).split(">", 1)[0] + ">"
+        id_match = re.search(r'\bid=["\']([^"\']+)["\']', opening, flags=re.I)
+        if not id_match:
+            continue
+        gallery_id = id_match.group(1)
+        if gallery_id in seen_ids:
+            remove_spans.append((match.start(), match.end()))
+        else:
+            seen_ids.add(gallery_id)
+    for start, end in sorted(remove_spans, reverse=True):
+        page = page[:start] + page[end:]
+    return page
+
+
 def replace_static_product_grid(page: str, gallery_html: str) -> str:
     """Replace the full contents of an entity page static product grid."""
     opening = re.search(
@@ -407,6 +436,7 @@ def enrich_entity_pages(kind, data, catalogue):
                     page = page[:anchor_match.start()] + marker + "\n" + section + "\n" + page[anchor_match.start():]
                 else:
                     page = page.replace("</body>", marker + "\n" + section + "\n</body>", 1)
+            page = deduplicate_entity_product_galleries(page)
             page = ensure_main_landmark(page)
             path.write_text(page, encoding="utf-8")
 
