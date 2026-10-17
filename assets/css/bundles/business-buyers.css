@@ -1,0 +1,32 @@
+@import "../site-base.css";
+.site-page .business-buyers-hero{min-height:0;padding-block:clamp(44px,6vw,76px);background-image:radial-gradient(circle at 88% 18%,rgba(214,40,40,.10),transparent 29%),linear-gradient(135deg,var(--bg-card,#fff) 0%,var(--bg-body,#f8f8f8) 100%)}
+.site-page .business-buyer-eyebrow{display:inline-block;margin-bottom:14px;color:var(--color-primary,#d62828);font-size:.78rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.site-page .business-buyer-intro{max-width:850px;font-size:clamp(1rem,1.4vw,1.12rem)}
+.site-page .business-buyer-proof{margin-top:22px!important;font-size:.86rem!important;font-weight:600}
+.site-page .business-buyer-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:24px}
+.site-page .business-buyer-grid,.site-page .business-help-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.site-page .business-buyer-card,.site-page .business-help-card{min-width:0;padding:22px;background:var(--bg-card,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:var(--radius-lg,14px);box-shadow:var(--shadow-sm,0 2px 8px rgba(0,0,0,.04))}
+.site-page .business-buyer-card h3,.site-page .business-help-card h3,.site-page .business-step h3{margin:0 0 10px;color:var(--text-primary,#1f2937);font-size:1rem;line-height:1.35}
+.site-page .business-buyer-card p,.site-page .business-help-card p,.site-page .business-step p{margin:0;color:var(--text-secondary,#5b6472);font-size:.93rem;line-height:1.65}
+.site-page .business-help-section,.site-page .business-process-section,.site-page .business-faq-section{background:var(--bg-body,#f8f8f8)}
+.site-page .business-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:0;padding:0;list-style:none}
+.site-page .business-step{padding:20px;background:var(--bg-card,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:var(--radius-lg,14px)}
+.site-page .business-step-number{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;margin-bottom:16px;color:#fff;background:var(--color-primary,#d62828);border-radius:50%;font-size:.84rem;font-weight:800}
+.site-page .business-checklist-panel,.site-page .business-terms-panel,.site-page .business-cta-panel{padding:clamp(22px,4vw,38px);background:var(--bg-card,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:var(--radius-lg,14px);box-shadow:var(--shadow-sm,0 2px 8px rgba(0,0,0,.04))}
+.site-page .business-checklist-panel .section-heading{max-width:850px}
+.site-page .business-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px;padding-left:1.2rem;margin:0 0 24px;color:var(--text-primary,#1f2937)}
+.site-page .business-checklist li{padding-left:4px;line-height:1.6}
+.site-page .business-terms-panel h2,.site-page .business-cta-panel h2{margin-top:0;margin-bottom:12px;font-size:clamp(1.45rem,3vw,2rem);line-height:1.2}
+.site-page .business-terms-panel p,.site-page .business-cta-panel p{max-width:950px;line-height:1.7}
+.site-page .business-terms-note{margin-bottom:0;font-size:.9rem}
+.site-page .business-terms-note a{color:var(--color-primary,#d62828);font-weight:700}
+.site-page .business-faq-list{display:grid;gap:10px}
+.site-page .business-faq-item{padding:18px 20px;background:var(--bg-card,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:var(--radius-md,10px)}
+.site-page .business-faq-item summary{cursor:pointer;color:var(--text-primary,#1f2937);font-weight:700;line-height:1.5}
+.site-page .business-faq-item p{margin:12px 0 0;color:var(--text-secondary,#5b6472);line-height:1.65}
+.site-page .business-cta-panel{display:flex;align-items:center;justify-content:space-between;gap:26px}
+.site-page .business-cta-panel>div:first-child{min-width:0;max-width:780px}
+.site-page .business-cta-panel .business-buyer-actions{margin-top:0;justify-content:flex-end}
+.site-page .business-buyer-actions .btn{min-height:44px}
+@media(max-width:1100px){.site-page .business-buyer-grid,.site-page .business-help-grid,.site-page .business-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.site-page .business-cta-panel{align-items:flex-start;flex-direction:column}.site-page .business-cta-panel .business-buyer-actions{justify-content:flex-start}}
+@media(max-width:620px){.site-page .business-buyer-grid,.site-page .business-help-grid,.site-page .business-steps,.site-page .business-checklist{grid-template-columns:minmax(0,1fr)}.site-page .business-buyer-card,.site-page .business-help-card,.site-page .business-step{padding:18px}.site-page .business-checklist-panel,.site-page .business-terms-panel,.site-page .business-cta-panel{padding:20px}.site-page .business-buyer-actions .btn{width:100%;justify-content:center}}
