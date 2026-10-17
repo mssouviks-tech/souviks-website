@@ -449,6 +449,7 @@ jobs:
               ("vehicles", "CollectionPage"),
               ("products", "CollectionPage"),
               ("about", "AboutPage"),
+              ("business-buyers", "WebPage"),
               ("contact", "ContactPage"),
           ]
           for lang in ("en", "hi", "bn"):
