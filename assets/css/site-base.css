@@ -665,7 +665,7 @@ section {
 .catalogue-hero,
 .categories-hero {
 
-    --hero-image: url("/assets/images/hero/catalogue-hero.webp");
+    --hero-image: url("/assets/images/hero/catalogue-hero.webp?v=2c7b97e05e39");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -675,7 +675,7 @@ section {
 
 .request-quote-hero {
 
-    --hero-image: url("/assets/images/hero/request-quote-hero.webp");
+    --hero-image: url("/assets/images/hero/request-quote-hero.webp?v=fcc02e5a011f");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -685,7 +685,7 @@ section {
 
 .contact-hero {
 
-    --hero-image: url("/assets/images/hero/contact-hero.webp");
+    --hero-image: url("/assets/images/hero/contact-hero.webp?v=0c2e9966d009");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -695,7 +695,7 @@ section {
 
 .about-hero {
 
-    --hero-image: url("/assets/images/hero/about-hero.webp");
+    --hero-image: url("/assets/images/hero/about-hero.webp?v=cc0627c275eb");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -705,7 +705,7 @@ section {
 
 .products-hero {
 
-    --hero-image: url("/assets/images/hero/product-hero.webp");
+    --hero-image: url("/assets/images/hero/product-hero.webp?v=b66109f9dd06");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -715,7 +715,7 @@ section {
 
 .vehicles-hero {
 
-    --hero-image: url("/assets/images/hero/vehicle-hero.webp");
+    --hero-image: url("/assets/images/hero/vehicle-hero.webp?v=9716860b7ba0");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -725,7 +725,7 @@ section {
 
 .brands-hero {
 
-    --hero-image: url("/assets/images/hero/brand-hero.webp");
+    --hero-image: url("/assets/images/hero/brand-hero.webp?v=8e5124b9f5ca");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -735,7 +735,7 @@ section {
 
 .privacy-hero {
 
-    --hero-image: url("/assets/images/hero/privacy-hero.webp");
+    --hero-image: url("/assets/images/hero/privacy-hero.webp?v=d1e347b63947");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -745,7 +745,7 @@ section {
 
 .terms-hero {
 
-    --hero-image: url("/assets/images/hero/terms-hero.webp");
+    --hero-image: url("/assets/images/hero/terms-hero.webp?v=4ab4709ef694");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -755,7 +755,7 @@ section {
 
 .refund-hero {
 
-    --hero-image: url("/assets/images/hero/refund-hero.webp");
+    --hero-image: url("/assets/images/hero/refund-hero.webp?v=0998646fcee2");
     background-image: linear-gradient(
         var(--overlay-slate-55),
         var(--overlay-slate-55)
@@ -780,7 +780,7 @@ section {
             var(--overlay-slate-55),
             var(--overlay-slate-55)
         ),
-        url("/assets/images/hero/index-hero.webp");
+        url("/assets/images/hero/index-hero.webp?v=c5d57ca84209");
 
     background-size: cover;
 

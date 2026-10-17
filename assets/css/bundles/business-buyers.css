@@ -1,5 +1,5 @@
 @import url("./404.css");
-.site-page .business-buyers-hero{--hero-image:url("/assets/images/hero/business-hero.png")}
+.site-page .business-buyers-hero{--hero-image:url("/assets/images/hero/business-hero.webp?v=8ec1bb5cc442")}
 .site-page .business-buyer-eyebrow{display:inline-block;margin-bottom:14px;color:var(--color-primary,#d62828);font-size:.78rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
 .site-page .business-buyer-intro{max-width:850px;font-size:clamp(1rem,1.4vw,1.12rem)}
 .site-page .business-buyer-proof{margin-top:22px!important;font-size:.86rem!important;font-weight:600}
