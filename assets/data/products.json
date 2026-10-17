@@ -11249,12 +11249,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "suspension-steering",
-    "category_name": "Suspension & Steering",
-    "category": "Suspension & Steering",
-    "subcategory_id": "u-bolt",
-    "subcategory_name": "U Bolt",
-    "subcategory": "U Bolt",
+    "category_id": "brakes",
+    "category_name": "Brakes",
+    "category": "Brakes",
+    "subcategory_id": "brake-lining",
+    "subcategory_name": "Brake Lining",
+    "subcategory": "Brake Lining",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -11286,8 +11286,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:26.223570",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-17",
+    "catalogue_updated_at": "2026-10-17"
   },
   {
     "id": "SVKS000191",
@@ -25714,12 +25714,12 @@
     "brand_id": "roots",
     "brand_name": "Roots",
     "brand": "Roots",
-    "category_id": "suspension-steering",
-    "category_name": "Suspension & Steering",
-    "category": "Suspension & Steering",
-    "subcategory_id": "u-bolt",
-    "subcategory_name": "U Bolt",
-    "subcategory": "U Bolt",
+    "category_id": "electricals",
+    "category_name": "Electricals",
+    "category": "Electricals",
+    "subcategory_id": "horn",
+    "subcategory_name": "Horn",
+    "subcategory": "Horn",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -25751,8 +25751,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:31.447352",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-17",
+    "catalogue_updated_at": "2026-10-17"
   },
   {
     "id": "SVKS000433",
@@ -41101,9 +41101,9 @@
     "category_id": "suspension-steering",
     "category_name": "Suspension & Steering",
     "category": "Suspension & Steering",
-    "subcategory_id": "u-bolt",
-    "subcategory_name": "U Bolt",
-    "subcategory": "U Bolt",
+    "subcategory_id": "center-bolt",
+    "subcategory_name": "Center Bolt",
+    "subcategory": "Center Bolt",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -41135,8 +41135,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:37.248044",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-17",
+    "catalogue_updated_at": "2026-10-17"
   },
   {
     "id": "SVKS000691",
@@ -41160,9 +41160,9 @@
     "category_id": "suspension-steering",
     "category_name": "Suspension & Steering",
     "category": "Suspension & Steering",
-    "subcategory_id": "u-bolt",
-    "subcategory_name": "U Bolt",
-    "subcategory": "U Bolt",
+    "subcategory_id": "center-bolt",
+    "subcategory_name": "Center Bolt",
+    "subcategory": "Center Bolt",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -41194,8 +41194,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:37.276737",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-17",
+    "catalogue_updated_at": "2026-10-17"
   },
   {
     "id": "SVKS000692",
@@ -41219,9 +41219,9 @@
     "category_id": "suspension-steering",
     "category_name": "Suspension & Steering",
     "category": "Suspension & Steering",
-    "subcategory_id": "u-bolt",
-    "subcategory_name": "U Bolt",
-    "subcategory": "U Bolt",
+    "subcategory_id": "center-bolt",
+    "subcategory_name": "Center Bolt",
+    "subcategory": "Center Bolt",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -41253,8 +41253,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:37.304858",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-17",
+    "catalogue_updated_at": "2026-10-17"
   },
   {
     "id": "SVKS000693",
@@ -41278,9 +41278,9 @@
     "category_id": "suspension-steering",
     "category_name": "Suspension & Steering",
     "category": "Suspension & Steering",
-    "subcategory_id": "u-bolt",
-    "subcategory_name": "U Bolt",
-    "subcategory": "U Bolt",
+    "subcategory_id": "center-bolt",
+    "subcategory_name": "Center Bolt",
+    "subcategory": "Center Bolt",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -41312,8 +41312,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:37.331782",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-17",
+    "catalogue_updated_at": "2026-10-17"
   },
   {
     "id": "SVKS000694",
@@ -41337,9 +41337,9 @@
     "category_id": "suspension-steering",
     "category_name": "Suspension & Steering",
     "category": "Suspension & Steering",
-    "subcategory_id": "u-bolt",
-    "subcategory_name": "U Bolt",
-    "subcategory": "U Bolt",
+    "subcategory_id": "center-bolt",
+    "subcategory_name": "Center Bolt",
+    "subcategory": "Center Bolt",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -41371,8 +41371,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:37.360734",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-17",
+    "catalogue_updated_at": "2026-10-17"
   },
   {
     "id": "SVKS000695",
@@ -61645,9 +61645,9 @@
     "category_id": "suspension-steering",
     "category_name": "Suspension & Steering",
     "category": "Suspension & Steering",
-    "subcategory_id": "shackle-plate",
-    "subcategory_name": "Shackle Plate",
-    "subcategory": "Shackle Plate",
+    "subcategory_id": "bracket",
+    "subcategory_name": "Bracket",
+    "subcategory": "Bracket",
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001040/1.webp",
@@ -61671,7 +61671,7 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
+    "catalogue_updated_at": "2026-10-17",
     "updated_at": "2026-10-07T12:49:00+05:30"
   },
   {

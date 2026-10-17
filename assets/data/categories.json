@@ -618,8 +618,8 @@
       400
     ],
     "banner": "",
-    "description": "Suspension & Steering covers 346 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
-    "short_description": "Suspension & Steering: 346 active parts across Axle Shaft, Bracket, Center Bolt, Cotter Bolt and more.",
+    "description": "Suspension & Steering covers 344 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
+    "short_description": "Suspension & Steering: 344 active parts across Axle Shaft, Bracket, Center Bolt, Cotter Bolt and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -781,10 +781,6 @@
         "name": "RKI"
       },
       {
-        "id": "roots",
-        "name": "Roots"
-      },
-      {
         "id": "sargun",
         "name": "Sargun"
       },
@@ -872,7 +868,6 @@
       "SVKS000127",
       "SVKS000128",
       "SVKS000129",
-      "SVKS000190",
       "SVKS000224",
       "SVKS000225",
       "SVKS000226",
@@ -936,7 +931,6 @@
       "SVKS000404",
       "SVKS000426",
       "SVKS000428",
-      "SVKS000432",
       "SVKS000436",
       "SVKS000437",
       "SVKS000438",
@@ -1209,12 +1203,12 @@
       "SVKS001078",
       "SVKS001079"
     ],
-    "product_count": 346,
+    "product_count": 344,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Suspension & Steering Parts | Souviks",
-      "description": "Suspension & Steering covers 346 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
+      "description": "Suspension & Steering covers 344 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
       "keywords": [
         "Suspension & Steering",
         "commercial vehicle spare parts",
@@ -1238,8 +1232,8 @@
       400
     ],
     "banner": "",
-    "description": "Electricals covers 128 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Armature, Battery Cable, Brake Light, Bulb, Clutch Drive and more and brands including Anupam, AutoPly, Bapi, Bosch, Comet and more.",
-    "short_description": "Electricals: 128 active parts across Armature, Battery Cable, Brake Light, Bulb and more.",
+    "description": "Electricals covers 129 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Armature, Battery Cable, Brake Light, Bulb, Clutch Drive and more and brands including Anupam, AutoPly, Bapi, Bosch, Comet and more.",
+    "short_description": "Electricals: 129 active parts across Armature, Battery Cable, Brake Light, Bulb and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -1531,6 +1525,7 @@
       "SVKS000409",
       "SVKS000430",
       "SVKS000431",
+      "SVKS000432",
       "SVKS000434",
       "SVKS000439",
       "SVKS000450",
@@ -1597,12 +1592,12 @@
       "SVKS001013",
       "SVKS001014"
     ],
-    "product_count": 128,
+    "product_count": 129,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Electricals Parts | Souviks",
-      "description": "Electricals covers 128 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Armature, Battery Cable, Brake Light, Bulb, Clutch Drive and more and brands including Anupam, AutoPly, Bapi, Bosch, Comet and more.",
+      "description": "Electricals covers 129 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Armature, Battery Cable, Brake Light, Bulb, Clutch Drive and more and brands including Anupam, AutoPly, Bapi, Bosch, Comet and more.",
       "keywords": [
         "Electricals",
         "commercial vehicle spare parts",
@@ -1626,8 +1621,8 @@
       400
     ],
     "banner": "",
-    "description": "Brakes covers 57 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland U-Truck, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc, Brake Drum and more and brands including AMW, ASK, Compo, Fleetguard, JMP and more.",
-    "short_description": "Brakes: 57 active parts across Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc and more.",
+    "description": "Brakes covers 58 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland U-Truck, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc, Brake Drum and more and brands including AMW, ASK, Compo, Fleetguard, JMP and more.",
+    "short_description": "Brakes: 58 active parts across Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -1762,6 +1757,7 @@
       "SVKS000177",
       "SVKS000178",
       "SVKS000187",
+      "SVKS000190",
       "SVKS000191",
       "SVKS000193",
       "SVKS000194",
@@ -1811,12 +1807,12 @@
       "SVKS001018",
       "SVKS001021"
     ],
-    "product_count": 57,
+    "product_count": 58,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Brakes Parts | Souviks",
-      "description": "Brakes covers 57 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland U-Truck, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc, Brake Drum and more and brands including AMW, ASK, Compo, Fleetguard, JMP and more.",
+      "description": "Brakes covers 58 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland U-Truck, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc, Brake Drum and more and brands including AMW, ASK, Compo, Fleetguard, JMP and more.",
       "keywords": [
         "Brakes",
         "commercial vehicle spare parts",

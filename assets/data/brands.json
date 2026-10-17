@@ -436,16 +436,14 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 5 active Roots products across Electricals, Suspension & Steering. The listed range is mapped to applications such as Universal, Tata LPT, Tata Signa, Ashok Leyland 2516 and common replacement areas including Horn, U Bolt.  Current catalogue examples include Vibrosonic Horn 12V, Wind Tone Horn, Vibrosonic Horn. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Roots products at Souviks cover Electricals, Suspension & Steering and applications across Universal, Tata LPT, Tata Signa and more.",
+    "description": "Souviks currently lists 5 active Roots products across Electricals. The listed range is mapped to applications such as Universal, Tata LPT, Tata Signa, Ashok Leyland 2516 and common replacement areas including Horn.  Current catalogue examples include Vibrosonic Horn 12V, Wind Tone Horn, Vibrosonic Horn. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Roots products at Souviks cover Electricals and applications across Universal, Tata LPT, Tata Signa and more.",
     "product_count": 5,
     "categories": [
-      "electricals",
-      "suspension-steering"
+      "electricals"
     ],
     "subcategories": [
-      "horn",
-      "u-bolt"
+      "horn"
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -471,7 +469,7 @@
     "active": true,
     "seo": {
       "title": "Roots Parts | Souviks",
-      "description": "Souviks currently lists 5 active Roots products across Electricals, Suspension & Steering. The listed range is mapped to applications such as Universal, Tata LPT, Tata Signa, Ashok Leyland 2516 and common replacement areas including Horn, U Bolt.  Current catalogue examples include Vibrosonic Horn 12V, Wind Tone Horn, Vibrosonic Horn. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 5 active Roots products across Electricals. The listed range is mapped to applications such as Universal, Tata LPT, Tata Signa, Ashok Leyland 2516 and common replacement areas including Horn.  Current catalogue examples include Vibrosonic Horn 12V, Wind Tone Horn, Vibrosonic Horn. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Roots",
         "commercial vehicle spare parts",
@@ -496,7 +494,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 25 active GS products across Air System, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata 407, Tata 709, Eicher 1110 and more and common replacement areas including Center Bolt, U Bolt, Suspension Bush, Air Spring.  Current catalogue examples include 14\" Center Bolt 5/8, Centre Bolt - 15/32 10\", Centre Bolt - 15/32 12\". Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 25 active GS products across Air System, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata 407, Tata 709, Eicher 1110 and more and common replacement areas including Center Bolt, Suspension Bush, Air Spring.  Current catalogue examples include 14\" Center Bolt 5/8, Centre Bolt - 15/32 10\", Centre Bolt - 15/32 12\". Use the part number, application and vehicle details when checking fitment.",
     "short_description": "GS products at Souviks cover Air System, Suspension & Steering and applications across Tata LPT, Ashok Leyland 2516, Tata 407 and more.",
     "product_count": 25,
     "categories": [
@@ -506,8 +504,7 @@
     "subcategories": [
       "air-spring",
       "center-bolt",
-      "suspension-bush",
-      "u-bolt"
+      "suspension-bush"
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -562,7 +559,7 @@
     "active": true,
     "seo": {
       "title": "GS Parts | Souviks",
-      "description": "Souviks currently lists 25 active GS products across Air System, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata 407, Tata 709, Eicher 1110 and more and common replacement areas including Center Bolt, U Bolt, Suspension Bush, Air Spring.  Current catalogue examples include 14\" Center Bolt 5/8, Centre Bolt - 15/32 10\", Centre Bolt - 15/32 12\". Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 25 active GS products across Air System, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata 407, Tata 709, Eicher 1110 and more and common replacement areas including Center Bolt, Suspension Bush, Air Spring.  Current catalogue examples include 14\" Center Bolt 5/8, Centre Bolt - 15/32 10\", Centre Bolt - 15/32 12\". Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "GS",
         "commercial vehicle spare parts",
@@ -648,7 +645,7 @@
     "banner": "",
     "website": "https://www.customercare-cv.tatamotors.com/tata-genuine-parts/tgp-overview.aspx",
     "country": "India",
-    "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Accelerator Cable and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Tata Genuine Parts products at Souviks cover Bearings, Brakes, Clutch Parts, Cooling Pump and more and applications across Tata Ace, Tata Magic, Tata LPT and more.",
     "product_count": 101,
     "categories": [
@@ -700,7 +697,6 @@
       "taper-roller-bearing",
       "timing-belt",
       "timing-components",
-      "u-bolt",
       "water-pump",
       "window-regulator"
     ],
@@ -837,7 +833,7 @@
     "active": true,
     "seo": {
       "title": "Tata Genuine Parts Parts | Souviks",
-      "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Accelerator Cable and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Tata Genuine Parts",
         "commercial vehicle spare parts",

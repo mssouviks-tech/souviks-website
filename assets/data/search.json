@@ -21648,7 +21648,7 @@
       "MBJS 112",
       "GS",
       "Suspension & Steering",
-      "U Bolt",
+      "Center Bolt",
       "GS Eye Bolt w/ Lock Nut 10\". Part number MBJS 112. for U Bolt. Compatible vehicles: Ashok Leyland 2516.",
       "Ashok Leyland 2516"
     ],
@@ -21691,7 +21691,7 @@
       "MBJS 114",
       "GS",
       "Suspension & Steering",
-      "U Bolt",
+      "Center Bolt",
       "GS Eye Bolt w/ Lock Nut 11\". Part number MBJS 114. for U Bolt. Compatible vehicles: Ashok Leyland 2516.",
       "Ashok Leyland 2516"
     ],
@@ -21734,7 +21734,7 @@
       "MBJS 116",
       "GS",
       "Suspension & Steering",
-      "U Bolt",
+      "Center Bolt",
       "GS Eye Bolt w/ Lock Nut 12\". Part number MBJS 116. for U Bolt. Compatible vehicles: Ashok Leyland 2516.",
       "Ashok Leyland 2516"
     ],
@@ -21777,7 +21777,7 @@
       "MSJS 217",
       "GS",
       "Suspension & Steering",
-      "U Bolt",
+      "Center Bolt",
       "GS Eye Bolt w/ Lock Nut 13\". Part number MSJS 217. for U Bolt. Compatible vehicles: Ashok Leyland 2516.",
       "Ashok Leyland 2516"
     ],
@@ -21820,7 +21820,7 @@
       "MBJS 258",
       "GS",
       "Suspension & Steering",
-      "U Bolt",
+      "Center Bolt",
       "GS Eye Bolt w/ Lock Nut 14\". Part number MBJS 258. for U Bolt. Compatible vehicles: Ashok Leyland 2516.",
       "Ashok Leyland 2516"
     ],
@@ -29310,8 +29310,8 @@
       "Lined Shoe - Super ACE B Type",
       "886742000002",
       "Tata Genuine Parts",
-      "Suspension & Steering",
-      "U Bolt",
+      "Brakes",
+      "Brake Lining",
       "Tata Genuine Parts Lined Shoe - Super ACE B Type. Part number 886742000002. for U Bolt. Compatible vehicles: Tata Ace.",
       "Tata Ace"
     ],
@@ -29331,8 +29331,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "suspension-steering",
-      "name": "Suspension & Steering"
+      "id": "brakes",
+      "name": "Brakes"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -36389,8 +36389,8 @@
       "Siren Multitone 12V/24V",
       "RSMPRC",
       "Roots",
-      "Suspension & Steering",
-      "U Bolt",
+      "Electricals",
+      "Horn",
       "Roots Siren Multitone 12V/24V. Part number RSMPRC. for U Bolt. Compatible vehicles: Universal.",
       "Universal"
     ],
@@ -36410,8 +36410,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "suspension-steering",
-      "name": "Suspension & Steering"
+      "id": "electricals",
+      "name": "Electricals"
     },
     "brand": {
       "id": "roots",
@@ -48598,7 +48598,7 @@
       "J2473",
       "JMP",
       "Suspension & Steering",
-      "Shackle Plate",
+      "Bracket",
       "JMP J2473 left-hand spring seat, part number FZC00299, for the bogie and rear-axle suspension applications listed for Ashok Leyland U-Truck. This spring seat is a component of compatible commercial vehicle bogie assemblies.",
       "Ashok Leyland U-Truck"
     ],
