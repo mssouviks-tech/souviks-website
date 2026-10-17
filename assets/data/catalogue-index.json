@@ -47312,19 +47312,22 @@
       "Benz 3123."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001104/1.webp"
   },
   {
     "id": "SVKS001105",
@@ -47359,19 +47362,22 @@
       "LPO 1625/1624 and Benz 3123S."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001105/1.webp"
   },
   {
     "id": "SVKS001106",
@@ -47406,19 +47412,22 @@
       "Signa 4323 and Prima 3525."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001106/1.webp"
   },
   {
     "id": "SVKS001107",
@@ -47453,19 +47462,22 @@
       "Signa 4323 and Prima 3525."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001107/1.webp"
   },
   {
     "id": "SVKS001108",
@@ -47497,19 +47509,22 @@
       "4-inch pipe size."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001108/1.webp"
   },
   {
     "id": "SVKS001109",
@@ -47542,19 +47557,22 @@
       "HYWA and Leyland Super."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001109/1.webp"
   },
   {
     "id": "SVKS001110",
@@ -47586,19 +47604,22 @@
       "vehicle model not specified in the catalogue entry."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001110/1.webp"
   },
   {
     "id": "SVKS001111",
@@ -47630,19 +47651,22 @@
       "supplied as a pair according to the catalogue."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001111/1.webp"
   },
   {
     "id": "SVKS001112",
@@ -47674,19 +47698,22 @@
       "also referenced in the Tata 709 LPT/SFC catalogue section."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001112/1.webp"
   },
   {
     "id": "SVKS001113",
@@ -47717,19 +47744,22 @@
       "catalogue states all models and references KF3738/KF3748."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001113/1.webp"
   },
   {
     "id": "SVKS001114",
@@ -47760,19 +47790,22 @@
       "as listed in the catalogue."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001114/1.webp"
   },
   {
     "id": "SVKS001115",
@@ -47803,19 +47836,22 @@
       "right-hand side."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001115/1.webp"
   },
   {
     "id": "SVKS001116",
@@ -47846,18 +47882,21 @@
       "left-hand side."
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-17",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001116/1.webp"
   }
 ]

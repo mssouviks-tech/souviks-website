@@ -618,8 +618,8 @@
       400
     ],
     "banner": "",
-    "description": "Suspension & Steering covers 344 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
-    "short_description": "Suspension & Steering: 344 active parts across Axle Shaft, Bracket, Center Bolt, Cotter Bolt and more.",
+    "description": "Suspension & Steering covers 356 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
+    "short_description": "Suspension & Steering: 356 active parts across Axle Shaft, Bracket, Center Bolt, Cotter Bolt and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -1201,14 +1201,26 @@
       "SVKS001076",
       "SVKS001077",
       "SVKS001078",
-      "SVKS001079"
+      "SVKS001079",
+      "SVKS001104",
+      "SVKS001105",
+      "SVKS001106",
+      "SVKS001107",
+      "SVKS001108",
+      "SVKS001109",
+      "SVKS001110",
+      "SVKS001111",
+      "SVKS001113",
+      "SVKS001114",
+      "SVKS001115",
+      "SVKS001116"
     ],
-    "product_count": 344,
+    "product_count": 356,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Suspension & Steering Parts | Souviks",
-      "description": "Suspension & Steering covers 344 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
+      "description": "Suspension & Steering covers 356 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
       "keywords": [
         "Suspension & Steering",
         "commercial vehicle spare parts",
@@ -1836,8 +1848,8 @@
       400
     ],
     "banner": "",
-    "description": "Engine Components covers 42 active commercial-vehicle spare parts used across Ashok Leyland 2516, Mahindra Blazo, Mahindra Bolero MaXX Pik-Up, Mahindra Bolero Pik-Up, Tata 1109 and more. The category includes subcategories such as Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket, Gear Top Cover and more and brands including BIR, Fenner, KFL, Leyparts, Pix and more.",
-    "short_description": "Engine Components: 42 active parts across Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket and more.",
+    "description": "Engine Components covers 43 active commercial-vehicle spare parts used across Ashok Leyland 2516, Mahindra Blazo, Mahindra Bolero MaXX Pik-Up, Mahindra Bolero Pik-Up, Tata 1109 and more. The category includes subcategories such as Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket, Gear Top Cover and more and brands including BIR, Fenner, KFL, Leyparts, Pix and more.",
+    "short_description": "Engine Components: 43 active parts across Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -1976,14 +1988,15 @@
       "SVKS001026",
       "SVKS001027",
       "SVKS001028",
-      "SVKS001029"
+      "SVKS001029",
+      "SVKS001112"
     ],
-    "product_count": 42,
+    "product_count": 43,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Engine Components Parts | Souviks",
-      "description": "Engine Components covers 42 active commercial-vehicle spare parts used across Ashok Leyland 2516, Mahindra Blazo, Mahindra Bolero MaXX Pik-Up, Mahindra Bolero Pik-Up, Tata 1109 and more. The category includes subcategories such as Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket, Gear Top Cover and more and brands including BIR, Fenner, KFL, Leyparts, Pix and more.",
+      "description": "Engine Components covers 43 active commercial-vehicle spare parts used across Ashok Leyland 2516, Mahindra Blazo, Mahindra Bolero MaXX Pik-Up, Mahindra Bolero Pik-Up, Tata 1109 and more. The category includes subcategories such as Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket, Gear Top Cover and more and brands including BIR, Fenner, KFL, Leyparts, Pix and more.",
       "keywords": [
         "Engine Components",
         "commercial vehicle spare parts",

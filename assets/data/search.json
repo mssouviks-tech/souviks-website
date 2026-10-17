@@ -50583,5 +50583,636 @@
     "featured": false,
     "active": true,
     "weight": 100
+  },
+  {
+    "id": "SVKS001104",
+    "type": "product",
+    "title": "Front Teeth 20 Spline Bolt Type",
+    "subtitle": "Part No. KF-6934B",
+    "keywords": [
+      "Front Teeth 20 Spline Bolt Type",
+      "KF-6934B",
+      "KFL",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The KFL KF-6934B front teeth coupling is a bolt-type driveline component with 20 splines, a 114 mm pipe size, 148 mm height and 55 mm bearing diameter. It is used in Tata LPK 3128 8x4 tipper applications with a 5,250 mm wheelbase and Benz 3123 applications. Its front teeth and splined interface form part of the propeller-shaft connection.",
+      "Tata Signa"
+    ],
+    "description": "The KFL KF-6934B front teeth coupling is a bolt-type driveline component with 20 splines, a 114 mm pipe size, 148 mm height and 55 mm bearing diameter. It is used in Tata LPK 3128 8x4 tipper applications with a 5,250 mm wheelbase and Benz 3123 applications. Its front teeth and splined interface form part of the propeller-shaft connection.",
+    "applications": [
+      "Tata LPK 3128 8x4 tipper",
+      "5250 mm wheelbase",
+      "Benz 3123."
+    ],
+    "vehicles": [
+      "Tata Signa"
+    ],
+    "part_number": "KF-6934B",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf-6934b-front-teeth-20-spline-bolt-type",
+    "url": "/en/products/kf-6934b-front-teeth-20-spline-bolt-type",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001105",
+    "type": "product",
+    "title": "Coupling Center Flange 20 Spline",
+    "subtitle": "Part No. KF-6907A",
+    "keywords": [
+      "Coupling Center Flange 20 Spline",
+      "KF-6907A",
+      "KFL",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The KFL KF-6907A coupling centre flange is a four-hole serrated flange with 20 splines, a 150 mm plate, 71 mm length and 76 mm oil-seal diameter. Vehicle applications include Ashok Leyland 3518, MNAL 35T, Tata LPS 4921, Tata LPO 1625, Tata LPO 1624 and Benz 3123S. The centre flange provides a mating connection within the compatible driveline assembly.",
+      "Ashok Leyland 2516",
+      "Mahindra Blazo",
+      "Tata LPT"
+    ],
+    "description": "The KFL KF-6907A coupling centre flange is a four-hole serrated flange with 20 splines, a 150 mm plate, 71 mm length and 76 mm oil-seal diameter. Vehicle applications include Ashok Leyland 3518, MNAL 35T, Tata LPS 4921, Tata LPO 1625, Tata LPO 1624 and Benz 3123S. The centre flange provides a mating connection within the compatible driveline assembly.",
+    "applications": [
+      "AL 3518",
+      "MNAL 35T",
+      "Tata LPS 4921",
+      "LPO 1625/1624 and Benz 3123S."
+    ],
+    "vehicles": [
+      "Ashok Leyland 2516",
+      "Mahindra Blazo",
+      "Tata LPT"
+    ],
+    "part_number": "KF-6907A",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf-6907a-coupling-center-flange-20-spline",
+    "url": "/en/products/kf-6907a-coupling-center-flange-20-spline",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 3,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001106",
+    "type": "product",
+    "title": "Center Coupling Flange 26 Spline",
+    "subtitle": "Part No. KF-6929A",
+    "keywords": [
+      "Center Coupling Flange 26 Spline",
+      "KF-6929A",
+      "KFL",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The KFL KF-6929A centre coupling flange features 26 splines, a four-hole serrated design, a 150 mm plate, 95 mm height and 68.6 mm oil-seal diameter. It is used in Tata 3718, LPT 2518, LPT 3118, Signa 4323 and Prima 3525 applications. The flange forms a connection point in the propeller-shaft driveline assembly.",
+      "Tata LPT",
+      "Tata Signa",
+      "Tata Prima"
+    ],
+    "description": "The KFL KF-6929A centre coupling flange features 26 splines, a four-hole serrated design, a 150 mm plate, 95 mm height and 68.6 mm oil-seal diameter. It is used in Tata 3718, LPT 2518, LPT 3118, Signa 4323 and Prima 3525 applications. The flange forms a connection point in the propeller-shaft driveline assembly.",
+    "applications": [
+      "Tata 3718",
+      "LPT 2518",
+      "LPT 3118",
+      "Signa 4323 and Prima 3525."
+    ],
+    "vehicles": [
+      "Tata LPT",
+      "Tata Signa",
+      "Tata Prima"
+    ],
+    "part_number": "KF-6929A",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf-6929a-center-coupling-flange-26-spline",
+    "url": "/en/products/kf-6929a-center-coupling-flange-26-spline",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 3,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001107",
+    "type": "product",
+    "title": "Gear Coupling 26 Spline",
+    "subtitle": "Part No. KF-6847A",
+    "keywords": [
+      "Gear Coupling 26 Spline",
+      "KF-6847A",
+      "KFL",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The KFL KF-6847A gear coupling is a 26-spline driveline component featuring a 6-inch serrated plate and four 13 mm holes. The splined interface and serrated plate form the mechanical connection between compatible mating parts in a commercial-vehicle drivetrain.",
+      "Tata LPT",
+      "Tata Signa",
+      "Tata Prima"
+    ],
+    "description": "The KFL KF-6847A gear coupling is a 26-spline driveline component featuring a 6-inch serrated plate and four 13 mm holes. The splined interface and serrated plate form the mechanical connection between compatible mating parts in a commercial-vehicle drivetrain.",
+    "applications": [
+      "Tata 3718",
+      "LPT 2518",
+      "LPT 3118",
+      "Signa 4323 and Prima 3525."
+    ],
+    "vehicles": [
+      "Tata LPT",
+      "Tata Signa",
+      "Tata Prima"
+    ],
+    "part_number": "KF-6847A",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf-6847a-gear-coupling-26-spline",
+    "url": "/en/products/kf-6847a-gear-coupling-26-spline",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 3,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001108",
+    "type": "product",
+    "title": "Front Teeth HYWA 2515 EX",
+    "subtitle": "Part No. KF-6817A",
+    "keywords": [
+      "Front Teeth HYWA 2515 EX",
+      "KF-6817A",
+      "KFL",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The KFL KF-6817A front teeth coupling is compatible with HYWA 2515 EX and 2516/3516 TCAC applications. It has a 4-inch pipe size and a front-tooth connection that mates with the corresponding component in the vehicle’s driveline assembly.",
+      "Tata Signa"
+    ],
+    "description": "The KFL KF-6817A front teeth coupling is compatible with HYWA 2515 EX and 2516/3516 TCAC applications. It has a 4-inch pipe size and a front-tooth connection that mates with the corresponding component in the vehicle’s driveline assembly.",
+    "applications": [
+      "HYWA 2515 EX",
+      "2516/3516 TCAC",
+      "4-inch pipe size."
+    ],
+    "vehicles": [
+      "Tata Signa"
+    ],
+    "part_number": "KF-6817A",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf-6817a-front-teeth-hywa-2515-ex",
+    "url": "/en/products/kf-6817a-front-teeth-hywa-2515-ex",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001109",
+    "type": "product",
+    "title": "Front Teeth HYWA/Leyland Super",
+    "subtitle": "Part No. KF-6817B",
+    "keywords": [
+      "Front Teeth HYWA/Leyland Super",
+      "KF-6817B",
+      "KFL",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The KFL KF-6817B front teeth component is compatible with 2515 EX, 2516/3516 TCAC, HYWA and Leyland Super applications. Its front-tooth interface forms part of the propeller-shaft connection in these commercial-vehicle driveline configurations.",
+      "Tata Signa",
+      "Ashok Leyland 2516"
+    ],
+    "description": "The KFL KF-6817B front teeth component is compatible with 2515 EX, 2516/3516 TCAC, HYWA and Leyland Super applications. Its front-tooth interface forms part of the propeller-shaft connection in these commercial-vehicle driveline configurations.",
+    "applications": [
+      "2515 EX",
+      "2516/3516 TCAC",
+      "HYWA and Leyland Super."
+    ],
+    "vehicles": [
+      "Tata Signa",
+      "Ashok Leyland 2516"
+    ],
+    "part_number": "KF-6817B",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf-6817b-front-teeth-hywa-leyland-super",
+    "url": "/en/products/kf-6817b-front-teeth-hywa-leyland-super",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001110",
+    "type": "product",
+    "title": "Tie Rod End Big Tata GB-40",
+    "subtitle": "Part No. KF3359",
+    "keywords": [
+      "Tie Rod End Big Tata GB-40",
+      "KF3359",
+      "KFL",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The KFL KF3359 big tie rod end is a gearbox linkage component for the Tata GB-40 gearbox. It forms a joint in the gear-selection linkage, connecting linkage parts while allowing the movement required for operation of the shifting mechanism. This reference identifies the big tie rod end version.",
+      "Tata 1210",
+      "Tata 1312"
+    ],
+    "description": "The KFL KF3359 big tie rod end is a gearbox linkage component for the Tata GB-40 gearbox. It forms a joint in the gear-selection linkage, connecting linkage parts while allowing the movement required for operation of the shifting mechanism. This reference identifies the big tie rod end version.",
+    "applications": [
+      "Tie rod end for Tata GB-40 gearbox",
+      "vehicle model not specified in the catalogue entry."
+    ],
+    "vehicles": [
+      "Tata 1210",
+      "Tata 1312"
+    ],
+    "part_number": "KF3359",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf3359-tie-rod-end-big-tata-gb-40",
+    "url": "/en/products/kf3359-tie-rod-end-big-tata-gb-40",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001111",
+    "type": "product",
+    "title": "Tie Rod End Tata GB-40",
+    "subtitle": "Part No. KF3358",
+    "keywords": [
+      "Tie Rod End Tata GB-40",
+      "KF3358",
+      "KFL",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The KFL KF3358 tie rod end is supplied as a pair for the Tata GB-40 gearbox linkage. The paired linkage joints connect adjoining parts of the gear-selection mechanism and allow movement through the linkage during gear shifting. Part reference: KF3358.",
+      "Tata 1210",
+      "Tata 1312"
+    ],
+    "description": "The KFL KF3358 tie rod end is supplied as a pair for the Tata GB-40 gearbox linkage. The paired linkage joints connect adjoining parts of the gear-selection mechanism and allow movement through the linkage during gear shifting. Part reference: KF3358.",
+    "applications": [
+      "Tie rod end for Tata GB-40 gearbox",
+      "supplied as a pair according to the catalogue."
+    ],
+    "vehicles": [
+      "Tata 1210",
+      "Tata 1312"
+    ],
+    "part_number": "KF3358",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf3358-tie-rod-end-tata-gb-40",
+    "url": "/en/products/kf3358-tie-rod-end-tata-gb-40",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001112",
+    "type": "product",
+    "title": "Gear Shifter RH & LH Tata",
+    "subtitle": "Part No. KF3361",
+    "keywords": [
+      "Gear Shifter RH & LH Tata",
+      "KF3361",
+      "KFL",
+      "Engine Components",
+      "Gear Top Cover",
+      "The KFL KF3361 gear shifter set contains right-hand and left-hand gear shifter components for Tata and Tata Ace applications, including the Tata 709 LPT/SFC application range. The set brings both side-specific shifter components together for the compatible gear-shift assembly and is cross-referenced with KF1134.",
+      "Tata Ace",
+      "Tata 709"
+    ],
+    "description": "The KFL KF3361 gear shifter set contains right-hand and left-hand gear shifter components for Tata and Tata Ace applications, including the Tata 709 LPT/SFC application range. The set brings both side-specific shifter components together for the compatible gear-shift assembly and is cross-referenced with KF1134.",
+    "applications": [
+      "Tata and Tata Ace",
+      "also referenced in the Tata 709 LPT/SFC catalogue section."
+    ],
+    "vehicles": [
+      "Tata Ace",
+      "Tata 709"
+    ],
+    "part_number": "KF3361",
+    "manufacturer_part_number": "KF1134",
+    "manufacturer_part_numbers": [
+      "KF1134"
+    ],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf3361-gear-shifter-rh-lh-tata",
+    "url": "/en/products/kf3361-gear-shifter-rh-lh-tata",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "engine-components",
+      "name": "Engine Components"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001113",
+    "type": "product",
+    "title": "Tie Rod Repair Kit",
+    "subtitle": "Part No. KF3738",
+    "keywords": [
+      "Tie Rod Repair Kit",
+      "KF3738",
+      "KFL",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The KFL KF3738 tie rod repair kit is a service kit for tie-rod linkage assemblies. Part reference KF3738, cross-reference KF3748, application designation: all models.",
+      "Universal"
+    ],
+    "description": "The KFL KF3738 tie rod repair kit is a service kit for tie-rod linkage assemblies. Part reference KF3738, cross-reference KF3748, application designation: all models.",
+    "applications": [
+      "Tie rod repair",
+      "catalogue states all models and references KF3738/KF3748."
+    ],
+    "vehicles": [
+      "Universal"
+    ],
+    "part_number": "KF3738",
+    "manufacturer_part_number": "KF3748",
+    "manufacturer_part_numbers": [
+      "KF3748"
+    ],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf3738-tie-rod-repair-kit",
+    "url": "/en/products/kf3738-tie-rod-repair-kit",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001114",
+    "type": "product",
+    "title": "Drag Link Repair Kit 1616/2416 Turbo",
+    "subtitle": "Part No. KF4334",
+    "keywords": [
+      "Drag Link Repair Kit 1616/2416 Turbo",
+      "KF4334",
+      "KFL",
+      "Suspension & Steering",
+      "Drag Link",
+      "The KFL KF4334 drag link repair kit is for 1616 and 2416 Turbo applications. It is a steering-linkage service kit for the drag link, the component that transfers movement through the vehicle’s steering linkage assembly. Part reference: KF4334.",
+      "Tata 2416"
+    ],
+    "description": "The KFL KF4334 drag link repair kit is for 1616 and 2416 Turbo applications. It is a steering-linkage service kit for the drag link, the component that transfers movement through the vehicle’s steering linkage assembly. Part reference: KF4334.",
+    "applications": [
+      "Drag link repair kit for 1616/2416 Turbo applications",
+      "as listed in the catalogue."
+    ],
+    "vehicles": [
+      "Tata 2416"
+    ],
+    "part_number": "KF4334",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf4334-drag-link-repair-kit-1616-2416-turbo",
+    "url": "/en/products/kf4334-drag-link-repair-kit-1616-2416-turbo",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001115",
+    "type": "product",
+    "title": "Tie Rod End Tata LPT 3118 RH",
+    "subtitle": "Part No. KF3392",
+    "keywords": [
+      "Tie Rod End Tata LPT 3118 RH",
+      "KF3392",
+      "KFL",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The KFL KF3392 right-hand (RH) tie rod end is for the Tata LPT 3118. It forms the right-hand joint in the steering linkage, connecting the tie rod to the adjoining steering component while accommodating linkage movement. The RH orientation distinguishes it from the left-hand KF3393.",
+      "Tata LPT"
+    ],
+    "description": "The KFL KF3392 right-hand (RH) tie rod end is for the Tata LPT 3118. It forms the right-hand joint in the steering linkage, connecting the tie rod to the adjoining steering component while accommodating linkage movement. The RH orientation distinguishes it from the left-hand KF3393.",
+    "applications": [
+      "Tata LPT 3118",
+      "right-hand side."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "KF3392",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf3392-tie-rod-end-tata-lpt-3118-rh",
+    "url": "/en/products/kf3392-tie-rod-end-tata-lpt-3118-rh",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001116",
+    "type": "product",
+    "title": "Tie Rod End Tata LPT 3118 LH",
+    "subtitle": "Part No. KF3393",
+    "keywords": [
+      "Tie Rod End Tata LPT 3118 LH",
+      "KF3393",
+      "KFL",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The KFL KF3393 left-hand (LH) tie rod end is for the Tata LPT 3118. It forms the left-hand joint in the steering linkage and connects the tie rod to the adjoining steering component while accommodating linkage movement. The LH orientation distinguishes it from the right-hand KF3392.",
+      "Tata LPT"
+    ],
+    "description": "The KFL KF3393 left-hand (LH) tie rod end is for the Tata LPT 3118. It forms the left-hand joint in the steering linkage and connects the tie rod to the adjoining steering component while accommodating linkage movement. The LH orientation distinguishes it from the right-hand KF3392.",
+    "applications": [
+      "Tata LPT 3118",
+      "left-hand side."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "KF3393",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "kf3393-tie-rod-end-tata-lpt-3118-lh",
+    "url": "/en/products/kf3393-tie-rod-end-tata-lpt-3118-lh",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "kfl",
+      "name": "KFL"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
   }
 ]
