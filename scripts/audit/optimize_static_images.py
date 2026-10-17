@@ -27,13 +27,13 @@ MAX_DIMENSIONS = {
     "logo": (512, 512),
 }
 GA_BLOCK_RE = re.compile(
-    r'<!--\s*Google tag \(gtag\.js\)\s*-->\s*'
+    r'^[ \t]*<!--\s*Google tag \(gtag\.js\)\s*-->\s*'
     r'<script\s+async\s+src=["\']https://www\.googletagmanager\.com/gtag/js\?id=G-FDLYP5QB8V["\']\s*>\s*</script>\s*'
     r'<script>\s*window\.dataLayer\s*=\s*window\.dataLayer\s*\|\|\s*\[\];\s*'
     r'function\s+gtag\(\)\s*\{\s*dataLayer\.push\(arguments\);\s*\}\s*'
     r'gtag\(\s*[\'"]js[\'"]\s*,\s*new Date\(\)\s*\);\s*'
-    r'gtag\(\s*[\'"]config[\'"]\s*,\s*[\'"]G-FDLYP5QB8V[\'"]\s*\);\s*</script>',
-    flags=re.IGNORECASE | re.DOTALL,
+    r'gtag\(\s*[\'"]config[\'"]\s*,\s*[\'"]G-FDLYP5QB8V[\'"]\s*\);\s*</script>\s*',
+    flags=re.IGNORECASE | re.DOTALL | re.MULTILINE,
 )
 
 
