@@ -1184,7 +1184,7 @@ def validate_robots_and_sitemap_index(errors: list[str]) -> None:
 def validate_sitemaps(records_by_kind, errors: list[str]) -> None:
     static_names = {
         "index", "products", "brands", "categories", "vehicles",
-        "about", "contact", "privacy-policy", "terms", "refund",
+        "about", "business-buyers", "contact", "privacy-policy", "terms", "refund",
     }
     expected = {
         "pages.xml": {
