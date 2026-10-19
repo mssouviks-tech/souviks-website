@@ -51214,5 +51214,1147 @@
     "featured": false,
     "active": true,
     "weight": 100
+  },
+  {
+    "id": "SVKS001080",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K21B",
+    "keywords": [
+      "Coupling Flange",
+      "K21B",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K21B coupling flange is a driveline connection component used in compatible commercial-truck propeller-shaft assemblies. It provides the flange interface between adjoining shaft and driveline components, helping transfer rotation through the assembled drivetrain. Part reference: K21B.",
+      "Tata LPT"
+    ],
+    "description": "The RKI K21B coupling flange is a driveline connection component used in compatible commercial-truck propeller-shaft assemblies. It provides the flange interface between adjoining shaft and driveline components, helping transfer rotation through the assembled drivetrain. Part reference: K21B.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "K21B",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k21b-coupling-flange",
+    "url": "/en/products/rki-k21b-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001081",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K22B",
+    "keywords": [
+      "Coupling Flange",
+      "K22B",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K22B coupling flange forms a connecting interface within compatible commercial-truck propeller-shaft and driveline assemblies. Its flange connection joins mating driveline components as part of the vehicle’s rotating power-transmission system. Part reference: K22B.",
+      "Tata LPT"
+    ],
+    "description": "The RKI K22B coupling flange forms a connecting interface within compatible commercial-truck propeller-shaft and driveline assemblies. Its flange connection joins mating driveline components as part of the vehicle’s rotating power-transmission system. Part reference: K22B.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "K22B",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k22b-coupling-flange",
+    "url": "/en/products/rki-k22b-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001082",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K313",
+    "keywords": [
+      "Coupling Flange",
+      "K313",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K313 coupling flange is a propeller-shaft driveline component for commercial trucks. It provides a flanged mounting interface for connected drivetrain parts and forms part of the assembly that transmits rotational drive from the transmission toward the driven axle. Part reference: K313.",
+      "Tata LPT"
+    ],
+    "description": "The RKI K313 coupling flange is a propeller-shaft driveline component for commercial trucks. It provides a flanged mounting interface for connected drivetrain parts and forms part of the assembly that transmits rotational drive from the transmission toward the driven axle. Part reference: K313.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "K313",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k313-coupling-flange",
+    "url": "/en/products/rki-k313-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001083",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K313A",
+    "keywords": [
+      "Coupling Flange",
+      "K313A",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K313A coupling flange is a flanged connection component for compatible commercial-truck propeller-shaft assemblies. The K313A reference identifies this specific flange variant within the driveline connection system, where mating interfaces join the rotating shaft assembly to adjoining components.",
+      "Tata LPT"
+    ],
+    "description": "The RKI K313A coupling flange is a flanged connection component for compatible commercial-truck propeller-shaft assemblies. The K313A reference identifies this specific flange variant within the driveline connection system, where mating interfaces join the rotating shaft assembly to adjoining components.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "K313A",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k313a-coupling-flange",
+    "url": "/en/products/rki-k313a-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001084",
+    "type": "product",
+    "title": "Long Fork & Sleeve-Bottle Set",
+    "subtitle": "Part No. K303",
+    "keywords": [
+      "Long Fork & Sleeve-Bottle Set",
+      "K303",
+      "RKI",
+      "Suspension & Steering",
+      "Slip Yoke",
+      "The RKI K303 long fork and sleeve-bottle set is a propeller-shaft service assembly comprising a long fork and sleeve-bottle components. It is designed for compatible commercial-vehicle driveline configurations, bringing the specified fork and sleeve-bottle parts together in one set for the shaft connection assembly.",
+      "Tata LPT",
+      "Tata Signa"
+    ],
+    "description": "The RKI K303 long fork and sleeve-bottle set is a propeller-shaft service assembly comprising a long fork and sleeve-bottle components. It is designed for compatible commercial-vehicle driveline configurations, bringing the specified fork and sleeve-bottle parts together in one set for the shaft connection assembly.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Long Fork and Sleeve-Bottle Set",
+      "Driveline Repair. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT",
+      "Tata Signa"
+    ],
+    "part_number": "K303",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k303-long-fork-and-sleeve-bottle-set",
+    "url": "/en/products/rki-k303-long-fork-and-sleeve-bottle-set",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001085",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K316",
+    "keywords": [
+      "Coupling Flange",
+      "K316",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K316 coupling flange is a commercial-truck propeller-shaft component that provides a flanged connection between adjoining driveline parts. Installed as part of a compatible shaft assembly, it forms a mechanical interface in the vehicle’s rotating power-transmission system. Part reference: K316.",
+      "Tata LPT"
+    ],
+    "description": "The RKI K316 coupling flange is a commercial-truck propeller-shaft component that provides a flanged connection between adjoining driveline parts. Installed as part of a compatible shaft assembly, it forms a mechanical interface in the vehicle’s rotating power-transmission system. Part reference: K316.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "K316",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k316-coupling-flange",
+    "url": "/en/products/rki-k316-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001086",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K15",
+    "keywords": [
+      "Coupling Flange",
+      "K15",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K15 coupling flange is a driveline connection part for compatible commercial-truck propeller-shaft assemblies. Its flanged interface joins mating components within the propeller-shaft system, supporting the transmission of rotational drive through the connected drivetrain. Part reference: K15.",
+      "Tata 2416"
+    ],
+    "description": "The RKI K15 coupling flange is a driveline connection part for compatible commercial-truck propeller-shaft assemblies. Its flanged interface joins mating components within the propeller-shaft system, supporting the transmission of rotational drive through the connected drivetrain. Part reference: K15.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata 2416"
+    ],
+    "part_number": "K15",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k15-coupling-flange",
+    "url": "/en/products/rki-k15-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001087",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K277",
+    "keywords": [
+      "Coupling Flange",
+      "K277",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K277 coupling flange is used as a connecting flange in compatible commercial-truck propeller-shaft and driveline assemblies. The component provides the mounting interface between adjoining drivetrain parts and is identified by the RKI K277 part reference.",
+      "Tata 2416",
+      "Tata LPT"
+    ],
+    "description": "The RKI K277 coupling flange is used as a connecting flange in compatible commercial-truck propeller-shaft and driveline assemblies. The component provides the mounting interface between adjoining drivetrain parts and is identified by the RKI K277 part reference.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata 2416",
+      "Tata LPT"
+    ],
+    "part_number": "K277",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k277-coupling-flange",
+    "url": "/en/products/rki-k277-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001088",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K314A",
+    "keywords": [
+      "Coupling Flange",
+      "K314A",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K314A coupling flange is a propeller-shaft connection component for compatible commercial-vehicle drivetrains. Its flange interface connects mating parts in the rotating shaft assembly; the K314A designation distinguishes this version from other coupling-flange references.",
+      "Tata LPT"
+    ],
+    "description": "The RKI K314A coupling flange is a propeller-shaft connection component for compatible commercial-vehicle drivetrains. Its flange interface connects mating parts in the rotating shaft assembly; the K314A designation distinguishes this version from other coupling-flange references.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "K314A",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k314a-coupling-flange",
+    "url": "/en/products/rki-k314a-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001089",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K23A",
+    "keywords": [
+      "Coupling Flange",
+      "K23A",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K23A coupling flange is a commercial-vehicle driveline component used at a flanged connection within a compatible propeller-shaft assembly. It connects adjoining drivetrain components as part of the mechanical power-transmission path. Part reference: K23A.",
+      "Tata Signa",
+      "Tata Prima"
+    ],
+    "description": "The RKI K23A coupling flange is a commercial-vehicle driveline component used at a flanged connection within a compatible propeller-shaft assembly. It connects adjoining drivetrain components as part of the mechanical power-transmission path. Part reference: K23A.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata Signa",
+      "Tata Prima"
+    ],
+    "part_number": "K23A",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k23a-coupling-flange",
+    "url": "/en/products/rki-k23a-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001090",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K152",
+    "keywords": [
+      "Coupling Flange",
+      "K152",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K152 coupling flange is designed for use in compatible truck propeller-shaft and driveline assemblies. It serves as the flanged joining point between connected drivetrain components, forming part of the assembly that transfers rotational drive. Part reference: K152.",
+      "Ashok Leyland 2516"
+    ],
+    "description": "The RKI K152 coupling flange is designed for use in compatible truck propeller-shaft and driveline assemblies. It serves as the flanged joining point between connected drivetrain components, forming part of the assembly that transfers rotational drive. Part reference: K152.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Ashok Leyland 2516"
+    ],
+    "part_number": "K152",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k152-coupling-flange",
+    "url": "/en/products/rki-k152-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001091",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K17",
+    "keywords": [
+      "Coupling Flange",
+      "K17",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K17 coupling flange is a connection component for compatible commercial-truck propeller-shaft systems. The flange provides a mounting interface for adjoining driveline parts, helping form the mechanical connection within the rotating shaft assembly. Part reference: K17.",
+      "Tata 1312"
+    ],
+    "description": "The RKI K17 coupling flange is a connection component for compatible commercial-truck propeller-shaft systems. The flange provides a mounting interface for adjoining driveline parts, helping form the mechanical connection within the rotating shaft assembly. Part reference: K17.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata 1312"
+    ],
+    "part_number": "K17",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k17-coupling-flange",
+    "url": "/en/products/rki-k17-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001092",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K314",
+    "keywords": [
+      "Coupling Flange",
+      "K314",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K314 coupling flange is a commercial-truck propeller-shaft component used to join compatible driveline interfaces. Its flanged connection forms part of the vehicle’s rotational power-transmission assembly. Part reference: K314.",
+      "Ashok Leyland 2516"
+    ],
+    "description": "The RKI K314 coupling flange is a commercial-truck propeller-shaft component used to join compatible driveline interfaces. Its flanged connection forms part of the vehicle’s rotational power-transmission assembly. Part reference: K314.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Ashok Leyland 2516"
+    ],
+    "part_number": "K314",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k314-coupling-flange",
+    "url": "/en/products/rki-k314-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001093",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K21",
+    "keywords": [
+      "Coupling Flange",
+      "K21",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K21 coupling flange provides a flanged connection within compatible commercial-truck propeller-shaft assemblies. It joins mating driveline components as part of the rotating shaft system and is identified by the RKI K21 reference.",
+      "Tata LPT"
+    ],
+    "description": "The RKI K21 coupling flange provides a flanged connection within compatible commercial-truck propeller-shaft assemblies. It joins mating driveline components as part of the rotating shaft system and is identified by the RKI K21 reference.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "K21",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k21-coupling-flange",
+    "url": "/en/products/rki-k21-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001094",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K123",
+    "keywords": [
+      "Coupling Flange",
+      "K123",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K123 coupling flange is a propeller-shaft driveline connection component for compatible trucks. It provides the flange interface between adjoining components in the shaft assembly and is identified by part number K123.",
+      "Tata LPT"
+    ],
+    "description": "The RKI K123 coupling flange is a propeller-shaft driveline connection component for compatible trucks. It provides the flange interface between adjoining components in the shaft assembly and is identified by part number K123.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "K123",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k123-coupling-flange",
+    "url": "/en/products/rki-k123-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001095",
+    "type": "product",
+    "title": "Front Teeth",
+    "subtitle": "Part No. K183",
+    "keywords": [
+      "Front Teeth",
+      "K183",
+      "RKI",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The RKI K183 front teeth component is a toothed driveline part used in compatible commercial-vehicle propeller-shaft assemblies. Its front toothed or splined interface engages with a corresponding mating component to form part of the rotating shaft connection. Part reference: K183.",
+      "Ashok Leyland 2516"
+    ],
+    "description": "The RKI K183 front teeth component is a toothed driveline part used in compatible commercial-vehicle propeller-shaft assemblies. Its front toothed or splined interface engages with a corresponding mating component to form part of the rotating shaft connection. Part reference: K183.",
+    "applications": [
+      "Commercial Truck Driveline",
+      "Front Teeth Component",
+      "Splined Shaft/Driveline Service. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Ashok Leyland 2516"
+    ],
+    "part_number": "K183",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k183-front-teeth",
+    "url": "/en/products/rki-k183-front-teeth",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001096",
+    "type": "product",
+    "title": "Front Teeth",
+    "subtitle": "Part No. K11A",
+    "keywords": [
+      "Front Teeth",
+      "K11A",
+      "RKI",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The RKI K11A front teeth component is a commercial-vehicle propeller-shaft part with a front toothed interface. It forms part of a compatible driveline connection, where the teeth engage with the corresponding mating component within the rotating shaft assembly. Part reference: K11A.",
+      "Tata LPT"
+    ],
+    "description": "The RKI K11A front teeth component is a commercial-vehicle propeller-shaft part with a front toothed interface. It forms part of a compatible driveline connection, where the teeth engage with the corresponding mating component within the rotating shaft assembly. Part reference: K11A.",
+    "applications": [
+      "Commercial Truck Driveline",
+      "Front Teeth Component",
+      "Splined Shaft/Driveline Service. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "K11A",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k11a-front-teeth",
+    "url": "/en/products/rki-k11a-front-teeth",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001097",
+    "type": "product",
+    "title": "Front Teeth",
+    "subtitle": "Part No. K10",
+    "keywords": [
+      "Front Teeth",
+      "K10",
+      "RKI",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The RKI K10 front teeth component is for Tata 1312 driveline applications and features 26 splines. Its front splined interface engages with a matching component in the propeller-shaft assembly, forming part of the vehicle’s rotational drive connection.",
+      "Tata 1312"
+    ],
+    "description": "The RKI K10 front teeth component is for Tata 1312 driveline applications and features 26 splines. Its front splined interface engages with a matching component in the propeller-shaft assembly, forming part of the vehicle’s rotational drive connection.",
+    "applications": [
+      "Tata 1312 Propeller Shaft Assembly",
+      "Front Teeth Component",
+      "26-Spline Driveline Application. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata 1312"
+    ],
+    "part_number": "K10",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k10-front-teeth",
+    "url": "/en/products/rki-k10-front-teeth",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001098",
+    "type": "product",
+    "title": "Front Teeth",
+    "subtitle": "Part No. K182",
+    "keywords": [
+      "Front Teeth",
+      "K182",
+      "RKI",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The RKI K182 front teeth component is compatible with Leyland Tusker 3.5, Leyland 307, Leyland 370 and Bedford applications. It has a 10-spline configuration, with the front toothed interface forming part of the propeller-shaft connection in these driveline applications.",
+      "Ashok Leyland 2516"
+    ],
+    "description": "The RKI K182 front teeth component is compatible with Leyland Tusker 3.5, Leyland 307, Leyland 370 and Bedford applications. It has a 10-spline configuration, with the front toothed interface forming part of the propeller-shaft connection in these driveline applications.",
+    "applications": [
+      "Leyland Tusker 3.5",
+      "Leyland 307",
+      "Leyland 370 and Bedford Driveline Applications",
+      "Front Teeth Component",
+      "10-Spline Application. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Ashok Leyland 2516"
+    ],
+    "part_number": "K182",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k182-front-teeth",
+    "url": "/en/products/rki-k182-front-teeth",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001099",
+    "type": "product",
+    "title": "Rear Teeth",
+    "subtitle": "Part No. K181",
+    "keywords": [
+      "Rear Teeth",
+      "K181",
+      "RKI",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The RKI K181 rear teeth component is a toothed driveline part for compatible commercial-vehicle propeller-shaft assemblies. Its rear toothed interface forms part of the mechanical connection between mating shaft components in the rotating drivetrain. Part reference: K181.",
+      "Ashok Leyland 2516",
+      "Tata LPT"
+    ],
+    "description": "The RKI K181 rear teeth component is a toothed driveline part for compatible commercial-vehicle propeller-shaft assemblies. Its rear toothed interface forms part of the mechanical connection between mating shaft components in the rotating drivetrain. Part reference: K181.",
+    "applications": [
+      "Commercial Truck Driveline",
+      "Rear Teeth Component",
+      "Splined Shaft/Driveline Service. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Ashok Leyland 2516",
+      "Tata LPT"
+    ],
+    "part_number": "K181",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k181-rear-teeth",
+    "url": "/en/products/rki-k181-rear-teeth",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001100",
+    "type": "product",
+    "title": "Front Teeth",
+    "subtitle": "Part No. K120",
+    "keywords": [
+      "Front Teeth",
+      "K120",
+      "RKI",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The RKI K120 front teeth component is for Tata 1510TC and Leyland 1613 Turbo Heavy Duty applications and features 10 splines. The splined front interface mates with a corresponding driveline component as part of the propeller-shaft power-transmission assembly.",
+      "Tata LPT",
+      "Ashok Leyland 2516"
+    ],
+    "description": "The RKI K120 front teeth component is for Tata 1510TC and Leyland 1613 Turbo Heavy Duty applications and features 10 splines. The splined front interface mates with a corresponding driveline component as part of the propeller-shaft power-transmission assembly.",
+    "applications": [
+      "Tata 1510TC and Leyland 1613 Turbo Heavy Duty Propeller Shaft/Driveline Applications",
+      "Front Teeth",
+      "10-Spline Application. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT",
+      "Ashok Leyland 2516"
+    ],
+    "part_number": "K120",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k120-front-teeth",
+    "url": "/en/products/rki-k120-front-teeth",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001101",
+    "type": "product",
+    "title": "Yoke & Teeth",
+    "subtitle": "Part No. K268",
+    "keywords": [
+      "Yoke & Teeth",
+      "K268",
+      "RKI",
+      "Suspension & Steering",
+      "Slip Yoke",
+      "The RKI K268 yoke and teeth component combines a yoke with a toothed driveline interface for compatible commercial-vehicle propeller-shaft assemblies. The yoke provides the connection structure, while the teeth engage with the mating component within the rotating driveline. Part reference: K268.",
+      "Tata 407"
+    ],
+    "description": "The RKI K268 yoke and teeth component combines a yoke with a toothed driveline interface for compatible commercial-vehicle propeller-shaft assemblies. The yoke provides the connection structure, while the teeth engage with the mating component within the rotating driveline. Part reference: K268.",
+    "applications": [
+      "Commercial Truck Driveline",
+      "Yoke and Teeth Assembly",
+      "Propeller Shaft Service. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata 407"
+    ],
+    "part_number": "K268",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k268-yoke-and-teeth",
+    "url": "/en/products/rki-k268-yoke-and-teeth",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001102",
+    "type": "product",
+    "title": "Front Teeth",
+    "subtitle": "Part No. K562",
+    "keywords": [
+      "Front Teeth",
+      "K562",
+      "RKI",
+      "Suspension & Steering",
+      "Drive Flange",
+      "The RKI K562 front teeth component is for Tata 3118 driveline applications and has a 26-spline configuration. Its splined front section engages with a matching component to form part of the propeller-shaft connection in the vehicle’s driveline system.",
+      "Tata LPT",
+      "Tata Signa"
+    ],
+    "description": "The RKI K562 front teeth component is for Tata 3118 driveline applications and has a 26-spline configuration. Its splined front section engages with a matching component to form part of the propeller-shaft connection in the vehicle’s driveline system.",
+    "applications": [
+      "Tata 3118 Propeller Shaft Assembly",
+      "Front Teeth Component",
+      "26-Spline Driveline Application. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata LPT",
+      "Tata Signa"
+    ],
+    "part_number": "K562",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k562-front-teeth",
+    "url": "/en/products/rki-k562-front-teeth",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001103",
+    "type": "product",
+    "title": "Coupling Flange",
+    "subtitle": "Part No. K16",
+    "keywords": [
+      "Coupling Flange",
+      "K16",
+      "RKI",
+      "Suspension & Steering",
+      "Flange",
+      "The RKI K16 coupling flange is a commercial-truck propeller-shaft connection component for compatible driveline assemblies. It provides a flanged joining interface between adjoining drivetrain parts as part of the rotating power-transmission system. Part reference: K16.",
+      "Tata 1312"
+    ],
+    "description": "The RKI K16 coupling flange is a commercial-truck propeller-shaft connection component for compatible driveline assemblies. It provides a flanged joining interface between adjoining drivetrain parts as part of the rotating power-transmission system. Part reference: K16.",
+    "applications": [
+      "Propeller Shaft Assembly",
+      "Driveline System",
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+    ],
+    "vehicles": [
+      "Tata 1312"
+    ],
+    "part_number": "K16",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "rki-k16-coupling-flange",
+    "url": "/en/products/rki-k16-coupling-flange",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "rki",
+      "name": "RKI"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
   }
 ]
