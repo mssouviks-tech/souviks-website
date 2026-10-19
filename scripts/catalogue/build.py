@@ -2542,3 +2542,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# Rebuild catalogue projections when new product images land on main.
