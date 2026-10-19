@@ -34,6 +34,9 @@ for (const marker of [
 }
 
 assert.ok(attribution.includes('STORAGE_KEY="souviks:attribution:v1"'));
+assert.ok(attribution.includes("ATTRIBUTION_TTL_MS=90*24*60*60*1000"), "attribution state must expire after 90 days");
+assert.ok(attribution.includes("sameSiteHost") && attribution.includes("internalNavigation"), "internal page navigation must not overwrite landing attribution");
+assert.ok(attribution.includes("const effective=latest;"), "current last-touch channel must remain distinct from first touch");
 assert.ok(attribution.includes("new URL(window.location.href)"));
 assert.ok(attribution.includes("window.SouviksErrors?.log"));
 assert.ok(attribution.includes('"organic_search"'));
