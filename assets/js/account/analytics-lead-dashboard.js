@@ -80,10 +80,17 @@
   }
 
   function renderMetrics(rows) {
+    const enquiries = total(rows, "enquiries_received");
+    const quotations = total(rows, "quotations_sent");
+    const accepted = total(rows, "quotations_accepted");
+    const won = total(rows, "orders_won");
+    const percent = (numerator, denominator) => denominator ? (100 * numerator / denominator).toFixed(2) + "%" : "—";
     const values = [
-      ["Enquiries received", total(rows, "enquiries_received")],
-      ["Quotations sent", total(rows, "quotations_sent")],
-      ["Orders won", total(rows, "orders_won")],
+      ["Enquiries received", enquiries],
+      ["Quotations sent", quotations],
+      ["Quotations accepted", accepted],
+      ["Orders won", won],
+      ["Enquiry → order", percent(won, enquiries)],
       ["Won order value", formatINR(total(rows, "won_order_value_inr"))]
     ];
     const container = $("#metric-grid");
@@ -107,14 +114,22 @@
     }
     for (const row of rows) {
       const tr = document.createElement("tr");
+      const sent = Number(row.quotations_sent) || 0;
+      const accepted = Number(row.quotations_accepted) || 0;
+      const won = Number(row.orders_won) || 0;
+      const percent = (numerator, denominator) => denominator ? (100 * numerator / denominator).toFixed(2) + "%" : "—";
       const values = [
         pretty(row.first_touch_channel),
         [row.first_touch_source, row.first_touch_medium].filter(Boolean).join(" / ") || "—",
         row.first_touch_campaign || "—",
         pretty(row.last_touch_channel),
         Number(row.enquiries_received) || 0,
-        Number(row.quotations_sent) || 0,
-        Number(row.orders_won) || 0,
+        sent,
+        accepted,
+        won,
+        Number(row.leads_lost) || 0,
+        Number(row.awaiting_quote) || 0,
+        percent(accepted, sent),
         (Number(row.enquiry_to_order_rate_percent || 0)).toFixed(2) + "%",
         formatINR(row.won_order_value_inr)
       ];
