@@ -5,7 +5,7 @@ const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "../..");
 const read = relative => fs.readFileSync(path.join(ROOT, relative), "utf8");
-const staffSql = read("supabase/migrations/20261019160000_sales_lead_staff_workflow.sql");
+const staffSql = read("supabase/migrations/20261019154356_sales_lead_staff_workflow.sql");
 const funnelSql = read("supabase/migrations/20261019140604_channel_attribution_funnel.sql");
 const rpcSql = read("supabase/migrations/20261019141427_channel_attribution_function_fix.sql");
 const dashboard = read("assets/js/account/analytics-lead-dashboard.js");
