@@ -76,16 +76,24 @@
         return "direct";
     }
 
+    let localStore = null;
+    let sessionStore = null;
+    try { localStore = window.localStorage; } catch {}
+    try { sessionStore = window.sessionStorage; } catch {}
+
     function readJson(storage, key) {
         try {
-            const raw = storage.getItem(key);
+            const raw = storage && storage.getItem(key);
             return raw ? JSON.parse(raw) : null;
         } catch { return null; }
     }
 
     function writeJson(storage, key, value) {
-        try { storage.setItem(key, JSON.stringify(value)); return true; }
-        catch { return false; }
+        try {
+            if (!storage) return false;
+            storage.setItem(key, JSON.stringify(value));
+            return true;
+        } catch { return false; }
     }
 
     function directTouch(now) {
@@ -122,12 +130,12 @@
         const candidateReferrer = hostFromUrl(document.referrer);
         const referrerHost = candidateReferrer && !isSameSite(candidateReferrer) ? candidateReferrer : "";
         const hasTags = ["utm_source", "utm_medium", "utm_campaign", "gclid", "wbraid", "gbraid"].some(k => Boolean(url.searchParams.get(k)));
-        const saved = readJson(window.localStorage, STORAGE_KEY) || {};
+        const saved = readJson(localStore, STORAGE_KEY) || {};
         const firstTime = Date.parse(saved.first && saved.first.captured_at || "");
         const lastTime = Date.parse(saved.last && saved.last.captured_at || "");
         if (!Number.isFinite(firstTime) || now - firstTime > RETENTION_MS) saved.first = null;
         if (!Number.isFinite(lastTime) || now - lastTime > RETENTION_MS) saved.last = null;
-        const session = readJson(window.sessionStorage, SESSION_KEY);
+        const session = readJson(sessionStore, SESSION_KEY);
         let current;
         if (hasTags || referrerHost) {
             current = taggedTouch(now, url, referrerHost);
@@ -136,12 +144,12 @@
         } else {
             current = directTouch(now);
         }
-        writeJson(window.sessionStorage, SESSION_KEY, { touch: current, last_active_at: now });
+        writeJson(sessionStore, SESSION_KEY, { touch: current, last_active_at: now });
         let first = saved.first || null;
         let last = saved.last || null;
         if (!first || (first.channel === "direct" && current.channel !== "direct")) first = current;
         if (current.channel !== "direct" || !last) last = current;
-        writeJson(window.localStorage, STORAGE_KEY, { first, last });
+        writeJson(localStore, STORAGE_KEY, { first, last });
         return { current, first: first || current, last: last || current };
     }
 
