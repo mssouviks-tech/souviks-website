@@ -86,6 +86,9 @@ jobs:
       - name: Validate RFQ security contract
         run: node scripts/regression/rfq-security-contract.cjs
 
+      - name: Validate sales funnel authorization and migration contract
+        run: node scripts/regression/sales-funnel-security-contract.cjs
+
       - name: Validate attribution and enquiry recording contract
         run: node scripts/regression/lead-attribution-contract.cjs
 
