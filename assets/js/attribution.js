@@ -6,6 +6,7 @@ let memoryState=null;
 const clean=(value,max=120)=>String(value??"").replace(/https?:\/\/\S+/gi,"").replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g,"").replace(/[\u0000-\u001f\u007f]/g," ").replace(/[<>]/g,"").trim().slice(0,max);
 const safePath=value=>{try{return new URL(value,window.location.origin).pathname.slice(0,500)||"/"}catch{return "/"}};
 const safeHost=value=>{try{return new URL(value).hostname.toLowerCase().slice(0,160)}catch{return ""}};
+const sameSiteHost=(left,right)=>{const normalize=value=>String(value||"").toLowerCase().replace(/^www\./,"");const a=normalize(left),b=normalize(right);return Boolean(a&&b&&(a===b||a.endsWith("."+b)||b.endsWith("."+a)))};
 const sanitizeTouch=touch=>({
  channel:ALLOWED_CHANNELS.has(touch?.channel)?touch.channel:"unknown",
  source:clean(touch?.source,120)||"unknown",
@@ -40,7 +41,9 @@ const detectTouch=()=>{
  else if(params.has("ttclid")){source=source||"tiktok";medium=medium||"paid_social";clickId="ttclid"}
  const referrerHost=safeHost(document.referrer),siteHost=window.location.hostname.toLowerCase();
  let channel=inferChannel(source,medium,clickId);
- if(!source&&!medium&&!campaign&&!term&&!content&&!clickId&&referrerHost&&referrerHost!==siteHost&&!referrerHost.endsWith("."+siteHost)){
+ const hasCampaignTouch=Boolean(source||medium||campaign||term||content||clickId);
+ const internalNavigation=Boolean(referrerHost&&sameSiteHost(referrerHost,siteHost)&&!hasCampaignTouch);
+ if(!hasCampaignTouch&&referrerHost&&!sameSiteHost(referrerHost,siteHost)){
   if(/(^|\.)((google|bing|yahoo|duckduckgo|baidu|yandex)\.[a-z.]+)$/.test(referrerHost)){
    channel="organic_search";
    source=(referrerHost.match(/(google|bing|yahoo|duckduckgo|baidu|yandex)/)||[])[1]||referrerHost;
@@ -49,16 +52,16 @@ const detectTouch=()=>{
  }
  if(channel==="direct"){source=source||"direct";medium=medium||"none"}
  if(source&&!medium)medium="unknown";
- return sanitizeTouch({channel,source:source||"unknown",medium:medium||"unknown",campaign,term,content,referrer_host:referrerHost,landing_page:currentUrl.pathname});
+ return {...sanitizeTouch({channel,source:source||"unknown",medium:medium||"unknown",campaign,term,content,referrer_host:sameSiteHost(referrerHost,siteHost)?"":referrerHost,landing_page:currentUrl.pathname}),internalNavigation};
 };
 const currentTouch=detectTouch();
 let state=readState();
-if(!state){state={firstTouch:currentTouch,lastTouch:currentTouch};saveState(state)}
-else if(currentTouch.channel!=="direct"){state={firstTouch:state.firstTouch,lastTouch:currentTouch};saveState(state)}
+if(!state){const initialTouch=sanitizeTouch(currentTouch);state={firstTouch:initialTouch,lastTouch:initialTouch};saveState(state)}
+else if(!currentTouch.internalNavigation){state={firstTouch:state.firstTouch,lastTouch:sanitizeTouch(currentTouch)};saveState(state)}
 const getPayload=()=>{
  const latest=sanitizeTouch(state?.lastTouch||currentTouch);
  const first=sanitizeTouch(state?.firstTouch||currentTouch);
- const effective=latest.channel!=="direct"?latest:first;
+ const effective=latest;
  const path=safePath(window.location.pathname);
  return {
   source_channel:effective.channel,source:effective.source,medium:effective.medium,campaign:effective.campaign||null,term:effective.term||null,content:effective.content||null,referrer_host:effective.referrer_host||null,landing_page:effective.landing_page||path,conversion_page:path,
