@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (honeypot?.value.trim()) return;
 
         const payload = {
+            ...window.souviksAttribution?.toFormFields?.(),
             lead_id: `ENQ-${Date.now()}`,
             name: document.getElementById("name")?.value.trim() || "",
             company: document.getElementById("company")?.value.trim() || "",
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 payload
             );
 
+            await window.souviksAttribution?.recordLead?.(payload.lead_id, "request_part");
             window.souviksAnalytics?.trackLead("request_part");
             form.reset();
             setStatus(
