@@ -210,7 +210,12 @@ def migrate_html() -> int:
     core_tag = f'<script defer src="{versioned_asset_url("assets/js/site-core.js")}"></script>'
     catalogue_core_tag = f'<script defer src="{versioned_asset_url("assets/js/catalogue-core.js")}"></script>'
 
-    paths = []
+    attribution_tag = f'<script defer src="{versioned_asset_url("assets/js/attribution.js")}"></script>'
+    attribution_pattern = re.compile(
+        r'<script\s+defer\s+src="/assets/js/attribution\.js(?:\?[^"]*)?"></script>'
+    )
+
+    paths = list(ROOT.glob("*.html"))
     for language in LANGUAGES:
         root = ROOT / language
         if root.exists():
@@ -223,6 +228,19 @@ def migrate_html() -> int:
     for path in sorted(set(paths)):
         content = read(path)
         new_content = core_pattern.sub(core_tag, content)
+
+        # Persist acquisition attribution on public entry pages, including the canonical root homepage.
+        if not attribution_pattern.search(new_content):
+            if core_tag in new_content:
+                new_content = new_content.replace(core_tag, core_tag + "\n" + attribution_tag, 1)
+            else:
+                first_deferred = re.search(r'<script\s+defer\b', new_content, re.IGNORECASE)
+                if first_deferred:
+                    new_content = new_content[:first_deferred.start()] + attribution_tag + "\n" + new_content[first_deferred.start():]
+                else:
+                    body_end = new_content.lower().rfind("</body>")
+                    insertion = attribution_tag + "\n"
+                    new_content = new_content[:body_end] + insertion + new_content[body_end:] if body_end >= 0 else new_content + "\n" + insertion
 
         account_pattern = re.compile(
             r'<script\s+defer\s+src="/assets/js/bundles/account\.js(?:\?[^"]*)?"></script>'
