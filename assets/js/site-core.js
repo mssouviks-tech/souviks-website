@@ -67,7 +67,7 @@
         if (m.includes("paid_social") || (/(cpc|ppc|paid)/.test(m) && matches(s, SOCIAL_HOSTS))) return "paid_social";
         if (/(cpc|ppc|paid_search|sem)/.test(m)) return "paid_search";
         if (/(display|programmatic|paid_video)/.test(m)) return "paid_media";
-        if (m === "organic" && matches(s, SEARCH_HOSTS)) return "organic_search";
+        if (m === "organic" && (matches(s, SEARCH_HOSTS) || ["google", "bing", "yahoo", "duckduckgo", "ecosia", "yandex", "brave"].includes(s))) return "organic_search";
         if (m.includes("social") || matches(s, SOCIAL_HOSTS)) return "social";
         if (m === "offline" || s === "offline") return "offline";
         if (m === "direct" || s === "direct") return "direct";
@@ -237,7 +237,7 @@
         try {
             const client = window.supabaseClient || (typeof supabaseClient !== "undefined" ? supabaseClient : null);
             if (!client || typeof client.rpc !== "function") return false;
-            const { error } = await client.rpc("record_website_lead", {
+            const { data, error } = await client.rpc("record_website_lead", {
                 p_lead_reference: ref,
                 p_lead_type: type,
                 p_attribution: databaseFields()
@@ -246,7 +246,7 @@
                 window.SouviksErrors && window.SouviksErrors.log("Lead attribution save failed", error, "warn");
                 return false;
             }
-            return true;
+            return Boolean(data && (data.recorded === true || data.duplicate === true));
         } catch (error) {
             window.SouviksErrors && window.SouviksErrors.log("Lead attribution save failed", error, "warn");
             return false;
