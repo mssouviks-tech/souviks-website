@@ -65,9 +65,9 @@ SECURITY DEFINER
 SET search_path = pg_catalog
 AS $function$
 DECLARE
-    v_reference text := pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_lead_reference, '')), 60);
-    v_type text := pg_catalog.lower(pg_catalog.btrim(pg_catalog.coalesce(p_lead_type, '')));
-    v_channel text := pg_catalog.lower(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'source_channel', 'unknown')));
+    v_reference text := pg_catalog.left(pg_catalog.btrim(coalesce(p_lead_reference, '')), 60);
+    v_type text := pg_catalog.lower(pg_catalog.btrim(coalesce(p_lead_type, '')));
+    v_channel text := pg_catalog.lower(pg_catalog.btrim(coalesce(p_attribution ->> 'source_channel', 'unknown')));
     v_rows integer := 0;
 BEGIN
     IF v_reference !~ '^(ENQ|RFQ)-[0-9]{10,20}$' THEN
@@ -92,30 +92,30 @@ BEGIN
     ) VALUES (
         v_reference, v_type, 'received',
         v_channel,
-        pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'source', 'unknown')), 120),
-        pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'medium', 'unknown')), 120),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'campaign', '')), 120), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'term', '')), 120), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'content', '')), 120), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'referrer_host', '')), 160), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'landing_page', '')), 500), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'conversion_page', '')), 500), ''),
-        pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_channel', v_channel)), 40),
-        pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_source', 'unknown')), 120),
-        pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_medium', 'unknown')), 120),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_campaign', '')), 120), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_term', '')), 120), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_content', '')), 120), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_referrer_host', '')), 160), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_landing_page', '')), 500), ''),
-        pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_channel', v_channel)), 40),
-        pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_source', 'unknown')), 120),
-        pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_medium', 'unknown')), 120),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_campaign', '')), 120), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_term', '')), 120), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_content', '')), 120), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_referrer_host', '')), 160), ''),
-        NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_landing_page', '')), 500), '')
+        pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'source', 'unknown')), 120),
+        pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'medium', 'unknown')), 120),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'campaign', '')), 120), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'term', '')), 120), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'content', '')), 120), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'referrer_host', '')), 160), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'landing_page', '')), 500), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'conversion_page', '')), 500), ''),
+        pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_channel', v_channel)), 40),
+        pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_source', 'unknown')), 120),
+        pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_medium', 'unknown')), 120),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_campaign', '')), 120), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_term', '')), 120), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_content', '')), 120), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_referrer_host', '')), 160), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_landing_page', '')), 500), ''),
+        pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_channel', v_channel)), 40),
+        pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_source', 'unknown')), 120),
+        pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_medium', 'unknown')), 120),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_campaign', '')), 120), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_term', '')), 120), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_content', '')), 120), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_referrer_host', '')), 160), ''),
+        NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_landing_page', '')), 500), '')
     )
     ON CONFLICT (lead_reference) DO NOTHING;
 
@@ -169,9 +169,9 @@ BEGIN
             WHEN public.sales_leads.status IN ('quoted', 'accepted', 'lost') THEN public.sales_leads.status
             ELSE 'received'
         END,
-        quote_sent_at = CASE WHEN NEW.status = 'quoted' THEN pg_catalog.coalesce(public.sales_leads.quote_sent_at, now()) ELSE public.sales_leads.quote_sent_at END,
-        accepted_at = CASE WHEN NEW.status = 'accepted' THEN pg_catalog.coalesce(public.sales_leads.accepted_at, now()) ELSE public.sales_leads.accepted_at END,
-        lost_at = CASE WHEN NEW.status IN ('rejected', 'cancelled') THEN pg_catalog.coalesce(public.sales_leads.lost_at, now()) ELSE public.sales_leads.lost_at END,
+        quote_sent_at = CASE WHEN NEW.status = 'quoted' THEN coalesce(public.sales_leads.quote_sent_at, now()) ELSE public.sales_leads.quote_sent_at END,
+        accepted_at = CASE WHEN NEW.status = 'accepted' THEN coalesce(public.sales_leads.accepted_at, now()) ELSE public.sales_leads.accepted_at END,
+        lost_at = CASE WHEN NEW.status IN ('rejected', 'cancelled') THEN coalesce(public.sales_leads.lost_at, now()) ELSE public.sales_leads.lost_at END,
         updated_at = now();
 
     RETURN NEW;
@@ -234,37 +234,37 @@ BEGIN
     );
 
     v_rfq_id := (v_result ->> 'id')::uuid;
-    v_channel := pg_catalog.lower(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'source_channel', 'unknown')));
+    v_channel := pg_catalog.lower(pg_catalog.btrim(coalesce(p_attribution ->> 'source_channel', 'unknown')));
     IF v_channel NOT IN ('organic_search', 'paid_search', 'paid_social', 'paid_media', 'social', 'referral', 'email', 'direct', 'whatsapp', 'phone', 'offline', 'unknown', 'other') THEN
         v_channel := 'unknown';
     END IF;
 
     UPDATE public.sales_leads AS l SET
         source_channel = v_channel,
-        source = pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'source', 'unknown')), 120),
-        medium = pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'medium', 'unknown')), 120),
-        campaign = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'campaign', '')), 120), ''),
-        term = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'term', '')), 120), ''),
-        content = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'content', '')), 120), ''),
-        referrer_host = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'referrer_host', '')), 160), ''),
-        landing_page = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'landing_page', '')), 500), ''),
-        conversion_page = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'conversion_page', '')), 500), ''),
-        first_touch_channel = pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_channel', v_channel)), 40),
-        first_touch_source = pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_source', 'unknown')), 120),
-        first_touch_medium = pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_medium', 'unknown')), 120),
-        first_touch_campaign = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_campaign', '')), 120), ''),
-        first_touch_term = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_term', '')), 120), ''),
-        first_touch_content = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_content', '')), 120), ''),
-        first_touch_referrer_host = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_referrer_host', '')), 160), ''),
-        first_touch_landing_page = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'first_touch_landing_page', '')), 500), ''),
-        last_touch_channel = pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_channel', v_channel)), 40),
-        last_touch_source = pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_source', 'unknown')), 120),
-        last_touch_medium = pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_medium', 'unknown')), 120),
-        last_touch_campaign = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_campaign', '')), 120), ''),
-        last_touch_term = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_term', '')), 120), ''),
-        last_touch_content = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_content', '')), 120), ''),
-        last_touch_referrer_host = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_referrer_host', '')), 160), ''),
-        last_touch_landing_page = NULLIF(pg_catalog.left(pg_catalog.btrim(pg_catalog.coalesce(p_attribution ->> 'last_touch_landing_page', '')), 500), ''),
+        source = pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'source', 'unknown')), 120),
+        medium = pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'medium', 'unknown')), 120),
+        campaign = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'campaign', '')), 120), ''),
+        term = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'term', '')), 120), ''),
+        content = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'content', '')), 120), ''),
+        referrer_host = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'referrer_host', '')), 160), ''),
+        landing_page = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'landing_page', '')), 500), ''),
+        conversion_page = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'conversion_page', '')), 500), ''),
+        first_touch_channel = pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_channel', v_channel)), 40),
+        first_touch_source = pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_source', 'unknown')), 120),
+        first_touch_medium = pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_medium', 'unknown')), 120),
+        first_touch_campaign = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_campaign', '')), 120), ''),
+        first_touch_term = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_term', '')), 120), ''),
+        first_touch_content = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_content', '')), 120), ''),
+        first_touch_referrer_host = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_referrer_host', '')), 160), ''),
+        first_touch_landing_page = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'first_touch_landing_page', '')), 500), ''),
+        last_touch_channel = pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_channel', v_channel)), 40),
+        last_touch_source = pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_source', 'unknown')), 120),
+        last_touch_medium = pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_medium', 'unknown')), 120),
+        last_touch_campaign = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_campaign', '')), 120), ''),
+        last_touch_term = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_term', '')), 120), ''),
+        last_touch_content = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_content', '')), 120), ''),
+        last_touch_referrer_host = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_referrer_host', '')), 160), ''),
+        last_touch_landing_page = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_attribution ->> 'last_touch_landing_page', '')), 500), ''),
         updated_at = now()
     WHERE l.rfq_id = v_rfq_id;
 
