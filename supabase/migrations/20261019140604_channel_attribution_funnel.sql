@@ -5,6 +5,61 @@
 
 CREATE SCHEMA IF NOT EXISTS internal_analytics;
 
+-- The source migration owns the base lead table as well as attribution fields,
+-- so a fresh environment does not depend on an already-populated database.
+CREATE TABLE IF NOT EXISTS public.sales_leads (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    lead_reference text NOT NULL UNIQUE,
+    rfq_id uuid UNIQUE REFERENCES public.rfqs(id) ON DELETE SET NULL,
+    lead_type text NOT NULL CHECK (lead_type = ANY (ARRAY[
+        'rfq','rfq_guest','request_part','contact','phone','whatsapp','email','manual'
+    ])),
+    status text NOT NULL DEFAULT 'received' CHECK (status = ANY (ARRAY[
+        'received','quoted','accepted','won','lost','unqualified'
+    ])),
+    source_channel text NOT NULL DEFAULT 'unknown' CHECK (source_channel = ANY (ARRAY[
+        'organic_search','paid_search','paid_social','paid_media','social','referral',
+        'email','direct','whatsapp','phone','offline','unknown','other'
+    ])),
+    source text NOT NULL DEFAULT 'unknown',
+    medium text NOT NULL DEFAULT 'unknown',
+    campaign text,
+    term text,
+    content text,
+    referrer_host text,
+    landing_page text,
+    conversion_page text,
+    first_touch_channel text NOT NULL DEFAULT 'unknown',
+    first_touch_source text NOT NULL DEFAULT 'unknown',
+    first_touch_medium text NOT NULL DEFAULT 'unknown',
+    first_touch_campaign text,
+    first_touch_term text,
+    first_touch_content text,
+    first_touch_referrer_host text,
+    first_touch_landing_page text,
+    last_touch_channel text NOT NULL DEFAULT 'unknown',
+    last_touch_source text NOT NULL DEFAULT 'unknown',
+    last_touch_medium text NOT NULL DEFAULT 'unknown',
+    last_touch_campaign text,
+    last_touch_term text,
+    last_touch_content text,
+    last_touch_referrer_host text,
+    last_touch_landing_page text,
+    quote_sent_at timestamptz,
+    accepted_at timestamptz,
+    order_won_at timestamptz,
+    lost_at timestamptz,
+    order_reference text,
+    order_value numeric(12,2) CHECK (order_value IS NULL OR order_value >= 0),
+    internal_note text,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+ALTER TABLE public.sales_leads ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE public.sales_leads FROM PUBLIC, anon, authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.sales_leads TO service_role;
+
 ALTER TABLE public.sales_leads
     ADD COLUMN IF NOT EXISTS source_channel text NOT NULL DEFAULT 'unknown',
     ADD COLUMN IF NOT EXISTS source text NOT NULL DEFAULT 'unknown',
