@@ -995,34 +995,13 @@ Used by product cards and product detail pages.
 RFQ.add = async function (
     product
 ) {
-
-    if (
-        !product ||
-        !product.id
-    ) {
-
-        console.error(
-            "[Souviks RFQ] Invalid product supplied to RFQ.add()."
-        );
-
+    if (!product || !product.id) {
+        console.error("[Souviks RFQ] Invalid product supplied to RFQ.add().");
         return false;
-
     }
 
-
-    const items =
-        await RFQ.get();
-
-
-    const existing =
-        items.find(
-
-            item =>
-                item.id ===
-                product.id
-
-        );
-
+    const items = await RFQ.get();
+    const existing = items.find(item => item.id === product.id);
 
     if (!existing && items.length >= RFQ.SUBMISSION_LIMITS.maxItems) {
         SouviksErrors?.log(
@@ -1033,33 +1012,23 @@ RFQ.add = async function (
         return false;
     }
 
-    if (existing) {
-
-        return RFQ.setQuantity(
-
-            product.id,
-
-            product,
-
-            Number(existing.qty) + 1
-
-        );
-
-    }
-
-
-    return RFQ.setQuantity(
-
+    const saved = await RFQ.setQuantity(
         product.id,
-
         product,
-
-        1
-
+        existing ? Number(existing.qty) + 1 : 1
     );
 
-};
+    if (saved) {
+        window.souviksAnalytics?.trackEvent("add_to_rfq", {
+            product_id: String(product.id || "").slice(0, 128),
+            part_number: String(product.partNumber || product.part_number || "").slice(0, 128),
+            brand: String(product.brand || product.brand_name || "").slice(0, 120),
+            item_count: items.length + (existing ? 0 : 1)
+        });
+    }
 
+    return saved;
+};
 
 /*
 ----------------------------------------------------------
