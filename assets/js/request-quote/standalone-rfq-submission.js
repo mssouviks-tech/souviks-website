@@ -189,7 +189,7 @@ window.RFQ.submitStandalone = async function (form) {
         payload
     );
 
-    await window.SouviksAttribution?.recordLead?.(reference, "rfq_guest");
+    await window.SouviksAttribution?.recordLead?.(reference, "rfq_guest", payload);
     window.souviksAnalytics?.trackLead("rfq_guest");
     try {
         const cleared = await window.RFQ.clear();
