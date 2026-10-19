@@ -28,7 +28,7 @@ for (const marker of [
   "last_touch_channel",
   "landing_page",
   "conversion_page",
-  "record_website_lead",
+  "record_website_lead_details",
 ]) {
   assert.ok(attribution.includes(marker), "attribution module must implement behavior: " + marker);
 }
@@ -39,7 +39,7 @@ assert.ok(attribution.includes("window.SouviksErrors?.log"));
 assert.ok(attribution.includes('"organic_search"'));
 assert.ok(attribution.includes('"referral"'));
 assert.ok(attribution.includes('"direct"'));
-assert.ok(attribution.includes('"record_website_lead"'));
+assert.ok(attribution.includes('"record_website_lead_details"'));
 
 for (const [label, source, leadType] of [
   ["contact", contact, "contact"],
@@ -47,8 +47,8 @@ for (const [label, source, leadType] of [
   ["guest RFQ", standaloneSubmit, "rfq_guest"],
 ]) {
   assert.ok(
-    source.includes('recordLead?.(payload.lead_id, "' + leadType + '")') ||
-    source.includes('recordLead?.(reference, "' + leadType + '")'),
+    source.includes('recordLead?.(payload.lead_id, "' + leadType + '", payload)') ||
+    source.includes('recordLead?.(reference, "' + leadType + '", payload)'),
     label + " must persist a sales lead using its correct type"
   );
 }
@@ -65,4 +65,6 @@ for (const [label, source] of [
 assert.ok(refactor.includes("assets/js/attribution.js"), "build pipeline must add the attribution script");
 assert.ok(read("index.html").includes("/assets/js/attribution.js?v="), "root homepage must persist acquisition attribution");
 assert.ok(read("en/index.html").includes("/assets/js/attribution.js?v="), "localized homepage must persist acquisition attribution");
+assert.ok(read("en/admin/channel-attribution.html").includes('name="robots" content="noindex,nofollow,noarchive"'), "staff dashboard must be noindex");
+assert.ok(read("en/admin/channel-attribution.html").includes("/assets/js/account/analytics-lead-dashboard.js?v="), "staff dashboard JS must be cache-versioned");
 console.log("[Lead attribution contract] PASS — persistent UTM/click/referrer capture, safe attribution RPC recording, and authenticated RFQ attribution.");
