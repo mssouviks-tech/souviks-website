@@ -32,6 +32,9 @@ assert.match(staffSql, /GRANT EXECUTE ON FUNCTION public\.staff_update_sales_lea
 assert.match(staffSql, /Won orders cannot be reverted/);
 assert.match(staffSql, /Won orders require an order reference and order value/);
 assert.match(staffSql, /order_value[\s\S]*?p_order_value/);
+assert.match(staffSql, /count\(\*\) FILTER \(WHERE l\.quote_sent_at IS NOT NULL\)/, "sent quotations must use milestone timestamps");
+assert.match(staffSql, /count\(\*\) FILTER \(WHERE l\.accepted_at IS NOT NULL\)/, "accepted quotations must use milestone timestamps");
+assert.match(staffSql, /CREATE OR REPLACE VIEW internal_analytics\.lead_channel_funnel[\s\S]*?quote_sent_at IS NOT NULL/, "private funnel view must use milestone history");
 assert.match(staffSql, /customer_email text/);
 assert.match(staffSql, /outcome_updated_by/);
 assert.match(staffSql, /source_channel/);
