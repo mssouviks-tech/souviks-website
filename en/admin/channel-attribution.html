@@ -28,7 +28,7 @@
     .muted { color:var(--muted); }
     .intro { max-width:900px; margin-bottom:22px; }
     .section { background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px; margin:18px 0; box-shadow:0 2px 8px rgb(30 44 60 / 3%); }
-    .metric-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+    .metric-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; }
     .metric { padding:17px; background:#fff; border:1px solid var(--line); border-radius:12px; min-width:0; }
     .metric-label { display:block; color:var(--muted); font-size:13px; margin-bottom:6px; }
     .metric-value { display:block; font-size:clamp(20px,2.5vw,29px); line-height:1.15; overflow-wrap:anywhere; }
@@ -63,6 +63,7 @@
     .details-box { white-space:pre-wrap; overflow-wrap:anywhere; background:#f7f9fa; border-radius:8px; padding:12px; color:#3e4c58; margin:10px 0 15px; }
     .small-note { font-size:12px; color:var(--muted); }
     footer { color:var(--muted); font-size:12px; padding-top:6px; }
+    .metric-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
     @media (max-width:820px) { .metric-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .two-col { grid-template-columns:1fr; } }
     @media (max-width:520px) { .shell { width:min(100% - 20px,1440px); } .section { padding:14px; } .header-inner { align-items:center; flex-direction:row; flex-wrap:wrap; } .mobile-menu-button { display:block; } .main-navigation.active { position:static; width:100%; flex-direction:column; align-items:stretch; } .form-grid { grid-template-columns:1fr; } .span-2 { grid-column:auto; } }
   </style>
@@ -120,8 +121,8 @@
       <p class="muted">Groups are based on first-touch source and last-touch channel. Counts show recorded CRM outcomes, not inferred sales.</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>First-touch channel</th><th>Source / medium</th><th>Campaign</th><th>Last touch</th><th>Enquiries</th><th>Quotations</th><th>Orders won</th><th>Enquiry → order</th><th>Won value</th></tr></thead>
-          <tbody id="funnel-body"><tr><td class="empty-cell" colspan="9">Waiting for staff access…</td></tr></tbody>
+          <thead><tr><th>First-touch channel</th><th>Source / medium</th><th>Campaign</th><th>Last touch</th><th>Enquiries</th><th>Quotations sent</th><th>Accepted</th><th>Orders won</th><th>Lost</th><th>Awaiting quote</th><th>Quote acceptance</th><th>Enquiry → order</th><th>Won value</th></tr></thead>
+          <tbody id="funnel-body"><tr><td class="empty-cell" colspan="13">Waiting for staff access…</td></tr></tbody>
         </table>
       </div>
     </section>
