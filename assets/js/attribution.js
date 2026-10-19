@@ -65,12 +65,23 @@ const getPayload=()=>{
   last_touch_channel:latest.channel,last_touch_source:latest.source,last_touch_medium:latest.medium,last_touch_campaign:latest.campaign||null,last_touch_term:latest.term||null,last_touch_content:latest.content||null,last_touch_referrer_host:latest.referrer_host||null,last_touch_landing_page:latest.landing_page
  };
 };
-const recordLead=async(reference,leadType)=>{
+const plain=(value,max=4000)=>String(value??"").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g," ").replace(/[<>]/g,"").trim().slice(0,max);
+const recordLead=async(reference,leadType,details={})=>{
  const ref=clean(reference,60),type=clean(leadType,40);
  if(!/^(ENQ|RFQ)-[0-9]{10,20}$/.test(ref)||!["contact","request_part","rfq_guest"].includes(type))return {recorded:false,reason:"invalid_reference_or_type"};
  try{
   if(typeof supabaseClient==="undefined"||!supabaseClient?.rpc)return {recorded:false,reason:"analytics_unavailable"};
-  const {data,error}=await supabaseClient.rpc("record_website_lead",{p_lead_reference:ref,p_lead_type:type,p_attribution:getPayload()});
+  const sourceDetails=details&&typeof details==="object"?details:{};
+  const itemLabels=[["Vehicle",sourceDetails.vehicle],["Urgency",sourceDetails.urgency],["Part number",sourceDetails.partnumber||sourceDetails.part_number],["Requirement",sourceDetails.requirement],["Message",sourceDetails.message],["Location",sourceDetails.location],["Requested items",sourceDetails.rfq_items]];
+  const leadDetails=plain(sourceDetails.lead_details||itemLabels.filter(([label,value])=>value).map(([label,value])=>label+": "+String(value)).join("\n"),4000);
+  const p_details={
+   customer_name:plain(sourceDetails.name||sourceDetails.customer_name,120),
+   customer_phone:plain(sourceDetails.phone||sourceDetails.customer_phone,40),
+   customer_email:plain(sourceDetails.email||sourceDetails.customer_email,254),
+   company:plain(sourceDetails.company,160),
+   lead_details:leadDetails
+  };
+  const {data,error}=await supabaseClient.rpc("record_website_lead_details",{p_lead_reference:ref,p_lead_type:type,p_attribution:getPayload(),p_details});
   if(error){window.SouviksErrors?.log("[Souviks Attribution] Lead recording failed.",error,"warn");return {recorded:false,reason:"rpc_error"}}
   return data&&typeof data==="object"?data:{recorded:false,reason:"empty_response"};
  }catch(error){window.SouviksErrors?.log("[Souviks Attribution] Lead recording failed.",error,"warn");return {recorded:false,reason:"exception"}}
