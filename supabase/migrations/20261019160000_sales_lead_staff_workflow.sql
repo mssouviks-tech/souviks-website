@@ -301,14 +301,14 @@ BEGIN
         l.first_touch_campaign,
         l.last_touch_channel,
         count(*)::bigint,
-        count(*) FILTER (WHERE l.status IN ('quoted', 'accepted', 'won'))::bigint,
-        count(*) FILTER (WHERE l.status IN ('accepted', 'won'))::bigint,
-        count(*) FILTER (WHERE l.status = 'won')::bigint,
+        count(*) FILTER (WHERE l.quote_sent_at IS NOT NULL)::bigint,
+        count(*) FILTER (WHERE l.accepted_at IS NOT NULL)::bigint,
+        count(*) FILTER (WHERE l.status = 'won' OR l.order_won_at IS NOT NULL)::bigint,
         count(*) FILTER (WHERE l.status IN ('lost', 'unqualified'))::bigint,
-        count(*) FILTER (WHERE l.status = 'received')::bigint,
-        coalesce(sum(l.order_value) FILTER (WHERE l.status = 'won'), 0)::numeric,
+        count(*) FILTER (WHERE l.status = 'received' AND l.quote_sent_at IS NULL)::bigint,
+        coalesce(sum(l.order_value) FILTER (WHERE l.status = 'won' OR l.order_won_at IS NOT NULL), 0)::numeric,
         round(
-            100.0 * count(*) FILTER (WHERE l.status = 'won')::numeric / nullif(count(*), 0)::numeric,
+            100.0 * count(*) FILTER (WHERE l.status = 'won' OR l.order_won_at IS NOT NULL)::numeric / nullif(count(*), 0)::numeric,
             2
         )::numeric
     FROM public.sales_leads AS l
@@ -492,6 +492,56 @@ BEGIN
     );
 END;
 $function$;
+
+-- Keep the private reporting views aligned with milestone history rather than
+-- losing earlier quote/acceptance stages when a lead's current status changes.
+CREATE OR REPLACE VIEW internal_analytics.lead_channel_daily AS
+SELECT
+    (date_trunc('day', created_at))::date AS enquiry_date,
+    first_touch_channel,
+    last_touch_channel,
+    count(*) AS enquiries_received,
+    count(*) FILTER (WHERE quote_sent_at IS NOT NULL) AS quotations_sent,
+    count(*) FILTER (WHERE status = 'won' OR order_won_at IS NOT NULL) AS orders_won,
+    sum(order_value) FILTER (WHERE status = 'won' OR order_won_at IS NOT NULL) AS won_order_value_inr
+FROM public.sales_leads
+GROUP BY (date_trunc('day', created_at))::date, first_touch_channel, last_touch_channel;
+
+CREATE OR REPLACE VIEW internal_analytics.lead_channel_funnel AS
+SELECT
+    first_touch_channel,
+    first_touch_source,
+    first_touch_medium,
+    first_touch_campaign,
+    last_touch_channel,
+    last_touch_source,
+    last_touch_medium,
+    last_touch_campaign,
+    count(*) AS enquiries_received,
+    count(*) FILTER (WHERE quote_sent_at IS NOT NULL) AS quotations_sent,
+    count(*) FILTER (WHERE accepted_at IS NOT NULL) AS quotations_accepted,
+    count(*) FILTER (WHERE status = 'won' OR order_won_at IS NOT NULL) AS orders_won,
+    count(*) FILTER (WHERE status = ANY (ARRAY['lost','unqualified'])) AS leads_lost,
+    count(*) FILTER (WHERE status = 'received' AND quote_sent_at IS NULL) AS awaiting_quote,
+    sum(order_value) FILTER (WHERE status = 'won' OR order_won_at IS NOT NULL) AS won_order_value_inr,
+    round(
+        (100.0 * count(*) FILTER (WHERE status = 'won' OR order_won_at IS NOT NULL)::numeric)
+        / nullif(count(*), 0)::numeric,
+        2
+    ) AS enquiry_to_order_rate_percent
+FROM public.sales_leads
+GROUP BY
+    first_touch_channel, first_touch_source, first_touch_medium, first_touch_campaign,
+    last_touch_channel, last_touch_source, last_touch_medium, last_touch_campaign;
+
+REVOKE ALL ON TABLE
+    internal_analytics.lead_channel_daily,
+    internal_analytics.lead_channel_funnel
+FROM PUBLIC, anon, authenticated;
+GRANT SELECT ON TABLE
+    internal_analytics.lead_channel_daily,
+    internal_analytics.lead_channel_funnel
+TO service_role;
 
 REVOKE ALL ON FUNCTION public.staff_list_sales_leads(integer, integer, text, text, text, date, date) FROM PUBLIC, anon;
 REVOKE ALL ON FUNCTION public.staff_channel_funnel_report(date, date) FROM PUBLIC, anon;
