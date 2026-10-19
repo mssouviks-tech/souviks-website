@@ -83,6 +83,12 @@ jobs:
           node --check scripts/regression/final-matrix.cjs
           node --check scripts/regression/production-browser-smoke.cjs
 
+      - name: Validate RFQ security contract
+        run: node scripts/regression/rfq-security-contract.cjs
+
+      - name: Validate attribution and enquiry recording contract
+        run: node scripts/regression/lead-attribution-contract.cjs
+
       - name: Run final regression matrix
         env:
           REGRESSION_BASE_URL: http://127.0.0.1:4173
