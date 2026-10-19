@@ -13,15 +13,6 @@
   let selectedLead = null;
   let lastLoadedLeads = [];
 
-  const STATUSES = [
-    ["received", "Received"],
-    ["quoted", "Quotation sent"],
-    ["accepted", "Quotation accepted"],
-    ["won", "Order won"],
-    ["lost", "Lost"],
-    ["unqualified", "Unqualified"]
-  ];
-
   function status(message, kind = "") {
     statusNode.textContent = message || "";
     statusNode.className = "notice" + (kind ? " " + kind : "");
