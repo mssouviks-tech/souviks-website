@@ -123,12 +123,10 @@
         const referrerHost = candidateReferrer && !isSameSite(candidateReferrer) ? candidateReferrer : "";
         const hasTags = ["utm_source", "utm_medium", "utm_campaign", "gclid", "wbraid", "gbraid"].some(k => Boolean(url.searchParams.get(k)));
         const saved = readJson(window.localStorage, STORAGE_KEY) || {};
-        const lastSaved = saved.last || saved.first;
-        const previousTime = Date.parse(lastSaved && lastSaved.captured_at || "");
-        if (!Number.isFinite(previousTime) || now - previousTime > RETENTION_MS) {
-            saved.first = null;
-            saved.last = null;
-        }
+        const firstTime = Date.parse(saved.first && saved.first.captured_at || "");
+        const lastTime = Date.parse(saved.last && saved.last.captured_at || "");
+        if (!Number.isFinite(firstTime) || now - firstTime > RETENTION_MS) saved.first = null;
+        if (!Number.isFinite(lastTime) || now - lastTime > RETENTION_MS) saved.last = null;
         const session = readJson(window.sessionStorage, SESSION_KEY);
         let current;
         if (hasTags || referrerHost) {
