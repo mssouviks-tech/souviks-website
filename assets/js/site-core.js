@@ -18,3 +18,265 @@
                 tabindex="0"
                 draggable="false">
         `,preview=layer.querySelector(".souviks-image-zoom-image"),closeButton=layer.querySelector(".souviks-image-zoom-close"),document.body.appendChild(layer),layer.addEventListener("click",event=>{(event.target===layer||event.target===closeButton)&&closeViewer()}),preview.addEventListener("wheel",event=>{if(!layer.classList.contains("is-visible"))return;event.preventDefault();const factor=(event.deltaY<0?1:-1)>0?1.18:.85;setScale(scale*factor,!1)},{passive:!1}),preview.addEventListener("dblclick",event=>{event.preventDefault(),setScale(scale>1.02?1:2.5,!0)}),preview.addEventListener("pointerdown",event=>{if(layer.classList.contains("is-visible")&&(pointers.set(event.pointerId,{x:event.clientX,y:event.clientY}),preview.setPointerCapture?.(event.pointerId),pointers.size===1&&scale>1.02&&(dragging=!0,dragStartX=event.clientX,dragStartY=event.clientY,dragOriginX=panX,dragOriginY=panY),pointers.size===2)){dragging=!1;const[a,b]=[...pointers.values()];pinchStartDistance=Math.hypot(b.x-a.x,b.y-a.y),pinchStartScale=scale}}),preview.addEventListener("pointermove",event=>{if(pointers.has(event.pointerId)){if(pointers.set(event.pointerId,{x:event.clientX,y:event.clientY}),pointers.size===2&&pinchStartDistance>0){const[a,b]=[...pointers.values()],currentDistance=Math.hypot(b.x-a.x,b.y-a.y);currentDistance>0&&setScale(pinchStartScale*(currentDistance/pinchStartDistance),!1);return}dragging&&scale>1.02&&(panX=dragOriginX+(event.clientX-dragStartX),panY=dragOriginY+(event.clientY-dragStartY),applyTransform(!1))}});const endPointer=event=>{pointers.delete(event.pointerId),pointers.size<2&&(pinchStartDistance=0),pointers.size===0&&(dragging=!1)};preview.addEventListener("pointerup",endPointer),preview.addEventListener("pointercancel",endPointer),preview.addEventListener("pointerleave",event=>{event.buttons||endPointer(event)})}function openViewer(img){if(!img||!img.currentSrc&&!img.src)return;createViewer();const source=img.currentSrc||img.src;if(!source)return;preview.src=source,preview.alt=img.alt||"Product image";const title=layer.querySelector("#souviksImageZoomTitle");title&&(title.textContent=img.alt?`${img.alt} preview`:"Product image preview"),activeSource=img,resetTransform(),layer.setAttribute("aria-labelledby","souviksImageZoomTitle"),layer.classList.add("is-visible"),layer.setAttribute("aria-hidden","false"),document.body.classList.add("souviks-image-viewer-open"),closeButton?.focus({preventScroll:!0})}function closeViewer(){if(!layer)return;layer.classList.remove("is-visible","is-zoomed"),layer.setAttribute("aria-hidden","true"),document.body.classList.remove("souviks-image-viewer-open"),pointers.clear(),dragging=!1,pinchStartDistance=0,preview&&(preview.removeAttribute("src"),preview.alt="",preview.style.transform="");const returnTarget=activeSource;activeSource=null,returnTarget?.focus?.({preventScroll:!0})}function isProtectedImage(target){return target instanceof Element&&!!target.closest(PROTECTED_SELECTOR)}const IMAGE_FALLBACK_SELECTOR=".product-image-file, .product-image img, .brand-logo img, .entity-product-galleries img";function recoverFailedImage(image){if(!(image instanceof HTMLImageElement)||!image.matches(IMAGE_FALLBACK_SELECTOR))return;const placeholder="/assets/images/placeholder.webp";if(image.dataset.souviksImageFallback==="done"){image.getAttribute("src")===placeholder&&image.complete&&image.naturalWidth===0&&(image.style.visibility="hidden",image.hidden=!0);return}image.dataset.souviksImageFallback="done",image.removeAttribute("srcset"),image.removeAttribute("sizes"),image.style.visibility="hidden";const revealFallback=()=>{image.style.visibility="visible",image.hidden=!1};if(image.addEventListener("load",revealFallback,{once:!0}),image.getAttribute("src")!==placeholder){image.src=placeholder;return}image.hidden=!0}document.addEventListener("error",event=>recoverFailedImage(event.target),!0),document.querySelectorAll(IMAGE_FALLBACK_SELECTOR).forEach(image=>{image.complete&&image.naturalWidth===0&&recoverFailedImage(image)}),document.addEventListener("click",event=>{const img=event.target instanceof Element?event.target.closest(VIEWER_SELECTOR):null;!img||!img.complete||!img.naturalWidth||(event.preventDefault(),event.stopPropagation(),openViewer(img))},!0),document.addEventListener("keydown",event=>{if(layer?.classList.contains("is-visible")){if(event.key==="Tab"){const focusable=[closeButton,preview].filter(Boolean);if(focusable.length){const current=document.activeElement,index=focusable.indexOf(current);event.shiftKey?(event.preventDefault(),focusable[index<=0?focusable.length-1:index-1].focus({preventScroll:!0})):(event.preventDefault(),focusable[index>=focusable.length-1?0:index+1].focus({preventScroll:!0}))}return}if(event.key==="Escape"){event.preventDefault(),closeViewer();return}if(event.key==="+"||event.key==="="){event.preventDefault(),setScale(scale+.25,!0);return}if(event.key==="-"||event.key==="_"){event.preventDefault(),setScale(scale-.25,!0);return}event.key==="0"&&(event.preventDefault(),setScale(1,!0))}}),document.addEventListener("contextmenu",event=>{isProtectedImage(event.target)&&(event.preventDefault(),event.stopPropagation())},!0),document.addEventListener("dragstart",event=>{isProtectedImage(event.target)&&event.preventDefault()},!0),document.addEventListener("selectstart",event=>{isProtectedImage(event.target)&&event.preventDefault()},!0)})(),(()=>{"use strict";const placeholder="/assets/images/placeholder.webp";document.addEventListener("error",event=>{const image=event.target;image instanceof HTMLImageElement&&!image.matches(".pdp-main-image img, .pdp-thumbnails img")&&(image.dataset.souviksFallbackApplied==="true"||image.src.endsWith(placeholder)||(image.dataset.souviksFallbackApplied="true",image.src=placeholder))},!0)})();
+
+
+/* ==========================================================
+   SOUVIKS — ACQUISITION ATTRIBUTION
+   First/last-touch source fields are kept separately from
+   customer PII. Full URLs and query strings are not retained.
+========================================================== */
+(() => {
+    "use strict";
+
+    const STORAGE_KEY = "souviks_attribution_v1";
+    const SESSION_KEY = "souviks_attribution_session_v1";
+    const RETENTION_MS = 90 * 24 * 60 * 60 * 1000;
+    const SESSION_MS = 30 * 60 * 1000;
+    const SEARCH_HOSTS = ["google.", "bing.com", "search.yahoo.", "duckduckgo.com", "ecosia.org", "yandex.", "search.brave.com"];
+    const SOCIAL_HOSTS = ["facebook.com", "instagram.com", "linkedin.com", "youtube.com", "youtu.be", "tiktok.com", "x.com", "twitter.com", "pinterest.", "threads.net", "t.me", "telegram."];
+
+    function clean(value, limit = 120) {
+        return String(value == null ? "" : value).replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, limit);
+    }
+
+    function hostFromUrl(value) {
+        try { return clean(new URL(value).hostname.toLowerCase(), 160); } catch { return ""; }
+    }
+
+    function matches(host, list) {
+        return list.some(item => host.includes(item));
+    }
+
+    function isSameSite(host) {
+        const current = String(window.location.hostname || "").toLowerCase();
+        return Boolean(host && (host === current || host.endsWith("." + current) || current.endsWith("." + host)));
+    }
+
+    function safePath(path) {
+        try { return clean(new URL(path, window.location.origin).pathname || "/", 500); }
+        catch { return clean(window.location.pathname || "/", 500); }
+    }
+
+    function getChannel(source, medium, referrerHost, clickId) {
+        const s = String(source || "").toLowerCase();
+        const m = String(medium || "").toLowerCase();
+        if (s.includes("whatsapp") || s === "wa" || m.includes("whatsapp")) return "whatsapp";
+        if (s === "phone" || m === "phone" || m === "call") return "phone";
+        if (m === "email" || m.includes("newsletter")) return "email";
+        if (clickId && !m) return "paid_search";
+        if (m.includes("paid_social") || (/(cpc|ppc|paid)/.test(m) && matches(s, SOCIAL_HOSTS))) return "paid_social";
+        if (/(cpc|ppc|paid_search|sem)/.test(m)) return "paid_search";
+        if (/(display|programmatic|paid_video)/.test(m)) return "paid_media";
+        if (m === "organic" && matches(s, SEARCH_HOSTS)) return "organic_search";
+        if (m.includes("social") || matches(s, SOCIAL_HOSTS)) return "social";
+        if (m === "offline" || s === "offline") return "offline";
+        if (m === "direct" || s === "direct") return "direct";
+        if (matches(referrerHost || s, SEARCH_HOSTS)) return "organic_search";
+        if (referrerHost || s || m) return "referral";
+        return "direct";
+    }
+
+    function readJson(storage, key) {
+        try {
+            const raw = storage.getItem(key);
+            return raw ? JSON.parse(raw) : null;
+        } catch { return null; }
+    }
+
+    function writeJson(storage, key, value) {
+        try { storage.setItem(key, JSON.stringify(value)); return true; }
+        catch { return false; }
+    }
+
+    function directTouch(now) {
+        return {
+            channel: "direct", source: "direct", medium: "direct",
+            campaign: "", term: "", content: "", referrer_host: "",
+            landing_page: safePath(window.location.pathname),
+            captured_at: new Date(now).toISOString()
+        };
+    }
+
+    function taggedTouch(now, url, referrerHost) {
+        const p = url.searchParams;
+        const utmSource = clean(p.get("utm_source"));
+        const utmMedium = clean(p.get("utm_medium"));
+        const clickId = clean(p.get("gclid") || p.get("wbraid") || p.get("gbraid"), 180);
+        const source = utmSource || (clickId ? "google" : referrerHost || "direct");
+        const medium = utmMedium || (clickId ? "cpc" : matches(referrerHost, SEARCH_HOSTS) ? "organic" : matches(referrerHost, SOCIAL_HOSTS) ? "social" : referrerHost ? "referral" : "direct");
+        return {
+            channel: getChannel(source, medium, referrerHost, clickId),
+            source: clean(source), medium: clean(medium),
+            campaign: clean(p.get("utm_campaign")),
+            term: clean(p.get("utm_term")),
+            content: clean(p.get("utm_content")),
+            referrer_host: clean(referrerHost, 160),
+            landing_page: safePath(url.pathname),
+            captured_at: new Date(now).toISOString()
+        };
+    }
+
+    function capture() {
+        const now = Date.now();
+        const url = new URL(window.location.href);
+        const candidateReferrer = hostFromUrl(document.referrer);
+        const referrerHost = candidateReferrer && !isSameSite(candidateReferrer) ? candidateReferrer : "";
+        const hasTags = ["utm_source", "utm_medium", "utm_campaign", "gclid", "wbraid", "gbraid"].some(k => Boolean(url.searchParams.get(k)));
+        const saved = readJson(window.localStorage, STORAGE_KEY) || {};
+        const lastSaved = saved.last || saved.first;
+        const previousTime = Date.parse(lastSaved && lastSaved.captured_at || "");
+        if (!Number.isFinite(previousTime) || now - previousTime > RETENTION_MS) {
+            saved.first = null;
+            saved.last = null;
+        }
+        const session = readJson(window.sessionStorage, SESSION_KEY);
+        let current;
+        if (hasTags || referrerHost) {
+            current = taggedTouch(now, url, referrerHost);
+        } else if (session && session.touch && now - Number(session.last_active_at || 0) <= SESSION_MS) {
+            current = session.touch;
+        } else {
+            current = directTouch(now);
+        }
+        writeJson(window.sessionStorage, SESSION_KEY, { touch: current, last_active_at: now });
+        let first = saved.first || null;
+        let last = saved.last || null;
+        if (!first || (first.channel === "direct" && current.channel !== "direct")) first = current;
+        if (current.channel !== "direct" || !last) last = current;
+        writeJson(window.localStorage, STORAGE_KEY, { first, last });
+        return { current, first: first || current, last: last || current };
+    }
+
+    let snapshot = capture();
+
+    function getSnapshot() {
+        if (!snapshot) snapshot = capture();
+        return snapshot;
+    }
+
+    function databaseFields() {
+        const s = getSnapshot();
+        return {
+            source_channel: clean(s.current.channel, 40),
+            source: clean(s.current.source),
+            medium: clean(s.current.medium),
+            campaign: clean(s.current.campaign),
+            term: clean(s.current.term),
+            content: clean(s.current.content),
+            referrer_host: clean(s.current.referrer_host, 160),
+            landing_page: clean(s.current.landing_page, 500),
+            conversion_page: safePath(window.location.pathname),
+            first_touch_channel: clean(s.first.channel, 40),
+            first_touch_source: clean(s.first.source),
+            first_touch_medium: clean(s.first.medium),
+            first_touch_campaign: clean(s.first.campaign),
+            first_touch_term: clean(s.first.term),
+            first_touch_content: clean(s.first.content),
+            first_touch_referrer_host: clean(s.first.referrer_host, 160),
+            first_touch_landing_page: clean(s.first.landing_page, 500),
+            last_touch_channel: clean(s.last.channel, 40),
+            last_touch_source: clean(s.last.source),
+            last_touch_medium: clean(s.last.medium),
+            last_touch_campaign: clean(s.last.campaign),
+            last_touch_term: clean(s.last.term),
+            last_touch_content: clean(s.last.content),
+            last_touch_referrer_host: clean(s.last.referrer_host, 160),
+            last_touch_landing_page: clean(s.last.landing_page, 500)
+        };
+    }
+
+    function analyticsFields() {
+        const s = getSnapshot();
+        return {
+            current_source_channel: clean(s.current.channel, 40),
+            current_source: clean(s.current.source),
+            current_medium: clean(s.current.medium),
+            current_campaign: clean(s.current.campaign),
+            first_touch_channel: clean(s.first.channel, 40),
+            first_touch_source: clean(s.first.source),
+            first_touch_medium: clean(s.first.medium),
+            first_touch_campaign: clean(s.first.campaign),
+            last_touch_channel: clean(s.last.channel, 40),
+            last_touch_source: clean(s.last.source),
+            last_touch_medium: clean(s.last.medium),
+            last_touch_campaign: clean(s.last.campaign)
+        };
+    }
+
+    function emailFields() {
+        const a = databaseFields();
+        return {
+            lead_source_channel: a.source_channel,
+            lead_source: a.source,
+            lead_medium: a.medium,
+            lead_campaign: a.campaign,
+            lead_referrer_host: a.referrer_host,
+            lead_landing_page: a.landing_page,
+            lead_conversion_page: a.conversion_page,
+            lead_attribution: [
+                "Current source: " + a.source_channel + " / " + a.source + " / " + a.medium,
+                "Campaign: " + (a.campaign || "(none)"),
+                "First touch: " + a.first_touch_channel + " / " + a.first_touch_source + " / " + a.first_touch_medium,
+                "Last touch: " + a.last_touch_channel + " / " + a.last_touch_source + " / " + a.last_touch_medium,
+                "Landing page: " + a.landing_page,
+                "Referrer: " + (a.referrer_host || "(none)")
+            ].join("\n")
+        };
+    }
+
+    async function recordLead(reference, leadType) {
+        const ref = clean(reference, 60);
+        const type = clean(leadType, 40).toLowerCase();
+        if (!ref || !["contact", "request_part", "rfq_guest"].includes(type)) return false;
+        try {
+            const client = window.supabaseClient || (typeof supabaseClient !== "undefined" ? supabaseClient : null);
+            if (!client || typeof client.rpc !== "function") return false;
+            const { error } = await client.rpc("record_website_lead", {
+                p_lead_reference: ref,
+                p_lead_type: type,
+                p_attribution: databaseFields()
+            });
+            if (error) {
+                window.SouviksErrors && window.SouviksErrors.log("Lead attribution save failed", error, "warn");
+                return false;
+            }
+            return true;
+        } catch (error) {
+            window.SouviksErrors && window.SouviksErrors.log("Lead attribution save failed", error, "warn");
+            return false;
+        }
+    }
+
+    window.souviksAttribution = {
+        get: () => JSON.parse(JSON.stringify(getSnapshot())),
+        toAnalyticsFields: analyticsFields,
+        toDatabaseFields: databaseFields,
+        toFormFields: emailFields,
+        recordLead
+    };
+
+    const analytics = window.souviksAnalytics || {};
+    analytics.trackEvent = function (name, params = {}) {
+        try {
+            window.gtag("event", String(name || "event"), {
+                ...params, ...analyticsFields(),
+                page_location: window.location.origin + window.location.pathname,
+                page_title: document.title
+            });
+        } catch {}
+    };
+    analytics.trackLead = function (type = "lead", params = {}) {
+        try {
+            window.gtag("event", "generate_lead", {
+                lead_type: clean(type || "lead", 40),
+                lead_channel: "website_form",
+                funnel_stage: "enquiry_received",
+                ...params, ...analyticsFields(),
+                page_location: window.location.origin + window.location.pathname,
+                page_title: document.title
+            });
+        } catch {}
+    };
+    window.souviksAnalytics = analytics;
+    window.addEventListener("pageshow", () => { snapshot = capture(); });
+})();
