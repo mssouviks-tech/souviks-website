@@ -52,7 +52,7 @@ The channel funnel aggregates first-touch channel, source, medium, campaign and 
 
 The connected Supabase project already records migration versions 20261019140604 and 20261019141427, while those SQL files were absent from repository main. The files added at those exact versions in this PR reconstruct the schema/functions/views from the live schema and function definitions and use idempotent DDL where feasible. Since the connected project already marks those versions applied, this PR does not execute or record them against production. Review the reconstructed files before using them to bootstrap a fresh database; migration-version history does not verify byte-for-byte equivalence with the SQL originally applied.
 
-The new staff workflow is 20261019160000_sales_lead_staff_workflow.sql. It has been committed to the repository only; it has not been applied to the connected Supabase project by this task.
+The staff workflow migration 20261019154356_sales_lead_staff_workflow.sql is applied to the connected Supabase project and checked in under the exact version recorded by Supabase.
 
 ## Search Console note
 
