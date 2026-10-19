@@ -3,7 +3,7 @@
   "products": [
     {
       "id": "SVKS001117",
-      "slug": "723-g-gear-lever-end-rh-long",
+      "slug": "723-g-gear-lever-end",
       "part_number": "723-G",
       "manufacturer_part_number": "250727000000",
       "mrp": 361.2,
@@ -22,8 +22,7 @@
       ],
       "applications": [
         "Right-hand, long greaseless type",
-        "M18 × 1.5 and M12 × 1.5 threaded connections",
-        "Workbook application notes also reference Tata 1516; vehicle mapping retained from the supplied vehicles field."
+        "M18 × 1.5 and M12 × 1.5 threaded connections"
       ],
       "featured": false,
       "active": true
