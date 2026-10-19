@@ -87,14 +87,15 @@ window.RFQ.submitStandalone = async function (form) {
         }));
 
         const { data: rfq, error: rfqError } = await supabaseClient.rpc(
-            "submit_rfq",
+            "submit_rfq_attributed",
             {
                 p_customer_name: customer.name,
                 p_customer_phone: customer.phone,
                 p_company: customer.company || null,
                 p_gst_number: customer.gst || null,
                 p_message: customer.message || null,
-                p_items: rpcItems
+                p_items: rpcItems,
+                p_attribution: window.souviksAttribution?.toDatabaseFields?.() || {}
             }
         );
 
@@ -121,6 +122,7 @@ window.RFQ.submitStandalone = async function (form) {
 
         const reference = window.RFQ.formatReference(rfq.rfq_number);
         const payload = {
+            ...window.souviksAttribution?.toFormFields?.(),
             lead_id: reference,
             name: customer.name,
             company: customer.company,
@@ -131,6 +133,8 @@ window.RFQ.submitStandalone = async function (form) {
             message: customer.message,
             rfq_items: window.RFQ.formatSubmissionItems(items)
         };
+
+        window.souviksAnalytics?.trackLead("rfq", { rfq_reference: reference, item_count: items.length });
 
         try {
             await emailjs.send(
@@ -149,7 +153,6 @@ window.RFQ.submitStandalone = async function (form) {
             );
         }
 
-        window.souviksAnalytics?.trackLead("rfq");
         try {
             const cleared = await window.RFQ.clear();
             if (cleared === false) {
@@ -171,6 +174,7 @@ window.RFQ.submitStandalone = async function (form) {
 
     const reference = "RFQ-" + Date.now();
     const payload = {
+        ...window.souviksAttribution?.toFormFields?.(),
         lead_id: reference,
         name: customer.name,
         company: customer.company,
@@ -188,7 +192,8 @@ window.RFQ.submitStandalone = async function (form) {
         payload
     );
 
-    window.souviksAnalytics?.trackLead("rfq_guest");
+    await window.souviksAttribution?.recordLead?.(reference, "rfq_guest");
+    window.souviksAnalytics?.trackLead("rfq_guest", { rfq_reference: reference, item_count: items.length });
     try {
         const cleared = await window.RFQ.clear();
         if (cleared === false) {
