@@ -1,5 +1,6 @@
 (()=>{"use strict";
 const STORAGE_KEY="souviks:attribution:v1";
+const ATTRIBUTION_TTL_MS=90*24*60*60*1000;
 const ALLOWED_CHANNELS=new Set(["organic_search","paid_search","paid_social","paid_media","social","referral","email","direct","whatsapp","phone","offline","unknown","other"]);
 let memoryState=null;
 const clean=(value,max=120)=>String(value??"").replace(/https?:\/\/\S+/gi,"").replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g,"").replace(/[\u0000-\u001f\u007f]/g," ").replace(/[<>]/g,"").trim().slice(0,max);
@@ -15,8 +16,8 @@ const sanitizeTouch=touch=>({
  referrer_host:clean(touch?.referrer_host,160),
  landing_page:safePath(touch?.landing_page||"/")
 });
-const readState=()=>{if(memoryState)return memoryState;try{const raw=window.localStorage.getItem(STORAGE_KEY);if(raw){const parsed=JSON.parse(raw);if(parsed&&typeof parsed==="object"&&parsed.firstTouch&&parsed.lastTouch){memoryState={firstTouch:sanitizeTouch(parsed.firstTouch),lastTouch:sanitizeTouch(parsed.lastTouch)};return memoryState}}}catch{}return null};
-const saveState=state=>{memoryState=state;try{window.localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch{}};
+const readState=()=>{if(memoryState)return memoryState;try{const raw=window.localStorage.getItem(STORAGE_KEY);if(raw){const parsed=JSON.parse(raw);if(parsed&&typeof parsed==="object"&&parsed.firstTouch&&parsed.lastTouch&&Number.isFinite(Number(parsed.updatedAt))&&Date.now()-Number(parsed.updatedAt)>=0&&Date.now()-Number(parsed.updatedAt)<=ATTRIBUTION_TTL_MS){memoryState={firstTouch:sanitizeTouch(parsed.firstTouch),lastTouch:sanitizeTouch(parsed.lastTouch),updatedAt:Number(parsed.updatedAt)};return memoryState}}}catch{}return null};
+const saveState=state=>{memoryState={...state,updatedAt:Date.now()};try{window.localStorage.setItem(STORAGE_KEY,JSON.stringify(memoryState))}catch{}};
 const inferChannel=(source,medium,clickId)=>{
  const s=String(source||"").toLowerCase(),m=String(medium||"").toLowerCase();
  if(clickId==="gclid"||clickId==="msclkid"||/^(cpc|ppc|paid.?search|sem)$/.test(m))return "paid_search";
