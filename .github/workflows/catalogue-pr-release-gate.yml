@@ -44,6 +44,9 @@ jobs:
       - name: Install JavaScript build tools
         run: npm install --no-package-lock --no-audit --no-fund
 
+      - name: Install image optimisation dependency
+        run: python3 -m pip install --user --break-system-packages Pillow
+
       - name: Compile catalogue builders
         run: |
           python3 - <<'PY'
@@ -60,6 +63,7 @@ jobs:
               "scripts/catalogue/sync_navigation.py",
               "scripts/catalogue/product_card.py",
               "scripts/catalogue/sync_product_cards.py",
+              "scripts/audit/generate_product_thumbnails.py",
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/structured_data.py",
@@ -85,6 +89,7 @@ jobs:
 
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
+          python3 scripts/audit/generate_product_thumbnails.py
           python3 scripts/catalogue/sync_navigation.py
           python3 scripts/catalogue/sync_product_cards.py
           python3 scripts/catalogue/enrich_entities.py
