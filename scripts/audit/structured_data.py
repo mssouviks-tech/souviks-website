@@ -15,6 +15,12 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
+CATALOGUE_SCRIPTS = str(ROOT / "scripts" / "catalogue")
+if CATALOGUE_SCRIPTS not in sys.path:
+    sys.path.insert(0, CATALOGUE_SCRIPTS)
+
+from product_seo import schema_availability_url
+
 BASE = "https://www.souviks.co.in"
 CANONICAL_RE = re.compile(r'<link\b[^>]*\brel=["\']canonical["\'][^>]*\bhref=["\']([^"\']+)["\']', re.I | re.S)
 JSONLD_RE = re.compile(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.I | re.S)
@@ -273,8 +279,8 @@ def validate_html(path: Path, catalogue: dict[str, dict], errors: list[str], ima
             except (TypeError, ValueError):
                 errors.append(f"{path}: Offer price is not numeric: {schema_price!r}")
 
-        if "availability" in offers and not expected_product.get("availability"):
-            errors.append(f"{path}: Offer declares availability without a catalogue availability field")
+        if "availability" in offers and not schema_availability_url(expected_product):
+            errors.append(f"{path}: Offer declares availability without an explicit recognized catalogue stock state")
 
         offer_url = offers.get("url")
         if isinstance(offer_url, str) and canonical and normalize_url(offer_url) != normalize_url(canonical):
