@@ -8,6 +8,8 @@
   const statusNode = $("#dashboard-status");
   const leadsBody = $("#leads-body");
   const funnelBody = $("#funnel-body");
+  const contactIntentMetrics = $("#contact-intent-metrics");
+  const contactIntentBody = $("#contact-intent-body");
   const outcomePanel = $("#outcome-panel");
   const manualForm = $("#manual-lead-form");
   let selectedLead = null;
@@ -99,6 +101,55 @@
       const card = el("div", undefined, "metric");
       card.append(el("span", label, "metric-label"), el("strong", value, "metric-value"));
       container.appendChild(card);
+    }
+  }
+
+  function renderContactIntentAnalytics(summaryRows, events, loadError) {
+    const summary = Array.isArray(summaryRows) ? summaryRows[0] : null;
+    clear(contactIntentMetrics);
+    const metrics = [
+      ["Email link clicks", Number(summary?.email_clicks) || 0],
+      ["Phone link clicks", Number(summary?.phone_clicks) || 0],
+      ["Unique visitors", Number(summary?.unique_visitors) || 0],
+      ["Linked enquiries", Number(summary?.linked_leads) || 0]
+    ];
+    for (const [label, value] of metrics) {
+      const card = el("div", undefined, "metric");
+      card.append(el("span", label, "metric-label"), el("strong", value, "metric-value"));
+      contactIntentMetrics.appendChild(card);
+    }
+
+    clear(contactIntentBody);
+    if (loadError) {
+      const tr = el("tr");
+      const td = el("td", "Contact intent analytics are temporarily unavailable. Refresh after the analytics service is restored.", "empty-cell");
+      td.colSpan = 6;
+      tr.appendChild(td);
+      contactIntentBody.appendChild(tr);
+      return;
+    }
+    if (!Array.isArray(events) || !events.length) {
+      const tr = el("tr");
+      const td = el("td", "No email or phone link clicks recorded in this date range.", "empty-cell");
+      td.colSpan = 6;
+      tr.appendChild(td);
+      contactIntentBody.appendChild(tr);
+      return;
+    }
+
+    for (const event of events) {
+      const tr = el("tr");
+      const contactLabel = event.contact_type === "email" ? "Email link clicked" : "Phone link clicked";
+      tr.appendChild(el("td", formatDate(event.clicked_at)));
+      tr.appendChild(el("td", contactLabel));
+      tr.appendChild(el("td", event.page_path || "—", "reference-cell"));
+      tr.appendChild(el("td", [event.source, event.medium].filter(Boolean).join(" / ") || pretty(event.first_touch_channel)));
+      tr.appendChild(el("td", event.campaign || "—"));
+      const leadText = event.lead_reference
+        ? event.lead_reference + (event.lead_status ? " · " + pretty(event.lead_status) : "")
+        : "No enquiry linked";
+      tr.appendChild(el("td", leadText));
+      contactIntentBody.appendChild(tr);
     }
   }
 
@@ -201,7 +252,7 @@
   async function loadDashboard() {
     status("Loading funnel and lead records…");
     const filters = selectedFilters();
-    const [funnel, leads] = await Promise.all([
+    const [funnel, leads, intentSummaryResult, intentEventsResult] = await Promise.all([
       rpc("staff_channel_funnel_report", { p_from: filters.p_from, p_to: filters.p_to }),
       rpc("staff_list_sales_leads", {
         p_limit: 100,
@@ -211,11 +262,27 @@
         p_query: filters.p_query,
         p_from: filters.p_from,
         p_to: filters.p_to
+      }),
+      rpc("staff_contact_intent_summary", { p_from: filters.p_from, p_to: filters.p_to })
+        .then(data => ({ data }))
+        .catch(error => ({ error })),
+      rpc("staff_list_contact_intents", {
+        p_from: filters.p_from,
+        p_to: filters.p_to,
+        p_contact_type: null,
+        p_limit: 50
       })
+        .then(data => ({ data }))
+        .catch(error => ({ error }))
     ]);
     renderMetrics(funnel);
     renderFunnel(funnel);
     renderLeads(leads);
+    const intentError = intentSummaryResult.error || intentEventsResult.error || null;
+    if (intentError) {
+      SouviksErrors?.log("[Souviks Sales Dashboard] Contact-intent report unavailable.", intentError, "warn");
+    }
+    renderContactIntentAnalytics(intentSummaryResult.data || [], intentEventsResult.data || [], Boolean(intentError));
     status("Loaded " + leads.length + " most recent leads. Funnel counts include all leads in the selected date range.", "success");
   }
 
