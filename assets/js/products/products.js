@@ -88,6 +88,14 @@ constructor() {
                 : product?.primary_image || "")
         ).trim();
 
+        // Generated card derivatives are distinct from original product images.
+        // Use only the bounded derivative path published by the build; detail
+        // galleries continue to use the canonical full-resolution image URLs.
+        const thumbnailUrl = String(product?.card_image_url || "").trim();
+        if (/^\/assets\/images\/product-thumbnails\/[^/?#]+\/[^/?#]+\.webp$/i.test(thumbnailUrl)) {
+            return thumbnailUrl;
+        }
+
         // The packaged gallery is authoritative. It contains the actual
         // normalized filenames (1.webp, 2.webp, ...).
         if (folder && candidate) {
