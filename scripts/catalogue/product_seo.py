@@ -126,7 +126,7 @@ def build_factual_product_description(product: dict[str, Any]) -> str:
     description += "."
 
     facts: list[str] = []
-    if part and part.casefold() not in identity.casefold():
+    if part and part.casefold() not in lead.casefold():
         facts.append(f"Catalogue part number: {part}.")
     if applications:
         facts.append("Recorded applications: " + ", ".join(applications[:5]) + ".")
@@ -144,7 +144,7 @@ def build_product_schema_description(product: dict[str, Any]) -> str:
     vehicles = values(product.get("vehicles"))
     if vehicles and not (len(vehicles) == 1 and vehicles[0].casefold() == "universal"):
         lowered = description.casefold()
-        if not all(vehicle.casefold() in lowered for vehicle in vehicles[:3]):
+        if not all(vehicle.casefold() in lowered for vehicle in vehicles[:5]):
             description = description.rstrip(" .") + ". Compatible vehicle references: " + ", ".join(vehicles[:5]) + "."
     return SPACE_RE.sub(" ", description).strip()
 
