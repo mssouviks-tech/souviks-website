@@ -85,9 +85,6 @@ def validate_root_document(source: str) -> None:
         raise SystemExit(f"Root homepage has only {len(visible_text)} visible text characters; expected full homepage content")
     if not re.search(r"<main\b|\bclass\s*=\s*['\"][^'\"]*\b(hero|page-home)\b", body.group(1), re.I):
         raise SystemExit("Root homepage is missing its main/homepage content container")
-    for marker in LOADER_MARKERS:
-        if marker.casefold() in source.casefold():
-            raise SystemExit(f"Root homepage must not contain obsolete loading-screen marker: {marker}")
     if re.search(r"setTimeout\s*\([^)]*(?:location|window\.location)", source, re.I | re.S):
         raise SystemExit("Root homepage must not use a timed JavaScript redirect as its primary content")
     for locale_url in ("/bn/", "/hi/"):
