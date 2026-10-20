@@ -97,6 +97,7 @@ jobs:
               "scripts/catalogue/sync_navigation.py",
               "scripts/catalogue/product_card.py",
               "scripts/catalogue/sync_product_cards.py",
+              "scripts/audit/catalogue_parity.py",
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/optimize_static_images.py",
