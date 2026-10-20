@@ -1899,7 +1899,7 @@ def sync_product_seo_and_schema():
                 except (TypeError, ValueError):
                     numeric_price = None
                 if numeric_price is not None and numeric_price > 0:
-                    product_schema["offers"] = {
+                    offer = {
                         "@type": "Offer",
                         "url": url,
                         "priceCurrency": "INR",
@@ -1909,6 +1909,10 @@ def sync_product_seo_and_schema():
                             "name": "Souviks",
                         },
                     }
+                    explicit_availability = schema_availability_url(product)
+                    if explicit_availability:
+                        offer["availability"] = explicit_availability
+                    product_schema["offers"] = offer
     
                 schema_html = (
                     '    <script type="application/ld+json">\n'
@@ -2001,6 +2005,13 @@ def sync_product_seo_and_schema():
                     offers["@type"] = "Offer"
                     offers["url"] = url
                     offers["priceCurrency"] = "INR"
+                    explicit_availability = schema_availability_url(product)
+                    if explicit_availability:
+                        offers["availability"] = explicit_availability
+                    else:
+                        # Never retain a stock claim that is not supported by
+                        # the current product catalogue record.
+                        offers.pop("availability", None)
                     try:
                         numeric_price = float(product.get("selling_price"))
                     except (TypeError, ValueError):
