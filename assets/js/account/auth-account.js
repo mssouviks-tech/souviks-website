@@ -73,6 +73,76 @@ const AccountState = {
 
 /*
 ==========================================================
+STAFF SALES FUNNEL SHORTCUT
+==========================================================
+
+The shortcut is displayed only for trusted Supabase app_metadata roles.
+The dashboard's server-side RPCs independently enforce the same authorization.
+==========================================================
+*/
+function initializeSalesFunnelShortcut(user) {
+    const navList = document.querySelector(".account-navigation-list");
+
+    if (!navList || !user || typeof user !== "object") {
+        return;
+    }
+
+    const appMetadata =
+        user.app_metadata && typeof user.app_metadata === "object"
+            ? user.app_metadata
+            : {};
+    const allowedRoles = new Set(["admin", "sales", "owner"]);
+    const role = String(appMetadata.role || "").trim().toLowerCase();
+    const secondaryRoles = Array.isArray(appMetadata.roles)
+        ? appMetadata.roles
+        : appMetadata.roles && typeof appMetadata.roles === "object"
+            ? Object.keys(appMetadata.roles)
+            : [];
+    const hasStaffRole =
+        allowedRoles.has(role) ||
+        secondaryRoles.some(value =>
+            allowedRoles.has(String(value || "").trim().toLowerCase())
+        );
+
+    if (!hasStaffRole || navList.querySelector('[data-account-sales-funnel="true"]')) {
+        return;
+    }
+
+    const language = String(
+        window.souviks?.currentLanguage || document.documentElement.lang || "en"
+    ).split("-")[0].toLowerCase();
+    const labels = {
+        en: "Channel Attribution & Sales Funnel",
+        bn: "চ্যানেল অ্যাট্রিবিউশন ও সেলস ফানেল",
+        hi: "चैनल एट्रिब्यूशन और सेल्स फ़नल"
+    };
+    const labelText = labels[language] || labels.en;
+
+    const separator = document.createElement("li");
+    separator.className = "account-navigation-divider";
+    separator.setAttribute("aria-hidden", "true");
+
+    const item = document.createElement("li");
+    item.className = "account-navigation-staff-item";
+
+    const link = document.createElement("a");
+    link.href = "/en/admin/channel-attribution";
+    link.className = "account-navigation-link";
+    link.setAttribute("data-account-sales-funnel", "true");
+    link.setAttribute("aria-label", labelText);
+
+    const label = document.createElement("span");
+    label.textContent = labelText;
+    link.appendChild(label);
+    item.appendChild(link);
+
+    navList.appendChild(separator);
+    navList.appendChild(item);
+}
+
+
+/*
+==========================================================
 INITIALIZE ACCOUNT
 ==========================================================
 */
@@ -118,6 +188,7 @@ async function initializeAccount() {
         AccountState.user =
             user;
 
+        initializeSalesFunnelShortcut(user);
 
         document.addEventListener(
             "souviks:rfq-updated",
