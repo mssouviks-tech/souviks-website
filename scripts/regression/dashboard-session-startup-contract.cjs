@@ -9,6 +9,18 @@ const dashboard = fs.readFileSync(
   "utf8"
 );
 
+const page = fs.readFileSync(
+  path.join(ROOT, "en/admin/channel-attribution.html"),
+  "utf8"
+);
+const languageBootstrap = page.indexOf('window.souviks = window.souviks && typeof window.souviks === "object"');
+const sharedCore = page.indexOf('<script defer src="/assets/js/site-core.js?');
+assert.ok(
+  languageBootstrap >= 0 && sharedCore > languageBootstrap,
+  "the standalone staff dashboard must initialize window.souviks before site-core reads its current language"
+);
+assert.match(page.slice(languageBootstrap, sharedCore), /document\.documentElement\.lang\s*\|\|\s*"en"/);
+
 assert.match(dashboard, /async function withTimeout\(operation, timeoutMs, message\)/);
 assert.match(dashboard, /await withTimeout\([\s\S]*?supabaseClient\.auth\.getSession\(\)[\s\S]*?12000/);
 assert.match(dashboard, /Session check timed out/, "stalled session checks need an explicit timeout message");
