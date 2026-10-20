@@ -64,6 +64,7 @@ jobs:
               "scripts/catalogue/product_card.py",
               "scripts/catalogue/sync_product_cards.py",
               "scripts/audit/generate_product_thumbnails.py",
+              "scripts/catalogue/sync_root_homepage.py",
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/structured_data.py",
@@ -98,6 +99,8 @@ jobs:
           python3 scripts/catalogue/sync_entity_sitemaps.py
           python3 scripts/js/refactor.py
           npm run build:js
+          python3 scripts/js/refresh_versions.py
+          python3 scripts/catalogue/sync_root_homepage.py
 
           python3 scripts/catalogue/validate.py
           python3 scripts/audit/critical_build.py
