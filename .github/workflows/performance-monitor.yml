@@ -39,7 +39,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
-            https://www.souviks.co.in/en/
+            https://www.souviks.co.in/
             https://www.souviks.co.in/en/products
             https://www.souviks.co.in/en/products/10-x-15-nut
           configPath: .lighthouserc.json
