@@ -550,6 +550,13 @@ def validate_homepage_url_contract(errors: list[str]) -> None:
     else:
         errors.append("Missing canonical root homepage: index.html")
 
+    # The root must be a complete crawlable homepage, not a loader-only shell.
+    root_path = ROOT / "index.html"
+    if root_path.is_file():
+        validate_root_homepage_document(root_path.read_text(encoding="utf-8", errors="ignore"), errors)
+    else:
+        errors.append("Missing canonical root homepage: index.html")
+
     # The English homepage's share-card URLs must not keep the obsolete /en/ URL.
     english_path = ROOT / "en" / "index.html"
     if english_path.is_file():
