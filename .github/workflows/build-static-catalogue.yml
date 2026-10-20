@@ -19,6 +19,8 @@ on:
       - "scripts/audit/critical_build.py"
       - "scripts/audit/performance_guard.py"
       - "scripts/audit/optimize_static_images.py"
+      - "scripts/audit/generate_product_thumbnails.py"
+      - "assets/images/product-thumbnails/**"
       - "package.json"
       - "scripts/js/**"
       - "assets/data/brands.json"
@@ -97,6 +99,7 @@ jobs:
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/optimize_static_images.py",
+              "scripts/audit/generate_product_thumbnails.py",
               "scripts/audit/production_smoke.py",
               "scripts/audit/structured_data.py",
               "scripts/js/refactor.py",
@@ -129,6 +132,7 @@ jobs:
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
+            python3 scripts/audit/generate_product_thumbnails.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/normalize_page_config.py
             python3 scripts/catalogue/sync_rfq_module.py
@@ -196,6 +200,7 @@ jobs:
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
+            python3 scripts/audit/generate_product_thumbnails.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/normalize_page_config.py
             python3 scripts/catalogue/sync_rfq_module.py
