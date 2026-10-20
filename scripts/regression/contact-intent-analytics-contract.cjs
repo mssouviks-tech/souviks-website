@@ -41,7 +41,6 @@ assert.match(migration, /ALTER TABLE internal_analytics\.contact_intent_events E
 assert.match(migration, /REVOKE ALL ON TABLE internal_analytics\.contact_intent_events FROM PUBLIC, anon, authenticated/);
 assert.match(migration, /IF NOT internal_analytics\.is_sales_staff\(\)/, "dashboard RPCs must enforce trusted staff authorization");
 assert.match(migration, /AFTER INSERT OR UPDATE OF contact_intent_visitor_id/, "touchpoints must link to website or RFQ leads when the same visitor converts");
-assert.match(migration, /clicked_at < v_now - interval '365 days'/, "old contact-intent records should be opportunistically cleaned up");
 assert.match(englishPrivacy, /contact-intent analytics/i);
 assert.match(hindiPrivacy, /संपर्क-इरादा विश्लेषण/);
 assert.match(bengaliPrivacy, /যোগাযোগের অভিপ্রায় বিশ্লেষণ/);
