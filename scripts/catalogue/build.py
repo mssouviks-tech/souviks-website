@@ -142,6 +142,24 @@ def reconcile_catalogue_projections():
     
         for pid, sheet_row in overrides.items():
             current = by_id.get(pid)
+
+            # Description-only overrides are deliberately supported so approved
+            # SEO copy can be applied without overwriting prices, taxonomy,
+            # applications, vehicle mappings, image references, or product state.
+            override_fields = set(sheet_row) - {"id"}
+            if override_fields == {"description"}:
+                if current is None:
+                    raise SystemExit(
+                        f"Description override references unknown catalogue product: {pid}"
+                    )
+                description = text(sheet_row.get("description"))
+                if not description:
+                    raise SystemExit(
+                        f"Description override is empty for catalogue product: {pid}"
+                    )
+                current["description"] = description
+                continue
+
             if current is None:
                 current = {}
                 catalogue.append(current)
