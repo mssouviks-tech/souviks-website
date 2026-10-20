@@ -144,7 +144,7 @@
 
     <section class="section filters" aria-labelledby="filters-heading">
       <h2 id="filters-heading">Report filters</h2>
-      <p class="small-note">Date range filters both sections. Outcome, channel, and search filters apply to the recent-enquiries list; the channel report stays grouped by attribution source.</p>
+      <p class="small-note">Date range filters the funnel, enquiries and contact-intent reports. Outcome, channel and search filters apply to the recent-enquiries list; the channel report stays grouped by attribution source.</p>
       <div class="toolbar">
         <div class="field"><label for="filter-from">From date</label><input type="date" id="filter-from"></div>
         <div class="field"><label for="filter-to">To date</label><input type="date" id="filter-to"></div>
@@ -161,6 +161,19 @@
         <div class="field search"><label for="filter-query">Find lead</label><input id="filter-query" type="search" placeholder="Reference, customer, phone, company, order"></div>
         <button id="apply-filters" class="button" type="button">Apply filters</button>
         <button id="refresh-dashboard" class="button secondary" type="button">Refresh</button>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="contact-intent-heading">
+      <h2 id="contact-intent-heading">Contact intent touchpoints</h2>
+      <p class="muted">Counts show visitors who clicked an email or telephone link. They indicate contact intent only, not a confirmed call or a sent email. Touchpoints are linked to a later recorded enquiry when the same browser returns with its anonymous attribution ID.</p>
+      <div id="contact-intent-metrics" class="metric-grid" aria-live="polite"></div>
+      <h3 style="margin-top:20px">Recent email and phone clicks</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Clicked at</th><th>Touchpoint</th><th>Page</th><th>Source / medium</th><th>Campaign</th><th>Linked enquiry</th></tr></thead>
+          <tbody id="contact-intent-body"><tr><td class="empty-cell" colspan="6">Waiting for staff access…</td></tr></tbody>
+        </table>
       </div>
     </section>
 
