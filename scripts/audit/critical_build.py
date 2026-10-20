@@ -464,6 +464,40 @@ def metadata_values(raw: str, selector_attribute: str, selector_value: str) -> l
     return values
 
 
+def validate_root_homepage_document(raw: str, errors: list[str]) -> None:
+    """Block loader-only roots and require real crawlable homepage content."""
+    label = "index.html"
+    if not raw.lstrip().lower().startswith("<!doctype html>"):
+        errors.append(f"{label}: missing HTML doctype")
+    title = re.search(r"<title\\b[^>]*>(.*?)</title\\s*>", raw, flags=re.I | re.S)
+    if not title or not re.sub(r"<[^>]+>", "", title.group(1)).strip():
+        errors.append(f"{label}: missing non-empty title")
+    descriptions = metadata_values(raw, "name", "description")
+    if len(descriptions) != 1 or len(descriptions[0]) < 40:
+        errors.append(f"{label}: requires one meaningful meta description")
+    body = re.search(r"<body\\b[^>]*>(.*?)</body\\s*>", raw, flags=re.I | re.S)
+    if not body:
+        errors.append(f"{label}: missing body element")
+        return
+    body_html = body.group(1)
+    body_without_code = re.sub(r"<script\\b.*?</script\\s*>|<style\\b.*?</style\\s*>", " ", body_html, flags=re.I | re.S)
+    visible = re.sub(r"<[^>]+>", " ", body_without_code)
+    visible = re.sub(r"\\s+", " ", visible).strip()
+    if len(visible) < 500:
+        errors.append(f"{label}: only {len(visible)} visible text characters; expected complete homepage content")
+    if not re.search(r"<main\\b|\\bclass\\s*=\\s*['\\"][^'\\"]*\\b(home|hero|page-home)\\b", body_html, flags=re.I):
+        errors.append(f"{label}: missing homepage/main content container")
+    if re.search(r"(?:souviks-loading-logo|loading-screen|please\\s+wait)", raw, flags=re.I):
+        errors.append(f"{label}: obsolete loading-screen markup is present")
+    if re.search(r"setTimeout\\s*\\([^)]*(?:location|window\\.location)", raw, flags=re.I | re.S):
+        errors.append(f"{label}: timed JavaScript redirect is present")
+    if "SOUVIKS ROOT HOMEPAGE LANGUAGE ROUTING" not in raw:
+        errors.append(f"{label}: missing locale-preference routing marker")
+    canonicals = canonical_tags_from_html(raw)
+    if canonicals != [BASE + "/"]:
+        errors.append(f"{label}: root canonical must be exactly {BASE + '/'}")
+
+
 def validate_homepage_url_contract(errors: list[str]) -> None:
     """Enforce one exact public URL contract for every homepage representation."""
     expected_canonicals = {
@@ -507,6 +541,14 @@ def validate_homepage_url_contract(errors: list[str]) -> None:
                 errors.append(
                     f"{relative_path}: hreflang={code} {values[0]!r} != {expected_url!r}"
                 )
+
+    # Root is the canonical, complete English homepage, not a JavaScript-only loader.
+    root_path = ROOT / "index.html"
+    if root_path.is_file():
+        root_html = root_path.read_text(encoding="utf-8", errors="ignore")
+        validate_root_homepage_document(root_html, errors)
+    else:
+        errors.append("Missing canonical root homepage: index.html")
 
     # The English homepage's share-card URLs must not keep the obsolete /en/ URL.
     english_path = ROOT / "en" / "index.html"
