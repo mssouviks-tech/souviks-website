@@ -235,8 +235,8 @@ def add_supabase_preconnects() -> int:
         if "cdn.jsdelivr.net/npm/@supabase/supabase-js" not in text or link in text:
             continue
         updated, count = re.subn(
-            r"(<head\\b[^>]*>)",
-            r"\\1\\n    " + link + r"\\n",
+            r"(<head\b[^>]*>)",
+            r"\1\n    " + link + r"\n",
             text,
             count=1,
             flags=re.IGNORECASE,
