@@ -150,7 +150,7 @@ def main() -> int:
             # truncated, non-distinct product snippets. This is a warning so
             # catalogue pages with sparse source data remain publishable.
             product_data = re.search(
-                r"window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});",
+                r"window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});",
                 raw,
                 flags=re.S,
             )
