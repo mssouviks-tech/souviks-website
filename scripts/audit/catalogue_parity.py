@@ -78,6 +78,31 @@ def main():
             if text(name):
                 vehicle_ids_by_name[text(name).casefold()] = key
 
+    # Catalog-integrity guard for a known false classification: Valvoline 504635
+    # is 15W-40 engine oil, not a suspension cross joint. Keep this explicit
+    # invariant so accidental sheet/import changes fail the parity audit.
+    valvoline_oil = next(
+        (
+            product for product in products_by_id.values()
+            if text(product.get("brand_id")) == "valvoline"
+            and text(product.get("part_number")) == "504635"
+        ),
+        None,
+    )
+    if valvoline_oil is None:
+        errors.append("Valvoline 504635 classification invariant: product record not found")
+    else:
+        expected_taxonomy = ("lubricants", "engine-oil")
+        actual_taxonomy = (
+            text(valvoline_oil.get("category_id")),
+            text(valvoline_oil.get("subcategory_id")),
+        )
+        if actual_taxonomy != expected_taxonomy:
+            errors.append(
+                "Valvoline 504635 classification invariant: expected "
+                f"{expected_taxonomy!r}, got {actual_taxonomy!r}"
+            )
+
     # Validate each active product's references against the authoritative masters.
     expected_category_products = {key: set() for key in categories_by_id}
     expected_vehicle_products = {key: set() for key in vehicles_by_id}

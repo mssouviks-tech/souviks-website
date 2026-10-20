@@ -1721,6 +1721,22 @@ def validate_category_counter_parity(categories: list[dict], errors: list[str]) 
             f"active categories master requires {total_expected} across en/hi/bn"
         )
 
+def validate_known_product_classifications(records_by_kind, errors: list[str]) -> None:
+    """Catch the confirmed Valvoline engine-oil classification regression."""
+    products = records_by_kind.get("products", [])
+    item = next(
+        (p for p in products if text(p.get("brand_id")) == "valvoline" and text(p.get("part_number")) == "504635"),
+        None,
+    )
+    if item is None:
+        errors.append("Valvoline 504635 classification invariant: product record not found")
+        return
+    expected = ("lubricants", "engine-oil")
+    actual = (text(item.get("category_id")), text(item.get("subcategory_id")))
+    if actual != expected:
+        errors.append(f"Valvoline 504635 classification invariant: expected {expected!r}, got {actual!r}")
+
+
 def main() -> None:
     errors: list[str] = []
     validate_homepage_url_contract(errors)
@@ -1728,6 +1744,7 @@ def main() -> None:
     validate_page_config_syntax(errors)
     records_by_kind = validate_critical_catalogue_contract(errors)
     reference_warnings: list[str] = []
+    validate_known_product_classifications(records_by_kind, errors)
     validate_catalogue_reference_integrity(
         records_by_kind["products"], records_by_kind["brands"],
         records_by_kind["categories"], records_by_kind["vehicles"],

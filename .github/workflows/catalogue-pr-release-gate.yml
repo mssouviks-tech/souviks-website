@@ -65,6 +65,7 @@ jobs:
               "scripts/catalogue/sync_product_cards.py",
               "scripts/audit/generate_product_thumbnails.py",
               "scripts/catalogue/sync_root_homepage.py",
+              "scripts/audit/catalogue_parity.py",
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/structured_data.py",

@@ -8776,8 +8776,8 @@
       "All Fleet TC Genuine 15W40 4/3 LTR",
       "504635",
       "Valvoline",
-      "Suspension & Steering",
-      "Cross Joint",
+      "Lubricants",
+      "Engine Oil",
       "The Valvoline 504635 All Fleet TC Genuine 15W40 4/3 LTR forms a lubricating film between moving engine components to reduce metal-to-metal contact and carry heat and contaminants through the lubrication circuit.",
       "Universal"
     ],
@@ -8797,8 +8797,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "suspension-steering",
-      "name": "Suspension & Steering"
+      "id": "lubricants",
+      "name": "Lubricants"
     },
     "brand": {
       "id": "valvoline",

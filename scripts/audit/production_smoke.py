@@ -255,6 +255,11 @@ def run_smoke() -> int:
             if not result.text.strip():
                 errors.append(f"{label}: empty response body")
             route_results[path] = result
+            if path in ("/en/products/504635-all-fleet-tc-genuine-15w40-43-ltr", "/hi/products/504635-all-fleet-tc-genuine-15w40-43-ltr", "/bn/products/504635-all-fleet-tc-genuine-15w40-43-ltr"):
+                if "Lubricants" not in result.text or "Engine Oil" not in result.text:
+                    errors.append(f"{label}: Valvoline 504635 has incorrect category/subcategory labels")
+                if "Cross Joint" in result.text or "Suspension &amp; Steering" in result.text:
+                    errors.append(f"{label}: Valvoline 504635 still exposes incorrect suspension classification")
             if path == "/":
                 if not re.search(r"<body\b[^>]*class=[\"'][^\"']*page-home", result.text, flags=re.I):
                     errors.append("GET /: response is missing full homepage body class")
