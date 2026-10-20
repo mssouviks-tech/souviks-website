@@ -99,9 +99,9 @@ class ProductSeoTests(unittest.TestCase):
             "category_name": "Clutch Parts",
             "subcategory_name": "Collector Ring",
             "description": (
-                "The Texspin 380 CRK7 lever kit description is intentionally long enough "
-                "that this first sentence exceeds the available snippet space while "
-                "retaining the product identity and primary factual description for buyers. "
+                "The Texspin 380 CRK7 lever kit (part TX-380-CRK7) has a descriptive "
+                "sentence that exceeds the available search snippet space while retaining "
+                "the product identity and core component context for prospective buyers. "
                 "Vehicle applications include Tata LPT."
             ),
             "vehicles": ["Tata LPT"],
