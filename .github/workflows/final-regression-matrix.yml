@@ -89,6 +89,9 @@ jobs:
       - name: Validate sales funnel authorization and migration contract
         run: node scripts/regression/sales-funnel-security-contract.cjs
 
+      - name: Validate My Account sales funnel shortcut access
+        run: node scripts/regression/account-sales-funnel-shortcut-contract.cjs
+
       - name: Validate attribution and enquiry recording contract
         run: node scripts/regression/lead-attribution-contract.cjs
 
