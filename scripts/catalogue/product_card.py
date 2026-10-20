@@ -62,8 +62,21 @@ def first_image(product: dict) -> tuple[str, str, str, str]:
             else:
                 width = product.get("image_width") or 400
                 height = product.get("image_height") or 400
+            thumbnail = (
+                ROOT
+                / "assets"
+                / "images"
+                / "product-thumbnails"
+                / folder
+                / f"{Path(filename).stem}.webp"
+            )
+            image_url = (
+                f"/assets/images/product-thumbnails/{folder}/{Path(filename).stem}.webp"
+                if thumbnail.is_file()
+                else f"/assets/images/products/{folder}/{filename}"
+            )
             return (
-                f"/assets/images/products/{folder}/{filename}",
+                image_url,
                 str(width),
                 str(height),
                 "catalogue",

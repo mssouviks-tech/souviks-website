@@ -219,6 +219,34 @@ def add_product_hero_preloads(mapping: dict[str, str]) -> int:
     return changed
 
 
+
+
+def add_supabase_preconnects() -> int:
+    """Open the CDN connection early on pages that load the Supabase browser client."""
+    changed = 0
+    link = '<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>'
+    for path in served_text_files():
+        if path.suffix.lower() != ".html":
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue
+        if "cdn.jsdelivr.net/npm/@supabase/supabase-js" not in text or link in text:
+            continue
+        updated, count = re.subn(
+            r"(<head\b[^>]*>)",
+            r"\1\n    " + link + r"\n",
+            text,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        if count and updated != text:
+            path.write_text(updated, encoding="utf-8", newline="")
+            changed += 1
+    return changed
+
+
 def main() -> None:
     # Run this before generation and again after generation to catch templates.
     mapping: dict[str, str] = {}
@@ -257,11 +285,12 @@ def main() -> None:
     versioned = version_webp_references(mapping)
     css_changes = flatten_base_css_imports()
     preloads = add_product_hero_preloads(mapping)
+    preconnects = add_supabase_preconnects()
     print(
         f"[IMAGE] Optimised {converted} shared images; saved {saved_bytes:,} bytes; "
         f"rewrote {rewritten} files, versioned image refs in {versioned}, "
-        f"flattened {css_changes} CSS imports/HTML links, added {preloads} hero preloads. "
-        "Product images were not touched or resized."
+        f"flattened {css_changes} CSS imports/HTML links, added {preloads} hero preloads, "
+        f"and added {preconnects} Supabase CDN preconnects. Product images were not touched or resized."
     )
 
 

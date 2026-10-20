@@ -1,28 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- ==========================================================
+SOUVIKS PAGE HEAD
+Reusable Head Component
+========================================================== -->
 
 <head>
 
-<meta charset="UTF-8">
+    <!-- ==========================================
+         BASIC META
+    =========================================== -->
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta charset="UTF-8">
 
-<meta name="theme-color" content="#D62828">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
 
-<meta name="robots" content="index,follow">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Souviks | Commercial Vehicle Spare Parts</title>
+    <!-- ==========================================
+         PAGE TITLE
+    =========================================== -->
 
-<meta name="description" content="Souviks supplies commercial vehicle spare parts across India, including clutch, brake, filter, bearing and lubrication products.">
+    <script>
+/* Serve the English homepage at the root URL; preserve automatic routing for
+   visitors whose saved or preferred browser language is Hindi or Bengali. */
+(function () {
+    "use strict";
+    const localized = new Set(["bn", "hi"]);
+    let saved = "";
+    try {
+        saved = String(localStorage.getItem("svks_language") || "").trim().toLowerCase();
+    } catch (error) {
+        saved = "";
+    }
 
-<link rel="canonical" href="https://www.souviks.co.in/">
+    if (localized.has(saved)) {
+        window.location.replace("/" + saved + "/");
+        return;
+    }
+    if (saved === "en") return;
 
-<link rel="alternate" hreflang="en" href="https://www.souviks.co.in/">
-<link rel="alternate" hreflang="bn" href="https://www.souviks.co.in/bn/">
-<link rel="alternate" hreflang="hi" href="https://www.souviks.co.in/hi/">
-<link rel="alternate" hreflang="x-default" href="https://www.souviks.co.in/">
+    const candidates = Array.isArray(navigator.languages) && navigator.languages.length
+        ? navigator.languages
+        : [navigator.language];
+    for (const value of candidates) {
+        const language = String(value || "").toLowerCase().split("-")[0];
+        if (["en", "bn", "hi"].includes(language)) {
+            if (localized.has(language)) window.location.replace("/" + language + "/");
+            return;
+        }
+    }
+})();
+</script>
 
+<title>
+
+        Commercial Vehicle Spare Parts in India | Souviks
+
+    </title>
+
+    <!-- ==========================================
+         SEO
+    =========================================== -->
+
+    <meta
+        name="description"
+        content="Souviks supplies genuine OEM and premium aftermarket commercial vehicle spare parts for trucks and buses across India since 1986.">
+    <meta
+        name="author"
+        content="Souviks">
+
+    <meta
+        name="robots"
+        content="index,follow,max-image-preview:large">
+
+<!-- ==========================================
+     CANONICAL
+=========================================== -->
+
+<link
+    rel="canonical"
+    href="https://www.souviks.co.in/">
+
+<!-- ==========================================
+     HREFLANG
+=========================================== -->
+
+<link
+    rel="alternate"
+    hreflang="en"
+    href="https://www.souviks.co.in/">
+
+<link
+    rel="alternate"
+    hreflang="bn"
+    href="https://www.souviks.co.in/bn/">
+
+<link
+    rel="alternate"
+    hreflang="hi"
+    href="https://www.souviks.co.in/hi/">
+
+<link
+    rel="alternate"
+    hreflang="x-default"
+    href="https://www.souviks.co.in/">
+
+<!-- ==========================================
+     FAVICONS
+=========================================== -->
 
 <link
     rel="icon"
@@ -30,314 +118,1521 @@
     href="/assets/favicon/favicon-32x32.png">
 
 <link
-    rel="preload"
-    as="image"
-    href="/assets/images/souviks-loading-logo.png"
-    fetchpriority="high">
-
-<style>
-    :root {
-        --loader-red: var(--color-primary);
-        --loader-red-dark: var(--color-primary-dark);
-        --loader-bg: var(--bg-body);
-        --loader-card: var(--bg-card);
-        --loader-text: var(--bg-dark);
-        --loader-muted: var(--text-secondary);
-    }
-
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
-
-    html,
-    body {
-        width: 100%;
-        min-height: 100%;
-        margin: 0;
-    }
-
-    body {
-        min-height: 100svh;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        position: relative;
-        background:
-            radial-gradient(circle at 50% 42%, var(--color-primary-alpha-07), transparent 34%),
-            linear-gradient(145deg, var(--bg-card) 0%, var(--loader-bg) 100%);
-        color: var(--loader-text);
-        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    body::before {
-        content: "";
-        position: fixed;
-        inset: 0 0 auto;
-        height: 4px;
-        background: linear-gradient(90deg, var(--loader-red-dark), var(--loader-red), var(--color-primary-light), var(--loader-red));
-    }
-
-    .souviks-loader {
-        width: min(92vw, 420px);
-        padding: 34px 30px 30px;
-        border: 1px solid var(--border-color);
-        border-radius: 24px;
-        background: var(--overlay-white-92);
-        box-shadow: 0 18px 55px var(--overlay-slate-18);
-        text-align: center;
-        backdrop-filter: blur(9px);
-    }
-
-    .souviks-loader-mark {
-        width: 184px;
-        height: 184px;
-        margin: 0 auto 18px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: var(--bg-card);
-        box-shadow: 0 10px 30px var(--overlay-black-08);
-    }
-
-    .souviks-loader-mark img {
-        width: 152px;
-        height: 152px;
-        display: block;
-        object-fit: contain;
-        animation: souviks-logo-pulse 1.8s ease-in-out infinite;
-    }
-
-    .souviks-loader-title {
-        margin: 0;
-        font-size: clamp(1.2rem, 4vw, 1.45rem);
-        line-height: 1.25;
-        font-weight: 700;
-        letter-spacing: .01em;
-    }
-
-    .souviks-loader-subtitle {
-        margin: 8px 0 20px;
-        color: var(--loader-muted);
-        font-size: .93rem;
-    }
-
-    .souviks-loader-dots {
-        display: inline-flex;
-        gap: 7px;
-        align-items: center;
-        justify-content: center;
-        min-height: 12px;
-    }
-
-    .souviks-loader-dots span {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--loader-red);
-        opacity: .3;
-        animation: souviks-loader-dot 1.1s ease-in-out infinite;
-    }
-
-    .souviks-loader-dots span:nth-child(2) {
-        animation-delay: .14s;
-    }
-
-    .souviks-loader-dots span:nth-child(3) {
-        animation-delay: .28s;
-    }
-
-    .souviks-loader-fallback {
-        margin-top: 18px;
-        font-size: .8rem;
-        color: var(--loader-muted);
-    }
-
-    .souviks-loader-fallback a {
-        display: inline-block;
-        margin-left: 6px;
-    }
-
-    .souviks-loader-fallback a[hidden] {
-        display: none;
-    }
-
-    .souviks-loader-fallback:not(.is-visible) #souviksLoaderFallbackText {
-        display: none;
-    }
-
-    .souviks-loader-fallback a {
-        color: var(--loader-red-dark);
-        font-weight: 600;
-        text-decoration: none;
-    }
-
-    .souviks-loader-fallback a:hover {
-        text-decoration: underline;
-    }
-
-    @keyframes souviks-logo-pulse {
-        0%, 100% { transform: scale(.985); opacity: .96; }
-        50% { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes souviks-loader-dot {
-        0%, 100% { transform: translateY(0); opacity: .28; }
-        50% { transform: translateY(-3px); opacity: 1; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .souviks-loader-mark img,
-        .souviks-loader-dots span {
-            animation: none;
-        }
-    }
-</style>
+    rel="apple-touch-icon"
+    href="/assets/favicon/apple-touch-icon.png">
 
 
-<script type="application/ld+json">
+    <!-- ==========================================
+         THEME COLOR
+    =========================================== -->
+
+    <meta
+        name="theme-color"
+        content="#d62828">
+
+    <!-- ==========================================
+         OPEN GRAPH
+    =========================================== -->
+
+    <meta
+        property="og:type"
+        content="website">
+
+    <meta
+        property="og:title"
+        content="Commercial Vehicle Spare Parts in India | Souviks">
+
+    <meta
+        property="og:description"
+        content="Souviks supplies genuine OEM and premium aftermarket commercial vehicle spare parts for trucks and buses across India since 1986.">
+
+    <meta
+    property="og:image"
+    content="https://www.souviks.co.in/assets/images/og-image.png">
+
+    <meta
+    property="og:image:alt"
+    content="Souviks">
+
+    <meta
+        property="og:url"
+        content="https://www.souviks.co.in/">
+
+    <meta
+        property="og:site_name"
+        content="Souviks">
+
+    <meta
+        property="og:locale"
+        content="en_IN">
+
+    <!-- ==========================================
+         TWITTER
+    =========================================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image">
+
+    <meta
+        name="twitter:title"
+        content="Commercial Vehicle Spare Parts in India | Souviks">
+
+    <meta
+        name="twitter:description"
+        content="Souviks supplies genuine OEM and premium aftermarket commercial vehicle spare parts for trucks and buses across India since 1986.">
+
+    <meta
+    name="twitter:image"
+    content="https://www.souviks.co.in/assets/images/og-image.png">
+
+    <meta
+    name="twitter:image:alt"
+    content="Souviks">
+
+    <meta
+        name="twitter:url"
+        content="https://www.souviks.co.in/">
+
+    <!-- ==========================================
+         GOOGLE FONTS
+    =========================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <!-- ==========================================
+         GLOBAL CSS
+    =========================================== -->
+
+    <link rel="preload" as="image" href="/assets/images/hero/index-hero.webp?v=c5d57ca84209" type="image/webp" fetchpriority="high">
+
+    <link rel="stylesheet" href="/assets/css/site-base.css?v=7c896a18b570">
+    <link
+        rel="stylesheet"
+        href="/assets/css/bundles/index.css?v=aae9a92944dd">
+
+
+
+    <!-- ==========================================
+         PAGE CSS
+    =========================================== -->
+
+    
+
+    <!-- ==========================================
+         STRUCTURED DATA
+    =========================================== -->
+
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://www.souviks.co.in/#organization",
-  "name": "Souviks",
-  "url": "https://www.souviks.co.in/",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://www.souviks.co.in/assets/logo/souviks-logo.webp?v=a5300f9e16e9"
-  }
+  "@graph": [
+    {
+      "@type": [
+        "Organization",
+        "LocalBusiness"
+      ],
+      "@id": "https://www.souviks.co.in/#organization",
+      "name": "Souviks",
+      "description": "Supplier of genuine OEM and premium aftermarket commercial vehicle spare parts.",
+      "priceRange": "₹₹",
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "serviceType": [
+        "Commercial vehicle spare parts",
+        "Truck spare parts",
+        "Bus spare parts"
+      ],
+      "url": "https://www.souviks.co.in",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.souviks.co.in/assets/logo/souviks-logo.webp?v=a5300f9e16e9"
+      },
+      "email": "info@souviks.co.in",
+      "telephone": [
+        "+91-94343-31896",
+        "+91-79082-15701"
+      ],
+      "foundingDate": "1986",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "CN-119(2), Souviks Building, Beside NH-2, Andal More",
+        "addressLocality": "Andal",
+        "addressRegion": "West Bengal",
+        "postalCode": "713321",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.facebook.com/souviksandal",
+        "https://www.instagram.com/mssouviks/",
+        "https://x.com/mssouviks"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-94343-31896",
+          "contactType": "sales",
+          "areaServed": "IN",
+          "availableLanguage": [
+            "en",
+            "hi",
+            "bn"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-79082-15701",
+          "contactType": "customer support",
+          "areaServed": "IN",
+          "availableLanguage": [
+            "en",
+            "hi",
+            "bn"
+          ]
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "07:00",
+          "closes": "19:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "08:00",
+          "closes": "19:00"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.souviks.co.in/#website",
+      "name": "Souviks",
+      "url": "https://www.souviks.co.in",
+      "publisher": {
+        "@id": "https://www.souviks.co.in/#organization"
+      }
+    }
+  ]
 }
 </script>
 
+    <!-- ==========================================
+         OPTIONAL PRELOADS
+    =========================================== -->
+
+    
+
+    <!-- ==========================================
+         PAGE-SPECIFIC META
+    =========================================== -->
+
+    
+
+    <!-- ==========================================
+         EXTRA CSS
+    =========================================== -->
+
+    
+
+    <!-- ==========================================
+         HEAD SCRIPTS
+    =========================================== -->
+
 </head>
+<body class="site-page index-page page-home">
+    
+<div class="top-bar">
 
-<body>
+    <div class="container">
 
-<main class="souviks-loader" aria-live="polite" aria-busy="true">
+        <div class="top-bar-brand">
 
-    <div class="souviks-loader-mark" aria-hidden="true">
-        <img
-            src="/assets/images/souviks-loading-logo.png"
-            width="152"
-            height="152"
-            alt="">
+            <a
+                href="/"
+                class="top-logo">
+
+                <img
+                    src="/assets/logo/souviks-logo.webp?v=a5300f9e16e9"
+                    width="1024" height="1024"
+                    alt="Souviks">
+
+            </a>
+
+        </div>
+
+
+        <div class="top-bar-tools">
+
+            <!-- EMAIL -->
+
+            <a
+                href="mailto:info@souviks.co.in"
+                class="top-item top-email">
+
+                <img
+                    src="/assets/icons/email.svg"
+                    class="top-icon"
+                    width="24" height="24"
+                    alt="Email">
+
+                info@souviks.co.in
+
+            </a>
+
+
+            <!-- PHONE -->
+
+            <a
+                href="tel:+919434331896"
+                class="top-item top-phone">
+
+                <img
+                    src="/assets/icons/phone.svg"
+                    class="top-icon"
+                    width="24" height="24"
+                    alt="Phone">
+
+                +91 94343 31896
+
+            </a>
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/+917908215701"
+                class="top-item top-whatsapp"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <img
+                    src="/assets/icons/whatsapp.svg"
+                    class="top-icon"
+                    width="24" height="24"
+                    alt="WhatsApp">
+
+                WhatsApp
+
+            </a>
+
+
+            <!-- AUTHENTICATION -->
+
+            <div
+                id="topAuth"
+                class="top-auth">
+
+                <!-- LOGGED OUT -->
+
+                <a
+                    id="topSignIn"
+                    href="/en/login"
+                    class="top-signin"
+                    data-auth-open="login">
+
+                    Sign In
+
+                </a>
+
+
+                <!-- LOGGED IN -->
+
+                <div
+                    id="topUserMenu"
+                    class="top-user-menu"
+                    hidden>
+
+                    <button
+                        type="button"
+                        id="topUserButton"
+                        class="top-user-button"
+                        aria-expanded="false"
+                        aria-haspopup="true">
+
+                        <span id="topUserName">
+
+                            Account
+
+                        </span>
+
+                        <span
+                            class="top-user-arrow"
+                            aria-hidden="true">
+
+                            ▼
+
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        id="topUserDropdown"
+                        class="top-user-dropdown"
+                        hidden>
+
+                        <a
+                            href="/en/account">
+
+                            My Account
+
+                        </a>
+
+                        <button
+                            type="button"
+                            data-auth-logout>
+
+                            Sign Out
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 AUTHENTICATION MODAL
+            =================================================== -->
+
+            <div
+                id="authModal"
+                class="auth-modal"
+                hidden
+                aria-hidden="true">
+
+                <div
+                    class="auth-modal-backdrop"
+                    data-auth-close>
+                </div>
+
+                <div
+                    class="auth-modal-dialog"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="authModalTitle">
+
+                    <div class="auth-modal-header">
+
+                        <div
+                            id="authModalTitle"
+                            class="auth-modal-title"
+                            role="heading"
+                            aria-level="2">
+
+                            Sign In
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="auth-modal-close"
+                            data-auth-close
+                            aria-label="Close">
+
+                            ×
+
+                        </button>
+
+                    </div>
+
+                    <div class="auth-modal-tabs">
+
+                        <button
+                            type="button"
+                            class="auth-modal-tab active"
+                            data-auth-tab="login">
+
+                            Sign In
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="auth-modal-tab"
+                            data-auth-tab="register">
+
+                            Create Your Account
+
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="authModalTranslations"
+                        hidden
+                        data-email-required="Please enter your email address."
+                        data-password-required="Please enter your password."
+                        data-invalid-credentials="Invalid email or password."
+                        data-email-not-confirmed="Please verify your email address before logging in."
+                        data-too-many-attempts="Too many login attempts. Please wait and try again."
+                        data-network-error="Unable to connect to the authentication service. Please try again."
+                        data-login-failed="Login could not be completed. Please try again."
+                        data-authentication-unavailable="Authentication service is unavailable. Please try again later."
+                        data-something-went-wrong="Something went wrong. Please try again."
+                        data-full-name-required="Please enter your full name."
+                        data-password-create-required="Please enter a password."
+                        data-password-min-length="Password must be at least 6 characters."
+                        data-password-mismatch="Passwords do not match."
+                        data-registration-failed="Unable to create your account. Please try again."
+                        data-account-exists="An account with this email already exists."
+                        data-registration-success="Account created successfully. Please check your email to verify your account.">
+
+                    </div>
+
+                    <section
+                        id="authModalLoginPanel"
+                        class="auth-modal-panel">
+
+                        <form
+                            id="authModalLoginForm"
+                            class="auth-form"
+                            novalidate>
+
+                            <div class="form-group">
+
+                                <label for="authModalLoginEmail">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="authModalLoginEmail"
+                                    name="email"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalLoginPassword">
+                                    Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalLoginPassword"
+                                    name="password"
+                                    autocomplete="current-password"
+                                    required>
+
+                            </div>
+
+                            <div class="auth-forgot-password">
+
+                                <a
+                                    href="/en/forgot-password">
+
+                                    Forgot Password
+
+                                </a>
+
+                            </div>
+
+                            <div
+                                id="authModalLoginStatus"
+                                class="form-status"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                            <div class="auth-form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary auth-submit">
+
+                                    Sign In
+
+                                </button>
+
+                            </div>
+
+                            <p class="auth-modal-switch">
+
+                                Don't have an account?
+
+                                <button
+                                    type="button"
+                                    data-auth-tab="register">
+
+                                    Create Your Account
+
+                                </button>
+
+                            </p>
+
+                        </form>
+
+                    </section>
+
+                    <section
+                        id="authModalRegisterPanel"
+                        class="auth-modal-panel"
+                        hidden>
+
+                        <form
+                            id="authModalRegisterForm"
+                            class="auth-form"
+                            novalidate>
+
+                            <div class="form-group">
+
+                                <label for="authModalFullName">
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="authModalFullName"
+                                    name="fullName"
+                                    autocomplete="name"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalRegisterEmail">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="authModalRegisterEmail"
+                                    name="email"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalRegisterPassword">
+                                    Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalRegisterPassword"
+                                    name="password"
+                                    autocomplete="new-password"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="authModalConfirmPassword">
+                                    Confirm Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="authModalConfirmPassword"
+                                    name="confirmPassword"
+                                    autocomplete="new-password"
+                                    required>
+
+                            </div>
+
+                            <div
+                                id="authModalRegisterStatus"
+                                class="form-status"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                            <div class="auth-form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary auth-submit">
+
+                                    Create Your Account
+
+                                </button>
+
+                            </div>
+
+                            <p class="auth-modal-switch">
+
+                                Already have an account?
+
+                                <button
+                                    type="button"
+                                    data-auth-tab="login">
+
+                                    Sign In
+
+                                </button>
+
+                            </p>
+
+                        </form>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+
+            <!-- LANGUAGE -->
+
+            <div class="language-switcher">
+
+<button
+    id="language-toggle"
+    type="button"
+    class="language-button"
+    aria-label="Change Language">
+
+    <span class="language-text">
+
+        Language
+
+    </span>
+
+    <span class="language-icon">
+
+        🌐
+
+    </span>
+
+    <span class="language-label">
+
+        English
+
+    </span>
+
+    <span class="language-arrow">
+
+        ▼
+
+    </span>
+
+</button>
+
+<div
+    id="language-menu"
+    class="language-menu">
+
+    <div class="language-title">
+
+        Choose Language
+
     </div>
 
-    <h1 class="souviks-loader-title">Welcome to Souviks</h1>
-    <p class="souviks-loader-subtitle">Commercial vehicle spare parts catalogue — clutch, brake, filters, bearings and lubricants.</p>
+    <button type="button" class="language-option" data-language="en">
 
-    <div class="souviks-loader-dots" aria-hidden="true">
-        <span></span><span></span><span></span>
+        🇬🇧 English
+
+    </button>
+
+    <button type="button" class="language-option" data-language="bn">
+
+        🇧🇩 বাংলা
+
+    </button>
+
+    <button type="button" class="language-option" data-language="hi">
+
+        🇮🇳 हिन्दी
+
+    </button>
+
+</div>
+
+</div>
+
+        </div>
+
+        <button
+            id="mobileMenuButton"
+            class="mobile-menu-button"
+            type="button"
+            aria-label="Open Navigation"
+            aria-expanded="false"
+            aria-controls="mainNavigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
     </div>
 
-    <nav aria-label="Language selection" style="margin-top:14px;font-size:.82rem;">
-        <a href="/en/">English</a> ·
-        <a href="/hi/">हिन्दी</a> ·
-        <a href="/bn/">বাংলা</a>
-    </nav>
+</div>
 
-    <div class="souviks-loader-fallback" id="souviksLoaderFallback">
-        <span id="souviksLoaderFallbackText">
-            Still loading…
-        </span>
-        <a href="/en/" id="souviksLoaderFallbackLink">
-            Continue in English
-        </a>
-        <noscript>
-            JavaScript is required for automatic language selection.
-            <a href="/en/">Continue in English</a>
-        </noscript>
+
+    
+<header class="site-header">
+
+    <div class="container">
+
+        <div class="header-wrapper">
+
+            <nav id="mainNavigation" class="main-navigation" aria-label="Primary Navigation">
+                            <div class="mobile-navigation-header">
+                                <img src="/assets/logo/souviks-logo-white.webp?v=a5300f9e16e9" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                            </div>
+
+                            <ul class="navigation-menu">
+                                <li>
+                                    <a href="/" class="nav-link active">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/en/products" class="nav-link ">Products</a>
+                                </li>
+                                <li>
+                                    <a href="/en/brands" class="nav-link ">Brands</a>
+                                </li>
+                                <li>
+                                    <a href="/en/vehicles" class="nav-link ">Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="/en/categories" class="nav-link ">Categories</a>
+                                </li>
+                                <li>
+                                    <a href="/en/about" class="nav-link ">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="/en/business-buyers" class="nav-link ">For Businesses</a>
+                                </li>
+                                <li>
+                                    <a href="/en/contact" class="nav-link ">Contact</a>
+                                </li>
+                            </ul>
+
+                            <div class="mobile-nav-auth" aria-label="Account">
+                                <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/en/login">
+                                    Sign In
+                                </a>
+
+                                <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                                    <a class="mobile-nav-auth-link" href="/en/account">
+                                        <span aria-hidden="true">◉</span>
+                                        <span id="mobileNavUserName">Account</span>
+                                    </a>
+                                    <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
+
+
+            <!-- ==========================================
+                 HEADER ACTIONS
+            =========================================== -->
+
+            <div class="header-buttons">
+
+                <a
+                    href="/en/request-part"
+                    class="btn btn-primary">
+
+                    Request a Part
+
+                </a>
+
+                <a
+                    href="/en/request-quote"
+                    class="btn btn-secondary">
+
+                    RFQ Basket
+
+                    <span class="rfq-badge">
+
+                        0
+
+                    </span>
+
+                </a>
+
+
+                
+
+            </div>
+
+        </div>
+
     </div>
 
-</main>
+
+</header>
+
+
+    <main>
+        <section class="home-hero">
+            <div class="home-hero-media" aria-hidden="true"><img class="home-hero-image" src="/assets/images/hero/index-hero.webp?v=c5d57ca84209" alt="" fetchpriority="high" loading="eager" decoding="async"></div>
+            <div class="container home-hero-container">
+                <div class="home-hero-copy">
+                    <span class="home-eyebrow">COMMERCIAL VEHICLE PARTS</span>
+                    <h1>Parts that keep your vehicles moving.</h1>
+                    <p class="home-hero-subtitle">Genuine OEM & premium aftermarket parts for trucks, buses and commercial vehicles.</p>
+                    <p class="home-hero-description">Find the right part by part number, product, brand or vehicle application.</p>
+                    <div class="home-hero-search">
+                        <!-- ==========================================================
+SOUVIKS SEARCH BAR
+Reusable Search Component
+========================================================== -->
+
+<section class="catalogue-search">
+
+    <div class="container">
+
+        <div class="search-wrapper">
+
+            <!-- SEARCH INPUT -->
+
+            <div class="search-box">
+
+                <img
+                    src="/assets/icons/search.svg"
+                    alt="Search"
+                    class="search-icon" width="24" height="24">
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search by part number, brand or vehicle"
+                    aria-label="Search"
+                    enterkeyhint="search"
+                    autocomplete="off">
+
+                <button
+                    type="button"
+                    id="clearSearch"
+                    class="clear-search"
+                    aria-label="Clear"
+                    hidden>
+
+                    ×
+
+                </button>
+
+                <button
+                    type="button"
+                    id="voiceSearch"
+                    class="voice-search"
+                    aria-label="Voice search"
+                    title="Voice search"
+                    hidden>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Zm-5-3a5 5 0 0 0 10 0h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2Zm5 5a5 5 0 0 0 5-5h2a7 7 0 0 1-6 6.92V21h-2v-3.08A7 7 0 0 1 5 11h2a5 5 0 0 0 5 5Z"/>
+                    </svg>
+                </button>
+
+                <div
+                    id="searchResults"
+                    class="search-results">
+                </div>
+
+            </div>
+
+            <!-- SEARCH BUTTON -->
+
+            <button
+                id="searchButton"
+                type="button"
+                class="btn btn-primary">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+                    </div>
+                    <div class="home-quick-actions" aria-label="Quick catalogue actions">
+                        <a class="home-quick-action" href="/en/categories">
+                            <span class="home-quick-icon"><img src="/assets/icons/categories.svg" width="24" height="24" alt=""></span>
+                            <span><strong>Browse Categories</strong><small>Explore parts by system</small></span>
+                        </a>
+                        <a class="home-quick-action" href="/en/vehicles">
+                            <span class="home-quick-icon"><img src="/assets/icons/vehicle.svg" width="24" height="24" alt=""></span>
+                            <span><strong>Find Parts for Your Vehicle</strong><small>Browse compatible applications</small></span>
+                        </a>
+                        <a class="home-quick-action home-quick-action-primary" href="/en/request-part">
+                            <span class="home-quick-icon"><img src="/assets/icons/mail.svg" width="24" height="24" alt=""></span>
+                            <span><strong>Request a Part</strong><small>Tell us what you need</small></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-trust-strip" aria-label="Souviks service and catalogue highlights">
+            <div class="container home-trust-grid">
+                <div class="home-trust-item"><img src="/assets/icons/calendar.svg" width="24" height="24" alt=""><span><strong>1986</strong><small>Serving the automotive parts trade</small></span></div>
+                <div class="home-trust-item"><img src="/assets/icons/products.svg" width="24" height="24" alt=""><span><strong>1122+</strong><small>Products</small></span></div>
+                <div class="home-trust-item"><img src="/assets/icons/brands.svg" width="24" height="24" alt=""><span><strong>61+</strong><small>Brands</small></span></div>
+                <div class="home-trust-item"><img src="/assets/icons/delivery.svg" width="24" height="24" alt=""><span><strong>Pan-India</strong><small>Shipping</small></span></div>
+                <div class="home-trust-item"><img src="/assets/icons/support.webp?v=cc5ab2775c1f" width="24" height="24" alt=""><span><strong>B2B</strong><small>Workshops & businesses</small></span></div>
+            </div>
+        </section>
+
+        <section class="home-section">
+            <div class="container">
+                <div class="home-section-head">
+                    <div><span class="home-section-kicker">Browse by system</span><h2>Browse Parts by System</h2></div>
+                    <a href="/en/categories" class="home-view-all">View All Categories →</a>
+                </div>
+                <div id="featuredCategories" class="home-card-track home-category-track"><article class="category-card"><a href="/en/categories/suspension-steering" data-breadcrumb="Suspension &amp; Steering"><div class="category-image"><img src="/assets/images/categories/suspension-steering.webp?v=282eb90dd669" alt="Suspension &amp; Steering" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Suspension &amp; Steering</h3><div class="category-count">388 Products</div></div></a></article><article class="category-card"><a href="/en/categories/electricals" data-breadcrumb="Electricals"><div class="category-image"><img src="/assets/images/categories/electricals.webp?v=1dbbb691d6bf" alt="Electricals" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Electricals</h3><div class="category-count">129 Products</div></div></a></article><article class="category-card"><a href="/en/categories/fasteners-hardware" data-breadcrumb="Fasteners &amp; Hardware"><div class="category-image"><img src="/assets/images/categories/fasteners-hardware.webp?v=9ddabd23c6f2" alt="Fasteners &amp; Hardware" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Fasteners &amp; Hardware</h3><div class="category-count">94 Products</div></div></a></article><article class="category-card"><a href="/en/categories/bearings" data-breadcrumb="Bearings"><div class="category-image"><img src="/assets/images/categories/bearings.webp?v=092f1dca2b4a" alt="Bearings" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Bearings</h3><div class="category-count">101 Products</div></div></a></article><article class="category-card"><a href="/en/categories/clutch-parts" data-breadcrumb="Clutch Parts"><div class="category-image"><img src="/assets/images/categories/clutch-parts.webp?v=df89feef31e9" alt="Clutch Parts" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Clutch Parts</h3><div class="category-count">90 Products</div></div></a></article><article class="category-card"><a href="/en/categories/filters" data-breadcrumb="Filters"><div class="category-image"><img src="/assets/images/categories/filters.webp?v=2e5f5fc07a9a" alt="Filters" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Filters</h3><div class="category-count">80 Products</div></div></a></article><article class="category-card"><a href="/en/categories/air-system" data-breadcrumb="Air System"><div class="category-image"><img src="/assets/images/categories/air-system.webp?v=ec4c50ae2f1c" alt="Air System" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Air System</h3><div class="category-count">79 Products</div></div></a></article><article class="category-card"><a href="/en/categories/brakes" data-breadcrumb="Brakes"><div class="category-image"><img src="/assets/images/categories/brakes.webp?v=0effcbd10c3c" alt="Brakes" loading="lazy" decoding="async" width="400" height="400"></div><div class="category-content"><h3 class="category-title">Brakes</h3><div class="category-count">58 Products</div></div></a></article></div>
+            </div>
+        </section>
+
+        <section class="home-section home-section-muted">
+            <div class="container">
+                <div class="home-section-head">
+                    <div><span class="home-section-kicker">Source with confidence</span><h2>Brands You Can Source From</h2></div>
+                    <a href="/en/brands" class="home-view-all">View All Brands →</a>
+                </div>
+                <div id="featuredBrands" class="home-card-track home-brand-track"><article class="brand-card"><a href="/en/brands/tvs-girling" data-name="TVS Girling"><div class="brand-image"><img src="/assets/images/brands/tvs-girling.png" alt="TVS Girling" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">TVS Girling</h3><div class="brand-count"><span class="count-number">129</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/jai" data-name="JAI"><div class="brand-image"><img src="/assets/images/brands/jai.png" alt="JAI" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">JAI</h3><div class="brand-count"><span class="count-number">108</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/texspin" data-name="Texspin"><div class="brand-image"><img src="/assets/images/brands/texspin.png" alt="Texspin" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">Texspin</h3><div class="brand-count"><span class="count-number">103</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/tata-genuine-parts" data-name="Tata Genuine Parts"><div class="brand-image"><img src="/assets/images/brands/tata-genuine-parts.png" alt="Tata Genuine Parts" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">Tata Genuine Parts</h3><div class="brand-count"><span class="count-number">95</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/rki" data-name="RKI"><div class="brand-image"><img src="/assets/images/brands/rki.png" alt="RKI" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">RKI</h3><div class="brand-count"><span class="count-number">41</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/jmp" data-name="JMP"><div class="brand-image"><img src="/assets/images/brands/jmp.png" alt="JMP" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">JMP</h3><div class="brand-count"><span class="count-number">36</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/harish" data-name="Harish"><div class="brand-image"><img src="/assets/images/brands/harish.png" alt="Harish" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">Harish</h3><div class="brand-count"><span class="count-number">34</span> Products</div></div></a></article><article class="brand-card"><a href="/en/brands/bosch" data-name="Bosch"><div class="brand-image"><img src="/assets/images/brands/bosch.png" alt="Bosch" loading="lazy" decoding="async" width="400" height="400"></div><div class="brand-content"><h3 class="brand-name">Bosch</h3><div class="brand-count"><span class="count-number">34</span> Products</div></div></a></article></div>
+            </div>
+        </section>
+
+        <section class="home-section">
+            <div class="container">
+                <div class="home-section-head">
+                    <div><span class="home-section-kicker">Find compatible parts</span><h2>Find Parts for Your Vehicle</h2></div>
+                    <a href="/en/vehicles" class="home-view-all">View All Vehicles →</a>
+                </div>
+                <div class="home-vehicle-tabs" aria-label="Vehicle families">
+                    <span class="home-vehicle-tab is-active">All Vehicles</span>
+                    <a class="home-vehicle-tab" href="/en/vehicles?q=Tata" aria-label="Tata">Tata</a><a class="home-vehicle-tab" href="/en/vehicles?q=Universal" aria-label="Universal">Universal</a><a class="home-vehicle-tab" href="/en/vehicles?q=Ashok" aria-label="Ashok">Ashok</a><a class="home-vehicle-tab" href="/en/vehicles?q=Eicher" aria-label="Eicher">Eicher</a><a class="home-vehicle-tab" href="/en/vehicles?q=Mahindra" aria-label="Mahindra">Mahindra</a><a class="home-vehicle-tab" href="/en/vehicles?q=Tractors" aria-label="Tractors">Tractors</a>
+                </div>
+                <div id="featuredVehicles" class="home-card-track home-vehicle-track"><a href="/en/vehicles/universal" class="popular-vehicle-card" data-vehicle-id="universal"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/UNIVERSAL/thumbnail-400x300.webp" alt="Universal" loading="lazy" decoding="async" width="400" height="300"></div><div class="popular-vehicle-content"><h3>Universal</h3><div class="popular-vehicle-count">311 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a><a href="/en/vehicles/tata-lpt" class="popular-vehicle-card" data-vehicle-id="tata-lpt"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/TATA_LPT/thumbnail-400x300.webp" alt="Tata LPT" loading="lazy" decoding="async" width="400" height="300"></div><div class="popular-vehicle-content"><h3>Tata LPT</h3><div class="popular-vehicle-count">274 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a><a href="/en/vehicles/ashok-leyland-2516" class="popular-vehicle-card" data-vehicle-id="ashok-leyland-2516"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/ASHOK_LEYLAND_2516/thumbnail-400x300.webp" alt="Ashok Leyland 2516" loading="lazy" decoding="async" width="400" height="300"></div><div class="popular-vehicle-content"><h3>Ashok Leyland 2516</h3><div class="popular-vehicle-count">200 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a><a href="/en/vehicles/tata-ace" class="popular-vehicle-card" data-vehicle-id="tata-ace"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/TATA_ACE/thumbnail-400x300.webp" alt="Tata Ace" loading="lazy" decoding="async" width="400" height="300"></div><div class="popular-vehicle-content"><h3>Tata Ace</h3><div class="popular-vehicle-count">73 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a><a href="/en/vehicles/tata-signa" class="popular-vehicle-card" data-vehicle-id="tata-signa"><div class="popular-vehicle-image"><img src="/assets/images/vehicles/TATA_SIGNA/thumbnail-400x300.webp" alt="Tata Signa" loading="lazy" decoding="async" width="400" height="300"></div><div class="popular-vehicle-content"><h3>Tata Signa</h3><div class="popular-vehicle-count">72 Products</div><span class="popular-vehicle-link">Browse Parts →</span></div></a></div>
+            </div>
+        </section>
+
+        <section class="home-section home-section-muted">
+            <div class="container">
+                <div class="home-section-head">
+                    <div><span class="home-section-kicker">Popular in the catalogue</span><h2>Popular Parts</h2></div>
+                    <a href="/en/products" class="home-view-all">View All Products →</a>
+                </div>
+                <div class="home-product-track"><article class="product-card"><div class="product-image"><a href="/en/products/69050050-slack-adjuster-front-r" class="product-link" aria-label="View Slack Adjuster Front R"><img loading="lazy" data-image-state="catalogue" src="/assets/images/products/SVKS000177/1.webp" class="product-image-file" alt="Slack Adjuster Front R" decoding="async" draggable="false" width="400" height="400"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000177" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">TVS Girling</div><div class="product-part-number">Part No. <strong>69050050</strong></div><h3 class="product-title"><a href="/en/products/69050050-slack-adjuster-front-r">Slack Adjuster Front R</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,149</span><span class="product-price-mrp">MRP ₹1,308</span><span class="product-price-discount">12% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000177" data-part="69050050" data-name="Slack Adjuster Front R" data-brand="TVS Girling" aria-label="Add Slack Adjuster Front R to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/886720000004-water-pump-2518-e3-mod-high-flow" class="product-link" aria-label="View Water Pump 2518 E3 Mod. High Flow"><img loading="lazy" data-image-state="catalogue" src="/assets/images/products/SVKS000189/1.webp" class="product-image-file" alt="Water Pump 2518 E3 Mod. High Flow" decoding="async" draggable="false" width="800" height="536"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000189" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Tata Genuine Parts</div><div class="product-part-number">Part No. <strong>886720000004</strong></div><h3 class="product-title"><a href="/en/products/886720000004-water-pump-2518-e3-mod-high-flow">Water Pump 2518 E3 Mod. High Flow</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹2,749</span><span class="product-price-mrp">MRP ₹2,938</span><span class="product-price-discount">6% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000189" data-part="886720000004" data-name="Water Pump 2518 E3 Mod. High Flow" data-brand="Tata Genuine Parts" aria-label="Add Water Pump 2518 E3 Mod. High Flow to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/addbptts1-std-brake-lining-with-rivets" class="product-link" aria-label="View Brake Lining with Rivets"><img loading="lazy" data-image-state="catalogue" src="/assets/images/products/SVKS000198/1.webp" class="product-image-file" alt="Brake Lining with Rivets" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000198" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">ASK</div><div class="product-part-number">Part No. <strong>ADD/BP/TTS/1 (Std.)</strong></div><h3 class="product-title"><a href="/en/products/addbptts1-std-brake-lining-with-rivets">Brake Lining with Rivets</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,417.15</span><span class="product-price-mrp">MRP ₹2,024.50</span><span class="product-price-discount">30% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000198" data-part="ADD/BP/TTS/1 (Std.)" data-name="Brake Lining with Rivets" data-brand="ASK" aria-label="Add Brake Lining with Rivets to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/380-ptb15-wp-clutch-plate-380-15-wider-pad" class="product-link" aria-label="View 380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad"><img loading="lazy" data-image-state="catalogue" src="/assets/images/products/SVKS000231/1.webp" class="product-image-file" alt="380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000231" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">BGL</div><div class="product-part-number product-part-number-empty">Part number on request</div><h3 class="product-title"><a href="/en/products/380-ptb15-wp-clutch-plate-380-15-wider-pad">380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹5,153</span><span class="product-price-mrp">MRP ₹6,893</span><span class="product-price-discount">25% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000231" data-part="" data-name="380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad" data-brand="BGL" aria-label="Add 380 PTB15-WP Clutch Plate 380 1.5&quot; Wider Pad to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/f002-h27-738-4ar-diesel-filter-kit" class="product-link" aria-label="View Diesel Filter Kit"><img loading="lazy" data-image-state="catalogue" src="/assets/images/products/SVKS000241/1.webp" class="product-image-file" alt="Diesel Filter Kit" decoding="async" draggable="false" width="768" height="768"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000241" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Bosch</div><div class="product-part-number">Part No. <strong>F002-H27-738-4AR</strong></div><h3 class="product-title"><a href="/en/products/f002-h27-738-4ar-diesel-filter-kit">Diesel Filter Kit</a></h3><div class="product-price product-price-on-request" aria-label="Price">Get current price</div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000241" data-part="F002-H27-738-4AR" data-name="Diesel Filter Kit" data-brand="Bosch" aria-label="Add Diesel Filter Kit to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/f-002-a50-023-4ar-supply-pump" class="product-link" aria-label="View Supply Pump"><img loading="lazy" data-image-state="catalogue" src="/assets/images/products/SVKS000275/1.webp" class="product-image-file" alt="Supply Pump" decoding="async" draggable="false" width="768" height="768"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000275" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Bosch</div><div class="product-part-number">Part No. <strong>F-002-A50-023-4AR</strong></div><h3 class="product-title"><a href="/en/products/f-002-a50-023-4ar-supply-pump">Supply Pump</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹4,050</span><span class="product-price-mrp">MRP ₹4,470</span><span class="product-price-discount">9% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000275" data-part="F-002-A50-023-4AR" data-name="Supply Pump" data-brand="Bosch" aria-label="Add Supply Pump to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/fs1967100-fws-wo-dv-for-al-cb18-fip-crs-engine-1338" class="product-link" aria-label="View FWS w/o DV for AL CB18 FIP CRS Engine [1338]"><img loading="lazy" data-image-state="catalogue" src="/assets/images/products/SVKS000284/1.webp" class="product-image-file" alt="FWS w/o DV for AL CB18 FIP CRS Engine [1338]" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000284" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>FS1967100</strong></div><h3 class="product-title"><a href="/en/products/fs1967100-fws-wo-dv-for-al-cb18-fip-crs-engine-1338">FWS w/o DV for AL CB18 FIP CRS Engine [1338]</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹1,442.10</span><span class="product-price-mrp">MRP ₹1,518</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000284" data-part="FS1967100" data-name="FWS w/o DV for AL CB18 FIP CRS Engine [1338]" data-brand="Fleetguard" aria-label="Add FWS w/o DV for AL CB18 FIP CRS Engine [1338] to RFQ">Add To RFQ</button></div></article><article class="product-card"><div class="product-image"><a href="/en/products/19606200-filter-assy-kit" class="product-link" aria-label="View Filter Assy. Kit"><img loading="lazy" data-image-state="catalogue" src="/assets/images/products/SVKS000001/1.webp" class="product-image-file" alt="Filter Assy. Kit" decoding="async" draggable="false" width="768" height="512"></a><button type="button" class="product-save-button" data-saved-product-id="SVKS000001" data-saved="false" aria-pressed="false" aria-label="Save product"><span data-saved-icon aria-hidden="true">♡</span></button></div><div class="product-content"><div class="product-brand-label">Fleetguard</div><div class="product-part-number">Part No. <strong>LF19662</strong></div><h3 class="product-title"><a href="/en/products/19606200-filter-assy-kit">Filter Assy. Kit</a></h3><div class="product-price product-price-sale" aria-label="Sale price"><span class="product-price-current">₹4,984.65</span><span class="product-price-mrp">MRP ₹5,247</span><span class="product-price-discount">5% OFF</span></div><button type="button" class="btn btn-primary add-to-cart" data-id="SVKS000001" data-part="LF19662" data-name="Filter Assy. Kit" data-brand="Fleetguard" aria-label="Add Filter Assy. Kit to RFQ">Add To RFQ</button></div></article></div>
+            </div>
+        </section>
+
+        <section class="home-rfq-banner">
+            <div class="container home-rfq-inner">
+                <div class="home-rfq-copy">
+                    <span class="home-section-kicker">Parts identification support</span>
+                    <h2>Can’t find the part you’re looking for?</h2>
+                    <p>Send us the part number, vehicle details or a photo. We’ll help identify it.</p>
+                </div>
+                <div class="home-rfq-actions">
+                    <a href="/en/request-part" class="btn btn-primary">Request a Part</a>
+                    <a href="https://wa.me/+917908215701" class="btn home-whatsapp-btn" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-section home-why-section">
+            <div class="container home-why-layout">
+                <div>
+                    <span class="home-section-kicker">Built for commercial vehicle buyers</span>
+                    <h2>Why Businesses Source from Souviks</h2>
+                    <p class="home-section-lead">A parts business built around product knowledge, practical support and long-term customer relationships.</p>
+                    <div class="home-why-grid">
+                        <div class="home-why-card"><img src="/assets/icons/award.svg" width="28" height="28" alt=""><h3>Trusted Since 1986</h3><p>Decades of dependable service and relationships.</p></div>
+                        <div class="home-why-card"><img src="/assets/icons/inventory.svg" width="28" height="28" alt=""><h3>Broad Catalogue</h3><p>Catalogue listings across multiple categories.</p></div>
+                        <div class="home-why-card"><img src="/assets/icons/truck.svg" width="28" height="28" alt=""><h3>Commercial Vehicle Focus</h3><p>Dedicated to trucks and buses.</p></div>
+                        <div class="home-why-card"><img src="/assets/icons/support.webp?v=cc5ab2775c1f" width="28" height="28" alt=""><h3>Expert Assistance</h3><p>Helping customers identify the right part.</p></div>
+                    </div>
+                </div>
+                <aside class="home-store-card">
+                    <img src="/assets/images/about/store-interior.jpg" alt="Souviks store interior" loading="lazy" decoding="async">
+                    <div class="home-store-content">
+                        <span class="home-section-kicker">OUR STORE</span>
+                        <h2>A real parts business, not just a catalogue.</h2>
+                        <p>For nearly four decades, Souviks has supplied genuine and aftermarket commercial vehicle spare parts to workshops, retailers and fleet operators across India.</p>
+                        <dl>
+                            <div><dt>Established</dt><dd>1986</dd></div>
+                            <div><dt>West Bengal</dt><dd>Andal, West Bengal</dd></div>
+                        </dl>
+                        <a href="/en/about" class="btn btn-primary">About Souviks</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="home-section home-seo-content">
+            <div class="container">
+                <div class="home-section-head"><div><span class="home-section-kicker">Catalogue overview</span><h2>Genuine OEM & Premium Aftermarket Commercial Vehicle Spare Parts</h2></div></div>
+                <p>Souviks supplies commercial vehicle spare parts for trucks and buses across India, with a catalogue covering clutch parts, bearings, filters, brake components, electrical parts, engine parts, lubricants, suspension and steering components. Customers can browse products by brand, category, vehicle or part number and request availability, pricing and compatibility assistance. Our catalogue includes genuine OEM and premium aftermarket parts from established brands, supported by Souviks' experience serving workshops, retailers, fleet operators and distributors since 1986.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================
+SOUVIKS PAGE SCRIPTS
+Reusable JavaScript Loader
+========================================================== -->
+
+
+<!-- ==========================================
+     GLOBAL CONFIG
+========================================== -->
 
 <script>
-(function () {
-    const supported = ["en", "bn", "hi"];
-    const defaultLanguage = "en";
 
-    function getSavedLanguage() {
-        try {
-            return String(localStorage.getItem("svks_language") || "")
-                .trim()
-                .toLowerCase();
-        } catch (error) {
-            return "";
+window.souviks = {
+
+    siteName:
+        "Souviks",
+
+    siteUrl:
+        "https://www.souviks.co.in",
+
+    currentPage:
+        "Home",
+
+    currentPageType:
+        "",
+
+    currentPageUrl:
+        "/",
+
+    breadcrumbRoot:
+        true,
+
+    currentLanguage:
+        "en",
+
+    translations: {
+        buttons: {
+            add_to_rfq: "Add To RFQ"
+        },
+        navigation: {
+            home: "Home",
+            products: "Products",
+            brands: "Brands",
+            vehicles: "Vehicles",
+            categories: "Categories"
         }
+    },
+
+    api: {
+
+        products:
+            "/assets/data/products.json",
+
+        brands:
+            "/assets/data/brands.json",
+
+        categories:
+            "/assets/data/categories.json",
+
+        vehicles:
+            "/assets/data/vehicles.json",
+
+        search:
+            "/assets/data/search.json"
+
     }
 
-    function rememberLanguage(language) {
-        try {
-            localStorage.setItem("svks_language", language);
-        } catch (error) {
-            // Storage restrictions must never block first-visit language routing.
-        }
-    }
+};
 
-    function resolveLanguage() {
-        const saved = getSavedLanguage();
-
-        if (supported.includes(saved)) {
-            return saved;
-        }
-
-        const candidates = Array.isArray(navigator.languages) && navigator.languages.length
-            ? navigator.languages
-            : [navigator.language];
-
-        for (const value of candidates) {
-            const language = String(value || "")
-                .toLowerCase()
-                .split("-")[0];
-
-            if (supported.includes(language)) {
-                return language;
-            }
-        }
-
-        return defaultLanguage;
-    }
-
-    function navigateToLanguage() {
-        const language = resolveLanguage();
-        document.documentElement.lang = language;
-        rememberLanguage(language);
-
-        const canonicalOrigin = window.location.hostname === "souviks.co.in"
-            ? "https://www.souviks.co.in"
-            : window.location.origin;
-
-        window.location.replace(canonicalOrigin + "/" + language + "/");
-    }
-
-    const fallback = document.getElementById("souviksLoaderFallback");
-    const fallbackLink = document.getElementById("souviksLoaderFallbackLink");
-    if (fallback && fallbackLink) {
-        fallbackLink.hidden = true;
-        window.setTimeout(() => {
-            fallbackLink.hidden = false;
-            fallback?.classList.add("is-visible");
-        }, 1800);
-    }
-
-    // Allow the branded shell to paint before language detection/navigation.
-    // The double animation-frame deliberately puts the splash on screen first.
-    const start = performance.now();
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            const elapsed = performance.now() - start;
-            const minimumPaint = 120;
-            window.setTimeout(
-                navigateToLanguage,
-                Math.max(0, minimumPaint - elapsed)
-            );
-        });
-    });
-})();
 </script>
 
-<script defer src="/assets/js/attribution.js?v=e402de54e929"></script>
-</body>
 
+<!-- ==========================================
+     THIRD-PARTY AUTH PROVIDER
+========================================== -->
+
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+<!-- ==========================================
+     GLOBAL SITE JAVASCRIPT
+     PageBuilder injects only the modules required by this page.
+========================================== -->
+
+<script defer src="/assets/js/site-core.js?v=57f385b3b443"></script>
+<script defer src="/assets/js/attribution.js?v=e402de54e929"></script>
+
+<script defer src="/assets/js/catalogue-core.js?v=771a6a386066"></script>
+<script defer src="/assets/js/account/rfq.js?v=d2ff0f84f29d"></script>
+<script defer src="/assets/js/bundles/index.js?v=6a87938e315a"></script>
+
+<!-- ==========================================
+     PAGE-SPECIFIC SCRIPTS
+========================================== -->
+
+
+
+
+
+    <footer class="site-footer">
+<div class="container">
+
+    <div class="footer-grid">
+
+        <!-- ==========================================
+             COMPANY
+        =========================================== -->
+
+        <div class="footer-section">
+
+            <a href="/"
+               class="footer-logo">
+
+                <img
+                    width="1024"
+                    height="1024"
+                    src="/assets/logo/souviks-logo-white.webp?v=a5300f9e16e9" width="1024" height="1024"
+                    alt="Souviks Logo">
+
+            </a>
+
+            <p class="footer-description">
+
+                Souviks is your trusted destination for genuine OEM and premium aftermarket commercial vehicle spare parts. Serving retailers, workshops, fleet operators and distributors across India.
+
+            </p>
+
+            <div class="footer-social">
+
+                <a href="https://www.facebook.com/souviksandal"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <img
+                        src="/assets/icons/facebook.svg"
+                        width="24" height="24"
+                        alt="Facebook">
+
+                </a>
+
+                <a href="https://www.instagram.com/mssouviks"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <img
+                        src="/assets/icons/instagram.svg"
+                        width="24" height="24"
+                        alt="Instagram">
+
+                </a>
+
+                <a href="https://x.com/mssouviks"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Souviks on X">
+                    <span aria-hidden="true">X</span>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================================
+             QUICK LINKS
+        =========================================== -->
+
+        <div class="footer-section">
+
+            <h3>
+
+                Quick Links
+
+            </h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="/">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/en/products">
+
+                        Products
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/en/brands">
+
+                        Brands
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/en/vehicles">
+
+                        Vehicles
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/en/categories">
+
+                        Categories
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- ==========================================
+             CONTACT INFORMATION
+        =========================================== -->
+
+        <div class="footer-section">
+
+            <h3>
+
+                Contact Us
+
+            </h3>
+
+            <ul class="footer-contact">
+
+                <li>
+
+                    <img
+                        src="/assets/icons/location.svg"
+                        alt="Address"
+                        class="footer-icon" width="24" height="24">
+
+                    <span>
+
+                        Andal More, Andal, West Bengal
+
+                    </span>
+
+                </li>
+
+                <li>
+
+                    <img
+                        src="/assets/icons/phone.svg"
+                        alt="Phone"
+                        class="footer-icon" width="24" height="24">
+
+                    <a href="tel:+919434331896">
+
+                        +91 94343 31896
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <img
+                        src="/assets/icons/mobile.svg"
+                        alt="Mobile"
+                        class="footer-icon" width="24" height="24">
+
+                    <a href="tel:+917908215701">
+
+                        +91 79082 15701
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <img
+    src="/assets/icons/email.svg"
+    alt="Email"
+    class="footer-icon" width="24" height="24">
+
+                    <a href="mailto:info@souviks.co.in">
+
+                        info@souviks.co.in
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- ==========================================
+             BUSINESS HOURS
+        =========================================== -->
+
+        <div class="footer-section">
+
+            <h3>
+
+                Business Hours
+
+            </h3>
+
+            <ul class="business-hours">
+
+                <li>
+
+                    Monday - Saturday
+
+                </li>
+
+                <li>
+
+                    07:00 AM – 07:30 PM
+
+                </li>
+
+                <li>
+
+                    Sunday
+
+                </li>
+
+                <li>
+
+                    08:00 AM – 07:00 PM
+
+                </li>
+
+            </ul>
+
+           
+            <div class="footer-badges">
+
+                <span class="footer-badge">
+
+                    Genuine Parts
+
+                </span>
+
+                <span class="footer-badge">
+
+                    Trusted Since 1986
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         FOOTER BOTTOM
+    =========================================== -->
+
+<!-- ==========================================
+     FOOTER BOTTOM
+========================================== -->
+
+<div class="footer-bottom">
+
+    <p class="footer-copyright">
+
+        &copy; 2026
+        Souviks.
+        All Rights Reserved.
+
+    </p>
+
+    <div class="footer-bottom-links">
+
+        <a href="/en/privacy-policy">
+
+            Privacy Policy
+
+        </a>
+
+        <span>|</span>
+
+        <a href="/en/terms">
+
+            Terms & Conditions
+
+        </a>
+
+        <span>|</span>
+
+        <a href="/en/refund">
+
+            Refund Policy
+
+        </a>
+
+        <span>|</span>
+
+        <a href="/sitemap.xml">
+
+            Sitemap
+
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+</footer>
+</body>
 </html>
