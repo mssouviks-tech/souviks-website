@@ -6,6 +6,8 @@ Reusable Head Component
 ========================================================== -->
 
 <head>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
 
     <!-- ==========================================
          BASIC META
@@ -24,8 +26,8 @@ Reusable Head Component
     =========================================== -->
 
     <script>
-/* Serve the English homepage at the root URL; preserve automatic routing for
-   visitors whose saved or preferred browser language is Hindi or Bengali. */
+/* SOUVIKS ROOT HOMEPAGE LANGUAGE ROUTING
+   Keep English at the canonical root; route preferred Hindi/Bengali visitors. */
 (function () {
     "use strict";
     const localized = new Set(["bn", "hi"]);
@@ -55,7 +57,7 @@ Reusable Head Component
 })();
 </script>
 
-<title>
+    <title>
 
         Commercial Vehicle Spare Parts in India | Souviks
 
