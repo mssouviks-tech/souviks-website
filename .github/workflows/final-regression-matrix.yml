@@ -107,6 +107,9 @@ jobs:
       - name: Validate contact-intent touchpoint analytics contract
         run: node scripts/regression/contact-intent-analytics-contract.cjs
 
+      - name: Validate contact-intent touchpoint analytics contract
+        run: node scripts/regression/contact-intent-analytics-contract.cjs
+
       - name: Run final regression matrix
         env:
           REGRESSION_BASE_URL: http://127.0.0.1:4173
