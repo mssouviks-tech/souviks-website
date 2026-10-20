@@ -1,6 +1,23 @@
 (()=>{"use strict";
 const STORAGE_KEY="souviks:attribution:v1";
 const ATTRIBUTION_TTL_MS=90*24*60*60*1000;
+const VISITOR_KEY="souviks:visitor-id:v1";
+const UUID_PATTERN=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const createVisitorId=()=>{
+ try{if(typeof window.crypto?.randomUUID==="function")return window.crypto.randomUUID()}catch{}
+ return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,token=>{const r=Math.floor(Math.random()*16);return(token==="x"?r:(r&3)|8).toString(16)});
+};
+const getVisitorId=()=>{
+ const now=Date.now();
+ try{
+  const parsed=JSON.parse(window.localStorage.getItem(VISITOR_KEY)||"null");
+  const age=now-Number(parsed?.updatedAt);
+  if(parsed&&UUID_PATTERN.test(String(parsed.id||""))&&Number.isFinite(age)&&age>=0&&age<=ATTRIBUTION_TTL_MS)return parsed.id;
+ }catch{}
+ const id=createVisitorId();
+ try{window.localStorage.setItem(VISITOR_KEY,JSON.stringify({id,updatedAt:now}))}catch{}
+ return id;
+};
 const ALLOWED_CHANNELS=new Set(["organic_search","paid_search","paid_social","paid_media","social","referral","email","direct","whatsapp","phone","offline","unknown","other"]);
 let memoryState=null;
 const clean=(value,max=120)=>String(value??"").replace(/https?:\/\/\S+/gi,"").replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g,"").replace(/[\u0000-\u001f\u007f]/g," ").replace(/[<>]/g,"").trim().slice(0,max);
@@ -64,6 +81,7 @@ const getPayload=()=>{
  const effective=latest;
  const path=safePath(window.location.pathname);
  return {
+  visitor_id:getVisitorId(),
   source_channel:effective.channel,source:effective.source,medium:effective.medium,campaign:effective.campaign||null,term:effective.term||null,content:effective.content||null,referrer_host:effective.referrer_host||null,landing_page:effective.landing_page||path,conversion_page:path,
   first_touch_channel:first.channel,first_touch_source:first.source,first_touch_medium:first.medium,first_touch_campaign:first.campaign||null,first_touch_term:first.term||null,first_touch_content:first.content||null,first_touch_referrer_host:first.referrer_host||null,first_touch_landing_page:first.landing_page,
   last_touch_channel:latest.channel,last_touch_source:latest.source,last_touch_medium:latest.medium,last_touch_campaign:latest.campaign||null,last_touch_term:latest.term||null,last_touch_content:latest.content||null,last_touch_referrer_host:latest.referrer_host||null,last_touch_landing_page:latest.landing_page
@@ -90,5 +108,33 @@ const recordLead=async(reference,leadType,details={})=>{
   return data&&typeof data==="object"?data:{recorded:false,reason:"empty_response"};
  }catch(error){window.SouviksErrors?.log("[Souviks Attribution] Lead recording failed.",error,"warn");return {recorded:false,reason:"exception"}}
 };
-window.SouviksAttribution={getPayload,recordLead};
+const recordContactIntent=async contactType=>{
+ if(!["email","phone"].includes(contactType))return {recorded:false,reason:"invalid_contact_type"};
+ try{
+  if(typeof supabaseClient==="undefined"||!supabaseClient?.rpc)return {recorded:false,reason:"analytics_unavailable"};
+  const payload=getPayload();
+  const {data,error}=await supabaseClient.rpc("record_contact_intent",{
+   p_visitor_id:payload.visitor_id,
+   p_contact_type:contactType,
+   p_page_path:safePath(window.location.pathname),
+   p_attribution:payload
+  });
+  if(error){
+   window.SouviksErrors?.log("[Souviks Attribution] Contact-intent recording failed.",error,"warn");
+   return {recorded:false,reason:"rpc_error"};
+  }
+  return data&&typeof data==="object"?data:{recorded:false,reason:"empty_response"};
+ }catch(error){
+  window.SouviksErrors?.log("[Souviks Attribution] Contact-intent recording failed.",error,"warn");
+  return {recorded:false,reason:"exception"};
+ }
+};
+document.addEventListener("click",event=>{
+ const anchor=event.target instanceof Element?event.target.closest("a[href]"):null;
+ if(!anchor)return;
+ const href=String(anchor.getAttribute("href")||"").trim().toLowerCase();
+ const contactType=href.startsWith("mailto:")?"email":href.startsWith("tel:")?"phone":null;
+ if(contactType)void recordContactIntent(contactType);
+},true);
+window.SouviksAttribution={getPayload,recordLead,recordContactIntent};
 })();
