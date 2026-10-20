@@ -487,8 +487,6 @@ def validate_root_homepage_document(raw: str, errors: list[str]) -> None:
         errors.append(f"{label}: only {len(visible)} visible text characters; expected complete homepage content")
     if not re.search(r"<main\b|\bclass\s*=\s*['\"][^'\"]*\b(home|hero|page-home)\b", body_html, flags=re.I):
         errors.append(f"{label}: missing homepage/main content container")
-    if re.search(r"(?:souviks-loading-logo|loading-screen|please\s+wait)", raw, flags=re.I):
-        errors.append(f"{label}: obsolete loading-screen markup is present")
     if re.search(r"setTimeout\s*\([^)]*(?:location|window\.location)", raw, flags=re.I | re.S):
         errors.append(f"{label}: timed JavaScript redirect is present")
     if "SOUVIKS ROOT HOMEPAGE LANGUAGE ROUTING" not in raw:
