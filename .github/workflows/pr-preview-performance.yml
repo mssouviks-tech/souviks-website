@@ -9,7 +9,6 @@ on:
       - "**/*.html"
       - ".github/workflows/pr-preview-performance.yml"
       - ".lighthouserc.json"
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -17,26 +16,26 @@ permissions:
   pull-requests: read
 
 concurrency:
-  group: souviks-preview-performance-${{ github.event.pull_request.number || github.ref }}
+  group: souviks-preview-performance-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
   lighthouse:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository }}
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - name: Check out pull request revision
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 1
 
       - name: Wait for the Cloudflare Pages branch preview
         id: preview
         uses: actions/github-script@v7
         env:
-          PREVIEW_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          PREVIEW_SHA: ${{ github.event.pull_request.head.sha }}
         with:
           script: |
             const sha = process.env.PREVIEW_SHA;
@@ -58,14 +57,14 @@ jobs:
                 }
 
                 const summary = deployment.output?.summary || "";
-                const match = summary.match(/Branch Preview URL:[\\s\\S]*?<a href=['"]([^'"]+)['"]/i)
-                  || summary.match(/Preview URL:[\\s\\S]*?<a href=['"]([^'"]+)['"]/i);
+                const match = summary.match(/Branch Preview URL:[\s\S]*?<a href=['"]([^'"]+)['"]/i)
+                  || summary.match(/Preview URL:[\s\S]*?<a href=['"]([^'"]+)['"]/i);
                 if (!match) {
                   core.setFailed("Cloudflare Pages completed, but no preview URL was exposed in its check summary.");
                   return;
                 }
 
-                const baseUrl = match[1].replace(/\\/$/, "");
+                const baseUrl = match[1].replace(/\/$/, "");
                 core.setOutput("url", baseUrl);
                 core.info(`Using deployed branch preview: ${baseUrl}`);
                 return;
