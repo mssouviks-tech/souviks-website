@@ -90,6 +90,8 @@ def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
     seen_titles: dict[str, list[str]] = defaultdict(list)
+    product_meta_descriptions: dict[str, set[str]] = defaultdict(set)
+    weak_product_copy: list[str] = []
     scanned = 0
     image_count = 0
     product_schema_count = 0
@@ -132,6 +134,39 @@ def main() -> int:
             warnings.append(
                 f"{label}: meta description length {len(descriptions[0])} is outside the 50-170 character review range"
             )
+
+        # Product snippets should be unique across different product routes;
+        # language variants of the same slug are treated as one product.
+        route_parts = path.relative_to(ROOT).parts
+        is_product_page = (
+            len(route_parts) >= 3
+            and route_parts[0] in LANGUAGES
+            and route_parts[1] == "products"
+        )
+        if is_product_page and descriptions and descriptions[0]:
+            product_meta_descriptions[clean(descriptions[0]).casefold()].add(path.stem)
+
+            # Detect the known generic placeholder-style copy that led to
+            # truncated, non-distinct product snippets. This is a warning so
+            # catalogue pages with sparse source data remain publishable.
+            product_data = re.search(
+                r"window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});",
+                raw,
+                flags=re.S,
+            )
+            if product_data:
+                try:
+                    record = json.loads(product_data.group(1))
+                except json.JSONDecodeError:
+                    record = {}
+                product_description = clean(str(record.get("description") or ""))
+                weak_phrases = (
+                    "supports the mechanical linkage or assembly identified by the product name",
+                    "allowing its connected parts to",
+                    "confirm the part number and vehicle application before ordering",
+                )
+                if any(phrase in product_description.casefold() for phrase in weak_phrases):
+                    weak_product_copy.append(label)
 
         if not re.search(r"<h1\b[^>]*>\s*[\s\S]*?\S[\s\S]*?</h1>", raw, flags=re.I):
             errors.append(f"{label}: missing non-empty H1 heading")
@@ -193,13 +228,24 @@ def main() -> int:
                     if any("placeholder" in str(value).casefold() for value in schema_images):
                         errors.append(f"{label}: Product JSON-LD references a placeholder image")
 
+    for snippet, slugs in product_meta_descriptions.items():
+        if len(slugs) > 1:
+            examples = ", ".join(sorted(slugs)[:5])
+            warnings.append(
+                f"duplicate product meta description shared by {len(slugs)} product slugs ({examples})"
+            )
+
+    for path in weak_product_copy[:100]:
+        warnings.append(f"{path}: product description contains known generic boilerplate")
+
     for title, paths in seen_titles.items():
         if len(paths) > 1:
             warnings.append(f"duplicate page title ({len(paths)} pages): {', '.join(paths[:5])}")
 
     print(
         f"SEO contract scanned {scanned} indexable HTML pages, "
-        f"{image_count} SEO image elements, and {product_schema_count} Product schema nodes."
+        f"{image_count} SEO image elements, and {product_schema_count} Product schema nodes; "
+        f"{len(weak_product_copy)} weak-boilerplate product descriptions."
     )
     if warnings:
         print(f"SEO review warnings: {len(warnings)}")
