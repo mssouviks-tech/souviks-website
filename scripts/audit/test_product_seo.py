@@ -81,8 +81,8 @@ class ProductSeoTests(unittest.TestCase):
             "category_name": "Air System",
             "subcategory_name": "Air Repair Kit",
             "description": (
-                "The TVS Girling 18 mm Union joins specified air-line or "
-                "polyurethane-tube ends to create a connected path for compressed air."
+                "TVS Girling 18 mm Union joins matching air-line tube ends in a "
+                "compressed-air connection."
             ),
             "vehicles": ["Universal"],
         }
