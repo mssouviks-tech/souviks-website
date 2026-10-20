@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 ASSET_RE = re.compile(
     r'(?P<prefix>/(?:assets/js/(?:site-core|catalogue-core)\.js'
     r'|assets/js/bundles/[^"?]+\.js'
+    r'|assets/js/attribution\.js'
     r'|assets/js/(?:account|products|product|request-quote|components)/[^"?]+\.js'
     r'|assets/css/[^"?]+\.css))'
     r'(?:\?[^\'"#\s>]*)?'

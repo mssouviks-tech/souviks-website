@@ -393,13 +393,14 @@ Quantity: ${item.qty}
             quantity: item.quantity
         }));
 
-        const { data, error } = await supabaseClient.rpc("submit_rfq", {
+        const { data, error } = await supabaseClient.rpc("submit_rfq_attributed", {
             p_customer_name: customer.name,
             p_customer_phone: customer.phone,
             p_company: customer.company || null,
             p_gst_number: customer.gst || null,
             p_message: customer.message || null,
-            p_items: rpcItems
+            p_items: rpcItems,
+            p_attribution: window.SouviksAttribution?.getPayload?.() || {}
         });
 
         if (error) {

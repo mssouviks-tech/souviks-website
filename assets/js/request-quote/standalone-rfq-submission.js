@@ -87,14 +87,15 @@ window.RFQ.submitStandalone = async function (form) {
         }));
 
         const { data: rfq, error: rfqError } = await supabaseClient.rpc(
-            "submit_rfq",
+            "submit_rfq_attributed",
             {
                 p_customer_name: customer.name,
                 p_customer_phone: customer.phone,
                 p_company: customer.company || null,
                 p_gst_number: customer.gst || null,
                 p_message: customer.message || null,
-                p_items: rpcItems
+                p_items: rpcItems,
+                p_attribution: window.SouviksAttribution?.getPayload?.() || {}
             }
         );
 
@@ -188,6 +189,7 @@ window.RFQ.submitStandalone = async function (form) {
         payload
     );
 
+    await window.SouviksAttribution?.recordLead?.(reference, "rfq_guest", payload);
     window.souviksAnalytics?.trackLead("rfq_guest");
     try {
         const cleared = await window.RFQ.clear();

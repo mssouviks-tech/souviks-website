@@ -114,7 +114,8 @@ assert.match(customerValidation, /\bemail:\s*user\.email\b/, "account path must 
 
 for (const label of ["accountSubmit", "standaloneSubmit"]) {
   const code = source[label];
-  assert.match(code, /\.rpc\(\s*["']submit_rfq["']/s, `${label}: must call submit_rfq RPC`);
+  assert.match(code, /\.rpc\(\s*"submit_rfq_attributed"/s, "must call attribution-aware atomic RFQ RPC");
+  assert.match(code, /p_attribution:\s*window\.SouviksAttribution\?\.getPayload\?\.\(\)\s*\|\|\s*\{\}/s, "must pass attribution metadata to the atomic RPC");
   assert.doesNotMatch(code, /\.from\(\s*["']rfqs["']\s*\)\s*\.insert/s, `${label}: direct RFQ parent inserts forbidden`);
   assert.doesNotMatch(code, /\.from\(\s*["']rfq_items["']\s*\)\s*\.insert/s, `${label}: direct RFQ item inserts forbidden`);
   assert.match(code, /(?:window\.)?RFQ\.validateSubmissionItems/, `${label}: item validation must run before submit`);

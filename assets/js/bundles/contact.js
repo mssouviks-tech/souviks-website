@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 payload
             );
 
+            await window.SouviksAttribution?.recordLead?.(payload.lead_id, "contact", payload);
             window.souviksAnalytics?.trackLead("contact");
             form.reset();
             setStatus(
