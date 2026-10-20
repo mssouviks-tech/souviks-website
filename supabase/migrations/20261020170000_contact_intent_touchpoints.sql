@@ -57,7 +57,6 @@ $function$;
 
 REVOKE ALL ON FUNCTION internal_analytics.attach_contact_intent_events() FROM PUBLIC, anon, authenticated;
 
-DROP TRIGGER IF EXISTS sales_leads_attach_contact_intents ON public.sales_leads;
 CREATE TRIGGER sales_leads_attach_contact_intents
 AFTER INSERT OR UPDATE OF contact_intent_visitor_id
 ON public.sales_leads
@@ -98,10 +97,6 @@ BEGIN
     IF v_page_path !~ '^/[A-Za-z0-9._~%/-]*$' OR v_page_path LIKE '//%' THEN
         RETURN pg_catalog.jsonb_build_object('recorded', false, 'reason', 'invalid_page_path');
     END IF;
-
-    -- Opportunistic retention cleanup; no customer destination or contact data is stored.
-    DELETE FROM internal_analytics.contact_intent_events
-    WHERE clicked_at < v_now - interval '365 days';
 
     SELECT count(*) INTO v_recent_count
     FROM internal_analytics.contact_intent_events AS e
