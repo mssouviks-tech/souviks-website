@@ -399,11 +399,19 @@ def enrich_entity_pages(kind, data, catalogue):
             page = update_meta(path.read_text(encoding="utf-8"), clean(item.get("description")))
             gallery_html = entity_product_galleries(kind, item, products, lang)
             page = replace_static_product_grid(page, gallery_html)
-            if kind == "vehicle" and len(products) <= 5:
+            if kind == "vehicle":
+                # A vehicle page may cross the indexability threshold as catalogue
+                # coverage grows. Update both directions so a previously noindex
+                # page does not remain noindex after it becomes eligible for sitemap.
                 robots_pattern = r'(<meta\s+name=["\']robots["\']\s+content=["\'])[^"\']*(["\'])'
+                robots_value = (
+                    "noindex,follow,max-image-preview:large"
+                    if len(products) <= 5
+                    else "index,follow,max-image-preview:large"
+                )
                 page = re.sub(
                     robots_pattern,
-                    lambda m: m.group(1) + "noindex,follow,max-image-preview:large" + m.group(2),
+                    lambda m: m.group(1) + robots_value + m.group(2),
                     page,
                     count=1,
                     flags=re.I,
