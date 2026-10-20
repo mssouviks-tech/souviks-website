@@ -469,27 +469,27 @@ def validate_root_homepage_document(raw: str, errors: list[str]) -> None:
     label = "index.html"
     if not raw.lstrip().lower().startswith("<!doctype html>"):
         errors.append(f"{label}: missing HTML doctype")
-    title = re.search(r"<title\\b[^>]*>(.*?)</title\\s*>", raw, flags=re.I | re.S)
+    title = re.search(r"<title\b[^>]*>(.*?)</title\s*>", raw, flags=re.I | re.S)
     if not title or not re.sub(r"<[^>]+>", "", title.group(1)).strip():
         errors.append(f"{label}: missing non-empty title")
     descriptions = metadata_values(raw, "name", "description")
     if len(descriptions) != 1 or len(descriptions[0]) < 40:
         errors.append(f"{label}: requires one meaningful meta description")
-    body = re.search(r"<body\\b[^>]*>(.*?)</body\\s*>", raw, flags=re.I | re.S)
+    body = re.search(r"<body\b[^>]*>(.*?)</body\s*>", raw, flags=re.I | re.S)
     if not body:
         errors.append(f"{label}: missing body element")
         return
     body_html = body.group(1)
-    body_without_code = re.sub(r"<script\\b.*?</script\\s*>|<style\\b.*?</style\\s*>", " ", body_html, flags=re.I | re.S)
+    body_without_code = re.sub(r"<script\b.*?</script\s*>|<style\b.*?</style\s*>", " ", body_html, flags=re.I | re.S)
     visible = re.sub(r"<[^>]+>", " ", body_without_code)
-    visible = re.sub(r"\\s+", " ", visible).strip()
+    visible = re.sub(r"\s+", " ", visible).strip()
     if len(visible) < 500:
         errors.append(f"{label}: only {len(visible)} visible text characters; expected complete homepage content")
-    if not re.search(r"<main\\b|\\bclass\\s*=\\s*['\\"][^'\\"]*\\b(home|hero|page-home)\\b", body_html, flags=re.I):
+    if not re.search(r"<main\b|\bclass\s*=\s*['\"][^'\"]*\b(home|hero|page-home)\b", body_html, flags=re.I):
         errors.append(f"{label}: missing homepage/main content container")
-    if re.search(r"(?:souviks-loading-logo|loading-screen|please\\s+wait)", raw, flags=re.I):
+    if re.search(r"(?:souviks-loading-logo|loading-screen|please\s+wait)", raw, flags=re.I):
         errors.append(f"{label}: obsolete loading-screen markup is present")
-    if re.search(r"setTimeout\\s*\\([^)]*(?:location|window\\.location)", raw, flags=re.I | re.S):
+    if re.search(r"setTimeout\s*\([^)]*(?:location|window\.location)", raw, flags=re.I | re.S):
         errors.append(f"{label}: timed JavaScript redirect is present")
     if "SOUVIKS ROOT HOMEPAGE LANGUAGE ROUTING" not in raw:
         errors.append(f"{label}: missing locale-preference routing marker")
