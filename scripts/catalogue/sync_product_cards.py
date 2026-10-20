@@ -62,7 +62,7 @@ def replace_grid(source: str, cards: str) -> str:
         raise ValueError("Unclosed #product-grid element")
 
     opening = match.group(0)
-    static_attr = re.compile(r"""\\bdata-static-rendered\\s*=\\s*(["']).*?\\1""", flags=re.I)
+    static_attr = re.compile(r"""\bdata-static-rendered\s*=\s*(["']).*?\1""", flags=re.I)
     if static_attr.search(opening):
         opening = static_attr.sub('data-static-rendered="true"', opening, count=1)
     else:
