@@ -233,6 +233,14 @@
     </footer>
   </main>
 
+  <!-- This standalone staff page needs language state before site-core initializes shared utilities/auth. -->
+  <script>
+    window.souviks = window.souviks && typeof window.souviks === "object"
+      ? window.souviks
+      : {};
+    window.souviks.currentLanguage =
+      window.souviks.currentLanguage || document.documentElement.lang || "en";
+  </script>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="/assets/js/site-core.js?v=57f385b3b443"></script>
   <script defer src="/assets/js/attribution.js?v=e402de54e929"></script>
