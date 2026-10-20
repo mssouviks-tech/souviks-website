@@ -135,19 +135,26 @@ async function main() {
         await attachPageErrors(page);
         try {
           if (lang === "en") {
-            await check(view.name + "/root homepage language redirect and hero", async () => {
+            await check(view.name + "/root canonical English homepage and hero", async () => {
               const response = await page.goto(BASE + "/", { waitUntil: "domcontentloaded", timeout: 30000 });
               if (!response || response.status() !== 200) {
                 throw new Error("root homepage returned HTTP " + (response?.status() || "unknown") + "; " + await httpFailureDetails(response));
               }
-              await page.waitForURL(url => ["/en/", "/hi/", "/bn/"].includes(url.pathname), { timeout: 10000 });
+              const current = new URL(page.url());
+              if (current.pathname !== "/" || current.search || current.hash) {
+                throw new Error("English-preference root request did not stay at the canonical root: " + current.pathname + current.search + current.hash);
+              }
+              const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
+              if (canonical !== "https://www.souviks.co.in/") {
+                throw new Error("root homepage canonical URL is " + (canonical || "missing"));
+              }
               await page.waitForFunction(() => {
                 const heading = document.querySelector(".home-hero h1");
                 return heading && heading.textContent.trim().length > 0;
               }, null, { timeout: 10000 });
               const heading = (await page.locator(".home-hero h1").innerText()).trim();
               if (!heading || /Still loading|Continue in English/i.test(await page.locator("body").innerText())) {
-                throw new Error("homepage remained on the language-loading shell");
+                throw new Error("homepage did not render its English hero content");
               }
               assertNoPageErrors(page);
             });
