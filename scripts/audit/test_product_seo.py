@@ -91,6 +91,29 @@ class ProductSeoTests(unittest.TestCase):
         self.assertIn("TVS Girling", snippet)
         self.assertIn("Souviks", snippet)
 
+    def test_meta_description_keeps_first_sentence_when_it_exceeds_snippet_budget(self) -> None:
+        product = {
+            "brand_name": "Texspin",
+            "product_name": "380 CRK7 lever kit",
+            "part_number": "TX-380-CRK7",
+            "category_name": "Clutch Parts",
+            "subcategory_name": "Collector Ring",
+            "description": (
+                "The Texspin 380 CRK7 lever kit description is intentionally long enough "
+                "that this first sentence exceeds the available snippet space while "
+                "retaining the product identity and primary factual description for buyers. "
+                "Vehicle applications include Tata LPT."
+            ),
+            "vehicles": ["Tata LPT"],
+        }
+        snippet = build_product_meta_description(product, language="en")
+        self.assertLessEqual(len(snippet), 158)
+        self.assertGreaterEqual(len(snippet), 80)
+        self.assertIn("Texspin", snippet)
+        self.assertIn("TX-380-CRK7", snippet)
+        self.assertNotEqual(snippet, "Vehicle applications include Tata LPT.")
+        self.assertTrue(snippet.endswith("Check fitment, price and availability at Souviks."))
+
     def test_availability_is_never_inferred(self) -> None:
         self.assertEqual(
             schema_availability_url({"availability": "in_stock"}),
