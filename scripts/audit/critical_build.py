@@ -322,10 +322,32 @@ def validate_product_card_images(records_by_kind, errors: list[str]) -> None:
             src = text(src_match.group(1)) if src_match else ""
             state = text(state_match.group(1)) if state_match else ""
             expected_src = text(product.get("image_url"))
-            if src != expected_src:
+            thumbnail_valid = False
+            gallery = product.get("gallery")
+            first_image = text(gallery[0]) if isinstance(gallery, list) and gallery else ""
+            expected_folder = text(product.get("image_folder") or product.get("id") or pid)
+            if (
+                first_image
+                and Path(first_image).name == first_image
+                and expected_folder
+                and Path(expected_folder).name == expected_folder
+            ):
+                thumbnail_url = (
+                    f"/assets/images/product-thumbnails/{expected_folder}/"
+                    f"{Path(first_image).stem}.webp"
+                )
+                thumbnail_path = ROOT / thumbnail_url.lstrip("/")
+                thumbnail_valid = (
+                    src == thumbnail_url
+                    and thumbnail_path.is_file()
+                    and is_loadable_image(thumbnail_path)
+                )
+
+            if src != expected_src and not thumbnail_valid:
                 errors.append(
                     f"{html_path.relative_to(ROOT)}: product card {pid} src {src!r} "
-                    f"does not match catalogue image_url {expected_src!r}"
+                    f"matches neither the canonical image_url {expected_src!r} "
+                    "nor a valid derivative of the first gallery image"
                 )
             if state != "catalogue":
                 errors.append(
