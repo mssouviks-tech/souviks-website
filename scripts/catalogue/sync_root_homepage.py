@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Keep the canonical root homepage synchronized with the English homepage.
 
-The public root URL is the canonical English homepage. Localized visitors with
-Hindi or Bengali as their saved/preferred language are routed to that locale.
-This runs after page/asset generation so root markup and cache hashes match the
-current English source instead of a one-time copied page drifting over time.
+The root URL is the crawlable English homepage; browser language routing only
+applies to preferred/saved Hindi and Bengali visitors. This script copies the
+complete English page and refuses to publish a loader-only or metadata-only
+root page.
 """
 from __future__ import annotations
 
@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "en" / "index.html"
 TARGET = ROOT / "index.html"
 ROUTING_MARKER = "SOUVIKS ROOT HOMEPAGE LANGUAGE ROUTING"
+LOADER_MARKERS = ("souviks-loading-logo", "id=\"loading-screen\"", "class=\"loading-screen\"")
 
 ROUTING_SCRIPT = """<script>
 /* SOUVIKS ROOT HOMEPAGE LANGUAGE ROUTING
@@ -58,8 +59,37 @@ def canonical_url(source: str) -> str:
         if rel and "canonical" in rel.group(2).lower().split() and href:
             canonicals.append(href.group(2).strip())
     if len(canonicals) != 1:
-        raise SystemExit(f"English homepage must have exactly one canonical link; found {len(canonicals)}")
+        raise SystemExit(f"Homepage must have exactly one canonical link; found {len(canonicals)}")
     return canonicals[0]
+
+
+def validate_root_document(source: str) -> None:
+    """Protect core SEO and renderable content from loader-screen regressions."""
+    if not source.lstrip().lower().startswith("<!doctype html>"):
+        raise SystemExit("Root homepage must retain the HTML doctype")
+    if canonical_url(source) != "https://www.souviks.co.in/":
+        raise SystemExit("Root homepage canonical must be https://www.souviks.co.in/")
+    title = re.search(r"<title\b[^>]*>(.*?)</title>", source, flags=re.IGNORECASE | re.DOTALL)
+    if not title or not re.sub(r"<[^>]+>", "", title.group(1)).strip():
+        raise SystemExit("Root homepage must contain a non-empty title")
+    if not re.search(r'<meta\b(?=[^>]*\bname\s*=\s*["\']description["\'])[^>]*\bcontent\s*=\s*["\'][^"\']{40,}["\']', source, re.I | re.S):
+        raise SystemExit("Root homepage must contain a meaningful meta description")
+    body = re.search(r"<body\b[^>]*>(.*?)</body\s*>", source, flags=re.IGNORECASE | re.DOTALL)
+    if not body:
+        raise SystemExit("Root homepage is missing a body")
+    body_text = re.sub(r"<script\b.*?</script\s*>", " ", body.group(1), flags=re.I | re.S)
+    body_text = re.sub(r"<style\b.*?</style\s*>", " ", body_text, flags=re.I | re.S)
+    visible_text = re.sub(r"<[^>]+>", " ", body_text)
+    visible_text = re.sub(r"\s+", " ", visible_text).strip()
+    if len(visible_text) < 500:
+        raise SystemExit(f"Root homepage has only {len(visible_text)} visible text characters; expected full homepage content")
+    if not re.search(r"<main\b|\bclass\s*=\s*['\"][^'\"]*\b(hero|page-home)\b", body.group(1), re.I):
+        raise SystemExit("Root homepage is missing its main/homepage content container")
+    if re.search(r"setTimeout\s*\([^)]*(?:location|window\.location)", source, re.I | re.S):
+        raise SystemExit("Root homepage must not use a timed JavaScript redirect as its primary content")
+    for locale_url in ("/bn/", "/hi/"):
+        if locale_url not in source:
+            raise SystemExit(f"Root homepage is missing localized routing support for {locale_url}")
 
 
 def synchronize() -> bool:
@@ -95,12 +125,7 @@ def synchronize() -> bool:
     if re.search(r'\bhref\s*=\s*["\']/en/["\']', updated, flags=re.IGNORECASE):
         raise SystemExit("Root homepage still contains a home link to /en/")
 
-    if canonical_url(updated) != expected_canonical:
-        raise SystemExit("Synchronized root homepage lost the canonical root URL")
-
-    if not updated.lstrip().lower().startswith("<!doctype html>"):
-        raise SystemExit("Synchronized root homepage must retain the HTML document type")
-
+    validate_root_document(updated)
     if not TARGET.exists() or TARGET.read_text(encoding="utf-8") != updated:
         TARGET.write_text(updated, encoding="utf-8", newline="")
         return True
