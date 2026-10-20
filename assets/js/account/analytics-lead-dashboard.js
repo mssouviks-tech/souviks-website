@@ -308,23 +308,40 @@
     }
   }
 
-  async function initialize() {
-    if (typeof supabaseClient === "undefined" || !supabaseClient?.auth) {
-      status("The authentication client is unavailable. Refresh the page and retry.", "error");
-      return;
+  async function withTimeout(operation, timeoutMs, message) {
+    let timeoutId;
+    try {
+      return await Promise.race([
+        Promise.resolve().then(operation),
+        new Promise((_, reject) => {
+          timeoutId = window.setTimeout(() => reject(new Error(message)), timeoutMs);
+        })
+      ]);
+    } finally {
+      if (timeoutId) window.clearTimeout(timeoutId);
     }
+  }
 
-    const { data, error } = await supabaseClient.auth.getSession();
-    if (error) {
-      displayError(error);
-      return;
-    }
-    if (!data?.session) {
-      status("Sign in with your Souviks account, then reopen this staff dashboard.", "error");
-      return;
-    }
+  let initializationInFlight = false;
+  let handlersBound = false;
 
-    setDefaultDates();
+  function addRetryButton() {
+    if (statusNode.querySelector("[data-dashboard-retry]")) return;
+
+    statusNode.appendChild(document.createTextNode(" "));
+    const retryButton = el("button", "Retry sign-in check", "button small");
+    retryButton.type = "button";
+    retryButton.dataset.dashboardRetry = "true";
+    retryButton.addEventListener("click", () => {
+      retryButton.disabled = true;
+      initialize();
+    });
+    statusNode.appendChild(retryButton);
+  }
+
+  function bindDashboardHandlers() {
+    if (handlersBound) return;
+
     $("#apply-filters").addEventListener("click", () => loadDashboard().catch(displayError));
     $("#refresh-dashboard").addEventListener("click", () => loadDashboard().catch(displayError));
     $("#clear-outcome").addEventListener("click", closeOutcome);
@@ -336,10 +353,57 @@
       $("#order-value").required = won;
     });
 
+    handlersBound = true;
+  }
+
+  async function initialize() {
+    if (initializationInFlight) return;
+    initializationInFlight = true;
+
     try {
+      status("Checking sign-in and staff permissions…");
+
+      if (typeof supabaseClient === "undefined" || !supabaseClient?.auth) {
+        status("The authentication client is unavailable. Check the connection, then retry.", "error");
+        addRetryButton();
+        return;
+      }
+
+      // Supabase normally returns { data, error }, but browser storage/lock
+      // failures can also reject or leave the session promise pending.
+      // Bound the wait and handle both paths so the dashboard never stays
+      // indefinitely on the initial permission-check message.
+      const { data, error } = await withTimeout(
+        () => supabaseClient.auth.getSession(),
+        12000,
+        "Session check timed out. Please retry; if this continues, sign in again and reopen the dashboard."
+      );
+
+      if (error) {
+        displayError(error);
+        addRetryButton();
+        return;
+      }
+
+      if (!data?.session) {
+        status("Sign in with your Souviks account, then reopen this staff dashboard.", "error");
+        return;
+      }
+
+      if (!handlersBound) {
+        setDefaultDates();
+        bindDashboardHandlers();
+      }
+
       await loadDashboard();
     } catch (error) {
+      // Do not leak an unhandled rejection to site-core's generic global error
+      // banner. Preserve a useful, sanitized failure message in the dashboard.
+      SouviksErrors?.log("[Souviks Sales Dashboard] Initialization failed:", error, "error");
       displayError(error);
+      addRetryButton();
+    } finally {
+      initializationInFlight = false;
     }
   }
 
