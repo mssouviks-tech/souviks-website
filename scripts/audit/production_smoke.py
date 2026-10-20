@@ -256,16 +256,16 @@ def run_smoke() -> int:
                 errors.append(f"{label}: empty response body")
             route_results[path] = result
             if path == "/":
-                if not re.search(r"<body\\b[^>]*class=[\"'][^\"']*page-home", result.text, flags=re.I):
+                if not re.search(r"<body\b[^>]*class=[\"'][^\"']*page-home", result.text, flags=re.I):
                     errors.append("GET /: response is missing full homepage body class")
-                if re.search(r"(?:souviks-loading-logo|loading-screen|please\\s+wait)", result.text, flags=re.I):
+                if re.search(r"(?:souviks-loading-logo|loading-screen|please\s+wait)", result.text, flags=re.I):
                     errors.append("GET /: response contains obsolete loading-screen markup")
                 if "SOUVIKS ROOT HOMEPAGE LANGUAGE ROUTING" not in result.text:
                     errors.append("GET /: response lacks root language-routing marker")
-                body = re.search(r"<body\\b[^>]*>(.*?)</body\\s*>", result.text, flags=re.I | re.S)
-                body_text = re.sub(r"<script\\b.*?</script\\s*>|<style\\b.*?</style\\s*>", " ", body.group(1), flags=re.I | re.S) if body else ""
+                body = re.search(r"<body\b[^>]*>(.*?)</body\s*>", result.text, flags=re.I | re.S)
+                body_text = re.sub(r"<script\b.*?</script\s*>|<style\b.*?</style\s*>", " ", body.group(1), flags=re.I | re.S) if body else ""
                 visible = re.sub(r"<[^>]+>", " ", body_text)
-                visible = re.sub(r"\\s+", " ", visible).strip()
+                visible = re.sub(r"\s+", " ", visible).strip()
                 if len(visible) < 500:
                     errors.append(f"GET /: only {len(visible)} visible body-text characters ({len(visible)} minimum required)")
             print(f"[{'PASS' if actual == expected_canonical else 'FAIL'}] {label}: HTTP 200; canonical={actual!r}")
