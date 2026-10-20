@@ -618,8 +618,8 @@
       400
     ],
     "banner": "",
-    "description": "Suspension & Steering covers 388 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
-    "short_description": "Suspension & Steering: 388 active parts across Axle Shaft, Bracket, Center Bolt, Cotter Bolt and more.",
+    "description": "Suspension & Steering covers 387 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
+    "short_description": "Suspension & Steering: 387 active parts across Axle Shaft, Bracket, Center Bolt, Cotter Bolt and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -803,10 +803,6 @@
       {
         "id": "tvs-girling",
         "name": "TVS Girling"
-      },
-      {
-        "id": "valvoline",
-        "name": "Valvoline"
       }
     ],
     "vehicles": [
@@ -1253,7 +1249,7 @@
     "active": true,
     "seo": {
       "title": "Suspension & Steering Parts | Souviks",
-      "description": "Suspension & Steering covers 388 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
+      "description": "Suspension & Steering covers 387 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
       "keywords": [
         "Suspension & Steering",
         "commercial vehicle spare parts",
@@ -2694,8 +2690,8 @@
       400
     ],
     "banner": "",
-    "description": "Lubricants covers 33 active commercial-vehicle spare parts used across Ashok Leyland 2516, Tata LPT, Universal. The category includes subcategories such as Brake Fluid / Dot 3, Coolant, DEF, Def Fluid, Engine Oil and more and brands including Gulf, HP, Rane, TVS Girling, Tata AutoComp and more.",
-    "short_description": "Lubricants: 33 active parts across Brake Fluid / Dot 3, Coolant, DEF, Def Fluid and more.",
+    "description": "Lubricants covers 34 active commercial-vehicle spare parts used across Ashok Leyland 2516, Tata LPT, Universal. The category includes subcategories such as Brake Fluid / Dot 3, Coolant, DEF, Def Fluid, Engine Oil and more and brands including Gulf, HP, Rane, TVS Girling, Tata AutoComp and more.",
+    "short_description": "Lubricants: 34 active parts across Brake Fluid / Dot 3, Coolant, DEF, Def Fluid and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -2791,6 +2787,7 @@
     "products": [
       "SVKS000124",
       "SVKS000125",
+      "SVKS000227",
       "SVKS000320",
       "SVKS000321",
       "SVKS000322",
@@ -2821,15 +2818,14 @@
       "SVKS000988",
       "SVKS000989",
       "SVKS001015",
-      "SVKS001016",
-      "SVKS000227"
+      "SVKS001016"
     ],
     "product_count": 34,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Lubricants Parts | Souviks",
-      "description": "Lubricants covers 33 active commercial-vehicle spare parts used across Ashok Leyland 2516, Tata LPT, Universal. The category includes subcategories such as Brake Fluid / Dot 3, Coolant, DEF, Def Fluid, Engine Oil and more and brands including Gulf, HP, Rane, TVS Girling, Tata AutoComp and more.",
+      "description": "Lubricants covers 34 active commercial-vehicle spare parts used across Ashok Leyland 2516, Tata LPT, Universal. The category includes subcategories such as Brake Fluid / Dot 3, Coolant, DEF, Def Fluid, Engine Oil and more and brands including Gulf, HP, Rane, TVS Girling, Tata AutoComp and more.",
       "keywords": [
         "Lubricants",
         "commercial vehicle spare parts",

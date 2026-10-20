@@ -1389,15 +1389,13 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 5 active Valvoline products across Lubricants, Suspension & Steering. The listed range is mapped to applications such as Universal and common replacement areas including Engine Oil, Cross Joint.  Current catalogue examples include All Fleet TC Genuine 15W40 4/3 LTR, Premium Plus 15W40 CI4 Plus 3Ltr, Premium Plus 15W40 CI4 Plus - 15ltr. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Valvoline products at Souviks cover Lubricants, Suspension & Steering and applications across Universal.",
+    "description": "Souviks currently lists 5 active Valvoline products across Lubricants. The listed range is mapped to applications such as Universal and common replacement areas including Engine Oil.  Current catalogue examples include All Fleet TC Genuine 15W40 4/3 LTR, Premium Plus 15W40 CI4 Plus 3Ltr, Premium Plus 15W40 CI4 Plus - 15ltr. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Valvoline products at Souviks cover Lubricants and applications across Universal.",
     "product_count": 5,
     "categories": [
-      "lubricants",
-      "suspension-steering"
+      "lubricants"
     ],
     "subcategories": [
-      "cross-joint",
       "engine-oil"
     ],
     "vehicles": [
@@ -1421,7 +1419,7 @@
     "active": true,
     "seo": {
       "title": "Valvoline Parts | Souviks",
-      "description": "Souviks currently lists 5 active Valvoline products across Lubricants, Suspension & Steering. The listed range is mapped to applications such as Universal and common replacement areas including Engine Oil, Cross Joint.  Current catalogue examples include All Fleet TC Genuine 15W40 4/3 LTR, Premium Plus 15W40 CI4 Plus 3Ltr, Premium Plus 15W40 CI4 Plus - 15ltr. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 5 active Valvoline products across Lubricants. The listed range is mapped to applications such as Universal and common replacement areas including Engine Oil.  Current catalogue examples include All Fleet TC Genuine 15W40 4/3 LTR, Premium Plus 15W40 CI4 Plus 3Ltr, Premium Plus 15W40 CI4 Plus - 15ltr. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Valvoline",
         "commercial vehicle spare parts",
