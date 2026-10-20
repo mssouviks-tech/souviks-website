@@ -1086,8 +1086,8 @@ async function main() {
         await goto(page, BASE + langPath(lang, "products"));
         const cards = page.locator("#product-grid .product-card");
         const count = await cards.count();
-        if (count < 1) throw new Error("no product cards");
-        return `${count} cards`;
+        if (count !== 20) throw new Error(`expected 20 product cards on the initial page, found ${count}`);
+        return `${count} cards; first-page cap confirmed`;
       });
 
       await check(`${view}/${lang}/product listing images load`, async () => {

@@ -359,6 +359,55 @@ def validate_product_card_images(records_by_kind, errors: list[str]) -> None:
     print(f"[critical build] checked {checked} generated product-card image references.")
 
 
+def validate_static_product_listing_page(records_by_kind, errors: list[str]) -> None:
+    """Keep the initial product-listing HTML bounded to one page of cards."""
+    active_products = [
+        product
+        for product in records_by_kind.get("products", [])
+        if isinstance(product, dict) and product.get("active") is not False
+    ]
+    expected_count = min(20, len(active_products))
+    checked = 0
+
+    for language in LANGUAGES:
+        listing = ROOT / language / "products.html"
+        if not listing.is_file():
+            errors.append(f"{listing.relative_to(ROOT)}: missing product listing for initial-page performance contract")
+            continue
+
+        raw = listing.read_text(encoding="utf-8", errors="ignore")
+        grids = re.findall(
+            r'''<div\b(?=[^>]*\bid=["']product-grid["'])[^>]*>''',
+            raw,
+            flags=re.I,
+        )
+        if len(grids) != 1:
+            errors.append(
+                f"{listing.relative_to(ROOT)}: expected exactly one #product-grid for initial-page contract; found {len(grids)}"
+            )
+        elif not re.search(r'''\bdata-static-rendered\s*=\s*["']true["']''', grids[0], flags=re.I):
+            errors.append(
+                f"{listing.relative_to(ROOT)}: #product-grid must mark its bounded static cards data-static-rendered='true'"
+            )
+
+        cards = re.findall(
+            r"<article\b(?=[^>]*\bclass\s*=\s*['\"][^'\"]*\bproduct-card\b[^'\"]*['\"])[^>]*>.*?</article>",
+            raw,
+            flags=re.I | re.S,
+        )
+        if len(cards) != expected_count:
+            errors.append(
+                f"{listing.relative_to(ROOT)}: initial HTML contains {len(cards)} product cards; "
+                f"expected {expected_count} (one 20-item page max)"
+            )
+        checked += len(cards)
+
+    print(
+        f"[critical build] checked {checked} initial static product listing cards "
+        "across en/hi/bn (20-item cap)."
+    )
+
+
 def public_route(kind: str, lang: str, slug: str) -> str:
     return f"/{lang}/{kind}/{slug}"
 
@@ -1645,6 +1694,7 @@ def main() -> None:
             print(f"[catalogue reference warning] ... and {len(reference_warnings) - 30} more")
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
     validate_product_card_images(records_by_kind, errors)
+    validate_static_product_listing_page(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
     validate_pages_middleware(errors)
     validate_pages_routes(errors)

@@ -372,6 +372,37 @@ function initialisePagination() {
         }
     });
 
+    // The build emits one page of product cards in the initial HTML. Keep that
+    // markup untouched when it already matches the default first page instead
+    // of parsing, hydrating and re-rendering the same cards a second time.
+    const isDefaultFirstPage =
+        preserveInitialStaticCatalogue &&
+        !initialQuery &&
+        initialPage === 1 &&
+        initialPageSize === 20 &&
+        currentSort === "featured" &&
+        Object.values(Filters.filters).every(value => !String(value ?? "").trim());
+
+    if (isDefaultFirstPage) {
+        const staticIds = Array.from(
+            Products.container?.querySelectorAll(".product-card") || []
+        ).map(card => String(
+            card.querySelector("[data-saved-product-id]")?.getAttribute("data-saved-product-id") || ""
+        ).trim());
+        const expectedIds = Pagination.pageData().map(product => String(product?.id || "").trim());
+        const staticPageMatches =
+            staticIds.length === expectedIds.length &&
+            staticIds.every((id, index) => id && id === expectedIds[index]);
+
+        if (staticPageMatches) {
+            Products.filtered = [...initialResults];
+            updateCounters(initialResults);
+            updateNoResultsState(initialResults.length === 0);
+            preserveInitialStaticCatalogue = false;
+            return;
+        }
+    }
+
     if (!preserveInitialStaticCatalogue || initialQuery) {
         applyCatalogue({ resetPage: false });
         return;

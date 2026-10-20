@@ -11,6 +11,7 @@ from product_card import product_card_html
 
 ROOT = Path(__file__).resolve().parents[2]
 LANGUAGES = ("en", "hi", "bn")
+INITIAL_PAGE_SIZE = 20
 
 GRID_OPEN_RE = re.compile(
     r'''<div\b[^>]*\bid=["']product-grid["'][^>]*>''',
@@ -61,6 +62,11 @@ def replace_grid(source: str, cards: str) -> str:
         raise ValueError("Unclosed #product-grid element")
 
     opening = match.group(0)
+    static_attr = re.compile(r"""\bdata-static-rendered\s*=\s*(["']).*?\1""", flags=re.I)
+    if static_attr.search(opening):
+        opening = static_attr.sub('data-static-rendered="true"', opening, count=1)
+    else:
+        opening = opening[:-1] + ' data-static-rendered="true">'
     rendered = f"{opening}\n{cards}\n</div>"
     return source[:match.start()] + rendered + source[close_end:]
 
@@ -72,7 +78,7 @@ def sync_listing(language: str, products: list[dict]) -> bool:
 
     cards = "".join(
         product_card_html(product, language, eager=index < 4)
-        for index, product in enumerate(products)
+        for index, product in enumerate(products[:INITIAL_PAGE_SIZE])
     )
     source = path.read_text(encoding="utf-8")
     updated = replace_grid(source, cards)
@@ -93,7 +99,8 @@ def main() -> int:
     print(
         "Product-card source synchronized from "
         "scripts/catalogue/product_card.py: "
-        f"{len(products)} cards per language; {changed} listing pages changed."
+        f"{min(INITIAL_PAGE_SIZE, len(products))} initial cards per language "
+        f"from {len(products)} active products; {changed} listing pages changed."
     )
     return 0
 

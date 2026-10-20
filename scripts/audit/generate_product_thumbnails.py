@@ -103,6 +103,35 @@ def generate() -> tuple[int, int, int, int]:
             except OSError:
                 pass
 
+    # Publish the derivative path in catalogue-index.json so cards created by
+    # client-side search, filters, sorting and pagination use the same bounded
+    # thumbnail as the initial server-rendered page. The original image fields
+    # remain authoritative for product-detail galleries.
+    metadata_changed = False
+    for product in products:
+        if not isinstance(product, dict):
+            continue
+        folder = clean(product.get("image_folder") or product.get("id"))
+        filename = first_filename(product)
+        target = (
+            THUMB_ROOT / folder / f"{Path(filename).stem}.webp"
+            if folder and Path(folder).name == folder and filename
+            else None
+        )
+        if target is not None and target in expected_targets and target.is_file():
+            card_image_url = "/" + target.relative_to(ROOT).as_posix()
+            if product.get("card_image_url") != card_image_url:
+                product["card_image_url"] = card_image_url
+                metadata_changed = True
+        elif product.pop("card_image_url", None) is not None:
+            metadata_changed = True
+
+    if metadata_changed:
+        CATALOGUE.write_text(
+            json.dumps(products, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+
     return inspected, generated, skipped, saved_bytes
 
 
