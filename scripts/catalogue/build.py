@@ -9,9 +9,22 @@ from __future__ import annotations
 
 import pathlib
 import runpy
+import sys
 from urllib.parse import urlparse
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+CATALOGUE_SCRIPTS = str(ROOT / "scripts" / "catalogue")
+if CATALOGUE_SCRIPTS not in sys.path:
+    sys.path.insert(0, CATALOGUE_SCRIPTS)
+
+from product_seo import (
+    build_factual_product_description,
+    build_product_meta_description,
+    build_product_schema_description,
+    is_weak_product_description,
+    schema_availability_url,
+)
+
 BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
 # Product title lengths are capped in visible characters; HTML entities are
@@ -250,45 +263,10 @@ def reconcile_catalogue_projections():
 
     def ensure_product_description(product):
         current = text(product.get("description"))
-        if len(current) >= 80:
+        if current and not is_weak_product_description(current):
             return current
+        return build_factual_product_description(product)
 
-        brand = text(product.get("brand_name") or product.get("brand"))
-        name = text(product.get("product_name") or product.get("name"))
-        part = text(product.get("part_number") or product.get("partNumber"))
-        tata_match = re.match(r"^tata-genuine-(\d{12})-", text(product.get("slug")), re.I)
-        if tata_match:
-            part = tata_match.group(1)
-        category = text(product.get("category_name") or product.get("category"))
-        subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
-        applications = arr(product.get("applications"))
-        vehicles = arr(product.get("vehicles"))
-
-        pieces = []
-        identity = " ".join(value for value in (brand, name) if value).strip()
-        if identity:
-            pieces.append(identity)
-        if part:
-            pieces.append(f"Part number {part}")
-        if subcategory:
-            pieces.append(f"for {subcategory}")
-        elif category:
-            pieces.append(f"in {category}")
-        if applications:
-            pieces.append("Applications: " + "; ".join(applications[:4]))
-        if vehicles:
-            pieces.append("Compatible vehicles: " + ", ".join(vehicles[:5]))
-
-        # Add a factual closing sentence so otherwise-identical short records
-        # remain useful and comfortably above the thin-description threshold.
-        pieces.append(
-            "Confirm the part number and vehicle application before ordering to verify fitment."
-        )
-
-        generated = ". ".join(pieces).strip()
-        if generated and not generated.endswith("."):
-            generated += "."
-        return generated
 
     for product in catalogue:
         description = ensure_product_description(product)
@@ -794,7 +772,7 @@ def reconcile_catalogue_projections():
             seeded["seo"] = dict(template_data.get("seo") or {})
             seeded["seo"]["canonical"] = f"{BASE}/{lang}/products/{slug}"
             seeded["seo"]["title"] = f"{brand} - {part} - {name} | Souviks" if brand and part else f"{brand or name} | Souviks"
-            seeded["seo"]["description"] = description[:158]
+            seeded["seo"]["description"] = build_product_meta_description(product, language=lang)
             seeded["seo"]["keywords"] = [value for value in (name, part, "commercial vehicle spare parts", "truck spare parts") if value]
             seeded["schema"] = {}
             seeded["created_at"] = text(product.get("created_at") or template_data.get("created_at"))
@@ -1078,35 +1056,11 @@ def reconcile_catalogue_projections():
                     name_part = shortened
                 title = name_part + title_suffix
     
-            raw_description = re.sub(r"\s+", " ", text(product.get("description"))).strip()
-            category = text(product.get("category_name") or product.get("category"))
-            subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
-            vehicles = arr(product.get("vehicles"))
-
-            # Keep the visible PDP useful when the source description is a
-            # placeholder or too thin to differentiate the product.
-            content_description = raw_description
-            if not content_description or len(content_description) < 50:
-                content_parts = [
-                    f"{brand} {name}".strip(),
-                    f"Part number {part}." if part else "",
-                    f"Product type: {subcategory or category}." if (subcategory or category) else "",
-                    f"Applications: {'; '.join(arr(product.get('applications'))[:4])}." if arr(product.get('applications')) else "",
-                    f"Compatible vehicles: {', '.join(vehicles[:5])}." if vehicles else "",
-                ]
-                content_description = " ".join(part for part in content_parts if part).strip()
-
-            description = content_description
-            if vehicles and "Compatible vehicles:" not in description:
-                description += " Compatible vehicles: " + ", ".join(vehicles[:5]) + "."
-            description += " Request availability from Souviks."
-            description = re.sub(r"\s+", " ", description).strip()
-            if len(description) > 158:
-                description = description[:157].rsplit(" ", 1)[0].rstrip(" ,;:-") + "."
-
-            # Use the same generated buyer-facing description in Product
-            # structured data so schema cannot retain a thin/raw legacy value.
-            seo_description = description
+            # Keep full factual copy in the page and Product JSON-LD, while
+            # using a separate, concise description for search-result snippets.
+            content_description = build_product_schema_description(product)
+            description = build_product_meta_description(product, language=lang)
+            seo_description = content_description
     
             title_text = html_module.escape(title, quote=False)
             title_attr = html_module.escape(title, quote=True)
@@ -1814,45 +1768,8 @@ def sync_product_seo_and_schema():
             part = text(product.get("part_number") or product.get("partNumber"))
             brand = text(product.get("brand_name") or product.get("brand"))
 
-            # Rebuild the same factual product description inside this
-            # schema loop; this loop is separate from the static-page SEO loop.
-            schema_description = re.sub(
-                r"\s+",
-                " ",
-                text(product.get("description"))
-            ).strip()
-            schema_category = text(product.get("category_name") or product.get("category"))
-            schema_subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
-            schema_vehicles = arr(product.get("vehicles"))
-            if not schema_description or len(schema_description) < 50:
-                schema_parts = [
-                    f"{brand} {name}".strip(),
-                    f"Part number {part}." if part else "",
-                    f"Product type: {schema_subcategory or schema_category}."
-                    if (schema_subcategory or schema_category) else "",
-                    (
-                        f"Applications: {'; '.join(arr(product.get('applications'))[:4])}."
-                        if arr(product.get("applications")) else ""
-                    ),
-                    (
-                        f"Compatible vehicles: {', '.join(schema_vehicles[:5])}."
-                        if schema_vehicles else ""
-                    ),
-                ]
-                schema_description = " ".join(
-                    item for item in schema_parts if item
-                ).strip()
-            if schema_vehicles and "Compatible vehicles:" not in schema_description:
-                schema_description += " Compatible vehicles: " + ", ".join(schema_vehicles[:5]) + "."
-            schema_description += " Request availability from Souviks."
-            schema_description = re.sub(r"\s+", " ", schema_description).strip()
-            if len(schema_description) > 158:
-                schema_description = (
-                    schema_description[:157]
-                    .rsplit(" ", 1)[0]
-                    .rstrip(" ,;:-")
-                    + "."
-                )
+            # Keep Product structured data aligned with the full factual page copy.
+            schema_description = build_product_schema_description(product)
 
             if "Product" not in types:
                 description = schema_description
