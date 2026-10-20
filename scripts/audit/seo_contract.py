@@ -131,8 +131,10 @@ def main() -> int:
         if len(descriptions) != 1 or not descriptions[0]:
             errors.append(f"{label}: expected exactly one non-empty meta description, found {len(descriptions)}")
         elif len(descriptions[0]) < 50 or len(descriptions[0]) > 170:
+            preview = descriptions[0][:100]
             warnings.append(
-                f"{label}: meta description length {len(descriptions[0])} is outside the 50-170 character review range"
+                f"{label}: meta description length {len(descriptions[0])} is outside the 50-170 character review range; "
+                f"preview={preview!r}"
             )
 
         # Product snippets should be unique across different product routes;
