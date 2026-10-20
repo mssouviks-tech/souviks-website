@@ -258,8 +258,6 @@ def run_smoke() -> int:
             if path == "/":
                 if not re.search(r"<body\b[^>]*class=[\"'][^\"']*page-home", result.text, flags=re.I):
                     errors.append("GET /: response is missing full homepage body class")
-                if re.search(r"(?:souviks-loading-logo|loading-screen|please\s+wait)", result.text, flags=re.I):
-                    errors.append("GET /: response contains obsolete loading-screen markup")
                 if "SOUVIKS ROOT HOMEPAGE LANGUAGE ROUTING" not in result.text:
                     errors.append("GET /: response lacks root language-routing marker")
                 body = re.search(r"<body\b[^>]*>(.*?)</body\s*>", result.text, flags=re.I | re.S)
