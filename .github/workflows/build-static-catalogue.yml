@@ -20,6 +20,7 @@ on:
       - "scripts/audit/performance_guard.py"
       - "scripts/audit/optimize_static_images.py"
       - "scripts/audit/generate_product_thumbnails.py"
+      - "scripts/catalogue/sync_root_homepage.py"
       - "assets/images/product-thumbnails/**"
       - "package.json"
       - "scripts/js/**"
@@ -100,6 +101,7 @@ jobs:
               "scripts/audit/performance_guard.py",
               "scripts/audit/optimize_static_images.py",
               "scripts/audit/generate_product_thumbnails.py",
+              "scripts/catalogue/sync_root_homepage.py",
               "scripts/audit/production_smoke.py",
               "scripts/audit/structured_data.py",
               "scripts/js/refactor.py",
@@ -143,6 +145,7 @@ jobs:
             npm run build:js
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/js/refresh_versions.py
+            python3 scripts/catalogue/sync_root_homepage.py
             run_candidate_checks
           }
 
@@ -211,6 +214,7 @@ jobs:
             npm run build:js
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/js/refresh_versions.py
+            python3 scripts/catalogue/sync_root_homepage.py
             run_candidate_checks
           done
 
