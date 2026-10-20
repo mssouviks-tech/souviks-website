@@ -61,7 +61,7 @@ const SEARCH_FIELDS = [
     "cross_references"
 ];
 
-document.addEventListener("DOMContentLoaded", async () => {
+async function initialiseProductsPage() {
     const searchInput = document.getElementById("searchInput");
     const initialQuery = getSearchQuery();
     if (searchInput && initialQuery) searchInput.value = initialQuery;
@@ -80,7 +80,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     bindPageSize();
     bindReset();
     bindNoResultsReset();
-});
+}
+
+/*
+ * The first 20 product cards are already present in the generated HTML.
+ * Wait until the page load event and then schedule catalogue hydration during
+ * browser idle time, so fetching the full catalogue and wiring facets do not
+ * compete with the initial hero/text paint and LCP.
+ */
+function scheduleProductsPageInitialisation() {
+    const run = () => {
+        void initialiseProductsPage();
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+        window.requestIdleCallback(run, { timeout: 1200 });
+    } else {
+        window.setTimeout(run, 150);
+    }
+}
+
+if (document.readyState === "complete") {
+    scheduleProductsPageInitialisation();
+} else {
+    window.addEventListener("load", scheduleProductsPageInitialisation, { once: true });
+}
 
 function getSearchQuery() {
     try {
