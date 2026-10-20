@@ -205,13 +205,24 @@ def build_product_meta_description(
         if len(candidate) <= limit:
             return candidate
 
-    # If the factual sentence is already near the maximum, keep the complete
-    # sentence instead of chopping off its meaning merely to force a CTA.
+    # If the first sentence is too long to fit with the CTA, truncate that
+    # first sentence at a word boundary. Do not fall through to a much shorter
+    # later sentence (often just a vehicle note), which would create a weak
+    # 30-40 character meta description and hide the product identity.
+    first_sentence = sentences[0]
+    if len(first_sentence) > suffix_budget:
+        lead = _truncate_word_boundary(first_sentence, suffix_budget)
+        candidate = lead + " " + suffix
+        if len(candidate) <= limit:
+            return candidate
+
+    # If the factual sentence is short enough to stand alone, preserve it
+    # rather than dropping meaning simply to force the CTA.
     for sentence in sentences:
         if len(sentence) <= limit:
             return sentence
 
-    return _truncate_word_boundary(sentences[0], limit)
+    return _truncate_word_boundary(first_sentence, limit)
 
 
 def schema_availability_url(product: dict[str, Any]) -> str | None:
