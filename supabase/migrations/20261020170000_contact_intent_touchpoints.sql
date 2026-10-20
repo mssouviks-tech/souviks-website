@@ -300,14 +300,7 @@ BEGIN
             company = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_details ->> 'company', '')), 160), ''),
             lead_details = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_details ->> 'lead_details', '')), 4000), ''),
             contact_intent_visitor_id = CASE
-                WHEN coalesce(p_attribution ->> 'visitor_id', '') ~* '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}
-        WHERE l.lead_reference = pg_catalog.left(pg_catalog.btrim(coalesce(p_lead_reference, '')), 60)
-          AND l.lead_type = p_lead_type;
-    END IF;
-
-    RETURN v_result;
-END;
-$function$;
+                WHEN coalesce(p_attribution ->> 'visitor_id', '') ~* '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
                     THEN (p_attribution ->> 'visitor_id')::uuid
                 ELSE l.contact_intent_visitor_id
             END,
@@ -398,12 +391,7 @@ BEGIN
         company = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_company, '')), 160), ''),
         lead_details = NULLIF(pg_catalog.left(pg_catalog.btrim(coalesce(p_message, '')), 4000), ''),
         contact_intent_visitor_id = CASE
-            WHEN coalesce(p_attribution ->> 'visitor_id', '') ~* '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}
-    WHERE l.rfq_id = v_rfq_id;
-
-    RETURN v_result;
-END;
-$function$;
+            WHEN coalesce(p_attribution ->> 'visitor_id', '') ~* '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
                 THEN (p_attribution ->> 'visitor_id')::uuid
             ELSE l.contact_intent_visitor_id
         END,
