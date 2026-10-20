@@ -53,6 +53,8 @@ jobs:
           import py_compile
           for path in (
               "scripts/catalogue/build.py",
+              "scripts/catalogue/product_seo.py",
+              "scripts/audit/test_product_seo.py",
               "scripts/catalogue/normalize_page_config.py",
               "scripts/catalogue/sync_rfq_module.py",
               "scripts/audit/production_smoke.py",
@@ -104,6 +106,7 @@ jobs:
 
           python3 scripts/catalogue/validate.py
           python3 scripts/audit/critical_build.py
+          python3 scripts/audit/test_product_seo.py
           python3 scripts/audit/structured_data.py
           python3 scripts/audit/seo_contract.py
           python3 scripts/audit/site_quality.py
