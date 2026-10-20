@@ -76,6 +76,9 @@
     <loc>https://www.souviks.co.in/en/vehicles/ashok-leyland-captain</loc>
   </url>
   <url>
+    <loc>https://www.souviks.co.in/en/vehicles/ashok-leyland-boss</loc>
+  </url>
+  <url>
     <loc>https://www.souviks.co.in/bn/vehicles/tata-signa</loc>
   </url>
   <url>
@@ -151,6 +154,9 @@
     <loc>https://www.souviks.co.in/bn/vehicles/ashok-leyland-captain</loc>
   </url>
   <url>
+    <loc>https://www.souviks.co.in/bn/vehicles/ashok-leyland-boss</loc>
+  </url>
+  <url>
     <loc>https://www.souviks.co.in/hi/vehicles/tata-signa</loc>
   </url>
   <url>
@@ -224,5 +230,8 @@
   </url>
   <url>
     <loc>https://www.souviks.co.in/hi/vehicles/ashok-leyland-captain</loc>
+  </url>
+  <url>
+    <loc>https://www.souviks.co.in/hi/vehicles/ashok-leyland-boss</loc>
   </url>
 </urlset>

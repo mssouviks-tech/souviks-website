@@ -618,8 +618,8 @@
       400
     ],
     "banner": "",
-    "description": "Suspension & Steering covers 380 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
-    "short_description": "Suspension & Steering: 380 active parts across Axle Shaft, Bracket, Center Bolt, Cotter Bolt and more.",
+    "description": "Suspension & Steering covers 388 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
+    "short_description": "Suspension & Steering: 388 active parts across Axle Shaft, Bracket, Center Bolt, Cotter Bolt and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -811,6 +811,7 @@
     ],
     "vehicles": [
       "Ashok Leyland 2516",
+      "Ashok Leyland Boss",
       "Ashok Leyland Captain",
       "Ashok Leyland Ecomet",
       "Ashok Leyland Stallion",
@@ -834,6 +835,7 @@
       "Tata Prima",
       "Tata Signa",
       "Tata Ultra",
+      "Tractors",
       "Universal",
       "ashok-leyland-captain",
       "ashok-leyland-u-truck",
@@ -1237,14 +1239,22 @@
       "SVKS001113",
       "SVKS001114",
       "SVKS001115",
-      "SVKS001116"
+      "SVKS001116",
+      "SVKS001117",
+      "SVKS001118",
+      "SVKS001119",
+      "SVKS001120",
+      "SVKS001121",
+      "SVKS001122",
+      "SVKS001123",
+      "SVKS001124"
     ],
-    "product_count": 380,
+    "product_count": 388,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Suspension & Steering Parts | Souviks",
-      "description": "Suspension & Steering covers 380 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion, Ashok Leyland U-Truck and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
+      "description": "Suspension & Steering covers 388 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Ashok Leyland Stallion and more. The category includes subcategories such as Axle Shaft, Bracket, Center Bolt, Cotter Bolt, Cross Joint and more and brands including Alok, BIR, Everest, GS, Harish and more.",
       "keywords": [
         "Suspension & Steering",
         "commercial vehicle spare parts",

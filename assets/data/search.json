@@ -52356,5 +52356,419 @@
     "featured": false,
     "active": true,
     "weight": 100
+  },
+  {
+    "id": "SVKS001117",
+    "type": "product",
+    "title": "Gear Lever End RH, Long",
+    "subtitle": "Part No. 723-G",
+    "keywords": [
+      "Gear Lever End RH, Long",
+      "723-G",
+      "Alok",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The Alok 723-G Gear Lever End RH, Long is a right-hand, long-style linkage end listed for Tata LPT applications. It uses M18 × 1.5 and M12 × 1.5 threaded connections and a greaseless design.",
+      "Tata LPT"
+    ],
+    "description": "The Alok 723-G Gear Lever End RH, Long is a right-hand, long-style linkage end listed for Tata LPT applications. It uses M18 × 1.5 and M12 × 1.5 threaded connections and a greaseless design.",
+    "applications": [
+      "Right-hand, long greaseless type",
+      "M18 × 1.5 and M12 × 1.5 threaded connections"
+    ],
+    "vehicles": [
+      "Tata LPT"
+    ],
+    "part_number": "723-G",
+    "manufacturer_part_number": "250727000000",
+    "manufacturer_part_numbers": [
+      "250727000000"
+    ],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "723-g-gear-lever-end",
+    "url": "/en/products/723-g-gear-lever-end",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "alok",
+      "name": "Alok"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001118",
+    "type": "product",
+    "title": "Gear Lever Ends RH/RH Pair",
+    "subtitle": "Part No. 712-G",
+    "keywords": [
+      "Gear Lever Ends RH/RH Pair",
+      "712-G",
+      "Alok",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The Alok 712-G Gear Lever Ends are supplied as an RH/RH pair with a greaseless design. The listed applications include Tata 1612, 1510, 1516, 2213 and 2416, along with Ashok Leyland 1612, 2214, 2516 and 3516 models.",
+      "Tata LPT",
+      "Tata 2416",
+      "Ashok Leyland 2516"
+    ],
+    "description": "The Alok 712-G Gear Lever Ends are supplied as an RH/RH pair with a greaseless design. The listed applications include Tata 1612, 1510, 1516, 2213 and 2416, along with Ashok Leyland 1612, 2214, 2516 and 3516 models.",
+    "applications": [
+      "RH/RH greaseless pair",
+      "Listed Tata applications: 1612, 1510, 1516, 2213 and 2416",
+      "Listed Ashok Leyland applications: 1612, 2214, 2516 and 3516",
+      "Catalogue notes list models from 2002 onward."
+    ],
+    "vehicles": [
+      "Tata LPT",
+      "Tata 2416",
+      "Ashok Leyland 2516"
+    ],
+    "part_number": "712-G",
+    "manufacturer_part_number": "250727000000",
+    "manufacturer_part_numbers": [
+      "250727000000"
+    ],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "712-g-gear-lever-ends",
+    "url": "/en/products/712-g-gear-lever-ends",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "alok",
+      "name": "Alok"
+    },
+    "vehicle_count": 3,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001119",
+    "type": "product",
+    "title": "Gear Lever End LH",
+    "subtitle": "Part No. 773",
+    "keywords": [
+      "Gear Lever End LH",
+      "773",
+      "Alok",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The Alok 773 Gear Lever End LH is a left-hand linkage end listed for Tata LPT, Tata 407, Tata 709, Tata 1109, Tata 1512 and Tata 2416 applications. Its supplied references are IA233495 and 264126800193.",
+      "Tata LPT",
+      "Tata 407",
+      "Tata 709",
+      "Tata 1109",
+      "Tata 1512",
+      "Tata 2416"
+    ],
+    "description": "The Alok 773 Gear Lever End LH is a left-hand linkage end listed for Tata LPT, Tata 407, Tata 709, Tata 1109, Tata 1512 and Tata 2416 applications. Its supplied references are IA233495 and 264126800193.",
+    "applications": [
+      "Left-hand type",
+      "Listed additional applications: Tata 2516, 609, 1510, 1612, 2213, 1613 and 2515 EX Turbo",
+      "References: IA233495 and 264126800193"
+    ],
+    "vehicles": [
+      "Tata LPT",
+      "Tata 407",
+      "Tata 709",
+      "Tata 1109",
+      "Tata 1512",
+      "Tata 2416"
+    ],
+    "part_number": "773",
+    "manufacturer_part_number": "IA233495, 264126800193",
+    "manufacturer_part_numbers": [
+      "IA233495, 264126800193"
+    ],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "773-gear-lever-end-lh",
+    "url": "/en/products/773-gear-lever-end-lh",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "alok",
+      "name": "Alok"
+    },
+    "vehicle_count": 6,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001120",
+    "type": "product",
+    "title": "Gear Lever Ends RH/LH Pair",
+    "subtitle": "Part No. 1055",
+    "keywords": [
+      "Gear Lever Ends RH/LH Pair",
+      "1055",
+      "Alok",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The Alok 1055 Gear Lever Ends are supplied as an RH/LH pair for Ashok Leyland Boss applications. The listed inner-thread connections are 12 × 1.75 mm and 10 × 1.5 mm; reference P2N00005/4.",
+      "Ashok Leyland Boss"
+    ],
+    "description": "The Alok 1055 Gear Lever Ends are supplied as an RH/LH pair for Ashok Leyland Boss applications. The listed inner-thread connections are 12 × 1.75 mm and 10 × 1.5 mm; reference P2N00005/4.",
+    "applications": [
+      "RH/LH pair",
+      "Inner-thread type",
+      "12 × 1.75 mm and 10 × 1.5 mm threads",
+      "Reference: P2N00005/4"
+    ],
+    "vehicles": [
+      "Ashok Leyland Boss"
+    ],
+    "part_number": "1055",
+    "manufacturer_part_number": "P2N00005/4",
+    "manufacturer_part_numbers": [
+      "P2N00005/4"
+    ],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "1055-gear-lever-ends-leyland-boss",
+    "url": "/en/products/1055-gear-lever-ends-leyland-boss",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "alok",
+      "name": "Alok"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001121",
+    "type": "product",
+    "title": "Power Steering Repair Kit",
+    "subtitle": "Part No. 5858",
+    "keywords": [
+      "Power Steering Repair Kit",
+      "5858",
+      "Alok",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The Alok 5858 Power Steering Repair Kit is a tractor steering service set containing four ball pins. The ball pins have a 35 mm ball diameter and M18 × 1.5 threaded connections.",
+      "Tractors"
+    ],
+    "description": "The Alok 5858 Power Steering Repair Kit is a tractor steering service set containing four ball pins. The ball pins have a 35 mm ball diameter and M18 × 1.5 threaded connections.",
+    "applications": [
+      "Tractor steering system",
+      "Four-piece large ball-pin set",
+      "35 mm ball diameter",
+      "M18 × 1.5 thread"
+    ],
+    "vehicles": [
+      "Tractors"
+    ],
+    "part_number": "5858",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "5858-sonalika-power-steering-repair-kit",
+    "url": "/en/products/5858-sonalika-power-steering-repair-kit",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "alok",
+      "name": "Alok"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001122",
+    "type": "product",
+    "title": "Tie Rod Ends RH/LH Pair",
+    "subtitle": "Part No. 728",
+    "keywords": [
+      "Tie Rod Ends RH/LH Pair",
+      "728",
+      "Alok",
+      "Suspension & Steering",
+      "Tie Rod End",
+      "The Alok 728 Tie Rod Ends are supplied as a right-hand/left-hand pair for Tata Signa, Tata LPT and Tata 2416 applications. The assembly uses M30 × 1.5 threaded connections and M18 × 1.5 ball-pin threads.",
+      "Tata Signa",
+      "Tata LPT",
+      "Tata 2416"
+    ],
+    "description": "The Alok 728 Tie Rod Ends are supplied as a right-hand/left-hand pair for Tata Signa, Tata LPT and Tata 2416 applications. The assembly uses M30 × 1.5 threaded connections and M18 × 1.5 ball-pin threads.",
+    "applications": [
+      "RH/LH pair",
+      "Listed additional models: Tata 3516, 3118, 1616, 2516, 2213 and 2515 EX",
+      "M30 × 1.5 threads",
+      "M18 × 1.5 ball-pin threads"
+    ],
+    "vehicles": [
+      "Tata Signa",
+      "Tata LPT",
+      "Tata 2416"
+    ],
+    "part_number": "728",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "728-tie-rod-ends-tata",
+    "url": "/en/products/728-tie-rod-ends-tata",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "alok",
+      "name": "Alok"
+    },
+    "vehicle_count": 3,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001123",
+    "type": "product",
+    "title": "Tie Rod & Drag Link Repair Kit",
+    "subtitle": "Part No. 9756",
+    "keywords": [
+      "Tie Rod & Drag Link Repair Kit",
+      "9756",
+      "Alok",
+      "Suspension & Steering",
+      "Drag Link",
+      "The Alok 9756 Tie Rod & Drag Link Repair Kit is a four-ball-pin service set with 35 mm ball pins and M20 × 1.5 threaded connections. Listed applications include Ashok Leyland U-Truck and Ecomet, including Leyland Iveco 909, 1613 and 2214 U-Truck entries.",
+      "Ashok Leyland U-Truck",
+      "Ashok Leyland Ecomet"
+    ],
+    "description": "The Alok 9756 Tie Rod & Drag Link Repair Kit is a four-ball-pin service set with 35 mm ball pins and M20 × 1.5 threaded connections. Listed applications include Ashok Leyland U-Truck and Ecomet, including Leyland Iveco 909, 1613 and 2214 U-Truck entries.",
+    "applications": [
+      "Four ball-pin set",
+      "35 mm ball-pin diameter",
+      "M20 × 1.5 thread",
+      "Listed applications: Leyland Iveco 909, 1613 and 2214 U-Truck"
+    ],
+    "vehicles": [
+      "Ashok Leyland U-Truck",
+      "Ashok Leyland Ecomet"
+    ],
+    "part_number": "9756",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "9756-repair-kit-leyland-iveco",
+    "url": "/en/products/9756-repair-kit-leyland-iveco",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "alok",
+      "name": "Alok"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001124",
+    "type": "product",
+    "title": "Drag Link Kit",
+    "subtitle": "Part No. 975",
+    "keywords": [
+      "Drag Link Kit",
+      "975",
+      "Alok",
+      "Suspension & Steering",
+      "Drag Link",
+      "The Alok 975 Drag Link Kit is listed for Ashok Leyland U-Truck and Captain applications with the FA 90 axle. The kit has a 35 mm pin-head diameter and M20 × 1.5 threaded connection; supplied references are P2406551 and P2616951.",
+      "Ashok Leyland U-Truck",
+      "Ashok Leyland Captain"
+    ],
+    "description": "The Alok 975 Drag Link Kit is listed for Ashok Leyland U-Truck and Captain applications with the FA 90 axle. The kit has a 35 mm pin-head diameter and M20 × 1.5 threaded connection; supplied references are P2406551 and P2616951.",
+    "applications": [
+      "FA 90 axle",
+      "35 mm pin-head diameter",
+      "M20 × 1.5 thread",
+      "References: P2406551 and P2616951",
+      "Listed U-Truck applications include Leyland Iveco 909, 1109 and 2214."
+    ],
+    "vehicles": [
+      "Ashok Leyland U-Truck",
+      "Ashok Leyland Captain"
+    ],
+    "part_number": "975",
+    "manufacturer_part_number": "P2406551, P2616951",
+    "manufacturer_part_numbers": [
+      "P2406551, P2616951"
+    ],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "975-drag-link-kit-leyland-iveco",
+    "url": "/en/products/975-drag-link-kit-leyland-iveco",
+    "image": "1.webp",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "alok",
+      "name": "Alok"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
   }
 ]

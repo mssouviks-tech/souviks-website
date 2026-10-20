@@ -1315,9 +1315,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 3 active Alok products across Suspension & Steering. The listed range is mapped to applications such as Tata Ace, Tata Intra and common replacement areas including Tie Rod End, Drag Link.  Current catalogue examples include Drag Link End T. Intra, Tie Rod End T. ACE Mega L=R, Tie Rod End RH/LH T. Ace H/T. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Alok products at Souviks cover Suspension & Steering and applications across Tata Ace, Tata Intra.",
-    "product_count": 3,
+    "description": "Souviks currently lists 11 active Alok products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata 2416, Tata Ace, Ashok Leyland U-Truck, Tata Intra and more and common replacement areas including Tie Rod End, Drag Link.  Current catalogue examples include Drag Link End T. Intra, Tie Rod End T. ACE Mega L=R, Tie Rod End RH/LH T. Ace H/T. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Alok products at Souviks cover Suspension & Steering and applications across Tata LPT, Tata 2416, Tata Ace and more.",
+    "product_count": 11,
     "categories": [
       "suspension-steering"
     ],
@@ -1326,8 +1326,21 @@
       "tie-rod-end"
     ],
     "vehicles": [
+      "Ashok Leyland 2516",
+      "Ashok Leyland Boss",
+      "Ashok Leyland Captain",
+      "Ashok Leyland Ecomet",
+      "Ashok Leyland U-Truck",
+      "Tata 1109",
+      "Tata 1512",
+      "Tata 2416",
+      "Tata 407",
+      "Tata 709",
       "Tata Ace",
-      "Tata Intra"
+      "Tata Intra",
+      "Tata LPT",
+      "Tata Signa",
+      "Tractors"
     ],
     "featured_products": [
       "SVKS000224",
@@ -1337,13 +1350,21 @@
     "products": [
       "SVKS000224",
       "SVKS000225",
-      "SVKS000226"
+      "SVKS000226",
+      "SVKS001117",
+      "SVKS001118",
+      "SVKS001119",
+      "SVKS001120",
+      "SVKS001121",
+      "SVKS001122",
+      "SVKS001123",
+      "SVKS001124"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Alok Parts | Souviks",
-      "description": "Souviks currently lists 3 active Alok products across Suspension & Steering. The listed range is mapped to applications such as Tata Ace, Tata Intra and common replacement areas including Tie Rod End, Drag Link.  Current catalogue examples include Drag Link End T. Intra, Tie Rod End T. ACE Mega L=R, Tie Rod End RH/LH T. Ace H/T. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 11 active Alok products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata 2416, Tata Ace, Ashok Leyland U-Truck, Tata Intra and more and common replacement areas including Tie Rod End, Drag Link.  Current catalogue examples include Drag Link End T. Intra, Tie Rod End T. ACE Mega L=R, Tie Rod End RH/LH T. Ace H/T. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Alok",
         "commercial vehicle spare parts",
