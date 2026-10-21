@@ -165,7 +165,7 @@ Deno.serve(async (req: Request) => {
     if (!/^\d{6}$/.test(originPin)) throw new EstimateError("origin_pin_not_configured", 503);
     await enforceRateLimit(req);
 
-    const b2cToken = (Deno.env.get("DELHIVERY_B2C_API_TOKEN") || "").trim();
+    const b2cToken = (Deno.env.get("DELHIVERY_B2C_API_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || "").trim();
     const b2bToken = (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || "").trim();
     if (!b2cToken) throw new EstimateError("delhivery_b2c_token_not_configured", 503);
 
