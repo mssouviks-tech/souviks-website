@@ -242,8 +242,8 @@ def update_page_title(page, title):
     if replacements != 1:
         raise ValueError("Expected exactly one document <title> element on entity page.")
     for pattern in (
-        r"(<meta\s+property=["']og:title["']\s+content=["'])[^"']*(["'])",
-        r"(<meta\s+name=["']twitter:title["']\s+content=["'])[^"']*(["'])",
+        r"(<meta\s+property=[\"']og:title[\"']\s+content=[\"'])[^\"']*([\"'])",
+        r"(<meta\s+name=[\"']twitter:title[\"']\s+content=[\"'])[^\"']*([\"'])",
     ):
         page, count = re.subn(
             pattern,
