@@ -67,7 +67,7 @@ class ProductSeoTests(unittest.TestCase):
     def test_meta_description_is_bounded_and_page_specific(self) -> None:
         for language in ("en", "hi", "bn"):
             snippet = build_product_meta_description(self.product, language=language)
-            self.assertGreaterEqual(len(snippet), 50)
+            self.assertGreaterEqual(len(snippet), 70)
             self.assertLessEqual(len(snippet), 158)
             self.assertIn("TX-430-CRK9", snippet)
             self.assertNotIn("allowing its connected parts", snippet.lower())
@@ -112,7 +112,36 @@ class ProductSeoTests(unittest.TestCase):
         self.assertIn("Texspin", snippet)
         self.assertIn("TX-380-CRK7", snippet)
         self.assertNotEqual(snippet, "Vehicle applications include Tata LPT.")
-        self.assertTrue(snippet.endswith("Check fitment, price and availability at Souviks."))
+        self.assertTrue(snippet.endswith("Check part fitment, current price and availability with Souviks."))
+
+    def test_short_lead_is_expanded_to_the_minimum_and_retains_part_number(self) -> None:
+        product = {
+            "brand_name": "ASK",
+            "product_name": "Brake Linings",
+            "part_number": "AFFBPTTS1",
+            "category_name": "Brake Components",
+            "subcategory_name": "Brake Linings",
+            "description": (
+                "ASK Brake Linings. These brake linings are listed for commercial-vehicle "
+                "applications in the Souviks catalogue."
+            ),
+            "vehicles": ["Tata LPT"],
+        }
+        snippets = [
+            build_product_meta_description(product, language=language)
+            for language in ("en", "hi", "bn")
+        ]
+        for snippet in snippets:
+            self.assertGreaterEqual(len(snippet), 70)
+            self.assertLessEqual(len(snippet), 158)
+            self.assertIn("AFFBPTTS1", snippet)
+            self.assertIn("ASK Brake Linings", snippet)
+
+        second_product = dict(product)
+        second_product["part_number"] = "AFFBPTTS2"
+        second_snippet = build_product_meta_description(second_product, language="en")
+        self.assertNotEqual(snippets[0], second_snippet)
+        self.assertIn("AFFBPTTS2", second_snippet)
 
     def test_availability_is_never_inferred(self) -> None:
         self.assertEqual(
