@@ -33,6 +33,8 @@ assert.match(shared, /raw\.githubusercontent\.com\/mssouviks-tech\/souviks-websi
 assert.match(shared, /verifyCashfreeWebhookSignature/);
 assert.match(shared, /x-client-secret/);
 assert.match(shared, /cashfree_checkout_rate_limit/);
+assert.match(shared, /Prefer Supabase's current secret-key dictionary/);
+assert.match(shared, /if \(!key\.startsWith\("sb_secret_"\)\) headers\["Authorization"\]/);
 assert.match(shared, /order_amount/);
 assert.match(shared, /cashfree_order_status.*"PAID"/s);
 assert.match(shared, /order_status: order\.order_status === "awaiting_payment" \? "processing"/);
