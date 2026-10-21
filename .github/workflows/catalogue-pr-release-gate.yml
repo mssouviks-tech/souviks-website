@@ -130,7 +130,7 @@ jobs:
           python3 scripts/audit/test_seo_contract.py
           python3 scripts/audit/test_entity_titles.py
           python3 scripts/audit/structured_data.py
-          python3 scripts/audit/seo_contract.py
+          python3 scripts/audit/seo_contract.py --report-file seo-review-report.json
           python3 scripts/audit/site_quality.py
           python3 scripts/audit/code_quality.py
           python3 scripts/audit/performance_guard.py
@@ -145,3 +145,12 @@ jobs:
           npm run format:check
 
           echo "Catalogue release gate passed."
+
+      - name: Upload SEO review report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-review-report-pr-${{ github.event.pull_request.number }}-${{ github.run_id }}
+          path: seo-review-report.json
+          if-no-files-found: warn
+          retention-days: 14
