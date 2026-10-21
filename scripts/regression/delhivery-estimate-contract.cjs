@@ -45,7 +45,7 @@ assert.match(client, /COD shipping charges/);
 assert.doesNotMatch(client, /name="chargeable_weight_g"/);
 assert.doesNotMatch(client, /name="payment_mode"/);
 assert.doesNotMatch(client, /name="billing_mode"/);
-assert.match(client, /Approximate courier estimate only/);
+assert.match(client, /Approximate estimate only/);
 assert.match(client, /error\?\.context.*json/s);
 assert.match(client, /result\.innerHTML/);
 assert.match(cartClient, /checkout-pincode/);
