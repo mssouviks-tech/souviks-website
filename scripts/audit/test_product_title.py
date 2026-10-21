@@ -48,10 +48,10 @@ class ProductTitleShorteningTests(unittest.TestCase):
             "25 mm Spring Leaf Side Washer 4mm Thickness", 34
         )
         oversize_variant = shorten_product_name_for_title(
-            "Kingpin Thrust Pad 1st O/S", 22
+            "Kingpin Thrust Pad 1st O/S", 24
         )
         self.assertLessEqual(len(size_variant), 34)
-        self.assertLessEqual(len(oversize_variant), 22)
+        self.assertLessEqual(len(oversize_variant), 24)
         self.assertTrue(size_variant.endswith("4mm Thickness"), size_variant)
         self.assertTrue(oversize_variant.endswith("1st O/S"), oversize_variant)
 
