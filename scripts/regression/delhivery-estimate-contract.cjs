@@ -26,6 +26,7 @@ assert.match(fn, /claim\(await digest\("delhivery-ip\|" \+ ip \+ "\|" \+ key\), 
 assert.match(fn, /origin_pin/);
 assert.match(fn, /destination_pin/);
 assert.match(fn, /chargeable_weight_g/);
+assert.match(fn, /amount === null \|\| amount <= 0/);
 assert.match(fn, /typeof candidate === "number" \|\| \(typeof candidate === "string"/);
 assert.match(fn, /Access-Control-Allow-Origin/);
 assert.match(fn, /signal: AbortSignal\.timeout/);
