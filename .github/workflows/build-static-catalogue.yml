@@ -38,6 +38,7 @@ on:
       - "scripts/audit/seo_contract.py"
       - "scripts/audit/test_product_seo.py"
       - "scripts/audit/test_seo_contract.py"
+      - "scripts/audit/test_entity_titles.py"
       - "scripts/audit/site_quality.py"
       - "scripts/audit/code_quality.py"
       - "eslint.config.js"
@@ -113,6 +114,7 @@ jobs:
               "scripts/audit/seo_contract.py",
               "scripts/audit/test_product_seo.py",
               "scripts/audit/test_seo_contract.py",
+              "scripts/audit/test_entity_titles.py",
               "scripts/js/refactor.py",
               "scripts/js/refresh_versions.py",
           ):
@@ -131,6 +133,7 @@ jobs:
             python3 scripts/audit/structured_data.py
             python3 scripts/audit/test_product_seo.py
             python3 scripts/audit/test_seo_contract.py
+            python3 scripts/audit/test_entity_titles.py
             python3 scripts/audit/seo_contract.py
             python3 scripts/audit/site_quality.py
             python3 scripts/js/validate.py
@@ -179,6 +182,7 @@ jobs:
             python3 scripts/audit/structured_data.py
             python3 scripts/audit/test_product_seo.py
             python3 scripts/audit/test_seo_contract.py
+            python3 scripts/audit/test_entity_titles.py
             python3 scripts/audit/seo_contract.py
             python3 scripts/audit/site_quality.py
             python3 scripts/js/validate.py
