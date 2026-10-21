@@ -34,6 +34,8 @@ on:
       - "scripts/catalogue/sync_navigation.py"
       - "scripts/catalogue/product_card.py"
       - "scripts/catalogue/sync_product_cards.py"
+      - "scripts/catalogue/sync_checkout_pages.py"
+      - "scripts/catalogue/sync_checkout_module.py"
       - "scripts/audit/structured_data.py"
       - "scripts/audit/seo_contract.py"
       - "scripts/audit/test_product_seo.py"
@@ -96,6 +98,8 @@ jobs:
               "scripts/catalogue/product_seo.py",
               "scripts/catalogue/normalize_page_config.py",
               "scripts/catalogue/sync_rfq_module.py",
+              "scripts/catalogue/sync_checkout_pages.py",
+              "scripts/catalogue/sync_checkout_module.py",
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
               "scripts/catalogue/validate.py",
@@ -149,12 +153,14 @@ jobs:
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
+            python3 scripts/catalogue/sync_checkout_pages.py
             python3 scripts/audit/generate_product_thumbnails.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/normalize_page_config.py
             python3 scripts/catalogue/sync_rfq_module.py
             python3 scripts/catalogue/sync_navigation.py
             python3 scripts/catalogue/sync_product_cards.py
+            python3 scripts/catalogue/sync_checkout_module.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
             python3 scripts/js/refactor.py
             npm run build:js
@@ -222,12 +228,14 @@ jobs:
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
+            python3 scripts/catalogue/sync_checkout_pages.py
             python3 scripts/audit/generate_product_thumbnails.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/normalize_page_config.py
             python3 scripts/catalogue/sync_rfq_module.py
             python3 scripts/catalogue/sync_navigation.py
             python3 scripts/catalogue/sync_product_cards.py
+            python3 scripts/catalogue/sync_checkout_module.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
             python3 scripts/js/refactor.py
             npm run build:js
