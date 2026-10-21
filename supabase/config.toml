@@ -10,3 +10,7 @@ verify_jwt = false
 
 [functions.cashfree-webhook]
 verify_jwt = false
+
+# Public delivery estimate endpoint; handler validates origin, rate limits, and inputs.
+[functions.delhivery-estimate]
+verify_jwt = false
