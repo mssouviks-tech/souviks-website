@@ -50,7 +50,7 @@ assert.match(client, /result\.innerHTML/);
 assert.match(cartClient, /checkout-pincode/);
 assert.match(cartClient, /souviks_purchase_cart_v1/);
 assert.match(cartClient, /approx_weight_g/);
-assert.match(cartClient, /payment_mode/);
+assert.match(cartClient, /chargeable_weight_g/);
 assert.match(catalogueBuilder, /def approximate_weight_grams\(p\)/);
 assert.match(catalogueBuilder, /"approx_weight_g": approximate_weight_grams\(p\)/);
 assert.match(catalogueBuilder, /"mrp", "selling_price", "approx_weight_g"/);
