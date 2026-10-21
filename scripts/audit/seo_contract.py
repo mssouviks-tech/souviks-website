@@ -412,7 +412,7 @@ def main() -> int:
         }
         args.report_file.parent.mkdir(parents=True, exist_ok=True)
         args.report_file.write_text(
-            json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\\n",
+            json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
         )
         print(f"SEO review report written to {args.report_file}")
