@@ -151,12 +151,12 @@ Deno.serve(async (req: Request) => {
   try {
     const input = await req.json();
     const destinationPin = String(input?.destination_pin ?? "").trim();
-    const paymentMode = String(input?.payment_mode ?? "Pre-paid").trim();
-    const billingMode = String(input?.billing_mode ?? "E").trim().toUpperCase();
+    // Customer-facing estimates deliberately use COD + Express by default.
+    // Customers provide only their delivery PIN; weight comes from catalogue data.
+    const paymentMode = "COD";
+    const billingMode = "E";
     const weightGrams = Number(input?.chargeable_weight_g);
     if (!/^\d{6}$/.test(destinationPin)) throw new EstimateError("invalid_destination_pin", 400);
-    if (!["Pre-paid", "COD"].includes(paymentMode)) throw new EstimateError("invalid_payment_mode", 400);
-    if (!["E", "S"].includes(billingMode)) throw new EstimateError("invalid_billing_mode", 400);
     if (!Number.isInteger(weightGrams) || weightGrams < 1 || weightGrams > MAX_WEIGHT_GRAMS) {
       throw new EstimateError("invalid_chargeable_weight", 400);
     }
@@ -260,8 +260,6 @@ Deno.serve(async (req: Request) => {
     if (!(error instanceof EstimateError)) console.error("[Delhivery estimate] Unexpected error");
     const messages: Record<string, string> = {
       invalid_destination_pin: "Enter a valid 6-digit destination PIN code.",
-      invalid_payment_mode: "Choose a supported payment mode.",
-      invalid_billing_mode: "Choose Express or Surface service.",
       invalid_chargeable_weight: "Enter a chargeable weight between 1 and 200,000 grams.",
       rate_limit_unavailable: "The delivery estimator is temporarily unavailable. Please try again shortly.",
       rate_limited: "Too many estimates have been requested. Please wait a few minutes and try again.",
