@@ -6,13 +6,13 @@ import re
 # A few trailing suffixes distinguish otherwise identical commercial-vehicle
 # parts. Keep these when fitting a title into the site's 70-character cap.
 DISTINGUISHING_SUFFIX_RE = re.compile(
-    r"(?P<suffix>\\s+(?:"
-    r"P\\d+\\s+(?:LH|RH)|"
-    r"HYWA\\s+(?:LH|RH)|"
-    r"TYPE\\s+[A-Z0-9]+|"
+    r"(?P<suffix>\s+(?:"
+    r"P\d+\s+(?:LH|RH)|"
+    r"HYWA\s+(?:LH|RH)|"
+    r"TYPE\s+[A-Z0-9]+|"
     r"AUX-[A-Z0-9]+|"
     r"(?:LH|RH|LHS|RHS|L/H|R/H|LEFT(?:-HAND)?|RIGHT(?:-HAND)?|N/S|O/S)"
-    r")\\s*[.)]?)$",
+    r")\s*[.)]?)$",
     flags=re.IGNORECASE,
 )
 
@@ -25,7 +25,7 @@ def shorten_product_name_for_title(name: str, max_length: int) -> str:
     the descriptive stem. This prevents side/variant-specific product pages
     from receiving identical titles simply because the suffix was truncated.
     """
-    value = re.sub(r"\\s+", " ", str(name or "")).strip()
+    value = re.sub(r"\s+", " ", str(name or "")).strip()
     limit = max(0, int(max_length))
     if len(value) <= limit:
         return value
