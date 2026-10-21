@@ -6,7 +6,7 @@ from __future__ import annotations
 import json
 import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from html import unescape
 from pathlib import Path
 from urllib.parse import urlparse
@@ -110,6 +110,26 @@ def duplicate_title_groups(
             collisions.append((language, pages[0][0], labels))
 
     return sorted(collisions, key=lambda entry: (entry[0], entry[1].casefold()))
+
+
+def warning_category(warning: str) -> str:
+    """Classify SEO review warnings so the log exposes actionable totals."""
+    if warning.startswith("duplicate page title "):
+        return "duplicate page title"
+    if warning.startswith("duplicate product meta description "):
+        return "duplicate product meta description"
+    if "meta description length " in warning:
+        return "meta description length"
+    if "title length " in warning and "review range" in warning:
+        return "title length"
+    if "product description contains known generic boilerplate" in warning:
+        return "boilerplate product description"
+    return "other"
+
+
+def warning_breakdown(warnings: list[str]) -> dict[str, int]:
+    """Return stable, sorted counts for the SEO warning categories."""
+    return dict(sorted(Counter(warning_category(warning) for warning in warnings).items()))
 
 
 def main() -> int:
@@ -290,10 +310,18 @@ def main() -> int:
     )
     if warnings:
         print(f"SEO review warnings: {len(warnings)}")
-        for warning in warnings[:100]:
+        print(
+            "SEO warning breakdown: "
+            + json.dumps(warning_breakdown(warnings), ensure_ascii=False, sort_keys=True)
+        )
+        # SEO warnings are non-blocking review findings, so expose all current
+        # rows in the Actions log while the catalogue is in a manageable state.
+        # Keep a hard cap as a safeguard against unexpectedly huge audit output.
+        report_limit = 500
+        for warning in warnings[:report_limit]:
             print(f"[WARN] {warning}")
-        if len(warnings) > 100:
-            print(f"... and {len(warnings) - 100} additional warnings")
+        if len(warnings) > report_limit:
+            print(f"... and {len(warnings) - report_limit} additional warnings")
     if errors:
         print(f"SEO contract FAILED: {len(errors)} issue(s)")
         for error in errors[:300]:
