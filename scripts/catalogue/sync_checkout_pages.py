@@ -157,6 +157,28 @@ CART_TEMPLATE = """<!doctype html>
     </div>
   </main>
   <footer class="site-footer"><div class="container"><p>© Souviks · <a href="/__LANG__/terms">Terms &amp; Conditions</a> · <a href="/__LANG__/privacy-policy">Privacy Policy</a> · <a href="/__LANG__/refund">Refund Policy</a></p></div></footer>
+  <script>
+    window.souviks = {
+      siteName: "Souviks",
+      siteUrl: "https://www.souviks.co.in",
+      currentPage: "__CONFIG_PAGE__",
+      currentPageType: "",
+      currentPageUrl: "/__LANG__/cart",
+      breadcrumbRoot: false,
+      currentLanguage: "__LANG__",
+      translations: {
+        buttons: { add_to_rfq: "Add To RFQ" },
+        navigation: { home: "Home", products: "Products", brands: "Brands", vehicles: "Vehicles", categories: "Categories" }
+      },
+      api: {
+        products: "/assets/data/products.json",
+        brands: "/assets/data/brands.json",
+        categories: "/assets/data/categories.json",
+        vehicles: "/assets/data/vehicles.json",
+        search: "/assets/data/search.json"
+      }
+    };
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
   <script defer src="/assets/js/site-core.js"></script>
@@ -199,6 +221,28 @@ STATUS_TEMPLATE = """<!doctype html>
     </section>
   </main>
   <footer class="site-footer"><div class="container"><p>© Souviks · <a href="/__LANG__/terms">Terms &amp; Conditions</a> · <a href="/__LANG__/privacy-policy">Privacy Policy</a> · <a href="/__LANG__/refund">Refund Policy</a></p></div></footer>
+  <script>
+    window.souviks = {
+      siteName: "Souviks",
+      siteUrl: "https://www.souviks.co.in",
+      currentPage: "__CONFIG_PAGE__",
+      currentPageType: "",
+      currentPageUrl: "/__LANG__/payment-status",
+      breadcrumbRoot: false,
+      currentLanguage: "__LANG__",
+      translations: {
+        buttons: { add_to_rfq: "Add To RFQ" },
+        navigation: { home: "Home", products: "Products", brands: "Brands", vehicles: "Vehicles", categories: "Categories" }
+      },
+      api: {
+        products: "/assets/data/products.json",
+        brands: "/assets/data/brands.json",
+        categories: "/assets/data/categories.json",
+        vehicles: "/assets/data/vehicles.json",
+        search: "/assets/data/search.json"
+      }
+    };
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script defer src="/assets/js/site-core.js"></script><script defer src="/assets/js/attribution.js"></script><script defer src="/assets/js/cart/cart.js"></script>
 </body>
 </html>
@@ -217,6 +261,7 @@ def main() -> int:
         labels = TEXT[lang]
         values = {
             "cart_title": labels["cart_title"],
+            "config_page": labels["cart_heading"],
             "description": labels["description"],
             "breadcrumb": labels["breadcrumb"],
             "heading": labels["cart_heading"],
@@ -261,6 +306,7 @@ def main() -> int:
             (ROOT / lang / "cart.html", render(CART_TEMPLATE, lang, values)),
             (ROOT / lang / "payment-status.html", render(STATUS_TEMPLATE, lang, {
                 "status_title": labels["status_title"],
+                "config_page": labels["status_title"],
                 "status_label": labels["status_label"],
                 "status_loading": labels["status_loading"],
                 "order_ref": labels["order_ref"],
