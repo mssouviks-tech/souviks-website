@@ -311,7 +311,7 @@ export async function enforceCheckoutRateLimit(req: Request, config: CashfreeRun
 export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Record<string, unknown>> {
   const config = cashfreeConfig();
   const rows = await supabaseRest("orders", "GET", {
-    select: "id,order_number,gateway_order_id,currency,total_amount,payment_status,order_status",
+    select: "id,order_number,gateway_order_id,currency,total_amount,payment_status,order_status,payment_failure_reason,payment_failure_code",
     gateway_order_id: "eq." + gatewayOrderId,
     limit: "1",
   });
@@ -330,30 +330,47 @@ export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Re
   }
 
   let payments: any[] = [];
+  let paymentsFetched = false;
   try {
     const paymentResponse = await cashfreeRequest(config, "/orders/" + encodeURIComponent(gatewayOrderId) + "/payments");
-    if (Array.isArray(paymentResponse)) payments = paymentResponse;
-    else if (Array.isArray(paymentResponse?.data)) payments = paymentResponse.data;
+    if (Array.isArray(paymentResponse)) {
+      payments = paymentResponse;
+      paymentsFetched = true;
+    } else if (Array.isArray(paymentResponse?.data)) {
+      payments = paymentResponse.data;
+      paymentsFetched = true;
+    }
   } catch {
-    // A delayed payment record is treated as pending, never as success.
+    // A failed payment-history lookup must not be treated as a failed payment.
+    // Keep the last verified status until Cashfree can be queried successfully.
   }
+  const paymentStatus = (payment: any) => String(payment?.payment_status || "").toUpperCase();
   const successful = payments.find((payment) => {
-    const statusMatches = String(payment?.payment_status || "").toUpperCase() === "SUCCESS";
+    const statusMatches = paymentStatus(payment) === "SUCCESS";
     const amount = Number(payment?.payment_amount);
     const paymentCurrency = String(payment?.payment_currency || providerCurrency);
     return statusMatches && Number.isFinite(amount) &&
       Math.round(amount * 100) === Math.round(expectedAmount * 100) &&
       paymentCurrency === order.currency;
   });
+  const hasSuccessfulAttempt = payments.some((payment) => paymentStatus(payment) === "SUCCESS");
+  const hasPendingAttempt = payments.some((payment) => paymentStatus(payment) === "PENDING");
+  const terminalFailureStatuses = new Set(["FAILED", "USER_DROPPED", "CANCELLED", "EXPIRED"]);
+  const terminalFailures = payments.filter((payment) => terminalFailureStatuses.has(paymentStatus(payment)));
+  const allTerminalFailures = paymentsFetched && payments.length > 0 &&
+    !hasSuccessfulAttempt && !hasPendingAttempt && terminalFailures.length === payments.length;
 
   const now = new Date().toISOString();
-  if (String(providerOrder?.order_status || "").toUpperCase() === "PAID" && successful) {
+  const providerStatus = String(providerOrder?.order_status || "ACTIVE").toUpperCase();
+  if (providerStatus === "PAID" && successful) {
     const paymentId = String(successful.cf_payment_id || "");
     const patch = {
       payment_status: "paid",
       order_status: order.order_status === "awaiting_payment" ? "processing" : order.order_status,
       cashfree_order_status: "PAID",
       cf_payment_id: paymentId || null,
+      payment_failure_code: null,
+      payment_failure_reason: null,
       paid_at: order.payment_status === "paid" ? undefined : now,
       updated_at: now,
     };
@@ -375,24 +392,91 @@ export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Re
     return { order_number: order.order_number, payment_status: "paid", order_status: patch.order_status, amount: expectedAmount, currency: order.currency };
   }
 
-  const providerStatus = String(providerOrder?.order_status || "ACTIVE").toUpperCase();
   if (["EXPIRED", "CANCELLED"].includes(providerStatus) && order.payment_status !== "paid") {
+    const terminalPaymentStatus = providerStatus === "CANCELLED" ? "cancelled" : "failed";
     await supabaseRest("orders", "PATCH", { gateway_order_id: "eq." + gatewayOrderId }, {
-      payment_status: providerStatus === "CANCELLED" ? "cancelled" : "failed",
+      payment_status: terminalPaymentStatus,
       order_status: "cancelled",
       cashfree_order_status: providerStatus,
       updated_at: now,
     }, "return=minimal");
-    return { order_number: order.order_number, payment_status: providerStatus === "CANCELLED" ? "cancelled" : "failed", order_status: "cancelled", amount: expectedAmount, currency: order.currency };
+    return { order_number: order.order_number, payment_status: terminalPaymentStatus, order_status: "cancelled", amount: expectedAmount, currency: order.currency };
+  }
+
+  if (order.payment_status !== "paid" && allTerminalFailures) {
+    const latestFailure = [...terminalFailures].sort((a, b) => {
+      const time = (payment: any) => Date.parse(String(payment?.payment_completion_time || payment?.payment_time || payment?.created_at || "")) || 0;
+      return time(b) - time(a);
+    })[0] || terminalFailures[terminalFailures.length - 1];
+    const rawReason = latestFailure?.error_details?.error_description ||
+      latestFailure?.payment_message ||
+      latestFailure?.error_details?.error_reason ||
+      "Payment was declined or could not be completed.";
+    const failureReason = String(rawReason).replace(/\\s+/g, " ").trim().slice(0, 500);
+    const failureCode = String(latestFailure?.error_details?.error_code || paymentStatus(latestFailure) || "PAYMENT_FAILED").slice(0, 100);
+    const failedPaymentId = String(latestFailure?.cf_payment_id || "");
+    const failedPaymentAmount = Number(latestFailure?.payment_amount);
+    const failedPaymentCurrency = String(latestFailure?.payment_currency || providerCurrency);
+    await supabaseRest("orders", "PATCH", { gateway_order_id: "eq." + gatewayOrderId }, {
+      payment_status: "failed",
+      payment_failure_code: failureCode,
+      payment_failure_reason: failureReason,
+      cashfree_order_status: providerStatus,
+      updated_at: now,
+    }, "return=minimal");
+    if (failedPaymentId && Number.isFinite(failedPaymentAmount) && failedPaymentAmount >= 0 && failedPaymentCurrency === order.currency) {
+      try {
+        await supabaseRest("cashfree_payment_events", "POST", {}, {
+          gateway_order_id: gatewayOrderId,
+          cf_payment_id: failedPaymentId,
+          payment_status: paymentStatus(latestFailure),
+          payment_amount: failedPaymentAmount,
+          payment_currency: failedPaymentCurrency,
+          event_source: "provider_reconciliation",
+        }, "resolution=ignore-duplicates,return=minimal");
+      } catch {
+        // Failure status remains reconciled from Cashfree even if event recording races a webhook.
+      }
+    }
+    return {
+      order_number: order.order_number,
+      payment_status: "failed",
+      order_status: order.order_status,
+      amount: expectedAmount,
+      currency: order.currency,
+      payment_failure_code: failureCode,
+      payment_failure_reason: failureReason,
+    };
+  }
+
+  // A still-pending attempt takes precedence over a previous failed attempt.
+  // Never demote a verified paid order.
+  if (order.payment_status !== "paid" && paymentsFetched && (hasPendingAttempt || hasSuccessfulAttempt)) {
+    await supabaseRest("orders", "PATCH", { gateway_order_id: "eq." + gatewayOrderId }, {
+      payment_status: "pending",
+      payment_failure_code: null,
+      payment_failure_reason: null,
+      cashfree_order_status: providerStatus,
+      updated_at: now,
+    }, "return=minimal");
+    return { order_number: order.order_number, payment_status: "pending", order_status: order.order_status, amount: expectedAmount, currency: order.currency };
   }
 
   await supabaseRest("orders", "PATCH", { gateway_order_id: "eq." + gatewayOrderId }, {
     cashfree_order_status: providerStatus,
     updated_at: now,
   }, "return=minimal");
-  return { order_number: order.order_number, payment_status: order.payment_status === "paid" ? "paid" : "pending", order_status: order.order_status, amount: expectedAmount, currency: order.currency };
+  const currentStatus = String(order.payment_status || "pending");
+  return {
+    order_number: order.order_number,
+    payment_status: currentStatus,
+    order_status: order.order_status,
+    amount: expectedAmount,
+    currency: order.currency,
+    ...(order.payment_failure_reason ? { payment_failure_reason: order.payment_failure_reason } : {}),
+    ...(order.payment_failure_code ? { payment_failure_code: order.payment_failure_code } : {}),
+  };
 }
-
 export async function verifyCashfreeWebhookSignature(
   signature: string,
   timestamp: string,
