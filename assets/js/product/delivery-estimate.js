@@ -141,7 +141,7 @@
                 <button class="btn btn-primary" id="delhivery-estimator-submit" type="submit">${escapeHtml(T.button)}</button>
                 <div id="delhivery-estimator-result" class="delhivery-estimator-result" role="status" aria-live="polite" hidden></div>
             </form>`;
-        productRoot.appendChild(panel);
+        (productRoot.querySelector('.container') || productRoot).appendChild(panel);
 
         const form = panel.querySelector("#delhivery-estimator-form");
         const button = panel.querySelector("#delhivery-estimator-submit");
@@ -169,10 +169,10 @@
             result.hidden = false;
             result.textContent = T.checking;
             try {
-                if (!window.supabaseClient?.functions?.invoke) {
+                if (!(typeof supabaseClient !== 'undefined') && supabaseClient?.functions?.invoke) {
                     throw new Error("client_unavailable");
                 }
-                const { data, error } = await window.supabaseClient.functions.invoke("delhivery-estimate", {
+                const { data, error } = await supabaseClient.functions.invoke("delhivery-estimate", {
                     body: {
                         destination_pin: pin,
                         chargeable_weight_g: grams,
