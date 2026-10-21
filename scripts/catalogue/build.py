@@ -1748,7 +1748,7 @@ def sync_static_product_taxonomy_and_recommendations():
             subcategory_name = clean(subcategory.get("name"))
             subcategory_row = re.compile(
                 r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
-                r'<strong>\s*(?:Sub\s*Category|उपश्रेणी|उप श्रेणी|উप-श्रेणी|উपबिभाग|উप-विभाग|উপবিভাগ|উপ-বিভাগ|উপশ্রেণি|উপ-শ্রেণি)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)',
+                r'<strong>\s*(?:Sub\s*Category|Subcategory|उप[-\s]?श्रेणी|उप[-\s]?विभाग|উপ[-\s]?বিভাগ|উপ[-\s]?শ্রেণি|उপबिभाग|उপश्रेणी)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)',
                 flags=re.I | re.S,
             )
             page_html, _ = subcategory_row.subn(
