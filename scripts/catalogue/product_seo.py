@@ -10,6 +10,7 @@ import re
 from typing import Any
 
 MAX_META_DESCRIPTION = 158
+MIN_META_DESCRIPTION = 70
 
 BOILERPLATE_PATTERNS = (
     r"supports the mechanical linkage or assembly identified by the product name",
@@ -22,9 +23,9 @@ SPACE_RE = re.compile(r"\s+")
 SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9])")
 
 META_SUFFIXES = {
-    "en": "Check fitment, price and availability at Souviks.",
-    "hi": "Souviks पर फिटमेंट, कीमत और उपलब्धता पूछें।",
-    "bn": "Souviks-এ ফিটমেন্ট, মূল্য ও উপলভ্যতা জেনে নিন।",
+    "en": "Check part fitment, current price and availability with Souviks.",
+    "hi": "Souviks से सही पार्ट फिटमेंट, वर्तमान कीमत और उपलब्धता की पुष्टि करें।",
+    "bn": "Souviks-এ সঠিক পার্ট ফিটমেন্ট, বর্তমান মূল্য ও উপলভ্যতা যাচাই করুন।",
 }
 
 AVAILABILITY_MAP = {
@@ -174,24 +175,38 @@ def build_product_meta_description(
     language: str = "en",
     max_length: int = MAX_META_DESCRIPTION,
 ) -> str:
-    """Build a concise page-specific snippet, preserving meaning and word boundaries."""
-    limit = max(80, min(int(max_length), MAX_META_DESCRIPTION))
+    """Build a factual, useful page-specific search snippet from 70 to 158 chars."""
+    limit = max(MIN_META_DESCRIPTION, min(int(max_length), MAX_META_DESCRIPTION))
     suffix = META_SUFFIXES.get(str(language or "en").lower(), META_SUFFIXES["en"])
     detail = build_product_schema_description(product)
     identity = product_identity(product)
     part = product_part_number(product)
 
-    if identity and identity.casefold() not in detail.casefold():
-        detail = f"{identity}. {detail}"
-    if part and part.casefold() not in detail.casefold() and len(detail) < 105:
-        detail = detail.rstrip(" .") + f". Part No. {part}."
+    # Put the buyer-searchable product identifier early. This also makes
+    # otherwise similar listings more distinguishable when an MPN is known.
+    identity_lead = identity
+    if part and part.casefold() not in identity_lead.casefold():
+        identity_lead = f"{identity_lead} (Part No. {part})" if identity_lead else f"Part No. {part}"
+
+    detail_lower = detail.casefold()
+    if identity and detail_lower.startswith(identity.casefold()):
+        detail = identity_lead + detail[len(identity):]
+    elif identity and identity.casefold() not in detail_lower:
+        detail = f"{identity_lead}. {detail}".strip()
+    elif part and part.casefold() not in detail_lower:
+        detail = f"{identity_lead}. {detail}".strip()
+    elif not identity and part and part.casefold() not in detail_lower:
+        detail = f"Part No. {part}. {detail}".strip()
 
     sentences = _first_sentences(detail)
     if not sentences:
-        detail = identity or clean_text(product.get("category_name") or product.get("category")) or "Commercial-vehicle spare parts from Souviks."
+        detail = (
+            identity_lead
+            or clean_text(product.get("category_name") or product.get("category"))
+            or "Commercial-vehicle spare parts from Souviks."
+        )
         sentences = [detail]
 
-    # Prefer a complete sentence plus the call to action when it fits.
     suffix_budget = limit - len(suffix) - 1
     chosen: list[str] = []
     for sentence in sentences:
@@ -200,29 +215,48 @@ def build_product_meta_description(
             chosen.append(sentence)
         else:
             break
+
     if chosen:
         candidate = " ".join(chosen) + " " + suffix
-        if len(candidate) <= limit:
+        if MIN_META_DESCRIPTION <= len(candidate) <= limit:
             return candidate
 
-    # If the first sentence is too long to fit with the CTA, truncate that
-    # first sentence at a word boundary. Do not fall through to a much shorter
-    # later sentence (often just a vehicle note), which would create a weak
-    # 30-40 character meta description and hide the product identity.
-    first_sentence = sentences[0]
-    if len(first_sentence) > suffix_budget:
-        lead = _truncate_word_boundary(first_sentence, suffix_budget)
-        candidate = lead + " " + suffix
-        if len(candidate) <= limit:
-            return candidate
+    # A short first sentence can fit beside the CTA yet still produce a weak
+    # sub-70-character snippet. Use more of the catalogue description up to
+    # the snippet budget instead of dropping product context.
+    lead = _truncate_word_boundary(detail, suffix_budget)
+    candidate = lead.rstrip(" .") + " " + suffix
+    if MIN_META_DESCRIPTION <= len(candidate) <= limit:
+        return candidate
 
-    # If the factual sentence is short enough to stand alone, preserve it
-    # rather than dropping meaning simply to force the CTA.
-    for sentence in sentences:
-        if len(sentence) <= limit:
-            return sentence
-
-    return _truncate_word_boundary(first_sentence, limit)
+    # Conservative last resort for sparse records: include a catalogue identity
+    # and a relevant product-range descriptor before the localized CTA.
+    category = clean_text(
+        product.get("subcategory_name")
+        or product.get("subcategory")
+        or product.get("category_name")
+        or product.get("category")
+    )
+    applications = values(product.get("applications"))
+    extra_parts = []
+    if category and category.casefold() not in identity_lead.casefold():
+        extra_parts.append(category)
+    if applications:
+        extra_parts.append(", ".join(applications[:2]))
+    expanded = " ".join(part for part in [identity_lead, *extra_parts] if part).strip()
+    if not expanded:
+        expanded = "Commercial-vehicle spare parts"
+    expanded = _truncate_word_boundary(expanded, suffix_budget)
+    candidate = expanded.rstrip(" .") + " " + suffix
+    if len(candidate) < MIN_META_DESCRIPTION:
+        # Keep the call-to-action language factual and never imply stock status.
+        fallback = _truncate_word_boundary(
+            (identity_lead + ". " if identity_lead else "")
+            + "Commercial-vehicle spare parts. ",
+            max(1, suffix_budget),
+        ).rstrip(" .")
+        candidate = fallback + " " + suffix
+    return _truncate_word_boundary(candidate, limit)
 
 
 def schema_availability_url(product: dict[str, Any]) -> str | None:
