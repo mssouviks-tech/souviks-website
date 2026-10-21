@@ -61,26 +61,33 @@ async function enforceRateLimit(req: Request): Promise<void> {
   if (!base || !key) throw new EstimateError("rate_limit_unavailable", 503);
   const ip = (req.headers.get("cf-connecting-ip") ||
     req.headers.get("x-forwarded-for")?.split(",")[0] || "unknown").trim().slice(0, 100);
-  const keyHash = await digest(ip + "|" + key);
   const requestHeaders: Record<string, string> = {
     "apikey": key,
     "Content-Type": "application/json",
     "Accept": "application/json",
   };
   if (!key.startsWith("sb_secret_")) requestHeaders.Authorization = "Bearer " + key;
-  let response: Response;
-  try {
-    response = await fetch(base + "/rest/v1/rpc/cashfree_checkout_rate_limit", {
-      method: "POST",
-      headers: requestHeaders,
-      body: JSON.stringify({ p_key_hash: keyHash, p_limit: 8, p_window_seconds: 600 }),
-      signal: AbortSignal.timeout(5000),
-    });
-  } catch {
-    throw new EstimateError("rate_limit_unavailable", 503);
+
+  async function claim(keyHash: string, limit: number, windowSeconds: number): Promise<void> {
+    let response: Response;
+    try {
+      response = await fetch(base + "/rest/v1/rpc/cashfree_checkout_rate_limit", {
+        method: "POST",
+        headers: requestHeaders,
+        body: JSON.stringify({ p_key_hash: keyHash, p_limit: limit, p_window_seconds: windowSeconds }),
+        signal: AbortSignal.timeout(5000),
+      });
+    } catch {
+      throw new EstimateError("rate_limit_unavailable", 503);
+    }
+    if (!response.ok) throw new EstimateError("rate_limit_unavailable", 503);
+    if (await response.json() !== true) throw new EstimateError("rate_limited", 429);
   }
-  if (!response.ok) throw new EstimateError("rate_limit_unavailable", 503);
-  if (await response.json() !== true) throw new EstimateError("rate_limited", 429);
+
+  // A site-wide ceiling prevents rotating IPs from exhausting Delhivery's
+  // approximate freight endpoint (documented maximum: 40 charge requests/min).
+  await claim(await digest("delhivery-global|" + key), 20, 60);
+  await claim(await digest("delhivery-ip|" + ip + "|" + key), 8, 600);
 }
 
 async function providerGet(url: URL, authorization: string): Promise<any> {
