@@ -9,6 +9,8 @@ DISTINGUISHING_SUFFIX_RE = re.compile(
     r"(?P<suffix>\s+(?:"
     r"P\d+\s+(?:LH|RH)|"
     r"HYWA\s+(?:LH|RH)|"
+    r"(?:[A-Z][A-Z-]*\s+){1,2}TYPE\s+[A-Z0-9]+|"
+    r"(?:MAIN|AUX)\s+LEAF\s+AUX-[A-Z0-9]+|"
     r"TYPE\s+[A-Z0-9]+|"
     r"AUX-[A-Z0-9]+|"
     r"(?:LH|RH|LHS|RHS|L/H|R/H|LEFT(?:-HAND)?|RIGHT(?:-HAND)?|N/S|O/S)"
