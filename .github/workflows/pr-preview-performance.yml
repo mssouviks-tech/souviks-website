@@ -9,6 +9,8 @@ on:
       - "**/*.html"
       - ".github/workflows/pr-preview-performance.yml"
       - ".lighthouserc.json"
+      - "scripts/audit/optimize_static_images.py"
+      - "scripts/js/**"
 
 permissions:
   contents: read
