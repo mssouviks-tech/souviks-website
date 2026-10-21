@@ -169,7 +169,7 @@
             result.hidden = false;
             result.textContent = T.checking;
             try {
-                if (!(typeof supabaseClient !== 'undefined') && supabaseClient?.functions?.invoke) {
+                if (typeof supabaseClient === "undefined" || !supabaseClient?.functions?.invoke) {
                     throw new Error("client_unavailable");
                 }
                 const { data, error } = await supabaseClient.functions.invoke("delhivery-estimate", {
