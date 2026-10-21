@@ -108,7 +108,7 @@ function findNumber(value: any, wanted: string[], depth = 0): number | null {
   if (!value || typeof value !== "object" || depth > 5) return null;
   for (const key of wanted) {
     const candidate = value[key];
-    if (candidate !== null && candidate !== undefined && candidate !== "" && Number.isFinite(Number(candidate))) {
+    if ((typeof candidate === "number" || (typeof candidate === "string" && candidate.trim() !== "")) && Number.isFinite(Number(candidate))) {
       return Number(candidate);
     }
   }
