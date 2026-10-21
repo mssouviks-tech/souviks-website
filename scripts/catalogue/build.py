@@ -1090,6 +1090,7 @@ def reconcile_catalogue_projections():
             data["category"] = data["category_name"]
             data["part_number"] = part
             data["partNumber"] = part
+            data["approx_weight_g"] = approximate_weight_grams(product)
             data["updated_at"] = text(
                 product.get("updated_at")
                 or product.get("catalogue_updated_at")
