@@ -18,6 +18,7 @@ LABELS = {
         "links": (
             ("home", "Home", ""),
             ("products", "Products", "products"),
+            ("cart", "Shopping Cart", "cart"),
             ("brands", "Brands", "brands"),
             ("vehicles", "Vehicles", "vehicles"),
             ("categories", "Categories", "categories"),
@@ -36,6 +37,7 @@ LABELS = {
         "links": (
             ("home", "होम", ""),
             ("products", "उत्पाद", "products"),
+            ("cart", "कार्ट", "cart"),
             ("brands", "ब्रांड", "brands"),
             ("vehicles", "वाहन", "vehicles"),
             ("categories", "श्रेणियाँ", "categories"),
@@ -54,6 +56,7 @@ LABELS = {
         "links": (
             ("home", "হোম", ""),
             ("products", "পণ্যসমূহ", "products"),
+            ("cart", "কার্ট", "cart"),
             ("brands", "ব্র্যান্ডসমূহ", "brands"),
             ("vehicles", "যানবাহন", "vehicles"),
             ("categories", "বিভাগসমূহ", "categories"),
@@ -73,7 +76,7 @@ def _section_for_path(path: str) -> str:
     if len(parts) == 1 and parts[0] in LANGUAGES:
         return "home"
     if len(parts) >= 2 and parts[0] in LANGUAGES:
-        return parts[1] if parts[1] in {"products", "brands", "vehicles", "categories", "about", "business-buyers", "contact"} else ""
+        return parts[1] if parts[1] in {"products", "cart", "brands", "vehicles", "categories", "about", "business-buyers", "contact"} else ""
     return ""
 
 
