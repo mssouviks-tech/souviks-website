@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "audit"))
 
-from seo_contract import duplicate_product_meta_groups, duplicate_title_groups, warning_breakdown  # noqa: E402
+from seo_contract import duplicate_product_meta_groups, duplicate_title_groups, embedded_product_record, warning_breakdown  # noqa: E402
 
 
 class DuplicateTitleAuditTests(unittest.TestCase):
@@ -65,6 +65,28 @@ class DuplicateTitleAuditTests(unittest.TestCase):
                 "JAI - 0181N - Tata 1210D Front Leaf Spring | Souviks",
                 ["en/products/front-spring-svks000612.html", "en/products/front-spring.html"],
             )],
+        )
+
+
+class EmbeddedProductRecordTests(unittest.TestCase):
+    def test_extracts_product_identity_from_generated_page_script(self) -> None:
+        raw = (
+            '<script>window.SOUVIKS_PRODUCT_PAGE_DATA = '
+            '{"id":"SVKS000596","brand_name":"JAI","part_number":"0181N"};'
+            '</script>'
+        )
+        record = embedded_product_record(raw)
+        self.assertEqual(record["id"], "SVKS000596")
+        self.assertEqual(record["brand_name"], "JAI")
+        self.assertEqual(record["part_number"], "0181N")
+
+    def test_missing_or_malformed_embedded_record_returns_empty_object(self) -> None:
+        self.assertEqual(embedded_product_record("<html></html>"), {})
+        self.assertEqual(
+            embedded_product_record(
+                "window.SOUVIKS_PRODUCT_PAGE_DATA = {not-json};"
+            ),
+            {},
         )
 
 
