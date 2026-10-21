@@ -105,19 +105,23 @@ export function jsonResponse(req: Request, payload: Record<string, unknown>, sta
 }
 
 export function getSupabaseServiceKey(): string {
-  const direct = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || Deno.env.get("SUPABASE_SECRET_KEY");
-  if (direct) return direct;
+  // Prefer Supabase's current secret-key dictionary. Legacy service_role JWTs
+  // remain supported as a fallback while the project finishes key migration.
   const keysRaw = Deno.env.get("SUPABASE_SECRET_KEYS");
   if (keysRaw) {
     try {
       const keys = JSON.parse(keysRaw) as Record<string, string>;
-      if (typeof keys.default === "string" && keys.default) return keys.default;
-      const first = Object.values(keys).find((value) => typeof value === "string" && value.length > 0);
-      if (first) return first;
+      if (typeof keys.default === "string" && keys.default.startsWith("sb_secret_")) return keys.default;
+      const firstSecret = Object.values(keys).find((value) => typeof value === "string" && value.startsWith("sb_secret_"));
+      if (firstSecret) return firstSecret;
     } catch {
-      // A malformed key map is treated as a missing secret.
+      // A malformed key map is treated as a missing secret; try the legacy key below.
     }
   }
+  const directSecret = Deno.env.get("SUPABASE_SECRET_KEY");
+  if (directSecret) return directSecret;
+  const legacy = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (legacy) return legacy;
   throw new CheckoutError("backend_not_configured", 503);
 }
 
@@ -140,9 +144,11 @@ export async function supabaseRest(
   for (const [name, value] of Object.entries(query)) url.searchParams.set(name, value);
   const headers: Record<string, string> = {
     "apikey": key,
-    "Authorization": "Bearer " + key,
     "Accept": "application/json",
   };
+  // New sb_secret_* keys are API keys, not JWTs: send them on apikey only.
+  // Legacy service_role values are JWTs and still need Authorization: Bearer.
+  if (!key.startsWith("sb_secret_")) headers["Authorization"] = "Bearer " + key;
   if (body !== undefined) headers["Content-Type"] = "application/json";
   if (prefer) headers["Prefer"] = prefer;
   const response = await fetch(url, {
