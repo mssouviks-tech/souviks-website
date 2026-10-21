@@ -58,7 +58,7 @@ assert.match(catalogueBuilder, /"mrp", "selling_price", "approx_weight_g"/);
 assert.match(css, /@media \(max-width: 520px\)/);
 assert.match(sync, /id="product-detail"/);
 assert.match(sync, /assets\/js\/product\/delivery-estimate\.js/);
-assert.match(sync, /assets\\/js\\/cart\\/delivery-estimate\\.js/);
+assert.match(sync, /assets\/js\/cart\/delivery-estimate\.js/);
 assert.match(sync, /purchase-cart-root/);
 assert.match(sync, /assets\/css\/delhivery-estimator\.css/);
 assert.match(config, /\[functions\.delhivery-estimate\]/);
