@@ -10,7 +10,7 @@ DISTINGUISHING_SUFFIX_RE = re.compile(
     r"\d+(?:\.\d+)?\s*mm\s+THICKNESS|"
     r"\d+(?:st|nd|rd|th)\s+(?:O/S|U/S)|"
     r"STANDARD|STD|"
-    r"P\d+\s+(?:LH|RH)|
+    r"P\d+\s+(?:LH|RH)|"
     r"HYWA\s+(?:LH|RH)|"
     r"(?:[A-Z][A-Z-]*\s+){1,2}TYPE\s+[A-Z0-9]+|"
     r"(?:MAIN|AUX)\s+LEAF\s+AUX-[A-Z0-9]+|"
