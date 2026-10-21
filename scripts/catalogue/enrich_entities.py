@@ -233,8 +233,8 @@ def update_page_title(page, title):
     """Keep the document title and social preview titles in sync."""
     escaped = html.escape(clean(title), quote=False)
     page, replacements = re.subn(
-        r"(<title\\b[^>]*>).*?(</title\\s*>)",
-        lambda match: match.group(1) + "\\n        " + escaped + "\\n    " + match.group(2),
+        r"(<title\b[^>]*>).*?(</title\s*>)",
+        lambda match: match.group(1) + "\n        " + escaped + "\n    " + match.group(2),
         page,
         count=1,
         flags=re.I | re.S,
@@ -242,8 +242,8 @@ def update_page_title(page, title):
     if replacements != 1:
         raise ValueError("Expected exactly one document <title> element on entity page.")
     for pattern in (
-        r'(<meta\\s+property=["\\']og:title["\\']\\s+content=["\\'])[^"\\']*(["\\'])',
-        r'(<meta\\s+name=["\\']twitter:title["\\']\\s+content=["\\'])[^"\\']*(["\\'])',
+        r"(<meta\s+property=["']og:title["']\s+content=["'])[^"']*(["'])",
+        r"(<meta\s+name=["']twitter:title["']\s+content=["'])[^"']*(["'])",
     ):
         page, count = re.subn(
             pattern,
