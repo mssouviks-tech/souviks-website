@@ -10,6 +10,7 @@ on:
       - "assets/data/products.json"
       - "assets/data/search.json"
       - "assets/images/products/**"
+      - "assets/images/hero/**"
       - "en/products/**"
       - "bn/products/**"
       - "hi/products/**"
