@@ -29,6 +29,7 @@ assert.match(shared, /CASHFREE_ENABLE_LIVE_CHECKOUT/);
 assert.match(shared, /CASHFREE_PRICES_INCLUDE_GST/);
 assert.match(shared, /CASHFREE_FREE_SHIPPING_THRESHOLD_INR/);
 assert.match(shared, /CASHFREE_SHIPPING_UNDER_THRESHOLD_INR/);
+assert.match(shared, /raw\.githubusercontent\.com\/mssouviks-tech\/souviks-website\/main\/assets\/data\/catalogue-index\.json/);
 assert.match(shared, /verifyCashfreeWebhookSignature/);
 assert.match(shared, /x-client-secret/);
 assert.match(shared, /cashfree_checkout_rate_limit/);
