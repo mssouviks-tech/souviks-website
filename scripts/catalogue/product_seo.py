@@ -170,6 +170,65 @@ def _truncate_word_boundary(text: str, limit: int) -> str:
     return fragment.rstrip(" .") + "…"
 
 
+def _meta_context_candidates(
+    product: dict[str, Any],
+    language: str,
+    existing_text: str,
+) -> list[str]:
+    """Build short, factual fitment/application qualifiers absent from the snippet."""
+    existing = clean_text(existing_text).casefold()
+    language = str(language or "en").lower()
+    labels = {
+        "en": {"vehicles": "For", "applications": "Application"},
+        "hi": {"vehicles": "वाहन अनुप्रयोग", "applications": "अनुप्रयोग"},
+        "bn": {"vehicles": "গাড়ির প্রয়োগ", "applications": "প্রয়োগ"},
+    }.get(language, {"vehicles": "For", "applications": "Application"})
+
+    contexts: list[str] = []
+    vehicle_values = values(product.get("vehicles"))
+    universal = any(value.casefold() == "universal" for value in vehicle_values)
+    vehicles = [
+        value for value in vehicle_values
+        if value.casefold() != "universal" and value.casefold() not in existing
+    ]
+    if vehicles:
+        for count in range(min(3, len(vehicles)), 0, -1):
+            listed = ", ".join(vehicles[:count])
+            if universal and "universal" not in existing:
+                contexts.append(f"Universal fitment; also for {listed}")
+            else:
+                contexts.append(f"{labels['vehicles']}: {listed}")
+    elif universal and "universal" not in existing:
+        contexts.append("Universal fitment")
+
+    applications = [
+        value for value in values(product.get("applications"))
+        if value.casefold() not in existing
+    ]
+    for count in range(min(2, len(applications)), 0, -1):
+        contexts.append(f"{labels['applications']}: {', '.join(applications[:count])}")
+    return contexts
+
+
+def _append_meta_context(
+    lead: str,
+    contexts: list[str],
+    suffix: str,
+    limit: int,
+) -> str | None:
+    """Append a factual qualifier while preserving punctuation and the length cap."""
+    base = clean_text(lead)
+    for context in contexts:
+        qualifier = clean_text(context).rstrip(".")
+        if not base or not qualifier:
+            continue
+        separator = " " if base.endswith("…") else ". "
+        candidate = base.rstrip(" .") + separator + qualifier + ". " + suffix
+        if MIN_META_DESCRIPTION <= len(candidate) <= limit:
+            return candidate
+    return None
+
+
 def build_product_meta_description(
     product: dict[str, Any],
     language: str = "en",
@@ -217,9 +276,30 @@ def build_product_meta_description(
             break
 
     if chosen:
-        candidate = " ".join(chosen) + " " + suffix
+        main = " ".join(chosen)
+        candidate = main + " " + suffix
         if MIN_META_DESCRIPTION <= len(candidate) <= limit:
-            return candidate
+            contextual = _append_meta_context(
+                main,
+                _meta_context_candidates(product, language, main),
+                suffix,
+                limit,
+            )
+            return contextual or candidate
+
+    # If the opening sentence is too long for the standard snippet budget,
+    # retain a shorter, word-boundary-safe lead and use the spare characters
+    # for recorded vehicle fitment/application details when those facts differ.
+    # This avoids losing the most useful qualifier simply because it appears
+    # after the long first sentence in the full product description.
+    for context in _meta_context_candidates(product, language, ""):
+        lead_budget = suffix_budget - len(context) - 2
+        if lead_budget < 24:
+            continue
+        lead = _truncate_word_boundary(detail, lead_budget)
+        contextual = _append_meta_context(lead, [context], suffix, limit)
+        if contextual:
+            return contextual
 
     # A short first sentence can fit beside the CTA yet still produce a weak
     # sub-70-character snippet. Use more of the catalogue description up to
