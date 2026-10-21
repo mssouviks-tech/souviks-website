@@ -1587,6 +1587,338 @@ def sync_static_product_images():
         print(f"Synchronized static product images in {len(changed)} HTML files.")
 
 
+def sync_static_product_taxonomy_and_recommendations():
+    """Reconcile PDP taxonomy breadcrumbs and recommendation cards from catalogue masters."""
+    import html as html_module
+    import json
+    import re
+
+    from product_card import product_card_html
+
+    catalogue = json.loads((ROOT / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
+    categories = json.loads((ROOT / "assets/data/categories.json").read_text(encoding="utf-8"))
+    active_products = [
+        item for item in catalogue
+        if isinstance(item, dict) and item.get("active") is not False and item.get("id")
+    ]
+    products_by_id = {str(item.get("id")): item for item in active_products}
+    categories_by_id = {
+        str(item.get("id") or "").strip(): item
+        for item in categories
+        if isinstance(item, dict) and item.get("active") is not False and item.get("id")
+    }
+
+    def clean(value):
+        return str(value or "").strip()
+
+    def arrayish(value):
+        if isinstance(value, list):
+            return [clean(item) for item in value if clean(item)]
+        return [item.strip() for item in re.split(r"[,;]", clean(value)) if item.strip()]
+
+    def tokens(value):
+        normalized = re.sub(
+            r"[^a-z0-9\u0900-\u097f\u0980-\u09ff]+",
+            " ",
+            clean(value).casefold(),
+        )
+        return {token for token in normalized.split() if len(token) >= 3}
+
+    def overlap(left_values, right_values):
+        left = set()
+        right = set()
+        for value in (left_values if isinstance(left_values, list) else [left_values]):
+            left.update(tokens(value))
+        for value in (right_values if isinstance(right_values, list) else [right_values]):
+            right.update(tokens(value))
+        return len(left & right)
+
+    def has_usable_media(item):
+        if not item or re.search(r"placeholder|coming soon|image unavailable", clean(item.get("product_name")), re.I):
+            return False
+        folder = clean(item.get("image_folder"))
+        gallery = [
+            clean(value) for value in item.get("gallery", [])
+            if clean(value)
+        ] if isinstance(item.get("gallery"), list) else []
+        primary = clean(item.get("primary_image"))
+        image_url = clean(item.get("image_url"))
+        if folder and (gallery or primary):
+            return True
+        return bool(image_url and "/assets/images/placeholder.webp" not in image_url)
+
+    def recommendation_score(product, candidate):
+        product_vehicles = [value.casefold() for value in arrayish(product.get("vehicles"))]
+        candidate_vehicles = [value.casefold() for value in arrayish(candidate.get("vehicles"))]
+        shared_vehicles = len(set(product_vehicles) & set(candidate_vehicles))
+        shared_applications = overlap(product.get("applications"), candidate.get("applications"))
+        name_overlap = overlap(
+            [product.get("product_name"), product.get("subcategory_name")],
+            [candidate.get("product_name"), candidate.get("subcategory_name")],
+        )
+        score = shared_vehicles * 40
+        score += min(shared_applications, 3) * 15
+        score += name_overlap * 4
+        if candidate.get("subcategory_id") == product.get("subcategory_id"):
+            score += 30
+        if candidate.get("category_id") == product.get("category_id"):
+            score += 10
+        if candidate.get("brand_id") == product.get("brand_id"):
+            score += 8
+        if candidate.get("featured") is True:
+            score += 2
+        return score, shared_vehicles, shared_applications
+
+    def recommendations(product):
+        current_vehicle_set = set(arrayish(product.get("vehicles")))
+        frequent_scored = []
+        for index, candidate in enumerate(active_products):
+            if candidate.get("id") == product.get("id") or not has_usable_media(candidate):
+                continue
+            candidate_vehicles = arrayish(candidate.get("vehicles"))
+            if not any(vehicle in current_vehicle_set for vehicle in candidate_vehicles):
+                continue
+            score, shared_vehicles, shared_applications = recommendation_score(product, candidate)
+            frequent_scored.append((
+                candidate, index, score, shared_vehicles, shared_applications
+            ))
+        frequent_scored.sort(key=lambda row: (
+            -row[2], -row[3], -row[4],
+            clean(row[0].get("product_name")).casefold(), row[1]
+        ))
+        frequent = [row[0] for row in frequent_scored[:6]]
+        frequent_ids = {clean(item.get("id")) for item in frequent}
+
+        related_scored = []
+        for index, candidate in enumerate(active_products):
+            if (
+                candidate.get("id") == product.get("id")
+                or clean(candidate.get("id")) in frequent_ids
+                or candidate.get("category_id") != product.get("category_id")
+                or not has_usable_media(candidate)
+            ):
+                continue
+            score, _, _ = recommendation_score(product, candidate)
+            same_subcategory_first = 0 if candidate.get("subcategory_id") == product.get("subcategory_id") else 1
+            related_scored.append((
+                candidate, index, score, same_subcategory_first
+            ))
+        related_scored.sort(key=lambda row: (
+            -row[2], row[3], clean(row[0].get("product_name")).casefold(), row[1]
+        ))
+        return frequent, [row[0] for row in related_scored[:6]]
+
+    def replace_div_contents(source, class_token, replacement):
+        opening = re.search(
+            r'<div\b(?=[^>]*\bclass=["\'][^"\']*\b'
+            + re.escape(class_token)
+            + r'\b[^"\']*["\'])[^>]*>',
+            source,
+            flags=re.I | re.S,
+        )
+        if not opening:
+            return source
+        depth = 1
+        tag_pattern = re.compile(r"</?div\b[^>]*>", flags=re.I | re.S)
+        for tag in tag_pattern.finditer(source, opening.end()):
+            if tag.group(0).lstrip().startswith("</"):
+                depth -= 1
+            else:
+                depth += 1
+            if depth == 0:
+                return source[:opening.end()] + replacement + source[tag.start():]
+        return source
+
+    def sync_visible_taxonomy(page_html, lang, category, subcategory):
+        category_name = clean(category.get("name"))
+        category_slug = clean(category.get("slug") or category.get("id"))
+        category_url = f"{BASE}/{lang}/categories/{category_slug}"
+        category_row = re.compile(
+            r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+            r'<strong>\s*(?:Category|श्रेणी|বিভাগ)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)',
+            flags=re.I | re.S,
+        )
+        page_html, _ = category_row.subn(
+            lambda match: match.group(1) + html_module.escape(category_name) + match.group(3),
+            page_html,
+            count=1,
+        )
+
+        if subcategory:
+            subcategory_name = clean(subcategory.get("name"))
+            subcategory_row = re.compile(
+                r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                r'<strong>\s*(?:Sub\s*Category|उपश्रेणी|उप श्रेणी|উপবিভাগ|উপশ্রেণি)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)',
+                flags=re.I | re.S,
+            )
+            page_html, _ = subcategory_row.subn(
+                lambda match: match.group(1) + html_module.escape(subcategory_name) + match.group(3),
+                page_html,
+                count=1,
+            )
+
+        category_crumb = (
+            '<li class="breadcrumb-item"><a href="'
+            + html_module.escape(category_url, quote=True)
+            + '">'
+            + html_module.escape(category_name)
+            + '</a></li>'
+        )
+        crumb_pattern = re.compile(
+            r'(<li\b[^>]*class=["\'][^"\']*\bbreadcrumb-item\b[^"\']*["\'][^>]*>)\s*'
+            r'<a\b(?=[^>]*href=["\'][^"\']*/categories/)[^>]*>.*?</a>\s*(</li>)',
+            flags=re.I | re.S,
+        )
+        page_html, crumb_count = crumb_pattern.subn(
+            lambda match: match.group(1) + category_crumb[len('<li class="breadcrumb-item">'):-5] + match.group(2),
+            page_html,
+            count=1,
+        )
+        if not crumb_count:
+            brand_crumb = re.search(
+                r'<li\b[^>]*class=["\'][^"\']*\bbreadcrumb-item\b[^"\']*["\'][^>]*>\s*'
+                r'<a\b(?=[^>]*href=["\'][^"\']*/brands/)[^>]*>.*?</a>\s*</li>',
+                page_html,
+                flags=re.I | re.S,
+            )
+            if brand_crumb:
+                page_html = page_html[:brand_crumb.start()] + category_crumb + page_html[brand_crumb.start():]
+        return page_html, category_url, category_name
+
+    changed_files = []
+    for lang in ("en", "hi", "bn"):
+        directory = ROOT / lang / "products"
+        if not directory.is_dir():
+            continue
+        for path in sorted(directory.glob("*.html")):
+            page_html = path.read_text(encoding="utf-8")
+            original = page_html
+            data_match = re.search(
+                r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                page_html,
+                flags=re.S,
+            )
+            if not data_match:
+                continue
+            try:
+                embedded = json.loads(data_match.group(1))
+            except json.JSONDecodeError:
+                continue
+            product = products_by_id.get(clean(embedded.get("id")))
+            if not product:
+                continue
+
+            category_id = clean(product.get("category_id"))
+            category = categories_by_id.get(category_id)
+            if not category:
+                continue
+            subcategory_id = clean(product.get("subcategory_id"))
+            subcategory = next(
+                (
+                    item for item in category.get("subcategories", [])
+                    if isinstance(item, dict) and clean(item.get("id")) == subcategory_id
+                ),
+                None,
+            )
+            category_name = clean(category.get("name"))
+            subcategory_name = clean(subcategory.get("name")) if subcategory else clean(product.get("subcategory_name"))
+
+            refreshed = dict(embedded)
+            refreshed["category_id"] = category_id
+            refreshed["category_name"] = category_name
+            refreshed["category"] = category_name
+            if subcategory:
+                refreshed["subcategory_id"] = subcategory_id
+                refreshed["subcategory_name"] = subcategory_name
+                refreshed["subcategory"] = subcategory_name
+            new_data = json.dumps(refreshed, ensure_ascii=False, separators=(",", ":"))
+            page_html = page_html[:data_match.start(1)] + new_data + page_html[data_match.end(1):]
+
+            page_html, category_url, category_name = sync_visible_taxonomy(
+                page_html, lang, category, subcategory
+            )
+
+            # Rebuild every BreadcrumbList from the authoritative category assignment.
+            breadcrumb_replacements = []
+            block_pattern = re.compile(
+                r'(<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)',
+                flags=re.I | re.S,
+            )
+            for match in block_pattern.finditer(page_html):
+                try:
+                    schema = json.loads(match.group(2).strip())
+                except json.JSONDecodeError:
+                    continue
+                graph = schema.get("@graph") if isinstance(schema, dict) else None
+                nodes = graph if isinstance(graph, list) else [schema]
+                schema_changed = False
+                for node in nodes:
+                    if not isinstance(node, dict) or node.get("@type") != "BreadcrumbList":
+                        continue
+                    items = node.get("itemListElement")
+                    if not isinstance(items, list):
+                        continue
+                    category_items = [
+                        item for item in items
+                        if isinstance(item, dict) and "/categories/" in clean(item.get("item"))
+                    ]
+                    if category_items:
+                        first = category_items[0]
+                        if first.get("name") != category_name or first.get("item") != category_url:
+                            first["name"] = category_name
+                            first["item"] = category_url
+                            schema_changed = True
+                        if len(category_items) > 1:
+                            items[:] = [item for item in items if item not in category_items[1:]]
+                            schema_changed = True
+                    else:
+                        insert_at = next(
+                            (
+                                index + 1 for index, item in enumerate(items)
+                                if isinstance(item, dict)
+                                and clean(item.get("name")).casefold() in {"products", "उत्पाद", "পণ্যসমূহ"}
+                            ),
+                            1 if items else 0,
+                        )
+                        items.insert(insert_at, {
+                            "@type": "ListItem",
+                            "position": insert_at + 1,
+                            "name": category_name,
+                            "item": category_url,
+                        })
+                        schema_changed = True
+                    for index, item in enumerate(items, start=1):
+                        if isinstance(item, dict) and item.get("position") != index:
+                            item["position"] = index
+                            schema_changed = True
+                if schema_changed:
+                    breadcrumb_replacements.append((
+                        match.start(),
+                        match.end(),
+                        match.group(1) + "\n" + json.dumps(schema, ensure_ascii=False, indent=2) + "\n" + match.group(3),
+                    ))
+            for start, end, replacement in reversed(breadcrumb_replacements):
+                page_html = page_html[:start] + replacement + page_html[end:]
+
+            frequent, related = recommendations(product)
+            frequent_html = "".join(product_card_html(item, lang) for item in frequent)
+            related_html = "".join(product_card_html(item, lang) for item in related)
+            page_html = replace_div_contents(page_html, "pdp-frequent-slider", frequent_html)
+            page_html = replace_div_contents(page_html, "pdp-related-slider-main", related_html)
+
+            if page_html != original:
+                path.write_text(page_html, encoding="utf-8")
+                changed_files.append(str(path.relative_to(ROOT)))
+
+    if not changed_files:
+        print("Product PDP taxonomy and recommendation markup are already synchronized.")
+    else:
+        print(
+            "Synchronized taxonomy breadcrumbs and catalogue-based recommendations in "
+            f"{len(changed_files)} product pages across en/hi/bn."
+        )
+
+
 def normalize_blank_part_numbers():
     
     import pathlib
@@ -2477,6 +2809,7 @@ def main() -> None:
     sync_active_catalogue_counts()
     sync_catalogue_summary_counts()
     sync_static_product_images()
+    sync_static_product_taxonomy_and_recommendations()
     normalize_blank_part_numbers()
     sync_product_seo_and_schema()
     normalize_internal_redirect_links()
