@@ -9,6 +9,8 @@ import html
 import re
 from typing import Any
 
+from product_title import shorten_product_name_for_title
+
 MAX_META_DESCRIPTION = 158
 MIN_META_DESCRIPTION = 70
 
@@ -229,6 +231,30 @@ def _append_meta_context(
     return None
 
 
+
+PART_NUMBER_SUFFIX_RE = re.compile(r"\s+\(Part No\.\s+[^)]+\)$", flags=re.I)
+
+
+def _shorten_identity_for_meta(identity: str, limit: int) -> str:
+    """Shorten a long identity while retaining its part number and variant suffix."""
+    value = clean_text(identity)
+    if len(value) <= limit:
+        return value
+
+    part_match = PART_NUMBER_SUFFIX_RE.search(value)
+    if part_match:
+        name = value[:part_match.start()].rstrip()
+        part_suffix = part_match.group(0)
+        name_budget = limit - len(part_suffix)
+        if name_budget >= 8:
+            shortened_name = shorten_product_name_for_title(name, name_budget)
+            candidate = shortened_name.rstrip() + part_suffix
+            if shortened_name and len(candidate) <= limit:
+                return candidate
+
+    return shorten_product_name_for_title(value, limit)
+
+
 def build_product_meta_description(
     product: dict[str, Any],
     language: str = "en",
@@ -287,11 +313,22 @@ def build_product_meta_description(
             )
             return contextual or candidate
 
-    # If the opening sentence is too long for the standard snippet budget,
-    # retain a shorter, word-boundary-safe lead and use the spare characters
-    # for recorded vehicle fitment/application details when those facts differ.
-    # This avoids losing the most useful qualifier simply because it appears
-    # after the long first sentence in the full product description.
+    # If the opening description sentence is too long, start from the actual
+    # catalogue identity instead of cutting the description at its first words.
+    # This preserves meaningful distinctions such as 4 mm vs 5 mm, LH vs RH,
+    # or a numbered type when the qualifier appears at the end of the name.
+    for context in _meta_context_candidates(product, language, identity_lead):
+        contextual = _append_meta_context(identity_lead, [context], suffix, limit)
+        if contextual:
+            return contextual
+
+    identity_lead_short = _shorten_identity_for_meta(identity_lead, suffix_budget)
+    identity_candidate = identity_lead_short.rstrip(" .") + " " + suffix
+    if MIN_META_DESCRIPTION <= len(identity_candidate) <= limit:
+        return identity_candidate
+
+    # As a conservative fallback for sparse records with no useful identity,
+    # use a word-boundary-safe extract of the existing factual description.
     for context in _meta_context_candidates(product, language, ""):
         lead_budget = suffix_budget - len(context) - 2
         if lead_budget < 24:
