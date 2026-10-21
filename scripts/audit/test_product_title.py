@@ -34,14 +34,14 @@ class ProductTitleShorteningTests(unittest.TestCase):
             "Tata LPT 3718 Front Parabolic Leaf Spring Type 2", 34
         )
         self.assertLessEqual(len(title), 34)
-        self.assertTrue(title.endswith("Type 2"), title)
+        self.assertTrue(title.endswith("Leaf Spring Type 2"), title)
 
     def test_auxiliary_variant_is_preserved(self) -> None:
         title = shorten_product_name_for_title(
             "TML Intra V30 Front Suspension Main Leaf AUX-A", 28
         )
         self.assertLessEqual(len(title), 28)
-        self.assertTrue(title.endswith("AUX-A"), title)
+        self.assertTrue(title.endswith("Main Leaf AUX-A"), title)
 
     def test_shortening_does_not_leave_dangling_punctuation(self) -> None:
         title = shorten_product_name_for_title(
