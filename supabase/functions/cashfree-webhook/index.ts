@@ -51,6 +51,12 @@ Deno.serve(async (req: Request) => {
     }
 
     const result = await reconcileCashfreeOrder(gatewayOrderId);
+    const successEvent = paymentStatus === "SUCCESS" || eventType.toUpperCase().includes("PAYMENT_SUCCESS");
+    if (successEvent && result.payment_status !== "paid") {
+      // Cashfree may deliver the signed event before its order/payment query has
+      // converged. Return a retryable response rather than lose the only signal.
+      return response(500, { received: false, retry: true });
+    }
     if (cfPaymentId && Number.isFinite(rawAmount)) {
       const verifiedAmount = Number(result.amount);
       if (Math.round(rawAmount * 100) === Math.round(verifiedAmount * 100) && currency === "INR") {
