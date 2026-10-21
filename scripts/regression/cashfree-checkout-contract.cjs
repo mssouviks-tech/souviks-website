@@ -75,6 +75,8 @@ assert.match(runtimeCard, /add-to-purchase-cart/);
 assert.match(runtimeCard, /class="btn btn-primary add-to-cart"/);
 assert.match(pageGenerator, /ROOT \/ lang \/ "cart\.html"/);
 assert.match(pageGenerator, /ROOT \/ lang \/ "payment-status\.html"/);
+assert.match(pageGenerator, /window\.souviks =/);
+assert.match(pageGenerator, /currentLanguage: "__LANG__"/);
 assert.match(pageGenerator, /href="\/__LANG__\/terms"/);
 assert.match(pageGenerator, /href="\/__LANG__\/refund"/);
 assert.match(pageGenerator, /return 0/);
