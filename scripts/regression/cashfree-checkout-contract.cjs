@@ -30,6 +30,9 @@ assert.ok(siteCore.includes('toggle&&menu&&toggle.addEventListener("click"'), "L
 for (const policy of securityPolicies) {
   assert.ok(policy.includes("script-src") && policy.includes("https://sdk.cashfree.com"), "CSP must allow the Cashfree SDK script.");
   assert.ok(policy.includes("connect-src") && policy.includes("https://api.cashfree.com"), "CSP must allow Cashfree API connections.");
+  assert.ok(policy.includes("connect-src") && policy.includes("https://sdk.cashfree.com"), "CSP must allow Cashfree SDK source-map connections.");
+  assert.ok(policy.includes("form-action") && policy.includes("https://sandbox.cashfree.com"), "CSP must allow the Cashfree Sandbox hosted-checkout form submission.");
+  assert.ok(policy.includes("form-action") && policy.includes("https://payments.cashfree.com"), "CSP must allow the Cashfree hosted checkout form submission.");
   assert.ok(policy.includes("frame-src") && policy.includes("https://payments-test.cashfree.com"), "CSP must allow Cashfree payment frames.");
 }
 
