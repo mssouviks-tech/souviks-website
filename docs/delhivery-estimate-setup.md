@@ -15,7 +15,7 @@ Configure these in **Supabase Dashboard → Edge Functions → Secrets** for pro
 | Secret | Required | Description |
 | --- | --- | --- |
 | `DELHIVERY_ORIGIN_PIN` | Recommended | Souviks dispatch PIN code: `713321`. The function also has this as a safe default. |
-| `DELHIVERY_B2C_API_TOKEN` | Yes | Production Delhivery B2C token for PIN serviceability and freight estimates. |
+| `DELHIVERY_B2C_API_TOKEN` or `DELHIVERY_API_TOKEN` | Yes | Production Delhivery B2C token for PIN serviceability and freight estimates. Either secret name is accepted. |
 | `DELHIVERY_B2B_BEARER_TOKEN` | Recommended for delivery time | Bearer token for the B2B Expected TAT API at `ltl-clients-api.delhivery.com`. The function also tries `DELHIVERY_UMS_BEARER_TOKEN`, then the primary Delhivery token as a fallback; if the account uses separate B2B credentials, add the B2B Bearer token here. |
 
 Never place Delhivery tokens in site JavaScript, HTML, a committed environment file, or a public GitHub Actions variable. Secret values cannot be read back here, so verify the exact secret names in Supabase Dashboard.
