@@ -419,7 +419,7 @@ def add_supabase_preconnects() -> int:
 
 def _link_attribute(tag: str, name: str) -> str:
     match = re.search(
-        rf"\b{re.escape(name)}\s*=\s*['""]([^'""]*)['""]",
+        rf'{re.escape(name)}\s*=\s*"([^"]*)"',
         tag,
         flags=re.IGNORECASE | re.DOTALL,
     )
@@ -443,7 +443,7 @@ def dedupe_blocking_google_font_links(html: str) -> tuple[str, int]:
         media = _link_attribute(tag, "media").lower()
         onload = _link_attribute(tag, "onload")
         is_async = media == "print" and bool(
-            re.search(r"this\.media\s*=\s*['""]all['""]", onload, re.IGNORECASE)
+            re.search(r"""this\.media\s*=\s*['"]all['"]""", onload, re.IGNORECASE)
         )
         if is_async:
             asynchronous_hrefs.add(href)
@@ -460,7 +460,7 @@ def dedupe_blocking_google_font_links(html: str) -> tuple[str, int]:
         media = _link_attribute(tag, "media").lower()
         onload = _link_attribute(tag, "onload")
         is_async = media == "print" and bool(
-            re.search(r"this\.media\s*=\s*['""]all['""]", onload, re.IGNORECASE)
+            re.search(r"""this\.media\s*=\s*['"]all['"]""", onload, re.IGNORECASE)
         )
         if not is_async or kept_async_start.get(href) != match.start():
             remove_ranges.append((match.start(), match.end()))
