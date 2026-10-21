@@ -65,7 +65,16 @@ jobs:
       - name: Validate structured data
         run: python3 scripts/audit/structured_data.py --check-images
       - name: Validate SEO snippets and image alt text
-        run: python3 scripts/audit/seo_contract.py
+        run: python3 scripts/audit/seo_contract.py --report-file seo-review-report.json
+
+      - name: Upload SEO review report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-review-report-${{ github.run_id }}
+          path: seo-review-report.json
+          if-no-files-found: warn
+          retention-days: 14
       - name: Audit content quality, rendering and business trust
         shell: bash
         run: python3 scripts/audit/site_quality.py
