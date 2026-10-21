@@ -412,7 +412,7 @@ export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Re
       latestFailure?.payment_message ||
       latestFailure?.error_details?.error_reason ||
       "Payment was declined or could not be completed.";
-    const failureReason = String(rawReason).replace(/\\s+/g, " ").trim().slice(0, 500);
+    const failureReason = String(rawReason).replace(/\s+/g, " ").trim().slice(0, 500);
     const failureCode = String(latestFailure?.error_details?.error_code || paymentStatus(latestFailure) || "PAYMENT_FAILED").slice(0, 100);
     const failedPaymentId = String(latestFailure?.cf_payment_id || "");
     const failedPaymentAmount = Number(latestFailure?.payment_amount);
