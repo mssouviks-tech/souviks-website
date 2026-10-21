@@ -24,6 +24,8 @@ from product_seo import (
     is_weak_product_description,
     schema_availability_url,
 )
+from product_title import shorten_product_name_for_title
+from product_title import shorten_product_name_for_title
 
 BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
@@ -1035,12 +1037,7 @@ def reconcile_catalogue_projections():
                 joiner = " - " if name else ""
                 available_name = title_limit - len(title_suffix) - len(title_lead) - len(joiner)
                 if available_name > 0:
-                    name_part = name
-                    if len(name_part) > available_name:
-                        shortened = name_part[: available_name + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
-                        if not shortened:
-                            shortened = name_part[:available_name].rstrip(" ,;:-")
-                        name_part = shortened
+                    name_part = shorten_product_name_for_title(name, available_name)
                     title_prefix = f"{title_lead}{joiner}{name_part}".rstrip(" -")
                 else:
                     # Defensive fallback for an unusually long identity.
@@ -1048,12 +1045,7 @@ def reconcile_catalogue_projections():
                 title = title_prefix + title_suffix
             else:
                 available_name = title_limit - len(title_suffix)
-                name_part = name
-                if len(name_part) > available_name:
-                    shortened = name_part[: available_name + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
-                    if not shortened:
-                        shortened = name_part[:available_name].rstrip(" ,;:-")
-                    name_part = shortened
+                name_part = shorten_product_name_for_title(name, available_name)
                 title = name_part + title_suffix
     
             # Keep full factual copy in the page and Product JSON-LD, while
