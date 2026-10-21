@@ -51,6 +51,9 @@ jobs:
       - name: Check Cashfree Edge Function types
         run: deno check supabase/functions/_shared/cashfree.ts supabase/functions/cashfree-create-order/index.ts supabase/functions/cashfree-verify-order/index.ts supabase/functions/cashfree-webhook/index.ts
 
+      - name: Check Delhivery Edge Function types
+        run: deno check supabase/functions/delhivery-estimate/index.ts
+
       - name: Install JavaScript build tools
         run: npm install --no-package-lock --no-audit --no-fund
 
@@ -73,6 +76,7 @@ jobs:
               "scripts/catalogue/sync_rfq_module.py",
               "scripts/catalogue/sync_checkout_pages.py",
               "scripts/catalogue/sync_checkout_module.py",
+              "scripts/catalogue/sync_delhivery_module.py",
               "scripts/audit/production_smoke.py",
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
@@ -117,6 +121,7 @@ jobs:
           python3 scripts/catalogue/normalize_page_config.py
           python3 scripts/catalogue/sync_rfq_module.py
           python3 scripts/catalogue/sync_checkout_module.py
+          python3 scripts/catalogue/sync_delhivery_module.py
           python3 scripts/catalogue/sync_entity_sitemaps.py
           python3 scripts/js/refactor.py
           npm run build:js
@@ -142,6 +147,7 @@ jobs:
           npm run check:js
           node scripts/regression/rfq-security-contract.cjs
           node scripts/regression/cashfree-checkout-contract.cjs
+          node scripts/regression/delhivery-estimate-contract.cjs
           npm run format:check
 
           echo "Catalogue release gate passed."

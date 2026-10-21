@@ -1,0 +1,74 @@
+.delhivery-estimator {
+    grid-column: 1 / -1;
+    margin: 1rem 0 0;
+    padding: clamp(1rem, 2.4vw, 1.5rem);
+    border: 1px solid var(--border-color, #dfe3eb);
+    border-radius: 14px;
+    background: var(--surface-color, #fff);
+}
+.delhivery-estimator h2 {
+    margin: 0 0 .4rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    line-height: 1.3;
+}
+.delhivery-estimator-intro,
+.delhivery-estimator-help,
+.delhivery-estimator-disclaimer {
+    color: var(--text-muted, #596579);
+    font-size: .9rem;
+    line-height: 1.5;
+}
+.delhivery-estimator-form { margin-top: 1rem; }
+.delhivery-estimator-fields {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .9rem;
+}
+.delhivery-estimator .form-group { min-width: 0; margin: 0; }
+.delhivery-estimator .form-group label {
+    display: block;
+    margin-bottom: .35rem;
+    font-size: .87rem;
+    font-weight: 600;
+}
+.delhivery-estimator .form-group input,
+.delhivery-estimator .form-group select {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 42px;
+    padding: .6rem .7rem;
+    border: 1px solid var(--border-color, #dfe3eb);
+    border-radius: 8px;
+    background: var(--input-background, #fff);
+    color: var(--text-color, #172033);
+    font: inherit;
+}
+.delhivery-estimator-help { margin: .6rem 0 1rem; }
+.delhivery-estimator-result {
+    margin-top: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 10px;
+    background: var(--muted-background, #f5f7fa);
+    overflow-wrap: anywhere;
+}
+.delhivery-estimator-result p { margin: .4rem 0; }
+.delhivery-estimator-metric {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem 1rem;
+    padding: .55rem 0;
+    border-bottom: 1px solid var(--border-color, #dfe3eb);
+}
+.delhivery-estimator-metric strong { font-size: 1.05rem; }
+.delhivery-estimator-success { font-weight: 600; }
+.delhivery-estimator-disclaimer { margin-bottom: 0 !important; }
+.delhivery-estimator button[disabled] { cursor: wait; opacity: .7; }
+@media (max-width: 900px) {
+    .delhivery-estimator-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+    .delhivery-estimator-fields { grid-template-columns: minmax(0, 1fr); }
+    .delhivery-estimator { padding: 1rem; }
+}
