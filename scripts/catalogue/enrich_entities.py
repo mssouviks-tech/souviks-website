@@ -203,6 +203,60 @@ def context_section(kind, item, products, lang):
 </section>
 '''
 
+def brand_page_title(name, language):
+    """Return a localized, descriptive brand-page title under the 70-character review cap."""
+    brand = clean(name)
+    descriptors = {
+        "en": "Commercial Vehicle Parts",
+        "hi": "ट्रक स्पेयर पार्ट्स",
+        "bn": "ট্রাক স্পেয়ার পার্টস",
+    }
+    descriptor = descriptors.get(language, descriptors["en"])
+    title = f"{brand} {descriptor} | Souviks".strip()
+    if len(title) <= 70:
+        return title
+    # Keep the full brand name where possible, shorten the descriptor before
+    # ever truncating the brand identifier.
+    compact = {
+        "en": "Truck Parts",
+        "hi": "ट्रक पार्ट्स",
+        "bn": "ট্রাক পার্টস",
+    }.get(language, "Truck Parts")
+    title = f"{brand} {compact} | Souviks".strip()
+    if len(title) <= 70:
+        return title
+    brand_budget = max(1, 70 - len(f" {compact} | Souviks"))
+    return f"{brand[:brand_budget].rstrip()} {compact} | Souviks"
+
+
+def update_page_title(page, title):
+    """Keep the document title and social preview titles in sync."""
+    escaped = html.escape(clean(title), quote=False)
+    page, replacements = re.subn(
+        r"(<title\b[^>]*>).*?(</title\s*>)",
+        lambda match: match.group(1) + "\n        " + escaped + "\n    " + match.group(2),
+        page,
+        count=1,
+        flags=re.I | re.S,
+    )
+    if replacements != 1:
+        raise ValueError("Expected exactly one document <title> element on entity page.")
+    for pattern in (
+        r"(<meta\s+property=[\"']og:title[\"']\s+content=[\"'])[^\"']*([\"'])",
+        r"(<meta\s+name=[\"']twitter:title[\"']\s+content=[\"'])[^\"']*([\"'])",
+    ):
+        page, count = re.subn(
+            pattern,
+            lambda match: match.group(1) + escaped + match.group(2),
+            page,
+            count=1,
+            flags=re.I,
+        )
+        if count != 1:
+            raise ValueError("Expected exactly one matching social title metadata tag.")
+    return page
+
+
 def update_meta(page, description):
     raw = clean(description)
     d = esc(raw[:155].rsplit(" ", 1)[0].rstrip(" ,;:-") + "." if len(raw) > 158 else raw)
@@ -396,7 +450,10 @@ def enrich_entity_pages(kind, data, catalogue):
             path = ROOT / lang / entity_directory / f'{clean(item.get("slug"))}.html'
             if not path.exists():
                 continue
-            page = update_meta(path.read_text(encoding="utf-8"), clean(item.get("description")))
+            page = path.read_text(encoding="utf-8")
+            if kind == "brand":
+                page = update_page_title(page, brand_page_title(item.get("name"), lang))
+            page = update_meta(page, clean(item.get("description")))
             gallery_html = entity_product_galleries(kind, item, products, lang)
             page = replace_static_product_grid(page, gallery_html)
             if kind == "vehicle":
