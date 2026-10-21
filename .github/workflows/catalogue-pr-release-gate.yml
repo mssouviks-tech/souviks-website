@@ -17,6 +17,8 @@ on:
       - "sitemap.xml"
       - "sitemaps/**"
       - "supabase/migrations/**"
+      - "supabase/functions/**"
+      - "supabase/config.toml"
 
 permissions:
   contents: read
@@ -59,6 +61,8 @@ jobs:
               "scripts/audit/test_entity_titles.py",
               "scripts/catalogue/normalize_page_config.py",
               "scripts/catalogue/sync_rfq_module.py",
+              "scripts/catalogue/sync_checkout_pages.py",
+              "scripts/catalogue/sync_checkout_module.py",
               "scripts/audit/production_smoke.py",
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
@@ -95,12 +99,14 @@ jobs:
 
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
+          python3 scripts/catalogue/sync_checkout_pages.py
           python3 scripts/audit/generate_product_thumbnails.py
           python3 scripts/catalogue/sync_navigation.py
           python3 scripts/catalogue/sync_product_cards.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/normalize_page_config.py
           python3 scripts/catalogue/sync_rfq_module.py
+          python3 scripts/catalogue/sync_checkout_module.py
           python3 scripts/catalogue/sync_entity_sitemaps.py
           python3 scripts/js/refactor.py
           npm run build:js
