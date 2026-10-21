@@ -176,6 +176,40 @@ class ProductSeoTests(unittest.TestCase):
         self.assertNotEqual(broad, narrowed)
         self.assertIn("Ashok Leyland 2516", narrowed)
 
+    def test_long_meta_description_preserves_terminal_thickness_variant(self) -> None:
+        base = {
+            "brand_name": "Harish",
+            "product_name": "25 mm Spring Leaf Side Washer 4mm Thickness",
+            "category_name": "Suspension & Steering",
+            "subcategory_name": "Leaf Spring Side Washer",
+            "description": (
+                "The Harish 25 mm Spring Leaf Side Washer 4mm Thickness provides a bearing "
+                "and spacing surface within the suspension assembly and controls contact "
+                "between adjacent leaf spring components under load during vehicle operation. "
+                "Vehicle applications include Tata LPT, Ashok Leyland 2516 and Eicher Pro Series."
+            ),
+            "vehicles": ["Tata LPT", "Ashok Leyland 2516", "Eicher Pro Series"],
+            "applications": ["Leaf spring suspension"],
+        }
+        thinner = build_product_meta_description(base, language="en")
+
+        thicker_product = dict(base)
+        thicker_product["product_name"] = "25 mm Spring Leaf Side Washer 5mm Thickness"
+        thicker_product["description"] = base["description"].replace(
+            "4mm Thickness", "5mm Thickness"
+        )
+        thicker = build_product_meta_description(thicker_product, language="en")
+
+        for snippet in (thinner, thicker):
+            self.assertGreaterEqual(len(snippet), 70)
+            self.assertLessEqual(len(snippet), 158)
+            self.assertTrue(
+                snippet.endswith("Check part fitment, current price and availability with Souviks.")
+            )
+        self.assertIn("4mm Thickness", thinner)
+        self.assertIn("5mm Thickness", thicker)
+        self.assertNotEqual(thinner, thicker)
+
     def test_availability_is_never_inferred(self) -> None:
         self.assertEqual(
             schema_availability_url({"availability": "in_stock"}),

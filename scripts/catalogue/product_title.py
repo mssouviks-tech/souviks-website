@@ -7,6 +7,9 @@ import re
 # parts. Keep these when fitting a title into the site's 70-character cap.
 DISTINGUISHING_SUFFIX_RE = re.compile(
     r"(?P<suffix>\s+(?:"
+    r"\d+(?:\.\d+)?\s*mm\s+THICKNESS|"
+    r"\d+(?:st|nd|rd|th)\s+(?:O/S|U/S)|"
+    r"STANDARD|STD|"
     r"P\d+\s+(?:LH|RH)|"
     r"HYWA\s+(?:LH|RH)|"
     r"(?:[A-Z][A-Z-]*\s+){1,2}TYPE\s+[A-Z0-9]+|"
