@@ -86,6 +86,7 @@ jobs:
               "scripts/audit/catalogue_parity.py",
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
+              "scripts/audit/optimize_static_images.py",
               "scripts/audit/structured_data.py",
               "scripts/audit/seo_contract.py",
               "scripts/audit/site_quality.py",
@@ -107,6 +108,8 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Prepare hero derivatives and cache-safe references before page generation.
+          python3 scripts/audit/optimize_static_images.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
           python3 scripts/catalogue/sync_checkout_pages.py
@@ -120,6 +123,8 @@ jobs:
           python3 scripts/catalogue/sync_entity_sitemaps.py
           python3 scripts/js/refactor.py
           npm run build:js
+          # Re-sync source and preload references after page generators finish.
+          python3 scripts/audit/optimize_static_images.py
           python3 scripts/js/refresh_versions.py
           python3 scripts/catalogue/sync_root_homepage.py
 
