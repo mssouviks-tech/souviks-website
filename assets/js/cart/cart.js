@@ -9,6 +9,9 @@
     const TEXT = {
         en: {
             added: "Added to your cart.",
+            shippingUnconfirmed: "Confirmed before payment",
+            totalUnconfirmed: "Review to calculate",
+            reviewInvalidated: "Your cart or checkout details changed. Review the total again before payment.",
             addFailed: "This item could not be added to the cart.",
             loadFailed: "We could not load the current catalogue. Refresh the page and try again.",
             empty: "Your cart is empty. Browse the catalogue and add priced products to begin.",
@@ -30,6 +33,9 @@
         },
         hi: {
             added: "उत्पाद आपके कार्ट में जोड़ दिया गया है।",
+            shippingUnconfirmed: "भुगतान से पहले पुष्टि होगी",
+            totalUnconfirmed: "गणना के लिए समीक्षा करें",
+            reviewInvalidated: "कार्ट या चेकआउट विवरण बदल गए हैं। भुगतान से पहले कुल राशि फिर से जाँचें।",
             addFailed: "इस उत्पाद को कार्ट में नहीं जोड़ा जा सका।",
             loadFailed: "वर्तमान कैटलॉग लोड नहीं हो सका। पेज रिफ्रेश करके फिर कोशिश करें।",
             empty: "आपका कार्ट खाली है। शुरुआत करने के लिए कैटलॉग से कीमत वाले उत्पाद जोड़ें।",
@@ -51,6 +57,9 @@
         },
         bn: {
             added: "পণ্যটি আপনার কার্টে যোগ করা হয়েছে।",
+            shippingUnconfirmed: "পেমেন্টের আগে নিশ্চিত হবে",
+            totalUnconfirmed: "মূল্য যাচাই করুন",
+            reviewInvalidated: "কার্ট বা চেকআউটের বিবরণ বদলেছে। পেমেন্টের আগে মোট মূল্য আবার যাচাই করুন।",
             addFailed: "পণ্যটি কার্টে যোগ করা যায়নি।",
             loadFailed: "বর্তমান ক্যাটালগ লোড করা যায়নি। পেজ রিফ্রেশ করে আবার চেষ্টা করুন।",
             empty: "আপনার কার্ট খালি। ক্যাটালগ থেকে মূল্যযুক্ত পণ্য যোগ করে শুরু করুন।",
@@ -195,7 +204,13 @@
         const review = document.getElementById("purchase-payment-review");
         if (review) review.hidden = true;
         const status = document.getElementById("purchase-cart-status");
-        setStatus(status, "Your cart or checkout details changed. Review the total again before payment.", "info");
+        const shipping = document.getElementById("purchase-cart-shipping");
+        const total = document.getElementById("purchase-cart-total");
+        if (shipping) shipping.textContent = T.shippingUnconfirmed;
+        if (total) total.textContent = T.totalUnconfirmed;
+        const payButton = document.getElementById("purchase-pay-button");
+        if (payButton) payButton.disabled = true;
+        setStatus(status, T.reviewInvalidated, "info");
     }
 
     function addProduct(productId, button, requestedQuantity = 1) {
@@ -298,9 +313,9 @@
         const subtotal = document.getElementById("purchase-cart-subtotal");
         if (subtotal) subtotal.textContent = currency(subtotalPaise / 100);
         const shipping = document.getElementById("purchase-cart-shipping");
-        if (shipping && !preparedCheckout) shipping.textContent = "Confirmed before payment";
+        if (shipping && !preparedCheckout) shipping.textContent = T.shippingUnconfirmed;
         const total = document.getElementById("purchase-cart-total");
-        if (total && !preparedCheckout) total.textContent = "Review before payment";
+        if (total && !preparedCheckout) total.textContent = T.totalUnconfirmed;
         const reviewButton = document.getElementById("purchase-review-button");
         if (reviewButton) reviewButton.disabled = unavailableCount > 0 || isPreparing;
         if (unavailableCount > 0) {
