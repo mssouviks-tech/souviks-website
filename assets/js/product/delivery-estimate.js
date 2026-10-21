@@ -119,10 +119,13 @@
                     : '<p>' + escapeHtml(T.priceMissing) + '</p>';
                 let delivery = '<p>' + escapeHtml(T.timeMissing) + '</p>';
                 if (data.delivery?.available) {
-                    const days = Number(data.delivery.tat_days);
-                    delivery = '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.time) + '</span><strong>' +
-                        (Number.isFinite(days) ? escapeHtml(String(days)) + ' ' + escapeHtml(T.days) : escapeHtml(T.timeMissing)) +
-                        '</strong></div>';
+                    const days = data.delivery.tat_days == null ? NaN : Number(data.delivery.tat_days);
+                    const date = String(data.delivery.estimated_date || "").trim();
+                    const dayText = Number.isFinite(days) ? escapeHtml(String(days)) + ' ' + escapeHtml(T.days) : "";
+                    const description = date
+                        ? escapeHtml(date) + (dayText ? ' (' + dayText + ')' : '')
+                        : (dayText || escapeHtml(T.timeMissing));
+                    delivery = '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.time) + '</span><strong>' + description + '</strong></div>';
                 }
                 result.innerHTML = '<p class="delhivery-estimator-success">' + escapeHtml(T.serviceable) + '</p>' +
                     price + delivery + '<p class="delhivery-estimator-disclaimer">' + escapeHtml(T.approximate) + '</p>';
