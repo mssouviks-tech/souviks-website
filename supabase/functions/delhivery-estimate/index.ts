@@ -151,12 +151,12 @@ Deno.serve(async (req: Request) => {
   try {
     const input = await req.json();
     const destinationPin = String(input?.destination_pin ?? "").trim();
-    const paymentMode = String(input?.payment_mode ?? "Pre-paid").trim();
-    const billingMode = String(input?.billing_mode ?? "E").trim().toUpperCase();
+    // Customer-facing estimates deliberately use COD + Express by default.
+    // Customers provide only their delivery PIN; weight comes from catalogue data.
+    const paymentMode = "COD";
+    const billingMode = "E";
     const weightGrams = Number(input?.chargeable_weight_g);
     if (!/^\d{6}$/.test(destinationPin)) throw new EstimateError("invalid_destination_pin", 400);
-    if (!["Pre-paid", "COD"].includes(paymentMode)) throw new EstimateError("invalid_payment_mode", 400);
-    if (!["E", "S"].includes(billingMode)) throw new EstimateError("invalid_billing_mode", 400);
     if (!Number.isInteger(weightGrams) || weightGrams < 1 || weightGrams > MAX_WEIGHT_GRAMS) {
       throw new EstimateError("invalid_chargeable_weight", 400);
     }
@@ -165,8 +165,8 @@ Deno.serve(async (req: Request) => {
     if (!/^\d{6}$/.test(originPin)) throw new EstimateError("origin_pin_not_configured", 503);
     await enforceRateLimit(req);
 
-    const b2cToken = (Deno.env.get("DELHIVERY_B2C_API_TOKEN") || "").trim();
-    const b2bToken = (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || "").trim();
+    const b2cToken = (Deno.env.get("DELHIVERY_B2C_API_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || "").trim();
+    const b2bToken = (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || Deno.env.get("DELHIVERY_UMS_BEARER_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || Deno.env.get("DELHIVERY_B2C_API_TOKEN") || "").trim();
     if (!b2cToken) throw new EstimateError("delhivery_b2c_token_not_configured", 503);
 
     const serviceUrl = new URL("https://track.delhivery.com/c/api/pin-codes/json/");
@@ -229,9 +229,10 @@ Deno.serve(async (req: Request) => {
       tatUrl.searchParams.set("destination_pin", destinationPin);
       return providerGet(tatUrl, "Bearer " + b2bToken).then((tatData) => {
         const days = findNumber(tatData, ["tat_days", "tat", "expected_tat", "estimated_days", "days"]);
-        const date = findString(tatData, ["estimated_date", "estimated_delivery_date", "delivery_date"]);
-        return days !== null && days >= 0
-          ? { available: true, tat_days: Math.ceil(days), estimated_date: date }
+        const date = findString(tatData, ["estimated_date", "estimated_delivery_date", "delivery_date", "estimatedDate"]);
+        const hasDays = days !== null && days >= 0;
+        return hasDays || Boolean(date)
+          ? { available: true, tat_days: hasDays ? Math.ceil(days) : null, estimated_date: date }
           : { available: false };
       }).catch((error) => {
         console.error("[Delhivery estimate] TAT estimate unavailable", error instanceof EstimateError ? error.code : "provider_error");
@@ -260,8 +261,6 @@ Deno.serve(async (req: Request) => {
     if (!(error instanceof EstimateError)) console.error("[Delhivery estimate] Unexpected error");
     const messages: Record<string, string> = {
       invalid_destination_pin: "Enter a valid 6-digit destination PIN code.",
-      invalid_payment_mode: "Choose a supported payment mode.",
-      invalid_billing_mode: "Choose Express or Surface service.",
       invalid_chargeable_weight: "Enter a chargeable weight between 1 and 200,000 grams.",
       rate_limit_unavailable: "The delivery estimator is temporarily unavailable. Please try again shortly.",
       rate_limited: "Too many estimates have been requested. Please wait a few minutes and try again.",
