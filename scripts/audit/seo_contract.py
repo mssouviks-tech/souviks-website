@@ -187,6 +187,23 @@ def duplicate_product_meta_groups(
     )
 
 
+
+def embedded_product_record(raw: str) -> dict[str, object]:
+    """Parse the structured product record embedded in a generated product page."""
+    match = re.search(
+        r"window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});",
+        raw,
+        flags=re.S,
+    )
+    if not match:
+        return {}
+    try:
+        record = json.loads(match.group(1))
+    except json.JSONDecodeError:
+        return {}
+    return record if isinstance(record, dict) else {}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Audit SEO snippets and image alt text.")
     parser.add_argument(
@@ -265,22 +282,9 @@ def main() -> int:
             and route_parts[0] in LANGUAGES
             and route_parts[1] == "products"
         )
-        product_record: dict[str, object] = {}
-        if is_product_page:
-            # Read the embedded catalogue record once for both the SEO-quality
-            # check and the structured duplicate-snippet report.
-            product_data = re.search(
-                r"window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});",
-                raw,
-                flags=re.S,
-            )
-            if product_data:
-                try:
-                    parsed_record = json.loads(product_data.group(1))
-                    if isinstance(parsed_record, dict):
-                        product_record = parsed_record
-                except json.JSONDecodeError:
-                    product_record = {}
+        product_record: dict[str, object] = (
+            embedded_product_record(raw) if is_product_page else {}
+        )
 
         if is_product_page and descriptions and descriptions[0]:
             language = route_parts[0]
