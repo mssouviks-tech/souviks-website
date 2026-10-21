@@ -50,6 +50,7 @@ assert.match(webhook, /x-webhook-signature/);
 assert.match(webhook, /x-webhook-timestamp/);
 assert.match(webhook, /verifyCashfreeWebhookSignature\(/);
 assert.match(webhook, /await reconcileCashfreeOrder\(gatewayOrderId\)/);
+assert.match(webhook, /successEvent && result\.payment_status !== "paid"/);
 
 for (const table of [
   "orders", "order_items", "checkout_access_tokens",
