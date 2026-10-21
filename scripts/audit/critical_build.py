@@ -1813,7 +1813,7 @@ def validate_static_product_taxonomy(records_by_kind, errors: list[str]) -> None
                 visible_text(value)
                 for value in re.findall(
                     r'<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
-                    r'<strong>\s*(?:Sub\s*Category|उपश्रेणी|उप श्रेणी|उप-श्रेणी|उप-विभाग|उপবिभাগ|উপ-বিভাগ|উপশ্রেণি|উপ-শ্রেণি)\s*</strong>\s*'
+                    r'<strong>\s*(?:Sub\s*Category|Subcategory|उप[-\s]?श्रेणी|उप[-\s]?विभाग|উপ[-\s]?বিভাগ|উপ[-\s]?শ্রেণি|उपबिभाग|উপश्रेणी)\s*</strong>\s*'
                     r'<span>(.*?)</span>\s*</div>',
                     raw,
                     flags=re.I | re.S,
