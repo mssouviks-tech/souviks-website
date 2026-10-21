@@ -278,7 +278,7 @@ def main() -> int:
                 path.write_text(normalized, encoding="utf-8")
                 changed += 1
     print("Checkout pages synchronized: " + str(changed) + " files updated.")
-    return changed
+    return 0
 
 
 if __name__ == "__main__":
