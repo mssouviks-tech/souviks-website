@@ -68,6 +68,7 @@ jobs:
           python3 scripts/catalogue/normalize_page_config.py
           python3 scripts/catalogue/sync_rfq_module.py
           python3 scripts/catalogue/sync_checkout_module.py
+          python3 scripts/catalogue/sync_delhivery_module.py
           python3 scripts/catalogue/sync_entity_sitemaps.py
           python3 scripts/js/refactor.py
           npm run build:js
@@ -91,12 +92,16 @@ jobs:
           node --check scripts/regression/final-matrix.cjs
           node --check scripts/regression/production-browser-smoke.cjs
           node --check scripts/regression/cashfree-checkout-contract.cjs
+          node --check scripts/regression/delhivery-estimate-contract.cjs
 
       - name: Validate RFQ security contract
         run: node scripts/regression/rfq-security-contract.cjs
 
       - name: Validate Cashfree checkout contract
         run: node scripts/regression/cashfree-checkout-contract.cjs
+
+      - name: Validate Delhivery delivery estimator contract
+        run: node scripts/regression/delhivery-estimate-contract.cjs
 
       - name: Validate sales funnel authorization and migration contract
         run: node scripts/regression/sales-funnel-security-contract.cjs
