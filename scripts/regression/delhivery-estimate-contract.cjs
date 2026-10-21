@@ -19,6 +19,7 @@ const versions = read("scripts/js/refresh_versions.py");
 assert.match(fn, /DELHIVERY_ORIGIN_PIN/);
 assert.match(fn, /DEFAULT_ORIGIN_PIN = "713321"/);
 assert.match(fn, /DELHIVERY_B2C_API_TOKEN/);
+assert.match(fn, /DELHIVERY_API_TOKEN/);
 assert.match(fn, /DELHIVERY_B2B_BEARER_TOKEN/);
 assert.match(fn, /https:\/\/track\.delhivery\.com\/c\/api\/pin-codes\/json/);
 assert.match(fn, /api\/kinko\/v1\/invoice\/charges\/\.json/);
