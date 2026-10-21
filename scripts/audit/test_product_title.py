@@ -43,6 +43,18 @@ class ProductTitleShorteningTests(unittest.TestCase):
         self.assertLessEqual(len(title), 28)
         self.assertTrue(title.endswith("Main Leaf AUX-A"), title)
 
+    def test_size_and_oversize_qualifiers_are_preserved(self) -> None:
+        size_variant = shorten_product_name_for_title(
+            "25 mm Spring Leaf Side Washer 4mm Thickness", 34
+        )
+        oversize_variant = shorten_product_name_for_title(
+            "Kingpin Thrust Pad 1st O/S", 22
+        )
+        self.assertLessEqual(len(size_variant), 34)
+        self.assertLessEqual(len(oversize_variant), 22)
+        self.assertTrue(size_variant.endswith("4mm Thickness"), size_variant)
+        self.assertTrue(oversize_variant.endswith("1st O/S"), oversize_variant)
+
     def test_shortening_does_not_leave_dangling_punctuation(self) -> None:
         title = shorten_product_name_for_title(
             "Very Long Commercial Vehicle Component Description, RH", 24
