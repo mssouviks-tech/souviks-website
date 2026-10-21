@@ -101,9 +101,12 @@ def duplicate_title_groups(
 
     collisions: list[tuple[str, str, list[str]]] = []
     for (language, _), pages in grouped.items():
-        distinct_canonicals = {canonical for _, _, canonical in pages if canonical}
-        if len(distinct_canonicals) > 1:
-            labels = sorted({label for _, label, canonical in pages if canonical})
+        canonical_pages: dict[str, str] = {}
+        for _, label, canonical in pages:
+            if canonical:
+                canonical_pages.setdefault(canonical, label)
+        if len(canonical_pages) > 1:
+            labels = sorted(canonical_pages.values())
             collisions.append((language, pages[0][0], labels))
 
     return sorted(collisions, key=lambda entry: (entry[0], entry[1].casefold()))
