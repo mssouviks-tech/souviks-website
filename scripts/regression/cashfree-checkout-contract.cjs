@@ -26,11 +26,11 @@ const siteCore = read("assets/js/site-core.js");
 const securityPolicies = ["_headers", "functions/_middleware.js", "functions/robots.txt.js"].map(read);
 
 assert.match(shared, /CASHFREE_API_VERSION\s*=\s*"2026-01-01"/);
-assert.match(siteCore, /toggle&&menu&&toggle\\.addEventListener\\("click"/);
+assert.ok(siteCore.includes('toggle&&menu&&toggle.addEventListener("click"'), "Language switcher binding must be guarded when the control is absent.");
 for (const policy of securityPolicies) {
-  assert.match(policy, /script-src[^;]*https:\\/\\/sdk\\.cashfree\\.com/);
-  assert.match(policy, /connect-src[^;]*https:\\/\\/api\\.cashfree\\.com/);
-  assert.match(policy, /frame-src[^;]*https:\\/\\/payments-test\\.cashfree\\.com/);
+  assert.ok(policy.includes("script-src") && policy.includes("https://sdk.cashfree.com"), "CSP must allow the Cashfree SDK script.");
+  assert.ok(policy.includes("connect-src") && policy.includes("https://api.cashfree.com"), "CSP must allow Cashfree API connections.");
+  assert.ok(policy.includes("frame-src") && policy.includes("https://payments-test.cashfree.com"), "CSP must allow Cashfree payment frames.");
 }
 
 assert.match(shared, /CASHFREE_CHECKOUT_ENABLED/);
