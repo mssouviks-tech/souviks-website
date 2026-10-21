@@ -66,7 +66,7 @@
         const root = document.getElementById("product-detail");
         if (!root || document.getElementById("delhivery-estimator")) return;
         const product = window.SOUVIKS_PRODUCT_PAGE_DATA || {};
-        const baseWeight = Number(product.approx_weight_g ?? product.weight_g ?? product.shipping_weight_g);
+        const baseWeight = Number(product.approx_weight_g ?? product.approx_weight_grams ?? product.weight_g ?? product.shipping_weight_g);
         const panel = document.createElement("section");
         panel.id = "delhivery-estimator";
         panel.className = "delhivery-estimator pdp-section";
