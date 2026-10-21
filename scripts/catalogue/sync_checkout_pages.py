@@ -93,6 +93,10 @@ CART_TEMPLATE = """<!doctype html>
   <title>__CART_TITLE__</title>
   <meta name="description" content="__DESCRIPTION__">
   <link rel="canonical" href="https://www.souviks.co.in/__LANG__/cart">
+  <link rel="alternate" hreflang="en" href="https://www.souviks.co.in/en/cart">
+  <link rel="alternate" hreflang="bn" href="https://www.souviks.co.in/bn/cart">
+  <link rel="alternate" hreflang="hi" href="https://www.souviks.co.in/hi/cart">
+  <link rel="alternate" hreflang="x-default" href="https://www.souviks.co.in/en/cart">
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site-base.css">
@@ -196,6 +200,10 @@ STATUS_TEMPLATE = """<!doctype html>
   <title>__STATUS_TITLE__ | Souviks</title>
   <meta name="description" content="Verify your Souviks online order payment status.">
   <link rel="canonical" href="https://www.souviks.co.in/__LANG__/payment-status">
+  <link rel="alternate" hreflang="en" href="https://www.souviks.co.in/en/payment-status">
+  <link rel="alternate" hreflang="bn" href="https://www.souviks.co.in/bn/payment-status">
+  <link rel="alternate" hreflang="hi" href="https://www.souviks.co.in/hi/payment-status">
+  <link rel="alternate" hreflang="x-default" href="https://www.souviks.co.in/en/payment-status">
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site-base.css"><link rel="stylesheet" href="/assets/css/bundles/cart.css">
