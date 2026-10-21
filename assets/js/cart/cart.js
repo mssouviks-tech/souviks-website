@@ -23,7 +23,8 @@
             statusLoading: "Checking your payment with Cashfree…",
             statusPaid: "Payment confirmed. Your order is recorded; Souviks will confirm availability and fulfilment.",
             statusPending: "Cashfree has not confirmed payment yet. Do not pay again while this status is pending. Retry verification shortly.",
-            statusFailed: "This payment was not completed. You can return to your cart and try again.",
+            statusFailed: "Cashfree reports that this payment failed. Review the reason below, then try again with a different payment method if needed.",
+            failureReasonPrefix: "Reason: ",
             statusUnknown: "We could not verify this order in this browser session. Keep the order reference and contact Souviks.",
             retry: "Retry verification",
             remove: "Remove",
@@ -47,7 +48,8 @@
             statusLoading: "Cashfree से भुगतान की पुष्टि हो रही है…",
             statusPaid: "भुगतान की पुष्टि हो गई है। आपका ऑर्डर दर्ज है; Souviks उपलब्धता और डिलीवरी की पुष्टि करेगा।",
             statusPending: "Cashfree ने अभी भुगतान की पुष्टि नहीं की है। इस स्थिति में दोबारा भुगतान न करें; थोड़ी देर बाद फिर जाँचें।",
-            statusFailed: "भुगतान पूरा नहीं हुआ। आप कार्ट पर लौटकर फिर कोशिश कर सकते हैं।",
+            statusFailed: "Cashfree के अनुसार भुगतान विफल हुआ। नीचे दिया गया कारण देखें और ज़रूरत होने पर किसी अन्य भुगतान तरीके से फिर कोशिश करें।",
+            failureReasonPrefix: "कारण: ",
             statusUnknown: "इस ब्राउज़र सत्र में ऑर्डर की पुष्टि नहीं हो सकी। ऑर्डर संदर्भ रखें और Souviks से संपर्क करें।",
             retry: "पुष्टि फिर जाँचें",
             remove: "हटाएँ",
@@ -71,7 +73,8 @@
             statusLoading: "Cashfree থেকে পেমেন্ট যাচাই হচ্ছে…",
             statusPaid: "পেমেন্ট নিশ্চিত হয়েছে। আপনার অর্ডার রেকর্ড করা হয়েছে; Souviks পণ্যের উপলভ্যতা ও ডেলিভারি নিশ্চিত করবে।",
             statusPending: "Cashfree এখনও পেমেন্ট নিশ্চিত করেনি। এই অবস্থায় আবার পেমেন্ট করবেন না; কিছুক্ষণ পরে যাচাই করুন।",
-            statusFailed: "পেমেন্ট সম্পূর্ণ হয়নি। কার্টে ফিরে আবার চেষ্টা করতে পারেন।",
+            statusFailed: "Cashfree অনুযায়ী পেমেন্ট ব্যর্থ হয়েছে। নিচের কারণ দেখুন, প্রয়োজনে অন্য পেমেন্ট পদ্ধতিতে আবার চেষ্টা করুন।",
+            failureReasonPrefix: "কারণ: "
             statusUnknown: "এই ব্রাউজার সেশনে অর্ডার যাচাই করা যায়নি। অর্ডার রেফারেন্স রেখে Souviks-এর সঙ্গে যোগাযোগ করুন।",
             retry: "আবার যাচাই করুন",
             reviewTotal: "মোট মূল্য যাচাই করে এগিয়ে যান",
@@ -609,7 +612,9 @@
                     });
                     if (retry) retry.hidden = true;
                 } else if (["failed", "cancelled"].includes(data.payment_status)) {
-                    setStatus(status, T.statusFailed, "error");
+                    const failureReason = String(data.payment_failure_reason || "").trim();
+                    const failedMessage = failureReason ? T.statusFailed + " " + T.failureReasonPrefix + failureReason : T.statusFailed;
+                    setStatus(status, failedMessage, "error");
                     if (retry) retry.hidden = true;
                 } else {
                     setStatus(status, T.statusPending, "info");
