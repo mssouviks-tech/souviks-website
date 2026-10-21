@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import sys
@@ -132,11 +133,73 @@ def warning_breakdown(warnings: list[str]) -> dict[str, int]:
     return dict(sorted(Counter(warning_category(warning) for warning in warnings).items()))
 
 
+def duplicate_product_meta_groups(
+    entries: list[dict[str, str]],
+) -> list[dict[str, object]]:
+    """Group repeated product snippets by language and distinct canonical URL.
+
+    The report retains source product identifiers and URLs so reviewers can
+    reconcile catalogue records instead of rewriting text to hide data issues.
+    """
+    grouped: dict[tuple[str, str], dict[str, list[dict[str, str]]]] = defaultdict(
+        lambda: defaultdict(list)
+    )
+    snippets: dict[tuple[str, str], str] = {}
+    for entry in entries:
+        language = str(entry.get("language") or "en").strip().lower()
+        snippet = clean(str(entry.get("snippet") or ""))
+        if not snippet:
+            continue
+        key = (language, snippet.casefold())
+        canonical = str(
+            entry.get("canonical") or entry.get("path") or entry.get("slug") or ""
+        ).strip()
+        grouped[key][canonical].append(entry)
+        snippets.setdefault(key, snippet)
+
+    collisions: list[dict[str, object]] = []
+    for key, canonical_groups in grouped.items():
+        # Canonical aliases for one product are one page, not a duplicate.
+        if len(canonical_groups) < 2:
+            continue
+        language, _ = key
+        products: list[dict[str, str]] = []
+        for canonical, candidates in sorted(canonical_groups.items()):
+            entry = sorted(candidates, key=lambda item: item.get("path", ""))[0]
+            products.append({
+                "product_id": str(entry.get("product_id") or ""),
+                "brand": str(entry.get("brand") or ""),
+                "part_number": str(entry.get("part_number") or ""),
+                "product_name": str(entry.get("product_name") or ""),
+                "slug": str(entry.get("slug") or ""),
+                "language": language,
+                "path": str(entry.get("path") or ""),
+                "canonical": canonical,
+            })
+        collisions.append({
+            "language": language,
+            "snippet": snippets[key],
+            "products": products,
+        })
+    return sorted(
+        collisions,
+        key=lambda item: (str(item["language"]), str(item["snippet"]).casefold()),
+    )
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Audit SEO snippets and image alt text.")
+    parser.add_argument(
+        "--report-file",
+        type=Path,
+        default=None,
+        help="Optional path to write the machine-readable SEO review report as JSON.",
+    )
+    args = parser.parse_args()
     errors: list[str] = []
     warnings: list[str] = []
     seen_title_entries: list[tuple[str, str, str, str]] = []
-    product_meta_descriptions: dict[str, set[str]] = defaultdict(set)
+    product_meta_records: list[dict[str, str]] = []
     weak_product_copy: list[str] = []
     scanned = 0
     image_count = 0
@@ -202,30 +265,50 @@ def main() -> int:
             and route_parts[0] in LANGUAGES
             and route_parts[1] == "products"
         )
-        if is_product_page and descriptions and descriptions[0]:
-            product_meta_descriptions[clean(descriptions[0]).casefold()].add(path.stem)
-
-            # Detect the known generic placeholder-style copy that led to
-            # truncated, non-distinct product snippets. This is a warning so
-            # catalogue pages with sparse source data remain publishable.
+        product_record: dict[str, object] = {}
+        if is_product_page:
+            # Read the embedded catalogue record once for both the SEO-quality
+            # check and the structured duplicate-snippet report.
             product_data = re.search(
-                r"window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});",
+                r"window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});",
                 raw,
                 flags=re.S,
             )
             if product_data:
                 try:
-                    record = json.loads(product_data.group(1))
+                    parsed_record = json.loads(product_data.group(1))
+                    if isinstance(parsed_record, dict):
+                        product_record = parsed_record
                 except json.JSONDecodeError:
-                    record = {}
-                product_description = clean(str(record.get("description") or ""))
-                weak_phrases = (
-                    "supports the mechanical linkage or assembly identified by the product name",
-                    "allowing its connected parts to",
-                    "confirm the part number and vehicle application before ordering",
-                )
-                if any(phrase in product_description.casefold() for phrase in weak_phrases):
-                    weak_product_copy.append(label)
+                    product_record = {}
+
+        if is_product_page and descriptions and descriptions[0]:
+            language = route_parts[0]
+            product_seo = product_record.get("seo", {})
+            if not isinstance(product_seo, dict):
+                product_seo = {}
+            product_meta_records.append({
+                "language": language,
+                "snippet": clean(descriptions[0]),
+                "path": label,
+                "slug": str(product_record.get("slug") or path.stem),
+                "canonical": str((product_seo.get("canonical") or (canonicals[0] if len(canonicals) == 1 else "")) or label),
+                "product_id": str(product_record.get("id") or ""),
+                "brand": str(product_record.get("brand_name") or product_record.get("brand") or ""),
+                "part_number": str(product_record.get("manufacturer_part_number") or product_record.get("part_number") or product_record.get("partNumber") or ""),
+                "product_name": str(product_record.get("product_name") or product_record.get("name") or ""),
+            })
+
+            # Generic product-description copy is review-only: sparse source
+            # data must remain publishable while the catalogue is improved.
+            product_description = clean(str(product_record.get("description") or ""))
+            weak_phrases = (
+                "supports the mechanical linkage or assembly identified by the product name",
+                "allowing its connected parts to",
+                "confirm the part number and vehicle application before ordering",
+            )
+            if any(phrase in product_description.casefold() for phrase in weak_phrases):
+                weak_product_copy.append(label)
 
         if not re.search(r"<h1\b[^>]*>\s*[\s\S]*?\S[\s\S]*?</h1>", raw, flags=re.I):
             errors.append(f"{label}: missing non-empty H1 heading")
@@ -287,21 +370,52 @@ def main() -> int:
                     if any("placeholder" in str(value).casefold() for value in schema_images):
                         errors.append(f"{label}: Product JSON-LD references a placeholder image")
 
-    for snippet, slugs in product_meta_descriptions.items():
-        if len(slugs) > 1:
-            examples = ", ".join(sorted(slugs)[:5])
-            warnings.append(
-                f"duplicate product meta description shared by {len(slugs)} product slugs ({examples})"
-            )
+    duplicate_meta_groups = duplicate_product_meta_groups(product_meta_records)
+    for group in duplicate_meta_groups:
+        products = group["products"]
+        slugs = sorted({str(product.get("slug") or "") for product in products})
+        warnings.append(
+            f"duplicate product meta description (language={group['language']}, "
+            f"{len(slugs)} product slugs; {', '.join(slugs[:5])})"
+        )
 
     for path in weak_product_copy[:100]:
         warnings.append(f"{path}: product description contains known generic boilerplate")
 
-    for language, title, paths in duplicate_title_groups(seen_title_entries):
+    duplicate_titles = duplicate_title_groups(seen_title_entries)
+    for language, title, paths in duplicate_titles:
         warnings.append(
             f"duplicate page title ({len(paths)} pages, language={language}, title={title!r}): "
             f"{', '.join(paths[:5])}"
         )
+
+    if args.report_file:
+        report = {
+            "schema_version": 1,
+            "summary": {
+                "indexable_html_pages_scanned": scanned,
+                "seo_image_elements": image_count,
+                "product_schema_nodes": product_schema_count,
+                "weak_boilerplate_product_pages": len(weak_product_copy),
+                "warning_count": len(warnings),
+                "warning_breakdown": warning_breakdown(warnings),
+                "blocking_error_count": len(errors),
+            },
+            "warnings": warnings,
+            "duplicate_product_meta_description_groups": duplicate_meta_groups,
+            "duplicate_page_titles": [
+                {"language": language, "title": title, "paths": paths}
+                for language, title, paths in duplicate_titles
+            ],
+            "weak_boilerplate_product_pages": sorted(set(weak_product_copy)),
+            "blocking_errors": errors,
+        }
+        args.report_file.parent.mkdir(parents=True, exist_ok=True)
+        args.report_file.write_text(
+            json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\\n",
+            encoding="utf-8",
+        )
+        print(f"SEO review report written to {args.report_file}")
 
     print(
         f"SEO contract scanned {scanned} indexable HTML pages, "
