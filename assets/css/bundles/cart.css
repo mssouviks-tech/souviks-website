@@ -223,6 +223,17 @@
 .payment-status-panel h1 { margin-top: 0; }
 .payment-status-panel .payment-status-reference { overflow-wrap: anywhere; font-weight: 700; }
 .payment-status-panel .payment-status-detail { font-size: 1.1rem; font-weight: 700; }
+.product-card .add-to-purchase-cart {
+    display: block;
+    width: 100%;
+    margin-top: .45rem;
+    white-space: normal;
+}
+.pdp-actions .pdp-add-to-purchase-cart {
+    flex: 1 1 100%;
+    width: 100%;
+    margin-top: .45rem;
+}
 @media (max-width: 820px) {
     .purchase-cart-layout { grid-template-columns: minmax(0, 1fr); }
     .purchase-cart-summary { position: static; }
