@@ -1721,6 +1721,165 @@ def validate_category_counter_parity(categories: list[dict], errors: list[str]) 
             f"active categories master requires {total_expected} across en/hi/bn"
         )
 
+def validate_static_product_taxonomy(records_by_kind, errors: list[str]) -> None:
+    """Require visible and structured PDP taxonomy/recommendations to match the catalogue."""
+    products = records_by_kind.get("products", [])
+    categories = records_by_kind.get("categories", [])
+    products_by_id = {
+        text(item.get("id")): item for item in products
+        if text(item.get("id")) and item.get("active") is not False
+    }
+    categories_by_id = {
+        text(item.get("id")): item for item in categories
+        if text(item.get("id")) and item.get("active") is not False
+    }
+
+    def visible_text(value: str) -> str:
+        return html.unescape(re.sub(r"<[^>]+>", " ", value)).strip()
+
+    for language in LANGUAGES:
+        directory = ROOT / language / "products"
+        for path in sorted(directory.glob("*.html")):
+            raw = path.read_text(encoding="utf-8", errors="ignore")
+            data_match = re.search(
+                r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+                raw,
+                flags=re.S,
+            )
+            if not data_match:
+                continue
+            try:
+                embedded = json.loads(data_match.group(1))
+            except json.JSONDecodeError:
+                errors.append(f"{path.relative_to(ROOT)}: product page data is invalid JSON for taxonomy audit")
+                continue
+
+            pid = text(embedded.get("id"))
+            product = products_by_id.get(pid)
+            if product is None:
+                continue
+            category_id = text(product.get("category_id"))
+            category = categories_by_id.get(category_id)
+            if category is None:
+                continue
+            category_name = text(category.get("name"))
+            category_slug = text(category.get("slug") or category_id)
+            category_url = f"{BASE}/{language}/categories/{category_slug}"
+            subcategory_id = text(product.get("subcategory_id"))
+            subcategory = next(
+                (
+                    item for item in category.get("subcategories", [])
+                    if isinstance(item, dict) and text(item.get("id")) == subcategory_id
+                ),
+                None,
+            )
+            subcategory_name = text(subcategory.get("name")) if subcategory else text(product.get("subcategory_name"))
+
+            nav_match = re.search(
+                r'<nav\b(?=[^>]*\bclass=["\'][^"\']*\bbreadcrumb\b[^"\']*["\'])[^>]*>(.*?)</nav>',
+                raw,
+                flags=re.I | re.S,
+            )
+            breadcrumb_html = nav_match.group(1) if nav_match else ""
+            visible_category_crumbs = [
+                (href, visible_text(label))
+                for href, label in re.findall(
+                    r'<li\b[^>]*>\s*<a\b[^>]*href=["\']([^"\']*/categories/[^"\']*)["\'][^>]*>(.*?)</a>',
+                    breadcrumb_html,
+                    flags=re.I | re.S,
+                )
+            ]
+            if visible_category_crumbs != [(category_url, category_name)]:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: visible category breadcrumb "
+                    f"{visible_category_crumbs!r} != {[(category_url, category_name)]!r}"
+                )
+
+            category_rows = [
+                visible_text(value)
+                for value in re.findall(
+                    r'<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                    r'<strong>\s*(?:Category|श्रेणी|বিভাগ)\s*</strong>\s*<span>(.*?)</span>\s*</div>',
+                    raw,
+                    flags=re.I | re.S,
+                )
+            ]
+            if category_rows != [category_name]:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: displayed category {category_rows!r} != {[category_name]!r}"
+                )
+
+            subcategory_rows = [
+                visible_text(value)
+                for value in re.findall(
+                    r'<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                    r'<strong>\s*(?:Sub\s*Category|Subcategory|उप[-\s]?श्रेणी|उप[-\s]?विभाग|উপ[-\s]?বিভাগ|উপ[-\s]?শ্রেণি|उपबिभाग|উপश्रेणी)\s*</strong>\s*'
+                    r'<span>(.*?)</span>\s*</div>',
+                    raw,
+                    flags=re.I | re.S,
+                )
+            ]
+            if subcategory_name and subcategory_rows != [subcategory_name]:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: displayed subcategory {subcategory_rows!r} != {[subcategory_name]!r}"
+                )
+
+            structured_categories = []
+            for block in re.findall(
+                r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+                raw,
+                flags=re.I | re.S,
+            ):
+                try:
+                    schema = json.loads(block.strip())
+                except json.JSONDecodeError:
+                    continue
+                graph = schema.get("@graph") if isinstance(schema, dict) else None
+                nodes = graph if isinstance(graph, list) else [schema]
+                for node in nodes:
+                    if not isinstance(node, dict) or node.get("@type") != "BreadcrumbList":
+                        continue
+                    items = node.get("itemListElement")
+                    if isinstance(items, list):
+                        structured_categories.extend(
+                            (text(item.get("item")), text(item.get("name")))
+                            for item in items
+                            if isinstance(item, dict) and "/categories/" in text(item.get("item"))
+                        )
+            if structured_categories != [(category_url, category_name)]:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: BreadcrumbList category "
+                    f"{structured_categories!r} != {[(category_url, category_name)]!r}"
+                )
+
+            related_match = re.search(
+                r'<section\b(?=[^>]*\bid=["\']related-section["\'])[\s\S]*?</section>',
+                raw,
+                flags=re.I,
+            )
+            if related_match:
+                related_ids = re.findall(
+                    r'\bdata-saved-product-id=["\']([^"\']+)["\']',
+                    related_match.group(0),
+                    flags=re.I,
+                )
+                for related_id in related_ids:
+                    related_product = products_by_id.get(related_id)
+                    if related_product is None:
+                        errors.append(
+                            f"{path.relative_to(ROOT)}: related-products card references unknown product {related_id!r}"
+                        )
+                    elif related_id == pid:
+                        errors.append(
+                            f"{path.relative_to(ROOT)}: related-products includes the current product {pid}"
+                        )
+                    elif text(related_product.get("category_id")) != category_id:
+                        errors.append(
+                            f"{path.relative_to(ROOT)}: related product {related_id} belongs to "
+                            f"{text(related_product.get('category_id'))!r}, not {category_id!r}"
+                        )
+
+
 def validate_known_product_classifications(records_by_kind, errors: list[str]) -> None:
     """Catch the confirmed Valvoline engine-oil classification regression."""
     products = records_by_kind.get("products", [])
@@ -1757,6 +1916,7 @@ def main() -> None:
         if len(reference_warnings) > 30:
             print(f"[catalogue reference warning] ... and {len(reference_warnings) - 30} more")
     expected_routes = validate_generated_html_and_routes(records_by_kind, errors)
+    validate_static_product_taxonomy(records_by_kind, errors)
     validate_product_card_images(records_by_kind, errors)
     validate_static_product_listing_page(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
