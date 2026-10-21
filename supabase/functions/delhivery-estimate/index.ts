@@ -166,7 +166,7 @@ Deno.serve(async (req: Request) => {
     await enforceRateLimit(req);
 
     const b2cToken = (Deno.env.get("DELHIVERY_B2C_API_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || "").trim();
-    const b2bToken = (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || "").trim();
+    const b2bToken = (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || Deno.env.get("DELHIVERY_UMS_BEARER_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || Deno.env.get("DELHIVERY_B2C_API_TOKEN") || "").trim();
     if (!b2cToken) throw new EstimateError("delhivery_b2c_token_not_configured", 503);
 
     const serviceUrl = new URL("https://track.delhivery.com/c/api/pin-codes/json/");
