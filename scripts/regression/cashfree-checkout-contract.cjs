@@ -22,8 +22,17 @@ const moduleSync = read("scripts/catalogue/sync_checkout_module.py");
 const nav = read("scripts/catalogue/navigation.py");
 const versions = read("scripts/js/refresh_versions.py");
 const validator = read("scripts/js/validate.py");
+const siteCore = read("assets/js/site-core.js");
+const securityPolicies = ["_headers", "functions/_middleware.js", "functions/robots.txt.js"].map(read);
 
 assert.match(shared, /CASHFREE_API_VERSION\s*=\s*"2026-01-01"/);
+assert.match(siteCore, /toggle&&menu&&toggle\\.addEventListener\\("click"/);
+for (const policy of securityPolicies) {
+  assert.match(policy, /script-src[^;]*https:\\/\\/sdk\\.cashfree\\.com/);
+  assert.match(policy, /connect-src[^;]*https:\\/\\/api\\.cashfree\\.com/);
+  assert.match(policy, /frame-src[^;]*https:\\/\\/payments-test\\.cashfree\\.com/);
+}
+
 assert.match(shared, /CASHFREE_CHECKOUT_ENABLED/);
 assert.match(shared, /CASHFREE_ENABLE_LIVE_CHECKOUT/);
 assert.match(shared, /CASHFREE_PRICES_INCLUDE_GST/);
