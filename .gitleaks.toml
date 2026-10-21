@@ -1,0 +1,11 @@
+title = "Souviks Gitleaks configuration"
+
+[allowlist]
+description = "The exact Supabase publishable key below is intentionally embedded in browser JavaScript and is designed for public client use. This exception is limited to that value in the shared frontend runtime."
+regexTarget = "line"
+regexes = [
+  '''SUPABASE_PUBLISHABLE_KEY="sb_publishable_lw2angemSUxOJrcLdbyTDw_0hQbCj3x"''',
+]
+paths = [
+  '''assets/js/site-core\.js$''',
+]

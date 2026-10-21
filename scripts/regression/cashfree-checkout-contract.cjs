@@ -22,8 +22,17 @@ const moduleSync = read("scripts/catalogue/sync_checkout_module.py");
 const nav = read("scripts/catalogue/navigation.py");
 const versions = read("scripts/js/refresh_versions.py");
 const validator = read("scripts/js/validate.py");
+const siteCore = read("assets/js/site-core.js");
+const securityPolicies = ["_headers", "functions/_middleware.js", "functions/robots.txt.js"].map(read);
 
 assert.match(shared, /CASHFREE_API_VERSION\s*=\s*"2026-01-01"/);
+assert.ok(siteCore.includes('toggle&&menu&&toggle.addEventListener("click"'), "Language switcher binding must be guarded when the control is absent.");
+for (const policy of securityPolicies) {
+  assert.ok(policy.includes("script-src") && policy.includes("https://sdk.cashfree.com"), "CSP must allow the Cashfree SDK script.");
+  assert.ok(policy.includes("connect-src") && policy.includes("https://api.cashfree.com"), "CSP must allow Cashfree API connections.");
+  assert.ok(policy.includes("frame-src") && policy.includes("https://payments-test.cashfree.com"), "CSP must allow Cashfree payment frames.");
+}
+
 assert.match(shared, /CASHFREE_CHECKOUT_ENABLED/);
 assert.match(shared, /CASHFREE_ENABLE_LIVE_CHECKOUT/);
 assert.match(shared, /CASHFREE_PRICES_INCLUDE_GST/);
