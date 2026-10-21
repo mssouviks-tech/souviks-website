@@ -16,7 +16,7 @@ Never place Delhivery tokens in site JavaScript, HTML, a committed environment f
 
 ## Deployment
 
-Deploy the `delhivery-estimate` Supabase Edge Function after merging this branch. The repository's Supabase config sets `verify_jwt = false` for this one public estimator endpoint, so the handler restricts browser origins, validates all user inputs, uses a server-side rate limiter and never returns credentials. The limiter reuses the existing `cashfree_checkout_rate_limit` database RPC; ensure the Cashfree checkout migration containing this RPC is applied to this Supabase project.
+Deploy the `delhivery-estimate` Supabase Edge Function after merging this branch. The repository's Supabase config sets `verify_jwt = false` for this one public estimator endpoint, so the handler restricts browser origins, validates all user inputs, uses both a site-wide rate limiter and a per-IP limiter, and never returns credentials. The limiter reuses the existing `cashfree_checkout_rate_limit` database RPC; ensure the Cashfree checkout migration containing this RPC is applied to this Supabase project.
 
 ## API behaviour
 
