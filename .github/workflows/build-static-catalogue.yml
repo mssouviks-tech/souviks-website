@@ -37,6 +37,7 @@ on:
       - "scripts/catalogue/sync_product_cards.py"
       - "scripts/catalogue/sync_checkout_pages.py"
       - "scripts/catalogue/sync_checkout_module.py"
+      - "scripts/catalogue/sync_delhivery_module.py"
       - "scripts/audit/structured_data.py"
       - "scripts/audit/seo_contract.py"
       - "scripts/audit/test_product_seo.py"
@@ -103,6 +104,7 @@ jobs:
               "scripts/catalogue/sync_rfq_module.py",
               "scripts/catalogue/sync_checkout_pages.py",
               "scripts/catalogue/sync_checkout_module.py",
+              "scripts/catalogue/sync_delhivery_module.py",
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
               "scripts/catalogue/validate.py",
@@ -166,6 +168,7 @@ jobs:
             python3 scripts/catalogue/sync_navigation.py
             python3 scripts/catalogue/sync_product_cards.py
             python3 scripts/catalogue/sync_checkout_module.py
+            python3 scripts/catalogue/sync_delhivery_module.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
             python3 scripts/js/refactor.py
             npm run build:js
