@@ -133,7 +133,7 @@ Deno.serve(async (req: Request) => {
 
     if (subtotalPaise < 100) throw new CheckoutError("minimum_order_amount_not_met", 400);
     const subtotal = money(subtotalPaise);
-    const shipping = subtotal >= policy.threshold ? 0 : policy.shippingBelowThreshold;
+    const shipping = subtotal > policy.threshold ? 0 : policy.shippingBelowThreshold;
     const shippingPaise = Math.round(shipping * 100);
     const totalPaise = subtotalPaise + shippingPaise;
     if (!Number.isSafeInteger(totalPaise) || totalPaise < 100 || totalPaise > 100000000000) {
