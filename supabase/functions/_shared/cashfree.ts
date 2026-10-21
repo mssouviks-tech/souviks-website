@@ -337,7 +337,7 @@ export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Re
     const paymentId = String(successful.cf_payment_id || "");
     const patch = {
       payment_status: "paid",
-      order_status: order.order_status === "awaiting_payment" ? "confirmed" : order.order_status,
+      order_status: order.order_status === "awaiting_payment" ? "processing" : order.order_status,
       cashfree_order_status: "PAID",
       cf_payment_id: paymentId || null,
       paid_at: order.payment_status === "paid" ? undefined : now,
