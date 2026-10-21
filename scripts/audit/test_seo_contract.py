@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "audit"))
 
-from seo_contract import duplicate_title_groups  # noqa: E402
+from seo_contract import duplicate_title_groups, warning_breakdown  # noqa: E402
 
 
 class DuplicateTitleAuditTests(unittest.TestCase):
@@ -65,6 +65,27 @@ class DuplicateTitleAuditTests(unittest.TestCase):
                 "JAI - 0181N - Tata 1210D Front Leaf Spring | Souviks",
                 ["en/products/front-spring-svks000612.html", "en/products/front-spring.html"],
             )],
+        )
+
+
+class WarningSummaryTests(unittest.TestCase):
+    def test_warning_breakdown_counts_each_review_category(self) -> None:
+        warnings = [
+            "en/brands/jai.html: title length 13 is outside the 15-70 character review range",
+            "en/products/a.html: meta description length 45 is outside the 50-170 character review range",
+            "duplicate product meta description shared by 2 product slugs (a, b)",
+            "duplicate page title (2 pages, language=en, title='JAI | Souviks'): a.html, b.html",
+            "en/products/c.html: product description contains known generic boilerplate",
+        ]
+        self.assertEqual(
+            warning_breakdown(warnings),
+            {
+                "boilerplate product description": 1,
+                "duplicate page title": 1,
+                "duplicate product meta description": 1,
+                "meta description length": 1,
+                "title length": 1,
+            },
         )
 
 
