@@ -25,6 +25,7 @@ from product_seo import (
     schema_availability_url,
 )
 from product_title import shorten_product_name_for_title
+from product_title import shorten_product_name_for_title
 
 BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
