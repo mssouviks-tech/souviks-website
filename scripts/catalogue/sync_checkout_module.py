@@ -73,7 +73,7 @@ def main() -> int:
         f"Purchase-cart runtime version {version}: "
         f"{inserted} pages updated; {scanned} pages checked."
     )
-    return changed
+    return 0
 
 
 if __name__ == "__main__":
