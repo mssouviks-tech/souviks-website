@@ -198,7 +198,12 @@
         setStatus(status, "Your cart or checkout details changed. Review the total again before payment.", "info");
     }
 
-    function addProduct(productId, button) {
+    function addProduct(productId, button, requestedQuantity = 1) {
+        const quantity = Number(requestedQuantity);
+        if (!Number.isInteger(quantity) || quantity < 1 || quantity > MAX_QUANTITY) {
+            setStatus(document.getElementById("purchase-cart-status"), T.quantityLimit, "error");
+            return;
+        }
         const items = safeReadCart();
         const existing = items.find(item => item.productId === productId);
         if (!existing && items.length >= MAX_ITEMS) {
@@ -206,13 +211,13 @@
             return;
         }
         if (existing) {
-            if (existing.quantity >= MAX_QUANTITY) {
+            if (existing.quantity + quantity > MAX_QUANTITY) {
                 setStatus(document.getElementById("purchase-cart-status"), T.quantityLimit, "error");
                 return;
             }
-            existing.quantity += 1;
+            existing.quantity += quantity;
         } else {
-            items.push({ productId, quantity: 1 });
+            items.push({ productId, quantity });
         }
         const saved = writeCart(items);
         if (!saved.some(item => item.productId === productId)) {
@@ -231,8 +236,17 @@
                 button.disabled = false;
             }, 1000);
         }
-        window.souviksAnalytics?.trackEvent?.("add_to_cart", { product_id: productId, quantity: 1 });
+        window.souviksAnalytics?.trackEvent?.("add_to_cart", { product_id: productId, quantity });
         window.dispatchEvent(new CustomEvent("souviks:purchase-cart-added", { detail: { productId } }));
+    }
+
+    function cartHasUnavailableItems() {
+        return safeReadCart().some(item => {
+            const product = catalogueById.get(item.productId);
+            const price = getPrice(product);
+            return !product || product.active === false || price === null ||
+                (Number.isFinite(Number(product?.mrp)) && Number(product.mrp) > 0 && price > Number(product.mrp));
+        });
     }
 
     function renderCart() {
@@ -245,11 +259,13 @@
         const items = safeReadCart();
         const rows = [];
         let subtotalPaise = 0;
+        let unavailableCount = 0;
 
         for (const item of items) {
             const product = catalogueById.get(item.productId);
             const price = getPrice(product);
             if (!product || product.active === false || price === null || (Number.isFinite(Number(product?.mrp)) && Number(product.mrp) > 0 && price > Number(product.mrp))) {
+                unavailableCount += 1;
                 rows.push('<article class="purchase-cart-item purchase-cart-item-unavailable"><div><strong>' +
                     escapeHtml(product?.product_name || product?.name || item.productId) +
                     '</strong><p>' + escapeHtml(T.unavailable) + '</p></div><button type="button" class="btn btn-secondary" data-cart-remove="' +
@@ -285,6 +301,11 @@
         if (shipping && !preparedCheckout) shipping.textContent = "Confirmed before payment";
         const total = document.getElementById("purchase-cart-total");
         if (total && !preparedCheckout) total.textContent = "Review before payment";
+        const reviewButton = document.getElementById("purchase-review-button");
+        if (reviewButton) reviewButton.disabled = unavailableCount > 0 || isPreparing;
+        if (unavailableCount > 0) {
+            setStatus(document.getElementById("purchase-cart-status"), T.unavailable, "error");
+        }
         updateCartLink();
         invalidateReviewIfEmpty();
     }
@@ -432,7 +453,7 @@
             } finally {
                 isPreparing = false;
                 if (reviewButton) {
-                    reviewButton.disabled = false;
+                    reviewButton.disabled = cartHasUnavailableItems();
                     reviewButton.textContent = T.reviewTotal;
                 }
             }
@@ -602,7 +623,10 @@
         event.preventDefault();
         const productId = String(button.dataset.id || "").trim();
         if (!productId) return;
-        addProduct(productId, button);
+        const requestedQuantity = button.classList.contains("pdp-add-to-purchase-cart")
+            ? Number(document.getElementById("pdpQty")?.value || 1)
+            : 1;
+        addProduct(productId, button, requestedQuantity);
         const itemCount = safeReadCart().length;
         const link = document.querySelector('a[href$="/cart"], a[href$="/cart.html"]');
         if (link && itemCount > 0) link.classList.add("purchase-cart-has-items");
