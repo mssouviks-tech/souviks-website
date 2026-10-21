@@ -72,6 +72,7 @@ jobs:
               "scripts/audit/catalogue_parity.py",
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
+              "scripts/audit/optimize_static_images.py",
               "scripts/audit/structured_data.py",
               "scripts/audit/seo_contract.py",
               "scripts/audit/site_quality.py",
@@ -93,6 +94,9 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Match production's pre-build image preparation so responsive hero assets
+          # exist before catalogue generation and validation.
+          python3 scripts/audit/optimize_static_images.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
           python3 scripts/audit/generate_product_thumbnails.py
@@ -104,6 +108,9 @@ jobs:
           python3 scripts/catalogue/sync_entity_sitemaps.py
           python3 scripts/js/refactor.py
           npm run build:js
+          # Generated page templates may replace head markup; re-sync responsive
+          # hero source/preload references after catalogue output is complete.
+          python3 scripts/audit/optimize_static_images.py
           python3 scripts/js/refresh_versions.py
           python3 scripts/catalogue/sync_root_homepage.py
 
