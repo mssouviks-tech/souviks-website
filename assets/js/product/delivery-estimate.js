@@ -181,10 +181,18 @@
                     }
                 });
                 if (error || !data?.ok) {
-                    if (data?.code === "delhivery_b2c_token_not_configured" || data?.code === "rate_limit_unavailable") {
+                    let failure = data;
+                    try {
+                        if (error?.context && typeof error.context.json === "function") {
+                            failure = await error.context.json();
+                        }
+                    } catch {
+                        // Fall back to the safe UI message.
+                    }
+                    if (failure?.code === "delhivery_b2c_token_not_configured" || failure?.code === "rate_limit_unavailable") {
                         result.textContent = T.config;
                     } else {
-                        result.textContent = data?.message || T.failed;
+                        result.textContent = failure?.message || data?.message || T.failed;
                     }
                     return;
                 }
