@@ -62,6 +62,12 @@ constructor() {
 
         ];
 
+        // Let the static-card image synchronizer reuse this catalogue response
+        // instead of issuing a second cache-bypassing request for the same JSON.
+        window.dispatchEvent(new CustomEvent("souviks:catalogue-index-ready", {
+            detail: { products: this.products }
+        }));
+
         // Keep builder-generated product cards in the initial HTML.
         // JavaScript continues to render after filtering, sorting,
         // pagination, or other user interaction.
