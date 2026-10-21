@@ -18,14 +18,14 @@ In Supabase Dashboard → Edge Functions → Secrets, set these values. Use **Sa
 | `CASHFREE_CHECKOUT_ENABLED` | `true` only when the necessary config below is present; otherwise unset or `false` |
 | `CASHFREE_ENABLE_LIVE_CHECKOUT` | Leave unset or `false` until live checkout has been explicitly approved |
 | `CASHFREE_SITE_URL` | `https://www.souviks.co.in` |
-| `CASHFREE_CATALOGUE_URL` | `https://www.souviks.co.in/assets/data/catalogue-index.json` |
+| `CASHFREE_CATALOGUE_URL` | Leave unset to use the repository's canonical public catalogue, or use `https://raw.githubusercontent.com/mssouviks-tech/souviks-website/main/assets/data/catalogue-index.json` |
 | `CASHFREE_PRICES_INCLUDE_GST` | Must be `true` only after confirming listed selling prices are tax-inclusive for online orders |
 | `CASHFREE_FREE_SHIPPING_THRESHOLD_INR` | Confirm the threshold; existing business notes mention ₹45,000. This implementation treats subtotal **equal to or greater than** the configured threshold as free shipping |
 | `CASHFREE_SHIPPING_UNDER_THRESHOLD_INR` | The approved shipping charge in INR for orders below the threshold; no default has been assumed |
  
-The implementation refuses to create a payment session if checkout is disabled, prices are not explicitly confirmed as GST-inclusive, shipping policy is missing, or current catalogue data cannot be fetched. Do not set the final policy values until Souviks confirms the ₹45,000 threshold boundary, lower-order shipping charge, and GST treatment.
+The implementation refuses to create a payment session if checkout is disabled, prices are not explicitly confirmed as GST-inclusive, shipping policy is missing, or current catalogue data cannot be fetched. Do not set the final policy values until Souviks confirms the ₹45,000 threshold boundary, the customer-facing shipping amount below that threshold, and GST treatment.
 
-The edge function reads the current public catalogue at order creation and revalidates each selected product and price server-side. If Cloudflare blocks requests from Supabase Edge Functions, checkout will fail closed rather than trust browser prices. In that case, the next step is to maintain a server-owned checkout price projection in Supabase and sync it from the catalogue build.
+The edge function reads the canonical catalogue from the public GitHub raw endpoint by default, rather than depending on the Cloudflare-hosted website being accessible to server-to-server requests. It revalidates selected product IDs, active status and price server-side at order creation. An optional catalogue URL is restricted to this repository's raw GitHub catalogue or the exact Souviks catalogue path; if neither source is reachable, checkout fails closed rather than trusting browser prices.
 
 ## 3. Deploy functions
 
