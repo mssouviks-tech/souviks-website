@@ -39,6 +39,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m pip install --user --break-system-packages Pillow
+          python3 scripts/audit/test_static_image_optimizer.py
           python3 scripts/audit/optimize_static_images.py
 
       - name: Start local main and PR preview servers
