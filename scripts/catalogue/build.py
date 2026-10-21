@@ -498,6 +498,20 @@ def reconcile_catalogue_projections():
             return match.group(1)
         return text(p.get("part_number") or p.get("partNumber"))
     
+    def approximate_weight_grams(p):
+        """Read the catalogue's per-unit approximate packed weight in grams."""
+        for field in ("approx_weight_g", "weight_g", "shipping_weight_g", "approx_weight_grams"):
+            value = p.get(field)
+            if value is None or value == "":
+                continue
+            try:
+                grams = float(value)
+            except (TypeError, ValueError):
+                continue
+            if 0 < grams <= 200000:
+                return int(round(grams))
+        return None
+
     def product_from_catalogue(p):
         part = part_number(p)
         return {
@@ -511,6 +525,7 @@ def reconcile_catalogue_projections():
             "cross_references": list(p.get("cross_references") or []),
             "mrp": p.get("mrp"),
             "selling_price": p.get("selling_price"),
+            "approx_weight_g": approximate_weight_grams(p),
             "product_name": text(p.get("product_name") or p.get("name")),
             "name": text(p.get("name") or p.get("product_name")),
             "partNumber": part,
@@ -564,6 +579,7 @@ def reconcile_catalogue_projections():
             "slug": text(p.get("slug")),
             "url": f"/en/products/{text(p.get('slug'))}",
             "image": text(p.get("image")),
+            "approx_weight_g": approximate_weight_grams(p),
             "icon": "",
             "category": {"id": text(p.get("category_id")), "name": category},
             "brand": {"id": text(p.get("brand_id")), "name": brand},
