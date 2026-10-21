@@ -229,9 +229,10 @@ Deno.serve(async (req: Request) => {
       tatUrl.searchParams.set("destination_pin", destinationPin);
       return providerGet(tatUrl, "Bearer " + b2bToken).then((tatData) => {
         const days = findNumber(tatData, ["tat_days", "tat", "expected_tat", "estimated_days", "days"]);
-        const date = findString(tatData, ["estimated_date", "estimated_delivery_date", "delivery_date"]);
-        return days !== null && days >= 0
-          ? { available: true, tat_days: Math.ceil(days), estimated_date: date }
+        const date = findString(tatData, ["estimated_date", "estimated_delivery_date", "delivery_date", "estimatedDate"]);
+        const hasDays = days !== null && days >= 0;
+        return hasDays || Boolean(date)
+          ? { available: true, tat_days: hasDays ? Math.ceil(days) : null, estimated_date: date }
           : { available: false };
       }).catch((error) => {
         console.error("[Delhivery estimate] TAT estimate unavailable", error instanceof EstimateError ? error.code : "provider_error");
