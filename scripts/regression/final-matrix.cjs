@@ -341,6 +341,25 @@ async function goto(page, url) {
   return response;
 }
 
+async function waitForProductListingReady(page) {
+  // Listing cards ship in static HTML first; facet options and pagination are
+  // intentionally wired during idle-time catalogue hydration. Wait for the
+  // interactive controls rather than assuming fixed sleeps imply readiness.
+  await page.waitForFunction(() => {
+    const hasRealOption = selector => {
+      const element = document.querySelector(selector);
+      return !!element && Array.from(element.options || []).some(option => String(option.value || "").trim());
+    };
+    return (
+      hasRealOption("#brandFilter") &&
+      hasRealOption("#categoryFilter") &&
+      !!document.querySelector("#pagination .pagination-next") &&
+      !!document.querySelector("#pagination .pagination-status")
+    );
+  }, null, { timeout: 8000 });
+}
+
+
 async function assertNoHorizontalOverflow(page) {
   if (!VIEWS[page.__view].isMobile) return;
   const overflow = await page.evaluate(() =>
@@ -1120,6 +1139,7 @@ async function main() {
       });
 
       await check(`${view}/${lang}/product filters`, async () => {
+        await waitForProductListingReady(page);
         for (const selector of ["#brandFilter", "#categoryFilter"]) {
           const select = page.locator(selector);
           if (!(await select.count())) throw new Error(`${selector} missing`);
@@ -1138,6 +1158,7 @@ async function main() {
       });
 
       await check(`${view}/${lang}/product pagination`, async () => {
+        await waitForProductListingReady(page);
         const next = page.locator("#pagination .pagination-next");
         const status = page.locator("#pagination .pagination-status");
         if (!(await next.count()) || !(await status.count())) throw new Error("pagination controls missing");
@@ -1152,6 +1173,7 @@ async function main() {
       });
 
       await check(`${view}/${lang}/product search`, async () => {
+        await waitForProductListingReady(page);
         const input = page.locator("#searchInput");
         await input.fill("69050050");
         await page.waitForTimeout(300);
