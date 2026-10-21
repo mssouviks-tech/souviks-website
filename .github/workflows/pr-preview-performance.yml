@@ -14,6 +14,7 @@ permissions:
   contents: read
   checks: read
   pull-requests: read
+  issues: read
 
 concurrency:
   group: souviks-preview-performance-${{ github.event.pull_request.number }}
@@ -23,7 +24,7 @@ jobs:
   lighthouse:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - name: Check out pull request revision
         uses: actions/checkout@v4
@@ -31,52 +32,124 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 1
 
-      - name: Wait for the Cloudflare Pages branch preview
+      - name: Start local main and PR preview servers
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main --depth=1
+          git worktree add --detach /tmp/souviks-baseline FETCH_HEAD
+          echo "Baseline main revision: $(git -C /tmp/souviks-baseline rev-parse HEAD)"
+          echo "Candidate PR revision: $(git rev-parse HEAD)"
+
+          python3 -m http.server 4173 --directory /tmp/souviks-baseline >/tmp/souviks-baseline-http.log 2>&1 &
+          echo $! >/tmp/souviks-baseline-http.pid
+          python3 -m http.server 4174 --directory "$GITHUB_WORKSPACE" >/tmp/souviks-candidate-http.log 2>&1 &
+          echo $! >/tmp/souviks-candidate-http.pid
+
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null \
+              && curl -fsS http://127.0.0.1:4173/en/products.html >/dev/null \
+              && curl -fsS http://127.0.0.1:4173/en/products/10-x-15-nut.html >/dev/null \
+              && curl -fsS http://127.0.0.1:4174/ >/dev/null \
+              && curl -fsS http://127.0.0.1:4174/en/products.html >/dev/null \
+              && curl -fsS http://127.0.0.1:4174/en/products/10-x-15-nut.html >/dev/null; then
+              echo "Baseline and candidate static routes are ready."
+              exit 0
+            fi
+            sleep 1
+          done
+
+          echo "Local Lighthouse servers did not become ready."
+          cat /tmp/souviks-baseline-http.log /tmp/souviks-candidate-http.log
+          exit 1
+
+      - name: Run three-run mobile Lighthouse A/B (main vs PR)
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            http://127.0.0.1:4173/
+            http://127.0.0.1:4173/en/products.html
+            http://127.0.0.1:4173/en/products/10-x-15-nut.html
+            http://127.0.0.1:4174/
+            http://127.0.0.1:4174/en/products.html
+            http://127.0.0.1:4174/en/products/10-x-15-nut.html
+          configPath: .lighthouserc.json
+          uploadArtifacts: false
+          temporaryPublicStorage: false
+          runs: 3
+
+      - name: Wait for a matching Cloudflare Pages preview
         id: preview
+        continue-on-error: true
         uses: actions/github-script@v7
         env:
           PREVIEW_SHA: ${{ github.event.pull_request.head.sha }}
         with:
           script: |
             const sha = process.env.PREVIEW_SHA;
-            const deadline = Date.now() + 10 * 60 * 1000;
+            const shortSha = sha.slice(0, 7);
+            const deadline = Date.now() + 4 * 60 * 1000;
+
+            const branchPreviewFromComment = body => {
+              const latest = body.match(/Latest commit:[\s\S]*?<code>([0-9a-f]{7,40})<\/code>/i);
+              if (!latest || !sha.startsWith(latest[1].toLowerCase())) return null;
+              if (!/Deploy successful!/i.test(body)) return null;
+              const match = body.match(/Branch Preview URL:[\s\S]*?<a href=['"]([^'"]+)['"]/i)
+                || body.match(/Preview URL:[\s\S]*?<a href=['"]([^'"]+)['"]/i);
+              return match ? match[1].replace(/\/$/, "") : null;
+            };
 
             while (Date.now() < deadline) {
-              const { data } = await github.rest.checks.listForRef({
+              const { data: checks } = await github.rest.checks.listForRef({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 ref: sha,
                 per_page: 100
               });
-              const deployment = data.check_runs.find(check => check.name === "Cloudflare Pages");
+              const deployments = checks.check_runs
+                .filter(check => check.name === "Cloudflare Pages")
+                .sort((a, b) => Date.parse(b.started_at || b.created_at) - Date.parse(a.started_at || a.created_at));
+              const deployment = deployments[0];
 
-              if (deployment?.status === "completed") {
-                if (deployment.conclusion !== "success") {
-                  core.setFailed(`Cloudflare Pages preview failed: ${deployment.conclusion}`);
-                  return;
-                }
-
+              if (deployment?.status === "completed" && deployment.conclusion !== "success") {
+                core.info(`Cloudflare Pages preview failed for ${shortSha}: ${deployment.conclusion}`);
+              } else if (deployment?.status === "completed" && deployment.conclusion === "success") {
                 const summary = deployment.output?.summary || "";
                 const match = summary.match(/Branch Preview URL:[\s\S]*?<a href=['"]([^'"]+)['"]/i)
                   || summary.match(/Preview URL:[\s\S]*?<a href=['"]([^'"]+)['"]/i);
-                if (!match) {
-                  core.setFailed("Cloudflare Pages completed, but no preview URL was exposed in its check summary.");
+                if (match) {
+                  const url = match[1].replace(/\/$/, "");
+                  core.setOutput("url", url);
+                  core.info(`Using successful Cloudflare Pages preview for ${shortSha}: ${url}`);
                   return;
                 }
+              }
 
-                const baseUrl = match[1].replace(/\/$/, "");
-                core.setOutput("url", baseUrl);
-                core.info(`Using deployed branch preview: ${baseUrl}`);
+              const { data: comments } = await github.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                per_page: 100
+              });
+              const matchingComment = comments
+                .filter(comment => /Cloudflare Pages/i.test(comment.body || ""))
+                .sort((a, b) => Date.parse(b.updated_at || b.created_at) - Date.parse(a.updated_at || a.created_at))
+                .find(comment => branchPreviewFromComment(comment.body || ""));
+              if (matchingComment) {
+                const url = branchPreviewFromComment(matchingComment.body);
+                core.setOutput("url", url);
+                core.info(`Using Cloudflare's successful branch-preview comment for ${shortSha}: ${url}`);
                 return;
               }
 
-              core.info("Waiting for Cloudflare Pages preview deployment to complete...");
+              core.info(`Waiting for a successful Cloudflare Pages deployment for ${shortSha}; current check: ${deployment?.status || "not published"} / ${deployment?.conclusion || "pending"}.`);
               await new Promise(resolve => setTimeout(resolve, 15000));
             }
 
-            core.setFailed("Timed out waiting for the Cloudflare Pages preview check.");
+            core.setFailed(`No successful Cloudflare Pages preview for ${shortSha} within four minutes. The local main-vs-PR Lighthouse A/B results remain available; deployed-preview verification is still outstanding.`);
 
-      - name: Run three mobile Lighthouse measurements per route
+      - name: Run mobile Lighthouse on deployed branch preview
+        if: ${{ steps.preview.outputs.url != '' }}
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
@@ -84,6 +157,124 @@ jobs:
             ${{ steps.preview.outputs.url }}/en/products
             ${{ steps.preview.outputs.url }}/en/products/10-x-15-nut
           configPath: .lighthouserc.json
-          uploadArtifacts: true
+          uploadArtifacts: false
           temporaryPublicStorage: false
           runs: 3
+
+      - name: Summarize Lighthouse A/B and preview measurements
+        if: always()
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import statistics
+          from pathlib import Path
+          from urllib.parse import urlsplit
+
+          def lcp_render_delay(report):
+              details = (report.get("audits", {}).get("largest-contentful-paint-element") or {}).get("details") or {}
+              for block in details.get("items") or []:
+                  if block.get("type") != "table":
+                      continue
+                  headings = block.get("headings") or []
+                  if not any(item.get("label") == "Phase" for item in headings):
+                      continue
+                  for item in block.get("items") or []:
+                      if item.get("phase") == "Render Delay" and isinstance(item.get("timing"), (int, float)):
+                          return float(item["timing"])
+              return None
+
+          groups = {}
+          for path in Path(".lighthouseci").glob("*.report.json"):
+              try:
+                  report = json.loads(path.read_text(encoding="utf-8"))
+                  if not isinstance(report, dict):
+                      continue
+              except (OSError, json.JSONDecodeError):
+                  continue
+
+              url = report.get("requestedUrl") or report.get("finalUrl") or ""
+              audits = report.get("audits") or {}
+              score = (report.get("categories", {}).get("performance") or {}).get("score")
+              lcp = (audits.get("largest-contentful-paint") or {}).get("numericValue")
+              if not url or score is None or lcp is None:
+                  continue
+
+              parsed = urlsplit(url)
+              if parsed.port == 4173:
+                  group = "main"
+              elif parsed.port == 4174:
+                  group = "PR"
+              elif parsed.hostname and parsed.hostname.endswith(".souviks-website.pages.dev"):
+                  group = "deployed preview"
+              else:
+                  continue
+
+              pathpart = parsed.path.rstrip("/")
+              if pathpart in ("", "/"):
+                  route = "Homepage"
+              elif pathpart.endswith("/en/products.html") or pathpart.endswith("/en/products"):
+                  route = "Product listing"
+              elif pathpart.endswith("/en/products/10-x-15-nut.html") or pathpart.endswith("/en/products/10-x-15-nut"):
+                  route = "Product detail"
+              else:
+                  continue
+
+              tbt = (audits.get("total-blocking-time") or {}).get("numericValue")
+              render = lcp_render_delay(report)
+              groups.setdefault((group, route), []).append({
+                  "score": float(score) * 100,
+                  "lcp": float(lcp) / 1000,
+                  "render": render / 1000 if render is not None else None,
+                  "tbt": float(tbt) / 1000 if isinstance(tbt, (int, float)) else None,
+              })
+
+          def median_field(values, field):
+              numbers = [item[field] for item in values if item.get(field) is not None]
+              return statistics.median(numbers) if numbers else None
+
+          def show_seconds(value):
+              return f"{value:.2f} s" if value is not None else "—"
+
+          lines = [
+              "## Mobile Lighthouse results",
+              "",
+              "Local main-vs-PR runs use the same runner and mobile Lighthouse settings. Treat these as a controlled directional comparison, not production field data.",
+              "Render delay is the LCP time spent after resource loading; TBT is included as a separate main-thread blocking signal.",
+              "",
+              "| Test | Route | Runs | Median performance | Median LCP | Median LCP render delay | Median TBT |",
+              "|---|---|---:|---:|---:|---:|---:|"
+          ]
+          order = ["main", "PR", "deployed preview"]
+          routes = ["Homepage", "Product listing", "Product detail"]
+          for group in order:
+              for route in routes:
+                  values = groups.get((group, route), [])
+                  if not values:
+                      continue
+                  score = median_field(values, "score")
+                  lcp = median_field(values, "lcp")
+                  render = median_field(values, "render")
+                  tbt = median_field(values, "tbt")
+                  lines.append(
+                      f"| {group} | {route} | {len(values)} | {score:.0f} | "
+                      f"{show_seconds(lcp)} | {show_seconds(render)} | {show_seconds(tbt)} |"
+                  )
+
+          if not any(key[0] in ("main", "PR") for key in groups):
+              lines.extend(["", "**Warning:** No local Lighthouse reports were found in `.lighthouseci/`; check the action output and report directory."])
+          summary = "\n".join(lines) + "\n"
+          print(summary)
+          with open(__import__("os").environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+              f.write(summary)
+          PY
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-preview-reports-${{ github.run_id }}
+          path: .lighthouseci/
+          if-no-files-found: error
+          retention-days: 14
+          include-hidden-files: true
