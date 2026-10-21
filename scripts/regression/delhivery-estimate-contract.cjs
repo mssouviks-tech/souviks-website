@@ -55,6 +55,7 @@ assert.match(cartClient, /chargeable_weight_g/);
 assert.match(catalogueBuilder, /def approximate_weight_grams\(p\)/);
 assert.match(catalogueBuilder, /"approx_weight_g": approximate_weight_grams\(p\)/);
 assert.match(catalogueBuilder, /"mrp", "selling_price", "approx_weight_g"/);
+assert.match(catalogueBuilder, /data\["approx_weight_g"\] = approximate_weight_grams\(product\)/);
 assert.match(css, /@media \(max-width: 520px\)/);
 assert.match(sync, /id="product-detail"/);
 assert.match(sync, /assets\/js\/product\/delivery-estimate\.js/);
