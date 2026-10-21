@@ -143,6 +143,39 @@ class ProductSeoTests(unittest.TestCase):
         self.assertNotEqual(snippets[0], second_snippet)
         self.assertIn("AFFBPTTS2", second_snippet)
 
+    def test_long_product_snippet_keeps_recorded_vehicle_fitment(self) -> None:
+        product = {
+            "brand_name": "KFL",
+            "product_name": "UJ Cross 48 x 135",
+            "part_number": "KF5122",
+            "category_name": "Suspension & Steering",
+            "subcategory_name": "Cross Joint",
+            "description": (
+                "The KFL KF5122 UJ Cross 48 x 135 transmits torque between connected "
+                "shafts while accommodating changes in shaft angle during driveline movement."
+            ),
+            "vehicles": ["Tata LPT", "Ashok Leyland 2516"],
+            "applications": ["Propeller Shaft Assembly", "Driveline System"],
+        }
+        broad = build_product_meta_description(product, language="en")
+        narrowed_product = dict(product)
+        narrowed_product["vehicles"] = ["Ashok Leyland 2516"]
+        narrowed_product["description"] = (
+            "The KFL KF5122 UJ Cross 48 x 135 transmits torque between connected "
+            "shafts while accommodating changes in shaft angle during driveline movement."
+        )
+        narrowed = build_product_meta_description(narrowed_product, language="en")
+
+        for snippet in (broad, narrowed):
+            self.assertGreaterEqual(len(snippet), 70)
+            self.assertLessEqual(len(snippet), 158)
+            self.assertIn("KF5122", snippet)
+            self.assertTrue(snippet.endswith("Check part fitment, current price and availability with Souviks."))
+        self.assertIn("Tata LPT", broad)
+        self.assertIn("Ashok Leyland 2516", broad)
+        self.assertNotEqual(broad, narrowed)
+        self.assertIn("Ashok Leyland 2516", narrowed)
+
     def test_availability_is_never_inferred(self) -> None:
         self.assertEqual(
             schema_availability_url({"availability": "in_stock"}),
