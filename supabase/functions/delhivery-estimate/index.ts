@@ -216,7 +216,7 @@ Deno.serve(async (req: Request) => {
     chargesUrl.searchParams.set("pt", paymentMode);
     const chargePromise = providerGet(chargesUrl, "Token " + b2cToken).then((chargeData) => {
       const amount = findNumber(chargeData, ["total_amount", "totalAmount", "total_charges", "total_charges_amount"]);
-      if (amount === null || amount < 0) return { available: false };
+      if (amount === null || amount <= 0) return { available: false };
       return { available: true, amount: Math.round(amount * 100) / 100, currency: "INR", approximate: true };
     }).catch((error) => {
       console.error("[Delhivery estimate] Shipping charge estimate unavailable", error instanceof EstimateError ? error.code : "provider_error");
