@@ -125,3 +125,35 @@ jobs:
           name: final-regression-results
           path: regression-results/final-regression-results.json
           if-no-files-found: warn
+
+  cashfree-sandbox-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Smoke-check deployed Cashfree Sandbox configuration (no order created)
+        shell: bash
+        run: |
+          set -euo pipefail
+          response_file="$(mktemp)"
+          trap 'rm -f "$response_file"' EXIT
+          status="$(curl --silent --show-error --max-time 20 \
+            --output "$response_file" --write-out '%{http_code}' \
+            --request POST \
+            'https://kjxrfmujzdxatpgegqcs.supabase.co/functions/v1/cashfree-create-order' \
+            --header 'Origin: https://www.souviks.co.in' \
+            --header 'Content-Type: application/json' \
+            --data '{"terms_accepted":true,"customer":{},"shipping_address":{},"items":[]}')"
+          if [ "$status" != "400" ]; then
+            echo "Cashfree preflight expected HTTP 400 customer_name_required but received HTTP $status."
+            cat "$response_file"
+            exit 1
+          fi
+          node - "$response_file" <<'NODE'
+          const fs = require("node:fs");
+          const payload = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+          if (payload.code !== "customer_name_required") {
+            console.error("Cashfree preflight did not reach validation after configuration checks:", payload.code || "unknown_error");
+            process.exit(1);
+          }
+          console.log("Cashfree Sandbox config, checkout policy, and Supabase rate-limit path are ready. No order or payment was created.");
+          NODE
