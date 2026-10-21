@@ -214,16 +214,24 @@ export async function cashfreeRequest(
   return parsed;
 }
 
-export async function fetchCatalogue(config: CashfreeRuntimeConfig): Promise<any[]> {
+export async function fetchCatalogue(_config: CashfreeRuntimeConfig): Promise<any[]> {
+  // Prefer the repository's published catalogue so checkout is not dependent
+  // on Cloudflare bot challenges or static-site cache propagation.
   const catalogueUrl = (Deno.env.get("CASHFREE_CATALOGUE_URL") ||
-    config.siteUrl + "/assets/data/catalogue-index.json").trim();
+    "https://raw.githubusercontent.com/mssouviks-tech/souviks-website/main/assets/data/catalogue-index.json").trim();
   let url: URL;
   try {
     url = new URL(catalogueUrl);
   } catch {
     throw new CheckoutError("catalogue_unavailable", 503);
   }
-  if (url.protocol !== "https:" || !["www.souviks.co.in", "souviks.co.in"].includes(url.hostname)) {
+  const isSiteCatalogue =
+    ["www.souviks.co.in", "souviks.co.in"].includes(url.hostname) &&
+    url.pathname === "/assets/data/catalogue-index.json";
+  const isRepositoryCatalogue =
+    url.hostname === "raw.githubusercontent.com" &&
+    url.pathname === "/mssouviks-tech/souviks-website/main/assets/data/catalogue-index.json";
+  if (url.protocol !== "https:" || (!isSiteCatalogue && !isRepositoryCatalogue)) {
     throw new CheckoutError("catalogue_unavailable", 503);
   }
   let response: Response;
