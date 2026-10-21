@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#d62828"><meta name="robots" content="noindex,nofollow">
+  <title>Payment status | Souviks</title>
+  <meta name="description" content="Verify your Souviks online order payment status.">
+  <link rel="canonical" href="https://www.souviks.co.in/en/payment-status">
+  <link rel="alternate" hreflang="en" href="https://www.souviks.co.in/en/payment-status">
+  <link rel="alternate" hreflang="bn" href="https://www.souviks.co.in/bn/payment-status">
+  <link rel="alternate" hreflang="hi" href="https://www.souviks.co.in/hi/payment-status">
+  <link rel="alternate" hreflang="x-default" href="https://www.souviks.co.in/en/payment-status">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/site-base.css?v=7c896a18b570"><link rel="stylesheet" href="/assets/css/bundles/cart.css?v=0e9315742972">
+</head>
+<body class="site-page page-payment-status">
+  <div class="top-bar"><div class="container">
+    <div class="top-bar-brand"><a href="/en/" class="top-logo"><img src="/assets/logo/souviks-logo.webp?v=a5300f9e16e9" width="1024" height="1024" alt="Souviks"></a></div>
+    <div class="top-bar-tools"><a href="mailto:info@souviks.co.in" class="top-item top-email">info@souviks.co.in</a><a href="tel:+919434331896" class="top-item top-phone">+91 94343 31896</a><div id="topAuth" class="top-auth"><a id="topSignIn" href="/en/login" class="top-signin" data-auth-open="login">Sign In</a><div id="topUserMenu" class="top-user-menu" hidden><button type="button" id="topUserButton" class="top-user-button" aria-expanded="false"><span id="topUserName">Account</span></button></div></div></div>
+    <button id="mobileMenuButton" class="mobile-menu-button" type="button" aria-label="Open Navigation" aria-expanded="false" aria-controls="mainNavigation"><span></span><span></span><span></span></button>
+  </div></div>
+  <header class="site-header"><div class="container"><div class="header-wrapper">
+    <nav id="mainNavigation" class="main-navigation" aria-label="Primary Navigation">
+                    <div class="mobile-navigation-header">
+                        <img src="/assets/logo/souviks-logo-white.webp?v=a5300f9e16e9" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
+                        <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                    </div>
+
+                    <ul class="navigation-menu">
+                        <li>
+                            <a href="/en/" class="nav-link ">Home</a>
+                        </li>
+                        <li>
+                            <a href="/en/products" class="nav-link ">Products</a>
+                        </li>
+                        <li>
+                            <a href="/en/cart" class="nav-link ">Shopping Cart</a>
+                        </li>
+                        <li>
+                            <a href="/en/brands" class="nav-link ">Brands</a>
+                        </li>
+                        <li>
+                            <a href="/en/vehicles" class="nav-link ">Vehicles</a>
+                        </li>
+                        <li>
+                            <a href="/en/categories" class="nav-link ">Categories</a>
+                        </li>
+                        <li>
+                            <a href="/en/about" class="nav-link ">About Us</a>
+                        </li>
+                        <li>
+                            <a href="/en/business-buyers" class="nav-link ">For Businesses</a>
+                        </li>
+                        <li>
+                            <a href="/en/contact" class="nav-link ">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="mobile-nav-auth" aria-label="Account">
+                        <a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/en/login">
+                            Sign In
+                        </a>
+
+                        <div id="mobileNavUserMenu" class="mobile-nav-user" hidden>
+                            <a class="mobile-nav-auth-link" href="/en/account">
+                                <span aria-hidden="true">◉</span>
+                                <span id="mobileNavUserName">Account</span>
+                            </a>
+                            <button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>
+                                Sign Out
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+    <div class="header-buttons"><a href="/en/cart" class="btn btn-secondary">Shopping Cart</a><a href="/en/request-quote" class="btn btn-secondary">RFQ Basket <span class="rfq-badge">0</span></a></div>
+  </div></div></header>
+  <main id="main-content" class="container payment-status-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><ol class="breadcrumb-list"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item"><a href="/en/cart">Cart</a></li><li class="breadcrumb-item active" aria-current="page">Payment status</li></ol></div></nav>
+    <section id="payment-status-root" class="payment-status-panel">
+      <h1>Payment status</h1><p id="payment-status-message" role="status" aria-live="polite">Checking your payment with Cashfree…</p>
+      <dl><div><dt>Order reference</dt><dd id="payment-status-reference" class="payment-status-reference">—</dd></div><div><dt>Amount</dt><dd id="payment-status-detail" class="payment-status-detail">—</dd></div></dl>
+      <button id="payment-status-retry" type="button" class="btn btn-secondary" hidden>Retry verification</button>
+      <p><a href="/en/products">Continue shopping</a></p>
+      <p>Need help? Contact us at <a href="mailto:info@souviks.co.in">info@souviks.co.in</a> · <a href="tel:+919434331896">+91 94343 31896</a></p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container"><p>© Souviks · <a href="/en/terms">Terms &amp; Conditions</a> · <a href="/en/privacy-policy">Privacy Policy</a> · <a href="/en/refund">Refund Policy</a></p></div></footer>
+  <script>
+    window.souviks = {
+      siteName: "Souviks",
+      siteUrl: "https://www.souviks.co.in",
+      currentPage: "Payment status",
+      currentPageType: "",
+      currentPageUrl: "/en/payment-status",
+      breadcrumbRoot: false,
+      currentLanguage: "en",
+      translations: {
+        buttons: { add_to_rfq: "Add To RFQ" },
+        navigation: { home: "Home", products: "Products", brands: "Brands", vehicles: "Vehicles", categories: "Categories" }
+      },
+      api: {
+        products: "/assets/data/products.json",
+        brands: "/assets/data/brands.json",
+        categories: "/assets/data/categories.json",
+        vehicles: "/assets/data/vehicles.json",
+        search: "/assets/data/search.json"
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script defer src="/assets/js/site-core.js?v=57f385b3b443"></script><script defer src="/assets/js/attribution.js?v=6b8229cb515b"></script><script defer src="/assets/js/cart/cart.js?v=a8667cdf6043"></script>
+</body>
+</html>
