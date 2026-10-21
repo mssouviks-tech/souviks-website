@@ -38,6 +38,21 @@ class DuplicateTitleAuditTests(unittest.TestCase):
         ]
         self.assertEqual(duplicate_title_groups(entries), [])
 
+    def test_canonical_aliases_do_not_inflate_collision_page_count(self) -> None:
+        entries = [
+            ("en", "Souviks | Commercial Vehicle Parts", "index.html", "https://www.souviks.co.in/"),
+            ("en", "Souviks | Commercial Vehicle Parts", "en/index.html", "https://www.souviks.co.in/"),
+            ("en", "Souviks | Commercial Vehicle Parts", "en/about.html", "https://www.souviks.co.in/en/about"),
+        ]
+        self.assertEqual(
+            duplicate_title_groups(entries),
+            [(
+                "en",
+                "Souviks | Commercial Vehicle Parts",
+                ["en/about.html", "index.html"],
+            )],
+        )
+
     def test_distinct_same_language_product_titles_remain_visible(self) -> None:
         entries = [
             ("en", "JAI - 0181N - Tata 1210D Front Leaf Spring | Souviks", "en/products/front-spring.html", "https://www.souviks.co.in/en/products/front-spring"),
