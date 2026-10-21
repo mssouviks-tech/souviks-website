@@ -93,7 +93,7 @@ def script_sources(html: str) -> list[str]:
 
 
 VERSIONED_ASSET_RE = re.compile(
-    r'(?P<asset>/(?:assets/js/(?:site-core|catalogue-core|attribution)\.js|assets/js/bundles/[^"?]+\.js|assets/js/(?:account|products|product|request-quote|components)/[^"?]+\.js))'
+    r'(?P<asset>/(?:assets/js/(?:site-core|catalogue-core|attribution)\.js|assets/js/bundles/[^"?]+\.js|assets/js/(?:account|products|product|request-quote|components|cart)/[^"?]+\.js))'
     r'(?P<query>\?v=(?P<version>[0-9a-f]{12}))?'
 )
 

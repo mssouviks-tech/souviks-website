@@ -76,6 +76,21 @@ const ProductCard = {
         const savedIcon = isSaved ? "♥" : "♡";
         const addLabel =
             window.souviks?.translations?.buttons?.add_to_rfq || "Add To RFQ";
+        const language = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+        const purchaseLabel = language === "hi"
+            ? "कार्ट में जोड़ें"
+            : language === "bn"
+                ? "কার্টে যোগ করুন"
+                : "Add to Cart";
+        const purchaseButton = Number.isFinite(sellingNumber) && sellingNumber > 0
+            ? '<button type="button" class="btn btn-secondary add-to-purchase-cart"' +
+                ' data-id="' + escape(productId) + '"' +
+                ' data-part="' + escape(partNumber) + '"' +
+                ' data-name="' + escape(name) + '"' +
+                ' data-brand="' + escape(brandName) + '"' +
+                ' aria-label="Add ' + escape(name) + ' to cart">' +
+                purchaseLabel + '</button>'
+            : "";
 
         return '<article class="product-card">' +
             '<div class="product-image">' +
@@ -105,6 +120,7 @@ const ProductCard = {
                     Utils.productUrl(product) + '">' + escape(name) + "</a></h3>" +
                 '<div class="product-price' + (discounted ? " product-price-sale" : "") +
                     '" aria-label="Price">' + price + "</div>" +
+                purchaseButton +
                 '<button type="button" class="btn btn-primary add-to-cart"' +
                     ' data-id="' + escape(productId) + '"' +
                     ' data-part="' + escape(partNumber) + '"' +

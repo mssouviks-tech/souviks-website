@@ -9,7 +9,7 @@
   "scripts": {
     "build:js": "node scripts/js/minify.js && python3 scripts/js/refresh_versions.py",
     "check:js": "node scripts/js/check-syntax.js",
-    "lint:js": "eslint \"assets/js/site-core.js\" \"assets/js/attribution.js\" \"assets/js/catalogue-core.js\" \"assets/js/account/**/*.js\" \"assets/js/products/**/*.js\" \"assets/js/product/**/*.js\" \"assets/js/request-quote/**/*.js\" \"assets/js/components/**/*.js\"",
+    "lint:js": "eslint \"assets/js/site-core.js\" \"assets/js/attribution.js\" \"assets/js/catalogue-core.js\" \"assets/js/account/**/*.js\" \"assets/js/products/**/*.js\" \"assets/js/product/**/*.js\" \"assets/js/request-quote/**/*.js\" \"assets/js/components/**/*.js\" \"assets/js/cart/**/*.js\"",
     "format:js": "prettier --write \".prettierrc.json\" \"scripts/js/*.js\" \"eslint.config.js\" \"package.json\"",
     "format:check": "prettier --check \".prettierrc.json\" \"scripts/js/*.js\" \"eslint.config.js\" \"package.json\""
   },

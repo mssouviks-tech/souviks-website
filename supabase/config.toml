@@ -1,0 +1,12 @@
+project_id = "kjxrfmujzdxatpgegqcs"
+
+# Guest checkout is intentionally supported. The functions perform origin,
+# rate-limit, token-hash and webhook-signature checks before sensitive work.
+[functions.cashfree-create-order]
+verify_jwt = false
+
+[functions.cashfree-verify-order]
+verify_jwt = false
+
+[functions.cashfree-webhook]
+verify_jwt = false

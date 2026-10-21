@@ -7,6 +7,7 @@ export default [
       "assets/js/site-core.js",
       "assets/js/catalogue-core.js",
       "assets/js/components/**/*.js",
+      "assets/js/cart/**/*.js",
       "assets/js/account/**/*.js",
       "assets/js/products/**/*.js",
       "assets/js/product/**/*.js",

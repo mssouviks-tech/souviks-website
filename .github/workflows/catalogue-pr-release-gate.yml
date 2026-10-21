@@ -17,6 +17,8 @@ on:
       - "sitemap.xml"
       - "sitemaps/**"
       - "supabase/migrations/**"
+      - "supabase/functions/**"
+      - "supabase/config.toml"
 
 permissions:
   contents: read
@@ -41,6 +43,14 @@ jobs:
         with:
           node-version: 24
 
+      - name: Set up Deno for Supabase Edge Function type checks
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Check Cashfree Edge Function types
+        run: deno check supabase/functions/_shared/cashfree.ts supabase/functions/cashfree-create-order/index.ts supabase/functions/cashfree-verify-order/index.ts supabase/functions/cashfree-webhook/index.ts
+
       - name: Install JavaScript build tools
         run: npm install --no-package-lock --no-audit --no-fund
 
@@ -61,6 +71,8 @@ jobs:
               "scripts/audit/test_entity_titles.py",
               "scripts/catalogue/normalize_page_config.py",
               "scripts/catalogue/sync_rfq_module.py",
+              "scripts/catalogue/sync_checkout_pages.py",
+              "scripts/catalogue/sync_checkout_module.py",
               "scripts/audit/production_smoke.py",
               "scripts/catalogue/enrich_entities.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
@@ -97,12 +109,14 @@ jobs:
 
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
+          python3 scripts/catalogue/sync_checkout_pages.py
           python3 scripts/audit/generate_product_thumbnails.py
           python3 scripts/catalogue/sync_navigation.py
           python3 scripts/catalogue/sync_product_cards.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/normalize_page_config.py
           python3 scripts/catalogue/sync_rfq_module.py
+          python3 scripts/catalogue/sync_checkout_module.py
           python3 scripts/catalogue/sync_entity_sitemaps.py
           python3 scripts/js/refactor.py
           npm run build:js
@@ -127,6 +141,7 @@ jobs:
           npm run lint:js
           npm run check:js
           node scripts/regression/rfq-security-contract.cjs
+          node scripts/regression/cashfree-checkout-contract.cjs
           npm run format:check
 
           echo "Catalogue release gate passed."

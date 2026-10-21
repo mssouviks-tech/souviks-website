@@ -9,9 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 LABELS = {
-    "en": {"part": "Part No.", "request": "Get current price", "add": "Add To RFQ"},
-    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "add": "RFQ में जोड़ें"},
-    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "add": "RFQ-তে যোগ করুন"},
+    "en": {"part": "Part No.", "request": "Get current price", "add": "Add To RFQ", "purchase": "Add to Cart"},
+    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "add": "RFQ में जोड़ें", "purchase": "कार्ट में जोड़ें"},
+    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "add": "RFQ-তে যোগ করুন", "purchase": "কার্টে যোগ করুন"},
 }
 
 
@@ -128,6 +128,18 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
             f"{esc(labels['request'])}</div>"
         )
 
+    purchase_button_html = ""
+    try:
+        purchasable_price = float(product.get("selling_price"))
+    except (TypeError, ValueError):
+        purchasable_price = 0.0
+    if pid and product.get("active") is not False and purchasable_price > 0:
+        purchase_button_html = (
+            f'<button type="button" class="btn btn-secondary add-to-purchase-cart" data-id="{esc(pid)}" '
+            f'data-part="{esc(part)}" data-name="{esc(name)}" data-brand="{esc(brand)}" '
+            f'aria-label="Add {esc(name)} to cart">{esc(labels["purchase"])}</button>'
+        )
+
     part_html = (
         f'<div class="product-part-number">Part No. <strong>{esc(part)}</strong></div>'
         if part
@@ -151,7 +163,7 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
         '<span data-saved-icon aria-hidden="true">♡</span></button></div>'
         f'<div class="product-content"><div class="product-brand-label">{esc(brand)}</div>'
         f'{part_html}<h3 class="product-title"><a href="/{lang}/products/{esc(slug)}">'
-        f"{esc(name)}</a></h3>{price_html}"
+        f"{esc(name)}</a></h3>{price_html}{purchase_button_html}"
         f'<button type="button" class="btn btn-primary add-to-cart" data-id="{esc(pid)}" '
         f'data-part="{esc(part)}" data-name="{esc(name)}" data-brand="{esc(brand)}" '
         f'aria-label="Add {aria} to RFQ">{labels["add"]}</button></div></article>'
