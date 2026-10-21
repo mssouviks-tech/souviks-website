@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Keep the Delhivery estimator loaded on every generated product-detail page."""
+"""Synchronize Delhivery estimator assets onto product pages and cart pages."""
 
 from __future__ import annotations
 
@@ -9,16 +9,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 LANGUAGES = ("en", "hi", "bn")
-SCRIPT_PATH = ROOT / "assets/js/product/delivery-estimate.js"
+PRODUCT_SCRIPT = ROOT / "assets/js/product/delivery-estimate.js"
+CART_SCRIPT = ROOT / "assets/js/cart/delivery-estimate.js"
 STYLE_PATH = ROOT / "assets/css/delhivery-estimator.css"
-SCRIPT_URL = "/assets/js/product/delivery-estimate.js"
+PRODUCT_SCRIPT_URL = "/assets/js/product/delivery-estimate.js"
+CART_SCRIPT_URL = "/assets/js/cart/delivery-estimate.js"
 STYLE_URL = "/assets/css/delhivery-estimator.css"
 SCRIPT_TAG = re.compile(
-    r'<script\b(?=[^>]*\bsrc=["\']/assets/js/product/delivery-estimate\.js(?:\?v=[^"\']*)?["\'])[^>]*></script>',
+    r'<script\b(?=[^>]*\bsrc=["\']/(?:assets/js/product/delivery-estimate|assets/js/cart/delivery-estimate)\.js(?:\?v=[^"\']*)?["\'])[^>]*></script>',
     flags=re.I,
 )
 STYLE_TAG = re.compile(
-    r'<link\b(?=[^>]*\bhref=["\']/assets/css/delhivery-estimator\.css(?:\?v=[^"\']*)?["\'])[^>]*>',
+    r'<link\b(?=[^>]*\bhref=["\']\/assets/css/delhivery-estimator\.css(?:\?v=[^"\']*)?["\'])[^>]*>',
     flags=re.I,
 )
 
@@ -27,17 +29,22 @@ def asset_hash(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
 
 
-def product_pages():
+def pages_to_scan():
     for language in LANGUAGES:
         yield from (ROOT / language / "products").glob("*.html")
+        yield ROOT / language / "cart.html"
 
 
 def sync_page(path: Path) -> bool:
     source = path.read_text(encoding="utf-8")
-    if 'id="product-detail"' not in source:
+    is_product = 'id="product-detail"' in source
+    is_cart = path.name == "cart.html" and 'id="purchase-cart-root"' in source
+    if not is_product and not is_cart:
         return False
 
-    script_tag = f'<script defer src="{SCRIPT_URL}?v={asset_hash(SCRIPT_PATH)}"></script>'
+    script_path = CART_SCRIPT if is_cart else PRODUCT_SCRIPT
+    script_url = CART_SCRIPT_URL if is_cart else PRODUCT_SCRIPT_URL
+    script_tag = f'<script defer src="{script_url}?v={asset_hash(script_path)}"></script>'
     style_tag = f'<link rel="stylesheet" href="{STYLE_URL}?v={asset_hash(STYLE_PATH)}">'
     updated, script_count = SCRIPT_TAG.subn(script_tag, source, count=1)
     if not script_count:
@@ -60,10 +67,12 @@ def sync_page(path: Path) -> bool:
 
 
 def main() -> int:
-    if not SCRIPT_PATH.is_file() or not STYLE_PATH.is_file():
-        raise FileNotFoundError("Delhivery estimator script or stylesheet is missing")
-    changed = sum(1 for page in sorted(product_pages()) if page.is_file() and sync_page(page))
-    print(f"Delhivery estimator assets synchronized: {changed} product pages changed.")
+    required = (PRODUCT_SCRIPT, CART_SCRIPT, STYLE_PATH)
+    missing = [str(path.relative_to(ROOT)) for path in required if not path.is_file()]
+    if missing:
+        raise FileNotFoundError("Missing Delhivery estimator assets: " + ", ".join(missing))
+    changed = sum(1 for page in sorted(pages_to_scan()) if page.is_file() and sync_page(page))
+    print(f"Delhivery estimator assets synchronized: {changed} product/cart pages changed.")
     return 0
 
 
