@@ -417,6 +417,89 @@ def add_supabase_preconnects() -> int:
     return changed
 
 
+def _link_attribute(tag: str, name: str) -> str:
+    match = re.search(
+        rf"\b{re.escape(name)}\s*=\s*['""]([^'""]*)['""]",
+        tag,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    return match.group(1).strip() if match else ""
+
+
+def dedupe_blocking_google_font_links(html: str) -> tuple[str, int]:
+    """Remove render-blocking duplicates when the same Google Font CSS is already async-loaded."""
+    link_pattern = re.compile(r"<link\b[^>]*>", flags=re.IGNORECASE | re.DOTALL)
+    links = list(link_pattern.finditer(html))
+    asynchronous_hrefs: set[str] = set()
+    kept_async_start: dict[str, int] = {}
+
+    for match in links:
+        tag = match.group(0)
+        if "stylesheet" not in _link_attribute(tag, "rel").lower().split():
+            continue
+        href = _link_attribute(tag, "href")
+        if not href.startswith("https://fonts.googleapis.com/css2"):
+            continue
+        media = _link_attribute(tag, "media").lower()
+        onload = _link_attribute(tag, "onload")
+        is_async = media == "print" and bool(
+            re.search(r"this\.media\s*=\s*['""]all['""]", onload, re.IGNORECASE)
+        )
+        if is_async:
+            asynchronous_hrefs.add(href)
+            kept_async_start.setdefault(href, match.start())
+
+    remove_ranges: list[tuple[int, int]] = []
+    for match in links:
+        tag = match.group(0)
+        if "stylesheet" not in _link_attribute(tag, "rel").lower().split():
+            continue
+        href = _link_attribute(tag, "href")
+        if href not in asynchronous_hrefs:
+            continue
+        media = _link_attribute(tag, "media").lower()
+        onload = _link_attribute(tag, "onload")
+        is_async = media == "print" and bool(
+            re.search(r"this\.media\s*=\s*['""]all['""]", onload, re.IGNORECASE)
+        )
+        if not is_async or kept_async_start.get(href) != match.start():
+            remove_ranges.append((match.start(), match.end()))
+
+    if not remove_ranges:
+        return html, 0
+    updated = html
+    for start, end in reversed(remove_ranges):
+        updated = updated[:start] + updated[end:]
+    return updated, len(remove_ranges)
+
+
+def remove_lcp_blocking_google_font_duplicates() -> int:
+    """Remove duplicate blocking Google Font CSS from homepage and listing LCP routes only."""
+    relative_paths = (
+        "index.html",
+        "en/index.html",
+        "hi/index.html",
+        "bn/index.html",
+        "en/products.html",
+        "hi/products.html",
+        "bn/products.html",
+    )
+    changed = 0
+    for relative in relative_paths:
+        path = ROOT / relative
+        if not path.is_file():
+            continue
+        try:
+            original = path.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue
+        updated, removed = dedupe_blocking_google_font_links(original)
+        if removed and updated != original:
+            path.write_text(updated, encoding="utf-8", newline="")
+            changed += removed
+    return changed
+
+
 def main() -> None:
     # Run this before generation and again after generation to catch templates.
     mapping: dict[str, str] = {}
@@ -461,11 +544,13 @@ def main() -> None:
     versioned = version_webp_references(mapping)
     css_changes = flatten_base_css_imports()
     preconnects = add_supabase_preconnects()
+    removed_font_duplicates = remove_lcp_blocking_google_font_duplicates()
     print(
         f"[IMAGE] Optimised {converted} shared images; saved {saved_bytes:,} bytes; "
         f"rewrote {rewritten} files, versioned image refs in {versioned}, "
         f"flattened {css_changes} CSS imports/HTML links, synchronized responsive hero markup in "
-        f"{responsive_hero_updates} files, and added {preconnects} Supabase CDN preconnects. "
+        f"{responsive_hero_updates} files, added {preconnects} Supabase CDN preconnects, and removed "
+        f"{removed_font_duplicates} blocking duplicate Google Fonts stylesheet links on LCP routes. "
         "Product images were not touched or resized."
     )
 
