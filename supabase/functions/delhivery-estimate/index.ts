@@ -1,5 +1,3 @@
-import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-
 const ALLOWED_ORIGINS = new Set([
   "https://www.souviks.co.in",
   "https://souviks.co.in",
