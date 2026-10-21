@@ -87,6 +87,7 @@ jobs:
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/optimize_static_images.py",
+              "scripts/audit/test_static_image_optimizer.py",
               "scripts/audit/structured_data.py",
               "scripts/audit/seo_contract.py",
               "scripts/audit/site_quality.py",
@@ -139,6 +140,7 @@ jobs:
           python3 scripts/audit/site_quality.py
           python3 scripts/audit/code_quality.py
           python3 scripts/audit/performance_guard.py
+          python3 scripts/audit/test_static_image_optimizer.py
           python3 scripts/js/validate.py
 
           git diff --check
