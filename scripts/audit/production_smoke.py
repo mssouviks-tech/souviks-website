@@ -258,8 +258,25 @@ def run_smoke() -> int:
             if path in ("/en/products/504635-all-fleet-tc-genuine-15w40-43-ltr", "/hi/products/504635-all-fleet-tc-genuine-15w40-43-ltr", "/bn/products/504635-all-fleet-tc-genuine-15w40-43-ltr"):
                 if "Lubricants" not in result.text or "Engine Oil" not in result.text:
                     errors.append(f"{label}: Valvoline 504635 has incorrect category/subcategory labels")
-                if "Cross Joint" in result.text or "Suspension &amp; Steering" in result.text:
-                    errors.append(f"{label}: Valvoline 504635 still exposes incorrect suspension classification")
+                breadcrumb = re.search(
+                    r'<nav\b(?=[^>]*\bclass=["\'][^"\']*\bbreadcrumb\b[^"\']*["\'])[^>]*>(.*?)</nav>',
+                    result.text,
+                    flags=re.I | re.S,
+                )
+                crumb_html = breadcrumb.group(1) if breadcrumb else ""
+                if not re.search(
+                    r'<a\b[^>]*href=["\'][^"\']*/categories/lubricants["\'][^>]*>\s*Lubricants\s*</a>',
+                    crumb_html,
+                    flags=re.I | re.S,
+                ):
+                    errors.append(f"{label}: Valvoline 504635 category breadcrumb is not Lubricants")
+                related = re.search(
+                    r'<section\b(?=[^>]*\bid=["\']related-section["\'])[\s\S]*?</section>',
+                    result.text,
+                    flags=re.I,
+                )
+                if related and re.search(r"Cross Joint|Suspension\s*&(?:amp;)?\s*Steering", related.group(0), re.I):
+                    errors.append(f"{label}: Valvoline 504635 related products still contain suspension items")
             if path == "/":
                 if not re.search(r"<body\b[^>]*class=[\"'][^\"']*page-home", result.text, flags=re.I):
                     errors.append("GET /: response is missing full homepage body class")
