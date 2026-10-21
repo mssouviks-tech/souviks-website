@@ -86,10 +86,33 @@ def image_alt(tag: str) -> tuple[bool, str]:
     return (match is not None, clean(match.group(1)) if match else "")
 
 
+def duplicate_title_groups(
+    entries: list[tuple[str, str, str, str]],
+) -> list[tuple[str, str, list[str]]]:
+    """Return real title collisions, scoped to one language and distinct canonicals.
+
+    Entry fields are (language, title, page label, canonical URL). Localized
+    equivalents and multiple files resolving to the same canonical URL are not
+    duplicate-title problems and should not inflate the SEO review warning count.
+    """
+    grouped: dict[tuple[str, str], list[tuple[str, str, str]]] = defaultdict(list)
+    for language, title, label, canonical in entries:
+        grouped[(language, title.casefold())].append((title, label, canonical.rstrip("/")))
+
+    collisions: list[tuple[str, str, list[str]]] = []
+    for (language, _), pages in grouped.items():
+        distinct_canonicals = {canonical for _, _, canonical in pages if canonical}
+        if len(distinct_canonicals) > 1:
+            labels = sorted({label for _, label, canonical in pages if canonical})
+            collisions.append((language, pages[0][0], labels))
+
+    return sorted(collisions, key=lambda entry: (entry[0], entry[1].casefold()))
+
+
 def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
-    seen_titles: dict[str, list[str]] = defaultdict(list)
+    seen_title_entries: list[tuple[str, str, str, str]] = []
     product_meta_descriptions: dict[str, set[str]] = defaultdict(set)
     weak_product_copy: list[str] = []
     scanned = 0
@@ -123,7 +146,18 @@ def main() -> int:
             errors.append(f"{label}: expected exactly one non-empty title, found {len(title_values)}")
         else:
             title = clean(title_values[0])
-            seen_titles[title.casefold()].append(label)
+            route_parts_for_title = path.relative_to(ROOT).parts
+            language = (
+                route_parts_for_title[0]
+                if route_parts_for_title and route_parts_for_title[0] in LANGUAGES
+                else "en"
+            )
+            canonical_for_title = (
+                canonicals[0].strip()
+                if len(canonicals) == 1 and canonicals[0]
+                else label
+            )
+            seen_title_entries.append((language, title, label, canonical_for_title))
             if len(title) < 15 or len(title) > 70:
                 warnings.append(f"{label}: title length {len(title)} is outside the 15-70 character review range")
 
@@ -240,9 +274,11 @@ def main() -> int:
     for path in weak_product_copy[:100]:
         warnings.append(f"{path}: product description contains known generic boilerplate")
 
-    for title, paths in seen_titles.items():
-        if len(paths) > 1:
-            warnings.append(f"duplicate page title ({len(paths)} pages): {', '.join(paths[:5])}")
+    for language, title, paths in duplicate_title_groups(seen_title_entries):
+        warnings.append(
+            f"duplicate page title ({len(paths)} pages, language={language}, title={title!r}): "
+            f"{', '.join(paths[:5])}"
+        )
 
     print(
         f"SEO contract scanned {scanned} indexable HTML pages, "
