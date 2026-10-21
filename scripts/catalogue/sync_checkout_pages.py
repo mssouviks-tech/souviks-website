@@ -31,7 +31,7 @@ TEXT = {
         "amount_due": "Amount payable", "pay": "Continue to secure payment",
         "status_title": "Payment status", "status_label": "Payment status", "status_loading": "Checking your payment with Cashfree…",
         "amount": "Amount", "retry": "Retry verification", "back": "Continue shopping",
-        "help": "Need help? Contact us at", "terms_link": "Terms", "privacy_link": "Privacy", "refund_link": "Refunds",
+        "help": "Need help? Contact us at", "terms_link": "Terms & Conditions", "privacy_link": "Privacy Policy", "refund_link": "Refund Policy",
     },
     "hi": {
         "cart_title": "आपका कार्ट | Souviks", "cart_heading": "शॉपिंग कार्ट",
@@ -55,7 +55,7 @@ TEXT = {
         "amount_due": "देय राशि", "pay": "सुरक्षित भुगतान पर आगे बढ़ें",
         "status_title": "भुगतान स्थिति", "status_label": "भुगतान स्थिति", "status_loading": "Cashfree से भुगतान की पुष्टि हो रही है…",
         "amount": "राशि", "retry": "पुष्टि फिर जाँचें", "back": "खरीदारी जारी रखें",
-        "help": "सहायता चाहिए? संपर्क करें", "terms_link": "नियम", "privacy_link": "गोपनीयता", "refund_link": "रिफंड",
+        "help": "सहायता चाहिए? संपर्क करें", "terms_link": "नियम और शर्तें", "privacy_link": "गोपनीयता नीति", "refund_link": "रिफंड नीति",
     },
     "bn": {
         "cart_title": "আপনার কার্ট | Souviks", "cart_heading": "শপিং কার্ট",
@@ -79,7 +79,7 @@ TEXT = {
         "amount_due": "পরিশোধযোগ্য", "pay": "নিরাপদ পেমেন্টে এগিয়ে যান",
         "status_title": "পেমেন্টের অবস্থা", "status_label": "পেমেন্টের অবস্থা", "status_loading": "Cashfree থেকে পেমেন্ট যাচাই হচ্ছে…",
         "amount": "পরিমাণ", "retry": "আবার যাচাই করুন", "back": "কেনাকাটা চালিয়ে যান",
-        "help": "সাহায্য দরকার? যোগাযোগ করুন", "terms_link": "শর্তাবলী", "privacy_link": "গোপনীয়তা", "refund_link": "রিফান্ড",
+        "help": "সাহায্য দরকার? যোগাযোগ করুন", "terms_link": "শর্তাবলী", "privacy_link": "গোপনীয়তা নীতি", "refund_link": "রিফান্ড নীতি",
     },
 }
 
@@ -144,7 +144,7 @@ CART_TEMPLATE = """<!doctype html>
               <div class="form-group"><label for="checkout-state">__STATE__</label><input type="text" id="checkout-state" name="state" autocomplete="address-level1" maxlength="100" required></div>
               <div class="form-group"><label for="checkout-pincode">__PIN__</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" required></div>
             </div>
-            <label class="purchase-terms"><input type="checkbox" id="checkout-terms" name="terms_accepted" required><span>__TERMS__ <a href="/__LANG__/terms-and-conditions">__TERMS_LINK__</a> · <a href="/__LANG__/privacy-policy">__PRIVACY_LINK__</a> · <a href="/__LANG__/refund-policy">__REFUND_LINK__</a></span></label>
+            <label class="purchase-terms"><input type="checkbox" id="checkout-terms" name="terms_accepted" required><span>__TERMS__ <a href="/__LANG__/terms">__TERMS_LINK__</a> · <a href="/__LANG__/privacy-policy">__PRIVACY_LINK__</a> · <a href="/__LANG__/refund">__REFUND_LINK__</a></span></label>
             <button id="purchase-review-button" type="submit" class="btn btn-primary">__REVIEW__</button>
           </form>
           <section id="purchase-payment-review" class="purchase-payment-review" aria-live="polite" hidden>
@@ -156,7 +156,7 @@ CART_TEMPLATE = """<!doctype html>
       </div>
     </div>
   </main>
-  <footer class="site-footer"><div class="container"><p>© Souviks · <a href="/__LANG__/terms-and-conditions">Terms &amp; Conditions</a> · <a href="/__LANG__/privacy-policy">Privacy Policy</a> · <a href="/__LANG__/refund-policy">Refund Policy</a></p></div></footer>
+  <footer class="site-footer"><div class="container"><p>© Souviks · <a href="/__LANG__/terms">Terms &amp; Conditions</a> · <a href="/__LANG__/privacy-policy">Privacy Policy</a> · <a href="/__LANG__/refund">Refund Policy</a></p></div></footer>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
   <script defer src="/assets/js/site-core.js"></script>
@@ -198,7 +198,7 @@ STATUS_TEMPLATE = """<!doctype html>
       <p>__HELP__ <a href="mailto:info@souviks.co.in">info@souviks.co.in</a> · <a href="tel:+919434331896">+91 94343 31896</a></p>
     </section>
   </main>
-  <footer class="site-footer"><div class="container"><p>© Souviks · <a href="/__LANG__/terms-and-conditions">Terms &amp; Conditions</a> · <a href="/__LANG__/privacy-policy">Privacy Policy</a> · <a href="/__LANG__/refund-policy">Refund Policy</a></p></div></footer>
+  <footer class="site-footer"><div class="container"><p>© Souviks · <a href="/__LANG__/terms">Terms &amp; Conditions</a> · <a href="/__LANG__/privacy-policy">Privacy Policy</a> · <a href="/__LANG__/refund">Refund Policy</a></p></div></footer>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script defer src="/assets/js/site-core.js"></script><script defer src="/assets/js/attribution.js"></script><script defer src="/assets/js/cart/cart.js"></script>
 </body>
 </html>
