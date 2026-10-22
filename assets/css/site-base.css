@@ -5391,3 +5391,167 @@ body.souviks-image-viewer-open {
         min-height: 44px;
     }
 }
+
+
+/* ==========================================================
+   PRIMARY NAVIGATION DROPDOWNS
+   Four browse links and three business actions are grouped
+   under compact, keyboard-operable top-level controls.
+========================================================== */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .35rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-dropdown-toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 5px;
+    border-radius: 3px;
+}
+
+.nav-dropdown-chevron {
+    display: inline-block;
+    margin-left: .1rem;
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform .16s ease;
+}
+
+.nav-dropdown-toggle[aria-expanded="true"] .nav-dropdown-chevron {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: -.75rem;
+    z-index: 4100;
+    min-width: 220px;
+    max-width: min(320px, calc(100vw - 24px));
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 14px 32px var(--overlay-black-15);
+}
+
+.nav-dropdown.is-open > .nav-dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown-item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-menu .nav-dropdown-menu .nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 16px;
+    white-space: normal;
+    color: var(--text-primary);
+    font-size: .95rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.navigation-menu .nav-dropdown-menu .nav-link:hover,
+.navigation-menu .nav-dropdown-menu .nav-link:focus-visible,
+.navigation-menu .nav-dropdown-menu .nav-link.active {
+    color: var(--color-primary);
+    background: var(--surface-muted);
+}
+
+.navigation-menu .nav-dropdown-menu .nav-link.active::after {
+    display: none;
+}
+
+.navigation-menu .nav-dropdown-menu .nav-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+/* The mobile drawer uses inline, indented accordions instead of flyouts. */
+@media (max-width: 992px) {
+    .main-navigation .navigation-menu .nav-dropdown-toggle {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        text-align: left;
+    }
+
+    .main-navigation .navigation-menu .nav-dropdown-menu {
+        display: none;
+        position: static;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 0 8px 12px;
+        background: transparent;
+        color: var(--bg-card);
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .main-navigation .navigation-menu .nav-dropdown.is-open > .nav-dropdown-menu {
+        display: block;
+    }
+
+    .main-navigation .navigation-menu .nav-dropdown-menu .nav-link {
+        min-height: 44px;
+        padding: 10px 12px 10px 16px;
+        color: var(--overlay-white-90);
+        font-size: .95rem;
+        font-weight: 500;
+        white-space: normal;
+        border-left: 2px solid var(--overlay-white-14);
+    }
+
+    .main-navigation .navigation-menu .nav-dropdown-menu .nav-link:hover,
+    .main-navigation .navigation-menu .nav-dropdown-menu .nav-link:focus-visible {
+        color: var(--bg-card);
+        background: var(--overlay-white-08);
+    }
+
+    .main-navigation .navigation-menu .nav-dropdown-menu .nav-link.active {
+        color: var(--bg-card);
+        background: var(--overlay-white-08);
+        border-left-color: var(--color-primary);
+    }
+
+    .main-navigation .navigation-menu .nav-dropdown-menu .nav-link.active::after {
+        display: none;
+    }
+
+    .main-navigation .navigation-menu .nav-dropdown-menu > .nav-dropdown-item {
+        border-bottom: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-dropdown-chevron {
+        transition: none;
+    }
+}
