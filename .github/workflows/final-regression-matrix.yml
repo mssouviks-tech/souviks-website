@@ -63,6 +63,7 @@ jobs:
           python3 scripts/catalogue/sync_checkout_pages.py
           python3 scripts/audit/generate_product_thumbnails.py
           python3 scripts/catalogue/sync_navigation.py
+          python3 scripts/audit/test_navigation_dropdowns.py
           python3 scripts/catalogue/sync_product_cards.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/normalize_page_config.py

@@ -1649,12 +1649,10 @@ async function main() {
         }
       });
 
-      await check(`${view}/${lang}/primary navigation left-click navigates`, async () => {
+      await check(`${view}/${lang}/primary navigation dropdown opens and left-click navigates`, async () => {
         const destination = `/${lang}/brands`;
         await goto(page, BASE + langPath(lang, "products"));
         const navigation = page.locator("#mainNavigation");
-        const link = navigation.locator(`.navigation-menu a[href="${destination}"]`).first();
-        if (!(await link.count())) throw new Error("primary navigation Brands link is missing");
 
         if (VIEWS[view].mobileNavigation || VIEWS[view].isMobile) {
           await page.locator("#mobileMenuButton").click();
@@ -1663,9 +1661,23 @@ async function main() {
           throw new Error("desktop navigation should not require the mobile-menu active state");
         }
 
+        const shopToggle = navigation.locator("#navDropdownToggle-shop");
+        if (!(await shopToggle.count())) throw new Error("Shop dropdown control is missing");
+        await shopToggle.click();
+        await page.waitForFunction(() => {
+          const toggle = document.querySelector("#navDropdownToggle-shop");
+          const menu = document.querySelector("#navDropdown-shop");
+          return toggle?.getAttribute("aria-expanded") === "true"
+            && menu?.closest(".nav-dropdown")?.classList.contains("is-open");
+        });
+
+        const link = navigation.locator(`.navigation-menu a[href="${destination}"]`).first();
+        if (!(await link.count())) throw new Error("primary navigation Brands link is missing");
+        if (!(await link.isVisible())) throw new Error("Brands link is hidden after opening the Shop dropdown");
+
         await link.click();
         await page.waitForURL(url => url.pathname === destination, { timeout: 10000 });
-        return `left-click navigated to ${destination}`;
+        return `opened the Shop dropdown and navigated to ${destination}`;
       });
 
       await check(`${view}/${lang}/Sign Out anonymous state`, async () => {
