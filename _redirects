@@ -46,9 +46,6 @@
 # Host redirects are handled by functions/_middleware.js; Pages _redirects matches URL paths, not hostnames.
 
 # Canonicalize the bare-host homepage explicitly, then catch all other paths.
-
-
-
-
-
-
+/en/products/tata-genuine-parts-249533403101-tapper-roller-bearing-30204 /en/products/tata-genuine-parts-269533403101-taper-roller-brg-30204 301
+/hi/products/tata-genuine-parts-249533403101-tapper-roller-bearing-30204 /hi/products/tata-genuine-parts-269533403101-taper-roller-brg-30204 301
+/bn/products/tata-genuine-parts-249533403101-tapper-roller-bearing-30204 /bn/products/tata-genuine-parts-269533403101-taper-roller-brg-30204 301

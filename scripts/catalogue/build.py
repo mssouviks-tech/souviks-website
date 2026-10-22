@@ -203,6 +203,8 @@ def reconcile_catalogue_projections():
                 "manufacturer_part_number": text(sheet_row.get("manufacturer_part_number")),
                 "mrp": sheet_row.get("mrp"),
                 "selling_price": sheet_row.get("selling_price"),
+                "discount_percent": sheet_row.get("discount_percent"),
+                "discountPercent": sheet_row.get("discount_percent"),
                 "product_name": text(sheet_row.get("product_name")),
                 "name": text(sheet_row.get("product_name")),
                 "partNumber": part,
@@ -532,6 +534,8 @@ def reconcile_catalogue_projections():
             "cross_references": list(p.get("cross_references") or []),
             "mrp": p.get("mrp"),
             "selling_price": p.get("selling_price"),
+            "discount_percent": p.get("discount_percent"),
+            "discountPercent": p.get("discount_percent"),
             "approx_weight_g": approximate_weight_grams(p),
             "product_name": text(p.get("product_name") or p.get("name")),
             "name": text(p.get("name") or p.get("product_name")),
@@ -621,7 +625,7 @@ def reconcile_catalogue_projections():
         projection_fields = (
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
-            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g",
+            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "discount_percent", "discountPercent",
             "product_name", "name", "partNumber", "brand_id", "brand_name",
             "brand", "category_id", "category_name", "category",
             "subcategory_id", "subcategory_name", "subcategory",
@@ -705,9 +709,31 @@ def reconcile_catalogue_projections():
     def materialize_missing_product_pages(lang, product_dir):
         """Re-create PDPs for products that became active after receiving valid images."""
         current_slugs = {path.stem for path in product_dir.glob("*.html")}
+        data_pattern = re.compile(
+            r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
+            flags=re.S,
+        )
+        # A product may already have a valid page under its former slug.
+        # Do not materialize a second page for the same product ID before the
+        # later synchronization loop renames the existing page to the new slug.
+        current_product_ids = set()
+        for candidate in product_dir.glob("*.html"):
+            candidate_html = candidate.read_text(encoding="utf-8", errors="ignore")
+            match = data_pattern.search(candidate_html)
+            if not match:
+                continue
+            try:
+                candidate_data = json.loads(match.group(1))
+            except json.JSONDecodeError:
+                continue
+            product_id = text(candidate_data.get("id"))
+            if product_id:
+                current_product_ids.add(product_id)
         missing_products = [
             product for product in active
-            if text(product.get("slug")) and text(product.get("slug")) not in current_slugs
+            if text(product.get("slug"))
+            and text(product.get("id")) not in current_product_ids
+            and text(product.get("slug")) not in current_slugs
         ]
         if not missing_products:
             return 0
