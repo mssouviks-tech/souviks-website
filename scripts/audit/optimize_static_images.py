@@ -196,29 +196,199 @@ def flatten_base_css_imports() -> int:
     return changed
 
 
-def add_product_hero_preloads(mapping: dict[str, str]) -> int:
-    source = "assets/images/hero/product-hero.png"
-    target = mapping.get(source)
-    if not target or not (ROOT / target).is_file():
-        return 0
-    digest = hashlib.sha256((ROOT / target).read_bytes()).hexdigest()[:12]
-    href = f"/{target}?v={digest}"
-    link = f'<link rel="preload" as="image" href="{href}" fetchpriority="high">'
+def create_mobile_hero_variants() -> dict[str, str]:
+    """Create smaller, never-upscaled mobile derivatives for the two LCP hero images."""
+    configs = {
+        "index-hero": ((1440, 1440), 74),
+        "product-hero": ((1440, 1440), 73),
+    }
+    created: dict[str, str] = {}
+    hero_dir = ROOT / "assets" / "images" / "hero"
+
+    for stem, (max_dimensions, quality) in configs.items():
+        source = hero_dir / f"{stem}.webp"
+        target = hero_dir / f"{stem}-mobile.webp"
+        if not source.is_file():
+            print(f"[IMAGE] Mobile hero derivative skipped; source missing: {source.relative_to(ROOT)}")
+            target.unlink(missing_ok=True)
+            continue
+
+        with Image.open(source) as original:
+            original.load()
+            source_dimensions = original.size
+            has_alpha = "A" in original.getbands() or "transparency" in original.info
+            image = original.convert("RGBA" if has_alpha else "RGB")
+            image.thumbnail(max_dimensions, Image.Resampling.LANCZOS)
+            if image.width > source_dimensions[0] or image.height > source_dimensions[1]:
+                raise RuntimeError(f"Mobile hero derivative must not upscale {source.relative_to(ROOT)}")
+            image.save(target, "WEBP", quality=quality, method=6, exact=True)
+
+        original_bytes = source.stat().st_size
+        derivative_bytes = target.stat().st_size
+        if derivative_bytes >= original_bytes * 0.98:
+            target.unlink(missing_ok=True)
+            print(
+                f"[IMAGE] Mobile hero derivative skipped; less than 2% saving: "
+                f"{source.relative_to(ROOT)}"
+            )
+            continue
+
+        relative_target = target.relative_to(ROOT).as_posix()
+        created[stem] = relative_target
+        print(
+            f"[IMAGE] Mobile {stem}: {original_bytes:,} -> {derivative_bytes:,} bytes "
+            f"({1 - derivative_bytes / original_bytes:.1%} smaller; no upscaling)"
+        )
+
+    return created
+
+
+def sync_hero_preloads(page: Path, stem: str, has_mobile_variant: bool) -> bool:
+    """Place responsive hero preloads at the start of <head>, before large inline metadata."""
+    if not page.is_file():
+        return False
+
+    source_path = f"/assets/images/hero/{stem}.webp"
+    mobile_path = f"/assets/images/hero/{stem}-mobile.webp"
+    desktop_media = ' media="(min-width: 769px)"' if has_mobile_variant else ""
+    desktop_link = (
+        f'<link rel="preload" as="image" href="{source_path}" type="image/webp"'
+        f'{desktop_media} fetchpriority="high">'
+    )
+    links = [desktop_link]
+    if has_mobile_variant:
+        links.append(
+            f'<link rel="preload" as="image" href="{mobile_path}" type="image/webp" '
+            'media="(max-width: 768px)" fetchpriority="high">'
+        )
+
+    raw = page.read_text(encoding="utf-8")
+    original = raw
+    preload_pattern = re.compile(
+        r'<link\b'
+        r'(?=[^>]*\brel=["\']preload["\'])'
+        r'(?=[^>]*\bas=["\']image["\'])'
+        r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
+        + re.escape(stem)
+        + r'(?:-mobile)?\.webp(?:\?[^"\']*)?["\'])'
+        r'[^>]*>\s*',
+        flags=re.I | re.S,
+    )
+    raw = preload_pattern.sub("", raw)
+    insert = "\n    " + "\n    ".join(links) + "\n"
+    updated, count = re.subn(
+        r"(<head\b[^>]*>)",
+        lambda match: match.group(1) + insert,
+        raw,
+        count=1,
+        flags=re.I,
+    )
+    if count and updated != original:
+        page.write_text(updated, encoding="utf-8", newline="")
+        return True
+    return False
+
+
+def sync_home_hero_picture(page: Path, mobile_path: str | None) -> bool:
+    """Let mobile browsers select the smaller home hero without downloading desktop imagery."""
+    if not page.is_file():
+        return False
+
+    raw = page.read_text(encoding="utf-8")
+    original = raw
+    image_pattern = re.compile(
+        r'<img\b(?=[^>]*\bclass=["\'][^"\']*\bhome-hero-image\b[^"\']*["\'])[^>]*>',
+        flags=re.I | re.S,
+    )
+    image_match = image_pattern.search(raw)
+    if not image_match:
+        return False
+
+    picture_open = (
+        '<picture class="home-hero-picture">'
+        f'<source media="(max-width: 768px)" srcset="/{mobile_path}" type="image/webp">'
+    ) if mobile_path else ""
+    picture_close = "</picture>" if mobile_path else ""
+
+    surrounding = raw[max(0, image_match.start() - 350):image_match.start()]
+    if "<picture" in surrounding and "home-hero-picture" in surrounding:
+        # Idempotently update the source element if the generator runs again.
+        picture_source_pattern = re.compile(
+            r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+            r'(?=[^>]*\bsrcset=["\'][^"\']*index-hero(?:-mobile)?\.webp(?:\?[^"\']*)?["\'])[^>]*>',
+            flags=re.I | re.S,
+        )
+        if mobile_path:
+            updated, count = picture_source_pattern.subn(
+                f'<source media="(max-width: 768px)" srcset="/{mobile_path}" type="image/webp">',
+                raw,
+                count=1,
+            )
+            if count:
+                raw = updated
+        else:
+            raw = picture_source_pattern.sub("", raw, count=1)
+            raw = re.sub(r'<picture\b[^>]*class=["\']home-hero-picture["\']>(.*?)</picture>', r'\1', raw, count=1, flags=re.I | re.S)
+    elif mobile_path:
+        raw = raw[:image_match.start()] + picture_open + image_match.group(0) + picture_close + raw[image_match.end():]
+    if raw != original:
+        page.write_text(raw, encoding="utf-8", newline="")
+        return True
+    return False
+
+
+def sync_responsive_hero_assets(mobile_variants: dict[str, str]) -> int:
+    """Wire mobile hero derivatives through picture/source selection, CSS, and early preloads."""
     changed = 0
+
+    index_mobile = mobile_variants.get("index-hero")
+    if index_mobile:
+        for relative in ("index.html", "en/index.html", "hi/index.html", "bn/index.html"):
+            page = ROOT / relative
+            changed += sync_home_hero_picture(page, index_mobile)
+    for relative in ("index.html", "en/index.html", "hi/index.html", "bn/index.html"):
+        changed += sync_hero_preloads(
+            ROOT / relative,
+            "index-hero",
+            bool(index_mobile),
+        )
+
+    product_mobile = mobile_variants.get("product-hero")
     for language in ("en", "hi", "bn"):
-        page = ROOT / language / "products.html"
-        if not page.is_file():
-            continue
-        text = page.read_text(encoding="utf-8")
-        if href in text or "product-hero" in text and re.search(r'<link\b[^>]*rel=["\']preload["\'][^>]*product-hero', text, re.I):
-            continue
-        updated, count = re.subn(r"</head>", f"    {link}\n</head>", text, count=1, flags=re.IGNORECASE)
-        if count and updated != text:
-            page.write_text(updated, encoding="utf-8", newline="")
+        changed += sync_hero_preloads(
+            ROOT / language / "products.html",
+            "product-hero",
+            bool(product_mobile),
+        )
+
+    css_path = ROOT / "assets" / "css" / "site-base.css"
+    if css_path.is_file():
+        css = css_path.read_text(encoding="utf-8")
+        original = css
+        marker = "/* Generated responsive mobile product-hero source. */"
+        block = ""
+        if product_mobile:
+            block = (
+                marker + "\n"
+                "@media (max-width: 768px) {\n"
+                "    .products-hero {\n"
+                f'        --hero-image: url("/{product_mobile}");\n'
+                "    }\n"
+                "}\n"
+            )
+        existing_block = re.compile(
+            r"\n?/\* Generated responsive mobile product-hero source\. \*/[\s\S]*$",
+            flags=re.I,
+        )
+        if existing_block.search(css):
+            css = existing_block.sub("\n\n" + block if block else "", css).rstrip() + "\n"
+        elif block:
+            css = css.rstrip() + "\n\n" + block
+        if css != original:
+            css_path.write_text(css, encoding="utf-8", newline="")
             changed += 1
+
     return changed
-
-
 
 
 def add_supabase_preconnects() -> int:
@@ -281,16 +451,22 @@ def main() -> None:
             f"({saved / original_size:.1%} smaller; no upscaling)"
         )
 
+    mobile_hero_variants = create_mobile_hero_variants()
+    # Include generated derivatives in the cache-version pass without rewriting their own paths.
+    for relative_path in mobile_hero_variants.values():
+        mapping[relative_path] = relative_path
+
     rewritten = rewrite_references(mapping)
+    responsive_hero_updates = sync_responsive_hero_assets(mobile_hero_variants)
     versioned = version_webp_references(mapping)
     css_changes = flatten_base_css_imports()
-    preloads = add_product_hero_preloads(mapping)
     preconnects = add_supabase_preconnects()
     print(
         f"[IMAGE] Optimised {converted} shared images; saved {saved_bytes:,} bytes; "
         f"rewrote {rewritten} files, versioned image refs in {versioned}, "
-        f"flattened {css_changes} CSS imports/HTML links, added {preloads} hero preloads, "
-        f"and added {preconnects} Supabase CDN preconnects. Product images were not touched or resized."
+        f"flattened {css_changes} CSS imports/HTML links, synchronized responsive hero markup in "
+        f"{responsive_hero_updates} files, and added {preconnects} Supabase CDN preconnects. "
+        "Product images were not touched or resized."
     )
 
 

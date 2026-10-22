@@ -9,6 +9,7 @@ on:
       - "assets/data/catalogue_overrides.json"
       - "assets/data/products.json"
       - "assets/data/search.json"
+      - "assets/images/hero/**"
       - "assets/images/products/**"
       - "en/products/**"
       - "bn/products/**"
