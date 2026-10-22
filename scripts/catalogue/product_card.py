@@ -184,5 +184,5 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
         '<span data-saved-icon aria-hidden="true">♡</span></button></div>'
         f'<div class="product-content"><div class="product-brand-label">{esc(brand)}</div>'
         f'{part_html}<h3 class="product-title"><a href="/{lang}/products/{esc(slug)}">'
-        f"{esc(name)}</a></h3>{price_html}{quantity_control_html}{rfq_button_html}</div></article>'
+        f"{esc(name)}</a></h3>{price_html}{quantity_control_html}{rfq_button_html}</div></article>"
     )
