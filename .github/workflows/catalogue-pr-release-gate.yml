@@ -70,6 +70,7 @@ jobs:
               "scripts/catalogue/product_title.py",
               "scripts/audit/test_product_seo.py",
               "scripts/audit/test_product_title.py",
+              "scripts/audit/test_static_product_pricing.py",
               "scripts/audit/test_seo_contract.py",
               "scripts/audit/test_entity_titles.py",
               "scripts/catalogue/normalize_page_config.py",
@@ -130,6 +131,7 @@ jobs:
 
           python3 scripts/catalogue/validate.py
           python3 scripts/audit/critical_build.py
+          python3 scripts/audit/test_static_product_pricing.py
           python3 scripts/audit/test_product_seo.py
           python3 scripts/audit/test_product_title.py
           python3 scripts/audit/test_seo_contract.py

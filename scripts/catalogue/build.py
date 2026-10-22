@@ -1123,6 +1123,15 @@ def reconcile_catalogue_projections():
             data["category"] = data["category_name"]
             data["part_number"] = part
             data["partNumber"] = part
+            data["manufacturer_part_number"] = text(product.get("manufacturer_part_number"))
+            data["manufacturer_part_numbers"] = list(
+                product.get("manufacturer_part_numbers")
+                or ([data["manufacturer_part_number"]] if data["manufacturer_part_number"] else [])
+            )
+            data["mrp"] = product.get("mrp")
+            data["selling_price"] = product.get("selling_price")
+            data["discount_percent"] = product.get("discount_percent")
+            data["discountPercent"] = product.get("discount_percent")
             data["approx_weight_g"] = approximate_weight_grams(product)
             data["updated_at"] = text(
                 product.get("updated_at")
@@ -1138,6 +1147,85 @@ def reconcile_catalogue_projections():
             html = html[:match.start()] + "window.SOUVIKS_PRODUCT_PAGE_DATA = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";" + html[match.end():]
             if old_name and old_name != name:
                 html = replace_product_name_markup(html, old_name, name)
+
+            # Keep server-rendered product prices in sync with the canonical
+            # catalogue. The client hydrates these fields later, but prices
+            # must already be correct in the static HTML for SEO and no-JS users.
+            def format_pdp_price(value):
+                try:
+                    amount = float(value)
+                except (TypeError, ValueError):
+                    return None
+                if not amount >= 0 or amount in (float("inf"), float("-inf")):
+                    return None
+                if abs(amount - round(amount)) < 0.00001:
+                    return f"₹{int(round(amount)):,}"
+                return f"₹{amount:,.2f}".rstrip("0").rstrip(".")
+
+            mrp_value = None
+            selling_value = None
+            try:
+                candidate = float(product.get("mrp"))
+                if candidate >= 0 and candidate not in (float("inf"), float("-inf")):
+                    mrp_value = candidate
+            except (TypeError, ValueError):
+                pass
+            try:
+                candidate = float(product.get("selling_price"))
+                if candidate >= 0 and candidate not in (float("inf"), float("-inf")):
+                    selling_value = candidate
+            except (TypeError, ValueError):
+                pass
+
+            pricing_parts = []
+            mrp_display = format_pdp_price(mrp_value)
+            selling_display = format_pdp_price(selling_value)
+            if mrp_display is not None:
+                pricing_parts.append(
+                    '<div class="pdp-price-mrp">'
+                    '<span class="pdp-price-label">MRP</span>'
+                    f'<span class="pdp-price-value">{html_module.escape(mrp_display, quote=False)}</span>'
+                    '</div>'
+                )
+            if selling_display is not None:
+                discount_html = ""
+                if mrp_value is not None and selling_value is not None and mrp_value > 0 and selling_value < mrp_value:
+                    discount = round((mrp_value - selling_value) / mrp_value * 100)
+                    discount_html = f'<span class="pdp-price-discount">{discount}% OFF</span>'
+                pricing_parts.append(
+                    '<div class="pdp-price-selling">'
+                    '<span class="pdp-price-label">Selling Price</span>'
+                    f'<span class="pdp-price-value">{html_module.escape(selling_display, quote=False)}</span>'
+                    f'{discount_html}'
+                    '</div>'
+                )
+            if not pricing_parts:
+                pricing_parts.append('<span class="pdp-price-label">Price on request</span>')
+            pricing_markup = '<div class="pdp-pricing" aria-label="Product pricing">' + ''.join(pricing_parts) + '</div>'
+            pricing_pattern = (
+                r'<div\b(?=[^>]*class=["\'][^"\']*\bpdp-pricing\b[^"\']*["\'])'
+                r'[^>]*>.*?</div>\s*(?=<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b)'
+            )
+            if re.search(pricing_pattern, html, flags=re.I | re.S):
+                html = re.sub(
+                    pricing_pattern,
+                    lambda _: pricing_markup,
+                    html,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+
+            part_row_pattern = (
+                r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                r'<strong>\s*(?:Part Number|भाग संख्या|पार्ट नंबर|পার্ট নম্বর|পার্ট নং)\s*</strong>\s*<span>).*?(</span>)'
+            )
+            html = re.sub(
+                part_row_pattern,
+                lambda match: match.group(1) + html_module.escape(part or "Available on request", quote=False) + match.group(2),
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
 
             # Replace a thin/static Description paragraph with the same
             # factual content used by the generated embedded product record.
