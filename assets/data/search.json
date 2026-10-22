@@ -3925,28 +3925,35 @@
   {
     "id": "SVKS000975",
     "type": "product",
-    "title": "249533403101 Tapper Roller Bearing 30204",
-    "subtitle": "Part number on request",
+    "title": "TAPER ROLLER BRG 30204",
+    "subtitle": "Part No. 269533403101",
     "keywords": [
-      "249533403101 Tapper Roller Bearing 30204",
+      "TAPER ROLLER BRG 30204",
+      "269533403101",
       "Tata Genuine Parts",
       "Bearings",
       "Taper Roller Bearing",
-      "The Tata Genuine Parts 249533403101 Tapper Roller Bearing 30204 uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
+      "The Tata Genuine Parts 269533403101 TAPER ROLLER BRG 30204 uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
       "Universal"
     ],
-    "description": "The Tata Genuine Parts 249533403101 Tapper Roller Bearing 30204 uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
-    "applications": [],
+    "description": "The Tata Genuine Parts 269533403101 TAPER ROLLER BRG 30204 uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
+    "applications": [
+      "Rotating-assembly",
+      "wheel-end",
+      "driveline or support-bearing system; replacement/service use for the stated specification."
+    ],
     "vehicles": [
       "Universal"
     ],
-    "part_number": "",
-    "manufacturer_part_number": "",
-    "manufacturer_part_numbers": [],
+    "part_number": "269533403101",
+    "manufacturer_part_number": "269533403101",
+    "manufacturer_part_numbers": [
+      "269533403101"
+    ],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "slug": "tata-genuine-parts-249533403101-tapper-roller-bearing-30204",
+    "slug": "tata-genuine-parts-269533403101-taper-roller-brg-30204",
     "url": "/en/products/tata-genuine-parts-249533403101-tapper-roller-bearing-30204",
     "image": "1.webp",
     "icon": "",
@@ -10148,7 +10155,9 @@
       "Tata Magic"
     ],
     "description": "The Tata Genuine Parts 571020100106 Assy. Water Pump (ACE Mega) circulates coolant through the engine and radiator circuit to maintain coolant flow during operation. Vehicle applications include Tata Ace and Tata Magic.",
-    "applications": [],
+    "applications": [
+      "Engine Cooling System"
+    ],
     "vehicles": [
       "Tata Ace",
       "Tata Magic"
@@ -27292,7 +27301,12 @@
       "Tata LPT"
     ],
     "description": "The Fleetguard 820080500 Hydraulic Filter removes contaminants from hydraulic fluid to help protect pumps, valves and other precision components in the circuit. Vehicle applications include Tata Prima and Tata LPT.",
-    "applications": [],
+    "applications": [
+      "Vehicle filtration system for air",
+      "fuel",
+      "oil",
+      "hydraulic or coolant service; replacement/service use for the stated specification."
+    ],
     "vehicles": [
       "Tata Prima",
       "Tata LPT"
@@ -28069,7 +28083,10 @@
       "Tata Magic"
     ],
     "description": "The Tata Genuine Parts 885426012829 Kit - Gear Lever Bush ACE provides the driver-operated interface for selecting transmission gears or supports movement at the gear-lever joint. Vehicle applications include Tata Ace and Tata Magic.",
-    "applications": [],
+    "applications": [
+      "Gear Shift Linkage System",
+      "Transmission Controls"
+    ],
     "vehicles": [
       "Tata Ace",
       "Tata Magic"
@@ -28114,7 +28131,11 @@
       "Tata Magic"
     ],
     "description": "The Tata Genuine Parts 885499102829 Kit - Oil & Fuel Filter ACE provides the assembled filtration unit for its corresponding vehicle fluid or air circuit. Vehicle applications include Tata Ace and Tata Magic.",
-    "applications": [],
+    "applications": [
+      "Scheduled Service",
+      "Fuel Filtration",
+      "Engine Lubrication"
+    ],
     "vehicles": [
       "Tata Ace",
       "Tata Magic"
@@ -39139,7 +39160,11 @@
       "Universal"
     ],
     "description": "The ABC 32308 Taper Roller Bearing uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
-    "applications": [],
+    "applications": [
+      "Wheel Hub Assembly",
+      "Differential Assembly",
+      "Gearbox Assembly"
+    ],
     "vehicles": [
       "Universal"
     ],
@@ -44115,7 +44140,10 @@
       "Tata Intra"
     ],
     "description": "The Tata Genuine Parts 282942103701 Ventilated Brake Disc 17 provides the rotating friction surface against which the brake pads press to slow the wheel. Vehicle applications include Tata Intra.",
-    "applications": [],
+    "applications": [
+      "Front Disc Brake System",
+      "Wheel End Braking Assembly"
+    ],
     "vehicles": [
       "Tata Intra"
     ],
