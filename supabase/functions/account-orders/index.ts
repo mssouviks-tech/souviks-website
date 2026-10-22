@@ -2,6 +2,7 @@ import {
   allowedOrigin,
   jsonResponse,
   optionalUserId,
+  reconcileCashfreeOrder,
   supabaseRest,
 } from "../_shared/cashfree.ts";
 
@@ -49,6 +50,29 @@ Deno.serve(async (req: Request) => {
     }
     if (!Array.isArray(orders)) throw new Error("Account orders response was not an array.");
     if (!orders.length) return jsonResponse(req, { ok: true, orders: [] });
+
+    // Refresh only the five most recent pending orders. A failed provider query
+    // must not break order history, and only orders already scoped to this
+    // authenticated user can be reconciled here.
+    const pendingOrders = orders
+      .filter(order => String(order?.payment_status || "").toLowerCase() === "pending" && order?.gateway_order_id)
+      .slice(0, 5);
+    await Promise.all(pendingOrders.map(async order => {
+      try {
+        await reconcileCashfreeOrder(String(order.gateway_order_id));
+      } catch {
+        // Keep showing the last stored status if Cashfree or its configuration
+        // cannot be reached. The payment verifier/webhook can reconcile later.
+      }
+    }));
+
+    // Read the changed statuses and optional bank-decline reason back from storage.
+    try {
+      orders = await loadOrders(userId, true);
+    } catch {
+      orders = await loadOrders(userId, false);
+    }
+    if (!Array.isArray(orders)) throw new Error("Account order refresh response was not an array.");
 
     const orderIds = orders.map(order => String(order?.id || "")).filter(id => /^[0-9a-f-]{36}$/i.test(id));
     const items = orderIds.length
