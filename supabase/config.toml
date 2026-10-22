@@ -14,3 +14,7 @@ verify_jwt = false
 # Public delivery estimate endpoint; handler validates origin, rate limits, and inputs.
 [functions.delhivery-estimate]
 verify_jwt = false
+
+# Account order history validates the user inside the handler and scopes every query to the verified user ID.
+[functions.account-orders]
+verify_jwt = false
