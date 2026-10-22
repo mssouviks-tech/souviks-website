@@ -1215,6 +1215,22 @@ def reconcile_catalogue_projections():
                     flags=re.I | re.S,
                 )
 
+            # A priced product must not retain the template's stale "Price & availability on request" badge.
+            # Stock is still confirmed separately, so use an availability-only label once any price is shown.
+            if mrp_display is not None or selling_display is not None:
+                availability_label = {
+                    "en": "Availability subject to confirmation",
+                    "hi": "उपलब्धता की पुष्टि आवश्यक",
+                    "bn": "উপলভ্যতা নিশ্চিতকরণ সাপেক্ষে",
+                }.get(lang, "Availability subject to confirmation")
+                html = re.sub(
+                    r'(<span\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-stock\\b[^"\\']*["\\'])[^>]*>).*?(</span>)',
+                    lambda match: match.group(1) + html_module.escape(availability_label, quote=False) + match.group(2),
+                    html,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+
             part_row_pattern = (
                 r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
                 r'<strong>\s*(?:Part Number|भाग संख्या|पार्ट नंबर|পার্ট নম্বর|পার্ট নং)\s*</strong>\s*<span>).*?(</span>)'
