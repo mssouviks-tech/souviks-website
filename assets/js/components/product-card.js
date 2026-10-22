@@ -82,15 +82,33 @@ const ProductCard = {
             : language === "bn"
                 ? "কার্টে যোগ করুন"
                 : "Add to Cart";
-        const purchaseButton = Number.isFinite(sellingNumber) && sellingNumber > 0
-            ? '<button type="button" class="btn btn-secondary add-to-purchase-cart"' +
-                ' data-id="' + escape(productId) + '"' +
+        const purchasable = Number.isFinite(sellingNumber) && sellingNumber > 0;
+        const quantityLabels = language === "hi"
+            ? { label: "मात्रा", decrease: "मात्रा घटाएँ", increase: "मात्रा बढ़ाएँ" }
+            : language === "bn"
+                ? { label: "পরিমাণ", decrease: "পরিমাণ কমান", increase: "পরিমাণ বাড়ান" }
+                : { label: "Quantity", decrease: "Decrease quantity", increase: "Increase quantity" };
+        const purchaseControls = purchasable
+            ? '<div class="product-card-purchase-controls">' +
+                '<div class="product-card-quantity" data-product-quantity-controls aria-label="' + quantityLabels.label + '">' +
+                    '<button type="button" class="product-card-qty-button" data-product-qty-decrease aria-label="' + quantityLabels.decrease + '">−</button>' +
+                    '<input type="number" class="product-card-qty-input" data-product-quantity min="1" max="9999" step="1" value="1" inputmode="numeric" aria-label="' + quantityLabels.label + '">' +
+                    '<button type="button" class="product-card-qty-button" data-product-qty-increase aria-label="' + quantityLabels.increase + '">+</button>' +
+                '</div>' +
+                '<button type="button" class="btn btn-secondary add-to-purchase-cart" data-id="' + escape(productId) + '"' +
+                    ' data-part="' + escape(partNumber) + '"' +
+                    ' data-name="' + escape(name) + '"' +
+                    ' data-brand="' + escape(brandName) + '"' +
+                    ' aria-label="Add ' + escape(name) + ' to cart">' + purchaseLabel + '</button>' +
+            '</div>'
+            : "";
+        const rfqButton = purchasable
+            ? ""
+            : '<button type="button" class="btn btn-primary add-to-cart" data-id="' + escape(productId) + '"' +
                 ' data-part="' + escape(partNumber) + '"' +
                 ' data-name="' + escape(name) + '"' +
                 ' data-brand="' + escape(brandName) + '"' +
-                ' aria-label="Add ' + escape(name) + ' to cart">' +
-                purchaseLabel + '</button>'
-            : "";
+                ' aria-label="Add ' + escape(name) + ' to RFQ">' + addLabel + '</button>';
 
         return '<article class="product-card">' +
             '<div class="product-image">' +
@@ -120,15 +138,8 @@ const ProductCard = {
                     Utils.productUrl(product) + '">' + escape(name) + "</a></h3>" +
                 '<div class="product-price' + (discounted ? " product-price-sale" : "") +
                     '" aria-label="Price">' + price + "</div>" +
-                purchaseButton +
-                '<button type="button" class="btn btn-primary add-to-cart"' +
-                    ' data-id="' + escape(productId) + '"' +
-                    ' data-part="' + escape(partNumber) + '"' +
-                    ' data-name="' + escape(name) + '"' +
-                    ' data-brand="' + escape(brandName) + '"' +
-                    ' aria-label="Add ' + escape(name) + ' to RFQ">' +
-                    addLabel +
-                "</button>" +
+                purchaseControls +
+                rfqButton +
             "</div>" +
         "</article>";
     }
