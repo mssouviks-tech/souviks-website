@@ -702,9 +702,31 @@ def reconcile_catalogue_projections():
     def materialize_missing_product_pages(lang, product_dir):
         """Re-create PDPs for products that became active after receiving valid images."""
         current_slugs = {path.stem for path in product_dir.glob("*.html")}
+        data_pattern = re.compile(
+            r'window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});',
+            flags=re.S,
+        )
+        # A product may already have a valid page under its former slug.
+        # Do not materialize a second page for the same product ID before the
+        # later synchronization loop renames the existing page to the new slug.
+        current_product_ids = set()
+        for candidate in product_dir.glob("*.html"):
+            candidate_html = candidate.read_text(encoding="utf-8", errors="ignore")
+            match = data_pattern.search(candidate_html)
+            if not match:
+                continue
+            try:
+                candidate_data = json.loads(match.group(1))
+            except json.JSONDecodeError:
+                continue
+            product_id = text(candidate_data.get("id"))
+            if product_id:
+                current_product_ids.add(product_id)
         missing_products = [
             product for product in active
-            if text(product.get("slug")) and text(product.get("slug")) not in current_slugs
+            if text(product.get("slug"))
+            and text(product.get("id")) not in current_product_ids
+            and text(product.get("slug")) not in current_slugs
         ]
         if not missing_products:
             return 0
