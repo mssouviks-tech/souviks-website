@@ -21,9 +21,9 @@ In Supabase Dashboard → Edge Functions → Secrets, set these values. Use **Sa
 | `CASHFREE_CATALOGUE_URL` | Leave unset to use the repository's canonical public catalogue, or use `https://raw.githubusercontent.com/mssouviks-tech/souviks-website/main/assets/data/catalogue-index.json` |
 | `CASHFREE_PRICES_INCLUDE_GST` | `true` — Souviks has confirmed online catalogue selling prices include GST |
 | `CASHFREE_FREE_SHIPPING_THRESHOLD_INR` | `45000`; free shipping applies only when subtotal is **strictly greater than** ₹45,000. At exactly ₹45,000, shipping is charged |
-| `CASHFREE_SHIPPING_UNDER_THRESHOLD_INR` | `100000` (₹1,00,000), applied when subtotal is **less than or equal to** ₹45,000 |
+| `DELHIVERY_B2C_API_TOKEN` | Required server-side Delhivery API token for PIN serviceability and prepaid shipping quotes |\n| `DELHIVERY_ORIGIN_PIN` | Optional six-digit origin PIN for the dispatch location; defaults to `713321` and must be confirmed for the actual dispatch warehouse |
  
-The confirmed Sandbox policy is: catalogue selling prices include GST; free shipping applies only when subtotal is strictly greater than ₹45,000; subtotal of ₹45,000 or less incurs ₹1,00,000 shipping. **This shipping amount is unusually high and must be reviewed before any customer-facing/live rollout.** The implementation still refuses to create a payment session if checkout is disabled, credentials are missing, policy settings are unset, or current catalogue data cannot be fetched. Keep `CASHFREE_CHECKOUT_ENABLED` false until the Sandbox credentials are installed and initial tests are ready.
+The shipping policy is: catalogue selling prices include GST; shipping is free only when subtotal is strictly greater than ₹45,000. At or below that threshold, the server checks Delhivery PIN serviceability and obtains an estimated prepaid freight amount from the Delhivery Invoice Shipping Charge API using destination PIN and trusted catalogue weights. The fixed `CASHFREE_SHIPPING_UNDER_THRESHOLD_INR` setting is obsolete and is not used. Delhivery quotes are estimates and actual carrier charges can vary; if weights or a quote are missing/unavailable, checkout must stop rather than silently use a fixed fallback. Keep `CASHFREE_CHECKOUT_ENABLED` false until Sandbox credentials, Delhivery credentials, tax/shipping behavior and checkout tests have been verified.
 
 The edge function reads the canonical catalogue from the public GitHub raw endpoint by default, rather than depending on the Cloudflare-hosted website being accessible to server-to-server requests. It revalidates selected product IDs, active status and price server-side at order creation. An optional catalogue URL is restricted to this repository's raw GitHub catalogue or the exact Souviks catalogue path; if neither source is reachable, checkout fails closed rather than trusting browser prices.
 
@@ -55,7 +55,7 @@ Check all of the following in Sandbox:
 4. Simulate failure, user drop, timeout and refresh; the page must not claim success.
 5. Deliver a duplicate webhook and confirm the order is not duplicated or fulfilled twice.
 6. Test cart and payment status pages in English, Hindi and Bengali on mobile and desktop.
-7. Validate shipping just below ₹45,000, exactly at ₹45,000 (₹1,00,000 shipping), and just above ₹45,000 (free shipping), plus GST and invoice treatment.
+7. Validate shipping just below ₹45,000 and exactly at ₹45,000 using the Delhivery quote, then just above ₹45,000 (free shipping), plus GST and invoice treatment.
 8. Confirm settlement, refund, cancellation, notification and fulfilment procedures with the business before production.
 
 Only for an approved live launch: set `CASHFREE_MODE=production`, add the Production client ID/secret, set `CASHFREE_ENABLE_LIVE_CHECKOUT=true`, and keep `CASHFREE_CHECKOUT_ENABLED=true`. Do this only after reviewing successful Sandbox results and confirming the pricing/tax/shipping rules.

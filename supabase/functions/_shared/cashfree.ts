@@ -22,7 +22,6 @@ export type CashfreeRuntimeConfig = {
 
 export type CheckoutPolicy = {
   threshold: number;
-  shippingBelowThreshold: number;
   pricesIncludeGst: true;
 };
 
@@ -64,18 +63,15 @@ export function checkoutPolicy(): CheckoutPolicy {
     throw new CheckoutError("tax_policy_not_confirmed", 503);
   }
   const thresholdRaw = Deno.env.get("CASHFREE_FREE_SHIPPING_THRESHOLD_INR");
-  const shippingRaw = Deno.env.get("CASHFREE_SHIPPING_UNDER_THRESHOLD_INR");
-  if (thresholdRaw == null || shippingRaw == null || thresholdRaw.trim() === "" || shippingRaw.trim() === "") {
+  if (thresholdRaw == null || thresholdRaw.trim() === "") {
     throw new CheckoutError("shipping_policy_not_configured", 503);
   }
   const threshold = Number(thresholdRaw);
-  const shippingBelowThreshold = Number(shippingRaw);
   if (!Number.isFinite(threshold) || threshold < 0 ||
-      !Number.isFinite(shippingBelowThreshold) || shippingBelowThreshold < 0 ||
-      threshold > 100000000 || shippingBelowThreshold > 1000000) {
+      threshold > 100000000) {
     throw new CheckoutError("shipping_policy_invalid", 503);
   }
-  return { threshold, shippingBelowThreshold, pricesIncludeGst: true };
+  return { threshold, pricesIncludeGst: true };
 }
 
 export function allowedOrigin(origin: string | null, mode: "sandbox" | "production"): boolean {
