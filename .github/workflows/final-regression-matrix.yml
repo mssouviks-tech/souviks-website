@@ -92,6 +92,7 @@ jobs:
           node --check scripts/regression/final-matrix.cjs
           node --check scripts/regression/production-browser-smoke.cjs
           node --check scripts/regression/cashfree-checkout-contract.cjs
+          node --check scripts/regression/account-orders-contract.cjs
           node --check scripts/regression/delhivery-estimate-contract.cjs
 
       - name: Validate RFQ security contract
@@ -99,6 +100,9 @@ jobs:
 
       - name: Validate Cashfree checkout contract
         run: node scripts/regression/cashfree-checkout-contract.cjs
+
+      - name: Validate authenticated account order history contract
+        run: node scripts/regression/account-orders-contract.cjs
 
       - name: Validate Delhivery delivery estimator contract
         run: node scripts/regression/delhivery-estimate-contract.cjs
