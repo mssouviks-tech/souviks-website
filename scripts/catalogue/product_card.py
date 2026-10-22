@@ -9,9 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 LABELS = {
-    "en": {"part": "Part No.", "request": "Get current price", "add": "Add To RFQ", "purchase": "Add to Cart"},
-    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "add": "RFQ में जोड़ें", "purchase": "कार्ट में जोड़ें"},
-    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "add": "RFQ-তে যোগ করুন", "purchase": "কার্টে যোগ করুন"},
+    "en": {"part": "Part No.", "request": "Get current price", "add": "Add To RFQ", "purchase": "Add to Cart", "quantity": "Quantity", "decrease": "Decrease quantity", "increase": "Increase quantity"},
+    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "add": "RFQ में जोड़ें", "purchase": "कार्ट में जोड़ें", "quantity": "मात्रा", "decrease": "मात्रा घटाएँ", "increase": "मात्रा बढ़ाएँ"},
+    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "add": "RFQ-তে যোগ করুন", "purchase": "কার্টে যোগ করুন", "quantity": "পরিমাণ", "decrease": "পরিমাণ কমান", "increase": "পরিমাণ বাড়ান"},
 }
 
 
@@ -129,15 +129,36 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
         )
 
     purchase_button_html = ""
+    quantity_control_html = ""
+    rfq_button_html = ""
     try:
         purchasable_price = float(product.get("selling_price"))
     except (TypeError, ValueError):
         purchasable_price = 0.0
+
     if pid and product.get("active") is not False and purchasable_price > 0:
-        purchase_button_html = (
+        quantity_control_html = (
+            '<div class="product-card-purchase-controls">'
+            '<div class="product-card-quantity" data-product-quantity-controls '
+            f'aria-label="{esc(labels["quantity"])}">'
+            f'<button type="button" class="product-card-qty-button" data-product-qty-decrease '
+            f'aria-label="{esc(labels["decrease"])}">−</button>'
+            f'<input type="number" class="product-card-qty-input" data-product-quantity '
+            f'min="1" max="9999" step="1" value="1" inputmode="numeric" '
+            f'aria-label="{esc(labels["quantity"])}">'
+            f'<button type="button" class="product-card-qty-button" data-product-qty-increase '
+            f'aria-label="{esc(labels["increase"])}">+</button>'
+            '</div>'
             f'<button type="button" class="btn btn-secondary add-to-purchase-cart" data-id="{esc(pid)}" '
             f'data-part="{esc(part)}" data-name="{esc(name)}" data-brand="{esc(brand)}" '
             f'aria-label="Add {esc(name)} to cart">{esc(labels["purchase"])}</button>'
+            '</div>'
+        )
+    else:
+        rfq_button_html = (
+            f'<button type="button" class="btn btn-primary add-to-cart" data-id="{esc(pid)}" '
+            f'data-part="{esc(part)}" data-name="{esc(name)}" data-brand="{esc(brand)}" '
+            f'aria-label="Add {esc(name)} to RFQ">{labels["add"]}</button>'
         )
 
     part_html = (
@@ -163,8 +184,5 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
         '<span data-saved-icon aria-hidden="true">♡</span></button></div>'
         f'<div class="product-content"><div class="product-brand-label">{esc(brand)}</div>'
         f'{part_html}<h3 class="product-title"><a href="/{lang}/products/{esc(slug)}">'
-        f"{esc(name)}</a></h3>{price_html}{purchase_button_html}"
-        f'<button type="button" class="btn btn-primary add-to-cart" data-id="{esc(pid)}" '
-        f'data-part="{esc(part)}" data-name="{esc(name)}" data-brand="{esc(brand)}" '
-        f'aria-label="Add {aria} to RFQ">{labels["add"]}</button></div></article>'
+        f"{esc(name)}</a></h3>{price_html}{quantity_control_html}{rfq_button_html}</div></article>'
     )
