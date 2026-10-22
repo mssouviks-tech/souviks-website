@@ -703,7 +703,7 @@ def reconcile_catalogue_projections():
         """Re-create PDPs for products that became active after receiving valid images."""
         current_slugs = {path.stem for path in product_dir.glob("*.html")}
         data_pattern = re.compile(
-            r'window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});',
+            r'window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});',
             flags=re.S,
         )
         # A product may already have a valid page under its former slug.
