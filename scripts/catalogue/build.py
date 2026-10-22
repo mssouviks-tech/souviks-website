@@ -1203,8 +1203,8 @@ def reconcile_catalogue_projections():
                 pricing_parts.append('<span class="pdp-price-label">Price on request</span>')
             pricing_markup = '<div class="pdp-pricing" aria-label="Product pricing">' + ''.join(pricing_parts) + '</div>'
             pricing_pattern = (
-                r'<div\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-pricing\\b[^"\\']*["\\'])'
-                r'[^>]*>.*?</div>\\s*(?=<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-meta\\b)'
+                r'<div\b(?=[^>]*class=["\'][^"\']*\bpdp-pricing\b[^"\']*["\'])'
+                r'[^>]*>.*?</div>\s*(?=<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b)'
             )
             if re.search(pricing_pattern, html, flags=re.I | re.S):
                 html = re.sub(
@@ -1216,8 +1216,8 @@ def reconcile_catalogue_projections():
                 )
 
             part_row_pattern = (
-                r'(<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-row\\b[^"\\']*["\\'][^>]*>\\s*'
-                r'<strong>\\s*(?:Part Number|भाग संख्या|पार्ट नंबर|পার্ট নম্বর|পার্ট নং)\\s*</strong>\\s*<span>).*?(</span>)'
+                r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                r'<strong>\s*(?:Part Number|भाग संख्या|पार्ट नंबर|পার্ট নম্বর|পার্ট নং)\s*</strong>\s*<span>).*?(</span>)'
             )
             html = re.sub(
                 part_row_pattern,
