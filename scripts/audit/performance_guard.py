@@ -152,12 +152,114 @@ def check_script_loading(errors: list[str]) -> None:
                 )
 
 
+def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
+    """Keep mobile LCP hero derivatives, source selection, and preload hints synchronized."""
+    hero_dir = ROOT / "assets" / "images" / "hero"
+    for stem in ("index-hero", "product-hero"):
+        desktop = hero_dir / f"{stem}.webp"
+        mobile = hero_dir / f"{stem}-mobile.webp"
+        if not desktop.is_file():
+            fail(f"missing desktop hero image: {desktop.relative_to(ROOT)}", errors)
+            continue
+        if not mobile.is_file():
+            fail(f"missing responsive mobile hero image: {mobile.relative_to(ROOT)}", errors)
+            continue
+        if mobile.stat().st_size >= desktop.stat().st_size:
+            fail(
+                f"{mobile.relative_to(ROOT)} must be smaller than "
+                f"{desktop.relative_to(ROOT)} for mobile delivery",
+                errors,
+            )
+
+    home_pages = [
+        ROOT / "index.html",
+        ROOT / "en" / "index.html",
+        ROOT / "hi" / "index.html",
+        ROOT / "bn" / "index.html",
+    ]
+    for path in home_pages:
+        if not path.is_file():
+            continue
+        raw = path.read_text(encoding="utf-8", errors="ignore")
+        if "home-hero-image" not in raw:
+            continue
+        mobile_source = re.search(
+            r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+            r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if not mobile_source:
+            fail(f"{path.relative_to(ROOT)}: home hero is missing its versioned mobile <source>", errors)
+        for stem, media in (
+            ("index-hero", r"\(min-width:\s*769px\)"),
+            ("index-hero-mobile", r"\(max-width:\s*768px\)"),
+        ):
+            preload = re.search(
+                r'<link\b(?=[^>]*\brel=["\']preload["\'])'
+                r'(?=[^>]*\bas=["\']image["\'])'
+                r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
+                + re.escape(stem)
+                + r'\.webp\?v=[0-9a-f]{12}["\'])'
+                r'(?=[^>]*\bmedia=["\']' + media + r'["\'])[^>]*>',
+                raw,
+                flags=re.I | re.S,
+            )
+            if not preload:
+                fail(
+                    f"{path.relative_to(ROOT)}: missing {stem} preload with matching media condition",
+                    errors,
+                )
+
+    product_pages = [ROOT / language / "products.html" for language in ("en", "hi", "bn")]
+    for path in product_pages:
+        if not path.is_file():
+            continue
+        raw = path.read_text(encoding="utf-8", errors="ignore")
+        for stem, media in (
+            ("product-hero", r"\(min-width:\s*769px\)"),
+            ("product-hero-mobile", r"\(max-width:\s*768px\)"),
+        ):
+            preload = re.search(
+                r'<link\b(?=[^>]*\brel=["\']preload["\'])'
+                r'(?=[^>]*\bas=["\']image["\'])'
+                r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
+                + re.escape(stem)
+                + r'\.webp\?v=[0-9a-f]{12}["\'])'
+                r'(?=[^>]*\bmedia=["\']' + media + r'["\'])[^>]*>',
+                raw,
+                flags=re.I | re.S,
+            )
+            if not preload:
+                fail(
+                    f"{path.relative_to(ROOT)}: missing {stem} preload with matching media condition",
+                    errors,
+                )
+
+    base_css = ROOT / "assets" / "css" / "site-base.css"
+    if not base_css.is_file():
+        fail("missing assets/css/site-base.css for responsive product-hero source", errors)
+    else:
+        css = base_css.read_text(encoding="utf-8", errors="ignore")
+        if not re.search(
+            r'@media\s*\(max-width:\s*768px\)[\s\S]{0,500}'
+            r'\.products-hero\s*\{[\s\S]{0,250}product-hero-mobile\.webp\?v=[0-9a-f]{12}',
+            css,
+            flags=re.I,
+        ):
+            fail(
+                "assets/css/site-base.css: product listing has no versioned mobile hero background override",
+                errors,
+            )
+
+
 def main() -> int:
     errors: list[str] = []
     check_asset_sizes(errors)
     check_public_asset_limits(errors)
     check_cache_versions(errors)
     check_script_loading(errors)
+    check_responsive_mobile_hero_assets(errors)
 
     if errors:
         for error in errors:
@@ -167,8 +269,8 @@ def main() -> int:
 
     print(
         f"Performance guard passed: {len(BASELINES)} asset budgets, "
-        "25 MiB public-asset limits, JS/CSS cache hashes, and HTML script-loading "
-        "contracts checked."
+        "25 MiB public-asset limits, JS/CSS cache hashes, script-loading contracts, "
+        "and responsive mobile hero assets/preloads checked."
     )
     return 0
 
