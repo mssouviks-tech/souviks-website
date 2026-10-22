@@ -154,7 +154,7 @@ for product_id, expected in EXPECTED.items():
         )
 
         stock_match = re.search(
-            r'<span\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-stock\\b[^"\\']*["\\'])[^>]*>(.*?)</span>',
+            r'<span\b(?=[^>]*class=["\'][^"\']*\bpdp-stock\b[^"\']*["\'])[^>]*>(.*?)</span>',
             page,
             flags=re.I | re.S,
         )
