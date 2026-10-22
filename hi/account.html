@@ -190,7 +190,7 @@ Reusable Head Component
     <link rel="stylesheet" href="/assets/css/site-base.css?v=7c896a18b570">
     <link
         rel="stylesheet"
-        href="/assets/css/bundles/account.css?v=19f305413dcd">
+        href="/assets/css/bundles/account.css">
 
 
 
@@ -1034,6 +1034,13 @@ Reusable Head Component
                 </a>
             </li>
 
+            
+            <li>
+                <a href="/hi/account?view=orders" class="account-navigation-link" data-account-view="orders">
+                    <span>ऑर्डर और भुगतान</span>
+                </a>
+            </li>
+
             <li class="account-navigation-divider" aria-hidden="true"></li>
 
             <li>
@@ -1144,6 +1151,10 @@ Reusable Head Component
                                 <div class="account-dashboard-action-grid">
                                     <a class="account-dashboard-action account-dashboard-action-primary" href="/hi/account?view=rfq" data-account-view="rfq">
                                         <span class="account-dashboard-action-title">RFQ बास्केट खोलें</span>
+                                        <span class="account-dashboard-action-arrow" aria-hidden="true">→</span>
+                                    </a>
+                                    <a class="account-dashboard-action" href="/hi/account?view=orders" data-account-view="orders">
+                                        <span class="account-dashboard-action-title">ऑर्डर और भुगतान</span>
                                         <span class="account-dashboard-action-arrow" aria-hidden="true">→</span>
                                     </a>
                                     <a class="account-dashboard-action" href="/hi/products">
@@ -2374,6 +2385,29 @@ Reusable Head Component
 
 </section>
 
+<!-- ==========================================
+     ORDER HISTORY & PAYMENTS
+========================================== -->
+<section class="account-view" data-account-view="orders" hidden>
+    <div class="account-section account-orders-section">
+        <div class="account-section-header">
+            <div>
+                <span class="account-section-kicker">ऑर्डर और भुगतान</span>
+                <h2>ऑर्डर और भुगतान</h2>
+                <p>आपकी खरीदारी, भुगतान परिणाम और प्रत्येक ऑर्डर के उत्पादों का स्थायी रिकॉर्ड।</p>
+            </div>
+            <button type="button" id="accountOrdersRefresh" class="btn btn-secondary">ऑर्डर रीफ़्रेश करें</button>
+        </div>
+        <div id="accountOrdersStatus" class="form-status" role="status" aria-live="polite" hidden></div>
+        <div id="accountOrdersLoading" class="account-inquiries-state">आपके ऑर्डर लोड हो रहे हैं…</div>
+        <div id="accountOrdersEmpty" class="account-inquiries-state" hidden>
+            <p>अभी इस खाते से कोई ऑर्डर जुड़ा नहीं है।</p>
+            <p class="account-order-guest-note">अतिथि के रूप में या किसी दूसरे खाते में साइन इन करके किए गए ऑर्डर यहाँ नहीं दिखेंगे।</p>
+        </div>
+        <div id="accountOrdersList" class="account-orders-list" hidden></div>
+    </div>
+</section>
+
                 </div>
 
             </div>
@@ -2801,6 +2835,7 @@ window.souviks = {
 <script defer src="/assets/js/account/auth-saved.js?v=2615914a0318"></script>
 <script defer src="/assets/js/account/auth-vehicles.js?v=4745d61c2737"></script>
 <script defer src="/assets/js/account/auth-vehicle-recommendations.js?v=c05a60cd6c90"></script>
+<script defer src="/assets/js/account/auth-orders.js"></script>
 <script defer src="/assets/js/account/auth-account.js?v=a698875263df"></script>
 
 
