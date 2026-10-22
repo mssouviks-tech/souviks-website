@@ -856,37 +856,15 @@ Reusable Head Component
             <nav id="mainNavigation" class="main-navigation" aria-label="প্রধান নেভিগেশন">
                             <div class="mobile-navigation-header">
                                 <img src="/assets/logo/souviks-logo-white.webp?v=a5300f9e16e9" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024">
-                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button>
+                                <button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="নেভিগেশন বন্ধ করুন">×</button>
                             </div>
 
                             <ul class="navigation-menu">
-                                <li>
-                                    <a href="/bn/" class="nav-link ">হোম</a>
-                                </li>
-                                <li>
-                                    <a href="/bn/products" class="nav-link ">পণ্যসমূহ</a>
-                                </li>
-                                <li>
-                                    <a href="/bn/cart" class="nav-link ">কার্ট</a>
-                                </li>
-                                <li>
-                                    <a href="/bn/brands" class="nav-link ">ব্র্যান্ডসমূহ</a>
-                                </li>
-                                <li>
-                                    <a href="/bn/vehicles" class="nav-link active">যানবাহন</a>
-                                </li>
-                                <li>
-                                    <a href="/bn/categories" class="nav-link ">বিভাগসমূহ</a>
-                                </li>
-                                <li>
-                                    <a href="/bn/about" class="nav-link ">আমাদের সম্পর্কে</a>
-                                </li>
-                                <li>
-                                    <a href="/bn/business-buyers" class="nav-link ">ব্যবসার জন্য</a>
-                                </li>
-                                <li>
-                                    <a href="/bn/contact" class="nav-link ">যোগাযোগ</a>
-                                </li>
+            <li class="nav-menu-item"><a href="/bn/" class="nav-link">হোম</a></li>
+            <li class="nav-menu-item nav-dropdown is-active"><button id="navDropdownToggle-shop" class="nav-link nav-dropdown-toggle active" type="button" aria-expanded="false" aria-controls="navDropdown-shop"><span>পণ্য কিনুন</span><span class="nav-dropdown-chevron" aria-hidden="true">⌄</span></button><ul id="navDropdown-shop" class="nav-dropdown-menu" aria-labelledby="navDropdownToggle-shop"><li class="nav-dropdown-item"><a href="/bn/products" class="nav-link">পণ্যসমূহ</a></li><li class="nav-dropdown-item"><a href="/bn/categories" class="nav-link">বিভাগসমূহ</a></li><li class="nav-dropdown-item"><a href="/bn/brands" class="nav-link">ব্র্যান্ডসমূহ</a></li><li class="nav-dropdown-item"><a href="/bn/vehicles" class="nav-link active">যানবাহন</a></li></ul></li>
+            <li class="nav-menu-item nav-dropdown"><button id="navDropdownToggle-business" class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="navDropdown-business"><span>ব্যবসা</span><span class="nav-dropdown-chevron" aria-hidden="true">⌄</span></button><ul id="navDropdown-business" class="nav-dropdown-menu" aria-labelledby="navDropdownToggle-business"><li class="nav-dropdown-item"><a href="/bn/business-buyers" class="nav-link">ব্যবসার জন্য</a></li><li class="nav-dropdown-item"><a href="/bn/request-part" class="nav-link">পার্টের অনুরোধ</a></li><li class="nav-dropdown-item"><a href="/bn/request-quote" class="nav-link">দরপত্রের অনুরোধ</a></li></ul></li>
+            <li class="nav-menu-item nav-dropdown"><button id="navDropdownToggle-about-group" class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="navDropdown-about-group"><span>পরিচিতি</span><span class="nav-dropdown-chevron" aria-hidden="true">⌄</span></button><ul id="navDropdown-about-group" class="nav-dropdown-menu" aria-labelledby="navDropdownToggle-about-group"><li class="nav-dropdown-item"><a href="/bn/about" class="nav-link">আমাদের সম্পর্কে</a></li><li class="nav-dropdown-item"><a href="/bn/contact" class="nav-link">যোগাযোগ</a></li></ul></li>
+            <li class="nav-menu-item"><a href="/bn/cart" class="nav-link">কার্ট</a></li>
                             </ul>
 
                             <div class="mobile-nav-auth" aria-label="অ্যাকাউন্ট">
@@ -1447,7 +1425,7 @@ window.souviks = {
      PageBuilder injects only the modules required by this page.
 ========================================== -->
 
-<script defer src="/assets/js/site-core.js?v=7505b364a16f"></script>
+<script defer src="/assets/js/site-core.js?v=c2e5b8438e2b"></script>
 <script defer src="/assets/js/attribution.js?v=6b8229cb515b"></script>
 
 <script defer src="/assets/js/catalogue-core.js?v=771a6a386066"></script>
