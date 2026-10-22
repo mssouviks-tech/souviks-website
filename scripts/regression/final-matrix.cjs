@@ -838,7 +838,7 @@ async function main() {
     }
   });
 
-  await check("reliability/broken product images fall back without disabling RFQ", async () => {
+  await check("reliability/broken product images fall back without disabling purchase or RFQ", async () => {
     const context = await contextFor("desktop");
     try {
       const page = await context.newPage();
@@ -881,14 +881,44 @@ async function main() {
       if (!(await page.locator(".pdp-title").innerText()).includes("10 x 1.5 Nut")) {
         throw new Error("product content disappeared when its image failed");
       }
-      await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
-      await page.locator(".pdp-rfq-btn").click();
+
+      await page.evaluate(() => {
+        localStorage.removeItem("souviks_rfq_guest");
+        localStorage.removeItem("souviks_purchase_cart_v1");
+      });
+
+      const purchaseButton = page.locator(".pdp-add-to-purchase-cart");
+      if (await purchaseButton.count()) {
+        if (await page.locator(".pdp-rfq-btn").count()) {
+          throw new Error("priced PDP still exposes Add to RFQ");
+        }
+        await page.locator("#pdpQty").fill("2");
+        const productId = await purchaseButton.getAttribute("data-id");
+        await purchaseButton.click();
+        const saved = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          return raw ? JSON.parse(raw) : [];
+        });
+        const item = Array.isArray(saved) ? saved.find(entry => String(entry.productId) === String(productId)) : null;
+        if (Number(item?.quantity) !== 2) {
+          throw new Error(`Add to Cart stopped working after image failures; quantity=${item?.quantity}`);
+        }
+        return "image fallback remained usable; priced product purchase action stored quantity=2 and RFQ stayed hidden";
+      }
+
+      const rfqButton = page.locator(".pdp-rfq-btn");
+      if (!(await rfqButton.count())) {
+        throw new Error("unpriced PDP has neither RFQ nor purchase action after image failure");
+      }
+      await rfqButton.click();
       const saved = await page.evaluate(() => {
         const raw = localStorage.getItem("souviks_rfq_guest");
         return raw ? JSON.parse(raw) : [];
       });
-      if (!Array.isArray(saved) || !saved.length) throw new Error("Add to RFQ stopped working after image failures");
-      return "all main-image retries failed; valid placeholder loaded; product details and Add to RFQ remain functional";
+      if (!Array.isArray(saved) || !saved.length) {
+        throw new Error("Add to RFQ stopped working after image failures for an unpriced product");
+      }
+      return "image fallback remained usable; unpriced product RFQ action still works";
     } finally {
       await context.close();
     }
