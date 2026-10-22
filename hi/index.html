@@ -6,6 +6,9 @@ Reusable Head Component
 ========================================================== -->
 
 <head>
+    <link rel="preload" as="image" href="/assets/images/hero/index-hero.webp?v=c5d57ca84209" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/images/hero/index-hero-mobile.webp?v=0984217ed60c" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
 
@@ -193,9 +196,7 @@ Reusable Head Component
          GLOBAL CSS
     =========================================== -->
 
-    <link rel="preload" as="image" href="/assets/images/hero/index-hero.webp?v=c5d57ca84209" type="image/webp" fetchpriority="high">
-
-    <link rel="stylesheet" href="/assets/css/site-base.css?v=afe71e81fbb3">
+    <link rel="stylesheet" href="/assets/css/site-base.css?v=2808b43e9fbe">
     <link
         rel="stylesheet"
         href="/assets/css/bundles/index.css?v=aae9a92944dd">
@@ -951,7 +952,7 @@ Reusable Head Component
 
     <main>
         <section class="home-hero">
-            <div class="home-hero-media" aria-hidden="true"><img class="home-hero-image" src="/assets/images/hero/index-hero.webp?v=c5d57ca84209" alt="" fetchpriority="high" loading="eager" decoding="async"></div>
+            <div class="home-hero-media" aria-hidden="true"><picture class="home-hero-picture"><source media="(max-width: 768px)" srcset="/assets/images/hero/index-hero-mobile.webp?v=0984217ed60c" type="image/webp"><img class="home-hero-image" src="/assets/images/hero/index-hero.webp?v=c5d57ca84209" alt="" fetchpriority="high" loading="eager" decoding="async"></picture></div>
             <div class="container home-hero-container">
                 <div class="home-hero-copy">
                     <span class="home-eyebrow">कमर्शियल व्हीकल पार्ट्स</span>

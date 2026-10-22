@@ -5624,3 +5624,11 @@ body.souviks-image-viewer-open {
         transition: none;
     }
 }
+
+
+/* Generated responsive mobile product-hero source. */
+@media (max-width: 768px) {
+    .products-hero {
+        --hero-image: url("/assets/images/hero/product-hero-mobile.webp?v=818dc9b1f7c6");
+    }
+}
