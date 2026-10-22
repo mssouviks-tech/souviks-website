@@ -1224,7 +1224,7 @@ def reconcile_catalogue_projections():
                     "bn": "উপলভ্যতা নিশ্চিতকরণ সাপেক্ষে",
                 }.get(lang, "Availability subject to confirmation")
                 html = re.sub(
-                    r'(<span\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-stock\\b[^"\\']*["\\'])[^>]*>).*?(</span>)',
+                    r'(<span\b(?=[^>]*class=["\'][^"\']*\bpdp-stock\b[^"\']*["\'])[^>]*>).*?(</span>)',
                     lambda match: match.group(1) + html_module.escape(availability_label, quote=False) + match.group(2),
                     html,
                     count=1,
