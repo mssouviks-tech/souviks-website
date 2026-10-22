@@ -1109,6 +1109,31 @@ async function main() {
         return `${count} cards; first-page cap confirmed`;
       });
 
+      await check(`${view}/${lang}/priced cards use quantity + cart, not RFQ`, async () => {
+        const cards = page.locator("#product-grid .product-card");
+        const pricedCard = page.locator("#product-grid .product-card:has([data-product-quantity])").first();
+        if (!(await pricedCard.count())) throw new Error("priced product card has no quantity control");
+        if (!(await pricedCard.locator(".add-to-purchase-cart").count())) {
+          throw new Error("priced product card has no Add to Cart action");
+        }
+        if (await pricedCard.locator(".add-to-cart").count()) {
+          throw new Error("priced product card still exposes Add to RFQ");
+        }
+        const input = pricedCard.locator("[data-product-quantity]");
+        await input.fill("2");
+        await page.evaluate(() => localStorage.removeItem("souviks_purchase_cart_v1"));
+        await pricedCard.locator(".add-to-purchase-cart").click();
+        const productId = await pricedCard.locator(".add-to-purchase-cart").getAttribute("data-id");
+        const stored = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          return raw ? JSON.parse(raw) : [];
+        });
+        const item = stored.find(entry => String(entry.productId) === String(productId));
+        await page.evaluate(() => localStorage.removeItem("souviks_purchase_cart_v1"));
+        if (Number(item?.quantity) !== 2) throw new Error(`selected quantity wasn't added to cart: ${item?.quantity}`);
+        return "priced card has quantity selector, purchase cart action, and no RFQ control";
+      });
+
       await check(`${view}/${lang}/product listing images load`, async () => {
         const images = page.locator("#product-grid .product-card img");
         const count = await images.count();
@@ -1203,14 +1228,20 @@ async function main() {
       await page.waitForTimeout(500);
       await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
 
-      await check(`${view}/${lang}/add to RFQ`, async () => {
-        const button = page.locator(".add-to-cart").first();
-        if (!(await button.count())) throw new Error("Add To RFQ control missing");
+      await check(`${view}/${lang}/add to RFQ for unpriced products`, async () => {
+        const button = page.locator("#product-grid .product-card .add-to-cart").first();
+        if (!(await button.count())) {
+          return "first page has no visible unpriced product cards; RFQ-only action is covered by the PDP fixture";
+        }
+        const card = button.locator("xpath=ancestor::article[contains(concat(' ', normalize-space(@class), ' '), ' product-card ')]");
+        if (await card.locator("[data-product-quantity]").count()) {
+          throw new Error("priced product card unexpectedly includes Add to RFQ");
+        }
         await button.click();
         await page.waitForTimeout(400);
         const badge = await page.locator(".rfq-badge").first().innerText();
         if (Number(badge) !== 1) throw new Error(`RFQ badge is ${badge}`);
-        return "badge=1";
+        return "RFQ-only action remains available for an unpriced product";
       });
 
       // RFQ basket: item presence, quantity, removal, submission.
@@ -1416,23 +1447,47 @@ async function main() {
         return "injected a real product-image 404; shared placeholder loaded; gallery remained usable";
       });
 
-      await check(`${view}/${lang}/PDP quantity + Add to RFQ`, async () => {
-        // The preceding gallery fallback test navigates away from the PDP.
+      await check(`${view}/${lang}/PDP quantity routes to cart or RFQ by price availability`, async () => {
         await goto(page, BASE + langPath(lang, `products/${PRODUCT_SLUG}`));
-        await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
+        await page.evaluate(() => {
+          localStorage.removeItem("souviks_rfq_guest");
+          localStorage.removeItem("souviks_purchase_cart_v1");
+        });
+        await page.waitForTimeout(500);
         const qty = page.locator("#pdpQty");
         await qty.fill("2");
         await page.locator(".pdp-qty-plus").click();
         const value = await qty.inputValue();
         if (value !== "3") throw new Error(`PDP qty is ${value}`);
-        await page.locator(".pdp-rfq-btn").click();
-        await page.waitForTimeout(300);
-        const stored = await page.evaluate(() => {
-          const raw = localStorage.getItem("souviks_rfq_guest");
-          const items = raw ? JSON.parse(raw) : [];
-          return items?.[0]?.qty;
+        const purchaseButton = page.locator(".pdp-add-to-purchase-cart");
+        if (await purchaseButton.count()) {
+          if (await page.locator(".pdp-rfq-btn").count()) {
+            throw new Error("priced PDP still exposes Add to RFQ");
+          }
+          await purchaseButton.click();
+          const stored = await page.evaluate(() => {
+            const raw = localStorage.getItem("souviks_purchase_cart_v1");
+            const items = raw ? JSON.parse(raw) : [];
+            return items?.[0]?.quantity;
+          });
+          if (Number(stored) !== 3) throw new Error(`purchase cart stored quantity is ${stored}`);
+        } else {
+          const rfqButton = page.locator(".pdp-rfq-btn");
+          if (!(await rfqButton.count())) throw new Error("unpriced PDP has neither RFQ nor purchase action");
+          await rfqButton.click();
+          await page.waitForTimeout(300);
+          const stored = await page.evaluate(() => {
+            const raw = localStorage.getItem("souviks_rfq_guest");
+            const items = raw ? JSON.parse(raw) : [];
+            return items?.[0]?.qty;
+          });
+          if (Number(stored) !== 3) throw new Error(`RFQ stored qty is ${stored}`);
+        }
+        await page.evaluate(() => {
+          localStorage.removeItem("souviks_rfq_guest");
+          localStorage.removeItem("souviks_purchase_cart_v1");
         });
-        if (Number(stored) !== 3) throw new Error(`RFQ stored qty is ${stored}`);
+        return await purchaseButton.count() ? "priced PDP uses purchase-cart quantity" : "unpriced PDP preserves RFQ quantity";
       });
 
       // Forms
