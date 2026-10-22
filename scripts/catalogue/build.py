@@ -145,6 +145,20 @@ def reconcile_catalogue_projections():
             return [text(x) for x in v if text(x)]
         return [x.strip() for x in re.split(r"[,;]", text(v)) if x.strip()]
     
+    def approximate_weight_grams(p):
+        """Read the catalogue's per-unit approximate packed weight in grams."""
+        for field in ("approx_weight_g", "weight_g", "shipping_weight_g", "approx_weight_grams"):
+            value = p.get(field)
+            if value is None or value == "":
+                continue
+            try:
+                grams = float(value)
+            except (TypeError, ValueError):
+                continue
+            if 0 < grams <= 200000:
+                return int(round(grams))
+        return None
+
     # A temporary sheet override file is used for an exact workbook-to-catalogue
     # reconciliation. It is deleted after the projection commit.
     override_path = ROOT / "assets/data/catalogue_overrides.json"
@@ -209,6 +223,13 @@ def reconcile_catalogue_projections():
                 "active": sheet_row.get("active") is not False,
                 "catalogue_updated_at": text(override.get("updated_at")) or text(current.get("catalogue_updated_at")),
             })
+            # Weight values may be added to the stock-sheet override later.
+            # Only apply a valid non-empty weight, preserving existing master data
+            # when a stock-sheet row has no weight yet.
+            sheet_weight_grams = approximate_weight_grams(sheet_row)
+            if sheet_weight_grams is not None:
+                current["approx_weight_g"] = sheet_weight_grams
+
             current.setdefault("manufacturer_part_numbers", [])
             current.setdefault("alternate_part_numbers", [])
             current.setdefault("oem_numbers", [])
@@ -498,20 +519,6 @@ def reconcile_catalogue_projections():
             return match.group(1)
         return text(p.get("part_number") or p.get("partNumber"))
     
-    def approximate_weight_grams(p):
-        """Read the catalogue's per-unit approximate packed weight in grams."""
-        for field in ("approx_weight_g", "weight_g", "shipping_weight_g", "approx_weight_grams"):
-            value = p.get(field)
-            if value is None or value == "":
-                continue
-            try:
-                grams = float(value)
-            except (TypeError, ValueError):
-                continue
-            if 0 < grams <= 200000:
-                return int(round(grams))
-        return None
-
     def product_from_catalogue(p):
         part = part_number(p)
         return {

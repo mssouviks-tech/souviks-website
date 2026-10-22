@@ -151,13 +151,19 @@ Deno.serve(async (req: Request) => {
   try {
     const input = await req.json();
     const destinationPin = String(input?.destination_pin ?? "").trim();
-    // Customer-facing estimates deliberately use COD + Express by default.
-    // Customers provide only their delivery PIN; weight comes from catalogue data.
-    const paymentMode = "COD";
+    const estimateType = String(input?.estimate_type ?? "shipping_charge").trim();
+    const isTimeOnly = estimateType === "delivery_time";
+    if (!/^\d{6}$/.test(destinationPin)) throw new EstimateError("invalid_destination_pin", 400);
+    if (!["delivery_time", "shipping_charge"].includes(estimateType)) {
+      throw new EstimateError("invalid_estimate_type", 400);
+    }
+
+    // Pre-paid + Express is used for online checkout freight. Product pages use the
+    // TAT-only mode and therefore do not require a product weight.
+    const paymentMode = "Pre-paid";
     const billingMode = "E";
     const weightGrams = Number(input?.chargeable_weight_g);
-    if (!/^\d{6}$/.test(destinationPin)) throw new EstimateError("invalid_destination_pin", 400);
-    if (!Number.isInteger(weightGrams) || weightGrams < 1 || weightGrams > MAX_WEIGHT_GRAMS) {
+    if (!isTimeOnly && (!Number.isInteger(weightGrams) || weightGrams < 1 || weightGrams > MAX_WEIGHT_GRAMS)) {
       throw new EstimateError("invalid_chargeable_weight", 400);
     }
 
@@ -168,6 +174,7 @@ Deno.serve(async (req: Request) => {
     const b2cToken = (Deno.env.get("DELHIVERY_B2C_API_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || "").trim();
     const b2bToken = (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || Deno.env.get("DELHIVERY_UMS_BEARER_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || Deno.env.get("DELHIVERY_B2C_API_TOKEN") || "").trim();
     if (!b2cToken) throw new EstimateError("delhivery_b2c_token_not_configured", 503);
+    if (isTimeOnly && !b2bToken) throw new EstimateError("delhivery_b2b_token_not_configured", 503);
 
     const serviceUrl = new URL("https://track.delhivery.com/c/api/pin-codes/json/");
     serviceUrl.searchParams.set("filter_codes", destinationPin);
@@ -179,31 +186,70 @@ Deno.serve(async (req: Request) => {
         ok: true,
         origin_pin: originPin,
         destination_pin: destinationPin,
+        estimate_type: estimateType,
         serviceability: { available: true, serviceable: false, message: "Delhivery did not return this PIN code as serviceable." },
         shipping: { available: false },
         delivery: { available: false },
       });
     }
 
-    const requestedModeAvailable = paymentMode === "COD"
-      ? String(postal.cod || "").toUpperCase() === "Y"
-      : String(postal.pre_paid || postal.prepaid || "").toUpperCase() === "Y";
-    const isServiceable = requestedModeAvailable &&
-      String(postal.remarks || "").toLowerCase() !== "embargo";
-    if (!isServiceable) {
+    const codAvailable = String(postal.cod || "").toUpperCase() === "Y";
+    const prepaidAvailable = String(postal.pre_paid || postal.prepaid || "").toUpperCase() === "Y";
+    const notEmbargoed = String(postal.remarks || "").toLowerCase() !== "embargo";
+    const serviceable = notEmbargoed && (isTimeOnly ? (codAvailable || prepaidAvailable) : prepaidAvailable);
+    if (!serviceable) {
       return respond(req, {
         ok: true,
         origin_pin: originPin,
         destination_pin: destinationPin,
+        estimate_type: estimateType,
         serviceability: {
           available: true,
           serviceable: false,
-          message: paymentMode === "COD" ? "Delhivery COD service is not available for this PIN code." : "Delhivery prepaid delivery is not available for this PIN code.",
+          message: isTimeOnly
+            ? "Delhivery delivery is not available for this PIN code."
+            : "Delhivery prepaid delivery is not available for this PIN code.",
           city: String(postal.city || ""),
           state: String(postal.state_code || ""),
         },
         shipping: { available: false },
         delivery: { available: false },
+      });
+    }
+
+    const serviceability = {
+      available: true,
+      serviceable: true,
+      message: "Delhivery reports this PIN code as serviceable.",
+      city: String(postal.city || ""),
+      state: String(postal.state_code || ""),
+    };
+
+    if (isTimeOnly) {
+      const tatUrl = new URL("https://ltl-clients-api.delhivery.com/tat/estimate");
+      tatUrl.searchParams.set("origin_pin", originPin);
+      tatUrl.searchParams.set("destination_pin", destinationPin);
+      let delivery: Record<string, unknown> = { available: false };
+      try {
+        const tatData = await providerGet(tatUrl, "Bearer " + b2bToken);
+        const days = findNumber(tatData, ["tat_days", "tat", "expected_tat", "estimated_days", "days"]);
+        const date = findString(tatData, ["estimated_date", "estimated_delivery_date", "delivery_date", "estimatedDate"]);
+        const hasDays = days !== null && days >= 0;
+        if (hasDays || Boolean(date)) {
+          delivery = { available: true, tat_days: hasDays ? Math.ceil(days) : null, estimated_date: date };
+        }
+      } catch (error) {
+        console.error("[Delhivery estimate] TAT estimate unavailable", error instanceof EstimateError ? error.code : "provider_error");
+      }
+      return respond(req, {
+        ok: true,
+        origin_pin: originPin,
+        destination_pin: destinationPin,
+        estimate_type: estimateType,
+        serviceability,
+        shipping: { available: false },
+        delivery,
+        notice: "Delivery time is an estimate and may vary with route and network conditions.",
       });
     }
 
@@ -214,58 +260,39 @@ Deno.serve(async (req: Request) => {
     chargesUrl.searchParams.set("o_pin", originPin);
     chargesUrl.searchParams.set("cgm", String(weightGrams));
     chargesUrl.searchParams.set("pt", paymentMode);
-    const chargePromise = providerGet(chargesUrl, "Token " + b2cToken).then((chargeData) => {
-      const amount = findNumber(chargeData, ["total_amount", "totalAmount", "total_charges", "total_charges_amount"]);
-      if (amount === null || amount <= 0) return { available: false };
-      return { available: true, amount: Math.round(amount * 100) / 100, currency: "INR", approximate: true };
-    }).catch((error) => {
+    let chargeData: any;
+    try {
+      chargeData = await providerGet(chargesUrl, "Token " + b2cToken);
+    } catch (error) {
       console.error("[Delhivery estimate] Shipping charge estimate unavailable", error instanceof EstimateError ? error.code : "provider_error");
-      return { available: false };
-    });
-
-    const deliveryPromise = b2bToken ? (() => {
-      const tatUrl = new URL("https://ltl-clients-api.delhivery.com/tat/estimate");
-      tatUrl.searchParams.set("origin_pin", originPin);
-      tatUrl.searchParams.set("destination_pin", destinationPin);
-      return providerGet(tatUrl, "Bearer " + b2bToken).then((tatData) => {
-        const days = findNumber(tatData, ["tat_days", "tat", "expected_tat", "estimated_days", "days"]);
-        const date = findString(tatData, ["estimated_date", "estimated_delivery_date", "delivery_date", "estimatedDate"]);
-        const hasDays = days !== null && days >= 0;
-        return hasDays || Boolean(date)
-          ? { available: true, tat_days: hasDays ? Math.ceil(days) : null, estimated_date: date }
-          : { available: false };
-      }).catch((error) => {
-        console.error("[Delhivery estimate] TAT estimate unavailable", error instanceof EstimateError ? error.code : "provider_error");
-        return { available: false };
-      });
-    })() : Promise.resolve({ available: false });
-
-    const [shipping, delivery] = await Promise.all([chargePromise, deliveryPromise]);
+      throw error;
+    }
+    const amount = findNumber(chargeData, ["total_amount", "totalAmount", "total_charges", "total_charges_amount"]);
+    const shipping = amount !== null && amount > 0
+      ? { available: true, amount: Math.round(amount * 100) / 100, currency: "INR", approximate: true, chargeable_weight_g: weightGrams }
+      : { available: false };
     return respond(req, {
       ok: true,
       origin_pin: originPin,
       destination_pin: destinationPin,
-      serviceability: {
-        available: true,
-        serviceable: true,
-        message: "Delhivery reports this PIN code as serviceable.",
-        city: String(postal.city || ""),
-        state: String(postal.state_code || ""),
-      },
-      shipping: { ...shipping, chargeable_weight_g: weightGrams, billing_mode: billingMode, payment_mode: paymentMode },
-      delivery,
-      notice: "Courier charges and delivery time are estimates, not guaranteed final values.",
+      estimate_type: estimateType,
+      serviceability,
+      shipping: { ...shipping, billing_mode: billingMode, payment_mode: paymentMode },
+      delivery: { available: false },
+      notice: "Courier charges are estimates and may differ from the final carrier bill.",
     });
   } catch (error) {
     const known = error instanceof EstimateError ? error : new EstimateError("estimate_temporarily_unavailable", 503);
     if (!(error instanceof EstimateError)) console.error("[Delhivery estimate] Unexpected error");
     const messages: Record<string, string> = {
       invalid_destination_pin: "Enter a valid 6-digit destination PIN code.",
-      invalid_chargeable_weight: "Enter a chargeable weight between 1 and 200,000 grams.",
+      invalid_estimate_type: "The requested delivery estimate type is invalid.",
+      invalid_chargeable_weight: "A valid combined chargeable weight is required for the shipping quote.",
       rate_limit_unavailable: "The delivery estimator is temporarily unavailable. Please try again shortly.",
       rate_limited: "Too many estimates have been requested. Please wait a few minutes and try again.",
       origin_pin_not_configured: "Souviks pickup PIN code has not been configured correctly.",
       delhivery_b2c_token_not_configured: "The Delhivery shipping estimate is not configured yet.",
+      delhivery_b2b_token_not_configured: "The Delhivery delivery-time API credentials are not configured yet.",
       delhivery_auth_failed: "Delhivery credentials need to be checked.",
       delhivery_request_failed: "Delhivery could not return an estimate for these details.",
       delhivery_unreachable: "Delhivery is temporarily unreachable. Please try again shortly.",
