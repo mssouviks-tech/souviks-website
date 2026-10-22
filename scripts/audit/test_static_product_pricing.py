@@ -60,6 +60,12 @@ EXPECTED = {
     },
 }
 
+EXPECTED_AVAILABILITY_LABELS = {
+    "en": "Availability subject to confirmation",
+    "hi": "उपलब्धता की पुष्टि आवश्यक",
+    "bn": "উপলভ্যতা নিশ্চিতকরণ সাপেক্ষে",
+}
+
 def display_price(value: float | int) -> str:
     amount = float(value)
     if abs(amount - round(amount)) < 0.00001:
@@ -145,6 +151,16 @@ for product_id, expected in EXPECTED.items():
         )
         assert f'{expected["discount_percent"]}% OFF' in pricing, (
             f"{product_id}: {language} pricing block missing rounded discount"
+        )
+
+        stock_match = re.search(
+            r'<span\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-stock\\b[^"\\']*["\\'])[^>]*>(.*?)</span>',
+            page,
+            flags=re.I | re.S,
+        )
+        assert stock_match, f"{product_id}: {language} page missing stock/availability badge"
+        assert EXPECTED_AVAILABILITY_LABELS[language] in stock_match.group(1), (
+            f"{product_id}: stale or incorrect {language} availability badge: {stock_match.group(1)!r}"
         )
 
         if product_id == "SVKS000975":
