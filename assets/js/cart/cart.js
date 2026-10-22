@@ -551,6 +551,9 @@
             button.textContent = LANGUAGE === "hi" ? "कार्ट में जोड़ें" : LANGUAGE === "bn" ? "কার্টে যোগ করুন" : "Add to Cart";
             button.setAttribute("aria-label", "Add " + String(product.product_name || product.name || "product") + " to cart");
             rfqButton.insertAdjacentElement("beforebegin", button);
+            // Priced products use the existing PDP quantity selector and purchase cart.
+            // Keep RFQ only for products without a confirmed selling price.
+            rfqButton.remove();
         } catch {
             // Never block the existing RFQ action because purchase-cart hydration failed.
         }
@@ -638,14 +641,41 @@
     }
 
     document.addEventListener("click", event => {
+        const target = event.target instanceof Element
+            ? event.target.closest("[data-product-qty-increase], [data-product-qty-decrease]")
+            : null;
+        if (!target) return;
+        event.preventDefault();
+        const controls = target.closest("[data-product-quantity-controls]");
+        const input = controls?.querySelector("[data-product-quantity]");
+        if (!input) return;
+        const current = Number(input.value);
+        const quantity = Number.isInteger(current) ? current : 1;
+        const next = target.hasAttribute("data-product-qty-increase")
+            ? Math.min(MAX_QUANTITY, Math.max(1, quantity) + 1)
+            : Math.max(1, quantity - 1);
+        input.value = String(next);
+        input.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    document.addEventListener("change", event => {
+        const input = event.target instanceof Element ? event.target.closest("[data-product-quantity]") : null;
+        if (!input) return;
+        const value = Number(input.value);
+        const normalized = Number.isFinite(value) ? Math.max(1, Math.min(MAX_QUANTITY, Math.floor(value))) : 1;
+        input.value = String(normalized);
+    });
+
+    document.addEventListener("click", event => {
         const button = event.target instanceof Element ? event.target.closest(".add-to-purchase-cart") : null;
         if (!button) return;
         event.preventDefault();
         const productId = String(button.dataset.id || "").trim();
         if (!productId) return;
+        const cardQuantity = button.closest(".product-card")?.querySelector("[data-product-quantity]");
         const requestedQuantity = button.classList.contains("pdp-add-to-purchase-cart")
             ? Number(document.getElementById("pdpQty")?.value || 1)
-            : 1;
+            : Number(cardQuantity?.value || 1);
         addProduct(productId, button, requestedQuantity);
         const itemCount = safeReadCart().length;
         const link = document.querySelector('a[href$="/cart"], a[href$="/cart.html"]');
