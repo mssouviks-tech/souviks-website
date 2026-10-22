@@ -65,7 +65,6 @@ PAGE_MODULES = {
         "assets/js/products/products.js",
         "assets/js/products/webmcp.js",
         "assets/js/products/products-page.js",
-        "assets/js/products/souviks-refresh-static-product-card-images-from-canonical-catalogue.js",
     ),
     "product.js": (
         "assets/js/account/rfq.js",
