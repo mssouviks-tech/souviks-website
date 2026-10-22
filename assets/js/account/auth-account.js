@@ -492,7 +492,8 @@ function getRequestedView() {
         "profile",
         "inquiries",
         "saved",
-        "vehicles"
+        "vehicles",
+    "orders"
     ];
 
 
@@ -571,7 +572,8 @@ function initializeNavigation() {
                 "privacy",
                 "profile",
                 "saved",
-                "vehicles"
+                "vehicles",
+            "orders"
             ];
 
 
@@ -1164,7 +1166,8 @@ function showAccountView(
         "privacy",
         "profile",
         "saved",
-        "vehicles"
+        "vehicles",
+    "orders"
     ];
 
 
@@ -1322,6 +1325,14 @@ function showAccountView(
 
         }
 
+    }
+
+    if (view === "orders") {
+        if (typeof window.refreshAccountOrders === "function") {
+            window.refreshAccountOrders();
+        } else {
+            console.error("[Souviks Account] refreshAccountOrders() is unavailable.");
+        }
     }
 
 }
