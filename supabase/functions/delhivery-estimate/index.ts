@@ -95,7 +95,7 @@ async function providerGet(url: URL, authorization: string): Promise<any> {
   try {
     response = await fetch(url, {
       method: "GET",
-      headers: { "Authorization": authorization, "Accept": "application/json", "Content-Type": "application/json" },
+      headers: { "Authorization": authorization, "Accept": "application/json", "X-Request-Id": crypto.randomUUID() },
       signal: AbortSignal.timeout(10000),
     });
   } catch {
@@ -105,10 +105,77 @@ async function providerGet(url: URL, authorization: string): Promise<any> {
   let data: any = null;
   try { data = raw ? JSON.parse(raw) : null; } catch { data = null; }
   if (!response.ok) {
-    console.error("[Delhivery estimate] Provider request failed", response.status);
+    const detail = data && typeof data === "object"
+      ? (data.detail ?? data.message ?? data.error ?? data.errors ?? data.msg ?? null)
+      : null;
+    const safeDetail = detail === null ? "no structured provider error detail" : JSON.stringify(detail).slice(0, 400);
+    console.error("[Delhivery estimate] Provider request failed", url.pathname, response.status, safeDetail);
     throw new EstimateError(response.status === 401 || response.status === 403 ? "delhivery_auth_failed" : "delhivery_request_failed", 502);
   }
   return data;
+}
+
+let cachedUmsBearerToken = "";
+let cachedUmsBearerExpiresAt = 0;
+
+function jwtExpiryMilliseconds(token: string): number | null {
+  try {
+    const part = token.split(".")[1];
+    if (!part) return null;
+    const normalized = part.replace(/-/g, "+").replace(/_/g, "/");
+    const payload = JSON.parse(atob(normalized));
+    const exp = Number(payload?.exp);
+    return Number.isFinite(exp) && exp > 0 ? exp * 1000 : null;
+  } catch {
+    return null;
+  }
+}
+
+async function getUmsBearerToken(): Promise<string> {
+  const username = (Deno.env.get("DELHIVERY_UMS_USERNAME") || "").trim();
+  const password = (Deno.env.get("DELHIVERY_UMS_PASSWORD") || "").trim();
+
+  // Prefer the login flow so the short-lived UMS token can be refreshed automatically.
+  if (username && password) {
+    if (cachedUmsBearerToken && Date.now() < cachedUmsBearerExpiresAt) return cachedUmsBearerToken;
+    let response: Response;
+    try {
+      response = await fetch("https://ltl-clients-api.delhivery.com/ums/login", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json", "X-Request-Id": crypto.randomUUID() },
+        body: JSON.stringify({ username, password }),
+        signal: AbortSignal.timeout(10000),
+      });
+    } catch {
+      throw new EstimateError("delhivery_unreachable", 502);
+    }
+    const raw = await response.text();
+    let data: any = null;
+    try { data = raw ? JSON.parse(raw) : null; } catch { data = null; }
+    if (!response.ok) {
+      const detail = data && typeof data === "object"
+        ? (data.detail ?? data.message ?? data.error ?? data.errors ?? data.msg ?? null)
+        : null;
+      const safeDetail = detail === null ? "no structured login error detail" : JSON.stringify(detail).slice(0, 400);
+      console.error("[Delhivery estimate] UMS login failed", response.status, safeDetail);
+      throw new EstimateError(response.status === 401 || response.status === 403 ? "delhivery_auth_failed" : "delhivery_b2b_login_failed", 502);
+    }
+    const token = String(data?.data?.jwt || data?.jwt || data?.access_token || "").trim();
+    if (!token) {
+      console.error("[Delhivery estimate] UMS login response did not contain a bearer token");
+      throw new EstimateError("delhivery_b2b_login_failed", 502);
+    }
+    const tokenExpiry = jwtExpiryMilliseconds(token);
+    // The documented UMS JWT is time-limited. If exp is omitted, use a conservative
+    // cache window rather than assuming the token remains valid indefinitely.
+    cachedUmsBearerExpiresAt = Math.max(Date.now() + 30000, (tokenExpiry ?? (Date.now() + 23 * 60 * 60 * 1000)) - 120000);
+    cachedUmsBearerToken = token;
+    return token;
+  }
+
+  // A manually supplied UMS token remains supported, but a B2C API token is never
+  // re-used as a bearer token for the Expected TAT endpoint.
+  return (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || Deno.env.get("DELHIVERY_UMS_BEARER_TOKEN") || "").trim();
 }
 
 function findNumber(value: any, wanted: string[], depth = 0): number | null {
@@ -172,9 +239,13 @@ Deno.serve(async (req: Request) => {
     await enforceRateLimit(req);
 
     const b2cToken = (Deno.env.get("DELHIVERY_B2C_API_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || "").trim();
-    const b2bToken = (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || Deno.env.get("DELHIVERY_UMS_BEARER_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || Deno.env.get("DELHIVERY_B2C_API_TOKEN") || "").trim();
+    const b2bUsername = (Deno.env.get("DELHIVERY_UMS_USERNAME") || "").trim();
+    const b2bPassword = (Deno.env.get("DELHIVERY_UMS_PASSWORD") || "").trim();
+    const manualB2bToken = (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || Deno.env.get("DELHIVERY_UMS_BEARER_TOKEN") || "").trim();
     if (!b2cToken) throw new EstimateError("delhivery_b2c_token_not_configured", 503);
-    if (isTimeOnly && !b2bToken) throw new EstimateError("delhivery_b2b_token_not_configured", 503);
+    if (isTimeOnly && !(b2bUsername && b2bPassword) && !manualB2bToken) {
+      throw new EstimateError("delhivery_b2b_token_not_configured", 503);
+    }
 
     const serviceUrl = new URL("https://track.delhivery.com/c/api/pin-codes/json/");
     serviceUrl.searchParams.set("filter_codes", destinationPin);
@@ -231,7 +302,7 @@ Deno.serve(async (req: Request) => {
       tatUrl.searchParams.set("destination_pin", destinationPin);
       let delivery: Record<string, unknown> = { available: false };
       try {
-        const tatData = await providerGet(tatUrl, "Bearer " + b2bToken);
+        const tatData = await providerGet(tatUrl, "Bearer " + await getUmsBearerToken());
         const days = findNumber(tatData, ["tat_days", "tat", "expected_tat", "estimated_days", "days"]);
         const date = findString(tatData, ["estimated_date", "estimated_delivery_date", "delivery_date", "estimatedDate"]);
         const hasDays = days !== null && days >= 0;
@@ -293,6 +364,7 @@ Deno.serve(async (req: Request) => {
       origin_pin_not_configured: "Souviks pickup PIN code has not been configured correctly.",
       delhivery_b2c_token_not_configured: "The Delhivery shipping estimate is not configured yet.",
       delhivery_b2b_token_not_configured: "The Delhivery delivery-time API credentials are not configured yet.",
+      delhivery_b2b_login_failed: "Delhivery could not authenticate the delivery-time lookup. Please contact Souviks.",
       delhivery_auth_failed: "Delhivery credentials need to be checked.",
       delhivery_request_failed: "Delhivery could not return an estimate for these details.",
       delhivery_unreachable: "Delhivery is temporarily unreachable. Please try again shortly.",
