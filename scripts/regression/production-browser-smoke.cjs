@@ -83,6 +83,7 @@ async function clickPrimaryLink(page, view, lang, destination) {
   const navigation = page.locator("#mainNavigation");
   const link = navigation.locator('.navigation-menu a[href="' + destination + '"]').first();
   if (!(await link.count())) throw new Error("primary navigation link " + destination + " is missing");
+
   if (view.isMobile) {
     await page.locator("#mobileMenuButton").click();
     await page.waitForFunction(
@@ -90,8 +91,37 @@ async function clickPrimaryLink(page, view, lang, destination) {
       null,
       { timeout: 8000 }
     );
-  } else if (!(await link.isVisible())) {
-    throw new Error("desktop navigation link " + destination + " is not visible");
+  }
+
+  // Products, Brands, Categories and Vehicles are now nested in the Shop
+  // disclosure. Open that group before checking visibility or clicking a link.
+  const shopRoutes = new Set([
+    "/" + lang + "/products",
+    "/" + lang + "/brands",
+    "/" + lang + "/categories",
+    "/" + lang + "/vehicles",
+  ]);
+  if (shopRoutes.has(destination)) {
+    const shopToggle = navigation.locator("#navDropdownToggle-shop");
+    if (!(await shopToggle.count())) throw new Error("primary navigation Shop dropdown is missing");
+    await shopToggle.click();
+    await page.waitForFunction(
+      () => {
+        const toggle = document.querySelector("#navDropdownToggle-shop");
+        const menu = document.querySelector("#navDropdown-shop");
+        return toggle?.getAttribute("aria-expanded") === "true"
+          && menu?.closest(".nav-dropdown")?.classList.contains("is-open");
+      },
+      null,
+      { timeout: 8000 }
+    );
+  }
+
+  if (!(await link.isVisible())) {
+    throw new Error(
+      (view.isMobile ? "mobile" : "desktop") +
+      " navigation link " + destination + " is not visible after opening its navigation group"
+    );
   }
 
   // The mobile navigation is allowed to use the History API. In that case
