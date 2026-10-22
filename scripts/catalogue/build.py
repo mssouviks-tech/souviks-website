@@ -618,7 +618,7 @@ def reconcile_catalogue_projections():
         projection_fields = (
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
-            "oem_numbers", "cross_references", "mrp", "selling_price", "discount_percent", "discountPercent", "approx_weight_g",
+            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "discount_percent", "discountPercent",
             "product_name", "name", "partNumber", "brand_id", "brand_name",
             "brand", "category_id", "category_name", "category",
             "subcategory_id", "subcategory_name", "subcategory",
