@@ -14,6 +14,7 @@ const createOrder = read("supabase/functions/cashfree-create-order/index.ts");
 const verifyOrder = read("supabase/functions/cashfree-verify-order/index.ts");
 const webhook = read("supabase/functions/cashfree-webhook/index.ts");
 const migration = read("supabase/migrations/20261021200000_cashfree_checkout.sql");
+const failureMigration = read("supabase/migrations/20261022100000_cashfree_payment_failure_reason.sql");
 const cart = read("assets/js/cart/cart.js");
 const staticCard = read("scripts/catalogue/product_card.py");
 const runtimeCard = read("assets/js/components/product-card.js");
@@ -104,4 +105,10 @@ assert.match(nav, /"cart", "कार्ट", "cart"/);
 assert.match(versions, /components\|cart/);
 assert.match(validator, /components\|cart/);
 
+assert.ok(shared.includes("allTerminalFailures"), "Terminal failed payment attempts must update the payment status.");
+assert.ok(shared.includes("payment_failure_reason: failureReason"), "The provider decline reason must be saved with the order.");
+assert.ok(shared.includes("payment_failure_code: failureCode"), "The provider decline code must be saved with the order.");
+assert.ok(cart.includes("data.payment_failure_reason"), "The payment status page must show a provider failure reason.");
+assert.match(failureMigration, /add column if not exists payment_failure_code/);
+assert.match(failureMigration, /add column if not exists payment_failure_reason/);
 console.log("Cashfree checkout contract OK: server-side prices, disabled-by-default policy, order storage, guest-token verification, signed webhook, and RFQ coexistence.");
