@@ -76,6 +76,7 @@ assert.match(checkout, /calculateDelhiveryPrepaidCharge\(postalCode, estimatedWe
 assert.match(checkout, /delhivery_shipping_weight_invalid/);
 assert.match(checkout, /delhivery_shipping_weights_missing/);
 assert.doesNotMatch(checkout, /shippingPaise = Math\.round\(policy\.shippingBelowThreshold \* 100\)/);
+assert.doesNotMatch(checkout, /CASHFREE_SHIPPING_UNDER_THRESHOLD_INR|shippingBelowThreshold/);
 assert.match(checkout, /subtotal > policy\.threshold/);
 assert.match(css, /@media \(max-width: 520px\)/);
 assert.match(sync, /id="product-detail"/);
