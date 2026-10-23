@@ -4,7 +4,7 @@
     const CART_KEY = "souviks_purchase_cart_v1";
     const COPY = {
         en: {
-            helper: "Once item weights are available in the catalogue, the combined prepaid courier charge will be estimated automatically from your delivery PIN code. Until then, below-threshold online checkout requires a shipping quote.",
+            helper: "Every shipped order needs a freight quote. Until all product weights are available, please request a shipping quote before checkout.",
             checking: "Calculating estimated prepaid shipping…",
             serviceable: "Delhivery prepaid delivery is available for this PIN code.",
             unavailable: "Delhivery prepaid service is not available for this PIN code.",
@@ -12,7 +12,7 @@
             timeMissing: "Estimated delivery date not available",
             days: "days",
             price: "Estimated prepaid courier charge",
-            weightMissing: "Product weights are not available for every item yet. The Delhivery charge estimate will appear once the stock sheet is updated. Below the free-shipping threshold, checkout needs a shipping quote until then.",
+            weightMissing: "Product weights are not available for every item yet. The Delhivery charge estimate will appear once the stock sheet is updated. Until then, request a shipping quote before checkout.",
             weightInvalid: "The cart's combined approximate weight is outside the supported range. Please request a shipping quote.",
             priceMissing: "Delhivery did not return a usable prepaid charge for this route.",
             config: "Live Delhivery shipping estimates are not configured. The order review will show the available shipping policy.",
@@ -20,7 +20,7 @@
             approximate: "Approximate courier charge only. The final shipping amount is recalculated securely when you review your order."
         },
         hi: {
-            helper: "कैटलॉग में सभी उत्पादों का वज़न उपलब्ध होने पर, डिलीवरी पिन कोड के आधार पर कुल प्रीपेड कूरियर शुल्क अपने-आप निकलेगा। अंतिम शिपिंग राशि ऑर्डर रिव्यू में पक्की होगी।",
+            helper: "हर भेजे जाने वाले ऑर्डर के लिए फ्रेट कोट आवश्यक है। जब तक सभी उत्पादों का वज़न उपलब्ध न हो, चेकआउट से पहले शिपिंग कोट माँगें।",
             checking: "अनुमानित प्रीपेड शिपिंग की गणना हो रही है…",
             serviceable: "इस पिन कोड पर Delhivery प्रीपेड डिलीवरी उपलब्ध है।",
             unavailable: "इस पिन कोड पर Delhivery प्रीपेड सेवा उपलब्ध नहीं है।",
@@ -28,7 +28,7 @@
             timeMissing: "अनुमानित डिलीवरी तारीख उपलब्ध नहीं है",
             days: "दिन",
             price: "अनुमानित प्रीपेड कूरियर शुल्क",
-            weightMissing: "अभी सभी उत्पादों के वज़न उपलब्ध नहीं हैं। स्टॉक शीट अपडेट होने के बाद Delhivery शुल्क का अनुमान दिखेगा। तब तक फ्री-शिपिंग सीमा से कम वाले ऑर्डर के लिए शिपिंग कोट आवश्यक है।",
+            weightMissing: "अभी सभी उत्पादों के वज़न उपलब्ध नहीं हैं। स्टॉक शीट अपडेट होने के बाद Delhivery शुल्क का अनुमान दिखेगा। तब तक चेकआउट से पहले शिपिंग कोट माँगें।",
             weightInvalid: "कार्ट का कुल अनुमानित वज़न समर्थित सीमा से बाहर है। शिपिंग कोट माँगें।",
             priceMissing: "Delhivery ने इस मार्ग के लिए मान्य प्रीपेड शुल्क नहीं दिया।",
             config: "लाइव Delhivery शिपिंग अनुमान कॉन्फ़िगर नहीं है। उपलब्ध शिपिंग नीति ऑर्डर रिव्यू में दिखाई जाएगी।",
@@ -36,7 +36,7 @@
             approximate: "यह केवल अनुमानित कूरियर शुल्क है। ऑर्डर रिव्यू में अंतिम शिपिंग राशि सुरक्षित रूप से दोबारा निकाली जाएगी।"
         },
         bn: {
-            helper: "ক্যাটালগে সব পণ্যের ওজন উপলভ্য হলে, আপনার ডেলিভারি পিন কোড থেকে মোট প্রিপেইড কুরিয়ার চার্জ স্বয়ংক্রিয়ভাবে হিসাব হবে। ততদিন কম-সাবটোটালের অনলাইন অর্ডারের জন্য শিপিং কোট প্রয়োজন।",
+            helper: "প্রতিটি পাঠানো অর্ডারের জন্য ফ্রেট কোট প্রয়োজন। সব পণ্যের ওজন উপলভ্য না হওয়া পর্যন্ত চেকআউটের আগে শিপিং কোটের অনুরোধ করুন।",
             checking: "আনুমানিক প্রিপেইড শিপিং হিসাব হচ্ছে…",
             serviceable: "এই পিন কোডে Delhivery প্রিপেইড ডেলিভারি উপলভ্য।",
             unavailable: "এই পিন কোডে Delhivery প্রিপেইড পরিষেবা উপলভ্য নয়।",
@@ -44,7 +44,7 @@
             timeMissing: "আনুমানিক ডেলিভারির তারিখ উপলভ্য নয়",
             days: "দিন",
             price: "আনুমানিক প্রিপেইড কুরিয়ার চার্জ",
-            weightMissing: "এখনও সব পণ্যের ওজন উপলভ্য নয়। স্টক শিট আপডেট হলে Delhivery চার্জের হিসাব দেখানো হবে। ততদিন ফ্রি-শিপিং সীমার নিচের অর্ডারের জন্য শিপিং কোট প্রয়োজন।",
+            weightMissing: "এখনও সব পণ্যের ওজন উপলভ্য নয়। স্টক শিট আপডেট হলে Delhivery চার্জের হিসাব দেখানো হবে। ততদিন চেকআউটের আগে শিপিং কোটের অনুরোধ করুন।",
             weightInvalid: "কার্টের মোট আনুমানিক ওজন সমর্থিত সীমার বাইরে। শিপিং কোট চাইুন।",
             priceMissing: "এই রুটের জন্য Delhivery ব্যবহারযোগ্য প্রিপেইড চার্জ দেয়নি।",
             config: "লাইভ Delhivery শিপিং হিসাব কনফিগার করা হয়নি। অর্ডার রিভিউতে উপলভ্য শিপিং নীতি দেখানো হবে।",
