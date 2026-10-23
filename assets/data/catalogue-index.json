@@ -24148,8 +24148,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 2870,
+    "selling_price": 2650,
     "product_name": "Timken 32214",
     "name": "Timken 32214",
     "partNumber": "32214",
@@ -24180,7 +24180,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000560/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000560/1.webp",
+    "discount_percent": 8,
+    "discountPercent": 8
   },
   {
     "id": "SVKS000561",
@@ -24191,8 +24193,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 4250,
+    "selling_price": 3950,
     "product_name": "Timken 32215",
     "name": "Timken 32215",
     "partNumber": "32215",
@@ -24223,7 +24225,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000561/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000561/1.webp",
+    "discount_percent": 7,
+    "discountPercent": 7
   },
   {
     "id": "SVKS000562",
@@ -24234,8 +24238,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 1950,
+    "selling_price": 1750,
     "product_name": "Timken 32307",
     "name": "Timken 32307",
     "partNumber": "32309",
@@ -24266,7 +24270,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000562/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000562/1.webp",
+    "discount_percent": 10,
+    "discountPercent": 10
   },
   {
     "id": "SVKS000563",
@@ -24277,8 +24283,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 1850,
+    "selling_price": 1650,
     "product_name": "Timken 539/532",
     "name": "Timken 539/532",
     "partNumber": "539/532",
@@ -24309,7 +24315,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000563/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000563/1.webp",
+    "discount_percent": 11,
+    "discountPercent": 11
   },
   {
     "id": "SVKS000564",
@@ -24320,8 +24328,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 2180,
+    "selling_price": 1985,
     "product_name": "Timken 566/563",
     "name": "Timken 566/563",
     "partNumber": "566/563",
@@ -24352,7 +24360,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000564/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000564/1.webp",
+    "discount_percent": 9,
+    "discountPercent": 9
   },
   {
     "id": "SVKS000565",
