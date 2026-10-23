@@ -152,11 +152,11 @@ CART_TEMPLATE = """<!doctype html>
             <div id="checkout-delivery-fields" hidden>
               <h3>__DELIVERY__</h3>
               <div class="purchase-address-grid">
-              <div class="form-group form-group-full"><label for="checkout-address1">__ADDRESS1__</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180" required></div>
+              <div class="form-group form-group-full"><label for="checkout-address1">__ADDRESS1__</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180"></div>
               <div class="form-group form-group-full"><label for="checkout-address2">__ADDRESS2__</label><input type="text" id="checkout-address2" name="address2" autocomplete="address-line2" maxlength="120"></div>
-              <div class="form-group"><label for="checkout-city">__CITY__</label><input type="text" id="checkout-city" name="city" autocomplete="address-level2" maxlength="100" required></div>
-              <div class="form-group"><label for="checkout-state">__STATE__</label><input type="text" id="checkout-state" name="state" autocomplete="address-level1" maxlength="100" required></div>
-              <div class="form-group"><label for="checkout-pincode">__PIN__</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" required></div>
+              <div class="form-group"><label for="checkout-city">__CITY__</label><input type="text" id="checkout-city" name="city" autocomplete="address-level2" maxlength="100"></div>
+              <div class="form-group"><label for="checkout-state">__STATE__</label><input type="text" id="checkout-state" name="state" autocomplete="address-level1" maxlength="100"></div>
+              <div class="form-group"><label for="checkout-pincode">__PIN__</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6"></div>
             </div>
             </div>
             <label class="purchase-terms"><input type="checkbox" id="checkout-terms" name="terms_accepted" required><span>__TERMS__ <a href="/__LANG__/terms">__TERMS_LINK__</a> · <a href="/__LANG__/privacy-policy">__PRIVACY_LINK__</a> · <a href="/__LANG__/refund">__REFUND_LINK__</a></span></label>
