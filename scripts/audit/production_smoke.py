@@ -51,9 +51,6 @@ PAGES = {
     "/en/request-part": "https://www.souviks.co.in/en/request-part",
     "/hi/request-part": "https://www.souviks.co.in/hi/request-part",
     "/bn/request-part": "https://www.souviks.co.in/bn/request-part",
-    "/en/request-quote": "https://www.souviks.co.in/en/request-quote",
-    "/hi/request-quote": "https://www.souviks.co.in/hi/request-quote",
-    "/bn/request-quote": "https://www.souviks.co.in/bn/request-quote",
     "/en/products/10-x-15-nut": "https://www.souviks.co.in/en/products/10-x-15-nut",
     "/en/brands/abc": "https://www.souviks.co.in/en/brands/abc",
     "/en/terms": "https://www.souviks.co.in/en/terms",
@@ -345,6 +342,12 @@ def run_smoke() -> int:
         "/en/products.html": "/en/products",
         "/en/brands.html": "/en/brands",
         "/en/terms.html": "/en/terms",
+        "/en/request-quote": "/en/cart",
+        "/hi/request-quote": "/hi/cart",
+        "/bn/request-quote": "/bn/cart",
+        "/en/request-quote.html": "/en/cart",
+        "/hi/request-quote.html": "/hi/cart",
+        "/bn/request-quote.html": "/bn/cart",
     }
     for source, target in redirects.items():
         label = f"redirect {source}"

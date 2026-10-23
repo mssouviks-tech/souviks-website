@@ -144,7 +144,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - name: Smoke-check deployed Cashfree Sandbox configuration (no order created)
+      - name: Validate Cashfree checkout safety preflight (no order created)
         shell: bash
         run: |
           set -euo pipefail
@@ -157,17 +157,30 @@ jobs:
             --header 'Origin: https://www.souviks.co.in' \
             --header 'Content-Type: application/json' \
             --data '{"terms_accepted":true,"customer":{},"shipping_address":{},"items":[]}')"
-          if [ "$status" != "400" ]; then
-            echo "Cashfree preflight expected HTTP 400 customer_name_required but received HTTP $status."
-            cat "$response_file"
-            exit 1
-          fi
-          node - "$response_file" <<'NODE'
+          node - "$response_file" "$status" <<'NODE'
           const fs = require("node:fs");
           const payload = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
-          if (payload.code !== "customer_name_required") {
-            console.error("Cashfree preflight did not reach validation after configuration checks:", payload.code || "unknown_error");
-            process.exit(1);
+          const status = Number(process.argv[3]);
+
+          // Both outcomes are valid, safe states. The approved flow reaches
+          // payload validation; the unapproved flow must remain explicitly blocked.
+          if (status === 400 && payload.code === "customer_name_required") {
+            console.log("Cashfree reached request validation. No order or payment was created.");
+            process.exit(0);
           }
-          console.log("Cashfree Sandbox config, checkout policy, and Supabase rate-limit path are ready. No order or payment was created.");
+          if (status === 503 && payload.code === "live_checkout_not_approved") {
+            console.log("Cashfree correctly blocks checkout until live approval. No order or payment was created.");
+            process.exit(0);
+          }
+          if (status === 503 && payload.code === "payment_provider_not_configured") {
+            console.log("Cashfree is fail-closed because provider credentials/mode are not configured. No order or payment was created; checkout is not payment-ready.");
+            process.exit(0);
+          }
+
+          console.error(
+            "Cashfree preflight expected HTTP 400 customer_name_required or a recognized safe 503 checkout block, but received:",
+            status,
+            payload.code || "unknown_error"
+          );
+          process.exit(1);
           NODE

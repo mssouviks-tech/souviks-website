@@ -111,7 +111,13 @@ assert.match(productActions, /pdp-request-part-link/);
 assert.match(productActions, /selling_price/);
 assert.match(cart, /data-product-qty-increase/);
 assert.match(cart, /closest\("\.product-card"\)\?\.querySelector\("\[data-product-quantity\]"\)/);
-assert.match(cart, /rfqButton\.remove\(\)/);
+// Legacy static PDPs may still contain the old RFQ controls. The compatibility
+// normalizer removes both, replaces the action with Cart/Request a Part, and
+// fails closed if only the orphaned remove control remains.
+assert.match(cart, /legacyRfqButton\?\.remove\(\)/);
+assert.match(cart, /legacyRemoveButton\?\.remove\(\)/);
+assert.match(cart, /if \(!legacyRfqButton\)/);
+assert.match(cart, /quantityControls\?\.remove\(\)/);
 
 assert.match(pageGenerator, /ROOT \/ lang \/ "cart\.html"/);
 assert.match(pageGenerator, /ROOT \/ lang \/ "payment-status\.html"/);
