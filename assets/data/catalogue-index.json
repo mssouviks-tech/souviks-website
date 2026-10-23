@@ -43683,8 +43683,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 2165,
+    "selling_price": 1980,
     "product_name": "Combination Switch",
     "name": "Combination Switch",
     "partNumber": "S114004-000M00",
@@ -43715,7 +43715,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS001012/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001012/1.webp",
+    "discount_percent": 9,
+    "discountPercent": 9
   },
   {
     "id": "SVKS001013",
