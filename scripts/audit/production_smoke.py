@@ -85,7 +85,7 @@ def fetch(url: str) -> Result:
     request = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "Souviks-Production-Smoke/1.0 (+https://www.souviks.co.in)",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
             "Accept": "text/html,application/xml,text/plain,*/*",
             "Cache-Control": "no-cache",
         },
