@@ -160,6 +160,12 @@ EXPECTED = {
         "discount_percent": 3,
         "part_number": "539/532X",
     },
+    "SVKS000436": {
+        "mrp": 1987,
+        "selling_price": 1450,
+        "discount_percent": 27,
+        "part_number": "4054BP2",
+    },
 }
 
 EXPECTED_AVAILABILITY_LABELS = {
