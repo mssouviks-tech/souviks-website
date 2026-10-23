@@ -84,7 +84,7 @@
 
         let timer = null;
         let sequence = 0;
- 
+
         function setMessage(message) {
             result.hidden = !message;
             result.textContent = message || "";
