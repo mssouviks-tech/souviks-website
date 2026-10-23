@@ -16,7 +16,7 @@
   <link rel="alternate" hreflang="x-default" href="https://www.souviks.co.in/en/cart">
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site-base.css?v=2808b43e9fbe">
+  <link rel="stylesheet" href="/assets/css/site-base.css?v=48682a9f3903">
   <link rel="stylesheet" href="/assets/css/bundles/cart.css?v=0e9315742972">
   <link rel="stylesheet" href="/assets/css/delhivery-estimator.css?v=16ee0d5b1770">
 </head>
@@ -41,9 +41,8 @@
                     <ul class="navigation-menu">
     <li class="nav-menu-item"><a href="/en/" class="nav-link">Home</a></li>
     <li class="nav-menu-item nav-dropdown"><button id="navDropdownToggle-shop" class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="navDropdown-shop"><span>Shop</span><span class="nav-dropdown-chevron" aria-hidden="true">⌄</span></button><ul id="navDropdown-shop" class="nav-dropdown-menu" aria-labelledby="navDropdownToggle-shop"><li class="nav-dropdown-item"><a href="/en/products" class="nav-link">Products</a></li><li class="nav-dropdown-item"><a href="/en/categories" class="nav-link">Categories</a></li><li class="nav-dropdown-item"><a href="/en/brands" class="nav-link">Brands</a></li><li class="nav-dropdown-item"><a href="/en/vehicles" class="nav-link">Vehicles</a></li></ul></li>
-    <li class="nav-menu-item nav-dropdown"><button id="navDropdownToggle-business" class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="navDropdown-business"><span>Business</span><span class="nav-dropdown-chevron" aria-hidden="true">⌄</span></button><ul id="navDropdown-business" class="nav-dropdown-menu" aria-labelledby="navDropdownToggle-business"><li class="nav-dropdown-item"><a href="/en/business-buyers" class="nav-link">For Businesses</a></li><li class="nav-dropdown-item"><a href="/en/request-part" class="nav-link">Request a Part</a></li><li class="nav-dropdown-item"><a href="/en/request-quote" class="nav-link">Request a Quote</a></li></ul></li>
+    <li class="nav-menu-item"><a href="/en/business-buyers" class="nav-link">For Businesses</a></li>
     <li class="nav-menu-item nav-dropdown"><button id="navDropdownToggle-about-group" class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="navDropdown-about-group"><span>About</span><span class="nav-dropdown-chevron" aria-hidden="true">⌄</span></button><ul id="navDropdown-about-group" class="nav-dropdown-menu" aria-labelledby="navDropdownToggle-about-group"><li class="nav-dropdown-item"><a href="/en/about" class="nav-link">About Us</a></li><li class="nav-dropdown-item"><a href="/en/contact" class="nav-link">Contact</a></li></ul></li>
-    <li class="nav-menu-item"><a href="/en/cart" class="nav-link active" aria-current="page">Shopping Cart</a></li>
                     </ul>
 
                     <div class="mobile-nav-auth" aria-label="Account">
@@ -62,11 +61,11 @@
                         </div>
                     </div>
                 </nav>
-    <div class="header-buttons"><a href="/en/request-part" class="btn btn-primary">Request a Part</a><a href="/en/request-quote" class="btn btn-secondary">RFQ Basket <span class="rfq-badge">0</span></a></div>
+    <div class="header-buttons"><a href="/en/cart" class="btn btn-secondary purchase-cart-header-link" aria-label="Cart">Cart <span class="purchase-cart-count" aria-label="Items in cart" aria-live="polite" hidden>0</span></a></div>
   </div></div></header>
   <main id="main-content" class="container purchase-cart-page">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><ol class="breadcrumb-list"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item active" aria-current="page">Shopping Cart</li></ol></div></nav>
-    <section class="purchase-cart-heading"><h1>Shopping Cart</h1><p>Review the products and quantities before checkout. Your final amount, including configured shipping, is confirmed securely before you continue to payment.</p></section>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><ol class="breadcrumb-list"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item active" aria-current="page">Cart</li></ol></div></nav>
+    <section class="purchase-cart-heading"><h1>Cart</h1><p>Review the products and quantities before checkout. Your final amount, including configured shipping, is confirmed securely before you continue to payment.</p></section>
     <div id="purchase-cart-root">
       <div id="purchase-cart-status" class="form-status purchase-cart-status" role="status" aria-live="polite" hidden></div>
       <div id="purchase-cart-empty" class="purchase-cart-empty" hidden>Your cart is empty. Browse our catalogue and add priced products to start an order.<br><a href="/en/products">Browse products</a></div>
@@ -75,7 +74,7 @@
         <aside class="purchase-cart-summary" aria-labelledby="purchase-cart-summary-heading">
           <h2 id="purchase-cart-summary-heading">Order summary</h2>
           <dl><div><dt>Items subtotal</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>Shipping</dt><dd id="purchase-cart-shipping">Confirmed before payment</dd></div><div class="purchase-cart-grand-total"><dt>Order total</dt><dd id="purchase-cart-total">Review to calculate</dd></div></dl>
-          <p class="purchase-cart-help">The final total is calculated on the server using current catalogue prices and the configured shipping policy.</p><p class="purchase-cart-help">Online checkout is for domestic Indian deliveries at present. If checkout is unavailable for an item or order, please use Request a Quote.</p>
+          <p class="purchase-cart-help">The final total is calculated on the server using current catalogue prices and the configured shipping policy.</p><p class="purchase-cart-help">Online checkout is for domestic Indian deliveries at present. If checkout is unavailable for your delivery address or an item, return to the product page and use Request a Part.</p>
           <form id="purchase-checkout-form" class="purchase-checkout-form">
             <h3>Customer details</h3>
             <div class="form-group"><label for="checkout-name">Full name</label><input type="text" id="checkout-name" name="name" autocomplete="name" maxlength="100" required></div>
@@ -108,7 +107,7 @@
     window.souviks = {
       siteName: "Souviks",
       siteUrl: "https://www.souviks.co.in",
-      currentPage: "Shopping Cart",
+      currentPage: "Cart",
       currentPageType: "",
       currentPageUrl: "/en/cart",
       breadcrumbRoot: false,
