@@ -533,13 +533,18 @@
 
     async function injectProductDetailCartButton() {
         const legacyRfqButton = document.querySelector(".pdp-rfq-btn");
-        if (!legacyRfqButton || !/^\/(en|hi|bn)\/products\//.test(window.location.pathname)) return;
-
         const legacyRemoveButton = document.querySelector(".pdp-remove-btn");
+        if ((!legacyRfqButton && !legacyRemoveButton) || !/^\/(en|hi|bn)\/products\//.test(window.location.pathname)) return;
+
         const removeLegacyControls = () => {
-            legacyRfqButton.remove();
+            legacyRfqButton?.remove();
             legacyRemoveButton?.remove();
         };
+        // An orphaned hidden remove control is not a valid shopping action.
+        if (!legacyRfqButton) {
+            removeLegacyControls();
+            return;
+        }
 
         try {
             const items = await loadCatalogue();
