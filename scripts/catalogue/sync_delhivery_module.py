@@ -25,12 +25,12 @@ STYLE_TAG = re.compile(
 )
 
 PRODUCT_SCRIPT_TAG = re.compile(
-    r'<script\b(?=[^>]*\bsrc=["\']/assets/js/product/delivery-estimate\.js(?:\?v=[^"\']*)?["\'])[^>]*></script>',
-    flags=re.I,
+    r'^[ \t]*<script\b(?=[^>]*\bsrc=["\']/assets/js/product/delivery-estimate\.js(?:\?v=[^"\']*)?["\'])[^>]*></script>[ \t]*(?:\r?\n|$)',
+    flags=re.I | re.M,
 )
 PRODUCT_STYLE_TAG = re.compile(
-    r'<link\b(?=[^>]*\bhref=["\']/assets/css/delhivery-estimator\.css(?:\?v=[^"\']*)?["\'])[^>]*>',
-    flags=re.I,
+    r'^[ \t]*<link\b(?=[^>]*\bhref=["\']/assets/css/delhivery-estimator\.css(?:\?v=[^"\']*)?["\'])[^>]*>[ \t]*(?:\r?\n|$)',
+    flags=re.I | re.M,
 )
 
 
@@ -59,7 +59,7 @@ def sync_page(path: Path) -> bool:
         # whitespace left behind by removed tags to keep generated diffs clean.
         updated, _ = PRODUCT_SCRIPT_TAG.subn("", source)
         updated, _ = PRODUCT_STYLE_TAG.subn("", updated)
-        updated = re.sub(r"(?m)^[ \t]+$", "", updated)
+
         if updated != source:
             path.write_text(updated, encoding="utf-8")
             return True
