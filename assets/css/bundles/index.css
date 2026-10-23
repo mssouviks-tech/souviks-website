@@ -434,14 +434,16 @@
 .home-vehicle-tab { flex: 0 0 auto; padding: 7px 12px; border: 1px solid var(--border-color); border-radius: 999px; background: var(--bg-card, var(--bg-card)); color: var(--text-secondary); font-size: .71rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .home-vehicle-tab.is-active, .home-vehicle-tab:hover { background: var(--color-primary); border-color: var(--color-primary); color: var(--bg-card); }
 
+/* Keep the homepage carousel's card face identical to catalogue and related-product cards.
+   Only the horizontal track geometry is page-specific. */
 .home-product-track { grid-auto-columns: minmax(190px, 1fr); }
-.home-product-track .product-card { min-width: 0; border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; background: var(--bg-card, var(--bg-card)); }
-.home-product-track .product-card .product-image { height: 132px; background: var(--bg-card); }
-.home-product-track .product-card .product-content { padding: 10px; }
-.home-product-track .product-card .product-title { font-size: 12px; min-height: 32px; }
-.home-product-track .product-card .product-part-number, .home-product-track .product-card .product-brand-label { font-size: 9px; }
-.home-product-track .product-card .product-price { font-size: 12px; }
-.home-product-track .product-card .add-to-cart { min-height: 34px; font-size: 11px; }
+.home-product-track .product-card {
+    min-width: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-card, var(--bg-card));
+}
 
 .home-rfq-banner {
     padding: 24px 0;

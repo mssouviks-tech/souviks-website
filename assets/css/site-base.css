@@ -2855,16 +2855,22 @@ textarea:focus {
     white-space: nowrap;
 }
 
-.product-card .add-to-cart {
+.product-card .add-to-purchase-cart,
+.product-card .product-request-part-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     min-height: 38px;
     margin-top: auto;
     padding: 8px 10px;
     font-size: 12px;
     font-weight: 600;
+    text-align: center;
+    text-decoration: none;
 }
 
-/* Paid products use quantity selection + purchase-cart; RFQ is reserved for unpriced items. */
+/* Priced products use checkout-cart controls; unpriced products link to Request a Part. */
 .product-card-purchase-controls {
     display: grid;
     grid-template-columns: minmax(0, 1fr);

@@ -600,7 +600,7 @@ async function main() {
         ["Forgot Password", langPath(lang, "forgot-password")],
         ["Reset Password", langPath(lang, "reset-password")],
         ["Account dashboard", langPath(lang, "account")],
-        ["RFQ basket", langPath(lang, "request-quote")],
+        ["Checkout Cart", langPath(lang, "cart")],
         ["Privacy Policy", langPath(lang, "privacy-policy")],
         ["Terms & Conditions", langPath(lang, "terms")],
         ["Refund Policy", langPath(lang, "refund")],
@@ -615,6 +615,24 @@ async function main() {
           if (htmlLang !== lang) throw new Error(`html lang is ${htmlLang}`);
           const main = page.locator("main").first();
           if (!(await main.count())) throw new Error("main landmark missing");
+          const nav = page.locator("#mainNavigation");
+          if (await nav.count()) {
+            const obsoleteNavLinks = nav.locator('a[href="/' + lang + '/request-part"], a[href="/' + lang + '/request-quote"]');
+            if (await obsoleteNavLinks.count()) {
+              throw new Error("primary navigation still contains Request a Part or legacy Request a Quote");
+            }
+          }
+          const headerButtons = page.locator(".header-buttons");
+          if (await headerButtons.count()) {
+            const links = headerButtons.locator("a");
+            if ((await links.count()) !== 1) throw new Error("header must expose one Cart action only");
+            if ((await links.first().getAttribute("href")) !== "/" + lang + "/cart") {
+              throw new Error("header action does not point to the localized checkout Cart");
+            }
+            if (/request a part|rfq basket/i.test(await headerButtons.innerText())) {
+              throw new Error("header still shows Request a Part or RFQ Basket");
+            }
+          }
           const bodyText = await page.locator("body").innerText();
           if (!bodyText.trim()) throw new Error("empty body");
           await assertNoHorizontalOverflow(page);
@@ -888,37 +906,24 @@ async function main() {
       });
 
       const purchaseButton = page.locator(".pdp-add-to-purchase-cart");
-      if (await purchaseButton.count()) {
-        if (await page.locator(".pdp-rfq-btn").count()) {
-          throw new Error("priced PDP still exposes Add to RFQ");
-        }
-        await page.locator("#pdpQty").fill("2");
-        const productId = await purchaseButton.getAttribute("data-id");
-        await purchaseButton.click();
-        const saved = await page.evaluate(() => {
-          const raw = localStorage.getItem("souviks_purchase_cart_v1");
-          return raw ? JSON.parse(raw) : [];
-        });
-        const item = Array.isArray(saved) ? saved.find(entry => String(entry.productId) === String(productId)) : null;
-        if (Number(item?.quantity) !== 2) {
-          throw new Error(`Add to Cart stopped working after image failures; quantity=${item?.quantity}`);
-        }
-        return "image fallback remained usable; priced product purchase action stored quantity=2 and RFQ stayed hidden";
+      if (!(await purchaseButton.count())) {
+        throw new Error("priced PDP is missing Add to Cart after the product image fails");
       }
-
-      const rfqButton = page.locator(".pdp-rfq-btn");
-      if (!(await rfqButton.count())) {
-        throw new Error("unpriced PDP has neither RFQ nor purchase action after image failure");
+      if (await page.locator(".pdp-rfq-btn, .pdp-remove-btn").count()) {
+        throw new Error("legacy RFQ cart controls appeared after the product image failed");
       }
-      await rfqButton.click();
+      await page.locator("#pdpQty").fill("2");
+      const productId = await purchaseButton.getAttribute("data-id");
+      await purchaseButton.click();
       const saved = await page.evaluate(() => {
-        const raw = localStorage.getItem("souviks_rfq_guest");
+        const raw = localStorage.getItem("souviks_purchase_cart_v1");
         return raw ? JSON.parse(raw) : [];
       });
-      if (!Array.isArray(saved) || !saved.length) {
-        throw new Error("Add to RFQ stopped working after image failures for an unpriced product");
+      const item = Array.isArray(saved) ? saved.find(entry => String(entry.productId) === String(productId)) : null;
+      if (Number(item?.quantity) !== 2) {
+        throw new Error("Add to Cart stopped working after image failures; quantity=" + item?.quantity);
       }
-      return "image fallback remained usable; unpriced product RFQ action still works";
+      return "image fallback remained usable; priced product Add to Cart stored quantity=2 and RFQ stayed hidden";
     } finally {
       await context.close();
     }
@@ -1130,7 +1135,7 @@ async function main() {
       const page = await context.newPage();
       page.__view = view;
 
-      // Product listing + filters + pagination + search + save gate + add to RFQ
+      // Product listing + filters + pagination + search + save gate + checkout actions
       await check(`${view}/${lang}/product listing cards`, async () => {
         await goto(page, BASE + langPath(lang, "products"));
         const cards = page.locator("#product-grid .product-card");
@@ -1147,7 +1152,7 @@ async function main() {
           throw new Error("priced product card has no Add to Cart action");
         }
         if (await pricedCard.locator(".add-to-cart").count()) {
-          throw new Error("priced product card still exposes Add to RFQ");
+          throw new Error("priced product card still exposes the retired RFQ action");
         }
         const input = pricedCard.locator("[data-product-quantity]");
         await input.fill("2");
@@ -1256,135 +1261,100 @@ async function main() {
 
       await page.goto(BASE + langPath(lang, "products"), { waitUntil: "domcontentloaded" });
       await page.waitForTimeout(500);
-      await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
+      await page.goto(BASE + langPath(lang, "products"), { waitUntil: "domcontentloaded" });
+      await page.waitForTimeout(400);
+      await page.evaluate(() => {
+        localStorage.removeItem("souviks_rfq_guest");
+        localStorage.removeItem("souviks_purchase_cart_v1");
+      });
 
-      await check(`${view}/${lang}/add to RFQ for unpriced products`, async () => {
-        const button = page.locator("#product-grid .product-card .add-to-cart").first();
-        if (!(await button.count())) {
-          return "first page has no visible unpriced product cards; RFQ-only action is covered by the PDP fixture";
+      await check(view + "/" + lang + "/unpriced product requests a part directly", async () => {
+        const requestLink = page.locator("#product-grid .product-card .product-request-part-link").first();
+        if (!(await requestLink.count())) {
+          return "no unpriced item appears on the first listing page; an unpriced PDP is tested below";
         }
-        const card = button.locator("xpath=ancestor::article[contains(concat(' ', normalize-space(@class), ' '), ' product-card ')]");
-        if (await card.locator("[data-product-quantity]").count()) {
-          throw new Error("priced product card unexpectedly includes Add to RFQ");
+        const card = requestLink.locator("xpath=ancestor::article[contains(@class, 'product-card')]");
+        if (await card.locator("[data-product-quantity], .add-to-purchase-cart").count()) {
+          throw new Error("unpriced product incorrectly exposes checkout quantity or Add to Cart");
         }
-        await button.click();
-        await page.waitForTimeout(400);
-        const badge = await page.locator(".rfq-badge").first().innerText();
-        if (Number(badge) !== 1) throw new Error(`RFQ badge is ${badge}`);
-        return "RFQ-only action remains available for an unpriced product";
-      });
-
-      // RFQ basket: item presence, quantity, removal, submission.
-      await check(`${view}/${lang}/RFQ basket`, async () => {
-        await goto(page, BASE + langPath(lang, "request-quote"));
-        const rows = page.locator("#rfq-items tr");
-        if ((await rows.count()) !== 1) throw new Error(`expected 1 RFQ row, got ${await rows.count()}`);
-        const quantityControls = page.locator("#rfq-items .rfq-qty .qty-plus, #rfq-items .rfq-qty .qty-minus");
-        if ((await quantityControls.count()) < 2) throw new Error("RFQ quantity controls missing");
-        const removeControl = page.locator("#rfq-items .remove-rfq");
-        if (!(await removeControl.count())) throw new Error("RFQ remove control missing");
-      });
-
-      await check(`${view}/${lang}/RFQ quantity changes`, async () => {
-        const row = page.locator("#rfq-items tr").first();
-        const plus = row.locator(".rfq-qty .qty-plus");
-        if (!(await plus.count())) throw new Error("RFQ quantity increase control missing");
-        await plus.click();
-        await page.waitForTimeout(250);
-        await plus.click();
-        await page.waitForTimeout(250);
-        const qtyText = await row.locator(".rfq-qty").innerText();
-        const values = qtyText.match(/\d+/g) || [];
-        const quantity = Number(values[0] || 0);
-        const stored = await page.evaluate(() => {
-          const raw = localStorage.getItem("souviks_rfq_guest");
-          const items = raw ? JSON.parse(raw) : [];
-          return Number(items?.[0]?.qty || 0);
-        });
-        if (quantity !== 3 || stored !== 3) throw new Error(`quantity UI=${quantity}; localStorage=${stored}`);
-        return "quantity=3";
-      });
-
-      await check(`${view}/${lang}/RFQ removal`, async () => {
-        const row = page.locator("#rfq-items tr").first();
-        const remove = row.locator(".remove-rfq");
-        if (!(await remove.count())) throw new Error("RFQ remove control missing");
-        await remove.click();
-        await page.waitForTimeout(300);
-        const rows = page.locator("#rfq-items tr");
-        const removeControls = page.locator("#rfq-items .remove-rfq");
-        const plusControls = page.locator("#rfq-items .qty-plus");
-        const stored = await page.evaluate(() => {
+        const href = await requestLink.getAttribute("href");
+        if (!href || !href.includes("/request-part?")) {
+          throw new Error("unpriced product does not link to the prefilled Request a Part form");
+        }
+        const requestUrl = new URL(href, BASE);
+        if (!requestUrl.searchParams.get("product_id") && !requestUrl.searchParams.get("part_number")) {
+          throw new Error("Request a Part link omits the product identity");
+        }
+        await requestLink.click();
+        await page.waitForURL(url => url.pathname === "/" + lang + "/request-part", { timeout: 10000 });
+        const requirement = await page.locator("#requirement").inputValue();
+        if (!/confirm the current selling price and availability/i.test(requirement)) {
+          throw new Error("Request a Part form did not prefill the selected item");
+        }
+        const legacyRfq = await page.evaluate(() => {
           const raw = localStorage.getItem("souviks_rfq_guest");
           return raw ? JSON.parse(raw) : [];
         });
-        if ((await rows.count()) !== 1 || (await removeControls.count()) !== 0 || (await plusControls.count()) !== 0 || stored.length !== 0) {
-          throw new Error("RFQ row was not removed");
-        }
+        if (legacyRfq.length) throw new Error("unpriced product entered the retired RFQ basket");
+        return "unpriced product opens a prefilled Request a Part form without entering a basket";
       });
 
-      // Re-add and submit with EmailJS intercepted so no real email is sent.
-      await page.goto(BASE + langPath(lang, "products"), { waitUntil: "domcontentloaded" });
-      await page.waitForTimeout(500);
-      await page.locator(".add-to-cart").first().click();
-      await page.waitForTimeout(250);
-      await page.goto(BASE + langPath(lang, "request-quote"), { waitUntil: "domcontentloaded" });
-      await page.waitForTimeout(500);
-
-      await check(`${view}/${lang}/RFQ submission`, async () => {
-        await page.route("**/api.emailjs.com/**", route =>
-          route.fulfill({ status: 200, contentType: "application/json", body: "{}" })
-        );
-        await page.locator("#rfq-name").fill("Regression Test");
-        await page.locator("#rfq-phone").fill("9000000000");
-        await page.locator("#rfq-form button[type=submit]").click();
-        await page.waitForFunction(() => {
-          const status = document.getElementById("rfqFormStatus");
-          return status?.classList.contains("success") && Boolean(status.textContent.trim());
-        }, null, { timeout: 5000 });
-        const status = page.locator("#rfqFormStatus");
-        const message = (await status.innerText().catch(() => "")).trim();
-        const successPatterns = {
-          en: /^RFQ submitted successfully\. Reference: RFQ-\d+$/i,
-          bn: /^RFQ সফলভাবে জমা হয়েছে। রেফারেন্স: RFQ-\d+$/i,
-          hi: /^RFQ सफलतापूर्वक सबमिट हो गया। संदर्भ: RFQ-\d+$/i
-        };
-        if (!(successPatterns[lang] || successPatterns.en).test(message)) {
-          throw new Error(`submission did not show an explicit localized success reference: ${message || "missing"}`);
-        }
-        await page.unroute("**/api.emailjs.com/**");
-        return `explicit success reference confirmed: ${message}`;
-      });
-
-      await check(`${view}/${lang}/RFQ failure does not show success`, async () => {
-        await goto(page, BASE + langPath(lang, "products"));
-        const addButton = page.locator(".add-to-cart").first();
-        if (!(await addButton.count())) throw new Error("cannot seed RFQ basket for failure test");
-        await addButton.click();
-        await goto(page, BASE + langPath(lang, "request-quote"));
-        await page.locator("#rfq-name").fill("Regression Failure Test");
-        await page.locator("#rfq-phone").fill("9000000000");
-        const initialItems = await page.locator("#rfq-items tr").count();
-        if (initialItems < 1) throw new Error("RFQ basket was not populated before failure test");
+      await check(view + "/" + lang + "/checkout Cart quantity and removal", async () => {
+        await goto(page, BASE + langPath(lang, "products/" + PRODUCT_SLUG));
         await page.evaluate(() => {
-          window.RFQ.submitStandalone = async () => {
-            throw new Error("deterministic regression failure");
-          };
+          localStorage.removeItem("souviks_rfq_guest");
+          localStorage.removeItem("souviks_purchase_cart_v1");
         });
-        await page.locator("#rfq-form button[type=submit]").click();
+        await page.waitForTimeout(300);
+        const quantityInput = page.locator("#pdpQty");
+        const addButton = page.locator(".pdp-add-to-purchase-cart");
+        if (!(await addButton.count())) throw new Error("priced PDP is missing Add to Cart");
+        const productId = await addButton.getAttribute("data-id");
+        if (!productId) throw new Error("priced PDP Add to Cart action has no product ID");
+        await quantityInput.fill("2");
+        await addButton.click();
+        await page.waitForFunction(id => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          const items = raw ? JSON.parse(raw) : [];
+          return items.some(item => String(item.productId) === String(id) && Number(item.quantity) === 2);
+        }, productId, { timeout: 5000 });
+
+        await goto(page, BASE + langPath(lang, "cart"));
         await page.waitForFunction(() => {
-          const status = document.getElementById("rfqFormStatus");
-          return status?.classList.contains("error") && /deterministic regression failure/.test(status.textContent || "");
+          const layout = document.querySelector("#purchase-cart-layout");
+          return layout && !layout.hidden && document.querySelector("[data-cart-increase]");
+        }, null, { timeout: 10000 });
+        const quantityLabel = page.locator(".purchase-cart-item .purchase-cart-quantity span").first();
+        if ((await quantityLabel.innerText()).trim() !== "2") {
+          throw new Error("Cart did not render the selected PDP quantity");
+        }
+
+        await page.locator('[data-cart-increase="' + productId + '"]').click();
+        await page.waitForFunction(id => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          const items = raw ? JSON.parse(raw) : [];
+          return Number(items.find(item => String(item.productId) === String(id))?.quantity) === 3;
+        }, productId, { timeout: 5000 });
+        if ((await quantityLabel.innerText()).trim() !== "3") throw new Error("Cart increase control did not update its displayed quantity");
+
+        await page.locator('[data-cart-decrease="' + productId + '"]').click();
+        await page.waitForFunction(id => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          const items = raw ? JSON.parse(raw) : [];
+          return Number(items.find(item => String(item.productId) === String(id))?.quantity) === 2;
+        }, productId, { timeout: 5000 });
+
+        await page.locator('[data-cart-remove="' + productId + '"]').click();
+        await page.waitForFunction(() => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          const items = raw ? JSON.parse(raw) : [];
+          const layout = document.querySelector("#purchase-cart-layout");
+          const empty = document.querySelector("#purchase-cart-empty");
+          return items.length === 0 && layout?.hidden === true && empty?.hidden === false;
         }, null, { timeout: 5000 });
-        const message = (await page.locator("#rfqFormStatus").innerText()).trim();
-        if (/submitted successfully|successfully submitted|সফলভাবে জমা|सफलतापूर्वक सबमिट/i.test(message)) {
-          throw new Error(`failed submission displayed a success message: ${message}`);
-        }
-        if ((await page.locator("#rfq-items tr").count()) !== initialItems) {
-          throw new Error("failed submission changed or cleared the RFQ basket");
-        }
-        return "deterministic submission error shown; no success message; basket preserved";
+        return "checkout Cart quantity, increment, decrement, removal, and empty state all work";
       });
+
       // PDP
       await check(`${view}/${lang}/product detail`, async () => {
         await goto(page, BASE + langPath(lang, `products/${PRODUCT_SLUG}`));
@@ -1477,47 +1447,80 @@ async function main() {
         return "injected a real product-image 404; shared placeholder loaded; gallery remained usable";
       });
 
-      await check(`${view}/${lang}/PDP quantity routes to cart or RFQ by price availability`, async () => {
-        await goto(page, BASE + langPath(lang, `products/${PRODUCT_SLUG}`));
+      await check(view + "/" + lang + "/priced PDP uses checkout Cart and unpriced PDP requests a part", async () => {
+        await goto(page, BASE + langPath(lang, "products/" + PRODUCT_SLUG));
         await page.evaluate(() => {
           localStorage.removeItem("souviks_rfq_guest");
           localStorage.removeItem("souviks_purchase_cart_v1");
         });
         await page.waitForTimeout(500);
+
         const qty = page.locator("#pdpQty");
         await qty.fill("2");
         await page.locator(".pdp-qty-plus").click();
-        const value = await qty.inputValue();
-        if (value !== "3") throw new Error(`PDP qty is ${value}`);
+        if ((await qty.inputValue()) !== "3") throw new Error("PDP quantity selector did not retain quantity 3");
+
         const purchaseButton = page.locator(".pdp-add-to-purchase-cart");
-        if (await purchaseButton.count()) {
-          if (await page.locator(".pdp-rfq-btn").count()) {
-            throw new Error("priced PDP still exposes Add to RFQ");
-          }
-          await purchaseButton.click();
-          const stored = await page.evaluate(() => {
-            const raw = localStorage.getItem("souviks_purchase_cart_v1");
-            const items = raw ? JSON.parse(raw) : [];
-            return items?.[0]?.quantity;
+        if (!(await purchaseButton.count())) throw new Error("priced PDP is missing Add to Cart");
+        if (await page.locator(".pdp-rfq-btn, .pdp-remove-btn").count()) {
+          throw new Error("priced PDP still exposes the discontinued RFQ-cart controls");
+        }
+        await purchaseButton.click();
+        const cartState = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          const items = raw ? JSON.parse(raw) : [];
+          return {
+            quantity: Number(items?.[0]?.quantity || 0),
+            count: items.length,
+            rfqCount: (() => {
+              const rfqRaw = localStorage.getItem("souviks_rfq_guest");
+              return rfqRaw ? JSON.parse(rfqRaw).length : 0;
+            })()
+          };
+        });
+        if (cartState.count !== 1 || cartState.quantity !== 3) {
+          throw new Error("checkout cart quantity mismatch: " + JSON.stringify(cartState));
+        }
+        if (cartState.rfqCount !== 0) throw new Error("priced product was added to the legacy RFQ basket");
+
+        const unpricedSlug = await page.evaluate(async () => {
+          const response = await fetch("/assets/data/catalogue-index.json", { cache: "no-store" });
+          if (!response.ok) throw new Error("catalogue index returned HTTP " + response.status);
+          const products = await response.json();
+          const product = products.find(item => {
+            if (!item || item.active === false || !item.id || !item.slug) return false;
+            const price = Number(item.selling_price);
+            return !Number.isFinite(price) || price <= 0;
           });
-          if (Number(stored) !== 3) throw new Error(`purchase cart stored quantity is ${stored}`);
-        } else {
-          const rfqButton = page.locator(".pdp-rfq-btn");
-          if (!(await rfqButton.count())) throw new Error("unpriced PDP has neither RFQ nor purchase action");
-          await rfqButton.click();
-          await page.waitForTimeout(300);
-          const stored = await page.evaluate(() => {
-            const raw = localStorage.getItem("souviks_rfq_guest");
-            const items = raw ? JSON.parse(raw) : [];
-            return items?.[0]?.qty;
-          });
-          if (Number(stored) !== 3) throw new Error(`RFQ stored qty is ${stored}`);
+          return product?.slug || "";
+        });
+        if (!unpricedSlug) throw new Error("no active unpriced product found for Request a Part test");
+        await goto(page, BASE + langPath(lang, "products/" + unpricedSlug));
+
+        const requestLink = page.locator(".pdp-request-part-link");
+        if (!(await requestLink.count())) throw new Error("unpriced PDP is missing its direct Request a Part link");
+        if (await page.locator(".pdp-add-to-purchase-cart, .pdp-rfq-btn").count()) {
+          throw new Error("unpriced PDP incorrectly exposes checkout or RFQ-cart controls");
+        }
+        const requestHref = await requestLink.getAttribute("href");
+        if (!requestHref?.includes("/request-part?")) {
+          throw new Error("unpriced PDP Request a Part link does not carry the selected product");
+        }
+        await requestLink.click();
+        await page.waitForURL(url => url.pathname === "/" + lang + "/request-part", { timeout: 10000 });
+        const requirement = await page.locator("#requirement").inputValue();
+        if (!/confirm the current selling price and availability/i.test(requirement)) {
+          throw new Error("Request a Part form did not prefill the selected unpriced product");
+        }
+        const rfqRaw = await page.evaluate(() => localStorage.getItem("souviks_rfq_guest"));
+        if (rfqRaw && JSON.parse(rfqRaw).length) {
+          throw new Error("unpriced product entered the legacy RFQ basket");
         }
         await page.evaluate(() => {
           localStorage.removeItem("souviks_rfq_guest");
           localStorage.removeItem("souviks_purchase_cart_v1");
         });
-        return await purchaseButton.count() ? "priced PDP uses purchase-cart quantity" : "unpriced PDP preserves RFQ quantity";
+        return "priced PDP uses checkout Cart; unpriced PDP prefills Request a Part";
       });
 
       // Forms

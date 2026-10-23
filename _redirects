@@ -29,7 +29,8 @@
 /:lang/forgot-password.html /:lang/forgot-password 301
 /:lang/reset-password.html /:lang/reset-password 301
 /:lang/request-part.html /:lang/request-part 301
-/:lang/request-quote.html /:lang/request-quote 301
+/:lang/request-quote /:lang/cart 301
+/:lang/request-quote.html /:lang/cart 301
 /:lang/thank-you.html /:lang/thank-you 301
 
 /:lang/products/:slug.html /:lang/products/:slug 301

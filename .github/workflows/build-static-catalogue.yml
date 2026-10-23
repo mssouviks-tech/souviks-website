@@ -36,6 +36,7 @@ on:
       - "scripts/catalogue/sync_navigation.py"
       - "scripts/catalogue/product_card.py"
       - "scripts/catalogue/sync_product_cards.py"
+      - "scripts/catalogue/sync_product_actions.py"
       - "scripts/catalogue/sync_checkout_pages.py"
       - "scripts/catalogue/sync_checkout_module.py"
       - "scripts/catalogue/sync_delhivery_module.py"
@@ -44,6 +45,7 @@ on:
       - "scripts/audit/test_product_seo.py"
       - "scripts/audit/test_product_title.py"
       - "scripts/audit/test_static_product_pricing.py"
+      - "scripts/audit/test_product_checkout_actions.py"
       - "scripts/audit/test_navigation_dropdowns.py"
       - "scripts/audit/test_seo_contract.py"
       - "scripts/audit/test_entity_titles.py"
@@ -105,6 +107,7 @@ jobs:
               "scripts/catalogue/product_title.py",
               "scripts/catalogue/normalize_page_config.py",
               "scripts/catalogue/sync_rfq_module.py",
+              "scripts/catalogue/sync_product_actions.py",
               "scripts/catalogue/sync_checkout_pages.py",
               "scripts/catalogue/sync_checkout_module.py",
               "scripts/catalogue/sync_delhivery_module.py",
@@ -127,6 +130,7 @@ jobs:
               "scripts/audit/test_product_seo.py",
               "scripts/audit/test_product_title.py",
               "scripts/audit/test_static_product_pricing.py",
+              "scripts/audit/test_product_checkout_actions.py",
               "scripts/audit/test_navigation_dropdowns.py",
               "scripts/audit/test_seo_contract.py",
               "scripts/audit/test_entity_titles.py",
@@ -146,6 +150,7 @@ jobs:
             python3 scripts/catalogue/validate.py
             python3 scripts/audit/critical_build.py
             python3 scripts/audit/test_static_product_pricing.py
+            python3 scripts/audit/test_product_checkout_actions.py
             python3 scripts/audit/test_navigation_dropdowns.py
             python3 scripts/audit/structured_data.py
             python3 scripts/audit/test_product_seo.py
@@ -172,6 +177,7 @@ jobs:
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/normalize_page_config.py
             python3 scripts/catalogue/sync_rfq_module.py
+          python3 scripts/catalogue/sync_product_actions.py
             python3 scripts/catalogue/sync_navigation.py
             python3 scripts/catalogue/sync_product_cards.py
             python3 scripts/catalogue/sync_checkout_module.py
@@ -201,6 +207,7 @@ jobs:
             python3 scripts/catalogue/validate.py
             python3 scripts/audit/critical_build.py
             python3 scripts/audit/test_static_product_pricing.py
+            python3 scripts/audit/test_product_checkout_actions.py
             python3 scripts/audit/test_navigation_dropdowns.py
             python3 scripts/audit/structured_data.py
             python3 scripts/audit/test_product_seo.py
@@ -251,6 +258,7 @@ jobs:
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/normalize_page_config.py
             python3 scripts/catalogue/sync_rfq_module.py
+          python3 scripts/catalogue/sync_product_actions.py
             python3 scripts/catalogue/sync_navigation.py
             python3 scripts/catalogue/sync_product_cards.py
             python3 scripts/catalogue/sync_checkout_module.py

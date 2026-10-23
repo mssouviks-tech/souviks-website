@@ -9,6 +9,7 @@ on:
       - 'hi/**'
       - 'bn/**'
       - 'scripts/catalogue/**'
+      - 'scripts/audit/test_product_checkout_actions.py'
       - 'scripts/audit/critical_build.py'
       - 'scripts/audit/performance_guard.py'
       - 'scripts/audit/generate_product_thumbnails.py'
@@ -20,6 +21,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/regression/final-matrix.cjs'
+      - 'scripts/audit/test_product_checkout_actions.py'
       - 'scripts/regression/static-server.cjs'
       - '.github/workflows/final-regression-matrix.yml'
   workflow_dispatch:
@@ -68,6 +70,8 @@ jobs:
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/normalize_page_config.py
           python3 scripts/catalogue/sync_rfq_module.py
+          python3 scripts/catalogue/sync_product_actions.py
+          python3 scripts/audit/test_product_checkout_actions.py
           python3 scripts/catalogue/sync_checkout_module.py
           python3 scripts/catalogue/sync_delhivery_module.py
           python3 scripts/catalogue/sync_entity_sitemaps.py

@@ -4,14 +4,16 @@
 from __future__ import annotations
 
 import html
+import math
 from pathlib import Path
+from urllib.parse import urlencode
 
 ROOT = Path(__file__).resolve().parents[2]
 
 LABELS = {
-    "en": {"part": "Part No.", "request": "Get current price", "add": "Add To RFQ", "purchase": "Add to Cart", "quantity": "Quantity", "decrease": "Decrease quantity", "increase": "Increase quantity"},
-    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "add": "RFQ में जोड़ें", "purchase": "कार्ट में जोड़ें", "quantity": "मात्रा", "decrease": "मात्रा घटाएँ", "increase": "मात्रा बढ़ाएँ"},
-    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "add": "RFQ-তে যোগ করুন", "purchase": "কার্টে যোগ করুন", "quantity": "পরিমাণ", "decrease": "পরিমাণ কমান", "increase": "পরিমাণ বাড়ান"},
+    "en": {"part": "Part No.", "request": "Get current price", "purchase": "Add to Cart", "quantity": "Quantity", "decrease": "Decrease quantity", "increase": "Increase quantity", "request_part": "Request a Part"},
+    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "purchase": "कार्ट में जोड़ें", "quantity": "मात्रा", "decrease": "मात्रा घटाएँ", "increase": "मात्रा बढ़ाएँ", "request_part": "पार्ट का अनुरोध"},
+    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "purchase": "কার্টে যোগ করুন", "quantity": "পরিমাণ", "decrease": "পরিমাণ কমান", "increase": "পরিমাণ বাড়ান", "request_part": "পার্টের অনুরোধ"},
 }
 
 
@@ -85,6 +87,25 @@ def first_image(product: dict) -> tuple[str, str, str, str]:
     return "/assets/images/placeholder.webp", "1200", "1200", "missing"
 
 
+def positive_price(value) -> float | None:
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None
+    return number if math.isfinite(number) and number > 0 else None
+
+
+def request_part_url(product: dict, lang: str) -> str:
+    params = {
+        "product_id": clean(product.get("id")),
+        "part_number": clean(product.get("part_number") or product.get("partNumber")),
+        "product_name": clean(product.get("product_name") or product.get("name")),
+        "brand": clean(product.get("brand_name") or product.get("brand")),
+    }
+    query = urlencode({key: value for key, value in params.items() if value})
+    return f"/{lang}/request-part" + (f"?{query}" if query else "")
+
+
 def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
     if lang not in LABELS:
         raise ValueError(f"Unsupported language: {lang}")
@@ -98,18 +119,15 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
     img, width, height, image_state = first_image(product)
     image_alt = name if image_state == "catalogue" else f"Product image unavailable for {name}"
 
-    price = format_money(product.get("selling_price"))
-    mrp = format_money(product.get("mrp"))
+    selling = positive_price(product.get("selling_price"))
+    mrp_number = positive_price(product.get("mrp"))
+    price = format_money(selling) if selling is not None else ""
+    mrp = format_money(mrp_number) if mrp_number is not None else ""
     discount = ""
-    try:
-        selling = float(product.get("selling_price"))
-        mrp_number = float(product.get("mrp"))
-        if selling > 0 and mrp_number > selling:
-            discount = str(round((mrp_number - selling) / mrp_number * 100))
-    except (TypeError, ValueError, ZeroDivisionError):
-        pass
+    if selling is not None and mrp_number is not None and mrp_number > selling:
+        discount = str(round((mrp_number - selling) / mrp_number * 100))
 
-    if price and mrp and discount:
+    if selling is not None and mrp and discount:
         price_html = (
             '<div class="product-price product-price-sale" aria-label="Sale price">'
             f'<span class="product-price-current">{esc(price)}</span>'
@@ -117,27 +135,29 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
             f'<span class="product-price-discount">{esc(discount)}% OFF</span>'
             "</div>"
         )
-    elif price:
+    elif selling is not None:
         price_html = (
-            '<div class="product-price product-price-current" aria-label="Price">'
-            f"{esc(price)}</div>"
+            '<div class="product-price" aria-label="Price">'
+            f'<span class="product-price-current">{esc(price)}</span>'
+            "</div>"
+        )
+    elif mrp:
+        price_html = (
+            '<div class="product-price product-price-on-request" aria-label="Reference MRP; current price on request">'
+            f'<span class="product-price-mrp">MRP {esc(mrp)}</span>'
+            f'<span class="product-price-request">{esc(labels["request"])}</span>'
+            "</div>"
         )
     else:
         price_html = (
             '<div class="product-price product-price-on-request" aria-label="Price">'
-            f"{esc(labels['request'])}</div>"
+            f'{esc(labels["request"])}</div>'
         )
 
-    purchase_button_html = ""
-    quantity_control_html = ""
-    rfq_button_html = ""
-    try:
-        purchasable_price = float(product.get("selling_price"))
-    except (TypeError, ValueError):
-        purchasable_price = 0.0
-
-    if pid and product.get("active") is not False and purchasable_price > 0:
-        quantity_control_html = (
+    is_active = product.get("active") is not False
+    action_html = ""
+    if pid and is_active and selling is not None:
+        action_html = (
             '<div class="product-card-purchase-controls">'
             '<div class="product-card-quantity" data-product-quantity-controls '
             f'aria-label="{esc(labels["quantity"])}">'
@@ -154,19 +174,18 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
             f'aria-label="Add {esc(name)} to cart">{esc(labels["purchase"])}</button>'
             '</div>'
         )
-    else:
-        rfq_button_html = (
-            f'<button type="button" class="btn btn-primary add-to-cart" data-id="{esc(pid)}" '
-            f'data-part="{esc(part)}" data-name="{esc(name)}" data-brand="{esc(brand)}" '
-            f'aria-label="Add {esc(name)} to RFQ">{labels["add"]}</button>'
+    elif pid and is_active:
+        action_html = (
+            f'<a class="btn btn-primary product-request-part-link" href="{esc(request_part_url(product, lang))}" '
+            f'aria-label="Request a part: {esc(name)}">{esc(labels["request_part"])}</a>'
         )
 
     part_html = (
         f'<div class="product-part-number">Part No. <strong>{esc(part)}</strong></div>'
         if part
         else (
-            f'<div class="product-part-number product-part-number-empty">'
-            f"{esc(labels['part'])} on request</div>"
+            '<div class="product-part-number product-part-number-empty">'
+            f'{esc(labels["part"])} on request</div>'
         )
     )
     aria = esc(f"View {name}")
@@ -184,5 +203,5 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
         '<span data-saved-icon aria-hidden="true">♡</span></button></div>'
         f'<div class="product-content"><div class="product-brand-label">{esc(brand)}</div>'
         f'{part_html}<h3 class="product-title"><a href="/{lang}/products/{esc(slug)}">'
-        f"{esc(name)}</a></h3>{price_html}{quantity_control_html}{rfq_button_html}</div></article>"
+        f"{esc(name)}</a></h3>{price_html}{action_html}</div></article>"
     )
