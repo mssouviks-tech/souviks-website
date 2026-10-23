@@ -1,5 +1,6 @@
 import {
   cashfreeConfig,
+  assertLiveCheckoutApproved,
   checkoutPolicy,
   CheckoutError,
   cashfreeRequest,
@@ -118,6 +119,7 @@ Deno.serve(async (req: Request) => {
   let createdOrderId = "";
   try {
     const config = cashfreeConfig();
+    assertLiveCheckoutApproved(config);
     const policy = checkoutPolicy();
     const input = await req.json();
     await enforceCheckoutRateLimit(req, config);
