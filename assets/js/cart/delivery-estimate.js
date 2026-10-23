@@ -55,7 +55,8 @@
 
     function init() {
         const pinInput = document.getElementById("checkout-pincode");
-        if (!pinInput || document.getElementById("delhivery-cart-estimate-result")) return;
+        const methodInputs = Array.from(document.querySelectorAll('input[name="fulfillment_method"]'));
+        if (!pinInput || !methodInputs.length || document.getElementById("delhivery-cart-estimate-result")) return;
 
         const result = document.createElement("div");
         result.id = "delhivery-cart-estimate-result";
@@ -69,6 +70,7 @@
         const helper = document.createElement("p");
         helper.className = "delhivery-estimator-help delhivery-cart-estimate-help";
         helper.textContent = T.helper;
+        helper.hidden = document.querySelector('input[name="fulfillment_method"]:checked')?.value !== "delivery";
         pinGroup?.appendChild(helper);
 
         let timer = null;
@@ -78,6 +80,9 @@
         function setMessage(message) {
             result.hidden = !message;
             result.textContent = message || "";
+        }
+        function isHomeDeliverySelected() {
+            return document.querySelector('input[name="fulfillment_method"]:checked')?.value === "delivery";
         }
         function readCart() {
             try {
@@ -113,6 +118,7 @@
         }
 
         async function lookup(pin) {
+            if (!isHomeDeliverySelected()) return;
             const current = ++sequence;
             setMessage(T.checking);
             try {
@@ -162,6 +168,13 @@
         }
 
         function schedule(value) {
+            if (!isHomeDeliverySelected()) {
+                clearTimeout(timer);
+                sequence += 1;
+                lastSuccess = "";
+                setMessage("");
+                return;
+            }
             const pin = String(value || "").replace(/\D/g, "").slice(0, 6);
             clearTimeout(timer);
             sequence += 1;
@@ -173,6 +186,18 @@
 
         pinInput.addEventListener("input", () => schedule(pinInput.value));
         pinInput.addEventListener("change", () => schedule(pinInput.value));
+        methodInputs.forEach(input => input.addEventListener("change", () => {
+            const deliverySelected = isHomeDeliverySelected();
+            helper.hidden = !deliverySelected;
+            if (!deliverySelected) {
+                clearTimeout(timer);
+                sequence += 1;
+                lastSuccess = "";
+                setMessage("");
+                return;
+            }
+            if (/^\d{6}$/.test(pinInput.value)) schedule(pinInput.value);
+        }));
         window.addEventListener("souviks:purchase-cart-changed", () => {
             const pin = String(pinInput.value || "").trim();
             if (/^\d{6}$/.test(pin)) schedule(pin);
