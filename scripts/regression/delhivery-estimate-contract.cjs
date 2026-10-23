@@ -53,6 +53,11 @@ assert.doesNotMatch(fn, /(?:DELHIVERY_B2C_API_TOKEN|DELHIVERY_B2B_BEARER_TOKEN)\
 assert.match(client, /Delivery-time and PIN serviceability checks now live on checkout/);
 assert.doesNotMatch(client, /delhivery-estimator/);
 assert.match(cartClient, /checkout-pincode/);
+assert.match(cartClient, /fulfillment_method/);
+assert.match(cartClient, /estimate_type:"delivery_time"/);
+assert.match(cartClient, /estimate_type:"shipping_charge"/);
+assert.ok(cartClient.indexOf('estimate_type:"delivery_time"') < cartClient.indexOf('estimate_type:"shipping_charge"'), "PIN serviceability must be checked before weight-dependent freight.");
+
 assert.match(cartClient, /souviks_purchase_cart_v1/);
 assert.match(cartClient, /approx_weight_g/);
 assert.match(cartClient, /estimate_type:"shipping_charge"/);
