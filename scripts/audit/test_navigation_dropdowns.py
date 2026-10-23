@@ -29,6 +29,17 @@ def fail(message: str) -> None:
 
 
 def main() -> int:
+    redirects_path = ROOT / "_redirects"
+    if not redirects_path.is_file():
+        fail("Cloudflare Pages redirects file is missing")
+    redirects = redirects_path.read_text(encoding="utf-8").splitlines()
+    for expected_redirect in (
+        "/:lang/request-quote /:lang/cart 301",
+        "/:lang/request-quote.html /:lang/cart 301",
+    ):
+        if expected_redirect not in redirects:
+            fail("legacy Request a Quote route must redirect to checkout Cart: " + expected_redirect)
+
     for language in LANGUAGES:
         page = render_navigation(language, f"/{language}/products/example-product")
         header = render_header_actions(language)
