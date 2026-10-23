@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate the main catalogue grid from the canonical product-card renderer."""
+"""Synchronize catalogue-listing and homepage cards from the canonical renderer."""
 
 from __future__ import annotations
 
@@ -18,6 +18,12 @@ GRID_OPEN_RE = re.compile(
     flags=re.I,
 )
 DIV_RE = re.compile(r'''</?div\b[^>]*>''', flags=re.I)
+HOME_TRACK_OPEN_RE = re.compile(
+    r'''<div\b(?=[^>]*\bclass=["'][^"']*\bhome-product-track\b[^"']*["'])[^>]*>''',
+    flags=re.I,
+)
+CARD_ID_RE = re.compile(r'''data-saved-product-id=["']([^"']+)["']''', flags=re.I)
+
 
 
 def load_products() -> list[dict]:
@@ -89,10 +95,73 @@ def sync_listing(language: str, products: list[dict]) -> bool:
     return False
 
 
+def find_div_bounds(source: str, opening: re.Match[str], label: str) -> tuple[int, int]:
+    depth = 1
+    for match in DIV_RE.finditer(source, opening.end()):
+        token = match.group(0)
+        if token.startswith("</"):
+            depth -= 1
+            if depth == 0:
+                return match.start(), match.end()
+        elif not token.rstrip().endswith("/>"):
+            depth += 1
+    raise ValueError(f"Unclosed {label} container")
+
+
+def sync_homepage(language: str, products_by_id: dict[str, dict]) -> bool:
+    path = ROOT / language / "index.html"
+    if not path.is_file():
+        raise ValueError(f"Missing homepage: {path.relative_to(ROOT)}")
+
+    source = path.read_text(encoding="utf-8")
+    opening = HOME_TRACK_OPEN_RE.search(source)
+    if not opening:
+        raise ValueError(f"Missing .home-product-track on {path.relative_to(ROOT)}")
+
+    close_start, close_end = find_div_bounds(source, opening, ".home-product-track")
+    existing_track = source[opening.end():close_start]
+    featured_ids = CARD_ID_RE.findall(existing_track)
+    if not featured_ids:
+        raise ValueError(f"No featured product IDs found on {path.relative_to(ROOT)}")
+    if len(featured_ids) != len(set(featured_ids)):
+        raise ValueError(f"Duplicate featured product IDs on {path.relative_to(ROOT)}")
+
+    cards = []
+    for index, product_id in enumerate(featured_ids):
+        product = products_by_id.get(product_id)
+        if product is None:
+            raise ValueError(
+                f"Featured product {product_id} is absent from catalogue-index.json "
+                f"({path.relative_to(ROOT)})"
+            )
+        if product.get("active") is False:
+            raise ValueError(
+                f"Inactive product {product_id} is still featured on "
+                f"{path.relative_to(ROOT)}"
+            )
+        cards.append(product_card_html(product, language, eager=index < 4))
+
+    rendered = opening.group(0) + "\n" + "".join(cards) + "\n</div>"
+    updated = source[:opening.start()] + rendered + source[close_end:]
+    if updated != source:
+        path.write_text(updated, encoding="utf-8", newline="")
+        return True
+    return False
+
+
 def main() -> int:
     products = load_products()
-    changed = sum(
+    products_by_id = {
+        str(item.get("id") or "").strip(): item
+        for item in products
+        if str(item.get("id") or "").strip()
+    }
+    changed_listings = sum(
         sync_listing(language, products)
+        for language in LANGUAGES
+    )
+    changed_homepages = sum(
+        sync_homepage(language, products_by_id)
         for language in LANGUAGES
     )
 
@@ -100,7 +169,8 @@ def main() -> int:
         "Product-card source synchronized from "
         "scripts/catalogue/product_card.py: "
         f"{min(INITIAL_PAGE_SIZE, len(products))} initial cards per language "
-        f"from {len(products)} active products; {changed} listing pages changed."
+        f"from {len(products)} active products; {changed_listings} listing pages and "
+        f"{changed_homepages} localized homepages synchronized."
     )
     return 0
 
