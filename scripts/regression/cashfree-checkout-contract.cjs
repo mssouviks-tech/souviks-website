@@ -48,6 +48,11 @@ assert.ok(shared.includes('Deno.env.get("CASHFREE_PRODUCTION_CLIENT_SECRET")'), 
 assert.ok(shared.includes('Deno.env.get("CASHFREE_CLIENT_ID")'), "Sandbox mode must continue using the Sandbox Client ID.");
 assert.ok(shared.includes('Deno.env.get("CASHFREE_CLIENT_SECRET")'), "Sandbox mode must continue using the Sandbox Client Secret.");
 assert.match(shared, /export function assertLiveCheckoutApproved/);
+const cashfreeConfigSource = shared.slice(
+  shared.indexOf("export function cashfreeConfig()"),
+  shared.indexOf("export function assertLiveCheckoutApproved"),
+);
+assert.doesNotMatch(cashfreeConfigSource, /CASHFREE_ENABLE_LIVE_CHECKOUT/, "Webhook and payment-status handlers must load Production credentials while the new-order gate remains closed.");
 assert.match(shared, /raw\.githubusercontent\.com\/mssouviks-tech\/souviks-website\/main\/assets\/data\/catalogue-index\.json/);
 assert.match(shared, /verifyCashfreeWebhookSignature/);
 assert.match(shared, /x-client-secret/);
