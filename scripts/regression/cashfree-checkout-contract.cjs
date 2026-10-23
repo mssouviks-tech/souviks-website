@@ -39,10 +39,13 @@ for (const policy of securityPolicies) {
 
 assert.match(shared, /CASHFREE_CHECKOUT_ENABLED/);
 assert.match(shared, /CASHFREE_ENABLE_LIVE_CHECKOUT/);
-assert.match(shared, /mode === "production"\\s*\\? Deno\\.env\\.get\\("CASHFREE_PRODUCTION_CLIENT_ID"\\)/);
-assert.match(shared, /mode === "production"\\s*\\? Deno\\.env\\.get\\("CASHFREE_PRODUCTION_CLIENT_SECRET"\\)/);
-assert.match(shared, /Deno\\.env\\.get\\("CASHFREE_CLIENT_ID"\\)/);
-assert.match(shared, /Deno\\.env\\.get\\("CASHFREE_CLIENT_SECRET"\\)/);
+assert.ok(shared.includes('Deno.env.get("CASHFREE_PRODUCTION_CLIENT_ID")'), "Production mode must use its own Client ID.");
+assert.ok(shared.includes('Deno.env.get("CASHFREE_PRODUCTION_CLIENT_SECRET")'), "Production mode must use its own Client Secret.");
+assert.ok(shared.includes('Deno.env.get("CASHFREE_CLIENT_ID")'), "Sandbox mode must continue using the Sandbox Client ID.");
+assert.ok(shared.includes('Deno.env.get("CASHFREE_CLIENT_SECRET")'), "Sandbox mode must continue using the Sandbox Client Secret.");
+assert.match(shared, /export function assertLiveCheckoutApproved/);
+assert.ok(createOrder.includes("assertLiveCheckoutApproved(config)"), "Order creation must enforce the live-checkout gate.");
+assert.ok(!shared.includes('if (mode === "production" && Deno.env.get("CASHFREE_ENABLE_LIVE_CHECKOUT")'), "Webhook configuration must not be blocked by the live-checkout gate.");
 assert.match(shared, /CASHFREE_PRICES_INCLUDE_GST/);
 assert.match(shared, /CASHFREE_FREE_SHIPPING_THRESHOLD_INR/);
 assert.doesNotMatch(shared, /CASHFREE_SHIPPING_UNDER_THRESHOLD_INR/);
