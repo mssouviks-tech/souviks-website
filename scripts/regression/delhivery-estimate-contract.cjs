@@ -83,7 +83,7 @@ assert.match(sync, /id="product-detail"/);
 assert.match(sync, /assets\/js\/product\/delivery-estimate\.js/);
 assert.match(sync, /PRODUCT_SCRIPT_TAG\.subn\("", source\)/);
 assert.match(sync, /PRODUCT_STYLE_TAG\.subn\("", updated\)/);
-assert.match(sync, /updated = re\.sub/);
+assert.match(sync, /flags=re\.I \| re\.M/);
 assert.doesNotMatch(sync, /updated, _ = SCRIPT_TAG\.subn\("", source\)/);
 assert.match(sync, /assets\/js\/cart\/delivery-estimate\.js/);
 assert.match(sync, /purchase-cart-root/);
