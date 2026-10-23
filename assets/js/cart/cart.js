@@ -554,29 +554,34 @@
             const productName = String(product.product_name || product.name || "Product").trim();
             const partNumber = String(product.part_number || product.partNumber || "").trim();
             const brandName = String(product.brand_name || product.brand || "").trim();
+            const price = getPrice(product);
+            const canPurchase = price !== null && Number.isFinite(price) && price > 0 && Boolean(productId);
             const quantityControls = document.querySelector(".pdp-qty");
             const quantityInput = document.getElementById("pdpQty");
             const minusButton = document.querySelector(".pdp-qty-minus");
             const plusButton = document.querySelector(".pdp-qty-plus");
 
-            if (quantityControls) quantityControls.setAttribute("data-product-quantity-controls", "");
-            if (quantityInput) {
-                quantityInput.setAttribute("data-product-quantity", "");
-                quantityInput.setAttribute("min", "1");
-                quantityInput.setAttribute("max", String(MAX_QUANTITY));
-                quantityInput.setAttribute("step", "1");
-                quantityInput.setAttribute("inputmode", "numeric");
+            if (canPurchase) {
+                if (quantityControls) quantityControls.setAttribute("data-product-quantity-controls", "");
+                if (quantityInput) {
+                    quantityInput.setAttribute("data-product-quantity", "");
+                    quantityInput.setAttribute("min", "1");
+                    quantityInput.setAttribute("max", String(MAX_QUANTITY));
+                    quantityInput.setAttribute("step", "1");
+                    quantityInput.setAttribute("inputmode", "numeric");
+                }
+                if (minusButton) minusButton.setAttribute("data-product-qty-decrease", "");
+                if (plusButton) plusButton.setAttribute("data-product-qty-increase", "");
+            } else {
+                quantityControls?.remove();
             }
-            if (minusButton) minusButton.setAttribute("data-product-qty-decrease", "");
-            if (plusButton) plusButton.setAttribute("data-product-qty-increase", "");
 
-            const price = getPrice(product);
             const language = LANGUAGE;
             const addLabel = language === "hi" ? "कार्ट में जोड़ें" : language === "bn" ? "কার্টে যোগ করুন" : "Add to Cart";
-            const requestLabel = language === "hi" ? "पार्ट का अनुरोध" : language === "bn" ? "পার্টের অনুরোধ" : "Request a Part";
+            const requestLabel = language === "hi" ? "पार्ट का अनुरोध" : language === "bn" ? "পার্টের অনুরोध" : "Request a Part";
             let replacement;
 
-            if (price !== null && Number.isFinite(price) && price > 0 && productId) {
+            if (canPurchase) {
                 replacement = document.createElement("button");
                 replacement.type = "button";
                 replacement.className = "btn btn-secondary add-to-purchase-cart pdp-add-to-purchase-cart";
