@@ -118,6 +118,36 @@ EXPECTED = {
         "discount_percent": 9,
         "part_number": "S114004-000M00",
     },
+    "SVKS000560": {
+        "mrp": 2870,
+        "selling_price": 2650,
+        "discount_percent": 8,
+        "part_number": "32214",
+    },
+    "SVKS000561": {
+        "mrp": 4250,
+        "selling_price": 3950,
+        "discount_percent": 7,
+        "part_number": "32215",
+    },
+    "SVKS000562": {
+        "mrp": 1950,
+        "selling_price": 1750,
+        "discount_percent": 10,
+        "part_number": "32309",
+    },
+    "SVKS000563": {
+        "mrp": 1850,
+        "selling_price": 1650,
+        "discount_percent": 11,
+        "part_number": "539/532",
+    },
+    "SVKS000564": {
+        "mrp": 2180,
+        "selling_price": 1985,
+        "discount_percent": 9,
+        "part_number": "566/563",
+    },
 }
 
 EXPECTED_AVAILABILITY_LABELS = {
