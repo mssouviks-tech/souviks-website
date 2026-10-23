@@ -26,11 +26,20 @@ export type CheckoutPolicy = {
 };
 
 export function cashfreeConfig(): CashfreeRuntimeConfig {
-  const clientId = Deno.env.get("CASHFREE_CLIENT_ID")?.trim() || "";
-  const clientSecret = Deno.env.get("CASHFREE_CLIENT_SECRET")?.trim() || "";
   const modeRaw = (Deno.env.get("CASHFREE_MODE") || "sandbox").trim().toLowerCase();
+  if (!["sandbox", "production"].includes(modeRaw)) {
+    throw new CheckoutError("payment_provider_not_configured", 503);
+  }
   const mode = modeRaw === "production" ? "production" : "sandbox";
-  if (!clientId || !clientSecret || !["sandbox", "production"].includes(modeRaw)) {
+  // Keep Sandbox credentials separate from Production credentials. Selecting
+  // production must never silently fall back to the Sandbox key pair.
+  const clientId = mode === "production"
+    ? Deno.env.get("CASHFREE_PRODUCTION_CLIENT_ID")?.trim() || ""
+    : Deno.env.get("CASHFREE_CLIENT_ID")?.trim() || "";
+  const clientSecret = mode === "production"
+    ? Deno.env.get("CASHFREE_PRODUCTION_CLIENT_SECRET")?.trim() || ""
+    : Deno.env.get("CASHFREE_CLIENT_SECRET")?.trim() || "";
+  if (!clientId || !clientSecret) {
     throw new CheckoutError("payment_provider_not_configured", 503);
   }
   if (mode === "production" && Deno.env.get("CASHFREE_ENABLE_LIVE_CHECKOUT") !== "true") {
