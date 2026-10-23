@@ -39,6 +39,10 @@ for (const policy of securityPolicies) {
 
 assert.match(shared, /CASHFREE_CHECKOUT_ENABLED/);
 assert.match(shared, /CASHFREE_ENABLE_LIVE_CHECKOUT/);
+assert.match(shared, /mode === "production"\\s*\\? Deno\\.env\\.get\\("CASHFREE_PRODUCTION_CLIENT_ID"\\)/);
+assert.match(shared, /mode === "production"\\s*\\? Deno\\.env\\.get\\("CASHFREE_PRODUCTION_CLIENT_SECRET"\\)/);
+assert.match(shared, /Deno\\.env\\.get\\("CASHFREE_CLIENT_ID"\\)/);
+assert.match(shared, /Deno\\.env\\.get\\("CASHFREE_CLIENT_SECRET"\\)/);
 assert.match(shared, /CASHFREE_PRICES_INCLUDE_GST/);
 assert.match(shared, /CASHFREE_FREE_SHIPPING_THRESHOLD_INR/);
 assert.doesNotMatch(shared, /CASHFREE_SHIPPING_UNDER_THRESHOLD_INR/);
