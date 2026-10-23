@@ -30,7 +30,15 @@ BASE_PRODUCT = {
 }
 
 
+
 def main() -> int:
+    dynamic_pdp = (ROOT / "assets" / "js" / "product" / "products.js").read_text(encoding="utf-8")
+    require("pdp-rfq-btn" not in dynamic_pdp, "dynamic product detail script still creates an RFQ action")
+    require("pdp-remove-btn" not in dynamic_pdp, "dynamic product detail script still creates the legacy RFQ remove control")
+    require("RFQ.setQuantity(product.id" not in dynamic_pdp, "dynamic product detail still writes to the RFQ basket")
+    require("pdp-add-to-purchase-cart" in dynamic_pdp, "dynamic priced PDP does not expose checkout Cart")
+    require("pdp-request-part-link" in dynamic_pdp, "dynamic unpriced PDP does not request a part directly")
+
     for language in ("en", "hi", "bn"):
         card = product_card_html(BASE_PRODUCT, language)
         require('add-to-purchase-cart"' in card, f"{language}: priced card is missing Add to Cart")
