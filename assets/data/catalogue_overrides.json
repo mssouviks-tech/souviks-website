@@ -1,0 +1,15 @@
+{
+  "updated_at": "2026-10-23",
+  "field_updates": [
+    {
+      "id": "SVKS000440",
+      "mrp": 1950,
+      "selling_price": 1889
+    },
+    {
+      "id": "SVKS000443",
+      "mrp": 1950,
+      "selling_price": 1889
+    }
+  ]
+}
