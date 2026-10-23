@@ -50,20 +50,8 @@ assert.match(fn, /Access-Control-Allow-Origin/);
 assert.match(fn, /signal: AbortSignal\.timeout/);
 assert.doesNotMatch(fn, /(?:DELHIVERY_B2C_API_TOKEN|DELHIVERY_B2B_BEARER_TOKEN)\s*=\s*["'][A-Za-z0-9]/);
 
-assert.match(client, /functions\.invoke\("delhivery-estimate"/);
-assert.match(client, /destination_pin/);
-assert.match(client, /estimate_type: "delivery_time"/);
-assert.doesNotMatch(client, /chargeable_weight_g/);
-assert.match(client, /placeholder/);
-assert.match(client, /Check estimated delivery time/);
-assert.doesNotMatch(client, /Estimated COD courier charge/);
-assert.doesNotMatch(client, /name="chargeable_weight_g"/);
-assert.doesNotMatch(client, /name="payment_mode"/);
-assert.doesNotMatch(client, /name="billing_mode"/);
-assert.match(client, /This is an estimate only/);
-assert.match(client, /error\?\.context.*json/s);
-assert.match(client, /result\.innerHTML/);
-assert.match(client, /estimated_date/);
+assert.match(client, /Delivery-time and PIN serviceability checks now live on checkout/);
+assert.doesNotMatch(client, /delhivery-estimator/);
 assert.match(cartClient, /checkout-pincode/);
 assert.match(cartClient, /souviks_purchase_cart_v1/);
 assert.match(cartClient, /approx_weight_g/);
@@ -97,4 +85,4 @@ assert.match(docs, /DELHIVERY_B2C_API_TOKEN/);
 assert.match(docs, /free-shipping threshold/);
 assert.match(versions, /assets\/css/);
 
-console.log("Delhivery estimator contract OK: product TAT-only lookup, server-side weighted prepaid checkout freight, missing-weight quote guard, and server-side credentials/rate limits.");
+console.log("Delhivery estimator contract OK: checkout-only PIN serviceability, server-side weighted prepaid freight, pickup bypass, missing-weight quote guard, and server-side credentials/rate limits.");
