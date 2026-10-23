@@ -21,20 +21,23 @@ export type CashfreeRuntimeConfig = {
 };
 
 export type CheckoutPolicy = {
-  threshold: number;
   pricesIncludeGst: true;
 };
 
 export function cashfreeConfig(): CashfreeRuntimeConfig {
-  const clientId = Deno.env.get("CASHFREE_CLIENT_ID")?.trim() || "";
-  const clientSecret = Deno.env.get("CASHFREE_CLIENT_SECRET")?.trim() || "";
   const modeRaw = (Deno.env.get("CASHFREE_MODE") || "sandbox").trim().toLowerCase();
-  const mode = modeRaw === "production" ? "production" : "sandbox";
-  if (!clientId || !clientSecret || !["sandbox", "production"].includes(modeRaw)) {
+  if (!["sandbox", "production"].includes(modeRaw)) {
     throw new CheckoutError("payment_provider_not_configured", 503);
   }
-  if (mode === "production" && Deno.env.get("CASHFREE_ENABLE_LIVE_CHECKOUT") !== "true") {
-    throw new CheckoutError("live_checkout_not_approved", 503);
+  const mode = modeRaw as "sandbox" | "production";
+  const clientId = (mode === "production"
+    ? Deno.env.get("CASHFREE_PRODUCTION_CLIENT_ID")
+    : Deno.env.get("CASHFREE_CLIENT_ID"))?.trim() || "";
+  const clientSecret = (mode === "production"
+    ? Deno.env.get("CASHFREE_PRODUCTION_CLIENT_SECRET")
+    : Deno.env.get("CASHFREE_CLIENT_SECRET"))?.trim() || "";
+  if (!clientId || !clientSecret) {
+    throw new CheckoutError("payment_provider_not_configured", 503);
   }
   let siteUrl = (Deno.env.get("CASHFREE_SITE_URL") || "https://www.souviks.co.in").trim();
   siteUrl = siteUrl.replace(/\/+$/, "");
@@ -55,6 +58,12 @@ export function cashfreeConfig(): CashfreeRuntimeConfig {
   };
 }
 
+export function assertLiveCheckoutApproved(config: CashfreeRuntimeConfig): void {
+  if (config.mode === "production" && Deno.env.get("CASHFREE_ENABLE_LIVE_CHECKOUT") !== "true") {
+    throw new CheckoutError("live_checkout_not_approved", 503);
+  }
+}
+
 export function checkoutPolicy(): CheckoutPolicy {
   if (Deno.env.get("CASHFREE_CHECKOUT_ENABLED") !== "true") {
     throw new CheckoutError("checkout_not_enabled", 503);
@@ -62,16 +71,7 @@ export function checkoutPolicy(): CheckoutPolicy {
   if (Deno.env.get("CASHFREE_PRICES_INCLUDE_GST") !== "true") {
     throw new CheckoutError("tax_policy_not_confirmed", 503);
   }
-  const thresholdRaw = Deno.env.get("CASHFREE_FREE_SHIPPING_THRESHOLD_INR");
-  if (thresholdRaw == null || thresholdRaw.trim() === "") {
-    throw new CheckoutError("shipping_policy_not_configured", 503);
-  }
-  const threshold = Number(thresholdRaw);
-  if (!Number.isFinite(threshold) || threshold < 0 ||
-      threshold > 100000000) {
-    throw new CheckoutError("shipping_policy_invalid", 503);
-  }
-  return { threshold, pricesIncludeGst: true };
+  return { pricesIncludeGst: true };
 }
 
 export function allowedOrigin(origin: string | null, mode: "sandbox" | "production"): boolean {
