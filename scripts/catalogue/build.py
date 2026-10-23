@@ -168,7 +168,33 @@ def reconcile_catalogue_projections():
         category_updates = {text(p.get("id")): p for p in override.get("category_updates", []) if p.get("id")}
     
         by_id = {text(p.get("id")): p for p in catalogue if p.get("id")}
-    
+
+        # Narrow field updates preserve all other canonical product data. This is
+        # used for corrections that must not replace prices, taxonomy, imagery,
+        # applications, vehicle mappings, or editorial content.
+        for field_update in override.get("field_updates", []):
+            if not isinstance(field_update, dict):
+                raise SystemExit("Catalogue field update must be an object")
+            pid = text(field_update.get("id"))
+            current = by_id.get(pid)
+            if not current:
+                raise SystemExit(f"Field update references unknown catalogue product: {pid}")
+            unknown_fields = set(field_update) - {"id", "part_number", "partNumber"}
+            if unknown_fields:
+                raise SystemExit(
+                    f"Unsupported catalogue field update for {pid}: {', '.join(sorted(unknown_fields))}"
+                )
+            if "part_number" in field_update or "partNumber" in field_update:
+                part_number = text(
+                    field_update.get("part_number")
+                    if "part_number" in field_update
+                    else field_update.get("partNumber")
+                )
+                if not part_number:
+                    raise SystemExit(f"Part number update is empty for catalogue product: {pid}")
+                current["part_number"] = part_number
+                current["partNumber"] = part_number
+
         for pid, sheet_row in overrides.items():
             current = by_id.get(pid)
 
