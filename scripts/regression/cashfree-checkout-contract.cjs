@@ -42,6 +42,7 @@ for (const policy of securityPolicies) {
 assert.match(shared, /CASHFREE_CHECKOUT_ENABLED/);
 assert.match(shared, /CASHFREE_ENABLE_LIVE_CHECKOUT/);
 assert.match(shared, /CASHFREE_PRICES_INCLUDE_GST/);
+assert.doesNotMatch(shared, /CASHFREE_FREE_SHIPPING_THRESHOLD_INR/);
 assert.ok(shared.includes('Deno.env.get("CASHFREE_PRODUCTION_CLIENT_ID")'), "Production mode must use its own Client ID.");
 assert.ok(shared.includes('Deno.env.get("CASHFREE_PRODUCTION_CLIENT_SECRET")'), "Production mode must use its own Client Secret.");
 assert.ok(shared.includes('Deno.env.get("CASHFREE_CLIENT_ID")'), "Sandbox mode must continue using the Sandbox Client ID.");
