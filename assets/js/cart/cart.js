@@ -533,7 +533,7 @@
 
     async function injectProductDetailCartButton() {
         const legacyRfqButton = document.querySelector(".pdp-rfq-btn");
-        if (!legacyRfqButton || !/\\/(en|hi|bn)\\/products\\//.test(window.location.pathname)) return;
+        if (!legacyRfqButton || !/^\/(en|hi|bn)\/products\//.test(window.location.pathname)) return;
 
         const legacyRemoveButton = document.querySelector(".pdp-remove-btn");
         const removeLegacyControls = () => {
@@ -543,7 +543,7 @@
 
         try {
             const items = await loadCatalogue();
-            const slug = decodeURIComponent(window.location.pathname.split("/").filter(Boolean).pop() || "").replace(/\\.html$/i, "");
+            const slug = decodeURIComponent(window.location.pathname.split("/").filter(Boolean).pop() || "").replace(/\.html$/i, "");
             const product = Array.from(items.values()).find(item => String(item.slug || "") === slug);
             if (!product || product.active === false) {
                 removeLegacyControls();
