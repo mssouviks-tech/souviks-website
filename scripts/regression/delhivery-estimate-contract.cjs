@@ -76,8 +76,9 @@ assert.match(checkout, /calculateDelhiveryPrepaidCharge\(postalCode, estimatedWe
 assert.match(checkout, /delhivery_shipping_weight_invalid/);
 assert.match(checkout, /delhivery_shipping_weights_missing/);
 assert.doesNotMatch(checkout, /shippingPaise = Math\.round\(policy\.shippingBelowThreshold \* 100\)/);
-assert.doesNotMatch(checkout, /CASHFREE_SHIPPING_UNDER_THRESHOLD_INR|shippingBelowThreshold/);
-assert.match(checkout, /subtotal > policy\.threshold/);
+assert.doesNotMatch(checkout, /CASHFREE_SHIPPING_UNDER_THRESHOLD_INR|shippingBelowThreshold|policy\.threshold|CASHFREE_FREE_SHIPPING_THRESHOLD_INR/);
+assert.match(checkout, /else if \(hasCompleteWeights\)/);
+assert.match(checkout, /calculateDelhiveryPrepaidCharge\(postalCode, estimatedWeightGrams\)/);
 assert.match(css, /@media \(max-width: 520px\)/);
 assert.match(sync, /id="product-detail"/);
 assert.match(sync, /assets\/js\/product\/delivery-estimate\.js/);
@@ -91,7 +92,8 @@ assert.match(sync, /assets\/css\/delhivery-estimator\.css/);
 assert.match(config, /\[functions\.delhivery-estimate\]/);
 assert.match(config, /verify_jwt = false/);
 assert.match(docs, /DELHIVERY_B2C_API_TOKEN/);
-assert.match(docs, /free-shipping threshold/);
+assert.match(docs, /Every shipped order incurs shipping charges/);
+assert.match(docs, /There is no free-shipping threshold/);
 assert.match(versions, /assets\/css/);
 
 console.log("Delhivery estimator contract OK: checkout-only PIN serviceability, server-side weighted prepaid freight, pickup bypass, missing-weight quote guard, and server-side credentials/rate limits.");
