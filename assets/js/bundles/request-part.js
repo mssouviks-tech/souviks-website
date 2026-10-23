@@ -6,6 +6,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("requestPartForm");
     if (!form) return;
 
+    // Pre-fill the form when an unpriced catalogue item routes here.
+    const query = new URLSearchParams(window.location.search);
+    const productId = (query.get("product_id") || "").trim();
+    const productName = (query.get("product_name") || "").trim();
+    const productBrand = (query.get("brand") || "").trim();
+    const partNumber = (query.get("part_number") || "").trim();
+    const partNumberField = document.getElementById("partnumber");
+    const requirementField = document.getElementById("requirement");
+    if (partNumber && partNumberField && !partNumberField.value.trim()) {
+        partNumberField.value = partNumber;
+    }
+    if ((productId || productName || partNumber) && requirementField && !requirementField.value.trim()) {
+        const productLabel = [productBrand, productName].filter(Boolean).join(" ") || "this part";
+        const identity = [
+            partNumber ? "Part No. " + partNumber : "",
+            productId ? "Product ID " + productId : ""
+        ].filter(Boolean).join("; ");
+        requirementField.value =
+            "Please confirm the current selling price and availability for " +
+            productLabel +
+            (identity ? " (" + identity + ")" : "") +
+            ".";
+    }
+
     const submitButton = form.querySelector('button[type="submit"]');
     const honeypot = document.getElementById("website");
     const status = ensureStatus(form, "requestPartFormStatus");

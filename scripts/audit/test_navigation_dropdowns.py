@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression checks for the grouped primary navigation across all locales."""
+"""Regression checks for the slim primary menu and checkout Cart action."""
 from __future__ import annotations
 
 import sys
@@ -8,32 +8,41 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
 
-from navigation import LABELS, LANGUAGES, render_navigation  # noqa: E402
+from navigation import LABELS, LANGUAGES, render_header_actions, render_navigation  # noqa: E402
 
-EXPECTED_ROUTES = {
+EXPECTED_NAV_ROUTES = {
     "home": "",
     "products": "products",
     "categories": "categories",
     "brands": "brands",
     "vehicles": "vehicles",
     "business-buyers": "business-buyers",
-    "request-part": "request-part",
-    "request-quote": "request-quote",
     "about": "about",
     "contact": "contact",
-    "cart": "cart",
 }
-EXPECTED_TOP_LEVEL_ITEMS = 5
-EXPECTED_DROPDOWNS = 3
+EXPECTED_TOP_LEVEL_ITEMS = 4
+EXPECTED_DROPDOWNS = 2
 
 
 def fail(message: str) -> None:
-    raise SystemExit(f"[navigation dropdowns] ERROR: {message}")
+    raise SystemExit(f"[navigation/header actions] ERROR: {message}")
 
 
 def main() -> int:
+    redirects_path = ROOT / "_redirects"
+    if not redirects_path.is_file():
+        fail("Cloudflare Pages redirects file is missing")
+    redirects = redirects_path.read_text(encoding="utf-8").splitlines()
+    for expected_redirect in (
+        "/:lang/request-quote /:lang/cart 301",
+        "/:lang/request-quote.html /:lang/cart 301",
+    ):
+        if expected_redirect not in redirects:
+            fail("legacy Request a Quote route must redirect to checkout Cart: " + expected_redirect)
+
     for language in LANGUAGES:
         page = render_navigation(language, f"/{language}/products/example-product")
+        header = render_header_actions(language)
 
         top_level_count = page.count('class="nav-menu-item')
         if top_level_count != EXPECTED_TOP_LEVEL_ITEMS:
@@ -48,7 +57,7 @@ def main() -> int:
         if 'href="/' + language + '/products" class="nav-link active" aria-current="page"' in page:
             fail(f"{language}: a product detail page incorrectly marks the Products index as the current page")
 
-        for dropdown_key in ("shop", "business", "about-group"):
+        for dropdown_key in ("shop", "about-group"):
             menu_id = f"navDropdown-{dropdown_key}"
             toggle_id = f"navDropdownToggle-{dropdown_key}"
             if f'id="{menu_id}" class="nav-dropdown-menu"' not in page:
@@ -59,40 +68,46 @@ def main() -> int:
             ):
                 fail(f"{language}: missing accessible disclosure control for {menu_id}")
 
-        for key, route in EXPECTED_ROUTES.items():
+        for key, route in EXPECTED_NAV_ROUTES.items():
             href = f'/{language}/' if key == "home" else f'/{language}/{route}'
-            occurrences = page.count(f'href="{href}"')
-            if occurrences != 1:
-                fail(f"{language}: expected exactly one navigation destination {href}, got {occurrences}")
+            if page.count(f'href="{href}"') != 1:
+                fail(f"{language}: expected exactly one navigation destination {href}")
 
-        # Every child route should activate its child link and its containing dropdown.
-        active_cases = (
+        for route in ("request-part", "request-quote", "cart"):
+            if f'href="/{language}/{route}"' in page:
+                fail(f"{language}: {route} should not add clutter to the primary navigation")
+
+        business = render_navigation(language, f"/{language}/business-buyers")
+        if f'href="/{language}/business-buyers" class="nav-link active" aria-current="page"' not in business:
+            fail(f"{language}: For Businesses should remain a direct, current-page link")
+
+        for route, group in (
             ("products", "shop"),
             ("categories", "shop"),
             ("brands", "shop"),
             ("vehicles", "shop"),
-            ("business-buyers", "business"),
-            ("request-part", "business"),
-            ("request-quote", "business"),
             ("about", "about-group"),
             ("contact", "about-group"),
-        )
-        for route, group in active_cases:
+        ):
             rendered = render_navigation(language, f"/{language}/{route}")
             expected = f'href="/{language}/{route}" class="nav-link active" aria-current="page"'
             if expected not in rendered:
                 fail(f"{language}: route {route} does not mark its child link active")
-            if f'class="nav-menu-item nav-dropdown is-active"' not in rendered:
+            if 'class="nav-menu-item nav-dropdown is-active"' not in rendered:
                 fail(f"{language}: route {route} does not activate a dropdown group")
             if f'id="navDropdownToggle-{group}" class="nav-link nav-dropdown-toggle active"' not in rendered:
                 fail(f"{language}: route {route} does not activate its {group} parent")
 
-    if tuple(entry[1] for entry in LABELS["en"]["items"] if entry[0] == "link") != ("home", "cart"):
-        fail("English top-level direct links should remain Home and Shopping Cart")
+        if f'href="/{language}/cart"' not in header or 'purchase-cart-count' not in header:
+            fail(f"{language}: checkout Cart or its live item count is missing")
+        if f'>{LABELS[language]["header_cart"]} ' not in header:
+            fail(f"{language}: checkout Cart label is not localized correctly")
+        if "RFQ Basket" in header or "Request a Part" in header or f'href="/{language}/request-part"' in header:
+            fail(f"{language}: header still exposes the removed Request a Part or RFQ basket buttons")
 
     print(
-        "Navigation dropdown regression passed: 5 top-level items, 3 dropdowns, "
-        "all 11 routes preserved and active states checked for en/hi/bn."
+        "Navigation/header regression passed: four top-level items, two dropdowns, "
+        "and one checkout Cart header action in en/hi/bn."
     )
     return 0
 

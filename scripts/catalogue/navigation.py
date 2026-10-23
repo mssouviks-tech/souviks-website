@@ -19,6 +19,7 @@ LABELS = {
         "sign_in": "Sign In",
         "account_name": "Account",
         "sign_out": "Sign Out",
+        "header_cart": "Cart",
         "items": (
             ("link", "home", "Home", ""),
             ("dropdown", "shop", "Shop", (
@@ -27,16 +28,11 @@ LABELS = {
                 ("brands", "Brands", "brands"),
                 ("vehicles", "Vehicles", "vehicles"),
             )),
-            ("dropdown", "business", "Business", (
-                ("business-buyers", "For Businesses", "business-buyers"),
-                ("request-part", "Request a Part", "request-part"),
-                ("request-quote", "Request a Quote", "request-quote"),
-            )),
+            ("link", "business-buyers", "For Businesses", "business-buyers"),
             ("dropdown", "about-group", "About", (
                 ("about", "About Us", "about"),
                 ("contact", "Contact", "contact"),
             )),
-            ("link", "cart", "Shopping Cart", "cart"),
         ),
     },
     "hi": {
@@ -46,6 +42,7 @@ LABELS = {
         "sign_in": "साइन इन",
         "account_name": "खाता",
         "sign_out": "साइन आउट",
+        "header_cart": "कार्ट",
         "items": (
             ("link", "home", "होम", ""),
             ("dropdown", "shop", "खरीदें", (
@@ -54,16 +51,11 @@ LABELS = {
                 ("brands", "ब्रांड", "brands"),
                 ("vehicles", "वाहन", "vehicles"),
             )),
-            ("dropdown", "business", "व्यवसाय", (
-                ("business-buyers", "व्यवसायों के लिए", "business-buyers"),
-                ("request-part", "पार्ट का अनुरोध", "request-part"),
-                ("request-quote", "कोटेशन माँगें", "request-quote"),
-            )),
+            ("link", "business-buyers", "व्यवसायों के लिए", "business-buyers"),
             ("dropdown", "about-group", "जानकारी", (
                 ("about", "हमारे बारे में", "about"),
                 ("contact", "संपर्क करें", "contact"),
             )),
-            ("link", "cart", "कार्ट", "cart"),
         ),
     },
     "bn": {
@@ -73,6 +65,7 @@ LABELS = {
         "sign_in": "সাইন ইন",
         "account_name": "অ্যাকাউন্ট",
         "sign_out": "সাইন আউট",
+        "header_cart": "কার্ট",
         "items": (
             ("link", "home", "হোম", ""),
             ("dropdown", "shop", "পণ্য কিনুন", (
@@ -81,31 +74,23 @@ LABELS = {
                 ("brands", "ব্র্যান্ডসমূহ", "brands"),
                 ("vehicles", "যানবাহন", "vehicles"),
             )),
-            ("dropdown", "business", "ব্যবসা", (
-                ("business-buyers", "ব্যবসার জন্য", "business-buyers"),
-                ("request-part", "পার্টের অনুরোধ", "request-part"),
-                ("request-quote", "দরপত্রের অনুরোধ", "request-quote"),
-            )),
+            ("link", "business-buyers", "ব্যবসার জন্য", "business-buyers"),
             ("dropdown", "about-group", "পরিচিতি", (
                 ("about", "আমাদের সম্পর্কে", "about"),
                 ("contact", "যোগাযোগ", "contact"),
             )),
-            ("link", "cart", "কার্ট", "cart"),
         ),
     },
 }
 
 KNOWN_ROUTES = {
     "products",
-    "cart",
     "brands",
     "vehicles",
     "categories",
     "about",
     "business-buyers",
     "contact",
-    "request-part",
-    "request-quote",
 }
 
 
@@ -136,6 +121,22 @@ def _render_link(
         f'<li class="nav-menu-item">'
         f'<a href="{escape(href, quote=True)}" class="nav-link{active_class}"{aria_current}>'
         f'{escape(label)}</a></li>'
+    )
+
+
+def render_header_actions(lang: str) -> str:
+    """Render the single site-wide checkout Cart action."""
+    if lang not in LABELS:
+        raise ValueError(f"Unsupported language: {lang}")
+
+    label = LABELS[lang]["header_cart"]
+    return (
+        '<div class="header-buttons">'
+        f'<a href="/{lang}/cart" class="btn btn-secondary purchase-cart-header-link" '
+        f'aria-label="{escape(label, quote=True)}">'
+        f'{escape(label)} '
+        '<span class="purchase-cart-count" aria-label="Items in cart" aria-live="polite" hidden>0</span>'
+        '</a></div>'
     )
 
 

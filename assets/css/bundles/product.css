@@ -1317,7 +1317,8 @@ html {
         flex-wrap: wrap;
     }
 
-    .pdp-actions .pdp-rfq-btn {
+    .pdp-actions .pdp-add-to-purchase-cart,
+    .pdp-actions .pdp-request-part-link {
         flex: 1 1 100%;
         width: 100%;
     }

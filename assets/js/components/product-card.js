@@ -24,21 +24,17 @@ const ProductCard = {
         const partNumber = String(product?.part_number || product?.partNumber || "");
         const brandName = String(product?.brand_name || product?.brand || "");
 
-        const hasSellingPrice =
-            product?.selling_price !== null &&
-            product?.selling_price !== undefined &&
-            product?.selling_price !== "";
-        const hasMrp =
-            product?.mrp !== null &&
-            product?.mrp !== undefined &&
-            product?.mrp !== "";
-
         const mrpNumber = Number(product?.mrp);
         const sellingNumber = Number(product?.selling_price);
-        const discounted =
-            Number.isFinite(mrpNumber) &&
+        const hasMrp = Number.isFinite(mrpNumber) && mrpNumber > 0;
+        const purchasable =
+            Boolean(productId) &&
+            product?.active !== false &&
             Number.isFinite(sellingNumber) &&
-            mrpNumber > 0 &&
+            sellingNumber > 0;
+        const discounted =
+            purchasable &&
+            hasMrp &&
             sellingNumber < mrpNumber;
         const discount = discounted
             ? Math.round(((mrpNumber - sellingNumber) / mrpNumber) * 100)
@@ -48,11 +44,12 @@ const ProductCard = {
             ? '<span class="product-price-current">' + Utils.currency(sellingNumber) + "</span>" +
               '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" +
               '<span class="product-price-discount">' + discount + "% OFF</span>"
-            : (hasSellingPrice || hasMrp)
-                ? (hasSellingPrice ? "Price" : "MRP") +
-                  ": " +
-                  Utils.currency(hasSellingPrice ? product.selling_price : product.mrp)
-                : "Get current price";
+            : purchasable
+                ? '<span class="product-price-current">' + Utils.currency(sellingNumber) + "</span>"
+                : hasMrp
+                    ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" +
+                      '<span class="product-price-request">Get current price</span>'
+                    : "Get current price";
 
         const isSaved =
             typeof SavedProducts !== "undefined" &&
@@ -74,15 +71,17 @@ const ProductCard = {
             ? "Remove from saved products"
             : "Save product";
         const savedIcon = isSaved ? "♥" : "♡";
-        const addLabel =
-            window.souviks?.translations?.buttons?.add_to_rfq || "Add To RFQ";
         const language = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
         const purchaseLabel = language === "hi"
             ? "कार्ट में जोड़ें"
             : language === "bn"
                 ? "কার্টে যোগ করুন"
                 : "Add to Cart";
-        const purchasable = Number.isFinite(sellingNumber) && sellingNumber > 0;
+        const requestPartLabel = language === "hi"
+            ? "पार्ट का अनुरोध"
+            : language === "bn"
+                ? "পার্টের অনুরোধ"
+                : "Request a Part";
         const quantityLabels = language === "hi"
             ? { label: "मात्रा", decrease: "मात्रा घटाएँ", increase: "मात्रा बढ़ाएँ" }
             : language === "bn"
@@ -102,13 +101,15 @@ const ProductCard = {
                     ' aria-label="Add ' + escape(name) + ' to cart">' + purchaseLabel + '</button>' +
             '</div>'
             : "";
-        const rfqButton = purchasable
-            ? ""
-            : '<button type="button" class="btn btn-primary add-to-cart" data-id="' + escape(productId) + '"' +
-                ' data-part="' + escape(partNumber) + '"' +
-                ' data-name="' + escape(name) + '"' +
-                ' data-brand="' + escape(brandName) + '"' +
-                ' aria-label="Add ' + escape(name) + ' to RFQ">' + addLabel + '</button>';
+        const requestPartButton = !purchasable && productId && product?.active !== false
+            ? '<a class="btn btn-primary product-request-part-link" href="/' + language + '/request-part?' +
+                new URLSearchParams({
+                    product_id: productId,
+                    part_number: partNumber,
+                    product_name: name,
+                    brand: brandName
+                }).toString() + '" aria-label="Request a part: ' + escape(name) + '">' + requestPartLabel + '</a>'
+            : "";
 
         return '<article class="product-card">' +
             '<div class="product-image">' +
@@ -136,10 +137,12 @@ const ProductCard = {
                 "</div>" +
                 '<h3 class="product-title"><a href="' +
                     Utils.productUrl(product) + '">' + escape(name) + "</a></h3>" +
-                '<div class="product-price' + (discounted ? " product-price-sale" : "") +
-                    '" aria-label="Price">' + price + "</div>" +
+                '<div class="product-price' +
+                    (discounted ? " product-price-sale" : (!purchasable ? " product-price-on-request" : "")) +
+                    '" aria-label="' + (discounted ? "Sale price" : (hasMrp && !purchasable ? "Reference MRP; current price on request" : "Price")) +
+                    '">' + price + "</div>" +
                 purchaseControls +
-                rfqButton +
+                requestPartButton +
             "</div>" +
         "</article>";
     }
