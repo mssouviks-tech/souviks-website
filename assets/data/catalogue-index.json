@@ -24896,8 +24896,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 480,
+    "selling_price": 400,
     "product_name": "VE TCL Compressor Repair Kit",
     "name": "VE TCL Compressor Repair Kit",
     "partNumber": "300001215",
@@ -24928,7 +24928,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000577/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000577/1.webp",
+    "discount_percent": 17,
+    "discountPercent": 17
   },
   {
     "id": "SVKS000578",
@@ -24939,8 +24941,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 510,
+    "selling_price": 435,
     "product_name": "Cylinder Head Assembly Repair Kit",
     "name": "Cylinder Head Assembly Repair Kit",
     "partNumber": "300001202",
@@ -24971,7 +24973,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000578/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000578/1.webp",
+    "discount_percent": 15,
+    "discountPercent": 15
   },
   {
     "id": "SVKS000579",
@@ -24982,8 +24986,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 535,
+    "selling_price": 440,
     "product_name": "Air Compressor Repair Kit",
     "name": "Air Compressor Repair Kit",
     "partNumber": "300001366",
@@ -25014,7 +25018,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000579/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000579/1.webp",
+    "discount_percent": 18,
+    "discountPercent": 18
   },
   {
     "id": "SVKS000580",
@@ -25025,8 +25031,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 398,
+    "selling_price": 384,
     "product_name": "Air Compressor Kit - Prima 3718",
     "name": "Air Compressor Kit - Prima 3718",
     "partNumber": "9121400130",
@@ -25057,7 +25063,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000580/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000580/1.webp",
+    "discount_percent": 4,
+    "discountPercent": 4
   },
   {
     "id": "SVKS000581",
@@ -25068,8 +25076,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 620,
+    "selling_price": 488,
     "product_name": "Cargo 1/185 - Cylinder Head Assembly Repair Kit",
     "name": "Cargo 1/185 - Cylinder Head Assembly Repair Kit",
     "partNumber": "300001185",
@@ -25100,7 +25108,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000581/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000581/1.webp",
+    "discount_percent": 21,
+    "discountPercent": 21
   },
   {
     "id": "SVKS000582",
@@ -25111,8 +25121,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 540,
+    "selling_price": 450,
     "product_name": "4018 BS II - Cylinder Head Assembly Repair Kit",
     "name": "4018 BS II - Cylinder Head Assembly Repair Kit",
     "partNumber": "300001215",
@@ -25143,7 +25153,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000582/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000582/1.webp",
+    "discount_percent": 17,
+    "discountPercent": 17
   },
   {
     "id": "SVKS000583",
@@ -25154,8 +25166,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 505,
+    "selling_price": 430,
     "product_name": "Air Compressor Kit",
     "name": "Air Compressor Kit",
     "partNumber": "300001137",
@@ -25186,7 +25198,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000583/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000583/1.webp",
+    "discount_percent": 15,
+    "discountPercent": 15
   },
   {
     "id": "SVKS000584",
@@ -25197,8 +25211,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 516,
+    "selling_price": 440,
     "product_name": "Air Compressor Repair Kit",
     "name": "Air Compressor Repair Kit",
     "partNumber": "300001458",
@@ -25229,7 +25243,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000584/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000584/1.webp",
+    "discount_percent": 15,
+    "discountPercent": 15
   },
   {
     "id": "SVKS000585",
@@ -43882,8 +43898,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 610,
+    "selling_price": 480,
     "product_name": "(1/366) Repair Kit T-2518",
     "name": "(1/366) Repair Kit T-2518",
     "partNumber": "300001366",
@@ -43914,7 +43930,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS001017/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001017/1.webp",
+    "discount_percent": 21,
+    "discountPercent": 21
   },
   {
     "id": "SVKS001018",
