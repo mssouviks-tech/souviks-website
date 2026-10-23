@@ -12,11 +12,13 @@ In Supabase Dashboard → Edge Functions → Secrets, set these values. Use **Sa
 
 | Secret | Sandbox value / rule |
 | --- | --- |
-| `CASHFREE_CLIENT_ID` | Client ID from Cashfree Sandbox |
-| `CASHFREE_CLIENT_SECRET` | Client secret from Cashfree Sandbox; used for API authentication and webhook signature verification |
-| `CASHFREE_MODE` | `sandbox` while testing; only change to `production` for an approved live launch |
-| `CASHFREE_CHECKOUT_ENABLED` | `true` only when the necessary config below is present; otherwise unset or `false` |
-| `CASHFREE_ENABLE_LIVE_CHECKOUT` | Leave unset or `false` until live checkout has been explicitly approved |
+| `CASHFREE_CLIENT_ID` | Cashfree Sandbox Client ID; used only when `CASHFREE_MODE=sandbox` |
+| `CASHFREE_CLIENT_SECRET` | Cashfree Sandbox Client Secret; used for Sandbox API authentication and webhook signature verification |
+| `CASHFREE_PRODUCTION_CLIENT_ID` | Cashfree Production Client ID; used only when `CASHFREE_MODE=production` |
+| `CASHFREE_PRODUCTION_CLIENT_SECRET` | Cashfree Production Client Secret; used for Production API authentication and webhook signature verification |
+| `CASHFREE_MODE` | Keep `sandbox` during testing; set to `production` only for an approved live launch |
+| `CASHFREE_CHECKOUT_ENABLED` | `true` only when the required configuration below is present and validated; otherwise `false` |
+| `CASHFREE_ENABLE_LIVE_CHECKOUT` | Keep `false` until live checkout has been explicitly approved |
 | `CASHFREE_SITE_URL` | `https://www.souviks.co.in` |
 | `CASHFREE_CATALOGUE_URL` | Leave unset to use the repository's canonical public catalogue, or use `https://raw.githubusercontent.com/mssouviks-tech/souviks-website/main/assets/data/catalogue-index.json` |
 | `CASHFREE_PRICES_INCLUDE_GST` | `true` — Souviks has confirmed online catalogue selling prices include GST |
@@ -58,7 +60,7 @@ Check all of the following in Sandbox:
 7. Validate shipping just below ₹45,000 and exactly at ₹45,000 using the Delhivery quote, then just above ₹45,000 (free shipping), plus GST and invoice treatment.
 8. Confirm settlement, refund, cancellation, notification and fulfilment procedures with the business before production.
 
-Only for an approved live launch: set `CASHFREE_MODE=production`, add the Production client ID/secret, set `CASHFREE_ENABLE_LIVE_CHECKOUT=true`, and keep `CASHFREE_CHECKOUT_ENABLED=true`. Do this only after reviewing successful Sandbox results and confirming the pricing/tax/shipping rules.
+Only for an approved live launch: first store the Production pair as `CASHFREE_PRODUCTION_CLIENT_ID` and `CASHFREE_PRODUCTION_CLIENT_SECRET` in Supabase Edge Function Secrets. Do not overwrite the Sandbox pair. After successful Sandbox regression, verifying the Production webhook registration and signature behavior, and confirming the pricing/tax/shipping rules, deliberately switch to `CASHFREE_MODE=production` and set `CASHFREE_ENABLE_LIVE_CHECKOUT=true` while keeping `CASHFREE_CHECKOUT_ENABLED=true`. Production mode uses only the Production credential pair; if either Production credential is missing, checkout fails closed.
 
 ## Important current scope
 
