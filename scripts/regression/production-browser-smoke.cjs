@@ -215,81 +215,93 @@ async function main() {
       }
     }
 
-    // Isolated guest basket checks mutate localStorage only, never the backend.
-    await check("desktop/en/guest RFQ add, quantity, remove and PDP controls", async () => {
+    // Checkout-cart browser checks mutate localStorage only and never submit an order.
+    await check("desktop/en/priced product card adds to checkout Cart", async () => {
       const context = await browser.newContext({ viewport: { width: 1365, height: 900 } });
       const page = await context.newPage();
       await attachPageErrors(page);
       try {
         await goto(page, "/en/products");
-        await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
+        await page.evaluate(() => {
+          localStorage.removeItem("souviks_rfq_guest");
+          localStorage.removeItem("souviks_purchase_cart_v1");
+        });
         await page.reload({ waitUntil: "domcontentloaded" });
         await page.waitForTimeout(400);
         assertNoPageErrors(page);
 
-        const addButton = page.locator(".add-to-cart").first();
-        if (!(await addButton.count())) throw new Error("product card Add to RFQ button is missing");
+        const addButton = page.locator("#product-grid .product-card .add-to-purchase-cart").first();
+        if (!(await addButton.count())) throw new Error("no priced product card exposes Add to Cart");
+        const productId = await addButton.getAttribute("data-id");
+        if (!productId) throw new Error("priced card has no product ID");
         await addButton.click();
-        await page.waitForFunction(
-          () => Number(document.querySelector(".rfq-badge")?.textContent?.trim()) === 1,
-          null,
-          { timeout: 8000 }
-        );
-        const basket = await page.evaluate(() => {
-          const raw = localStorage.getItem("souviks_rfq_guest");
-          return raw ? JSON.parse(raw) : [];
+        const state = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          const items = raw ? JSON.parse(raw) : [];
+          const rfqRaw = localStorage.getItem("souviks_rfq_guest");
+          return {
+            items,
+            rfqItems: rfqRaw ? JSON.parse(rfqRaw) : [],
+            badge: document.querySelector("a[href$='/cart'] .purchase-cart-count")?.textContent?.trim()
+          };
         });
-        if (!Array.isArray(basket) || basket.length !== 1) {
-          throw new Error("guest basket does not contain exactly one item after add");
+        if (state.items.length !== 1 || state.items[0].productId !== productId || Number(state.items[0].quantity) !== 1) {
+          throw new Error("priced card did not add the expected product to the checkout cart");
         }
+        if (state.rfqItems.length) throw new Error("priced card unexpectedly populated the discontinued RFQ cart");
+        if (state.badge !== "1") throw new Error("checkout Cart badge did not reflect one item");
+      } finally {
+        await context.close();
+      }
+    });
 
-        await goto(page, "/en/request-quote");
-        const rows = page.locator("#rfq-items tr");
-        if ((await rows.count()) !== 1) throw new Error("RFQ basket row count is not one");
-        const row = rows.first();
-        const plus = row.locator(".rfq-qty .qty-plus");
-        const remove = row.locator(".remove-rfq");
-        if (!(await plus.count()) || !(await remove.count())) {
-          throw new Error("RFQ quantity or remove controls are missing");
-        }
-        await plus.click();
-        await plus.click();
-        await page.waitForTimeout(300);
-        const qtyText = await row.locator(".rfq-qty").innerText();
-        const qty = Number((qtyText.match(/\d+/g) || [])[0] || 0);
-        const storedQty = await page.evaluate(() => {
-          const raw = localStorage.getItem("souviks_rfq_guest");
-          return Number((raw ? JSON.parse(raw) : [])[0]?.qty || 0);
-        });
-        if (qty !== 3 || storedQty !== 3) {
-          throw new Error("RFQ quantity mismatch: UI=" + qty + "; stored=" + storedQty);
-        }
-        await remove.click();
-        await page.waitForTimeout(300);
-        const afterRemove = await page.evaluate(() => {
-          const raw = localStorage.getItem("souviks_rfq_guest");
-          return raw ? JSON.parse(raw) : [];
-        });
-        if (afterRemove.length !== 0) throw new Error("RFQ removal did not clear the guest basket");
-
+    await check("desktop/en/priced product detail quantity adds to checkout Cart", async () => {
+      const context = await browser.newContext({ viewport: { width: 1365, height: 900 } });
+      const page = await context.newPage();
+      await attachPageErrors(page);
+      try {
+        await page.evaluate(() => {
+          localStorage.removeItem("souviks_rfq_guest");
+          localStorage.removeItem("souviks_purchase_cart_v1");
+        }).catch(() => {});
         await goto(page, "/en/products/10-x-15-nut");
         const heading = (await page.locator(".pdp-title").innerText()).trim();
         if (!heading.toLowerCase().includes("10 x 1.5 nut")) {
           throw new Error("unexpected product detail heading: " + heading);
         }
-        const image = page.locator("#pdpMainImage");
-        if (!(await image.count())) throw new Error("product detail main image is missing");
         await page.waitForFunction(() => {
           const img = document.querySelector("#pdpMainImage");
           return img && img.complete && img.naturalWidth > 0;
         }, null, { timeout: 10000 });
-        const pdpAdd = page.locator(".pdp-rfq-btn");
-        if (!(await pdpAdd.count())) throw new Error("product detail Add to RFQ button is missing");
-        await pdpAdd.click();
-        await page.waitForFunction(() => {
-          const raw = localStorage.getItem("souviks_rfq_guest");
-          return raw && JSON.parse(raw).length > 0;
-        }, null, { timeout: 8000 });
+
+        const qty = page.locator("#pdpQty");
+        await qty.fill("2");
+        await page.locator(".pdp-qty-plus").click();
+        if ((await qty.inputValue()) !== "3") throw new Error("PDP quantity selector did not retain quantity 3");
+        const addButton = page.locator(".pdp-add-to-purchase-cart");
+        if (!(await addButton.count())) throw new Error("priced product detail lacks Add to Cart");
+        if (await page.locator(".pdp-rfq-btn, .pdp-remove-btn").count()) {
+          throw new Error("product detail still exposes legacy RFQ-cart controls");
+        }
+        await addButton.click();
+        const result = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          const items = raw ? JSON.parse(raw) : [];
+          const rfqRaw = localStorage.getItem("souviks_rfq_guest");
+          return {
+            count: items.length,
+            quantity: Number(items?.[0]?.quantity || 0),
+            rfqCount: rfqRaw ? JSON.parse(rfqRaw).length : 0
+          };
+        });
+        if (result.count !== 1 || result.quantity !== 3) {
+          throw new Error("PDP purchase quantity was not stored correctly: " + JSON.stringify(result));
+        }
+        if (result.rfqCount) throw new Error("product detail added to the discontinued RFQ cart");
+        await goto(page, "/en/cart");
+        if (!(await page.locator("#purchase-cart-root").count())) throw new Error("checkout Cart page is missing");
+        const title = (await page.locator("main h1").first().innerText()).trim();
+        if (!/cart/i.test(title)) throw new Error("checkout Cart page does not identify itself as Cart");
         assertNoPageErrors(page);
       } finally {
         await context.close();

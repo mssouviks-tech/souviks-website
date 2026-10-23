@@ -10,16 +10,16 @@ LANGUAGES = ("en", "hi", "bn")
 
 TEXT = {
     "en": {
-        "cart_title": "Your Cart | Souviks", "cart_heading": "Shopping Cart",
+        "cart_title": "Your Cart | Souviks", "cart_heading": "Cart",
         "description": "Review commercial vehicle spare parts and complete a secure online checkout with Souviks.",
         "lead": "Review the products and quantities before checkout. Your final amount, including configured shipping, is confirmed securely before you continue to payment.",
-        "breadcrumb": "Shopping Cart", "items": "Your items",
+        "breadcrumb": "Cart", "items": "Your items",
         "empty": "Your cart is empty. Browse our catalogue and add priced products to start an order.",
         "browse": "Browse products", "summary": "Order summary", "subtotal": "Items subtotal",
         "shipping": "Shipping", "total": "Order total", "shipping_calc": "Confirmed before payment",
         "total_calc": "Review to calculate",
         "hint": "The final total is calculated on the server using current catalogue prices and the configured shipping policy.",
-        "note": "Online checkout is for domestic Indian deliveries at present. If checkout is unavailable for an item or order, please use Request a Quote.",
+        "note": "Online checkout is for domestic Indian deliveries at present. If checkout is unavailable for your delivery address or an item, return to the product page and use Request a Part.",
         "contact": "Customer details", "full_name": "Full name", "email": "Email (optional)",
         "phone": "Mobile number", "company": "Company (optional)", "gst": "GSTIN (optional)",
         "delivery": "Delivery details", "address1": "Address line 1", "address2": "Address line 2 (optional)",
@@ -34,16 +34,16 @@ TEXT = {
         "help": "Need help? Contact us at", "terms_link": "Terms & Conditions", "privacy_link": "Privacy Policy", "refund_link": "Refund Policy",
     },
     "hi": {
-        "cart_title": "आपका कार्ट | Souviks", "cart_heading": "शॉपिंग कार्ट",
+        "cart_title": "आपका कार्ट | Souviks", "cart_heading": "कार्ट",
         "description": "कमर्शियल वाहन स्पेयर पार्ट्स की जाँच करें और Souviks के साथ सुरक्षित ऑनलाइन चेकआउट पूरा करें।",
         "lead": "चेकआउट से पहले उत्पाद और मात्रा जाँचें। भुगतान पर आगे बढ़ने से पहले कॉन्फ़िगर की गई शिपिंग सहित अंतिम राशि की पुष्टि की जाएगी।",
-        "breadcrumb": "शॉपिंग कार्ट", "items": "आपके उत्पाद",
+        "breadcrumb": "कार्ट", "items": "आपके उत्पाद",
         "empty": "आपका कार्ट खाली है। ऑर्डर शुरू करने के लिए कैटलॉग से मूल्य वाले उत्पाद जोड़ें।",
         "browse": "उत्पाद देखें", "summary": "ऑर्डर सारांश", "subtotal": "उत्पादों का उप-योग",
         "shipping": "शिपिंग", "total": "ऑर्डर का कुल", "shipping_calc": "भुगतान से पहले पुष्टि होगी",
         "total_calc": "गणना के लिए समीक्षा करें",
         "hint": "सटीक राशि सर्वर पर वर्तमान कैटलॉग कीमतों और कॉन्फ़िगर की गई शिपिंग नीति से निकाली जाती है।",
-        "note": "फिलहाल ऑनलाइन चेकआउट केवल भारत के भीतर डिलीवरी के लिए है। यदि किसी उत्पाद या ऑर्डर के लिए चेकआउट उपलब्ध नहीं है, तो कृपया कोटेशन माँगें।",
+        "note": "फिलहाल ऑनलाइन चेकआउट केवल भारत के भीतर डिलीवरी के लिए है। यदि आपके पते या किसी उत्पाद के लिए चेकआउट उपलब्ध नहीं है, तो उत्पाद पेज पर जाकर पार्ट का अनुरोध करें।",
         "contact": "ग्राहक विवरण", "full_name": "पूरा नाम", "email": "ईमेल (वैकल्पिक)",
         "phone": "मोबाइल नंबर", "company": "कंपनी (वैकल्पिक)", "gst": "GSTIN (वैकल्पिक)",
         "delivery": "डिलीवरी विवरण", "address1": "पता पंक्ति 1", "address2": "पता पंक्ति 2 (वैकल्पिक)",
@@ -58,16 +58,16 @@ TEXT = {
         "help": "सहायता चाहिए? संपर्क करें", "terms_link": "नियम और शर्तें", "privacy_link": "गोपनीयता नीति", "refund_link": "रिफंड नीति",
     },
     "bn": {
-        "cart_title": "আপনার কার্ট | Souviks", "cart_heading": "শপিং কার্ট",
+        "cart_title": "আপনার কার্ট | Souviks", "cart_heading": "কার্ট",
         "description": "কমার্শিয়াল ভেহিকল স্পেয়ার পার্টস যাচাই করে Souviks-এর মাধ্যমে নিরাপদ অনলাইন চেকআউট সম্পন্ন করুন।",
         "lead": "চেকআউটের আগে পণ্য ও পরিমাণ যাচাই করুন। পেমেন্টে যাওয়ার আগে নির্ধারিত শিপিং-সহ চূড়ান্ত মূল্য নিশ্চিত করা হবে।",
-        "breadcrumb": "শপিং কার্ট", "items": "আপনার পণ্য",
+        "breadcrumb": "কার্ট", "items": "আপনার পণ্য",
         "empty": "আপনার কার্ট খালি। অর্ডার শুরু করতে ক্যাটালগ থেকে মূল্যযুক্ত পণ্য যোগ করুন।",
         "browse": "পণ্য দেখুন", "summary": "অর্ডারের সারাংশ", "subtotal": "পণ্যের উপমোট",
         "shipping": "শিপিং", "total": "মোট অর্ডার মূল্য", "shipping_calc": "পেমেন্টের আগে নিশ্চিত হবে",
         "total_calc": "মূল্য যাচাই করুন",
         "hint": "বর্তমান ক্যাটালগ মূল্য এবং নির্ধারিত শিপিং নীতি ব্যবহার করে সার্ভারে চূড়ান্ত মূল্য গণনা করা হয়।",
-        "note": "এই পর্যায়ে অনলাইন চেকআউট শুধুমাত্র ভারতের মধ্যে ডেলিভারির জন্য। কোনো পণ্য বা অর্ডারে চেকআউট উপলব্ধ না হলে কোটেশন চাইুন।",
+        "note": "এই পর্যায়ে অনলাইন চেকআউট শুধুমাত্র ভারতের মধ্যে ডেলিভারির জন্য। আপনার ঠিকানা বা কোনো পণ্যের জন্য চেকআউট উপলভ্য না হলে পণ্য পেজে ফিরে পার্টের অনুরোধ করুন।",
         "contact": "গ্রাহকের বিবরণ", "full_name": "পুরো নাম", "email": "ইমেল (ঐচ্ছিক)",
         "phone": "মোবাইল নম্বর", "company": "কোম্পানি (ঐচ্ছিক)", "gst": "GSTIN (ঐচ্ছিক)",
         "delivery": "ডেলিভারির বিবরণ", "address1": "ঠিকানা লাইন ১", "address2": "ঠিকানা লাইন ২ (ঐচ্ছিক)",
@@ -119,7 +119,7 @@ CART_TEMPLATE = """<!doctype html>
       <ul class="navigation-menu"></ul>
       <div class="mobile-nav-auth" aria-label="Account"><a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/__LANG__/login">Sign In</a><div id="mobileNavUserMenu" class="mobile-nav-user" hidden><a class="mobile-nav-auth-link" href="/__LANG__/account"><span aria-hidden="true">◉</span><span id="mobileNavUserName">Account</span></a><button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>Sign Out</button></div></div>
     </nav>
-    <div class="header-buttons"><a href="/__LANG__/request-part" class="btn btn-primary">Request a Part</a><a href="/__LANG__/request-quote" class="btn btn-secondary">RFQ Basket <span class="rfq-badge">0</span></a></div>
+    <div class="header-buttons"><a href="/__LANG__/cart" class="btn btn-secondary purchase-cart-header-link" aria-label="Cart">Cart <span class="purchase-cart-count" aria-label="Items in cart" aria-live="polite" hidden>0</span></a></div>
   </div></div></header>
   <main id="main-content" class="container purchase-cart-page">
     <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><ol class="breadcrumb-list"><li class="breadcrumb-item"><a href="/__LANG__/">Home</a></li><li class="breadcrumb-item active" aria-current="page">__BREADCRUMB__</li></ol></div></nav>
@@ -216,7 +216,7 @@ STATUS_TEMPLATE = """<!doctype html>
   </div></div>
   <header class="site-header"><div class="container"><div class="header-wrapper">
     <nav id="mainNavigation" class="main-navigation" aria-label="Primary Navigation"><div class="mobile-navigation-header"><img src="/assets/logo/souviks-logo-white.webp?v=a5300f9e16e9" alt="Souviks" class="mobile-navigation-logo" width="1024" height="1024"><button id="mobileNavigationClose" class="mobile-navigation-close" type="button" aria-label="Close Navigation">×</button></div><ul class="navigation-menu"></ul><div class="mobile-nav-auth" aria-label="Account"><a id="mobileNavSignIn" class="mobile-nav-auth-link" href="/__LANG__/login">Sign In</a><div id="mobileNavUserMenu" class="mobile-nav-user" hidden><a class="mobile-nav-auth-link" href="/__LANG__/account"><span id="mobileNavUserName">Account</span></a><button type="button" id="mobileNavSignOut" class="mobile-nav-auth-link mobile-nav-signout" data-auth-logout>Sign Out</button></div></div></nav>
-    <div class="header-buttons"><a href="/__LANG__/cart" class="btn btn-secondary">Shopping Cart</a><a href="/__LANG__/request-quote" class="btn btn-secondary">RFQ Basket <span class="rfq-badge">0</span></a></div>
+    <div class="header-buttons"><a href="/__LANG__/cart" class="btn btn-secondary purchase-cart-header-link" aria-label="Cart">Cart <span class="purchase-cart-count" aria-label="Items in cart" aria-live="polite" hidden>0</span></a></div>
   </div></div></header>
   <main id="main-content" class="container payment-status-page">
     <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><ol class="breadcrumb-list"><li class="breadcrumb-item"><a href="/__LANG__/">Home</a></li><li class="breadcrumb-item"><a href="/__LANG__/cart">Cart</a></li><li class="breadcrumb-item active" aria-current="page">__STATUS_LABEL__</li></ol></div></nav>
