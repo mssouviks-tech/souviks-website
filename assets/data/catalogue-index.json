@@ -18949,8 +18949,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 1950,
+    "selling_price": 1889,
     "product_name": "Taper Roller Bearing",
     "name": "Taper Roller Bearing",
     "partNumber": "539/532X",
@@ -18983,7 +18983,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000440/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000440/1.webp",
+    "discount_percent": 3,
+    "discountPercent": 3
   },
   {
     "id": "SVKS000441",
@@ -19084,8 +19086,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 1950,
+    "selling_price": 1889,
     "product_name": "Taper Roller Bearing",
     "name": "Taper Roller Bearing",
     "partNumber": "539/532X",
@@ -19117,7 +19119,9 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "card_image_url": "/assets/images/product-thumbnails/SVKS000443/1.webp"
+    "card_image_url": "/assets/images/product-thumbnails/SVKS000443/1.webp",
+    "discount_percent": 3,
+    "discountPercent": 3
   },
   {
     "id": "SVKS000444",
