@@ -82,13 +82,21 @@
             <div class="form-group"><label for="checkout-phone">मोबाइल नंबर</label><input type="tel" id="checkout-phone" name="phone" autocomplete="tel-national" inputmode="numeric" pattern="[0-9]{10}" minlength="10" maxlength="10" placeholder="10-digit mobile number" required></div>
             <div class="form-group"><label for="checkout-company">कंपनी (वैकल्पिक)</label><input type="text" id="checkout-company" name="company" autocomplete="organization" maxlength="160"></div>
             <div class="form-group"><label for="checkout-gst">GSTIN (वैकल्पिक)</label><input type="text" id="checkout-gst" name="gst_number" maxlength="15" autocapitalize="characters"></div>
-            <h3>डिलीवरी विवरण</h3>
-            <div class="purchase-address-grid">
-              <div class="form-group form-group-full"><label for="checkout-address1">पता पंक्ति 1</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180" required></div>
+            <fieldset class="purchase-fulfillment-options">
+              <legend>आप अपना ऑर्डर कैसे प्राप्त करना चाहेंगे?</legend>
+              <label class="purchase-fulfillment-option" for="checkout-fulfillment-delivery"><input type="radio" id="checkout-fulfillment-delivery" name="fulfillment_method" value="delivery" required><span>घर पर डिलीवरी</span></label>
+              <label class="purchase-fulfillment-option" for="checkout-fulfillment-pickup"><input type="radio" id="checkout-fulfillment-pickup" name="fulfillment_method" value="pickup"><span>स्टोर से पिकअप</span></label>
+            </fieldset>
+            <p id="checkout-pickup-note" class="purchase-cart-help" hidden>कोई कूरियर शुल्क नहीं लगेगा। ऑर्डर देने के बाद Souviks टीम पिकअप विवरण की पुष्टि करेगी।</p>
+            <div id="checkout-delivery-fields" hidden>
+              <h3>घर पर डिलीवरी का पता</h3>
+              <div class="purchase-address-grid">
+              <div class="form-group form-group-full"><label for="checkout-address1">पता पंक्ति 1</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180"></div>
               <div class="form-group form-group-full"><label for="checkout-address2">पता पंक्ति 2 (वैकल्पिक)</label><input type="text" id="checkout-address2" name="address2" autocomplete="address-line2" maxlength="120"></div>
-              <div class="form-group"><label for="checkout-city">शहर</label><input type="text" id="checkout-city" name="city" autocomplete="address-level2" maxlength="100" required></div>
-              <div class="form-group"><label for="checkout-state">राज्य</label><input type="text" id="checkout-state" name="state" autocomplete="address-level1" maxlength="100" required></div>
-              <div class="form-group"><label for="checkout-pincode">पिन कोड</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" required></div>
+              <div class="form-group"><label for="checkout-city">शहर</label><input type="text" id="checkout-city" name="city" autocomplete="address-level2" maxlength="100"></div>
+              <div class="form-group"><label for="checkout-state">राज्य</label><input type="text" id="checkout-state" name="state" autocomplete="address-level1" maxlength="100"></div>
+              <div class="form-group"><label for="checkout-pincode">पिन कोड</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6"></div>
+            </div>
             </div>
             <label class="purchase-terms"><input type="checkbox" id="checkout-terms" name="terms_accepted" required><span>मैं नियम और शर्तें, गोपनीयता नीति और रिफंड नीति स्वीकार करता/करती हूँ। <a href="/hi/terms">नियम और शर्तें</a> · <a href="/hi/privacy-policy">गोपनीयता नीति</a> · <a href="/hi/refund">रिफंड नीति</a></span></label>
             <button id="purchase-review-button" type="submit" class="btn btn-primary">कुल राशि जाँचें और आगे बढ़ें</button>

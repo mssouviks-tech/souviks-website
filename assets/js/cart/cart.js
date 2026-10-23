@@ -10,6 +10,7 @@
         en: {
             added: "Added to your cart.",
             shippingUnconfirmed: "Confirmed before payment",
+            pickupShipping: "Store pickup — no shipping charge",
             totalUnconfirmed: "Review to calculate",
             reviewInvalidated: "Your cart or checkout details changed. Review the total again before payment.",
             addFailed: "This item could not be added to the cart.",
@@ -35,6 +36,7 @@
         hi: {
             added: "उत्पाद आपके कार्ट में जोड़ दिया गया है।",
             shippingUnconfirmed: "भुगतान से पहले पुष्टि होगी",
+            pickupShipping: "स्टोर से पिकअप — शिपिंग शुल्क नहीं",
             totalUnconfirmed: "गणना के लिए समीक्षा करें",
             reviewInvalidated: "कार्ट या चेकआउट विवरण बदल गए हैं। भुगतान से पहले कुल राशि फिर से जाँचें।",
             addFailed: "इस उत्पाद को कार्ट में नहीं जोड़ा जा सका।",
@@ -60,6 +62,7 @@
         bn: {
             added: "পণ্যটি আপনার কার্টে যোগ করা হয়েছে।",
             shippingUnconfirmed: "পেমেন্টের আগে নিশ্চিত হবে",
+            pickupShipping: "স্টোর থেকে সংগ্রহ — শিপিং চার্জ নেই",
             totalUnconfirmed: "মূল্য যাচাই করুন",
             reviewInvalidated: "কার্ট বা চেকআউটের বিবরণ বদলেছে। পেমেন্টের আগে মোট মূল্য আবার যাচাই করুন।",
             addFailed: "পণ্যটি কার্টে যোগ করা যায়নি।",
@@ -209,7 +212,10 @@
         const status = document.getElementById("purchase-cart-status");
         const shipping = document.getElementById("purchase-cart-shipping");
         const total = document.getElementById("purchase-cart-total");
-        if (shipping) shipping.textContent = T.shippingUnconfirmed;
+        if (shipping) {
+            const method = document.querySelector('input[name="fulfillment_method"]:checked')?.value;
+            shipping.textContent = method === "pickup" ? T.pickupShipping : T.shippingUnconfirmed;
+        }
         if (total) total.textContent = T.totalUnconfirmed;
         const payButton = document.getElementById("purchase-pay-button");
         if (payButton) payButton.disabled = true;
@@ -377,6 +383,24 @@
         const reviewButton = document.getElementById("purchase-review-button");
         const payButton = document.getElementById("purchase-pay-button");
         const status = document.getElementById("purchase-cart-status");
+        const fulfillmentInputs = Array.from(form?.querySelectorAll('input[name="fulfillment_method"]') || []);
+        const deliveryFields = document.getElementById("checkout-delivery-fields");
+        const pickupNote = document.getElementById("checkout-pickup-note");
+        function syncFulfillmentFields() {
+            const method = fulfillmentInputs.find(input => input.checked)?.value || "";
+            const isDelivery = method === "delivery";
+            if (deliveryFields) deliveryFields.hidden = !isDelivery;
+            if (pickupNote) pickupNote.hidden = method !== "pickup";
+            deliveryFields?.querySelectorAll("input").forEach(input => {
+                input.disabled = !isDelivery;
+                if (["checkout-address1", "checkout-city", "checkout-state", "checkout-pincode"].includes(input.id)) {
+                    input.required = isDelivery;
+                }
+            });
+            const shipping = document.getElementById("purchase-cart-shipping");
+            if (shipping && method === "pickup") shipping.textContent = T.pickupShipping;
+            else if (shipping) shipping.textContent = T.shippingUnconfirmed;
+        }
 
         loadCatalogue().then(() => renderCart()).catch(() => {
             setStatus(status, T.loadFailed, "error");
@@ -386,9 +410,13 @@
             if (layout) layout.hidden = true;
         });
         prefillCustomer();
+        syncFulfillmentFields();
 
         form?.addEventListener("input", () => invalidateReview());
-        form?.addEventListener("change", () => invalidateReview());
+        form?.addEventListener("change", () => {
+            syncFulfillmentFields();
+            invalidateReview();
+        });
 
         form?.addEventListener("submit", async event => {
             event.preventDefault();
@@ -416,6 +444,7 @@
                 company: document.getElementById("checkout-company")?.value || "",
                 gst_number: document.getElementById("checkout-gst")?.value || ""
             };
+            const fulfillmentMethod = form.querySelector('input[name="fulfillment_method"]:checked')?.value || "";
             const shippingAddress = {
                 line1: document.getElementById("checkout-address1")?.value || "",
                 line2: document.getElementById("checkout-address2")?.value || "",
@@ -431,6 +460,7 @@
                         language: LANGUAGE,
                         items: currentCart.map(item => ({ product_id: item.productId, quantity: item.quantity })),
                         customer,
+                        fulfillment_method: fulfillmentMethod,
                         shipping_address: shippingAddress,
                         terms_accepted: terms
                     }
@@ -449,17 +479,19 @@
                     paymentSessionId: String(data.payment_session_id),
                     token: String(data.checkout_token),
                     mode: data.mode === "production" ? "production" : "sandbox",
+                    fulfillmentMethod,
                     subtotal: Number(data.subtotal),
                     shipping: Number(data.shipping),
                     total: Number(data.total),
                     cartSnapshot: JSON.stringify(currentCart),
                     formSnapshot: new FormData(form)
                 };
-                document.getElementById("purchase-cart-shipping").textContent = currency(preparedCheckout.shipping);
+                const shippingLabel = preparedCheckout.fulfillmentMethod === "pickup" ? T.pickupShipping : currency(preparedCheckout.shipping);
+                document.getElementById("purchase-cart-shipping").textContent = shippingLabel;
                 document.getElementById("purchase-cart-total").textContent = currency(preparedCheckout.total);
                 document.getElementById("checkout-review-order-number").textContent = preparedCheckout.orderNumber;
                 document.getElementById("checkout-review-subtotal").textContent = currency(preparedCheckout.subtotal);
-                document.getElementById("checkout-review-shipping").textContent = currency(preparedCheckout.shipping);
+                document.getElementById("checkout-review-shipping").textContent = shippingLabel;
                 document.getElementById("checkout-review-total").textContent = currency(preparedCheckout.total);
                 const review = document.getElementById("purchase-payment-review");
                 if (review) review.hidden = false;

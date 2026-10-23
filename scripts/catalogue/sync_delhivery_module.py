@@ -24,6 +24,15 @@ STYLE_TAG = re.compile(
     flags=re.I,
 )
 
+PRODUCT_SCRIPT_TAG = re.compile(
+    r'^[ \t]*<script\b(?=[^>]*\bsrc=["\']/assets/js/product/delivery-estimate\.js(?:\?v=[^"\']*)?["\'])[^>]*></script>[ \t]*(?:\r?\n|$)',
+    flags=re.I | re.M,
+)
+PRODUCT_STYLE_TAG = re.compile(
+    r'^[ \t]*<link\b(?=[^>]*\bhref=["\']/assets/css/delhivery-estimator\.css(?:\?v=[^"\']*)?["\'])[^>]*>[ \t]*(?:\r?\n|$)',
+    flags=re.I | re.M,
+)
+
 
 def asset_hash(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
@@ -40,6 +49,20 @@ def sync_page(path: Path) -> bool:
     is_product = 'id="product-detail"' in source
     is_cart = path.name == "cart.html" and 'id="purchase-cart-root"' in source
     if not is_product and not is_cart:
+        return False
+
+    # Keep the Delhivery PIN checker on checkout only. Remove legacy product-page
+    # script/style links from generated product pages rather than re-injecting them.
+    if is_product and not is_cart:
+        # Remove only the old product-page PIN checker. The cart runtime must stay
+        # on product pages so Add to Cart remains functional. Strip full-line
+        # whitespace left behind by removed tags to keep generated diffs clean.
+        updated, _ = PRODUCT_SCRIPT_TAG.subn("", source)
+        updated, _ = PRODUCT_STYLE_TAG.subn("", updated)
+
+        if updated != source:
+            path.write_text(updated, encoding="utf-8")
+            return True
         return False
 
     script_path = CART_SCRIPT if is_cart else PRODUCT_SCRIPT

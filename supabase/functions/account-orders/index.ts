@@ -15,7 +15,7 @@ function runtimeMode(): "sandbox" | "production" {
 async function loadOrders(userId: string, includeFailureReason: boolean): Promise<any[]> {
   const fields = [
     "id", "order_number", "gateway_order_id", "created_at", "currency",
-    "subtotal", "shipping_amount", "total_amount", "payment_status",
+    "subtotal", "shipping_amount", "total_amount", "fulfillment_method", "payment_status",
     "order_status", "cashfree_order_status", "paid_at", "updated_at",
   ];
   if (includeFailureReason) fields.push("payment_failure_code", "payment_failure_reason");
@@ -104,6 +104,7 @@ Deno.serve(async (req: Request) => {
       subtotal: Number(order.subtotal) || 0,
       shipping_amount: Number(order.shipping_amount) || 0,
       total_amount: Number(order.total_amount) || 0,
+      fulfillment_method: String(order.fulfillment_method || "delivery"),
       payment_status: String(order.payment_status || "pending"),
       order_status: String(order.order_status || "awaiting_payment"),
       cashfree_order_status: String(order.cashfree_order_status || ""),

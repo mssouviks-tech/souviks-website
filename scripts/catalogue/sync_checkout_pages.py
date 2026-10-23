@@ -22,7 +22,8 @@ TEXT = {
         "note": "Online checkout is for domestic Indian deliveries at present. If checkout is unavailable for your delivery address or an item, return to the product page and use Request a Part.",
         "contact": "Customer details", "full_name": "Full name", "email": "Email (optional)",
         "phone": "Mobile number", "company": "Company (optional)", "gst": "GSTIN (optional)",
-        "delivery": "Delivery details", "address1": "Address line 1", "address2": "Address line 2 (optional)",
+        "fulfillment_heading": "How would you like to receive your order?", "home_delivery": "Home delivery", "store_pickup": "Store pickup", "pickup_note": "No courier charge applies. The Souviks team will confirm collection details after your order is placed.",
+        "delivery": "Home delivery address", "address1": "Address line 1", "address2": "Address line 2 (optional)",
         "city": "City", "state": "State", "pin": "PIN code",
         "terms": "I agree to the Terms & Conditions, Privacy Policy and Refund Policy.",
         "review": "Review total & continue", "review_title": "Review your order total",
@@ -46,7 +47,8 @@ TEXT = {
         "note": "फिलहाल ऑनलाइन चेकआउट केवल भारत के भीतर डिलीवरी के लिए है। यदि आपके पते या किसी उत्पाद के लिए चेकआउट उपलब्ध नहीं है, तो उत्पाद पेज पर जाकर पार्ट का अनुरोध करें।",
         "contact": "ग्राहक विवरण", "full_name": "पूरा नाम", "email": "ईमेल (वैकल्पिक)",
         "phone": "मोबाइल नंबर", "company": "कंपनी (वैकल्पिक)", "gst": "GSTIN (वैकल्पिक)",
-        "delivery": "डिलीवरी विवरण", "address1": "पता पंक्ति 1", "address2": "पता पंक्ति 2 (वैकल्पिक)",
+        "fulfillment_heading": "आप अपना ऑर्डर कैसे प्राप्त करना चाहेंगे?", "home_delivery": "घर पर डिलीवरी", "store_pickup": "स्टोर से पिकअप", "pickup_note": "कोई कूरियर शुल्क नहीं लगेगा। ऑर्डर देने के बाद Souviks टीम पिकअप विवरण की पुष्टि करेगी।",
+        "delivery": "घर पर डिलीवरी का पता", "address1": "पता पंक्ति 1", "address2": "पता पंक्ति 2 (वैकल्पिक)",
         "city": "शहर", "state": "राज्य", "pin": "पिन कोड",
         "terms": "मैं नियम और शर्तें, गोपनीयता नीति और रिफंड नीति स्वीकार करता/करती हूँ।",
         "review": "कुल राशि जाँचें और आगे बढ़ें", "review_title": "ऑर्डर की कुल राशि जाँचें",
@@ -70,7 +72,8 @@ TEXT = {
         "note": "এই পর্যায়ে অনলাইন চেকআউট শুধুমাত্র ভারতের মধ্যে ডেলিভারির জন্য। আপনার ঠিকানা বা কোনো পণ্যের জন্য চেকআউট উপলভ্য না হলে পণ্য পেজে ফিরে পার্টের অনুরোধ করুন।",
         "contact": "গ্রাহকের বিবরণ", "full_name": "পুরো নাম", "email": "ইমেল (ঐচ্ছিক)",
         "phone": "মোবাইল নম্বর", "company": "কোম্পানি (ঐচ্ছিক)", "gst": "GSTIN (ঐচ্ছিক)",
-        "delivery": "ডেলিভারির বিবরণ", "address1": "ঠিকানা লাইন ১", "address2": "ঠিকানা লাইন ২ (ঐচ্ছিক)",
+        "fulfillment_heading": "আপনি কীভাবে অর্ডারটি পেতে চান?", "home_delivery": "বাড়িতে ডেলিভারি", "store_pickup": "স্টোর থেকে সংগ্রহ", "pickup_note": "কুরিয়ার চার্জ লাগবে না। অর্ডার দেওয়ার পর Souviks টিম সংগ্রহের বিস্তারিত নিশ্চিত করবে।",
+        "delivery": "হোম ডেলিভারির ঠিকানা", "address1": "ঠিকানা লাইন ১", "address2": "ঠিকানা লাইন ২ (ঐচ্ছিক)",
         "city": "শহর", "state": "রাজ্য", "pin": "পিন কোড",
         "terms": "আমি শর্তাবলী, গোপনীয়তা নীতি এবং রিফান্ড নীতি মেনে নিচ্ছি।",
         "review": "মোট মূল্য যাচাই করে এগিয়ে যান", "review_title": "অর্ডারের মোট মূল্য যাচাই করুন",
@@ -140,13 +143,21 @@ CART_TEMPLATE = """<!doctype html>
             <div class="form-group"><label for="checkout-phone">__PHONE__</label><input type="tel" id="checkout-phone" name="phone" autocomplete="tel-national" inputmode="numeric" pattern="[0-9]{10}" minlength="10" maxlength="10" placeholder="10-digit mobile number" required></div>
             <div class="form-group"><label for="checkout-company">__COMPANY__</label><input type="text" id="checkout-company" name="company" autocomplete="organization" maxlength="160"></div>
             <div class="form-group"><label for="checkout-gst">__GST__</label><input type="text" id="checkout-gst" name="gst_number" maxlength="15" autocapitalize="characters"></div>
-            <h3>__DELIVERY__</h3>
-            <div class="purchase-address-grid">
-              <div class="form-group form-group-full"><label for="checkout-address1">__ADDRESS1__</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180" required></div>
+            <fieldset class="purchase-fulfillment-options">
+              <legend>__FULFILLMENT_HEADING__</legend>
+              <label class="purchase-fulfillment-option" for="checkout-fulfillment-delivery"><input type="radio" id="checkout-fulfillment-delivery" name="fulfillment_method" value="delivery" required><span>__HOME_DELIVERY__</span></label>
+              <label class="purchase-fulfillment-option" for="checkout-fulfillment-pickup"><input type="radio" id="checkout-fulfillment-pickup" name="fulfillment_method" value="pickup"><span>__STORE_PICKUP__</span></label>
+            </fieldset>
+            <p id="checkout-pickup-note" class="purchase-cart-help" hidden>__PICKUP_NOTE__</p>
+            <div id="checkout-delivery-fields" hidden>
+              <h3>__DELIVERY__</h3>
+              <div class="purchase-address-grid">
+              <div class="form-group form-group-full"><label for="checkout-address1">__ADDRESS1__</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180"></div>
               <div class="form-group form-group-full"><label for="checkout-address2">__ADDRESS2__</label><input type="text" id="checkout-address2" name="address2" autocomplete="address-line2" maxlength="120"></div>
-              <div class="form-group"><label for="checkout-city">__CITY__</label><input type="text" id="checkout-city" name="city" autocomplete="address-level2" maxlength="100" required></div>
-              <div class="form-group"><label for="checkout-state">__STATE__</label><input type="text" id="checkout-state" name="state" autocomplete="address-level1" maxlength="100" required></div>
-              <div class="form-group"><label for="checkout-pincode">__PIN__</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" required></div>
+              <div class="form-group"><label for="checkout-city">__CITY__</label><input type="text" id="checkout-city" name="city" autocomplete="address-level2" maxlength="100"></div>
+              <div class="form-group"><label for="checkout-state">__STATE__</label><input type="text" id="checkout-state" name="state" autocomplete="address-level1" maxlength="100"></div>
+              <div class="form-group"><label for="checkout-pincode">__PIN__</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6"></div>
+            </div>
             </div>
             <label class="purchase-terms"><input type="checkbox" id="checkout-terms" name="terms_accepted" required><span>__TERMS__ <a href="/__LANG__/terms">__TERMS_LINK__</a> · <a href="/__LANG__/privacy-policy">__PRIVACY_LINK__</a> · <a href="/__LANG__/refund">__REFUND_LINK__</a></span></label>
             <button id="purchase-review-button" type="submit" class="btn btn-primary">__REVIEW__</button>
@@ -291,6 +302,10 @@ def main() -> int:
             "phone": labels["phone"],
             "company": labels["company"],
             "gst": labels["gst"],
+            "fulfillment_heading": labels["fulfillment_heading"],
+            "home_delivery": labels["home_delivery"],
+            "store_pickup": labels["store_pickup"],
+            "pickup_note": labels["pickup_note"],
             "delivery": labels["delivery"],
             "address1": labels["address1"],
             "address2": labels["address2"],
