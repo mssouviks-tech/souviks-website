@@ -126,6 +126,8 @@ Deno.serve(async (req: Request) => {
     const lang = ["en", "hi", "bn"].includes(String(input?.language || "")) ? String(input.language) : "en";
     const customer = input?.customer && typeof input.customer === "object" ? input.customer : {};
     const address = input?.shipping_address && typeof input.shipping_address === "object" ? input.shipping_address : {};
+    const fulfillmentMethod = clean(input?.fulfillment_method, 20).toLowerCase() || "delivery";
+    if (!["delivery", "pickup"].includes(fulfillmentMethod)) throw new CheckoutError("fulfillment_method_invalid", 400);
 
     const customerName = clean(customer.name, 100);
     const customerEmail = clean(customer.email, 254).toLowerCase();
@@ -133,17 +135,18 @@ Deno.serve(async (req: Request) => {
     const customerPhone = rawPhone.length === 12 && rawPhone.startsWith("91") ? rawPhone.slice(2) : rawPhone;
     const company = clean(customer.company, 160);
     const gstNumber = clean(customer.gst_number, 15).toUpperCase();
-    const address1 = clean(address.line1, 180);
-    const address2 = clean(address.line2, 120);
-    const city = clean(address.city, 100);
-    const state = clean(address.state, 100);
-    const postalCode = clean(address.postal_code, 6);
+    const address1 = fulfillmentMethod === "delivery" ? clean(address.line1, 180) : "";
+    const address2 = fulfillmentMethod === "delivery" ? clean(address.line2, 120) : "";
+    const city = fulfillmentMethod === "delivery" ? clean(address.city, 100) : "";
+    const state = fulfillmentMethod === "delivery" ? clean(address.state, 100) : "";
+    const postalCode = fulfillmentMethod === "delivery" ? clean(address.postal_code, 6) : "";
     const country = clean(address.country || "IN", 2).toUpperCase();
 
     if (customerName.length < 2) throw new CheckoutError("customer_name_required", 400);
     if (!/^\d{10}$/.test(customerPhone)) throw new CheckoutError("valid_indian_phone_required", 400);
     if (customerEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail)) throw new CheckoutError("valid_email_required", 400);
-    if (!address1 || !city || !state || !/^\d{6}$/.test(postalCode) || country !== "IN") {
+    if (fulfillmentMethod === "delivery" &&
+        (!address1 || !city || !state || !/^\d{6}$/.test(postalCode) || country !== "IN")) {
       throw new CheckoutError("valid_indian_shipping_address_required", 400);
     }
     if (gstNumber && !/^[0-9A-Z]{15}$/.test(gstNumber)) throw new CheckoutError("valid_gst_number_required", 400);
@@ -216,7 +219,10 @@ Deno.serve(async (req: Request) => {
     if (subtotalPaise < 100) throw new CheckoutError("minimum_order_amount_not_met", 400);
     const subtotal = money(subtotalPaise);
     let shippingPaise = 0;
-    if (subtotal > policy.threshold) {
+    if (fulfillmentMethod === "pickup") {
+      // Store pickup does not use courier serviceability or freight calculations.
+      shippingPaise = 0;
+    } else if (subtotal > policy.threshold) {
       // Preserve Souviks' configured free-shipping threshold.
       shippingPaise = 0;
     } else if (hasCompleteWeights) {
@@ -253,11 +259,12 @@ Deno.serve(async (req: Request) => {
       customer_phone: customerPhone,
       company: company || null,
       gst_number: gstNumber || null,
-      shipping_address_line1: address1,
-      shipping_address_line2: address2 || null,
-      shipping_city: city,
-      shipping_state: state,
-      shipping_postal_code: postalCode,
+      fulfillment_method: fulfillmentMethod,
+      shipping_address_line1: fulfillmentMethod === "delivery" ? address1 : null,
+      shipping_address_line2: fulfillmentMethod === "delivery" ? (address2 || null) : null,
+      shipping_city: fulfillmentMethod === "delivery" ? city : null,
+      shipping_state: fulfillmentMethod === "delivery" ? state : null,
+      shipping_postal_code: fulfillmentMethod === "delivery" ? postalCode : null,
       shipping_country: "IN",
       currency: "INR",
       subtotal: subtotal,
@@ -297,7 +304,7 @@ Deno.serve(async (req: Request) => {
       order_meta: {
         return_url: config.siteUrl + "/" + lang + "/payment-status?order_id={order_id}",
       },
-      order_note: "Souviks website order " + orderNumber,
+      order_note: "Souviks website order " + orderNumber + (fulfillmentMethod === "pickup" ? " — store pickup" : ""),
       order_expiry_time: new Date(Date.now() + 30 * 60 * 1000).toISOString(),
     }, crypto.randomUUID());
 
@@ -344,6 +351,7 @@ Deno.serve(async (req: Request) => {
       tax_policy_not_confirmed: "Checkout is temporarily unavailable while tax treatment is confirmed.",
       shipping_policy_not_configured: "Checkout is temporarily unavailable while shipping charges are confirmed.",
       checkout_rate_limited: "Too many checkout attempts. Please wait a few minutes and retry.",
+      fulfillment_method_invalid: "Choose either home delivery or store pickup to continue.",
       catalogue_unavailable: "Current product pricing could not be verified. Please request a quote.",
       cart_product_requires_quote: "One or more items require a quotation instead of online checkout.",
       cart_product_unavailable: "One or more items are no longer available for purchase.",

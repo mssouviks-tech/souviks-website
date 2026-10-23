@@ -17,6 +17,9 @@
             unitPrice: "Unit price",
             paymentStates: { paid: "Paid", pending: "Pending", failed: "Failed", cancelled: "Cancelled", refunded: "Refunded" },
             orderStates: { awaiting_payment: "Awaiting payment", confirmed: "Confirmed", processing: "Processing", dispatched: "Dispatched", delivered: "Delivered", cancelled: "Cancelled" },
+            fulfillment: "Fulfilment",
+            homeDelivery: "Home delivery",
+            storePickup: "Store pickup",
             failureReason: "Payment failure reason",
             unknown: "Not available"
         },
@@ -34,6 +37,9 @@
             unitPrice: "प्रति यूनिट",
             paymentStates: { paid: "भुगतान हो गया", pending: "लंबित", failed: "विफल", cancelled: "रद्द", refunded: "वापस किया गया" },
             orderStates: { awaiting_payment: "भुगतान की प्रतीक्षा", confirmed: "पुष्ट", processing: "प्रक्रिया में", dispatched: "भेज दिया गया", delivered: "डिलीवर हो गया", cancelled: "रद्द" },
+            fulfillment: "ऑर्डर प्राप्ति",
+            homeDelivery: "घर पर डिलीवरी",
+            storePickup: "स्टोर से पिकअप",
             failureReason: "भुगतान विफल होने का कारण",
             unknown: "उपलब्ध नहीं"
         },
@@ -51,6 +57,9 @@
             unitPrice: "প্রতি ইউনিট",
             paymentStates: { paid: "পেমেন্ট হয়েছে", pending: "অপেক্ষমাণ", failed: "ব্যর্থ", cancelled: "বাতিল", refunded: "ফেরত দেওয়া হয়েছে" },
             orderStates: { awaiting_payment: "পেমেন্টের অপেক্ষায়", confirmed: "নিশ্চিত", processing: "প্রক্রিয়াধীন", dispatched: "পাঠানো হয়েছে", delivered: "ডেলিভারি হয়েছে", cancelled: "বাতিল" },
+            fulfillment: "অর্ডার সংগ্রহের পদ্ধতি",
+            homeDelivery: "বাড়িতে ডেলিভারি",
+            storePickup: "স্টোর থেকে সংগ্রহ",
             failureReason: "পেমেন্ট ব্যর্থ হওয়ার কারণ",
             unknown: "উপলভ্য নয়"
         }
@@ -147,6 +156,8 @@
         identity.appendChild(element("span", "account-order-kicker", T.order));
         identity.appendChild(element("h3", "account-order-number", order.order_number || T.unknown));
         identity.appendChild(element("p", "account-order-date", T.placed + ": " + dateLabel(order.created_at)));
+        const fulfilmentLabel = order.fulfillment_method === "pickup" ? T.storePickup : T.homeDelivery;
+        identity.appendChild(element("p", "account-order-method", T.fulfillment + ": " + fulfilmentLabel));
         head.appendChild(identity);
 
         const badges = element("div", "account-order-badges");

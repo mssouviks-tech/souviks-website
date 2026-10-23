@@ -17,6 +17,7 @@ assert.match(endpoint, /optionalUserId\(req\)/);
 assert.match(endpoint, /authentication_required/);
 assert.match(endpoint, /user_id:\s*"eq\."\s*\+\s*userId/);
 assert.match(endpoint, /order_items/);
+assert.match(endpoint, /fulfillment_method/);
 assert.match(endpoint, /order_id:\s*"in\.\("/);
 assert.match(endpoint, /limit:\s*"20"/);
 assert.match(endpoint, /reconcileCashfreeOrder/);
@@ -27,6 +28,8 @@ assert.match(config, /\[functions\.account-orders\]\s*verify_jwt\s*=\s*false/);
 assert.match(accountCore, /"orders"/);
 assert.match(accountOrders, /functions\.invoke\("account-orders"/);
 assert.match(accountOrders, /payment_failure_reason/);
+assert.match(accountOrders, /fulfillment_method/);
+assert.match(accountOrders, /storePickup/);
 assert.match(accountCss, /\.account-order-card/);
 for (const lang of ["en", "hi", "bn"]) {
   const html = read(lang + "/account.html");

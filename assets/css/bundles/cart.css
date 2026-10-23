@@ -245,3 +245,25 @@
     .purchase-checkout-form .purchase-address-grid { grid-template-columns: minmax(0, 1fr); }
     .purchase-checkout-form .purchase-address-grid .form-group-full { grid-column: auto; }
 }
+
+/* Checkout fulfilment selection */
+.purchase-fulfillment-options {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--border-color, #d9dee5);
+    border-radius: var(--radius-md, 10px);
+    min-width: 0;
+}
+.purchase-fulfillment-options legend { padding: 0 6px; font-weight: 700; }
+.purchase-fulfillment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+.purchase-fulfillment-option input { flex: 0 0 auto; width: 18px; height: 18px; accent-color: var(--color-primary, #d62828); }
+#checkout-delivery-fields[hidden], #checkout-pickup-note[hidden] { display: none !important; }
