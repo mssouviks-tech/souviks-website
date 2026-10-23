@@ -532,30 +532,82 @@
     }
 
     async function injectProductDetailCartButton() {
-        if (!document.querySelector(".pdp-rfq-btn") || !/\/(en|hi|bn)\/products\//.test(window.location.pathname)) return;
+        const legacyRfqButton = document.querySelector(".pdp-rfq-btn");
+        if (!legacyRfqButton || !/\\/(en|hi|bn)\\/products\\//.test(window.location.pathname)) return;
+
+        const legacyRemoveButton = document.querySelector(".pdp-remove-btn");
+        const removeLegacyControls = () => {
+            legacyRfqButton.remove();
+            legacyRemoveButton?.remove();
+        };
+
         try {
             const items = await loadCatalogue();
-            const slug = decodeURIComponent(window.location.pathname.split("/").filter(Boolean).pop() || "").replace(/\.html$/i, "");
+            const slug = decodeURIComponent(window.location.pathname.split("/").filter(Boolean).pop() || "").replace(/\\.html$/i, "");
             const product = Array.from(items.values()).find(item => String(item.slug || "") === slug);
+            if (!product || product.active === false) {
+                removeLegacyControls();
+                return;
+            }
+
+            const productId = String(product.id || "").trim();
+            const productName = String(product.product_name || product.name || "Product").trim();
+            const partNumber = String(product.part_number || product.partNumber || "").trim();
+            const brandName = String(product.brand_name || product.brand || "").trim();
+            const quantityControls = document.querySelector(".pdp-qty");
+            const quantityInput = document.getElementById("pdpQty");
+            const minusButton = document.querySelector(".pdp-qty-minus");
+            const plusButton = document.querySelector(".pdp-qty-plus");
+
+            if (quantityControls) quantityControls.setAttribute("data-product-quantity-controls", "");
+            if (quantityInput) {
+                quantityInput.setAttribute("data-product-quantity", "");
+                quantityInput.setAttribute("min", "1");
+                quantityInput.setAttribute("max", String(MAX_QUANTITY));
+                quantityInput.setAttribute("step", "1");
+                quantityInput.setAttribute("inputmode", "numeric");
+            }
+            if (minusButton) minusButton.setAttribute("data-product-qty-decrease", "");
+            if (plusButton) plusButton.setAttribute("data-product-qty-increase", "");
+
             const price = getPrice(product);
-            if (!product || price === null || product.active === false) return;
-            const rfqButton = document.querySelector(".pdp-rfq-btn");
-            if (!rfqButton || document.querySelector(".pdp-add-to-purchase-cart")) return;
-            const button = document.createElement("button");
-            button.type = "button";
-            button.className = "btn btn-secondary add-to-purchase-cart pdp-add-to-purchase-cart";
-            button.dataset.id = String(product.id);
-            button.dataset.part = String(product.part_number || product.partNumber || "");
-            button.dataset.name = String(product.product_name || product.name || "");
-            button.dataset.brand = String(product.brand_name || product.brand || "");
-            button.textContent = LANGUAGE === "hi" ? "कार्ट में जोड़ें" : LANGUAGE === "bn" ? "কার্টে যোগ করুন" : "Add to Cart";
-            button.setAttribute("aria-label", "Add " + String(product.product_name || product.name || "product") + " to cart");
-            rfqButton.insertAdjacentElement("beforebegin", button);
-            // Priced products use the existing PDP quantity selector and purchase cart.
-            // Keep RFQ only for products without a confirmed selling price.
-            rfqButton.remove();
+            const language = LANGUAGE;
+            const addLabel = language === "hi" ? "कार्ट में जोड़ें" : language === "bn" ? "কার্টে যোগ করুন" : "Add to Cart";
+            const requestLabel = language === "hi" ? "पार्ट का अनुरोध" : language === "bn" ? "পার্টের অনুরোধ" : "Request a Part";
+            let replacement;
+
+            if (price !== null && Number.isFinite(price) && price > 0 && productId) {
+                replacement = document.createElement("button");
+                replacement.type = "button";
+                replacement.className = "btn btn-secondary add-to-purchase-cart pdp-add-to-purchase-cart";
+                replacement.dataset.id = productId;
+                replacement.dataset.part = partNumber;
+                replacement.dataset.name = productName;
+                replacement.dataset.brand = brandName;
+                replacement.textContent = addLabel;
+                replacement.setAttribute("aria-label", addLabel + ": " + productName);
+            } else if (productId) {
+                const params = new URLSearchParams();
+                for (const [key, value] of Object.entries({
+                    product_id: productId,
+                    part_number: partNumber,
+                    product_name: productName,
+                    brand: brandName
+                })) {
+                    if (value) params.set(key, value);
+                }
+                replacement = document.createElement("a");
+                replacement.className = "btn btn-primary product-request-part-link pdp-request-part-link";
+                replacement.href = "/" + language + "/request-part" + (params.toString() ? "?" + params.toString() : "");
+                replacement.textContent = requestLabel;
+                replacement.setAttribute("aria-label", requestLabel + ": " + productName);
+            }
+
+            if (replacement) legacyRfqButton.insertAdjacentElement("beforebegin", replacement);
+            removeLegacyControls();
         } catch {
-            // Never block the existing RFQ action because purchase-cart hydration failed.
+            // Fail closed: never leave a retired RFQ-basket action live if catalogue data cannot load.
+            removeLegacyControls();
         }
     }
 
