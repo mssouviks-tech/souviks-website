@@ -117,11 +117,47 @@ async function clickPrimaryLink(page, view, lang, destination) {
     );
   }
 
-  if (!(await link.isVisible())) {
-    throw new Error(
-      (view.isMobile ? "mobile" : "desktop") +
-      " navigation link " + destination + " is not visible after opening its navigation group"
-    );
+  if (view.isMobile) {
+    try {
+      await link.scrollIntoViewIfNeeded();
+      await link.waitFor({ state: "visible", timeout: 8000 });
+    } catch {
+      const visibility = await link.evaluate(el => {
+        const chain = [];
+        let node = el;
+        while (node && chain.length < 6) {
+          const style = getComputedStyle(node);
+          const rect = node.getBoundingClientRect();
+          chain.push({
+            tag: node.tagName,
+            id: node.id || "",
+            className: typeof node.className === "string" ? node.className : "",
+            display: style.display,
+            visibility: style.visibility,
+            opacity: style.opacity,
+            width: Math.round(rect.width),
+            height: Math.round(rect.height),
+            ariaHidden: node.getAttribute("aria-hidden"),
+            hidden: Boolean(node.hidden)
+          });
+          node = node.parentElement;
+        }
+        const nav = document.querySelector("#mainNavigation");
+        return {
+          navigationActive: Boolean(nav?.classList.contains("active")),
+          navigationVisibility: nav ? getComputedStyle(nav).visibility : "missing",
+          navigationAriaHidden: nav?.getAttribute("aria-hidden") || "",
+          ancestorChain: chain
+        };
+      }).catch(error => ({ diagnosticError: String(error) }));
+      throw new Error(
+        "mobile navigation link " + destination +
+        " is not visible after opening its navigation group; visibility=" +
+        JSON.stringify(visibility)
+      );
+    }
+  } else if (!(await link.isVisible())) {
+    throw new Error("desktop navigation link " + destination + " is not visible after opening its navigation group");
   }
 
   // The mobile navigation is allowed to use the History API. In that case
@@ -222,7 +258,7 @@ async function main() {
       await attachPageErrors(page);
       try {
         await goto(page, "/en/products");
-        await page.evaluate(() => localStorage.removeItem("souviks_rfq_guest"));
+        await page.evaluate(() => { localStorage.removeItem("souviks_rfq_guest"); localStorage.removeItem("souviks_purchase_cart_v1"); });
         await page.reload({ waitUntil: "domcontentloaded" });
         await page.waitForTimeout(400);
         assertNoPageErrors(page);
@@ -283,13 +319,32 @@ async function main() {
           const img = document.querySelector("#pdpMainImage");
           return img && img.complete && img.naturalWidth > 0;
         }, null, { timeout: 10000 });
-        const pdpAdd = page.locator(".pdp-rfq-btn");
-        if (!(await pdpAdd.count())) throw new Error("product detail Add to RFQ button is missing");
+        const quantity = page.locator("#pdpQty");
+        await quantity.fill("2");
+        await page.locator(".pdp-qty-plus").click();
+        if (await quantity.inputValue() !== "3") {
+          throw new Error("product detail quantity control did not update to three");
+        }
+
+        // This fixture has a confirmed selling price, so it must use the
+        // purchase cart, not the RFQ basket. The cart module injects the
+        // purchase action after loading the current catalogue data.
+        await page.waitForFunction(
+          () => Boolean(document.querySelector(".pdp-add-to-purchase-cart")),
+          null,
+          { timeout: 10000 }
+        );
+        if (await page.locator(".pdp-rfq-btn").count()) {
+          throw new Error("priced product detail still exposes Add to RFQ");
+        }
+        const pdpAdd = page.locator(".pdp-add-to-purchase-cart");
         await pdpAdd.click();
         await page.waitForFunction(() => {
-          const raw = localStorage.getItem("souviks_rfq_guest");
-          return raw && JSON.parse(raw).length > 0;
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          const items = raw ? JSON.parse(raw) : [];
+          return items.some(item => item.productId === "SVKS000006" && Number(item.quantity) === 3);
         }, null, { timeout: 8000 });
+        assertNoPageErrors(page);
         assertNoPageErrors(page);
       } finally {
         await context.close();
