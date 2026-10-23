@@ -10,6 +10,7 @@
             unavailable: "Delhivery prepaid service is not available for this PIN code.",
             time: "Estimated delivery",
             timeMissing: "Estimated delivery date not available",
+            days: "days",
             price: "Estimated prepaid courier charge",
             weightMissing: "Product weights are not available for every item yet. The Delhivery charge estimate will appear once the stock sheet is updated. Below the free-shipping threshold, checkout needs a shipping quote until then.",
             weightInvalid: "The cart's combined approximate weight is outside the supported range. Please request a shipping quote.",
@@ -25,6 +26,7 @@
             unavailable: "इस पिन कोड पर Delhivery प्रीपेड सेवा उपलब्ध नहीं है।",
             time: "अनुमानित डिलीवरी",
             timeMissing: "अनुमानित डिलीवरी तारीख उपलब्ध नहीं है",
+            days: "दिन",
             price: "अनुमानित प्रीपेड कूरियर शुल्क",
             weightMissing: "अभी सभी उत्पादों के वज़न उपलब्ध नहीं हैं। स्टॉक शीट अपडेट होने के बाद Delhivery शुल्क का अनुमान दिखेगा। तब तक फ्री-शिपिंग सीमा से कम वाले ऑर्डर के लिए शिपिंग कोट आवश्यक है।",
             weightInvalid: "कार्ट का कुल अनुमानित वज़न समर्थित सीमा से बाहर है। शिपिंग कोट माँगें।",
@@ -40,6 +42,7 @@
             unavailable: "এই পিন কোডে Delhivery প্রিপেইড পরিষেবা উপলভ্য নয়।",
             time: "আনুমানিক ডেলিভারি",
             timeMissing: "আনুমানিক ডেলিভারির তারিখ উপলভ্য নয়",
+            days: "দিন",
             price: "আনুমানিক প্রিপেইড কুরিয়ার চার্জ",
             weightMissing: "এখনও সব পণ্যের ওজন উপলভ্য নয়। স্টক শিট আপডেট হলে Delhivery চার্জের হিসাব দেখানো হবে। ততদিন ফ্রি-শিপিং সীমার নিচের অর্ডারের জন্য শিপিং কোট প্রয়োজন।",
             weightInvalid: "কার্টের মোট আনুমানিক ওজন সমর্থিত সীমার বাইরে। শিপিং কোট চাইুন।",
@@ -81,8 +84,7 @@
 
         let timer = null;
         let sequence = 0;
-        let lastSuccess = "";
-
+ 
         function setMessage(message) {
             result.hidden = !message;
             result.textContent = message || "";
@@ -158,8 +160,8 @@
                 }
 
                 const deliveryDate = String(deliveryData.delivery?.estimated_date || "").trim();
-                const deliveryDays = Number(deliveryData.delivery?.tat_days);
-                const eta = deliveryDate || (Number.isFinite(deliveryDays) ? deliveryDays + " days" : T.timeMissing);
+                const deliveryDays = deliveryData.delivery?.tat_days == null ? NaN : Number(deliveryData.delivery.tat_days);
+                const eta = deliveryDate || (Number.isFinite(deliveryDays) ? deliveryDays + " " + T.days : T.timeMissing);
                 let resultHtml =
                     '<p class="delhivery-estimator-success">' + escapeHtml(T.serviceable) + '</p>' +
                     '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.time) + '</span><strong>' + escapeHtml(eta) + '</strong></div>';
@@ -201,7 +203,6 @@
                     '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.price) + '</span><strong>' + escapeHtml(currency(data.shipping.amount)) + '</strong></div>' +
                     '<p class="delhivery-estimator-disclaimer">' + escapeHtml(T.approximate) + '</p>';
                 result.innerHTML = resultHtml;
-                lastSuccess = pin + ":" + weight.grams + ":Pre-paid:E";
             } catch (error) {
                 if (window.SouviksErrors?.log) window.SouviksErrors.log("Delhivery cart shipping estimate failed", error, "warn");
                 if (current === sequence) setMessage(T.failed);
@@ -212,14 +213,12 @@
             if (!isHomeDeliverySelected()) {
                 clearTimeout(timer);
                 sequence += 1;
-                lastSuccess = "";
                 setMessage("");
                 return;
             }
             const pin = String(value || "").replace(/\D/g, "").slice(0, 6);
             clearTimeout(timer);
             sequence += 1;
-            lastSuccess = "";
             if (pinInput.value !== pin) pinInput.value = pin;
             if (pin.length !== 6) { setMessage(""); return; }
             timer = setTimeout(() => { void lookup(pin); }, 400);
@@ -233,7 +232,6 @@
             if (!deliverySelected) {
                 clearTimeout(timer);
                 sequence += 1;
-                lastSuccess = "";
                 setMessage("");
                 return;
             }
