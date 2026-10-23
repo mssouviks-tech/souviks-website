@@ -58,6 +58,60 @@ EXPECTED = {
         "discount_percent": 5,
         "part_number": "820080500",
     },
+    "SVKS000577": {
+        "mrp": 480,
+        "selling_price": 400,
+        "discount_percent": 17,
+        "part_number": "300001215",
+    },
+    "SVKS000578": {
+        "mrp": 510,
+        "selling_price": 435,
+        "discount_percent": 15,
+        "part_number": "300001202",
+    },
+    "SVKS000579": {
+        "mrp": 535,
+        "selling_price": 440,
+        "discount_percent": 18,
+        "part_number": "300001366",
+    },
+    "SVKS000580": {
+        "mrp": 398,
+        "selling_price": 384,
+        "discount_percent": 4,
+        "part_number": "9121400130",
+    },
+    "SVKS000581": {
+        "mrp": 620,
+        "selling_price": 488,
+        "discount_percent": 21,
+        "part_number": "300001185",
+    },
+    "SVKS000582": {
+        "mrp": 540,
+        "selling_price": 450,
+        "discount_percent": 17,
+        "part_number": "300001215",
+    },
+    "SVKS000583": {
+        "mrp": 505,
+        "selling_price": 430,
+        "discount_percent": 15,
+        "part_number": "300001137",
+    },
+    "SVKS000584": {
+        "mrp": 516,
+        "selling_price": 440,
+        "discount_percent": 15,
+        "part_number": "300001458",
+    },
+    "SVKS001017": {
+        "mrp": 610,
+        "selling_price": 480,
+        "discount_percent": 21,
+        "part_number": "300001366",
+    },
 }
 
 EXPECTED_AVAILABILITY_LABELS = {

@@ -179,7 +179,10 @@ def reconcile_catalogue_projections():
             current = by_id.get(pid)
             if not current:
                 raise SystemExit(f"Field update references unknown catalogue product: {pid}")
-            unknown_fields = set(field_update) - {"id", "part_number", "partNumber"}
+            unknown_fields = set(field_update) - {
+                "id", "part_number", "partNumber", "mrp", "selling_price",
+                "discount_percent", "discountPercent",
+            }
             if unknown_fields:
                 raise SystemExit(
                     f"Unsupported catalogue field update for {pid}: {', '.join(sorted(unknown_fields))}"
@@ -194,6 +197,70 @@ def reconcile_catalogue_projections():
                     raise SystemExit(f"Part number update is empty for catalogue product: {pid}")
                 current["part_number"] = part_number
                 current["partNumber"] = part_number
+
+            price_updated = False
+            for price_field in ("mrp", "selling_price"):
+                if price_field not in field_update:
+                    continue
+                try:
+                    amount = float(field_update[price_field])
+                except (TypeError, ValueError):
+                    raise SystemExit(
+                        f"Invalid {price_field} for catalogue product {pid}: {field_update[price_field]!r}"
+                    )
+                if not (amount > 0 and amount < float("inf")):
+                    raise SystemExit(
+                        f"{price_field} must be a finite positive amount for catalogue product {pid}"
+                    )
+                current[price_field] = field_update[price_field]
+                price_updated = True
+
+            discount_field = (
+                "discount_percent" if "discount_percent" in field_update
+                else "discountPercent" if "discountPercent" in field_update
+                else None
+            )
+            if discount_field:
+                try:
+                    discount = float(field_update[discount_field])
+                except (TypeError, ValueError):
+                    raise SystemExit(
+                        f"Invalid discount percentage for catalogue product {pid}: {field_update[discount_field]!r}"
+                    )
+                if not (0 <= discount <= 100 and discount < float("inf")):
+                    raise SystemExit(
+                        f"Discount percentage must be between 0 and 100 for catalogue product {pid}"
+                    )
+                current["discount_percent"] = int(round(discount))
+                current["discountPercent"] = int(round(discount))
+            elif price_updated:
+                try:
+                    mrp = float(current.get("mrp"))
+                    selling_price = float(current.get("selling_price"))
+                except (TypeError, ValueError):
+                    raise SystemExit(
+                        f"Both MRP and selling price are required to calculate discount for {pid}"
+                    )
+                if not (mrp > 0 and mrp < float("inf")):
+                    raise SystemExit(f"MRP must be positive before calculating discount for {pid}")
+                if not (0 <= selling_price <= mrp and selling_price < float("inf")):
+                    raise SystemExit(
+                        f"Selling price must be positive and no greater than MRP for {pid}"
+                    )
+                discount = int(round((mrp - selling_price) / mrp * 100))
+                current["discount_percent"] = discount
+                current["discountPercent"] = discount
+
+            if price_updated and not discount_field:
+                try:
+                    mrp = float(current.get("mrp"))
+                    selling_price = float(current.get("selling_price"))
+                except (TypeError, ValueError):
+                    raise SystemExit(
+                        f"Both MRP and selling price are required for pricing update {pid}"
+                    )
+                if not (0 < selling_price <= mrp):
+                    raise SystemExit(f"Invalid MRP/selling price relationship for {pid}")
 
         for pid, sheet_row in overrides.items():
             current = by_id.get(pid)
