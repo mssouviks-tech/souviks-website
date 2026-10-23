@@ -964,12 +964,7 @@ priceHtml(product) {
 
     }
 
-    bindPdpFastInteractions(product) {
-        const qtyInput=document.getElementById("pdpQty");
-        const minusBtn=document.querySelector(".pdp-qty-minus");
-        const plusBtn=document.querySelector(".pdp-qty-plus");
-        const rfqBtn=document.querySelector(".pdp-rfq-btn");
-        const removeBtn=document.querySelector(".pdp-remove-btn");
+    bindPdpFastInteractions() {
         const bindSlider = (sliderSelector, prevSelector, nextSelector) => {
             const slider = document.querySelector(sliderSelector);
             document.querySelector(prevSelector)?.addEventListener("click", () =>
@@ -981,24 +976,8 @@ priceHtml(product) {
         };
         bindSlider(".pdp-frequent-slider", ".pdp-frequent-prev", ".pdp-frequent-next");
         bindSlider(".pdp-related-slider-main", ".pdp-related-prev-btn", ".pdp-related-next-btn");
-        if(!qtyInput||!rfqBtn||!removeBtn||typeof RFQ==="undefined") return;
-        let inRFQ=false;
-        const markChanged=()=>{if(inRFQ) rfqBtn.textContent="Update RFQ";};
-        minusBtn?.addEventListener("click",()=>{qtyInput.value=Math.max(1,Number(qtyInput.value)-1);markChanged();});
-        plusBtn?.addEventListener("click",()=>{qtyInput.value=Math.max(1,Number(qtyInput.value)+1);markChanged();});
-        qtyInput.addEventListener("input",markChanged);
-        rfqBtn.addEventListener("click",async()=>{
-            const qty=Math.max(1,Number(qtyInput.value)||1);
-            const ok=await RFQ.setQuantity(product.id,{partNumber:product.part_number,name:product.product_name,brand:product.brand_name},qty);
-            if(!ok)return; inRFQ=true; rfqBtn.textContent="Added ✓"; removeBtn.style.display="block";
-        });
-        removeBtn.addEventListener("click",async()=>{
-            await RFQ.remove(product.id); inRFQ=false; qtyInput.value=1; rfqBtn.textContent="Add To RFQ"; removeBtn.style.display="none";
-        });
-        void (async()=>{try{
-            const item=(await RFQ.get()).find(entry=>entry.id===product.id);
-            if(!item)return; inRFQ=true; qtyInput.value=item.qty; rfqBtn.textContent="Added ✓"; removeBtn.style.display="block";
-        }catch(error){SouviksErrors?.log("Souviks RFQ state unavailable:", error, "warn");}})();
+        // Quantity and purchase actions use the shared checkout-cart event delegation.
+        // This method deliberately contains no RFQ-basket controls.
     }
 
     // ======================================================
@@ -1205,6 +1184,54 @@ const vehiclesHtml =
         .map(item => this.card(item))
         .join("");
 
+const pdpLanguage = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+const pdpActionLabels = ({
+    en: { quantity: "Quantity", decrease: "Decrease quantity", increase: "Increase quantity", add: "Add to Cart", request: "Request a Part", unavailable: "Product currently unavailable" },
+    hi: { quantity: "मात्रा", decrease: "मात्रा घटाएँ", increase: "मात्रा बढ़ाएँ", add: "कार्ट में जोड़ें", request: "पार्ट का अनुरोध", unavailable: "उत्पाद अभी उपलब्ध नहीं है" },
+    bn: { quantity: "পরিমাণ", decrease: "পরিমাণ কমান", increase: "পরিমাণ বাড়ান", add: "কার্টে যোগ করুন", request: "পার্টের অনুরোধ", unavailable: "পণ্যটি এখন উপলব্ধ নয়" }
+})[pdpLanguage] || {
+    quantity: "Quantity", decrease: "Decrease quantity", increase: "Increase quantity",
+    add: "Add to Cart", request: "Request a Part", unavailable: "Product currently unavailable"
+};
+const pdpProductId = String(product?.id || "").trim();
+const pdpProductName = String(product?.product_name || product?.name || "Product").trim();
+const pdpPartNumber = String(product?.part_number || product?.partNumber || "").trim();
+const pdpBrandName = String(product?.brand_name || product?.brand || "").trim();
+const pdpSellingPrice = Number(product?.selling_price);
+const pdpPurchasable = Boolean(pdpProductId) && product?.active !== false &&
+    Number.isFinite(pdpSellingPrice) && pdpSellingPrice > 0;
+const pdpRequestParams = new URLSearchParams();
+[
+    ["product_id", pdpProductId],
+    ["part_number", pdpPartNumber],
+    ["product_name", pdpProductName],
+    ["brand", pdpBrandName]
+].forEach(([key, value]) => {
+    if (value) pdpRequestParams.set(key, value);
+});
+const pdpRequestQuery = pdpRequestParams.toString();
+const pdpRequestPartUrl = "/" + pdpLanguage + "/request-part" + (pdpRequestQuery ? "?" + pdpRequestQuery : "");
+const pdpActionHtml = pdpPurchasable
+    ? `
+        <div class="pdp-qty" data-product-quantity-controls aria-label="${pdpActionLabels.quantity}">
+            <button type="button" class="pdp-qty-minus" data-product-qty-decrease aria-label="${Breadcrumb.escape(pdpActionLabels.decrease)}">−</button>
+            <label class="sr-only" for="pdpQty">${Breadcrumb.escape(pdpActionLabels.quantity)}</label>
+            <input id="pdpQty" data-product-quantity type="number" min="1" max="9999" step="1" value="1" inputmode="numeric" aria-label="${Breadcrumb.escape(pdpActionLabels.quantity)}">
+            <button type="button" class="pdp-qty-plus" data-product-qty-increase aria-label="${Breadcrumb.escape(pdpActionLabels.increase)}">+</button>
+        </div>
+        <button type="button" class="btn btn-secondary add-to-purchase-cart pdp-add-to-purchase-cart"
+            data-id="${Breadcrumb.escape(pdpProductId)}"
+            data-part="${Breadcrumb.escape(pdpPartNumber)}"
+            data-name="${Breadcrumb.escape(pdpProductName)}"
+            data-brand="${Breadcrumb.escape(pdpBrandName)}"
+            aria-label="${Breadcrumb.escape(pdpActionLabels.add)}: ${Breadcrumb.escape(pdpProductName)}">${Breadcrumb.escape(pdpActionLabels.add)}</button>
+    `
+    : (pdpProductId && product?.active !== false
+        ? `<a class="btn btn-primary product-request-part-link pdp-request-part-link"
+            href="${Breadcrumb.escape(pdpRequestPartUrl)}"
+            aria-label="${Breadcrumb.escape(pdpActionLabels.request)}: ${Breadcrumb.escape(pdpProductName)}">${Breadcrumb.escape(pdpActionLabels.request)}</a>`
+        : `<span class="pdp-price-label">${Breadcrumb.escape(pdpActionLabels.unavailable)}</span>`);
+
 const galleryHtml = `
 
 <div class="pdp-gallery">
@@ -1364,46 +1391,7 @@ ${galleryHtml}
 </div>
 <div class="pdp-actions">
 
-    <div class="pdp-qty">
-
-        <button
-            type="button"
-            class="pdp-qty-minus">
-
-            −
-
-        </button>
-
-        <input
-            id="pdpQty"
-            type="number"
-            min="1"
-            value="1">
-
-        <button
-            type="button"
-            class="pdp-qty-plus">
-
-            +
-
-        </button>
-
-    </div>
-
-    <button
-        class="btn btn-primary pdp-rfq-btn">
-
-        Add To RFQ
-
-    </button>
-
-    <button
-        class="pdp-remove-btn"
-        style="display:none">
-
-        🗑
-
-    </button>
+    ${pdpActionHtml}
 
 </div>
 
@@ -1740,183 +1728,7 @@ document
         }
     });
 
-/* ==========================================
-   PDP RFQ CONTROLS
-========================================== */
-
-const qtyInput =
-    document.getElementById(
-        "pdpQty"
-    );
-
-const minusBtn =
-    document.querySelector(
-        ".pdp-qty-minus"
-    );
-
-const plusBtn =
-    document.querySelector(
-        ".pdp-qty-plus"
-    );
-
-const rfqBtn =
-    document.querySelector(
-        ".pdp-rfq-btn"
-    );
-
-const removeBtn =
-    document.querySelector(
-        ".pdp-remove-btn"
-    );
-
-
-/*
-----------------------------------------------------------
-LOAD EXISTING RFQ ITEM
-----------------------------------------------------------
-*/
-
-const rfqItems =
-    await RFQ.get();
-
-const rfqItem =
-    rfqItems.find(
-        item =>
-            item.id === product.id
-    );
-
-
-let inRFQ = false;
-let pdpRfqSaving = false;
-
-const setPdpRfqBusy = busy => {
-    pdpRfqSaving = busy;
-    [qtyInput, minusBtn, plusBtn, rfqBtn, removeBtn].forEach(control => {
-        if (!control) return;
-        control.disabled = busy;
-        if (busy) control.setAttribute("aria-busy", "true");
-        else control.removeAttribute("aria-busy");
-    });
-};
-
-const markPdpRfqChanged = () => {
-    if (inRFQ && rfqBtn) rfqBtn.textContent = "Update RFQ";
-};
-
-
-if (
-    rfqItem &&
-    qtyInput &&
-    rfqBtn &&
-    removeBtn
-) {
-
-    inRFQ = true;
-
-    qtyInput.value =
-        rfqItem.qty;
-
-    rfqBtn.textContent =
-        "Added ✓";
-
-    removeBtn.style.display =
-        "block";
-
-}
-
-
-/*
-----------------------------------------------------------
-PDP QUANTITY — MINUS
-----------------------------------------------------------
-*/
-
-minusBtn?.addEventListener("click", () => {
-    if (pdpRfqSaving || !qtyInput) return;
-    qtyInput.value = Math.max(1, (Number(qtyInput.value) || 1) - 1);
-    markPdpRfqChanged();
-});
-
-plusBtn?.addEventListener("click", () => {
-    if (pdpRfqSaving || !qtyInput) return;
-    const max = Number(RFQ.SUBMISSION_LIMITS?.maxQuantity) || 9999;
-    qtyInput.value = Math.min(max, Math.max(1, Number(qtyInput.value) || 1) + 1);
-    markPdpRfqChanged();
-});
-
-
-/*
-----------------------------------------------------------
-PDP QUANTITY — MANUAL INPUT
-----------------------------------------------------------
-*/
-
-qtyInput?.addEventListener("input", markPdpRfqChanged);
-
-
-/*
-----------------------------------------------------------
-PDP — ADD / UPDATE RFQ
-----------------------------------------------------------
-*/
-
-rfqBtn?.addEventListener("click", async () => {
-    if (pdpRfqSaving || !rfqBtn) return;
-    const max = Number(RFQ.SUBMISSION_LIMITS?.maxQuantity) || 9999;
-    const qty = Math.min(max, Math.max(1, Math.floor(Number(qtyInput?.value) || 1)));
-    if (qtyInput) qtyInput.value = String(qty);
-    setPdpRfqBusy(true);
-    try {
-        const added = await RFQ.setQuantity(product.id, {
-            partNumber: product.part_number,
-            name: product.product_name,
-            brand: product.brand_name
-        }, qty);
-        if (added === false) {
-            RFQ.showActionStatus?.(rfqBtn, "addFailed");
-            return;
-        }
-        inRFQ = true;
-        rfqBtn.textContent = "Added ✓";
-        if (removeBtn) removeBtn.style.display = "block";
-        RFQ.showActionStatus?.(rfqBtn, "added", "success");
-    } catch (error) {
-        SouviksErrors?.log("[Souviks PDP] Unable to add/update RFQ item:", error, "error");
-        RFQ.showActionStatus?.(rfqBtn, "addFailed");
-    } finally {
-        setPdpRfqBusy(false);
-    }
-});
-
-
-/*
-----------------------------------------------------------
-PDP — REMOVE FROM RFQ
-----------------------------------------------------------
-*/
-
-removeBtn?.addEventListener("click", async () => {
-    if (pdpRfqSaving || !removeBtn) return;
-    setPdpRfqBusy(true);
-    try {
-        const removed = await RFQ.remove(product.id);
-        if (removed === false || removed === undefined) {
-            RFQ.showActionStatus?.(removeBtn, "removeFailed");
-            return;
-        }
-        inRFQ = false;
-        if (qtyInput) qtyInput.value = "1";
-        if (rfqBtn) rfqBtn.textContent = "Add To RFQ";
-        removeBtn.style.display = "none";
-        RFQ.showActionStatus?.(removeBtn, "removeSuccess", "success");
-    } catch (error) {
-        SouviksErrors?.log("[Souviks PDP] Unable to remove RFQ item:", error, "error");
-        RFQ.showActionStatus?.(removeBtn, "removeFailed");
-    } finally {
-        setPdpRfqBusy(false);
-    }
-});
-
+this.bindPdpFastInteractions();
 
 this.bindGallery(product);
 this.initReviews(product);
