@@ -172,9 +172,13 @@ jobs:
             console.log("Cashfree correctly blocks checkout until live approval. No order or payment was created.");
             process.exit(0);
           }
+          if (status === 503 && payload.code === "payment_provider_not_configured") {
+            console.log("Cashfree is fail-closed because provider credentials/mode are not configured. No order or payment was created; checkout is not payment-ready.");
+            process.exit(0);
+          }
 
           console.error(
-            "Cashfree preflight expected HTTP 400 customer_name_required or HTTP 503 live_checkout_not_approved, but received:",
+            "Cashfree preflight expected HTTP 400 customer_name_required or a recognized safe 503 checkout block, but received:",
             status,
             payload.code || "unknown_error"
           );
