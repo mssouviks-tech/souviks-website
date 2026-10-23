@@ -42,9 +42,6 @@ export function cashfreeConfig(): CashfreeRuntimeConfig {
   if (!clientId || !clientSecret) {
     throw new CheckoutError("payment_provider_not_configured", 503);
   }
-  if (mode === "production" && Deno.env.get("CASHFREE_ENABLE_LIVE_CHECKOUT") !== "true") {
-    throw new CheckoutError("live_checkout_not_approved", 503);
-  }
   let siteUrl = (Deno.env.get("CASHFREE_SITE_URL") || "https://www.souviks.co.in").trim();
   siteUrl = siteUrl.replace(/\/+$/, "");
   try {
@@ -62,6 +59,15 @@ export function cashfreeConfig(): CashfreeRuntimeConfig {
     apiBase: mode === "production" ? "https://api.cashfree.com/pg" : "https://sandbox.cashfree.com/pg",
     siteUrl,
   };
+}
+
+// Only order creation should require explicit live-checkout approval. The
+// verify-order and webhook functions still need the selected environment's
+// credentials to reconcile existing orders and validate signed events.
+export function assertLiveCheckoutApproved(config: CashfreeRuntimeConfig): void {
+  if (config.mode === "production" && Deno.env.get("CASHFREE_ENABLE_LIVE_CHECKOUT") !== "true") {
+    throw new CheckoutError("live_checkout_not_approved", 503);
+  }
 }
 
 export function checkoutPolicy(): CheckoutPolicy {
