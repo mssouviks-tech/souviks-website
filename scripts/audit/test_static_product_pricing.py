@@ -112,6 +112,12 @@ EXPECTED = {
         "discount_percent": 21,
         "part_number": "300001366",
     },
+    "SVKS001012": {
+        "mrp": 2165,
+        "selling_price": 1980,
+        "discount_percent": 9,
+        "part_number": "S114004-000M00",
+    },
 }
 
 EXPECTED_AVAILABILITY_LABELS = {
