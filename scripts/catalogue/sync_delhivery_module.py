@@ -42,6 +42,16 @@ def sync_page(path: Path) -> bool:
     if not is_product and not is_cart:
         return False
 
+    # Keep the Delhivery PIN checker on checkout only. Remove legacy product-page
+    # script/style links from generated product pages rather than re-injecting them.
+    if is_product and not is_cart:
+        updated, _ = SCRIPT_TAG.subn("", source)
+        updated, _ = STYLE_TAG.subn("", updated)
+        if updated != source:
+            path.write_text(updated, encoding="utf-8")
+            return True
+        return False
+
     script_path = CART_SCRIPT if is_cart else PRODUCT_SCRIPT
     script_url = CART_SCRIPT_URL if is_cart else PRODUCT_SCRIPT_URL
     script_tag = f'<script defer src="{script_url}?v={asset_hash(script_path)}"></script>'
