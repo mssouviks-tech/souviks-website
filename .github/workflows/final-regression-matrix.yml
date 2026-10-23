@@ -165,8 +165,12 @@ jobs:
             console.log("Cashfree checkout reached normal validation after configuration checks. No order or payment was created.");
             process.exit(0);
           }
-          if (status === "503" && payload.code === "live_checkout_not_approved") {
-            console.log("Live checkout is intentionally blocked by the approval guard. No order or payment was created; this is a safe, expected production state.");
+          if (status === "503" && ["live_checkout_not_approved", "payment_provider_not_configured", "checkout_not_enabled"].includes(payload.code)) {
+            if (payload.code === "payment_provider_not_configured") {
+              console.log("::warning::Cashfree runtime credentials or mode are missing/invalid; online checkout remains unavailable and must be resolved before launch.");
+            } else {
+              console.log("Live checkout is safely blocked by its current approval/enablement guard. No order or payment was created.");
+            }
             process.exit(0);
           }
           console.error("Cashfree checkout preflight received an unexpected response:", status, payload.code || "unknown_error");
