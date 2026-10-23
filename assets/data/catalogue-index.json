@@ -18777,8 +18777,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
+    "mrp": 1987,
+    "selling_price": 1450,
     "product_name": "UJ Cross 42 x 129",
     "name": "UJ Cross 42 x 129",
     "partNumber": "4054BP2",
@@ -18808,7 +18808,9 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "discount_percent": 27,
+    "discountPercent": 27
   },
   {
     "id": "SVKS000437",
