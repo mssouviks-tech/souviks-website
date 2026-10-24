@@ -2311,6 +2311,10 @@
         "name": "Diesel Cap"
       },
       {
+        "id": "gear-lever-knob",
+        "name": "Gear Lever Knob"
+      },
+      {
         "id": "gasket",
         "name": "Gasket"
       },
@@ -2440,6 +2444,10 @@
       {
         "id": "clutch-disc",
         "name": "Clutch Disc"
+      },
+      {
+        "id": "clutch-facing",
+        "name": "Clutch Facing"
       },
       {
         "id": "clutch-kit",
