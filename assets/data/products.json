@@ -5524,9 +5524,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-kit",
-    "subcategory_name": "Clutch Kit",
-    "subcategory": "Clutch Kit",
+    "subcategory_id": "clutch-assembly",
+    "subcategory_name": "Clutch Assembly",
+    "subcategory": "Clutch Assembly",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -5559,8 +5559,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.387334",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000095",
@@ -5644,9 +5644,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-disc",
-    "subcategory_name": "Clutch Disc",
-    "subcategory": "Clutch Disc",
+    "subcategory_id": "clutch-plate",
+    "subcategory_name": "Clutch Plate",
+    "subcategory": "Clutch Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -5678,8 +5678,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.427681",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000097",
@@ -5703,9 +5703,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-disc",
-    "subcategory_name": "Clutch Disc",
-    "subcategory": "Clutch Disc",
+    "subcategory_id": "clutch-plate",
+    "subcategory_name": "Clutch Plate",
+    "subcategory": "Clutch Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -5737,8 +5737,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.462108",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000098",
@@ -5762,9 +5762,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "subcategory_id": "pressure-plate",
+    "subcategory_name": "Pressure Plate",
+    "subcategory": "Pressure Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -5796,8 +5796,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.495574",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000099",
@@ -5938,12 +5938,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-master-cylinder",
-    "subcategory_name": "Clutch Master Cylinder",
-    "subcategory": "Clutch Master Cylinder",
+    "category_id": "air-system",
+    "category_name": "Air System",
+    "category": "Air System",
+    "subcategory_id": "air-compressor",
+    "subcategory_name": "Air Compressor",
+    "subcategory": "Air Compressor",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -5976,8 +5976,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.561482",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000102",
@@ -5998,12 +5998,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "category_id": "engine-components",
+    "category_name": "Engine Components",
+    "category": "Engine Components",
+    "subcategory_id": "gasket",
+    "subcategory_name": "Gasket",
+    "subcategory": "Gasket",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -6036,8 +6036,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.579789",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000103",
@@ -6238,12 +6238,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-shaft",
-    "subcategory_name": "Clutch Shaft",
-    "subcategory": "Clutch Shaft",
+    "category_id": "engine-components",
+    "category_name": "Engine Components",
+    "category": "Engine Components",
+    "subcategory_id": "engine-mount",
+    "subcategory_name": "Engine Mount",
+    "subcategory": "Engine Mount",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -6276,8 +6276,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.691562",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000107",
@@ -6659,12 +6659,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-repair-kit",
-    "subcategory_name": "Clutch Repair Kit",
-    "subcategory": "Clutch Repair Kit",
+    "category_id": "engine-components",
+    "category_name": "Engine Components",
+    "category": "Engine Components",
+    "subcategory_id": "engine-bushes-synchronizers",
+    "subcategory_name": "Engine Bushes & Synchronizers",
+    "subcategory": "Engine Bushes & Synchronizers",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -6700,8 +6700,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.888628",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000114",
@@ -6722,12 +6722,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "category_id": "engine-components",
+    "category_name": "Engine Components",
+    "category": "Engine Components",
+    "subcategory_id": "gear-top-cover",
+    "subcategory_name": "Gear Top Cover",
+    "subcategory": "Gear Top Cover",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -6761,8 +6761,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.914117",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000115",
@@ -6783,12 +6783,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-repair-kit",
-    "subcategory_name": "Clutch Repair Kit",
-    "subcategory": "Clutch Repair Kit",
+    "category_id": "engine-components",
+    "category_name": "Engine Components",
+    "category": "Engine Components",
+    "subcategory_id": "engine-bushes-synchronizers",
+    "subcategory_name": "Engine Bushes & Synchronizers",
+    "subcategory": "Engine Bushes & Synchronizers",
     "gallery": [
       "1.webp",
       "2.webp"
@@ -6820,8 +6820,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.923715",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000116",
@@ -6842,12 +6842,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-repair-kit",
-    "subcategory_name": "Clutch Repair Kit",
-    "subcategory": "Clutch Repair Kit",
+    "category_id": "engine-components",
+    "category_name": "Engine Components",
+    "category": "Engine Components",
+    "subcategory_id": "engine-bushes-synchronizers",
+    "subcategory_name": "Engine Bushes & Synchronizers",
+    "subcategory": "Engine Bushes & Synchronizers",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -6881,8 +6881,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:23.942735",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000117",
@@ -6962,12 +6962,12 @@
     "brand_id": "tata-genuine-parts",
     "brand_name": "Tata Genuine Parts",
     "brand": "Tata Genuine Parts",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "category_id": "engine-components",
+    "category_name": "Engine Components",
+    "category": "Engine Components",
+    "subcategory_id": "gear-top-cover",
+    "subcategory_name": "Gear Top Cover",
+    "subcategory": "Gear Top Cover",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -7001,8 +7001,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:24.014230",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000119",
@@ -7028,9 +7028,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "subcategory_id": "clutch-master-cylinder",
+    "subcategory_name": "Clutch Master Cylinder",
+    "subcategory": "Clutch Master Cylinder",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -7062,8 +7062,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:24.034230",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000120",
@@ -7261,12 +7261,12 @@
     "brand_id": "tvs-girling",
     "brand_name": "TVS Girling",
     "brand": "TVS Girling",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-repair-kit",
-    "subcategory_name": "Clutch Repair Kit",
-    "subcategory": "Clutch Repair Kit",
+    "category_id": "brakes",
+    "category_name": "Brakes",
+    "category": "Brakes",
+    "subcategory_id": "brake-lining",
+    "subcategory_name": "Brake Lining",
+    "subcategory": "Brake Lining",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -7298,8 +7298,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:24.111810",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000124",
@@ -10608,9 +10608,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-plate",
-    "subcategory_name": "Clutch Plate",
-    "subcategory": "Clutch Plate",
+    "subcategory_id": "clutch-assembly",
+    "subcategory_name": "Clutch Assembly",
+    "subcategory": "Clutch Assembly",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -10642,8 +10642,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:26.001566",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000180",
@@ -10726,9 +10726,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-plate",
-    "subcategory_name": "Clutch Plate",
-    "subcategory": "Clutch Plate",
+    "subcategory_id": "clutch-assembly",
+    "subcategory_name": "Clutch Assembly",
+    "subcategory": "Clutch Assembly",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -10761,8 +10761,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:26.041743",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000182",
@@ -14545,9 +14545,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-spring",
-    "subcategory_name": "Clutch Spring",
-    "subcategory": "Clutch Spring",
+    "subcategory_id": "collector-ring",
+    "subcategory_name": "Collector Ring",
+    "subcategory": "Collector Ring",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -14580,8 +14580,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:27.672908",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000246",
@@ -14605,9 +14605,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-spring",
-    "subcategory_name": "Clutch Spring",
-    "subcategory": "Clutch Spring",
+    "subcategory_id": "collector-ring",
+    "subcategory_name": "Collector Ring",
+    "subcategory": "Collector Ring",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -14639,8 +14639,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:27.694663",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000247",
@@ -22172,12 +22172,12 @@
     "brand_id": "ci",
     "brand_name": "CI",
     "brand": "CI",
-    "category_id": "clutch-parts",
-    "category_name": "Clutch Parts",
-    "category": "Clutch Parts",
-    "subcategory_id": "clutch-lever",
-    "subcategory_name": "Clutch Lever",
-    "subcategory": "Clutch Lever",
+    "category_id": "rubber-parts",
+    "category_name": "Rubber Parts",
+    "category": "Rubber Parts",
+    "subcategory_id": "gear-lever-knob",
+    "subcategory_name": "Gear Lever Knob",
+    "subcategory": "Gear Lever Knob",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -22209,8 +22209,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:30.224973",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000374",
@@ -28972,9 +28972,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29009,8 +29009,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:32.777239",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000487",
@@ -29031,9 +29031,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29068,8 +29068,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:32.822239",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000488",
@@ -29090,9 +29090,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29127,8 +29127,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:32.871669",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000489",
@@ -29149,9 +29149,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29186,8 +29186,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:32.911445",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000490",
@@ -29208,9 +29208,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29245,8 +29245,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:32.944688",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000491",
@@ -29267,9 +29267,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29307,8 +29307,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:32.980863",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000492",
@@ -29329,9 +29329,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29366,8 +29366,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.026573",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000493",
@@ -29388,9 +29388,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29429,8 +29429,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.070041",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000494",
@@ -29451,9 +29451,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29491,8 +29491,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.111369",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000495",
@@ -29513,9 +29513,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29550,8 +29550,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.151694",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000496",
@@ -29572,9 +29572,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29610,8 +29610,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.199737",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000497",
@@ -29632,9 +29632,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29669,8 +29669,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.228599",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000498",
@@ -29691,9 +29691,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29728,8 +29728,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.265970",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000499",
@@ -29750,9 +29750,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29787,8 +29787,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.305536",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000500",
@@ -29809,9 +29809,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29848,8 +29848,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.364669",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000501",
@@ -29870,9 +29870,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29910,8 +29910,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.404934",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000502",
@@ -29932,9 +29932,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -29972,8 +29972,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.441700",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000503",
@@ -29994,9 +29994,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -30032,8 +30032,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.474828",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000504",
@@ -30054,9 +30054,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -30091,8 +30091,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.497950",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000505",
@@ -30113,9 +30113,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -30151,8 +30151,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.543301",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000506",
@@ -30173,12 +30173,12 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
-    "subcategory_id": "taper-roller-bearing",
-    "subcategory_name": "Taper Roller Bearing",
-    "subcategory": "Taper Roller Bearing",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
+    "subcategory_id": "clutch-release-bearing",
+    "subcategory_name": "Clutch Release Bearing",
+    "subcategory": "Clutch Release Bearing",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -30214,8 +30214,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:33.565047",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000507",
@@ -31667,9 +31667,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "collector-ring",
-    "subcategory_name": "Collector Ring",
-    "subcategory": "Collector Ring",
+    "subcategory_id": "clutch-repair-kit",
+    "subcategory_name": "Clutch Repair Kit",
+    "subcategory": "Clutch Repair Kit",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -31703,8 +31703,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:34.380256",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000532",
@@ -31728,9 +31728,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "collector-ring",
-    "subcategory_name": "Collector Ring",
-    "subcategory": "Collector Ring",
+    "subcategory_id": "clutch-repair-kit",
+    "subcategory_name": "Clutch Repair Kit",
+    "subcategory": "Clutch Repair Kit",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -31763,8 +31763,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:34.407461",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000533",
@@ -31788,9 +31788,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "collector-ring",
-    "subcategory_name": "Collector Ring",
-    "subcategory": "Collector Ring",
+    "subcategory_id": "clutch-repair-kit",
+    "subcategory_name": "Clutch Repair Kit",
+    "subcategory": "Clutch Repair Kit",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -31822,8 +31822,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:34.431528",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000534",
@@ -31847,9 +31847,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "collector-ring",
-    "subcategory_name": "Collector Ring",
-    "subcategory": "Collector Ring",
+    "subcategory_id": "clutch-repair-kit",
+    "subcategory_name": "Clutch Repair Kit",
+    "subcategory": "Clutch Repair Kit",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -31881,8 +31881,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:34.457525",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000535",
@@ -31906,9 +31906,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "collector-ring",
-    "subcategory_name": "Collector Ring",
-    "subcategory": "Collector Ring",
+    "subcategory_id": "clutch-repair-kit",
+    "subcategory_name": "Clutch Repair Kit",
+    "subcategory": "Clutch Repair Kit",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -31940,8 +31940,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:34.481573",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000536",
@@ -32257,9 +32257,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -32294,8 +32294,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:34.677517",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000542",
@@ -32316,9 +32316,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -32353,8 +32353,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:34.701519",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000543",
@@ -44741,9 +44741,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "subcategory_id": "pressure-plate",
+    "subcategory_name": "Pressure Plate",
+    "subcategory": "Pressure Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -44776,8 +44776,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:38.218948",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000752",
@@ -44974,9 +44974,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-disc",
-    "subcategory_name": "Clutch Disc",
-    "subcategory": "Clutch Disc",
+    "subcategory_id": "clutch-plate",
+    "subcategory_name": "Clutch Plate",
+    "subcategory": "Clutch Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -45007,8 +45007,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:38.274670",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000756",
@@ -47407,9 +47407,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "subcategory_id": "pressure-plate",
+    "subcategory_name": "Pressure Plate",
+    "subcategory": "Pressure Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -47441,8 +47441,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:38.978861",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000797",
@@ -47525,9 +47525,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-kit",
-    "subcategory_name": "Clutch Kit",
-    "subcategory": "Clutch Kit",
+    "subcategory_id": "clutch-assembly",
+    "subcategory_name": "Clutch Assembly",
+    "subcategory": "Clutch Assembly",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -47559,8 +47559,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:39.022895",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000799",
@@ -47643,9 +47643,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-kit",
-    "subcategory_name": "Clutch Kit",
-    "subcategory": "Clutch Kit",
+    "subcategory_id": "clutch-assembly",
+    "subcategory_name": "Clutch Assembly",
+    "subcategory": "Clutch Assembly",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -47677,8 +47677,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:39.060492",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000801",
@@ -47702,9 +47702,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "subcategory_id": "pressure-plate",
+    "subcategory_name": "Pressure Plate",
+    "subcategory": "Pressure Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -47736,8 +47736,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:39.079971",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000802",
@@ -47761,9 +47761,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "subcategory_id": "pressure-plate",
+    "subcategory_name": "Pressure Plate",
+    "subcategory": "Pressure Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -47795,8 +47795,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:39.097990",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000803",
@@ -49188,9 +49188,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-disc",
-    "subcategory_name": "Clutch Disc",
-    "subcategory": "Clutch Disc",
+    "subcategory_id": "clutch-facing",
+    "subcategory_name": "Clutch Facing",
+    "subcategory": "Clutch Facing",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -49222,8 +49222,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:39.541383",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000827",
@@ -49603,9 +49603,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-release-bearing",
-    "subcategory_name": "Clutch Release Bearing",
-    "subcategory": "Clutch Release Bearing",
+    "subcategory_id": "clutch-plate",
+    "subcategory_name": "Clutch Plate",
+    "subcategory": "Clutch Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -49637,8 +49637,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:39.681488",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000834",
@@ -49662,9 +49662,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-release-bearing",
-    "subcategory_name": "Clutch Release Bearing",
-    "subcategory": "Clutch Release Bearing",
+    "subcategory_id": "clutch-plate",
+    "subcategory_name": "Clutch Plate",
+    "subcategory": "Clutch Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -49696,8 +49696,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:39.681488",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000835",
@@ -49721,9 +49721,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-release-bearing",
-    "subcategory_name": "Clutch Release Bearing",
-    "subcategory": "Clutch Release Bearing",
+    "subcategory_id": "pressure-plate",
+    "subcategory_name": "Pressure Plate",
+    "subcategory": "Pressure Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -49755,8 +49755,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:39.682488",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000836",
@@ -56565,9 +56565,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-cover",
-    "subcategory_name": "Clutch Cover",
-    "subcategory": "Clutch Cover",
+    "subcategory_id": "pressure-plate",
+    "subcategory_name": "Pressure Plate",
+    "subcategory": "Pressure Plate",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -56599,8 +56599,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:41.206549",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS000951",
@@ -59580,9 +59580,9 @@
     "brand_id": "texspin",
     "brand_name": "Texspin",
     "brand": "Texspin",
-    "category_id": "bearings",
-    "category_name": "Bearings",
-    "category": "Bearings",
+    "category_id": "clutch-parts",
+    "category_name": "Clutch Parts",
+    "category": "Clutch Parts",
     "subcategory_id": "clutch-release-bearing",
     "subcategory_name": "Clutch Release Bearing",
     "subcategory": "Clutch Release Bearing",
@@ -59617,8 +59617,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:41.979727",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS001003",
@@ -59879,9 +59879,9 @@
     "category_id": "clutch-parts",
     "category_name": "Clutch Parts",
     "category": "Clutch Parts",
-    "subcategory_id": "clutch-servo",
-    "subcategory_name": "Clutch Servo",
-    "subcategory": "Clutch Servo",
+    "subcategory_id": "clutch-booster",
+    "subcategory_name": "Clutch Booster",
+    "subcategory": "Clutch Booster",
     "gallery": [
       "1.webp",
       "2.webp",
@@ -59913,8 +59913,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:42.059523",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30"
+    "updated_at": "2026-10-24",
+    "catalogue_updated_at": "2026-10-24"
   },
   {
     "id": "SVKS001008",

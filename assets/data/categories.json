@@ -432,8 +432,8 @@
       400
     ],
     "banner": "",
-    "description": "Air System covers 79 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
-    "short_description": "Air System: 79 active parts across Air Compressor, Air Dryer, Air Repair Kit, Air Spring and more.",
+    "description": "Air System covers 80 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
+    "short_description": "Air System: 80 active parts across Air Compressor, Air Dryer, Air Repair Kit, Air Spring and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -475,6 +475,10 @@
         "name": "Rider"
       },
       {
+        "id": "tata-genuine-parts",
+        "name": "Tata Genuine Parts"
+      },
+      {
         "id": "tvs-girling",
         "name": "TVS Girling"
       },
@@ -493,7 +497,9 @@
       "Eicher Pro Series",
       "Tata 1109",
       "Tata 709",
+      "Tata Ace",
       "Tata LPT",
+      "Tata Magic",
       "Tata Prima",
       "Tata Signa",
       "Universal"
@@ -535,6 +541,7 @@
       "SVKS000087",
       "SVKS000088",
       "SVKS000092",
+      "SVKS000101",
       "SVKS000155",
       "SVKS000156",
       "SVKS000157",
@@ -589,12 +596,12 @@
       "SVKS001022",
       "SVKS001023"
     ],
-    "product_count": 79,
+    "product_count": 80,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Air System Parts | Souviks",
-      "description": "Air System covers 79 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
+      "description": "Air System covers 80 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
       "keywords": [
         "Air System",
         "commercial vehicle spare parts",
@@ -1662,8 +1669,8 @@
       400
     ],
     "banner": "",
-    "description": "Brakes covers 58 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland U-Truck, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc, Brake Drum and more and brands including AMW, ASK, Compo, Fleetguard, JMP and more.",
-    "short_description": "Brakes: 58 active parts across Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc and more.",
+    "description": "Brakes covers 59 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland U-Truck, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc, Brake Drum and more and brands including AMW, ASK, Compo, Fleetguard, JMP and more.",
+    "short_description": "Brakes: 59 active parts across Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -1795,6 +1802,7 @@
       "SVKS000120",
       "SVKS000121",
       "SVKS000122",
+      "SVKS000123",
       "SVKS000177",
       "SVKS000178",
       "SVKS000187",
@@ -1848,12 +1856,12 @@
       "SVKS001018",
       "SVKS001021"
     ],
-    "product_count": 58,
+    "product_count": 59,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Brakes Parts | Souviks",
-      "description": "Brakes covers 58 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland U-Truck, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc, Brake Drum and more and brands including AMW, ASK, Compo, Fleetguard, JMP and more.",
+      "description": "Brakes covers 59 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Ashok Leyland U-Truck, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Air Spring, Brake Anchor Pin, Brake Chamber, Brake Disc, Brake Drum and more and brands including AMW, ASK, Compo, Fleetguard, JMP and more.",
       "keywords": [
         "Brakes",
         "commercial vehicle spare parts",
@@ -1877,8 +1885,8 @@
       400
     ],
     "banner": "",
-    "description": "Engine Components covers 43 active commercial-vehicle spare parts used across Ashok Leyland 2516, Mahindra Blazo, Mahindra Bolero MaXX Pik-Up, Mahindra Bolero Pik-Up, Tata 1109 and more. The category includes subcategories such as Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket, Gear Top Cover and more and brands including BIR, Fenner, KFL, Leyparts, Pix and more.",
-    "short_description": "Engine Components: 43 active parts across Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket and more.",
+    "description": "Engine Components covers 50 active commercial-vehicle spare parts used across Ashok Leyland 2516, Mahindra Blazo, Mahindra Bolero MaXX Pik-Up, Mahindra Bolero Pik-Up, Tata 1109 and more. The category includes subcategories such as Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket, Gear Top Cover and more and brands including BIR, Fenner, KFL, Leyparts, Pix and more.",
+    "short_description": "Engine Components: 50 active parts across Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -1979,7 +1987,14 @@
       "SVKS000063",
       "SVKS000099",
       "SVKS000100",
+      "SVKS000102",
       "SVKS000103",
+      "SVKS000106",
+      "SVKS000113",
+      "SVKS000114",
+      "SVKS000115",
+      "SVKS000116",
+      "SVKS000118",
       "SVKS000229",
       "SVKS000285",
       "SVKS000286",
@@ -2020,12 +2035,12 @@
       "SVKS001029",
       "SVKS001112"
     ],
-    "product_count": 43,
+    "product_count": 50,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Engine Components Parts | Souviks",
-      "description": "Engine Components covers 43 active commercial-vehicle spare parts used across Ashok Leyland 2516, Mahindra Blazo, Mahindra Bolero MaXX Pik-Up, Mahindra Bolero Pik-Up, Tata 1109 and more. The category includes subcategories such as Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket, Gear Top Cover and more and brands including BIR, Fenner, KFL, Leyparts, Pix and more.",
+      "description": "Engine Components covers 50 active commercial-vehicle spare parts used across Ashok Leyland 2516, Mahindra Blazo, Mahindra Bolero MaXX Pik-Up, Mahindra Bolero Pik-Up, Tata 1109 and more. The category includes subcategories such as Accelerator Cable, Engine Bushes & Synchronizers, Engine Mount, Gasket, Gear Top Cover and more and brands including BIR, Fenner, KFL, Leyparts, Pix and more.",
       "keywords": [
         "Engine Components",
         "commercial vehicle spare parts",
@@ -2049,8 +2064,8 @@
       400
     ],
     "banner": "",
-    "description": "Bearings covers 101 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Eicher 1110 and more. The category includes subcategories such as Ball Bearings, Center Bearing, Clutch Release Bearing, Hub Units & Wheel Bearings, Kingpin Bearings and more and brands including ABC, KFL, NBC, Rane, Rider and more.",
-    "short_description": "Bearings: 101 active parts across Ball Bearings, Center Bearing, Clutch Release Bearing, Hub Units & Wheel Bearings and more.",
+    "description": "Bearings covers 77 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Eicher 1110, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Ball Bearings, Center Bearing, Hub Units & Wheel Bearings, Kingpin Bearings, Taper Roller Bearing and more and brands including ABC, KFL, NBC, Rane, Rider and more.",
+    "short_description": "Bearings: 77 active parts across Ball Bearings, Center Bearing, Hub Units & Wheel Bearings, Kingpin Bearings and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -2060,10 +2075,6 @@
       {
         "id": "center-bearing",
         "name": "Center Bearing"
-      },
-      {
-        "id": "clutch-release-bearing",
-        "name": "Clutch Release Bearing"
       },
       {
         "id": "hub-units-wheel-bearings",
@@ -2122,9 +2133,7 @@
     ],
     "vehicles": [
       "Ashok Leyland 2516",
-      "Ashok Leyland Boss",
       "Ashok Leyland Captain",
-      "Ashok Leyland Ecomet",
       "Eicher 1110",
       "Eicher Pro Series",
       "Tata 1109",
@@ -2172,27 +2181,6 @@
       "SVKS000427",
       "SVKS000440",
       "SVKS000443",
-      "SVKS000486",
-      "SVKS000487",
-      "SVKS000488",
-      "SVKS000489",
-      "SVKS000490",
-      "SVKS000491",
-      "SVKS000492",
-      "SVKS000493",
-      "SVKS000494",
-      "SVKS000495",
-      "SVKS000496",
-      "SVKS000497",
-      "SVKS000498",
-      "SVKS000499",
-      "SVKS000500",
-      "SVKS000501",
-      "SVKS000502",
-      "SVKS000503",
-      "SVKS000504",
-      "SVKS000505",
-      "SVKS000506",
       "SVKS000507",
       "SVKS000508",
       "SVKS000509",
@@ -2220,8 +2208,6 @@
       "SVKS000538",
       "SVKS000539",
       "SVKS000540",
-      "SVKS000541",
-      "SVKS000542",
       "SVKS000543",
       "SVKS000544",
       "SVKS000545",
@@ -2247,7 +2233,6 @@
       "SVKS000996",
       "SVKS001000",
       "SVKS001001",
-      "SVKS001002",
       "SVKS001003",
       "SVKS001047",
       "SVKS001048",
@@ -2265,12 +2250,12 @@
       "SVKS001060",
       "SVKS001061"
     ],
-    "product_count": 101,
+    "product_count": 77,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Bearings Parts | Souviks",
-      "description": "Bearings covers 101 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Captain, Ashok Leyland Ecomet, Eicher 1110 and more. The category includes subcategories such as Ball Bearings, Center Bearing, Clutch Release Bearing, Hub Units & Wheel Bearings, Kingpin Bearings and more and brands including ABC, KFL, NBC, Rane, Rider and more.",
+      "description": "Bearings covers 77 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Captain, Eicher 1110, Eicher Pro Series, Tata 1109 and more. The category includes subcategories such as Ball Bearings, Center Bearing, Hub Units & Wheel Bearings, Kingpin Bearings, Taper Roller Bearing and more and brands including ABC, KFL, NBC, Rane, Rider and more.",
       "keywords": [
         "Bearings",
         "commercial vehicle spare parts",
@@ -2294,8 +2279,8 @@
       400
     ],
     "banner": "",
-    "description": "Rubber Parts covers 19 active commercial-vehicle spare parts used across Ashok Leyland 2516, Tata 2416, Tata Ace, Tata LPT, Tata Magic and more. The category includes subcategories such as Brake Pipe, DEF Tank Cap, Diesel Cap, Gasket, O Ring and more and brands including CI, JMP, Leyparts, Rider, Tata Genuine Parts and more.",
-    "short_description": "Rubber Parts: 19 active parts across Brake Pipe, DEF Tank Cap, Diesel Cap, Gasket and more.",
+    "description": "Rubber Parts covers 20 active commercial-vehicle spare parts used across Ashok Leyland 2516, Tata 2416, Tata Ace, Tata LPT, Tata Magic and more. The category includes subcategories such as Brake Pipe, DEF Tank Cap, Diesel Cap, Gasket, Gear Lever Knob and more and brands including CI, JMP, Leyparts, Rider, Tata Genuine Parts and more.",
+    "short_description": "Rubber Parts: 20 active parts across Brake Pipe, DEF Tank Cap, Diesel Cap, Gasket and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -2311,12 +2296,12 @@
         "name": "Diesel Cap"
       },
       {
-        "id": "gear-lever-knob",
-        "name": "Gear Lever Knob"
-      },
-      {
         "id": "gasket",
         "name": "Gasket"
+      },
+      {
+        "id": "gear-lever-knob",
+        "name": "Gear Lever Knob"
       },
       {
         "id": "o-ring",
@@ -2385,6 +2370,7 @@
       "SVKS000242",
       "SVKS000253",
       "SVKS000331",
+      "SVKS000373",
       "SVKS000460",
       "SVKS000576",
       "SVKS000753",
@@ -2396,12 +2382,12 @@
       "SVKS000830",
       "SVKS000831"
     ],
-    "product_count": 19,
+    "product_count": 20,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Rubber Parts Parts | Souviks",
-      "description": "Rubber Parts covers 19 active commercial-vehicle spare parts used across Ashok Leyland 2516, Tata 2416, Tata Ace, Tata LPT, Tata Magic and more. The category includes subcategories such as Brake Pipe, DEF Tank Cap, Diesel Cap, Gasket, O Ring and more and brands including CI, JMP, Leyparts, Rider, Tata Genuine Parts and more.",
+      "description": "Rubber Parts covers 20 active commercial-vehicle spare parts used across Ashok Leyland 2516, Tata 2416, Tata Ace, Tata LPT, Tata Magic and more. The category includes subcategories such as Brake Pipe, DEF Tank Cap, Diesel Cap, Gasket, Gear Lever Knob and more and brands including CI, JMP, Leyparts, Rider, Tata Genuine Parts and more.",
       "keywords": [
         "Rubber Parts",
         "commercial vehicle spare parts",
@@ -2425,8 +2411,8 @@
       400
     ],
     "banner": "",
-    "description": "Clutch Parts covers 90 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Ecomet, Ashok Leyland Stallion, Eicher Pro Series and more. The category includes subcategories such as Clutch Assembly, Clutch Booster, Clutch Cover, Clutch Disc, Clutch Kit and more and brands including BGL, CI, Leyparts, MEI, MSL and more.",
-    "short_description": "Clutch Parts: 90 active parts across Clutch Assembly, Clutch Booster, Clutch Cover, Clutch Disc and more.",
+    "description": "Clutch Parts covers 104 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Ecomet, Ashok Leyland Stallion, Eicher Pro Series and more. The category includes subcategories such as Clutch Assembly, Clutch Booster, Clutch Facing, Clutch Lever, Clutch Master Cylinder and more and brands including BGL, Leyparts, MEI, MSL, Meritor and more.",
+    "short_description": "Clutch Parts: 104 active parts across Clutch Assembly, Clutch Booster, Clutch Facing, Clutch Lever and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -2438,20 +2424,8 @@
         "name": "Clutch Booster"
       },
       {
-        "id": "clutch-cover",
-        "name": "Clutch Cover"
-      },
-      {
-        "id": "clutch-disc",
-        "name": "Clutch Disc"
-      },
-      {
         "id": "clutch-facing",
         "name": "Clutch Facing"
-      },
-      {
-        "id": "clutch-kit",
-        "name": "Clutch Kit"
       },
       {
         "id": "clutch-lever",
@@ -2472,14 +2446,6 @@
       {
         "id": "clutch-repair-kit",
         "name": "Clutch Repair Kit"
-      },
-      {
-        "id": "clutch-servo",
-        "name": "Clutch Servo"
-      },
-      {
-        "id": "clutch-shaft",
-        "name": "Clutch Shaft"
       },
       {
         "id": "clutch-slave-cylinder",
@@ -2506,10 +2472,6 @@
       {
         "id": "bgl",
         "name": "BGL"
-      },
-      {
-        "id": "ci",
-        "name": "CI"
       },
       {
         "id": "leyparts",
@@ -2583,16 +2545,7 @@
       "SVKS000096",
       "SVKS000097",
       "SVKS000098",
-      "SVKS000101",
-      "SVKS000102",
-      "SVKS000106",
-      "SVKS000113",
-      "SVKS000114",
-      "SVKS000115",
-      "SVKS000116",
-      "SVKS000118",
       "SVKS000119",
-      "SVKS000123",
       "SVKS000145",
       "SVKS000146",
       "SVKS000179",
@@ -2607,7 +2560,6 @@
       "SVKS000246",
       "SVKS000248",
       "SVKS000364",
-      "SVKS000373",
       "SVKS000429",
       "SVKS000442",
       "SVKS000448",
@@ -2627,6 +2579,27 @@
       "SVKS000483",
       "SVKS000484",
       "SVKS000485",
+      "SVKS000486",
+      "SVKS000487",
+      "SVKS000488",
+      "SVKS000489",
+      "SVKS000490",
+      "SVKS000491",
+      "SVKS000492",
+      "SVKS000493",
+      "SVKS000494",
+      "SVKS000495",
+      "SVKS000496",
+      "SVKS000497",
+      "SVKS000498",
+      "SVKS000499",
+      "SVKS000500",
+      "SVKS000501",
+      "SVKS000502",
+      "SVKS000503",
+      "SVKS000504",
+      "SVKS000505",
+      "SVKS000506",
       "SVKS000531",
       "SVKS000532",
       "SVKS000533",
@@ -2634,6 +2607,8 @@
       "SVKS000535",
       "SVKS000536",
       "SVKS000537",
+      "SVKS000541",
+      "SVKS000542",
       "SVKS000751",
       "SVKS000755",
       "SVKS000796",
@@ -2667,14 +2642,15 @@
       "SVKS000997",
       "SVKS000998",
       "SVKS000999",
+      "SVKS001002",
       "SVKS001007"
     ],
-    "product_count": 90,
+    "product_count": 104,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Clutch Parts Parts | Souviks",
-      "description": "Clutch Parts covers 90 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Ecomet, Ashok Leyland Stallion, Eicher Pro Series and more. The category includes subcategories such as Clutch Assembly, Clutch Booster, Clutch Cover, Clutch Disc, Clutch Kit and more and brands including BGL, CI, Leyparts, MEI, MSL and more.",
+      "description": "Clutch Parts covers 104 active commercial-vehicle spare parts used across Ashok Leyland 2516, Ashok Leyland Boss, Ashok Leyland Ecomet, Ashok Leyland Stallion, Eicher Pro Series and more. The category includes subcategories such as Clutch Assembly, Clutch Booster, Clutch Facing, Clutch Lever, Clutch Master Cylinder and more and brands including BGL, Leyparts, MEI, MSL, Meritor and more.",
       "keywords": [
         "Clutch Parts",
         "commercial vehicle spare parts",

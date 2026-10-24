@@ -4432,7 +4432,7 @@
       "TX-330-CRK7-4LB-A",
       "Texspin",
       "Clutch Parts",
-      "Collector Ring",
+      "Clutch Repair Kit",
       "Texspin 330-4L major lever kit for Sonalika 740 – bush type (Part No. TX-330-CRK7-4LB-A) is listed in Souviks' Collector Ring range within Clutch Parts. Vehicle references: Tata 1210, Tata 1312.",
       "Tata 1210",
       "Tata 1312"
@@ -4477,7 +4477,7 @@
       "AP-00330061L9527-0R",
       "Setco",
       "Clutch Parts",
-      "Clutch Cover",
+      "Pressure Plate",
       "The Setco AP-00330061L9527-0R 330Dia Clutch Cover Assy BS VI Diaphragm clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated.",
       "Universal"
     ],
@@ -4903,7 +4903,7 @@
       "183-AP-00380061L1019-3R",
       "Setco",
       "Clutch Parts",
-      "Clutch Cover",
+      "Pressure Plate",
       "The Setco 183-AP-00380061L1019-3R 380Dia Cover Assy. Low Mi clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated.",
       "Universal"
     ],
@@ -4946,7 +4946,7 @@
       "380019-L1013-5R",
       "Setco",
       "Clutch Parts",
-      "Clutch Kit",
+      "Clutch Assembly",
       "The Setco 380019-L1013-5R 380Dia Clutch Set combines the clutch components identified in the product title to connect and disconnect engine torque from the transmission. Vehicle applications include Tata Signa.",
       "Tata Signa"
     ],
@@ -5118,7 +5118,7 @@
       "4648R",
       "Setco",
       "Clutch Parts",
-      "Clutch Cover",
+      "Pressure Plate",
       "The Setco 4648R 395 Dia Eicher Cover Assy clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. Vehicle applications include Eicher Pro Series.",
       "Eicher Pro Series"
     ],
@@ -5424,7 +5424,7 @@
       "183F-ST-000LP41600070-0R",
       "Setco",
       "Clutch Parts",
-      "Clutch Kit",
+      "Clutch Assembly",
       "The Setco 183F-ST-000LP41600070-0R 430 Dia Clutch Set combines the clutch components identified in the product title to connect and disconnect engine torque from the transmission.",
       "Universal"
     ],
@@ -5552,7 +5552,7 @@
       "430 dia. 2.0 inch spline for Tata Prima/Eicher Pro-8000 (self-centering)",
       "TX-7896 SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-7896 SC 430 dia. 2.0 inch spline for Tata Prima/Eicher Pro-8000 (self-centering) transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Eicher Pro Series.",
       "Tata Prima",
@@ -5575,8 +5575,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -9485,7 +9485,7 @@
       "Ashok Leyland 1.75 inch, 25 ton to 31 ton, 15\" RDC 2095 GB & 850 OD gearbox, FVB00700",
       "TX-6698 SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-6698 SC Ashok Leyland 1.75 inch, 25 ton to 31 ton, 15\" RDC 2095 GB & 850 OD gearbox, FVB00700 transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
       "Ashok Leyland 2516"
@@ -9506,8 +9506,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -9528,7 +9528,7 @@
       "Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck",
       "TX-6695SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-6695SC Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland Boss and Ashok Leyland 2516.",
       "Ashok Leyland Boss",
@@ -9551,8 +9551,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -9616,7 +9616,7 @@
       "Ashok Leyland clutch bearing (280–300 dia./Ecomet) with hub",
       "TX-92AL-H",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-92AL-H Ashok Leyland clutch bearing (280–300 dia./Ecomet) with hub supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Ashok Leyland Ecomet.",
       "Ashok Leyland Ecomet"
@@ -9637,8 +9637,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -9659,7 +9659,7 @@
       "Ashok Leyland Taurus with hub (bearing no. TX-27D-1511)",
       "TX-27WH (O-1511)",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-27WH (O-1511) Ashok Leyland Taurus with hub (bearing no. TX-27D-1511) supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Tractors.",
       "Tractors"
@@ -9680,8 +9680,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -9702,7 +9702,7 @@
       "Ashok Leyland Taurus with hub (bearing no. TX-27D-1511)",
       "27WH",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin 27WH Ashok Leyland Taurus with hub (bearing no. TX-27D-1511) supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Tractors.",
       "Tractors"
@@ -9723,8 +9723,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -9746,7 +9746,7 @@
       "272425000134",
       "Tata Genuine Parts",
       "Clutch Parts",
-      "Clutch Kit",
+      "Clutch Assembly",
       "The Tata Genuine Parts 272425000134 Assy. Clutch Disc and Cover 200 provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Ace and Tata Magic.",
       "Tata Ace",
       "Tata Magic"
@@ -9790,8 +9790,8 @@
       "Assy. Crankshaft Gear",
       "279005110107",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Shaft",
+      "Engine Components",
+      "Engine Mount",
       "The Tata Genuine Parts 279005110107 Assy. Crankshaft Gear transmits rotation from the crankshaft to the connected engine timing or drive gear train. Vehicle applications include Tata Ace and Tata Magic.",
       "Tata Ace",
       "Tata Magic"
@@ -9813,8 +9813,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "engine-components",
+      "name": "Engine Components"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -9835,8 +9835,8 @@
       "Assy. Cylinder Head Cover Comp. BS 2/3/4",
       "278801150104",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Master Cylinder",
+      "Air System",
+      "Air Compressor",
       "The Tata Genuine Parts 278801150104 Assy. Cylinder Head Cover Comp. BS 2/3/4 covers the upper cylinder-head area, helping protect the rocker-arm and valve-train components and retain engine oil within the upper engine assembly. Vehicle applications include ['Tata Ace', 'Tata Magic'].",
       "Tata Ace",
       "Tata Magic"
@@ -9858,8 +9858,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "air-system",
+      "name": "Air System"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -10015,8 +10015,8 @@
       "Assy. Top Cover BS 2/3/4",
       "285126700112",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Cover",
+      "Engine Components",
+      "Gear Top Cover",
       "The Tata Genuine Parts 285126700112 Assy. Top Cover BS 2/3/4 forms the upper cover of the manual transmission and houses the gear-selector and shift-control components used to operate the gearbox. Vehicle applications include ['Tata 1109', 'Tata 1210', 'Tata 1312'].",
       "Tata 1109",
       "Tata 1210",
@@ -10040,8 +10040,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "engine-components",
+      "name": "Engine Components"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -10062,8 +10062,8 @@
       "Assy. Top Cover BS 2/3/4",
       "285126700124",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Cover",
+      "Engine Components",
+      "Gear Top Cover",
       "The Tata Genuine Parts 285126700124 Assy. Top Cover BS 2/3/4 forms the upper cover of the manual transmission and houses the gear-selector and shift-control components used to operate the gearbox. Vehicle applications include ['Tata 1109', 'Tata 1210', 'Tata 1312'].",
       "Tata 1109",
       "Tata 1210",
@@ -10087,8 +10087,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "engine-components",
+      "name": "Engine Components"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -15184,7 +15184,7 @@
       "B1M03401",
       "Leyparts",
       "Clutch Parts",
-      "Clutch Cover",
+      "Pressure Plate",
       "The Leyparts B1M03401 Cl. Cover 33cm Diaphragm clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. Vehicle applications include Ashok Leyland Ecomet, Ashok Leyland Boss and Ashok Leyland Stallion.",
       "Ashok Leyland Ecomet",
       "Ashok Leyland Boss",
@@ -15231,7 +15231,7 @@
       "FAT02000",
       "Leyparts",
       "Clutch Parts",
-      "Clutch Disc",
+      "Clutch Plate",
       "The Leyparts FAT02000 Cl. Disc. 33cm Dia Diaph B8090 1.38SPL - 1cm provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Ashok Leyland Ecomet.",
       "Ashok Leyland Ecomet"
     ],
@@ -15273,7 +15273,7 @@
       "Clutch bearing for Tata Signa BS6 GB75 next-generation bearing",
       "TX-6646 SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-6646 SC Clutch bearing for Tata Signa BS6 GB75 next-generation bearing supports relative rotation between connected parts and reduces friction in the rotating assembly.",
       "Tata Signa"
@@ -15294,8 +15294,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -15317,7 +15317,7 @@
       "29050626",
       "TVS Girling",
       "Clutch Parts",
-      "Clutch Servo",
+      "Clutch Booster",
       "The TVS Girling 29050626 Clutch Booster Assy 4\" 16mm (Ball End) assists clutch actuation by increasing the force available to operate the clutch-release mechanism.",
       "Universal"
     ],
@@ -15450,7 +15450,7 @@
       "272425400235",
       "Tata Genuine Parts",
       "Clutch Parts",
-      "Clutch Cover",
+      "Pressure Plate",
       "The Tata Genuine Parts 272425400235 Clutch Cover Assy. Dia 215 BS6 clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. The specified clutch diameter is 215 mm. Vehicle applications include Tata Intra.",
       "Tata Intra"
     ],
@@ -15493,7 +15493,7 @@
       "272425000235",
       "Tata Genuine Parts",
       "Clutch Parts",
-      "Clutch Disc",
+      "Clutch Plate",
       "The Tata Genuine Parts 272425000235 Clutch Disc Assy. (Dia 275) BS6 provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Intra.",
       "Tata Intra"
     ],
@@ -15536,7 +15536,7 @@
       "272425200235",
       "Tata Genuine Parts",
       "Clutch Parts",
-      "Clutch Disc",
+      "Clutch Plate",
       "The Tata Genuine Parts 272425200235 Clutch Disc Dia 215 BS6 provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. The specified clutch diameter is 215 mm. Vehicle applications include Tata Intra.",
       "Tata Intra"
     ],
@@ -15579,7 +15579,7 @@
       "886725000020",
       "Tata Genuine Parts",
       "Clutch Parts",
-      "Clutch Disc",
+      "Clutch Facing",
       "The Tata Genuine Parts 886725000020 Clutch Facing 380 Dia with Rivets provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata LPT.",
       "Tata LPT"
     ],
@@ -16360,7 +16360,7 @@
       "TX-380-DPA-1",
       "Texspin",
       "Clutch Parts",
-      "Clutch Release Bearing",
+      "Clutch Plate",
       "The Texspin TX-380-DPA-1 Clutch plate for Tata GB-75 gearbox provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Signa.",
       "Tata Signa"
     ],
@@ -16403,7 +16403,7 @@
       "TX-380-DPA-4",
       "Texspin",
       "Clutch Parts",
-      "Clutch Release Bearing",
+      "Clutch Plate",
       "The Texspin TX-380-DPA-4 Clutch plate for Tata GB-75 gearbox provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Signa.",
       "Tata Signa"
     ],
@@ -16619,7 +16619,7 @@
       "Clutch release bearing for Ashok Leyland 1.75 inch 15\" RDC 2095 GB & 850 OD gearbox",
       "TX-6346 SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-6346 SC Clutch release bearing for Ashok Leyland 1.75 inch 15\" RDC 2095 GB & 850 OD gearbox transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
       "Ashok Leyland 2516",
@@ -16642,8 +16642,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -16842,7 +16842,7 @@
       "Clutch release bearing for Tata BS6 dia. 395 clutch Signa 4225.S trailer",
       "TX-6679 SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-6679 SC Clutch release bearing for Tata BS6 dia. 395 clutch Signa 4225.S trailer transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata Signa.",
       "Tata Signa"
@@ -16863,8 +16863,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -16885,7 +16885,7 @@
       "Clutch release bearing for Tata BSVI-Signa 2825.K/3525.K/4225.K/4825.K and Prima 3525.TK/2825.K/2528.K",
       "TX-78109 SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-78109 SC Clutch release bearing for Tata BSVI-Signa 2825.K/3525.K/4225.K/4825.K and Prima 3525.TK/2825.K/2528.K transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata Signa, Tata Prima and Tata LPT.",
       "Tata Signa",
@@ -16910,8 +16910,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -16981,7 +16981,7 @@
       "Clutch release bearing for Tata Prima 4928 S, 4023 S, 4028 S (OEM part no. 580525600102)",
       "TX-78126 SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-78126 SC Clutch release bearing for Tata Prima 4928 S, 4023 S, 4028 S (OEM part no. 580525600102) transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
       "Tata 1109",
@@ -17008,8 +17008,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -17030,7 +17030,7 @@
       "Clutch release bearing for Tata Prima BS6 new model 430-dia. (22J22 clutch CB-L9661)",
       "TX-78119 SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-78119 SC Clutch release bearing for Tata Prima BS6 new model 430-dia. (22J22 clutch CB-L9661) is a clutch release bearing for the Tata Prima BS6. It transfers clutch-release force to the pressure plate while accommodating relative rotation at the bearing contact surface.",
       "Tata 1109",
@@ -17057,8 +17057,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -17079,7 +17079,7 @@
       "Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859)",
       "TX-45126SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-45126SC Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859) transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Eicher Pro Series.",
       "Eicher Pro Series"
@@ -17100,8 +17100,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -17122,7 +17122,7 @@
       "Clutch release bearing for Volvo Eicher VE1102, clutch dia. 352 (OE part no. ID330517)",
       "TX-45128SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-45128SC Clutch release bearing for Volvo Eicher VE1102, clutch dia. 352 (OE part no. ID330517) transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Eicher Pro Series.",
       "Eicher Pro Series"
@@ -17143,8 +17143,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -17165,7 +17165,7 @@
       "Clutch Release Bearing for Volvo/Man Truck",
       "TX E21SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX E21SC Clutch Release Bearing for Volvo/Man Truck transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface.",
       "Universal"
@@ -17186,8 +17186,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -17209,7 +17209,7 @@
       "29068117",
       "TVS Girling",
       "Clutch Parts",
-      "Clutch Cover",
+      "Clutch Master Cylinder",
       "The TVS Girling 29068117 CMC Assy 29066705 - TML 2515/3515 clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. Vehicle applications include Tata LPT.",
       "Tata LPT"
     ],
@@ -17299,7 +17299,7 @@
       "TX-380-CRK5",
       "Texspin",
       "Clutch Parts",
-      "Collector Ring",
+      "Clutch Repair Kit",
       "The Texspin TX-380-CRK5 Coil spring kit for Tata GB-75 gearbox provides spring force within the clutch mechanism to support engagement or release according to the named assembly. Vehicle applications include Tata LPT.",
       "Tata LPT"
     ],
@@ -18255,7 +18255,7 @@
       "TX-380-PPA-G",
       "Texspin",
       "Clutch Parts",
-      "Clutch Release Bearing",
+      "Pressure Plate",
       "The Texspin TX-380-PPA-G Cover assembly for Tata GB-75 gearbox clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. Vehicle applications include Tata Signa.",
       "Tata Signa"
     ],
@@ -18298,7 +18298,7 @@
       "395DN",
       "BGL",
       "Clutch Parts",
-      "Clutch Cover",
+      "Pressure Plate",
       "The BGL 395DN Cover Assy 395 Dia Navistar clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. Vehicle applications include Mahindra Blazo.",
       "Mahindra Blazo"
     ],
@@ -20140,8 +20140,8 @@
       "Diff. Case Kit (Major)",
       "285035300109",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Repair Kit",
+      "Engine Components",
+      "Engine Bushes & Synchronizers",
       "The Tata Genuine Parts 285035300109 Diff. Case Kit (Major) serves the differential or final-drive assembly, which distributes torque between the driven wheels while allowing them to rotate at different speeds. Vehicle applications include Tata 407, Tata 709 and Tata 1109.",
       "Tata 407",
       "Tata 709",
@@ -20169,8 +20169,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "engine-components",
+      "name": "Engine Components"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -20940,7 +20940,7 @@
       "Eicher dia. 395 – VE2100 8x2/6x2 haulage vehicles",
       "TX-5780",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-5780 Eicher dia. 395 – VE2100 8x2/6x2 haulage vehicles transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
       "Tata 1109",
@@ -20967,8 +20967,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -24843,8 +24843,8 @@
       "Gasket Cyl. Head Cover BS 2/3/4",
       "278801155304",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Cover",
+      "Engine Components",
+      "Gasket",
       "The Tata Genuine Parts 278801155304 Gasket Cyl. Head Cover BS 2/3/4 forms a sealing layer between mating engine or mechanical surfaces to help contain fluid, oil, coolant or combustion pressure at the joint. Vehicle applications include Tata Ace and Tata Magic.",
       "Tata Ace",
       "Tata Magic"
@@ -24866,8 +24866,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "engine-components",
+      "name": "Engine Components"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -25145,8 +25145,8 @@
     "keywords": [
       "Gear Lever Knob",
       "CI",
-      "Clutch Parts",
-      "Clutch Lever",
+      "Rubber Parts",
+      "Gear Lever Knob",
       "The CI Gear Lever Knob provides the driver-operated interface for selecting transmission gears or supports movement at the gear-lever joint.",
       "Universal"
     ],
@@ -25166,8 +25166,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "rubber-parts",
+      "name": "Rubber Parts"
     },
     "brand": {
       "id": "ci",
@@ -27951,7 +27951,7 @@
       "885425052829",
       "Tata Genuine Parts",
       "Clutch Parts",
-      "Clutch Plate",
+      "Clutch Assembly",
       "The Tata Genuine Parts 885425052829 Kit - CL/PR Plate TATA Ace combines the clutch components identified in the product title to connect and disconnect engine torque from the transmission.",
       "Tata Ace"
     ],
@@ -27994,7 +27994,7 @@
       "885425102829",
       "Tata Genuine Parts",
       "Clutch Parts",
-      "Clutch Plate",
+      "Clutch Assembly",
       "The Tata Genuine Parts 885425102829 Kit - CL/PR Plate TATA Ace w/BRG combines the clutch components identified in the product title to connect and disconnect engine torque from the transmission. Vehicle applications include Tata Magic.",
       "Tata Ace",
       "Tata Magic"
@@ -28221,8 +28221,8 @@
       "Kit Lined Shoe",
       "29937393",
       "TVS Girling",
-      "Clutch Parts",
-      "Clutch Repair Kit",
+      "Brakes",
+      "Brake Lining",
       "The TVS Girling 29937393 Kit Lined Shoe supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Tata Ace'].",
       "Tata Ace"
     ],
@@ -28242,8 +28242,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "brakes",
+      "name": "Brakes"
     },
     "brand": {
       "id": "tvs-girling",
@@ -28576,7 +28576,7 @@
       "TX-310-CRK7",
       "Texspin",
       "Clutch Parts",
-      "Collector Ring",
+      "Clutch Repair Kit",
       "Texspin Lever kit for Tata GB-40 (Part No. TX-310-CRK7) is listed in Souviks' Collector Ring range within Clutch Parts. Vehicle references: Tata 407, Tata 709, Tata 1109.",
       "Tata 407",
       "Tata 709",
@@ -38935,8 +38935,8 @@
       "Synchro Kit (1/2 Speed) W",
       "285126200115",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Repair Kit",
+      "Engine Components",
+      "Engine Bushes & Synchronizers",
       "The Tata Genuine Parts 285126200115 Synchro Kit (1/2 Speed) W supports smooth gear engagement by bringing rotating transmission components closer to matching speed before the gear teeth engage. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
       "Tata 1109",
       "Tata 1210",
@@ -38960,8 +38960,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "engine-components",
+      "name": "Engine Components"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -38982,8 +38982,8 @@
       "Synchro Kit (3/4 Speed) W",
       "285126200116",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Repair Kit",
+      "Engine Components",
+      "Engine Bushes & Synchronizers",
       "The Tata Genuine Parts 285126200116 Synchro Kit (3/4 Speed) W supports smooth gear engagement by bringing rotating transmission components closer to matching speed before the gear teeth engage. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
       "Tata 1109",
       "Tata 1210",
@@ -39007,8 +39007,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "engine-components",
+      "name": "Engine Components"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -40018,7 +40018,7 @@
       "Tata 1109/1112/1210/1312/1510/1512/1612/1613 turbo",
       "TX-5592 RHS",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-5592 RHS Tata 1109/1112/1210/1312/1510/1512/1612/1613 turbo transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata 1210, Tata 1312 and Tata 1512.",
       "Tata 1109",
@@ -40047,8 +40047,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -40069,7 +40069,7 @@
       "Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub",
       "TX-1888180 WH",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-1888180 WH Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tractors.",
       "Tractors"
@@ -40090,8 +40090,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -40112,7 +40112,7 @@
       "Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub",
       "1888180 WH",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin 1888180 WH Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tractors.",
       "Tractors"
@@ -40133,8 +40133,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -41105,7 +41105,7 @@
       "Tata 909/1109 turbo with plastic hub",
       "TX-55 TPH",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-55 TPH Tata 909/1109 turbo with plastic hub transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata 1109.",
       "Tata 1109"
@@ -41126,8 +41126,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -41148,8 +41148,8 @@
       "Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)",
       "TX-55TM",
       "Texspin",
-      "Bearings",
-      "Taper Roller Bearing",
+      "Clutch Parts",
+      "Clutch Release Bearing",
       "The Texspin TX-55TM Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
       "Tata 1109",
       "Tata 1210",
@@ -41177,8 +41177,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -41338,7 +41338,7 @@
       "Tata GB60 (1.75 inch/4.45 cm)",
       "TX-60 TM",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin Tata GB60 (1.75 inch/4.45 cm) transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata LPT.",
       "Tata LPT"
@@ -41359,8 +41359,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -41381,7 +41381,7 @@
       "Tata GB75 with hub (bearing no. TX-3527)",
       "TX-4576",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-4576 Tata GB75 with hub (bearing no. TX-3527) supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
       "Tata 1109",
@@ -41408,8 +41408,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -41430,7 +41430,7 @@
       "Tata GB75 with hub (self-centering), new model – short hub",
       "TX-4546SC",
       "Texspin",
-      "Bearings",
+      "Clutch Parts",
       "Clutch Release Bearing",
       "The Texspin TX-4546SC Tata GB75 with hub (self-centering), new model – short hub transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata LPT.",
       "Tata LPT"
@@ -41451,8 +41451,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -44706,7 +44706,7 @@
       "CC 016008R",
       "MSL",
       "Clutch Parts",
-      "Clutch Spring",
+      "Collector Ring",
       "The MSL CC 016008R Withdrawal Plate GB 75 (6mm) transfers force from the release mechanism to the clutch cover or pressure-plate release assembly. Vehicle applications include Tata LPT.",
       "Tata LPT"
     ],
@@ -44749,7 +44749,7 @@
       "CC 016010W",
       "MSL",
       "Clutch Parts",
-      "Clutch Spring",
+      "Collector Ring",
       "The MSL CC 016010W Withdrawal Plate Push Type transfers force from the release mechanism to the clutch cover or pressure-plate release assembly. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
       "Tata LPT",
       "Ashok Leyland 2516"
@@ -44794,7 +44794,7 @@
       "TX-352-CRK7",
       "Texspin",
       "Clutch Parts",
-      "Collector Ring",
+      "Clutch Repair Kit",
       "The Texspin Ø352 major lever kit with bearing GB-60 (Tata) supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Tata 1512.",
       "Tata 1512"
     ],
@@ -44837,7 +44837,7 @@
       "TX-380-CRK7",
       "Texspin",
       "Clutch Parts",
-      "Collector Ring",
+      "Clutch Repair Kit",
       "The Texspin Ø380 major lever kit with bearing GB-75 (Tata/Eicher) supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Tata LPT.",
       "Tata LPT"
     ],
