@@ -62,7 +62,7 @@ for estimate in estimates:
     slug = str(master.get("slug") or "").strip()
     if not slug:
         fail(f"Missing product slug for {pid}")
-    data_pattern = re.compile(r"window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});", re.S)
+    data_pattern = re.compile(r"window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});", re.S)
     for language in LANGUAGES:
         page = ROOT / language / "products" / f"{slug}.html"
         if not page.is_file():
