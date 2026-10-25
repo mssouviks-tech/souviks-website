@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "assets/data/catalogue-index.json"
+      - "assets/data/approximate-product-weights.json"
       - "assets/data/catalogue_overrides.json"
       - "assets/data/products.json"
       - "assets/data/search.json"
@@ -148,6 +149,7 @@ jobs:
 
           run_candidate_checks() {
             python3 scripts/catalogue/validate.py
+            python3 scripts/audit/test_product_weight_estimates.py
             python3 scripts/audit/critical_build.py
             python3 scripts/audit/test_static_product_pricing.py
             python3 scripts/audit/test_product_checkout_actions.py
@@ -205,6 +207,7 @@ jobs:
           # Re-declare the full gate so remote-main retry attempts are validated too.
           run_candidate_checks() {
             python3 scripts/catalogue/validate.py
+            python3 scripts/audit/test_product_weight_estimates.py
             python3 scripts/audit/critical_build.py
             python3 scripts/audit/test_static_product_pricing.py
             python3 scripts/audit/test_product_checkout_actions.py

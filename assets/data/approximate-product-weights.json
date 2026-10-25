@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "source": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
+  "purpose": "Approximate product unit weights for catalogue freight estimates",
+  "method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+  "assumptions": {
+    "material_density_kg_m3": 7850,
+    "nut_count_per_ubolt": 2,
+    "estimated_nut_weight_g_each": {
+      "M20": 60.5,
+      "M22": 85
+    },
+    "packaging_included": true,
+    "measured_by_manufacturer": false,
+    "estimated_packaging_allowance_percent": 5
+  },
+  "products": [
+    {
+      "id": "SVKS001063",
+      "part_number": "NIRMAL/UB/1018",
+      "product_name": "Bolt w/ Nut 22 x 92 x 10.5\" FLT",
+      "dimensions_mm": [
+        263,
+        92,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 2274,
+      "approx_weight_g": 2400,
+      "net_weight_g": 2274,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001064",
+      "part_number": "NIRMAL/UB/1019",
+      "product_name": "Bolt w/ Nut 22 x 92 x 11.5\" FLT",
+      "dimensions_mm": [
+        288,
+        92,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 2423.3,
+      "approx_weight_g": 2550,
+      "net_weight_g": 2423.3,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001066",
+      "part_number": "NIRMAL/UB/208",
+      "product_name": "Bolt w/ Nut 20 x 70 x 14\" HR",
+      "dimensions_mm": [
+        350,
+        70,
+        20
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 2196,
+      "approx_weight_g": 2350,
+      "net_weight_g": 2196,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001072",
+      "part_number": "NIRMAL/UB/265",
+      "product_name": "Bolt w/ Nut 22 x 82 x 17\" FR",
+      "dimensions_mm": [
+        425,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 3194,
+      "approx_weight_g": 3400,
+      "net_weight_g": 3194,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001071",
+      "part_number": "NIRMAL/UB/266",
+      "product_name": "Bolt w/ Nut 22 x 82 x 18\" FR",
+      "dimensions_mm": [
+        450,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 3343.2,
+      "approx_weight_g": 3550,
+      "net_weight_g": 3343.2,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001073",
+      "part_number": "NIRMAL/UB/267",
+      "product_name": "Bolt w/ Nut 22 x 82 x 19\" FR",
+      "dimensions_mm": [
+        475,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 3492.4,
+      "approx_weight_g": 3700,
+      "net_weight_g": 3492.4,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001074",
+      "part_number": "NIRMAL/UB/268",
+      "product_name": "Bolt w/ Nut 22 x 82 x 20\" FR",
+      "dimensions_mm": [
+        500,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 3641.6,
+      "approx_weight_g": 3850,
+      "net_weight_g": 3641.6,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001075",
+      "part_number": "NIRMAL/UB/269",
+      "product_name": "Bolt w/ Nut 22 x 82 x 21\" FR",
+      "dimensions_mm": [
+        525,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 3790.8,
+      "approx_weight_g": 4000,
+      "net_weight_g": 3790.8,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001076",
+      "part_number": "NIRMAL/UB/270",
+      "product_name": "Bolt w/ Nut 22 x 82 x 22\" FR",
+      "dimensions_mm": [
+        550,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 3940,
+      "approx_weight_g": 4150,
+      "net_weight_g": 3940,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001077",
+      "part_number": "NIRMAL/UB/271",
+      "product_name": "Bolt w/ Nut 22 x 82 x 23\" FR",
+      "dimensions_mm": [
+        575,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 4089.2,
+      "approx_weight_g": 4300,
+      "net_weight_g": 4089.2,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001078",
+      "part_number": "NIRMAL/UB/272",
+      "product_name": "Bolt w/ Nut 22 x 82 x 24\" FR",
+      "dimensions_mm": [
+        600,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 4238.4,
+      "approx_weight_g": 4500,
+      "net_weight_g": 4238.4,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001079",
+      "part_number": "NIRMAL/UB/273",
+      "product_name": "Bolt w/ Nut 22 x 82 x 25\" FR",
+      "dimensions_mm": [
+        625,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 4387.6,
+      "approx_weight_g": 4650,
+      "net_weight_g": 4387.6,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001069",
+      "part_number": "NIRMAL/UB/368A",
+      "product_name": "Bolt w/ Nut 20 x 92 x 10\" FR",
+      "dimensions_mm": [
+        250,
+        92,
+        20
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 1788,
+      "approx_weight_g": 1900,
+      "net_weight_g": 1788,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001067",
+      "part_number": "NIRMAL/UB/369",
+      "product_name": "Bolt w/ Nut 20 x 92 x 11\" FLT",
+      "dimensions_mm": [
+        275,
+        92,
+        20
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 1911.3,
+      "approx_weight_g": 2050,
+      "net_weight_g": 1911.3,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001062",
+      "part_number": "NIRMAL/UB/372AB",
+      "product_name": "Bolt w/ Nut 20 x 102 x 10\" HR",
+      "dimensions_mm": [
+        250,
+        102,
+        20
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 1826.8,
+      "approx_weight_g": 1950,
+      "net_weight_g": 1826.8,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001070",
+      "part_number": "NIRMAL/UB/790",
+      "product_name": "Bolt w/ Nut 22 x 92 x 9\" HR",
+      "dimensions_mm": [
+        225,
+        92,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 2047.3,
+      "approx_weight_g": 2150,
+      "net_weight_g": 2047.3,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001068",
+      "part_number": "NIRMAL/UB/792",
+      "product_name": "Bolt w/ Nut 22 x 92 x 11\" HR",
+      "dimensions_mm": [
+        275,
+        92,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 2345.7,
+      "approx_weight_g": 2500,
+      "net_weight_g": 2345.7,
+      "packaging_allowance_percent": 5
+    },
+    {
+      "id": "SVKS001065",
+      "part_number": "NIRMAL/UB/793",
+      "product_name": "Bolt w/ Nut 22 x 92 x 12\" HR",
+      "dimensions_mm": [
+        300,
+        92,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 2494.9,
+      "approx_weight_g": 2650,
+      "net_weight_g": 2494.9,
+      "packaging_allowance_percent": 5
+    }
+  ]
+}
