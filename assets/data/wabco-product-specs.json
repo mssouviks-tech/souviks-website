@@ -1,0 +1,419 @@
+{
+  "version": 1,
+  "brand": "WABCO",
+  "source": "ZF/WABCO Customer Centre official product pages and official technical drawing",
+  "purpose": "Verified manufacturer weight and published dimensional specifications for WABCO inventory; packed weights for checkout are only set where a credible source weight was available.",
+  "checked_at": "2026-10-25",
+  "method": {
+    "manufacturer_weight_unit": "g",
+    "manufacturer_dimensions_unit": "mm",
+    "shipping_estimate": "For plausible manufacturer weights, approx_weight_g = manufacturer weight plus 5% packaging allowance, rounded upward to the next 50 g. Values shown as zero or 0.001 kg on manufacturer pages are retained with a placeholder status and never used as freight weights.",
+    "caution": "Features such as port threads, mounting-hole spacing, stroke and piston diameter are not overall dimensions. Only the entries explicitly containing manufacturer_dimensions_mm have an overall box/envelope estimate."
+  },
+  "products": [
+    {
+      "id": "SVKS000577",
+      "part_number": "300001215",
+      "product_name": "VE TCL Compressor Repair Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/300001215",
+      "manufacturer_weight_g": 35,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 50,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue lists this kit at 0.035 kg. Also appears on SVKS000582 under the same WABCO number."
+    },
+    {
+      "id": "SVKS000578",
+      "part_number": "300001202",
+      "product_name": "Cylinder Head Assembly Repair Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_US/300001202",
+      "manufacturer_weight_g": 1,
+      "weight_status": "official_placeholder_suspected",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official page returns 0.001 kg for a full repair kit; treated as a placeholder, not used in freight calculations."
+    },
+    {
+      "id": "SVKS000579",
+      "part_number": "300001366",
+      "product_name": "Air Compressor Repair Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/300001366",
+      "manufacturer_weight_g": 1,
+      "weight_status": "official_placeholder_suspected",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official page describes this number as Kit: Cover and returns 0.001 kg; likely a catalogue placeholder and there is a possible item-name mismatch."
+    },
+    {
+      "id": "SVKS000580",
+      "part_number": "9121400130",
+      "product_name": "Air Compressor Kit - Prima 3718",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_US/9121400130",
+      "manufacturer_weight_g": 0,
+      "weight_status": "official_missing_or_zero",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [
+        "Piston diameter: 85 mm",
+        "Stroke: 56 mm",
+        "Swept volume: 318 cm³",
+        "Crankshaft thread: M20 × 1.5"
+      ],
+      "notes": "Official catalogue gives 0 kg; unusable as a freight weight. Technical attributes are not overall dimensions."
+    },
+    {
+      "id": "SVKS000581",
+      "part_number": "300001185",
+      "product_name": "Cargo 1/185 - Cylinder Head Assembly Repair Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_IN/300001185",
+      "manufacturer_weight_g": 1,
+      "weight_status": "official_placeholder_suspected",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official page returns 0.001 kg for a gasket kit; treated as placeholder."
+    },
+    {
+      "id": "SVKS000582",
+      "part_number": "300001215",
+      "product_name": "4018 BS II - Cylinder Head Assembly Repair Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/300001215",
+      "manufacturer_weight_g": 35,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 50,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Same manufacturer number as SVKS000577; source calls the item Kit: Gasket."
+    },
+    {
+      "id": "SVKS000583",
+      "part_number": "300001137",
+      "product_name": "Air Compressor Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_US/300001137",
+      "manufacturer_weight_g": 35,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 50,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue lists 0.035 kg."
+    },
+    {
+      "id": "SVKS000584",
+      "part_number": "300001458",
+      "product_name": "Air Compressor Repair Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/300001458",
+      "manufacturer_weight_g": 1,
+      "weight_status": "official_placeholder_suspected",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue weight is 0.001 kg, considered a placeholder."
+    },
+    {
+      "id": "SVKS000810",
+      "part_number": "4006094160",
+      "product_name": "Drain Valve With O Rings Set of 15 nos",
+      "source_url": null,
+      "manufacturer_weight_g": null,
+      "weight_status": "official_spec_not_found",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Could not verify a matching official product-spec page for this exact number; no weight or dimensions invented."
+    },
+    {
+      "id": "SVKS000864",
+      "part_number": "100250150",
+      "product_name": "Stop Light Switch",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/100250150",
+      "manufacturer_weight_g": 100,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 150,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue lists 0.1 kg; no overall size verified."
+    },
+    {
+      "id": "SVKS000865",
+      "part_number": "100306470",
+      "product_name": "Pressure Reductio Valve",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/100306470",
+      "manufacturer_weight_g": 1,
+      "weight_status": "official_placeholder_suspected",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [
+        "Mounting: 2 × Ø9 mm",
+        "Distance between mounting bolts: 26 mm",
+        "Port 1: M22 × 1.5 (JED-388)",
+        "Port 2: M22 × 1.5 (JED-152)"
+      ],
+      "notes": "Official page weight 0.001 kg is not credible for a valve; feature dimensions retained, freight weight withheld."
+    },
+    {
+      "id": "SVKS000866",
+      "part_number": "100600920",
+      "product_name": "Foot Brake Valve with treaddle",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/100600920",
+      "manufacturer_weight_g": 3400,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 3600,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [
+        "Distance between mounting holes: 80 × 136 mm",
+        "Mounting: 3 × Ø9.5 mm",
+        "Ports 11/12: M12 × 1.5",
+        "Ports 21/22: M14 × 1.5",
+        "Push rod thread: M14 × 1.50"
+      ],
+      "notes": "Official catalogue lists 3.4 kg. Published measurements are mounting/connection specifications, not an overall bounding box."
+    },
+    {
+      "id": "SVKS000867",
+      "part_number": "100601130",
+      "product_name": "Dual Brake Valve with pedal (VOSS)",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/100601130",
+      "manufacturer_weight_g": 1,
+      "weight_status": "official_placeholder_suspected",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [
+        "Mounting: 3 × Ø9.5 mm",
+        "Pedal angle: 45°",
+        "Ports 11/12/21/22: M22 × 1.5"
+      ],
+      "notes": "Official page returns 0.001 kg, treated as a placeholder; dimensional/connection features retained."
+    },
+    {
+      "id": "SVKS000868",
+      "part_number": "100870460",
+      "product_name": "Diaphragm",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_IN/100870460",
+      "manufacturer_weight_g": 144,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 200,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue lists 0.144 kg; no overall size verified."
+    },
+    {
+      "id": "SVKS000869",
+      "part_number": "100870580",
+      "product_name": "Diaphragm",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_IN/100870580",
+      "manufacturer_weight_g": 124,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 150,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue lists 0.124 kg; no overall size verified."
+    },
+    {
+      "id": "SVKS000870",
+      "part_number": "300003072",
+      "product_name": "Relay Valve Kit",
+      "source_url": null,
+      "manufacturer_weight_g": null,
+      "weight_status": "official_spec_not_found",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Could not verify the exact part number on an official page; no similar part substituted."
+    },
+    {
+      "id": "SVKS000871",
+      "part_number": "300003079",
+      "product_name": "Relay Valve Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/300003079",
+      "manufacturer_weight_g": 1,
+      "weight_status": "official_placeholder_suspected",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue lists 0.001 kg for the kit, treated as placeholder."
+    },
+    {
+      "id": "SVKS000872",
+      "part_number": "300006018",
+      "product_name": "DBV Minor Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_US/300006018",
+      "manufacturer_weight_g": 1,
+      "weight_status": "official_placeholder_suspected",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue lists 0.001 kg for a brake valve kit, treated as placeholder."
+    },
+    {
+      "id": "SVKS000873",
+      "part_number": "4750010080",
+      "product_name": "Pressure Reduction Valve",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/4750010080",
+      "manufacturer_weight_g": 0,
+      "weight_status": "official_missing_or_zero",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [
+        "Distance between mounting bolts: 26 mm",
+        "Mounting: 2 × Ø9 mm",
+        "Port 1: M22 × 1.5 (JED-388)",
+        "Port 2: M22 × 1.5 (JED-152)",
+        "Delivered pressure: 8 bar"
+      ],
+      "notes": "Official catalogue returns 0 kg; no freight weight inferred from the similar-looking valve."
+    },
+    {
+      "id": "SVKS000874",
+      "part_number": "8971200154",
+      "product_name": "Diaphragm",
+      "source_url": null,
+      "manufacturer_weight_g": null,
+      "weight_status": "official_spec_not_found",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Exact-number official specification could not be verified; data for other diaphragm part numbers was not reused."
+    },
+    {
+      "id": "SVKS000875",
+      "part_number": "9732980270",
+      "product_name": "RG2 Assy",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_US/9732980270",
+      "manufacturer_weight_g": 803,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 850,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [
+        "Mounting: 2 × Ø8.8 mm",
+        "Ports 1/2: M22 × 1.5",
+        "Port 4: M16 × 1.5"
+      ],
+      "notes": "Official catalogue lists 0.803 kg; connection/mounting details are not overall dimensions."
+    },
+    {
+      "id": "SVKS000939",
+      "part_number": "100304941",
+      "product_name": "Drying and Distribution Unit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_US/100304941",
+      "manufacturer_weight_g": 5500,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 5800,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [
+        "Ports 21–24: M22 × 1.5"
+      ],
+      "notes": "Official catalogue lists 5.5 kg; no overall bounding dimensions verified."
+    },
+    {
+      "id": "SVKS001017",
+      "part_number": "300001366",
+      "product_name": "(1/366) Repair Kit T-2518",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/300001366",
+      "manufacturer_weight_g": 1,
+      "weight_status": "official_placeholder_suspected",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Same manufacturer part number as SVKS000579; official page label is Kit: Cover and weight is 0.001 kg."
+    },
+    {
+      "id": "SVKS001018",
+      "part_number": "100251580",
+      "product_name": "Spring Brake Actr (Type 24/75) P2C",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/100251580",
+      "manufacturer_weight_g": 4000,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 4200,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [
+        "Total length: 202 mm",
+        "Distance between mounting bolts: 120.6 mm",
+        "Bolt length: 40 mm",
+        "Bolt thread: M16 × 1.5",
+        "Clevis pin diameter: 12.5 mm",
+        "Pushrod length: 72 mm",
+        "Pushrod thread: M14 × 1.50",
+        "Stroke: 57.0 mm",
+        "Port 11: M22 × 1.5"
+      ],
+      "notes": "Official catalogue lists 4.0 kg; measurements are product/connection features, not an overall box."
+    },
+    {
+      "id": "SVKS001019",
+      "part_number": "100306080",
+      "product_name": "Relay Valve",
+      "source_url": "https://www.wabco-customercentre.com/catalog/docs/100306080____053_drw_q17.pdf",
+      "manufacturer_weight_g": 1220,
+      "weight_status": "official_drawing_variant_review",
+      "approx_weight_g": 1300,
+      "manufacturer_dimensions_mm": [
+        152.5,
+        137.3,
+        105
+      ],
+      "manufacturer_dimension_features": [
+        "Drawing also shows variant-specific mounting dimensions; dimensions here are an approximate bounding envelope inferred from the official engineering drawing"
+      ],
+      "notes": "Official drawing table gives 1.22 kg for the basic M306080 drawing variant; catalogue page's 0.001 kg is likely a placeholder. Confirm that physical stock matches the drawing variant before relying on freight weight."
+    },
+    {
+      "id": "SVKS001020",
+      "part_number": "300003086",
+      "product_name": "DDU Repair Kit",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/300003086",
+      "manufacturer_weight_g": 900,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 950,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue lists 0.9 kg."
+    },
+    {
+      "id": "SVKS001021",
+      "part_number": "4730170250",
+      "product_name": "Relay valve, anti-compounding",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/4730170250",
+      "manufacturer_weight_g": 1473,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 1550,
+      "manufacturer_dimensions_mm": [
+        184.2,
+        112,
+        155
+      ],
+      "manufacturer_dimension_features": [
+        "Mounting: 2 × Ø11 mm",
+        "Ports 1/2: M22 × 1.5",
+        "Ports 41/42: M16 × 1.5"
+      ],
+      "notes": "Official catalogue lists 1.473 kg and overall size 184.2 × 112 × 155 mm."
+    },
+    {
+      "id": "SVKS001022",
+      "part_number": "9347020150",
+      "product_name": "Quad System Protection Valve",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en/9347020150",
+      "manufacturer_weight_g": null,
+      "weight_status": "official_weight_unconfirmed",
+      "approx_weight_g": null,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Exact product page was found, but search output did not clearly establish a usable weight or overall dimensions."
+    },
+    {
+      "id": "SVKS001023",
+      "part_number": "9732980290",
+      "product_name": "Relay valve, RG2",
+      "source_url": "https://www.wabco-customercentre.com/catalog/en_CA/9732980290",
+      "manufacturer_weight_g": 825,
+      "weight_status": "official_plausible",
+      "approx_weight_g": 900,
+      "manufacturer_dimensions_mm": null,
+      "manufacturer_dimension_features": [],
+      "notes": "Official catalogue lists 0.825 kg; no overall size verified."
+    }
+  ]
+}
