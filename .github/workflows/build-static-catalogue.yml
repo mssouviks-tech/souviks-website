@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "assets/data/catalogue-index.json"
+      - "assets/data/approximate-product-weights.json"
       - "assets/data/catalogue_overrides.json"
       - "assets/data/products.json"
       - "assets/data/search.json"
