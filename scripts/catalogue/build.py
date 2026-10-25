@@ -1418,6 +1418,13 @@ def reconcile_catalogue_projections():
             data["discount_percent"] = product.get("discount_percent")
             data["discountPercent"] = product.get("discount_percent")
             data["approx_weight_g"] = approximate_weight_grams(product)
+            if text(product.get("manufacturer_spec_source")):
+                data["manufacturer_weight_kg"] = product.get("manufacturer_weight_kg")
+                data["manufacturer_weight_status"] = text(product.get("manufacturer_weight_status"))
+                data["manufacturer_dimensions_mm"] = product.get("manufacturer_dimensions_mm")
+                data["manufacturer_dimension_specs"] = list(product.get("manufacturer_dimension_specs") or [])
+                data["manufacturer_spec_source"] = text(product.get("manufacturer_spec_source"))
+                data["manufacturer_spec_notes"] = text(product.get("manufacturer_spec_notes"))
             data["updated_at"] = text(
                 product.get("updated_at")
                 or product.get("catalogue_updated_at")
