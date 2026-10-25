@@ -146,6 +146,18 @@ for spec in records:
         if status == "verified" and page_data.get("approx_weight_g") != packed_g:
             fail(f"{language} embedded checkout weight mismatch for {pid}")
 
+inventory_ids = {
+    str(p.get("id"))
+    for p in catalogue
+    if isinstance(p, dict)
+    and p.get("id")
+    and str(p.get("brand_name") or p.get("brand") or "").casefold() == "wabco"
+}
+if inventory_ids != seen:
+    missing = sorted(inventory_ids - seen)
+    unexpected = sorted(seen - inventory_ids)
+    fail(f"WABCO inventory coverage mismatch; missing={missing}, unexpected={unexpected}")
+
 if verified_count != 13:
     fail(f"Expected 13 usable manufacturer weights, found {verified_count}")
 if catalogue_by_id["SVKS001021"].get("manufacturer_dimensions_mm") != [184.2, 112, 155]:
