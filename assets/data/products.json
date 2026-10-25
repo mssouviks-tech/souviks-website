@@ -34507,11 +34507,12 @@
     "created_at": "2026-10-04T18:42:35.652505",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 0.077,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300001202&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 100
   },
   {
     "id": "SVKS000579",
@@ -34571,11 +34572,12 @@
     "created_at": "2026-10-04T18:42:35.672628",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 0.055,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300001366&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 100
   },
   {
     "id": "SVKS000580",
@@ -34635,8 +34637,8 @@
     "created_at": "2026-10-04T18:42:35.691250",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.0,
-    "manufacturer_weight_status": "unusable_zero",
+    "manufacturer_weight_kg": 0.077,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [
       "Piston diameter: 85.0 mm",
       "Piston stroke: 56 mm",
@@ -34649,7 +34651,8 @@
       "Port thread 9.2: Ø 11.8 mm"
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=9121400130&cclcl=en",
-    "manufacturer_spec_notes": "WABCO lists weight as 0 kg and identifies replacement part 9121400320. No freight weight assigned."
+    "manufacturer_spec_notes": "WABCO record previously showed 0 kg; the supplied catalogue weight of 0.077 kg is used instead. WABCO lists replacement part 9121400320.",
+    "approx_weight_g": 100
   },
   {
     "id": "SVKS000581",
@@ -34709,11 +34712,12 @@
     "created_at": "2026-10-04T18:42:35.710351",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 0.094,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300001185&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 100
   },
   {
     "id": "SVKS000582",
@@ -34773,8 +34777,8 @@
     "created_at": "2026-10-04T18:42:35.735814",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "approx_weight_g": 50,
-    "manufacturer_weight_kg": 0.035,
+    "approx_weight_g": 100,
+    "manufacturer_weight_kg": 0.082,
     "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300001215&cclcl=en",
@@ -34838,8 +34842,8 @@
     "created_at": "2026-10-04T18:42:35.755120",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "approx_weight_g": 50,
-    "manufacturer_weight_kg": 0.035,
+    "approx_weight_g": 150,
+    "manufacturer_weight_kg": 0.115,
     "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300001137&cclcl=en",
@@ -34903,11 +34907,12 @@
     "created_at": "2026-10-04T18:42:35.779144",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 0.133,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300001458&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 150
   },
   {
     "id": "SVKS000585",
@@ -48323,11 +48328,12 @@
     "created_at": "2026-10-04T18:42:39.257558",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.0,
-    "manufacturer_weight_status": "unusable_zero",
+    "manufacturer_weight_kg": 0.285,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=4006094160&cclcl=en",
-    "manufacturer_spec_notes": "Official print page returns 0 kg and no product dimensions; no freight weight assigned pending verification."
+    "manufacturer_spec_notes": "WABCO print page returned 0 kg and no product dimensions; the supplied catalogue weight of 0.285 kg is used.",
+    "approx_weight_g": 300
   },
   {
     "id": "SVKS000811",
@@ -51606,8 +51612,8 @@
     "created_at": "2026-10-04T18:42:40.201329",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 1.314,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [
       "Distance between bolts: 26 mm",
       "Mounting: 2 x Ø 9 mm",
@@ -51615,7 +51621,8 @@
       "Port thread 2: M22 x 1.5 JED-152"
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100306470&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 1400
   },
   {
     "id": "SVKS000866",
@@ -51746,8 +51753,8 @@
     "created_at": "2026-10-04T18:42:40.219583",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 3.7,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [
       "Mounting: 3 x Ø 9.5 mm",
       "Port thread 11: M22 x 1.5",
@@ -51756,7 +51763,8 @@
       "Port thread 22: M22 x 1.5"
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100601130&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 3900
   },
   {
     "id": "SVKS000868",
@@ -51943,11 +51951,12 @@
     "created_at": "2026-10-04T18:42:40.256671",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 0.122,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300003072&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 150
   },
   {
     "id": "SVKS000871",
@@ -52007,11 +52016,12 @@
     "created_at": "2026-10-04T18:42:40.285223",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 0.135,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300003079&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 150
   },
   {
     "id": "SVKS000872",
@@ -52068,11 +52078,12 @@
     "created_at": "2026-10-04T18:42:40.290224",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 0.118,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300006018&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 150
   },
   {
     "id": "SVKS000873",
@@ -52132,8 +52143,8 @@
     "created_at": "2026-10-04T18:42:40.307738",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.0,
-    "manufacturer_weight_status": "unusable_zero",
+    "manufacturer_weight_kg": 0.778,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [
       "Distance between bolts: 26 mm",
       "Mounting: 2 x Ø 9 mm",
@@ -52141,7 +52152,8 @@
       "Port thread 2: M22 x 1.5 JED-152"
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=4750010080&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 850
   },
   {
     "id": "SVKS000874",
@@ -52201,10 +52213,12 @@
     "created_at": "2026-10-04T18:42:40.311491",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_status": "not_located",
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=8971200154&cclcl=en",
-    "manufacturer_spec_notes": "The official print page did not return a product record for this exact material number. Do not substitute the separate listing for 8971321684."
+    "manufacturer_spec_notes": "Exact part number 8971200154 was not locatable on the WABCO official catalogue during the earlier lookup; weight of 0.112 kg supplied separately. Do not substitute 8971321684.",
+    "approx_weight_g": 150,
+    "manufacturer_weight_kg": 0.112
   },
   {
     "id": "SVKS000875",
@@ -60672,11 +60686,12 @@
     "created_at": "2026-10-04T18:42:42.258036",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 0.475,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=300001366&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 500
   },
   {
     "id": "SVKS001018",
@@ -60811,8 +60826,8 @@
     "created_at": "2026-10-04T18:42:42.300012",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.001,
-    "manufacturer_weight_status": "unusable_0.001kg",
+    "manufacturer_weight_kg": 1.68,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [
       "Mounting: 2 x M8",
       "Port thread 1: M22 x 1.5",
@@ -60821,7 +60836,13 @@
       "Push-rod thread: M18 x 1.50"
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100306080&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "Official WABCO catalogue size supplied as 117 × 91 × 139 mm.",
+    "approx_weight_g": 1800,
+    "manufacturer_dimensions_mm": [
+      117,
+      91,
+      139
+    ]
   },
   {
     "id": "SVKS001020",
@@ -61024,8 +61045,8 @@
     "created_at": "2026-10-04T18:42:42.369701",
     "updated_at": "2026-10-04T15:50:14+05:30",
     "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
-    "manufacturer_weight_kg": 0.0,
-    "manufacturer_weight_status": "unusable_zero",
+    "manufacturer_weight_kg": 1.22,
+    "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [
       "Port thread 1: M22 x 1.5",
       "Port thread 21: M22 x 1.5",
@@ -61034,7 +61055,8 @@
       "Port thread 24: M22 x 1.5"
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=9347020150&cclcl=en",
-    "manufacturer_spec_notes": "The official catalogue reports 0 or 0.001 kg. This value is retained as sourced metadata but is not used for checkout freight because it is not a safe packed-shipping weight; obtain a physical measurement or a corrected manufacturer value."
+    "manufacturer_spec_notes": "",
+    "approx_weight_g": 1300
   },
   {
     "id": "SVKS001023",
