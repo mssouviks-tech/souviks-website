@@ -212,6 +212,8 @@ def reconcile_catalogue_projections():
                 encoding="utf-8",
             )
 
+    import math
+
     # Apply official WABCO manufacturer specifications from a durable manifest.
     # The manifest stores published mass separately from the packed freight estimate;
     # suspicious 0 / 0.001 kg values must never be treated as real checkout weights.
@@ -317,8 +319,17 @@ def reconcile_catalogue_projections():
                     product[field] = value
                     specs_changed = True
 
-        if seen_wabco_ids != set(wabco_products_by_id[pid]["id"] for pid in seen_wabco_ids if pid in wabco_products_by_id):
-            raise SystemExit("WABCO manifest IDs do not map cleanly to catalogue records")
+        catalogue_wabco_ids = {
+            text(product.get("id"))
+            for product in catalogue
+            if isinstance(product, dict)
+            and text(product.get("id"))
+            and "wabco" in text(product.get("brand_name") or product.get("brand")).casefold()
+        }
+        if seen_wabco_ids != catalogue_wabco_ids:
+            missing = sorted(catalogue_wabco_ids - seen_wabco_ids)
+            stale = sorted(seen_wabco_ids - catalogue_wabco_ids)
+            raise SystemExit(f"WABCO manifest/catalogue coverage mismatch; missing={missing}, stale={stale}")
         if specs_changed:
             CATALOGUE_PATH.write_text(
                 json.dumps(catalogue, ensure_ascii=False, indent=2) + "\\n",
@@ -796,6 +807,13 @@ def reconcile_catalogue_projections():
             "discount_percent": p.get("discount_percent"),
             "discountPercent": p.get("discount_percent"),
             "approx_weight_g": approximate_weight_grams(p),
+            "manufacturer_weight_g": p.get("manufacturer_weight_g"),
+            "manufacturer_weight_status": text(p.get("manufacturer_weight_status")) or None,
+            "manufacturer_dimensions_mm": p.get("manufacturer_dimensions_mm"),
+            "manufacturer_dimension_features": list(p.get("manufacturer_dimension_features") or []),
+            "manufacturer_specs_source_url": text(p.get("manufacturer_specs_source_url")) or None,
+            "manufacturer_specs_checked_at": text(p.get("manufacturer_specs_checked_at")) or None,
+            "manufacturer_specs_notes": text(p.get("manufacturer_specs_notes")) or None,
             "product_name": text(p.get("product_name") or p.get("name")),
             "name": text(p.get("name") or p.get("product_name")),
             "partNumber": part,
