@@ -15,6 +15,20 @@ PRODUCTS_PATH = ROOT / "assets" / "data" / "products.json"
 SEARCH_PATH = ROOT / "assets" / "data" / "search.json"
 LANGUAGES = ("en", "hi", "bn")
 
+# Net weights supplied for the 29 WABCO inventory records.
+EXPECTED_WEIGHT_KG = {
+    "SVKS000577": 0.035, "SVKS000578": 0.077, "SVKS000579": 0.055,
+    "SVKS000580": 0.077, "SVKS000581": 0.094, "SVKS000582": 0.082,
+    "SVKS000583": 0.115, "SVKS000584": 0.133, "SVKS000810": 0.285,
+    "SVKS000864": 0.100, "SVKS000865": 1.314, "SVKS000866": 3.400,
+    "SVKS000867": 3.700, "SVKS000868": 0.144, "SVKS000869": 0.124,
+    "SVKS000870": 0.122, "SVKS000871": 0.135, "SVKS000872": 0.118,
+    "SVKS000873": 0.778, "SVKS000874": 0.112, "SVKS000875": 0.803,
+    "SVKS000939": 5.500, "SVKS001017": 0.475, "SVKS001018": 4.000,
+    "SVKS001019": 1.680, "SVKS001020": 0.900, "SVKS001021": 1.473,
+    "SVKS001022": 1.220, "SVKS001023": 0.825,
+}
+
 
 def fail(message: str) -> None:
     raise SystemExit(f"WABCO SPECIFICATION VALIDATION ERROR: {message}")
@@ -65,6 +79,8 @@ for spec in records:
     seen.add(pid)
     if not source.startswith("https://www.wabco-customercentre.com/"):
         fail(f"Missing official WABCO source URL for {pid}")
+    if kg != EXPECTED_WEIGHT_KG.get(pid):
+        fail(f"Net weight mismatch for {pid}: {kg!r} != {EXPECTED_WEIGHT_KG.get(pid)!r}")
     if status not in {"verified", "unusable_zero", "unusable_0.001kg", "not_located"}:
         fail(f"Unsupported manufacturer weight status for {pid}: {status!r}")
     if kg is not None and (not isinstance(kg, (int, float)) or isinstance(kg, bool) or kg < 0):
@@ -158,13 +174,15 @@ if inventory_ids != seen:
     unexpected = sorted(seen - inventory_ids)
     fail(f"WABCO inventory coverage mismatch; missing={missing}, unexpected={unexpected}")
 
-if verified_count != 13:
-    fail(f"Expected 13 usable manufacturer weights, found {verified_count}")
+if verified_count != 29:
+    fail(f"Expected 29 usable WABCO weights, found {verified_count}")
 if catalogue_by_id["SVKS001021"].get("manufacturer_dimensions_mm") != [184.2, 112, 155]:
-    fail("Official overall dimensions for part 4730170250 were not propagated")
+    fail("Overall dimensions for part 4730170250 were not propagated")
+if catalogue_by_id["SVKS001019"].get("manufacturer_dimensions_mm") != [117, 91, 139]:
+    fail("Overall dimensions for part 100306080 were not propagated")
 
 print(
     "WABCO specifications validated: "
-    f"{len(records)} inventory entries, {verified_count} usable manufacturer weights, "
+    f"{len(records)} inventory entries, {verified_count} usable WABCO net weights, "
     "official dimensional fields propagated to canonical data, projections, search, and all 3 languages."
 )
