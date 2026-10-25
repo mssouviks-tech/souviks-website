@@ -212,6 +212,123 @@ def reconcile_catalogue_projections():
                 encoding="utf-8",
             )
 
+    # Manufacturer-sourced WABCO metadata and safe packed-weight estimates.
+    wabco_specs_path = ROOT / "assets" / "data" / "wabco-product-specifications.json"
+    if wabco_specs_path.exists():
+        try:
+            wabco_data = json.loads(wabco_specs_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid WABCO product specifications file: {exc}")
+        wabco_records = wabco_data.get("products") if isinstance(wabco_data, dict) else None
+        if not isinstance(wabco_records, list):
+            raise SystemExit("WABCO specifications must contain a products array")
+
+        wabco_products_by_id = {
+            text(product.get("id")): product
+            for product in catalogue
+            if isinstance(product, dict) and text(product.get("id"))
+        }
+        seen_wabco_ids = set()
+        wabco_changed = False
+        import math
+
+        for spec in wabco_records:
+            if not isinstance(spec, dict):
+                raise SystemExit("Every WABCO product specification must be an object")
+            pid = text(spec.get("id"))
+            expected_part_number = text(spec.get("part_number"))
+            if not pid or not expected_part_number:
+                raise SystemExit("Every WABCO specification needs id and part_number")
+            if pid in seen_wabco_ids:
+                raise SystemExit(f"Duplicate WABCO specification for {pid}")
+            seen_wabco_ids.add(pid)
+
+            product = wabco_products_by_id.get(pid)
+            if product is None:
+                raise SystemExit(f"WABCO specification references unknown product: {pid}")
+            actual_part_number = text(product.get("part_number") or product.get("partNumber"))
+            if actual_part_number != expected_part_number:
+                raise SystemExit(
+                    f"WABCO part-number mismatch for {pid}: "
+                    f"{expected_part_number!r} != {actual_part_number!r}"
+                )
+            if text(product.get("brand_name") or product.get("brand")).casefold() != "wabco":
+                raise SystemExit(f"WABCO specification references a non-WABCO product: {pid}")
+
+            weight_status = text(spec.get("weight_status"))
+            if weight_status not in {"verified", "unusable_zero", "unusable_0.001kg", "not_located"}:
+                raise SystemExit(f"Invalid WABCO weight status for {pid}: {weight_status!r}")
+            manufacturer_weight = spec.get("manufacturer_weight_kg")
+            if manufacturer_weight is not None:
+                try:
+                    manufacturer_weight = float(manufacturer_weight)
+                except (TypeError, ValueError):
+                    raise SystemExit(f"Invalid WABCO manufacturer weight for {pid}")
+                if manufacturer_weight < 0 or manufacturer_weight == float("inf") or manufacturer_weight != manufacturer_weight:
+                    raise SystemExit(f"Invalid WABCO manufacturer weight for {pid}")
+            elif weight_status != "not_located":
+                raise SystemExit(f"Missing official WABCO weight for {pid}")
+
+            dims = spec.get("manufacturer_dimensions_mm")
+            if dims is not None:
+                if (
+                    not isinstance(dims, list)
+                    or len(dims) != 3
+                    or any(not isinstance(v, (int, float)) or isinstance(v, bool) or v <= 0 for v in dims)
+                ):
+                    raise SystemExit(f"Invalid official overall dimensions for WABCO product {pid}")
+            dimension_specs = spec.get("manufacturer_dimension_specs")
+            if not isinstance(dimension_specs, list) or any(not isinstance(v, str) for v in dimension_specs):
+                raise SystemExit(f"Invalid WABCO dimension specifications for {pid}")
+            if not text(spec.get("source_url")):
+                raise SystemExit(f"Missing official WABCO source URL for {pid}")
+
+            estimate_grams = spec.get("approx_weight_g")
+            if weight_status == "verified":
+                if manufacturer_weight is None or manufacturer_weight <= 0.001:
+                    raise SystemExit(f"Verified WABCO weight is not plausible for {pid}")
+                if not isinstance(estimate_grams, (int, float)) or isinstance(estimate_grams, bool) or estimate_grams <= 0:
+                    raise SystemExit(f"Verified WABCO product has no packed estimate: {pid}")
+                allowance = spec.get("packaging_allowance_percent")
+                rounding_step = spec.get("round_up_to_g")
+                if allowance != 5 or rounding_step != 50:
+                    raise SystemExit(f"Unsupported WABCO packed-weight method for {pid}")
+                expected_grams = math.ceil((manufacturer_weight * 1000 * (1 + allowance / 100)) / rounding_step) * rounding_step
+                if int(estimate_grams) != expected_grams:
+                    raise SystemExit(
+                        f"WABCO packed-weight mismatch for {pid}: "
+                        f"{estimate_grams!r} != {expected_grams!r}"
+                    )
+            elif estimate_grams is not None:
+                raise SystemExit(f"Unverified WABCO weight must not be used for checkout: {pid}")
+
+            metadata = {
+                "manufacturer_weight_kg": manufacturer_weight,
+                "manufacturer_weight_status": weight_status,
+                "manufacturer_dimensions_mm": dims,
+                "manufacturer_dimension_specs": dimension_specs,
+                "manufacturer_spec_source": text(spec.get("source_url")),
+                "manufacturer_spec_notes": text(spec.get("notes")),
+            }
+            for field, value in metadata.items():
+                if product.get(field) != value:
+                    product[field] = value
+                    wabco_changed = True
+
+            # Only use defensible manufacturer weights for checkout. For official
+            # 0 kg / 1 g values, keep the source value as metadata but do not
+            # overwrite a pre-existing manually verified shipping weight.
+            if estimate_grams is not None:
+                if product.get("approx_weight_g") != int(estimate_grams):
+                    product["approx_weight_g"] = int(estimate_grams)
+                    wabco_changed = True
+
+        if wabco_changed:
+            CATALOGUE_PATH.write_text(
+                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\\n",
+                encoding="utf-8",
+            )
+
     # A temporary sheet override file is used for an exact workbook-to-catalogue
     # reconciliation. It is deleted after the projection commit.
     override_path = ROOT / "assets/data/catalogue_overrides.json"
@@ -683,6 +800,14 @@ def reconcile_catalogue_projections():
             "discount_percent": p.get("discount_percent"),
             "discountPercent": p.get("discount_percent"),
             "approx_weight_g": approximate_weight_grams(p),
+            **({
+                "manufacturer_weight_kg": p.get("manufacturer_weight_kg"),
+                "manufacturer_weight_status": text(p.get("manufacturer_weight_status")),
+                "manufacturer_dimensions_mm": p.get("manufacturer_dimensions_mm"),
+                "manufacturer_dimension_specs": list(p.get("manufacturer_dimension_specs") or []),
+                "manufacturer_spec_source": text(p.get("manufacturer_spec_source")),
+                "manufacturer_spec_notes": text(p.get("manufacturer_spec_notes")),
+            } if text(p.get("manufacturer_spec_source")) else {}),
             "product_name": text(p.get("product_name") or p.get("name")),
             "name": text(p.get("name") or p.get("product_name")),
             "partNumber": part,
@@ -737,6 +862,14 @@ def reconcile_catalogue_projections():
             "url": f"/en/products/{text(p.get('slug'))}",
             "image": text(p.get("image")),
             "approx_weight_g": approximate_weight_grams(p),
+            **({
+                "manufacturer_weight_kg": p.get("manufacturer_weight_kg"),
+                "manufacturer_weight_status": text(p.get("manufacturer_weight_status")),
+                "manufacturer_dimensions_mm": p.get("manufacturer_dimensions_mm"),
+                "manufacturer_dimension_specs": list(p.get("manufacturer_dimension_specs") or []),
+                "manufacturer_spec_source": text(p.get("manufacturer_spec_source")),
+                "manufacturer_spec_notes": text(p.get("manufacturer_spec_notes")),
+            } if text(p.get("manufacturer_spec_source")) else {}),
             "icon": "",
             "category": {"id": text(p.get("category_id")), "name": category},
             "brand": {"id": text(p.get("brand_id")), "name": brand},
@@ -772,6 +905,9 @@ def reconcile_catalogue_projections():
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
             "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "discount_percent", "discountPercent",
+            "manufacturer_weight_kg", "manufacturer_weight_status",
+            "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
+            "manufacturer_spec_source", "manufacturer_spec_notes",
             "product_name", "name", "partNumber", "brand_id", "brand_name",
             "brand", "category_id", "category_name", "category",
             "subcategory_id", "subcategory_name", "subcategory",
@@ -819,7 +955,10 @@ def reconcile_catalogue_projections():
         "vehicles", "part_number", "manufacturer_part_number",
         "manufacturer_part_numbers", "alternate_part_numbers",
         "oem_numbers", "cross_references", "slug", "image",
-        "vehicle_count", "featured", "active",
+        "vehicle_count", "featured", "active", "approx_weight_g",
+        "manufacturer_weight_kg", "manufacturer_weight_status",
+        "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
+        "manufacturer_spec_source", "manufacturer_spec_notes",
     )
     
     for p in active:
@@ -1279,6 +1418,13 @@ def reconcile_catalogue_projections():
             data["discount_percent"] = product.get("discount_percent")
             data["discountPercent"] = product.get("discount_percent")
             data["approx_weight_g"] = approximate_weight_grams(product)
+            if text(product.get("manufacturer_spec_source")):
+                data["manufacturer_weight_kg"] = product.get("manufacturer_weight_kg")
+                data["manufacturer_weight_status"] = text(product.get("manufacturer_weight_status"))
+                data["manufacturer_dimensions_mm"] = product.get("manufacturer_dimensions_mm")
+                data["manufacturer_dimension_specs"] = list(product.get("manufacturer_dimension_specs") or [])
+                data["manufacturer_spec_source"] = text(product.get("manufacturer_spec_source"))
+                data["manufacturer_spec_notes"] = text(product.get("manufacturer_spec_notes"))
             data["updated_at"] = text(
                 product.get("updated_at")
                 or product.get("catalogue_updated_at")
