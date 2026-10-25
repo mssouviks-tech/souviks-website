@@ -208,7 +208,7 @@ def reconcile_catalogue_projections():
 
         if weights_changed:
             CATALOGUE_PATH.write_text(
-                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\\n",
+                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n",
                 encoding="utf-8",
             )
 
