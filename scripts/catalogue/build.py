@@ -905,6 +905,9 @@ def reconcile_catalogue_projections():
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
             "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "discount_percent", "discountPercent",
+            "manufacturer_weight_kg", "manufacturer_weight_status",
+            "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
+            "manufacturer_spec_source", "manufacturer_spec_notes",
             "product_name", "name", "partNumber", "brand_id", "brand_name",
             "brand", "category_id", "category_name", "category",
             "subcategory_id", "subcategory_name", "subcategory",
@@ -952,7 +955,10 @@ def reconcile_catalogue_projections():
         "vehicles", "part_number", "manufacturer_part_number",
         "manufacturer_part_numbers", "alternate_part_numbers",
         "oem_numbers", "cross_references", "slug", "image",
-        "vehicle_count", "featured", "active",
+        "vehicle_count", "featured", "active", "approx_weight_g",
+        "manufacturer_weight_kg", "manufacturer_weight_status",
+        "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
+        "manufacturer_spec_source", "manufacturer_spec_notes",
     )
     
     for p in active:
