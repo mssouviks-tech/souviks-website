@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
   "purpose": "Approximate product unit weights for catalogue freight estimates",
-  "method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions; round upward to the next 50 g for a conservative estimate.",
+  "method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
   "assumptions": {
     "material_density_kg_m3": 7850,
     "nut_count_per_ubolt": 2,
@@ -10,8 +10,9 @@
       "M20": 60.5,
       "M22": 85
     },
-    "packaging_included": false,
-    "measured_by_manufacturer": false
+    "packaging_included": true,
+    "measured_by_manufacturer": false,
+    "estimated_packaging_allowance_percent": 5
   },
   "products": [
     {
@@ -25,7 +26,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 2274,
-      "approx_weight_g": 2300
+      "approx_weight_g": 2400,
+      "net_weight_g": 2274,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001064",
@@ -38,7 +41,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 2423.3,
-      "approx_weight_g": 2450
+      "approx_weight_g": 2550,
+      "net_weight_g": 2423.3,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001066",
@@ -51,7 +56,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 2196,
-      "approx_weight_g": 2200
+      "approx_weight_g": 2350,
+      "net_weight_g": 2196,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001072",
@@ -64,7 +71,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 3194,
-      "approx_weight_g": 3200
+      "approx_weight_g": 3400,
+      "net_weight_g": 3194,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001071",
@@ -77,7 +86,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 3343.2,
-      "approx_weight_g": 3350
+      "approx_weight_g": 3550,
+      "net_weight_g": 3343.2,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001073",
@@ -90,7 +101,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 3492.4,
-      "approx_weight_g": 3500
+      "approx_weight_g": 3700,
+      "net_weight_g": 3492.4,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001074",
@@ -103,7 +116,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 3641.6,
-      "approx_weight_g": 3650
+      "approx_weight_g": 3850,
+      "net_weight_g": 3641.6,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001075",
@@ -116,7 +131,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 3790.8,
-      "approx_weight_g": 3800
+      "approx_weight_g": 4000,
+      "net_weight_g": 3790.8,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001076",
@@ -129,7 +146,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 3940,
-      "approx_weight_g": 3950
+      "approx_weight_g": 4150,
+      "net_weight_g": 3940,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001077",
@@ -142,7 +161,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 4089.2,
-      "approx_weight_g": 4100
+      "approx_weight_g": 4300,
+      "net_weight_g": 4089.2,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001078",
@@ -155,7 +176,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 4238.4,
-      "approx_weight_g": 4250
+      "approx_weight_g": 4500,
+      "net_weight_g": 4238.4,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001079",
@@ -168,7 +191,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 4387.6,
-      "approx_weight_g": 4400
+      "approx_weight_g": 4650,
+      "net_weight_g": 4387.6,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001069",
@@ -181,7 +206,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 1788,
-      "approx_weight_g": 1800
+      "approx_weight_g": 1900,
+      "net_weight_g": 1788,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001067",
@@ -194,7 +221,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 1911.3,
-      "approx_weight_g": 1950
+      "approx_weight_g": 2050,
+      "net_weight_g": 1911.3,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001062",
@@ -207,7 +236,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 1826.8,
-      "approx_weight_g": 1850
+      "approx_weight_g": 1950,
+      "net_weight_g": 1826.8,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001070",
@@ -220,7 +251,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 2047.3,
-      "approx_weight_g": 2050
+      "approx_weight_g": 2150,
+      "net_weight_g": 2047.3,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001068",
@@ -233,7 +266,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 2345.7,
-      "approx_weight_g": 2350
+      "approx_weight_g": 2500,
+      "net_weight_g": 2345.7,
+      "packaging_allowance_percent": 5
     },
     {
       "id": "SVKS001065",
@@ -246,7 +281,9 @@
       ],
       "nut_count": 2,
       "calculated_weight_g": 2494.9,
-      "approx_weight_g": 2500
+      "approx_weight_g": 2650,
+      "net_weight_g": 2494.9,
+      "packaging_allowance_percent": 5
     }
   ]
 }
