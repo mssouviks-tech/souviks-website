@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 from pathlib import Path
 
@@ -40,6 +41,9 @@ for estimate in estimates:
     pid = str(estimate.get("id") or "").strip()
     part_number = str(estimate.get("part_number") or "").strip()
     grams = estimate.get("approx_weight_g")
+    net_weight = estimate.get("net_weight_g")
+    packaging_percent = estimate.get("packaging_allowance_percent")
+    calculated_weight = estimate.get("calculated_weight_g")
     if not pid or not part_number:
         fail("Every estimate must have an id and part_number")
     if pid in seen:
@@ -47,6 +51,15 @@ for estimate in estimates:
     seen.add(pid)
     if estimate.get("nut_count") != 2:
         fail(f"{pid} does not specify exactly two nuts")
+    if not isinstance(net_weight, (int, float)) or isinstance(net_weight, bool) or net_weight <= 0:
+        fail(f"{pid} has invalid net_weight_g: {net_weight!r}")
+    if net_weight != calculated_weight:
+        fail(f"{pid} net weight does not match its calculated weight")
+    if packaging_percent != 5:
+        fail(f"{pid} must retain the documented 5% packaging allowance")
+    expected_packed_grams = math.ceil((net_weight * (1 + packaging_percent / 100)) / 50) * 50
+    if grams != expected_packed_grams:
+        fail(f"{pid} packed weight mismatch: {grams!r} != {expected_packed_grams!r}")
     if not isinstance(grams, (int, float)) or isinstance(grams, bool) or not (0 < grams <= 200000):
         fail(f"{pid} has invalid approx_weight_g: {grams!r}")
 
