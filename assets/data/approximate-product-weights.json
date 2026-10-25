@@ -2,13 +2,13 @@
   "version": 1,
   "source": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
   "purpose": "Approximate product unit weights for catalogue freight estimates",
-  "method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using approximate M20/M22 standard dimensions; round upward to the next 50 g for a conservative estimate.",
+  "method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions; round upward to the next 50 g for a conservative estimate.",
   "assumptions": {
     "material_density_kg_m3": 7850,
     "nut_count_per_ubolt": 2,
     "estimated_nut_weight_g_each": {
       "M20": 60.5,
-      "M22": 73.9
+      "M22": 85
     },
     "packaging_included": false,
     "measured_by_manufacturer": false
@@ -24,7 +24,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 2251.8,
+      "calculated_weight_g": 2274,
       "approx_weight_g": 2300
     },
     {
@@ -37,7 +37,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 2401.1,
+      "calculated_weight_g": 2423.3,
       "approx_weight_g": 2450
     },
     {
@@ -63,7 +63,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 3171.8,
+      "calculated_weight_g": 3194,
       "approx_weight_g": 3200
     },
     {
@@ -76,7 +76,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 3321,
+      "calculated_weight_g": 3343.2,
       "approx_weight_g": 3350
     },
     {
@@ -89,7 +89,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 3470.2,
+      "calculated_weight_g": 3492.4,
       "approx_weight_g": 3500
     },
     {
@@ -102,7 +102,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 3619.4,
+      "calculated_weight_g": 3641.6,
       "approx_weight_g": 3650
     },
     {
@@ -115,7 +115,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 3768.6,
+      "calculated_weight_g": 3790.8,
       "approx_weight_g": 3800
     },
     {
@@ -128,7 +128,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 3917.8,
+      "calculated_weight_g": 3940,
       "approx_weight_g": 3950
     },
     {
@@ -141,7 +141,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 4067,
+      "calculated_weight_g": 4089.2,
       "approx_weight_g": 4100
     },
     {
@@ -154,7 +154,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 4216.2,
+      "calculated_weight_g": 4238.4,
       "approx_weight_g": 4250
     },
     {
@@ -167,7 +167,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 4365.4,
+      "calculated_weight_g": 4387.6,
       "approx_weight_g": 4400
     },
     {
@@ -219,7 +219,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 2025.1,
+      "calculated_weight_g": 2047.3,
       "approx_weight_g": 2050
     },
     {
@@ -232,7 +232,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 2323.5,
+      "calculated_weight_g": 2345.7,
       "approx_weight_g": 2350
     },
     {
@@ -245,7 +245,7 @@
         22
       ],
       "nut_count": 2,
-      "calculated_weight_g": 2472.7,
+      "calculated_weight_g": 2494.9,
       "approx_weight_g": 2500
     }
   ]
