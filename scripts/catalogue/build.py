@@ -212,6 +212,119 @@ def reconcile_catalogue_projections():
                 encoding="utf-8",
             )
 
+    # Apply official WABCO manufacturer specifications from a durable manifest.
+    # The manifest stores published mass separately from the packed freight estimate;
+    # suspicious 0 / 0.001 kg values must never be treated as real checkout weights.
+    wabco_specs_path = ROOT / "assets" / "data" / "wabco-product-specs.json"
+    if wabco_specs_path.exists():
+        try:
+            wabco_data = json.loads(wabco_specs_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid WABCO product specifications file: {exc}")
+        wabco_records = wabco_data.get("products") if isinstance(wabco_data, dict) else None
+        if not isinstance(wabco_records, list):
+            raise SystemExit("WABCO specifications must contain a products array")
+
+        wabco_products_by_id = {
+            text(product.get("id")): product
+            for product in catalogue
+            if isinstance(product, dict) and text(product.get("id"))
+        }
+        seen_wabco_ids = set()
+        specs_changed = False
+        allowed_weight_statuses = {
+            "official_plausible",
+            "official_placeholder_suspected",
+            "official_missing_or_zero",
+            "official_spec_not_found",
+            "official_weight_unconfirmed",
+            "official_drawing_variant_review",
+        }
+        for spec in wabco_records:
+            if not isinstance(spec, dict):
+                raise SystemExit("Every WABCO specification must be an object")
+            pid = text(spec.get("id"))
+            expected_part_number = text(spec.get("part_number"))
+            if not pid or not expected_part_number:
+                raise SystemExit("Every WABCO specification needs id and part_number")
+            if pid in seen_wabco_ids:
+                raise SystemExit(f"Duplicate WABCO specification for {pid}")
+            seen_wabco_ids.add(pid)
+
+            product = wabco_products_by_id.get(pid)
+            if product is None:
+                raise SystemExit(f"WABCO specification references unknown product: {pid}")
+            actual_part_number = text(product.get("part_number") or product.get("partNumber"))
+            actual_brand = text(product.get("brand_name") or product.get("brand")).casefold()
+            if actual_part_number != expected_part_number or "wabco" not in actual_brand:
+                raise SystemExit(
+                    f"WABCO product identity mismatch for {pid}: "
+                    f"brand={actual_brand!r}, part={actual_part_number!r}, "
+                    f"expected_part={expected_part_number!r}"
+                )
+
+            weight_status = text(spec.get("weight_status"))
+            if weight_status not in allowed_weight_statuses:
+                raise SystemExit(f"Invalid WABCO weight status for {pid}: {weight_status!r}")
+            manufacturer_weight = spec.get("manufacturer_weight_g")
+            if manufacturer_weight is not None and (
+                not isinstance(manufacturer_weight, (int, float))
+                or isinstance(manufacturer_weight, bool)
+                or manufacturer_weight < 0
+                or manufacturer_weight > 200000
+            ):
+                raise SystemExit(f"Invalid WABCO manufacturer weight for {pid}: {manufacturer_weight!r}")
+            if weight_status == "official_plausible" and (manufacturer_weight is None or manufacturer_weight <= 0):
+                raise SystemExit(f"Credible WABCO weight missing for {pid}")
+            if weight_status in {"official_placeholder_suspected", "official_missing_or_zero", "official_spec_not_found", "official_weight_unconfirmed"} and spec.get("approx_weight_g") is not None:
+                raise SystemExit(f"Unverified WABCO weight must not be used for freight: {pid}")
+
+            packed_weight = spec.get("approx_weight_g")
+            if packed_weight is not None:
+                if not isinstance(packed_weight, (int, float)) or isinstance(packed_weight, bool) or not (0 < packed_weight <= 200000):
+                    raise SystemExit(f"Invalid WABCO packed weight for {pid}: {packed_weight!r}")
+                if manufacturer_weight is not None and weight_status in {"official_plausible", "official_drawing_variant_review"}:
+                    expected_packed_weight = int(math.ceil((manufacturer_weight * 1.05) / 50) * 50)
+                    if packed_weight != expected_packed_weight:
+                        raise SystemExit(f"WABCO packed-weight calculation mismatch for {pid}")
+
+            dimensions = spec.get("manufacturer_dimensions_mm")
+            if dimensions is not None and (
+                not isinstance(dimensions, list) or len(dimensions) != 3
+                or any(not isinstance(value, (int, float)) or isinstance(value, bool) or value <= 0 for value in dimensions)
+            ):
+                raise SystemExit(f"Invalid WABCO overall dimensions for {pid}: {dimensions!r}")
+            features = spec.get("manufacturer_dimension_features")
+            if not isinstance(features, list) or any(not isinstance(value, str) or not value.strip() for value in features):
+                raise SystemExit(f"Invalid WABCO dimensional features for {pid}")
+
+            updates = {
+                "manufacturer_weight_g": manufacturer_weight,
+                "manufacturer_weight_status": weight_status,
+                "manufacturer_dimensions_mm": dimensions,
+                "manufacturer_dimension_features": features,
+                "manufacturer_specs_source_url": text(spec.get("source_url")) or None,
+                "manufacturer_specs_checked_at": text(wabco_data.get("checked_at")) or None,
+                "manufacturer_specs_notes": text(spec.get("notes")) or None,
+            }
+            if packed_weight is not None:
+                updates["approx_weight_g"] = int(packed_weight)
+            elif weight_status in {"official_placeholder_suspected", "official_missing_or_zero", "official_spec_not_found", "official_weight_unconfirmed"}:
+                # Remove any stale/invalid freight weight for this exact record.
+                updates["approx_weight_g"] = None
+            for field, value in updates.items():
+                if product.get(field) != value:
+                    product[field] = value
+                    specs_changed = True
+
+        if seen_wabco_ids != set(wabco_products_by_id[pid]["id"] for pid in seen_wabco_ids if pid in wabco_products_by_id):
+            raise SystemExit("WABCO manifest IDs do not map cleanly to catalogue records")
+        if specs_changed:
+            CATALOGUE_PATH.write_text(
+                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\\n",
+                encoding="utf-8",
+            )
+
     # A temporary sheet override file is used for an exact workbook-to-catalogue
     # reconciliation. It is deleted after the projection commit.
     override_path = ROOT / "assets/data/catalogue_overrides.json"
