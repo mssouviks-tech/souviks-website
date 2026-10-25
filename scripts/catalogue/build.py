@@ -159,6 +159,59 @@ def reconcile_catalogue_projections():
                 return int(round(grams))
         return None
 
+    # Durable, explicitly sourced weight estimates are kept separately from the
+    # master catalogue so every generated projection can be rebuilt consistently.
+    weight_estimates_path = ROOT / "assets" / "data" / "approximate-product-weights.json"
+    if weight_estimates_path.exists():
+        try:
+            weight_data = json.loads(weight_estimates_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid product weight estimates file: {exc}")
+        records = weight_data.get("products") if isinstance(weight_data, dict) else None
+        if not isinstance(records, list):
+            raise SystemExit("Product weight estimates must contain a products array")
+
+        weight_products_by_id = {
+            text(product.get("id")): product
+            for product in catalogue
+            if isinstance(product, dict) and text(product.get("id"))
+        }
+        seen_weight_ids = set()
+        weights_changed = False
+        for estimate in records:
+            if not isinstance(estimate, dict):
+                raise SystemExit("Every product weight estimate must be an object")
+            pid = text(estimate.get("id"))
+            expected_part_number = text(estimate.get("part_number"))
+            if not pid or not expected_part_number:
+                raise SystemExit("Every product weight estimate needs id and part_number")
+            if pid in seen_weight_ids:
+                raise SystemExit(f"Duplicate product weight estimate for {pid}")
+            seen_weight_ids.add(pid)
+
+            product = weight_products_by_id.get(pid)
+            if product is None:
+                raise SystemExit(f"Weight estimate references unknown catalogue product: {pid}")
+            actual_part_number = text(product.get("part_number") or product.get("partNumber"))
+            if actual_part_number != expected_part_number:
+                raise SystemExit(
+                    f"Weight estimate part-number mismatch for {pid}: "
+                    f"{expected_part_number!r} != {actual_part_number!r}"
+                )
+
+            estimate_grams = approximate_weight_grams(estimate)
+            if estimate_grams is None:
+                raise SystemExit(f"Invalid approximate weight for catalogue product {pid}")
+            if product.get("approx_weight_g") != estimate_grams:
+                product["approx_weight_g"] = estimate_grams
+                weights_changed = True
+
+        if weights_changed:
+            CATALOGUE_PATH.write_text(
+                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\\n",
+                encoding="utf-8",
+            )
+
     # A temporary sheet override file is used for an exact workbook-to-catalogue
     # reconciliation. It is deleted after the projection commit.
     override_path = ROOT / "assets/data/catalogue_overrides.json"
