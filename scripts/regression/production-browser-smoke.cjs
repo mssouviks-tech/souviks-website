@@ -251,6 +251,53 @@ async function main() {
       }
     }
 
+    await check("desktop/en/priced homepage card adds to checkout Cart", async () => {
+      const context = await browser.newContext({ viewport: { width: 1365, height: 900 } });
+      const page = await context.newPage();
+      await attachPageErrors(page);
+      try {
+        await goto(page, "/en/");
+        await page.evaluate(() => {
+          localStorage.removeItem("souviks_rfq_guest");
+          localStorage.removeItem("souviks_purchase_cart_v1");
+        });
+        await page.reload({ waitUntil: "domcontentloaded" });
+        await page.waitForTimeout(400);
+        assertNoPageErrors(page);
+
+        const card = page.locator(".home-product-track .product-card").filter({
+          has: page.locator(".add-to-purchase-cart")
+        }).first();
+        const addButton = card.locator(".add-to-purchase-cart");
+        if (!(await addButton.count())) throw new Error("homepage has no priced product card with Add to Cart");
+        const productId = await addButton.getAttribute("data-id");
+        if (!productId) throw new Error("homepage priced card has no product ID");
+
+        const quantity = card.locator("[data-product-quantity]").first();
+        if (!(await quantity.count())) throw new Error("homepage priced card has no quantity control");
+        await quantity.fill("2");
+        await addButton.click();
+
+        const state = await page.evaluate(() => {
+          const raw = localStorage.getItem("souviks_purchase_cart_v1");
+          const items = raw ? JSON.parse(raw) : [];
+          const rfqRaw = localStorage.getItem("souviks_rfq_guest");
+          return {
+            items,
+            rfqItems: rfqRaw ? JSON.parse(rfqRaw) : [],
+            badge: document.querySelector("a[href$='/cart'] .purchase-cart-count")?.textContent?.trim()
+          };
+        });
+        if (state.items.length !== 1 || state.items[0].productId !== productId || Number(state.items[0].quantity) !== 2) {
+          throw new Error("homepage card did not add the selected quantity to checkout Cart");
+        }
+        if (state.rfqItems.length) throw new Error("homepage card unexpectedly populated the discontinued RFQ cart");
+        if (state.badge !== "2") throw new Error("checkout Cart badge did not reflect the homepage quantity");
+      } finally {
+        await context.close();
+      }
+    });
+
     // Checkout-cart browser checks mutate localStorage only and never submit an order.
     await check("desktop/en/priced product card adds to checkout Cart", async () => {
       const context = await browser.newContext({ viewport: { width: 1365, height: 900 } });
