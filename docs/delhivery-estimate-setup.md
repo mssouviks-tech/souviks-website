@@ -25,7 +25,7 @@ Configure these in **Supabase Dashboard → Edge Functions → Secrets** for pro
 | --- | --- | --- |
 | `DELHIVERY_ORIGIN_PIN` | Recommended | Souviks dispatch PIN code: `713321`. The function has this safe default. |
 | `DELHIVERY_B2C_API_TOKEN` or `DELHIVERY_API_TOKEN` | Yes | Production Delhivery B2C token for PIN serviceability and freight estimates. |
-| `DELHIVERY_UMS_USERNAME` | Recommended for delivery time | Delhivery One / UMS username. When paired with the password, the function requests and caches a short-lived B2B bearer token and refreshes it when the JWT is nearing expiry. |
+| `DELHIVERY_UMS_USERNAME` (preferred), `DELHIVERY_UMS_ID`, `DELHIVERY_UMS_USER_ID`, or `DELHIVERY_UMS_USER` | Recommended for delivery time | Delhivery One / UMS login ID. Use one of these names for the same value; `DELHIVERY_UMS_USERNAME` is preferred. When paired with the password, the function requests and caches a short-lived B2B bearer token and refreshes it when the JWT is nearing expiry. |
 | `DELHIVERY_UMS_PASSWORD` | Recommended for delivery time | Password for the UMS account. Store only as a Supabase Edge Function secret; never put it in browser code or Git. |
 | `DELHIVERY_B2B_BEARER_TOKEN` or `DELHIVERY_UMS_BEARER_TOKEN` | Optional alternative for delivery time | Manually supplied UMS bearer token. This is separate from the B2C API token and may expire; username/password is preferred for automatic refresh. |
 
