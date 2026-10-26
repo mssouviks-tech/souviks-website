@@ -55,20 +55,8 @@ def verify_homepage_cards() -> None:
         ("en", ROOT / "en" / "index.html"),
         ("hi", ROOT / "hi" / "index.html"),
         ("bn", ROOT / "bn" / "index.html"),
+        ("root", ROOT / "index.html"),
     ]
-
-    # Some build pipelines regenerate the canonical root homepage after the
-    # localized page checks. Validate root card parity once that generated
-    # document carries the routing marker; the release gate's current order
-    # synchronizes it before running this audit.
-    root_path = ROOT / "index.html"
-    if (
-        root_path.is_file()
-        and "SOUVIKS ROOT HOMEPAGE LANGUAGE ROUTING"
-        in root_path.read_text(encoding="utf-8")
-    ):
-        paths.append(("root", root_path))
-
     reference_ids = None
 
     for language, path in paths:
