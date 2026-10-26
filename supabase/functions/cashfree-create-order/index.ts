@@ -1,5 +1,6 @@
 import {
   cashfreeConfig,
+  assertLiveCheckoutApproved,
   checkoutPolicy,
   CheckoutError,
   cashfreeRequest,
@@ -119,6 +120,7 @@ Deno.serve(async (req: Request) => {
   try {
     const config = cashfreeConfig();
     const policy = checkoutPolicy();
+    assertLiveCheckoutApproved(config);
     const input = await req.json();
     await enforceCheckoutRateLimit(req, config);
 
@@ -222,19 +224,16 @@ Deno.serve(async (req: Request) => {
     if (fulfillmentMethod === "pickup") {
       // Store pickup does not use courier serviceability or freight calculations.
       shippingPaise = 0;
-    } else if (subtotal > policy.threshold) {
-      // Preserve Souviks' configured free-shipping threshold.
-      shippingPaise = 0;
     } else if (hasCompleteWeights) {
       if (!Number.isInteger(estimatedWeightGrams) || estimatedWeightGrams < 1 || estimatedWeightGrams > 200000) {
         throw new CheckoutError("delhivery_shipping_weight_invalid", 400);
       }
-      // The server re-quotes against trusted catalogue weights and the delivery
-      // PIN; the browser-provided preview is never trusted for payment totals.
+      // Every home-delivery order gets a server-side freight quote using trusted
+      // catalogue weights and the destination PIN. Never waive freight based on
+      // subtotal or trust a browser-provided shipping estimate.
       shippingPaise = await calculateDelhiveryPrepaidCharge(postalCode, estimatedWeightGrams);
     } else {
-      // Do not use the existing flat fee while weights are missing; it may be a
-      // sandbox placeholder. A below-threshold order needs a real weighted quote.
+      // Fail closed rather than undercharge freight when a product lacks weight.
       throw new CheckoutError("delhivery_shipping_weights_missing", 409);
     }
     const totalPaise = subtotalPaise + shippingPaise;
@@ -349,7 +348,6 @@ Deno.serve(async (req: Request) => {
       payment_provider_not_configured: "Online checkout is not configured yet. Please request a quote.",
       live_checkout_not_approved: "Live payments have not been enabled yet.",
       tax_policy_not_confirmed: "Checkout is temporarily unavailable while tax treatment is confirmed.",
-      shipping_policy_not_configured: "Checkout is temporarily unavailable while shipping charges are confirmed.",
       checkout_rate_limited: "Too many checkout attempts. Please wait a few minutes and retry.",
       fulfillment_method_invalid: "Choose either home delivery or store pickup to continue.",
       catalogue_unavailable: "Current product pricing could not be verified. Please request a quote.",

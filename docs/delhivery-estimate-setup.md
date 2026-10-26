@@ -13,7 +13,7 @@ The builder also recognizes `weight_g`, `shipping_weight_g`, and `approx_weight_
 
 ### Until the stock sheet is updated
 
-No default or guessed product weight is used. When one or more items lack a weight, below-threshold online checkout is blocked with a request-a-quote message instead of charging the configured flat shipping fee (the existing checkout setup guide documents a ₹1,00,000 placeholder fee). Once all weights are available, checkout uses the live Delhivery prepaid + Express charge for the combined cart weight. Orders above Souviks' configured free-shipping threshold continue to get free shipping.
+No default or guessed product weight is used. When one or more items lack a weight, online checkout is blocked and the customer is asked to request a quote rather than being charged an invented flat fee. Once all weights are available, checkout uses the live Delhivery prepaid + Express charge for the combined cart weight. Every shipped order incurs shipping charges, regardless of order value; there is no free-shipping threshold.
 
 If weights are present but Delhivery cannot calculate a quote, checkout fails safely and asks the customer to retry or request a quote. It never silently falls back to a different fee when a live weighted quote was attempted.
 
@@ -37,7 +37,7 @@ Never place Delhivery tokens in site JavaScript, HTML, a committed environment f
 - Checkout preview calls `estimate_type: shipping_charge` with the combined cart weight. Customers don't choose a service or payment type; the shipping quote uses the requested default of **Pre-paid + Express**.
 - `cashfree-create-order` fetches trusted catalogue data again, aggregates weights server-side, and requests its own Pre-paid + Express freight quote. It does not trust any client-provided freight amount when creating the Cashfree order.
 - Shipping fees are estimated in grams against the destination PIN and Souviks origin PIN `713321`. Delhivery describes these charges as approximate; package dimensions, chargeable/volumetric weight and final carrier billing can change them.
-- The current configured free-shipping threshold remains in force.
+- Every shipped order incurs shipping charges. There is no free-shipping threshold; the carrier charge is based on the cart weight and destination.
 
 ## Validation
 

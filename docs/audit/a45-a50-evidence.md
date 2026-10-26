@@ -13,8 +13,8 @@ This checklist separates deterministic repository checks from evidence that must
 ## A46 — Shipping, cancellation, return and refund wording
 
 - [x] Policy pages retain the 1 September 2026 effective date in English, Hindi and Bengali.
-- [x] Published Terms contain the ₹45,000 free-shipping threshold, the estimated 5–10 working-day delivery window, and the no-cancellation-after-dispatch rule.
-- [ ] Business owner to confirm whether the free-shipping threshold is strictly above ₹45,000 or inclusive of exactly ₹45,000.
+- [x] Published Terms state that all shipped orders incur shipping charges, alongside the estimated 5–10 working-day delivery window and the no-cancellation-after-dispatch rule.
+- [x] Business owner confirmed there is no free-shipping threshold; freight charges vary by shipment and destination.
 - [ ] Confirm the one-hour delivery-damage report window, general seven-day return/exchange request window, lubricant exclusion and inspection/approval process against actual operations.
 - [ ] Have the policy reviewed by an appropriately qualified Indian legal professional. Automated consistency is not legal advice.
 - [ ] Include a pre-effective-date review of the Consumer Protection (E-Commerce) (Amendment) Rules, 2026. The Department of Consumer Affairs announced that these amendments come into force on 1 January 2027; confirm applicability to Souviks and update disclosures before that date if required: https://www.pib.gov.in/newsite/erelcontent.aspx?lang=2&reg=48&relid=294532
