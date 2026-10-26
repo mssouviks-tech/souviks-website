@@ -2691,6 +2691,76 @@ def sync_product_seo_and_schema():
                     if category_name:
                         node["category"] = category_name
 
+                    # Refresh inferred dimensions and weight on existing Product
+                    # JSON-LD nodes as well as on newly created schema. Most PDPs
+                    # already have a Product block, so updating only the creation
+                    # path leaves these catalogue attributes out of structured data.
+                    pin_dimensions = product.get("dimensions_mm")
+                    if (
+                        isinstance(pin_dimensions, list)
+                        and len(pin_dimensions) == 2
+                        and all(
+                            isinstance(value, (int, float))
+                            and not isinstance(value, bool)
+                            and value > 0
+                            for value in pin_dimensions
+                        )
+                    ):
+                        diameter_mm, overall_length_mm = pin_dimensions
+                        managed_property_names = {
+                            "Diameter",
+                            "Overall length",
+                            "Weight estimation status",
+                        }
+                        existing_properties = node.get("additionalProperty")
+                        if not isinstance(existing_properties, list):
+                            existing_properties = []
+                        properties = [
+                            item
+                            for item in existing_properties
+                            if not (
+                                isinstance(item, dict)
+                                and item.get("name") in managed_property_names
+                            )
+                        ]
+                        properties.extend(
+                            [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Diameter",
+                                    "value": diameter_mm,
+                                    "unitText": "mm",
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Overall length",
+                                    "value": overall_length_mm,
+                                    "unitText": "mm",
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Weight estimation status",
+                                    "value": str(
+                                        product.get("weight_estimation_status")
+                                        or "estimated"
+                                    ),
+                                },
+                            ]
+                        )
+                        node["additionalProperty"] = properties
+
+                        estimated_net_grams = product.get("calculated_weight_g")
+                        if (
+                            isinstance(estimated_net_grams, (int, float))
+                            and not isinstance(estimated_net_grams, bool)
+                            and estimated_net_grams > 0
+                        ):
+                            node["weight"] = {
+                                "@type": "QuantitativeValue",
+                                "value": round(float(estimated_net_grams) / 1000, 3),
+                                "unitCode": "KGM",
+                            }
+
                     # Refresh identifiers on legacy Product nodes too. The old
                     # repair path updated other schema fields but left stale or
                     # blank MPNs untouched.
