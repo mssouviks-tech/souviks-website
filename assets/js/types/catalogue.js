@@ -31,6 +31,14 @@
  * @property {boolean} [featured]
  * @property {boolean} [active]
  * @property {string} [description]
+ * @property {number[]} [dimensions_mm] Nominal diameter and overall length, in millimetres
+ * @property {string} [dimensions_label]
+ * @property {string} [dimensions_source]
+ * @property {number} [calculated_weight_g] Estimated net product weight, in grams
+ * @property {number} [approx_weight_g] Estimated packed shipping weight, in grams
+ * @property {string} [weight_estimation_status]
+ * @property {string} [weight_estimation_method]
+ * @property {string} [weight_estimation_notes]
  */
 
 /**

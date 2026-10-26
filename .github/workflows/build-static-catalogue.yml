@@ -132,6 +132,7 @@ jobs:
               "scripts/audit/test_product_seo.py",
               "scripts/audit/test_product_title.py",
               "scripts/audit/test_wabco_product_specs.py",
+              "scripts/audit/test_pin_product_specs.py",
               "scripts/audit/test_static_product_pricing.py",
               "scripts/audit/test_product_checkout_actions.py",
               "scripts/audit/test_navigation_dropdowns.py",
@@ -153,6 +154,7 @@ jobs:
             python3 scripts/catalogue/validate.py
             python3 scripts/audit/test_product_weight_estimates.py
             python3 scripts/audit/test_wabco_product_specs.py
+            python3 scripts/audit/test_pin_product_specs.py
             python3 scripts/audit/critical_build.py
             python3 scripts/audit/test_static_product_pricing.py
             python3 scripts/audit/test_product_checkout_actions.py
@@ -212,6 +214,7 @@ jobs:
             python3 scripts/catalogue/validate.py
             python3 scripts/audit/test_product_weight_estimates.py
             python3 scripts/audit/test_wabco_product_specs.py
+            python3 scripts/audit/test_pin_product_specs.py
             python3 scripts/audit/critical_build.py
             python3 scripts/audit/test_static_product_pricing.py
             python3 scripts/audit/test_product_checkout_actions.py

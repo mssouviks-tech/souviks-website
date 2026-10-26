@@ -800,6 +800,13 @@ def reconcile_catalogue_projections():
             "discount_percent": p.get("discount_percent"),
             "discountPercent": p.get("discount_percent"),
             "approx_weight_g": approximate_weight_grams(p),
+            "dimensions_mm": p.get("dimensions_mm"),
+            "dimensions_label": text(p.get("dimensions_label")),
+            "dimensions_source": text(p.get("dimensions_source")),
+            "calculated_weight_g": p.get("calculated_weight_g"),
+            "weight_estimation_status": text(p.get("weight_estimation_status")),
+            "weight_estimation_method": text(p.get("weight_estimation_method")),
+            "weight_estimation_notes": text(p.get("weight_estimation_notes")),
             **({
                 "manufacturer_weight_kg": p.get("manufacturer_weight_kg"),
                 "manufacturer_weight_status": text(p.get("manufacturer_weight_status")),
@@ -862,6 +869,13 @@ def reconcile_catalogue_projections():
             "url": f"/en/products/{text(p.get('slug'))}",
             "image": text(p.get("image")),
             "approx_weight_g": approximate_weight_grams(p),
+            "dimensions_mm": p.get("dimensions_mm"),
+            "dimensions_label": text(p.get("dimensions_label")),
+            "dimensions_source": text(p.get("dimensions_source")),
+            "calculated_weight_g": p.get("calculated_weight_g"),
+            "weight_estimation_status": text(p.get("weight_estimation_status")),
+            "weight_estimation_method": text(p.get("weight_estimation_method")),
+            "weight_estimation_notes": text(p.get("weight_estimation_notes")),
             **({
                 "manufacturer_weight_kg": p.get("manufacturer_weight_kg"),
                 "manufacturer_weight_status": text(p.get("manufacturer_weight_status")),
@@ -904,7 +918,7 @@ def reconcile_catalogue_projections():
         projection_fields = (
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
-            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "discount_percent", "discountPercent",
+            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "dimensions_mm", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -955,7 +969,7 @@ def reconcile_catalogue_projections():
         "vehicles", "part_number", "manufacturer_part_number",
         "manufacturer_part_numbers", "alternate_part_numbers",
         "oem_numbers", "cross_references", "slug", "image",
-        "vehicle_count", "featured", "active", "approx_weight_g",
+        "vehicle_count", "featured", "active", "approx_weight_g", "dimensions_mm", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes",
         "manufacturer_weight_kg", "manufacturer_weight_status",
         "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
         "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -2572,6 +2586,26 @@ def sync_product_seo_and_schema():
                     "category": str(product.get("category_name") or product.get("category") or ""),
                 }
     
+                pin_dimensions = product.get("dimensions_mm")
+                if (
+                    isinstance(pin_dimensions, list)
+                    and len(pin_dimensions) == 2
+                    and all(isinstance(value, (int, float)) and not isinstance(value, bool) and value > 0 for value in pin_dimensions)
+                ):
+                    diameter_mm, overall_length_mm = pin_dimensions
+                    product_schema["additionalProperty"] = [
+                        {"@type": "PropertyValue", "name": "Diameter", "value": diameter_mm, "unitText": "mm"},
+                        {"@type": "PropertyValue", "name": "Overall length", "value": overall_length_mm, "unitText": "mm"},
+                        {"@type": "PropertyValue", "name": "Weight estimation status", "value": str(product.get("weight_estimation_status") or "estimated")},
+                    ]
+                    estimated_net_grams = product.get("calculated_weight_g")
+                    if isinstance(estimated_net_grams, (int, float)) and not isinstance(estimated_net_grams, bool) and estimated_net_grams > 0:
+                        product_schema["weight"] = {
+                            "@type": "QuantitativeValue",
+                            "value": round(float(estimated_net_grams) / 1000, 3),
+                            "unitCode": "KGM",
+                        }
+
                 mpn = str(product.get("manufacturer_part_number") or "").strip()
                 if not mpn:
                     mpn = str(product.get("part_number") or "").strip()
@@ -2656,6 +2690,76 @@ def sync_product_seo_and_schema():
                     category_name = str(product.get("category_name") or product.get("category") or "").strip()
                     if category_name:
                         node["category"] = category_name
+
+                    # Refresh inferred dimensions and weight on existing Product
+                    # JSON-LD nodes as well as on newly created schema. Most PDPs
+                    # already have a Product block, so updating only the creation
+                    # path leaves these catalogue attributes out of structured data.
+                    pin_dimensions = product.get("dimensions_mm")
+                    if (
+                        isinstance(pin_dimensions, list)
+                        and len(pin_dimensions) == 2
+                        and all(
+                            isinstance(value, (int, float))
+                            and not isinstance(value, bool)
+                            and value > 0
+                            for value in pin_dimensions
+                        )
+                    ):
+                        diameter_mm, overall_length_mm = pin_dimensions
+                        managed_property_names = {
+                            "Diameter",
+                            "Overall length",
+                            "Weight estimation status",
+                        }
+                        existing_properties = node.get("additionalProperty")
+                        if not isinstance(existing_properties, list):
+                            existing_properties = []
+                        properties = [
+                            item
+                            for item in existing_properties
+                            if not (
+                                isinstance(item, dict)
+                                and item.get("name") in managed_property_names
+                            )
+                        ]
+                        properties.extend(
+                            [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Diameter",
+                                    "value": diameter_mm,
+                                    "unitText": "mm",
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Overall length",
+                                    "value": overall_length_mm,
+                                    "unitText": "mm",
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Weight estimation status",
+                                    "value": str(
+                                        product.get("weight_estimation_status")
+                                        or "estimated"
+                                    ),
+                                },
+                            ]
+                        )
+                        node["additionalProperty"] = properties
+
+                        estimated_net_grams = product.get("calculated_weight_g")
+                        if (
+                            isinstance(estimated_net_grams, (int, float))
+                            and not isinstance(estimated_net_grams, bool)
+                            and estimated_net_grams > 0
+                        ):
+                            node["weight"] = {
+                                "@type": "QuantitativeValue",
+                                "value": round(float(estimated_net_grams) / 1000, 3),
+                                "unitCode": "KGM",
+                            }
 
                     # Refresh identifiers on legacy Product nodes too. The old
                     # repair path updated other schema fields but left stale or
