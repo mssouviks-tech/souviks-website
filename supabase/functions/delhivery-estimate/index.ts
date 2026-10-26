@@ -131,8 +131,16 @@ function jwtExpiryMilliseconds(token: string): number | null {
   }
 }
 
+function umsUsername(): string {
+  // Accept both documented and commonly labelled UMS login-ID secret names.
+  return (Deno.env.get("DELHIVERY_UMS_USERNAME") ||
+    Deno.env.get("DELHIVERY_UMS_ID") ||
+    Deno.env.get("DELHIVERY_UMS_USER_ID") ||
+    Deno.env.get("DELHIVERY_UMS_USER") || "").trim();
+}
+
 async function getUmsBearerToken(): Promise<string> {
-  const username = (Deno.env.get("DELHIVERY_UMS_USERNAME") || "").trim();
+  const username = umsUsername();
   const password = (Deno.env.get("DELHIVERY_UMS_PASSWORD") || "").trim();
 
   // Prefer the login flow so the short-lived UMS token can be refreshed automatically.
@@ -239,7 +247,7 @@ Deno.serve(async (req: Request) => {
     await enforceRateLimit(req);
 
     const b2cToken = (Deno.env.get("DELHIVERY_B2C_API_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || "").trim();
-    const b2bUsername = (Deno.env.get("DELHIVERY_UMS_USERNAME") || "").trim();
+    const b2bUsername = umsUsername();
     const b2bPassword = (Deno.env.get("DELHIVERY_UMS_PASSWORD") || "").trim();
     const manualB2bToken = (Deno.env.get("DELHIVERY_B2B_BEARER_TOKEN") || Deno.env.get("DELHIVERY_UMS_BEARER_TOKEN") || "").trim();
     if (!b2cToken) throw new EstimateError("delhivery_b2c_token_not_configured", 503);
