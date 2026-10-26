@@ -14408,7 +14408,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P32151D Spring Pin 32 x 151 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT and Tata Signa.",
     "image_folder": "SVKS000335",
     "gallery": [
@@ -14417,7 +14417,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      32,
+      151
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 953.3,
+    "approx_weight_g": 1050,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000336",
@@ -14450,7 +14462,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P52148 Spring Pin 52 x 148 mm locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "image_folder": "SVKS000336",
     "gallery": [
@@ -14459,7 +14471,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      52,
+      148
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 2467.3,
+    "approx_weight_g": 2600,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000337",
@@ -16817,7 +16841,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "image_folder": "SVKS000391",
     "gallery": [
       "1.webp",
@@ -16826,7 +16850,19 @@
       "4.webp"
     ],
     "description": "The Nirmal NIRMAL/SP/1200 Lever Pin 42 x 170 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      170
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1848.9,
+    "approx_weight_g": 1950,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000392",
@@ -16861,7 +16897,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "image_folder": "SVKS000392",
     "gallery": [
       "1.webp",
@@ -16870,7 +16906,19 @@
       "4.webp"
     ],
     "description": "The Nirmal NIRMAL/pSP/1201 Spring Pin 32 x 151 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT, Tata Signa and Ashok Leyland 2516.",
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      32,
+      151
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 953.3,
+    "approx_weight_g": 1050,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000393",
@@ -16903,7 +16951,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/SP/740 Spring Pin 50 x 151 mm locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "image_folder": "SVKS000393",
     "gallery": [
@@ -16912,7 +16960,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      50,
+      151
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 2327.4,
+    "approx_weight_g": 2450,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000394",
@@ -27264,7 +27324,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P16110 Spring Pin 16x110 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Ace and Tata Intra.",
     "image_folder": "SVKS000629",
     "gallery": [
@@ -27273,7 +27333,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      16,
+      110
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 173.6,
+    "approx_weight_g": 200,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000630",
@@ -27306,7 +27378,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P22116 Front Spring Pin 22x116 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000630",
     "gallery": [
@@ -27315,7 +27387,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      22,
+      116
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 346.1,
+    "approx_weight_g": 400,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000631",
@@ -27348,7 +27432,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P22125 Front Spring Pin 22x125 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000631",
     "gallery": [
@@ -27357,7 +27441,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      22,
+      125
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 373,
+    "approx_weight_g": 400,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000632",
@@ -27390,7 +27486,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P22126 Front Spring Pin 22x126 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000632",
     "gallery": [
@@ -27399,7 +27495,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      22,
+      126
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 376,
+    "approx_weight_g": 400,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000633",
@@ -27432,7 +27540,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P22127 Front Spring Pin 22x127 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000633",
     "gallery": [
@@ -27441,7 +27549,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      22,
+      127
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 379,
+    "approx_weight_g": 400,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000634",
@@ -27474,7 +27594,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P22136 Front Spring Pin 22x136 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Ultra.",
     "image_folder": "SVKS000634",
     "gallery": [
@@ -27483,7 +27603,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      22,
+      136
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 405.8,
+    "approx_weight_g": 450,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000635",
@@ -27516,7 +27648,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P22140 Front Spring Pin 22x140 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Ultra.",
     "image_folder": "SVKS000635",
     "gallery": [
@@ -27525,7 +27657,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      22,
+      140
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 417.8,
+    "approx_weight_g": 450,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000636",
@@ -27558,7 +27702,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P22142 Front Spring Pin 22x142 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Ultra.",
     "image_folder": "SVKS000636",
     "gallery": [
@@ -27567,7 +27711,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      22,
+      142
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 423.7,
+    "approx_weight_g": 450,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000637",
@@ -27600,7 +27756,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P25130 Front Spring Pin 25x130 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 1312.",
     "image_folder": "SVKS000637",
     "gallery": [
@@ -27609,7 +27765,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      25,
+      130
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 500.9,
+    "approx_weight_g": 550,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000638",
@@ -27642,7 +27810,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P25135 Front Spring Pin 25x135 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 1312.",
     "image_folder": "SVKS000638",
     "gallery": [
@@ -27651,7 +27819,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      25,
+      135
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 520.2,
+    "approx_weight_g": 550,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000639",
@@ -27684,7 +27864,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P25142 Front Spring Pin 25x142 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 1312.",
     "image_folder": "SVKS000639",
     "gallery": [
@@ -27693,7 +27873,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      25,
+      142
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 547.2,
+    "approx_weight_g": 600,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000640",
@@ -27769,7 +27961,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P25134 Front Spring Pin 25x134 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
     "image_folder": "SVKS000641",
     "gallery": [
@@ -27778,7 +27970,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      25,
+      134
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 516.4,
+    "approx_weight_g": 550,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000642",
@@ -27811,7 +28015,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P25152 Front Spring Pin 25x152 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "image_folder": "SVKS000642",
     "gallery": [
@@ -27820,7 +28024,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      25,
+      152
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 585.7,
+    "approx_weight_g": 650,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000643",
@@ -27853,7 +28069,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P30130 Front Spring Pin 30x130 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000643",
     "gallery": [
@@ -27862,7 +28078,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      30,
+      130
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 721.3,
+    "approx_weight_g": 800,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000644",
@@ -27895,7 +28123,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P30139 Rear Spring Pin 30x139 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000644",
     "gallery": [
@@ -27904,7 +28132,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      30,
+      139
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 771.3,
+    "approx_weight_g": 850,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000645",
@@ -27937,7 +28177,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P30150 Rear Spring Pin 30x150 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000645",
     "gallery": [
@@ -27946,7 +28186,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      30,
+      150
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 832.3,
+    "approx_weight_g": 900,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000646",
@@ -27979,7 +28231,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P30165 Rear Spring Pin 30x165 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000646",
     "gallery": [
@@ -27988,7 +28240,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      30,
+      165
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 915.6,
+    "approx_weight_g": 1000,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000647",
@@ -28021,7 +28285,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P32151D Front Spring Pin 32x151 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000647",
     "gallery": [
@@ -28030,7 +28294,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      32,
+      151
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 953.3,
+    "approx_weight_g": 1050,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000648",
@@ -28063,7 +28339,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35130 Rear Spring Pin 35x130 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "image_folder": "SVKS000648",
     "gallery": [
@@ -28072,7 +28348,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      130
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 981.8,
+    "approx_weight_g": 1050,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000649",
@@ -28105,7 +28393,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35135 Rear Spring Pin 35x135 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000649",
     "gallery": [
@@ -28114,7 +28402,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      135
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1019.6,
+    "approx_weight_g": 1100,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000650",
@@ -28147,7 +28447,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35136 Rear Spring Pin 35x136 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "image_folder": "SVKS000650",
     "gallery": [
@@ -28156,7 +28456,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      136
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1027.2,
+    "approx_weight_g": 1100,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000651",
@@ -28189,7 +28501,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35139S Rear Spring Pin 35x139 small locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000651",
     "gallery": [
@@ -28198,7 +28510,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      139
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1049.8,
+    "approx_weight_g": 1150,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000652",
@@ -28231,7 +28555,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35140 Rear Spring Pin 35x140 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000652",
     "gallery": [
@@ -28240,7 +28564,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      140
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1057.4,
+    "approx_weight_g": 1150,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000653",
@@ -28274,7 +28610,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35149 Rear Spring Pin 35x149 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "image_folder": "SVKS000653",
     "gallery": [
@@ -28283,7 +28619,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      149
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1125.3,
+    "approx_weight_g": 1200,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000654",
@@ -28316,7 +28664,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35151D Rear Spring Pin 35x151 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000654",
     "gallery": [
@@ -28325,7 +28673,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      151
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1140.4,
+    "approx_weight_g": 1200,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000655",
@@ -28359,7 +28719,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35155D Rear Spring Pin 35x155 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Eicher Pro Series and Ashok Leyland Captain.",
     "image_folder": "SVKS000655",
     "gallery": [
@@ -28368,7 +28728,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      155
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1170.7,
+    "approx_weight_g": 1250,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000656",
@@ -28401,7 +28773,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35164 Rear Spring Pin35x164 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000656",
     "gallery": [
@@ -28410,7 +28782,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      164
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1238.6,
+    "approx_weight_g": 1350,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000657",
@@ -28443,7 +28827,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P35165 Rear Spring Pin 35x165 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000657",
     "gallery": [
@@ -28452,7 +28836,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      165
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1246.2,
+    "approx_weight_g": 1350,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000658",
@@ -28486,7 +28882,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P42109 Lever Pin 42x109 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "image_folder": "SVKS000658",
     "gallery": [
@@ -28495,7 +28891,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      109
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1185.5,
+    "approx_weight_g": 1250,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000659",
@@ -28529,7 +28937,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P42110 Lever Pin 42x110 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "image_folder": "SVKS000659",
     "gallery": [
@@ -28538,7 +28946,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      110
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1196.3,
+    "approx_weight_g": 1300,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000660",
@@ -28572,7 +28992,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P42116S Lever Pin 42x116 small locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "image_folder": "SVKS000660",
     "gallery": [
@@ -28581,7 +29001,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      116
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1261.6,
+    "approx_weight_g": 1350,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000661",
@@ -28614,7 +29046,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P42123 Lever Pin 42x123 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000661",
     "gallery": [
@@ -28623,7 +29055,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      123
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1337.7,
+    "approx_weight_g": 1450,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000662",
@@ -28656,7 +29100,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P42131 Lever Pin 42x131 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000662",
     "gallery": [
@@ -28665,7 +29109,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      131
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1424.7,
+    "approx_weight_g": 1500,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000663",
@@ -28699,7 +29155,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P42148S Lever Pin 42x148 small locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "image_folder": "SVKS000663",
     "gallery": [
@@ -28708,7 +29164,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      148
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1609.6,
+    "approx_weight_g": 1700,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000664",
@@ -28741,7 +29209,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P42160 Lever Pin 42x160 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000664",
     "gallery": [
@@ -28750,7 +29218,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      160
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1740.1,
+    "approx_weight_g": 1850,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000665",
@@ -28784,7 +29264,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P42170D Lever Pin 42x170 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Signa and Tata LPT.",
     "image_folder": "SVKS000665",
     "gallery": [
@@ -28793,7 +29273,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      170
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1848.9,
+    "approx_weight_g": 1950,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000666",
@@ -28827,7 +29319,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P52148 Lever Pin 52x148 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Prima and Tata LPT.",
     "image_folder": "SVKS000666",
     "gallery": [
@@ -28836,7 +29328,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      52,
+      148
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 2467.3,
+    "approx_weight_g": 2600,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000667",
@@ -28870,7 +29374,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The JAI P52151 Lever Pin 52x151 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Prima and Tata LPT.",
     "image_folder": "SVKS000667",
     "gallery": [
@@ -28879,7 +29383,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      52,
+      151
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 2517.3,
+    "approx_weight_g": 2650,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000668",
@@ -30252,7 +30768,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/pSP/1201 Spring Pin 32 x 150 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Signa.",
     "image_folder": "SVKS000699",
     "gallery": [
@@ -30261,7 +30777,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      32,
+      150
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 947,
+    "approx_weight_g": 1000,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000700",
@@ -30295,7 +30823,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/SP/400 Spring Pin 35 x 129 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "image_folder": "SVKS000700",
     "gallery": [
@@ -30304,7 +30832,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      129
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 974.3,
+    "approx_weight_g": 1050,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000701",
@@ -30338,7 +30878,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/SP/402 Spring Pin 35 x 140 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "image_folder": "SVKS000701",
     "gallery": [
@@ -30347,7 +30887,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      140
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1057.4,
+    "approx_weight_g": 1150,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000702",
@@ -30381,7 +30933,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/SP/430 Spring Pin 35 x 149 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "image_folder": "SVKS000702",
     "gallery": [
@@ -30390,7 +30942,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      35,
+      149
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1125.3,
+    "approx_weight_g": 1200,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000703",
@@ -30424,7 +30988,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/SP/404 Spring Pin 42 x 116 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "image_folder": "SVKS000703",
     "gallery": [
@@ -30433,7 +30997,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      116
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1261.6,
+    "approx_weight_g": 1350,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000704",
@@ -30466,7 +31042,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/SP/433 Spring Pin 42 x 124 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000704",
     "gallery": [
@@ -30475,7 +31051,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      124
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1348.6,
+    "approx_weight_g": 1450,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000705",
@@ -30508,7 +31096,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/SP/434 Spring Pin 42 x 132 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000705",
     "gallery": [
@@ -30517,7 +31105,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      132
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1435.6,
+    "approx_weight_g": 1550,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000706",
@@ -30550,7 +31150,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/SP/435 Spring Pin 42 x 160 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000706",
     "gallery": [
@@ -30559,7 +31159,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      160
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1740.1,
+    "approx_weight_g": 1850,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000707",
@@ -30592,7 +31204,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Nirmal NIRMAL/SP/740B Spring Pin 50 x 148 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Signa.",
     "image_folder": "SVKS000707",
     "gallery": [
@@ -30601,7 +31213,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      50,
+      148
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 2281.2,
+    "approx_weight_g": 2400,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000708",
@@ -32794,14 +33418,26 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Leyparts 551S004 Bell Crank Pin Kit Long - 42x160 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000758",
     "gallery": [
       "1.webp",
       "2.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      160
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1740.1,
+    "approx_weight_g": 1850,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Pin-body-only estimate for this bell-crank pin kit; additional kit components were not dimensioned separately.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000759",
@@ -32834,7 +33470,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Leyparts F0986215 Shackle Pin Tie Rod to Lever (42x123) locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000759",
     "gallery": [
@@ -32843,7 +33479,19 @@
       "3.webp",
       "4.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      123
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1337.7,
+    "approx_weight_g": 1450,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000760",
@@ -32876,7 +33524,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "catalogue_updated_at": "2026-10-26T15:54:00+05:30",
     "description": "The Leyparts F0986415 Shackle Pin BC Lever to Bracket (42x160) provides a structural attachment point to position and support the connected suspension or chassis component. Vehicle applications include Ashok Leyland 2516.",
     "image_folder": "SVKS000760",
     "gallery": [
@@ -32884,7 +33532,19 @@
       "2.webp",
       "3.webp"
     ],
-    "gallery_dimensions": {}
+    "gallery_dimensions": {},
+    "dimensions_mm": [
+      42,
+      160
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name",
+    "calculated_weight_g": 1740.1,
+    "approx_weight_g": 1850,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
+    "updated_at": "2026-10-26T15:54:00+05:30"
   },
   {
     "id": "SVKS000761",
@@ -44180,7 +44840,7 @@
     ],
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS001018/1.webp",
-    "manufacturer_weight_kg": 4.0,
+    "manufacturer_weight_kg": 4,
     "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [
       "Bolt length: 40.0 mm",
