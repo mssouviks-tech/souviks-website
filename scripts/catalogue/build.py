@@ -147,7 +147,7 @@ def reconcile_catalogue_projections():
     
     def approximate_weight_grams(p):
         """Read the catalogue's per-unit approximate packed weight in grams."""
-        for field in ("approx_weight_g", "dimensions_mm", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "weight_g", "shipping_weight_g", "approx_weight_grams"):
+        for field in ("approx_weight_g", "weight_g", "shipping_weight_g", "approx_weight_grams"):
             value = p.get(field)
             if value is None or value == "":
                 continue
