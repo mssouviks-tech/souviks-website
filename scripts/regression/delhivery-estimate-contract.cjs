@@ -17,6 +17,8 @@ const docs = read("docs/delhivery-estimate-setup.md");
 const versions = read("scripts/js/refresh_versions.py");
 const checkout = read("supabase/functions/cashfree-create-order/index.ts");
 const checkoutPages = read("scripts/catalogue/sync_checkout_pages.py");
+const productPage = read("en/products/18-mm-union.html");
+const cartPage = read("en/cart.html");
 
 assert.match(fn, /DELHIVERY_ORIGIN_PIN/);
 assert.match(fn, /DEFAULT_ORIGIN_PIN = "713321"/);
@@ -110,6 +112,18 @@ assert.match(checkoutPages, /"home_delivery": "Delivery"/);
 assert.match(checkoutPages, /"store_pickup": "Store pickup"/);
 assert.match(checkoutPages, /delivery_note/);
 assert.match(checkoutPages, /Delivery charges are calculated automatically at checkout/);
+assert.doesNotMatch(client, /Delhivery/);
+const productDetailsIndex = productPage.indexOf('class="pdp-meta"');
+const pinPanelIndex = productPage.indexOf('id="product-delivery-estimator"');
+const productActionsIndex = productPage.indexOf('class="pdp-actions"');
+assert.ok(productDetailsIndex >= 0 && productDetailsIndex < pinPanelIndex && pinPanelIndex < productActionsIndex,
+    "The product PIN checker must sit below the product detail table and above the purchase actions beside the gallery.");
+assert.match(productPage, /assets\/js\/product\/delivery-estimate\.js\?v=[0-9a-f]{12}/);
+assert.match(productPage, /delhivery-estimator\.css\?v=[0-9a-f]{12}/);
+assert.match(cartPage, /<span>Delivery<\/span>/);
+assert.match(cartPage, /<span>Store pickup<\/span>/);
+assert.match(cartPage, /Delivery charges are calculated automatically at checkout/);
+
 assert.match(versions, /assets\/css/);
 
 console.log("Delivery estimate contract OK: product PIN/date lookup, checkout date carry-over, automatic weighted freight estimates, pickup bypass, missing-weight quote guard, and server-side credentials/rate limits.");
