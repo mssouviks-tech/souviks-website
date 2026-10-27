@@ -67,3 +67,48 @@
     .delhivery-estimator { padding: 1rem; }
     .delhivery-estimator-result { padding: .8rem; }
 }
+/* Product-page PIN checker: keep it in the details column beside the gallery. */
+.delhivery-product-estimator {
+    grid-column: auto;
+    margin: .85rem 0 1.1rem;
+    padding: 1rem;
+}
+.delhivery-product-estimator h2 {
+    margin: 0 0 .45rem;
+    font-size: 1.05rem;
+}
+.delhivery-product-estimator .delhivery-estimator-intro {
+    margin: 0;
+}
+.delhivery-product-estimator .delhivery-estimator-form {
+    margin-top: .8rem;
+}
+.delhivery-product-estimator .delhivery-estimator-pin-group {
+    max-width: none;
+    margin: 0;
+}
+.delhivery-estimator-pin-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
+    gap: .5rem;
+}
+.delhivery-estimator-pin-controls button {
+    min-height: 44px;
+    white-space: nowrap;
+}
+.delhivery-product-estimator .delhivery-estimator-result {
+    margin-top: .85rem;
+}
+.delhivery-estimator-error {
+    border: 1px solid #e7b4b4;
+    color: var(--text-color, #172033);
+}
+.delhivery-estimator-error:focus {
+    outline-color: #a82020;
+}
+@media (max-width: 520px) {
+    .delhivery-estimator-pin-controls {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
