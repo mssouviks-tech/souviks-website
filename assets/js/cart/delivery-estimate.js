@@ -286,7 +286,7 @@
                 let estimatedDate = saved?.estimatedDate || "";
                 if (!saved) {
                     const deliveryResponse = await supabaseClient.functions.invoke("delhivery-estimate", {
-                        body: { estimate_type: "delivery_time", destination_pin: pin }
+                        body: { estimate_type:"delivery_time", destination_pin: pin }
                     });
                     let deliveryData = await unpackResponse(deliveryResponse);
                     if (current !== sequence) return;
@@ -330,7 +330,7 @@
                 }
 
                 const response = await supabaseClient.functions.invoke("delhivery-estimate", {
-                    body: { estimate_type: "shipping_charge", destination_pin: pin, chargeable_weight_g: weight.grams }
+                    body: { estimate_type:"shipping_charge", destination_pin: pin, chargeable_weight_g: weight.grams }
                 });
                 const data = await unpackResponse(response);
                 if (current !== sequence) return;
