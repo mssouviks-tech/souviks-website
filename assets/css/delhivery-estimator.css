@@ -112,3 +112,61 @@
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+/* Successful product-page lookup collapses to one compact delivery row. */
+.delhivery-product-estimator.has-estimate {
+    margin: .25rem 0 .6rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+.delhivery-product-estimator.has-estimate .delhivery-estimator-result {
+    margin: 0;
+    padding: .55rem .75rem;
+    border: 0;
+    border-radius: 8px;
+    background: var(--muted-background, #f5f7fa);
+}
+.delhivery-estimator-compact-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem .9rem;
+}
+.delhivery-estimator-compact-copy {
+    margin: 0 !important;
+    font-size: .94rem;
+    line-height: 1.4;
+}
+.delhivery-estimator-change-pin {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #16803c;
+    font: inherit;
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.delhivery-estimator-change-pin:hover { color: #0d652d; }
+.delhivery-estimator-change-pin:focus-visible {
+    outline: 2px solid #16803c;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+@media (max-width: 520px) {
+    .delhivery-product-estimator.has-estimate .delhivery-estimator-result {
+        padding: .55rem .65rem;
+    }
+    .delhivery-estimator-compact-row {
+        gap: .5rem;
+    }
+    .delhivery-estimator-compact-copy { font-size: .9rem; }
+    .delhivery-estimator-change-pin { font-size: .86rem; }
+}
