@@ -2,54 +2,60 @@
     "use strict";
     const LANGUAGE = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
     const CART_KEY = "souviks_purchase_cart_v1";
+    const ESTIMATE_KEY = "souviks_delivery_estimate_v1";
+    const ESTIMATE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+    const DATE_LOCALES = { en: "en-IN", hi: "hi-IN", bn: "bn-IN" };
     const COPY = {
         en: {
-            helper: "Every shipped order needs a freight quote. Until all product weights are available, please request a shipping quote before checkout.",
-            checking: "Calculating estimated prepaid shipping…",
-            serviceable: "Delhivery prepaid delivery is available for this PIN code.",
-            unavailable: "Delhivery prepaid service is not available for this PIN code.",
-            time: "Estimated delivery",
-            timeMissing: "Estimated delivery date not available",
-            days: "days",
-            price: "Estimated prepaid courier charge",
-            weightMissing: "Product weights are not available for every item yet. The Delhivery charge estimate will appear once the stock sheet is updated. Until then, request a shipping quote before checkout.",
-            weightInvalid: "The cart's combined approximate weight is outside the supported range. Please request a shipping quote.",
-            priceMissing: "Delhivery did not return a usable prepaid charge for this route.",
-            config: "Live Delhivery shipping estimates are not configured. The order review will show the available shipping policy.",
-            failed: "We could not retrieve a Delhivery estimate. The final amount will be confirmed at order review.",
-            approximate: "Approximate courier charge only. The final shipping amount is recalculated securely when you review your order."
+            helper: "Enter your PIN code to see the estimated delivery date and calculate delivery charges.",
+            checking: "Checking delivery details and calculating estimated charges…",
+            serviceable: "Souviks delivery is available for PIN code ",
+            unavailable: "We could not confirm delivery to PIN code ",
+            time: "Estimated delivery date",
+            timeMissing: "An estimated delivery date is not available for this PIN code. Please contact Souviks.",
+            price: "Estimated delivery charges",
+            weightMissing: "We cannot calculate a delivery charge because shipping weights are missing for one or more items. Please contact Souviks for a shipping quote.",
+            weightInvalid: "The cart's combined estimated weight is outside the supported range. Please contact Souviks for a shipping quote.",
+            priceMissing: "We could not calculate delivery charges for this PIN code. Please try again or contact Souviks.",
+            config: "We cannot calculate a delivery estimate right now. Please try again shortly or contact Souviks.",
+            failed: "We could not confirm delivery details right now. Please try again shortly or contact Souviks.",
+            approximate: "Delivery charges are an estimate. The applicable amount is rechecked before payment.",
+            estimated: "estimated",
+            pickupShipping: "No courier charge"
         },
         hi: {
-            helper: "हर भेजे जाने वाले ऑर्डर के लिए फ्रेट कोट आवश्यक है। जब तक सभी उत्पादों का वज़न उपलब्ध न हो, चेकआउट से पहले शिपिंग कोट माँगें।",
-            checking: "अनुमानित प्रीपेड शिपिंग की गणना हो रही है…",
-            serviceable: "इस पिन कोड पर Delhivery प्रीपेड डिलीवरी उपलब्ध है।",
-            unavailable: "इस पिन कोड पर Delhivery प्रीपेड सेवा उपलब्ध नहीं है।",
-            time: "अनुमानित डिलीवरी",
-            timeMissing: "अनुमानित डिलीवरी तारीख उपलब्ध नहीं है",
-            days: "दिन",
-            price: "अनुमानित प्रीपेड कूरियर शुल्क",
-            weightMissing: "अभी सभी उत्पादों के वज़न उपलब्ध नहीं हैं। स्टॉक शीट अपडेट होने के बाद Delhivery शुल्क का अनुमान दिखेगा। तब तक चेकआउट से पहले शिपिंग कोट माँगें।",
-            weightInvalid: "कार्ट का कुल अनुमानित वज़न समर्थित सीमा से बाहर है। शिपिंग कोट माँगें।",
-            priceMissing: "Delhivery ने इस मार्ग के लिए मान्य प्रीपेड शुल्क नहीं दिया।",
-            config: "लाइव Delhivery शिपिंग अनुमान कॉन्फ़िगर नहीं है। उपलब्ध शिपिंग नीति ऑर्डर रिव्यू में दिखाई जाएगी।",
-            failed: "Delhivery अनुमान प्राप्त नहीं हुआ। अंतिम राशि ऑर्डर रिव्यू में पक्की होगी।",
-            approximate: "यह केवल अनुमानित कूरियर शुल्क है। ऑर्डर रिव्यू में अंतिम शिपिंग राशि सुरक्षित रूप से दोबारा निकाली जाएगी।"
+            helper: "अनुमानित डिलीवरी तारीख देखने और डिलीवरी शुल्क की गणना के लिए पिन कोड दर्ज करें।",
+            checking: "डिलीवरी विवरण जाँचे जा रहे हैं और अनुमानित शुल्क निकाला जा रहा है…",
+            serviceable: "Souviks इस पिन कोड पर डिलीवरी कर सकता है: ",
+            unavailable: "हम इस पिन कोड पर डिलीवरी की पुष्टि नहीं कर सके: ",
+            time: "अनुमानित डिलीवरी तारीख",
+            timeMissing: "इस पिन कोड की अनुमानित डिलीवरी तारीख उपलब्ध नहीं है। कृपया Souviks से संपर्क करें।",
+            price: "अनुमानित डिलीवरी शुल्क",
+            weightMissing: "एक या अधिक उत्पादों का शिपिंग वज़न उपलब्ध नहीं है, इसलिए शुल्क की गणना नहीं हो सकी। कृपया शिपिंग कोट के लिए Souviks से संपर्क करें।",
+            weightInvalid: "कार्ट का कुल अनुमानित वज़न समर्थित सीमा से बाहर है। कृपया शिपिंग कोट के लिए Souviks से संपर्क करें।",
+            priceMissing: "इस पिन कोड के लिए डिलीवरी शुल्क की गणना नहीं हो सकी। कृपया फिर प्रयास करें या Souviks से संपर्क करें।",
+            config: "अभी डिलीवरी का अनुमान नहीं निकाला जा सकता। कृपया थोड़ी देर बाद फिर प्रयास करें या Souviks से संपर्क करें।",
+            failed: "अभी डिलीवरी विवरण की पुष्टि नहीं हो सकी। कृपया थोड़ी देर बाद फिर प्रयास करें या Souviks से संपर्क करें।",
+            approximate: "डिलीवरी शुल्क अनुमानित है। भुगतान से पहले लागू राशि की दोबारा जाँच की जाएगी।",
+            estimated: "अनुमानित",
+            pickupShipping: "कोई कूरियर शुल्क नहीं"
         },
         bn: {
-            helper: "প্রতিটি পাঠানো অর্ডারের জন্য ফ্রেট কোট প্রয়োজন। সব পণ্যের ওজন উপলভ্য না হওয়া পর্যন্ত চেকআউটের আগে শিপিং কোটের অনুরোধ করুন।",
-            checking: "আনুমানিক প্রিপেইড শিপিং হিসাব হচ্ছে…",
-            serviceable: "এই পিন কোডে Delhivery প্রিপেইড ডেলিভারি উপলভ্য।",
-            unavailable: "এই পিন কোডে Delhivery প্রিপেইড পরিষেবা উপলভ্য নয়।",
-            time: "আনুমানিক ডেলিভারি",
-            timeMissing: "আনুমানিক ডেলিভারির তারিখ উপলভ্য নয়",
-            days: "দিন",
-            price: "আনুমানিক প্রিপেইড কুরিয়ার চার্জ",
-            weightMissing: "এখনও সব পণ্যের ওজন উপলভ্য নয়। স্টক শিট আপডেট হলে Delhivery চার্জের হিসাব দেখানো হবে। ততদিন চেকআউটের আগে শিপিং কোটের অনুরোধ করুন।",
-            weightInvalid: "কার্টের মোট আনুমানিক ওজন সমর্থিত সীমার বাইরে। শিপিং কোট চাইুন।",
-            priceMissing: "এই রুটের জন্য Delhivery ব্যবহারযোগ্য প্রিপেইড চার্জ দেয়নি।",
-            config: "লাইভ Delhivery শিপিং হিসাব কনফিগার করা হয়নি। অর্ডার রিভিউতে উপলভ্য শিপিং নীতি দেখানো হবে।",
-            failed: "Delhivery হিসাব পাওয়া যায়নি। অর্ডার রিভিউতে চূড়ান্ত চার্জ নিশ্চিত হবে।",
-            approximate: "এটি কেবল আনুমানিক কুরিয়ার চার্জ। অর্ডার রিভিউতে চূড়ান্ত শিপিং চার্জ নিরাপদভাবে পুনরায় হিসাব হবে।"
+            helper: "আনুমানিক ডেলিভারির তারিখ দেখতে এবং ডেলিভারি চার্জ হিসাব করতে পিন কোড দিন।",
+            checking: "ডেলিভারির তথ্য যাচাই ও আনুমানিক চার্জ হিসাব হচ্ছে…",
+            serviceable: "Souviks এই পিন কোডে ডেলিভারি করতে পারে: ",
+            unavailable: "এই পিন কোডে ডেলিভারি নিশ্চিত করা যায়নি: ",
+            time: "আনুমানিক ডেলিভারির তারিখ",
+            timeMissing: "এই পিন কোডের আনুমানিক ডেলিভারির তারিখ উপলভ্য নয়। Souviks-এর সঙ্গে যোগাযোগ করুন।",
+            price: "আনুমানিক ডেলিভারি চার্জ",
+            weightMissing: "এক বা একাধিক পণ্যের শিপিং ওজন নেই, তাই চার্জ হিসাব করা যায়নি। শিপিং কোটের জন্য Souviks-এর সঙ্গে যোগাযোগ করুন।",
+            weightInvalid: "কার্টের মোট আনুমানিক ওজন নির্ধারিত সীমার বাইরে। শিপিং কোটের জন্য Souviks-এর সঙ্গে যোগাযোগ করুন।",
+            priceMissing: "এই পিন কোডের ডেলিভারি চার্জ হিসাব করা যায়নি। আবার চেষ্টা করুন বা Souviks-এর সঙ্গে যোগাযোগ করুন।",
+            config: "এই মুহূর্তে ডেলিভারির অনুমান হিসাব করা যাচ্ছে না। কিছুক্ষণ পরে আবার চেষ্টা করুন বা Souviks-এর সঙ্গে যোগাযোগ করুন।",
+            failed: "এই মুহূর্তে ডেলিভারির তথ্য নিশ্চিত করা যায়নি। কিছুক্ষণ পরে আবার চেষ্টা করুন বা Souviks-এর সঙ্গে যোগাযোগ করুন।",
+            approximate: "ডেলিভারি চার্জ আনুমানিক। পেমেন্টের আগে প্রযোজ্য চার্জ আবার যাচাই করা হবে।",
+            estimated: "আনুমানিক",
+            pickupShipping: "কুরিয়ার চার্জ নেই"
         }
     };
     const T = COPY[LANGUAGE] || COPY.en;
@@ -58,14 +64,116 @@
         return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;")
             .replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
     }
+
     function currency(value) {
-        return new Intl.NumberFormat("en-IN", {style:"currency",currency:"INR",maximumFractionDigits:2}).format(Number(value)||0);
+        return new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 2 })
+            .format(Number(value) || 0);
+    }
+
+    function parseDate(value) {
+        const source = String(value || "").trim();
+        if (!source) return null;
+        const match = source.match(/^(\d{4})-(\d{2})-(\d{2})/);
+        let date;
+        if (match) {
+            date = new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]), 12, 0, 0, 0);
+            if (date.getFullYear() !== Number(match[1]) ||
+                date.getMonth() !== Number(match[2]) - 1 ||
+                date.getDate() !== Number(match[3])) return null;
+        } else {
+            const parsed = new Date(source);
+            if (!Number.isFinite(parsed.getTime())) return null;
+            date = new Date(parsed.getFullYear(), parsed.getMonth(), parsed.getDate(), 12, 0, 0, 0);
+        }
+        return Number.isFinite(date.getTime()) ? date : null;
+    }
+
+    function dateOnly(date) {
+        return date.getFullYear() + "-" + String(date.getMonth() + 1).padStart(2, "0") + "-" +
+            String(date.getDate()).padStart(2, "0");
+    }
+
+    function addWorkingDays(count) {
+        const date = new Date();
+        date.setHours(12, 0, 0, 0);
+        let remaining = count;
+        while (remaining > 0) {
+            date.setDate(date.getDate() + 1);
+            if (date.getDay() !== 0 && date.getDay() !== 6) remaining -= 1;
+        }
+        return date;
+    }
+
+    function resolveDeliveryDate(data) {
+        const delivery = data?.delivery || {};
+        const direct = parseDate(delivery.estimated_date || delivery.estimated_delivery_date ||
+            delivery.delivery_date || delivery.estimatedDate);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (direct && direct >= today) return { estimatedDate: dateOnly(direct), source: "carrier_date" };
+
+        const tatDays = Number(delivery.tat_days ?? delivery.tat ?? delivery.expected_tat ??
+            delivery.estimated_days ?? delivery.days);
+        if (Number.isFinite(tatDays) && tatDays >= 0 && tatDays <= 90) {
+            const date = new Date();
+            date.setHours(12, 0, 0, 0);
+            date.setDate(date.getDate() + Math.max(1, Math.ceil(tatDays)));
+            return { estimatedDate: dateOnly(date), source: "carrier_tat" };
+        }
+        return { estimatedDate: dateOnly(addWorkingDays(10)), source: "standard_window" };
+    }
+
+    function formatDate(value) {
+        const date = parseDate(value);
+        if (!date) return "";
+        return new Intl.DateTimeFormat(DATE_LOCALES[LANGUAGE] || "en-IN", {
+            weekday: "long", day: "numeric", month: "long", year: "numeric"
+        }).format(date);
+    }
+
+    function readSavedEstimate() {
+        try {
+            const item = JSON.parse(localStorage.getItem(ESTIMATE_KEY) || "null");
+            if (item && /^\d{6}$/.test(String(item.destinationPin || "")) &&
+                item.serviceable === true && parseDate(item.estimatedDate) && item.checkedAt) return item;
+        } catch {
+            // Storage is optional; continue with a fresh delivery lookup.
+        }
+        return null;
+    }
+
+    function savedEstimateForPin(pin) {
+        const item = readSavedEstimate();
+        const checked = Date.parse(item?.checkedAt || "");
+        if (!item || item.destinationPin !== pin || !Number.isFinite(checked)) return null;
+        const age = Date.now() - checked;
+        return age >= 0 && age <= ESTIMATE_MAX_AGE_MS ? item : null;
+    }
+
+    function saveEstimate(item) {
+        try { localStorage.setItem(ESTIMATE_KEY, JSON.stringify(item)); } catch { /* Storage is optional. */ }
+    }
+
+    function clearSavedEstimate() {
+        try { localStorage.removeItem(ESTIMATE_KEY); } catch { /* Storage is optional. */ }
+    }
+
+    async function unpackResponse(response) {
+        let data = response?.data;
+        if ((!data || response.error) && response?.error?.context &&
+            typeof response.error.context.json === "function") {
+            try { data = await response.error.context.json(); } catch { /* Use a safe customer-facing message. */ }
+        }
+        return data;
     }
 
     function init() {
         const pinInput = document.getElementById("checkout-pincode");
         const methodInputs = Array.from(document.querySelectorAll('input[name="fulfillment_method"]'));
         if (!pinInput || !methodInputs.length || document.getElementById("delhivery-cart-estimate-result")) return;
+
+        const savedAtLoad = readSavedEstimate();
+        if (!pinInput.value && savedAtLoad) pinInput.value = savedAtLoad.destinationPin;
 
         const result = document.createElement("div");
         result.id = "delhivery-cart-estimate-result";
@@ -82,6 +190,39 @@
         helper.hidden = document.querySelector('input[name="fulfillment_method"]:checked')?.value !== "delivery";
         pinGroup?.appendChild(helper);
 
+        const shippingNode = document.getElementById("purchase-cart-shipping");
+        const subtotalNode = document.getElementById("purchase-cart-subtotal");
+        const totalNode = document.getElementById("purchase-cart-total");
+        const initialShipping = shippingNode?.textContent || "";
+        const initialTotal = totalNode?.textContent || "";
+
+        function subtotalValue() {
+            if (!subtotalNode) return null;
+            const amount = Number(String(subtotalNode.textContent || "").replace(/,/g, "").replace(/[^\d.]/g, ""));
+            return Number.isFinite(amount) ? amount : null;
+        }
+
+        function setShippingSummary(amount) {
+            if (shippingNode) shippingNode.textContent = currency(amount) + " (" + T.estimated + ")";
+            const subtotal = subtotalValue();
+            if (totalNode && subtotal !== null) totalNode.textContent = currency(subtotal + amount) + " (" + T.estimated + ")";
+        }
+
+        function setPickupSummary() {
+            if (shippingNode) shippingNode.textContent = T.pickupShipping;
+            const subtotal = subtotalValue();
+            if (totalNode && subtotal !== null) totalNode.textContent = currency(subtotal);
+        }
+
+        function resetSummary() {
+            if (isDeliverySelected()) {
+                if (shippingNode) shippingNode.textContent = initialShipping;
+                if (totalNode) totalNode.textContent = initialTotal;
+            } else {
+                setPickupSummary();
+            }
+        }
+
         let timer = null;
         let sequence = 0;
 
@@ -89,9 +230,11 @@
             result.hidden = !message;
             result.textContent = message || "";
         }
-        function isHomeDeliverySelected() {
+
+        function isDeliverySelected() {
             return document.querySelector('input[name="fulfillment_method"]:checked')?.value === "delivery";
         }
+
         function readCart() {
             try {
                 const items = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
@@ -101,11 +244,12 @@
                 return [];
             }
         }
+
         async function getTotalWeight() {
             const cart = readCart();
-            if (!cart.length) return {error:T.weightMissing};
+            if (!cart.length) return { error: T.weightMissing };
             const response = await fetch("/assets/data/catalogue-index.json", {
-                headers:{Accept:"application/json"}, cache:"no-store", credentials:"same-origin"
+                headers: { Accept: "application/json" }, cache: "no-store", credentials: "same-origin"
             });
             if (!response.ok) throw new Error("catalogue_unavailable");
             const catalogue = await response.json();
@@ -114,134 +258,172 @@
             let total = 0;
             for (const line of cart) {
                 const product = byId.get(String(line.productId));
-                const rawWeight = product?.approx_weight_g ?? product?.approx_weight_grams ?? product?.weight_g ?? product?.shipping_weight_g;
+                const rawWeight = product?.approx_weight_g ?? product?.approx_weight_grams ??
+                    product?.weight_g ?? product?.shipping_weight_g;
                 const weight = Number(rawWeight);
                 const quantity = Number(line.quantity);
                 if (rawWeight == null || rawWeight === "" || !Number.isFinite(weight) || weight <= 0 ||
-                    !Number.isInteger(quantity) || quantity < 1) return {error:T.weightMissing};
+                    !Number.isInteger(quantity) || quantity < 1) return { error: T.weightMissing };
                 total += Math.round(weight) * quantity;
             }
-            if (!Number.isInteger(total) || total < 1 || total > 200000) return {error:T.weightInvalid};
-            return {grams:total};
+            if (!Number.isInteger(total) || total < 1 || total > 200000) return { error: T.weightInvalid };
+            return { grams: total };
         }
 
         async function lookup(pin) {
-            if (!isHomeDeliverySelected()) return;
+            if (!isDeliverySelected()) return;
             const current = ++sequence;
             setMessage(T.checking);
+            resetSummary();
+
             try {
                 if (typeof supabaseClient === "undefined" || !supabaseClient?.functions?.invoke) {
                     setMessage(T.config);
                     return;
                 }
 
-                // Check the destination PIN and delivery estimate independently of
-                // catalogue weights, so missing weights do not hide serviceability.
-                const deliveryResponse = await supabaseClient.functions.invoke("delhivery-estimate", {
-                    body: {estimate_type:"delivery_time", destination_pin:pin}
-                });
-                if (current !== sequence) return;
-                let deliveryData = deliveryResponse.data;
-                if (deliveryResponse.error || !deliveryData?.ok) {
-                    try {
-                        if (deliveryResponse.error?.context && typeof deliveryResponse.error.context.json === "function") {
-                            deliveryData = await deliveryResponse.error.context.json();
-                        }
-                    } catch {
-                        // Use the safe fallback message.
+                let saved = savedEstimateForPin(pin);
+                let estimatedDate = saved?.estimatedDate || "";
+                if (!saved) {
+                    const deliveryResponse = await supabaseClient.functions.invoke("delhivery-estimate", {
+                        body: { estimate_type:"delivery_time", destination_pin: pin }
+                    });
+                    let deliveryData = await unpackResponse(deliveryResponse);
+                    if (current !== sequence) return;
+                    if (deliveryResponse.error || !deliveryData?.ok) {
+                        clearSavedEstimate();
+                        const code = deliveryData?.code;
+                        setMessage(["delhivery_b2c_token_not_configured", "delhivery_b2b_token_not_configured",
+                            "origin_pin_not_configured", "rate_limit_unavailable"].includes(code) ? T.config : T.failed);
+                        return;
                     }
-                    if (["delhivery_b2c_token_not_configured","rate_limit_unavailable"].includes(deliveryData?.code)) setMessage(T.config);
-                    else setMessage(deliveryData?.message || T.failed);
-                    return;
-                }
-                if (!deliveryData.serviceability?.serviceable) {
-                    setMessage(deliveryData.serviceability?.message || T.unavailable);
-                    return;
+                    if (!deliveryData.serviceability?.serviceable) {
+                        clearSavedEstimate();
+                        setMessage(T.unavailable + pin + ". Please contact Souviks if you need help confirming an alternative.");
+                        return;
+                    }
+
+                    const estimate = resolveDeliveryDate(deliveryData);
+                    estimatedDate = estimate.estimatedDate;
+                    saved = {
+                        destinationPin: pin,
+                        estimatedDate: estimatedDate,
+                        dateSource: estimate.source,
+                        serviceable: true,
+                        checkedAt: new Date().toISOString()
+                    };
+                    saveEstimate(saved);
                 }
 
-                const deliveryDate = String(deliveryData.delivery?.estimated_date || "").trim();
-                const deliveryDays = deliveryData.delivery?.tat_days == null ? NaN : Number(deliveryData.delivery.tat_days);
-                const eta = deliveryDate || (Number.isFinite(deliveryDays) ? deliveryDays + " " + T.days : T.timeMissing);
-                let resultHtml =
-                    '<p class="delhivery-estimator-success">' + escapeHtml(T.serviceable) + '</p>' +
-                    '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.time) + '</span><strong>' + escapeHtml(eta) + '</strong></div>';
+                const resultHtml =
+                    '<p class="delhivery-estimator-success">' + escapeHtml(T.serviceable + pin + ".") + '</p>' +
+                    '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.time) + '</span><strong>' +
+                    escapeHtml(formatDate(estimatedDate) || T.timeMissing) + '</strong></div>';
 
                 const weight = await getTotalWeight();
                 if (current !== sequence) return;
                 if (weight.error) {
                     result.innerHTML = resultHtml + '<p class="delhivery-estimator-help">' + escapeHtml(weight.error) + '</p>';
+                    result.hidden = false;
+                    resetSummary();
                     return;
                 }
 
                 const response = await supabaseClient.functions.invoke("delhivery-estimate", {
-                    body: {estimate_type:"shipping_charge", destination_pin:pin, chargeable_weight_g:weight.grams}
+                    body: { estimate_type:"shipping_charge", destination_pin: pin, chargeable_weight_g: weight.grams }
                 });
+                const data = await unpackResponse(response);
                 if (current !== sequence) return;
-                let data = response.data;
                 if (response.error || !data?.ok) {
-                    try {
-                        if (response.error?.context && typeof response.error.context.json === "function") {
-                            data = await response.error.context.json();
-                        }
-                    } catch {
-                        // Use the safe fallback message.
-                    }
-                    const message = ["delhivery_b2c_token_not_configured","rate_limit_unavailable"].includes(data?.code)
-                        ? T.config : (data?.message || T.failed);
+                    const code = data?.code;
+                    const message = ["delhivery_b2c_token_not_configured", "rate_limit_unavailable",
+                        "origin_pin_not_configured"].includes(code) ? T.config : T.failed;
                     result.innerHTML = resultHtml + '<p class="delhivery-estimator-help">' + escapeHtml(message) + '</p>';
+                    result.hidden = false;
+                    resetSummary();
                     return;
                 }
                 if (!data.serviceability?.serviceable) {
-                    setMessage(data.serviceability?.message || T.unavailable);
+                    clearSavedEstimate();
+                    result.innerHTML = '<p class="delhivery-estimator-help">' +
+                        escapeHtml(T.unavailable + pin + ". Please contact Souviks if you need help confirming an alternative.") + '</p>';
+                    result.hidden = false;
+                    resetSummary();
                     return;
                 }
-                if (!data.shipping?.available) {
+                if (!data.shipping?.available || !Number.isFinite(Number(data.shipping.amount)) || Number(data.shipping.amount) <= 0) {
                     result.innerHTML = resultHtml + '<p class="delhivery-estimator-help">' + escapeHtml(T.priceMissing) + '</p>';
+                    result.hidden = false;
+                    resetSummary();
                     return;
                 }
-                resultHtml +=
-                    '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.price) + '</span><strong>' + escapeHtml(currency(data.shipping.amount)) + '</strong></div>' +
+
+                const amount = Number(data.shipping.amount);
+                setShippingSummary(amount);
+                result.innerHTML = resultHtml +
+                    '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.price) + '</span><strong>' +
+                    escapeHtml(currency(amount)) + '</strong></div>' +
                     '<p class="delhivery-estimator-disclaimer">' + escapeHtml(T.approximate) + '</p>';
-                result.innerHTML = resultHtml;
+                result.hidden = false;
             } catch (error) {
-                if (window.SouviksErrors?.log) window.SouviksErrors.log("Delhivery cart shipping estimate failed", error, "warn");
-                if (current === sequence) setMessage(T.failed);
+                if (window.SouviksErrors?.log) window.SouviksErrors.log("Checkout delivery estimate failed", error, "warn");
+                if (current === sequence) {
+                    setMessage(T.failed);
+                    resetSummary();
+                }
             }
         }
 
         function schedule(value) {
-            if (!isHomeDeliverySelected()) {
+            if (!isDeliverySelected()) {
                 clearTimeout(timer);
                 sequence += 1;
                 setMessage("");
+                resetSummary();
                 return;
             }
             const pin = String(value || "").replace(/\D/g, "").slice(0, 6);
             clearTimeout(timer);
             sequence += 1;
             if (pinInput.value !== pin) pinInput.value = pin;
-            if (pin.length !== 6) { setMessage(""); return; }
-            timer = setTimeout(() => { void lookup(pin); }, 400);
+            const saved = readSavedEstimate();
+            if (saved && saved.destinationPin !== pin) clearSavedEstimate();
+            if (pin.length !== 6) {
+                setMessage("");
+                resetSummary();
+                return;
+            }
+            timer = setTimeout(() => { void lookup(pin); }, 250);
         }
 
         pinInput.addEventListener("input", () => schedule(pinInput.value));
         pinInput.addEventListener("change", () => schedule(pinInput.value));
         methodInputs.forEach(input => input.addEventListener("change", () => {
-            const deliverySelected = isHomeDeliverySelected();
+            const deliverySelected = isDeliverySelected();
             helper.hidden = !deliverySelected;
             if (!deliverySelected) {
                 clearTimeout(timer);
                 sequence += 1;
                 setMessage("");
+                setPickupSummary();
                 return;
             }
+            resetSummary();
             if (/^\d{6}$/.test(pinInput.value)) schedule(pinInput.value);
         }));
         window.addEventListener("souviks:purchase-cart-changed", () => {
             const pin = String(pinInput.value || "").trim();
             if (/^\d{6}$/.test(pin)) schedule(pin);
         });
+
+        if (isDeliverySelected()) {
+            helper.hidden = false;
+            if (/^\d{6}$/.test(pinInput.value)) schedule(pinInput.value);
+        } else if (document.querySelector('input[name="fulfillment_method"]:checked')?.value === "pickup") {
+            setPickupSummary();
+        }
     }
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, {once:true});
+
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
     else init();
 })();
