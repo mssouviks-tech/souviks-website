@@ -93,8 +93,17 @@
             String(date.getDate()).padStart(2, "0");
     }
 
-    function addWorkingDays(count) {
+    function nextWorkingDay() {
         const date = new Date();
+        date.setHours(12, 0, 0, 0);
+        do {
+            date.setDate(date.getDate() + 1);
+        } while (date.getDay() === 0 || date.getDay() === 6);
+        return date;
+    }
+
+    function addWorkingDaysFrom(startDate, count) {
+        const date = new Date(startDate);
         date.setHours(12, 0, 0, 0);
         let remaining = count;
         while (remaining > 0) {
@@ -106,21 +115,22 @@
 
     function resolveDeliveryDate(data) {
         const delivery = data?.delivery || {};
+        const pickupDate = nextWorkingDay();
         const direct = parseDate(delivery.estimated_date || delivery.estimated_delivery_date ||
             delivery.delivery_date || delivery.estimatedDate);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        if (direct && direct >= today) return { estimatedDate: dateOnly(direct), source: "carrier_date" };
+        if (direct) {
+            const chosen = direct < pickupDate ? pickupDate : direct;
+            return { estimatedDate: dateOnly(chosen), pickupDate: dateOnly(pickupDate), source: direct < pickupDate ? "pickup_date_floor" : "carrier_date" };
+        }
 
         const tatDays = Number(delivery.tat_days ?? delivery.tat ?? delivery.expected_tat ??
             delivery.estimated_days ?? delivery.days);
         if (Number.isFinite(tatDays) && tatDays >= 0 && tatDays <= 90) {
-            const date = new Date();
-            date.setHours(12, 0, 0, 0);
-            date.setDate(date.getDate() + Math.max(1, Math.ceil(tatDays)));
-            return { estimatedDate: dateOnly(date), source: "carrier_tat" };
+            const date = new Date(pickupDate);
+            date.setDate(date.getDate() + Math.max(0, Math.ceil(tatDays) - 1));
+            return { estimatedDate: dateOnly(date), pickupDate: dateOnly(pickupDate), source: "carrier_tat" };
         }
-        return { estimatedDate: dateOnly(addWorkingDays(10)), source: "standard_window" };
+        return { estimatedDate: dateOnly(addWorkingDaysFrom(pickupDate, 10)), pickupDate: dateOnly(pickupDate), source: "standard_window" };
     }
 
     function formatDate(value) {
