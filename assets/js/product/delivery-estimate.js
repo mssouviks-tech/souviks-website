@@ -186,7 +186,7 @@
 
         function showSuccess(pin, estimate) {
             const dateLabel = formatDate(estimate.estimatedDate);
-            if (title) title.hidden = true;
+            if (title) title.hidden = false;
             if (intro) intro.hidden = true;
             form.hidden = true;
             panel?.classList.add("has-estimate");
