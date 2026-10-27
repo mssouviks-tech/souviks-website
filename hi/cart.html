@@ -16,8 +16,9 @@
   <link rel="alternate" hreflang="x-default" href="https://www.souviks.co.in/en/cart">
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site-base.css?v=387cbc77b784">
+  <link rel="stylesheet" href="/assets/css/site-base.css?v=f9e23fe3ddcf">
   <link rel="stylesheet" href="/assets/css/bundles/cart.css?v=15ed6401555a">
+  <link rel="stylesheet" href="/assets/css/delhivery-estimator.css?v=3150f7acde8d">
 </head>
 <body class="site-page page-cart">
   <div class="top-bar"><div class="container">
@@ -72,7 +73,7 @@
         <section class="purchase-cart-panel" aria-labelledby="purchase-cart-items-heading"><h2 id="purchase-cart-items-heading">आपके उत्पाद</h2><div id="purchase-cart-items" class="purchase-cart-items"></div></section>
         <aside class="purchase-cart-summary" aria-labelledby="purchase-cart-summary-heading">
           <h2 id="purchase-cart-summary-heading">ऑर्डर सारांश</h2>
-          <dl><div><dt>उत्पादों का उप-योग</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>शिपिंग</dt><dd id="purchase-cart-shipping">भुगतान से पहले पुष्टि होगी</dd></div><div class="purchase-cart-grand-total"><dt>ऑर्डर का कुल</dt><dd id="purchase-cart-total">गणना के लिए समीक्षा करें</dd></div></dl>
+          <dl><div><dt>उत्पादों का उप-योग</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>शिपिंग</dt><dd id="purchase-cart-shipping">डिलीवरी पिन कोड दर्ज करने पर गणना होगी</dd></div><div class="purchase-cart-grand-total"><dt>ऑर्डर का कुल</dt><dd id="purchase-cart-total">गणना के लिए समीक्षा करें</dd></div></dl>
           <p class="purchase-cart-help">सटीक राशि सर्वर पर वर्तमान कैटलॉग कीमतों और कॉन्फ़िगर की गई शिपिंग नीति से निकाली जाती है।</p><p class="purchase-cart-help">फिलहाल ऑनलाइन चेकआउट केवल भारत के भीतर डिलीवरी के लिए है। यदि आपके पते या किसी उत्पाद के लिए चेकआउट उपलब्ध नहीं है, तो उत्पाद पेज पर जाकर पार्ट का अनुरोध करें।</p>
           <form id="purchase-checkout-form" class="purchase-checkout-form">
             <h3>ग्राहक विवरण</h3>
@@ -83,12 +84,13 @@
             <div class="form-group"><label for="checkout-gst">GSTIN (वैकल्पिक)</label><input type="text" id="checkout-gst" name="gst_number" maxlength="15" autocapitalize="characters"></div>
             <fieldset class="purchase-fulfillment-options">
               <legend>आप अपना ऑर्डर कैसे प्राप्त करना चाहेंगे?</legend>
-              <label class="purchase-fulfillment-option" for="checkout-fulfillment-delivery"><input type="radio" id="checkout-fulfillment-delivery" name="fulfillment_method" value="delivery" required><span>घर पर डिलीवरी</span></label>
+              <label class="purchase-fulfillment-option" for="checkout-fulfillment-delivery"><input type="radio" id="checkout-fulfillment-delivery" name="fulfillment_method" value="delivery" required><span>डिलीवरी</span></label>
               <label class="purchase-fulfillment-option" for="checkout-fulfillment-pickup"><input type="radio" id="checkout-fulfillment-pickup" name="fulfillment_method" value="pickup"><span>स्टोर से पिकअप</span></label>
             </fieldset>
             <p id="checkout-pickup-note" class="purchase-cart-help" hidden>कोई कूरियर शुल्क नहीं लगेगा। ऑर्डर देने के बाद Souviks टीम पिकअप विवरण की पुष्टि करेगी।</p>
             <div id="checkout-delivery-fields" hidden>
-              <h3>घर पर डिलीवरी का पता</h3>
+              <h3>डिलीवरी का पता</h3>
+              <p id="checkout-delivery-charge-note" class="purchase-cart-help">डिलीवरी शुल्क की गणना चेकआउट में पिन कोड और कार्ट के कुल वज़न के आधार पर अपने-आप होगी। दिखाया गया शुल्क अनुमानित है; भुगतान से पहले लागू राशि की दोबारा जाँच होगी।</p>
               <div class="purchase-address-grid">
               <div class="form-group form-group-full"><label for="checkout-address1">पता पंक्ति 1</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180"></div>
               <div class="form-group form-group-full"><label for="checkout-address2">पता पंक्ति 2 (वैकल्पिक)</label><input type="text" id="checkout-address2" name="address2" autocomplete="address-line2" maxlength="120"></div>
@@ -137,5 +139,6 @@
   <script defer src="/assets/js/site-core.js?v=c2e5b8438e2b"></script>
   <script defer src="/assets/js/attribution.js?v=6b8229cb515b"></script>
   <script defer src="/assets/js/cart/cart.js?v=4ad7a7ec116a"></script>
+  <script defer src="/assets/js/cart/delivery-estimate.js?v=0fcd3e842941"></script>
 </body>
 </html>

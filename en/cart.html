@@ -16,8 +16,9 @@
   <link rel="alternate" hreflang="x-default" href="https://www.souviks.co.in/en/cart">
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site-base.css?v=387cbc77b784">
+  <link rel="stylesheet" href="/assets/css/site-base.css?v=f9e23fe3ddcf">
   <link rel="stylesheet" href="/assets/css/bundles/cart.css?v=15ed6401555a">
+  <link rel="stylesheet" href="/assets/css/delhivery-estimator.css?v=3150f7acde8d">
 </head>
 <body class="site-page page-cart">
   <div class="top-bar"><div class="container">
@@ -72,7 +73,7 @@
         <section class="purchase-cart-panel" aria-labelledby="purchase-cart-items-heading"><h2 id="purchase-cart-items-heading">Your items</h2><div id="purchase-cart-items" class="purchase-cart-items"></div></section>
         <aside class="purchase-cart-summary" aria-labelledby="purchase-cart-summary-heading">
           <h2 id="purchase-cart-summary-heading">Order summary</h2>
-          <dl><div><dt>Items subtotal</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>Shipping</dt><dd id="purchase-cart-shipping">Confirmed before payment</dd></div><div class="purchase-cart-grand-total"><dt>Order total</dt><dd id="purchase-cart-total">Review to calculate</dd></div></dl>
+          <dl><div><dt>Items subtotal</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>Shipping</dt><dd id="purchase-cart-shipping">Calculated when you enter a delivery PIN</dd></div><div class="purchase-cart-grand-total"><dt>Order total</dt><dd id="purchase-cart-total">Review to calculate</dd></div></dl>
           <p class="purchase-cart-help">The final total is calculated on the server using current catalogue prices and the configured shipping policy.</p><p class="purchase-cart-help">Online checkout is for domestic Indian deliveries at present. If checkout is unavailable for your delivery address or an item, return to the product page and use Request a Part.</p>
           <form id="purchase-checkout-form" class="purchase-checkout-form">
             <h3>Customer details</h3>
@@ -83,12 +84,13 @@
             <div class="form-group"><label for="checkout-gst">GSTIN (optional)</label><input type="text" id="checkout-gst" name="gst_number" maxlength="15" autocapitalize="characters"></div>
             <fieldset class="purchase-fulfillment-options">
               <legend>How would you like to receive your order?</legend>
-              <label class="purchase-fulfillment-option" for="checkout-fulfillment-delivery"><input type="radio" id="checkout-fulfillment-delivery" name="fulfillment_method" value="delivery" required><span>Home delivery</span></label>
+              <label class="purchase-fulfillment-option" for="checkout-fulfillment-delivery"><input type="radio" id="checkout-fulfillment-delivery" name="fulfillment_method" value="delivery" required><span>Delivery</span></label>
               <label class="purchase-fulfillment-option" for="checkout-fulfillment-pickup"><input type="radio" id="checkout-fulfillment-pickup" name="fulfillment_method" value="pickup"><span>Store pickup</span></label>
             </fieldset>
             <p id="checkout-pickup-note" class="purchase-cart-help" hidden>No courier charge applies. The Souviks team will confirm collection details after your order is placed.</p>
             <div id="checkout-delivery-fields" hidden>
-              <h3>Home delivery address</h3>
+              <h3>Delivery address</h3>
+              <p id="checkout-delivery-charge-note" class="purchase-cart-help">Delivery charges are calculated automatically at checkout based on your PIN code and the combined weight of your cart. The displayed rate is an estimate; we recheck the applicable amount before payment.</p>
               <div class="purchase-address-grid">
               <div class="form-group form-group-full"><label for="checkout-address1">Address line 1</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180"></div>
               <div class="form-group form-group-full"><label for="checkout-address2">Address line 2 (optional)</label><input type="text" id="checkout-address2" name="address2" autocomplete="address-line2" maxlength="120"></div>
@@ -137,5 +139,6 @@
   <script defer src="/assets/js/site-core.js?v=c2e5b8438e2b"></script>
   <script defer src="/assets/js/attribution.js?v=6b8229cb515b"></script>
   <script defer src="/assets/js/cart/cart.js?v=4ad7a7ec116a"></script>
+  <script defer src="/assets/js/cart/delivery-estimate.js?v=0fcd3e842941"></script>
 </body>
 </html>
