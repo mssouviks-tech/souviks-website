@@ -1,9 +1,9 @@
 # Delhivery delivery estimator
 
-The customer experience separates delivery-time discovery from checkout freight calculation. Because online checkout is paid through Cashfree, checkout freight is estimated using Delhivery's pre-paid tariff (not the COD tariff):
+The customer experience separates delivery-time discovery from checkout freight calculation. Online-checkout freight is estimated using the pre-paid tariff (not the COD tariff):
 
-- **Product detail page:** asks only for the destination PIN and checks Delhivery serviceability plus estimated delivery time. It never asks for weight or displays a shipping charge.
-- **Checkout:** asks for no extra shipping inputs. When the user enters the checkout PIN, the page can preview an approximate prepaid shipping charge based on the combined catalogue weights of every item × quantity. On order review, the server independently recalculates the charge and includes it in the order total.
+- **Product detail page:** an explicit PIN checker sits directly below the product details beside the image gallery. After a successful check, the page shows a Souviks-branded message with the exact PIN supplied and an estimated delivery date; provider wording is not shown to customers. If serviceability is confirmed but no usable carrier date or transit-time value is returned, the checker uses the conservative end of Souviks' published 5–10 working-day window (10 working days) as an estimate, not a guarantee.
+- **Checkout:** a successful PIN/date check is saved in browser storage and carried to the Cart page. When the customer selects **Delivery**, the PIN is prefilled, the same estimated date is shown, and the delivery charge is estimated automatically from that PIN and the combined catalogue weights of the cart items. If the PIN changes or the saved estimate is older than 24 hours, delivery-time lookup is refreshed. The shipping summary and provisional total show the estimated freight; the server independently recalculates the amount due before payment. The options are labelled **Delivery** and **Store pickup**. Store pickup skips courier estimates and charges.
 
 ## Product weight field
 
@@ -33,8 +33,9 @@ Never place Delhivery tokens in site JavaScript, HTML, a committed environment f
 
 ## API behaviour
 
-- Product page calls the `delhivery-estimate` function with `estimate_type: delivery_time`; it queries the PIN serviceability endpoint and B2B Expected TAT endpoint. Packed weight is not required to estimate transit time.
-- Checkout preview calls `estimate_type: shipping_charge` with the combined cart weight. Customers don't choose a service or payment type; the shipping quote uses the requested default of **Pre-paid + Express**.
+- Product page calls the `delhivery-estimate` function with `estimate_type: delivery_time`; the endpoint queries PIN serviceability and the B2B Expected TAT endpoint. Packed weight is not required to estimate transit time.
+- Checkout reuses a recent, matching product-page date and calls `estimate_type: shipping_charge` with the combined cart weight. A changed PIN or expired estimate triggers a fresh delivery-time lookup. Customers do not choose a service or payment type; the shipping quote uses **Pre-paid + Express**.
+- The checkout shipping summary displays the estimate and a provisional total. The secure server-side order review recalculates freight independently before payment.
 - `cashfree-create-order` fetches trusted catalogue data again, aggregates weights server-side, and requests its own Pre-paid + Express freight quote. It does not trust any client-provided freight amount when creating the Cashfree order.
 - Shipping fees are estimated in grams against the destination PIN and Souviks origin PIN `713321`. Delhivery describes these charges as approximate; package dimensions, chargeable/volumetric weight and final carrier billing can change them.
 - Every shipped order incurs shipping charges. There is no free-shipping threshold; the carrier charge is based on the cart weight and destination.
@@ -47,4 +48,4 @@ python3 scripts/catalogue/sync_delhivery_module.py
 node scripts/regression/delhivery-estimate-contract.cjs
 ```
 
-After merge, the `delhivery-estimate` and updated `cashfree-create-order` functions must be deployed to Supabase for the code changes to take effect. Test a product PIN lookup and a weighted cart with real production credentials before relying on live results.
+This change reuses the existing `delhivery-estimate` and `cashfree-create-order` functions; no server-side code is changed here. Confirm the currently deployed function versions and fixed Delhivery credentials are active in Supabase, then test a product PIN lookup and a weighted cart against live serviceability and freight data.
