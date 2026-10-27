@@ -2,7 +2,7 @@
     "use strict";
     const LANGUAGE = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
     const CART_KEY = "souviks_purchase_cart_v1";
-    const ESTIMATE_KEY = "souviks_delivery_estimate_v1";
+    const ESTIMATE_KEY = "souviks_delivery_estimate_v2";
     const ESTIMATE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
     const DATE_LOCALES = { en: "en-IN", hi: "hi-IN", bn: "bn-IN" };
     const COPY = {
