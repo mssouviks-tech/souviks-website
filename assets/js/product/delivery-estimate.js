@@ -12,9 +12,8 @@
             check: "Check availability",
             checking: "Checking delivery availability…",
             invalid: "Enter a valid 6-digit PIN code.",
-            success: "Souviks can deliver to PIN code",
-            date: "Estimated delivery date",
-            disclaimer: "This is an estimate, not a guaranteed date. Availability and delivery timing can change.",
+            deliveryBy: "Delivery by",
+            changePin: "Change PIN",
             unavailable: "We could not confirm delivery to PIN code",
             failed: "We could not confirm the delivery estimate right now. Please try again shortly or contact Souviks."
         },
@@ -25,9 +24,8 @@
             check: "उपलब्धता जाँचें",
             checking: "डिलीवरी उपलब्धता जाँची जा रही है…",
             invalid: "कृपया 6 अंकों का सही पिन कोड दर्ज करें।",
-            success: "Souviks इस पिन कोड पर डिलीवरी कर सकता है:",
-            date: "अनुमानित डिलीवरी तारीख",
-            disclaimer: "यह अनुमानित तारीख है, गारंटी नहीं। उपलब्धता और डिलीवरी का समय बदल सकता है।",
+            deliveryBy: "डिलीवरी की तारीख:",
+            changePin: "पिन बदलें",
             unavailable: "हम इस पिन कोड पर डिलीवरी की पुष्टि नहीं कर सके:",
             failed: "अभी डिलीवरी का अनुमान प्राप्त नहीं हुआ। कृपया कुछ देर बाद फिर प्रयास करें या Souviks से संपर्क करें।"
         },
@@ -38,9 +36,8 @@
             check: "উপলভ্যতা যাচাই করুন",
             checking: "ডেলিভারির উপলভ্যতা যাচাই হচ্ছে…",
             invalid: "সঠিক ৬ সংখ্যার পিন কোড দিন।",
-            success: "Souviks এই পিন কোডে ডেলিভারি করতে পারে:",
-            date: "আনুমানিক ডেলিভারির তারিখ",
-            disclaimer: "এটি একটি অনুমান, নিশ্চিত তারিখ নয়। উপলভ্যতা ও ডেলিভারির সময় বদলাতে পারে।",
+            deliveryBy: "ডেলিভারি হবে:",
+            changePin: "পিন বদলান",
             unavailable: "এই পিন কোডে ডেলিভারি নিশ্চিত করা যায়নি:",
             failed: "এই মুহূর্তে ডেলিভারির অনুমান নিশ্চিত করা যায়নি। কিছুক্ষণ পরে আবার চেষ্টা করুন বা Souviks-এর সঙ্গে যোগাযোগ করুন।"
         }
@@ -95,8 +92,17 @@
             String(date.getDate()).padStart(2, "0");
     }
 
-    function addWorkingDays(count) {
+    function nextWorkingDay() {
         const date = new Date();
+        date.setHours(12, 0, 0, 0);
+        do {
+            date.setDate(date.getDate() + 1);
+        } while (date.getDay() === 0 || date.getDay() === 6);
+        return date;
+    }
+
+    function addWorkingDaysFrom(startDate, count) {
+        const date = new Date(startDate);
         date.setHours(12, 0, 0, 0);
         let remaining = count;
         while (remaining > 0) {
@@ -108,24 +114,25 @@
 
     function resolveDeliveryDate(data) {
         const delivery = data?.delivery || {};
+        const pickupDate = nextWorkingDay();
         const direct = parseDate(delivery.estimated_date || delivery.estimated_delivery_date ||
             delivery.delivery_date || delivery.estimatedDate);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        if (direct && direct >= today) return { estimatedDate: dateOnly(direct), source: "carrier_date" };
+        if (direct) {
+            const chosen = direct < pickupDate ? pickupDate : direct;
+            return { estimatedDate: dateOnly(chosen), pickupDate: dateOnly(pickupDate), source: direct < pickupDate ? "pickup_date_floor" : "carrier_date" };
+        }
 
         const tatDays = Number(delivery.tat_days ?? delivery.tat ?? delivery.expected_tat ??
             delivery.estimated_days ?? delivery.days);
         if (Number.isFinite(tatDays) && tatDays >= 0 && tatDays <= 90) {
-            const date = new Date();
-            date.setHours(12, 0, 0, 0);
-            date.setDate(date.getDate() + Math.max(1, Math.ceil(tatDays)));
-            return { estimatedDate: dateOnly(date), source: "carrier_tat" };
+            const date = new Date(pickupDate);
+            date.setDate(date.getDate() + Math.max(0, Math.ceil(tatDays) - 1));
+            return { estimatedDate: dateOnly(date), pickupDate: dateOnly(pickupDate), source: "carrier_tat" };
         }
 
-        // When the carrier returns serviceability but no usable TAT, use Souviks'
-        // published 5–10 working-day window and label it as an estimate, never a promise.
-        return { estimatedDate: dateOnly(addWorkingDays(10)), source: "standard_window" };
+        // With serviceability confirmed but no usable carrier ETA/TAT, retain the
+        // conservative 10-working-day estimate measured from the next pickup day.
+        return { estimatedDate: dateOnly(addWorkingDaysFrom(pickupDate, 10)), pickupDate: dateOnly(pickupDate), source: "standard_window" };
     }
 
     function formatDate(value) {
@@ -150,6 +157,7 @@
         const input = document.getElementById("product-delivery-pincode");
         const button = document.getElementById("product-delivery-check-button");
         const result = document.getElementById("product-delivery-estimate-result");
+        const panel = document.getElementById("product-delivery-estimator");
         if (!form || !input || !button || !result) return;
 
         const title = document.getElementById("product-delivery-estimator-title");
@@ -162,7 +170,15 @@
 
         let requestSequence = 0;
 
+        function expandChecker() {
+            panel?.classList.remove("has-estimate");
+            if (title) title.hidden = false;
+            if (intro) intro.hidden = false;
+            form.hidden = false;
+        }
+
         function showMessage(message, isError) {
+            expandChecker();
             result.hidden = !message;
             result.textContent = message || "";
             result.classList.toggle("delhivery-estimator-error", Boolean(isError));
@@ -170,13 +186,23 @@
 
         function showSuccess(pin, estimate) {
             const dateLabel = formatDate(estimate.estimatedDate);
+            if (title) title.hidden = true;
+            if (intro) intro.hidden = true;
+            form.hidden = true;
+            panel?.classList.add("has-estimate");
             result.hidden = false;
             result.classList.remove("delhivery-estimator-error");
             result.innerHTML =
-                '<p class="delhivery-estimator-success">' + T.success + ' <strong>' + pin + '</strong>.</p>' +
-                '<div class="delhivery-estimator-metric"><span>' + T.date + '</span><strong>' + dateLabel + '</strong></div>' +
-                '<p class="delhivery-estimator-disclaimer">' + T.disclaimer + '</p>';
+                '<div class="delhivery-estimator-compact-row"><span class="delhivery-estimator-compact-copy">' +
+                T.deliveryBy + ' <strong>' + dateLabel + '</strong></span><button type="button" class="delhivery-estimator-change-pin">' +
+                T.changePin + '</button></div>';
             result.dataset.pincode = pin;
+            result.querySelector(".delhivery-estimator-change-pin")?.addEventListener("click", () => {
+                expandChecker();
+                result.hidden = true;
+                input.value = pin;
+                input.focus();
+            });
         }
 
         async function checkPin(pin) {
@@ -214,6 +240,7 @@
                 const savedEstimate = {
                     destinationPin: pin,
                     estimatedDate: dateEstimate.estimatedDate,
+                    pickupDate: dateEstimate.pickupDate,
                     dateSource: dateEstimate.source,
                     serviceable: true,
                     checkedAt: new Date().toISOString()
@@ -239,6 +266,7 @@
                 try { localStorage.removeItem(ESTIMATE_KEY); } catch { /* Storage is optional. */ }
             }
             if (result.dataset.pincode && result.dataset.pincode !== pin) {
+                expandChecker();
                 result.hidden = true;
                 result.textContent = "";
                 delete result.dataset.pincode;
