@@ -58,7 +58,7 @@ assert.doesNotMatch(fn, /(?:DELHIVERY_B2C_API_TOKEN|DELHIVERY_B2B_BEARER_TOKEN)\
 
 assert.match(client, /product-delivery-pin-form/);
 assert.match(client, /product-delivery-estimate-result/);
-assert.match(client, /souviks_delivery_estimate_v1/);
+assert.match(client, /souviks_delivery_estimate_v2/);
 assert.match(client, /estimate_type: "delivery_time"/);
 assert.match(client, /function nextWorkingDay\(\)/);\nassert.match(client, /addWorkingDaysFrom\(pickupDate, 10\)/);
 assert.match(client, /estimatedDate/);
@@ -69,7 +69,7 @@ assert.match(client, /expandChecker\(\)/);
 assert.doesNotMatch(client, /Souviks can deliver to PIN code|This is an estimate, not a guaranteed date/);
 assert.match(cartClient, /checkout-pincode/);
 assert.match(cartClient, /fulfillment_method/);
-assert.match(cartClient, /souviks_delivery_estimate_v1/);
+assert.match(cartClient, /souviks_delivery_estimate_v2/);
 assert.match(cartClient, /savedEstimateForPin/);
 assert.match(cartClient, /setShippingSummary/);
 assert.match(cartClient, /purchase-cart-shipping/);
