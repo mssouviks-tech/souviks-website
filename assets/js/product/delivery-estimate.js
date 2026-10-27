@@ -2,7 +2,7 @@
     "use strict";
 
     const LANGUAGE = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
-    const ESTIMATE_KEY = "souviks_delivery_estimate_v1";
+    const ESTIMATE_KEY = "souviks_delivery_estimate_v2";
     const DATE_LOCALES = { en: "en-IN", hi: "hi-IN", bn: "bn-IN" };
     const COPY = {
         en: {
