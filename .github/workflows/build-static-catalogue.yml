@@ -164,6 +164,7 @@ jobs:
             python3 scripts/audit/test_product_title.py
             python3 scripts/audit/test_seo_contract.py
             python3 scripts/audit/test_entity_titles.py
+            python3 scripts/audit/test_vehicle_page_layout.py
             python3 scripts/audit/seo_contract.py
             python3 scripts/audit/site_quality.py
             python3 scripts/js/validate.py
@@ -224,6 +225,7 @@ jobs:
             python3 scripts/audit/test_product_title.py
             python3 scripts/audit/test_seo_contract.py
             python3 scripts/audit/test_entity_titles.py
+            python3 scripts/audit/test_vehicle_page_layout.py
             python3 scripts/audit/seo_contract.py
             python3 scripts/audit/site_quality.py
             python3 scripts/js/validate.py

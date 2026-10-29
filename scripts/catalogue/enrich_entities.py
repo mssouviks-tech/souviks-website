@@ -498,7 +498,44 @@ def enrich_entity_pages(kind, data, catalogue):
                     flags=re.I,
                 )
             marker = f'<!-- ENTITY_CONTEXT_{kind.upper()} -->'
-            if marker not in page:
+            if kind == "vehicle":
+                section = context_section(kind, item, products, lang)
+                # Vehicle context belongs after compatible products and before
+                # </main>. Older generated pages may already have the marker
+                # after the footer, so always remove and rebuild this section.
+                context_pattern = re.compile(
+                    r'<section class=["\']entity-context section-spacing["\'][^>]*>[\s\S]*?</section>',
+                    flags=re.I,
+                )
+                page = context_pattern.sub("", page)
+                page = re.sub(re.escape(marker), "", page, flags=re.I)
+
+                # Establish the main landmark before choosing the insertion point.
+                page = ensure_main_landmark(page)
+                context_block = f"{marker}\n{section}\n"
+                main_end = re.search(r"</main\s*>", page, flags=re.I)
+                if main_end:
+                    page = page[:main_end.start()] + "\n" + context_block + "\n" + page[main_end.start():]
+                else:
+                    # Defensive fallback for unusual legacy templates.
+                    footer_match = re.search(r"<footer\b", page, flags=re.I)
+                    if footer_match:
+                        page = page[:footer_match.start()] + context_block + "\n" + page[footer_match.start():]
+                    else:
+                        page = page.replace("</body>", context_block + "</body>", 1)
+
+                # The vehicle summary and context section must use the same
+                # active-product set; do not leave a stale count in the hero card.
+                page, summary_replacements = re.subn(
+                    r'(<div class=["\']vehicle-info["\'][\s\S]*?<div>\s*Products:\s*)\d+(\s*</div>)',
+                    lambda m: m.group(1) + str(len(products)) + m.group(2),
+                    page,
+                    count=1,
+                    flags=re.I,
+                )
+                if summary_replacements != 1:
+                    raise ValueError(f"{path}: vehicle product count could not be synchronized.")
+            elif marker not in page:
                 section = context_section(kind, item, products, lang)
                 anchor_pattern = rf'<!--\s*=+\s*{kind.upper()} PRODUCTS\s*=+\s*-->' if kind != "vehicle" else r'<!--\s*=+\s*COMPATIBLE PRODUCTS\s*=+\s*-->'
                 anchor_match = re.search(anchor_pattern, page, flags=re.I)
