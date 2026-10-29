@@ -498,8 +498,8 @@ def enrich_entity_pages(kind, data, catalogue):
                     flags=re.I,
                 )
             marker = f'<!-- ENTITY_CONTEXT_{kind.upper()} -->'
-            section = context_section(kind, item, products, lang)
             if kind == "vehicle":
+                section = context_section(kind, item, products, lang)
                 # Vehicle context belongs after compatible products and before
                 # </main>. Older generated pages may already have the marker
                 # after the footer, so always remove and rebuild this section.
@@ -536,6 +536,7 @@ def enrich_entity_pages(kind, data, catalogue):
                 if summary_replacements != 1:
                     raise ValueError(f"{path}: vehicle product count could not be synchronized.")
             elif marker not in page:
+                section = context_section(kind, item, products, lang)
                 anchor_pattern = rf'<!--\s*=+\s*{kind.upper()} PRODUCTS\s*=+\s*-->' if kind != "vehicle" else r'<!--\s*=+\s*COMPATIBLE PRODUCTS\s*=+\s*-->'
                 anchor_match = re.search(anchor_pattern, page, flags=re.I)
                 if anchor_match:
