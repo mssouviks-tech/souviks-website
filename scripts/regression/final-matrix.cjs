@@ -744,6 +744,11 @@ async function main() {
 
       const noMatchQuery = "zzzxqvnotfound9051";
       await input.fill(noMatchQuery);
+      await page.waitForFunction(
+        () => document.body.dataset.productsPageReady === "true",
+        null,
+        { timeout: 12000 }
+      );
       await page.waitForFunction(() => {
         const total = document.getElementById("totalResults");
         return total && total.textContent.trim() === "0";
