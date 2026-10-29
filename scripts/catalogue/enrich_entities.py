@@ -257,15 +257,124 @@ def update_page_title(page, title):
     return page
 
 
-def update_meta(page, description):
+def _bounded_meta_description(description, limit=158):
+    """Keep metadata within the search-snippet contract without inventing punctuation."""
     raw = clean(description)
-    d = esc(raw[:155].rsplit(" ", 1)[0].rstrip(" ,;:-") + "." if len(raw) > 158 else raw)
-    for pattern in (
-        r'(<meta\s+name=["\']description["\']\s+content=["\'])[^"\']*(["\'])',
-        r'(<meta\s+property=["\']og:description["\']\s+content=["\'])[^"\']*(["\'])',
-        r'(<meta\s+name=["\']twitter:description["\']\s+content=["\'])[^"\']*(["\'])',
-    ):
-        page = re.sub(pattern, lambda m: m.group(1) + d + m.group(2), page, count=1, flags=re.I)
+    if len(raw) <= limit:
+        return raw
+
+    # Prefer complete sentence boundaries. If a single sentence is too long,
+    # fall back to a visible ellipsis rather than falsely completing it.
+    sentences = re.split(r"(?<=[.!?।])\s+", raw)
+    complete = []
+    for sentence in sentences:
+        candidate = " ".join([*complete, sentence]).strip()
+        if len(candidate) > limit:
+            break
+        complete.append(sentence)
+    if complete:
+        return " ".join(complete).strip()
+
+    fragment = raw[: max(1, limit - 1)].rsplit(" ", 1)[0].rstrip(" ,;:-.")
+    return (fragment or raw[: max(1, limit - 1)].rstrip(" ,;:-.")) + "…"
+
+
+def entity_meta_description(kind, item, products, language):
+    """Build a concise, localized meta description from verified catalogue coverage."""
+    lang = str(language or "en").strip().lower()
+    if lang not in {"en", "hi", "bn"}:
+        lang = "en"
+
+    name = clean(item.get("name") or item.get("model"))
+    count = len(products)
+    categories = top(arr_products(products, "category_name"), 3)
+    subcategories = top(arr_products(products, "subcategory_name"), 3)
+
+    if lang == "en":
+        if kind == "brand":
+            terms = list_text(categories, 3) or "commercial-vehicle categories"
+            candidates = [
+                f"{name} commercial vehicle parts at Souviks: {count} active products across {terms}. Check part numbers and vehicle fitment.",
+                f"{name} commercial vehicle parts at Souviks: {count} active products. Check part numbers and vehicle fitment.",
+            ]
+        elif kind == "vehicle":
+            terms = list_text(categories, 3) or "multiple systems"
+            candidates = [
+                f"{name} spare parts at Souviks: {count} active parts across {terms}. Check part numbers and exact vehicle fitment.",
+                f"{name} spare parts at Souviks: {count} active parts. Check part numbers and exact vehicle fitment.",
+            ]
+        else:
+            terms = list_text(subcategories, 3) or "related component groups"
+            candidates = [
+                f"{name} commercial vehicle parts at Souviks: {count} active items across {terms}. Check part numbers and vehicle fitment.",
+                f"{name} commercial vehicle parts at Souviks: {count} active items. Check part numbers and vehicle fitment.",
+            ]
+    elif lang == "hi":
+        if kind == "brand":
+            candidates = [
+                f"Souviks पर {name} के {count} सक्रिय कमर्शियल-व्हीकल पार्ट्स देखें। सही पार्ट नंबर और वाहन फिटमेंट की पुष्टि करें।"
+            ]
+        elif kind == "vehicle":
+            candidates = [
+                f"Souviks पर {name} के {count} सक्रिय स्पेयर पार्ट्स देखें। ऑर्डर से पहले सही मॉडल और फिटमेंट की पुष्टि करें।"
+            ]
+        else:
+            candidates = [
+                f"Souviks पर {name} श्रेणी के {count} सक्रिय स्पेयर पार्ट्स देखें। पार्ट नंबर और वाहन फिटमेंट जाँचें।"
+            ]
+    else:
+        if kind == "brand":
+            candidates = [
+                f"Souviks-এ {name}-এর {count}টি সক্রিয় কমার্শিয়াল-ভেহিকল পার্টস দেখুন। পার্ট নম্বর ও গাড়ির ফিটমেন্ট যাচাই করুন।"
+            ]
+        elif kind == "vehicle":
+            candidates = [
+                f"Souviks-এ {name}-এর {count}টি সক্রিয় স্পেয়ার পার্ট দেখুন। অর্ডারের আগে পার্ট নম্বর ও গাড়ির ফিটমেন্ট যাচাই করুন।"
+            ]
+        else:
+            candidates = [
+                f"Souviks-এ {name} বিভাগের {count}টি সক্রিয় স্পেয়ার পার্ট দেখুন। পার্ট নম্বর ও গাড়ির ফিটমেন্ট যাচাই করুন।"
+            ]
+
+    for candidate in candidates:
+        if 70 <= len(candidate) <= 158:
+            return candidate
+    for candidate in candidates:
+        if len(candidate) <= 158:
+            return candidate
+    return _bounded_meta_description(candidates[-1], 158)
+
+
+def update_meta(page, description):
+    """Update description metadata safely, including values with apostrophes."""
+    d = esc(_bounded_meta_description(description))
+    selectors = (
+        r"\bname=[\"']description[\"']",
+        r"\bproperty=[\"']og:description[\"']",
+        r"\bname=[\"']twitter:description[\"']",
+    )
+    found = set()
+
+    def replace_tag(match):
+        tag = match.group(0)
+        for index, selector in enumerate(selectors):
+            if re.search(selector, tag, flags=re.I):
+                updated, replacements = re.subn(
+                    r"(\bcontent\s*=\s*)([\"'])(.*?)\2",
+                    lambda value: value.group(1) + value.group(2) + d + value.group(2),
+                    tag,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+                if replacements:
+                    found.add(index)
+                    return updated
+        return tag
+
+    page = re.sub(r"<meta\b[^>]*>", replace_tag, page, flags=re.I | re.S)
+    if len(found) != len(selectors):
+        missing = [name for i, name in enumerate(("description", "og:description", "twitter:description")) if i not in found]
+        raise ValueError("Missing entity description metadata: " + ", ".join(missing))
     return page
 
 def ensure_main_landmark(page):
@@ -453,7 +562,7 @@ def enrich_entity_pages(kind, data, catalogue):
             page = path.read_text(encoding="utf-8")
             if kind == "brand":
                 page = update_page_title(page, brand_page_title(item.get("name"), lang))
-            page = update_meta(page, clean(item.get("description")))
+            page = update_meta(page, entity_meta_description(kind, item, products, lang))
             gallery_html = entity_product_galleries(kind, item, products, lang)
             page = replace_static_product_grid(page, gallery_html)
             if kind == "vehicle":
