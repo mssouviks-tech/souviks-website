@@ -313,8 +313,8 @@
     "cutout": "/assets/images/vehicles/TATA_LPT/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_LPT/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 314 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Electricals, Brakes and more and common replacement areas such as Cross Joint, Spring Pin, U Bolt, Leaf Spring, Flange and more; listed brands include RKI, JAI, Nirmal, Tata Genuine Parts, Harish.",
-    "short_description": "Tata LPT: 314 active parts mapped across Suspension & Steering, Clutch Parts, Filters, Electricals and more.",
+    "description": "Souviks lists 315 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Electricals, Brakes and more and common replacement areas such as Cross Joint, Spring Pin, U Bolt, Leaf Spring, Flange and more; listed brands include RKI, JAI, Nirmal, Tata Genuine Parts, Harish.",
+    "short_description": "Tata LPT: 315 active parts mapped across Suspension & Steering, Clutch Parts, Filters, Electricals and more.",
     "categories": [
       {
         "id": "air-system",
@@ -752,6 +752,7 @@
       "SVKS000737",
       "SVKS000739",
       "SVKS000742",
+      "SVKS000743",
       "SVKS000745",
       "SVKS000746",
       "SVKS000747",
@@ -857,12 +858,12 @@
       "SVKS001119",
       "SVKS001122"
     ],
-    "product_count": 314,
+    "product_count": 315,
     "featured": true,
     "active": true,
     "seo": {
       "title": "Tata LPT Parts | Souviks",
-      "description": "Souviks lists 314 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Electricals, Brakes and more and common replacement areas such as Cross Joint, Spring Pin, U Bolt, Leaf Spring, Flange and more; listed brands include RKI, JAI, Nirmal, Tata Genuine Parts, Harish.",
+      "description": "Souviks lists 315 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Electricals, Brakes and more and common replacement areas such as Cross Joint, Spring Pin, U Bolt, Leaf Spring, Flange and more; listed brands include RKI, JAI, Nirmal, Tata Genuine Parts, Harish.",
       "keywords": [
         "Tata LPT",
         "commercial vehicle spare parts",
@@ -2665,8 +2666,8 @@
     "cutout": "/assets/images/vehicles/TATA_709/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_709/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 34 active spare parts for Tata 709, a Tata Motors application. Current catalogue coverage includes Electricals, Bearings, Suspension & Steering, Fasteners & Hardware, Engine Components and more and common replacement areas such as Head Light, Taper Roller Bearing, Washer, Center Bolt, Center Bearing and more; listed brands include Texspin, NeoLite, Harish, GS, Tata Genuine Parts.",
-    "short_description": "Tata 709: 34 active parts mapped across Electricals, Bearings, Suspension & Steering, Fasteners & Hardware and more.",
+    "description": "Souviks lists 35 active spare parts for Tata 709, a Tata Motors application. Current catalogue coverage includes Electricals, Suspension & Steering, Bearings, Fasteners & Hardware, Engine Components and more and common replacement areas such as Head Light, Taper Roller Bearing, Washer, Center Bolt, Center Bearing and more; listed brands include Texspin, NeoLite, Harish, GS, KFL.",
+    "short_description": "Tata 709: 35 active parts mapped across Electricals, Suspension & Steering, Bearings, Fasteners & Hardware and more.",
     "categories": [
       {
         "id": "air-system",
@@ -2805,6 +2806,7 @@
       "SVKS000578",
       "SVKS000673",
       "SVKS000688",
+      "SVKS000739",
       "SVKS000811",
       "SVKS001001",
       "SVKS001009",
@@ -2813,12 +2815,12 @@
       "SVKS001112",
       "SVKS001119"
     ],
-    "product_count": 34,
+    "product_count": 35,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Tata 709 Parts | Souviks",
-      "description": "Souviks lists 34 active spare parts for Tata 709, a Tata Motors application. Current catalogue coverage includes Electricals, Bearings, Suspension & Steering, Fasteners & Hardware, Engine Components and more and common replacement areas such as Head Light, Taper Roller Bearing, Washer, Center Bolt, Center Bearing and more; listed brands include Texspin, NeoLite, Harish, GS, Tata Genuine Parts.",
+      "description": "Souviks lists 35 active spare parts for Tata 709, a Tata Motors application. Current catalogue coverage includes Electricals, Suspension & Steering, Bearings, Fasteners & Hardware, Engine Components and more and common replacement areas such as Head Light, Taper Roller Bearing, Washer, Center Bolt, Center Bearing and more; listed brands include Texspin, NeoLite, Harish, GS, KFL.",
       "keywords": [
         "Tata 709",
         "commercial vehicle spare parts",

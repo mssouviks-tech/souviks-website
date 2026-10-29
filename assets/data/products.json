@@ -48100,16 +48100,20 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "The KFL KF3352 Tie Rod End All Models / 1616/2416 Turbo transfers steering movement between the steering gear and the connected wheel or axle linkage. Vehicle applications include Tata 2416 and Tata LPT.",
+    "description": "The KFL KF3352 tie rod end is listed for compatible Tata heavy commercial vehicle steering applications, including 1616/2416 Turbo and Cargo 709. Supplied as a pair, it forms part of the steering linkage and transfers movement through the connected steering components.",
     "image_folder": "SVKS000739",
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000739/1.webp",
     "vehicles": [
-      "Tata 2416",
-      "Tata LPT"
+      "tata-2416",
+      "tata-709",
+      "tata-lpt"
     ],
-    "applications": [],
+    "applications": [
+      "Tata 1616/2416 Turbo steering linkage",
+      "Cargo 709 steering linkage; supplied as a pair"
+    ],
     "featured": false,
     "active": true,
     "seo": {
@@ -48125,8 +48129,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:38.008085",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "updated_at": "2026-10-29",
+    "catalogue_updated_at": "2026-10-29",
     "dimensions_label": "",
     "dimensions_source": "",
     "weight_estimation_status": "",
@@ -48294,16 +48298,18 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "The KFL KF5098 Engine Mounting TATA Signa 4923/LPO 1625 BS4 Rear supports the engine relative to the chassis or frame and helps manage movement and vibration at the mounting points. Vehicle applications include Tata LPT.",
+    "description": "The KFL KF5098 rear engine mounting is specified for Tata Signa 4923 and LPO 1625 BS IV applications. Its 12 mm bore defines the mounting interface for this version. The mounting supports the engine at the rear mounting point and helps manage vibration and movement during vehicle operation.",
     "image_folder": "SVKS000742",
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000742/1.webp",
     "vehicles": [
-      "Tata Signa",
-      "Tata LPT"
+      "tata-signa",
+      "tata-lpt"
     ],
-    "applications": [],
+    "applications": [
+      "Tata Signa 4923 / LPO 1625 BS IV rear engine mounting; 12 mm bore"
+    ],
     "featured": false,
     "active": true,
     "seo": {
@@ -48319,8 +48325,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:38.067627",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "updated_at": "2026-10-29",
+    "catalogue_updated_at": "2026-10-29",
     "dimensions_label": "",
     "dimensions_source": "",
     "weight_estimation_status": "",
@@ -48359,15 +48365,18 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "The KFL KF5099 Engine Mounting TATA Signa supports the engine relative to the chassis or frame and helps manage movement and vibration at the mounting points.",
+    "description": "The KFL KF5099 rear engine mounting is specified for Tata Signa 4923 and LPO 1625 BS IV applications. Featuring a 16 mm bore, it supports the engine at the rear mounting point while helping control movement and absorb operational vibration.",
     "image_folder": "SVKS000743",
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000743/1.webp",
     "vehicles": [
-      "Tata Signa"
+      "tata-signa",
+      "tata-lpt"
     ],
-    "applications": [],
+    "applications": [
+      "Tata Signa 4923 / LPO 1625 BS IV rear engine mounting; 16 mm bore"
+    ],
     "featured": false,
     "active": true,
     "seo": {
@@ -48383,8 +48392,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:38.067627",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "updated_at": "2026-10-29",
+    "catalogue_updated_at": "2026-10-29",
     "dimensions_label": "",
     "dimensions_source": "",
     "weight_estimation_status": "",
@@ -48978,10 +48987,10 @@
     "cross_references": [],
     "mrp": 420,
     "selling_price": 386.4,
-    "discount_percent": null,
-    "discountPercent": null,
-    "product_name": "Rubber cab mount Rear-cargo-cab",
-    "name": "Rubber cab mount Rear-cargo-cab",
+    "discount_percent": 8,
+    "discountPercent": 8,
+    "product_name": "Rear Cab Rubber Mount - Cargo Cab",
+    "name": "Rear Cab Rubber Mount - Cargo Cab",
     "partNumber": "F2637300",
     "brand_id": "leyparts",
     "brand_name": "Leyparts",
@@ -48997,7 +49006,7 @@
       "2.webp"
     ],
     "gallery_dimensions": {},
-    "description": "The Leyparts F2637300 Rubber cab mount Rear-cargo-cab supports the cab at its mounting point and helps isolate vibration between the cab and chassis. Vehicle applications include Ashok Leyland 2516.",
+    "description": "The Leyparts F2637300 rear cab rubber mount provides cushioned support between the Cargo cab and chassis in compatible Ashok Leyland commercial vehicles. Its rubber construction helps absorb road and chassis vibration at the cab mounting points.",
     "image_folder": "SVKS000753",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -49005,7 +49014,9 @@
     "vehicles": [
       "Ashok Leyland 2516"
     ],
-    "applications": [],
+    "applications": [
+      "Ashok Leyland Cargo cab rear mounting; cab-to-chassis vibration isolation"
+    ],
     "featured": false,
     "active": true,
     "seo": {
@@ -49021,8 +49032,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:38.243845",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "updated_at": "2026-10-29",
+    "catalogue_updated_at": "2026-10-29",
     "dimensions_label": "",
     "dimensions_source": "",
     "weight_estimation_status": "",
@@ -49040,8 +49051,8 @@
     "cross_references": [],
     "mrp": 1120,
     "selling_price": 1030.4,
-    "discount_percent": null,
-    "discountPercent": null,
+    "discount_percent": 8,
+    "discountPercent": 8,
     "product_name": "Bush Cab Front MTG-L 8.1 CM-ID 1.95 CM",
     "name": "Bush Cab Front MTG-L 8.1 CM-ID 1.95 CM",
     "partNumber": "F8014600",
@@ -49060,7 +49071,7 @@
       "3.webp"
     ],
     "gallery_dimensions": {},
-    "description": "The Leyparts F8014600 Bush Cab Front MTG-L 8.1 CM-ID 1.95 CM provides a bearing surface at a pivot joint and helps control movement between connected suspension or steering components. Vehicle applications include Ashok Leyland 2516.",
+    "description": "The Leyparts F8014600 front cabin mounting bush provides a resilient interface at the cabin mounting point on compatible Ashok Leyland commercial vehicles. The listed dimensions are 81 mm in length and 19.5 mm inner diameter, and the bush helps isolate vibration between the cabin and vehicle structure.",
     "image_folder": "SVKS000754",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -49068,7 +49079,9 @@
     "vehicles": [
       "Ashok Leyland 2516"
     ],
-    "applications": [],
+    "applications": [
+      "Front cabin mounting bush; 81 mm length; 19.5 mm inner diameter"
+    ],
     "featured": false,
     "active": true,
     "seo": {
@@ -49084,8 +49097,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:38.258587",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "updated_at": "2026-10-29",
+    "catalogue_updated_at": "2026-10-29",
     "dimensions_label": "",
     "dimensions_source": "",
     "weight_estimation_status": "",
@@ -62569,11 +62582,14 @@
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
-    "cross_references": [],
-    "mrp": 2280,
-    "selling_price": 1900,
-    "discount_percent": null,
-    "discountPercent": null,
+    "cross_references": [
+      "K003355",
+      "9732981530"
+    ],
+    "mrp": 2696,
+    "selling_price": 2291.6,
+    "discount_percent": 15,
+    "discountPercent": 15,
     "product_name": "Relay Valve (Type V)",
     "name": "Relay Valve (Type V)",
     "partNumber": "B13TM1000150",
@@ -62593,7 +62609,7 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "The Knorr-Bremse B13TM1000150 Relay Valve (Type V) controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
+    "description": "The Knorr-Bremse B13TM1000150 Type V relay valve controls compressed-air flow within a commercial vehicle pneumatic brake circuit. It supports responsive brake application and release as part of the vehicle's air-braking system.",
     "image_folder": "SVKS000963",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -62601,7 +62617,9 @@
     "vehicles": [
       "Universal"
     ],
-    "applications": [],
+    "applications": [
+      "Type V pneumatic relay valve; commercial vehicle air-braking circuit"
+    ],
     "featured": false,
     "active": true,
     "seo": {
@@ -62617,8 +62635,8 @@
     },
     "schema": {},
     "created_at": "2026-10-04T18:42:41.484063",
-    "updated_at": "2026-10-04T15:50:14+05:30",
-    "catalogue_updated_at": "2026-10-04T15:50:14+05:30",
+    "updated_at": "2026-10-29",
+    "catalogue_updated_at": "2026-10-29",
     "dimensions_label": "",
     "dimensions_source": "",
     "weight_estimation_status": "",

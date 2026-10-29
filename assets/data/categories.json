@@ -847,6 +847,7 @@
       "tata-1312",
       "tata-1512",
       "tata-2416",
+      "tata-709",
       "tata-lpt",
       "tata-prima",
       "tata-signa",
@@ -1971,7 +1972,9 @@
       "Tata LPT",
       "Tata Magic",
       "Tata Signa",
-      "Universal"
+      "Universal",
+      "tata-lpt",
+      "tata-signa"
     ],
     "featured_products": [
       "SVKS000063",

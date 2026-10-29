@@ -15507,11 +15507,13 @@
       "Leyparts",
       "Suspension & Steering",
       "Suspension Bush",
-      "The Leyparts F8014600 Bush Cab Front MTG-L 8.1 CM-ID 1.95 CM provides a bearing surface at a pivot joint and helps control movement between connected suspension or steering components. Vehicle applications include Ashok Leyland 2516.",
+      "The Leyparts F8014600 front cabin mounting bush provides a resilient interface at the cabin mounting point on compatible Ashok Leyland commercial vehicles. The listed dimensions are 81 mm in length and 19.5 mm inner diameter, and the bush helps isolate vibration between the cabin and vehicle structure.",
       "Ashok Leyland 2516"
     ],
-    "description": "The Leyparts F8014600 Bush Cab Front MTG-L 8.1 CM-ID 1.95 CM provides a bearing surface at a pivot joint and helps control movement between connected suspension or steering components. Vehicle applications include Ashok Leyland 2516.",
-    "applications": [],
+    "description": "The Leyparts F8014600 front cabin mounting bush provides a resilient interface at the cabin mounting point on compatible Ashok Leyland commercial vehicles. The listed dimensions are 81 mm in length and 19.5 mm inner diameter, and the bush helps isolate vibration between the cabin and vehicle structure.",
+    "applications": [
+      "Front cabin mounting bush; 81 mm length; 19.5 mm inner diameter"
+    ],
     "vehicles": [
       "Ashok Leyland 2516"
     ],
@@ -23605,13 +23607,17 @@
       "KFL",
       "Engine Components",
       "Engine Mount",
-      "The KFL KF5099 Engine Mounting TATA Signa supports the engine relative to the chassis or frame and helps manage movement and vibration at the mounting points.",
-      "Tata Signa"
+      "The KFL KF5099 rear engine mounting is specified for Tata Signa 4923 and LPO 1625 BS IV applications. Featuring a 16 mm bore, it supports the engine at the rear mounting point while helping control movement and absorb operational vibration.",
+      "tata-signa",
+      "tata-lpt"
     ],
-    "description": "The KFL KF5099 Engine Mounting TATA Signa supports the engine relative to the chassis or frame and helps manage movement and vibration at the mounting points.",
-    "applications": [],
+    "description": "The KFL KF5099 rear engine mounting is specified for Tata Signa 4923 and LPO 1625 BS IV applications. Featuring a 16 mm bore, it supports the engine at the rear mounting point while helping control movement and absorb operational vibration.",
+    "applications": [
+      "Tata Signa 4923 / LPO 1625 BS IV rear engine mounting; 16 mm bore"
+    ],
     "vehicles": [
-      "Tata Signa"
+      "tata-signa",
+      "tata-lpt"
     ],
     "part_number": "KF5099",
     "manufacturer_part_number": "",
@@ -23631,7 +23637,7 @@
       "id": "kfl",
       "name": "KFL"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 2,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -23653,15 +23659,17 @@
       "KFL",
       "Engine Components",
       "Engine Mount",
-      "The KFL KF5098 Engine Mounting TATA Signa 4923/LPO 1625 BS4 Rear supports the engine relative to the chassis or frame and helps manage movement and vibration at the mounting points. Vehicle applications include Tata LPT.",
-      "Tata Signa",
-      "Tata LPT"
+      "The KFL KF5098 rear engine mounting is specified for Tata Signa 4923 and LPO 1625 BS IV applications. Its 12 mm bore defines the mounting interface for this version. The mounting supports the engine at the rear mounting point and helps manage vibration and movement during vehicle operation.",
+      "tata-signa",
+      "tata-lpt"
     ],
-    "description": "The KFL KF5098 Engine Mounting TATA Signa 4923/LPO 1625 BS4 Rear supports the engine relative to the chassis or frame and helps manage movement and vibration at the mounting points. Vehicle applications include Tata LPT.",
-    "applications": [],
+    "description": "The KFL KF5098 rear engine mounting is specified for Tata Signa 4923 and LPO 1625 BS IV applications. Its 12 mm bore defines the mounting interface for this version. The mounting supports the engine at the rear mounting point and helps manage vibration and movement during vehicle operation.",
+    "applications": [
+      "Tata Signa 4923 / LPO 1625 BS IV rear engine mounting; 12 mm bore"
+    ],
     "vehicles": [
-      "Tata Signa",
-      "Tata LPT"
+      "tata-signa",
+      "tata-lpt"
     ],
     "part_number": "KF5098",
     "manufacturer_part_number": "",
@@ -39473,11 +39481,13 @@
       "Knorr-Bremse",
       "Air System",
       "Valve",
-      "The Knorr-Bremse B13TM1000150 Relay Valve (Type V) controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
+      "The Knorr-Bremse B13TM1000150 Type V relay valve controls compressed-air flow within a commercial vehicle pneumatic brake circuit. It supports responsive brake application and release as part of the vehicle's air-braking system.",
       "Universal"
     ],
-    "description": "The Knorr-Bremse B13TM1000150 Relay Valve (Type V) controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
-    "applications": [],
+    "description": "The Knorr-Bremse B13TM1000150 Type V relay valve controls compressed-air flow within a commercial vehicle pneumatic brake circuit. It supports responsive brake application and release as part of the vehicle's air-braking system.",
+    "applications": [
+      "Type V pneumatic relay valve; commercial vehicle air-braking circuit"
+    ],
     "vehicles": [
       "Universal"
     ],
@@ -39486,7 +39496,10 @@
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
-    "cross_references": [],
+    "cross_references": [
+      "K003355",
+      "9732981530"
+    ],
     "slug": "knorr-bremse-b13tm1000150-relay-valve-type-v",
     "url": "/en/products/knorr-bremse-b13tm1000150-relay-valve-type-v",
     "image": "1.webp",
@@ -40002,19 +40015,21 @@
   {
     "id": "SVKS000753",
     "type": "product",
-    "title": "Rubber cab mount Rear-cargo-cab",
+    "title": "Rear Cab Rubber Mount - Cargo Cab",
     "subtitle": "Part No. F2637300",
     "keywords": [
-      "Rubber cab mount Rear-cargo-cab",
+      "Rear Cab Rubber Mount - Cargo Cab",
       "F2637300",
       "Leyparts",
       "Rubber Parts",
       "Rubber Pad",
-      "The Leyparts F2637300 Rubber cab mount Rear-cargo-cab supports the cab at its mounting point and helps isolate vibration between the cab and chassis. Vehicle applications include Ashok Leyland 2516.",
+      "The Leyparts F2637300 rear cab rubber mount provides cushioned support between the Cargo cab and chassis in compatible Ashok Leyland commercial vehicles. Its rubber construction helps absorb road and chassis vibration at the cab mounting points.",
       "Ashok Leyland 2516"
     ],
-    "description": "The Leyparts F2637300 Rubber cab mount Rear-cargo-cab supports the cab at its mounting point and helps isolate vibration between the cab and chassis. Vehicle applications include Ashok Leyland 2516.",
-    "applications": [],
+    "description": "The Leyparts F2637300 rear cab rubber mount provides cushioned support between the Cargo cab and chassis in compatible Ashok Leyland commercial vehicles. Its rubber construction helps absorb road and chassis vibration at the cab mounting points.",
+    "applications": [
+      "Ashok Leyland Cargo cab rear mounting; cab-to-chassis vibration isolation"
+    ],
     "vehicles": [
       "Ashok Leyland 2516"
     ],
@@ -47451,15 +47466,20 @@
       "KFL",
       "Suspension & Steering",
       "Tie Rod End",
-      "The KFL KF3352 Tie Rod End All Models / 1616/2416 Turbo transfers steering movement between the steering gear and the connected wheel or axle linkage. Vehicle applications include Tata 2416 and Tata LPT.",
-      "Tata 2416",
-      "Tata LPT"
+      "The KFL KF3352 tie rod end is listed for compatible Tata heavy commercial vehicle steering applications, including 1616/2416 Turbo and Cargo 709. Supplied as a pair, it forms part of the steering linkage and transfers movement through the connected steering components.",
+      "tata-2416",
+      "tata-709",
+      "tata-lpt"
     ],
-    "description": "The KFL KF3352 Tie Rod End All Models / 1616/2416 Turbo transfers steering movement between the steering gear and the connected wheel or axle linkage. Vehicle applications include Tata 2416 and Tata LPT.",
-    "applications": [],
+    "description": "The KFL KF3352 tie rod end is listed for compatible Tata heavy commercial vehicle steering applications, including 1616/2416 Turbo and Cargo 709. Supplied as a pair, it forms part of the steering linkage and transfers movement through the connected steering components.",
+    "applications": [
+      "Tata 1616/2416 Turbo steering linkage",
+      "Cargo 709 steering linkage; supplied as a pair"
+    ],
     "vehicles": [
-      "Tata 2416",
-      "Tata LPT"
+      "tata-2416",
+      "tata-709",
+      "tata-lpt"
     ],
     "part_number": "KF3352",
     "manufacturer_part_number": "",
@@ -47479,7 +47499,7 @@
       "id": "kfl",
       "name": "KFL"
     },
-    "vehicle_count": 2,
+    "vehicle_count": 3,
     "product_count": 0,
     "featured": false,
     "active": true,
