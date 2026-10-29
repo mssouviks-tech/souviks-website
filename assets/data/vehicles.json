@@ -2855,8 +2855,8 @@
     "cutout": "/assets/images/vehicles/TATA_1109/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_1109/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 58 active spare parts for Tata 1109, a Tata Motors application. Current catalogue coverage includes Engine Components, Clutch Parts, Suspension & Steering, Fasteners & Hardware, Bearings and more and common replacement areas such as Timing Belt, Clutch Release Bearing, Clutch Master Cylinder, Engine Bushes & Synchronizers, Washer and more; listed brands include Pix, Texspin, Tata Genuine Parts, TVS Girling, Harish.",
-    "short_description": "Tata 1109: 58 active parts mapped across Engine Components, Clutch Parts, Suspension & Steering, Fasteners & Hardware and more.",
+    "description": "Souviks lists 61 active spare parts for Tata 1109, a Tata Motors application. Current catalogue coverage includes Engine Components, Clutch Parts, Suspension & Steering, Fasteners & Hardware, Bearings and more and common replacement areas such as Timing Belt, Clutch Release Bearing, Clutch Master Cylinder, Engine Bushes & Synchronizers, Washer and more; listed brands include Texspin, Pix, Tata Genuine Parts, TVS Girling, Harish.",
+    "short_description": "Tata 1109: 61 active parts mapped across Engine Components, Clutch Parts, Suspension & Steering, Fasteners & Hardware and more.",
     "categories": [
       {
         "id": "air-system",
@@ -3021,14 +3021,17 @@
       "SVKS001009",
       "SVKS001056",
       "SVKS001057",
-      "SVKS001119"
+      "SVKS001119",
+      "SVKS001136",
+      "SVKS001137",
+      "SVKS001138"
     ],
-    "product_count": 58,
+    "product_count": 61,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Tata 1109 Parts | Souviks",
-      "description": "Souviks lists 58 active spare parts for Tata 1109, a Tata Motors application. Current catalogue coverage includes Engine Components, Clutch Parts, Suspension & Steering, Fasteners & Hardware, Bearings and more and common replacement areas such as Timing Belt, Clutch Release Bearing, Clutch Master Cylinder, Engine Bushes & Synchronizers, Washer and more; listed brands include Pix, Texspin, Tata Genuine Parts, TVS Girling, Harish.",
+      "description": "Souviks lists 61 active spare parts for Tata 1109, a Tata Motors application. Current catalogue coverage includes Engine Components, Clutch Parts, Suspension & Steering, Fasteners & Hardware, Bearings and more and common replacement areas such as Timing Belt, Clutch Release Bearing, Clutch Master Cylinder, Engine Bushes & Synchronizers, Washer and more; listed brands include Texspin, Pix, Tata Genuine Parts, TVS Girling, Harish.",
       "keywords": [
         "Tata 1109",
         "commercial vehicle spare parts",
@@ -3063,8 +3066,8 @@
     "cutout": "/assets/images/vehicles/TATA_1210/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_1210/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 56 active spare parts for Tata 1210, a Tata Motors application. Current catalogue coverage includes Engine Components, Clutch Parts, Electricals, Bearings, Suspension & Steering and more and common replacement areas such as Timing Belt, Clutch Master Cylinder, Head Light, Clutch Release Bearing, Taper Roller Bearing and more; listed brands include Pix, Texspin, Tata Genuine Parts, TVS Girling, UnoMinda.",
-    "short_description": "Tata 1210: 56 active parts mapped across Engine Components, Clutch Parts, Electricals, Bearings and more.",
+    "description": "Souviks lists 59 active spare parts for Tata 1210, a Tata Motors application. Current catalogue coverage includes Engine Components, Clutch Parts, Electricals, Suspension & Steering, Bearings and more and common replacement areas such as Timing Belt, Clutch Master Cylinder, Head Light, Clutch Release Bearing, Taper Roller Bearing and more; listed brands include Texspin, Pix, Tata Genuine Parts, TVS Girling, UnoMinda.",
+    "short_description": "Tata 1210: 59 active parts mapped across Engine Components, Clutch Parts, Electricals, Suspension & Steering and more.",
     "categories": [
       {
         "id": "bearings",
@@ -3211,14 +3214,17 @@
       "SVKS000914",
       "SVKS001066",
       "SVKS001110",
-      "SVKS001111"
+      "SVKS001111",
+      "SVKS001136",
+      "SVKS001137",
+      "SVKS001138"
     ],
-    "product_count": 56,
+    "product_count": 59,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Tata 1210 Parts | Souviks",
-      "description": "Souviks lists 56 active spare parts for Tata 1210, a Tata Motors application. Current catalogue coverage includes Engine Components, Clutch Parts, Electricals, Bearings, Suspension & Steering and more and common replacement areas such as Timing Belt, Clutch Master Cylinder, Head Light, Clutch Release Bearing, Taper Roller Bearing and more; listed brands include Pix, Texspin, Tata Genuine Parts, TVS Girling, UnoMinda.",
+      "description": "Souviks lists 59 active spare parts for Tata 1210, a Tata Motors application. Current catalogue coverage includes Engine Components, Clutch Parts, Electricals, Suspension & Steering, Bearings and more and common replacement areas such as Timing Belt, Clutch Master Cylinder, Head Light, Clutch Release Bearing, Taper Roller Bearing and more; listed brands include Texspin, Pix, Tata Genuine Parts, TVS Girling, UnoMinda.",
       "keywords": [
         "Tata 1210",
         "commercial vehicle spare parts",

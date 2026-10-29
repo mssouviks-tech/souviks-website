@@ -59045,5 +59045,170 @@
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": ""
+  },
+  {
+    "id": "SVKS001136",
+    "type": "product",
+    "title": "Kingpin Shaft Tata 1210/1109, 1st Oversize",
+    "subtitle": "Part No. 116/1KP",
+    "keywords": [
+      "Kingpin Shaft Tata 1210/1109, 1st Oversize",
+      "116/1KP",
+      "Texspin",
+      "Suspension & Steering",
+      "King Pin Kit",
+      "The Texspin 116/1KP kingpin shaft set is a first-oversize replacement for Tata 1210 and Tata 1109 front axles. With a listed shaft diameter of 35.10 mm, it is supplied as a set of two pins for the kingpin and steering-knuckle assembly.",
+      "tata-1210",
+      "tata-1109"
+    ],
+    "description": "The Texspin 116/1KP kingpin shaft set is a first-oversize replacement for Tata 1210 and Tata 1109 front axles. With a listed shaft diameter of 35.10 mm, it is supplied as a set of two pins for the kingpin and steering-knuckle assembly.",
+    "applications": [
+      "Tata 1210/1109 front axle; first oversize; 35.10 mm shaft diameter; set of two pins"
+    ],
+    "vehicles": [
+      "tata-1210",
+      "tata-1109"
+    ],
+    "part_number": "116/1KP",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "116-1kp-kingpin-shaft-tata-1210-1109-first-oversize",
+    "url": "/en/products/116-1kp-kingpin-shaft-tata-1210-1109-first-oversize",
+    "image": "1.webp",
+    "approx_weight_g": null,
+    "dimensions_mm": null,
+    "dimensions_label": "",
+    "dimensions_source": "",
+    "calculated_weight_g": null,
+    "weight_estimation_status": "",
+    "weight_estimation_method": "",
+    "weight_estimation_notes": "",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "texspin",
+      "name": "Texspin"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001137",
+    "type": "product",
+    "title": "Kingpin Shaft Tata 1210/1109, 2nd Oversize",
+    "subtitle": "Part No. 116/2KP",
+    "keywords": [
+      "Kingpin Shaft Tata 1210/1109, 2nd Oversize",
+      "116/2KP",
+      "Texspin",
+      "Suspension & Steering",
+      "King Pin Kit",
+      "The Texspin 116/2KP kingpin shaft set is a second-oversize replacement for Tata 1210 and Tata 1109 front axles. Its listed shaft diameter is 35.20 mm and the set contains two kingpin shafts for the front-axle steering-knuckle assembly.",
+      "tata-1210",
+      "tata-1109"
+    ],
+    "description": "The Texspin 116/2KP kingpin shaft set is a second-oversize replacement for Tata 1210 and Tata 1109 front axles. Its listed shaft diameter is 35.20 mm and the set contains two kingpin shafts for the front-axle steering-knuckle assembly.",
+    "applications": [
+      "Tata 1210/1109 front axle; second oversize; 35.20 mm shaft diameter; set of two pins"
+    ],
+    "vehicles": [
+      "tata-1210",
+      "tata-1109"
+    ],
+    "part_number": "116/2KP",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "116-2kp-kingpin-shaft-tata-1210-1109-second-oversize",
+    "url": "/en/products/116-2kp-kingpin-shaft-tata-1210-1109-second-oversize",
+    "image": "1.webp",
+    "approx_weight_g": null,
+    "dimensions_mm": null,
+    "dimensions_label": "",
+    "dimensions_source": "",
+    "calculated_weight_g": null,
+    "weight_estimation_status": "",
+    "weight_estimation_method": "",
+    "weight_estimation_notes": "",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "texspin",
+      "name": "Texspin"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001138",
+    "type": "product",
+    "title": "Kingpin Shaft Tata 1210/1109, 3rd Oversize",
+    "subtitle": "Part No. 116/3KP",
+    "keywords": [
+      "Kingpin Shaft Tata 1210/1109, 3rd Oversize",
+      "116/3KP",
+      "Texspin",
+      "Suspension & Steering",
+      "King Pin Kit",
+      "The Texspin 116/3KP kingpin shaft set is a third-oversize replacement for Tata 1210 and Tata 1109 front axles. With a listed shaft diameter of 35.30 mm, it is supplied as two pins for the kingpin and steering-knuckle assembly.",
+      "tata-1210",
+      "tata-1109"
+    ],
+    "description": "The Texspin 116/3KP kingpin shaft set is a third-oversize replacement for Tata 1210 and Tata 1109 front axles. With a listed shaft diameter of 35.30 mm, it is supplied as two pins for the kingpin and steering-knuckle assembly.",
+    "applications": [
+      "Tata 1210/1109 front axle; third oversize; 35.30 mm shaft diameter; set of two pins"
+    ],
+    "vehicles": [
+      "tata-1210",
+      "tata-1109"
+    ],
+    "part_number": "116/3KP",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "116-3kp-kingpin-shaft-tata-1210-1109-third-oversize",
+    "url": "/en/products/116-3kp-kingpin-shaft-tata-1210-1109-third-oversize",
+    "image": "1.webp",
+    "approx_weight_g": null,
+    "dimensions_mm": null,
+    "dimensions_label": "",
+    "dimensions_source": "",
+    "calculated_weight_g": null,
+    "weight_estimation_status": "",
+    "weight_estimation_method": "",
+    "weight_estimation_notes": "",
+    "icon": "",
+    "category": {
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
+    },
+    "brand": {
+      "id": "texspin",
+      "name": "Texspin"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
   }
 ]

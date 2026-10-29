@@ -3598,9 +3598,9 @@
     "banner": "",
     "website": "https://www.texspin.com/",
     "country": "India",
-    "description": "Souviks currently lists 118 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, Grease, Kingpin Bearings and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Grease and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Texspin products at Souviks cover Bearings, Clutch Parts, Lubricants, Suspension & Steering and applications across Ashok Leyland 2516, Universal, Tata LPT and more.",
-    "product_count": 118,
+    "product_count": 121,
     "categories": [
       "bearings",
       "clutch-parts",
@@ -3648,6 +3648,7 @@
       "eicher-pro-series",
       "mahindra-bolero-pik-up",
       "tata-1109",
+      "tata-1210",
       "tata-2416",
       "tata-407",
       "tata-709",
@@ -3783,13 +3784,16 @@
       "SVKS001058",
       "SVKS001059",
       "SVKS001060",
-      "SVKS001061"
+      "SVKS001061",
+      "SVKS001136",
+      "SVKS001137",
+      "SVKS001138"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Texspin Parts | Souviks",
-      "description": "Souviks currently lists 118 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, Grease, Kingpin Bearings and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Grease and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Texspin",
         "commercial vehicle spare parts",
