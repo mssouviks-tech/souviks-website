@@ -167,6 +167,7 @@ inventory_ids = {
     for p in catalogue
     if isinstance(p, dict)
     and p.get("id")
+    and p.get("active") is not False
     and str(p.get("brand_name") or p.get("brand") or "").casefold() == "wabco"
 }
 if inventory_ids != seen:
