@@ -50166,7 +50166,8 @@
     "applications": [
       "Leyland 1613 Tipper steering linkage",
       "M30 × 1.5 RH thread; M20 × 1.5 ball-pin thread"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001125/1.webp"
   },
   {
     "id": "SVKS001126",
@@ -50214,7 +50215,8 @@
     "applications": [
       "Leyland 1613 Tipper steering linkage",
       "M30 × 1.5 LH thread; M20 × 1.5 ball-pin thread"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001126/1.webp"
   },
   {
     "id": "SVKS001127",
@@ -50266,7 +50268,8 @@
     "applications": [
       "Tata LPT-2518 / 3118 EX steering linkage",
       "M30 × 1.5 LH thread; thin ball pin 20 × 1.5; OE 501346990103"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001127/1.webp"
   },
   {
     "id": "SVKS001128",
@@ -50318,7 +50321,8 @@
     "applications": [
       "Tata 3118 EX / LPT steering linkage",
       "M30 × 1.5 RH thread; thin ball pin 20 × 1.5; OE 501346990104"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001128/1.webp"
   },
   {
     "id": "SVKS001129",
@@ -50366,7 +50370,8 @@
     "applications": [
       "Leyland FA90 front axle steering linkage",
       "M30 × 1.5 and M20 × 1.5 threads; pair"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001129/1.webp"
   },
   {
     "id": "SVKS001130",
@@ -50414,7 +50419,8 @@
     "applications": [
       "Tata Ultra truck and bus steering linkage",
       "M30 × 1.5 thread; 14 × 1.5 ball-pin thread"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001130/1.webp"
   },
   {
     "id": "SVKS001131",
@@ -50464,7 +50470,8 @@
     "applications": [
       "Tata 1510/1612/2213/2416/4018/1613 application family",
       "Front engine mount; single hole; 16 mm"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001131/1.webp"
   },
   {
     "id": "SVKS001132",
@@ -50513,7 +50520,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Front engine mounting pad; compatible Ashok Leyland truck and Ecomet engine-mounting applications"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001132/1.webp"
   },
   {
     "id": "SVKS001133",
@@ -50560,7 +50568,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Gear-shift lever seating block; Ashok Leyland 2518 chassis application family"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001133/1.webp"
   },
   {
     "id": "SVKS001134",
@@ -50607,7 +50616,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Clutch master-cylinder minor repair kit; commercial vehicle clutch hydraulic system"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001134/1.webp"
   },
   {
     "id": "SVKS001135",
@@ -50655,7 +50665,8 @@
     "gallery_dimensions": {},
     "applications": [
       "ZF hydraulic power-steering filtration; Ecomet and U-Truck application family"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001135/1.webp"
   },
   {
     "id": "SVKS001136",
@@ -50849,7 +50860,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Ashok Leyland Captain 4922 TT Euro 4; left-hand front engine mounting"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001139/1.webp"
   },
   {
     "id": "SVKS001140",
@@ -50896,7 +50908,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Ashok Leyland Captain 4922 TT Euro 4; right-hand front engine mounting"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001140/1.webp"
   },
   {
     "id": "SVKS001141",
@@ -50943,7 +50956,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Cummins engine front mounting; 16 mm mounting specification"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001141/1.webp"
   },
   {
     "id": "SVKS001142",
@@ -50970,9 +50984,9 @@
     "subcategory_id": "air-repair-kit",
     "subcategory_name": "Air Repair Kit",
     "subcategory": "Air Repair Kit",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001142/1.webp",
     "vehicles": [
       "tata-lpt",
       "tata-prima",
@@ -50983,7 +50997,12 @@
     "catalogue_updated_at": "2026-10-29",
     "description": "The WABCO 3000025039 MSP 25/39 spring brake actuator repair kit is intended for compatible SBA assemblies used in heavy commercial vehicle pneumatic braking systems.",
     "image_folder": "SVKS001142",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/39; spring brake actuator configurations including 20/75 and 24/75 types"
@@ -51016,9 +51035,9 @@
     "subcategory_id": "air-repair-kit",
     "subcategory_name": "Air Repair Kit",
     "subcategory": "Air Repair Kit",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001143/1.webp",
     "vehicles": [
       "tata-709",
       "tata-1109"
@@ -51028,7 +51047,12 @@
     "catalogue_updated_at": "2026-10-29",
     "description": "The WABCO 3000002032 MSP 25/32 repair kit is designed for compatible spring brake actuator configurations in commercial vehicle pneumatic braking systems.",
     "image_folder": "SVKS001143",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/32; Tata 709/1009/1109 actuator application family"
@@ -51061,9 +51085,9 @@
     "subcategory_id": "air-repair-kit",
     "subcategory_name": "Air Repair Kit",
     "subcategory": "Air Repair Kit",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001144/1.webp",
     "vehicles": [
       "universal"
     ],
@@ -51072,7 +51096,12 @@
     "catalogue_updated_at": "2026-10-29",
     "description": "The WABCO 300025033 MSP 25/33 kit is a pneumatic system service kit comprising diaphragm and cut-off valve components for compatible commercial vehicle air systems.",
     "image_folder": "SVKS001144",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/33; diaphragm and cut-off valve kit"
@@ -51105,9 +51134,9 @@
     "subcategory_id": "air-repair-kit",
     "subcategory_name": "Air Repair Kit",
     "subcategory": "Air Repair Kit",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001145/1.webp",
     "vehicles": [
       "ashok-leyland-2516",
       "ashok-leyland-u-truck"
@@ -51117,7 +51146,12 @@
     "catalogue_updated_at": "2026-10-29",
     "description": "The WABCO 3000025002 MSP 25/2 spring brake actuator repair kit is intended for compatible commercial vehicle air-brake systems. It provides service components for the specified actuator configuration.",
     "image_folder": "SVKS001145",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/2; Type 20/20 spring brake actuator configuration"
@@ -51153,9 +51187,9 @@
     "subcategory_id": "air-repair-kit",
     "subcategory_name": "Air Repair Kit",
     "subcategory": "Air Repair Kit",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001146/1.webp",
     "vehicles": [
       "tata-lpt",
       "ashok-leyland-2516",
@@ -51166,7 +51200,12 @@
     "catalogue_updated_at": "2026-10-29",
     "description": "The UnoMinda MB03015008 major spring brake actuator repair kit includes a diaphragm and is designed for servicing compatible commercial vehicle SBA assemblies. Listed applications include TML, Ashok Leyland and EML.",
     "image_folder": "SVKS001146",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Major SBA repair kit with diaphragm; WABCO cross-reference 300025024 / MSP 25/24"
@@ -51223,7 +51262,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Gen II lift axle control valve (LACV); commercial vehicle pneumatic control systems"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001147/1.webp"
   },
   {
     "id": "SVKS001148",
@@ -51273,7 +51313,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Hand brake valve V, Version 1; KB reference HBVP06001; WABCO cross-reference 9611700010"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001148/1.webp"
   },
   {
     "id": "SVKS001149",
@@ -51322,7 +51363,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Quick relay valve; Knorr-Bremse reference K013794; pneumatic braking system"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001149/1.webp"
   },
   {
     "id": "SVKS001150",
@@ -51372,6 +51414,7 @@
     "gallery_dimensions": {},
     "applications": [
       "Hand brake valve V; KB reference HBVP06002; WABCO cross-reference 9611700020"
-    ]
+    ],
+    "card_image_url": "/assets/images/product-thumbnails/SVKS001150/1.webp"
   }
 ]
