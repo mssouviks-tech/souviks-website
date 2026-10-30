@@ -89,9 +89,21 @@ def esc(v):
     return html.escape(clean(v), quote=True)
 
 def arr_products(products, field):
+    # Catalogue records can carry either the display-name field or the
+    # normalized legacy alias (category/category_name, etc.). Entity-page body
+    # generation already supports both; keep SEO snippets and context in parity.
+    aliases = {
+        "category_name": "category",
+        "subcategory_name": "subcategory",
+        "brand_name": "brand",
+    }
     values = []
     for p in products:
-        vals = p.get(field) or []
+        vals = p.get(field)
+        if vals is None or vals == "" or vals == []:
+            alias = aliases.get(field)
+            vals = p.get(alias) if alias else None
+        vals = vals or []
         if not isinstance(vals, list):
             vals = [vals]
         values.extend(clean(v) for v in vals if clean(v))
