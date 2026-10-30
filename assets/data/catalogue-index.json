@@ -50993,7 +50993,7 @@
       "tata-signa"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The WABCO 3000025039 MSP 25/39 spring brake actuator repair kit is intended for compatible SBA assemblies used in heavy commercial vehicle pneumatic braking systems.",
     "image_folder": "SVKS001142",
@@ -51006,9 +51006,7 @@
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/39; spring brake actuator configurations including 20/75 and 24/75 types"
-    ],
-    "image_review_status": "inactive-image-identity-review",
-    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
+    ]
   },
   {
     "id": "SVKS001143",
@@ -51043,7 +51041,7 @@
       "tata-1109"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The WABCO 3000002032 MSP 25/32 repair kit is designed for compatible spring brake actuator configurations in commercial vehicle pneumatic braking systems.",
     "image_folder": "SVKS001143",
@@ -51056,9 +51054,7 @@
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/32; Tata 709/1009/1109 actuator application family"
-    ],
-    "image_review_status": "inactive-image-identity-review",
-    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
+    ]
   },
   {
     "id": "SVKS001144",
@@ -51092,7 +51088,7 @@
       "universal"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The WABCO 300025033 MSP 25/33 kit is a pneumatic system service kit comprising diaphragm and cut-off valve components for compatible commercial vehicle air systems.",
     "image_folder": "SVKS001144",
@@ -51105,9 +51101,7 @@
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/33; diaphragm and cut-off valve kit"
-    ],
-    "image_review_status": "inactive-image-identity-review",
-    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
+    ]
   },
   {
     "id": "SVKS001145",
@@ -51142,7 +51136,7 @@
       "ashok-leyland-u-truck"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The WABCO 3000025002 MSP 25/2 spring brake actuator repair kit is intended for compatible commercial vehicle air-brake systems. It provides service components for the specified actuator configuration.",
     "image_folder": "SVKS001145",
@@ -51155,9 +51149,7 @@
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/2; Type 20/20 spring brake actuator configuration"
-    ],
-    "image_review_status": "inactive-image-identity-review",
-    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
+    ]
   },
   {
     "id": "SVKS001146",
@@ -51196,7 +51188,7 @@
       "eicher-pro-series"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The UnoMinda MB03015008 major spring brake actuator repair kit includes a diaphragm and is designed for servicing compatible commercial vehicle SBA assemblies. Listed applications include TML, Ashok Leyland and EML.",
     "image_folder": "SVKS001146",
@@ -51209,9 +51201,7 @@
     "gallery_dimensions": {},
     "applications": [
       "Major SBA repair kit with diaphragm; WABCO cross-reference 300025024 / MSP 25/24"
-    ],
-    "image_review_status": "inactive-image-identity-review",
-    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
+    ]
   },
   {
     "id": "SVKS001147",
