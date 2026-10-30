@@ -10,6 +10,9 @@ on:
       - ".github/workflows/pr-preview-performance.yml"
       - ".lighthouserc.json"
       - "scripts/audit/optimize_static_images.py"
+      - "scripts/audit/seo_contract.py"
+      - "scripts/catalogue/**"
+      - "assets/data/**"
       - "scripts/js/**"
 
 permissions:
