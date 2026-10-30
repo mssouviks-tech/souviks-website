@@ -1,0 +1,79 @@
+{
+  "sku": "SVKS001149",
+  "product_name": "Quick Relay Valve V/M",
+  "brand": "Knorr-Bremse",
+  "part_number": "B13TM1000182",
+  "knorr_bremse_reference": "K013794",
+  "repository": {
+    "url": "https://github.com/mssouviks-tech/souviks-website/blob/main/assets/data/catalogue-index.json",
+    "category": "Air System",
+    "subcategory": "Valve",
+    "mrp_inr": 1359,
+    "selling_price_inr": 1155.15,
+    "application": "Universal / pneumatic commercial-vehicle brake systems (repository mapping)"
+  },
+  "cross_references": [
+    {
+      "brand": "Knorr-Bremse",
+      "part_number": "K013794",
+      "type": "Knorr-Bremse KB catalogue part number",
+      "status": "confirmed",
+      "source_url": "https://pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
+    }
+  ],
+  "dimensions": null,
+  "weight_net_kg": null,
+  "reported_gross_weight_kg": 0.275,
+  "gross_weight_note": "Seller listing reports 275 g gross weight. This is not a verified net product weight.",
+  "images": [
+    {
+      "file": "1.webp",
+      "angle": "front three-quarter view",
+      "width_px": 767,
+      "height_px": 510
+    },
+    {
+      "file": "2.webp",
+      "angle": "opposite three-quarter view",
+      "width_px": 767,
+      "height_px": 510
+    },
+    {
+      "file": "3.webp",
+      "angle": "front / port-side elevation",
+      "width_px": 767,
+      "height_px": 510
+    },
+    {
+      "file": "4.webp",
+      "angle": "underside three-quarter view",
+      "width_px": 767,
+      "height_px": 510
+    }
+  ],
+  "image_processing": {
+    "background": "white",
+    "format": "WebP lossless",
+    "upscaling": false,
+    "resizing": false,
+    "padding_added": false,
+    "source_generated_composite_px": [
+      1536,
+      1024
+    ],
+    "method": "Four native-resolution panels cropped from a generated 2x2 studio composite; grid dividers excluded."
+  },
+  "image_qualification": "AI-generated illustrative catalogue render, not an authenticated Knorr-Bremse photograph. Valve casting, port layout and silencer profile must be checked against an actual sample before use as definitive product imagery.",
+  "sources": [
+    "https://pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf",
+    "https://pssao.com/catlog/kb/PARTS%20CATALOGUE.pdf",
+    "https://store.mainiauto.com/cartquickpro/catalog_product/view/id/49369",
+    "https://byebyemrp.com/sale-detail/quick-relay-valve-b13tm1000182-knorr-bremse/sale1714372333",
+    "https://www.partsdeal.com/product/quick-relay-valve-tml-0182-k013794am-b13tm1000182"
+  ],
+  "research_notes": [
+    "Knorr-Bremse catalogue maps KB part K013794 to AM part B13TM1000182 and describes it as Quick Relay Valve - V/M.",
+    "The 275 g figure is a seller-reported gross weight; keep net product weight blank until measured.",
+    "No dependable exact-product dimensions were found."
+  ]
+}

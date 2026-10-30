@@ -1,0 +1,81 @@
+{
+  "sku": "SVKS001147",
+  "product_name": "Lift Axle Control Valve Solenoid Coil",
+  "brand": "Knorr-Bremse",
+  "part_number": "B25TM1263332",
+  "knorr_bremse_part_number": "K043332",
+  "image_status": "AI-generated illustrative catalogue views; not authenticated manufacturer photographs",
+  "background": "white",
+  "file_naming": "1.webp through 4.webp",
+  "images": [
+    {
+      "file": "1.webp",
+      "view": "Low underside three-quarter view showing the mounting flange and bore",
+      "source_file": "a_clean_studio_product_photo_on_a_white_background.png",
+      "native_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "webp_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "encoding": "lossless WebP",
+      "resized": false,
+      "upscaled": false,
+      "file_size_bytes": 1201198
+    },
+    {
+      "file": "2.webp",
+      "view": "Elevated side three-quarter view showing the cylindrical coil body and connector",
+      "source_file": "studio_product_photo_on_a_clean_white_background.png",
+      "native_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "webp_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "encoding": "lossless WebP",
+      "resized": false,
+      "upscaled": false,
+      "file_size_bytes": 1089214
+    },
+    {
+      "file": "3.webp",
+      "view": "Opposite three-quarter view emphasising the electrical connector and top opening",
+      "source_file": "studio_product_photo_on_a_white_background_a_clos.png",
+      "native_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "webp_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "encoding": "lossless WebP",
+      "resized": false,
+      "upscaled": false,
+      "file_size_bytes": 1189862
+    },
+    {
+      "file": "4.webp",
+      "view": "Connector-end view showing electrical contacts and the coil bore",
+      "source_file": "a_clean_studio_product_photo_on_a_white_background.png",
+      "native_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "webp_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "encoding": "lossless WebP",
+      "resized": false,
+      "upscaled": false,
+      "file_size_bytes": 1011736
+    }
+  ],
+  "product_geometry_caveat": "The coil housing profile, mounting details and terminal layout are illustrative. Confirm against the physical part or authenticated Knorr-Bremse photograph before publishing as definitive imagery."
+}

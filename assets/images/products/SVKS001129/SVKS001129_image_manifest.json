@@ -1,0 +1,85 @@
+{
+  "sku": "SVKS001129",
+  "product_name": "Tie Rod End Pair Leyland FA90 Front Axle",
+  "brand": "KFL",
+  "part_number": "KF1518",
+  "image_format": "WebP",
+  "background": "white",
+  "image_files": [
+    {
+      "file": "1.webp",
+      "view": "front three-quarter view of the LH/RH pair",
+      "dimensions_px": [
+        767,
+        511
+      ]
+    },
+    {
+      "file": "2.webp",
+      "view": "opposite three-quarter view of the LH/RH pair",
+      "dimensions_px": [
+        767,
+        511
+      ]
+    },
+    {
+      "file": "3.webp",
+      "view": "side elevation of both tie-rod ends",
+      "dimensions_px": [
+        767,
+        511
+      ]
+    },
+    {
+      "file": "4.webp",
+      "view": "close three-quarter view of both ball studs and housings",
+      "dimensions_px": [
+        767,
+        511
+      ]
+    }
+  ],
+  "processing": {
+    "source_composite_dimensions_px": [
+      1536,
+      1024
+    ],
+    "resizing": "none",
+    "upscaling": "none",
+    "padding": "none",
+    "webp_encoding": "lossless",
+    "crop_note": "Each quadrant was cropped from the generated 1536x1024 composite; no panel was resized."
+  },
+  "research": {
+    "application": "Leyland FA90 front axle (Taurus tipper)",
+    "unit_quantity": "Pair / set of 2",
+    "housing_thread": "M30 x 1.5",
+    "ball_pin_thread": "M20 x 1.5",
+    "spanner_size_mm": 30,
+    "candidate_oem_references": [
+      {
+        "part_number": "P2633439",
+        "side": "LH",
+        "status": "application-matched candidate; not confirmed as exact KFL cross-reference"
+      },
+      {
+        "part_number": "P2633339",
+        "side": "RH",
+        "status": "application-matched candidate; not confirmed as exact KFL cross-reference"
+      }
+    ],
+    "related_part_dimensions": {
+      "length_mm": 115,
+      "ball_pin_major_diameter_mm": 35,
+      "status": "Talbros TRE07015PR same vehicle application; not confirmed as exact KFL KF1518 dimensions"
+    },
+    "weight": "Not verified"
+  },
+  "image_qualification": "AI-generated illustrative catalogue artwork, not an authenticated KFL product photograph. Confirm appearance and exact part interchange against a physical sample before publishing as definitive product photography.",
+  "sources": [
+    "https://www.scribd.com/document/1065178094/New-Price-List-WEF-01-03-2026-1",
+    "https://www.scribd.com/document/1072817333/CV-Catalogue-16012026-Edited-Compressed",
+    "https://www.scribd.com/document/1023293274/Talbros-Full-Price-List-With-OEM-Jan-25",
+    "https://www.moglix.com/talbros-tie-rod-end-for-ashok-leyland-fa90-front-axle-tre07015pr/mp/msne9j82n1qr9d"
+  ]
+}

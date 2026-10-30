@@ -1,0 +1,76 @@
+{
+  "sku": "SVKS001140",
+  "product_name": "Front Engine Mounting RH - Captain 4922 TT Euro 4",
+  "brand": "Rane",
+  "part_number": "RM026107ER",
+  "application": "Ashok Leyland Captain 4922 TT Euro 4; right-hand front engine mount",
+  "oem_numbers": [],
+  "cross_references": [
+    {
+      "brand": "Ashok Leyland / Dana catalogue",
+      "part_number": "FF802000",
+      "related_catalogue_part": "TSEMALBS4FRRH",
+      "status": "application_matched_candidate_not_confirmed_interchangeable",
+      "source_url": "https://modernmotors.in/dana-india-tractor-parts-list-2/",
+      "note": "Dana catalogue lists FF802000 with TSEMALBS4FRRH for the RH front engine mount for Captain 4922 TT Euro 4; exact interchange with Rane RM026107ER has not been independently confirmed."
+    }
+  ],
+  "dimensions": null,
+  "weight": null,
+  "images": [
+    {
+      "file": "1.webp",
+      "source_filename": "studio_product_photo_on_a_white_background_a_clos.png",
+      "native_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "format": "WebP",
+      "lossless": true,
+      "resized_or_upscaled": false,
+      "view_note": "AI-generated studio illustration; angles are similar three-quarter perspectives, not verified exact OEM views."
+    },
+    {
+      "file": "2.webp",
+      "source_filename": "studio_product_photo_of_a_heavy_duty_automotive_in.png",
+      "native_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "format": "WebP",
+      "lossless": true,
+      "resized_or_upscaled": false,
+      "view_note": "AI-generated studio illustration; angles are similar three-quarter perspectives, not verified exact OEM views."
+    },
+    {
+      "file": "3.webp",
+      "source_filename": "studio_product_photo_of_a_black_charcoal_automotiv.png",
+      "native_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "format": "WebP",
+      "lossless": true,
+      "resized_or_upscaled": false,
+      "view_note": "AI-generated studio illustration; angles are similar three-quarter perspectives, not verified exact OEM views."
+    },
+    {
+      "file": "4.webp",
+      "source_filename": "a_clean_studio_product_photography_scene_on_a_whit.png",
+      "native_dimensions_px": {
+        "width": 1536,
+        "height": 1024
+      },
+      "format": "WebP",
+      "lossless": true,
+      "resized_or_upscaled": false,
+      "view_note": "AI-generated studio illustration; angles are similar three-quarter perspectives, not verified exact OEM views."
+    }
+  ],
+  "image_caveat": "AI-generated illustrative images, not authenticated Rane/OE photographs. The generated views are similar three-quarter perspectives rather than four genuinely distinct verified product angles; confirm actual bracket geometry against a physical sample before publishing as definitive product imagery.",
+  "sources": [
+    "https://www.scribd.com/document/946323184/Rane-Price-List",
+    "https://modernmotors.in/dana-india-tractor-parts-list-2/"
+  ],
+  "generated_at": "2026-10-29"
+}

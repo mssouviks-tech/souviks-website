@@ -1,0 +1,110 @@
+{
+  "sku": "SVKS001142",
+  "product_name": "Spring Brake Actuator Repair Kit MSP 25/39",
+  "brand": "WABCO",
+  "website_repository_part_number": "3000025039",
+  "verified_wabco_service_kit_reference": "300025039",
+  "product_identity_note": "The Souviks catalogue record has part_number 3000025039. ZF/WABCO application literature and distributor parts lists identify 300025039 as the SBA repair kit for a TATA Type 20/75 actuator. The repository value appears to contain an extra zero; this is flagged for correction but was not changed in the repository.",
+  "assembly_application": {
+    "actuator_type": "Spring Brake Actuator Type 20/75",
+    "vehicle_make": "TATA Motors (TML)",
+    "vehicle_class": "Multi-axle truck",
+    "assembly_part_numbers": [
+      "100252080",
+      "100252090"
+    ],
+    "repair_kit_reference": "300025039",
+    "diaphragm_reference": "100870580",
+    "cylinder_reference": "100261280",
+    "flange_reference": "100275562",
+    "push_rod_reference": "100261720",
+    "ram_assembly_reference": "100261610",
+    "note": "The training catalogue also maps MSP 25/39 to 100251580 (24/75 VOSS), but its diaphragm and flange references differ. Verify actuator variant before claiming universal 24/75 compatibility."
+  },
+  "oem_number_status": "No separate vehicle OEM number verified for the repair kit. WABCO kit reference 300025039 is the manufacturer/service-kit number, not a separate vehicle OEM number.",
+  "dimensions": null,
+  "weight": null,
+  "specification_status": "Exact kit dimensions and net weight not reliably published/found. Do not populate production schema values.",
+  "image_status": "AI-generated illustrative catalogue renders; not authenticated WABCO photographs and not a verified exploded-parts inventory for exact kit contents.",
+  "source_composite": {
+    "file": "a_clean_studio_product_photography_composite_in_a.png",
+    "native_dimensions_px": [
+      1536,
+      1024
+    ],
+    "method": "Four panel crops; no upscaling or resizing."
+  },
+  "images": [
+    {
+      "file": "1.webp",
+      "view": "Overhead kit layout",
+      "dimensions_px": [
+        767,
+        511
+      ],
+      "format": "WebP",
+      "lossless": true,
+      "upscaled": false,
+      "resized": false
+    },
+    {
+      "file": "2.webp",
+      "view": "Raised diaphragm and seal arrangement",
+      "dimensions_px": [
+        766,
+        511
+      ],
+      "format": "WebP",
+      "lossless": true,
+      "upscaled": false,
+      "resized": false
+    },
+    {
+      "file": "3.webp",
+      "view": "Low-profile diaphragm and ring seals",
+      "dimensions_px": [
+        767,
+        510
+      ],
+      "format": "WebP",
+      "lossless": true,
+      "upscaled": false,
+      "resized": false
+    },
+    {
+      "file": "4.webp",
+      "view": "Overhead alternate layout with hardware details",
+      "dimensions_px": [
+        766,
+        510
+      ],
+      "format": "WebP",
+      "lossless": true,
+      "upscaled": false,
+      "resized": false
+    }
+  ],
+  "research_sources": [
+    {
+      "source": "ZF/WABCO product training catalogue",
+      "url": "https://rhinoautomobiles.in/pdf/zf-wabco.pdf",
+      "finding": "Lists TML spring brake actuator type 20/75 assemblies 100252080 and 100252090 with repair kit 300025039; lists diaphragm 100870580, cylinder 100261280, flange 100275562, push rod 100261720 and ram assembly 100261610."
+    },
+    {
+      "source": "WABCO parts price list (Krishna Distribution House)",
+      "url": "https://krishnadistributionhouse.com/wp-content/uploads/2024/01/Wabco-Pricelist.pdf",
+      "finding": "Lists 300025039 as WABCO SBA repair kit."
+    },
+    {
+      "source": "WABCO parts price list (2021)",
+      "url": "https://www.scribd.com/document/567062973/WABCO-Price-List-W-E-F-March-1st-2021-1",
+      "finding": "Lists 300025039 as repair kit - spring brake actuator and SBA repair kit."
+    },
+    {
+      "source": "WABCO Customer Centre product page",
+      "url": "https://www.wabco-customercentre.com/catalog/en_US/300025039",
+      "finding": "Current page metadata shows a conflicting descriptor (diaphragm + cut-off valve) and 0.001 kg weight for another application context. This weight/description conflicts with the TML SBA application literature and is not adopted as exact-kit measurement."
+    }
+  ],
+  "created_at": "2026-10-30"
+}

@@ -1,0 +1,89 @@
+{
+  "sku": "SVKS001134",
+  "product_name": "Minor Kit - Master Cylinder",
+  "brand": "Leyparts",
+  "part_number": "P1602051",
+  "oem_numbers": [],
+  "other_catalogue_code": {
+    "value": "5D6C002",
+    "description": "Legacy VALUEPARTS catalogue code associated with P1602051 minor master-cylinder kit",
+    "confidence": "medium",
+    "is_oem": false
+  },
+  "application_references": [
+    "Ashok Leyland 2516T BS2",
+    "Ashok Leyland 4018 BS2",
+    "Ashok Leyland Stag Bus BS3"
+  ],
+  "dimensions_mm": null,
+  "weight_kg": null,
+  "dimensions_weight_status": "not found in accessible sources; leave unpopulated until verified",
+  "image_type": "AI-generated illustrative product imagery; not authenticated photographs of the exact kit",
+  "background": "white",
+  "format": "WebP lossless",
+  "upscaled": false,
+  "resized": false,
+  "images": [
+    {
+      "filename": "1.webp",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "bytes": 859640,
+      "sha256": "4fa3e6a72467fe4fc216ca6660130235d6c4cd5334bb5ca99dc267c8958f6e0a",
+      "source_image": "studio_product_photo_of_mechanical_small_parts_arr.png",
+      "crop_box_if_applicable": null
+    },
+    {
+      "filename": "2.webp",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "bytes": 897446,
+      "sha256": "e12c5f9600fe5848eb7bc5865dfecd4ee192721d406f6fe6d445cc66fd2e3d50",
+      "source_image": "a_clean_studio_product_photo_on_a_white_background.png",
+      "crop_box_if_applicable": null
+    },
+    {
+      "filename": "3.webp",
+      "dimensions_px": [
+        760,
+        504
+      ],
+      "bytes": 270540,
+      "sha256": "54dcb3be60dc4fc538d3b76992741796779b8562ae58d82d2fc26206698a6a43",
+      "source_image": "a_clean_product_photography_collage_on_a_white_bac.png",
+      "crop_box_if_applicable": [
+        776,
+        0,
+        1536,
+        504
+      ]
+    },
+    {
+      "filename": "4.webp",
+      "dimensions_px": [
+        760,
+        504
+      ],
+      "bytes": 227226,
+      "sha256": "f25ba39ba51a15353ff7ddbf1321726fd07851e5da2b72e5982ac05fa0db4e3f",
+      "source_image": "a_clean_product_photography_collage_on_a_white_bac.png",
+      "crop_box_if_applicable": [
+        0,
+        520,
+        760,
+        1024
+      ]
+    }
+  ],
+  "research_sources": [
+    "https://www.vikingsauto.in/product/leyparts-p1602051-master-cylinder-kit-3416/",
+    "https://www.scribd.com/document/890497814/Valueparts-Catalogue-4Jul-20-Field",
+    "https://modernmotors.in/leyparts-parts-list/",
+    "https://narmadamotors.in/product/p1602051-mc-kit-3416/"
+  ],
+  "notes": "Repository marks the SKU inactive due to no valid local product photo. P1602051 is the Leyparts part number; no separate OEM number was established. Kit contents are illustrative and must be checked against the supplied kit before use as definitive product photography."
+}
