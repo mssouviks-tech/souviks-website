@@ -292,23 +292,29 @@ def entity_meta_description(kind, item, products, language):
 
     if lang == "en":
         if kind == "brand":
-            terms = list_text(categories, 3) or "commercial-vehicle categories"
             candidates = [
-                f"{name} commercial vehicle parts at Souviks: {count} active products across {terms}. Check part numbers and vehicle fitment.",
-                f"{name} commercial vehicle parts at Souviks: {count} active products. Check part numbers and vehicle fitment.",
+                f"{name} commercial vehicle parts at Souviks: {count} active products across {', '.join(categories[:term_count])}. Check part numbers and vehicle fitment."
+                for term_count in range(min(3, len(categories)), 0, -1)
             ]
+            candidates.append(
+                f"{name} commercial vehicle parts at Souviks: {count} active products. Check part numbers and vehicle fitment."
+            )
         elif kind == "vehicle":
-            terms = list_text(categories, 3) or "multiple systems"
             candidates = [
-                f"{name} spare parts at Souviks: {count} active parts across {terms}. Check part numbers and exact vehicle fitment.",
-                f"{name} spare parts at Souviks: {count} active parts. Check part numbers and exact vehicle fitment.",
+                f"{name} spare parts at Souviks: {count} active parts across {', '.join(categories[:term_count])}. Check part numbers and exact vehicle fitment."
+                for term_count in range(min(3, len(categories)), 0, -1)
             ]
+            candidates.append(
+                f"{name} spare parts at Souviks: {count} active parts. Check part numbers and exact vehicle fitment."
+            )
         else:
-            terms = list_text(subcategories, 3) or "related component groups"
             candidates = [
-                f"{name} commercial vehicle parts at Souviks: {count} active items across {terms}. Check part numbers and vehicle fitment.",
-                f"{name} commercial vehicle parts at Souviks: {count} active items. Check part numbers and vehicle fitment.",
+                f"{name} commercial vehicle parts at Souviks: {count} active items across {', '.join(subcategories[:term_count])}. Check part numbers and vehicle fitment."
+                for term_count in range(min(3, len(subcategories)), 0, -1)
             ]
+            candidates.append(
+                f"{name} commercial vehicle parts at Souviks: {count} active items. Check part numbers and vehicle fitment."
+            )
     elif lang == "hi":
         if kind == "brand":
             candidates = [
