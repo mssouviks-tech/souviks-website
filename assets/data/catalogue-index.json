@@ -50145,25 +50145,28 @@
     "subcategory_id": "tie-rod-end",
     "subcategory_name": "Tie Rod End",
     "subcategory": "Tie Rod End",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001125/1.webp",
     "vehicles": [
       "ashok-leyland-2516"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Alok 750-R-1 right-hand tie rod end is designed for Leyland 1613 Tipper steering linkage applications. It features an M30 × 1.5 right-hand threaded connection, an M20 × 1.5 ball-pin thread and a 30 mm spanner size. The component transfers steering movement through the linkage in heavy commercial vehicles.",
     "image_folder": "SVKS001125",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Leyland 1613 Tipper steering linkage",
       "M30 × 1.5 RH thread; M20 × 1.5 ball-pin thread"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001126",
@@ -50190,25 +50193,28 @@
     "subcategory_id": "tie-rod-end",
     "subcategory_name": "Tie Rod End",
     "subcategory": "Tie Rod End",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001126/1.webp",
     "vehicles": [
       "ashok-leyland-2516"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Alok 750-L-1 left-hand tie rod end is designed for Leyland 1613 Tipper steering linkage applications. It features an M30 × 1.5 left-hand threaded connection, an M20 × 1.5 ball-pin thread and a 30 mm spanner size. The component transfers steering movement through the linkage in heavy commercial vehicles.",
     "image_folder": "SVKS001126",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Leyland 1613 Tipper steering linkage",
       "M30 × 1.5 LH thread; M20 × 1.5 ball-pin thread"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001127",
@@ -50239,25 +50245,28 @@
     "subcategory_id": "drag-link",
     "subcategory_name": "Drag Link",
     "subcategory": "Drag Link",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001127/1.webp",
     "vehicles": [
       "tata-lpt"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Alok 1012-L left-hand drag link end is designed for Tata LPT-2518 and 3118 EX steering linkage applications. It features an M30 × 1.5 left-hand thread, a thin ball pin with a 20 × 1.5 thread and a 30 mm spanner size. OE reference 501346990103 identifies this version.",
     "image_folder": "SVKS001127",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Tata LPT-2518 / 3118 EX steering linkage",
       "M30 × 1.5 LH thread; thin ball pin 20 × 1.5; OE 501346990103"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001128",
@@ -50288,25 +50297,28 @@
     "subcategory_id": "drag-link",
     "subcategory_name": "Drag Link",
     "subcategory": "Drag Link",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001128/1.webp",
     "vehicles": [
       "tata-lpt"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Alok 1012-R right-hand drag link end is designed for Tata LPT and 3118 EX steering linkage applications. It features an M30 × 1.5 right-hand thread, a thin ball pin with a 20 × 1.5 thread and a 30 mm spanner size. OE reference 501346990104 identifies this version.",
     "image_folder": "SVKS001128",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Tata 3118 EX / LPT steering linkage",
       "M30 × 1.5 RH thread; thin ball pin 20 × 1.5; OE 501346990104"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001129",
@@ -50333,25 +50345,28 @@
     "subcategory_id": "tie-rod-end",
     "subcategory_name": "Tie Rod End",
     "subcategory": "Tie Rod End",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001129/1.webp",
     "vehicles": [
       "ashok-leyland-2516"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The KFL KF1518 tie rod end pair is intended for the front-axle steering linkage on Leyland FA90 applications. It features M30 × 1.5 and M20 × 1.5 threaded connections with a 30 mm spanner size. Supplied as a pair, it forms part of the steering linkage in heavy commercial vehicles.",
     "image_folder": "SVKS001129",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Leyland FA90 front axle steering linkage",
       "M30 × 1.5 and M20 × 1.5 threads; pair"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001130",
@@ -50378,25 +50393,28 @@
     "subcategory_id": "drag-link",
     "subcategory_name": "Drag Link",
     "subcategory": "Drag Link",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001130/1.webp",
     "vehicles": [
       "tata-ultra"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The KFL KF3355R right-hand drag link end is a steering linkage component for Tata Ultra trucks and buses. It features an M30 × 1.5 threaded connection, a 14 × 1.5 ball-pin thread and a 21 mm spanner size, and transfers movement through the drag link assembly.",
     "image_folder": "SVKS001130",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Tata Ultra truck and bus steering linkage",
       "M30 × 1.5 thread; 14 × 1.5 ball-pin thread"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001131",
@@ -50423,27 +50441,30 @@
     "subcategory_id": "engine-mount",
     "subcategory_name": "Engine Mount",
     "subcategory": "Engine Mount",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001131/1.webp",
     "vehicles": [
       "tata-1512",
       "tata-2416",
       "tata-lpt"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The KFL KF5002 front engine mounting is listed for Tata commercial vehicles including 1510, 1612, 2213, 2416, 4018 and 1613 models. This single-hole mounting has a 16 mm specification and supports the engine at its front mounting point while helping isolate operational vibration.",
     "image_folder": "SVKS001131",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Tata 1510/1612/2213/2416/4018/1613 application family",
       "Front engine mount; single hole; 16 mm"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001132",
@@ -50470,26 +50491,29 @@
     "subcategory_id": "engine-mount",
     "subcategory_name": "Engine Mount",
     "subcategory": "Engine Mount",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001132/1.webp",
     "vehicles": [
       "ashok-leyland-2516",
       "ashok-leyland-ecomet",
       "ashok-leyland-u-truck"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Leyparts F2630200 front engine mounting pad supports the engine at its mounting point and helps isolate operational vibration from the vehicle structure. It is intended for compatible heavy-duty Ashok Leyland truck and bus applications.",
     "image_folder": "SVKS001132",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Front engine mounting pad; compatible Ashok Leyland truck and Ecomet engine-mounting applications"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001133",
@@ -50516,24 +50540,27 @@
     "subcategory_id": "gear-top-cover",
     "subcategory_name": "Gear Top Cover",
     "subcategory": "Gear Top Cover",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001133/1.webp",
     "vehicles": [
       "ashok-leyland-2516"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Leyparts F1837914 Seating Block-C is a component of the gear-shift lever assembly. It forms part of the lever seating arrangement and supports the positioning of the gear-selection mechanism in compatible Ashok Leyland heavy commercial vehicles.",
     "image_folder": "SVKS001133",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Gear-shift lever seating block; Ashok Leyland 2518 chassis application family"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001134",
@@ -50560,24 +50587,27 @@
     "subcategory_id": "clutch-repair-kit",
     "subcategory_name": "Clutch Repair Kit",
     "subcategory": "Clutch Repair Kit",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001134/1.webp",
     "vehicles": [
       "universal"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Leyparts P1602051 master-cylinder minor repair kit provides service components for the clutch hydraulic master-cylinder assembly. It supports maintenance of the cylinder's internal sealing and operating components in compatible commercial vehicle clutch systems.",
     "image_folder": "SVKS001134",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Clutch master-cylinder minor repair kit; commercial vehicle clutch hydraulic system"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001135",
@@ -50604,25 +50634,28 @@
     "subcategory_id": "hydraulic-filter",
     "subcategory_name": "Hydraulic Filter",
     "subcategory": "Hydraulic Filter",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001135/1.webp",
     "vehicles": [
       "ashok-leyland-ecomet",
       "ashok-leyland-u-truck"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Leyparts P4200340 steering filter element is designed for compatible ZF hydraulic power-steering systems. It filters circulating steering fluid to help capture contaminants and protect components within the hydraulic steering circuit.",
     "image_folder": "SVKS001135",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "ZF hydraulic power-steering filtration; Ecomet and U-Truck application family"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001136",
@@ -50796,24 +50829,27 @@
     "subcategory_id": "engine-mount",
     "subcategory_name": "Engine Mount",
     "subcategory": "Engine Mount",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001139/1.webp",
     "vehicles": [
       "ashok-leyland-captain"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Rane RM026107EL left-hand front engine mounting is designed for Ashok Leyland Captain 4922 TT Euro 4 applications. It supports the engine at the front mounting position and helps isolate operational vibration between the engine and vehicle structure.",
     "image_folder": "SVKS001139",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Ashok Leyland Captain 4922 TT Euro 4; left-hand front engine mounting"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001140",
@@ -50840,24 +50876,27 @@
     "subcategory_id": "engine-mount",
     "subcategory_name": "Engine Mount",
     "subcategory": "Engine Mount",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001140/1.webp",
     "vehicles": [
       "ashok-leyland-captain"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Rane RM026107ER right-hand front engine mounting is designed for Ashok Leyland Captain 4922 TT Euro 4 applications. It supports the engine at the front mounting position and helps isolate operational vibration between the engine and vehicle structure.",
     "image_folder": "SVKS001140",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Ashok Leyland Captain 4922 TT Euro 4; right-hand front engine mounting"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001141",
@@ -50884,24 +50923,27 @@
     "subcategory_id": "engine-mount",
     "subcategory_name": "Engine Mount",
     "subcategory": "Engine Mount",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001141/1.webp",
     "vehicles": [
       "universal"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Rane RM016001E front engine mounting is specified for Cummins engine applications and has a listed 16 mm mounting specification. It supports the engine at its mounting point and helps absorb operational vibration.",
     "image_folder": "SVKS001141",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Cummins engine front mounting; 16 mm mounting specification"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001142",
@@ -50946,8 +50988,8 @@
     "applications": [
       "MSP 25/39; spring brake actuator configurations including 20/75 and 24/75 types"
     ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image_review_status": "inactive-image-identity-review",
+    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
   },
   {
     "id": "SVKS001143",
@@ -50991,8 +51033,8 @@
     "applications": [
       "MSP 25/32; Tata 709/1009/1109 actuator application family"
     ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image_review_status": "inactive-image-identity-review",
+    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
   },
   {
     "id": "SVKS001144",
@@ -51035,8 +51077,8 @@
     "applications": [
       "MSP 25/33; diaphragm and cut-off valve kit"
     ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image_review_status": "inactive-image-identity-review",
+    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
   },
   {
     "id": "SVKS001145",
@@ -51080,8 +51122,8 @@
     "applications": [
       "MSP 25/2; Type 20/20 spring brake actuator configuration"
     ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image_review_status": "inactive-image-identity-review",
+    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
   },
   {
     "id": "SVKS001146",
@@ -51129,8 +51171,8 @@
     "applications": [
       "Major SBA repair kit with diaphragm; WABCO cross-reference 300025024 / MSP 25/24"
     ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    "image_review_status": "inactive-image-identity-review",
+    "inactive_reason": "The image pack and manifest are shared with SVKS001142 (WABCO MSP 25/39) across unrelated repair-kit SKUs; awaiting product-specific imagery and corrected manifests."
   },
   {
     "id": "SVKS001147",
@@ -51159,26 +51201,29 @@
     "subcategory_id": "valve",
     "subcategory_name": "Valve",
     "subcategory": "Valve",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001147/1.webp",
     "vehicles": [
       "tata-lpt",
       "ashok-leyland-2516",
       "eicher-pro-series"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Knorr-Bremse B25TM1263332 solenoid coil is an electrical control component for compatible lift axle control valve systems. It enables electrically controlled operation within the pneumatic lift axle arrangement used on commercial vehicles.",
     "image_folder": "SVKS001147",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Gen II lift axle control valve (LACV); commercial vehicle pneumatic control systems"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001148",
@@ -51208,24 +51253,27 @@
     "subcategory_id": "valve",
     "subcategory_name": "Valve",
     "subcategory": "Valve",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001148/1.webp",
     "vehicles": [
       "universal"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Knorr-Bremse B13TM1000151 hand brake valve controls pneumatic parking-brake application and release in compatible commercial vehicle air-brake systems.",
     "image_folder": "SVKS001148",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Hand brake valve V, Version 1; KB reference HBVP06001; WABCO cross-reference 9611700010"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001149",
@@ -51254,24 +51302,27 @@
     "subcategory_id": "valve",
     "subcategory_name": "Valve",
     "subcategory": "Valve",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001149/1.webp",
     "vehicles": [
       "universal"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Knorr-Bremse B13TM1000182 quick relay valve is a pneumatic component designed to support rapid pressure response and air exhaust within compatible commercial vehicle brake systems.",
     "image_folder": "SVKS001149",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Quick relay valve; Knorr-Bremse reference K013794; pneumatic braking system"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   },
   {
     "id": "SVKS001150",
@@ -51301,23 +51352,26 @@
     "subcategory_id": "valve",
     "subcategory_name": "Valve",
     "subcategory": "Valve",
-    "image": "",
-    "primary_image": "",
-    "image_url": "",
+    "image": "1.webp",
+    "primary_image": "1.webp",
+    "image_url": "/assets/images/products/SVKS001150/1.webp",
     "vehicles": [
       "universal"
     ],
     "featured": false,
-    "active": false,
+    "active": true,
     "catalogue_updated_at": "2026-10-29",
     "description": "The Knorr-Bremse B13TM1000152 hand brake valve is part of the pneumatic parking-brake control system in commercial vehicles. It regulates air-control operation associated with parking-brake application and release.",
     "image_folder": "SVKS001150",
-    "gallery": [],
+    "gallery": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ],
     "gallery_dimensions": {},
     "applications": [
       "Hand brake valve V; KB reference HBVP06002; WABCO cross-reference 9611700020"
-    ],
-    "image_review_status": "inactive-no-usable-image",
-    "inactive_reason": "No valid local product photo is available; awaiting source imagery."
+    ]
   }
 ]
