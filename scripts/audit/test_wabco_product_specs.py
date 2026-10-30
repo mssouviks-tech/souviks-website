@@ -44,7 +44,7 @@ def load_json(path: Path):
 manifest = load_json(MANIFEST_PATH)
 records = manifest.get("products") if isinstance(manifest, dict) else None
 if not isinstance(records, list) or len(records) != 29:
-    fail("Expected specifications for all 29 WABCO inventory entries")
+    fail("Expected 29 WABCO products in the supplied manufacturer specification set")
 
 catalogue = load_json(CATALOGUE_PATH)
 products = load_json(PRODUCTS_PATH)
@@ -170,10 +170,31 @@ inventory_ids = {
     and p.get("active") is not False
     and str(p.get("brand_name") or p.get("brand") or "").casefold() == "wabco"
 }
-if inventory_ids != seen:
-    missing = sorted(inventory_ids - seen)
-    unexpected = sorted(seen - inventory_ids)
-    fail(f"WABCO inventory coverage mismatch; missing={missing}, unexpected={unexpected}")
+# The 29 manifest records are the WABCO SKUs for which the supplied
+# manufacturer weights/specifications have been verified. Additional WABCO
+# catalogue products may be active without manufacturer data; they must remain
+# explicitly unweighted and must not receive a checkout estimate by inference.
+unexpected = sorted(seen - inventory_ids)
+if unexpected:
+    fail(f"Specification manifest contains non-active/non-WABCO products: {unexpected}")
+
+uncovered = sorted(inventory_ids - seen)
+for pid in uncovered:
+    master = catalogue_by_id[pid]
+    unverified_fields = (
+        "manufacturer_weight_kg",
+        "manufacturer_weight_status",
+        "manufacturer_dimensions_mm",
+        "manufacturer_spec_source",
+        "approx_weight_g",
+    )
+    populated = [field for field in unverified_fields if master.get(field) not in (None, "")]
+    dimension_specs = master.get("manufacturer_dimension_specs") or []
+    if populated or dimension_specs:
+        fail(
+            f"Active WABCO product has unverified weight/spec fields without a manifest entry: "
+            f"{pid}; fields={populated}"
+        )
 
 if verified_count != 29:
     fail(f"Expected 29 usable WABCO weights, found {verified_count}")
