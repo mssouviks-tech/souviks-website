@@ -60203,5 +60203,285 @@
     "featured": false,
     "active": true,
     "weight": 100
+  },
+  {
+    "id": "SVKS001142",
+    "type": "product",
+    "title": "Spring Brake Actuator Repair Kit MSP 25/39",
+    "subtitle": "Part No. 3000025039",
+    "keywords": [
+      "Spring Brake Actuator Repair Kit MSP 25/39",
+      "3000025039",
+      "WABCO",
+      "Air System",
+      "Air Repair Kit",
+      "The WABCO 3000025039 MSP 25/39 spring brake actuator repair kit is intended for compatible SBA assemblies used in heavy commercial vehicle pneumatic braking systems.",
+      "tata-lpt",
+      "tata-prima",
+      "tata-signa"
+    ],
+    "description": "The WABCO 3000025039 MSP 25/39 spring brake actuator repair kit is intended for compatible SBA assemblies used in heavy commercial vehicle pneumatic braking systems.",
+    "applications": [
+      "MSP 25/39; spring brake actuator configurations including 20/75 and 24/75 types"
+    ],
+    "vehicles": [
+      "tata-lpt",
+      "tata-prima",
+      "tata-signa"
+    ],
+    "part_number": "3000025039",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "3000025039-sba-repair-kit-msp-25-39",
+    "url": "/en/products/3000025039-sba-repair-kit-msp-25-39",
+    "image": "1.webp",
+    "approx_weight_g": null,
+    "dimensions_mm": null,
+    "dimensions_label": "",
+    "dimensions_source": "",
+    "calculated_weight_g": null,
+    "weight_estimation_status": "",
+    "weight_estimation_method": "",
+    "weight_estimation_notes": "",
+    "icon": "",
+    "category": {
+      "id": "air-system",
+      "name": "Air System"
+    },
+    "brand": {
+      "id": "wabco",
+      "name": "WABCO"
+    },
+    "vehicle_count": 3,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001143",
+    "type": "product",
+    "title": "Spring Brake Actuator Repair Kit MSP 25/32",
+    "subtitle": "Part No. 3000002032",
+    "keywords": [
+      "Spring Brake Actuator Repair Kit MSP 25/32",
+      "3000002032",
+      "WABCO",
+      "Air System",
+      "Air Repair Kit",
+      "The WABCO 3000002032 MSP 25/32 repair kit is designed for compatible spring brake actuator configurations in commercial vehicle pneumatic braking systems.",
+      "tata-709",
+      "tata-1109"
+    ],
+    "description": "The WABCO 3000002032 MSP 25/32 repair kit is designed for compatible spring brake actuator configurations in commercial vehicle pneumatic braking systems.",
+    "applications": [
+      "MSP 25/32; Tata 709/1009/1109 actuator application family"
+    ],
+    "vehicles": [
+      "tata-709",
+      "tata-1109"
+    ],
+    "part_number": "3000002032",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "3000002032-sba-repair-kit-msp-25-32",
+    "url": "/en/products/3000002032-sba-repair-kit-msp-25-32",
+    "image": "1.webp",
+    "approx_weight_g": null,
+    "dimensions_mm": null,
+    "dimensions_label": "",
+    "dimensions_source": "",
+    "calculated_weight_g": null,
+    "weight_estimation_status": "",
+    "weight_estimation_method": "",
+    "weight_estimation_notes": "",
+    "icon": "",
+    "category": {
+      "id": "air-system",
+      "name": "Air System"
+    },
+    "brand": {
+      "id": "wabco",
+      "name": "WABCO"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001144",
+    "type": "product",
+    "title": "Diaphragm and Cut-Off Valve Kit MSP 25/33",
+    "subtitle": "Part No. 300025033",
+    "keywords": [
+      "Diaphragm and Cut-Off Valve Kit MSP 25/33",
+      "300025033",
+      "WABCO",
+      "Air System",
+      "Air Repair Kit",
+      "The WABCO 300025033 MSP 25/33 kit is a pneumatic system service kit comprising diaphragm and cut-off valve components for compatible commercial vehicle air systems.",
+      "universal"
+    ],
+    "description": "The WABCO 300025033 MSP 25/33 kit is a pneumatic system service kit comprising diaphragm and cut-off valve components for compatible commercial vehicle air systems.",
+    "applications": [
+      "MSP 25/33; diaphragm and cut-off valve kit"
+    ],
+    "vehicles": [
+      "universal"
+    ],
+    "part_number": "300025033",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "300025033-diaphragm-cut-off-valve-kit-msp-25-33",
+    "url": "/en/products/300025033-diaphragm-cut-off-valve-kit-msp-25-33",
+    "image": "1.webp",
+    "approx_weight_g": null,
+    "dimensions_mm": null,
+    "dimensions_label": "",
+    "dimensions_source": "",
+    "calculated_weight_g": null,
+    "weight_estimation_status": "",
+    "weight_estimation_method": "",
+    "weight_estimation_notes": "",
+    "icon": "",
+    "category": {
+      "id": "air-system",
+      "name": "Air System"
+    },
+    "brand": {
+      "id": "wabco",
+      "name": "WABCO"
+    },
+    "vehicle_count": 1,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001145",
+    "type": "product",
+    "title": "Spring Brake Actuator Repair Kit MSP 25/2",
+    "subtitle": "Part No. 3000025002",
+    "keywords": [
+      "Spring Brake Actuator Repair Kit MSP 25/2",
+      "3000025002",
+      "WABCO",
+      "Air System",
+      "Air Repair Kit",
+      "The WABCO 3000025002 MSP 25/2 spring brake actuator repair kit is intended for compatible commercial vehicle air-brake systems. It provides service components for the specified actuator configuration.",
+      "ashok-leyland-2516",
+      "ashok-leyland-u-truck"
+    ],
+    "description": "The WABCO 3000025002 MSP 25/2 spring brake actuator repair kit is intended for compatible commercial vehicle air-brake systems. It provides service components for the specified actuator configuration.",
+    "applications": [
+      "MSP 25/2; Type 20/20 spring brake actuator configuration"
+    ],
+    "vehicles": [
+      "ashok-leyland-2516",
+      "ashok-leyland-u-truck"
+    ],
+    "part_number": "3000025002",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [],
+    "slug": "3000025002-sba-repair-kit-msp-25-2",
+    "url": "/en/products/3000025002-sba-repair-kit-msp-25-2",
+    "image": "1.webp",
+    "approx_weight_g": null,
+    "dimensions_mm": null,
+    "dimensions_label": "",
+    "dimensions_source": "",
+    "calculated_weight_g": null,
+    "weight_estimation_status": "",
+    "weight_estimation_method": "",
+    "weight_estimation_notes": "",
+    "icon": "",
+    "category": {
+      "id": "air-system",
+      "name": "Air System"
+    },
+    "brand": {
+      "id": "wabco",
+      "name": "WABCO"
+    },
+    "vehicle_count": 2,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
+  },
+  {
+    "id": "SVKS001146",
+    "type": "product",
+    "title": "SBA Major Repair Kit with Diaphragm",
+    "subtitle": "Part No. MB03015008",
+    "keywords": [
+      "SBA Major Repair Kit with Diaphragm",
+      "MB03015008",
+      "UnoMinda",
+      "Air System",
+      "Air Repair Kit",
+      "The UnoMinda MB03015008 major spring brake actuator repair kit includes a diaphragm and is designed for servicing compatible commercial vehicle SBA assemblies. Listed applications include TML, Ashok Leyland and EML.",
+      "tata-lpt",
+      "ashok-leyland-2516",
+      "eicher-pro-series"
+    ],
+    "description": "The UnoMinda MB03015008 major spring brake actuator repair kit includes a diaphragm and is designed for servicing compatible commercial vehicle SBA assemblies. Listed applications include TML, Ashok Leyland and EML.",
+    "applications": [
+      "Major SBA repair kit with diaphragm; WABCO cross-reference 300025024 / MSP 25/24"
+    ],
+    "vehicles": [
+      "tata-lpt",
+      "ashok-leyland-2516",
+      "eicher-pro-series"
+    ],
+    "part_number": "MB03015008",
+    "manufacturer_part_number": "",
+    "manufacturer_part_numbers": [],
+    "alternate_part_numbers": [],
+    "oem_numbers": [],
+    "cross_references": [
+      "WABCO 300025024",
+      "MSP 25/24"
+    ],
+    "slug": "mb03015008-sba-major-repair-kit-diaphragm",
+    "url": "/en/products/mb03015008-sba-major-repair-kit-diaphragm",
+    "image": "1.webp",
+    "approx_weight_g": null,
+    "dimensions_mm": null,
+    "dimensions_label": "",
+    "dimensions_source": "",
+    "calculated_weight_g": null,
+    "weight_estimation_status": "",
+    "weight_estimation_method": "",
+    "weight_estimation_notes": "",
+    "icon": "",
+    "category": {
+      "id": "air-system",
+      "name": "Air System"
+    },
+    "brand": {
+      "id": "unominda",
+      "name": "UnoMinda"
+    },
+    "vehicle_count": 3,
+    "product_count": 0,
+    "featured": false,
+    "active": true,
+    "weight": 100
   }
 ]

@@ -1027,9 +1027,9 @@
     "banner": "",
     "website": "https://www.unominda.com/",
     "country": "India",
-    "description": "Souviks currently lists 30 active UnoMinda products across Air System, Brakes, Electricals. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 1210 and more and common replacement areas including Head Light, Combination Switch, Reverse Switch, Horn, Brake Switch and more.  Manufacturer country: India. Current catalogue examples include 12V Reverse Horn TukTuk, RHIU 12/24V 6 Tone Siren, 24V Melody Trumpet Horn. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 31 active UnoMinda products across Air System, Brakes, Electricals. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 1210 and more and common replacement areas including Head Light, Combination Switch, Reverse Switch, Horn, Brake Switch and more.  Manufacturer country: India. Current catalogue examples include 12V Reverse Horn TukTuk, RHIU 12/24V 6 Tone Siren, 24V Melody Trumpet Horn. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "UnoMinda products at Souviks cover Air System, Brakes, Electricals and applications across Universal, Tata LPT, Ashok Leyland 2516 and more.",
-    "product_count": 30,
+    "product_count": 31,
     "categories": [
       "air-system",
       "brakes",
@@ -1070,7 +1070,10 @@
       "Tata LPT",
       "Tata Prima",
       "Tata Signa",
-      "Universal"
+      "Universal",
+      "ashok-leyland-2516",
+      "eicher-pro-series",
+      "tata-lpt"
     ],
     "featured_products": [
       "SVKS000195",
@@ -1112,13 +1115,14 @@
       "SVKS001011",
       "SVKS001012",
       "SVKS001013",
-      "SVKS001014"
+      "SVKS001014",
+      "SVKS001146"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "UnoMinda Parts | Souviks",
-      "description": "Souviks currently lists 30 active UnoMinda products across Air System, Brakes, Electricals. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 1210 and more and common replacement areas including Head Light, Combination Switch, Reverse Switch, Horn, Brake Switch and more.  Manufacturer country: India. Current catalogue examples include 12V Reverse Horn TukTuk, RHIU 12/24V 6 Tone Siren, 24V Melody Trumpet Horn. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 31 active UnoMinda products across Air System, Brakes, Electricals. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 1210 and more and common replacement areas including Head Light, Combination Switch, Reverse Switch, Horn, Brake Switch and more.  Manufacturer country: India. Current catalogue examples include 12V Reverse Horn TukTuk, RHIU 12/24V 6 Tone Siren, 24V Melody Trumpet Horn. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "UnoMinda",
         "commercial vehicle spare parts",
@@ -4014,9 +4018,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 29 active WABCO products across Air System, Brakes, Electricals, Rubber Parts. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 709 and more and common replacement areas including Air Repair Kit, Air Compressor, Valve, O Ring, Stop Light Switch and more.  Current catalogue examples include VE TCL Compressor Repair Kit, Cylinder Head Assembly Repair Kit, Air Compressor Repair Kit. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 33 active WABCO products across Air System, Brakes, Electricals, Rubber Parts. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 709 and more and common replacement areas including Air Repair Kit, Air Compressor, Valve, O Ring, Stop Light Switch and more.  Current catalogue examples include VE TCL Compressor Repair Kit, Cylinder Head Assembly Repair Kit, Air Compressor Repair Kit. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "WABCO products at Souviks cover Air System, Brakes, Electricals, Rubber Parts and applications across Universal, Tata LPT, Ashok Leyland 2516 and more.",
-    "product_count": 29,
+    "product_count": 33,
     "categories": [
       "air-system",
       "brakes",
@@ -4041,7 +4045,15 @@
       "Tata 709",
       "Tata LPT",
       "Tata Prima",
-      "Universal"
+      "Universal",
+      "ashok-leyland-2516",
+      "ashok-leyland-u-truck",
+      "tata-1109",
+      "tata-709",
+      "tata-lpt",
+      "tata-prima",
+      "tata-signa",
+      "universal"
     ],
     "featured_products": [
       "SVKS000577",
@@ -4082,13 +4094,17 @@
       "SVKS001020",
       "SVKS001021",
       "SVKS001022",
-      "SVKS001023"
+      "SVKS001023",
+      "SVKS001142",
+      "SVKS001143",
+      "SVKS001144",
+      "SVKS001145"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "WABCO Parts | Souviks",
-      "description": "Souviks currently lists 29 active WABCO products across Air System, Brakes, Electricals, Rubber Parts. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 709 and more and common replacement areas including Air Repair Kit, Air Compressor, Valve, O Ring, Stop Light Switch and more.  Current catalogue examples include VE TCL Compressor Repair Kit, Cylinder Head Assembly Repair Kit, Air Compressor Repair Kit. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 33 active WABCO products across Air System, Brakes, Electricals, Rubber Parts. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 709 and more and common replacement areas including Air Repair Kit, Air Compressor, Valve, O Ring, Stop Light Switch and more.  Current catalogue examples include VE TCL Compressor Repair Kit, Cylinder Head Assembly Repair Kit, Air Compressor Repair Kit. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "WABCO",
         "commercial vehicle spare parts",

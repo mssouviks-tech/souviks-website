@@ -435,8 +435,8 @@
       400
     ],
     "banner": "",
-    "description": "Air System covers 84 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
-    "short_description": "Air System: 84 active parts across Air Compressor, Air Dryer, Air Repair Kit, Air Spring and more.",
+    "description": "Air System covers 89 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
+    "short_description": "Air System: 89 active parts across Air Compressor, Air Dryer, Air Repair Kit, Air Spring and more.",
     "parent_category": "",
     "subcategories": [
       {
@@ -507,8 +507,13 @@
       "Tata Signa",
       "Universal",
       "ashok-leyland-2516",
+      "ashok-leyland-u-truck",
       "eicher-pro-series",
+      "tata-1109",
+      "tata-709",
       "tata-lpt",
+      "tata-prima",
+      "tata-signa",
       "universal"
     ],
     "featured_products": [
@@ -602,17 +607,22 @@
       "SVKS001020",
       "SVKS001022",
       "SVKS001023",
+      "SVKS001142",
+      "SVKS001143",
+      "SVKS001144",
+      "SVKS001145",
+      "SVKS001146",
       "SVKS001147",
       "SVKS001148",
       "SVKS001149",
       "SVKS001150"
     ],
-    "product_count": 84,
+    "product_count": 89,
     "featured": false,
     "active": true,
     "seo": {
       "title": "Air System Parts | Souviks",
-      "description": "Air System covers 84 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
+      "description": "Air System covers 89 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
       "keywords": [
         "Air System",
         "commercial vehicle spare parts",
