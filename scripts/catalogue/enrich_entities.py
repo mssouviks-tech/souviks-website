@@ -229,6 +229,32 @@ def brand_page_title(name, language):
     return f"{brand[:brand_budget].rstrip()} {compact} | Souviks"
 
 
+def vehicle_page_title(name, language):
+    """Return a localized vehicle spare-parts title while preserving the model name."""
+    vehicle = clean(name)
+    lang = str(language or "en").strip().lower()
+    if lang not in {"en", "hi", "bn"}:
+        lang = "en"
+
+    descriptors = {
+        "en": ("Spare Parts", "Parts"),
+        "hi": ("स्पेयर पार्ट्स", "पार्ट्स"),
+        "bn": ("স্পেয়ার পার্টস", "পার্টস"),
+    }
+    full_descriptor, compact_descriptor = descriptors[lang]
+    title = f"{vehicle} {full_descriptor} | Souviks".strip()
+    if len(title) <= 70:
+        return title
+
+    title = f"{vehicle} {compact_descriptor} | Souviks".strip()
+    if len(title) <= 70:
+        return title
+
+    suffix = f" {compact_descriptor} | Souviks"
+    vehicle_budget = max(1, 70 - len(suffix))
+    return f"{vehicle[:vehicle_budget].rstrip()}{suffix}"
+
+
 def update_page_title(page, title):
     """Keep the document title and social preview titles in sync."""
     escaped = html.escape(clean(title), quote=False)
@@ -568,6 +594,11 @@ def enrich_entity_pages(kind, data, catalogue):
             page = path.read_text(encoding="utf-8")
             if kind == "brand":
                 page = update_page_title(page, brand_page_title(item.get("name"), lang))
+            elif kind == "vehicle":
+                page = update_page_title(
+                    page,
+                    vehicle_page_title(item.get("model") or item.get("name"), lang),
+                )
             page = update_meta(page, entity_meta_description(kind, item, products, lang))
             gallery_html = entity_product_galleries(kind, item, products, lang)
             page = replace_static_product_grid(page, gallery_html)
