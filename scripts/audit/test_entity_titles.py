@@ -14,6 +14,7 @@ from enrich_entities import (  # noqa: E402
     entity_meta_description,
     update_meta,
     update_page_title,
+    vehicle_page_title,
 )
 
 
@@ -135,6 +136,31 @@ class BrandPageTitleTests(unittest.TestCase):
         updated = update_page_title(page, title)
         self.assertEqual(updated.count(title), 3)
         self.assertNotIn('content="JAI | Souviks"', updated)
+
+
+class VehiclePageTitleTests(unittest.TestCase):
+    def test_titles_are_localized_descriptive_and_bounded(self) -> None:
+        expected_terms = {
+            "en": "Spare Parts",
+            "hi": "स्पेयर पार्ट्स",
+            "bn": "স্পেয়ার পার্টস",
+        }
+        for language, term in expected_terms.items():
+            with self.subTest(language=language):
+                title = vehicle_page_title("Tata Intra", language)
+                self.assertIn("Tata Intra", title)
+                self.assertIn(term, title)
+                self.assertIn("Souviks", title)
+                self.assertLessEqual(len(title), 70)
+
+    def test_long_model_name_uses_compact_descriptor_without_exceeding_limit(self) -> None:
+        model = "Extraordinarily Long Commercial Vehicle Model With Multiple Qualifiers"
+        for language in ("en", "hi", "bn"):
+            with self.subTest(language=language):
+                title = vehicle_page_title(model, language)
+                self.assertLessEqual(len(title), 70)
+                self.assertTrue(title.endswith("Souviks"))
+                self.assertIn("Parts" if language == "en" else ("पार्ट्स" if language == "hi" else "পার্টস"), title)
 
 
 if __name__ == "__main__":
