@@ -61,10 +61,18 @@ const SEARCH_FIELDS = [
     "cross_references"
 ];
 
+// Static product cards render before catalogue hydration. Remember input typed during
+// the deliberate load/idle deferral so the initialisation step can apply it once
+// the full catalogue and search handler are ready.
+let searchInputChangedBeforeReady = false;
+document.getElementById("searchInput")?.addEventListener("input", () => {
+    searchInputChangedBeforeReady = true;
+}, { passive: true });
+
 async function initialiseProductsPage() {
     const searchInput = document.getElementById("searchInput");
     const initialQuery = getSearchQuery();
-    if (searchInput && initialQuery) searchInput.value = initialQuery;
+    if (searchInput && initialQuery && !searchInputChangedBeforeReady) searchInput.value = initialQuery;
 
     await Products.init("#product-grid", "catalogue-index");
 
@@ -80,6 +88,16 @@ async function initialiseProductsPage() {
     bindPageSize();
     bindReset();
     bindNoResultsReset();
+
+    // Input events before bindSearch() are observed by the lightweight listener
+    // above. Re-apply the current value now that catalogue state is available.
+    if (searchInputChangedBeforeReady) {
+        const liveQuery = String(searchInput?.value || "").trim();
+        if (liveQuery !== getSearchQuery()) applyCatalogue();
+    }
+
+    // Used by browser regression checks to avoid racing deferred hydration.
+    document.body.dataset.productsPageReady = "true";
 }
 
 /*
