@@ -1252,14 +1252,20 @@ PRODUCTS HERO
 
 <section class="products-hero products-hero--img-lcp">
 
-    <img
-        class="products-hero-media"
-        src="/assets/images/hero/product-hero.webp?v=b66109f9dd06"
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async">
+    <picture class="products-hero-picture">
+        <source
+            media="(max-width: 768px)"
+            srcset="/assets/images/hero/product-hero-mobile.webp?v=818dc9b1f7c6"
+            type="image/webp">
+        <img
+            class="products-hero-media"
+            src="/assets/images/hero/product-hero.webp?v=b66109f9dd06"
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async">
+    </picture>
 
     <div class="container">
 
