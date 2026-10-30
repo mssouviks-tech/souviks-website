@@ -65,6 +65,24 @@ class BrandPageTitleTests(unittest.TestCase):
         self.assertIn("सक्रिय", descriptions["hi"])
         self.assertIn("সক্রিয়", descriptions["bn"])
 
+    def test_brand_meta_description_uses_legacy_category_aliases(self) -> None:
+        products = [
+            {"category": category, "subcategory": "Replacement Part", "brand": "TVS Girling"}
+            for category in ("Air System", "Brakes", "Clutch Parts")
+            for _ in range(43)
+        ]
+        snippet = entity_meta_description(
+            "brand",
+            {"id": "tvs-girling", "name": "TVS Girling"},
+            products,
+            "en",
+        )
+        self.assertGreaterEqual(len(snippet), 70)
+        self.assertLessEqual(len(snippet), 158)
+        self.assertIn("129 active products", snippet)
+        self.assertIn("across Air System, Brakes, Clutch Parts", snippet)
+        self.assertTrue(snippet.endswith("Check part numbers and vehicle fitment."))
+
     def test_meta_update_preserves_apostrophes_and_updates_all_previews(self) -> None:
         page = '''
         <meta name="description" content="Souviks' original description.">
