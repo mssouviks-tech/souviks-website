@@ -245,8 +245,8 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
             continue
         raw = path.read_text(encoding="utf-8", errors="ignore")
         picture = re.search(
-            r'<picture\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bproducts-hero-picture\\b[^"\\']*["\\'])'
-            r'[^>]*>([\\s\\S]*?)</picture\\s*>',
+            r'<picture\b(?=[^>]*\bclass=["\'][^"\']*\bproducts-hero-picture\b[^"\']*["\'])'
+            r'[^>]*>([\s\S]*?)</picture\s*>',
             raw,
             flags=re.I | re.S,
         )
@@ -259,16 +259,16 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
 
         picture_markup = picture.group(1)
         mobile_source = re.search(
-            r'<source\\b(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])'
-            r'(?=[^>]*\\bsrcset=["\\'][^"\\']*/assets/images/hero/'
-            r'product-hero-mobile\\.webp\\?v=[0-9a-f]{12}["\\'])[^>]*>',
+            r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+            r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/'
+            r'product-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
             picture_markup,
             flags=re.I | re.S,
         )
         desktop_image = re.search(
-            r'<img\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bproducts-hero-media\\b[^"\\']*["\\'])'
-            r'(?=[^>]*\\bsrc=["\\'][^"\\']*/assets/images/hero/product-hero\\.webp\\?v=[0-9a-f]{12}["\\'])'
-            r'(?=[^>]*\\bfetchpriority=["\\']high["\\'])[^>]*>',
+            r'<img\b(?=[^>]*\bclass=["\'][^"\']*\bproducts-hero-media\b[^"\']*["\'])'
+            r'(?=[^>]*\bsrc=["\'][^"\']*/assets/images/hero/product-hero\.webp\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\bfetchpriority=["\']high["\'])[^>]*>',
             picture_markup,
             flags=re.I | re.S,
         )
@@ -289,11 +289,11 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
     else:
         css = products_css.read_text(encoding="utf-8", errors="ignore")
         if not re.search(
-            r'\\.products-hero--img-lcp\\s*>\\s*\\.products-hero-picture',
+            r'\.products-hero--img-lcp\s*>\s*\.products-hero-picture',
             css,
             flags=re.I,
         ) or not re.search(
-            r'\\.products-hero-picture\\s*>\\s*\\.products-hero-media',
+            r'\.products-hero-picture\s*>\s*\.products-hero-media',
             css,
             flags=re.I,
         ):
