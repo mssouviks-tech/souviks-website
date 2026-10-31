@@ -72,6 +72,8 @@ let searchInputChangedBeforeReady = false;
 let productsPageInitialisationStarted = false;
 let productsPageLcpObserver = null;
 let productsPageLcpFallbackTimer = null;
+const pendingProductsPageControlValues = new Map();
+let pendingProductsPageReset = false;
 
 function startProductsPageInitialisation() {
     if (productsPageInitialisationStarted) return;
@@ -119,9 +121,13 @@ document.addEventListener("input", event => {
 }, { passive: true });
 
 document.addEventListener("change", event => {
-    if (event.target instanceof Element && event.target.matches(PRODUCTS_PAGE_CONTROL_SELECTOR)) {
-        startProductsPageInitialisation();
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target || !target.matches(PRODUCTS_PAGE_CONTROL_SELECTOR)) return;
+
+    if (target.matches("#brandFilter, #vehicleFilter, #categoryFilter, #subCategoryFilter, #sortProducts, #pageSize")) {
+        pendingProductsPageControlValues.set(target.id, target.value);
     }
+    startProductsPageInitialisation();
 }, { passive: true });
 
 document.addEventListener("focusin", event => {
@@ -134,7 +140,11 @@ document.addEventListener("click", event => {
     const control = event.target instanceof Element
         ? event.target.closest("#searchButton, #clearSearch, #resetCatalogueFilters, #resetNoResultsFilters")
         : null;
-    if (control) startProductsPageInitialisation();
+    if (!control) return;
+    if (control.matches("#resetCatalogueFilters, #resetNoResultsFilters")) {
+        pendingProductsPageReset = true;
+    }
+    startProductsPageInitialisation();
 }, { passive: true });
 
 async function initialiseProductsPage() {
@@ -147,6 +157,7 @@ async function initialiseProductsPage() {
     allProducts = [...Products.products];
     Filters.init(allProducts);
     initialiseUrlFilters();
+    applyPendingProductsPageControls();
     populateFilters(allProducts);
     updateCatalogueRobotsMeta();
     initialisePagination();
@@ -244,6 +255,50 @@ if (document.readyState === "complete") {
     scheduleProductsPageInitialisation();
 } else {
     window.addEventListener("load", scheduleProductsPageInitialisation, { once: true });
+}
+
+function applyPendingProductsPageControls() {
+    if (pendingProductsPageReset) {
+        Filters.clear();
+        currentSort = "featured";
+        searchInputChangedBeforeReady = false;
+        pendingProductsPageControlValues.clear();
+
+        FILTER_CONFIGS.forEach(config => {
+            const select = document.getElementById(config.id);
+            if (select) select.value = "";
+        });
+        const sort = document.getElementById("sortProducts");
+        if (sort) sort.value = currentSort;
+        const search = document.getElementById("searchInput");
+        if (search) search.value = "";
+
+        // Reset the shareable catalogue state but retain the selected page size,
+        // matching the existing Reset Filters button behaviour.
+        try {
+            const url = new URL(window.location.href);
+            ["q", "brand_id", "category_id", "subcategory_id", "vehicles", "sort", "page"]
+                .forEach(key => url.searchParams.delete(key));
+            window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+        } catch (error) {
+            // Ignore URL API failures.
+        }
+        pendingProductsPageReset = false;
+        return;
+    }
+
+    for (const [id, value] of pendingProductsPageControlValues.entries()) {
+        const config = FILTER_CONFIGS.find(item => item.id === id);
+        if (config) {
+            Filters.set(config.key, value);
+        } else if (id === "sortProducts") {
+            currentSort = value || "featured";
+        } else if (id === "pageSize") {
+            const select = document.getElementById("pageSize");
+            if (select) select.value = value;
+        }
+    }
+    pendingProductsPageControlValues.clear();
 }
 
 function getSearchQuery() {
