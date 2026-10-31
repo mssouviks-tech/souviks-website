@@ -227,7 +227,7 @@ def _append_meta_context(
         separator = " " if base.endswith("…") else ". "
         candidate = base.rstrip(" .") + separator + qualifier + ". " + suffix
         if MIN_META_DESCRIPTION <= len(candidate) <= limit:
-            return finalize(candidate)
+            return candidate
     return None
 
 
