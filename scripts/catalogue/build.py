@@ -36,6 +36,33 @@ BASE = "https://www.souviks.co.in"
 # Final pointer 22-25 parity normalization.
 # Retrigger validation with the corrected audit command.
 
+def dimension_spec_properties(p):
+    """Convert typed partial measurements to Schema.org PropertyValue records."""
+    properties = []
+    specs = p.get("dimension_specs_mm")
+    if not isinstance(specs, list):
+        return properties
+    for spec in specs:
+        if not isinstance(spec, dict):
+            continue
+        name = str(spec.get("name") or "").strip()
+        value = spec.get("value_mm")
+        if (
+            not name
+            or not isinstance(value, (int, float))
+            or isinstance(value, bool)
+            or value <= 0
+        ):
+            continue
+        properties.append({
+            "@type": "PropertyValue",
+            "name": name,
+            "value": value,
+            "unitText": "mm",
+        })
+    return properties
+
+
 def replace_product_name_markup(source: str, old_name: str, new_name: str) -> str:
     """Replace a product name safely in HTML and JSON-LD contexts.
 
@@ -784,32 +811,6 @@ def reconcile_catalogue_projections():
             return match.group(1)
         return text(p.get("part_number") or p.get("partNumber"))
     
-    def dimension_spec_properties(p):
-        """Convert typed partial measurements to Schema.org PropertyValue records."""
-        properties = []
-        specs = p.get("dimension_specs_mm")
-        if not isinstance(specs, list):
-            return properties
-        for spec in specs:
-            if not isinstance(spec, dict):
-                continue
-            name = text(spec.get("name"))
-            value = spec.get("value_mm")
-            if (
-                not name
-                or not isinstance(value, (int, float))
-                or isinstance(value, bool)
-                or value <= 0
-            ):
-                continue
-            properties.append({
-                "@type": "PropertyValue",
-                "name": name,
-                "value": value,
-                "unitText": "mm",
-            })
-        return properties
-
     def product_from_catalogue(p):
         part = part_number(p)
         return {
