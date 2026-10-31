@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "assets" / "data"
-FAMILY_RE = re.compile(r"(?:lever pin|spring pin|bell crank pin|shackle pin)", re.I)
+FAMILY_RE = re.compile(r"(?:lever pin|spring pin|bell crank pin|shackle pin|front pin)", re.I)
 DIMENSION_RE = re.compile(r"(\d{2})\s*(?:x|×)\s*(\d{2,3})", re.I)
 LANGUAGES = ("en", "hi", "bn")
 DENSITY_G_PER_MM3 = 0.00785
