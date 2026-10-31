@@ -364,6 +364,7 @@ def sync_responsive_hero_assets(mobile_variants: dict[str, str]) -> int:
             ROOT / relative,
             "index-hero",
             bool(index_mobile),
+            preload_desktop=False,
         )
 
     product_mobile = mobile_variants.get("product-hero")
