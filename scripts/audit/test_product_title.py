@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression tests for preserving product variant qualifiers in SEO titles."""
+"""Regression tests for product-title variants and safe shortening."""
 from __future__ import annotations
 
 import sys
@@ -9,7 +9,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
 
-from product_title import shorten_product_name_for_title  # noqa: E402
+from product_title import (  # noqa: E402
+    build_product_page_title,
+    shorten_product_name_for_title,
+    unique_vehicle_title_variants,
+)
 
 
 class ProductTitleShorteningTests(unittest.TestCase):
@@ -61,6 +65,51 @@ class ProductTitleShorteningTests(unittest.TestCase):
         )
         self.assertLessEqual(len(title), 24)
         self.assertFalse(title.endswith((" ", ",", ";", ":", "-", ".")))
+
+    def test_shared_part_identity_uses_distinct_recorded_vehicle_qualifiers(self) -> None:
+        products = [
+            {
+                "id": "SVKS000276",
+                "brand_name": "Leyparts",
+                "part_number": "F0987915",
+                "product_name": "Pivot Pin Relay Drop Arm",
+                "vehicles": ["Tata LPT"],
+            },
+            {
+                "id": "SVKS000761",
+                "brand_name": "Leyparts",
+                "part_number": "F0987915",
+                "product_name": "Pivot Pin Relay   Drop Arm",
+                "vehicles": ["Ashok Leyland 2516"],
+            },
+        ]
+        variants = unique_vehicle_title_variants(products)
+        self.assertEqual(variants, {
+            "SVKS000276": "Tata LPT",
+            "SVKS000761": "Ashok Leyland 2516",
+        })
+        titles = [
+            build_product_page_title(
+                product["brand_name"],
+                product["part_number"],
+                product["product_name"],
+                variants[product["id"]],
+            )
+            for product in products
+        ]
+        self.assertNotEqual(titles[0], titles[1])
+        self.assertIn("Tata LPT", titles[0])
+        self.assertIn("Ashok Leyland 2516", titles[1])
+        self.assertIn("F0987915", titles[0])
+        self.assertIn("F0987915", titles[1])
+        self.assertTrue(all(len(title) <= 70 for title in titles))
+
+    def test_universal_or_shared_vehicle_values_do_not_generate_title_variants(self) -> None:
+        products = [
+            {"id": "A", "brand": "X", "part_number": "123", "name": "Part", "vehicles": ["Universal"]},
+            {"id": "B", "brand": "X", "part_number": "123", "name": "Part", "vehicles": ["Tata LPT"]},
+        ]
+        self.assertEqual(unique_vehicle_title_variants(products), {})
 
 
 if __name__ == "__main__":

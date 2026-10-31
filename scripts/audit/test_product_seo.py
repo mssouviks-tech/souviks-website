@@ -210,6 +210,38 @@ class ProductSeoTests(unittest.TestCase):
         self.assertIn("5mm Thickness", thicker)
         self.assertNotEqual(thinner, thicker)
 
+    def test_long_localized_snippets_never_truncate_the_part_number(self) -> None:
+        base = {
+            "brand_name": "Texspin",
+            "product_name": "Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub",
+            "category_name": "Clutch Parts",
+            "subcategory_name": "Clutch Release Bearing",
+            "description": (
+                "The Texspin Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub "
+                "is listed in the commercial vehicle clutch release bearing range for "
+                "the recorded Tata applications and the supplier catalogue specification."
+            ),
+            "vehicles": ["Tractors"],
+            "applications": [
+                "Clutch release and actuation system; fitment/specification: "
+                "Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub."
+            ],
+        }
+        first = dict(base, part_number="1888180 WH")
+        second = dict(base, part_number="TX-1888180 WH")
+        for language in ("en", "hi", "bn"):
+            first_snippet = build_product_meta_description(first, language=language)
+            second_snippet = build_product_meta_description(second, language=language)
+            for snippet, part in (
+                (first_snippet, "1888180 WH"),
+                (second_snippet, "TX-1888180 WH"),
+            ):
+                self.assertGreaterEqual(len(snippet), 70)
+                self.assertLessEqual(len(snippet), 158)
+                self.assertIn(part, snippet)
+                self.assertNotIn("(Part No. Souviks", snippet)
+            self.assertNotEqual(first_snippet, second_snippet)
+
     def test_availability_is_never_inferred(self) -> None:
         self.assertEqual(
             schema_availability_url({"availability": "in_stock"}),
