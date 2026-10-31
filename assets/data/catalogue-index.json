@@ -31039,7 +31039,18 @@
     "applications": [
       "Front Suspension System"
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimensions_mm": [
+      25,
+      174
+    ],
+    "dimensions_label": "Diameter × overall length (mm)",
+    "dimensions_source": "inferred_from_product_name_and_part_number",
+    "calculated_weight_g": 670.5,
+    "approx_weight_g": 750,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Solid-cylinder steel estimate at 7,850 kg/m³; approx_weight_g adds 5% packaging allowance and rounds up to the next 50 g.",
+    "weight_estimation_notes": "The 25 mm diameter × 174 mm overall length is explicit in both the product name and part number. Theoretical solid-cylinder estimate only; grooves, bores, end geometry, material grade, finish and packaging may change actual unit and packed weights. Not manufacturer-verified and not confirmed shipping weight."
   },
   {
     "id": "SVKS000641",
