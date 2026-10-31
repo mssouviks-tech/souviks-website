@@ -22535,8 +22535,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 2414,
-    "selling_price": 2220.88,
+    "mrp": 7051,
+    "selling_price": 5700,
     "product_name": "TMGO Diesel Engine Oil CI4 15W40 15L",
     "name": "TMGO Diesel Engine Oil CI4 15W40 15L",
     "partNumber": "TMGOEOCI14P05C",
@@ -22557,7 +22557,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
+    "catalogue_updated_at": "2026-10-31T18:15:00+05:30",
     "description": "The Tata Genuine Parts TMGOEOCI14P05C TMGO Diesel Engine Oil CI4 15W40 15L forms a lubricating film between moving engine components to reduce metal-to-metal contact and carry heat and contaminants through the lubrication circuit. Vehicle applications include Tata LPT.",
     "image_folder": "SVKS000469",
     "gallery": [
@@ -22572,7 +22572,9 @@
       "Engine Lubrication System",
       "Preventive Maintenance"
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-31T18:15:00+05:30",
+    "discount_percent": 19,
+    "discountPercent": 19
   },
   {
     "id": "SVKS000470",
