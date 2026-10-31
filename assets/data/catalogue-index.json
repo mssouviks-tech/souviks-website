@@ -12169,7 +12169,16 @@
       "Suspension System",
       "Leaf Spring Assembly"
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimension_specs_mm": [
+      {
+        "name": "Hole diameter",
+        "value_mm": 50,
+        "source": "product_name"
+      }
+    ],
+    "dimensions_label": "Partial dimensions (mm); overall length is not specified",
+    "dimensions_source": "product_name"
   },
   {
     "id": "SVKS000255",
@@ -14359,7 +14368,21 @@
       "Trailer Suspension System",
       "Leaf Spring Assembly"
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimension_specs_mm": [
+      {
+        "name": "Specified pin size (1)",
+        "value_mm": 42,
+        "source": "product_name"
+      },
+      {
+        "name": "Specified pin size (2)",
+        "value_mm": 35,
+        "source": "product_name"
+      }
+    ],
+    "dimensions_label": "Partial dimensions (mm); overall length is not specified",
+    "dimensions_source": "product_name"
   },
   {
     "id": "SVKS000301",
@@ -26533,7 +26556,19 @@
       "chrome plated (set of 2 pins",
       "size 38.25 mm)."
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimensions_mm": [
+      38.25,
+      205
+    ],
+    "dimensions_label": "Per pin: diameter × overall length (mm)",
+    "dimensions_source": "external_cross_reference_supplier_specification_not_manufacturer_verified",
+    "weight_calculation_quantity": 2,
+    "calculated_weight_g": 3698.3,
+    "approx_weight_g": 3900,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical solid-cylinder steel estimate at 7,850 kg/m³, multiplied by 2 pins per sellable set; packed estimate adds 5% and rounds up to the next 50 g. Dimensions are cross-referenced to the matching Tata axle/oversize specification published by Rajindra Mechanical Works, not verified against a Texspin engineering drawing.",
+    "weight_estimation_notes": "This catalogue item is a set of two kingpin shafts. The 204 mm / 205 mm overall length is a cross-reference to Rajindra Mechanical Works' equivalent Tata 1109/1210 or Tata 1312 kingpin listing at the corresponding oversize diameter. It is not a Texspin-confirmed dimension. Weight is a theoretical solid-cylinder estimate for both pins combined; actual stepped profiles, grooves, flats, bores, threads, material and finish can reduce or change mass. Packed weight includes a 5% allowance rounded to 50 g and is not a carrier-confirmed shipment weight."
   },
   {
     "id": "SVKS000551",
@@ -35393,7 +35428,16 @@
       "1613",
       "4018"
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimension_specs_mm": [
+      {
+        "name": "Specified hanger size",
+        "value_mm": 14,
+        "source": "product_name"
+      }
+    ],
+    "dimensions_label": "Partial dimensions (mm); overall length is not specified",
+    "dimensions_source": "product_name"
   },
   {
     "id": "SVKS000724",
@@ -36124,7 +36168,16 @@
     "applications": [
       "TATA"
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimension_specs_mm": [
+      {
+        "name": "Pin diameter",
+        "value_mm": 30,
+        "source": "product_name"
+      }
+    ],
+    "dimensions_label": "Partial dimensions (mm); overall length is not specified",
+    "dimensions_source": "product_name"
   },
   {
     "id": "SVKS000738",
@@ -41001,7 +41054,19 @@
       "Tata 1312 king-pin application",
       "1st oversize."
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimensions_mm": [
+      38.35,
+      205
+    ],
+    "dimensions_label": "Per pin: diameter × overall length (mm)",
+    "dimensions_source": "external_cross_reference_supplier_specification_not_manufacturer_verified",
+    "weight_calculation_quantity": 2,
+    "calculated_weight_g": 3717.7,
+    "approx_weight_g": 3950,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical solid-cylinder steel estimate at 7,850 kg/m³, multiplied by 2 pins per sellable set; packed estimate adds 5% and rounds up to the next 50 g. Dimensions are cross-referenced to the matching Tata axle/oversize specification published by Rajindra Mechanical Works, not verified against a Texspin engineering drawing.",
+    "weight_estimation_notes": "This catalogue item is a set of two kingpin shafts. The 204 mm / 205 mm overall length is a cross-reference to Rajindra Mechanical Works' equivalent Tata 1109/1210 or Tata 1312 kingpin listing at the corresponding oversize diameter. It is not a Texspin-confirmed dimension. Weight is a theoretical solid-cylinder estimate for both pins combined; actual stepped profiles, grooves, flats, bores, threads, material and finish can reduce or change mass. Packed weight includes a 5% allowance rounded to 50 g and is not a carrier-confirmed shipment weight."
   },
   {
     "id": "SVKS000837",
@@ -41049,7 +41114,19 @@
       "Tata 1312 king-pin application",
       "2nd oversize."
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimensions_mm": [
+      38.45,
+      205
+    ],
+    "dimensions_label": "Per pin: diameter × overall length (mm)",
+    "dimensions_source": "external_cross_reference_supplier_specification_not_manufacturer_verified",
+    "weight_calculation_quantity": 2,
+    "calculated_weight_g": 3737.1,
+    "approx_weight_g": 3950,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical solid-cylinder steel estimate at 7,850 kg/m³, multiplied by 2 pins per sellable set; packed estimate adds 5% and rounds up to the next 50 g. Dimensions are cross-referenced to the matching Tata axle/oversize specification published by Rajindra Mechanical Works, not verified against a Texspin engineering drawing.",
+    "weight_estimation_notes": "This catalogue item is a set of two kingpin shafts. The 204 mm / 205 mm overall length is a cross-reference to Rajindra Mechanical Works' equivalent Tata 1109/1210 or Tata 1312 kingpin listing at the corresponding oversize diameter. It is not a Texspin-confirmed dimension. Weight is a theoretical solid-cylinder estimate for both pins combined; actual stepped profiles, grooves, flats, bores, threads, material and finish can reduce or change mass. Packed weight includes a 5% allowance rounded to 50 g and is not a carrier-confirmed shipment weight."
   },
   {
     "id": "SVKS000838",
@@ -41097,7 +41174,19 @@
       "Tata 1312 king-pin application",
       "4th oversize."
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimensions_mm": [
+      38.65,
+      205
+    ],
+    "dimensions_label": "Per pin: diameter × overall length (mm)",
+    "dimensions_source": "external_cross_reference_supplier_specification_not_manufacturer_verified",
+    "weight_calculation_quantity": 2,
+    "calculated_weight_g": 3776.1,
+    "approx_weight_g": 4000,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical solid-cylinder steel estimate at 7,850 kg/m³, multiplied by 2 pins per sellable set; packed estimate adds 5% and rounds up to the next 50 g. Dimensions are cross-referenced to the matching Tata axle/oversize specification published by Rajindra Mechanical Works, not verified against a Texspin engineering drawing.",
+    "weight_estimation_notes": "This catalogue item is a set of two kingpin shafts. The 204 mm / 205 mm overall length is a cross-reference to Rajindra Mechanical Works' equivalent Tata 1109/1210 or Tata 1312 kingpin listing at the corresponding oversize diameter. It is not a Texspin-confirmed dimension. Weight is a theoretical solid-cylinder estimate for both pins combined; actual stepped profiles, grooves, flats, bores, threads, material and finish can reduce or change mass. Packed weight includes a 5% allowance rounded to 50 g and is not a carrier-confirmed shipment weight."
   },
   {
     "id": "SVKS000839",
@@ -41145,7 +41234,19 @@
       "Tata 1312 king-pin application",
       "5th oversize designation in stock data — exact manufacturer catalogue fitment should be confirmed before publishing."
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimensions_mm": [
+      38.75,
+      205
+    ],
+    "dimensions_label": "Per pin: diameter × overall length (mm)",
+    "dimensions_source": "external_cross_reference_supplier_specification_not_manufacturer_verified",
+    "weight_calculation_quantity": 2,
+    "calculated_weight_g": 3795.7,
+    "approx_weight_g": 4000,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical solid-cylinder steel estimate at 7,850 kg/m³, multiplied by 2 pins per sellable set; packed estimate adds 5% and rounds up to the next 50 g. Dimensions are cross-referenced to the matching Tata axle/oversize specification published by Rajindra Mechanical Works, not verified against a Texspin engineering drawing.",
+    "weight_estimation_notes": "This catalogue item is a set of two kingpin shafts. The 204 mm / 205 mm overall length is a cross-reference to Rajindra Mechanical Works' equivalent Tata 1109/1210 or Tata 1312 kingpin listing at the corresponding oversize diameter. It is not a Texspin-confirmed dimension. Weight is a theoretical solid-cylinder estimate for both pins combined; actual stepped profiles, grooves, flats, bores, threads, material and finish can reduce or change mass. Packed weight includes a 5% allowance rounded to 50 g and is not a carrier-confirmed shipment weight."
   },
   {
     "id": "SVKS000840",
@@ -55841,7 +55942,19 @@
       "set of two pins."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001136/1.webp",
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimensions_mm": [
+      35.1,
+      204
+    ],
+    "dimensions_label": "Per pin: diameter × overall length (mm)",
+    "dimensions_source": "external_cross_reference_supplier_specification_not_manufacturer_verified",
+    "weight_calculation_quantity": 2,
+    "calculated_weight_g": 3099.1,
+    "approx_weight_g": 3300,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical solid-cylinder steel estimate at 7,850 kg/m³, multiplied by 2 pins per sellable set; packed estimate adds 5% and rounds up to the next 50 g. Dimensions are cross-referenced to the matching Tata axle/oversize specification published by Rajindra Mechanical Works, not verified against a Texspin engineering drawing.",
+    "weight_estimation_notes": "This catalogue item is a set of two kingpin shafts. The 204 mm / 205 mm overall length is a cross-reference to Rajindra Mechanical Works' equivalent Tata 1109/1210 or Tata 1312 kingpin listing at the corresponding oversize diameter. It is not a Texspin-confirmed dimension. Weight is a theoretical solid-cylinder estimate for both pins combined; actual stepped profiles, grooves, flats, bores, threads, material and finish can reduce or change mass. Packed weight includes a 5% allowance rounded to 50 g and is not a carrier-confirmed shipment weight."
   },
   {
     "id": "SVKS001137",
@@ -55894,7 +56007,19 @@
       "set of two pins."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001137/1.webp",
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimensions_mm": [
+      35.2,
+      204
+    ],
+    "dimensions_label": "Per pin: diameter × overall length (mm)",
+    "dimensions_source": "external_cross_reference_supplier_specification_not_manufacturer_verified",
+    "weight_calculation_quantity": 2,
+    "calculated_weight_g": 3116.8,
+    "approx_weight_g": 3300,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical solid-cylinder steel estimate at 7,850 kg/m³, multiplied by 2 pins per sellable set; packed estimate adds 5% and rounds up to the next 50 g. Dimensions are cross-referenced to the matching Tata axle/oversize specification published by Rajindra Mechanical Works, not verified against a Texspin engineering drawing.",
+    "weight_estimation_notes": "This catalogue item is a set of two kingpin shafts. The 204 mm / 205 mm overall length is a cross-reference to Rajindra Mechanical Works' equivalent Tata 1109/1210 or Tata 1312 kingpin listing at the corresponding oversize diameter. It is not a Texspin-confirmed dimension. Weight is a theoretical solid-cylinder estimate for both pins combined; actual stepped profiles, grooves, flats, bores, threads, material and finish can reduce or change mass. Packed weight includes a 5% allowance rounded to 50 g and is not a carrier-confirmed shipment weight."
   },
   {
     "id": "SVKS001138",
@@ -55947,7 +56072,19 @@
       "set of two pins."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001138/1.webp",
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-10-30T18:45:00+05:30",
+    "dimensions_mm": [
+      35.3,
+      204
+    ],
+    "dimensions_label": "Per pin: diameter × overall length (mm)",
+    "dimensions_source": "external_cross_reference_supplier_specification_not_manufacturer_verified",
+    "weight_calculation_quantity": 2,
+    "calculated_weight_g": 3134.5,
+    "approx_weight_g": 3300,
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical solid-cylinder steel estimate at 7,850 kg/m³, multiplied by 2 pins per sellable set; packed estimate adds 5% and rounds up to the next 50 g. Dimensions are cross-referenced to the matching Tata axle/oversize specification published by Rajindra Mechanical Works, not verified against a Texspin engineering drawing.",
+    "weight_estimation_notes": "This catalogue item is a set of two kingpin shafts. The 204 mm / 205 mm overall length is a cross-reference to Rajindra Mechanical Works' equivalent Tata 1109/1210 or Tata 1312 kingpin listing at the corresponding oversize diameter. It is not a Texspin-confirmed dimension. Weight is a theoretical solid-cylinder estimate for both pins combined; actual stepped profiles, grooves, flats, bores, threads, material and finish can reduce or change mass. Packed weight includes a 5% allowance rounded to 50 g and is not a carrier-confirmed shipment weight."
   },
   {
     "id": "SVKS001139",
