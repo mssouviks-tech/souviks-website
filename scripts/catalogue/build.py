@@ -38,6 +38,33 @@ BASE = "https://www.souviks.co.in"
 # Final pointer 22-25 parity normalization.
 # Retrigger validation with the corrected audit command.
 
+def dimension_spec_properties(p):
+    """Convert typed partial measurements to Schema.org PropertyValue records."""
+    properties = []
+    specs = p.get("dimension_specs_mm")
+    if not isinstance(specs, list):
+        return properties
+    for spec in specs:
+        if not isinstance(spec, dict):
+            continue
+        name = str(spec.get("name") or "").strip()
+        value = spec.get("value_mm")
+        if (
+            not name
+            or not isinstance(value, (int, float))
+            or isinstance(value, bool)
+            or value <= 0
+        ):
+            continue
+        properties.append({
+            "@type": "PropertyValue",
+            "name": name,
+            "value": value,
+            "unitText": "mm",
+        })
+    return properties
+
+
 def replace_product_name_markup(source: str, old_name: str, new_name: str) -> str:
     """Replace a product name safely in HTML and JSON-LD contexts.
 
@@ -803,6 +830,8 @@ def reconcile_catalogue_projections():
             "discountPercent": p.get("discount_percent"),
             "approx_weight_g": approximate_weight_grams(p),
             "dimensions_mm": p.get("dimensions_mm"),
+            "dimension_specs_mm": list(p.get("dimension_specs_mm") or []),
+            "weight_calculation_quantity": p.get("weight_calculation_quantity"),
             "dimensions_label": text(p.get("dimensions_label")),
             "dimensions_source": text(p.get("dimensions_source")),
             "calculated_weight_g": p.get("calculated_weight_g"),
@@ -872,6 +901,8 @@ def reconcile_catalogue_projections():
             "image": text(p.get("image")),
             "approx_weight_g": approximate_weight_grams(p),
             "dimensions_mm": p.get("dimensions_mm"),
+            "dimension_specs_mm": list(p.get("dimension_specs_mm") or []),
+            "weight_calculation_quantity": p.get("weight_calculation_quantity"),
             "dimensions_label": text(p.get("dimensions_label")),
             "dimensions_source": text(p.get("dimensions_source")),
             "calculated_weight_g": p.get("calculated_weight_g"),
@@ -920,7 +951,7 @@ def reconcile_catalogue_projections():
         projection_fields = (
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
-            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "dimensions_mm", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
+            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -971,7 +1002,7 @@ def reconcile_catalogue_projections():
         "vehicles", "part_number", "manufacturer_part_number",
         "manufacturer_part_numbers", "alternate_part_numbers",
         "oem_numbers", "cross_references", "slug", "image",
-        "vehicle_count", "featured", "active", "approx_weight_g", "dimensions_mm", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes",
+        "vehicle_count", "featured", "active", "approx_weight_g", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes",
         "manufacturer_weight_kg", "manufacturer_weight_status",
         "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
         "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -1413,6 +1444,15 @@ def reconcile_catalogue_projections():
             data["discount_percent"] = product.get("discount_percent")
             data["discountPercent"] = product.get("discount_percent")
             data["approx_weight_g"] = approximate_weight_grams(product)
+            data["dimensions_mm"] = product.get("dimensions_mm")
+            data["dimension_specs_mm"] = list(product.get("dimension_specs_mm") or [])
+            data["weight_calculation_quantity"] = product.get("weight_calculation_quantity")
+            data["dimensions_label"] = text(product.get("dimensions_label"))
+            data["dimensions_source"] = text(product.get("dimensions_source"))
+            data["calculated_weight_g"] = product.get("calculated_weight_g")
+            data["weight_estimation_status"] = text(product.get("weight_estimation_status"))
+            data["weight_estimation_method"] = text(product.get("weight_estimation_method"))
+            data["weight_estimation_notes"] = text(product.get("weight_estimation_notes"))
             if text(product.get("manufacturer_spec_source")):
                 data["manufacturer_weight_kg"] = product.get("manufacturer_weight_kg")
                 data["manufacturer_weight_status"] = text(product.get("manufacturer_weight_status"))
@@ -2587,6 +2627,13 @@ def sync_product_seo_and_schema():
                             "unitCode": "KGM",
                         }
 
+                partial_dimension_properties = dimension_spec_properties(product)
+                if partial_dimension_properties:
+                    existing_properties = product_schema.get("additionalProperty")
+                    if not isinstance(existing_properties, list):
+                        existing_properties = []
+                    product_schema["additionalProperty"] = existing_properties + partial_dimension_properties
+
                 mpn = str(product.get("manufacturer_part_number") or "").strip()
                 if not mpn:
                     mpn = str(product.get("part_number") or "").strip()
@@ -2741,6 +2788,18 @@ def sync_product_seo_and_schema():
                                 "value": round(float(estimated_net_grams) / 1000, 3),
                                 "unitCode": "KGM",
                             }
+
+                    partial_dimension_properties = dimension_spec_properties(product)
+                    if partial_dimension_properties:
+                        partial_names = {item["name"] for item in partial_dimension_properties}
+                        existing_properties = node.get("additionalProperty")
+                        if not isinstance(existing_properties, list):
+                            existing_properties = []
+                        existing_properties = [
+                            item for item in existing_properties
+                            if not (isinstance(item, dict) and item.get("name") in partial_names)
+                        ]
+                        node["additionalProperty"] = existing_properties + partial_dimension_properties
 
                     # Refresh identifiers on legacy Product nodes too. The old
                     # repair path updated other schema fields but left stale or
