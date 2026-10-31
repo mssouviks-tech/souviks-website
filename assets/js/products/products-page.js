@@ -61,6 +61,10 @@ const SEARCH_FIELDS = [
     "cross_references"
 ];
 
+// Reuse one collator instead of constructing locale comparison options for
+// every comparison while sorting the full 1,000+ product catalogue.
+const CATALOGUE_LABEL_COLLATOR = new Intl.Collator(undefined, { sensitivity: "base" });
+
 // Static product cards render before catalogue hydration. Remember input typed during
 // the deliberate post-LCP deferral so the initialisation step can apply it once
 // the full catalogue and search handler are ready.
@@ -289,8 +293,10 @@ function sortCatalogue(results) {
         return sorted.sort((a, b) => {
             const featuredDiff = Number(Boolean(b.featured)) - Number(Boolean(a.featured));
             if (featuredDiff) return featuredDiff;
-            return normaliseComparable(a.product_name || a.name)
-                .localeCompare(normaliseComparable(b.product_name || b.name), undefined, { sensitivity: "base" });
+            return CATALOGUE_LABEL_COLLATOR.compare(
+                a.product_name || a.name || "",
+                b.product_name || b.name || ""
+            );
         });
     }
 
@@ -313,8 +319,10 @@ function sortCatalogue(results) {
             if (first === null) return 1;
             if (second === null) return -1;
             if (first !== second) return (first < second ? -1 : 1) * multiplier;
-            return normaliseComparable(a.product_name || a.name)
-                .localeCompare(normaliseComparable(b.product_name || b.name), undefined, { sensitivity: "base" });
+            return CATALOGUE_LABEL_COLLATOR.compare(
+                a.product_name || a.name || "",
+                b.product_name || b.name || ""
+            );
         }
 
         const first = normaliseComparable(a[key]);
@@ -439,7 +447,7 @@ function getFacetOptions(config, scope = getFacetScope(config.key)) {
 
     return [...options.entries()]
         .map(([value, label]) => ({ value, label }))
-        .sort((a, b) => String(a.label).localeCompare(String(b.label), undefined, { sensitivity: "base" }));
+        .sort((a, b) => CATALOGUE_LABEL_COLLATOR.compare(a.label, b.label));
 }
 
 function refreshFilterOptions() {
@@ -705,6 +713,22 @@ function populateSelect(id, options, selectedValue = "", scope = allProducts) {
     const select = document.getElementById(id);
     if (!select) return;
 
+    const config = FILTER_CONFIGS.find(item => item.id === id);
+    const valuesInScope = new Set();
+    if (config?.key === "vehicles") {
+        scope.forEach(product => {
+            (Array.isArray(product?.vehicles) ? product.vehicles : [])
+                .forEach(vehicle => valuesInScope.add(String(vehicle)));
+        });
+    } else if (config) {
+        scope.forEach(product => {
+            const value = product?.[config.key];
+            if (value !== null && value !== undefined && value !== "") {
+                valuesInScope.add(String(value));
+            }
+        });
+    }
+
     const first = select.options[0];
     const firstHtml = first ? first.outerHTML : '<option value="">All</option>';
     select.innerHTML = firstHtml;
@@ -714,23 +738,9 @@ function populateSelect(id, options, selectedValue = "", scope = allProducts) {
         element.value = option.value;
         element.textContent = option.label;
         element.selected = String(option.value) === String(selectedValue);
-        element.disabled = !element.selected && !optionExistsInScope(id, option.value, scope);
+        element.disabled = !element.selected && !valuesInScope.has(String(option.value));
         select.appendChild(element);
     });
-}
-
-function optionExistsInScope(id, value, scope) {
-    const config = FILTER_CONFIGS.find(item => item.id === id);
-    if (!config) return true;
-
-    if (config.key === "vehicles") {
-        return scope.some(product =>
-            Array.isArray(product?.vehicles) &&
-            product.vehicles.some(vehicle => String(vehicle) === String(value))
-        );
-    }
-
-    return scope.some(product => String(product?.[config.key] ?? "") === String(value));
 }
 
 function updateCounters(results) {
