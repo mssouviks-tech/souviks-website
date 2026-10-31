@@ -62,11 +62,75 @@ const SEARCH_FIELDS = [
 ];
 
 // Static product cards render before catalogue hydration. Remember input typed during
-// the deliberate load/idle deferral so the initialisation step can apply it once
+// the deliberate post-LCP deferral so the initialisation step can apply it once
 // the full catalogue and search handler are ready.
 let searchInputChangedBeforeReady = false;
-document.getElementById("searchInput")?.addEventListener("input", () => {
+let productsPageInitialisationStarted = false;
+let productsPageLcpObserver = null;
+let productsPageLcpFallbackTimer = null;
+
+function startProductsPageInitialisation() {
+    if (productsPageInitialisationStarted) return;
+    productsPageInitialisationStarted = true;
+
+    productsPageLcpObserver?.disconnect();
+    productsPageLcpObserver = null;
+    if (productsPageLcpFallbackTimer !== null) {
+        window.clearTimeout(productsPageLcpFallbackTimer);
+        productsPageLcpFallbackTimer = null;
+    }
+
+    void initialiseProductsPage();
+}
+
+function scheduleProductsPageInitialisationWhenIdle() {
+    if (productsPageInitialisationStarted) return;
+    if (typeof window.requestIdleCallback === "function") {
+        window.requestIdleCallback(startProductsPageInitialisation, { timeout: 1500 });
+    } else {
+        window.setTimeout(startProductsPageInitialisation, 0);
+    }
+}
+
+// User intent takes priority over the optimisation. Start catalogue hydration
+// as soon as a visitor searches, opens a filter, changes a select, or resets it.
+const PRODUCTS_PAGE_CONTROL_SELECTOR = [
+    "#searchInput",
+    "#searchButton",
+    "#clearSearch",
+    "#brandFilter",
+    "#vehicleFilter",
+    "#categoryFilter",
+    "#subCategoryFilter",
+    "#sortProducts",
+    "#pageSize",
+    "#resetCatalogueFilters",
+    "#resetNoResultsFilters"
+].join(", ");
+
+document.addEventListener("input", event => {
+    if (event.target?.id !== "searchInput") return;
     searchInputChangedBeforeReady = true;
+    startProductsPageInitialisation();
+}, { passive: true });
+
+document.addEventListener("change", event => {
+    if (event.target instanceof Element && event.target.matches(PRODUCTS_PAGE_CONTROL_SELECTOR)) {
+        startProductsPageInitialisation();
+    }
+}, { passive: true });
+
+document.addEventListener("focusin", event => {
+    if (event.target instanceof Element && event.target.matches(PRODUCTS_PAGE_CONTROL_SELECTOR)) {
+        startProductsPageInitialisation();
+    }
+}, { passive: true });
+
+document.addEventListener("click", event => {
+    const control = event.target instanceof Element
+        ? event.target.closest("#searchButton, #clearSearch, #resetCatalogueFilters, #resetNoResultsFilters")
+        : null;
+    if (control) startProductsPageInitialisation();
 }, { passive: true });
 
 async function initialiseProductsPage() {
@@ -101,20 +165,74 @@ async function initialiseProductsPage() {
 }
 
 /*
- * The first 20 product cards are already present in the generated HTML.
- * Wait until the page load event and then schedule catalogue hydration during
- * browser idle time, so fetching the full catalogue and wiring facets do not
- * compete with the initial hero/text paint and LCP.
+ * The first 20 product cards are already present in the generated HTML. Keep
+ * full-catalogue sorting and facet construction off the critical rendering
+ * path: start only after the listing hero has produced its LCP entry. A visitor
+ * interaction or a URL carrying catalogue state starts hydration immediately.
  */
-function scheduleProductsPageInitialisation() {
-    const run = () => {
-        void initialiseProductsPage();
-    };
+function hasInitialCatalogueState() {
+    const params = new URLSearchParams(window.location.search);
+    return ["q", "brand_id", "category_id", "subcategory_id", "vehicles", "page", "sort", "pageSize"]
+        .some(key => params.has(key));
+}
 
-    if (typeof window.requestIdleCallback === "function") {
-        window.requestIdleCallback(run, { timeout: 1200 });
-    } else {
-        window.setTimeout(run, 150);
+function scheduleProductsPageInitialisation() {
+    if (productsPageInitialisationStarted) return;
+
+    if (hasInitialCatalogueState()) {
+        startProductsPageInitialisation();
+        return;
+    }
+
+    const supportsLcpObserver =
+        typeof PerformanceObserver === "function" &&
+        Array.isArray(PerformanceObserver.supportedEntryTypes) &&
+        PerformanceObserver.supportedEntryTypes.includes("largest-contentful-paint");
+
+    if (!supportsLcpObserver) {
+        // Older browsers without LCP entries retain a conservative delay.
+        productsPageLcpFallbackTimer = window.setTimeout(
+            scheduleProductsPageInitialisationWhenIdle,
+            3500
+        );
+        return;
+    }
+
+    try {
+        productsPageLcpObserver = new PerformanceObserver(list => {
+            const heroPainted = list.getEntries().some(entry =>
+                entry.element?.matches?.(".products-hero-media")
+            );
+            if (!heroPainted) return;
+
+            productsPageLcpObserver?.disconnect();
+            productsPageLcpObserver = null;
+            if (productsPageLcpFallbackTimer !== null) {
+                window.clearTimeout(productsPageLcpFallbackTimer);
+                productsPageLcpFallbackTimer = null;
+            }
+            scheduleProductsPageInitialisationWhenIdle();
+        });
+        productsPageLcpObserver.observe({
+            type: "largest-contentful-paint",
+            buffered: true
+        });
+
+        // Do not leave filters/search permanently uninitialised if a browser
+        // suppresses LCP entries (for example, when the document is backgrounded).
+        productsPageLcpFallbackTimer = window.setTimeout(() => {
+            productsPageLcpObserver?.disconnect();
+            productsPageLcpObserver = null;
+            productsPageLcpFallbackTimer = null;
+            scheduleProductsPageInitialisationWhenIdle();
+        }, 10000);
+    } catch (error) {
+        productsPageLcpObserver?.disconnect();
+        productsPageLcpObserver = null;
+        productsPageLcpFallbackTimer = window.setTimeout(
+            scheduleProductsPageInitialisationWhenIdle,
+            3500
+        );
     }
 }
 
