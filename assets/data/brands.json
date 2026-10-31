@@ -143,7 +143,6 @@
       "center-bolt",
       "clutch-booster",
       "clutch-master-cylinder",
-      "clutch-repair-kit",
       "clutch-slave-cylinder",
       "hub-bolt",
       "lock-nut",
@@ -669,10 +668,10 @@
       "clutch-lever",
       "clutch-master-cylinder",
       "clutch-plate",
-      "clutch-repair-kit",
       "clutch-slave-cylinder",
       "cross-joint",
       "def-fluid",
+      "differential-kit",
       "engine-bushes-synchronizers",
       "engine-mount",
       "engine-oil",
@@ -1725,14 +1724,14 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 2 active MSL products across Clutch Parts. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516 and common replacement areas including Clutch Spring.  Current catalogue examples include Withdrawal Plate Push Type, Withdrawal Plate GB 75 (6mm). Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 2 active MSL products across Clutch Parts. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516 and common replacement areas including Collector Ring.  Current catalogue examples include Withdrawal Plate Push Type, Withdrawal Plate GB 75 (6mm). Use the part number, application and vehicle details when checking fitment.",
     "short_description": "MSL products at Souviks cover Clutch Parts and applications across Tata LPT, Ashok Leyland 2516.",
     "product_count": 2,
     "categories": [
       "clutch-parts"
     ],
     "subcategories": [
-      "clutch-spring"
+      "collector-ring"
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -1750,7 +1749,7 @@
     "active": true,
     "seo": {
       "title": "MSL Parts | Souviks",
-      "description": "Souviks currently lists 2 active MSL products across Clutch Parts. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516 and common replacement areas including Clutch Spring.  Current catalogue examples include Withdrawal Plate Push Type, Withdrawal Plate GB 75 (6mm). Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 2 active MSL products across Clutch Parts. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516 and common replacement areas including Collector Ring.  Current catalogue examples include Withdrawal Plate Push Type, Withdrawal Plate GB 75 (6mm). Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "MSL",
         "commercial vehicle spare parts",
@@ -3215,16 +3214,15 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 2 active CI products across Clutch Parts, Rubber Parts. The listed range is mapped to applications such as Universal and common replacement areas including Clutch Lever, DEF Tank Cap.  Current catalogue examples include Gear Lever Knob, Urea Cap BS6 - DEF Tank Cap. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "CI products at Souviks cover Clutch Parts, Rubber Parts and applications across Universal.",
+    "description": "Souviks currently lists 2 active CI products across Rubber Parts. The listed range is mapped to applications such as Universal and common replacement areas including Gear Lever Knob, DEF Tank Cap.  Current catalogue examples include Gear Lever Knob, Urea Cap BS6 - DEF Tank Cap. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "CI products at Souviks cover Rubber Parts and applications across Universal.",
     "product_count": 2,
     "categories": [
-      "clutch-parts",
       "rubber-parts"
     ],
     "subcategories": [
-      "clutch-lever",
-      "def-tank-cap"
+      "def-tank-cap",
+      "gear-lever-knob"
     ],
     "vehicles": [
       "Universal"
@@ -3241,7 +3239,7 @@
     "active": true,
     "seo": {
       "title": "CI Parts | Souviks",
-      "description": "Souviks currently lists 2 active CI products across Clutch Parts, Rubber Parts. The listed range is mapped to applications such as Universal and common replacement areas including Clutch Lever, DEF Tank Cap.  Current catalogue examples include Gear Lever Knob, Urea Cap BS6 - DEF Tank Cap. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 2 active CI products across Rubber Parts. The listed range is mapped to applications such as Universal and common replacement areas including Gear Lever Knob, DEF Tank Cap.  Current catalogue examples include Gear Lever Knob, Urea Cap BS6 - DEF Tank Cap. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "CI",
         "commercial vehicle spare parts",
@@ -3644,11 +3642,13 @@
     "subcategories": [
       "ball-bearings",
       "center-bearing",
+      "clutch-plate",
       "clutch-release-bearing",
       "collector-ring",
       "grease",
       "king-pin-kit",
       "kingpin-bearings",
+      "pressure-plate",
       "suspension-bush",
       "taper-roller-bearing"
     ],

@@ -19798,7 +19798,7 @@
       "TX-380-DPA-1",
       "Texspin",
       "Clutch Parts",
-      "Clutch Release Bearing",
+      "Clutch Plate",
       "The Texspin TX-380-DPA-1 Clutch plate for Tata GB-75 gearbox provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Signa.",
       "Tata Signa"
     ],
@@ -19849,7 +19849,7 @@
       "TX-380-DPA-4",
       "Texspin",
       "Clutch Parts",
-      "Clutch Release Bearing",
+      "Clutch Plate",
       "The Texspin TX-380-DPA-4 Clutch plate for Tata GB-75 gearbox provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Signa.",
       "Tata Signa"
     ],
@@ -22079,7 +22079,7 @@
       "TX-380-PPA-G",
       "Texspin",
       "Clutch Parts",
-      "Clutch Release Bearing",
+      "Pressure Plate",
       "The Texspin TX-380-PPA-G Cover assembly for Tata GB-75 gearbox clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. Vehicle applications include Tata Signa.",
       "Tata Signa"
     ],
@@ -24457,8 +24457,8 @@
       "Diff. Case Kit (Major)",
       "285035300109",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Repair Kit",
+      "Suspension & Steering",
+      "Differential Kit",
       "The Tata Genuine Parts 285035300109 Diff. Case Kit (Major) serves the differential or final-drive assembly, which distributes torque between the driven wheels while allowing them to rotate at different speeds. Vehicle applications include Tata 407, Tata 709 and Tata 1109.",
       "Tata 407",
       "Tata 709",
@@ -24490,8 +24490,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "suspension-steering",
+      "name": "Suspension & Steering"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -30599,8 +30599,8 @@
     "keywords": [
       "Gear Lever Knob",
       "CI",
-      "Clutch Parts",
-      "Clutch Lever",
+      "Rubber Parts",
+      "Gear Lever Knob",
       "The CI Gear Lever Knob provides the driver-operated interface for selecting transmission gears or supports movement at the gear-lever joint.",
       "Universal"
     ],
@@ -30623,8 +30623,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "rubber-parts",
+      "name": "Rubber Parts"
     },
     "brand": {
       "id": "ci",
@@ -34338,8 +34338,8 @@
       "Kit Lined Shoe",
       "29937393",
       "TVS Girling",
-      "Clutch Parts",
-      "Clutch Repair Kit",
+      "Brakes",
+      "Brake Lining",
       "The TVS Girling 29937393 Kit Lined Shoe supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Tata Ace'].",
       "Tata Ace"
     ],
@@ -34362,8 +34362,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "brakes",
+      "name": "Brakes"
     },
     "brand": {
       "id": "tvs-girling",
@@ -47584,8 +47584,8 @@
       "Synchro Kit (1/2 Speed) W",
       "285126200115",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Repair Kit",
+      "Engine Components",
+      "Engine Bushes & Synchronizers",
       "The Tata Genuine Parts 285126200115 Synchro Kit (1/2 Speed) W supports smooth gear engagement by bringing rotating transmission components closer to matching speed before the gear teeth engage. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
       "Tata 1109",
       "Tata 1210",
@@ -47612,8 +47612,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "engine-components",
+      "name": "Engine Components"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -47640,8 +47640,8 @@
       "Synchro Kit (3/4 Speed) W",
       "285126200116",
       "Tata Genuine Parts",
-      "Clutch Parts",
-      "Clutch Repair Kit",
+      "Engine Components",
+      "Engine Bushes & Synchronizers",
       "The Tata Genuine Parts 285126200116 Synchro Kit (3/4 Speed) W supports smooth gear engagement by bringing rotating transmission components closer to matching speed before the gear teeth engage. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
       "Tata 1109",
       "Tata 1210",
@@ -47668,8 +47668,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "clutch-parts",
-      "name": "Clutch Parts"
+      "id": "engine-components",
+      "name": "Engine Components"
     },
     "brand": {
       "id": "tata-genuine-parts",
@@ -50320,8 +50320,8 @@
       "Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering)",
       "TX-55TM",
       "Texspin",
-      "Bearings",
-      "Taper Roller Bearing",
+      "Clutch Parts",
+      "Clutch Release Bearing",
       "The Texspin TX-55TM Tata 909/1109/1112/1210/1312/1510/1512/1612/1613 (self-centering) uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
       "Tata 1109",
       "Tata 1210",
@@ -50351,8 +50351,8 @@
     "image": "1.webp",
     "icon": "",
     "category": {
-      "id": "bearings",
-      "name": "Bearings"
+      "id": "clutch-parts",
+      "name": "Clutch Parts"
     },
     "brand": {
       "id": "texspin",
@@ -54554,7 +54554,7 @@
       "CC 016008R",
       "MSL",
       "Clutch Parts",
-      "Clutch Spring",
+      "Collector Ring",
       "The MSL CC 016008R Withdrawal Plate GB 75 (6mm) transfers force from the release mechanism to the clutch cover or pressure-plate release assembly. Vehicle applications include Tata LPT.",
       "Tata LPT"
     ],
@@ -54605,7 +54605,7 @@
       "CC 016010W",
       "MSL",
       "Clutch Parts",
-      "Clutch Spring",
+      "Collector Ring",
       "The MSL CC 016010W Withdrawal Plate Push Type transfers force from the release mechanism to the clutch cover or pressure-plate release assembly. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
       "Tata LPT",
       "Ashok Leyland 2516"
