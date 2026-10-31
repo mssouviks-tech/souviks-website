@@ -11,10 +11,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "assets" / "data"
 FAMILY_RE = re.compile(
-    r"(?:lever pin|spring pin|bell crank pin|shackle pin|front pin|king\\s*pin\\s*shaft)",
+    r"(?:lever pin|spring pin|bell crank pin|shackle pin|front pin|king\s*pin\s*shaft)",
     re.I,
 )
-DIMENSION_RE = re.compile(r"(\\d{2})\\s*(?:x|×)\\s*(\\d{2,3})", re.I)
+DIMENSION_RE = re.compile(r"(\d{2})\s*(?:x|×)\s*(\d{2,3})", re.I)
 LANGUAGES = ("en", "hi", "bn")
 DENSITY_G_PER_MM3 = 0.00785
 
@@ -64,7 +64,7 @@ target_rows = [
 
 def product_jsonld(html: str):
     scripts = re.findall(
-        r"""<script\\b(?=[^>]*\\btype=["']application/ld\\+json["'])[^>]*>(.*?)</script\\s*>""",
+        r"""<script\b(?=[^>]*\btype=["']application/ld\+json["'])[^>]*>(.*?)</script\s*>""",
         html,
         flags=re.I | re.S,
     )
@@ -144,7 +144,7 @@ for product in target_rows:
         if not required.issubset(property_names):
             raise SystemExit(f"{pid}: missing structured dimensions/status on {language} page")
         data_match = re.search(
-            r"""window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});""",
+            r"""window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});""",
             html,
             re.S,
         )
@@ -187,7 +187,7 @@ for pid, expected_specs in PARTIAL_DIMENSION_EXPECTATIONS.items():
             raise SystemExit(f"{pid}: missing {language} static page")
         html = page.read_text(encoding="utf-8", errors="ignore")
         data_match = re.search(
-            r"""window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});""",
+            r"""window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});""",
             html,
             re.S,
         )
