@@ -155,10 +155,12 @@ EXPECTED = {
         "part_number": "539/532X",
     },
     "SVKS000443": {
-        "mrp": 1950,
-        "selling_price": 1889,
-        "discount_percent": 3,
-        "part_number": "539/532X",
+        "mrp": 291,
+        "selling_price": 280,
+        "discount_percent": 4,
+        "part_number": "AU-AVX13-925",
+        "name": "AU-AVX13-925 Fan Belt",
+        "slug": "au-avx13-925-fan-belt",
     },
     "SVKS000436": {
         "mrp": 1987,
