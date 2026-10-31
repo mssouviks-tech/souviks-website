@@ -296,6 +296,17 @@ function applyPendingProductsPageControls() {
         } else if (id === "pageSize") {
             const select = document.getElementById("pageSize");
             if (select) select.value = value;
+            const size = Number(value);
+            if (Number.isFinite(size) && size >= 1 && size <= 100) {
+                try {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set("pageSize", String(size));
+                    url.searchParams.delete("page");
+                    window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+                } catch (error) {
+                    // Ignore URL API failures.
+                }
+            }
         }
     }
     pendingProductsPageControlValues.clear();
