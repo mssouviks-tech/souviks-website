@@ -191,25 +191,63 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
         )
         if not mobile_source:
             fail(f"{path.relative_to(ROOT)}: home hero is missing its versioned mobile <source>", errors)
-        for stem, media in (
-            ("index-hero", r"\(min-width:\s*769px\)"),
-            ("index-hero-mobile", r"\(max-width:\s*768px\)"),
-        ):
-            preload = re.search(
-                r'<link\b(?=[^>]*\brel=["\']preload["\'])'
-                r'(?=[^>]*\bas=["\']image["\'])'
-                r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
-                + re.escape(stem)
-                + r'\.webp\?v=[0-9a-f]{12}["\'])'
-                r'(?=[^>]*\bmedia=["\']' + media + r'["\'])[^>]*>',
-                raw,
+        mobile_preload = re.search(
+            r'<link\b(?=[^>]*\brel=["\']preload["\'])'
+            r'(?=[^>]*\bas=["\']image["\'])'
+            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/index-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])[^>]*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if not mobile_preload:
+            fail(
+                f"{path.relative_to(ROOT)}: missing index-hero-mobile preload with max-width media condition",
+                errors,
+            )
+
+        # The responsive <picture> selects the desktop image through its
+        # high-priority <img src>. Do not separately preload the desktop image:
+        # mobile Chromium can still fetch a media-conditioned desktop preload.
+        desktop_preload = re.search(
+            r'<link\b(?=[^>]*\brel=["\']preload["\'])'
+            r'(?=[^>]*\bas=["\']image["\'])'
+            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/index-hero\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if desktop_preload:
+            fail(
+                f"{path.relative_to(ROOT)}: remove desktop hero preload to prevent duplicate mobile hero downloads",
+                errors,
+            )
+
+        picture = re.search(
+            r'<picture\b(?=[^>]*\bclass=["\'][^"\']*\bhome-hero-picture\b[^"\']*["\'])'
+            r'[^>]*>([\s\S]*?)</picture\s*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if not picture:
+            fail(f"{path.relative_to(ROOT)}: home hero must use a responsive <picture>", errors)
+        else:
+            picture_markup = picture.group(1)
+            mobile_source = re.search(
+                r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+                r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
+                picture_markup,
                 flags=re.I | re.S,
             )
-            if not preload:
-                fail(
-                    f"{path.relative_to(ROOT)}: missing {stem} preload with matching media condition",
-                    errors,
-                )
+            desktop_image = re.search(
+                r'<img\b(?=[^>]*\bclass=["\'][^"\']*\bhome-hero-image\b[^"\']*["\'])'
+                r'(?=[^>]*\bsrc=["\'][^"\']*/assets/images/hero/index-hero\.webp\?v=[0-9a-f]{12}["\'])'
+                r'(?=[^>]*\bfetchpriority=["\']high["\'])[^>]*>',
+                picture_markup,
+                flags=re.I | re.S,
+            )
+            if not mobile_source:
+                fail(f"{path.relative_to(ROOT)}: home hero picture is missing the versioned mobile source", errors)
+            if not desktop_image:
+                fail(f"{path.relative_to(ROOT)}: home hero picture is missing the high-priority desktop image", errors)
 
     product_pages = [ROOT / language / "products.html" for language in ("en", "hi", "bn")]
     for path in product_pages:
