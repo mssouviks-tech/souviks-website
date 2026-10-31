@@ -24,8 +24,7 @@ from product_seo import (
     is_weak_product_description,
     schema_availability_url,
 )
-from product_title import shorten_product_name_for_title
-from product_title import shorten_product_name_for_title
+from product_title import build_product_page_title, shorten_product_name_for_title, unique_vehicle_title_variants
 
 BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
@@ -1003,6 +1002,7 @@ def reconcile_catalogue_projections():
             changed.add(str(SEARCH_PATH))
     
     by_id = {text(p.get("id")): p for p in active}
+    title_vehicle_by_id = unique_vehicle_title_variants(active)
     expected_slugs = {text(p.get("slug")) for p in active if text(p.get("slug"))}
 
     def materialize_missing_product_pages(lang, product_dir):
@@ -1121,7 +1121,9 @@ def reconcile_catalogue_projections():
             seeded.update(product_from_catalogue(product))
             seeded["seo"] = dict(template_data.get("seo") or {})
             seeded["seo"]["canonical"] = f"{BASE}/{lang}/products/{slug}"
-            seeded["seo"]["title"] = f"{brand} - {part} - {name} | Souviks" if brand and part else f"{brand or name} | Souviks"
+            seeded["seo"]["title"] = build_product_page_title(
+                brand, part, name, title_vehicle_by_id.get(product_id)
+            )
             seeded["seo"]["description"] = build_product_meta_description(product, language=lang)
             seeded["seo"]["keywords"] = [value for value in (name, part, "commercial vehicle spare parts", "truck spare parts") if value]
             seeded["schema"] = {}
@@ -1365,36 +1367,12 @@ def reconcile_catalogue_projections():
             brand = text(product.get("brand_name") or product.get("brand"))
             name = text(product.get("product_name") or product.get("name"))
             part = part_number(product)
-            identity = part if part and part.casefold() != name.casefold() else ""
-
-            # SEO titles must stay within the repository's 70-character
-            # invariant. Keep the full brand and part identity first; shorten
-            # only the trailing product-name segment, at a word boundary.
-            title_suffix = " | Souviks"
-            title_limit = 70
-            if brand and identity:
-                title_lead = f"{brand} - {identity}"
-            elif brand:
-                title_lead = brand
-            elif identity:
-                title_lead = identity
-            else:
-                title_lead = ""
-
-            if title_lead:
-                joiner = " - " if name else ""
-                available_name = title_limit - len(title_suffix) - len(title_lead) - len(joiner)
-                if available_name > 0:
-                    name_part = shorten_product_name_for_title(name, available_name)
-                    title_prefix = f"{title_lead}{joiner}{name_part}".rstrip(" -")
-                else:
-                    # Defensive fallback for an unusually long identity.
-                    title_prefix = title_lead[: title_limit - len(title_suffix)].rstrip(" -")
-                title = title_prefix + title_suffix
-            else:
-                available_name = title_limit - len(title_suffix)
-                name_part = shorten_product_name_for_title(name, available_name)
-                title = name_part + title_suffix
+            title = build_product_page_title(
+                brand,
+                part,
+                name,
+                title_vehicle_by_id.get(text(product.get("id"))),
+            )
     
             # Keep full factual copy in the page and Product JSON-LD, while
             # using a separate, concise description for search-result snippets.
