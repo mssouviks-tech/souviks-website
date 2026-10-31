@@ -373,7 +373,43 @@ def build_product_meta_description(
             max(1, suffix_budget),
         ).rstrip(" .")
         candidate = fallback + " " + suffix
+    # Last-resort safety net: a long translated description must never leave a
+    # dangling "(Part No." fragment or omit the catalogue's actual identifier.
+    if part and part.casefold() not in candidate.casefold():
+        safe_identity = _part_number_safe_meta_identity(
+            identity_lead or identity or detail,
+            part,
+            suffix,
+            limit,
+        )
+        if safe_identity:
+            return safe_identity
     return _truncate_word_boundary(candidate, limit)
+
+
+def _part_number_safe_meta_identity(
+    identity: str,
+    part_number: str,
+    suffix: str,
+    limit: int,
+) -> str | None:
+    """Build a final snippet that never truncates the recorded part number."""
+    part = clean_text(part_number)
+    if not part:
+        return None
+    identity_text = clean_text(identity) or "Commercial vehicle spare parts"
+    part_label = f"(Part No. {part})"
+    identity_budget = limit - len(part_label) - len(suffix) - 2
+    if identity_budget < 1:
+        return None
+    shortened_identity = shorten_product_name_for_title(identity_text, identity_budget)
+    candidate = f"{shortened_identity} {part_label} {suffix}".strip()
+    if (
+        MIN_META_DESCRIPTION <= len(candidate) <= limit
+        and part.casefold() in candidate.casefold()
+    ):
+        return candidate
+    return None
 
 
 def schema_availability_url(product: dict[str, Any]) -> str | None:
