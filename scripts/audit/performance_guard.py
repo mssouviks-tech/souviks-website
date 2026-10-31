@@ -314,6 +314,31 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
                 errors,
             )
 
+def check_listing_hydration_waits_for_lcp(errors: list[str]) -> None:
+    """Prevent full catalogue sorting/facet work from racing the product hero LCP."""
+    path = ROOT / "assets" / "js" / "products" / "products-page.js"
+    if not path.is_file():
+        fail("missing product listing controller for LCP hydration contract", errors)
+        return
+
+    source = path.read_text(encoding="utf-8", errors="ignore")
+    required = {
+        "LCP observer": "new PerformanceObserver",
+        "LCP entry type": '"largest-contentful-paint"',
+        "hero target": '".products-hero-media"',
+        "post-LCP idle scheduling": "scheduleProductsPageInitialisationWhenIdle",
+        "single-start guard": "productsPageInitialisationStarted",
+        "immediate search interaction": 'event.target?.id !== "searchInput"',
+        "immediate filter interaction": "PRODUCTS_PAGE_CONTROL_SELECTOR",
+    }
+    for label, token in required.items():
+        if token not in source:
+            fail(
+                f"{path.relative_to(ROOT)}: missing {label} in the product-listing hydration contract",
+                errors,
+            )
+
+
 def main() -> int:
     errors: list[str] = []
     check_asset_sizes(errors)
@@ -321,6 +346,7 @@ def main() -> int:
     check_cache_versions(errors)
     check_script_loading(errors)
     check_responsive_mobile_hero_assets(errors)
+    check_listing_hydration_waits_for_lcp(errors)
 
     if errors:
         for error in errors:
@@ -331,7 +357,7 @@ def main() -> int:
     print(
         f"Performance guard passed: {len(BASELINES)} asset budgets, "
         "25 MiB public-asset limits, JS/CSS cache hashes, script-loading contracts, "
-        "and responsive mobile hero assets/preloads checked."
+        "responsive mobile hero assets/preloads, and LCP-gated listing hydration checked."
     )
     return 0
 
