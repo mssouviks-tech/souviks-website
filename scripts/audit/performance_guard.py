@@ -368,6 +368,9 @@ def check_listing_hydration_waits_for_lcp(errors: list[str]) -> None:
         "single-start guard": "productsPageInitialisationStarted",
         "immediate search interaction": 'event.target?.id !== "searchInput"',
         "immediate filter interaction": "PRODUCTS_PAGE_CONTROL_SELECTOR",
+        "early select preservation": "pendingProductsPageControlValues.set",
+        "pending interaction replay": "applyPendingProductsPageControls",
+        "early reset preservation": "pendingProductsPageReset",
     }
     for label, token in required.items():
         if token not in source:
