@@ -143,6 +143,7 @@
       "center-bolt",
       "clutch-booster",
       "clutch-master-cylinder",
+      "clutch-repair-kit",
       "clutch-slave-cylinder",
       "hub-bolt",
       "lock-nut",
@@ -582,9 +583,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 5 active Spicer products across Brakes, Suspension & Steering. The listed range is mapped to applications such as Tata Ace, Tata LPT, Ashok Leyland 2516 and common replacement areas including Brake Drum, Differential Kit, Crown Wheel & Pinion, Cross Joint.  Current catalogue examples include ACE Brake Drum, ACE Banjo Diff. Major Kit, ACE Banjo 39/8. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 4 active Spicer products across Brakes, Suspension & Steering. The listed range is mapped to applications such as Tata Ace, Tata LPT, Ashok Leyland 2516 and common replacement areas including Brake Drum, Differential Kit, Crown Wheel & Pinion, Cross Joint.  Current catalogue examples include ACE Brake Drum, ACE Banjo Diff. Major Kit, ACE Banjo 39/8. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Spicer products at Souviks cover Brakes, Suspension & Steering and applications across Tata Ace, Tata LPT, Ashok Leyland 2516.",
-    "product_count": 5,
+    "product_count": 4,
     "categories": [
       "brakes",
       "suspension-steering"
@@ -611,14 +612,13 @@
       "SVKS000060",
       "SVKS000061",
       "SVKS000062",
-      "SVKS000274",
-      "SVKS000804"
+      "SVKS000274"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Spicer Parts | Souviks",
-      "description": "Souviks currently lists 5 active Spicer products across Brakes, Suspension & Steering. The listed range is mapped to applications such as Tata Ace, Tata LPT, Ashok Leyland 2516 and common replacement areas including Brake Drum, Differential Kit, Crown Wheel & Pinion, Cross Joint.  Current catalogue examples include ACE Brake Drum, ACE Banjo Diff. Major Kit, ACE Banjo 39/8. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 4 active Spicer products across Brakes, Suspension & Steering. The listed range is mapped to applications such as Tata Ace, Tata LPT, Ashok Leyland 2516 and common replacement areas including Brake Drum, Differential Kit, Crown Wheel & Pinion, Cross Joint.  Current catalogue examples include ACE Brake Drum, ACE Banjo Diff. Major Kit, ACE Banjo 39/8. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Spicer",
         "commercial vehicle spare parts",
@@ -643,11 +643,10 @@
     "banner": "",
     "website": "https://www.customercare-cv.tatamotors.com/tata-genuine-parts/tgp-overview.aspx",
     "country": "India",
-    "description": "Souviks currently lists 101 active Tata Genuine Parts products across Air System, Bearings, Brakes, Clutch Parts, Cooling Pump and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Tata Genuine Parts products at Souviks cover Air System, Bearings, Brakes, Clutch Parts and more and applications across Tata Ace, Tata Magic, Tata LPT and more.",
+    "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Tata Genuine Parts products at Souviks cover Bearings, Brakes, Clutch Parts, Cooling Pump and more and applications across Tata Ace, Tata Magic, Tata LPT and more.",
     "product_count": 101,
     "categories": [
-      "air-system",
       "bearings",
       "brakes",
       "clutch-parts",
@@ -662,7 +661,6 @@
     ],
     "subcategories": [
       "accelerator-cable",
-      "air-compressor",
       "air-filter",
       "brake-disc",
       "brake-lining",
@@ -671,6 +669,7 @@
       "clutch-lever",
       "clutch-master-cylinder",
       "clutch-plate",
+      "clutch-repair-kit",
       "clutch-slave-cylinder",
       "cross-joint",
       "def-fluid",
@@ -831,7 +830,7 @@
     "active": true,
     "seo": {
       "title": "Tata Genuine Parts Parts | Souviks",
-      "description": "Souviks currently lists 101 active Tata Genuine Parts products across Air System, Bearings, Brakes, Clutch Parts, Cooling Pump and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Tata Genuine Parts",
         "commercial vehicle spare parts",
@@ -1070,10 +1069,7 @@
       "Tata LPT",
       "Tata Prima",
       "Tata Signa",
-      "Universal",
-      "ashok-leyland-2516",
-      "eicher-pro-series",
-      "tata-lpt"
+      "Universal"
     ],
     "featured_products": [
       "SVKS000195",
@@ -1317,8 +1313,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 15 active Alok products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata 2416, Tata Ace, Ashok Leyland U-Truck, ashok-leyland-2516 and more and common replacement areas including Tie Rod End, Drag Link.  Current catalogue examples include Drag Link End T. Intra, Tie Rod End T. ACE Mega L=R, Tie Rod End RH/LH T. Ace H/T. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Alok products at Souviks cover Suspension & Steering and applications across Tata LPT, Tata 2416, Tata Ace and more.",
+    "description": "Souviks currently lists 15 active Alok products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata 2416, Ashok Leyland 2516, Tata Ace, Ashok Leyland U-Truck and more and common replacement areas including Tie Rod End, Drag Link.  Current catalogue examples include Drag Link End T. Intra, Tie Rod End T. ACE Mega L=R, Tie Rod End RH/LH T. Ace H/T. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Alok products at Souviks cover Suspension & Steering and applications across Tata LPT, Tata 2416, Ashok Leyland 2516 and more.",
     "product_count": 15,
     "categories": [
       "suspension-steering"
@@ -1342,9 +1338,7 @@
       "Tata Intra",
       "Tata LPT",
       "Tata Signa",
-      "Tractors",
-      "ashok-leyland-2516",
-      "tata-lpt"
+      "Tractors"
     ],
     "featured_products": [
       "SVKS000224",
@@ -1372,7 +1366,7 @@
     "active": true,
     "seo": {
       "title": "Alok Parts | Souviks",
-      "description": "Souviks currently lists 15 active Alok products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata 2416, Tata Ace, Ashok Leyland U-Truck, ashok-leyland-2516 and more and common replacement areas including Tie Rod End, Drag Link.  Current catalogue examples include Drag Link End T. Intra, Tie Rod End T. ACE Mega L=R, Tie Rod End RH/LH T. Ace H/T. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 15 active Alok products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata 2416, Ashok Leyland 2516, Tata Ace, Ashok Leyland U-Truck and more and common replacement areas including Tie Rod End, Drag Link.  Current catalogue examples include Drag Link End T. Intra, Tie Rod End T. ACE Mega L=R, Tie Rod End RH/LH T. Ace H/T. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Alok",
         "commercial vehicle spare parts",
@@ -1397,7 +1391,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 5 active Valvoline products across Lubricants. The listed range is mapped to applications such as Universal and common replacement areas including Engine Oil.  Current catalogue examples include All Fleet TC Genuine 15W40 4/3 LTR, Premium Plus 15W40 CI4 Plus 3Ltr, Premium Plus 15W40 CI4 Plus - 15ltr. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 5 active Valvoline products across Lubricants. The listed range is mapped to applications such as Universal and common replacement areas including Engine Oil.  Current catalogue examples include All Fleet TC Genuine 15W40 4/3 LTR, Premium Plus 15W40   CI4 Plus 3Ltr, Premium Plus 15W40   CI4 Plus - 15ltr. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Valvoline products at Souviks cover Lubricants and applications across Universal.",
     "product_count": 5,
     "categories": [
@@ -1427,7 +1421,7 @@
     "active": true,
     "seo": {
       "title": "Valvoline Parts | Souviks",
-      "description": "Souviks currently lists 5 active Valvoline products across Lubricants. The listed range is mapped to applications such as Universal and common replacement areas including Engine Oil.  Current catalogue examples include All Fleet TC Genuine 15W40 4/3 LTR, Premium Plus 15W40 CI4 Plus 3Ltr, Premium Plus 15W40 CI4 Plus - 15ltr. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 5 active Valvoline products across Lubricants. The listed range is mapped to applications such as Universal and common replacement areas including Engine Oil.  Current catalogue examples include All Fleet TC Genuine 15W40 4/3 LTR, Premium Plus 15W40   CI4 Plus 3Ltr, Premium Plus 15W40   CI4 Plus - 15ltr. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Valvoline",
         "commercial vehicle spare parts",
@@ -1731,14 +1725,14 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 2 active MSL products across Clutch Parts. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516 and common replacement areas including Collector Ring.  Current catalogue examples include Withdrawal Plate Push Type, Withdrawal Plate GB 75 (6mm). Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 2 active MSL products across Clutch Parts. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516 and common replacement areas including Clutch Spring.  Current catalogue examples include Withdrawal Plate Push Type, Withdrawal Plate GB 75 (6mm). Use the part number, application and vehicle details when checking fitment.",
     "short_description": "MSL products at Souviks cover Clutch Parts and applications across Tata LPT, Ashok Leyland 2516.",
     "product_count": 2,
     "categories": [
       "clutch-parts"
     ],
     "subcategories": [
-      "collector-ring"
+      "clutch-spring"
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -1756,7 +1750,7 @@
     "active": true,
     "seo": {
       "title": "MSL Parts | Souviks",
-      "description": "Souviks currently lists 2 active MSL products across Clutch Parts. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516 and common replacement areas including Collector Ring.  Current catalogue examples include Withdrawal Plate Push Type, Withdrawal Plate GB 75 (6mm). Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 2 active MSL products across Clutch Parts. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516 and common replacement areas including Clutch Spring.  Current catalogue examples include Withdrawal Plate Push Type, Withdrawal Plate GB 75 (6mm). Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "MSL",
         "commercial vehicle spare parts",
@@ -1877,8 +1871,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 43 active Nirmal products across Fasteners & Hardware, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, tata-signa, tata-lpt, tata-2416 and more and common replacement areas including U Bolt, Spring Pin, Cotter Bolt, Cotter Pin.  Current catalogue examples include Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE, Lever Pin 42 x 170, Spring Pin 32 x 151. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Nirmal products at Souviks cover Fasteners & Hardware, Suspension & Steering and applications across Tata LPT, Ashok Leyland 2516, tata-signa and more.",
+    "description": "Souviks currently lists 43 active Nirmal products across Fasteners & Hardware, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, Tata 2416, Tata 1512 and more and common replacement areas including U Bolt, Spring Pin, Cotter Bolt, Cotter Pin.  Current catalogue examples include Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE, Lever Pin 42 x 170, Spring Pin 32 x 151. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Nirmal products at Souviks cover Fasteners & Hardware, Suspension & Steering and applications across Tata LPT, Tata Signa, Ashok Leyland 2516 and more.",
     "product_count": 43,
     "categories": [
       "fasteners-hardware",
@@ -1892,22 +1886,19 @@
     ],
     "vehicles": [
       "Ashok Leyland 2516",
+      "Ashok Leyland Captain",
       "Ashok Leyland Stallion",
+      "Ashok Leyland U-Truck",
+      "Mahindra Blazo",
+      "Tata 1210",
+      "Tata 1312",
+      "Tata 1512",
       "Tata 2416",
       "Tata LPT",
+      "Tata Prima",
       "Tata Signa",
-      "Universal",
-      "ashok-leyland-captain",
-      "ashok-leyland-u-truck",
-      "mahindra-blazo",
-      "tata-1210",
-      "tata-1312",
-      "tata-1512",
-      "tata-2416",
-      "tata-lpt",
-      "tata-prima",
-      "tata-signa",
-      "tata-ultra"
+      "Tata Ultra",
+      "Universal"
     ],
     "featured_products": [
       "SVKS000251",
@@ -1968,7 +1959,7 @@
     "active": true,
     "seo": {
       "title": "Nirmal Parts | Souviks",
-      "description": "Souviks currently lists 43 active Nirmal products across Fasteners & Hardware, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, tata-signa, tata-lpt, tata-2416 and more and common replacement areas including U Bolt, Spring Pin, Cotter Bolt, Cotter Pin.  Current catalogue examples include Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE, Lever Pin 42 x 170, Spring Pin 32 x 151. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 43 active Nirmal products across Fasteners & Hardware, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, Tata 2416, Tata 1512 and more and common replacement areas including U Bolt, Spring Pin, Cotter Bolt, Cotter Pin.  Current catalogue examples include Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE, Lever Pin 42 x 170, Spring Pin 32 x 151. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Nirmal",
         "commercial vehicle spare parts",
@@ -2117,7 +2108,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 30 active Leyparts products across Brakes, Clutch Parts, Electricals, Engine Components, Filters and more. The listed range is mapped to applications such as Ashok Leyland 2516, Ashok Leyland Ecomet, Ashok Leyland Captain, ashok-leyland-2516, ashok-leyland-ecomet and more and common replacement areas including Fuel Filter, Spring Pin, Relay, Brake Slack Adjuster, Filter Housing and more.  Current catalogue examples include Pivot Pin Relay Drop Arm, Manual Slack Adjuster Front LH, Manual Slack Adjuster Front RH. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 30 active Leyparts products across Brakes, Clutch Parts, Electricals, Engine Components, Filters and more. The listed range is mapped to applications such as Ashok Leyland 2516, Ashok Leyland Ecomet, Ashok Leyland Captain, Ashok Leyland U-Truck, Tata LPT and more and common replacement areas including Fuel Filter, Spring Pin, Relay, Brake Slack Adjuster, Filter Housing and more.  Current catalogue examples include Pivot Pin Relay Drop Arm, Manual Slack Adjuster Front LH, Manual Slack Adjuster Front RH. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Leyparts products at Souviks cover Brakes, Clutch Parts, Electricals, Engine Components and more and applications across Ashok Leyland 2516, Ashok Leyland Ecomet, Ashok Leyland Captain and more.",
     "product_count": 30,
     "categories": [
@@ -2156,11 +2147,9 @@
       "Ashok Leyland Captain",
       "Ashok Leyland Ecomet",
       "Ashok Leyland Stallion",
+      "Ashok Leyland U-Truck",
       "Tata LPT",
-      "ashok-leyland-2516",
-      "ashok-leyland-ecomet",
-      "ashok-leyland-u-truck",
-      "universal"
+      "Universal"
     ],
     "featured_products": [
       "SVKS000276",
@@ -2208,7 +2197,7 @@
     "active": true,
     "seo": {
       "title": "Leyparts Parts | Souviks",
-      "description": "Souviks currently lists 30 active Leyparts products across Brakes, Clutch Parts, Electricals, Engine Components, Filters and more. The listed range is mapped to applications such as Ashok Leyland 2516, Ashok Leyland Ecomet, Ashok Leyland Captain, ashok-leyland-2516, ashok-leyland-ecomet and more and common replacement areas including Fuel Filter, Spring Pin, Relay, Brake Slack Adjuster, Filter Housing and more.  Current catalogue examples include Pivot Pin Relay Drop Arm, Manual Slack Adjuster Front LH, Manual Slack Adjuster Front RH. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 30 active Leyparts products across Brakes, Clutch Parts, Electricals, Engine Components, Filters and more. The listed range is mapped to applications such as Ashok Leyland 2516, Ashok Leyland Ecomet, Ashok Leyland Captain, Ashok Leyland U-Truck, Tata LPT and more and common replacement areas including Fuel Filter, Spring Pin, Relay, Brake Slack Adjuster, Filter Housing and more.  Current catalogue examples include Pivot Pin Relay Drop Arm, Manual Slack Adjuster Front LH, Manual Slack Adjuster Front RH. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Leyparts",
         "commercial vehicle spare parts",
@@ -2233,9 +2222,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 2 active Fenner products across Engine Components. The listed range is mapped to applications such as Universal, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up and common replacement areas including Timing Belt.  Current catalogue examples include Micro V Belt, V Belt Mahindra Bolero. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Fenner products at Souviks cover Engine Components and applications across Universal, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up.",
-    "product_count": 2,
+    "description": "Souviks currently lists 16 active Fenner products across Engine Components. The listed range is mapped to applications such as Tata LPT, Universal, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up, Tata 709 and more and common replacement areas including Timing Belt.  Current catalogue examples include Micro V Belt, V Belt Mahindra Bolero, AV13X850 Cogged Belt. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Fenner products at Souviks cover Engine Components and applications across Tata LPT, Universal, Mahindra Bolero Pik-Up and more.",
+    "product_count": 16,
     "categories": [
       "engine-components"
     ],
@@ -2245,6 +2234,9 @@
     "vehicles": [
       "Mahindra Bolero MaXX Pik-Up",
       "Mahindra Bolero Pik-Up",
+      "Tata 709",
+      "Tata LPT",
+      "Tractors",
       "Universal"
     ],
     "featured_products": [
@@ -2253,13 +2245,27 @@
     ],
     "products": [
       "SVKS000285",
-      "SVKS000286"
+      "SVKS000286",
+      "SVKS000617",
+      "SVKS000618",
+      "SVKS001115",
+      "SVKS001116",
+      "SVKS001151",
+      "SVKS001152",
+      "SVKS001153",
+      "SVKS001154",
+      "SVKS001155",
+      "SVKS001156",
+      "SVKS001157",
+      "SVKS001158",
+      "SVKS001159",
+      "SVKS001160"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Fenner Parts | Souviks",
-      "description": "Souviks currently lists 2 active Fenner products across Engine Components. The listed range is mapped to applications such as Universal, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up and common replacement areas including Timing Belt.  Current catalogue examples include Micro V Belt, V Belt Mahindra Bolero. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 16 active Fenner products across Engine Components. The listed range is mapped to applications such as Tata LPT, Universal, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up, Tata 709 and more and common replacement areas including Timing Belt.  Current catalogue examples include Micro V Belt, V Belt Mahindra Bolero, AV13X850 Cogged Belt. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Fenner",
         "commercial vehicle spare parts",
@@ -2470,9 +2476,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 108 active JAI products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata Ace, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up and more and common replacement areas including Leaf Spring, Spring Pin, Suspension Bush.  Current catalogue examples include Tata 2515 LPT (R) M/L, Tata 2515 LPT (R) 2/L, Bell Crank Set 50 mm. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "JAI products at Souviks cover Suspension & Steering and applications across Tata LPT, Ashok Leyland 2516, Tata Ace and more.",
-    "product_count": 108,
+    "description": "Souviks currently lists 100 active JAI products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up, Tata Ace and more and common replacement areas including Leaf Spring, Spring Pin, Suspension Bush.  Current catalogue examples include Tata 2515 LPT (R) M/L, Tata 2515 LPT (R) 2/L, Bell Crank Set 50 mm. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "JAI products at Souviks cover Suspension & Steering and applications across Tata LPT, Ashok Leyland 2516, Mahindra Bolero Pik-Up and more.",
+    "product_count": 100,
     "categories": [
       "suspension-steering"
     ],
@@ -2532,22 +2538,14 @@
       "SVKS000600",
       "SVKS000601",
       "SVKS000602",
-      "SVKS000603",
       "SVKS000604",
-      "SVKS000605",
       "SVKS000606",
       "SVKS000607",
       "SVKS000608",
       "SVKS000609",
       "SVKS000610",
       "SVKS000611",
-      "SVKS000612",
-      "SVKS000613",
-      "SVKS000614",
       "SVKS000615",
-      "SVKS000616",
-      "SVKS000617",
-      "SVKS000618",
       "SVKS000629",
       "SVKS000630",
       "SVKS000631",
@@ -2623,7 +2621,7 @@
     "active": true,
     "seo": {
       "title": "JAI Parts | Souviks",
-      "description": "Souviks currently lists 108 active JAI products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata Ace, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up and more and common replacement areas including Leaf Spring, Spring Pin, Suspension Bush.  Current catalogue examples include Tata 2515 LPT (R) M/L, Tata 2515 LPT (R) 2/L, Bell Crank Set 50 mm. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 100 active JAI products across Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up, Tata Ace and more and common replacement areas including Leaf Spring, Spring Pin, Suspension Bush.  Current catalogue examples include Tata 2515 LPT (R) M/L, Tata 2515 LPT (R) 2/L, Bell Crank Set 50 mm. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "JAI",
         "commercial vehicle spare parts",
@@ -2782,9 +2780,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 42 active KFL products across Bearings, Cooling Pump, Engine Components, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, tata-lpt, Tata 1210 and more and common replacement areas including Tie Rod End, Cross Joint, Drive Flange, Engine Mount, Drag Link and more.  Current catalogue examples include Tie Rod End TATA Intra, Joint Cross Bearing TATA ACE Mega, UJ Cross 41.28 x 125.90. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 39 active KFL products across Bearings, Cooling Pump, Engine Components, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, Tata 1210, Tata 1312 and more and common replacement areas including Tie Rod End, Cross Joint, Drive Flange, Engine Mount, Drag Link and more.  Current catalogue examples include Tie Rod End TATA Intra, Joint Cross Bearing TATA ACE Mega, UJ Cross 41.28 x 125.90. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "KFL products at Souviks cover Bearings, Cooling Pump, Engine Components, Suspension & Steering and applications across Tata LPT, Tata Signa, Ashok Leyland 2516 and more.",
-    "product_count": 42,
+    "product_count": 39,
     "categories": [
       "bearings",
       "cooling-pump",
@@ -2812,6 +2810,7 @@
       "Tata 1109",
       "Tata 1210",
       "Tata 1312",
+      "Tata 1512",
       "Tata 2416",
       "Tata 407",
       "Tata 709",
@@ -2820,14 +2819,8 @@
       "Tata LPT",
       "Tata Prima",
       "Tata Signa",
-      "Universal",
-      "ashok-leyland-2516",
-      "tata-1512",
-      "tata-2416",
-      "tata-709",
-      "tata-lpt",
-      "tata-signa",
-      "tata-ultra"
+      "Tata Ultra",
+      "Universal"
     ],
     "featured_products": [
       "SVKS000341",
@@ -2858,7 +2851,6 @@
       "SVKS000748",
       "SVKS000749",
       "SVKS000750",
-      "SVKS000841",
       "SVKS000914",
       "SVKS000915",
       "SVKS000916",
@@ -2877,8 +2869,6 @@
       "SVKS001112",
       "SVKS001113",
       "SVKS001114",
-      "SVKS001115",
-      "SVKS001116",
       "SVKS001129",
       "SVKS001130",
       "SVKS001131"
@@ -2887,7 +2877,7 @@
     "active": true,
     "seo": {
       "title": "KFL Parts | Souviks",
-      "description": "Souviks currently lists 42 active KFL products across Bearings, Cooling Pump, Engine Components, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, tata-lpt, Tata 1210 and more and common replacement areas including Tie Rod End, Cross Joint, Drive Flange, Engine Mount, Drag Link and more.  Current catalogue examples include Tie Rod End TATA Intra, Joint Cross Bearing TATA ACE Mega, UJ Cross 41.28 x 125.90. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 39 active KFL products across Bearings, Cooling Pump, Engine Components, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, Tata 1210, Tata 1312 and more and common replacement areas including Tie Rod End, Cross Joint, Drive Flange, Engine Mount, Drag Link and more.  Current catalogue examples include Tie Rod End TATA Intra, Joint Cross Bearing TATA ACE Mega, UJ Cross 41.28 x 125.90. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "KFL",
         "commercial vehicle spare parts",
@@ -3225,15 +3215,16 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 2 active CI products across Rubber Parts. The listed range is mapped to applications such as Universal and common replacement areas including Gear Lever Knob, DEF Tank Cap.  Current catalogue examples include Gear Lever Knob, Urea Cap BS6 - DEF Tank Cap. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "CI products at Souviks cover Rubber Parts and applications across Universal.",
+    "description": "Souviks currently lists 2 active CI products across Clutch Parts, Rubber Parts. The listed range is mapped to applications such as Universal and common replacement areas including Clutch Lever, DEF Tank Cap.  Current catalogue examples include Gear Lever Knob, Urea Cap BS6 - DEF Tank Cap. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "CI products at Souviks cover Clutch Parts, Rubber Parts and applications across Universal.",
     "product_count": 2,
     "categories": [
+      "clutch-parts",
       "rubber-parts"
     ],
     "subcategories": [
-      "def-tank-cap",
-      "gear-lever-knob"
+      "clutch-lever",
+      "def-tank-cap"
     ],
     "vehicles": [
       "Universal"
@@ -3250,7 +3241,7 @@
     "active": true,
     "seo": {
       "title": "CI Parts | Souviks",
-      "description": "Souviks currently lists 2 active CI products across Rubber Parts. The listed range is mapped to applications such as Universal and common replacement areas including Gear Lever Knob, DEF Tank Cap.  Current catalogue examples include Gear Lever Knob, Urea Cap BS6 - DEF Tank Cap. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 2 active CI products across Clutch Parts, Rubber Parts. The listed range is mapped to applications such as Universal and common replacement areas including Clutch Lever, DEF Tank Cap.  Current catalogue examples include Gear Lever Knob, Urea Cap BS6 - DEF Tank Cap. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "CI",
         "commercial vehicle spare parts",
@@ -3322,9 +3313,9 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 16 active Pix products across Engine Components. The listed range is mapped to applications such as Ashok Leyland 2516, Tata 1109, Tata 1210, Tata 1312, Tata 1512 and more and common replacement areas including Timing Belt.  Current catalogue examples include 8PK-1250 EPDM V Belt, 8PK-1397 EPDM V Belt, AUAVX13-1325. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Pix products at Souviks cover Engine Components and applications across Ashok Leyland 2516, Tata 1109, Tata 1210 and more.",
-    "product_count": 16,
+    "description": "Souviks currently lists 24 active Pix products across Engine Components. The listed range is mapped to applications such as Ashok Leyland 2516, Tata 1109, Tata 1312, Tata 1210, Tata 1512 and more and common replacement areas including Timing Belt.  Current catalogue examples include 8PK-1250 EPDM V Belt, 8PK-1397 EPDM V Belt, AUAVX13-1325. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Pix products at Souviks cover Engine Components and applications across Ashok Leyland 2516, Tata 1109, Tata 1312 and more.",
+    "product_count": 24,
     "categories": [
       "engine-components"
     ],
@@ -3333,11 +3324,13 @@
     ],
     "vehicles": [
       "Ashok Leyland 2516",
+      "Eicher Pro Series",
       "Mahindra Blazo",
       "Tata 1109",
       "Tata 1210",
       "Tata 1312",
       "Tata 1512",
+      "Tata 709",
       "Tata LPT",
       "Universal"
     ],
@@ -3367,13 +3360,21 @@
       "SVKS000422",
       "SVKS000423",
       "SVKS000424",
-      "SVKS000425"
+      "SVKS000425",
+      "SVKS000443",
+      "SVKS000603",
+      "SVKS000605",
+      "SVKS000612",
+      "SVKS000613",
+      "SVKS000614",
+      "SVKS000616",
+      "SVKS000804"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "Pix Parts | Souviks",
-      "description": "Souviks currently lists 16 active Pix products across Engine Components. The listed range is mapped to applications such as Ashok Leyland 2516, Tata 1109, Tata 1210, Tata 1312, Tata 1512 and more and common replacement areas including Timing Belt.  Current catalogue examples include 8PK-1250 EPDM V Belt, 8PK-1397 EPDM V Belt, AUAVX13-1325. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 24 active Pix products across Engine Components. The listed range is mapped to applications such as Ashok Leyland 2516, Tata 1109, Tata 1312, Tata 1210, Tata 1512 and more and common replacement areas including Timing Belt.  Current catalogue examples include 8PK-1250 EPDM V Belt, 8PK-1397 EPDM V Belt, AUAVX13-1325. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Pix",
         "commercial vehicle spare parts",
@@ -3398,7 +3399,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 11 active Rane products across Air System, Bearings, Engine Components, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, ashok-leyland-captain, Eicher Pro Series and more and common replacement areas including Power Steering Pump, Engine Mount, Air Repair Kit, Transmission Fluid, Center Bearing.  Current catalogue examples include Power Steering Pump Assembly, RG2 Valve Kit, PSF Plus Pump Assy Kit TML 2518. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 11 active Rane products across Air System, Bearings, Engine Components, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, Universal, Ashok Leyland Captain and more and common replacement areas including Power Steering Pump, Engine Mount, Air Repair Kit, Transmission Fluid, Center Bearing.  Current catalogue examples include Power Steering Pump Assembly, RG2 Valve Kit, PSF Plus Pump Assy Kit   TML 2518. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Rane products at Souviks cover Air System, Bearings, Engine Components, Lubricants and more and applications across Tata LPT, Tata Signa, Ashok Leyland 2516 and more.",
     "product_count": 11,
     "categories": [
@@ -3417,6 +3418,7 @@
     ],
     "vehicles": [
       "Ashok Leyland 2516",
+      "Ashok Leyland Captain",
       "Ashok Leyland U-Truck",
       "Eicher Pro Series",
       "Tata 2416",
@@ -3424,9 +3426,7 @@
       "Tata Prima",
       "Tata Signa",
       "Tata Ultra",
-      "Universal",
-      "ashok-leyland-captain",
-      "universal"
+      "Universal"
     ],
     "featured_products": [
       "SVKS000426",
@@ -3455,7 +3455,7 @@
     "active": true,
     "seo": {
       "title": "Rane Parts | Souviks",
-      "description": "Souviks currently lists 11 active Rane products across Air System, Bearings, Engine Components, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, ashok-leyland-captain, Eicher Pro Series and more and common replacement areas including Power Steering Pump, Engine Mount, Air Repair Kit, Transmission Fluid, Center Bearing.  Current catalogue examples include Power Steering Pump Assembly, RG2 Valve Kit, PSF Plus Pump Assy Kit TML 2518. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 11 active Rane products across Air System, Bearings, Engine Components, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Ashok Leyland 2516, Universal, Ashok Leyland Captain and more and common replacement areas including Power Steering Pump, Engine Mount, Air Repair Kit, Transmission Fluid, Center Bearing.  Current catalogue examples include Power Steering Pump Assembly, RG2 Valve Kit, PSF Plus Pump Assy Kit   TML 2518. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Rane",
         "commercial vehicle spare parts",
@@ -3582,9 +3582,9 @@
     "banner": "",
     "website": "https://www.skf.com/",
     "country": "Sweden",
-    "description": "Souviks currently lists 2 active SKF products across Bearings. The listed range is mapped to applications such as Tata LPT, Ashok Leyland Captain, Universal and common replacement areas including Taper Roller Bearing.  Manufacturer country: Sweden. Current catalogue examples include Taper Roller Bearing, Taper Roller Bearing. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 1 active SKF products across Bearings. The listed range is mapped to applications such as Tata LPT, Ashok Leyland Captain, Universal and common replacement areas including Taper Roller Bearing.  Manufacturer country: Sweden. Current catalogue examples include Taper Roller Bearing. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "SKF products at Souviks cover Bearings and applications across Tata LPT, Ashok Leyland Captain, Universal.",
-    "product_count": 2,
+    "product_count": 1,
     "categories": [
       "bearings"
     ],
@@ -3601,14 +3601,13 @@
       "SVKS000443"
     ],
     "products": [
-      "SVKS000440",
-      "SVKS000443"
+      "SVKS000440"
     ],
     "featured": false,
     "active": true,
     "seo": {
       "title": "SKF Parts | Souviks",
-      "description": "Souviks currently lists 2 active SKF products across Bearings. The listed range is mapped to applications such as Tata LPT, Ashok Leyland Captain, Universal and common replacement areas including Taper Roller Bearing.  Manufacturer country: Sweden. Current catalogue examples include Taper Roller Bearing, Taper Roller Bearing. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 1 active SKF products across Bearings. The listed range is mapped to applications such as Tata LPT, Ashok Leyland Captain, Universal and common replacement areas including Taper Roller Bearing.  Manufacturer country: Sweden. Current catalogue examples include Taper Roller Bearing. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "SKF",
         "commercial vehicle spare parts",
@@ -3633,8 +3632,8 @@
     "banner": "",
     "website": "https://www.texspin.com/",
     "country": "India",
-    "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Grease and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Texspin products at Souviks cover Bearings, Clutch Parts, Lubricants, Suspension & Steering and applications across Ashok Leyland 2516, Universal, Tata LPT and more.",
+    "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Universal, Tata 1312, Tata Signa and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Collector Ring and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Texspin products at Souviks cover Bearings, Clutch Parts, Lubricants, Suspension & Steering and applications across Tata LPT, Ashok Leyland 2516, Universal and more.",
     "product_count": 121,
     "categories": [
       "bearings",
@@ -3645,14 +3644,11 @@
     "subcategories": [
       "ball-bearings",
       "center-bearing",
-      "clutch-plate",
       "clutch-release-bearing",
-      "clutch-repair-kit",
       "collector-ring",
       "grease",
       "king-pin-kit",
       "kingpin-bearings",
-      "pressure-plate",
       "suspension-bush",
       "taper-roller-bearing"
     ],
@@ -3661,9 +3657,11 @@
       "Ashok Leyland Boss",
       "Ashok Leyland Captain",
       "Ashok Leyland Ecomet",
+      "Ashok Leyland U-Truck",
       "Eicher 1110",
       "Eicher Pro Series",
       "Mahindra Blazo",
+      "Mahindra Bolero Pik-Up",
       "Tata 1109",
       "Tata 1210",
       "Tata 1312",
@@ -3675,21 +3673,7 @@
       "Tata Prima",
       "Tata Signa",
       "Tractors",
-      "Universal",
-      "ashok-leyland-2516",
-      "ashok-leyland-ecomet",
-      "ashok-leyland-u-truck",
-      "eicher-1110",
-      "eicher-pro-series",
-      "mahindra-bolero-pik-up",
-      "tata-1109",
-      "tata-1210",
-      "tata-2416",
-      "tata-407",
-      "tata-709",
-      "tata-lpt",
-      "tata-prima",
-      "tata-signa"
+      "Universal"
     ],
     "featured_products": [
       "SVKS000486",
@@ -3828,7 +3812,7 @@
     "active": true,
     "seo": {
       "title": "Texspin Parts | Souviks",
-      "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Ashok Leyland 2516, Universal, Tata LPT, Tata 1312, Tractors and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Grease and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Universal, Tata 1312, Tata Signa and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Collector Ring and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Texspin",
         "commercial vehicle spare parts",
@@ -3853,7 +3837,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 4 active Tata AutoComp products across Filters, Lubricants. The listed range is mapped to applications such as Tata LPT, Universal, Tata 2416, Tata Signa, Eicher Pro Series and more and common replacement areas including Coolant, Oil Filter, Filter Element.  Current catalogue examples include Lube Filter, BS IV Oil Filter, Coolant Green J.K 5 LTR. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 4 active Tata AutoComp products across Filters, Lubricants. The listed range is mapped to applications such as Tata LPT, Universal, Tata 2416, Tata Signa, Eicher Pro Series and more and common replacement areas including Coolant, Oil Filter, Filter Element.  Current catalogue examples include Lube Filter, BS IV   Oil Filter, Coolant Green J.K 5 LTR. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Tata AutoComp products at Souviks cover Filters, Lubricants and applications across Tata LPT, Universal, Tata 2416 and more.",
     "product_count": 4,
     "categories": [
@@ -3889,7 +3873,7 @@
     "active": true,
     "seo": {
       "title": "Tata AutoComp Parts | Souviks",
-      "description": "Souviks currently lists 4 active Tata AutoComp products across Filters, Lubricants. The listed range is mapped to applications such as Tata LPT, Universal, Tata 2416, Tata Signa, Eicher Pro Series and more and common replacement areas including Coolant, Oil Filter, Filter Element.  Current catalogue examples include Lube Filter, BS IV Oil Filter, Coolant Green J.K 5 LTR. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 4 active Tata AutoComp products across Filters, Lubricants. The listed range is mapped to applications such as Tata LPT, Universal, Tata 2416, Tata Signa, Eicher Pro Series and more and common replacement areas including Coolant, Oil Filter, Filter Element.  Current catalogue examples include Lube Filter, BS IV   Oil Filter, Coolant Green J.K 5 LTR. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Tata AutoComp",
         "commercial vehicle spare parts",
@@ -4039,21 +4023,15 @@
     ],
     "vehicles": [
       "Ashok Leyland 2516",
+      "Ashok Leyland U-Truck",
       "Eicher 1110",
       "Eicher Pro Series",
       "Tata 1109",
       "Tata 709",
       "Tata LPT",
       "Tata Prima",
-      "Universal",
-      "ashok-leyland-2516",
-      "ashok-leyland-u-truck",
-      "tata-1109",
-      "tata-709",
-      "tata-lpt",
-      "tata-prima",
-      "tata-signa",
-      "universal"
+      "Tata Signa",
+      "Universal"
     ],
     "featured_products": [
       "SVKS000577",
@@ -4206,7 +4184,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 2 active AutoPly products across Electricals. The listed range is mapped to applications such as Universal and common replacement areas including Bulb, Battery Cable.  Current catalogue examples include SU 8 LED High Bright 24V White, Battery (Terminal) Cable 440/.30mm. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 2 active AutoPly products across Electricals. The listed range is mapped to applications such as Universal and common replacement areas including Bulb, Battery Cable.  Current catalogue examples include SU 8 LED High Bright   24V White, Battery (Terminal) Cable   440/.30mm. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "AutoPly products at Souviks cover Electricals and applications across Universal.",
     "product_count": 2,
     "categories": [
@@ -4231,7 +4209,7 @@
     "active": true,
     "seo": {
       "title": "AutoPly Parts | Souviks",
-      "description": "Souviks currently lists 2 active AutoPly products across Electricals. The listed range is mapped to applications such as Universal and common replacement areas including Bulb, Battery Cable.  Current catalogue examples include SU 8 LED High Bright 24V White, Battery (Terminal) Cable 440/.30mm. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 2 active AutoPly products across Electricals. The listed range is mapped to applications such as Universal and common replacement areas including Bulb, Battery Cable.  Current catalogue examples include SU 8 LED High Bright   24V White, Battery (Terminal) Cable   440/.30mm. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "AutoPly",
         "commercial vehicle spare parts",
@@ -4364,7 +4342,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 1 active Luk products across Brakes. The listed range is mapped to applications such as Universal and common replacement areas including Brake Lining.  Current catalogue examples include Brake Lining Kit. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 1 active Luk products across Brakes. The listed range is mapped to applications such as Universal and common replacement areas including Brake Lining.  Current catalogue examples include Brake Lining   Kit. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Luk products at Souviks cover Brakes and applications across Universal.",
     "product_count": 1,
     "categories": [
@@ -4386,7 +4364,7 @@
     "active": true,
     "seo": {
       "title": "Luk Parts | Souviks",
-      "description": "Souviks currently lists 1 active Luk products across Brakes. The listed range is mapped to applications such as Universal and common replacement areas including Brake Lining.  Current catalogue examples include Brake Lining Kit. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 1 active Luk products across Brakes. The listed range is mapped to applications such as Universal and common replacement areas including Brake Lining.  Current catalogue examples include Brake Lining   Kit. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Luk",
         "commercial vehicle spare parts",
@@ -4411,7 +4389,7 @@
     "banner": "",
     "website": "https://setcoauto.com/",
     "country": "India",
-    "description": "Souviks currently lists 12 active Setco products across Clutch Parts. The listed range is mapped to applications such as Universal, Eicher Pro Series, Mahindra Blazo, Tata Signa, Ashok Leyland 2516 and common replacement areas including Pressure Plate, Clutch Assembly, Clutch Plate, Collector Ring, Flywheel Assembly.  Manufacturer country: India. Current catalogue examples include 380Dia Cover Assy. Low Mi, Collector Ring, 430 Dia Clutch Set. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 12 active Setco products across Clutch Parts. The listed range is mapped to applications such as Universal, Eicher Pro Series, Mahindra Blazo, Tata Signa, Ashok Leyland 2516 and common replacement areas including Pressure Plate, Clutch Assembly, Clutch Plate, Collector Ring, Flywheel Assembly.  Manufacturer country: India. Current catalogue examples include 380Dia   Cover Assy. Low Mi, Collector Ring, 430   Dia Clutch Set. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Setco products at Souviks cover Clutch Parts and applications across Universal, Eicher Pro Series, Mahindra Blazo and more.",
     "product_count": 12,
     "categories": [
@@ -4459,7 +4437,7 @@
     "active": true,
     "seo": {
       "title": "Setco Parts | Souviks",
-      "description": "Souviks currently lists 12 active Setco products across Clutch Parts. The listed range is mapped to applications such as Universal, Eicher Pro Series, Mahindra Blazo, Tata Signa, Ashok Leyland 2516 and common replacement areas including Pressure Plate, Clutch Assembly, Clutch Plate, Collector Ring, Flywheel Assembly.  Manufacturer country: India. Current catalogue examples include 380Dia Cover Assy. Low Mi, Collector Ring, 430 Dia Clutch Set. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 12 active Setco products across Clutch Parts. The listed range is mapped to applications such as Universal, Eicher Pro Series, Mahindra Blazo, Tata Signa, Ashok Leyland 2516 and common replacement areas including Pressure Plate, Clutch Assembly, Clutch Plate, Collector Ring, Flywheel Assembly.  Manufacturer country: India. Current catalogue examples include 380Dia   Cover Assy. Low Mi, Collector Ring, 430   Dia Clutch Set. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Setco",
         "commercial vehicle spare parts",
@@ -4484,7 +4462,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 15 active Varroc products across Electricals. The listed range is mapped to applications such as Universal, Tata 1210, Tata 1312, Tata 2416, Tata LPT and more and common replacement areas including Head Light, Fog Light.  Current catalogue examples include Fog Lamp 110mm 19 LED 12V, Fog Lamp 110mm 19LED 24V, Fog Lamp 110mm 19 LED 12V Yellow. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 15 active Varroc products across Electricals. The listed range is mapped to applications such as Universal, Tata 1210, Tata 1312, Tata 2416, Tata LPT and more and common replacement areas including Head Light, Fog Light.  Current catalogue examples include Fog Lamp 110mm   19 LED 12V, Fog Lamp   110mm 19LED 24V, Fog Lamp 110mm   19 LED 12V Yellow. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Varroc products at Souviks cover Electricals and applications across Universal, Tata 1210, Tata 1312 and more.",
     "product_count": 15,
     "categories": [
@@ -4535,7 +4513,7 @@
     "active": true,
     "seo": {
       "title": "Varroc Parts | Souviks",
-      "description": "Souviks currently lists 15 active Varroc products across Electricals. The listed range is mapped to applications such as Universal, Tata 1210, Tata 1312, Tata 2416, Tata LPT and more and common replacement areas including Head Light, Fog Light.  Current catalogue examples include Fog Lamp 110mm 19 LED 12V, Fog Lamp 110mm 19LED 24V, Fog Lamp 110mm 19 LED 12V Yellow. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 15 active Varroc products across Electricals. The listed range is mapped to applications such as Universal, Tata 1210, Tata 1312, Tata 2416, Tata LPT and more and common replacement areas including Head Light, Fog Light.  Current catalogue examples include Fog Lamp 110mm   19 LED 12V, Fog Lamp   110mm 19LED 24V, Fog Lamp 110mm   19 LED 12V Yellow. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Varroc",
         "commercial vehicle spare parts",
@@ -4619,8 +4597,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 5 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as universal, Universal, tata-lpt, ashok-leyland-2516, eicher-pro-series and common replacement areas including Valve.  Current catalogue examples include Relay Valve (Type V), Lift Axle Control Valve Solenoid Coil, Hand Brake Valve V, Version 1. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Knorr-Bremse products at Souviks cover Air System and applications across universal, Universal, tata-lpt and more.",
+    "description": "Souviks currently lists 5 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series and common replacement areas including Valve.  Current catalogue examples include Relay Valve (Type V), Lift Axle Control Valve Solenoid Coil, Hand Brake Valve V, Version 1. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Knorr-Bremse products at Souviks cover Air System and applications across Universal, Tata LPT, Ashok Leyland 2516 and more.",
     "product_count": 5,
     "categories": [
       "air-system"
@@ -4629,11 +4607,10 @@
       "valve"
     ],
     "vehicles": [
-      "Universal",
-      "ashok-leyland-2516",
-      "eicher-pro-series",
-      "tata-lpt",
-      "universal"
+      "Ashok Leyland 2516",
+      "Eicher Pro Series",
+      "Tata LPT",
+      "Universal"
     ],
     "featured_products": [
       "SVKS000963"
@@ -4649,7 +4626,7 @@
     "active": true,
     "seo": {
       "title": "Knorr-Bremse Parts | Souviks",
-      "description": "Souviks currently lists 5 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as universal, Universal, tata-lpt, ashok-leyland-2516, eicher-pro-series and common replacement areas including Valve.  Current catalogue examples include Relay Valve (Type V), Lift Axle Control Valve Solenoid Coil, Hand Brake Valve V, Version 1. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 5 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series and common replacement areas including Valve.  Current catalogue examples include Relay Valve (Type V), Lift Axle Control Valve Solenoid Coil, Hand Brake Valve V, Version 1. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Knorr-Bremse",
         "commercial vehicle spare parts",
