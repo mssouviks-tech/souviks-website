@@ -216,42 +216,103 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
         if not path.is_file():
             continue
         raw = path.read_text(encoding="utf-8", errors="ignore")
-        for stem, media in (
-            ("product-hero", r"\(min-width:\s*769px\)"),
-            ("product-hero-mobile", r"\(max-width:\s*768px\)"),
-        ):
-            preload = re.search(
-                r'<link\b(?=[^>]*\brel=["\']preload["\'])'
-                r'(?=[^>]*\bas=["\']image["\'])'
-                r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
-                + re.escape(stem)
-                + r'\.webp\?v=[0-9a-f]{12}["\'])'
-                r'(?=[^>]*\bmedia=["\']' + media + r'["\'])[^>]*>',
-                raw,
-                flags=re.I | re.S,
+        mobile_preload = re.search(
+            r'<link\b(?=[^>]*\brel=["\']preload["\'])'
+            r'(?=[^>]*\bas=["\']image["\'])'
+            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
+            r'product-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])[^>]*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if not mobile_preload:
+            fail(
+                f"{path.relative_to(ROOT)}: missing versioned mobile hero preload with max-width media condition",
+                errors,
             )
-            if not preload:
-                fail(
-                    f"{path.relative_to(ROOT)}: missing {stem} preload with matching media condition",
-                    errors,
-                )
 
-    base_css = ROOT / "assets" / "css" / "site-base.css"
-    if not base_css.is_file():
-        fail("missing assets/css/site-base.css for responsive product-hero source", errors)
+        # The responsive <picture> already selects the correct source. A separate
+        # desktop preload was still fetched by mobile Lighthouse despite its
+        # min-width media hint, duplicating the mobile image transfer. Let the
+        # high-priority <img src> load the desktop source on desktop instead.
+        desktop_preload = re.search(
+            r'<link\b(?=[^>]*\brel=["\']preload["\'])'
+            r'(?=[^>]*\bas=["\']image["\'])'
+            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
+            r'product-hero\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if desktop_preload:
+            fail(
+                f"{path.relative_to(ROOT)}: remove desktop hero preload to prevent duplicate mobile hero downloads",
+                errors,
+            )
+
+    # A media-specific preload is only useful when the page actually selects
+    # the same mobile image for its LCP <img>. Guard the source-selection contract
+    # so mobile does not preload one asset while the <img> downloads another.
+    for path in product_pages:
+        if not path.is_file():
+            continue
+        raw = path.read_text(encoding="utf-8", errors="ignore")
+        picture = re.search(
+            r'<picture\b(?=[^>]*\bclass=["\'][^"\']*\bproducts-hero-picture\b[^"\']*["\'])'
+            r'[^>]*>([\s\S]*?)</picture\s*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if not picture:
+            fail(
+                f"{path.relative_to(ROOT)}: product hero must use a responsive <picture>",
+                errors,
+            )
+            continue
+
+        picture_markup = picture.group(1)
+        mobile_source = re.search(
+            r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+            r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/'
+            r'product-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
+            picture_markup,
+            flags=re.I | re.S,
+        )
+        desktop_image = re.search(
+            r'<img\b(?=[^>]*\bclass=["\'][^"\']*\bproducts-hero-media\b[^"\']*["\'])'
+            r'(?=[^>]*\bsrc=["\'][^"\']*/assets/images/hero/product-hero\.webp\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\bfetchpriority=["\']high["\'])[^>]*>',
+            picture_markup,
+            flags=re.I | re.S,
+        )
+        if not mobile_source:
+            fail(
+                f"{path.relative_to(ROOT)}: product hero <picture> is missing the versioned mobile source",
+                errors,
+            )
+        if not desktop_image:
+            fail(
+                f"{path.relative_to(ROOT)}: product hero <picture> is missing the high-priority desktop image",
+                errors,
+            )
+
+    products_css = ROOT / "assets" / "css" / "bundles" / "products.css"
+    if not products_css.is_file():
+        fail("missing assets/css/bundles/products.css for responsive product hero layout", errors)
     else:
-        css = base_css.read_text(encoding="utf-8", errors="ignore")
+        css = products_css.read_text(encoding="utf-8", errors="ignore")
         if not re.search(
-            r'@media\s*\(max-width:\s*768px\)[\s\S]{0,500}'
-            r'\.products-hero\s*\{[\s\S]{0,250}product-hero-mobile\.webp\?v=[0-9a-f]{12}',
+            r'\.products-hero--img-lcp\s*>\s*\.products-hero-picture',
+            css,
+            flags=re.I,
+        ) or not re.search(
+            r'\.products-hero-picture\s*>\s*\.products-hero-media',
             css,
             flags=re.I,
         ):
             fail(
-                "assets/css/site-base.css: product listing has no versioned mobile hero background override",
+                "assets/css/bundles/products.css: responsive product hero picture/image layout is incomplete",
                 errors,
             )
-
 
 def main() -> int:
     errors: list[str] = []

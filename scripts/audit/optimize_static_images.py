@@ -243,19 +243,32 @@ def create_mobile_hero_variants() -> dict[str, str]:
     return created
 
 
-def sync_hero_preloads(page: Path, stem: str, has_mobile_variant: bool) -> bool:
-    """Place responsive hero preloads at the start of <head>, before large inline metadata."""
+def sync_hero_preloads(
+    page: Path,
+    stem: str,
+    has_mobile_variant: bool,
+    preload_desktop: bool = True,
+) -> bool:
+    """Place responsive hero preloads at the start of <head>, before large inline metadata.
+
+    Product listing pages use a responsive <picture> with fetchpriority=high.
+    Their desktop fallback therefore needs no separate preload: some mobile
+    browser/Lighthouse combinations still fetch a media-conditioned desktop
+    preload alongside the mobile source, creating a duplicate transfer.
+    """
     if not page.is_file():
         return False
 
     source_path = f"/assets/images/hero/{stem}.webp"
     mobile_path = f"/assets/images/hero/{stem}-mobile.webp"
     desktop_media = ' media="(min-width: 769px)"' if has_mobile_variant else ""
-    desktop_link = (
-        f'<link rel="preload" as="image" href="{source_path}" type="image/webp"'
-        f'{desktop_media} fetchpriority="high">'
-    )
-    links = [desktop_link]
+    links = []
+    if preload_desktop:
+        desktop_link = (
+            f'<link rel="preload" as="image" href="{source_path}" type="image/webp"'
+            f'{desktop_media} fetchpriority="high">'
+        )
+        links.append(desktop_link)
     if has_mobile_variant:
         links.append(
             f'<link rel="preload" as="image" href="{mobile_path}" type="image/webp" '
@@ -359,6 +372,7 @@ def sync_responsive_hero_assets(mobile_variants: dict[str, str]) -> int:
             ROOT / language / "products.html",
             "product-hero",
             bool(product_mobile),
+            preload_desktop=False,
         )
 
     css_path = ROOT / "assets" / "css" / "site-base.css"
