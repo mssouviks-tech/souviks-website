@@ -227,7 +227,7 @@ def _append_meta_context(
         separator = " " if base.endswith("…") else ". "
         candidate = base.rstrip(" .") + separator + qualifier + ". " + suffix
         if MIN_META_DESCRIPTION <= len(candidate) <= limit:
-            return candidate
+            return finalize(candidate)
     return None
 
 
@@ -266,6 +266,19 @@ def build_product_meta_description(
     detail = build_product_schema_description(product)
     identity = product_identity(product)
     part = product_part_number(product)
+
+    def finalize(candidate: str) -> str:
+        """Preserve a complete catalogue part number on every return path."""
+        if part and part.casefold() not in candidate.casefold():
+            safe_identity = _part_number_safe_meta_identity(
+                identity_lead or identity or detail,
+                part,
+                suffix,
+                limit,
+            )
+            if safe_identity:
+                return safe_identity
+        return _truncate_word_boundary(candidate, limit)
 
     # Put the buyer-searchable product identifier early. This also makes
     # otherwise similar listings more distinguishable when an MPN is known.
@@ -311,7 +324,7 @@ def build_product_meta_description(
                 suffix,
                 limit,
             )
-            return contextual or candidate
+            return finalize(contextual or candidate)
 
     # If the opening description sentence is too long, start from the actual
     # catalogue identity instead of cutting the description at its first words.
@@ -320,12 +333,12 @@ def build_product_meta_description(
     for context in _meta_context_candidates(product, language, identity_lead):
         contextual = _append_meta_context(identity_lead, [context], suffix, limit)
         if contextual:
-            return contextual
+            return finalize(contextual)
 
     identity_lead_short = _shorten_identity_for_meta(identity_lead, suffix_budget)
     identity_candidate = identity_lead_short.rstrip(" .") + " " + suffix
     if MIN_META_DESCRIPTION <= len(identity_candidate) <= limit:
-        return identity_candidate
+        return finalize(identity_candidate)
 
     # As a conservative fallback for sparse records with no useful identity,
     # use a word-boundary-safe extract of the existing factual description.
@@ -373,18 +386,7 @@ def build_product_meta_description(
             max(1, suffix_budget),
         ).rstrip(" .")
         candidate = fallback + " " + suffix
-    # Last-resort safety net: a long translated description must never leave a
-    # dangling "(Part No." fragment or omit the catalogue's actual identifier.
-    if part and part.casefold() not in candidate.casefold():
-        safe_identity = _part_number_safe_meta_identity(
-            identity_lead or identity or detail,
-            part,
-            suffix,
-            limit,
-        )
-        if safe_identity:
-            return safe_identity
-    return _truncate_word_boundary(candidate, limit)
+    return finalize(candidate)
 
 
 def _part_number_safe_meta_identity(
