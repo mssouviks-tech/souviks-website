@@ -349,7 +349,7 @@ def build_product_meta_description(
         lead = _truncate_word_boundary(detail, lead_budget)
         contextual = _append_meta_context(lead, [context], suffix, limit)
         if contextual:
-            return contextual
+            return finalize(contextual)
 
     # A short first sentence can fit beside the CTA yet still produce a weak
     # sub-70-character snippet. Use more of the catalogue description up to
@@ -357,7 +357,7 @@ def build_product_meta_description(
     lead = _truncate_word_boundary(detail, suffix_budget)
     candidate = lead.rstrip(" .") + " " + suffix
     if MIN_META_DESCRIPTION <= len(candidate) <= limit:
-        return candidate
+        return finalize(candidate)
 
     # Conservative last resort for sparse records: include a catalogue identity
     # and a relevant product-range descriptor before the localized CTA.
