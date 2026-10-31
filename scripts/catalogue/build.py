@@ -24,7 +24,10 @@ from product_seo import (
     is_weak_product_description,
     schema_availability_url,
 )
-from product_title import build_product_page_title, shorten_product_name_for_title, unique_vehicle_title_variants
+from product_title import (
+    build_product_page_title,
+    unique_vehicle_title_variants,
+)
 
 BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
