@@ -83,7 +83,7 @@ def sync_listing(language: str, products: list[dict]) -> bool:
         raise ValueError(f"Missing products listing: {path.relative_to(ROOT)}")
 
     cards = "".join(
-        product_card_html(product, language, eager=index < 4)
+        product_card_html(product, language, eager=index < 2)
         for index, product in enumerate(products[:INITIAL_PAGE_SIZE])
     )
     source = path.read_text(encoding="utf-8")

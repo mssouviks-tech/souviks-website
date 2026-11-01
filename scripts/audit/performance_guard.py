@@ -380,6 +380,61 @@ def check_listing_hydration_waits_for_lcp(errors: list[str]) -> None:
             )
 
 
+
+def check_listing_critical_image_loading(errors: list[str]) -> None:
+    """Keep the LCP hero synchronous and reserve high priority for the first product row."""
+    for language in ("en", "hi", "bn"):
+        path = ROOT / language / "products.html"
+        if not path.is_file():
+            fail(f"missing {language} product listing for image priority contract", errors)
+            continue
+
+        raw = path.read_text(encoding="utf-8", errors="ignore")
+        hero = re.search(
+            r'<img\b(?=[^>]*\bclass=["\'][^"\']*\bproducts-hero-media\b[^"\']*["\'])[^>]*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if not hero:
+            fail(f"{path.relative_to(ROOT)}: missing product hero image", errors)
+        elif not re.search(r'\bdecoding=["\']sync["\']', hero.group(0), re.I):
+            fail(
+                f"{path.relative_to(ROOT)}: LCP product hero must use synchronous image decoding",
+                errors,
+            )
+
+        grid_start = raw.find('id="product-grid"')
+        if grid_start < 0:
+            fail(f"{path.relative_to(ROOT)}: missing #product-grid for image priority contract", errors)
+            continue
+
+        image_tags = re.findall(
+            r'<img\b(?=[^>]*\bclass=["\'][^"\']*\bproduct-image-file\b[^"\']*["\'])[^>]*>',
+            raw[grid_start:],
+            flags=re.I | re.S,
+        )[:4]
+        if len(image_tags) != 4:
+            fail(
+                f"{path.relative_to(ROOT)}: expected four initial product-card images, found {len(image_tags)}",
+                errors,
+            )
+            continue
+
+        for index, tag in enumerate(image_tags):
+            loading = re.search(r'\bloading=["\']([^"\']+)["\']', tag, re.I)
+            priority = re.search(r'\bfetchpriority=["\']([^"\']+)["\']', tag, re.I)
+            if index < 2:
+                if not loading or loading.group(1).lower() != "eager":
+                    fail(f"{path.relative_to(ROOT)}: initial product image {index + 1} must remain eager", errors)
+                if not priority or priority.group(1).lower() != "high":
+                    fail(f"{path.relative_to(ROOT)}: initial product image {index + 1} must retain high priority", errors)
+            else:
+                if not loading or loading.group(1).lower() != "lazy":
+                    fail(f"{path.relative_to(ROOT)}: below-row product image {index + 1} must be lazy loaded", errors)
+                if priority and priority.group(1).lower() == "high":
+                    fail(f"{path.relative_to(ROOT)}: below-row product image {index + 1} must not request high priority", errors)
+
+
 def main() -> int:
     errors: list[str] = []
     check_asset_sizes(errors)
@@ -388,6 +443,7 @@ def main() -> int:
     check_script_loading(errors)
     check_responsive_mobile_hero_assets(errors)
     check_listing_hydration_waits_for_lcp(errors)
+    check_listing_critical_image_loading(errors)
 
     if errors:
         for error in errors:
@@ -398,7 +454,7 @@ def main() -> int:
     print(
         f"Performance guard passed: {len(BASELINES)} asset budgets, "
         "25 MiB public-asset limits, JS/CSS cache hashes, script-loading contracts, "
-        "responsive mobile hero assets/preloads, and LCP-gated listing hydration checked."
+        "responsive mobile hero assets/preloads, LCP-gated hydration, and initial listing-image priorities checked."
     )
     return 0
 
