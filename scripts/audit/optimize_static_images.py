@@ -251,10 +251,10 @@ def sync_hero_preloads(
 ) -> bool:
     """Place responsive hero preloads at the start of <head>, before large inline metadata.
 
-    Product listing pages use a responsive <picture> with fetchpriority=high.
-    Their desktop fallback therefore needs no separate preload: some mobile
-    browser/Lighthouse combinations still fetch a media-conditioned desktop
-    preload alongside the mobile source, creating a duplicate transfer.
+    Home and product listing pages use a responsive <picture> with fetchpriority=high.
+    Their desktop fallback therefore needs no separate preload: mobile Chromium
+    and Lighthouse can still fetch a media-conditioned desktop preload alongside
+    the mobile source, creating a duplicate transfer.
     """
     if not page.is_file():
         return False
@@ -364,6 +364,7 @@ def sync_responsive_hero_assets(mobile_variants: dict[str, str]) -> int:
             ROOT / relative,
             "index-hero",
             bool(index_mobile),
+            preload_desktop=False,
         )
 
     product_mobile = mobile_variants.get("product-hero")

@@ -61,12 +61,90 @@ const SEARCH_FIELDS = [
     "cross_references"
 ];
 
+// Reuse one collator instead of constructing locale comparison options for
+// every comparison while sorting the full 1,000+ product catalogue.
+const CATALOGUE_LABEL_COLLATOR = new Intl.Collator(undefined, { sensitivity: "base" });
+
 // Static product cards render before catalogue hydration. Remember input typed during
-// the deliberate load/idle deferral so the initialisation step can apply it once
+// the deliberate post-LCP deferral so the initialisation step can apply it once
 // the full catalogue and search handler are ready.
 let searchInputChangedBeforeReady = false;
-document.getElementById("searchInput")?.addEventListener("input", () => {
+let productsPageInitialisationStarted = false;
+let productsPageLcpObserver = null;
+let productsPageLcpFallbackTimer = null;
+const pendingProductsPageControlValues = new Map();
+let pendingProductsPageReset = false;
+
+function startProductsPageInitialisation() {
+    if (productsPageInitialisationStarted) return;
+    productsPageInitialisationStarted = true;
+
+    productsPageLcpObserver?.disconnect();
+    productsPageLcpObserver = null;
+    if (productsPageLcpFallbackTimer !== null) {
+        window.clearTimeout(productsPageLcpFallbackTimer);
+        productsPageLcpFallbackTimer = null;
+    }
+
+    void initialiseProductsPage();
+}
+
+function scheduleProductsPageInitialisationWhenIdle() {
+    if (productsPageInitialisationStarted) return;
+    if (typeof window.requestIdleCallback === "function") {
+        window.requestIdleCallback(startProductsPageInitialisation, { timeout: 1500 });
+    } else {
+        window.setTimeout(startProductsPageInitialisation, 0);
+    }
+}
+
+// User intent takes priority over the optimisation. Start catalogue hydration
+// as soon as a visitor searches, opens a filter, changes a select, or resets it.
+const PRODUCTS_PAGE_CONTROL_SELECTOR = [
+    "#searchInput",
+    "#searchButton",
+    "#clearSearch",
+    "#brandFilter",
+    "#vehicleFilter",
+    "#categoryFilter",
+    "#subCategoryFilter",
+    "#sortProducts",
+    "#pageSize",
+    "#resetCatalogueFilters",
+    "#resetNoResultsFilters"
+].join(", ");
+
+document.addEventListener("input", event => {
+    if (event.target?.id !== "searchInput") return;
     searchInputChangedBeforeReady = true;
+    startProductsPageInitialisation();
+}, { passive: true });
+
+document.addEventListener("change", event => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target || !target.matches(PRODUCTS_PAGE_CONTROL_SELECTOR)) return;
+
+    if (target.matches("#brandFilter, #vehicleFilter, #categoryFilter, #subCategoryFilter, #sortProducts, #pageSize")) {
+        pendingProductsPageControlValues.set(target.id, target.value);
+    }
+    startProductsPageInitialisation();
+}, { passive: true });
+
+document.addEventListener("focusin", event => {
+    if (event.target instanceof Element && event.target.matches(PRODUCTS_PAGE_CONTROL_SELECTOR)) {
+        startProductsPageInitialisation();
+    }
+}, { passive: true });
+
+document.addEventListener("click", event => {
+    const control = event.target instanceof Element
+        ? event.target.closest("#searchButton, #clearSearch, #resetCatalogueFilters, #resetNoResultsFilters")
+        : null;
+    if (!control) return;
+    if (control.matches("#resetCatalogueFilters, #resetNoResultsFilters")) {
+        pendingProductsPageReset = true;
+    }
+    startProductsPageInitialisation();
 }, { passive: true });
 
 async function initialiseProductsPage() {
@@ -79,6 +157,7 @@ async function initialiseProductsPage() {
     allProducts = [...Products.products];
     Filters.init(allProducts);
     initialiseUrlFilters();
+    applyPendingProductsPageControls();
     populateFilters(allProducts);
     updateCatalogueRobotsMeta();
     initialisePagination();
@@ -101,20 +180,74 @@ async function initialiseProductsPage() {
 }
 
 /*
- * The first 20 product cards are already present in the generated HTML.
- * Wait until the page load event and then schedule catalogue hydration during
- * browser idle time, so fetching the full catalogue and wiring facets do not
- * compete with the initial hero/text paint and LCP.
+ * The first 20 product cards are already present in the generated HTML. Keep
+ * full-catalogue sorting and facet construction off the critical rendering
+ * path: start only after the listing hero has produced its LCP entry. A visitor
+ * interaction or a URL carrying catalogue state starts hydration immediately.
  */
-function scheduleProductsPageInitialisation() {
-    const run = () => {
-        void initialiseProductsPage();
-    };
+function hasInitialCatalogueState() {
+    const params = new URLSearchParams(window.location.search);
+    return ["q", "brand_id", "category_id", "subcategory_id", "vehicles", "page", "sort", "pageSize"]
+        .some(key => params.has(key));
+}
 
-    if (typeof window.requestIdleCallback === "function") {
-        window.requestIdleCallback(run, { timeout: 1200 });
-    } else {
-        window.setTimeout(run, 150);
+function scheduleProductsPageInitialisation() {
+    if (productsPageInitialisationStarted) return;
+
+    if (hasInitialCatalogueState()) {
+        startProductsPageInitialisation();
+        return;
+    }
+
+    const supportsLcpObserver =
+        typeof PerformanceObserver === "function" &&
+        Array.isArray(PerformanceObserver.supportedEntryTypes) &&
+        PerformanceObserver.supportedEntryTypes.includes("largest-contentful-paint");
+
+    if (!supportsLcpObserver) {
+        // Older browsers without LCP entries retain a conservative delay.
+        productsPageLcpFallbackTimer = window.setTimeout(
+            scheduleProductsPageInitialisationWhenIdle,
+            3500
+        );
+        return;
+    }
+
+    try {
+        productsPageLcpObserver = new PerformanceObserver(list => {
+            const heroPainted = list.getEntries().some(entry =>
+                entry.element?.matches?.(".products-hero-media")
+            );
+            if (!heroPainted) return;
+
+            productsPageLcpObserver?.disconnect();
+            productsPageLcpObserver = null;
+            if (productsPageLcpFallbackTimer !== null) {
+                window.clearTimeout(productsPageLcpFallbackTimer);
+                productsPageLcpFallbackTimer = null;
+            }
+            scheduleProductsPageInitialisationWhenIdle();
+        });
+        productsPageLcpObserver.observe({
+            type: "largest-contentful-paint",
+            buffered: true
+        });
+
+        // Do not leave filters/search permanently uninitialised if a browser
+        // suppresses LCP entries (for example, when the document is backgrounded).
+        productsPageLcpFallbackTimer = window.setTimeout(() => {
+            productsPageLcpObserver?.disconnect();
+            productsPageLcpObserver = null;
+            productsPageLcpFallbackTimer = null;
+            scheduleProductsPageInitialisationWhenIdle();
+        }, 10000);
+    } catch (error) {
+        productsPageLcpObserver?.disconnect();
+        productsPageLcpObserver = null;
+        productsPageLcpFallbackTimer = window.setTimeout(
+            scheduleProductsPageInitialisationWhenIdle,
+            3500
+        );
     }
 }
 
@@ -122,6 +255,61 @@ if (document.readyState === "complete") {
     scheduleProductsPageInitialisation();
 } else {
     window.addEventListener("load", scheduleProductsPageInitialisation, { once: true });
+}
+
+function applyPendingProductsPageControls() {
+    if (pendingProductsPageReset) {
+        Filters.clear();
+        currentSort = "featured";
+        searchInputChangedBeforeReady = false;
+        pendingProductsPageControlValues.clear();
+
+        FILTER_CONFIGS.forEach(config => {
+            const select = document.getElementById(config.id);
+            if (select) select.value = "";
+        });
+        const sort = document.getElementById("sortProducts");
+        if (sort) sort.value = currentSort;
+        const search = document.getElementById("searchInput");
+        if (search) search.value = "";
+
+        // Reset the shareable catalogue state but retain the selected page size,
+        // matching the existing Reset Filters button behaviour.
+        try {
+            const url = new URL(window.location.href);
+            ["q", "brand_id", "category_id", "subcategory_id", "vehicles", "sort", "page"]
+                .forEach(key => url.searchParams.delete(key));
+            window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+        } catch (error) {
+            // Ignore URL API failures.
+        }
+        pendingProductsPageReset = false;
+        return;
+    }
+
+    for (const [id, value] of pendingProductsPageControlValues.entries()) {
+        const config = FILTER_CONFIGS.find(item => item.id === id);
+        if (config) {
+            Filters.set(config.key, value);
+        } else if (id === "sortProducts") {
+            currentSort = value || "featured";
+        } else if (id === "pageSize") {
+            const select = document.getElementById("pageSize");
+            if (select) select.value = value;
+            const size = Number(value);
+            if (Number.isFinite(size) && size >= 1 && size <= 100) {
+                try {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set("pageSize", String(size));
+                    url.searchParams.delete("page");
+                    window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+                } catch (error) {
+                    // Ignore URL API failures.
+                }
+            }
+        }
+    }
+    pendingProductsPageControlValues.clear();
 }
 
 function getSearchQuery() {
@@ -171,8 +359,10 @@ function sortCatalogue(results) {
         return sorted.sort((a, b) => {
             const featuredDiff = Number(Boolean(b.featured)) - Number(Boolean(a.featured));
             if (featuredDiff) return featuredDiff;
-            return normaliseComparable(a.product_name || a.name)
-                .localeCompare(normaliseComparable(b.product_name || b.name), undefined, { sensitivity: "base" });
+            return CATALOGUE_LABEL_COLLATOR.compare(
+                a.product_name || a.name || "",
+                b.product_name || b.name || ""
+            );
         });
     }
 
@@ -195,8 +385,10 @@ function sortCatalogue(results) {
             if (first === null) return 1;
             if (second === null) return -1;
             if (first !== second) return (first < second ? -1 : 1) * multiplier;
-            return normaliseComparable(a.product_name || a.name)
-                .localeCompare(normaliseComparable(b.product_name || b.name), undefined, { sensitivity: "base" });
+            return CATALOGUE_LABEL_COLLATOR.compare(
+                a.product_name || a.name || "",
+                b.product_name || b.name || ""
+            );
         }
 
         const first = normaliseComparable(a[key]);
@@ -321,7 +513,7 @@ function getFacetOptions(config, scope = getFacetScope(config.key)) {
 
     return [...options.entries()]
         .map(([value, label]) => ({ value, label }))
-        .sort((a, b) => String(a.label).localeCompare(String(b.label), undefined, { sensitivity: "base" }));
+        .sort((a, b) => CATALOGUE_LABEL_COLLATOR.compare(a.label, b.label));
 }
 
 function refreshFilterOptions() {
@@ -587,6 +779,22 @@ function populateSelect(id, options, selectedValue = "", scope = allProducts) {
     const select = document.getElementById(id);
     if (!select) return;
 
+    const config = FILTER_CONFIGS.find(item => item.id === id);
+    const valuesInScope = new Set();
+    if (config?.key === "vehicles") {
+        scope.forEach(product => {
+            (Array.isArray(product?.vehicles) ? product.vehicles : [])
+                .forEach(vehicle => valuesInScope.add(String(vehicle)));
+        });
+    } else if (config) {
+        scope.forEach(product => {
+            const value = product?.[config.key];
+            if (value !== null && value !== undefined && value !== "") {
+                valuesInScope.add(String(value));
+            }
+        });
+    }
+
     const first = select.options[0];
     const firstHtml = first ? first.outerHTML : '<option value="">All</option>';
     select.innerHTML = firstHtml;
@@ -596,23 +804,9 @@ function populateSelect(id, options, selectedValue = "", scope = allProducts) {
         element.value = option.value;
         element.textContent = option.label;
         element.selected = String(option.value) === String(selectedValue);
-        element.disabled = !element.selected && !optionExistsInScope(id, option.value, scope);
+        element.disabled = !element.selected && !valuesInScope.has(String(option.value));
         select.appendChild(element);
     });
-}
-
-function optionExistsInScope(id, value, scope) {
-    const config = FILTER_CONFIGS.find(item => item.id === id);
-    if (!config) return true;
-
-    if (config.key === "vehicles") {
-        return scope.some(product =>
-            Array.isArray(product?.vehicles) &&
-            product.vehicles.some(vehicle => String(vehicle) === String(value))
-        );
-    }
-
-    return scope.some(product => String(product?.[config.key] ?? "") === String(value));
 }
 
 function updateCounters(results) {
