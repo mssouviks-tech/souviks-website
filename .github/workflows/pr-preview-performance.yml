@@ -305,8 +305,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: lcp-paint-diagnostics-${{ github.run_id }}
-          path: .lcp-diagnostic/
-          if-no-files-found: warn
+          path: lcp-diagnostic/
+          if-no-files-found: error
           retention-days: 14
 
       - name: Upload Lighthouse reports

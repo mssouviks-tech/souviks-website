@@ -15,7 +15,7 @@ if (targets.length < 2) {
   throw new Error("Pass at least main=url and PR=url.");
 }
 
-const outputDir = path.resolve(".lcp-diagnostic");
+const outputDir = path.resolve("lcp-diagnostic");
 const checkpoints = [1250, 2500, 3750, 5000, 6250];
 await mkdir(outputDir, { recursive: true });
 
