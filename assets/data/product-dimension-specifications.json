@@ -2,7 +2,7 @@
   "version": 1,
   "purpose": "Explicit product-component and fitment measurements captured from catalogue item names, plus one Dana Aftermarket cross-reference. These values are not shipping-carton or parcel dimensions.",
   "unit": "mm",
-  "records": 400,
+  "records": 407,
   "products": [
     {
       "id": "SVKS000002",
@@ -7364,6 +7364,83 @@
           "source": "product_description"
         }
       ]
+    },
+    {
+      "id": "SVKS000554",
+      "part_number": "TXL 3 - 2SG + 2KG",
+      "product_name": "Superior Grease",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [],
+      "declared_net_content_g": 2000,
+      "declared_net_content_status": "catalogue_declared_content",
+      "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
+      "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    },
+    {
+      "id": "SVKS000555",
+      "part_number": "TXL 3 - 3SG + 3KG",
+      "product_name": "Superior Grease",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [],
+      "declared_net_content_g": 3000,
+      "declared_net_content_status": "catalogue_declared_content",
+      "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
+      "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    },
+    {
+      "id": "SVKS000556",
+      "part_number": "TXL 3 - 5SG + 5KG",
+      "product_name": "Superior Grease",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [],
+      "declared_net_content_g": 5000,
+      "declared_net_content_status": "catalogue_declared_content",
+      "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
+      "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    },
+    {
+      "id": "SVKS000557",
+      "part_number": "TXL 3 - 7SG + 7KG",
+      "product_name": "Superior Grease",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [],
+      "declared_net_content_g": 7000,
+      "declared_net_content_status": "catalogue_declared_content",
+      "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
+      "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    },
+    {
+      "id": "SVKS000769",
+      "part_number": "TXL 3 - 10SG + 10KG",
+      "product_name": "Premium Grease 10KG TXL1-10LP",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [],
+      "declared_net_content_g": 10000,
+      "declared_net_content_status": "catalogue_declared_content",
+      "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
+      "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    },
+    {
+      "id": "SVKS000770",
+      "part_number": "TXL 3 - 5SG + 5KG",
+      "product_name": "Premium Grease 5KG Texspin",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [],
+      "declared_net_content_g": 5000,
+      "declared_net_content_status": "catalogue_declared_content",
+      "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
+      "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    },
+    {
+      "id": "SVKS000840",
+      "part_number": "TXL 3 - 1SG + 1KG",
+      "product_name": "Superior Grease",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [],
+      "declared_net_content_g": 1000,
+      "declared_net_content_status": "catalogue_declared_content",
+      "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
+      "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
     }
   ]
 }
