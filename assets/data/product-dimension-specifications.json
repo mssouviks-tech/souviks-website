@@ -4724,7 +4724,7 @@
           "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         },
         {
-          "name": "Specified facing thickness",
+          "name": "Specified facing/pad dimension",
           "value_mm": 10,
           "source": "product_name; 1 cm converted to millimetres"
         }
