@@ -357,6 +357,59 @@ def reconcile_catalogue_projections():
                 product["dimensions_source"] = dimension_source
                 dimensions_changed = True
 
+            # Exact manufacturer net weights can coexist with component dimensions.
+            # Only publish a packed checkout value after validating source, model,
+            # the stated packaging allowance and the round-up calculation.
+            if "manufacturer_weight_kg" in record:
+                try:
+                    manufacturer_weight_kg = float(record.get("manufacturer_weight_kg"))
+                except (TypeError, ValueError):
+                    raise SystemExit(f"Invalid manufacturer weight for {pid}")
+                if (
+                    not (0 < manufacturer_weight_kg < float("inf"))
+                    or manufacturer_weight_kg != manufacturer_weight_kg
+                ):
+                    raise SystemExit(f"Invalid manufacturer weight for {pid}")
+                if text(record.get("manufacturer_weight_status")) != "verified":
+                    raise SystemExit(f"Manufacturer weight is not verified for {pid}")
+                source_url = text(record.get("manufacturer_weight_source_url"))
+                if not source_url.startswith("https://cad.timken.com/"):
+                    raise SystemExit(f"Unapproved manufacturer weight source for {pid}")
+                if text(product.get("brand")).casefold() != "timken":
+                    raise SystemExit(f"Manufacturer weight source does not match Timken brand for {pid}")
+                if not text(record.get("manufacturer_weight_notes")):
+                    raise SystemExit(f"Missing manufacturer weight notes for {pid}")
+                allowance = record.get("manufacturer_weight_packaging_allowance_percent")
+                rounding_step = record.get("manufacturer_weight_round_up_to_g")
+                if allowance != 5 or rounding_step != 50:
+                    raise SystemExit(f"Unsupported manufacturer packed-weight method for {pid}")
+                import math
+                packed_weight_g = math.ceil(
+                    (manufacturer_weight_kg * 1000 * (1 + allowance / 100)) / rounding_step
+                ) * rounding_step
+                if record.get("manufacturer_weight_approx_packed_g") != packed_weight_g:
+                    raise SystemExit(f"Manufacturer packed-weight calculation mismatch for {pid}")
+                notes = text(record.get("manufacturer_weight_notes"))
+                method = (
+                    "Manufacturer-reported net product weight; packed checkout estimate "
+                    "adds a 5% packaging allowance and rounds up to the next 50 g."
+                )
+                manufacturer_metadata = {
+                    "manufacturer_weight_kg": manufacturer_weight_kg,
+                    "manufacturer_weight_status": "verified",
+                    "manufacturer_spec_source": source_url,
+                    "manufacturer_spec_notes": notes,
+                    "calculated_weight_g": int(round(manufacturer_weight_kg * 1000)),
+                    "approx_weight_g": packed_weight_g,
+                    "weight_estimation_status": "manufacturer_verified",
+                    "weight_estimation_method": method,
+                    "weight_estimation_notes": notes,
+                }
+                for field, value in manufacturer_metadata.items():
+                    if product.get(field) != value:
+                        product[field] = value
+                        dimensions_changed = True
+
         if dimensions_changed:
             CATALOGUE_PATH.write_text(
                 json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n",
