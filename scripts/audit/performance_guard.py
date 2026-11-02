@@ -255,11 +255,11 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
             continue
         raw = path.read_text(encoding="utf-8", errors="ignore")
         mobile_preloads = re.findall(
-            r'<link\\b(?=[^>]*\\brel=["\\']preload["\\'])'
-            r'(?=[^>]*\\bas=["\\']image["\\'])'
-            r'(?=[^>]*\\bhref=["\\'][^"\\']*/assets/images/hero/'
-            r'product-hero-mobile-crop\\.avif\\?v=[0-9a-f]{12}["\\'])'
-            r'(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])[^>]*>',
+            r"""<link\b(?=[^>]*\brel=["']preload["'])"""
+            r"""(?=[^>]*\bas=["']image["'])"""
+            r"""(?=[^>]*\bhref=["'][^"']*/assets/images/hero/"""
+            r"""product-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["'])"""
+            r"""(?=[^>]*\bmedia=["']\(max-width:\s*768px\)["'])[^>]*>""",
             raw,
             flags=re.I | re.S,
         )
@@ -270,11 +270,11 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
             )
 
         duplicate_mobile_preloads = re.findall(
-            r'<link\\b(?=[^>]*\\brel=["\\']preload["\\'])'
-            r'(?=[^>]*\\bas=["\\']image["\\'])'
-            r'(?=[^>]*\\bhref=["\\'][^"\\']*/assets/images/hero/'
-            r'product-hero-mobile(?:-crop)?\\.(?:avif|webp)(?:\\?[^"\\']*)?["\\'])'
-            r'[^>]*>',
+            r"""<link\b(?=[^>]*\brel=["']preload["'])"""
+            r"""(?=[^>]*\bas=["']image["'])"""
+            r"""(?=[^>]*\bhref=["'][^"']*/assets/images/hero/"""
+            r"""product-hero-mobile(?:-crop)?\.(?:avif|webp)(?:\?[^"']*)?["'])"""
+            r"""[^>]*>""",
             raw,
             flags=re.I | re.S,
         )
