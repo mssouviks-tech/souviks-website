@@ -21,7 +21,7 @@ on:
       - "supabase/config.toml"
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: souviks-catalogue-pr-${{ github.event.pull_request.number }}
@@ -57,8 +57,8 @@ jobs:
       - name: Install JavaScript build tools
         run: npm install --no-package-lock --no-audit --no-fund
 
-      - name: Install image optimisation dependency
-        run: python3 -m pip install --user --break-system-packages Pillow
+      - name: Install image optimisation dependencies
+        run: python3 -m pip install --user --break-system-packages Pillow pillow-avif-plugin
 
       - name: Compile catalogue builders
         run: |
@@ -98,6 +98,7 @@ jobs:
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/optimize_static_images.py",
+              "scripts/audit/prepare_mobile_listing_lcp.py",
               "scripts/audit/structured_data.py",
               "scripts/audit/seo_contract.py",
               "scripts/audit/site_quality.py",
@@ -136,6 +137,7 @@ jobs:
           python3 scripts/js/refactor.py
           npm run build:js
           python3 scripts/audit/optimize_static_images.py
+          python3 scripts/audit/prepare_mobile_listing_lcp.py
           python3 scripts/js/refresh_versions.py
           python3 scripts/catalogue/sync_root_homepage.py
 
@@ -169,6 +171,31 @@ jobs:
           npm run format:check
 
           echo "Catalogue release gate passed."
+
+      - name: Commit generated mobile LCP assets to the pull-request branch
+        if: ${{ success() && github.event.pull_request.head.repo.full_name == github.repository }}
+        env:
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            assets/images/hero/index-hero-mobile.webp \
+            index.html en/index.html hi/index.html bn/index.html \
+            en/products.html hi/products.html bn/products.html \
+            scripts/catalogue/sync_product_cards.py \
+            scripts/audit/performance_guard.py
+
+          if git diff --cached --quiet; then
+            echo "Generated mobile LCP assets and HTML are already current."
+            exit 0
+          fi
+
+          git commit -m "Optimize generated mobile LCP assets"
+          git push origin "HEAD:${PR_HEAD_REF}"
 
       - name: Upload SEO review report
         if: always()
