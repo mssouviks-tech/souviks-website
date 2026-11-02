@@ -95,7 +95,7 @@ def patch_pages() -> None:
         html = mobile_hero_preloads.sub("", html)
         html, preload_count = re.subn(
             r'(<head\\b[^>]*>)',
-            lambda match: match.group(1) + "\\n    " + new_preload + "\\n",
+            lambda match: match.group(1) + "\n    " + new_preload + "\n",
             html,
             count=1,
             flags=re.I,
