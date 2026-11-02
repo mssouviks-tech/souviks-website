@@ -80,6 +80,8 @@ assert.ok(cartClient.indexOf('estimate_type:"delivery_time"') < cartClient.index
 
 assert.match(cartClient, /souviks_purchase_cart_v1/);
 assert.match(cartClient, /approx_weight_g/);
+assert.match(cartClient, /shipping_package_dimensions_mm/);
+assert.match(cartClient, /volumetricWeightGrams/);
 assert.match(cartClient, /estimate_type:"shipping_charge"/);
 assert.match(cartClient, /chargeable_weight_g/);
 assert.match(cartClient, /Estimated delivery charges/);
@@ -89,6 +91,8 @@ assert.match(catalogueBuilder, /"mrp", "selling_price", "approx_weight_g"/);
 assert.match(catalogueBuilder, /data\["approx_weight_g"\] = approximate_weight_grams\(product\)/);
 assert.match(catalogueBuilder, /sheet_weight_grams = approximate_weight_grams\(sheet_row\)/);
 assert.match(catalogueBuilder, /if sheet_weight_grams is not None:/);
+assert.match(checkout, /function packageVolumetricWeightGrams/);
+assert.match(checkout, /shipping_package_dimensions_mm/);
 assert.match(checkout, /function calculateDelhiveryPrepaidCharge/);
 assert.match(checkout, /chargesUrl\.searchParams\.set\("pt", "Pre-paid"\)/);
 assert.match(checkout, /estimatedWeightGrams \+= Math\.round\(unitWeightGrams\) \* quantity/);
