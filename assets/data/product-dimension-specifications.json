@@ -5878,8 +5878,8 @@
         },
         {
           "name": "Cross overall span",
-          "value_mm": null,
-          "source": "product_description"
+          "value_mm": 126.2,
+          "source": "product_description; explicitly stated cross dimensions"
         }
       ]
     },
@@ -5939,8 +5939,8 @@
         },
         {
           "name": "Cross overall span",
-          "value_mm": null,
-          "source": "product_description"
+          "value_mm": 154.8,
+          "source": "product_description; explicitly stated cross dimensions"
         },
         {
           "name": "Plate size",
@@ -6107,8 +6107,8 @@
         },
         {
           "name": "Cross overall span",
-          "value_mm": null,
-          "source": "product_description"
+          "value_mm": 154.8,
+          "source": "product_description; explicitly stated cross dimensions"
         },
         {
           "name": "Plate size",
@@ -6206,8 +6206,8 @@
         },
         {
           "name": "Cross overall span",
-          "value_mm": null,
-          "source": "product_description"
+          "value_mm": 126.2,
+          "source": "product_description; explicitly stated cross dimensions"
         },
         {
           "name": "Plate size",
