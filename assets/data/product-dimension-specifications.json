@@ -9,6 +9,50 @@
   ],
   "products": [
     {
+      "id": "SVKS000002",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal banjo fastener size",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000003",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000004",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000005",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000006",
       "part_number": "",
       "dimension_specs_mm": [
@@ -173,6 +217,105 @@
         {
           "name": "Union connection size 2",
           "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000015",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000016",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000017",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000018",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000019",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 11,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000020",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal banjo fastener size",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000021",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000022",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000023",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 12,
           "source": "product_name"
         }
       ]
@@ -347,6 +490,94 @@
       ]
     },
     {
+      "id": "SVKS000035",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000036",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000037",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000038",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 13,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000039",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal banjo fastener size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000040",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000041",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000042",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000043",
       "part_number": "",
       "dimension_specs_mm": [
@@ -426,6 +657,33 @@
       ]
     },
     {
+      "id": "SVKS000047",
+      "part_number": "SBAM 495",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 15.88,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000048",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000049",
       "part_number": "",
       "dimension_specs_mm": [
@@ -437,6 +695,83 @@
         {
           "name": "Union connection size 2",
           "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000050",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000051",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000052",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000053",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal banjo fastener size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000054",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000055",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000056",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 16,
           "source": "product_name"
         }
       ]
@@ -642,6 +977,61 @@
       ]
     },
     {
+      "id": "SVKS000073",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000074",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal banjo fastener size",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000075",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000076",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000077",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000078",
       "part_number": "",
       "dimension_specs_mm": [
@@ -669,6 +1059,17 @@
         {
           "name": "Union connection size 2",
           "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000080",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal union connection size",
+          "value_mm": 18,
           "source": "product_name"
         }
       ]
@@ -706,6 +1107,50 @@
       ]
     },
     {
+      "id": "SVKS000083",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal banjo fastener size",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000084",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000085",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal banjo fastener size",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000086",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000087",
       "part_number": "",
       "dimension_specs_mm": [
@@ -733,6 +1178,17 @@
         {
           "name": "Union connection size 2",
           "value_mm": 26,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000089",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 24,
           "source": "product_name"
         }
       ]
@@ -793,6 +1249,17 @@
           "name": "Clutch diameter",
           "value_mm": 190,
           "source": "product_name_and_product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000096",
+      "part_number": "272425000235",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch diameter",
+          "value_mm": 275,
+          "source": "product_name"
         }
       ]
     },
@@ -1144,6 +1611,39 @@
       ]
     },
     {
+      "id": "SVKS000152",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal banjo fastener size",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000153",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000154",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000155",
       "part_number": "",
       "dimension_specs_mm": [
@@ -1224,6 +1724,127 @@
       ]
     },
     {
+      "id": "SVKS000160",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000161",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000162",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000163",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000164",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000165",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000166",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000167",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal banjo fastener size",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000168",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000169",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000170",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000171",
       "part_number": "",
       "dimension_specs_mm": [
@@ -1288,6 +1909,99 @@
       ]
     },
     {
+      "id": "SVKS000197",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000213",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000214",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000215",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000216",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000217",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 9,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000230",
+      "part_number": "15IPL",
+      "dimension_specs_mm": [
+        {
+          "name": "Wider pad nominal width",
+          "value_mm": 381,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000231",
+      "part_number": "PTB15-WP",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        },
+        {
+          "name": "Wider pad nominal width",
+          "value_mm": 38.1,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
       "id": "SVKS000232",
       "part_number": "380CT",
       "dimension_specs_mm": [
@@ -1295,6 +2009,44 @@
           "name": "Clutch diameter",
           "value_mm": 380,
           "source": "product_name_and_product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000242",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall pipe length",
+          "value_mm": 2133.6,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000246",
+      "part_number": "CC 016008R",
+      "dimension_specs_mm": [
+        {
+          "name": "Withdrawal plate thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000250",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal tube connection diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Measured coupler bore diameter",
+          "value_mm": 11.8,
+          "source": "product_name"
         }
       ]
     },
@@ -1337,6 +2089,265 @@
         {
           "name": "Specified pin size (2)",
           "value_mm": 35,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000301",
+      "part_number": "SBAM 145",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 11.91,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000302",
+      "part_number": "SBAM 146",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 11.91,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000303",
+      "part_number": "SBAM 147",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 11.91,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000304",
+      "part_number": "SBAM 228",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 11.91,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 406.4,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000305",
+      "part_number": "SBAM 369",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 11.91,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 457.2,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000306",
+      "part_number": "SBAM 366",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 15.88,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000307",
+      "part_number": "SBAM 427",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 15.88,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 406.4,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000308",
+      "part_number": "SBAM 442",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 15.88,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 457.2,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000309",
+      "part_number": "SBAM 499",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000310",
+      "part_number": "SBAM 500",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000311",
+      "part_number": "SBBS 1424",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000312",
+      "part_number": "SBBS 1426",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000313",
+      "part_number": "SBAM 496",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000314",
+      "part_number": "SBAM 596",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000315",
+      "part_number": "LLTS105",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bell-crank bush size",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000317",
+      "part_number": "SBAM 367",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 15.88,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000318",
+      "part_number": "SBAM 394",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt shank diameter",
+          "value_mm": 15.88,
+          "source": "product_name_inch_conversion"
+        },
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000329",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bell-crank bush size",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000334",
+      "part_number": "BS4923TAP",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bell-crank bush size",
+          "value_mm": 50,
           "source": "product_name"
         }
       ]
@@ -1417,6 +2428,28 @@
         {
           "name": "Overall length",
           "value_mm": 135,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000364",
+      "part_number": "CB300130",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch-booster nominal diameter",
+          "value_mm": 70,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000372",
+      "part_number": "MP168",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bell-crank bush size",
+          "value_mm": 50,
           "source": "product_name"
         }
       ]
@@ -1590,6 +2623,17 @@
       ]
     },
     {
+      "id": "SVKS000404",
+      "part_number": "PLK199F",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bell-crank bush size",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000410",
       "part_number": "8PK-1250",
       "dimension_specs_mm": [
@@ -1597,6 +2641,17 @@
           "name": "Effective belt length",
           "value_mm": 1250,
           "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000428",
+      "part_number": "4054P",
+      "dimension_specs_mm": [
+        {
+          "name": "Universal-joint cross nominal diameter",
+          "value_mm": 46,
+          "source": "product_name"
         }
       ]
     },
@@ -1655,6 +2710,28 @@
         {
           "name": "Overall length",
           "value_mm": 125.9,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000481",
+      "part_number": "29068102",
+      "dimension_specs_mm": [
+        {
+          "name": "Cylinder bore diameter",
+          "value_mm": 22.22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000536",
+      "part_number": "TX-380-CRK9",
+      "dimension_specs_mm": [
+        {
+          "name": "Collector-ring nominal diameter",
+          "value_mm": 380,
           "source": "product_name"
         }
       ]
@@ -1738,6 +2815,17 @@
       "source_url": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=9121400130&cclcl=en"
     },
     {
+      "id": "SVKS000586",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal washer fastener size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000592",
       "part_number": "0152",
       "dimension_specs_mm": [
@@ -1808,6 +2896,17 @@
       ]
     },
     {
+      "id": "SVKS000671",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Conductor strand diameter",
+          "value_mm": 0.3,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000686",
       "part_number": "FA0016700",
       "dimension_specs_mm": [
@@ -1824,12 +2923,186 @@
       ]
     },
     {
+      "id": "SVKS000690",
+      "part_number": "MBJS 112",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 254,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000691",
+      "part_number": "MBJS 114",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 279.4,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000692",
+      "part_number": "MBJS 116",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000693",
+      "part_number": "MSJS 217",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 330.2,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000694",
+      "part_number": "MBJS 258",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000715",
+      "part_number": "J2111",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal shackle size",
+          "value_mm": 80,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000716",
+      "part_number": "J2216A",
+      "dimension_specs_mm": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000720",
+      "part_number": "J4004",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 35,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000721",
+      "part_number": "J4003",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 42,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000723",
       "part_number": "",
       "dimension_specs_mm": [
         {
           "name": "Specified hanger size",
           "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000724",
+      "part_number": "J1049",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000725",
+      "part_number": "J1051",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000726",
+      "part_number": "J1053",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000727",
+      "part_number": "J1053A",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000731",
+      "part_number": "J1114",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal shackle pin diameter",
+          "value_mm": 32,
           "source": "product_name"
         }
       ]
@@ -1851,6 +3124,17 @@
       ]
     },
     {
+      "id": "SVKS000736",
+      "part_number": "J1618",
+      "dimension_specs_mm": [
+        {
+          "name": "Compatible bush diameter",
+          "value_mm": 24,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000737",
       "part_number": "",
       "dimension_specs_mm": [
@@ -1858,6 +3142,17 @@
           "name": "Pin diameter",
           "value_mm": 30,
           "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000751",
+      "part_number": "B1M03401",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch-cover diameter",
+          "value_mm": 330,
+          "source": "product_name_cm_conversion"
         }
       ]
     },
@@ -1874,6 +3169,38 @@
           "name": "Inner diameter",
           "value_mm": 19.5,
           "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000755",
+      "part_number": "FAT02000",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch-disc diameter",
+          "value_mm": 330,
+          "source": "product_name_cm_conversion"
+        },
+        {
+          "name": "Spline nominal diameter",
+          "value_mm": 35.05,
+          "source": "product_name_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000771",
+      "part_number": "J1660",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 14,
+          "source": "product_name"
         }
       ]
     },
@@ -2401,6 +3728,38 @@
       ]
     },
     {
+      "id": "SVKS000795",
+      "part_number": "J1029",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000803",
+      "part_number": "L9542R",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch-plate diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        },
+        {
+          "name": "Clutch-plate thickness",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000804",
       "part_number": "AVX13-980",
       "dimension_specs_mm": [
@@ -2589,6 +3948,50 @@
           "name": "Overall length",
           "value_mm": 135,
           "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000849",
+      "part_number": "FLA-UNVR-60 LED",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal fog-lamp diameter",
+          "value_mm": 110,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000850",
+      "part_number": "FLA-UNVR-60LED24",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal fog-lamp diameter",
+          "value_mm": 110,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000851",
+      "part_number": "FLA-UNVR-60ledy",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal fog-lamp diameter",
+          "value_mm": 110,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000861",
+      "part_number": "HLU-UNVR-70M",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal headlamp diameter",
+          "value_mm": 177.8,
+          "source": "product_name_inch_conversion"
         }
       ]
     },
@@ -2853,6 +4256,17 @@
         }
       ],
       "source_url": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=9732980270&cclcl=en"
+    },
+    {
+      "id": "SVKS000877",
+      "part_number": "SBAM 231",
+      "dimension_specs_mm": [
+        {
+          "name": "Centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name_inch_conversion"
+        }
+      ]
     },
     {
       "id": "SVKS000878",
@@ -3328,6 +4742,17 @@
       "source_url": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100304941&cclcl=en"
     },
     {
+      "id": "SVKS000945",
+      "part_number": "SF5030",
+      "dimension_specs_mm": [
+        {
+          "name": "Flywheel nominal diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000954",
       "part_number": "",
       "dimension_specs_mm": [
@@ -3794,6 +5219,55 @@
           "name": "Cable length",
           "value_mm": 2350,
           "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001027",
+      "part_number": "552330100125",
+      "dimension_specs_mm": [
+        {
+          "name": "Accelerator cable length",
+          "value_mm": 2526,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001028",
+      "part_number": "208230100108",
+      "dimension_specs_mm": [
+        {
+          "name": "Accelerator cable length",
+          "value_mm": 3105,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001030",
+      "part_number": "J4036",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 30,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001036",
+      "part_number": "J4036A",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal suspension pin size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Chassis mounting hole diameter",
+          "value_mm": 17,
+          "source": "product_name"
         }
       ]
     },
@@ -4394,6 +5868,28 @@
           "name": "Spanner size",
           "value_mm": 21,
           "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001131",
+      "part_number": "KF5002",
+      "dimension_specs_mm": [
+        {
+          "name": "Engine mounting hole diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001141",
+      "part_number": "RM016001E",
+      "dimension_specs_mm": [
+        {
+          "name": "Engine mounting hole diameter",
+          "value_mm": 16,
+          "source": "product_name"
         }
       ]
     },
