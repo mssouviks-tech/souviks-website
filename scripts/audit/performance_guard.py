@@ -170,6 +170,12 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
                 f"{desktop.relative_to(ROOT)} for mobile delivery",
                 errors,
             )
+        if stem == "index-hero" and mobile.stat().st_size > 80_000:
+            fail(
+                f"{mobile.relative_to(ROOT)}: mobile homepage hero must be at most 80,000 bytes "
+                "to meet the 4-second mobile LCP budget",
+                errors,
+            )
 
     home_pages = [
         ROOT / "index.html",
