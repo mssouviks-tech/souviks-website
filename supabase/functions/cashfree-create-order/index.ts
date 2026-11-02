@@ -21,6 +21,19 @@ function money(paise: number): number {
   return Math.round(paise) / 100;
 }
 
+function packageVolumetricWeightGrams(value: unknown): number | null {
+  if (value == null) return null;
+  if (!Array.isArray(value) || value.length !== 3) {
+    throw new CheckoutError("delhivery_shipping_dimensions_invalid", 400);
+  }
+  const dimensions = value.map(Number);
+  if (dimensions.some((item) => !Number.isFinite(item) || item <= 0 || item > 5000)) {
+    throw new CheckoutError("delhivery_shipping_dimensions_invalid", 400);
+  }
+  // Delhivery volumetric divisor 5,000: L × W × H in mm³ / 5,000 = grams.
+  return Math.ceil((dimensions[0] * dimensions[1] * dimensions[2]) / 5000);
+}
+
 function randomToken(): string {
   const bytes = crypto.getRandomValues(new Uint8Array(32));
   return Array.from(bytes).map((byte) => byte.toString(16).padStart(2, "0")).join("");
@@ -216,6 +229,21 @@ Deno.serve(async (req: Request) => {
         unit_price: money(unitPaise),
         line_total: money(linePaise),
       });
+    }
+
+    // The Delhivery quote accepts one combined chargeable weight. A product's
+    // engineering dimensions cannot be substituted for parcel dimensions. Only
+    // apply volumetric weight when one single packed parcel has explicit outer
+    // dimensions; multi-line/quantity carts need a real packing calculation.
+    if (fulfillmentMethod === "delivery" && requested.size === 1) {
+      const [productId, quantity] = [...requested.entries()][0];
+      if (quantity === 1) {
+        const product = byId.get(productId);
+        const volumetricWeight = packageVolumetricWeightGrams(product?.shipping_package_dimensions_mm);
+        if (volumetricWeight !== null && hasCompleteWeights) {
+          estimatedWeightGrams = Math.max(estimatedWeightGrams, volumetricWeight);
+        }
+      }
     }
 
     if (subtotalPaise < 100) throw new CheckoutError("minimum_order_amount_not_met", 400);
