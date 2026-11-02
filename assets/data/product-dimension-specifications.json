@@ -2,7 +2,7 @@
   "version": 1,
   "purpose": "Explicit product-component and fitment measurements captured from catalogue item names, plus one Dana Aftermarket cross-reference. These values are not shipping-carton or parcel dimensions.",
   "unit": "mm",
-  "records": 219,
+  "records": 258,
   "products": [
     {
       "id": "SVKS000002",
@@ -3788,6 +3788,538 @@
           "name": "Specified mounting size",
           "value_mm": 16,
           "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000015",
+      "part_number": "",
+      "product_name": "10\" Center Bolt LH",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000047",
+      "part_number": "SBAM 495",
+      "product_name": "14\" Center Bolt 5/8",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000078",
+      "part_number": "",
+      "product_name": "18 x 110 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal bolt diameter",
+          "value_mm": 18,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 110,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000095",
+      "part_number": "272425000223",
+      "product_name": "Set - Clutch Assy. Dia 190",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 190,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000096",
+      "part_number": "272425000235",
+      "product_name": "Clutch Disc Assy. (Dia 275) BS6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 275,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000097",
+      "part_number": "272425200235",
+      "product_name": "Clutch Disc Dia 215 BS6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 215,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000098",
+      "part_number": "272425400235",
+      "product_name": "Clutch Cover Assy. Dia 215 BS6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 215,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000232",
+      "part_number": "380CT",
+      "product_name": "380 CT Cover Assy. for 380 Dia",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000301",
+      "part_number": "SBAM 145",
+      "product_name": "Centre Bolt - 15/32 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000302",
+      "part_number": "SBAM 146",
+      "product_name": "Centre Bolt - 15/32 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000303",
+      "part_number": "SBAM 147",
+      "product_name": "Centre Bolt - 15/32 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000304",
+      "part_number": "SBAM 228",
+      "product_name": "Centre Bolt - 15/32 16\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000305",
+      "part_number": "SBAM 369",
+      "product_name": "Centre Bolt - 15/32 18\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000306",
+      "part_number": "SBAM 366",
+      "product_name": "Centre Bolt - 5/8 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000307",
+      "part_number": "SBAM 427",
+      "product_name": "Centre Bolt - 5/8 16\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000308",
+      "part_number": "SBAM 442",
+      "product_name": "Centre Bolt - 5/8 18\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000317",
+      "part_number": "SBAM 367",
+      "product_name": "Center Bolt 5/8 - 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000318",
+      "part_number": "SBAM 394",
+      "product_name": "Center Bolt 5/8 - 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000429",
+      "part_number": "",
+      "product_name": "Pressure Plate 330 Dia Sonalika 4 Lever",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 330,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000442",
+      "part_number": "SK380",
+      "product_name": "Spring Kit 380 Dia",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000503",
+      "part_number": "TX-7896 SC",
+      "product_name": "430 dia. 2.0 inch spline for Tata Prima/Eicher Pro-8000 (self-centering)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        },
+        {
+          "name": "Spline nominal diameter",
+          "value_mm": 50.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000504",
+      "part_number": "TX-92AL-H",
+      "product_name": "Ashok Leyland clutch bearing (280–300 dia./Ecomet) with hub",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter minimum",
+          "value_mm": 280,
+          "source": "product_name"
+        },
+        {
+          "name": "Associated clutch diameter maximum",
+          "value_mm": 300,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000505",
+      "part_number": "TX-6695SC",
+      "product_name": "Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000537",
+      "part_number": "TX-430-CRK9",
+      "product_name": "Tata Prima 430 dia. collector ring",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000796",
+      "part_number": "183-AP-00380061L1019-3R",
+      "product_name": "380Dia   Cover Assy. Low Mi",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000798",
+      "part_number": "183F-ST-000LP41600070-0R",
+      "product_name": "430   Dia Clutch Set",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000799",
+      "part_number": "183LP-L4648R-144",
+      "product_name": "395 Dia Eicher   combo",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000800",
+      "part_number": "380019-L1013-5R",
+      "product_name": "380Dia Clutch   Set",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000801",
+      "part_number": "4648R",
+      "product_name": "395 Dia Eicher Cover Assy",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000802",
+      "part_number": "AP-00330061L9527-0R",
+      "product_name": "330Dia   Clutch Cover Assy BS VI Diaphragm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 330,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000826",
+      "part_number": "886725000020",
+      "product_name": "Clutch Facing 380 Dia with Rivets",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000942",
+      "part_number": "TX 78139SC",
+      "product_name": "Clutch Release Bearing for Tata Commercial Vehicles 430 dia",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000944",
+      "part_number": "TX 4049 SC M",
+      "product_name": "Mahindra Blazo (395 dia)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000945",
+      "part_number": "SF5030",
+      "product_name": "Leyland 430 dia 160 teeth",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000947",
+      "part_number": "TX 6638SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland Heavy Duty Truck 31ton and 9speen GB 380dia",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000948",
+      "part_number": "TX 6398SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland 1.75 inch 9S GB - 395 dia BS 6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000950",
+      "part_number": "395DN",
+      "product_name": "Cover Assy 395 Dia Navistar",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000971",
+      "part_number": "183F-AP-0004307019800-0R",
+      "product_name": "430 dia cover assembly BS VI",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000997",
+      "part_number": "TX 6396SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland 1.75\" 6S GB 380 dia BS6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        },
+        {
+          "name": "Spline nominal diameter",
+          "value_mm": 44.45,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     }
