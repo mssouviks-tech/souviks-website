@@ -248,9 +248,9 @@ def main() -> int:
         return 1
 
     print(
-        "[PASS] Browser-observed homepage and listing LCP are each below 4.0s in all "
-        "three PR and deployed-preview runs, and PR medians improve by at least 5% "
-        "against main. Simulated LCP/TBT/performance route regressions remain within guardrails."
+        "[PASS] Browser-observed homepage and listing LCP are below 4.0s in all "
+        "three PR and deployed-preview runs. Both PR medians improve by at least 5% "
+        "against main; simulated LCP/TBT/performance regressions remain within guardrails."
     )
     return 0
 
