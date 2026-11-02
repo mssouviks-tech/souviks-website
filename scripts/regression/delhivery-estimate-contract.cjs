@@ -88,7 +88,7 @@ assert.match(cartClient, /Estimated delivery charges/);
 assert.match(catalogueBuilder, /def approximate_weight_grams\(p\)/);
 assert.match(catalogueBuilder, /"approx_weight_g": approximate_weight_grams\(p\)/);
 assert.match(catalogueBuilder, /"mrp", "selling_price", "approx_weight_g"/);
-assert.match(catalogueBuilder, /data\["approx_weight_g"\] = approximate_weight_grams\(product\)/);
+assert.match(catalogueBuilder, /data\["approx_weight_g"\] = product_packed_weight_grams\(product\)/);
 assert.match(catalogueBuilder, /sheet_weight_grams = approximate_weight_grams\(sheet_row\)/);
 assert.match(catalogueBuilder, /if sheet_weight_grams is not None:/);
 assert.match(checkout, /function packageVolumetricWeightGrams/);
