@@ -402,12 +402,23 @@
     "created_at": "2026-10-04T18:42:21.036687",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000007",
@@ -469,12 +480,28 @@
     "created_at": "2026-10-04T18:42:21.055957",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 30,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000008",
@@ -536,12 +563,28 @@
     "created_at": "2026-10-04T18:42:21.076528",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 35,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000009",
@@ -603,12 +646,28 @@
     "created_at": "2026-10-04T18:42:21.096242",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 45,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000010",
@@ -670,12 +729,28 @@
     "created_at": "2026-10-04T18:42:21.118250",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 50,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000011",
@@ -737,12 +812,28 @@
     "created_at": "2026-10-04T18:42:21.139658",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 60,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000012",
@@ -804,12 +895,23 @@
     "created_at": "2026-10-04T18:42:21.170076",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 10,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000013",
@@ -871,12 +973,23 @@
     "created_at": "2026-10-04T18:42:21.200648",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 12,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000014",
@@ -938,12 +1051,23 @@
     "created_at": "2026-10-04T18:42:21.237215",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 15,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000015",
@@ -1608,12 +1732,23 @@
     "created_at": "2026-10-04T18:42:21.547234",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000025",
@@ -1675,12 +1810,23 @@
     "created_at": "2026-10-04T18:42:21.568193",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000026",
@@ -1742,12 +1888,28 @@
     "created_at": "2026-10-04T18:42:21.576465",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 35,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000027",
@@ -1809,12 +1971,28 @@
     "created_at": "2026-10-04T18:42:21.592888",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 45,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000028",
@@ -1876,12 +2054,28 @@
     "created_at": "2026-10-04T18:42:21.601168",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 45,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000029",
@@ -1943,12 +2137,28 @@
     "created_at": "2026-10-04T18:42:21.612458",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 50,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000030",
@@ -2149,12 +2359,28 @@
     "created_at": "2026-10-04T18:42:21.661486",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 60,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000033",
@@ -2219,12 +2445,23 @@
     "created_at": "2026-10-04T18:42:21.698630",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 12,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000034",
@@ -2289,12 +2526,23 @@
     "created_at": "2026-10-04T18:42:21.727030",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 15,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000035",
@@ -2919,12 +3167,23 @@
     "created_at": "2026-10-04T18:42:21.984019",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 14,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000044",
@@ -2989,12 +3248,28 @@
     "created_at": "2026-10-04T18:42:21.991149",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 14,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 50,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000045",
@@ -3059,12 +3334,28 @@
     "created_at": "2026-10-04T18:42:22.002162",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 14,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 60,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000046",
@@ -3129,12 +3420,28 @@
     "created_at": "2026-10-04T18:42:22.012672",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 14,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 75,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000047",
@@ -3336,12 +3643,23 @@
     "created_at": "2026-10-04T18:42:22.122704",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 15,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 15,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000050",
@@ -3896,12 +4214,23 @@
     "created_at": "2026-10-04T18:42:22.377455",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000058",
@@ -3966,12 +4295,23 @@
     "created_at": "2026-10-04T18:42:22.397874",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000059",
@@ -4036,12 +4376,28 @@
     "created_at": "2026-10-04T18:42:22.409442",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 100,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000060",
@@ -4522,12 +4878,28 @@
     "created_at": "2026-10-04T18:42:22.538011",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 125,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000067",
@@ -4592,12 +4964,28 @@
     "created_at": "2026-10-04T18:42:22.551044",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 143,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000068",
@@ -4662,12 +5050,28 @@
     "created_at": "2026-10-04T18:42:22.563170",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 150,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000069",
@@ -4732,12 +5136,28 @@
     "created_at": "2026-10-04T18:42:22.581596",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 174,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000070",
@@ -4802,12 +5222,28 @@
     "created_at": "2026-10-04T18:42:22.588885",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 50,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000071",
@@ -4872,12 +5308,28 @@
     "created_at": "2026-10-04T18:42:22.600556",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 60,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000072",
@@ -4942,12 +5394,28 @@
     "created_at": "2026-10-04T18:42:22.608675",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 75,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000073",
@@ -5362,12 +5830,23 @@
     "created_at": "2026-10-04T18:42:22.820101",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 18,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 110,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000079",
@@ -5432,12 +5911,23 @@
     "created_at": "2026-10-04T18:42:22.848475",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 18,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 15,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000080",
@@ -5572,12 +6062,23 @@
     "created_at": "2026-10-04T18:42:22.925718",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 18,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 22,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000082",
@@ -5642,12 +6143,23 @@
     "created_at": "2026-10-04T18:42:23.082853",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 18,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 26,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000083",
@@ -5992,12 +6504,23 @@
     "created_at": "2026-10-04T18:42:23.177897",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 22,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000088",
@@ -6062,12 +6585,23 @@
     "created_at": "2026-10-04T18:42:23.210996",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 26,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000089",
@@ -6342,12 +6876,23 @@
     "created_at": "2026-10-04T18:42:23.333370",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 26,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 26,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000093",
@@ -8060,12 +8605,28 @@
     "created_at": "2026-10-04T18:42:23.973206",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Inside diameter",
+        "value_mm": 38,
+        "source": "product_name"
+      },
+      {
+        "name": "Outside diameter",
+        "value_mm": 48,
+        "source": "product_name"
+      },
+      {
+        "name": "Seal width",
+        "value_mm": 8,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000118",
@@ -10667,12 +11228,23 @@
     "created_at": "2026-10-04T18:42:25.105381",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 6,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 10,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000156",
@@ -10734,12 +11306,23 @@
     "created_at": "2026-10-04T18:42:25.134371",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 6,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 12,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000157",
@@ -10801,12 +11384,23 @@
     "created_at": "2026-10-04T18:42:25.165094",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 6,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 15,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000158",
@@ -10868,12 +11462,23 @@
     "created_at": "2026-10-04T18:42:25.196179",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 6,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 6,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000159",
@@ -10935,12 +11540,23 @@
     "created_at": "2026-10-04T18:42:25.229158",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 6,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 8,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000160",
@@ -11738,12 +12354,23 @@
     "created_at": "2026-10-04T18:42:25.809916",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 8,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 10,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000172",
@@ -11805,12 +12432,23 @@
     "created_at": "2026-10-04T18:42:25.837442",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 8,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 12,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000173",
@@ -11872,12 +12510,23 @@
     "created_at": "2026-10-04T18:42:25.862579",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 8,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 15,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000174",
@@ -11939,12 +12588,23 @@
     "created_at": "2026-10-04T18:42:25.896881",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Union connection size 1",
+        "value_mm": 8,
+        "source": "product_name"
+      },
+      {
+        "name": "Union connection size 2",
+        "value_mm": 8,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000175",
@@ -18767,12 +19427,23 @@
     "created_at": "2026-10-04T18:42:28.307766",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 47.7,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 135,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000275",
@@ -23259,12 +23930,23 @@
     "created_at": "2026-10-04T18:42:29.652756",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 38,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 57,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000340",
@@ -23327,12 +24009,23 @@
     "created_at": "2026-10-04T18:42:29.671412",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 42,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 129,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000341",
@@ -23530,12 +24223,23 @@
     "created_at": "2026-10-04T18:42:29.730451",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 41.28,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 125.9,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000344",
@@ -23598,12 +24302,23 @@
     "created_at": "2026-10-04T18:42:29.748455",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 42,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 129,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000345",
@@ -23667,12 +24382,23 @@
     "created_at": "2026-10-04T18:42:29.764504",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 48,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 135,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000346",
@@ -27030,12 +27756,28 @@
     "created_at": "2026-10-04T18:42:30.789664",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Rod diameter",
+        "value_mm": 20,
+        "source": "product_name"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 70,
+        "source": "product_name"
+      },
+      {
+        "name": "Leg length",
+        "value_mm": 254,
+        "source": "product_name_inch_conversion"
+      }
+    ]
   },
   {
     "id": "SVKS000395",
@@ -27099,12 +27841,28 @@
     "created_at": "2026-10-04T18:42:30.811664",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Rod diameter",
+        "value_mm": 20,
+        "source": "product_name"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 70,
+        "source": "product_name"
+      },
+      {
+        "name": "Leg length",
+        "value_mm": 279.4,
+        "source": "product_name_inch_conversion"
+      }
+    ]
   },
   {
     "id": "SVKS000396",
@@ -27168,12 +27926,28 @@
     "created_at": "2026-10-04T18:42:30.826885",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "product_name"
+      },
+      {
+        "name": "Leg length",
+        "value_mm": 508,
+        "source": "product_name_inch_conversion"
+      }
+    ]
   },
   {
     "id": "SVKS000397",
@@ -27237,12 +28011,28 @@
     "created_at": "2026-10-04T18:42:30.843023",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "product_name"
+      },
+      {
+        "name": "Leg length",
+        "value_mm": 533.4,
+        "source": "product_name_inch_conversion"
+      }
+    ]
   },
   {
     "id": "SVKS000398",
@@ -27306,12 +28096,28 @@
     "created_at": "2026-10-04T18:42:30.859023",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "product_name"
+      },
+      {
+        "name": "Leg length",
+        "value_mm": 558.8,
+        "source": "product_name_inch_conversion"
+      }
+    ]
   },
   {
     "id": "SVKS000399",
@@ -27375,12 +28181,28 @@
     "created_at": "2026-10-04T18:42:30.873198",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "product_name"
+      },
+      {
+        "name": "Leg length",
+        "value_mm": 584.2,
+        "source": "product_name_inch_conversion"
+      }
+    ]
   },
   {
     "id": "SVKS000400",
@@ -27444,12 +28266,28 @@
     "created_at": "2026-10-04T18:42:30.890045",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "product_name"
+      },
+      {
+        "name": "Leg length",
+        "value_mm": 609.6,
+        "source": "product_name_inch_conversion"
+      }
+    ]
   },
   {
     "id": "SVKS000401",
@@ -27513,12 +28351,28 @@
     "created_at": "2026-10-04T18:42:30.905590",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "product_name"
+      },
+      {
+        "name": "Leg length",
+        "value_mm": 635,
+        "source": "product_name_inch_conversion"
+      }
+    ]
   },
   {
     "id": "SVKS000402",
@@ -29945,12 +30799,23 @@
     "created_at": "2026-10-04T18:42:31.529073",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 42,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 129,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000437",
@@ -30014,12 +30879,23 @@
     "created_at": "2026-10-04T18:42:31.562293",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 48,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 135,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000438",
@@ -30082,12 +30958,23 @@
     "created_at": "2026-10-04T18:42:31.598948",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 41.28,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 125.9,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000439",
@@ -39015,12 +39902,23 @@
     "created_at": "2026-10-04T18:42:35.426295",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing cap diameter",
+        "value_mm": 48,
+        "source": "product_name"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 135,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000568",
@@ -39946,12 +40844,68 @@
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=9121400130&cclcl=en",
     "manufacturer_spec_notes": "WABCO record previously showed 0 kg; the supplied catalogue weight of 0.077 kg is used instead. WABCO lists replacement part 9121400320.",
     "approx_weight_g": 100,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Piston diameter",
+        "value_mm": 85,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Piston stroke",
+        "value_mm": 56,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 0 diameter",
+        "value_mm": 19.05,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 diameter",
+        "value_mm": 16,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 4 thread diameter",
+        "value_mm": 10,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 4 thread pitch",
+        "value_mm": 1,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 8.1 thread diameter",
+        "value_mm": 11.11,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 8.1 thread pitch",
+        "value_mm": 1.27,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 9 diameter",
+        "value_mm": 11.8,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 9.1 diameter",
+        "value_mm": 11.8,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 9.2 diameter",
+        "value_mm": 11.8,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS000581",
@@ -40778,12 +41732,23 @@
     "created_at": "2026-10-04T18:42:35.853609",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 70,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 18,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000593",
@@ -41856,12 +42821,23 @@
     "created_at": "2026-10-04T18:42:36.049831",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 70,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 18,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000609",
@@ -42472,12 +43448,23 @@
     "created_at": "2026-10-04T18:42:36.261418",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Belt section width",
+        "value_mm": 13,
+        "source": "product_name"
+      },
+      {
+        "name": "Nominal length",
+        "value_mm": 850,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000618",
@@ -47383,12 +48370,23 @@
     "created_at": "2026-10-04T18:42:37.158558",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal dimension 1",
+        "value_mm": 154.9,
+        "source": "product_name"
+      },
+      {
+        "name": "Nominal dimension 2",
+        "value_mm": 49.2,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000687",
@@ -50843,12 +51841,23 @@
     "created_at": "2026-10-04T18:42:37.928998",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 24,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 2,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000736",
@@ -53458,12 +54467,33 @@
     "created_at": "2026-10-04T18:42:38.546630",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 34.92,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 126.2,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 105,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 12.8,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000774",
@@ -53533,12 +54563,38 @@
     "created_at": "2026-10-04T18:42:38.564962",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 41.27,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 126,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 116,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 12.2,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000775",
@@ -53604,12 +54660,38 @@
     "created_at": "2026-10-04T18:42:38.585774",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 49.2,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 154.8,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 134,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 165,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 16.2,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000776",
@@ -53676,12 +54758,38 @@
     "created_at": "2026-10-04T18:42:38.603114",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 41.27,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 126,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 113,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 130,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 10.2,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000777",
@@ -53749,12 +54857,38 @@
     "created_at": "2026-10-04T18:42:38.622646",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 42,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 119,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 114,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 130,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 10.2,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000778",
@@ -53820,12 +54954,28 @@
     "created_at": "2026-10-04T18:42:38.640128",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 42,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 119,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 131,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000779",
@@ -53894,12 +55044,28 @@
     "created_at": "2026-10-04T18:42:38.657672",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 42,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 129,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 139,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000780",
@@ -53962,12 +55128,28 @@
     "created_at": "2026-10-04T18:42:38.677360",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 48,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 135,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 148,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000781",
@@ -54043,12 +55225,38 @@
     "created_at": "2026-10-04T18:42:38.695150",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 49.2,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 154.8,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 113,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000782",
@@ -54114,12 +55322,38 @@
     "created_at": "2026-10-04T18:42:38.713150",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 42,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 129,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 116,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 12.2,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000783",
@@ -54188,12 +55422,38 @@
     "created_at": "2026-10-04T18:42:38.732607",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 42,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 119,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 110,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000784",
@@ -54259,12 +55519,38 @@
     "created_at": "2026-10-04T18:42:38.749610",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 34.92,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 126.2,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 90,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 120,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 10.2,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000785",
@@ -54330,12 +55616,38 @@
     "created_at": "2026-10-04T18:42:38.767866",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 42,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 129,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 136,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 175,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 9.7,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000786",
@@ -54402,12 +55714,38 @@
     "created_at": "2026-10-04T18:42:38.785540",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 41.27,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 126,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 118,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000787",
@@ -54474,12 +55812,38 @@
     "created_at": "2026-10-04T18:42:38.803990",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 48,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 135,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 112,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 180,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 15,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000788",
@@ -54548,12 +55912,38 @@
     "created_at": "2026-10-04T18:42:38.824151",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 48,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 135,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 126,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 180,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 15,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000789",
@@ -54622,12 +56012,38 @@
     "created_at": "2026-10-04T18:42:38.844223",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 41.27,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 126,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 133,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 165,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 16.2,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000790",
@@ -54694,12 +56110,38 @@
     "created_at": "2026-10-04T18:42:38.863097",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 41.27,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 126,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 107,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 130,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 11.1,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000791",
@@ -56123,12 +57565,23 @@
     "created_at": "2026-10-04T18:42:39.276443",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 20,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 2.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000812",
@@ -56191,12 +57644,23 @@
     "created_at": "2026-10-04T18:42:39.290476",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 2.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000813",
@@ -56259,12 +57723,23 @@
     "created_at": "2026-10-04T18:42:39.300942",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 22,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 2.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000814",
@@ -56327,12 +57802,23 @@
     "created_at": "2026-10-04T18:42:39.319374",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000815",
@@ -56395,12 +57881,23 @@
     "created_at": "2026-10-04T18:42:39.325436",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 14,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000816",
@@ -56950,12 +58447,23 @@
     "created_at": "2026-10-04T18:42:39.480482",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal length",
+        "value_mm": 410,
+        "source": "product_name"
+      },
+      {
+        "name": "Nominal width",
+        "value_mm": 180,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000824",
@@ -59710,12 +61218,28 @@
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100250150&cclcl=en",
     "manufacturer_spec_notes": "",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread thread diameter",
+        "value_mm": 14,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Thread thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Wrench size",
+        "value_mm": 27,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS000865",
@@ -59787,12 +61311,43 @@
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100306470&cclcl=en",
     "manufacturer_spec_notes": "",
     "approx_weight_g": 1400,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Distance between bolts",
+        "value_mm": 26,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Mounting diameter",
+        "value_mm": 9,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS000866",
@@ -59867,12 +61422,78 @@
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100600920&cclcl=en",
     "manufacturer_spec_notes": "",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Distance between holes dimension 1",
+        "value_mm": 80,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Distance between holes dimension 2",
+        "value_mm": 136,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Mounting diameter",
+        "value_mm": 9.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 11 thread diameter",
+        "value_mm": 12,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 11 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 12 thread diameter",
+        "value_mm": 12,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 12 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 21 thread diameter",
+        "value_mm": 14,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 21 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 22 thread diameter",
+        "value_mm": 14,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 22 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Push-rod thread thread diameter",
+        "value_mm": 14,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Push-rod thread thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS000867",
@@ -59945,12 +61566,58 @@
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100601130&cclcl=en",
     "manufacturer_spec_notes": "",
     "approx_weight_g": 3900,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting diameter",
+        "value_mm": 9.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 11 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 11 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 12 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 12 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 21 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 21 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 22 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 22 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS000868",
@@ -60385,12 +62052,43 @@
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=4750010080&cclcl=en",
     "manufacturer_spec_notes": "",
     "approx_weight_g": 850,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Distance between bolts",
+        "value_mm": 26,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Mounting diameter",
+        "value_mm": 9,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS000874",
@@ -60536,12 +62234,48 @@
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=9732980270&cclcl=en",
     "manufacturer_spec_notes": "",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting diameter",
+        "value_mm": 8.8,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 4 thread diameter",
+        "value_mm": 16,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 4 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS000876",
@@ -60741,12 +62475,23 @@
     "created_at": "2026-10-04T18:42:40.366377",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 75,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 12,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000879",
@@ -60811,12 +62556,23 @@
     "created_at": "2026-10-04T18:42:40.366377",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 75,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 12,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000880",
@@ -60880,12 +62636,23 @@
     "created_at": "2026-10-04T18:42:40.367545",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 100,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 15,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000881",
@@ -61088,12 +62855,23 @@
     "created_at": "2026-10-04T18:42:40.367545",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 75,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 14,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000884",
@@ -61785,12 +63563,23 @@
     "created_at": "2026-10-04T18:42:40.371744",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 90,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 27,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000894",
@@ -61854,12 +63643,23 @@
     "created_at": "2026-10-04T18:42:40.372740",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 90,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 27,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000895",
@@ -61923,12 +63723,23 @@
     "created_at": "2026-10-04T18:42:40.372740",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 90,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 27,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000896",
@@ -62199,12 +64010,23 @@
     "created_at": "2026-10-04T18:42:40.373840",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 60,
+        "source": "product_description"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 9,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000900",
@@ -62886,12 +64708,33 @@
     "created_at": "2026-10-04T18:42:40.438672",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 42,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 119,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 12.2,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000911",
@@ -63089,12 +64932,33 @@
     "created_at": "2026-10-04T18:42:40.500743",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 48,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 135,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000914",
@@ -64323,12 +66187,33 @@
     "created_at": "2026-10-04T18:42:40.861823",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 47.68,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 135,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000932",
@@ -64391,12 +66276,33 @@
     "created_at": "2026-10-04T18:42:40.882951",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 47.68,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 135,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 180,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 15,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000933",
@@ -64460,12 +66366,33 @@
     "created_at": "2026-10-04T18:42:40.904103",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 47.68,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 135,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000934",
@@ -64528,12 +66455,33 @@
     "created_at": "2026-10-04T18:42:40.922200",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cross bearing diameter",
+        "value_mm": 47.68,
+        "source": "product_description"
+      },
+      {
+        "name": "Cross overall length",
+        "value_mm": 135,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting plate size",
+        "value_mm": 180,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 15,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000935",
@@ -64889,12 +66837,53 @@
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100304941&cclcl=en",
     "manufacturer_spec_notes": "",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Port thread 21 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 21 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 22 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 22 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 23 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 23 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 24 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 24 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS000940",
@@ -69396,12 +71385,28 @@
     "created_at": "2026-10-04T18:42:42.023116",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 10,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 65,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS001006",
@@ -69466,12 +71471,28 @@
     "created_at": "2026-10-04T18:42:42.042584",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 75,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS001007",
@@ -69603,12 +71624,28 @@
     "created_at": "2026-10-04T18:42:42.083003",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 144,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS001009",
@@ -69675,12 +71712,23 @@
     "created_at": "2026-10-04T18:42:42.101395",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 16,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS001010",
@@ -70305,7 +72353,7 @@
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 4200,
-    "manufacturer_weight_kg": 4.0,
+    "manufacturer_weight_kg": 4,
     "manufacturer_weight_status": "verified",
     "manufacturer_dimension_specs": [
       "Bolt length: 40.0 mm",
@@ -70320,12 +72368,73 @@
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100251580&cclcl=en",
     "manufacturer_spec_notes": "",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bolt length",
+        "value_mm": 40,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Bolt thread thread diameter",
+        "value_mm": 16,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Bolt thread thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Clevis pin",
+        "value_mm": 12.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Distance between bolts",
+        "value_mm": 120.6,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Push-rod length",
+        "value_mm": 72,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Push-rod thread thread diameter",
+        "value_mm": 14,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Push-rod thread thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 11 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 11 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Stroke",
+        "value_mm": 57,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Total length",
+        "value_mm": 202,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS001019",
@@ -70406,12 +72515,68 @@
       91,
       139
     ],
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Overall length",
+        "value_mm": 117,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Overall width",
+        "value_mm": 91,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 139,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 4 thread diameter",
+        "value_mm": 16,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 4 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Push-rod thread thread diameter",
+        "value_mm": 18,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Push-rod thread thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS001020",
@@ -70568,12 +72733,73 @@
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=4730170250&cclcl=en",
     "manufacturer_spec_notes": "",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Overall length",
+        "value_mm": 184.2,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Overall width",
+        "value_mm": 112,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 155,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Mounting diameter",
+        "value_mm": 11,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 41 thread diameter",
+        "value_mm": 16,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 41 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 42 thread diameter",
+        "value_mm": 16,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 42 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS001022",
@@ -70649,12 +72875,63 @@
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=9347020150&cclcl=en",
     "manufacturer_spec_notes": "",
     "approx_weight_g": 1300,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Port thread 1 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 21 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 21 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 22 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 22 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 23 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 23 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 24 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 24 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS001023",
@@ -70729,12 +73006,48 @@
     ],
     "manufacturer_spec_source": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=9732980290&cclcl=en",
     "manufacturer_spec_notes": "",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting diameter",
+        "value_mm": 8.8,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 1 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread diameter",
+        "value_mm": 22,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 2 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 4 thread diameter",
+        "value_mm": 16,
+        "source": "wabco_manufacturer_specification"
+      },
+      {
+        "name": "Port thread 4 thread pitch",
+        "value_mm": 1.5,
+        "source": "wabco_manufacturer_specification"
+      }
+    ]
   },
   {
     "id": "SVKS001024",
@@ -72865,12 +75178,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 1950,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 250,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 102,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 20,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001063",
@@ -72919,12 +75248,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 2400,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 263,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 92,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001064",
@@ -72973,12 +75318,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 2550,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 288,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 92,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001065",
@@ -73028,12 +75389,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 2650,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 300,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 92,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001066",
@@ -73083,12 +75460,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 2350,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 350,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 70,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 20,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001067",
@@ -73137,12 +75530,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 2050,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 275,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 92,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 20,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001068",
@@ -73192,12 +75601,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 2500,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 275,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 92,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001069",
@@ -73246,12 +75671,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 1900,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 250,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 92,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 20,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001070",
@@ -73301,12 +75742,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 2150,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 225,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 92,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001071",
@@ -73358,12 +75815,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 3550,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 450,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001072",
@@ -73415,12 +75888,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 3400,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 425,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001073",
@@ -73472,12 +75961,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 3700,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 475,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001074",
@@ -73529,12 +76034,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 3850,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 500,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001075",
@@ -73586,12 +76107,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 4000,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 525,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001076",
@@ -73643,12 +76180,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 4150,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 550,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001077",
@@ -73700,12 +76253,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 4300,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 575,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001078",
@@ -73757,12 +76326,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 4500,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 600,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001079",
@@ -73814,12 +76399,28 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "approx_weight_g": 4650,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leg length",
+        "value_mm": 625,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Inside width",
+        "value_mm": 82,
+        "source": "nirmal_engineering_price_list"
+      },
+      {
+        "name": "Rod diameter",
+        "value_mm": 22,
+        "source": "nirmal_engineering_price_list"
+      }
+    ]
   },
   {
     "id": "SVKS001104",
