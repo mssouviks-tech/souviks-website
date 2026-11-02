@@ -448,8 +448,12 @@ def reconcile_catalogue_projections():
             product = dimension_products_by_id.get(pid)
             if product is None:
                 raise SystemExit(f"Dimension specification references unknown catalogue product: {pid}")
+            if not expected_part_number:
+                raise SystemExit(f"Dimension specification for {pid} has no part_number")
             actual_part_number = text(product.get("part_number") or product.get("partNumber"))
-            if expected_part_number != actual_part_number:
+            # A blank legacy canonical value may rely on the manifest identity;
+            # a populated canonical value must still match exactly.
+            if actual_part_number and expected_part_number != actual_part_number:
                 raise SystemExit(
                     f"Dimension specification part-number mismatch for {pid}: "
                     f"{expected_part_number!r} != {actual_part_number!r}"
