@@ -3915,6 +3915,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 11.91,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -3928,6 +3933,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 11.91,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -3941,6 +3951,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 11.91,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -3954,6 +3969,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 11.91,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 406.4,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -3967,6 +3987,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 11.91,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 457.2,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -3980,6 +4005,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 15.88,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -3993,6 +4023,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 15.88,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 406.4,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -4006,6 +4041,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 15.88,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 457.2,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -4019,6 +4059,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 15.88,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -4032,6 +4077,11 @@
           "name": "Nominal centre-bolt diameter",
           "value_mm": 15.88,
           "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
@@ -4068,7 +4118,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Nominal clutch/pressure-plate diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 430,
           "source": "product_name"
         },
@@ -4104,7 +4154,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Nominal clutch/pressure-plate diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 380,
           "source": "product_name"
         }
@@ -4234,7 +4284,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Nominal clutch/pressure-plate diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 395,
           "source": "product_name"
         }
@@ -4247,7 +4297,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Nominal clutch/pressure-plate diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 430,
           "source": "product_name"
         }
