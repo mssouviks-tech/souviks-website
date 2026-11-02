@@ -99,6 +99,46 @@ def dimension_spec_properties(p):
     return properties
 
 
+def shipping_weight_properties(p):
+    """Return transparent weight-estimate and packing assumptions for Product JSON-LD."""
+    properties = []
+    status = text(p.get("weight_estimation_status"))
+    confidence = text(p.get("weight_estimation_confidence"))
+    profile = text(p.get("shipping_packing_profile"))
+    allowance = p.get("shipping_packaging_allowance_percent")
+    if status:
+        properties.append({
+            "@type": "PropertyValue",
+            "name": "Weight estimation status",
+            "value": status,
+        })
+    if confidence:
+        properties.append({
+            "@type": "PropertyValue",
+            "name": "Weight estimation confidence",
+            "value": confidence,
+        })
+    if profile:
+        label = (
+            "Plastic wrap; no carton"
+            if profile == "plastic_wrap_no_carton"
+            else "Carton cut and wrap; carton tare added at parcel level"
+        )
+        properties.append({
+            "@type": "PropertyValue",
+            "name": "Shipping packing profile",
+            "value": label,
+        })
+    if isinstance(allowance, (int, float)) and not isinstance(allowance, bool) and allowance >= 0:
+        properties.append({
+            "@type": "PropertyValue",
+            "name": "Estimated per-unit packaging allowance",
+            "value": allowance,
+            "unitText": "%",
+        })
+    return properties
+
+
 def replace_product_name_markup(source: str, old_name: str, new_name: str) -> str:
     """Replace a product name safely in HTML and JSON-LD contexts.
 
@@ -2921,6 +2961,18 @@ def sync_product_seo_and_schema():
                     })
                     product_schema["additionalProperty"] = existing_properties
 
+                weight_metadata_properties = shipping_weight_properties(product)
+                if weight_metadata_properties:
+                    weight_metadata_names = {item["name"] for item in weight_metadata_properties}
+                    existing_properties = product_schema.get("additionalProperty")
+                    if not isinstance(existing_properties, list):
+                        existing_properties = []
+                    existing_properties = [
+                        item for item in existing_properties
+                        if not (isinstance(item, dict) and item.get("name") in weight_metadata_names)
+                    ]
+                    product_schema["additionalProperty"] = existing_properties + weight_metadata_properties
+
                 mpn = str(product.get("manufacturer_part_number") or "").strip()
                 if not mpn:
                     mpn = str(product.get("part_number") or "").strip()
@@ -3100,6 +3152,18 @@ def sync_product_seo_and_schema():
                             "unitText": "g",
                         })
                         node["additionalProperty"] = existing_properties
+
+                    weight_metadata_properties = shipping_weight_properties(product)
+                    if weight_metadata_properties:
+                        weight_metadata_names = {item["name"] for item in weight_metadata_properties}
+                        existing_properties = node.get("additionalProperty")
+                        if not isinstance(existing_properties, list):
+                            existing_properties = []
+                        existing_properties = [
+                            item for item in existing_properties
+                            if not (isinstance(item, dict) and item.get("name") in weight_metadata_names)
+                        ]
+                        node["additionalProperty"] = existing_properties + weight_metadata_properties
 
                     # Refresh identifiers on legacy Product nodes too. The old
                     # repair path updated other schema fields but left stale or
