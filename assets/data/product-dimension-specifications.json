@@ -2,7 +2,7 @@
   "version": 1,
   "purpose": "Explicit product-component and fitment measurements captured from catalogue item names, plus one Dana Aftermarket cross-reference. These values are not shipping-carton or parcel dimensions.",
   "unit": "mm",
-  "records": 302,
+  "records": 324,
   "products": [
     {
       "id": "SVKS000002",
@@ -5027,6 +5027,526 @@
           "name": "Conductor strand diameter",
           "value_mm": 0.3,
           "source": "product_name; 0.30 mm strand size in 440/.30 cable designation"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000064",
+      "part_number": "269533403101",
+      "product_name": "Taper Roller Bearing 30204",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 20,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30204; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 47,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30204; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 15.25,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30204; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000975",
+      "part_number": "269533403101",
+      "product_name": "TAPER ROLLER BRG 30204",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 20,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30204; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 47,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30204; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 15.25,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30204; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000507",
+      "part_number": "TX-30209",
+      "product_name": "Tapper Roller Bearing for Tata 207, HWD 35, Swaraj 735",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 45,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30209; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 85,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30209; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 20.75,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30209; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000508",
+      "part_number": "TX-30210",
+      "product_name": "Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 50,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30210; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 90,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30210; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 21.75,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30210; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000509",
+      "part_number": "TX-30312",
+      "product_name": "Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 60,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30312; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 130,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30312; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 33.5,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30312; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000510",
+      "part_number": "TX-32213",
+      "product_name": "Tapper Roller Bearing for Tata 707/807/909/1210, IMT 504, HWD 50, MF504, Bedford J6/J4",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 65,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32213; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 120,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32213; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 32.75,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32213; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000511",
+      "part_number": "TX-32214",
+      "product_name": "Tapper Roller Bearing for Tata 608/1312/1516",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 70,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32214; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 125,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32214; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 33.25,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32214; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000560",
+      "part_number": "32214",
+      "product_name": "Timken 32214",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 70,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32214; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 125,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32214; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 33.25,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32214; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ],
+      "manufacturer_weight_kg": 1.6,
+      "manufacturer_weight_status": "verified",
+      "manufacturer_weight_source_url": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32214",
+      "manufacturer_weight_packaging_allowance_percent": 5,
+      "manufacturer_weight_round_up_to_g": 50,
+      "manufacturer_weight_approx_packed_g": 1700,
+      "manufacturer_weight_notes": "Timken's official product page reports 1.60 kg net product weight for model 32214. Packed checkout estimate adds 5% and rounds up to the next 50 g (1700 g)."
+    },
+    {
+      "id": "SVKS000561",
+      "part_number": "32215",
+      "product_name": "Timken 32215",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 75,
+          "source": "https://cad.timken.com/en/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32215; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 130,
+          "source": "https://cad.timken.com/en/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32215; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 33.25,
+          "source": "https://cad.timken.com/en/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32215; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ],
+      "manufacturer_weight_kg": 1.7,
+      "manufacturer_weight_status": "verified",
+      "manufacturer_weight_source_url": "https://cad.timken.com/en/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32215",
+      "manufacturer_weight_packaging_allowance_percent": 5,
+      "manufacturer_weight_round_up_to_g": 50,
+      "manufacturer_weight_approx_packed_g": 1800,
+      "manufacturer_weight_notes": "Timken's official product page reports 1.70 kg net product weight for model 32215. Packed checkout estimate adds 5% and rounds up to the next 50 g (1800 g)."
+    },
+    {
+      "id": "SVKS000513",
+      "part_number": "TX-32218",
+      "product_name": "Tapper Roller Bearing for Tata truck, Isuzu truck",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 90,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32218; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 160,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32218; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 42.5,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32218; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000514",
+      "part_number": "TX-32307",
+      "product_name": "Tapper Roller Bearing for Tata 707/807/909/1210, Dodge 7.5 ton, Bedford J6",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 35,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32307-1; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 80,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32307-1; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 32.75,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32307-1; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000211",
+      "part_number": "32308",
+      "product_name": "Taper Roller Bearing",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 40,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32308; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 90,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32308; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 35.25,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32308; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000515",
+      "part_number": "TX-32308",
+      "product_name": "Tapper Roller Bearing for Tata 207/1312/1516/1613/2416/2515/2516/3516, Allwyn Nissan, Harsha T25",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 40,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32308; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 90,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32308; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 35.25,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32308; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000516",
+      "part_number": "TX-32309",
+      "product_name": "Tapper Roller Bearing for Escort 335/345, Swaraj 735",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 45,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32309; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 100,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32309; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 38.25,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/32309; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000517",
+      "part_number": "TX-33019",
+      "product_name": "Tapper Roller Bearing for Tata 1312/1516/1512/1612/1613",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 95,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/33019; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 145,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/33019; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 39,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/33019; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000551",
+      "part_number": "TX-6201 2RS",
+      "product_name": "6201 (2RS) ball bearing",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 12,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6201-2rs1; SKF standard product reference for model 6201; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 32,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6201-2rs1; SKF standard product reference for model 6201; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing width",
+          "value_mm": 10,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6201-2rs1; SKF standard product reference for model 6201; dimensions only, not manufacturer-specific Texspin weight"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000552",
+      "part_number": "TX-6204 2RS",
+      "product_name": "6204 (2RS) ball bearing",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 20,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6204-2rs1; SKF standard product reference for model 6204; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 47,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6204-2rs1; SKF standard product reference for model 6204; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing width",
+          "value_mm": 14,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6204-2rs1; SKF standard product reference for model 6204; dimensions only, not manufacturer-specific Texspin weight"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000553",
+      "part_number": "TX-6305 2RS",
+      "product_name": "6305 (2RS) ball bearing",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 25,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6305-2rs1; SKF standard product reference for model 6305; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 62,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6305-2rs1; SKF standard product reference for model 6305; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing width",
+          "value_mm": 17,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6305-2rs1; SKF standard product reference for model 6305; dimensions only, not manufacturer-specific Texspin weight"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000994",
+      "part_number": "TX 6206 2RS",
+      "product_name": "Ball Bearing",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 30,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6206-2rs1; SKF standard product reference for model 6206; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 62,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6206-2rs1; SKF standard product reference for model 6206; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing width",
+          "value_mm": 16,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6206-2rs1; SKF standard product reference for model 6206; dimensions only, not manufacturer-specific Texspin weight"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000995",
+      "part_number": "TX 6304 2RS",
+      "product_name": "Ball Bearing",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 20,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6304-2rs1; SKF standard product reference for model 6304; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 52,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6304-2rs1; SKF standard product reference for model 6304; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing width",
+          "value_mm": 15,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6304-2rs1; SKF standard product reference for model 6304; dimensions only, not manufacturer-specific Texspin weight"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000996",
+      "part_number": "TX 6306 2RS",
+      "product_name": "Ball Bearing",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 30,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6306-2rs1; SKF standard product reference for model 6306; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 72,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6306-2rs1; SKF standard product reference for model 6306; dimensions only, not manufacturer-specific Texspin weight"
+        },
+        {
+          "name": "Bearing width",
+          "value_mm": 19,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6306-2rs1; SKF standard product reference for model 6306; dimensions only, not manufacturer-specific Texspin weight"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000967",
+      "part_number": "CJ016002B",
+      "product_name": "CJ BKT 2515 N/M With BRG [6211-2RS]",
+      "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated bearing bore diameter",
+          "value_mm": 55,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6211-2rs1; bearing model 6211-2RS shown in product title; internal component only, not assembly envelope"
+        },
+        {
+          "name": "Associated bearing outside diameter",
+          "value_mm": 100,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6211-2rs1; bearing model 6211-2RS shown in product title; internal component only, not assembly envelope"
+        },
+        {
+          "name": "Associated bearing width",
+          "value_mm": 21,
+          "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6211-2rs1; bearing model 6211-2RS shown in product title; internal component only, not assembly envelope"
         }
       ]
     }
