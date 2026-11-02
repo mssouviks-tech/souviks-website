@@ -2,7 +2,7 @@
   "version": 1,
   "purpose": "Explicit product-component and fitment measurements captured from catalogue item names, plus one Dana Aftermarket cross-reference. These values are not shipping-carton or parcel dimensions.",
   "unit": "mm",
-  "records": 258,
+  "records": 301,
   "products": [
     {
       "id": "SVKS000002",
@@ -4370,6 +4370,650 @@
           "name": "Spline nominal diameter",
           "value_mm": 44.45,
           "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000309",
+      "part_number": "SBAM 499",
+      "product_name": "Centre Bolt 3118 - 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000310",
+      "part_number": "SBAM 500",
+      "product_name": "Centre Bolt 3118 - 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000311",
+      "part_number": "SBBS 1424",
+      "product_name": "Centre Bolt Turbo - 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000312",
+      "part_number": "SBBS 1426",
+      "product_name": "Centre Bolt Turbo - 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000313",
+      "part_number": "SBAM 496",
+      "product_name": "Centre Bolt U Truck - 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000314",
+      "part_number": "SBAM 596",
+      "product_name": "Centre Bolt U Truck - 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000690",
+      "part_number": "MBJS 112",
+      "product_name": "Eye Bolt w/ Lock Nut 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000691",
+      "part_number": "MBJS 114",
+      "product_name": "Eye Bolt w/ Lock Nut 11\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 279.4,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000692",
+      "part_number": "MBJS 116",
+      "product_name": "Eye Bolt w/ Lock Nut 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000693",
+      "part_number": "MSJS 217",
+      "product_name": "Eye Bolt w/ Lock Nut 13\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 330.2,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000694",
+      "part_number": "MBJS 258",
+      "product_name": "Eye Bolt w/ Lock Nut 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000877",
+      "part_number": "SBAM 231",
+      "product_name": "Centre Bolt LH 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000080",
+      "part_number": "",
+      "product_name": "18 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000242",
+      "part_number": "",
+      "product_name": "Brake Pipe Clutch O/O 84\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Brake pipe overall length",
+          "value_mm": 2133.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000754",
+      "part_number": "F8014600",
+      "product_name": "Front Cab Mounting Bush, 8.1 cm, ID 1.95 cm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bush outside diameter",
+          "value_mm": 81,
+          "source": "product_name; 8.1 cm converted to millimetres"
+        },
+        {
+          "name": "Bush inside diameter",
+          "value_mm": 19.5,
+          "source": "product_name; 1.95 cm converted to millimetres"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000861",
+      "part_number": "HLU-UNVR-70M",
+      "product_name": "HL Unit 7\"   MFR P-43 WT/P",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal headlamp diameter",
+          "value_mm": 177.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001007",
+      "part_number": "29050626",
+      "product_name": "Clutch Booster Assy 4\" 16mm (Ball End)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Clutch booster nominal diaphragm diameter",
+          "value_mm": 101.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Ball-end diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001008",
+      "part_number": "M58340-5901",
+      "product_name": "SFL M16 x 1.5 x 144 collar bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 144,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000816",
+      "part_number": "M13520-0200",
+      "product_name": "M12x1.5x35",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 35,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000715",
+      "part_number": "J2111",
+      "product_name": "Front Shackle Leyland BS6   80mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified shackle size",
+          "value_mm": 80,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000731",
+      "part_number": "J1114",
+      "product_name": "Front Shackle 32mm 3718",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified shackle/pin size",
+          "value_mm": 32,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000736",
+      "part_number": "J1618",
+      "product_name": "Shackle Assembly for Tata   Signa Front Spring (fits with J1606 24mm Bush)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified mating bush diameter",
+          "value_mm": 24,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000795",
+      "part_number": "J1029",
+      "product_name": "R/s Bracket 42mm 4 Holes 14mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000755",
+      "part_number": "FAT02000",
+      "product_name": "Cl. Disc. 33cm Dia   Diaph B8090 1.38SPL - 1cm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 330,
+          "source": "product_name"
+        },
+        {
+          "name": "Spline nominal diameter",
+          "value_mm": 35.05,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Specified facing thickness",
+          "value_mm": 10,
+          "source": "product_name; 1 cm converted to millimetres"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000751",
+      "part_number": "B1M03401",
+      "product_name": "Cl. Cover 33cm   Diaphragm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 330,
+          "source": "product_name; 33 cm converted to millimetres"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000246",
+      "part_number": "CC 016008R",
+      "product_name": "Withdrawal Plate GB 75 (6mm)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Withdrawal plate thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000494",
+      "part_number": "TX-5780",
+      "product_name": "Eicher dia. 395 – VE2100 8x2/6x2 haulage vehicles",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000495",
+      "part_number": "TX-60 TM",
+      "product_name": "Tata GB60 (1.75 inch/4.45 cm)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified clutch/gearbox interface diameter",
+          "value_mm": 44.45,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000496",
+      "part_number": "TX-6346 SC",
+      "product_name": "Clutch release bearing for Ashok Leyland 1.75 inch 15\" RDC 2095 GB & 850 OD gearbox",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified clutch/gearbox interface diameter",
+          "value_mm": 44.45,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000499",
+      "part_number": "TX-6698 SC",
+      "product_name": "Ashok Leyland 1.75 inch, 25 ton to 31 ton, 15\" RDC 2095 GB & 850 OD gearbox, FVB00700",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified clutch/gearbox interface diameter",
+          "value_mm": 44.45,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000946",
+      "part_number": "TX 4865SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland 1.5\" haulage U-truck",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified clutch/gearbox interface diameter",
+          "value_mm": 38.1,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000993",
+      "part_number": "TX 4556SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland 1.7\" Tipper 25-40 ton",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified clutch/gearbox interface diameter",
+          "value_mm": 43.18,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000998",
+      "part_number": "TX 6647SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland (1.5\" clutch haulage- 1616 all model + pv viking + cheetha)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified clutch/gearbox interface diameter",
+          "value_mm": 38.1,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000999",
+      "part_number": "TX 6651SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland (1.7\" clutch/25-40 ton, Tipper)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified clutch/gearbox interface diameter",
+          "value_mm": 43.18,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000230",
+      "part_number": "15IPL",
+      "product_name": "15 IPL-WP C.P. AL Fan Type 15\" Wider Pad",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch size",
+          "value_mm": 381,
+          "source": "product_name; 15-inch clutch designation converted to millimetres; catalogue says wider pad, not an overall envelope measurement"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000467",
+      "part_number": "886715000001",
+      "product_name": "Poly V Belt (4 Grooves 720)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Belt groove count",
+          "value_mm": 4,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 720,
+          "source": "product_name; Poly-V belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000617",
+      "part_number": "AV13X850",
+      "product_name": "AV13X850 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 850,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001115",
+      "part_number": "AV10X1185",
+      "product_name": "AV10X1185 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 10,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1185,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001116",
+      "part_number": "AV13X1325T",
+      "product_name": "AV13X1325T Fan Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1325,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001151",
+      "part_number": "AV13X820",
+      "product_name": "AV13X820 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 820,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001155",
+      "part_number": "XV13X1355",
+      "product_name": "XV13X1355 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1355,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001156",
+      "part_number": "AVX13X1260",
+      "product_name": "AVX13X1260 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1260,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001160",
+      "part_number": "AV13X1580",
+      "product_name": "AV13X1580 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1580,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
         }
       ]
     }
