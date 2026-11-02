@@ -254,20 +254,37 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
         if not path.is_file():
             continue
         raw = path.read_text(encoding="utf-8", errors="ignore")
-        mobile_preload = re.search(
-            r'<link\b(?=[^>]*\brel=["\']preload["\'])'
-            r'(?=[^>]*\bas=["\']image["\'])'
-            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
-            r'product-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
-            r'(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])[^>]*>',
+        mobile_preloads = re.findall(
+            r'<link\\b(?=[^>]*\\brel=["\\']preload["\\'])'
+            r'(?=[^>]*\\bas=["\\']image["\\'])'
+            r'(?=[^>]*\\bhref=["\\'][^"\\']*/assets/images/hero/'
+            r'product-hero-mobile-crop\\.avif\\?v=[0-9a-f]{12}["\\'])'
+            r'(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])[^>]*>',
             raw,
             flags=re.I | re.S,
         )
-        if not mobile_preload:
+        if len(mobile_preloads) != 1:
             fail(
-                f"{path.relative_to(ROOT)}: missing versioned mobile hero preload with max-width media condition",
+                f"{path.relative_to(ROOT)}: expected exactly one responsive AVIF mobile hero preload, found {len(mobile_preloads)}",
                 errors,
             )
+
+        duplicate_mobile_preloads = re.findall(
+            r'<link\\b(?=[^>]*\\brel=["\\']preload["\\'])'
+            r'(?=[^>]*\\bas=["\\']image["\\'])'
+            r'(?=[^>]*\\bhref=["\\'][^"\\']*/assets/images/hero/'
+            r'product-hero-mobile(?:-crop)?\\.(?:avif|webp)(?:\\?[^"\\']*)?["\\'])'
+            r'[^>]*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if len(duplicate_mobile_preloads) != 1:
+            fail(
+                f"{path.relative_to(ROOT)}: duplicate mobile hero image preloads detected ({len(duplicate_mobile_preloads)})",
+                errors,
+            )
+        if duplicate_mobile_preloads and "product-hero-mobile-crop.avif" not in duplicate_mobile_preloads[0]:
+            fail(f"{path.relative_to(ROOT)}: the sole mobile hero preload must be the AVIF crop", errors)
 
         # The responsive <picture> already selects the correct source. A separate
         # desktop preload was still fetched by mobile Lighthouse despite its
