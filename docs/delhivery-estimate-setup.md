@@ -26,7 +26,8 @@ When one cart line contains one unit and its external packed dimensions are reco
 The geometric estimate manifest is `assets/data/geometric-product-weight-estimates.json`. It contains modelled net item mass for products whose dimensions support a sufficiently explicit shape model. These are estimates, not measured or manufacturer-certified weights.
 
 - `calculated_weight_g` stores estimated net item mass.
-- `approx_weight_g` stores estimated per-unit packed mass, calculated as `ceil(net_weight_g × 1.05)` grams.
+- `estimated_item_packed_weight_g` stores estimated item mass plus a provisional 5% protective wrap/material allowance, rounded upward to the next gram.
+- `approx_weight_g` remains the complete packed freight-weight field. It is deliberately **not populated by these 83 geometric estimates**, because outer-carton tare has not yet been calculated or measured.
 - `weight_estimation_status` is `estimated`; `weight_estimation_method`, `weight_estimation_notes`, and `weight_estimation_confidence` retain the model and its assumptions.
 - `shipping_packing_profile` is `carton_cut_wrap` for standard components or `plastic_wrap_no_carton` for the two leaf-spring items with a complete dimensional envelope.
 - `shipping_packaging_allowance_percent` stores the provisional 5% per-unit protective allowance.
@@ -34,6 +35,8 @@ The geometric estimate manifest is `assets/data/geometric-product-weight-estimat
 The models use published DIN/ISO standard masses or envelope dimensions for standard fasteners where available, and explicit geometric envelopes for selected solid-steel products. The generic ferrous density is 7,850 kg/m³. This assumption must not be applied to PVC/PU fittings, belts, rubber components, seals, cables, filters, lights, brake linings, or any other product whose material is not solid ferrous metal.
 
 The 5% item-level allowance is **not** a measured carton tare. Carton weight and external carton dimensions must be added once per parcel by the future packing calculation. Do not add a carton allowance per item. Leaf springs use the no-carton profile and protective wrapping only. A rectangular-prism leaf estimate is an upper-envelope approximation because camber, taper, and eye details are not deducted.
+
+Until the parcel-packing engine adds carton tare and computes parcel-level external dimensions, these item-only estimates are not used by the Delhivery freight calculator. The checkout continues to require a complete `approx_weight_g` value for every delivery item and fails safely to a quote when that field is missing.
 
 Products are left without an estimated weight when the current measurements do not define a defensible geometry or material model. In particular, universal-joint crosses are not estimated from bearing-cap diameter and span alone because those measurements do not define the cross body, cups, rollers, seals, and grease mass.
 
