@@ -241,6 +241,45 @@ for product in weighted_active:
         if data.get("dimension_specs_mm") != product.get("dimension_specs_mm", []):
             fail(f"{pid}: embedded page data does not match product dimensions")
 
+# Check typed measurements on every active dimensioned product page, including
+# dimension-only products that cannot yet be used for delivery freight estimates.
+dimensioned_active = [
+    product for product in catalogue
+    if product.get("active") is not False
+    and (
+        (isinstance(product.get("dimension_specs_mm"), list) and product.get("dimension_specs_mm"))
+        or (isinstance(product.get("dimensions_mm"), list) and len(product.get("dimensions_mm")) == 2)
+    )
+]
+for product in dimensioned_active:
+    pid = str(product["id"])
+    slug = str(product.get("slug") or "").strip()
+    for language in LANGUAGES:
+        page = ROOT / language / "products" / f"{slug}.html"
+        html = page.read_text(encoding="utf-8", errors="ignore")
+        schema = product_jsonld(html)
+        if not schema:
+            fail(f"{pid}: missing Product JSON-LD while validating dimensions")
+        additional = schema.get("additionalProperty") or []
+        for spec in product.get("dimension_specs_mm", []):
+            if not any(
+                item.get("name") == spec.get("name")
+                and item.get("value") == spec.get("value_mm")
+                and item.get("unitText") == "mm"
+                for item in additional
+                if isinstance(item, dict)
+            ):
+                fail(f"{pid}: typed dimension missing from {language} Product JSON-LD: {spec.get('name')}")
+        pin_dimensions = product.get("dimensions_mm")
+        if isinstance(pin_dimensions, list) and len(pin_dimensions) == 2:
+            for name, value in zip(("Diameter", "Overall length"), pin_dimensions):
+                if not any(
+                    item.get("name") == name and item.get("value") == value and item.get("unitText") == "mm"
+                    for item in additional
+                    if isinstance(item, dict)
+                ):
+                    fail(f"{pid}: {name} missing from {language} Product JSON-LD")
+
 print(
     "Product dimensions and shipping weights validated: "
     f"{len(records)} dimension-manifest records, "
