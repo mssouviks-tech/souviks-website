@@ -298,9 +298,15 @@ def reconcile_catalogue_projections():
                     f"{expected_product_name!r} != {actual_product_name!r}"
                 )
 
-            specifications = record.get("specs")
-            if not isinstance(specifications, list) or not specifications:
-                raise SystemExit(f"Product dimension record has no specifications: {pid}")
+            specifications = record.get("specs", [])
+            has_optional_weight_metadata = (
+                "declared_net_content_g" in record
+                or "manufacturer_weight_kg" in record
+            )
+            if not isinstance(specifications, list) or (
+                not specifications and not has_optional_weight_metadata
+            ):
+                raise SystemExit(f"Product measurement record has no dimensions or weight metadata: {pid}")
             current_specs = product.get("dimension_specs_mm")
             if current_specs is None:
                 current_specs = []
