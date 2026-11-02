@@ -359,18 +359,18 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
     else:
         css = index_css.read_text(encoding="utf-8", errors="ignore")
         media = re.search(
-            r'\\.home-hero-media\\s*\\{([^}]*)\\}',
+            r'\.home-hero-media\s*\{([^}]*)\}',
             css,
             flags=re.I | re.S,
         )
         content = re.search(
-            r'\\.home-hero-container\\s*\\{([^}]*)\\}',
+            r'\.home-hero-container\s*\{([^}]*)\}',
             css,
             flags=re.I | re.S,
         )
-        if not media or not re.search(r'\\bz-index\\s*:\\s*0\\s*;', media.group(1), re.I):
+        if not media or not re.search(r'\bz-index\s*:\s*0\s*;', media.group(1), re.I):
             fail("assets/css/bundles/index.css: homepage hero media must use z-index: 0", errors)
-        if not content or not re.search(r'\\bz-index\\s*:\\s*1\\s*;', content.group(1), re.I):
+        if not content or not re.search(r'\bz-index\s*:\s*1\s*;', content.group(1), re.I):
             fail("assets/css/bundles/index.css: homepage hero content must use z-index: 1", errors)
 
     products_css = ROOT / "assets" / "css" / "bundles" / "products.css"
