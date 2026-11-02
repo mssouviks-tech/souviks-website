@@ -116,6 +116,22 @@ for record in records:
         if not projection:
             fail(f"{pid}: missing from {projection_name} projection")
         projected_specs = projection.get("dimension_specs_mm") or []
+        if "manufacturer_weight_kg" in record:
+            expected_weight_fields = {
+                "manufacturer_weight_kg": record.get("manufacturer_weight_kg"),
+                "manufacturer_weight_status": "verified",
+                "manufacturer_spec_source": record.get("manufacturer_weight_source_url"),
+                "calculated_weight_g": int(round(record.get("manufacturer_weight_kg") * 1000)),
+                "approx_weight_g": record.get("manufacturer_weight_approx_packed_g"),
+                "weight_estimation_status": "manufacturer_verified",
+            }
+            import math
+            expected_packed = math.ceil((record.get("manufacturer_weight_kg") * 1000 * 1.05) / 50) * 50
+            if record.get("manufacturer_weight_approx_packed_g") != expected_packed:
+                fail(f"{pid}: manufacturer packed-weight estimate is incorrect")
+            for field, expected_value in expected_weight_fields.items():
+                if projection.get(field) != expected_value:
+                    fail(f"{pid}: {projection_name} {field} differs from manufacturer data")
         for spec in specs:
             if not any(
                 isinstance(candidate, dict)
@@ -171,6 +187,11 @@ for record in records:
             page_data = json.loads(match.group(1))
         except json.JSONDecodeError as exc:
             fail(f"Invalid embedded JSON for {pid} on {language}: {exc}")
+        if "manufacturer_weight_kg" in record:
+            if page_data.get("manufacturer_weight_kg") != record.get("manufacturer_weight_kg"):
+                fail(f"{language} product page missing verified net weight for {pid}")
+            if page_data.get("approx_weight_g") != record.get("manufacturer_weight_approx_packed_g"):
+                fail(f"{language} product page missing packed weight for {pid}")
         page_specs = page_data.get("dimension_specs_mm") or []
         for spec in specs:
             if not any(
