@@ -75180,9 +75180,9 @@
     "approx_weight_g": 1950,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75199,7 +75199,8 @@
         "value_mm": 20,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 1826.8
   },
   {
     "id": "SVKS001063",
@@ -75250,9 +75251,9 @@
     "approx_weight_g": 2400,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75269,7 +75270,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 2274
   },
   {
     "id": "SVKS001064",
@@ -75320,9 +75322,9 @@
     "approx_weight_g": 2550,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75339,7 +75341,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 2423.3
   },
   {
     "id": "SVKS001065",
@@ -75391,9 +75394,9 @@
     "approx_weight_g": 2650,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75410,7 +75413,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 2494.9
   },
   {
     "id": "SVKS001066",
@@ -75462,9 +75466,9 @@
     "approx_weight_g": 2350,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75481,7 +75485,8 @@
         "value_mm": 20,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 2196
   },
   {
     "id": "SVKS001067",
@@ -75532,9 +75537,9 @@
     "approx_weight_g": 2050,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75551,7 +75556,8 @@
         "value_mm": 20,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 1911.3
   },
   {
     "id": "SVKS001068",
@@ -75603,9 +75609,9 @@
     "approx_weight_g": 2500,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75622,7 +75628,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 2345.7
   },
   {
     "id": "SVKS001069",
@@ -75673,9 +75680,9 @@
     "approx_weight_g": 1900,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75692,7 +75699,8 @@
         "value_mm": 20,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 1788
   },
   {
     "id": "SVKS001070",
@@ -75744,9 +75752,9 @@
     "approx_weight_g": 2150,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75763,7 +75771,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 2047.3
   },
   {
     "id": "SVKS001071",
@@ -75817,9 +75826,9 @@
     "approx_weight_g": 3550,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75836,7 +75845,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 3343.2
   },
   {
     "id": "SVKS001072",
@@ -75890,9 +75900,9 @@
     "approx_weight_g": 3400,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75909,7 +75919,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 3194
   },
   {
     "id": "SVKS001073",
@@ -75963,9 +75974,9 @@
     "approx_weight_g": 3700,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -75982,7 +75993,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 3492.4
   },
   {
     "id": "SVKS001074",
@@ -76036,9 +76048,9 @@
     "approx_weight_g": 3850,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -76055,7 +76067,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 3641.6
   },
   {
     "id": "SVKS001075",
@@ -76109,9 +76122,9 @@
     "approx_weight_g": 4000,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -76128,7 +76141,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 3790.8
   },
   {
     "id": "SVKS001076",
@@ -76182,9 +76196,9 @@
     "approx_weight_g": 4150,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -76201,7 +76215,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 3940
   },
   {
     "id": "SVKS001077",
@@ -76255,9 +76270,9 @@
     "approx_weight_g": 4300,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -76274,7 +76289,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 4089.2
   },
   {
     "id": "SVKS001078",
@@ -76328,9 +76344,9 @@
     "approx_weight_g": 4500,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -76347,7 +76363,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 4238.4
   },
   {
     "id": "SVKS001079",
@@ -76401,9 +76418,9 @@
     "approx_weight_g": 4650,
     "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
     "dimensions_source": "product_dimension_specification_manifest",
-    "weight_estimation_status": "",
-    "weight_estimation_method": "",
-    "weight_estimation_notes": "",
+    "weight_estimation_status": "estimated",
+    "weight_estimation_method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+    "weight_estimation_notes": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
     "dimension_specs_mm": [
       {
         "name": "Leg length",
@@ -76420,7 +76437,8 @@
         "value_mm": 22,
         "source": "nirmal_engineering_price_list"
       }
-    ]
+    ],
+    "calculated_weight_g": 4387.6
   },
   {
     "id": "SVKS001104",
