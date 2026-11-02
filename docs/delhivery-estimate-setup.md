@@ -21,9 +21,25 @@ For volumetric freight, the only accepted field is `shipping_package_dimensions_
 
 When one cart line contains one unit and its external packed dimensions are recorded, checkout uses the greater of the packed dead weight and the calculated volumetric weight (Delhivery divisor 5,000; `L × W × H` in mm³ divided by 5,000 gives grams). Multi-line or multi-quantity carts continue to use the combined packed dead weight because combining parcel volumes without a defined packing algorithm would produce an unreliable charge. The server recomputes this rule from trusted catalogue data before payment; client-provided dimensions or charges are not trusted.
 
+## Estimated item weights and packaging profiles
+
+The geometric estimate manifest is `assets/data/geometric-product-weight-estimates.json`. It contains modelled net item mass for products whose dimensions support a sufficiently explicit shape model. These are estimates, not measured or manufacturer-certified weights.
+
+- `calculated_weight_g` stores estimated net item mass.
+- `approx_weight_g` stores estimated per-unit packed mass, calculated as `ceil(net_weight_g × 1.05)` grams.
+- `weight_estimation_status` is `estimated`; `weight_estimation_method`, `weight_estimation_notes`, and `weight_estimation_confidence` retain the model and its assumptions.
+- `shipping_packing_profile` is `carton_cut_wrap` for standard components or `plastic_wrap_no_carton` for the two leaf-spring items with a complete dimensional envelope.
+- `shipping_packaging_allowance_percent` stores the provisional 5% per-unit protective allowance.
+
+The models use published DIN/ISO standard masses or envelope dimensions for standard fasteners where available, and explicit geometric envelopes for selected solid-steel products. The generic ferrous density is 7,850 kg/m³. This assumption must not be applied to PVC/PU fittings, belts, rubber components, seals, cables, filters, lights, brake linings, or any other product whose material is not solid ferrous metal.
+
+The 5% item-level allowance is **not** a measured carton tare. Carton weight and external carton dimensions must be added once per parcel by the future packing calculation. Do not add a carton allowance per item. Leaf springs use the no-carton profile and protective wrapping only. A rectangular-prism leaf estimate is an upper-envelope approximation because camber, taper, and eye details are not deducted.
+
+Products are left without an estimated weight when the current measurements do not define a defensible geometry or material model. In particular, universal-joint crosses are not estimated from bearing-cap diameter and span alone because those measurements do not define the cross body, cups, rollers, seals, and grease mass.
+
 ### Until the stock sheet is updated
 
-No default or guessed product weight is used. When one or more items lack a weight, online checkout is blocked and the customer is asked to request a quote rather than being charged an invented flat fee. Once all weights are available, checkout uses the live Delhivery prepaid + Express charge for the combined cart weight. Every shipped order incurs shipping charges, regardless of order value; there is no free-shipping threshold.
+No default weight is assigned to products with insufficient data. When one or more cart items still lack a supported weight estimate, online checkout is blocked and the customer is asked to request a quote rather than being charged an invented flat fee. Once every item has a supported weight, checkout can request the live Delhivery prepaid + Express charge for the combined cart weight. Every shipped order incurs shipping charges, regardless of order value; there is no free-shipping threshold.
 
 If weights are present but Delhivery cannot calculate a quote, checkout fails safely and asks the customer to retry or request a quote. It never silently falls back to a different fee when a live weighted quote was attempted.
 
