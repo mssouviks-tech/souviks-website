@@ -359,7 +359,7 @@ def reconcile_catalogue_projections():
 
         if dimensions_changed:
             CATALOGUE_PATH.write_text(
-                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\\n",
+                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n",
                 encoding="utf-8",
             )
     # Manufacturer-sourced WABCO metadata and safe packed-weight estimates.
