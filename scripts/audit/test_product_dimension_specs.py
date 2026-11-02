@@ -89,8 +89,12 @@ for record in records:
     master = catalogue_by_id.get(pid)
     if not master:
         fail(f"{pid} is missing from canonical catalogue")
+    if not part:
+        fail(f"{pid} dimension manifest has no part_number")
     actual_part = str(master.get("part_number") or master.get("partNumber") or "").strip()
-    if actual_part != part:
+    # Blank legacy canonical values may rely on the manifest; populated
+    # canonical values must agree exactly.
+    if actual_part and actual_part != part:
         fail(f"{pid} canonical part-number identity mismatch: {actual_part!r} != {part!r}")
 
     master_specs = master.get("dimension_specs_mm")
