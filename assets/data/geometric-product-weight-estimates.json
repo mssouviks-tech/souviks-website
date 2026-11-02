@@ -8,7 +8,7 @@
     "round_up_to_g": 50,
     "profile_note": "Carton-cut-and-wrap for standard items; plastic-wrap-only for leaf springs. This is an estimated unit allowance, not measured carton tare or external parcel dimensions."
   },
-  "method": "Calculate theoretical metal mass from item geometry where a complete or standardised shape is available. Solid shank/prism and standard fastener dimensions are explicit assumptions; estimates remain labelled estimated.",
+  "method": "Calculate theoretical metal mass from item geometry where a complete or standardised shape is available. Solid shank/prism and standard fastener dimensions are explicit assumptions; estimates remain labelled estimated. For standard fasteners, DIN/ISO reference dimensions or published per-piece masses are used only as explicit assumptions; where the catalogue does not identify the governing standard, confidence is reduced.",
   "products": [
     {
       "id": "SVKS000003",
@@ -29,18 +29,20 @@
         "assumed_thickness_mm": 2
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000004",
       "part_number": "",
       "product_name": "10 mm Spring Washer",
-      "net_weight_g": 2.9,
-      "calculated_weight_g": 2.9,
+      "net_weight_g": 2.53,
+      "calculated_weight_g": 2.53,
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "din127_split_spring_washer_strip",
+      "model": "din127_spring_lock_washer_published_mass",
       "confidence": "low",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -50,8 +52,10 @@
         "radial_strip_width_mm": 3.3,
         "strip_thickness_mm": 2.5
       },
-      "notes": "DIN 127-style split spring washer represented as an annular strip; helix/gap simplified. Verify actual standard and grade.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "Uses DIN 127 published approximate steel mass per 1,000 pieces for this nominal size, converted to grams per piece. Confirm actual DIN 127 series/material.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 127",
+      "standard_source_url": "https://tankfasteners.com/standards/din-127"
     },
     {
       "id": "SVKS000005",
@@ -72,7 +76,9 @@
         "assumed_thickness_mm": 2
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000006",
@@ -83,7 +89,7 @@
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "iso_style_hex_nut",
+      "model": "din934_hex_nut",
       "confidence": "medium",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -92,8 +98,10 @@
         "across_flats_mm": 17,
         "height_mm": 8
       },
-      "notes": "Standard metric hex-nut envelope with threaded bore deducted; locknut insert mass/style not separately modeled.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "DIN 934 nominal hex-nut envelope and steel dimensions; actual nut style/height may differ. Locknut insert mass/style is not separately modeled.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 934",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-934-hex-nut-dimensions/"
     },
     {
       "id": "SVKS000007",
@@ -115,7 +123,9 @@
         "head_height_mm": 6.4
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000008",
@@ -137,7 +147,9 @@
         "head_height_mm": 6.4
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000009",
@@ -159,7 +171,9 @@
         "head_height_mm": 6.4
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000010",
@@ -181,7 +195,9 @@
         "head_height_mm": 6.4
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000011",
@@ -203,7 +219,9 @@
         "head_height_mm": 6.4
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000021",
@@ -224,18 +242,20 @@
         "assumed_thickness_mm": 2.5
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000022",
       "part_number": "",
       "product_name": "12 mm Spring Washer",
-      "net_weight_g": 3.6,
-      "calculated_weight_g": 3.6,
+      "net_weight_g": 3.82,
+      "calculated_weight_g": 3.82,
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "din127_split_spring_washer_strip",
+      "model": "din127_spring_lock_washer_published_mass",
       "confidence": "low",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -245,8 +265,10 @@
         "radial_strip_width_mm": 3.5,
         "strip_thickness_mm": 2.5
       },
-      "notes": "DIN 127-style split spring washer represented as an annular strip; helix/gap simplified. Verify actual standard and grade.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "Uses DIN 127 published approximate steel mass per 1,000 pieces for this nominal size, converted to grams per piece. Confirm actual DIN 127 series/material.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 127",
+      "standard_source_url": "https://tankfasteners.com/standards/din-127"
     },
     {
       "id": "SVKS000023",
@@ -267,7 +289,9 @@
         "assumed_thickness_mm": 2.5
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000024",
@@ -278,7 +302,7 @@
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "iso_style_hex_nut",
+      "model": "din934_hex_nut",
       "confidence": "medium",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -287,8 +311,10 @@
         "across_flats_mm": 19,
         "height_mm": 10
       },
-      "notes": "Standard metric hex-nut envelope with threaded bore deducted; locknut insert mass/style not separately modeled.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "DIN 934 nominal hex-nut envelope and steel dimensions; actual nut style/height may differ. Locknut insert mass/style is not separately modeled.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 934",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-934-hex-nut-dimensions/"
     },
     {
       "id": "SVKS000025",
@@ -299,7 +325,7 @@
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "iso_style_hex_nut",
+      "model": "din934_hex_nut",
       "confidence": "medium",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -308,8 +334,10 @@
         "across_flats_mm": 19,
         "height_mm": 10
       },
-      "notes": "Standard metric hex-nut envelope with threaded bore deducted; locknut insert mass/style not separately modeled.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "DIN 934 nominal hex-nut envelope and steel dimensions; actual nut style/height may differ. Locknut insert mass/style is not separately modeled.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 934",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-934-hex-nut-dimensions/"
     },
     {
       "id": "SVKS000026",
@@ -331,7 +359,9 @@
         "head_height_mm": 7.5
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000027",
@@ -353,7 +383,9 @@
         "head_height_mm": 7.5
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000028",
@@ -375,7 +407,9 @@
         "head_height_mm": 7.5
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000029",
@@ -397,7 +431,9 @@
         "head_height_mm": 7.5
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000032",
@@ -419,7 +455,9 @@
         "head_height_mm": 7.5
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000040",
@@ -440,18 +478,20 @@
         "assumed_thickness_mm": 2.5
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000041",
       "part_number": "",
       "product_name": "14 mm Spring Washer",
-      "net_weight_g": 5.7,
-      "calculated_weight_g": 5.7,
+      "net_weight_g": 6.01,
+      "calculated_weight_g": 6.01,
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "din127_split_spring_washer_strip",
+      "model": "din127_spring_lock_washer_published_mass",
       "confidence": "low",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -461,8 +501,10 @@
         "radial_strip_width_mm": 4,
         "strip_thickness_mm": 3
       },
-      "notes": "DIN 127-style split spring washer represented as an annular strip; helix/gap simplified. Verify actual standard and grade.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "Uses DIN 127 published approximate steel mass per 1,000 pieces for this nominal size, converted to grams per piece. Confirm actual DIN 127 series/material.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 127",
+      "standard_source_url": "https://tankfasteners.com/standards/din-127"
     },
     {
       "id": "SVKS000042",
@@ -483,7 +525,9 @@
         "assumed_thickness_mm": 2.5
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000043",
@@ -494,7 +538,7 @@
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "iso_style_hex_nut",
+      "model": "din934_hex_nut",
       "confidence": "medium",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -503,8 +547,10 @@
         "across_flats_mm": 22,
         "height_mm": 11
       },
-      "notes": "Standard metric hex-nut envelope with threaded bore deducted; locknut insert mass/style not separately modeled.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "DIN 934 nominal hex-nut envelope and steel dimensions; actual nut style/height may differ. Locknut insert mass/style is not separately modeled.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 934",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-934-hex-nut-dimensions/"
     },
     {
       "id": "SVKS000044",
@@ -526,7 +572,9 @@
         "head_height_mm": 8.8
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000045",
@@ -548,7 +596,9 @@
         "head_height_mm": 8.8
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000046",
@@ -570,7 +620,9 @@
         "head_height_mm": 8.8
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000047",
@@ -612,18 +664,20 @@
         "assumed_thickness_mm": 3
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000055",
       "part_number": "",
       "product_name": "16 mm Spring Washer",
-      "net_weight_g": 6.5,
-      "calculated_weight_g": 6.5,
+      "net_weight_g": 8.91,
+      "calculated_weight_g": 8.91,
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "din127_split_spring_washer_strip",
+      "model": "din127_spring_lock_washer_published_mass",
       "confidence": "low",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -633,8 +687,10 @@
         "radial_strip_width_mm": 4,
         "strip_thickness_mm": 3
       },
-      "notes": "DIN 127-style split spring washer represented as an annular strip; helix/gap simplified. Verify actual standard and grade.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "Uses DIN 127 published approximate steel mass per 1,000 pieces for this nominal size, converted to grams per piece. Confirm actual DIN 127 series/material.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 127",
+      "standard_source_url": "https://tankfasteners.com/standards/din-127"
     },
     {
       "id": "SVKS000056",
@@ -655,7 +711,9 @@
         "assumed_thickness_mm": 3
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000057",
@@ -666,7 +724,7 @@
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "iso_style_hex_nut",
+      "model": "din934_hex_nut",
       "confidence": "medium",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -675,8 +733,10 @@
         "across_flats_mm": 24,
         "height_mm": 13
       },
-      "notes": "Standard metric hex-nut envelope with threaded bore deducted; locknut insert mass/style not separately modeled.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "DIN 934 nominal hex-nut envelope and steel dimensions; actual nut style/height may differ. Locknut insert mass/style is not separately modeled.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 934",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-934-hex-nut-dimensions/"
     },
     {
       "id": "SVKS000058",
@@ -687,7 +747,7 @@
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "iso_style_hex_nut",
+      "model": "din934_hex_nut",
       "confidence": "medium",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -696,8 +756,10 @@
         "across_flats_mm": 24,
         "height_mm": 13
       },
-      "notes": "Standard metric hex-nut envelope with threaded bore deducted; locknut insert mass/style not separately modeled.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "DIN 934 nominal hex-nut envelope and steel dimensions; actual nut style/height may differ. Locknut insert mass/style is not separately modeled.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 934",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-934-hex-nut-dimensions/"
     },
     {
       "id": "SVKS000059",
@@ -719,7 +781,9 @@
         "head_height_mm": 10
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000066",
@@ -741,7 +805,9 @@
         "head_height_mm": 10
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000067",
@@ -763,7 +829,9 @@
         "head_height_mm": 10
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000068",
@@ -785,7 +853,9 @@
         "head_height_mm": 10
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000069",
@@ -807,7 +877,9 @@
         "head_height_mm": 10
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000070",
@@ -829,7 +901,9 @@
         "head_height_mm": 10
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000071",
@@ -851,7 +925,9 @@
         "head_height_mm": 10
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000072",
@@ -873,7 +949,9 @@
         "head_height_mm": 10
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000075",
@@ -894,18 +972,20 @@
         "assumed_thickness_mm": 3
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000076",
       "part_number": "",
       "product_name": "18 mm Spring Washer",
-      "net_weight_g": 9.2,
-      "calculated_weight_g": 9.2,
+      "net_weight_g": 9.73,
+      "calculated_weight_g": 9.73,
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "din127_split_spring_washer_strip",
+      "model": "din127_spring_lock_washer_published_mass",
       "confidence": "low",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -915,8 +995,10 @@
         "radial_strip_width_mm": 4.5,
         "strip_thickness_mm": 3.5
       },
-      "notes": "DIN 127-style split spring washer represented as an annular strip; helix/gap simplified. Verify actual standard and grade.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "Uses DIN 127 published approximate steel mass per 1,000 pieces for this nominal size, converted to grams per piece. Confirm actual DIN 127 series/material.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 127",
+      "standard_source_url": "https://tankfasteners.com/standards/din-127"
     },
     {
       "id": "SVKS000077",
@@ -937,7 +1019,9 @@
         "assumed_thickness_mm": 3
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000078",
@@ -959,7 +1043,9 @@
         "head_height_mm": 11.5
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000084",
@@ -980,7 +1066,9 @@
         "assumed_thickness_mm": 3
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000086",
@@ -1001,7 +1089,9 @@
         "assumed_thickness_mm": 3
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000089",
@@ -1022,18 +1112,20 @@
         "assumed_thickness_mm": 4
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000153",
       "part_number": "",
       "product_name": "6 mm Spring Washer",
-      "net_weight_g": 0.7,
-      "calculated_weight_g": 0.7,
+      "net_weight_g": 0.83,
+      "calculated_weight_g": 0.83,
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "din127_split_spring_washer_strip",
+      "model": "din127_spring_lock_washer_published_mass",
       "confidence": "low",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -1043,8 +1135,10 @@
         "radial_strip_width_mm": 2,
         "strip_thickness_mm": 1.6
       },
-      "notes": "DIN 127-style split spring washer represented as an annular strip; helix/gap simplified. Verify actual standard and grade.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "Uses DIN 127 published approximate steel mass per 1,000 pieces for this nominal size, converted to grams per piece. Confirm actual DIN 127 series/material.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 127",
+      "standard_source_url": "https://tankfasteners.com/standards/din-127"
     },
     {
       "id": "SVKS000154",
@@ -1065,7 +1159,9 @@
         "assumed_thickness_mm": 1.6
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000168",
@@ -1086,18 +1182,20 @@
         "assumed_thickness_mm": 1.6
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000169",
       "part_number": "",
       "product_name": "8 mm Spring Washer",
-      "net_weight_g": 1.4,
-      "calculated_weight_g": 1.4,
+      "net_weight_g": 1.6,
+      "calculated_weight_g": 1.6,
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "din127_split_spring_washer_strip",
+      "model": "din127_spring_lock_washer_published_mass",
       "confidence": "low",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -1107,8 +1205,10 @@
         "radial_strip_width_mm": 2.5,
         "strip_thickness_mm": 2
       },
-      "notes": "DIN 127-style split spring washer represented as an annular strip; helix/gap simplified. Verify actual standard and grade.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "Uses DIN 127 published approximate steel mass per 1,000 pieces for this nominal size, converted to grams per piece. Confirm actual DIN 127 series/material.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 127",
+      "standard_source_url": "https://tankfasteners.com/standards/din-127"
     },
     {
       "id": "SVKS000170",
@@ -1129,7 +1229,9 @@
         "assumed_thickness_mm": 1.6
       },
       "notes": "DIN 125-style steel flat washer dimensions assumed from nominal fastener size; verify washer series/material before final billing.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 125-A / ISO 7089",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
     },
     {
       "id": "SVKS000274",
@@ -1796,7 +1898,9 @@
         "nut_count": 1
       },
       "notes": "Metric solid-shank hex-head bolt plus one standard hex nut; parsed bolt length from product name where not separately recorded.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000773",
@@ -2213,7 +2317,9 @@
         "nut_count": 1
       },
       "notes": "Metric solid-shank hex-head bolt plus one standard hex nut; parsed bolt length from product name where not separately recorded.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000812",
@@ -2224,7 +2330,7 @@
       "approx_weight_g": 150,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "iso_style_hex_nut",
+      "model": "din934_hex_nut",
       "confidence": "medium",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -2233,8 +2339,10 @@
         "across_flats_mm": 34,
         "height_mm": 18
       },
-      "notes": "Standard metric hex-nut envelope with threaded bore deducted; locknut insert mass/style not separately modeled.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "DIN 934 nominal hex-nut envelope and steel dimensions; actual nut style/height may differ. Locknut insert mass/style is not separately modeled.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 934",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-934-hex-nut-dimensions/"
     },
     {
       "id": "SVKS000813",
@@ -2255,7 +2363,9 @@
         "nut_count": 1
       },
       "notes": "Metric solid-shank hex-head bolt plus one standard hex nut; parsed bolt length from product name where not separately recorded.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000814",
@@ -2276,7 +2386,9 @@
         "nut_count": 1
       },
       "notes": "Metric solid-shank hex-head bolt plus one standard hex nut; parsed bolt length from product name where not separately recorded.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000815",
@@ -2297,7 +2409,9 @@
         "nut_count": 1
       },
       "notes": "Metric solid-shank hex-head bolt plus one standard hex nut; parsed bolt length from product name where not separately recorded.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS000816",
@@ -2319,7 +2433,9 @@
         "head_height_mm": 7.5
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS001005",
@@ -2341,7 +2457,9 @@
         "head_height_mm": 6.4
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS001006",
@@ -2363,7 +2481,9 @@
         "head_height_mm": 7.5
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS001008",
@@ -2385,7 +2505,9 @@
         "head_height_mm": 10
       },
       "notes": "Nominal-diameter solid shank plus ISO-style hex head; thread-root reduction and chamfers ignored, so the net mass is a conservative geometry estimate.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "ISO 4014 / ISO 4017 hex-head geometry",
+      "standard_source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
     },
     {
       "id": "SVKS001009",
@@ -2396,7 +2518,7 @@
       "approx_weight_g": 50,
       "packaging_allowance_percent": 5,
       "packing_profile": "carton_cut_wrap",
-      "model": "iso_style_hex_nut",
+      "model": "din934_hex_nut",
       "confidence": "medium",
       "density_kg_m3": 7850,
       "dimensions_used_mm": {
@@ -2405,8 +2527,32 @@
         "across_flats_mm": 24,
         "height_mm": 13
       },
-      "notes": "Standard metric hex-nut envelope with threaded bore deducted; locknut insert mass/style not separately modeled.",
-      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight"
+      "notes": "DIN 934 nominal hex-nut envelope and steel dimensions; actual nut style/height may differ. Locknut insert mass/style is not separately modeled.",
+      "source": "Souviks catalogue dimensional data; geometric estimate, not a measured/manufacturer weight",
+      "standard_reference": "DIN 934",
+      "standard_source_url": "https://www.hexvaro.com/resources/din-934-hex-nut-dimensions/"
+    }
+  ],
+  "standards_assumptions": [
+    {
+      "standard": "DIN 125-A / ISO 7089",
+      "purpose": "Flat steel washer dimensions used where only nominal fastener size is in the catalogue.",
+      "source_url": "https://www.hexvaro.com/resources/din-125-flat-washer-dimensions/"
+    },
+    {
+      "standard": "DIN 127",
+      "purpose": "Spring lock washer reference dimensions and published per-piece mass.",
+      "source_url": "https://tankfasteners.com/standards/din-127"
+    },
+    {
+      "standard": "ISO 4014 / ISO 4017",
+      "purpose": "Metric hex-head bolt across-flats and head-height assumptions.",
+      "source_url": "https://mlc.org.uk/guides/bolt-head-sizes-chart"
+    },
+    {
+      "standard": "DIN 934",
+      "purpose": "Standard metric hex nut geometry assumptions; use DIN 934 rather than ISO 4032 because the catalogue does not specify the governing nut standard.",
+      "source_url": "https://www.hexvaro.com/resources/din-934-hex-nut-dimensions/"
     }
   ]
 }
