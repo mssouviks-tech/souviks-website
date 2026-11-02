@@ -1,3245 +1,3886 @@
 {
-  "version": 1,
-  "source": "Souviks active canonical catalogue and dimension manifest",
-  "generated_from": "Current PR #171 branch catalogue snapshot",
+  "version": 2,
+  "source": "Souviks canonical active catalogue combined with the product-dimension manifest",
+  "generated_from": "PR #171 branch snapshot; dimensional manifest is merged by scripts/catalogue/build.py",
   "coverage": {
-    "total": 404,
+    "total": 430,
     "existing_weight": 95,
-    "modelled_estimate": 111,
-    "insufficient_geometry_or_material": 198
+    "modelled_estimate": 83,
+    "insufficient_geometry_or_material": 252
   },
+  "total_active_products": 1157,
+  "active_products_with_any_weight": 194,
+  "existing_weight_policy": "Never replace a pre-existing manual, supplier, or manufacturer weight with a lower-confidence geometric estimate.",
   "products": [
     {
       "id": "SVKS000002",
       "part_number": "",
       "product_name": "10 mm Benjo Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000003",
       "part_number": "",
       "product_name": "10 mm Mounting Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000004",
       "part_number": "",
       "product_name": "10 mm Spring Washer",
+      "brand": "TVS Girling",
       "subcategory": "Spring Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000005",
       "part_number": "",
       "product_name": "10 mm Steel Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000006",
       "part_number": "",
       "product_name": "10 x 1.5 Nut",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000007",
       "part_number": "",
       "product_name": "10 x 1.5 x 30 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000008",
       "part_number": "",
       "product_name": "10 x 1.5 x 35 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000009",
       "part_number": "",
       "product_name": "10 x 1.5 x 45 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000010",
       "part_number": "",
       "product_name": "10 x 1.5 x 50 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000011",
       "part_number": "",
       "product_name": "10 x 1.5 x 60 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000012",
       "part_number": "",
       "product_name": "10 x 10 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000013",
       "part_number": "",
       "product_name": "10 x 12 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000014",
       "part_number": "",
       "product_name": "10 x 15 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000015",
       "part_number": "",
       "product_name": "10\" Center Bolt LH",
+      "brand": "TVS Girling",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000016",
       "part_number": "",
       "product_name": "10mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000017",
       "part_number": "",
       "product_name": "10mm PU connector socket PVC T Type",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000018",
       "part_number": "",
       "product_name": "10mm PU connector socket Steel Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000019",
       "part_number": "",
       "product_name": "11mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000020",
       "part_number": "",
       "product_name": "12 mm Benjo Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000021",
       "part_number": "",
       "product_name": "12 mm Mounting Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000022",
       "part_number": "",
       "product_name": "12 mm Spring Washer",
+      "brand": "TVS Girling",
       "subcategory": "Spring Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000023",
       "part_number": "",
       "product_name": "12 mm Steel Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000024",
       "part_number": "",
       "product_name": "12 x 1.5 lock nut",
+      "brand": "TVS Girling",
       "subcategory": "Lock Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000025",
       "part_number": "",
       "product_name": "12 x 1.5 nut",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000026",
       "part_number": "",
       "product_name": "12 x 1.5 x 35 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000027",
       "part_number": "",
       "product_name": "12 x 1.5 x 45 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000028",
       "part_number": "",
       "product_name": "12 x 1.5 x 45 crown bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000029",
       "part_number": "",
       "product_name": "12 x 1.5 x 50 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000032",
       "part_number": "",
       "product_name": "12 x 1.5 x 60 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000033",
       "part_number": "",
       "product_name": "12 x 12 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000034",
       "part_number": "",
       "product_name": "12 x 15 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000035",
       "part_number": "",
       "product_name": "12mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000036",
       "part_number": "",
       "product_name": "12mm PU connector socket PVC T Type",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000037",
       "part_number": "",
       "product_name": "12mm PU connector socket Steel Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000038",
       "part_number": "",
       "product_name": "13mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000039",
       "part_number": "",
       "product_name": "14 mm Benjo Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000040",
       "part_number": "",
       "product_name": "14 mm Mounting Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000041",
       "part_number": "",
       "product_name": "14 mm Spring Washer",
+      "brand": "TVS Girling",
       "subcategory": "Spring Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000042",
       "part_number": "",
       "product_name": "14 mm Steel Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000043",
       "part_number": "",
       "product_name": "14 x 1.5 nut",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000044",
       "part_number": "",
       "product_name": "14 x 1.5 x 50 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000045",
       "part_number": "",
       "product_name": "14 x 1.5 x 60 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000046",
       "part_number": "",
       "product_name": "14 x 1.5 x 75 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000047",
       "part_number": "SBAM 495",
       "product_name": "14\" Center Bolt 5/8",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000048",
       "part_number": "",
       "product_name": "14mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000049",
       "part_number": "",
       "product_name": "15 x 15 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000050",
       "part_number": "",
       "product_name": "15mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000051",
       "part_number": "",
       "product_name": "15mm PU connector socket PVC T Type",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000052",
       "part_number": "",
       "product_name": "15mm PU connector socket Steel Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000053",
       "part_number": "",
       "product_name": "16 mm Benjo Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000054",
       "part_number": "",
       "product_name": "16 mm Mounting Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000055",
       "part_number": "",
       "product_name": "16 mm Spring Washer",
+      "brand": "TVS Girling",
       "subcategory": "Spring Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000056",
       "part_number": "",
       "product_name": "16 mm Steel Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000057",
       "part_number": "",
       "product_name": "16 x 1.5 lock nut",
+      "brand": "TVS Girling",
       "subcategory": "Lock Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000058",
       "part_number": "",
       "product_name": "16 x 1.5 nut",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000059",
       "part_number": "",
       "product_name": "16 x 1.5 x 100 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000066",
       "part_number": "",
       "product_name": "16 x 1.5 x 125 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000067",
       "part_number": "",
       "product_name": "16 x 1.5 x 143 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000068",
       "part_number": "",
       "product_name": "16 x 1.5 x 150 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000069",
       "part_number": "",
       "product_name": "16 x 1.5 x 174 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000070",
       "part_number": "",
       "product_name": "16 x 1.5 x 50 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000071",
       "part_number": "",
       "product_name": "16 x 1.5 x 60 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000072",
       "part_number": "",
       "product_name": "16 x 1.5 x 75 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000073",
       "part_number": "",
       "product_name": "16mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000074",
       "part_number": "",
       "product_name": "18 mm Benjo Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000075",
       "part_number": "",
       "product_name": "18 mm Mounting Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000076",
       "part_number": "",
       "product_name": "18 mm Spring Washer",
+      "brand": "TVS Girling",
       "subcategory": "Spring Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000077",
       "part_number": "",
       "product_name": "18 mm Steel Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000078",
       "part_number": "",
       "product_name": "18 x 110 bolt",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000079",
       "part_number": "",
       "product_name": "18 x 15 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000080",
       "part_number": "",
       "product_name": "18 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000081",
       "part_number": "",
       "product_name": "18 x 22 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000082",
       "part_number": "",
       "product_name": "18 x 26 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000083",
       "part_number": "",
       "product_name": "20 mm Benjo Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000084",
       "part_number": "",
       "product_name": "20 mm Mounting Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000085",
       "part_number": "",
       "product_name": "22 mm Benjo Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000086",
       "part_number": "",
       "product_name": "22 mm Mounting Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000087",
       "part_number": "",
       "product_name": "22 x 22 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000088",
       "part_number": "",
       "product_name": "22 x 26 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000089",
       "part_number": "",
       "product_name": "24 mm Mounting Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000090",
       "part_number": "",
       "product_name": "25 mm Spring Leaf Side Washer 4mm Thickness",
+      "brand": "Harish",
       "subcategory": "Spring Leaf Side Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000091",
       "part_number": "",
       "product_name": "25 mm Spring Leaf Side Washer 5mm Thickness",
+      "brand": "Harish",
       "subcategory": "Spring Leaf Side Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000092",
       "part_number": "",
       "product_name": "26 x 26 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000095",
       "part_number": "272425000223",
       "product_name": "Set - Clutch Assy. Dia 190",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Clutch Assembly",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000096",
       "part_number": "272425000235",
       "product_name": "Clutch Disc Assy. (Dia 275) BS6",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Clutch Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000097",
       "part_number": "272425200235",
       "product_name": "Clutch Disc Dia 215 BS6",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Clutch Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000098",
       "part_number": "272425400235",
       "product_name": "Clutch Cover Assy. Dia 215 BS6",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Pressure Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000117",
       "part_number": "285126207803",
       "product_name": "Oil Seal (Main Shaft) 38x48x8 BS 1/2/3/4",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Oil Seal",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000126",
       "part_number": "",
       "product_name": "30 mm Spring Leaf Side Washer 4mm Thickness",
+      "brand": "Harish",
       "subcategory": "Spring Leaf Side Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000127",
       "part_number": "",
       "product_name": "30 mm Spring Leaf Side Washer 5mm Thickness",
+      "brand": "Harish",
       "subcategory": "Spring Leaf Side Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000128",
       "part_number": "",
       "product_name": "32 mm Spring Leaf Side Washer 4mm Thickness",
+      "brand": "Harish",
       "subcategory": "Spring Leaf Side Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000129",
       "part_number": "",
       "product_name": "32 mm Spring Leaf Side Washer 5mm Thickness",
+      "brand": "Harish",
       "subcategory": "Spring Leaf Side Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000130",
       "part_number": "",
       "product_name": "35 mm Bell Crank Washer 4mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000131",
       "part_number": "",
       "product_name": "35 mm Bell Crank Washer 5mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000132",
       "part_number": "",
       "product_name": "35 mm Bell Crank Washer 6mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000133",
       "part_number": "",
       "product_name": "35 mm Bell Crank Washer 7mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000134",
       "part_number": "",
       "product_name": "35 mm Bell Crank Washer 8mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000135",
       "part_number": "",
       "product_name": "42 mm Bell Crank Washer 4mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000136",
       "part_number": "",
       "product_name": "42 mm Bell Crank Washer 5mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000137",
       "part_number": "",
       "product_name": "42 mm Bell Crank Washer 6mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000138",
       "part_number": "",
       "product_name": "42 mm Bell Crank Washer 7mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000139",
       "part_number": "",
       "product_name": "42 mm Bell Crank Washer 8mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000140",
       "part_number": "",
       "product_name": "50 mm Bell Crank Washer 4mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000141",
       "part_number": "",
       "product_name": "50 mm Bell Crank Washer 5mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000142",
       "part_number": "",
       "product_name": "50 mm Bell Crank Washer 6mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000143",
       "part_number": "",
       "product_name": "50 mm Bell Crank Washer 7mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000144",
       "part_number": "",
       "product_name": "50 mm Bell Crank Washer 8mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000152",
       "part_number": "",
       "product_name": "6 mm Benjo Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000153",
       "part_number": "",
       "product_name": "6 mm Spring Washer",
+      "brand": "TVS Girling",
       "subcategory": "Spring Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000154",
       "part_number": "",
       "product_name": "6 mm Steel Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000155",
       "part_number": "",
       "product_name": "6 x 10 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000156",
       "part_number": "",
       "product_name": "6 x 12 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000157",
       "part_number": "",
       "product_name": "6 x 15 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000158",
       "part_number": "",
       "product_name": "6 x 6 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000159",
       "part_number": "",
       "product_name": "6 x 8 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000160",
       "part_number": "",
       "product_name": "6mm PTO connector socket PVC",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000161",
       "part_number": "",
       "product_name": "6mm PTO connector socket Steel",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000162",
       "part_number": "",
       "product_name": "6mm PU connector socket PVC L Type",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000163",
       "part_number": "",
       "product_name": "6mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000164",
       "part_number": "",
       "product_name": "6mm PU connector socket PVC T Type",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000165",
       "part_number": "",
       "product_name": "6mm PU connector socket Steel Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000166",
       "part_number": "",
       "product_name": "7mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000167",
       "part_number": "",
       "product_name": "8 mm Benjo Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000168",
       "part_number": "",
       "product_name": "8 mm Mounting Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000169",
       "part_number": "",
       "product_name": "8 mm Spring Washer",
+      "brand": "TVS Girling",
       "subcategory": "Spring Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000170",
       "part_number": "",
       "product_name": "8 mm Steel Washer",
+      "brand": "TVS Girling",
       "subcategory": "Washer",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000171",
       "part_number": "",
       "product_name": "8 x 10 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000172",
       "part_number": "",
       "product_name": "8 x 12 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000173",
       "part_number": "",
       "product_name": "8 x 15 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000174",
       "part_number": "",
       "product_name": "8 x 8 mm Union",
+      "brand": "TVS Girling",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000197",
       "part_number": "",
       "product_name": "8mm PTO connector socket PVC",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000213",
       "part_number": "",
       "product_name": "8mm PTO connector socket Steel",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000214",
       "part_number": "",
       "product_name": "8mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000215",
       "part_number": "",
       "product_name": "8mm PU connector socket PVC T Type",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000216",
       "part_number": "",
       "product_name": "8mm PU connector socket Steel Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000217",
       "part_number": "",
       "product_name": "9mm PU connector socket PVC Straight",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000230",
       "part_number": "15IPL",
       "product_name": "15 IPL-WP C.P. AL Fan Type 15\" Wider Pad",
+      "brand": "BGL",
       "subcategory": "Clutch Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000231",
       "part_number": "PTB15-WP",
       "product_name": "380 PTB15-WP Clutch Plate 380 1.5\" Wider Pad",
+      "brand": "BGL",
       "subcategory": "Clutch Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000232",
       "part_number": "380CT",
       "product_name": "380 CT Cover Assy. for 380 Dia",
+      "brand": "BGL",
       "subcategory": "Pressure Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000242",
       "part_number": "",
       "product_name": "Brake Pipe Clutch O/O 84\"",
+      "brand": "Rider",
       "subcategory": "Brake Pipe",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000246",
       "part_number": "CC 016008R",
       "product_name": "Withdrawal Plate GB 75 (6mm)",
+      "brand": "MSL",
       "subcategory": "Collector Ring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000250",
       "part_number": "",
       "product_name": "Coolant Pipe Socket 12mm L (11.8) Coupler",
+      "brand": "Rider",
       "subcategory": "Air Repair Kit",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000254",
       "part_number": "J1082",
       "product_name": "Double Pin Hanger 50MM Hole",
+      "brand": "JMP",
       "subcategory": "Shackle Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000274",
       "part_number": "SDUJFM40D48",
       "product_name": "UJ Cross 47.7 x 135",
+      "brand": "Spicer",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000300",
       "part_number": "J2336",
       "product_name": "Double Pin Hanger U-Truck 42/35mm",
+      "brand": "JMP",
       "subcategory": "Shackle Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000301",
       "part_number": "SBAM 145",
       "product_name": "Centre Bolt - 15/32 10\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000302",
       "part_number": "SBAM 146",
       "product_name": "Centre Bolt - 15/32 12\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000303",
       "part_number": "SBAM 147",
       "product_name": "Centre Bolt - 15/32 14\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000304",
       "part_number": "SBAM 228",
       "product_name": "Centre Bolt - 15/32 16\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000305",
       "part_number": "SBAM 369",
       "product_name": "Centre Bolt - 15/32 18\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000306",
       "part_number": "SBAM 366",
       "product_name": "Centre Bolt - 5/8 10\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000307",
       "part_number": "SBAM 427",
       "product_name": "Centre Bolt - 5/8 16\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000308",
       "part_number": "SBAM 442",
       "product_name": "Centre Bolt - 5/8 18\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000309",
       "part_number": "SBAM 499",
       "product_name": "Centre Bolt 3118 - 10\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000310",
       "part_number": "SBAM 500",
       "product_name": "Centre Bolt 3118 - 12\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000311",
       "part_number": "SBBS 1424",
       "product_name": "Centre Bolt Turbo - 12\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000312",
       "part_number": "SBBS 1426",
       "product_name": "Centre Bolt Turbo - 14\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000313",
       "part_number": "SBAM 496",
       "product_name": "Centre Bolt U Truck - 10\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000314",
       "part_number": "SBAM 596",
       "product_name": "Centre Bolt U Truck - 12\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000315",
       "part_number": "LLTS105",
       "product_name": "Bell Crank Set 50 mm",
+      "brand": "GS",
       "subcategory": "Suspension Bush",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000317",
       "part_number": "SBAM 367",
       "product_name": "Center Bolt 5/8 - 12\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000318",
       "part_number": "SBAM 394",
       "product_name": "Center Bolt 5/8 - 14\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000329",
       "part_number": "",
       "product_name": "Bell Crank Set 50 mm",
+      "brand": "Harish",
       "subcategory": "Suspension Bush",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000332",
+      "part_number": "258201",
+      "product_name": "Tata 2515 LPT (R) M/L",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000333",
+      "part_number": "258202",
+      "product_name": "Tata 2515 LPT (R) 2/L",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000334",
       "part_number": "BS4923TAP",
       "product_name": "Bell Crank Set 50 mm",
+      "brand": "JAI",
       "subcategory": "Suspension Bush",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000335",
       "part_number": "P32151D",
       "product_name": "Spring Pin 32 x 151",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000336",
       "part_number": "P52148",
       "product_name": "Spring Pin 52 x 148 mm",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000339",
       "part_number": "RK 103",
       "product_name": "UJ Cross 38 x 57",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000340",
       "part_number": "RK 105",
       "product_name": "UJ Cross 42 x 129",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000343",
       "part_number": "KF5120",
       "product_name": "UJ Cross 41.28 x 125.90",
+      "brand": "KFL",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000344",
       "part_number": "KF5121",
       "product_name": "UJ Cross 42 x 129",
+      "brand": "KFL",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000345",
       "part_number": "KF5122",
       "product_name": "UJ Cross 48 x 135",
+      "brand": "KFL",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000364",
       "part_number": "CB300130",
       "product_name": "Clutch Booster Assy. 70 mm Dia",
+      "brand": "MEI",
       "subcategory": "Clutch Booster",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000372",
       "part_number": "MP168",
       "product_name": "Bell Crank Set 50 mm",
+      "brand": "Manu",
       "subcategory": "Suspension Bush",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000391",
       "part_number": "NIRMAL/SP/1200",
       "product_name": "Lever Pin 42 x 170",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000392",
       "part_number": "NIRMAL/pSP/1201",
       "product_name": "Spring Pin 32 x 151",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000393",
       "part_number": "NIRMAL/SP/740",
       "product_name": "Spring Pin 50 x 151 mm",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000394",
       "part_number": "NIRMAL/UB/204",
       "product_name": "Bolt w/ Nut 20 x 70 x 10\" HR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000395",
       "part_number": "NIRMAL/UB/205",
       "product_name": "Bolt w/ Nut 20 x 70 x 11\" HR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000396",
       "part_number": "NIRMAL/UB/229",
       "product_name": "Bolt w/ Nut 22 x 82 x 20\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000397",
       "part_number": "NIRMAL/UB/230",
       "product_name": "Bolt w/ Nut 22 x 82 x 21\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000398",
       "part_number": "NIRMAL/UB/231",
       "product_name": "Bolt w/ Nut 22 x 82 x 22\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000399",
       "part_number": "NIRMAL/UB/232",
       "product_name": "Bolt w/ Nut 22 x 82 x 23\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000400",
       "part_number": "NIRMAL/UB/233",
       "product_name": "Bolt w/ Nut 22 x 82 x 24\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000401",
       "part_number": "NIRMAL/UB/234",
       "product_name": "Bolt w/ Nut 22 x 82 x 25\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000404",
       "part_number": "PLK199F",
       "product_name": "Bell Crank Set 50 mm",
+      "brand": "Harish",
       "subcategory": "Suspension Bush",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000410",
       "part_number": "8PK-1250",
       "product_name": "8PK-1250 EPDM V Belt",
+      "brand": "Pix",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000428",
       "part_number": "4054P",
       "product_name": "UJ Cross 46 mm",
+      "brand": "Sargun",
       "subcategory": "Cross Joint",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000429",
       "part_number": "",
       "product_name": "Pressure Plate 330 Dia Sonalika 4 Lever",
+      "brand": "BGL",
       "subcategory": "Pressure Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000436",
       "part_number": "4054BP2",
       "product_name": "UJ Cross 42 x 129",
+      "brand": "Sargun",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000437",
       "part_number": "4054CP",
       "product_name": "UJ Cross 48 x 135",
+      "brand": "Sargun",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000438",
       "part_number": "4104GP",
       "product_name": "UJ Cross 41.28 x 125.90",
+      "brand": "Sargun",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000449",
+      "part_number": "2582",
+      "product_name": "Tata 2515 (Rear) Main Leaf",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000481",
       "part_number": "29068102",
       "product_name": "Clutch Master Cylinder",
+      "brand": "TVS Girling",
       "subcategory": "Clutch Master Cylinder",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000536",
       "part_number": "TX-380-CRK9",
       "product_name": "Clutch collector ring/withdrawal plate, dia. 380 PPA (GB75)",
+      "brand": "Texspin",
       "subcategory": "Collector Ring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000550",
       "part_number": "TX-610 KP Chrome",
       "product_name": "Kingpin shaft for Tata 1312, standard, chrome plated (set of 2 pins, size 38.25 mm)",
+      "brand": "Texspin",
       "subcategory": "King Pin Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000567",
       "part_number": "",
       "product_name": "UJ Cross 48 x 135",
+      "brand": "Everest",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000580",
       "part_number": "9121400130",
       "product_name": "Air Compressor Kit - Prima 3718",
+      "brand": "WABCO",
       "subcategory": "Air Compressor",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000586",
       "part_number": "",
       "product_name": "14 mm Extra Thick - Aluminium Washer",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000587",
+      "part_number": "2951",
+      "product_name": "Tata Magic Front Parabolic Leaf Spring",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000589",
+      "part_number": "2332S",
+      "product_name": "Ace Magic SPL Rear Leaf Spring",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000590",
+      "part_number": "1952",
+      "product_name": "Bolero Rear - Main Leaf",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000592",
       "part_number": "0152",
       "product_name": "ARMADA NEW (RR) - Main leaf",
+      "brand": "JAI",
       "subcategory": "Leaf Spring",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+    },
+    {
+      "id": "SVKS000596",
+      "part_number": "0181N",
+      "product_name": "Tata 1210D Front Leaf Spring",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000597",
+      "part_number": "2582",
+      "product_name": "Tata 2515 LPT 3723 LPT 3118 TC Rear Leaf Spring",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000598",
+      "part_number": "2731",
+      "product_name": "Tata 2515 EX 4018 Front Parabolic Leaf Spring",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000600",
+      "part_number": "6891",
+      "product_name": "Tata LPT 3718 Front Parabolic Leaf Spring",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000601",
+      "part_number": "6901",
+      "product_name": "Tata LPT 3718 Front Parabolic Leaf Spring Type 2",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000602",
+      "part_number": "1931",
+      "product_name": "Tata 1516 1616 2213 Front Leaf Spring",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000603",
       "part_number": "AU-XV13-1170",
       "product_name": "AU-XV13-1170 Fan Belt",
+      "brand": "Pix",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000606",
+      "part_number": "1952",
+      "product_name": "Bolero Rear - 2nd Leaf",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000608",
       "part_number": "0152",
       "product_name": "ARMADA NEW (RR) - 2nd leaf",
+      "brand": "JAI",
       "subcategory": "Leaf Spring",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+    },
+    {
+      "id": "SVKS000615",
+      "part_number": "7032",
+      "product_name": "Ace Dicor / Mega Rear - AUX-A",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000616",
       "part_number": "AVX13-1175",
       "product_name": "AVX13-1175 Fan Belt",
+      "brand": "Pix",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000617",
       "part_number": "AV13X850",
       "product_name": "AV13X850 Cogged Belt",
+      "brand": "Fenner",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000629",
       "part_number": "P16110",
       "product_name": "Spring Pin 16x110",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000630",
       "part_number": "P22116",
       "product_name": "Front Spring Pin 22x116",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000631",
       "part_number": "P22125",
       "product_name": "Front Spring Pin 22x125",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000632",
       "part_number": "P22126",
       "product_name": "Front Spring Pin 22x126",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000633",
       "part_number": "P22127",
       "product_name": "Front Spring Pin 22x127",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000634",
       "part_number": "P22136",
       "product_name": "Front Spring Pin 22x136",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000635",
       "part_number": "P22140",
       "product_name": "Front Spring Pin 22x140",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000636",
       "part_number": "P22142",
       "product_name": "Front Spring Pin 22x142",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000637",
       "part_number": "P25130",
       "product_name": "Front Spring Pin 25x130",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000638",
       "part_number": "P25135",
       "product_name": "Front Spring Pin 25x135",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000639",
       "part_number": "P25142",
       "product_name": "Front Spring Pin 25x142",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000640",
       "part_number": "P25174",
       "product_name": "Heavy Duty Front Pin 25x174",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000641",
       "part_number": "P25134",
       "product_name": "Front Spring Pin 25x134",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000642",
       "part_number": "P25152",
       "product_name": "Front Spring Pin 25x152",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000643",
       "part_number": "P30130",
       "product_name": "Front Spring Pin 30x130",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000644",
       "part_number": "P30139",
       "product_name": "Rear Spring Pin 30x139",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000645",
       "part_number": "P30150",
       "product_name": "Rear Spring Pin 30x150",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000646",
       "part_number": "P30165",
       "product_name": "Rear Spring Pin 30x165",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000647",
       "part_number": "P32151D",
       "product_name": "Front Spring Pin 32x151",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000648",
       "part_number": "P35130",
       "product_name": "Rear Spring Pin 35x130",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000649",
       "part_number": "P35135",
       "product_name": "Rear Spring Pin 35x135",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000650",
       "part_number": "P35136",
       "product_name": "Rear Spring Pin 35x136",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000651",
       "part_number": "P35139S",
       "product_name": "Rear Spring Pin 35x139 small",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000652",
       "part_number": "P35140",
       "product_name": "Rear Spring Pin 35x140",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000653",
       "part_number": "P35149",
       "product_name": "Rear Spring Pin 35x149",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000654",
       "part_number": "P35151D",
       "product_name": "Rear Spring Pin 35x151",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000655",
       "part_number": "P35155D",
       "product_name": "Rear Spring Pin 35x155",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000656",
       "part_number": "P35164",
       "product_name": "Rear Spring Pin35x164",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000657",
       "part_number": "P35165",
       "product_name": "Rear Spring Pin 35x165",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000658",
       "part_number": "P42109",
       "product_name": "Lever Pin 42x109",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000659",
       "part_number": "P42110",
       "product_name": "Lever Pin 42x110",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000660",
       "part_number": "P42116S",
       "product_name": "Lever Pin 42x116 small",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000661",
       "part_number": "P42123",
       "product_name": "Lever Pin 42x123",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000662",
       "part_number": "P42131",
       "product_name": "Lever Pin 42x131",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000663",
       "part_number": "P42148S",
       "product_name": "Lever Pin 42x148 small",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000664",
       "part_number": "P42160",
       "product_name": "Lever Pin 42x160",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000665",
       "part_number": "P42170D",
       "product_name": "Lever Pin 42x170",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000666",
       "part_number": "P52148",
       "product_name": "Lever Pin 52x148",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000667",
       "part_number": "P52151",
       "product_name": "Lever Pin 52x151",
+      "brand": "JAI",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000671",
       "part_number": "",
       "product_name": "Battery (Terminal) Cable   440/.30mm",
+      "brand": "AutoPly",
       "subcategory": "Battery Cable",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000686",
       "part_number": "FA0016700",
       "product_name": "154.90x49.20mm   Spicer transmission TML 3118/4018/AL 4018/ AMW 2518/ Eicher Mega 40.40 (Patti   Type)",
+      "brand": "Fleetguard",
       "subcategory": "Filter Element",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000690",
       "part_number": "MBJS 112",
       "product_name": "Eye Bolt w/ Lock Nut 10\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000691",
       "part_number": "MBJS 114",
       "product_name": "Eye Bolt w/ Lock Nut 11\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000692",
       "part_number": "MBJS 116",
       "product_name": "Eye Bolt w/ Lock Nut 12\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000693",
       "part_number": "MSJS 217",
       "product_name": "Eye Bolt w/ Lock Nut 13\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000694",
       "part_number": "MBJS 258",
       "product_name": "Eye Bolt w/ Lock Nut 14\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000699",
       "part_number": "NIRMAL/pSP/1201",
       "product_name": "Spring Pin 32 x 150",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000700",
       "part_number": "NIRMAL/SP/400",
       "product_name": "Spring Pin 35 x 129",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000701",
       "part_number": "NIRMAL/SP/402",
       "product_name": "Spring Pin 35 x 140",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000702",
       "part_number": "NIRMAL/SP/430",
       "product_name": "Spring Pin 35 x 149",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000703",
       "part_number": "NIRMAL/SP/404",
       "product_name": "Spring Pin 42 x 116",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000704",
       "part_number": "NIRMAL/SP/433",
       "product_name": "Spring Pin 42 x 124",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000705",
       "part_number": "NIRMAL/SP/434",
       "product_name": "Spring Pin 42 x 132",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000706",
       "part_number": "NIRMAL/SP/435",
       "product_name": "Spring Pin 42 x 160",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000707",
       "part_number": "NIRMAL/SP/740B",
       "product_name": "Spring Pin 50 x 148",
+      "brand": "Nirmal",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000715",
       "part_number": "J2111",
       "product_name": "Front Shackle Leyland BS6   80mm",
+      "brand": "JMP",
       "subcategory": "Shackle Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000716",
       "part_number": "J2216A",
       "product_name": "Rear Spring Bracket   Chittal/E Comet 14mm Hole F-7103272",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000720",
       "part_number": "J4004",
       "product_name": "R/S Front Bracket 35mm",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000721",
       "part_number": "J4003",
       "product_name": "R/S Rear Bracket 42mm",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000723",
       "part_number": "J1030",
       "product_name": "Double Pin Hanger 14mm",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000724",
       "part_number": "J1049",
       "product_name": "R/s Bracket 42mm 4 Holes   16mm",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000725",
       "part_number": "J1051",
       "product_name": "R/s Front Bracket 35MM 6   Holes 16mm",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000726",
       "part_number": "J1053",
       "product_name": "R/s Rear Bracket 42mm 6   Holes 14mm",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000727",
       "part_number": "J1053A",
       "product_name": "R/s Rear Bracket 42mm 6   Holes 16mm",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000731",
       "part_number": "J1114",
       "product_name": "Front Shackle 32mm 3718",
+      "brand": "JMP",
       "subcategory": "Shackle Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000735",
       "part_number": "J1617",
       "product_name": "Bolt with Nut for Tara   Signa Front Spring M24x2x185",
+      "brand": "JMP",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000736",
       "part_number": "J1618",
       "product_name": "Shackle Assembly for Tata   Signa Front Spring (fits with J1606 24mm Bush)",
+      "brand": "JMP",
       "subcategory": "Shackle Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000737",
       "part_number": "J1635",
       "product_name": "F/S Front Hanger 30mm Pin",
+      "brand": "JMP",
       "subcategory": "Hanger",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000751",
       "part_number": "B1M03401",
       "product_name": "Cl. Cover 33cm   Diaphragm",
+      "brand": "Leyparts",
       "subcategory": "Pressure Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000754",
       "part_number": "F8014600",
       "product_name": "Front Cab Mounting Bush, 8.1 cm, ID 1.95 cm",
+      "brand": "Leyparts",
       "subcategory": "Suspension Bush",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000755",
       "part_number": "FAT02000",
       "product_name": "Cl. Disc. 33cm Dia   Diaph B8090 1.38SPL - 1cm",
+      "brand": "Leyparts",
       "subcategory": "Clutch Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000758",
       "part_number": "551S004",
       "product_name": "Bell Crank Pin Kit   Long - 42x160",
+      "brand": "Leyparts",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000759",
       "part_number": "F0986215",
       "product_name": "Shackle Pin Tie Rod   to Lever (42x123)",
+      "brand": "Leyparts",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000760",
       "part_number": "F0986415",
       "product_name": "Shackle Pin BC   Lever to Bracket (42x160)",
+      "brand": "Leyparts",
       "subcategory": "Spring Pin",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000771",
       "part_number": "J1660",
       "product_name": "R/S Front Hanger 35mm 4 Hole Heavy Duty 14mm",
+      "brand": "JMP",
       "subcategory": "Hanger",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000773",
       "part_number": "K14B",
       "product_name": "Cross Holder L/L Tusker",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000774",
       "part_number": "K14C",
       "product_name": "Cross Holder L/L 2214",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000775",
       "part_number": "K14D",
       "product_name": "Cross Holder TATA 4018   (Patti Type)",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000776",
       "part_number": "K14EX",
       "product_name": "Cross Holder L/L 2214",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000777",
       "part_number": "K14FX",
       "product_name": "Cross Holder RSB 325",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000778",
       "part_number": "K260",
       "product_name": "Half Yoke RSB 325",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000779",
       "part_number": "K261",
       "product_name": "Half Yoke RSB 403",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000780",
       "part_number": "K262",
       "product_name": "Half Yoke RSB 490 (490   Series)",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000781",
       "part_number": "K295",
       "product_name": "Cross Holder TATA 4018   (Patti Type)",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000782",
       "part_number": "K298",
       "product_name": "Cross Holder RSB 403",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000783",
       "part_number": "K329A",
       "product_name": "Cross Holder RSB 325",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000784",
       "part_number": "K335A",
       "product_name": "Cross Holder L/L Tusker",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000785",
       "part_number": "K368",
       "product_name": "Cross Holder RSB 403",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000786",
       "part_number": "K370",
       "product_name": "Cross Holder L/L 2214",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000787",
       "part_number": "K371",
       "product_name": "Cross Holder RSB 490",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000788",
       "part_number": "K372",
       "product_name": "Cross Holder RSB 490",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000789",
       "part_number": "K373",
       "product_name": "Cross Holder L/L 2214",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000790",
       "part_number": "K374",
       "product_name": "Cross Holder L/L 2214",
+      "brand": "RKI",
       "subcategory": "Cross Joint",
-      "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000795",
       "part_number": "J1029",
       "product_name": "R/s Bracket 42mm 4 Holes 14mm",
+      "brand": "JMP",
       "subcategory": "Shackle Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000803",
       "part_number": "L9542R",
       "product_name": "395 Dia Eicher Clutch   Plate 10MM",
+      "brand": "Setco",
       "subcategory": "Clutch Plate",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000804",
       "part_number": "AVX13-980",
       "product_name": "AVX13-980 Fan Belt",
+      "brand": "Pix",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000811",
       "part_number": "A02309020-0200",
       "product_name": "Tata M20 x   2.5 x 78 Knurled Bolt & Nut",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000812",
       "part_number": "A15979020-0200",
       "product_name": "M22 x 2.5   x 115 Bolt W/M85900 Nut",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000813",
       "part_number": "A22479020-0200",
       "product_name": "M22 x 2.5   x 125 Hub Bolt W/Nut Knurlbolt",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000814",
       "part_number": "B00941020-0200",
       "product_name": "10 x 1.5 x   30 bolt & Nut Assy OAF",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000815",
       "part_number": "B14305020-0200",
       "product_name": "14 x 1.5 x   50 bolt & Nut Old A/F with nut",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000816",
       "part_number": "M13520-0200",
       "product_name": "M12x1.5x35",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS000823",
       "part_number": "885442071618",
       "product_name": "Brk   Lng Std. RR - 4 pcs W/Rvt 410X 180 Cargo",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Brake Lining",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000827",
       "part_number": "886732000025",
       "product_name": "LPK   3118 Fr. Pb. M/L 90x24",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000828",
       "part_number": "886732000032",
       "product_name": "LPT   2518/ Signa 3718 Rr. Conv. M/L 80x15",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000829",
       "part_number": "886732000560",
       "product_name": "LPK   3118 Fr. PB Aux-A/L 90x24",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000836",
       "part_number": "TX-610/1 KP",
       "product_name": "Kingpin shaft for Tata 1312, 1st O/S (set of 2 pins, size 38.35 mm)",
+      "brand": "Texspin",
       "subcategory": "King Pin Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000837",
       "part_number": "TX-610/2 KP",
       "product_name": "Kingpin shaft for Tata 1312, 2nd O/S (set of 2 pins, size 38.45 mm)",
+      "brand": "Texspin",
       "subcategory": "King Pin Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000838",
       "part_number": "TX-610/4 KP",
       "product_name": "Kingpin shaft for Tata 1312, 4th O/S (set of 2 pins, size 38.65 mm)",
+      "brand": "Texspin",
       "subcategory": "King Pin Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000839",
       "part_number": "TX-610/5 KP",
       "product_name": "Kingpin shaft for Tata 1312, 5th O/S (set of 2 pins, size 38.75 mm)",
+      "brand": "Texspin",
       "subcategory": "King Pin Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000849",
       "part_number": "FLA-UNVR-60 LED",
       "product_name": "Fog Lamp 110mm   19 LED 12V",
+      "brand": "Varroc",
       "subcategory": "Fog Light",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000850",
       "part_number": "FLA-UNVR-60LED24",
       "product_name": "Fog Lamp   110mm 19LED 24V",
+      "brand": "Varroc",
       "subcategory": "Fog Light",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000851",
       "part_number": "FLA-UNVR-60ledy",
       "product_name": "Fog Lamp 110mm   19 LED 12V Yellow",
+      "brand": "Varroc",
       "subcategory": "Fog Light",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000861",
       "part_number": "HLU-UNVR-70M",
       "product_name": "HL Unit 7\"   MFR P-43 WT/P",
+      "brand": "Varroc",
       "subcategory": "Head Light",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000864",
       "part_number": "100250150",
       "product_name": "Stop Light Switch",
+      "brand": "WABCO",
       "subcategory": "Stop Light Switch",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000865",
       "part_number": "100306470",
       "product_name": "Pressure Reductio   Valve",
+      "brand": "WABCO",
       "subcategory": "Air Repair Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000866",
       "part_number": "100600920",
       "product_name": "Foot Brake Valve with   treaddle",
+      "brand": "WABCO",
       "subcategory": "Air Repair Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000867",
       "part_number": "100601130",
       "product_name": "Dual Brake Valve with   pedal (VOSS)",
+      "brand": "WABCO",
       "subcategory": "Air Repair Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000873",
       "part_number": "4750010080",
       "product_name": "Pressure Reduction   Valve",
+      "brand": "WABCO",
       "subcategory": "Air Repair Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000875",
       "part_number": "9732980270",
       "product_name": "RG2 Assy",
+      "brand": "WABCO",
       "subcategory": "Air Repair Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000877",
       "part_number": "SBAM 231",
       "product_name": "Centre Bolt LH 14\"",
+      "brand": "GS",
       "subcategory": "Center Bolt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000878",
       "part_number": "208",
       "product_name": "E Comet Front - Main Leaf",
+      "brand": "Toyo",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000879",
       "part_number": "208",
       "product_name": "E Comet Front - 2nd Leaf",
+      "brand": "Toyo",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000880",
       "part_number": "236",
       "product_name": "U Truck Front - Main Leaf",
+      "brand": "Toyo",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000883",
       "part_number": "209",
       "product_name": "E Comet Rear - Main Leaf",
+      "brand": "Toyo",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000884",
+      "part_number": "1952",
+      "product_name": "Bolero Rear - AUX-A",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000885",
+      "part_number": "1952",
+      "product_name": "Bolero Rear - 3rd Leaf",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000886",
+      "part_number": "1952",
+      "product_name": "Bolero Rear - 4th Leaf",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000887",
+      "part_number": "1952",
+      "product_name": "Bolero Rear - 5th Leaf",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000888",
+      "part_number": "0642",
+      "product_name": "Pickup Van Rear - AUX-A",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000889",
+      "part_number": "0642",
+      "product_name": "Pickup Van Rear - AUX-B",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000893",
       "part_number": "0151",
       "product_name": "ARMADA NEW (FR) - main leaf",
+      "brand": "JAI",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000894",
       "part_number": "0152",
       "product_name": "ARMADA NEW (FR) - 2nd Leaf",
+      "brand": "JAI",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000895",
       "part_number": "0153",
       "product_name": "ARMADA NEW (FR) - 3rd Leaf",
+      "brand": "JAI",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000897",
+      "part_number": "3322",
+      "product_name": "Super Ace Rear - Main Leaf",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000898",
+      "part_number": "3322",
+      "product_name": "Super Ace Rear - AUX-A",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000899",
       "part_number": "14032",
       "product_name": "TML Intra V30 - Main Leaf",
+      "brand": "JAI",
       "subcategory": "Leaf Spring",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000900",
+      "part_number": "14032",
+      "product_name": "TML Intra V30 - AUX-A",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000902",
+      "part_number": "3252",
+      "product_name": "Ace Dicor Rear - 2nd Leaf",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000903",
+      "part_number": "3252",
+      "product_name": "Ace Dicor Rear - AUX-A",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
+    },
+    {
+      "id": "SVKS000906",
+      "part_number": "2332N",
+      "product_name": "Ace / CUB Rear P.B. - AUX-A",
+      "brand": "JAI",
+      "subcategory": "Leaf Spring",
+      "status": "insufficient_geometry_or_material",
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000908",
       "part_number": "K185",
       "product_name": "Long Fork – Leyland Tusker",
+      "brand": "RKI",
       "subcategory": "Slip Yoke",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000909",
       "part_number": "K317",
       "product_name": "Centre Coupling Flange – 26 Spline",
+      "brand": "RKI",
       "subcategory": "Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000910",
       "part_number": "K276",
       "product_name": "Cross Holder Flange Yoke – RSB 325",
+      "brand": "RKI",
       "subcategory": "Slip Yoke",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000911",
       "part_number": "K567",
       "product_name": "Gear Coupling – GBS-1150",
+      "brand": "RKI",
       "subcategory": "Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000912",
       "part_number": "K319",
       "product_name": "Gear Coupling – GBS 75",
+      "brand": "RKI",
       "subcategory": "Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000913",
       "part_number": "K331",
       "product_name": "Cross Holder Flange Yoke – RSB 490",
+      "brand": "RKI",
       "subcategory": "Slip Yoke",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000915",
       "part_number": "KF6929",
       "product_name": "Centre Coupling Flange – RSB 490 / 590",
+      "brand": "KFL",
       "subcategory": "Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000917",
       "part_number": "KF6847A",
       "product_name": "Differential Coupling Flange – Tata 2518 Small",
+      "brand": "KFL",
       "subcategory": "Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000919",
       "part_number": "KF6289",
       "product_name": "Gear Coupling – GB 75",
+      "brand": "KFL",
       "subcategory": "Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000931",
       "part_number": "K637",
       "product_name": "Cross Holder Flange Yoke – SPR 2040",
+      "brand": "RKI",
       "subcategory": "Slip Yoke",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000932",
       "part_number": "K543",
       "product_name": "Cross Holder Flange Yoke – SPR 2040 7 in",
+      "brand": "RKI",
       "subcategory": "Slip Yoke",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000933",
       "part_number": "K478",
       "product_name": "Cross Holder Flange Yoke – SPR 2040",
+      "brand": "RKI",
       "subcategory": "Slip Yoke",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000934",
       "part_number": "K631",
       "product_name": "Cross Holder Flange Yoke – SPR 2040 7 in",
+      "brand": "RKI",
       "subcategory": "Slip Yoke",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000939",
       "part_number": "100304941",
       "product_name": "Drying and Distribution Unit",
+      "brand": "WABCO",
       "subcategory": "Air Dryer",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS000945",
       "part_number": "SF5030",
       "product_name": "Leyland 430 dia 160 teeth",
+      "brand": "Setco",
       "subcategory": "Flywheel Assembly",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000954",
       "part_number": "",
       "product_name": "45 mm Bell Crank Washer 4mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000955",
       "part_number": "",
       "product_name": "45 mm Bell Crank Washer 5mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000956",
       "part_number": "",
       "product_name": "45 mm Bell Crank Washer 6mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000957",
       "part_number": "",
       "product_name": "45 mm Bell Crank Washer 7mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS000958",
       "part_number": "",
       "product_name": "45 mm Bell Crank Washer 8mm Thickness",
+      "brand": "Harish",
       "subcategory": "Washer",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001005",
       "part_number": "212103065-0201",
       "product_name": "M10 x 1.5 x 65 Bolt GR. 8.8",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS001006",
       "part_number": "212123075-0200",
       "product_name": "M12 x 1.5 x 75 Bolt GR. 8.8",
+      "brand": "TVS Girling",
       "subcategory": "Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS001008",
       "part_number": "M58340-5901",
       "product_name": "SFL M16 x 1.5 x 144 collar bolt",
+      "brand": "TVS Girling",
       "subcategory": "Hub Bolt",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS001009",
       "part_number": "M91710-0200",
       "product_name": "Tata 3rd arm nut 16 x 1.5 castle nut G10",
+      "brand": "TVS Girling",
       "subcategory": "Nut",
       "status": "modelled_estimate",
-      "reason": "Geometric estimate written to separate weight manifest."
+      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
     },
     {
       "id": "SVKS001018",
       "part_number": "100251580",
       "product_name": "Spring Brake Actr (Type 24/75) P2C",
+      "brand": "WABCO",
       "subcategory": "Brake Chamber",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001019",
       "part_number": "100306080",
       "product_name": "Relay Valve",
+      "brand": "WABCO",
       "subcategory": "Valve",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001021",
       "part_number": "4730170250",
       "product_name": "Relay valve, anti-compounding",
+      "brand": "WABCO",
       "subcategory": "Brake Valve",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001022",
       "part_number": "9347020150",
       "product_name": "Quad System Protection Valve",
+      "brand": "WABCO",
       "subcategory": "Valve",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001023",
       "part_number": "9732980290",
       "product_name": "Relay valve, RG2",
+      "brand": "WABCO",
       "subcategory": "Valve",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001024",
       "part_number": "282954209902",
       "product_name": "Speedometer Cable",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Accelerator Cable",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001027",
       "part_number": "552330100125",
       "product_name": "Accelerator Cable 2526 mm",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Accelerator Cable",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001028",
       "part_number": "208230100108",
       "product_name": "Accelerator Cable 3105 mm BS3",
+      "brand": "Tata Genuine Parts",
       "subcategory": "Accelerator Cable",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001030",
       "part_number": "J4036",
       "product_name": "R/S Rear Bracket 6 Hole 30mm New",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001036",
       "part_number": "J4036A",
       "product_name": "R/S Front Bracket EicherPro 35mm (chassis holes: 17mm)",
+      "brand": "JMP",
       "subcategory": "Bracket",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001048",
       "part_number": "TX-6011WOS-BZ",
       "product_name": "Center bearing, 22 mm bearing width",
+      "brand": "Texspin",
       "subcategory": "Center Bearing",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001051",
       "part_number": "TX-88513WOS",
       "product_name": "Center bearing for Tata 3118, 65 mm diameter",
+      "brand": "Texspin",
       "subcategory": "Center Bearing",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001053",
       "part_number": "TX-6213WOS(2RS)",
       "product_name": "Center bearing for VECV models, 65 mm diameter",
+      "brand": "Texspin",
       "subcategory": "Center Bearing",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001062",
       "part_number": "NIRMAL/UB/372AB",
       "product_name": "Bolt w/ Nut 20 x 102 x 10\" HR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001063",
       "part_number": "NIRMAL/UB/1018",
       "product_name": "Bolt w/ Nut 22 x 92 x 10.5\" FLT",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001064",
       "part_number": "NIRMAL/UB/1019",
       "product_name": "Bolt w/ Nut 22 x 92 x 11.5\" FLT",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001065",
       "part_number": "NIRMAL/UB/793",
       "product_name": "Bolt w/ Nut 22 x 92 x 12\" HR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001066",
       "part_number": "NIRMAL/UB/208",
       "product_name": "Bolt w/ Nut 20 x 70 x 14\" HR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001067",
       "part_number": "NIRMAL/UB/369",
       "product_name": "Bolt w/ Nut 20 x 92 x 11\" FLT",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001068",
       "part_number": "NIRMAL/UB/792",
       "product_name": "Bolt w/ Nut 22 x 92 x 11\" HR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001069",
       "part_number": "NIRMAL/UB/368A",
       "product_name": "Bolt w/ Nut 20 x 92 x 10\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001070",
       "part_number": "NIRMAL/UB/790",
       "product_name": "Bolt w/ Nut 22 x 92 x 9\" HR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001071",
       "part_number": "NIRMAL/UB/266",
       "product_name": "Bolt w/ Nut 22 x 82 x 18\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001072",
       "part_number": "NIRMAL/UB/265",
       "product_name": "Bolt w/ Nut 22 x 82 x 17\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001073",
       "part_number": "NIRMAL/UB/267",
       "product_name": "Bolt w/ Nut 22 x 82 x 19\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001074",
       "part_number": "NIRMAL/UB/268",
       "product_name": "Bolt w/ Nut 22 x 82 x 20\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001075",
       "part_number": "NIRMAL/UB/269",
       "product_name": "Bolt w/ Nut 22 x 82 x 21\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001076",
       "part_number": "NIRMAL/UB/270",
       "product_name": "Bolt w/ Nut 22 x 82 x 22\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001077",
       "part_number": "NIRMAL/UB/271",
       "product_name": "Bolt w/ Nut 22 x 82 x 23\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001078",
       "part_number": "NIRMAL/UB/272",
       "product_name": "Bolt w/ Nut 22 x 82 x 24\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001079",
       "part_number": "NIRMAL/UB/273",
       "product_name": "Bolt w/ Nut 22 x 82 x 25\" FR",
+      "brand": "Nirmal",
       "subcategory": "U Bolt",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001104",
       "part_number": "KF-6934B",
       "product_name": "Front Teeth 20 Spline Bolt Type",
+      "brand": "KFL",
       "subcategory": "Drive Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001105",
       "part_number": "KF-6907A",
       "product_name": "Coupling Center Flange 20 Spline",
+      "brand": "KFL",
       "subcategory": "Drive Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001106",
       "part_number": "KF-6929A",
       "product_name": "Center Coupling Flange 26 Spline",
+      "brand": "KFL",
       "subcategory": "Drive Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001108",
       "part_number": "KF-6817A",
       "product_name": "Front Teeth HYWA 2515 EX",
+      "brand": "KFL",
       "subcategory": "Drive Flange",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001115",
       "part_number": "AV10X1185",
       "product_name": "AV10X1185 Cogged Belt",
+      "brand": "Fenner",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001121",
       "part_number": "5858",
       "product_name": "Power Steering Repair Kit",
+      "brand": "Alok",
       "subcategory": "Tie Rod End",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001124",
       "part_number": "975",
       "product_name": "Drag Link Kit",
+      "brand": "Alok",
       "subcategory": "Drag Link",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001128",
       "part_number": "1012-R",
       "product_name": "Drag Link End RH Tata 3118 EX",
+      "brand": "Alok",
       "subcategory": "Drag Link",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001130",
       "part_number": "KF3355R",
       "product_name": "Drag Link End RH Tata Ultra Truck/Bus",
+      "brand": "KFL",
       "subcategory": "Drag Link",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001131",
       "part_number": "KF5002",
       "product_name": "Front Engine Mounting Tata 16 mm",
+      "brand": "KFL",
       "subcategory": "Engine Mount",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001136",
       "part_number": "116/1KP",
       "product_name": "Kingpin Shaft Tata 1210/1109, 1st Oversize",
+      "brand": "Texspin",
       "subcategory": "King Pin Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001137",
       "part_number": "116/2KP",
       "product_name": "Kingpin Shaft Tata 1210/1109, 2nd Oversize",
+      "brand": "Texspin",
       "subcategory": "King Pin Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001138",
       "part_number": "116/3KP",
       "product_name": "Kingpin Shaft Tata 1210/1109, 3rd Oversize",
+      "brand": "Texspin",
       "subcategory": "King Pin Kit",
       "status": "existing_weight",
-      "reason": "Existing source-backed/manual weight retained."
+      "reason": "Existing manually, manufacturer, or supplier-source-backed weight retained."
     },
     {
       "id": "SVKS001141",
       "part_number": "RM016001E",
       "product_name": "Front Engine Mounting Cummins 16 mm",
+      "brand": "Rane",
       "subcategory": "Engine Mount",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001153",
       "part_number": "AVX13-930",
       "product_name": "AVX13-930 Cogged Belt",
+      "brand": "Fenner",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001154",
       "part_number": "TW1475",
       "product_name": "TW1475 Cogged Belt",
+      "brand": "Fenner",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001155",
       "part_number": "XV13X1355",
       "product_name": "XV13X1355 Cogged Belt",
+      "brand": "Fenner",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     },
     {
       "id": "SVKS001156",
       "part_number": "AVX13X1260",
       "product_name": "AVX13X1260 Cogged Belt",
+      "brand": "Fenner",
       "subcategory": "Timing Belt",
       "status": "insufficient_geometry_or_material",
-      "reason": "Current dimensions do not provide complete geometry or material model for a defensible unit mass."
+      "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     }
   ]
 }
