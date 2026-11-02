@@ -182,10 +182,13 @@ jobs:
         run: |
           set -euo pipefail
           args=(
+            "main=http://127.0.0.1:4173/"
             "main=http://127.0.0.1:4173/en/products.html"
+            "PR=http://127.0.0.1:4174/"
             "PR=http://127.0.0.1:4174/en/products.html"
           )
           if [ -n "${PREVIEW_URL:-}" ]; then
+            args+=("preview=${PREVIEW_URL}/")
             args+=("preview=${PREVIEW_URL}/en/products")
           fi
           node scripts/regression/lcp-diagnostic.mjs "${args[@]}"
