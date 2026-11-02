@@ -2052,7 +2052,7 @@
     },
     {
       "id": "SVKS000254",
-      "part_number": "",
+      "part_number": "J1082",
       "dimension_specs_mm": [
         {
           "name": "Hole diameter",
@@ -2079,7 +2079,7 @@
     },
     {
       "id": "SVKS000300",
-      "part_number": "",
+      "part_number": "J2336",
       "dimension_specs_mm": [
         {
           "name": "Specified pin size (1)",
@@ -3023,7 +3023,7 @@
     },
     {
       "id": "SVKS000723",
-      "part_number": "",
+      "part_number": "J1030",
       "dimension_specs_mm": [
         {
           "name": "Specified hanger size",
@@ -3136,7 +3136,7 @@
     },
     {
       "id": "SVKS000737",
-      "part_number": "",
+      "part_number": "J1635",
       "dimension_specs_mm": [
         {
           "name": "Pin diameter",
