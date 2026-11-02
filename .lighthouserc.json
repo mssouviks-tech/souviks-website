@@ -3,7 +3,23 @@
     "collect": {
       "numberOfRuns": 1,
       "settings": {
-        "formFactor": "mobile"
+        "formFactor": "mobile",
+        "throttlingMethod": "devtools",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1600,
+          "requestLatencyMs": 150,
+          "downloadThroughputKbps": 1600,
+          "uploadThroughputKbps": 750,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
       }
     },
     "assert": {
