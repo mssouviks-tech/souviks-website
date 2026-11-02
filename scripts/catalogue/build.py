@@ -135,6 +135,18 @@ def shipping_weight_properties(p):
             "value": allowance,
             "unitText": "%",
         })
+    item_packed_weight = p.get("estimated_item_packed_weight_g")
+    if (
+        isinstance(item_packed_weight, (int, float))
+        and not isinstance(item_packed_weight, bool)
+        and item_packed_weight > 0
+    ):
+        properties.append({
+            "@type": "PropertyValue",
+            "name": "Estimated item packed weight before carton tare",
+            "value": int(item_packed_weight),
+            "unitText": "g",
+        })
     return properties
 
 
