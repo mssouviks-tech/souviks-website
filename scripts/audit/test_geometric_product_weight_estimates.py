@@ -177,6 +177,27 @@ for estimate in estimates:
         ):
             fail(f"{pid}: packed shipping weight missing/mismatched in {language} Product JSON-LD")
 
+        profile_label = (
+            "Plastic wrap; no carton"
+            if profile == "plastic_wrap_no_carton"
+            else "Carton cut and wrap; carton tare added at parcel level"
+        )
+        expected_schema_properties = {
+            "Weight estimation status": "estimated",
+            "Weight estimation confidence": confidence,
+            "Shipping packing profile": profile_label,
+            "Estimated per-unit packaging allowance": allowance,
+        }
+        for property_name, expected_value in expected_schema_properties.items():
+            matched = [
+                item for item in additional
+                if isinstance(item, dict) and item.get("name") == property_name
+            ]
+            if not matched or matched[-1].get("value") != expected_value:
+                fail(f"{pid}: Product JSON-LD {property_name} missing/mismatched on {language} page")
+            if property_name == "Estimated per-unit packaging allowance" and matched[-1].get("unitText") != "%":
+                fail(f"{pid}: Product JSON-LD packaging allowance unit missing on {language} page")
+
         data = embedded_product_data(html)
         if not data:
             fail(f"{pid}: embedded product data missing on {language} page")
