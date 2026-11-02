@@ -2342,6 +2342,28 @@
       ]
     },
     {
+      "id": "SVKS000332",
+      "part_number": "258201",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1629.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 941; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000333",
+      "part_number": "258202",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1544.1,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 941; 2P length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
       "id": "SVKS000334",
       "part_number": "BS4923TAP",
       "dimension_specs_mm": [
@@ -2715,6 +2737,17 @@
       ]
     },
     {
+      "id": "SVKS000449",
+      "part_number": "2582",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1629.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 941; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
       "id": "SVKS000481",
       "part_number": "29068102",
       "dimension_specs_mm": [
@@ -2826,6 +2859,39 @@
       ]
     },
     {
+      "id": "SVKS000587",
+      "part_number": "2951",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 925.1,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 33; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000589",
+      "part_number": "2332S",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1089.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 590; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000590",
+      "part_number": "1952",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1455.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
       "id": "SVKS000592",
       "part_number": "0152",
       "dimension_specs_mm": [
@@ -2838,6 +2904,77 @@
           "name": "Leaf thickness",
           "value_mm": 18,
           "source": "product_description"
+        },
+        {
+          "name": "Overall length",
+          "value_mm": 1480.1,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 675; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000596",
+      "part_number": "0181N",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1736.1,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 858; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000597",
+      "part_number": "2582",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1629.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 941; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000598",
+      "part_number": "2731",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1400,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 224; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000600",
+      "part_number": "6891",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1525,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 271; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000601",
+      "part_number": "6901",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1563.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 274; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000602",
+      "part_number": "1931",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1986,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 900; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
       ]
     },
@@ -2849,6 +2986,17 @@
           "name": "Nominal belt size",
           "value_mm": 1170,
           "source": "product_code_and_product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000606",
+      "part_number": "1952",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1068.1,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; 2P length from the adjacent Inches row, converted using 25.4 mm/in."
         }
       ]
     },
@@ -2865,6 +3013,22 @@
           "name": "Leaf thickness",
           "value_mm": 18,
           "source": "product_description"
+        },
+        {
+          "name": "Overall length",
+          "value_mm": 1447,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 675; 2P length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000615",
+      "part_number": "7032",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 817.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 53; AA length from the adjacent Inches row, converted using 25.4 mm/in."
         }
       ]
     },
@@ -4333,6 +4497,72 @@
       ]
     },
     {
+      "id": "SVKS000884",
+      "part_number": "1952",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1263.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; AA length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000885",
+      "part_number": "1952",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 915.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; 3 length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000886",
+      "part_number": "1952",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 764,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; 4 length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000887",
+      "part_number": "1952",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 613.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; 5 length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000888",
+      "part_number": "0642",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1210.1,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 689; AA length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000889",
+      "part_number": "0642",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1150.1,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 689; AB length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
       "id": "SVKS000893",
       "part_number": "0151",
       "dimension_specs_mm": [
@@ -4381,6 +4611,28 @@
       ]
     },
     {
+      "id": "SVKS000897",
+      "part_number": "3322",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1364,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 600; ML length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000898",
+      "part_number": "3322",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 1086.1,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 600; AA length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
       "id": "SVKS000899",
       "part_number": "14032",
       "dimension_specs_mm": [
@@ -4393,6 +4645,55 @@
           "name": "Leaf thickness",
           "value_mm": 9,
           "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000900",
+      "part_number": "14032",
+      "dimension_specs_mm": [
+        {
+          "name": "Leaf width",
+          "value_mm": 60,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 1825; section notation ALL-60X9."
+        },
+        {
+          "name": "Leaf thickness",
+          "value_mm": 9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 1825; section notation ALL-60X9."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000902",
+      "part_number": "3252",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 754.1,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 598; 2P length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000903",
+      "part_number": "3252",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 939,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 598; AA length from the adjacent Inches row, converted using 25.4 mm/in."
+        }
+      ]
+    },
+    {
+      "id": "SVKS000906",
+      "part_number": "2332N",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 709.9,
+          "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 24; AA length from the adjacent Inches row, converted using 25.4 mm/in."
         }
       ]
     },
