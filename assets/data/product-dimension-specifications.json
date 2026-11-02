@@ -2,7 +2,7 @@
   "version": 1,
   "purpose": "Explicit product-component and fitment measurements captured from catalogue item names, plus one Dana Aftermarket cross-reference. These values are not shipping-carton or parcel dimensions.",
   "unit": "mm",
-  "records": 399,
+  "records": 400,
   "products": [
     {
       "id": "SVKS000002",
@@ -5908,6 +5908,11 @@
           "name": "Cross overall span",
           "value_mm": 126,
           "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
         }
       ]
     },
@@ -5935,6 +5940,11 @@
         {
           "name": "Cross overall span",
           "value_mm": null,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 165,
           "source": "product_description"
         }
       ]
@@ -5964,6 +5974,11 @@
           "name": "Cross overall span",
           "value_mm": 126,
           "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 130,
+          "source": "product_description"
         }
       ]
     },
@@ -5991,6 +6006,11 @@
         {
           "name": "Cross overall span",
           "value_mm": 119,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 130,
           "source": "product_description"
         }
       ]
@@ -6089,6 +6109,11 @@
           "name": "Cross overall span",
           "value_mm": null,
           "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
         }
       ]
     },
@@ -6116,6 +6141,11 @@
         {
           "name": "Cross overall span",
           "value_mm": 129,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
           "source": "product_description"
         }
       ]
@@ -6145,6 +6175,11 @@
           "name": "Cross overall span",
           "value_mm": 119,
           "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
         }
       ]
     },
@@ -6172,6 +6207,11 @@
         {
           "name": "Cross overall span",
           "value_mm": null,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 120,
           "source": "product_description"
         }
       ]
@@ -6201,6 +6241,11 @@
           "name": "Cross overall span",
           "value_mm": 129,
           "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 175,
+          "source": "product_description"
         }
       ]
     },
@@ -6228,6 +6273,11 @@
         {
           "name": "Cross overall span",
           "value_mm": 126,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
           "source": "product_description"
         }
       ]
@@ -6257,6 +6307,11 @@
           "name": "Cross overall span",
           "value_mm": 135,
           "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 180,
+          "source": "product_description"
         }
       ]
     },
@@ -6284,6 +6339,11 @@
         {
           "name": "Cross overall span",
           "value_mm": 135,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 180,
           "source": "product_description"
         }
       ]
@@ -6313,6 +6373,11 @@
           "name": "Cross overall span",
           "value_mm": 126,
           "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 165,
+          "source": "product_description"
         }
       ]
     },
@@ -6340,6 +6405,11 @@
         {
           "name": "Cross overall span",
           "value_mm": 126,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 130,
           "source": "product_description"
         }
       ]
@@ -6773,6 +6843,11 @@
           "name": "Component height",
           "value_mm": 148,
           "source": "product_description"
+        },
+        {
+          "name": "Bearing interface diameter",
+          "value_mm": 55,
+          "source": "product_description"
         }
       ]
     },
@@ -6902,8 +6977,18 @@
       "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Thread connection 1 major diameter",
+          "name": "Thread connection 2 major diameter",
           "value_mm": 12,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 18,
           "source": "product_description"
         },
         {
@@ -6920,8 +7005,18 @@
       "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Thread connection 1 major diameter",
+          "name": "Thread connection 2 major diameter",
           "value_mm": 12,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 18,
           "source": "product_description"
         },
         {
@@ -7253,6 +7348,19 @@
         {
           "name": "Spanner size",
           "value_mm": 21,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001107",
+      "part_number": "KF-6847A",
+      "product_name": "Gear Coupling 26 Spline",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
           "source": "product_description"
         }
       ]
