@@ -358,6 +358,101 @@ def reconcile_catalogue_projections():
                 encoding="utf-8",
             )
 
+    # Merge verified/explicit product dimensions from the durable specification manifest.
+    # These are item/engineering dimensions only; do not infer shipping-carton dimensions.
+    dimension_manifest_path = ROOT / "assets" / "data" / "product-dimension-specifications.json"
+    if dimension_manifest_path.exists():
+        try:
+            dimension_data = json.loads(dimension_manifest_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid product dimension specifications file: {exc}")
+        dimension_records = dimension_data.get("products") if isinstance(dimension_data, dict) else None
+        if not isinstance(dimension_records, list):
+            raise SystemExit("Product dimension specifications must contain a products array")
+
+        dimension_products_by_id = {
+            text(product.get("id")): product
+            for product in catalogue
+            if isinstance(product, dict) and text(product.get("id"))
+        }
+        seen_dimension_ids = set()
+        dimensions_changed = False
+        for record in dimension_records:
+            if not isinstance(record, dict):
+                raise SystemExit("Every product dimension specification must be an object")
+            pid = text(record.get("id"))
+            expected_part_number = text(record.get("part_number"))
+            if not pid:
+                raise SystemExit("Every product dimension specification needs an id")
+            if pid in seen_dimension_ids:
+                raise SystemExit(f"Duplicate product dimension specification for {pid}")
+            seen_dimension_ids.add(pid)
+
+            product = dimension_products_by_id.get(pid)
+            if product is None:
+                raise SystemExit(f"Dimension specification references unknown catalogue product: {pid}")
+            actual_part_number = text(product.get("part_number") or product.get("partNumber"))
+            if expected_part_number != actual_part_number:
+                raise SystemExit(
+                    f"Dimension specification part-number mismatch for {pid}: "
+                    f"{expected_part_number!r} != {actual_part_number!r}"
+                )
+            specs = record.get("dimension_specs_mm")
+            if not isinstance(specs, list) or not specs:
+                raise SystemExit(f"Dimension specification for {pid} has no measurements")
+
+            merged = list(product.get("dimension_specs_mm") or [])
+            by_name_and_value = {
+                (text(item.get("name")), item.get("value_mm")): item
+                for item in merged if isinstance(item, dict)
+            }
+            existing_names = {
+                text(item.get("name")): item.get("value_mm")
+                for item in merged if isinstance(item, dict) and text(item.get("name"))
+            }
+            for spec in specs:
+                if not isinstance(spec, dict):
+                    raise SystemExit(f"Invalid dimension record for {pid}")
+                name = text(spec.get("name"))
+                value = spec.get("value_mm")
+                source = text(spec.get("source"))
+                if (
+                    not name
+                    or not isinstance(value, (int, float))
+                    or isinstance(value, bool)
+                    or value <= 0
+                    or not source
+                ):
+                    raise SystemExit(f"Invalid dimension value or provenance for {pid}")
+                if name in existing_names and existing_names[name] != value:
+                    raise SystemExit(
+                        f"Conflicting dimension for {pid} / {name}: "
+                        f"{existing_names[name]!r} != {value!r}"
+                    )
+                key = (name, value)
+                if key not in by_name_and_value:
+                    item = {"name": name, "value_mm": value, "source": source}
+                    merged.append(item)
+                    by_name_and_value[key] = item
+                    existing_names[name] = value
+                    dimensions_changed = True
+
+            if merged and product.get("dimension_specs_mm") != merged:
+                product["dimension_specs_mm"] = merged
+                dimensions_changed = True
+            if merged and not text(product.get("dimensions_label")):
+                product["dimensions_label"] = "Product technical measurements (mm; not shipping-carton dimensions)"
+                dimensions_changed = True
+            if merged and not text(product.get("dimensions_source")):
+                product["dimensions_source"] = "product_dimension_specification_manifest"
+                dimensions_changed = True
+
+        if dimensions_changed:
+            CATALOGUE_PATH.write_text(
+                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\\n",
+                encoding="utf-8",
+            )
+
     # A temporary sheet override file is used for an exact workbook-to-catalogue
     # reconciliation. It is deleted after the projection commit.
     override_path = ROOT / "assets/data/catalogue_overrides.json"
@@ -831,6 +926,7 @@ def reconcile_catalogue_projections():
             "approx_weight_g": approximate_weight_grams(p),
             "dimensions_mm": p.get("dimensions_mm"),
             "dimension_specs_mm": list(p.get("dimension_specs_mm") or []),
+            "shipping_package_dimensions_mm": p.get("shipping_package_dimensions_mm"),
             "weight_calculation_quantity": p.get("weight_calculation_quantity"),
             "dimensions_label": text(p.get("dimensions_label")),
             "dimensions_source": text(p.get("dimensions_source")),
