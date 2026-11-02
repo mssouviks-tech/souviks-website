@@ -47,30 +47,19 @@ jobs:
           npm install --no-save --no-package-lock --no-audit --no-fund playwright@latest
           npx playwright install --with-deps chromium
 
-      - name: Set up Python for mobile hero AVIF candidate
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Encode mobile listing hero as an AVIF candidate
+      - name: Generate and commit optimized mobile listing hero
+        shell: bash
         run: |
+          set -euo pipefail
           python -m pip install --quiet Pillow pillow-avif-plugin
-          mkdir -p lcp-diagnostic
-          python - <<'PY'
-          from pathlib import Path
-          from PIL import Image
-          import pillow_avif  # Registers AVIF support with Pillow.
-
-          source = Path("assets/images/hero/product-hero-mobile.webp")
-          target = Path("lcp-diagnostic/product-hero-mobile-candidate.avif")
-          with Image.open(source) as image:
-              original_size = image.size
-              image.save(target, format="AVIF", quality=50, speed=6)
-          with Image.open(target) as candidate:
-              if candidate.size != original_size:
-                  raise SystemExit(f"AVIF dimensions changed: {original_size} -> {candidate.size}")
-          print(f"AVIF candidate: {target.stat().st_size} bytes; dimensions preserved at {original_size[0]}x{original_size[1]}")
-          PY
+          python scripts/audit/prepare_mobile_listing_lcp.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/hero/product-hero-mobile-crop.avif assets/images/hero/product-hero-mobile-crop.webp en/products.html hi/products.html bn/products.html scripts/catalogue/sync_product_cards.py scripts/audit/performance_guard.py
+          if ! git diff --cached --quiet; then
+            git commit -m "Optimize mobile product listing hero"
+            git push origin "HEAD:${GITHUB_HEAD_REF}"
+          fi
 
       - name: Start local main and PR preview servers
         shell: bash
@@ -122,11 +111,9 @@ jobs:
         id: preview
         continue-on-error: true
         uses: actions/github-script@v7
-        env:
-          PREVIEW_SHA: ${{ github.event.pull_request.head.sha }}
         with:
           script: |
-            const sha = process.env.PREVIEW_SHA;
+            const sha = require('node:child_process').execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
             const shortSha = sha.slice(0, 7);
             const deadline = Date.now() + 4 * 60 * 1000;
 
