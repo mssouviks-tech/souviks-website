@@ -6866,6 +6866,11 @@
           "name": "Component length",
           "value_mm": 71,
           "source": "product_description"
+        },
+        {
+          "name": "Oil-seal mating diameter",
+          "value_mm": 76,
+          "source": "product_description"
         }
       ]
     },
@@ -6883,6 +6888,11 @@
         {
           "name": "Plate size",
           "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal mating diameter",
+          "value_mm": 68.6,
           "source": "product_description"
         }
       ]
@@ -7362,6 +7372,11 @@
           "name": "Mounting hole diameter",
           "value_mm": 13,
           "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 152.4,
+          "source": "product_description; inch converted to millimetres at 25.4 mm/in"
         }
       ]
     },
