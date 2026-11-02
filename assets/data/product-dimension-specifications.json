@@ -2,7 +2,7 @@
   "version": 1,
   "purpose": "Explicit product-component and fitment measurements captured from catalogue item names, plus one Dana Aftermarket cross-reference. These values are not shipping-carton or parcel dimensions.",
   "unit": "mm",
-  "records": 324,
+  "records": 326,
   "products": [
     {
       "id": "SVKS000002",
@@ -5549,6 +5549,59 @@
           "source": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6211-2rs1; bearing model 6211-2RS shown in product title; internal component only, not assembly envelope"
         }
       ]
+    },
+    {
+      "id": "SVKS000440",
+      "part_number": "539/532X",
+      "product_name": "Taper Roller Bearing",
+      "dimensions_label": "Bearing boundary specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 53.975,
+          "source": "https://www.nsk.com/in-en/engineering/products/bearings/roller-bearings/tapered-roller-bearings/inch-design-tapered-roller-bearings/539-532x-apn.html; standard 539/532X industry-series boundary dimensions; cross-reference for SKF SKU, not a SKF-specific drawing"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 107.95,
+          "source": "https://www.nsk.com/in-en/engineering/products/bearings/roller-bearings/tapered-roller-bearings/inch-design-tapered-roller-bearings/539-532x-apn.html; standard 539/532X industry-series boundary dimensions; cross-reference for SKF SKU, not a SKF-specific drawing"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 36.512,
+          "source": "https://www.nsk.com/in-en/engineering/products/bearings/roller-bearings/tapered-roller-bearings/inch-design-tapered-roller-bearings/539-532x-apn.html; standard 539/532X industry-series boundary dimensions; cross-reference for SKF SKU, not a SKF-specific drawing"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000563",
+      "part_number": "539/532",
+      "product_name": "Timken 539/532",
+      "dimensions_label": "Bearing boundary specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing bore diameter",
+          "value_mm": 53.975,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-imperi-2/539-532; exact Timken 539/532 product listing"
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 111.125,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-imperi-2/539-532; exact Timken 539/532 product listing"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 38.103,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-imperi-2/539-532; exact Timken 539/532 product listing"
+        }
+      ],
+      "manufacturer_weight_kg": 1.7,
+      "manufacturer_weight_status": "verified",
+      "manufacturer_weight_source_url": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-imperi-2/539-532",
+      "manufacturer_weight_packaging_allowance_percent": 5,
+      "manufacturer_weight_round_up_to_g": 50,
+      "manufacturer_weight_approx_packed_g": 1800,
+      "manufacturer_weight_notes": "Timken's official 539/532 product listing reports 1.70 kg net. Packed checkout estimate adds 5% and rounds up to the next 50 g (1,800 g). Do not confuse this 539/532 bearing with the 539/532X SKF variant."
     }
   ]
 }
