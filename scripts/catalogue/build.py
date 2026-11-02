@@ -572,7 +572,8 @@ def reconcile_catalogue_projections():
                 or not math.isfinite(packed_weight)
                 or packed_weight <= 0
                 or allowance != 5
-                or packed_weight != math.ceil((net_weight * (1 + allowance / 100)) / 50) * 50
+                or estimate.get("round_up_to_g") != 1
+                or packed_weight != math.ceil(net_weight * (1 + allowance / 100))
                 or profile not in allowed_profiles
                 or not model
                 or confidence not in allowed_confidence
