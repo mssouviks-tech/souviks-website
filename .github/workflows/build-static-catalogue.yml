@@ -7,6 +7,7 @@ on:
     paths:
       - "assets/data/catalogue-index.json"
       - "assets/data/approximate-product-weights.json"
+      - "assets/data/product-dimension-specifications.json"
       - "assets/data/wabco-product-specifications.json"
       - "assets/data/catalogue_overrides.json"
       - "assets/data/products.json"
@@ -50,6 +51,7 @@ on:
       - "scripts/audit/test_product_checkout_actions.py"
       - "scripts/audit/test_navigation_dropdowns.py"
       - "scripts/audit/test_seo_contract.py"
+      - "scripts/audit/test_catalogue_dimension_specifications.py"
       - "scripts/audit/test_entity_titles.py"
       - "scripts/audit/site_quality.py"
       - "scripts/audit/code_quality.py"
@@ -133,6 +135,7 @@ jobs:
               "scripts/audit/test_product_title.py",
               "scripts/audit/test_wabco_product_specs.py",
               "scripts/audit/test_pin_product_specs.py",
+              "scripts/audit/test_catalogue_dimension_specifications.py",
               "scripts/audit/test_static_product_pricing.py",
               "scripts/audit/test_product_checkout_actions.py",
               "scripts/audit/test_navigation_dropdowns.py",
@@ -155,6 +158,7 @@ jobs:
             python3 scripts/audit/test_product_weight_estimates.py
             python3 scripts/audit/test_wabco_product_specs.py
             python3 scripts/audit/test_pin_product_specs.py
+            python3 scripts/audit/test_catalogue_dimension_specifications.py
             python3 scripts/audit/critical_build.py
             python3 scripts/audit/test_static_product_pricing.py
             python3 scripts/audit/test_product_checkout_actions.py
