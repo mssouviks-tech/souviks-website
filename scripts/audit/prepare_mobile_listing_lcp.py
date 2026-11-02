@@ -41,23 +41,23 @@ def build_assets() -> None:
 def patch_pages() -> None:
     avif_hash, webp_hash = short_hash(AVIF), short_hash(WEBP)
     old_preload = re.compile(
-        r'<link rel="preload" as="image" href="/assets/images/hero/product-hero-mobile\\.webp\\?v=[0-9a-f]{12}" type="image/webp" media="\\(max-width: 768px\\)" fetchpriority="high">'
+        r'<link rel="preload" as="image" href="/assets/images/hero/product-hero-mobile\.webp\?v=[0-9a-f]{12}" type="image/webp" media="\(max-width: 768px\)" fetchpriority="high">'
     )
     new_preload = (
         f'<link rel="preload" as="image" href="/assets/images/hero/product-hero-mobile-crop.avif?v={avif_hash}" '
         'type="image/avif" media="(max-width: 768px)" fetchpriority="high">'
     )
     old_picture_source = re.compile(
-        r'        <source\\n            media="\\(max-width: 768px\\)"\\n'
-        r'            srcset="/assets/images/hero/product-hero-mobile\\.webp\\?v=[0-9a-f]{12}"\\n'
+        r'        <source\n            media="\(max-width: 768px\)"\n'
+        r'            srcset="/assets/images/hero/product-hero-mobile\.webp\?v=[0-9a-f]{12}"\n'
         r'            type="image/webp">'
     )
     new_picture_sources = (
-        '        <source\\n            media="(max-width: 768px)"\\n'
-        f'            srcset="/assets/images/hero/product-hero-mobile-crop.avif?v={avif_hash}"\\n'
-        '            type="image/avif">\\n'
-        '        <source\\n            media="(max-width: 768px)"\\n'
-        f'            srcset="/assets/images/hero/product-hero-mobile-crop.webp?v={webp_hash}"\\n'
+        '        <source\n            media="(max-width: 768px)"\n'
+        f'            srcset="/assets/images/hero/product-hero-mobile-crop.avif?v={avif_hash}"\n'
+        '            type="image/avif">\n'
+        '        <source\n            media="(max-width: 768px)"\n'
+        f'            srcset="/assets/images/hero/product-hero-mobile-crop.webp?v={webp_hash}"\n'
         '            type="image/webp">'
     )
 
@@ -73,11 +73,11 @@ def patch_pages() -> None:
                 raise SystemExit(f"{path}: mobile hero WebP source not found")
         else:
             html = re.sub(
-                r'product-hero-mobile-crop\\.avif\\?v=[0-9a-f]{12}',
+                r'product-hero-mobile-crop\.avif\?v=[0-9a-f]{12}',
                 f'product-hero-mobile-crop.avif?v={avif_hash}', html
             )
             html = re.sub(
-                r'product-hero-mobile-crop\\.webp\\?v=[0-9a-f]{12}',
+                r'product-hero-mobile-crop\.webp\?v=[0-9a-f]{12}',
                 f'product-hero-mobile-crop.webp?v={webp_hash}', html
             )
         html = html.replace('decoding="sync">', 'decoding="async">')
@@ -88,11 +88,11 @@ def patch_pages() -> None:
         prefix, grid = html[:grid_at], html[grid_at:]
 
         def lazy_card(match: re.Match[str]) -> str:
-            tag = re.sub(r'\\bloading="eager"', 'loading="lazy"', match.group(0), flags=re.I)
-            return re.sub(r'\\s+fetchpriority="high"', '', tag, flags=re.I)
+            tag = re.sub(r'\bloading="eager"', 'loading="lazy"', match.group(0), flags=re.I)
+            return re.sub(r'\s+fetchpriority="high"', '', tag, flags=re.I)
 
         grid = re.sub(
-            r'<img\\b(?=[^>]*\\bclass="[^"]*\\bproduct-image-file\\b[^"]*")[^>]*>',
+            r'<img\b(?=[^>]*\bclass="[^"]*\bproduct-image-file\b[^"]*")[^>]*>',
             lazy_card, grid, flags=re.I | re.S
         )
         path.write_text(prefix + grid, encoding="utf-8", newline="")
@@ -102,9 +102,9 @@ def patch_generators_and_guard() -> None:
     generator = ROOT / "scripts/catalogue/sync_product_cards.py"
     source = generator.read_text(encoding="utf-8")
     source = source.replace(
-        '        product_card_html(product, language, eager=index < 2)\\n'
+        '        product_card_html(product, language, eager=index < 2)\n'
         '        for index, product in enumerate(products[:INITIAL_PAGE_SIZE])',
-        '        product_card_html(product, language, eager=False)\\n'
+        '        product_card_html(product, language, eager=False)\n'
         '        for product in products[:INITIAL_PAGE_SIZE]',
         1
     )
@@ -114,15 +114,15 @@ def patch_generators_and_guard() -> None:
     guard = guard_path.read_text(encoding="utf-8")
     # Update the existing product hero preload and WebP source path contracts.
     guard = guard.replace(
-        r'product-hero-mobile\\.webp\\?v=[0-9a-f]{12}',
-        r'product-hero-mobile-crop\\.avif\\?v=[0-9a-f]{12}', 1
+        r'product-hero-mobile\.webp\?v=[0-9a-f]{12}',
+        r'product-hero-mobile-crop\.avif\?v=[0-9a-f]{12}', 1
     )
     guard = guard.replace(
-        r'product-hero-mobile\\.webp\\?v=[0-9a-f]{12}',
-        r'product-hero-mobile-crop\\.webp\\?v=[0-9a-f]{12}', 1
+        r'product-hero-mobile\.webp\?v=[0-9a-f]{12}',
+        r'product-hero-mobile-crop\.webp\?v=[0-9a-f]{12}', 1
     )
     start = guard.index("def check_listing_critical_image_loading")
-    end = guard.index("\\ndef main()", start)
+    end = guard.index("\ndef main()", start)
     revised = '''def check_listing_critical_image_loading(errors: list[str]) -> None:
     """Keep priority on the LCP hero and defer all product-card images."""
     for language in ("en", "hi", "bn"):
@@ -132,16 +132,16 @@ def patch_generators_and_guard() -> None:
             continue
         raw = path.read_text(encoding="utf-8", errors="ignore")
         hero = re.search(
-            r'<img\\\\b(?=[^>]*\\\\bclass=["\\\\'][^"\\\\']*\\\\bproducts-hero-media\\\\b[^"\\\\']*["\\\\'])[^>]*>',
+            r'<img\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bproducts-hero-media\\b[^"\\']*["\\'])[^>]*>',
             raw, flags=re.I | re.S
         )
         if not hero:
             fail(f"{path.relative_to(ROOT)}: missing product hero image", errors)
         else:
             tag = hero.group(0)
-            for attr, label in ((r'\\\\bloading=["\\\\']eager["\\\\']', "eager loading"),
-                                (r'\\\\bfetchpriority=["\\\\']high["\\\\']', "high fetch priority"),
-                                (r'\\\\bdecoding=["\\\\']async["\\\\']', "asynchronous decoding")):
+            for attr, label in ((r'\\bloading=["\\']eager["\\']', "eager loading"),
+                                (r'\\bfetchpriority=["\\']high["\\']', "high fetch priority"),
+                                (r'\\bdecoding=["\\']async["\\']', "asynchronous decoding")):
                 if not re.search(attr, tag, re.I):
                     fail(f"{path.relative_to(ROOT)}: LCP hero must retain {label}", errors)
 
@@ -150,15 +150,15 @@ def patch_generators_and_guard() -> None:
             fail(f"{path.relative_to(ROOT)}: missing #product-grid", errors)
             continue
         image_tags = re.findall(
-            r'<img\\\\b(?=[^>]*\\\\bclass=["\\\\'][^"\\\\']*\\\\bproduct-image-file\\\\b[^"\\\\']*["\\\\'])[^>]*>',
+            r'<img\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bproduct-image-file\\b[^"\\']*["\\'])[^>]*>',
             raw[grid_start:], flags=re.I | re.S
         )[:4]
         if len(image_tags) != 4:
             fail(f"{path.relative_to(ROOT)}: expected four initial product-card images, found {len(image_tags)}", errors)
             continue
         for index, tag in enumerate(image_tags):
-            loading = re.search(r'\\\\bloading=["\\\\']([^"\\\\']+)["\\\\']', tag, re.I)
-            priority = re.search(r'\\\\bfetchpriority=["\\\\']([^"\\\\']+)["\\\\']', tag, re.I)
+            loading = re.search(r'\\bloading=["\\']([^"\\']+)["\\']', tag, re.I)
+            priority = re.search(r'\\bfetchpriority=["\\']([^"\\']+)["\\']', tag, re.I)
             if not loading or loading.group(1).lower() != "lazy":
                 fail(f"{path.relative_to(ROOT)}: product image {index + 1} must be lazy loaded", errors)
             if priority and priority.group(1).lower() == "high":
@@ -185,8 +185,8 @@ def check_mobile_listing_hero_assets(errors: list[str]) -> None:
             if f"{filename}?v={version}" not in raw:
                 fail(f"{page.relative_to(ROOT)}: stale or missing content hash for {filename}", errors)
         picture = re.search(
-            r'<picture\\\\b(?=[^>]*\\\\bclass=["\\\\'][^"\\\\']*\\\\bproducts-hero-picture\\\\b[^"\\\\']*["\\\\'])'
-            r'[^>]*>([\\\\s\\\\S]*?)</picture\\\\s*>',
+            r'<picture\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bproducts-hero-picture\\b[^"\\']*["\\'])'
+            r'[^>]*>([\\s\\S]*?)</picture\\s*>',
             raw, flags=re.I | re.S
         )
         if not picture:
@@ -194,15 +194,15 @@ def check_mobile_listing_hero_assets(errors: list[str]) -> None:
             continue
         markup = picture.group(1)
         avif = re.search(
-            r'<source\\\\b(?=[^>]*\\\\bmedia=["\\\\']\\\\(max-width:\\\\s*768px\\\\)["\\\\'])'
-            r'(?=[^>]*\\\\bsrcset=["\\\\'][^"\\\\']*product-hero-mobile-crop\\\\.avif\\\\?v=[0-9a-f]{12}["\\\\'])'
-            r'(?=[^>]*\\\\btype=["\\\\']image/avif["\\\\'])[^>]*>',
+            r'<source\\b(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])'
+            r'(?=[^>]*\\bsrcset=["\\'][^"\\']*product-hero-mobile-crop\\.avif\\?v=[0-9a-f]{12}["\\'])'
+            r'(?=[^>]*\\btype=["\\']image/avif["\\'])[^>]*>',
             markup, flags=re.I | re.S
         )
         webp = re.search(
-            r'<source\\\\b(?=[^>]*\\\\bmedia=["\\\\']\\\\(max-width:\\\\s*768px\\\\)["\\\\'])'
-            r'(?=[^>]*\\\\bsrcset=["\\\\'][^"\\\\']*product-hero-mobile-crop\\\\.webp\\\\?v=[0-9a-f]{12}["\\\\'])'
-            r'(?=[^>]*\\\\btype=["\\\\']image/webp["\\\\'])[^>]*>',
+            r'<source\\b(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])'
+            r'(?=[^>]*\\bsrcset=["\\'][^"\\']*product-hero-mobile-crop\\.webp\\?v=[0-9a-f]{12}["\\'])'
+            r'(?=[^>]*\\btype=["\\']image/webp["\\'])[^>]*>',
             markup, flags=re.I | re.S
         )
         if not avif or not webp:
@@ -213,8 +213,8 @@ def check_mobile_listing_hero_assets(errors: list[str]) -> None:
 '''
     guard = guard[:start] + revised + guard[end:]
     guard = guard.replace(
-        "    check_listing_critical_image_loading(errors)\\n",
-        "    check_listing_critical_image_loading(errors)\\n    check_mobile_listing_hero_assets(errors)\\n",
+        "    check_listing_critical_image_loading(errors)\n",
+        "    check_listing_critical_image_loading(errors)\n    check_mobile_listing_hero_assets(errors)\n",
         1
     )
     guard_path.write_text(guard, encoding="utf-8", newline="")

@@ -16,14 +16,14 @@ on:
       - "scripts/js/**"
 
 permissions:
-  contents: read
+  contents: write
   checks: read
   pull-requests: read
   issues: read
 
 concurrency:
   group: souviks-preview-performance-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   lighthouse:
@@ -46,6 +46,11 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --no-audit --no-fund playwright@latest
           npx playwright install --with-deps chromium
+
+      - name: Set up Python for mobile hero asset generation
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
       - name: Generate and commit optimized mobile listing hero
         shell: bash
