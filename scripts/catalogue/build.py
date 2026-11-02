@@ -38,6 +38,23 @@ BASE = "https://www.souviks.co.in"
 # Final pointer 22-25 parity normalization.
 # Retrigger validation with the corrected audit command.
 
+def product_net_weight_kg(p):
+    """Return a source-backed net product weight, never the packed freight weight."""
+    calculated = p.get("calculated_weight_g")
+    if isinstance(calculated, (int, float)) and not isinstance(calculated, bool) and calculated > 0:
+        return round(float(calculated) / 1000, 3)
+    manufacturer = p.get("manufacturer_weight_kg")
+    status = str(p.get("manufacturer_weight_status") or "").strip().casefold()
+    if (
+        status == "verified"
+        and isinstance(manufacturer, (int, float))
+        and not isinstance(manufacturer, bool)
+        and manufacturer > 0.001
+    ):
+        return round(float(manufacturer), 3)
+    return None
+
+
 def dimension_spec_properties(p):
     """Convert typed partial measurements to Schema.org PropertyValue records."""
     properties = []
@@ -234,6 +251,31 @@ def reconcile_catalogue_projections():
             if product.get("approx_weight_g") != estimate_grams:
                 product["approx_weight_g"] = estimate_grams
                 weights_changed = True
+
+            # Preserve the source-calculated net item mass separately from its
+            # packed shipping weight so Product.weight is not overstated by packaging.
+            net_grams = estimate.get("net_weight_g", estimate.get("calculated_weight_g"))
+            if net_grams is not None:
+                if (
+                    not isinstance(net_grams, (int, float))
+                    or isinstance(net_grams, bool)
+                    or net_grams <= 0
+                ):
+                    raise SystemExit(f"Invalid net product weight for catalogue product {pid}")
+                if product.get("calculated_weight_g") != net_grams:
+                    product["calculated_weight_g"] = net_grams
+                    weights_changed = True
+                if text(product.get("weight_estimation_status")) != "estimated":
+                    product["weight_estimation_status"] = "estimated"
+                    weights_changed = True
+                weight_method = text(weight_data.get("method"))
+                if weight_method and text(product.get("weight_estimation_method")) != weight_method:
+                    product["weight_estimation_method"] = weight_method
+                    weights_changed = True
+                weight_source = text(weight_data.get("source"))
+                if weight_source and text(product.get("weight_estimation_notes")) != weight_source:
+                    product["weight_estimation_notes"] = weight_source
+                    weights_changed = True
 
         if weights_changed:
             CATALOGUE_PATH.write_text(
@@ -2715,11 +2757,11 @@ def sync_product_seo_and_schema():
                         {"@type": "PropertyValue", "name": "Overall length", "value": overall_length_mm, "unitText": "mm"},
                         {"@type": "PropertyValue", "name": "Weight estimation status", "value": str(product.get("weight_estimation_status") or "estimated")},
                     ]
-                    estimated_net_grams = product.get("calculated_weight_g")
-                    if isinstance(estimated_net_grams, (int, float)) and not isinstance(estimated_net_grams, bool) and estimated_net_grams > 0:
+                    net_weight_kg = product_net_weight_kg(product)
+                    if net_weight_kg is not None:
                         product_schema["weight"] = {
                             "@type": "QuantitativeValue",
-                            "value": round(float(estimated_net_grams) / 1000, 3),
+                            "value": net_weight_kg,
                             "unitCode": "KGM",
                         }
 
@@ -2729,6 +2771,23 @@ def sync_product_seo_and_schema():
                     if not isinstance(existing_properties, list):
                         existing_properties = []
                     product_schema["additionalProperty"] = existing_properties + partial_dimension_properties
+
+                packed_weight_grams = approximate_weight_grams(product)
+                if packed_weight_grams is not None:
+                    existing_properties = product_schema.get("additionalProperty")
+                    if not isinstance(existing_properties, list):
+                        existing_properties = []
+                    existing_properties = [
+                        item for item in existing_properties
+                        if not (isinstance(item, dict) and item.get("name") == "Approximate packed shipping weight")
+                    ]
+                    existing_properties.append({
+                        "@type": "PropertyValue",
+                        "name": "Approximate packed shipping weight",
+                        "value": packed_weight_grams,
+                        "unitText": "g",
+                    })
+                    product_schema["additionalProperty"] = existing_properties
 
                 mpn = str(product.get("manufacturer_part_number") or "").strip()
                 if not mpn:
@@ -2873,15 +2932,11 @@ def sync_product_seo_and_schema():
                         )
                         node["additionalProperty"] = properties
 
-                        estimated_net_grams = product.get("calculated_weight_g")
-                        if (
-                            isinstance(estimated_net_grams, (int, float))
-                            and not isinstance(estimated_net_grams, bool)
-                            and estimated_net_grams > 0
-                        ):
+                        net_weight_kg = product_net_weight_kg(product)
+                        if net_weight_kg is not None:
                             node["weight"] = {
                                 "@type": "QuantitativeValue",
-                                "value": round(float(estimated_net_grams) / 1000, 3),
+                                "value": net_weight_kg,
                                 "unitCode": "KGM",
                             }
 
@@ -2896,6 +2951,23 @@ def sync_product_seo_and_schema():
                             if not (isinstance(item, dict) and item.get("name") in partial_names)
                         ]
                         node["additionalProperty"] = existing_properties + partial_dimension_properties
+
+                    packed_weight_grams = approximate_weight_grams(product)
+                    if packed_weight_grams is not None:
+                        existing_properties = node.get("additionalProperty")
+                        if not isinstance(existing_properties, list):
+                            existing_properties = []
+                        existing_properties = [
+                            item for item in existing_properties
+                            if not (isinstance(item, dict) and item.get("name") == "Approximate packed shipping weight")
+                        ]
+                        existing_properties.append({
+                            "@type": "PropertyValue",
+                            "name": "Approximate packed shipping weight",
+                            "value": packed_weight_grams,
+                            "unitText": "g",
+                        })
+                        node["additionalProperty"] = existing_properties
 
                     # Refresh identifiers on legacy Product nodes too. The old
                     # repair path updated other schema fields but left stale or
