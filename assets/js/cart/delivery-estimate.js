@@ -276,6 +276,24 @@
                     !Number.isInteger(quantity) || quantity < 1) return { error: T.weightMissing };
                 total += Math.round(weight) * quantity;
             }
+            // Use volumetric weight only when a single already-packed parcel has
+            // explicit external L × W × H dimensions. Product dimensions such as
+            // pin diameter/length are not shipping-carton dimensions.
+            if (cart.length === 1 && Number(cart[0].quantity) === 1) {
+                const product = byId.get(String(cart[0].productId));
+                const packageDimensions = product?.shipping_package_dimensions_mm;
+                if (packageDimensions != null) {
+                    if (!Array.isArray(packageDimensions) || packageDimensions.length !== 3) {
+                        return { error: T.weightInvalid };
+                    }
+                    const [lengthMm, widthMm, heightMm] = packageDimensions.map(Number);
+                    if ([lengthMm, widthMm, heightMm].some(value => !Number.isFinite(value) || value <= 0 || value > 5000)) {
+                        return { error: T.weightInvalid };
+                    }
+                    const volumetricWeightGrams = Math.ceil((lengthMm * widthMm * heightMm) / 5000);
+                    total = Math.max(total, volumetricWeightGrams);
+                }
+            }
             if (!Number.isInteger(total) || total < 1 || total > 200000) return { error: T.weightInvalid };
             return { grams: total };
         }
