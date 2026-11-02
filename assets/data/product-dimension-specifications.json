@@ -2,7 +2,7 @@
   "version": 1,
   "purpose": "Explicit product-component and fitment measurements captured from catalogue item names, plus one Dana Aftermarket cross-reference. These values are not shipping-carton or parcel dimensions.",
   "unit": "mm",
-  "records": 301,
+  "records": 302,
   "products": [
     {
       "id": "SVKS000002",
@@ -4776,7 +4776,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Specified clutch/gearbox interface diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 44.45,
           "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
         }
@@ -4789,7 +4789,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Specified clutch/gearbox interface diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 44.45,
           "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
         }
@@ -4802,7 +4802,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Specified clutch/gearbox interface diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 44.45,
           "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
         }
@@ -4815,7 +4815,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Specified clutch/gearbox interface diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 38.1,
           "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
         }
@@ -4828,7 +4828,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Specified clutch/gearbox interface diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 43.18,
           "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
         }
@@ -4841,7 +4841,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Specified clutch/gearbox interface diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 38.1,
           "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
         }
@@ -4854,7 +4854,7 @@
       "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
       "specs": [
         {
-          "name": "Specified clutch/gearbox interface diameter",
+          "name": "Associated clutch diameter",
           "value_mm": 43.18,
           "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
         }
@@ -5014,6 +5014,19 @@
           "name": "Nominal belt length designation",
           "value_mm": 1580,
           "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000671",
+      "part_number": "",
+      "product_name": "Battery (Terminal) Cable   440/.30mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Conductor strand diameter",
+          "value_mm": 0.3,
+          "source": "product_name; 0.30 mm strand size in 440/.30 cable designation"
         }
       ]
     }
