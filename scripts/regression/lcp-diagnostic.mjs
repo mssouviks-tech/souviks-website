@@ -29,7 +29,7 @@ try {
     for (const repeat of [1, 2]) {
       const context = await browser.newContext({
         viewport: { width: 412, height: 823 },
-        deviceScaleFactor: 1,
+        deviceScaleFactor: 1.75,
         isMobile: true,
         hasTouch: true,
       });
