@@ -199,7 +199,10 @@ def flatten_base_css_imports() -> int:
 def create_mobile_hero_variants() -> dict[str, str]:
     """Create smaller, never-upscaled mobile derivatives for the two LCP hero images."""
     configs = {
-        "index-hero": ((1440, 1440), 74),
+        # A 412px mobile viewport at 1.75x DPR needs about 721px of source
+        # width. 824x1240 keeps a 2x rendering margin without sending the
+        # previous 1440px-wide 100KB+ image to every mobile visitor.
+        "index-hero": ((824, 1240), 64),
         "product-hero": ((1440, 1440), 73),
     }
     created: dict[str, str] = {}
