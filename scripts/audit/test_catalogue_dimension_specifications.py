@@ -110,6 +110,7 @@ for record in records:
         fail(f"{pid}: non-pin component specs must not be placed in the pin dimensions_mm field")
 
     for projection_name, projection in (
+        ("canonical catalogue", master),
         ("public product", public),
         ("search", search_record),
     ):
