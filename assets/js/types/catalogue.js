@@ -31,8 +31,8 @@
  * @property {boolean} [featured]
  * @property {boolean} [active]
  * @property {string} [description]
- * @property {number[]} [dimensions_mm] Nominal diameter and overall length, in millimetres
- * @property {{name: string, value_mm: number, source?: string}[]} [dimension_specs_mm] Typed partial measurements in millimetres when a complete diameter/length pair is unavailable
+ * @property {number[]} [dimensions_mm] Complete nominal diameter and overall length pair in millimetres; used for the pin-family geometry contract
+ * @property {{name: string, value_mm: number, source?: string}[]} [dimension_specs_mm] Labelled component, connection, mounting, or fitment measurements in millimetres; not parcel/carton dimensions
  * @property {number} [weight_calculation_quantity] Number of identical pieces represented by the sellable SKU for weight estimation
  * @property {string} [dimensions_label]
  * @property {string} [dimensions_source]
