@@ -738,6 +738,38 @@
       ]
     },
     {
+      "id": "SVKS000090",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 25,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000091",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 25,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000092",
       "part_number": "",
       "dimension_specs_mm": [
@@ -750,6 +782,39 @@
           "name": "Union connection size 2",
           "value_mm": 26,
           "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000095",
+      "part_number": "272425000223",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch diameter",
+          "value_mm": 190,
+          "source": "product_name_and_product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000097",
+      "part_number": "272425200235",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch diameter",
+          "value_mm": 215,
+          "source": "product_name_and_product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000098",
+      "part_number": "272425400235",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch diameter",
+          "value_mm": 215,
+          "source": "product_name_and_product_description"
         }
       ]
     },
@@ -769,6 +834,310 @@
         },
         {
           "name": "Seal width",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000126",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 30,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000127",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 30,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000128",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 32,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000129",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 32,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000130",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000131",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000132",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000133",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000134",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000135",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000136",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000137",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000138",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000139",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000140",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000141",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000142",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000143",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000144",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
           "value_mm": 8,
           "source": "product_name"
         }
@@ -915,6 +1284,17 @@
           "name": "Union connection size 2",
           "value_mm": 8,
           "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000232",
+      "part_number": "380CT",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch diameter",
+          "value_mm": 380,
+          "source": "product_name_and_product_description"
         }
       ]
     },
@@ -1183,6 +1563,28 @@
       ]
     },
     {
+      "id": "SVKS000410",
+      "part_number": "8PK-1250",
+      "dimension_specs_mm": [
+        {
+          "name": "Effective belt length",
+          "value_mm": 1250,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000429",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Clutch diameter",
+          "value_mm": 330,
+          "source": "product_name_and_product_description"
+        }
+      ]
+    },
+    {
       "id": "SVKS000436",
       "part_number": "4054BP2",
       "dimension_specs_mm": [
@@ -1325,6 +1727,17 @@
       ]
     },
     {
+      "id": "SVKS000603",
+      "part_number": "AU-XV13-1170",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal belt size",
+          "value_mm": 1170,
+          "source": "product_code_and_product_description"
+        }
+      ]
+    },
+    {
       "id": "SVKS000608",
       "part_number": "0152",
       "dimension_specs_mm": [
@@ -1337,6 +1750,17 @@
           "name": "Leaf thickness",
           "value_mm": 18,
           "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000616",
+      "part_number": "AVX13-1175",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal belt size",
+          "value_mm": 1175,
+          "source": "product_code_and_product_description"
         }
       ]
     },
@@ -1385,6 +1809,22 @@
           "name": "Thread pitch",
           "value_mm": 2,
           "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000754",
+      "part_number": "F8014600",
+      "dimension_specs_mm": [
+        {
+          "name": "Overall length",
+          "value_mm": 81,
+          "source": "product_description"
+        },
+        {
+          "name": "Inner diameter",
+          "value_mm": 19.5,
+          "source": "product_description"
         }
       ]
     },
@@ -1912,6 +2352,17 @@
       ]
     },
     {
+      "id": "SVKS000804",
+      "part_number": "AVX13-980",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal belt size",
+          "value_mm": 980,
+          "source": "product_code_and_product_description"
+        }
+      ]
+    },
+    {
       "id": "SVKS000811",
       "part_number": "A02309020-0200",
       "dimension_specs_mm": [
@@ -1992,6 +2443,27 @@
       ]
     },
     {
+      "id": "SVKS000816",
+      "part_number": "M13520-0200",
+      "dimension_specs_mm": [
+        {
+          "name": "Thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Bolt length",
+          "value_mm": 35,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000823",
       "part_number": "885442071618",
       "dimension_specs_mm": [
@@ -2003,6 +2475,54 @@
         {
           "name": "Nominal width",
           "value_mm": 180,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000827",
+      "part_number": "886732000025",
+      "dimension_specs_mm": [
+        {
+          "name": "Leaf width",
+          "value_mm": 90,
+          "source": "product_name"
+        },
+        {
+          "name": "Leaf thickness",
+          "value_mm": 24,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000828",
+      "part_number": "886732000032",
+      "dimension_specs_mm": [
+        {
+          "name": "Leaf width",
+          "value_mm": 80,
+          "source": "product_name"
+        },
+        {
+          "name": "Leaf thickness",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000829",
+      "part_number": "886732000560",
+      "dimension_specs_mm": [
+        {
+          "name": "Leaf width",
+          "value_mm": 90,
+          "source": "product_name"
+        },
+        {
+          "name": "Leaf thickness",
+          "value_mm": 24,
           "source": "product_name"
         }
       ]
@@ -2414,6 +2934,43 @@
       ]
     },
     {
+      "id": "SVKS000908",
+      "part_number": "K185",
+      "dimension_specs_mm": [
+        {
+          "name": "Pipe diameter",
+          "value_mm": 84.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Overall height",
+          "value_mm": 103,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000909",
+      "part_number": "K317",
+      "dimension_specs_mm": [
+        {
+          "name": "Mounting plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal diameter",
+          "value_mm": 69,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
       "id": "SVKS000910",
       "part_number": "K276",
       "dimension_specs_mm": [
@@ -2440,6 +2997,48 @@
       ]
     },
     {
+      "id": "SVKS000911",
+      "part_number": "K567",
+      "dimension_specs_mm": [
+        {
+          "name": "Mounting plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal diameter",
+          "value_mm": 79.9,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000912",
+      "part_number": "K319",
+      "dimension_specs_mm": [
+        {
+          "name": "Mounting plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal diameter",
+          "value_mm": 68,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
       "id": "SVKS000913",
       "part_number": "K331",
       "dimension_specs_mm": [
@@ -2461,6 +3060,69 @@
         {
           "name": "Mounting hole diameter",
           "value_mm": 13,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000915",
+      "part_number": "KF6929",
+      "dimension_specs_mm": [
+        {
+          "name": "Mounting plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal diameter",
+          "value_mm": 72.15,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000917",
+      "part_number": "KF6847A",
+      "dimension_specs_mm": [
+        {
+          "name": "Mounting plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal diameter",
+          "value_mm": 70,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000919",
+      "part_number": "KF6289",
+      "dimension_specs_mm": [
+        {
+          "name": "Mounting plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 12.1,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal diameter",
+          "value_mm": 68,
           "source": "product_description"
         }
       ]
@@ -2615,6 +3277,86 @@
         }
       ],
       "source_url": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=100304941&cclcl=en"
+    },
+    {
+      "id": "SVKS000954",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000955",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000956",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000957",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000958",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal bore diameter",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
     },
     {
       "id": "SVKS001005",
@@ -2991,6 +3733,55 @@
       "source_url": "https://www.wabco-customercentre.com/catalog/CCProductDetailPrintPage?sku=9732980290&cclcl=en"
     },
     {
+      "id": "SVKS001024",
+      "part_number": "282954209902",
+      "dimension_specs_mm": [
+        {
+          "name": "Cable diameter",
+          "value_mm": 3.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Cable length",
+          "value_mm": 2350,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001048",
+      "part_number": "TX-6011WOS-BZ",
+      "dimension_specs_mm": [
+        {
+          "name": "Bearing width",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001051",
+      "part_number": "TX-88513WOS",
+      "dimension_specs_mm": [
+        {
+          "name": "Bearing diameter",
+          "value_mm": 65,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001053",
+      "part_number": "TX-6213WOS(2RS)",
+      "dimension_specs_mm": [
+        {
+          "name": "Bearing diameter",
+          "value_mm": 65,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS001062",
       "part_number": "NIRMAL/UB/372AB",
       "dimension_specs_mm": [
@@ -3365,6 +4156,239 @@
           "name": "Rod diameter",
           "value_mm": 22,
           "source": "nirmal_engineering_price_list"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001104",
+      "part_number": "KF-6934B",
+      "dimension_specs_mm": [
+        {
+          "name": "Pipe diameter",
+          "value_mm": 114,
+          "source": "product_description"
+        },
+        {
+          "name": "Overall height",
+          "value_mm": 148,
+          "source": "product_description"
+        },
+        {
+          "name": "Bearing diameter",
+          "value_mm": 55,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001105",
+      "part_number": "KF-6907A",
+      "dimension_specs_mm": [
+        {
+          "name": "Mounting plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Overall length",
+          "value_mm": 71,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal diameter",
+          "value_mm": 76,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001106",
+      "part_number": "KF-6929A",
+      "dimension_specs_mm": [
+        {
+          "name": "Mounting plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Overall height",
+          "value_mm": 95,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal diameter",
+          "value_mm": 68.6,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001108",
+      "part_number": "KF-6817A",
+      "dimension_specs_mm": [
+        {
+          "name": "Pipe diameter",
+          "value_mm": 101.6,
+          "source": "product_description_inch_conversion"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001115",
+      "part_number": "AV10X1185",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal belt size",
+          "value_mm": 1185,
+          "source": "product_code_and_product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001121",
+      "part_number": "5858",
+      "dimension_specs_mm": [
+        {
+          "name": "Ball diameter",
+          "value_mm": 35,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread diameter",
+          "value_mm": 18,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001124",
+      "part_number": "975",
+      "dimension_specs_mm": [
+        {
+          "name": "Pin-head diameter",
+          "value_mm": 35,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread diameter",
+          "value_mm": 20,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001128",
+      "part_number": "1012-R",
+      "dimension_specs_mm": [
+        {
+          "name": "Right-hand thread diameter",
+          "value_mm": 30,
+          "source": "product_description"
+        },
+        {
+          "name": "Right-hand thread pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Ball-pin thread diameter",
+          "value_mm": 20,
+          "source": "product_description"
+        },
+        {
+          "name": "Ball-pin thread pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Spanner size",
+          "value_mm": 30,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001130",
+      "part_number": "KF3355R",
+      "dimension_specs_mm": [
+        {
+          "name": "Thread diameter",
+          "value_mm": 30,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Ball-pin thread diameter",
+          "value_mm": 14,
+          "source": "product_description"
+        },
+        {
+          "name": "Ball-pin thread pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Spanner size",
+          "value_mm": 21,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001153",
+      "part_number": "AVX13-930",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal belt size",
+          "value_mm": 930,
+          "source": "product_code_and_product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001154",
+      "part_number": "TW1475",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal belt size",
+          "value_mm": 1475,
+          "source": "product_code_and_product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001155",
+      "part_number": "XV13X1355",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal belt size",
+          "value_mm": 1355,
+          "source": "product_code_and_product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001156",
+      "part_number": "AVX13X1260",
+      "dimension_specs_mm": [
+        {
+          "name": "Nominal belt size",
+          "value_mm": 1260,
+          "source": "product_code_and_product_description"
         }
       ]
     }
