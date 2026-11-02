@@ -1299,6 +1299,17 @@
       ]
     },
     {
+      "id": "SVKS000254",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Hole diameter",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000274",
       "part_number": "SDUJFM40D48",
       "dimension_specs_mm": [
@@ -1310,6 +1321,22 @@
         {
           "name": "Overall length",
           "value_mm": 135,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000300",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Specified pin size (1)",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Specified pin size (2)",
+          "value_mm": 35,
           "source": "product_name"
         }
       ]
@@ -1797,6 +1824,17 @@
       ]
     },
     {
+      "id": "SVKS000723",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Specified hanger size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
       "id": "SVKS000735",
       "part_number": "J1617",
       "dimension_specs_mm": [
@@ -1808,6 +1846,17 @@
         {
           "name": "Thread pitch",
           "value_mm": 2,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000737",
+      "part_number": "",
+      "dimension_specs_mm": [
+        {
+          "name": "Pin diameter",
+          "value_mm": 30,
           "source": "product_name"
         }
       ]
