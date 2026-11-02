@@ -2346,7 +2346,7 @@
       "part_number": "258201",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1629.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 941; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2357,7 +2357,7 @@
       "part_number": "258202",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (2P)",
           "value_mm": 1544.1,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 941; 2P length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2741,7 +2741,7 @@
       "part_number": "2582",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1629.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 941; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2863,7 +2863,7 @@
       "part_number": "2951",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 925.1,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 33; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2874,7 +2874,7 @@
       "part_number": "2332S",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1089.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 590; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2885,7 +2885,7 @@
       "part_number": "1952",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1455.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2906,7 +2906,7 @@
           "source": "product_description"
         },
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1480.1,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 675; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2917,7 +2917,7 @@
       "part_number": "0181N",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1736.1,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 858; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2928,7 +2928,7 @@
       "part_number": "2582",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1629.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 941; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2939,7 +2939,7 @@
       "part_number": "2731",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1400,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 224; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2950,7 +2950,7 @@
       "part_number": "6891",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1525,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 271; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2961,7 +2961,7 @@
       "part_number": "6901",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1563.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 274; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2972,7 +2972,7 @@
       "part_number": "1931",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1986,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 900; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -2994,7 +2994,7 @@
       "part_number": "1952",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (2P)",
           "value_mm": 1068.1,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; 2P length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -3015,7 +3015,7 @@
           "source": "product_description"
         },
         {
-          "name": "Overall length",
+          "name": "Leaf length (2P)",
           "value_mm": 1447,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 675; 2P length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -3026,7 +3026,7 @@
       "part_number": "7032",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (AA)",
           "value_mm": 817.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 53; AA length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4501,7 +4501,7 @@
       "part_number": "1952",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (AA)",
           "value_mm": 1263.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; AA length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4512,7 +4512,7 @@
       "part_number": "1952",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (3)",
           "value_mm": 915.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; 3 length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4523,7 +4523,7 @@
       "part_number": "1952",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (4)",
           "value_mm": 764,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; 4 length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4534,7 +4534,7 @@
       "part_number": "1952",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (5)",
           "value_mm": 613.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 843; 5 length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4545,7 +4545,7 @@
       "part_number": "0642",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (AA)",
           "value_mm": 1210.1,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 689; AA length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4556,7 +4556,7 @@
       "part_number": "0642",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (AB)",
           "value_mm": 1150.1,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 689; AB length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4615,7 +4615,7 @@
       "part_number": "3322",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (ML)",
           "value_mm": 1364,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 600; ML length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4626,7 +4626,7 @@
       "part_number": "3322",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (AA)",
           "value_mm": 1086.1,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 600; AA length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4669,7 +4669,7 @@
       "part_number": "3252",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (2P)",
           "value_mm": 754.1,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 598; 2P length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4680,7 +4680,7 @@
       "part_number": "3252",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (AA)",
           "value_mm": 939,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 598; AA length from the adjacent Inches row, converted using 25.4 mm/in."
         }
@@ -4691,7 +4691,7 @@
       "part_number": "2332N",
       "dimension_specs_mm": [
         {
-          "name": "Overall length",
+          "name": "Leaf length (AA)",
           "value_mm": 709.9,
           "source": "JAI Spring MRP 01_04_2026.xlsx; Table 1 row 24; AA length from the adjacent Inches row, converted using 25.4 mm/in."
         }
