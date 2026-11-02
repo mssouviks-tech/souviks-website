@@ -597,7 +597,7 @@ def reconcile_catalogue_projections():
                 )
 
             net_weight = estimate.get("net_weight_g", estimate.get("calculated_weight_g"))
-            packed_weight = estimate.get("approx_weight_g")
+            item_packed_weight = estimate.get("estimated_item_packed_weight_g")
             allowance = estimate.get("packaging_allowance_percent")
             profile = text(estimate.get("packing_profile"))
             model = text(estimate.get("model"))
@@ -608,13 +608,13 @@ def reconcile_catalogue_projections():
                 or not math.isfinite(net_weight)
                 or net_weight <= 0
                 or estimate.get("calculated_weight_g") != net_weight
-                or not isinstance(packed_weight, (int, float))
-                or isinstance(packed_weight, bool)
-                or not math.isfinite(packed_weight)
-                or packed_weight <= 0
+                or not isinstance(item_packed_weight, (int, float))
+                or isinstance(item_packed_weight, bool)
+                or not math.isfinite(item_packed_weight)
+                or item_packed_weight <= 0
                 or allowance != 5
                 or estimate.get("round_up_to_g") != 1
-                or packed_weight != math.ceil(net_weight * (1 + allowance / 100))
+                or item_packed_weight != math.ceil(net_weight * (1 + allowance / 100))
                 or profile not in allowed_profiles
                 or not model
                 or confidence not in allowed_confidence
@@ -622,22 +622,15 @@ def reconcile_catalogue_projections():
                 raise SystemExit(f"Invalid geometric weight or packaging estimate for {pid}")
 
             existing_weight = product.get("approx_weight_g")
-            existing_status = text(product.get("weight_estimation_status")).casefold()
-            if (
-                existing_weight not in (None, "")
-                and isinstance(existing_weight, (int, float))
-                and existing_weight > 0
-                and existing_status != "estimated"
-                and int(round(existing_weight)) != int(round(packed_weight))
-            ):
-                raise SystemExit(
-                    f"Geometric estimate would overwrite an existing source-backed weight for {pid}: "
-                    f"{existing_weight!r} != {packed_weight!r}"
-                )
+            existing_net_weight = product.get("calculated_weight_g")
+            if existing_weight not in (None, "") and isinstance(existing_weight, (int, float)) and existing_weight > 0:
+                raise SystemExit(f"Geometric item estimate must not replace an existing packed freight weight for {pid}")
+            if existing_net_weight not in (None, "") and isinstance(existing_net_weight, (int, float)) and existing_net_weight > 0:
+                raise SystemExit(f"Geometric item estimate must not replace an existing net weight for {pid}")
 
             metadata = {
                 "calculated_weight_g": round(float(net_weight), 1),
-                "approx_weight_g": int(packed_weight),
+                "estimated_item_packed_weight_g": int(item_packed_weight),
                 "weight_estimation_status": "estimated",
                 "weight_estimation_method": model,
                 "weight_estimation_notes": (
@@ -1141,6 +1134,7 @@ def reconcile_catalogue_projections():
             "dimensions_label": text(p.get("dimensions_label")),
             "dimensions_source": text(p.get("dimensions_source")),
             "calculated_weight_g": p.get("calculated_weight_g"),
+            "estimated_item_packed_weight_g": p.get("estimated_item_packed_weight_g"),
             "weight_estimation_status": text(p.get("weight_estimation_status")),
             "weight_estimation_method": text(p.get("weight_estimation_method")),
             "weight_estimation_notes": text(p.get("weight_estimation_notes")),
@@ -1759,6 +1753,7 @@ def reconcile_catalogue_projections():
             data["dimensions_label"] = text(product.get("dimensions_label"))
             data["dimensions_source"] = text(product.get("dimensions_source"))
             data["calculated_weight_g"] = product.get("calculated_weight_g")
+            data["estimated_item_packed_weight_g"] = product.get("estimated_item_packed_weight_g")
             data["weight_estimation_status"] = text(product.get("weight_estimation_status"))
             data["weight_estimation_method"] = text(product.get("weight_estimation_method"))
             data["weight_estimation_notes"] = text(product.get("weight_estimation_notes"))
