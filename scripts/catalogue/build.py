@@ -101,9 +101,9 @@ def dimension_spec_properties(p):
 def shipping_weight_properties(p):
     """Return transparent weight-estimate and packing assumptions for Product JSON-LD."""
     properties = []
-    status = text(p.get("weight_estimation_status"))
-    confidence = text(p.get("weight_estimation_confidence"))
-    profile = text(p.get("shipping_packing_profile"))
+    status = str(p.get("weight_estimation_status") or "").strip()
+    confidence = str(p.get("weight_estimation_confidence") or "").strip()
+    profile = str(p.get("shipping_packing_profile") or "").strip()
     allowance = p.get("shipping_packaging_allowance_percent")
     if status:
         properties.append({
