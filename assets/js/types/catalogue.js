@@ -32,12 +32,17 @@
  * @property {boolean} [active]
  * @property {string} [description]
  * @property {number[]} [dimensions_mm] Nominal diameter and overall length, in millimetres
- * @property {{name: string, value_mm: number, source?: string}[]} [dimension_specs_mm] Typed partial measurements in millimetres when a complete diameter/length pair is unavailable
+ * @property {{name: string, value_mm: number, source?: string}[]} [dimension_specs_mm] Typed product/engineering measurements in millimetres; not parcel dimensions
+ * @property {number[]} [manufacturer_dimensions_mm] Manufacturer-published overall product length, width and height in millimetres
+ * @property {string[]} [manufacturer_dimension_specs] Manufacturer-published technical dimensions and connection specifications
+ * @property {number[]} [shipping_package_dimensions_mm] External packed parcel length, width and height in millimetres; use only when the shipping package itself has been measured
  * @property {number} [weight_calculation_quantity] Number of identical pieces represented by the sellable SKU for weight estimation
  * @property {string} [dimensions_label]
  * @property {string} [dimensions_source]
  * @property {number} [calculated_weight_g] Estimated net product weight, in grams
  * @property {number} [approx_weight_g] Estimated packed shipping weight, in grams
+ * @property {number} [manufacturer_weight_kg] Manufacturer-published net product weight, in kilograms
+ * @property {string} [manufacturer_weight_status] Manufacturer weight verification status
  * @property {string} [weight_estimation_status]
  * @property {string} [weight_estimation_method]
  * @property {string} [weight_estimation_notes]
