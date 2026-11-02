@@ -4,9 +4,9 @@
   "generated_from": "PR #171 branch snapshot; dimensional manifest is merged by scripts/catalogue/build.py",
   "coverage": {
     "total": 430,
-    "existing_weight": 95,
-    "modelled_estimate": 83,
-    "insufficient_geometry_or_material": 252
+    "dimensioned_with_existing_freight_weight": 95,
+    "dimensioned_with_item_only_estimate": 83,
+    "dimensioned_without_mass_estimate": 252
   },
   "total_active_products": 1157,
   "active_products_with_any_weight": 194,
@@ -27,8 +27,8 @@
       "product_name": "10 mm Mounting Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000004",
@@ -36,8 +36,8 @@
       "product_name": "10 mm Spring Washer",
       "brand": "TVS Girling",
       "subcategory": "Spring Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000005",
@@ -45,8 +45,8 @@
       "product_name": "10 mm Steel Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000006",
@@ -54,8 +54,8 @@
       "product_name": "10 x 1.5 Nut",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000007",
@@ -63,8 +63,8 @@
       "product_name": "10 x 1.5 x 30 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000008",
@@ -72,8 +72,8 @@
       "product_name": "10 x 1.5 x 35 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000009",
@@ -81,8 +81,8 @@
       "product_name": "10 x 1.5 x 45 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000010",
@@ -90,8 +90,8 @@
       "product_name": "10 x 1.5 x 50 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000011",
@@ -99,8 +99,8 @@
       "product_name": "10 x 1.5 x 60 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000012",
@@ -189,8 +189,8 @@
       "product_name": "12 mm Mounting Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000022",
@@ -198,8 +198,8 @@
       "product_name": "12 mm Spring Washer",
       "brand": "TVS Girling",
       "subcategory": "Spring Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000023",
@@ -207,8 +207,8 @@
       "product_name": "12 mm Steel Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000024",
@@ -216,8 +216,8 @@
       "product_name": "12 x 1.5 lock nut",
       "brand": "TVS Girling",
       "subcategory": "Lock Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000025",
@@ -225,8 +225,8 @@
       "product_name": "12 x 1.5 nut",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000026",
@@ -234,8 +234,8 @@
       "product_name": "12 x 1.5 x 35 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000027",
@@ -243,8 +243,8 @@
       "product_name": "12 x 1.5 x 45 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000028",
@@ -252,8 +252,8 @@
       "product_name": "12 x 1.5 x 45 crown bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000029",
@@ -261,8 +261,8 @@
       "product_name": "12 x 1.5 x 50 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000032",
@@ -270,8 +270,8 @@
       "product_name": "12 x 1.5 x 60 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000033",
@@ -342,8 +342,8 @@
       "product_name": "14 mm Mounting Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000041",
@@ -351,8 +351,8 @@
       "product_name": "14 mm Spring Washer",
       "brand": "TVS Girling",
       "subcategory": "Spring Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000042",
@@ -360,8 +360,8 @@
       "product_name": "14 mm Steel Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000043",
@@ -369,8 +369,8 @@
       "product_name": "14 x 1.5 nut",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000044",
@@ -378,8 +378,8 @@
       "product_name": "14 x 1.5 x 50 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000045",
@@ -387,8 +387,8 @@
       "product_name": "14 x 1.5 x 60 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000046",
@@ -396,8 +396,8 @@
       "product_name": "14 x 1.5 x 75 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000047",
@@ -405,8 +405,8 @@
       "product_name": "14\" Center Bolt 5/8",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000048",
@@ -468,8 +468,8 @@
       "product_name": "16 mm Mounting Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000055",
@@ -477,8 +477,8 @@
       "product_name": "16 mm Spring Washer",
       "brand": "TVS Girling",
       "subcategory": "Spring Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000056",
@@ -486,8 +486,8 @@
       "product_name": "16 mm Steel Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000057",
@@ -495,8 +495,8 @@
       "product_name": "16 x 1.5 lock nut",
       "brand": "TVS Girling",
       "subcategory": "Lock Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000058",
@@ -504,8 +504,8 @@
       "product_name": "16 x 1.5 nut",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000059",
@@ -513,8 +513,8 @@
       "product_name": "16 x 1.5 x 100 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000066",
@@ -522,8 +522,8 @@
       "product_name": "16 x 1.5 x 125 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000067",
@@ -531,8 +531,8 @@
       "product_name": "16 x 1.5 x 143 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000068",
@@ -540,8 +540,8 @@
       "product_name": "16 x 1.5 x 150 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000069",
@@ -549,8 +549,8 @@
       "product_name": "16 x 1.5 x 174 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000070",
@@ -558,8 +558,8 @@
       "product_name": "16 x 1.5 x 50 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000071",
@@ -567,8 +567,8 @@
       "product_name": "16 x 1.5 x 60 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000072",
@@ -576,8 +576,8 @@
       "product_name": "16 x 1.5 x 75 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000073",
@@ -603,8 +603,8 @@
       "product_name": "18 mm Mounting Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000076",
@@ -612,8 +612,8 @@
       "product_name": "18 mm Spring Washer",
       "brand": "TVS Girling",
       "subcategory": "Spring Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000077",
@@ -621,8 +621,8 @@
       "product_name": "18 mm Steel Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000078",
@@ -630,8 +630,8 @@
       "product_name": "18 x 110 bolt",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000079",
@@ -684,8 +684,8 @@
       "product_name": "20 mm Mounting Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000085",
@@ -702,8 +702,8 @@
       "product_name": "22 mm Mounting Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000087",
@@ -729,8 +729,8 @@
       "product_name": "24 mm Mounting Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000090",
@@ -990,8 +990,8 @@
       "product_name": "6 mm Spring Washer",
       "brand": "TVS Girling",
       "subcategory": "Spring Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000154",
@@ -999,8 +999,8 @@
       "product_name": "6 mm Steel Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000155",
@@ -1125,8 +1125,8 @@
       "product_name": "8 mm Mounting Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000169",
@@ -1134,8 +1134,8 @@
       "product_name": "8 mm Spring Washer",
       "brand": "TVS Girling",
       "subcategory": "Spring Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000170",
@@ -1143,8 +1143,8 @@
       "product_name": "8 mm Steel Washer",
       "brand": "TVS Girling",
       "subcategory": "Washer",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000171",
@@ -1323,8 +1323,8 @@
       "product_name": "Centre Bolt - 15/32 10\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000302",
@@ -1332,8 +1332,8 @@
       "product_name": "Centre Bolt - 15/32 12\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000303",
@@ -1341,8 +1341,8 @@
       "product_name": "Centre Bolt - 15/32 14\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000304",
@@ -1350,8 +1350,8 @@
       "product_name": "Centre Bolt - 15/32 16\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000305",
@@ -1359,8 +1359,8 @@
       "product_name": "Centre Bolt - 15/32 18\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000306",
@@ -1368,8 +1368,8 @@
       "product_name": "Centre Bolt - 5/8 10\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000307",
@@ -1377,8 +1377,8 @@
       "product_name": "Centre Bolt - 5/8 16\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000308",
@@ -1386,8 +1386,8 @@
       "product_name": "Centre Bolt - 5/8 18\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000309",
@@ -1458,8 +1458,8 @@
       "product_name": "Center Bolt 5/8 - 12\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000318",
@@ -1467,8 +1467,8 @@
       "product_name": "Center Bolt 5/8 - 14\"",
       "brand": "GS",
       "subcategory": "Center Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000329",
@@ -1620,8 +1620,8 @@
       "product_name": "Bolt w/ Nut 20 x 70 x 10\" HR",
       "brand": "Nirmal",
       "subcategory": "U Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000395",
@@ -1629,8 +1629,8 @@
       "product_name": "Bolt w/ Nut 20 x 70 x 11\" HR",
       "brand": "Nirmal",
       "subcategory": "U Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000396",
@@ -1638,8 +1638,8 @@
       "product_name": "Bolt w/ Nut 22 x 82 x 20\" FR",
       "brand": "Nirmal",
       "subcategory": "U Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000397",
@@ -1647,8 +1647,8 @@
       "product_name": "Bolt w/ Nut 22 x 82 x 21\" FR",
       "brand": "Nirmal",
       "subcategory": "U Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000398",
@@ -1656,8 +1656,8 @@
       "product_name": "Bolt w/ Nut 22 x 82 x 22\" FR",
       "brand": "Nirmal",
       "subcategory": "U Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000399",
@@ -1665,8 +1665,8 @@
       "product_name": "Bolt w/ Nut 22 x 82 x 23\" FR",
       "brand": "Nirmal",
       "subcategory": "U Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000400",
@@ -1674,8 +1674,8 @@
       "product_name": "Bolt w/ Nut 22 x 82 x 24\" FR",
       "brand": "Nirmal",
       "subcategory": "U Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000401",
@@ -1683,8 +1683,8 @@
       "product_name": "Bolt w/ Nut 22 x 82 x 25\" FR",
       "brand": "Nirmal",
       "subcategory": "U Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000404",
@@ -1845,8 +1845,8 @@
       "product_name": "ARMADA NEW (RR) - Main leaf",
       "brand": "JAI",
       "subcategory": "Leaf Spring",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000596",
@@ -1926,8 +1926,8 @@
       "product_name": "ARMADA NEW (RR) - 2nd leaf",
       "brand": "JAI",
       "subcategory": "Leaf Spring",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000615",
@@ -2547,8 +2547,8 @@
       "product_name": "Bolt with Nut for Tara   Signa Front Spring M24x2x185",
       "brand": "JMP",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000736",
@@ -2826,8 +2826,8 @@
       "product_name": "Tata M20 x   2.5 x 78 Knurled Bolt & Nut",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000812",
@@ -2835,8 +2835,8 @@
       "product_name": "M22 x 2.5   x 115 Bolt W/M85900 Nut",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000813",
@@ -2844,8 +2844,8 @@
       "product_name": "M22 x 2.5   x 125 Hub Bolt W/Nut Knurlbolt",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000814",
@@ -2853,8 +2853,8 @@
       "product_name": "10 x 1.5 x   30 bolt & Nut Assy OAF",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000815",
@@ -2862,8 +2862,8 @@
       "product_name": "14 x 1.5 x   50 bolt & Nut Old A/F with nut",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000816",
@@ -2871,8 +2871,8 @@
       "product_name": "M12x1.5x35",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS000823",
@@ -3411,8 +3411,8 @@
       "product_name": "M10 x 1.5 x 65 Bolt GR. 8.8",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS001006",
@@ -3420,8 +3420,8 @@
       "product_name": "M12 x 1.5 x 75 Bolt GR. 8.8",
       "brand": "TVS Girling",
       "subcategory": "Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS001008",
@@ -3429,8 +3429,8 @@
       "product_name": "SFL M16 x 1.5 x 144 collar bolt",
       "brand": "TVS Girling",
       "subcategory": "Hub Bolt",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS001009",
@@ -3438,8 +3438,8 @@
       "product_name": "Tata 3rd arm nut 16 x 1.5 castle nut G10",
       "brand": "TVS Girling",
       "subcategory": "Nut",
-      "status": "modelled_estimate",
-      "reason": "Geometry-based item-weight estimate is recorded separately with explicit model, confidence and assumptions."
+      "status": "modelled_item_only_estimate",
+      "reason": "Net item mass plus 5% protective-wrap allowance is estimated, but the result excludes outer-carton tare and is not freight-ready."
     },
     {
       "id": "SVKS001018",
@@ -3882,5 +3882,8 @@
       "status": "insufficient_geometry_or_material",
       "reason": "Current dimensions do not fully define mass or material; no default or guessed weight is assigned."
     }
-  ]
+  ],
+  "active_products_with_existing_freight_weight": 111,
+  "active_products_with_any_mass_estimate": 194,
+  "freight_readiness": "The 83 modelled estimates do not populate approx_weight_g; outer-carton tare and parcel dimensions remain required before they can be used in Delhivery freight calculations."
 }
