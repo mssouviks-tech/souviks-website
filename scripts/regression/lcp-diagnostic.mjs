@@ -26,6 +26,12 @@ const browser = await chromium.launch({
 
 try {
   for (const target of targets) {
+    // One label can be used for multiple routes (homepage and listing). Keep
+    // their reports and checkpoint screenshots separate instead of overwriting.
+    const routeKey =
+      new URL(target.url).pathname.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") ||
+      "home";
+
     for (const repeat of [1, 2, 3]) {
       const context = await browser.newContext({
         viewport: { width: 412, height: 823 },
@@ -173,7 +179,7 @@ try {
             };
           });
 
-          const filename = `${target.label}-r${repeat}-${checkpoint}.png`;
+          const filename = `${target.label}-${routeKey}-r${repeat}-${checkpoint}.png`;
           await page.screenshot({
             path: path.join(outputDir, filename),
             fullPage: false,
@@ -261,7 +267,7 @@ try {
         screenshots,
         final,
       };
-      const jsonName = `${target.label}-r${repeat}.json`;
+      const jsonName = `${target.label}-${routeKey}-r${repeat}.json`;
       await writeFile(
         path.join(outputDir, jsonName),
         JSON.stringify(result, null, 2) + "\n",
