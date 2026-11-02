@@ -204,6 +204,11 @@ def main() -> int:
             )
 
 
+    if failures:
+        for failure in failures:
+            print(f"[FAIL] {failure}")
+        return 1
+
     # Lighthouse's standard simulated metrics remain the source for route regressions.
     for route in ("Homepage", "Product detail"):
         base = lighthouse[("main", route)]
