@@ -55,6 +55,21 @@ def product_net_weight_kg(p):
     return None
 
 
+def product_packed_weight_grams(p):
+    """Return the per-unit packed shipping weight in grams from supported aliases."""
+    for field in ("approx_weight_g", "weight_g", "shipping_weight_g", "approx_weight_grams"):
+        value = p.get(field)
+        if value is None or value == "":
+            continue
+        try:
+            grams = float(value)
+        except (TypeError, ValueError):
+            continue
+        if 0 < grams <= 200000:
+            return int(round(grams))
+    return None
+
+
 def dimension_spec_properties(p):
     """Convert typed partial measurements to Schema.org PropertyValue records."""
     properties = []
@@ -1581,7 +1596,7 @@ def reconcile_catalogue_projections():
             data["selling_price"] = product.get("selling_price")
             data["discount_percent"] = product.get("discount_percent")
             data["discountPercent"] = product.get("discount_percent")
-            data["approx_weight_g"] = approximate_weight_grams(product)
+            data["approx_weight_g"] = product_packed_weight_grams(product)
             data["dimensions_mm"] = product.get("dimensions_mm")
             data["dimension_specs_mm"] = list(product.get("dimension_specs_mm") or [])
             data["weight_calculation_quantity"] = product.get("weight_calculation_quantity")
@@ -2772,7 +2787,7 @@ def sync_product_seo_and_schema():
                         existing_properties = []
                     product_schema["additionalProperty"] = existing_properties + partial_dimension_properties
 
-                packed_weight_grams = approximate_weight_grams(product)
+                packed_weight_grams = product_packed_weight_grams(product)
                 if packed_weight_grams is not None:
                     existing_properties = product_schema.get("additionalProperty")
                     if not isinstance(existing_properties, list):
@@ -2952,7 +2967,7 @@ def sync_product_seo_and_schema():
                         ]
                         node["additionalProperty"] = existing_properties + partial_dimension_properties
 
-                    packed_weight_grams = approximate_weight_grams(product)
+                    packed_weight_grams = product_packed_weight_grams(product)
                     if packed_weight_grams is not None:
                         existing_properties = node.get("additionalProperty")
                         if not isinstance(existing_properties, list):
