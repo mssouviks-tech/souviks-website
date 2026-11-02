@@ -513,6 +513,111 @@ def reconcile_catalogue_projections():
                 encoding="utf-8",
             )
 
+    # Geometric weight estimates are separate from manufacturer-verified weights.
+    # They are applied only when the product has no existing packed weight.
+    geometric_weight_path = ROOT / "assets" / "data" / "geometric-product-weight-estimates.json"
+    if geometric_weight_path.exists():
+        try:
+            geometric_weight_data = json.loads(geometric_weight_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid geometric product weight estimates file: {exc}")
+        geometric_records = geometric_weight_data.get("products") if isinstance(geometric_weight_data, dict) else None
+        if not isinstance(geometric_records, list):
+            raise SystemExit("Geometric product weight estimates must contain a products array")
+
+        geometric_products_by_id = {
+            text(product.get("id")): product
+            for product in catalogue
+            if isinstance(product, dict) and text(product.get("id"))
+        }
+        seen_geometric_ids = set()
+        geometric_weights_changed = False
+        allowed_profiles = {"carton_cut_wrap", "plastic_wrap_no_carton"}
+        allowed_confidence = {"low", "low_to_medium", "medium", "high"}
+        for estimate in geometric_records:
+            if not isinstance(estimate, dict):
+                raise SystemExit("Every geometric weight estimate must be an object")
+            pid = text(estimate.get("id"))
+            expected_part_number = text(estimate.get("part_number"))
+            if not pid:
+                raise SystemExit("Every geometric weight estimate needs an id")
+            if pid in seen_geometric_ids:
+                raise SystemExit(f"Duplicate geometric weight estimate for {pid}")
+            seen_geometric_ids.add(pid)
+
+            product = geometric_products_by_id.get(pid)
+            if product is None:
+                raise SystemExit(f"Geometric weight estimate references unknown catalogue product: {pid}")
+            actual_part_number = text(product.get("part_number") or product.get("partNumber"))
+            if actual_part_number and expected_part_number and actual_part_number != expected_part_number:
+                raise SystemExit(
+                    f"Geometric weight part-number mismatch for {pid}: "
+                    f"{expected_part_number!r} != {actual_part_number!r}"
+                )
+
+            net_weight = estimate.get("net_weight_g", estimate.get("calculated_weight_g"))
+            packed_weight = estimate.get("approx_weight_g")
+            allowance = estimate.get("packaging_allowance_percent")
+            profile = text(estimate.get("packing_profile"))
+            model = text(estimate.get("model"))
+            confidence = text(estimate.get("confidence"))
+            if (
+                not isinstance(net_weight, (int, float))
+                or isinstance(net_weight, bool)
+                or not math.isfinite(net_weight)
+                or net_weight <= 0
+                or estimate.get("calculated_weight_g") != net_weight
+                or not isinstance(packed_weight, (int, float))
+                or isinstance(packed_weight, bool)
+                or not math.isfinite(packed_weight)
+                or packed_weight <= 0
+                or allowance != 5
+                or packed_weight != math.ceil((net_weight * (1 + allowance / 100)) / 50) * 50
+                or profile not in allowed_profiles
+                or not model
+                or confidence not in allowed_confidence
+            ):
+                raise SystemExit(f"Invalid geometric weight or packaging estimate for {pid}")
+
+            existing_weight = product.get("approx_weight_g")
+            existing_status = text(product.get("weight_estimation_status")).casefold()
+            if (
+                existing_weight not in (None, "")
+                and isinstance(existing_weight, (int, float))
+                and existing_weight > 0
+                and existing_status != "estimated"
+                and int(round(existing_weight)) != int(round(packed_weight))
+            ):
+                raise SystemExit(
+                    f"Geometric estimate would overwrite an existing source-backed weight for {pid}: "
+                    f"{existing_weight!r} != {packed_weight!r}"
+                )
+
+            metadata = {
+                "calculated_weight_g": round(float(net_weight), 1),
+                "approx_weight_g": int(packed_weight),
+                "weight_estimation_status": "estimated",
+                "weight_estimation_method": model,
+                "weight_estimation_notes": (
+                    text(estimate.get("notes")) + " "
+                    + "Source: Souviks catalogue dimensions; generic ferrous density 7,850 kg/m³; "
+                    + "5% estimated single-unit packaging allowance."
+                ).strip(),
+                "weight_estimation_confidence": confidence,
+                "shipping_packing_profile": profile,
+                "shipping_packaging_allowance_percent": allowance,
+            }
+            for field, value in metadata.items():
+                if product.get(field) != value:
+                    product[field] = value
+                    geometric_weights_changed = True
+
+        if geometric_weights_changed:
+            CATALOGUE_PATH.write_text(
+                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
     # A temporary sheet override file is used for an exact workbook-to-catalogue
     # reconciliation. It is deleted after the projection commit.
     override_path = ROOT / "assets/data/catalogue_overrides.json"
@@ -987,6 +1092,9 @@ def reconcile_catalogue_projections():
             "dimensions_mm": p.get("dimensions_mm"),
             "dimension_specs_mm": list(p.get("dimension_specs_mm") or []),
             "shipping_package_dimensions_mm": p.get("shipping_package_dimensions_mm"),
+            "shipping_packing_profile": text(p.get("shipping_packing_profile")),
+            "shipping_packaging_allowance_percent": p.get("shipping_packaging_allowance_percent"),
+            "weight_estimation_confidence": text(p.get("weight_estimation_confidence")),
             "weight_calculation_quantity": p.get("weight_calculation_quantity"),
             "dimensions_label": text(p.get("dimensions_label")),
             "dimensions_source": text(p.get("dimensions_source")),
@@ -1602,6 +1710,9 @@ def reconcile_catalogue_projections():
             data["approx_weight_g"] = product_packed_weight_grams(product)
             data["dimensions_mm"] = product.get("dimensions_mm")
             data["dimension_specs_mm"] = list(product.get("dimension_specs_mm") or [])
+            data["shipping_packing_profile"] = text(product.get("shipping_packing_profile"))
+            data["shipping_packaging_allowance_percent"] = product.get("shipping_packaging_allowance_percent")
+            data["weight_estimation_confidence"] = text(product.get("weight_estimation_confidence"))
             data["weight_calculation_quantity"] = product.get("weight_calculation_quantity")
             data["dimensions_label"] = text(product.get("dimensions_label"))
             data["dimensions_source"] = text(product.get("dimensions_source"))
