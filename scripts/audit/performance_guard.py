@@ -258,7 +258,7 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
             r'<link\b(?=[^>]*\brel=["\']preload["\'])'
             r'(?=[^>]*\bas=["\']image["\'])'
             r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
-            r'product-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])'
+            r'product-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
             r'(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])[^>]*>',
             raw,
             flags=re.I | re.S,
@@ -311,7 +311,7 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
         mobile_source = re.search(
             r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
             r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/'
-            r'product-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
+            r'product-hero-mobile-crop\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
             picture_markup,
             flags=re.I | re.S,
         )
@@ -382,57 +382,91 @@ def check_listing_hydration_waits_for_lcp(errors: list[str]) -> None:
 
 
 def check_listing_critical_image_loading(errors: list[str]) -> None:
-    """Keep the LCP hero synchronous and reserve high priority for the first product row."""
+    """Keep priority on the LCP hero and defer all product-card images."""
     for language in ("en", "hi", "bn"):
         path = ROOT / language / "products.html"
         if not path.is_file():
             fail(f"missing {language} product listing for image priority contract", errors)
             continue
-
         raw = path.read_text(encoding="utf-8", errors="ignore")
         hero = re.search(
             r'<img\b(?=[^>]*\bclass=["\'][^"\']*\bproducts-hero-media\b[^"\']*["\'])[^>]*>',
-            raw,
-            flags=re.I | re.S,
+            raw, flags=re.I | re.S
         )
         if not hero:
             fail(f"{path.relative_to(ROOT)}: missing product hero image", errors)
-        elif not re.search(r'\bdecoding=["\']sync["\']', hero.group(0), re.I):
-            fail(
-                f"{path.relative_to(ROOT)}: LCP product hero must use synchronous image decoding",
-                errors,
-            )
+        else:
+            tag = hero.group(0)
+            for attr, label in ((r'\bloading=["\']eager["\']', "eager loading"),
+                                (r'\bfetchpriority=["\']high["\']', "high fetch priority"),
+                                (r'\bdecoding=["\']async["\']', "asynchronous decoding")):
+                if not re.search(attr, tag, re.I):
+                    fail(f"{path.relative_to(ROOT)}: LCP hero must retain {label}", errors)
 
         grid_start = raw.find('id="product-grid"')
         if grid_start < 0:
-            fail(f"{path.relative_to(ROOT)}: missing #product-grid for image priority contract", errors)
+            fail(f"{path.relative_to(ROOT)}: missing #product-grid", errors)
             continue
-
         image_tags = re.findall(
             r'<img\b(?=[^>]*\bclass=["\'][^"\']*\bproduct-image-file\b[^"\']*["\'])[^>]*>',
-            raw[grid_start:],
-            flags=re.I | re.S,
+            raw[grid_start:], flags=re.I | re.S
         )[:4]
         if len(image_tags) != 4:
-            fail(
-                f"{path.relative_to(ROOT)}: expected four initial product-card images, found {len(image_tags)}",
-                errors,
-            )
+            fail(f"{path.relative_to(ROOT)}: expected four initial product-card images, found {len(image_tags)}", errors)
             continue
-
         for index, tag in enumerate(image_tags):
             loading = re.search(r'\bloading=["\']([^"\']+)["\']', tag, re.I)
             priority = re.search(r'\bfetchpriority=["\']([^"\']+)["\']', tag, re.I)
-            if index < 2:
-                if not loading or loading.group(1).lower() != "eager":
-                    fail(f"{path.relative_to(ROOT)}: initial product image {index + 1} must remain eager", errors)
-                if not priority or priority.group(1).lower() != "high":
-                    fail(f"{path.relative_to(ROOT)}: initial product image {index + 1} must retain high priority", errors)
-            else:
-                if not loading or loading.group(1).lower() != "lazy":
-                    fail(f"{path.relative_to(ROOT)}: below-row product image {index + 1} must be lazy loaded", errors)
-                if priority and priority.group(1).lower() == "high":
-                    fail(f"{path.relative_to(ROOT)}: below-row product image {index + 1} must not request high priority", errors)
+            if not loading or loading.group(1).lower() != "lazy":
+                fail(f"{path.relative_to(ROOT)}: product image {index + 1} must be lazy loaded", errors)
+            if priority and priority.group(1).lower() == "high":
+                fail(f"{path.relative_to(ROOT)}: product image {index + 1} must not be high priority", errors)
+
+
+def check_mobile_listing_hero_assets(errors: list[str]) -> None:
+    """Validate crop files, content hashes, and AVIF/WebP responsive source order."""
+    hero_dir = ROOT / "assets/images/hero"
+    expected = {}
+    for filename in ("product-hero-mobile-crop.avif", "product-hero-mobile-crop.webp"):
+        path = hero_dir / filename
+        if not path.is_file():
+            fail(f"missing optimized mobile product hero: {path.relative_to(ROOT)}", errors)
+        else:
+            expected[filename] = hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+
+    for language in ("en", "hi", "bn"):
+        page = ROOT / language / "products.html"
+        if not page.is_file():
+            continue
+        raw = page.read_text(encoding="utf-8", errors="ignore")
+        for filename, version in expected.items():
+            if f"{filename}?v={version}" not in raw:
+                fail(f"{page.relative_to(ROOT)}: stale or missing content hash for {filename}", errors)
+        picture = re.search(
+            r'<picture\b(?=[^>]*\bclass=["\'][^"\']*\bproducts-hero-picture\b[^"\']*["\'])'
+            r'[^>]*>([\s\S]*?)</picture\s*>',
+            raw, flags=re.I | re.S
+        )
+        if not picture:
+            fail(f"{page.relative_to(ROOT)}: missing responsive product hero picture", errors)
+            continue
+        markup = picture.group(1)
+        avif = re.search(
+            r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+            r'(?=[^>]*\bsrcset=["\'][^"\']*product-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\btype=["\']image/avif["\'])[^>]*>',
+            markup, flags=re.I | re.S
+        )
+        webp = re.search(
+            r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+            r'(?=[^>]*\bsrcset=["\'][^"\']*product-hero-mobile-crop\.webp\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\btype=["\']image/webp["\'])[^>]*>',
+            markup, flags=re.I | re.S
+        )
+        if not avif or not webp:
+            fail(f"{page.relative_to(ROOT)}: AVIF source and cropped WebP fallback are required", errors)
+        elif markup.find(avif.group(0)) > markup.find(webp.group(0)):
+            fail(f"{page.relative_to(ROOT)}: AVIF source must precede WebP fallback", errors)
 
 
 def main() -> int:
@@ -444,6 +478,7 @@ def main() -> int:
     check_responsive_mobile_hero_assets(errors)
     check_listing_hydration_waits_for_lcp(errors)
     check_listing_critical_image_loading(errors)
+    check_mobile_listing_hero_assets(errors)
 
     if errors:
         for error in errors:
