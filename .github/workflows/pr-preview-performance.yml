@@ -10,6 +10,7 @@ on:
       - ".github/workflows/pr-preview-performance.yml"
       - ".lighthouserc.json"
       - "scripts/audit/optimize_static_images.py"
+      - "scripts/audit/prepare_mobile_listing_lcp.py"
       - "scripts/audit/seo_contract.py"
       - "scripts/catalogue/**"
       - "assets/data/**"
@@ -37,15 +38,29 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 1
 
+      - name: Prepare production-equivalent shared hero assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install --user --break-system-packages Pillow pillow-avif-plugin
+          git fetch --no-tags origin main --depth=1
+          git worktree add --detach /tmp/souviks-baseline FETCH_HEAD
+
+          # These generated WebP/AVIF files are ignored build outputs. Prepare
+          # both checkouts before serving them so Lighthouse measures real assets
+          # rather than a missing-hero fallback from the raw Git checkout.
+          python3 /tmp/souviks-baseline/scripts/audit/optimize_static_images.py
+          python3 /tmp/souviks-baseline/scripts/audit/prepare_mobile_listing_lcp.py
+          python3 scripts/audit/optimize_static_images.py
+          python3 scripts/audit/prepare_mobile_listing_lcp.py
+
+          echo "Baseline main revision: $(git -C /tmp/souviks-baseline rev-parse HEAD)"
+          echo "Candidate PR revision: $(git rev-parse HEAD)"
+
       - name: Start local main and PR preview servers
         shell: bash
         run: |
           set -euo pipefail
-          git fetch --no-tags origin main --depth=1
-          git worktree add --detach /tmp/souviks-baseline FETCH_HEAD
-          echo "Baseline main revision: $(git -C /tmp/souviks-baseline rev-parse HEAD)"
-          echo "Candidate PR revision: $(git rev-parse HEAD)"
-
           python3 -m http.server 4173 --directory /tmp/souviks-baseline >/tmp/souviks-baseline-http.log 2>&1 &
           echo $! >/tmp/souviks-baseline-http.pid
           python3 -m http.server 4174 --directory "$GITHUB_WORKSPACE" >/tmp/souviks-candidate-http.log 2>&1 &
