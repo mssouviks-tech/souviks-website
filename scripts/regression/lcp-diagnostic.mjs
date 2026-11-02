@@ -127,7 +127,7 @@ try {
             const resources = performance
               .getEntriesByType("resource")
               .filter((entry) =>
-                /product-hero(?:-mobile)?\.webp/i.test(entry.name),
+                /product-hero(?:-mobile(?:-crop)?)?\.(?:avif|webp)/i.test(entry.name),
               )
               .map((entry) => ({
                 name: entry.name,
@@ -191,7 +191,7 @@ try {
             const resources = performance
               .getEntriesByType("resource")
               .filter((entry) =>
-                /product-hero(?:-mobile)?\.webp|site-base\.css|products\.css|fonts\.(?:googleapis|gstatic)/i.test(
+                /product-hero(?:-mobile(?:-crop)?)?\.(?:avif|webp)|site-base\.css|products\.css|fonts\.(?:googleapis|gstatic)/i.test(
                   entry.name,
                 ),
               )
