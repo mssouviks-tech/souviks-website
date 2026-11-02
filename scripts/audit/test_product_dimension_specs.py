@@ -209,6 +209,24 @@ for product in weighted_active:
             fail(f"{pid}: Product.weight is not the net product weight on {language} page")
 
         additional = schema.get("additionalProperty") or []
+        for spec in product.get("dimension_specs_mm", []):
+            if not any(
+                item.get("name") == spec.get("name")
+                and item.get("value") == spec.get("value_mm")
+                and item.get("unitText") == "mm"
+                for item in additional
+                if isinstance(item, dict)
+            ):
+                fail(f"{pid}: Product JSON-LD dimension missing/mismatched: {spec.get('name')}")
+        pin_dimensions = product.get("dimensions_mm")
+        if isinstance(pin_dimensions, list) and len(pin_dimensions) == 2:
+            for name, value in zip(("Diameter", "Overall length"), pin_dimensions):
+                if not any(
+                    item.get("name") == name and item.get("value") == value and item.get("unitText") == "mm"
+                    for item in additional
+                    if isinstance(item, dict)
+                ):
+                    fail(f"{pid}: Product JSON-LD {name} missing/mismatched")
         packed = [
             item for item in additional
             if isinstance(item, dict)
