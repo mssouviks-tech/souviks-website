@@ -6738,12 +6738,23 @@
     "created_at": "2026-10-04T18:42:23.266460",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 25,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 4,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000091",
@@ -6807,12 +6818,23 @@
     "created_at": "2026-10-04T18:42:23.301128",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 25,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000092",
@@ -7092,12 +7114,18 @@
     "created_at": "2026-10-04T18:42:23.410473",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Clutch diameter",
+        "value_mm": 190,
+        "source": "product_name_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000096",
@@ -7226,12 +7254,18 @@
     "created_at": "2026-10-04T18:42:23.462108",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Clutch diameter",
+        "value_mm": 215,
+        "source": "product_name_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000098",
@@ -7293,12 +7327,18 @@
     "created_at": "2026-10-04T18:42:23.495574",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Clutch diameter",
+        "value_mm": 215,
+        "source": "product_name_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000099",
@@ -9239,12 +9279,23 @@
     "created_at": "2026-10-04T18:42:24.184802",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 30,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 4,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000127",
@@ -9308,12 +9359,23 @@
     "created_at": "2026-10-04T18:42:24.217239",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 30,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000128",
@@ -9377,12 +9439,23 @@
     "created_at": "2026-10-04T18:42:24.247673",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 32,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 4,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000129",
@@ -9446,12 +9519,23 @@
     "created_at": "2026-10-04T18:42:24.295143",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 32,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000130",
@@ -9519,12 +9603,23 @@
     "created_at": "2026-10-04T18:42:24.331576",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 35,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 4,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000131",
@@ -9591,12 +9686,23 @@
     "created_at": "2026-10-04T18:42:24.357052",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 35,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000132",
@@ -9668,12 +9774,23 @@
     "created_at": "2026-10-04T18:42:24.389188",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 35,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 6,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000133",
@@ -9736,12 +9853,23 @@
     "created_at": "2026-10-04T18:42:24.417593",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 35,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 7,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000134",
@@ -9806,12 +9934,23 @@
     "created_at": "2026-10-04T18:42:24.457122",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 35,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 8,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000135",
@@ -9875,12 +10014,23 @@
     "created_at": "2026-10-04T18:42:24.498549",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 42,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 4,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000136",
@@ -9943,12 +10093,23 @@
     "created_at": "2026-10-04T18:42:24.535363",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 42,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000137",
@@ -10012,12 +10173,23 @@
     "created_at": "2026-10-04T18:42:24.567364",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 42,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 6,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000138",
@@ -10080,12 +10252,23 @@
     "created_at": "2026-10-04T18:42:24.603833",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 42,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 7,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000139",
@@ -10147,12 +10330,23 @@
     "created_at": "2026-10-04T18:42:24.637223",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 42,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 8,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000140",
@@ -10215,12 +10409,23 @@
     "created_at": "2026-10-04T18:42:24.674873",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 50,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 4,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000141",
@@ -10283,12 +10488,23 @@
     "created_at": "2026-10-04T18:42:24.709756",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 50,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000142",
@@ -10350,12 +10566,23 @@
     "created_at": "2026-10-04T18:42:24.768333",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 50,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 6,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000143",
@@ -10417,12 +10644,23 @@
     "created_at": "2026-10-04T18:42:24.799827",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 50,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 7,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000144",
@@ -10484,12 +10722,23 @@
     "created_at": "2026-10-04T18:42:24.830726",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 50,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 8,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000145",
@@ -16545,12 +16794,18 @@
     "created_at": "2026-10-04T18:42:27.371873",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Clutch diameter",
+        "value_mm": 380,
+        "source": "product_name_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000233",
@@ -28984,12 +29239,18 @@
     "created_at": "2026-10-04T18:42:31.051708",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Effective belt length",
+        "value_mm": 1250,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000411",
@@ -30319,12 +30580,18 @@
     "created_at": "2026-10-04T18:42:31.384466",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Clutch diameter",
+        "value_mm": 330,
+        "source": "product_name_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000430",
@@ -42481,12 +42748,18 @@
     "created_at": "2026-10-04T18:42:35.915081",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal belt size",
+        "value_mm": 1170,
+        "source": "product_code_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000604",
@@ -43378,12 +43651,18 @@
     "created_at": "2026-10-04T18:42:36.240862",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal belt size",
+        "value_mm": 1175,
+        "source": "product_code_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000617",
@@ -53158,12 +53437,23 @@
     "created_at": "2026-10-04T18:42:38.258587",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Overall length",
+        "value_mm": 81,
+        "source": "product_description"
+      },
+      {
+        "name": "Inner diameter",
+        "value_mm": 19.5,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000755",
@@ -57085,12 +57375,18 @@
     "created_at": "2026-10-04T18:42:39.138075",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal belt size",
+        "value_mm": 980,
+        "source": "product_code_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000805",
@@ -57960,12 +58256,28 @@
     "created_at": "2026-10-04T18:42:39.333128",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 12,
+        "source": "product_name"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_name"
+      },
+      {
+        "name": "Bolt length",
+        "value_mm": 35,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000817",
@@ -58734,12 +59046,23 @@
     "created_at": "2026-10-04T18:42:39.558882",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 90,
+        "source": "product_name"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 24,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000828",
@@ -58803,12 +59126,23 @@
     "created_at": "2026-10-04T18:42:39.577955",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 80,
+        "source": "product_name"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 15,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000829",
@@ -58871,12 +59205,23 @@
     "created_at": "2026-10-04T18:42:39.595352",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Leaf width",
+        "value_mm": 90,
+        "source": "product_name"
+      },
+      {
+        "name": "Leaf thickness",
+        "value_mm": 24,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000830",
@@ -64572,12 +64917,23 @@
     "created_at": "2026-10-04T18:42:40.399297",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Pipe diameter",
+        "value_mm": 84.2,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 103,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000909",
@@ -64640,12 +64996,28 @@
     "created_at": "2026-10-04T18:42:40.419950",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      },
+      {
+        "name": "Oil-seal diameter",
+        "value_mm": 69,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000910",
@@ -64796,12 +65168,28 @@
     "created_at": "2026-10-04T18:42:40.459890",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      },
+      {
+        "name": "Oil-seal diameter",
+        "value_mm": 79.9,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000912",
@@ -64864,12 +65252,28 @@
     "created_at": "2026-10-04T18:42:40.481741",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      },
+      {
+        "name": "Oil-seal diameter",
+        "value_mm": 68,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000913",
@@ -65091,12 +65495,28 @@
     "created_at": "2026-10-04T18:42:40.519652",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      },
+      {
+        "name": "Oil-seal diameter",
+        "value_mm": 72.15,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000916",
@@ -65227,12 +65647,28 @@
     "created_at": "2026-10-04T18:42:40.593512",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 13,
+        "source": "product_description"
+      },
+      {
+        "name": "Oil-seal diameter",
+        "value_mm": 70,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000918",
@@ -65364,12 +65800,28 @@
     "created_at": "2026-10-04T18:42:40.633464",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Mounting hole diameter",
+        "value_mm": 12.1,
+        "source": "product_description"
+      },
+      {
+        "name": "Oil-seal diameter",
+        "value_mm": 68,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS000920",
@@ -67929,12 +68381,23 @@
     "created_at": "2026-10-04T18:42:41.315996",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 45,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 4,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000955",
@@ -67999,12 +68462,23 @@
     "created_at": "2026-10-04T18:42:41.317481",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 45,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 5,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000956",
@@ -68069,12 +68543,23 @@
     "created_at": "2026-10-04T18:42:41.317481",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 45,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 6,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000957",
@@ -68139,12 +68624,23 @@
     "created_at": "2026-10-04T18:42:41.317481",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 45,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 7,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000958",
@@ -68209,12 +68705,23 @@
     "created_at": "2026-10-04T18:42:41.318473",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal bore diameter",
+        "value_mm": 45,
+        "source": "product_name"
+      },
+      {
+        "name": "Washer thickness",
+        "value_mm": 8,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS000959",
@@ -73098,12 +73605,23 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-07T12:49:00+05:30",
     "updated_at": "2026-10-07T12:49:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Cable diameter",
+        "value_mm": 3.2,
+        "source": "product_description"
+      },
+      {
+        "name": "Cable length",
+        "value_mm": 2350,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001025",
@@ -74424,12 +74942,18 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing width",
+        "value_mm": 22,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS001049",
@@ -74582,12 +75106,18 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing diameter",
+        "value_mm": 65,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS001052",
@@ -74692,12 +75222,18 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Bearing diameter",
+        "value_mm": 65,
+        "source": "product_name"
+      }
+    ]
   },
   {
     "id": "SVKS001054",
@@ -76487,12 +77023,28 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Pipe diameter",
+        "value_mm": 114,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 148,
+        "source": "product_description"
+      },
+      {
+        "name": "Bearing diameter",
+        "value_mm": 55,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001105",
@@ -76544,12 +77096,28 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall length",
+        "value_mm": 71,
+        "source": "product_description"
+      },
+      {
+        "name": "Oil-seal diameter",
+        "value_mm": 76,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001106",
@@ -76601,12 +77169,28 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Mounting plate size",
+        "value_mm": 150,
+        "source": "product_description"
+      },
+      {
+        "name": "Overall height",
+        "value_mm": 95,
+        "source": "product_description"
+      },
+      {
+        "name": "Oil-seal diameter",
+        "value_mm": 68.6,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001107",
@@ -76712,12 +77296,18 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Pipe diameter",
+        "value_mm": 101.6,
+        "source": "product_description_inch_conversion"
+      }
+    ]
   },
   {
     "id": "SVKS001109",
@@ -77091,12 +77681,18 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal belt size",
+        "value_mm": 1185,
+        "source": "product_code_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001116",
@@ -78751,12 +79347,28 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Ball diameter",
+        "value_mm": 35,
+        "source": "product_description"
+      },
+      {
+        "name": "Thread diameter",
+        "value_mm": 18,
+        "source": "product_description"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001122",
@@ -78930,12 +79542,28 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "weight_estimation_status": "",
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Pin-head diameter",
+        "value_mm": 35,
+        "source": "product_description"
+      },
+      {
+        "name": "Thread diameter",
+        "value_mm": 20,
+        "source": "product_description"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001136",
@@ -79345,8 +79973,8 @@
     "discountPercent": 17,
     "approx_weight_g": null,
     "dimensions_mm": null,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "calculated_weight_g": null,
     "weight_estimation_status": "",
     "weight_estimation_method": "",
@@ -79387,7 +80015,33 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Right-hand thread diameter",
+        "value_mm": 30,
+        "source": "product_description"
+      },
+      {
+        "name": "Right-hand thread pitch",
+        "value_mm": 1.5,
+        "source": "product_description"
+      },
+      {
+        "name": "Ball-pin thread diameter",
+        "value_mm": 20,
+        "source": "product_description"
+      },
+      {
+        "name": "Ball-pin thread pitch",
+        "value_mm": 1.5,
+        "source": "product_description"
+      },
+      {
+        "name": "Spanner size",
+        "value_mm": 30,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001129",
@@ -79465,8 +80119,8 @@
     "discountPercent": 13,
     "approx_weight_g": null,
     "dimensions_mm": null,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "calculated_weight_g": null,
     "weight_estimation_status": "",
     "weight_estimation_method": "",
@@ -79507,7 +80161,33 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Thread diameter",
+        "value_mm": 30,
+        "source": "product_description"
+      },
+      {
+        "name": "Thread pitch",
+        "value_mm": 1.5,
+        "source": "product_description"
+      },
+      {
+        "name": "Ball-pin thread diameter",
+        "value_mm": 14,
+        "source": "product_description"
+      },
+      {
+        "name": "Ball-pin thread pitch",
+        "value_mm": 1.5,
+        "source": "product_description"
+      },
+      {
+        "name": "Spanner size",
+        "value_mm": 21,
+        "source": "product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001131",
@@ -80671,8 +81351,8 @@
     "discountPercent": null,
     "approx_weight_g": null,
     "dimensions_mm": null,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "calculated_weight_g": null,
     "weight_estimation_status": "",
     "weight_estimation_method": "",
@@ -80710,7 +81390,13 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal belt size",
+        "value_mm": 930,
+        "source": "product_code_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001154",
@@ -80729,8 +81415,8 @@
     "discountPercent": null,
     "approx_weight_g": null,
     "dimensions_mm": null,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "calculated_weight_g": null,
     "weight_estimation_status": "",
     "weight_estimation_method": "",
@@ -80768,7 +81454,13 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal belt size",
+        "value_mm": 1475,
+        "source": "product_code_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001155",
@@ -80785,8 +81477,8 @@
     "discountPercent": null,
     "approx_weight_g": null,
     "dimensions_mm": null,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "calculated_weight_g": null,
     "weight_estimation_status": "",
     "weight_estimation_method": "",
@@ -80824,7 +81516,13 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal belt size",
+        "value_mm": 1355,
+        "source": "product_code_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001156",
@@ -80841,8 +81539,8 @@
     "discountPercent": null,
     "approx_weight_g": null,
     "dimensions_mm": null,
-    "dimensions_label": "",
-    "dimensions_source": "",
+    "dimensions_label": "Product technical measurements (mm; not shipping-carton dimensions)",
+    "dimensions_source": "product_dimension_specification_manifest",
     "calculated_weight_g": null,
     "weight_estimation_status": "",
     "weight_estimation_method": "",
@@ -80880,7 +81578,13 @@
     "gallery_dimensions": {},
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "dimension_specs_mm": []
+    "dimension_specs_mm": [
+      {
+        "name": "Nominal belt size",
+        "value_mm": 1260,
+        "source": "product_code_and_product_description"
+      }
+    ]
   },
   {
     "id": "SVKS001157",
