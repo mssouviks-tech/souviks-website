@@ -2,7 +2,7 @@
   "version": 1,
   "purpose": "Explicit product-component and fitment measurements captured from catalogue item names, plus one Dana Aftermarket cross-reference. These values are not shipping-carton or parcel dimensions.",
   "unit": "mm",
-  "records": 326,
+  "records": 399,
   "products": [
     {
       "id": "SVKS000002",
@@ -5602,6 +5602,1660 @@
       "manufacturer_weight_round_up_to_g": 50,
       "manufacturer_weight_approx_packed_g": 1800,
       "manufacturer_weight_notes": "Timken's official 539/532 product listing reports 1.70 kg net. Packed checkout estimate adds 5% and rounds up to the next 50 g (1,800 g). Do not confuse this 539/532 bearing with the 539/532X SKF variant."
+    },
+    {
+      "id": "SVKS000592",
+      "part_number": "0152",
+      "product_name": "ARMADA NEW (RR) - Main leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 70,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 18,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000608",
+      "part_number": "0152",
+      "product_name": "ARMADA NEW (RR) - 2nd leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 70,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 18,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000878",
+      "part_number": "208",
+      "product_name": "E Comet Front - Main Leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 75,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 12,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000879",
+      "part_number": "208",
+      "product_name": "E Comet Front - 2nd Leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 75,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 12,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000880",
+      "part_number": "236",
+      "product_name": "U Truck Front - Main Leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 100,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 15,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000881",
+      "part_number": "236",
+      "product_name": "U Truck Front - AUX-A",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 100,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 15,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000882",
+      "part_number": "236",
+      "product_name": "U Truck Front - AUX-B",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 100,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 15,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000883",
+      "part_number": "209",
+      "product_name": "E Comet Rear - Main Leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 75,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 14,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000893",
+      "part_number": "0151",
+      "product_name": "ARMADA NEW (FR) - main leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 90,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 27,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000894",
+      "part_number": "0152",
+      "product_name": "ARMADA NEW (FR) - 2nd Leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 90,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 27,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000895",
+      "part_number": "0153",
+      "product_name": "ARMADA NEW (FR) - 3rd Leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 90,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 27,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000896",
+      "part_number": "0154",
+      "product_name": "ARMADA NEW (FR) - AUX-A",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 90,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 27,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000899",
+      "part_number": "14032",
+      "product_name": "TML Intra V30 - Main Leaf",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 60,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 9,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000900",
+      "part_number": "14032",
+      "product_name": "TML Intra V30 - AUX-A",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf section width",
+          "value_mm": 60,
+          "source": "product_description"
+        },
+        {
+          "name": "Leaf section thickness",
+          "value_mm": 9,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000773",
+      "part_number": "K14B",
+      "product_name": "Cross Holder L/L Tusker",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 12.8,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 105,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 34.92,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": null,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000774",
+      "part_number": "K14C",
+      "product_name": "Cross Holder L/L 2214",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 12.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 116,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 41.27,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 126,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000775",
+      "part_number": "K14D",
+      "product_name": "Cross Holder TATA 4018   (Patti Type)",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 16.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 134,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 49.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": null,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000776",
+      "part_number": "K14EX",
+      "product_name": "Cross Holder L/L 2214",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 10.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 113,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 41.27,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 126,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000777",
+      "part_number": "K14FX",
+      "product_name": "Cross Holder RSB 325",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 10.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 114,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 42,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 119,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000778",
+      "part_number": "K260",
+      "product_name": "Half Yoke RSB 325",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 131,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 42,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 119,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000779",
+      "part_number": "K261",
+      "product_name": "Half Yoke RSB 403",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 139,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 42,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 129,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000780",
+      "part_number": "K262",
+      "product_name": "Half Yoke RSB 490 (490   Series)",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 148,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 48,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 135,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000781",
+      "part_number": "K295",
+      "product_name": "Cross Holder TATA 4018   (Patti Type)",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 113,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 49.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": null,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000782",
+      "part_number": "K298",
+      "product_name": "Cross Holder RSB 403",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 12.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 116,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 42,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 129,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000783",
+      "part_number": "K329A",
+      "product_name": "Cross Holder RSB 325",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 110,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 42,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 119,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000784",
+      "part_number": "K335A",
+      "product_name": "Cross Holder L/L Tusker",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 10.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 90,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 34.92,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": null,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000785",
+      "part_number": "K368",
+      "product_name": "Cross Holder RSB 403",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 9.7,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 136,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 42,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 129,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000786",
+      "part_number": "K370",
+      "product_name": "Cross Holder L/L 2214",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 118,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 41.27,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 126,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000787",
+      "part_number": "K371",
+      "product_name": "Cross Holder RSB 490",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 15,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 112,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 48,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 135,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000788",
+      "part_number": "K372",
+      "product_name": "Cross Holder RSB 490",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 15,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 126,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 48,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 135,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000789",
+      "part_number": "K373",
+      "product_name": "Cross Holder L/L 2214",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 16.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 133,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 41.27,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 126,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000790",
+      "part_number": "K374",
+      "product_name": "Cross Holder L/L 2214",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 11.1,
+          "source": "product_description"
+        },
+        {
+          "name": "Holder/yoke height",
+          "value_mm": 107,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 41.27,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 126,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000908",
+      "part_number": "K185",
+      "product_name": "Long Fork – Leyland Tusker",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Pipe diameter/nominal size",
+          "value_mm": 84.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Component height",
+          "value_mm": 103,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000909",
+      "part_number": "K317",
+      "product_name": "Centre Coupling Flange – 26 Spline",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal mating diameter",
+          "value_mm": 69,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000910",
+      "part_number": "K276",
+      "product_name": "Cross Holder Flange Yoke – RSB 325",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 42,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 119,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 12.2,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000911",
+      "part_number": "K567",
+      "product_name": "Gear Coupling – GBS-1150",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal mating diameter",
+          "value_mm": 79.9,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000912",
+      "part_number": "K319",
+      "product_name": "Gear Coupling – GBS 75",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal mating diameter",
+          "value_mm": 68,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000913",
+      "part_number": "K331",
+      "product_name": "Cross Holder Flange Yoke – RSB 490",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 48,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 135,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000915",
+      "part_number": "KF6929",
+      "product_name": "Centre Coupling Flange – RSB 490 / 590",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal mating diameter",
+          "value_mm": 72.15,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000917",
+      "part_number": "KF6847A",
+      "product_name": "Differential Coupling Flange – Tata 2518 Small",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal mating diameter",
+          "value_mm": 70,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000919",
+      "part_number": "KF6289",
+      "product_name": "Gear Coupling – GB 75",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 12.1,
+          "source": "product_description"
+        },
+        {
+          "name": "Oil-seal mating diameter",
+          "value_mm": 68,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000921",
+      "part_number": "K141A",
+      "product_name": "Slip Yoke – SPL 90",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 41.27,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 126,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000925",
+      "part_number": "K141",
+      "product_name": "Slip Yoke – SPL 90",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 41.27,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 126,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000926",
+      "part_number": "K310",
+      "product_name": "Slip Yoke – Tata 4018 Patti Type",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 49.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 154.8,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000927",
+      "part_number": "K269A",
+      "product_name": "Slip Yoke – SPL 90 / Tata Heavy Vehicle",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 41.27,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 126,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000930",
+      "part_number": "K652",
+      "product_name": "Centre Coupling Flange – 7 in",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Plate size",
+          "value_mm": 180,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 15,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000931",
+      "part_number": "K637",
+      "product_name": "Cross Holder Flange Yoke – SPR 2040",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 47.68,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 135,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000932",
+      "part_number": "K543",
+      "product_name": "Cross Holder Flange Yoke – SPR 2040 7 in",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 47.68,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 135,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 180,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 15,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000933",
+      "part_number": "K478",
+      "product_name": "Cross Holder Flange Yoke – SPR 2040",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 47.68,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 135,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 13,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000934",
+      "part_number": "K631",
+      "product_name": "Cross Holder Flange Yoke – SPR 2040 7 in",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cross bearing-cap diameter",
+          "value_mm": 47.68,
+          "source": "product_description"
+        },
+        {
+          "name": "Cross overall span",
+          "value_mm": 135,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 180,
+          "source": "product_description"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 15,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001104",
+      "part_number": "KF-6934B",
+      "product_name": "Front Teeth 20 Spline Bolt Type",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Pipe diameter/nominal size",
+          "value_mm": 114,
+          "source": "product_description"
+        },
+        {
+          "name": "Component height",
+          "value_mm": 148,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001105",
+      "part_number": "KF-6907A",
+      "product_name": "Coupling Center Flange 20 Spline",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        },
+        {
+          "name": "Component length",
+          "value_mm": 71,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001106",
+      "part_number": "KF-6929A",
+      "product_name": "Center Coupling Flange 26 Spline",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Component height",
+          "value_mm": 95,
+          "source": "product_description"
+        },
+        {
+          "name": "Plate size",
+          "value_mm": 150,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000481",
+      "part_number": "29068102",
+      "product_name": "Clutch Master Cylinder",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cylinder bore diameter",
+          "value_mm": 22.22,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000742",
+      "part_number": "KF5098",
+      "product_name": "Rear Engine Mounting Tata Signa 4923/LPO 1625 BS IV",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting bore diameter",
+          "value_mm": 12,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000743",
+      "part_number": "KF5099",
+      "product_name": "Rear Engine Mounting Tata Signa 4923/LPO 1625 BS IV",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting bore diameter",
+          "value_mm": 16,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000578",
+      "part_number": "300001202",
+      "product_name": "Cylinder Head Assembly Repair Kit",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated compressor bore designation",
+          "value_mm": 77,
+          "source": "product_description; associated compressor application designation, not repair-kit envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001024",
+      "part_number": "282954209902",
+      "product_name": "Speedometer Cable",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cable conductor diameter",
+          "value_mm": 3.2,
+          "source": "product_description"
+        },
+        {
+          "name": "Cable overall length",
+          "value_mm": 2350,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000410",
+      "part_number": "8PK-1250",
+      "product_name": "8PK-1250 EPDM V Belt",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Belt effective length",
+          "value_mm": 1250,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001117",
+      "part_number": "723-G",
+      "product_name": "Gear Lever End RH, Long",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 12,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001118",
+      "part_number": "712-G",
+      "product_name": "Gear Lever Ends RH/RH Pair",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 12,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001119",
+      "part_number": "773",
+      "product_name": "Gear Lever End LH",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 12,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.25,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 major diameter",
+          "value_mm": 10,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001120",
+      "part_number": "1055",
+      "product_name": "Gear Lever Ends RH/LH Pair",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 12,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.75,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 major diameter",
+          "value_mm": 10,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001121",
+      "part_number": "5858",
+      "product_name": "Power Steering Repair Kit",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 18,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Ball pin/head diameter",
+          "value_mm": 35,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001122",
+      "part_number": "728",
+      "product_name": "Tie Rod Ends RH/LH Pair",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 30,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 major diameter",
+          "value_mm": 18,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001123",
+      "part_number": "9756",
+      "product_name": "Tie Rod & Drag Link Repair Kit",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 20,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001124",
+      "part_number": "975",
+      "product_name": "Drag Link Kit",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 20,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Ball pin/head diameter",
+          "value_mm": 35,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001125",
+      "part_number": "750-R-1",
+      "product_name": "Tie Rod End RH Leyland 1613 Tipper",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 30,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 major diameter",
+          "value_mm": 20,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Spanner size",
+          "value_mm": 30,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001126",
+      "part_number": "750-L-1",
+      "product_name": "Tie Rod End LH Leyland 1613 Tipper",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 30,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 major diameter",
+          "value_mm": 20,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001127",
+      "part_number": "1012-L",
+      "product_name": "Drag Link End LH Tata LPT-2518",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 30,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 major diameter",
+          "value_mm": 20,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Spanner size",
+          "value_mm": 30,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001128",
+      "part_number": "1012-R",
+      "product_name": "Drag Link End RH Tata 3118 EX",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 30,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 major diameter",
+          "value_mm": 20,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Spanner size",
+          "value_mm": 30,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001129",
+      "part_number": "KF1518",
+      "product_name": "Tie Rod End Pair Leyland FA90 Front Axle",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 20,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001130",
+      "part_number": "KF3355R",
+      "product_name": "Drag Link End RH Tata Ultra Truck/Bus",
+      "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Thread connection 1 major diameter",
+          "value_mm": 30,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 1 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 major diameter",
+          "value_mm": 14,
+          "source": "product_description"
+        },
+        {
+          "name": "Thread connection 2 pitch",
+          "value_mm": 1.5,
+          "source": "product_description"
+        },
+        {
+          "name": "Spanner size",
+          "value_mm": 21,
+          "source": "product_description"
+        }
+      ]
     }
   ]
 }
