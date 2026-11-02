@@ -40,7 +40,8 @@
  * @property {string} [dimensions_label]
  * @property {string} [dimensions_source]
  * @property {number} [calculated_weight_g] Estimated net product weight, in grams
- * @property {number} [approx_weight_g] Estimated packed shipping weight per unit, in grams
+ * @property {number} [estimated_item_packed_weight_g] Estimated item plus protective wrap weight, before outer-carton tare, in grams
+ * @property {number} [approx_weight_g] Complete estimated packed freight weight per unit, in grams; must include the applicable packing materials
  * @property {"carton_cut_wrap"|"plastic_wrap_no_carton"} [shipping_packing_profile] Estimated per-unit packing profile; does not contain measured parcel dimensions or carton tare
  * @property {number} [shipping_packaging_allowance_percent] Estimated per-unit protective packaging allowance; parcel carton tare is separate
  * @property {"low"|"low_to_medium"|"medium"|"high"} [weight_estimation_confidence] Confidence band for a modelled product weight
