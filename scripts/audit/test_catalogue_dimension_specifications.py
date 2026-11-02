@@ -143,6 +143,27 @@ for record in records:
             ):
                 fail(f"{pid}: {projection_name} is missing dimension {spec.get('name')}")
 
+    if "declared_net_content_g" in record:
+        content_mass = record.get("declared_net_content_g")
+        if (
+            not isinstance(content_mass, (int, float))
+            or isinstance(content_mass, bool)
+            or content_mass <= 0
+        ):
+            fail(f"{pid} has invalid declared net-content mass")
+        if record.get("declared_net_content_status") != "catalogue_declared_content":
+            fail(f"{pid} has invalid declared net-content status")
+        if not record.get("declared_net_content_source") or not record.get("declared_net_content_notes"):
+            fail(f"{pid} is missing declared net-content provenance")
+        for projection_name, projection in (
+            ("canonical catalogue", master),
+            ("public product", public),
+            ("search", search_record),
+        ):
+            if projection.get("declared_net_content_g") != content_mass:
+                fail(f"{pid}: {projection_name} is missing declared net-content mass")
+            if projection.get("approx_weight_g") is not None:
+                fail(f"{pid}: content-only mass must not become packed shipping weight")
     canonical_specs = master.get("dimension_specs_mm") or []
     names = set()
     for spec in specs:
