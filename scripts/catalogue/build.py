@@ -2772,13 +2772,13 @@ def sync_product_seo_and_schema():
                         {"@type": "PropertyValue", "name": "Overall length", "value": overall_length_mm, "unitText": "mm"},
                         {"@type": "PropertyValue", "name": "Weight estimation status", "value": str(product.get("weight_estimation_status") or "estimated")},
                     ]
-                    net_weight_kg = product_net_weight_kg(product)
-                    if net_weight_kg is not None:
-                        product_schema["weight"] = {
-                            "@type": "QuantitativeValue",
-                            "value": net_weight_kg,
-                            "unitCode": "KGM",
-                        }
+                net_weight_kg = product_net_weight_kg(product)
+                if net_weight_kg is not None:
+                    product_schema["weight"] = {
+                        "@type": "QuantitativeValue",
+                        "value": net_weight_kg,
+                        "unitCode": "KGM",
+                    }
 
                 partial_dimension_properties = dimension_spec_properties(product)
                 if partial_dimension_properties:
@@ -2947,13 +2947,13 @@ def sync_product_seo_and_schema():
                         )
                         node["additionalProperty"] = properties
 
-                        net_weight_kg = product_net_weight_kg(product)
-                        if net_weight_kg is not None:
-                            node["weight"] = {
-                                "@type": "QuantitativeValue",
-                                "value": net_weight_kg,
-                                "unitCode": "KGM",
-                            }
+                    net_weight_kg = product_net_weight_kg(product)
+                    if net_weight_kg is not None:
+                        node["weight"] = {
+                            "@type": "QuantitativeValue",
+                            "value": net_weight_kg,
+                            "unitCode": "KGM",
+                        }
 
                     partial_dimension_properties = dimension_spec_properties(product)
                     if partial_dimension_properties:
