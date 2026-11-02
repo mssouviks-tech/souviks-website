@@ -357,6 +357,34 @@ def reconcile_catalogue_projections():
                 product["dimensions_source"] = dimension_source
                 dimensions_changed = True
 
+            # Preserve declared contents mass separately from packed shipping mass.
+            if "declared_net_content_g" in record:
+                declared_net_content_g = record.get("declared_net_content_g")
+                if (
+                    not isinstance(declared_net_content_g, (int, float))
+                    or isinstance(declared_net_content_g, bool)
+                    or not (0 < declared_net_content_g <= 50000)
+                ):
+                    raise SystemExit(f"Invalid declared net-content mass for {pid}")
+                content_status = text(record.get("declared_net_content_status"))
+                content_source = text(record.get("declared_net_content_source"))
+                content_notes = text(record.get("declared_net_content_notes"))
+                if content_status != "catalogue_declared_content" or not content_source or not content_notes:
+                    raise SystemExit(f"Missing declared-content provenance for {pid}")
+                for field, value in (
+                    ("declared_net_content_g", int(declared_net_content_g)),
+                    ("declared_net_content_status", content_status),
+                    ("declared_net_content_source", content_source),
+                    ("declared_net_content_notes", content_notes),
+                ):
+                    if product.get(field) != value:
+                        product[field] = value
+                        dimensions_changed = True
+                # Never treat content-only mass as packed shipping weight.
+                if product.get("approx_weight_g") is None:
+                    product.pop("approx_weight_g", None)
+
+
             # Exact manufacturer net weights can coexist with component dimensions.
             # Only publish a packed checkout value after validating source, model,
             # the stated packaging allowance and the round-up calculation.
@@ -1003,6 +1031,10 @@ def reconcile_catalogue_projections():
             "discount_percent": p.get("discount_percent"),
             "discountPercent": p.get("discount_percent"),
             "approx_weight_g": approximate_weight_grams(p),
+            "declared_net_content_g": p.get("declared_net_content_g"),
+            "declared_net_content_status": text(p.get("declared_net_content_status")),
+            "declared_net_content_source": text(p.get("declared_net_content_source")),
+            "declared_net_content_notes": text(p.get("declared_net_content_notes")),
             "dimensions_mm": p.get("dimensions_mm"),
             "dimension_specs_mm": list(p.get("dimension_specs_mm") or []),
             "weight_calculation_quantity": p.get("weight_calculation_quantity"),
@@ -1125,7 +1157,7 @@ def reconcile_catalogue_projections():
         projection_fields = (
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
-            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
+            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -1176,7 +1208,7 @@ def reconcile_catalogue_projections():
         "vehicles", "part_number", "manufacturer_part_number",
         "manufacturer_part_numbers", "alternate_part_numbers",
         "oem_numbers", "cross_references", "slug", "image",
-        "vehicle_count", "featured", "active", "approx_weight_g", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes",
+        "vehicle_count", "featured", "active", "approx_weight_g", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes",
         "manufacturer_weight_kg", "manufacturer_weight_status",
         "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
         "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -1618,6 +1650,10 @@ def reconcile_catalogue_projections():
             data["discount_percent"] = product.get("discount_percent")
             data["discountPercent"] = product.get("discount_percent")
             data["approx_weight_g"] = approximate_weight_grams(product)
+            data["declared_net_content_g"] = product.get("declared_net_content_g")
+            data["declared_net_content_status"] = text(product.get("declared_net_content_status"))
+            data["declared_net_content_source"] = text(product.get("declared_net_content_source"))
+            data["declared_net_content_notes"] = text(product.get("declared_net_content_notes"))
             data["dimensions_mm"] = product.get("dimensions_mm")
             data["dimension_specs_mm"] = list(product.get("dimension_specs_mm") or [])
             data["weight_calculation_quantity"] = product.get("weight_calculation_quantity")
