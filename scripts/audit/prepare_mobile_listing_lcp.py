@@ -84,17 +84,17 @@ def patch_pages() -> None:
         # full-image/WebP and previous crop preloads while keeping the picture
         # source as a fallback for browsers without AVIF support.
         mobile_hero_preloads = re.compile(
-            r'<link\\b'
-            r'(?=[^>]*\\brel=["\\']preload["\\'])'
-            r'(?=[^>]*\\bas=["\\']image["\\'])'
-            r'(?=[^>]*\\bhref=["\\'][^"\\']*/assets/images/hero/'
-            r'product-hero-mobile(?:-crop)?\\.(?:avif|webp)(?:\\?[^"\\']*)?["\\'])'
-            r'[^>]*>\\s*',
+            r'<link\b'
+            r'(?=[^>]*\brel=["\']preload["\'])'
+            r'(?=[^>]*\bas=["\']image["\'])'
+            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
+            r'product-hero-mobile(?:-crop)?\.(?:avif|webp)(?:\?[^"\']*)?["\'])'
+            r'[^>]*>\s*',
             flags=re.I | re.S,
         )
         html = mobile_hero_preloads.sub("", html)
         html, preload_count = re.subn(
-            r'(<head\\b[^>]*>)',
+            r'(<head\b[^>]*>)',
             lambda match: match.group(1) + "\n    " + new_preload + "\n",
             html,
             count=1,
