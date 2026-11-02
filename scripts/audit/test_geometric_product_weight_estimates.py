@@ -87,7 +87,7 @@ for estimate in estimates:
     part_number = str(estimate.get("part_number") or "").strip()
     net_weight = estimate.get("net_weight_g")
     calculated_weight = estimate.get("calculated_weight_g")
-    packed_weight = estimate.get("approx_weight_g")
+    item_packed_weight = estimate.get("estimated_item_packed_weight_g")
     allowance = estimate.get("packaging_allowance_percent")
     round_up = estimate.get("round_up_to_g")
     profile = str(estimate.get("packing_profile") or "").strip()
@@ -106,15 +106,16 @@ for estimate in estimates:
     ):
         fail(f"{pid} has invalid or inconsistent calculated net weight")
     if (
-        not isinstance(packed_weight, (int, float))
-        or isinstance(packed_weight, bool)
-        or not math.isfinite(packed_weight)
-        or packed_weight <= 0
+        not isinstance(item_packed_weight, (int, float))
+        or isinstance(item_packed_weight, bool)
+        or not math.isfinite(item_packed_weight)
+        or item_packed_weight <= 0
         or allowance != 5
         or round_up != 1
-        or packed_weight != math.ceil(net_weight * 1.05)
+        or item_packed_weight != math.ceil(net_weight * 1.05)
+        or estimate.get("approx_weight_g") is not None
     ):
-        fail(f"{pid} has invalid per-unit packed weight or packaging calculation")
+        fail(f"{pid} has invalid item-plus-wrap estimate or missing carton-tare separation")
     if profile not in ALLOWED_PROFILES or not model or confidence not in ALLOWED_CONFIDENCE:
         fail(f"{pid} has invalid model, confidence or packing profile")
     if not str(estimate.get("notes") or "").strip() or not str(estimate.get("source") or "").strip():
@@ -130,7 +131,7 @@ for estimate in estimates:
         fail(f"{pid} canonical part-number mismatch: {actual_part!r} != {part_number!r}")
     expected_master = {
         "calculated_weight_g": round(float(net_weight), 1),
-        "approx_weight_g": int(packed_weight),
+        "estimated_item_packed_weight_g": int(item_packed_weight),
         "weight_estimation_status": "estimated",
         "weight_estimation_method": model,
         "weight_estimation_confidence": confidence,
@@ -140,6 +141,8 @@ for estimate in estimates:
     for field, expected in expected_master.items():
         if master.get(field) != expected:
             fail(f"{pid} canonical {field} mismatch: {master.get(field)!r} != {expected!r}")
+    if master.get("approx_weight_g") not in (None, ""):
+        fail(f"{pid}: item-only estimate must not populate approx_weight_g in canonical freight data")
 
     projection = products_by_id.get(pid)
     if not projection:
@@ -147,6 +150,8 @@ for estimate in estimates:
     for field, expected in expected_master.items():
         if projection.get(field) != expected:
             fail(f"{pid} public {field} mismatch: {projection.get(field)!r} != {expected!r}")
+    if projection.get("approx_weight_g") not in (None, ""):
+        fail(f"{pid}: item-only estimate must not populate approx_weight_g in public freight data")
 
     slug = str(master.get("slug") or "").strip()
     if not slug:
@@ -166,16 +171,21 @@ for estimate in estimates:
         if abs(float(schema_weight.get("value", 0)) - expected_net_kg) > 0.001:
             fail(f"{pid}: Product.weight does not match estimated net item mass on {language} page")
         additional = schema.get("additionalProperty") or []
-        packed_properties = [
+        item_packed_properties = [
             item for item in additional
-            if isinstance(item, dict) and item.get("name") == "Approximate packed shipping weight"
+            if isinstance(item, dict) and item.get("name") == "Estimated item packed weight before carton tare"
         ]
         if (
-            not packed_properties
-            or packed_properties[-1].get("value") != packed_weight
-            or packed_properties[-1].get("unitText") != "g"
+            not item_packed_properties
+            or item_packed_properties[-1].get("value") != item_packed_weight
+            or item_packed_properties[-1].get("unitText") != "g"
         ):
-            fail(f"{pid}: packed shipping weight missing/mismatched in {language} Product JSON-LD")
+            fail(f"{pid}: item-plus-wrap estimate missing/mismatched in {language} Product JSON-LD")
+        if any(
+            isinstance(item, dict) and item.get("name") == "Approximate packed shipping weight"
+            for item in additional
+        ):
+            fail(f"{pid}: item-only estimate must not appear as a complete packed freight weight in {language} Product JSON-LD")
 
         profile_label = (
             "Plastic wrap; no carton"
