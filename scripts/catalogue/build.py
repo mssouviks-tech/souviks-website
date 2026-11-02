@@ -1274,6 +1274,8 @@ def reconcile_catalogue_projections():
             "applications", "featured", "active", "description",
             "image_folder", "gallery", "gallery_dimensions",
             "catalogue_updated_at", "updated_at",
+            "estimated_item_packed_weight_g", "weight_estimation_confidence",
+            "shipping_packing_profile", "shipping_packaging_allowance_percent",
         )
         updates = {
             field: desired.get(field)
