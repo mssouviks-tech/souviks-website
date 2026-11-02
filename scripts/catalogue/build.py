@@ -234,6 +234,17 @@ def reconcile_catalogue_projections():
             if product.get("approx_weight_g") != estimate_grams:
                 product["approx_weight_g"] = estimate_grams
                 weights_changed = True
+            # Keep calculation and provenance alongside the packed checkout weight.
+            for field in (
+                "calculated_weight_g",
+                "weight_estimation_status",
+                "weight_estimation_method",
+                "weight_estimation_notes",
+            ):
+                value = estimate.get(field)
+                if value is not None and product.get(field) != value:
+                    product[field] = value
+                    weights_changed = True
 
         if weights_changed:
             CATALOGUE_PATH.write_text(
@@ -241,6 +252,116 @@ def reconcile_catalogue_projections():
                 encoding="utf-8",
             )
 
+    # Explicit component and fitment dimensions are not parcel/carton dimensions.
+    dimension_specs_path = ROOT / "assets" / "data" / "product-dimension-specifications.json"
+    if dimension_specs_path.exists():
+        try:
+            dimension_data = json.loads(dimension_specs_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid product dimension specifications file: {exc}")
+        dimension_records = dimension_data.get("products") if isinstance(dimension_data, dict) else None
+        if not isinstance(dimension_records, list):
+            raise SystemExit("Product dimension specifications must contain a products array")
+
+        dimension_products_by_id = {
+            text(product.get("id")): product
+            for product in catalogue
+            if isinstance(product, dict) and text(product.get("id"))
+        }
+        seen_dimension_ids = set()
+        dimensions_changed = False
+        for record in dimension_records:
+            if not isinstance(record, dict):
+                raise SystemExit("Every product dimension record must be an object")
+            pid = text(record.get("id"))
+            expected_part_number = text(record.get("part_number"))
+            expected_product_name = text(record.get("product_name"))
+            if not pid or not expected_product_name:
+                raise SystemExit("Every product dimension record needs id and product_name")
+            if pid in seen_dimension_ids:
+                raise SystemExit(f"Duplicate product dimension record for {pid}")
+            seen_dimension_ids.add(pid)
+
+            product = dimension_products_by_id.get(pid)
+            if product is None or product.get("active") is False:
+                raise SystemExit(f"Dimension record references an unknown/inactive product: {pid}")
+            actual_part_number = text(product.get("part_number") or product.get("partNumber"))
+            actual_product_name = text(product.get("product_name") or product.get("name"))
+            if actual_part_number != expected_part_number:
+                raise SystemExit(
+                    f"Dimension part-number mismatch for {pid}: "
+                    f"{expected_part_number!r} != {actual_part_number!r}"
+                )
+            if actual_product_name != expected_product_name:
+                raise SystemExit(
+                    f"Dimension product-name mismatch for {pid}: "
+                    f"{expected_product_name!r} != {actual_product_name!r}"
+                )
+
+            specifications = record.get("specs")
+            if not isinstance(specifications, list) or not specifications:
+                raise SystemExit(f"Product dimension record has no specifications: {pid}")
+            current_specs = product.get("dimension_specs_mm")
+            if current_specs is None:
+                current_specs = []
+            if not isinstance(current_specs, list):
+                raise SystemExit(f"Invalid existing dimension_specs_mm for {pid}")
+            merged_specs = list(current_specs)
+            current_by_name = {
+                text(spec.get("name")): spec
+                for spec in merged_specs
+                if isinstance(spec, dict) and text(spec.get("name"))
+            }
+            seen_names = set()
+            for specification in specifications:
+                if not isinstance(specification, dict):
+                    raise SystemExit(f"Invalid dimension specification for {pid}")
+                name = text(specification.get("name"))
+                value = specification.get("value_mm")
+                source = text(specification.get("source"))
+                if (
+                    not name
+                    or not isinstance(value, (int, float))
+                    or isinstance(value, bool)
+                    or not (0 < value < float("inf"))
+                    or not source
+                ):
+                    raise SystemExit(f"Invalid named dimension value for {pid}: {specification!r}")
+                if name in seen_names:
+                    raise SystemExit(f"Duplicate dimension name for {pid}: {name}")
+                seen_names.add(name)
+                normalized = {"name": name, "value_mm": value, "source": source}
+                previous = current_by_name.get(name)
+                if previous is not None:
+                    if previous.get("value_mm") != value:
+                        raise SystemExit(
+                            f"Conflicting dimension value for {pid} / {name}: "
+                            f"{previous.get('value_mm')!r} != {value!r}"
+                        )
+                    continue
+                merged_specs.append(normalized)
+                current_by_name[name] = normalized
+                dimensions_changed = True
+
+            if product.get("dimension_specs_mm") != merged_specs:
+                product["dimension_specs_mm"] = merged_specs
+                dimensions_changed = True
+            dimension_label = text(record.get("dimensions_label")) or (
+                "Named component or fitment specifications (mm); not shipping-carton dimensions"
+            )
+            if product.get("dimensions_label") != dimension_label:
+                product["dimensions_label"] = dimension_label
+                dimensions_changed = True
+            dimension_source = "product_dimension_specifications_manifest"
+            if product.get("dimensions_source") != dimension_source:
+                product["dimensions_source"] = dimension_source
+                dimensions_changed = True
+
+        if dimensions_changed:
+            CATALOGUE_PATH.write_text(
+                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\\n",
+                encoding="utf-8",
+            )
     # Manufacturer-sourced WABCO metadata and safe packed-weight estimates.
     wabco_specs_path = ROOT / "assets" / "data" / "wabco-product-specifications.json"
     if wabco_specs_path.exists():
