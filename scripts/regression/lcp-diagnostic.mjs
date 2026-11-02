@@ -26,7 +26,7 @@ const browser = await chromium.launch({
 
 try {
   for (const target of targets) {
-    for (const repeat of [1, 2]) {
+    for (const repeat of [1, 2, 3]) {
       const context = await browser.newContext({
         viewport: { width: 412, height: 823 },
         deviceScaleFactor: 1.75,

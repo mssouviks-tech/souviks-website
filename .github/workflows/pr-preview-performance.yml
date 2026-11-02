@@ -268,7 +268,8 @@ jobs:
           lines = [
               "## Mobile Lighthouse results",
               "",
-              "Local main-vs-PR runs use the same runner and mobile Lighthouse settings. Treat these as a controlled directional comparison, not production field data.",
+              "These reports retain Lighthouse's standard simulated-mobile throttling for a controlled baseline and route-regression comparison.",
+              "The separate browser diagnostics use CDP 3G network emulation and 4x CPU slowdown. The hard 4.0s listing gate uses the final browser-observed PerformanceObserver LCP event, not Lighthouse's simulated projection.",
               "Render delay is the LCP time spent after resource loading; TBT is included as a separate main-thread blocking signal.",
               "",
               "| Test | Route | Runs | Median performance | Median LCP | Median LCP render delay | Median TBT |",
