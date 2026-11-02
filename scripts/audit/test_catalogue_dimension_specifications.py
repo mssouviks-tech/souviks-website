@@ -94,8 +94,12 @@ for record in records:
     if pid in seen:
         fail(f"Duplicate product dimension record: {pid}")
     seen.add(pid)
-    if not isinstance(specs, list) or not specs:
-        fail(f"{pid} has no named component dimensions")
+    has_optional_weight_metadata = (
+        "declared_net_content_g" in record
+        or "manufacturer_weight_kg" in record
+    )
+    if not isinstance(specs, list) or (not specs and not has_optional_weight_metadata):
+        fail(f"{pid} has no named dimensions or optional weight metadata")
 
     master = catalogue_by_id.get(pid)
     public = products_by_id.get(pid)
@@ -214,6 +218,11 @@ for record in records:
                 fail(f"{language} product page missing verified net weight for {pid}")
             if page_data.get("approx_weight_g") != record.get("manufacturer_weight_approx_packed_g"):
                 fail(f"{language} product page missing packed weight for {pid}")
+        if "declared_net_content_g" in record:
+            if page_data.get("declared_net_content_g") != record.get("declared_net_content_g"):
+                fail(f"{language} product page missing declared content mass for {pid}")
+            if page_data.get("approx_weight_g") is not None:
+                fail(f"{language} product page must not treat contents mass as packed weight for {pid}")
         page_specs = page_data.get("dimension_specs_mm") or []
         for spec in specs:
             if not any(
