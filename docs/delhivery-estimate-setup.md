@@ -13,6 +13,14 @@ Store per-item approximate packed weight as `approx_weight_g` in each product re
 
 The builder also recognizes `weight_g`, `shipping_weight_g`, and `approx_weight_grams` as aliases. `approx_weight_g` is the preferred field. Do not enter kilograms into a grams field. Freight calculation starts using live Delhivery rates only after every cart item has a valid weight.
 
+## Product dimensions versus shipping-package dimensions
+
+Use `dimensions_mm`, `dimension_specs_mm`, `manufacturer_dimensions_mm`, and `manufacturer_dimension_specs` for the product's physical or engineering measurements. These describe the item (for example, a pin's diameter and length, a bolt's thread/length, or a WABCO component's overall size). They are useful catalogue attributes, but **must not be treated as parcel dimensions**.
+
+For volumetric freight, the only accepted field is `shipping_package_dimensions_mm`: an array of exactly three positive values in millimetres, ordered `[length, width, height]`, measured on the external packed parcel. Do not populate this field from product name dimensions, engineering drawings, or a calculated product size. No verified external package-box dimensions were present in the catalogue audit, so this field remains empty until the actual packed parcel is measured.
+
+When one cart line contains one unit and its external packed dimensions are recorded, checkout uses the greater of the packed dead weight and the calculated volumetric weight (Delhivery divisor 5,000; `L × W × H` in mm³ divided by 5,000 gives grams). Multi-line or multi-quantity carts continue to use the combined packed dead weight because combining parcel volumes without a defined packing algorithm would produce an unreliable charge. The server recomputes this rule from trusted catalogue data before payment; client-provided dimensions or charges are not trusted.
+
 ### Until the stock sheet is updated
 
 No default or guessed product weight is used. When one or more items lack a weight, online checkout is blocked and the customer is asked to request a quote rather than being charged an invented flat fee. Once all weights are available, checkout uses the live Delhivery prepaid + Express charge for the combined cart weight. Every shipped order incurs shipping charges, regardless of order value; there is no free-shipping threshold.
