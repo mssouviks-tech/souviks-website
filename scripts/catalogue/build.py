@@ -8,7 +8,6 @@ It never commits or pushes. CI owns version-control operations.
 from __future__ import annotations
 
 import math
-
 import pathlib
 import runpy
 import sys
