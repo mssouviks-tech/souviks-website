@@ -205,8 +205,10 @@ jobs:
 
           generated_paths=(
             assets/images/hero/index-hero-mobile.webp
+            assets/images/hero/product-hero-mobile.webp
             assets/images/hero/product-hero-mobile-crop.avif
             assets/images/hero/product-hero-mobile-crop.webp
+            assets/css/site-base.css
             index.html en/index.html hi/index.html bn/index.html
             en/products.html hi/products.html bn/products.html
             scripts/catalogue/sync_product_cards.py
