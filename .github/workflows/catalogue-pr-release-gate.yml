@@ -182,20 +182,58 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add \
-            assets/images/hero/index-hero-mobile.webp \
-            index.html en/index.html hi/index.html bn/index.html \
-            en/products.html hi/products.html bn/products.html \
-            scripts/catalogue/sync_product_cards.py \
-            scripts/audit/performance_guard.py
+          # pull_request workflows check out GitHub's synthetic merge ref by default.
+          # Publish generated output from a separate worktree rooted at the real PR
+          # branch so the pushed commit is a fast-forward and never includes that merge ref.
+          remote_ref="refs/remotes/pr-head/${PR_HEAD_REF}"
+          git fetch --no-tags --depth=1 origin "+refs/heads/${PR_HEAD_REF}:${remote_ref}"
 
-          if git diff --cached --quiet; then
-            echo "Generated mobile LCP assets and HTML are already current."
+          publish_root="$(mktemp -d)"
+          publish_repo="${publish_root}/repo"
+          git worktree add --detach "${publish_repo}" "${remote_ref}"
+
+          generated_paths=(
+            assets/images/hero/index-hero-mobile.webp
+            assets/images/hero/product-hero-mobile-crop.avif
+            assets/images/hero/product-hero-mobile-crop.webp
+            index.html en/index.html hi/index.html bn/index.html
+            en/products.html hi/products.html bn/products.html
+            scripts/catalogue/sync_product_cards.py
+            scripts/audit/performance_guard.py
+          )
+
+          for path in "${generated_paths[@]}"; do
+            source_path="${GITHUB_WORKSPACE}/${path}"
+            if [ ! -f "${source_path}" ]; then
+              echo "Missing generated output: ${path}"
+              exit 1
+            fi
+            mkdir -p "${publish_repo}/$(dirname "${path}")"
+            cp "${source_path}" "${publish_repo}/${path}"
+          done
+
+          git -C "${publish_repo}" add -- "${generated_paths[@]}"
+          if git -C "${publish_repo}" diff --cached --quiet; then
+            echo "Generated mobile LCP assets and HTML are already current on the PR branch."
             exit 0
           fi
 
-          git commit -m "Optimize generated mobile LCP assets"
-          git push origin "HEAD:${PR_HEAD_REF}"
+          git -C "${publish_repo}" commit -m "Optimize generated mobile LCP assets"
+
+          # Retry if a human or another workflow advances the PR branch between
+          # fetch and push. Rebase the generated-output commit on the newest head.
+          for attempt in 1 2 3; do
+            if git -C "${publish_repo}" push origin "HEAD:refs/heads/${PR_HEAD_REF}"; then
+              echo "Published generated mobile LCP output to ${PR_HEAD_REF}."
+              exit 0
+            fi
+            if [ "${attempt}" -eq 3 ]; then
+              echo "Unable to publish generated mobile LCP output after three attempts."
+              exit 1
+            fi
+            git fetch --no-tags origin "+refs/heads/${PR_HEAD_REF}:${remote_ref}"
+            git -C "${publish_repo}" rebase "${remote_ref}"
+          done
 
       - name: Upload SEO review report
         if: always()
