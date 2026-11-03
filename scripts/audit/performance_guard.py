@@ -526,6 +526,7 @@ def main() -> int:
     check_listing_critical_image_loading(errors)
     check_mobile_listing_hero_assets(errors)
     check_mobile_listing_hero_assets(errors)
+    check_mobile_listing_hero_assets(errors)
 
     if errors:
         for error in errors:
