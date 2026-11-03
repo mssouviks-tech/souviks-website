@@ -38,6 +38,88 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 1
 
+      - name: Wait for generated LCP assets on the PR branch
+        env:
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # The catalogue release gate builds responsive assets and publishes them
+          # from the real PR head. Wait for that output before measuring either the
+          # local candidate or the Cloudflare branch preview.
+          for attempt in $(seq 1 60); do
+            git fetch --no-tags --depth=1 origin "+refs/heads/${PR_HEAD_REF}:refs/remotes/origin/${PR_HEAD_REF}"
+            candidate_sha="$(git rev-parse "refs/remotes/origin/${PR_HEAD_REF}")"
+            export CANDIDATE_SHA="${candidate_sha}"
+
+            if python3 - <<'PY'
+          import hashlib
+          import os
+          import re
+          import subprocess
+          import sys
+
+          sha = os.environ["CANDIDATE_SHA"]
+
+          def show(path: str) -> bytes:
+              return subprocess.check_output(["git", "show", f"{sha}:{path}"])
+
+          try:
+              hero = show("assets/images/hero/index-hero-mobile.webp")
+          except subprocess.CalledProcessError:
+              sys.exit(1)
+
+          if len(hero) > 80_000:
+              sys.exit(1)
+
+          hero_hash = hashlib.sha256(hero).hexdigest()[:12]
+          for path in ("index.html", "en/index.html", "hi/index.html", "bn/index.html"):
+              try:
+                  html = show(path).decode("utf-8")
+              except (subprocess.CalledProcessError, UnicodeDecodeError):
+                  sys.exit(1)
+              if f"index-hero-mobile.webp?v={hero_hash}" not in html:
+                  sys.exit(1)
+              tags = re.findall(r"<link\\b[^>]*>", html, flags=re.I)
+              preload = [
+                  tag for tag in tags
+                  if re.search(r"\\brel=[\\"']preload[\\"']", tag, re.I)
+                  and re.search(r"\\bas=[\\"']image[\\"']", tag, re.I)
+                  and "index-hero-mobile.webp" in tag
+              ]
+              if len(preload) != 1:
+                  sys.exit(1)
+
+          for language in ("en", "hi", "bn"):
+              path = f"{language}/products.html"
+              try:
+                  html = show(path).decode("utf-8")
+              except (subprocess.CalledProcessError, UnicodeDecodeError):
+                  sys.exit(1)
+              tags = re.findall(r"<link\\b[^>]*>", html, flags=re.I)
+              preload = [
+                  tag for tag in tags
+                  if re.search(r"\\brel=[\\"']preload[\\"']", tag, re.I)
+                  and re.search(r"\\bas=[\\"']image[\\"']", tag, re.I)
+                  and "product-hero-mobile" in tag
+              ]
+              if len(preload) != 1 or "product-hero-mobile-crop.avif" not in preload[0]:
+                  sys.exit(1)
+          PY
+            then
+              git checkout --detach "${candidate_sha}"
+              echo "Testing generated PR head ${candidate_sha} with an optimized homepage hero of $(git cat-file -s "${candidate_sha}:assets/images/hero/index-hero-mobile.webp") bytes."
+              exit 0
+            fi
+
+            echo "Generated LCP assets are not committed yet (attempt ${attempt}/60); waiting for the catalogue release gate."
+            sleep 10
+          done
+
+          echo "The PR branch did not receive the validated responsive LCP assets within ten minutes."
+          exit 1
+
       - name: Set up Node for browser-level LCP diagnostics
         uses: actions/setup-node@v4
         with:
