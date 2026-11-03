@@ -192,6 +192,17 @@ jobs:
           publish_repo="${publish_root}/repo"
           git worktree add --detach "${publish_repo}" "${remote_ref}"
 
+          # Build the responsive hero assets and source references against the
+          # actual PR branch, not the synthetic merge candidate used by validation.
+          (
+            cd "${publish_repo}"
+            python3 scripts/audit/optimize_static_images.py
+            python3 scripts/audit/prepare_mobile_listing_lcp.py
+            python3 scripts/js/refresh_versions.py
+            python3 scripts/catalogue/sync_root_homepage.py
+            python3 scripts/audit/performance_guard.py
+          )
+
           generated_paths=(
             assets/images/hero/index-hero-mobile.webp
             assets/images/hero/product-hero-mobile-crop.avif
@@ -203,13 +214,10 @@ jobs:
           )
 
           for path in "${generated_paths[@]}"; do
-            source_path="${GITHUB_WORKSPACE}/${path}"
-            if [ ! -f "${source_path}" ]; then
-              echo "Missing generated output: ${path}"
+            if [ ! -f "${publish_repo}/${path}" ]; then
+              echo "Missing generated output on PR branch: ${path}"
               exit 1
             fi
-            mkdir -p "${publish_repo}/$(dirname "${path}")"
-            cp "${source_path}" "${publish_repo}/${path}"
           done
 
           git -C "${publish_repo}" add -- "${generated_paths[@]}"
