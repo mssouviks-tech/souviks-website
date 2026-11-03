@@ -80,6 +80,28 @@ def patch_pages() -> None:
                 r'product-hero-mobile-crop\.webp\?v=[0-9a-f]{12}',
                 f'product-hero-mobile-crop.webp?v={webp_hash}', html
             )
+        # The AVIF crop is the sole mobile hero preload. Remove stale
+        # full-image/WebP and previous crop preloads while keeping the picture
+        # source as a fallback for browsers without AVIF support.
+        mobile_hero_preloads = re.compile(
+            r'<link\b'
+            r'(?=[^>]*\brel=["\']preload["\'])'
+            r'(?=[^>]*\bas=["\']image["\'])'
+            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
+            r'product-hero-mobile(?:-crop)?\.(?:avif|webp)(?:\?[^"\']*)?["\'])'
+            r'[^>]*>\s*',
+            flags=re.I | re.S,
+        )
+        html = mobile_hero_preloads.sub("", html)
+        html, preload_count = re.subn(
+            r'(<head\b[^>]*>)',
+            lambda match: match.group(1) + "\n    " + new_preload + "\n",
+            html,
+            count=1,
+            flags=re.I,
+        )
+        if preload_count != 1:
+            raise SystemExit(f"{path}: unable to insert the single AVIF mobile hero preload")
         html = html.replace('decoding="sync">', 'decoding="async">')
 
         grid_at = html.find('id="product-grid"')

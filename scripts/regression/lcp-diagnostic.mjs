@@ -26,6 +26,12 @@ const browser = await chromium.launch({
 
 try {
   for (const target of targets) {
+    // One label can be used for multiple routes (homepage and listing). Keep
+    // their reports and checkpoint screenshots separate instead of overwriting.
+    const routeKey =
+      new URL(target.url).pathname.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") ||
+      "home";
+
     for (const repeat of [1, 2, 3]) {
       const context = await browser.newContext({
         viewport: { width: 412, height: 823 },
@@ -121,13 +127,16 @@ try {
           const snapshot = await page.evaluate(() => {
             const round = (value) =>
               Number.isFinite(value) ? Math.round(value * 10) / 10 : null;
-            const hero = document.querySelector(".products-hero-media");
+            const heroSelector = location.pathname === "/" || /\/index(?:\.html)?$/i.test(location.pathname)
+              ? ".home-hero-image"
+              : ".products-hero-media";
+            const hero = document.querySelector(heroSelector);
             const rect = hero?.getBoundingClientRect();
             const style = hero ? getComputedStyle(hero) : null;
             const resources = performance
               .getEntriesByType("resource")
               .filter((entry) =>
-                /product-hero(?:-mobile(?:-crop)?)?\.(?:avif|webp)/i.test(entry.name),
+                /(?:index-hero|product-hero)(?:-mobile(?:-crop)?)?\.(?:avif|webp)/i.test(entry.name),
               )
               .map((entry) => ({
                 name: entry.name,
@@ -170,7 +179,7 @@ try {
             };
           });
 
-          const filename = `${target.label}-r${repeat}-${checkpoint}.png`;
+          const filename = `${target.label}-${routeKey}-r${repeat}-${checkpoint}.png`;
           await page.screenshot({
             path: path.join(outputDir, filename),
             fullPage: false,
@@ -191,7 +200,7 @@ try {
             const resources = performance
               .getEntriesByType("resource")
               .filter((entry) =>
-                /product-hero(?:-mobile(?:-crop)?)?\.(?:avif|webp)|site-base\.css|products\.css|fonts\.(?:googleapis|gstatic)/i.test(
+                /(?:index-hero|product-hero)(?:-mobile(?:-crop)?)?\.(?:avif|webp)|site-base\.css|index\.css|products\.css|fonts\.(?:googleapis|gstatic)/i.test(
                   entry.name,
                 ),
               )
@@ -224,6 +233,26 @@ try {
                 })),
               lcpEntries:
                 window.__souviksLcpDiagnostics?.entries || [],
+              homepageHero: (() => {
+                const target = document.querySelector(".home-hero-image");
+                if (!target) return null;
+                const style = getComputedStyle(target);
+                const rect = target.getBoundingClientRect();
+                const center = document.elementFromPoint(
+                  Math.max(0, Math.min(innerWidth - 1, rect.left + rect.width / 2)),
+                  Math.max(0, Math.min(innerHeight - 1, rect.top + rect.height / 2))
+                );
+                return {
+                  complete: target.complete,
+                  naturalWidth: target.naturalWidth,
+                  zIndex: style.zIndex,
+                  opacity: style.opacity,
+                  visibility: style.visibility,
+                  display: style.display,
+                  centerElement: center?.tagName || null,
+                  centerClass: typeof center?.className === "string" ? center.className : null,
+                };
+              })(),
               longTasks:
                 window.__souviksLcpDiagnostics?.longTasks || [],
               heroResources: resources,
@@ -238,7 +267,7 @@ try {
         screenshots,
         final,
       };
-      const jsonName = `${target.label}-r${repeat}.json`;
+      const jsonName = `${target.label}-${routeKey}-r${repeat}.json`;
       await writeFile(
         path.join(outputDir, jsonName),
         JSON.stringify(result, null, 2) + "\n",

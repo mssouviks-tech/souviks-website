@@ -170,6 +170,12 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
                 f"{desktop.relative_to(ROOT)} for mobile delivery",
                 errors,
             )
+        if stem == "index-hero" and mobile.stat().st_size > 80_000:
+            fail(
+                f"{mobile.relative_to(ROOT)}: mobile homepage hero must be at most 80,000 bytes "
+                "to meet the 4-second mobile LCP budget",
+                errors,
+            )
 
     home_pages = [
         ROOT / "index.html",
@@ -254,20 +260,37 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
         if not path.is_file():
             continue
         raw = path.read_text(encoding="utf-8", errors="ignore")
-        mobile_preload = re.search(
-            r'<link\b(?=[^>]*\brel=["\']preload["\'])'
-            r'(?=[^>]*\bas=["\']image["\'])'
-            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/'
-            r'product-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
-            r'(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])[^>]*>',
+        mobile_preloads = re.findall(
+            r"""<link\b(?=[^>]*\brel=["']preload["'])"""
+            r"""(?=[^>]*\bas=["']image["'])"""
+            r"""(?=[^>]*\bhref=["'][^"']*/assets/images/hero/"""
+            r"""product-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["'])"""
+            r"""(?=[^>]*\bmedia=["']\(max-width:\s*768px\)["'])[^>]*>""",
             raw,
             flags=re.I | re.S,
         )
-        if not mobile_preload:
+        if len(mobile_preloads) != 1:
             fail(
-                f"{path.relative_to(ROOT)}: missing versioned mobile hero preload with max-width media condition",
+                f"{path.relative_to(ROOT)}: expected exactly one responsive AVIF mobile hero preload, found {len(mobile_preloads)}",
                 errors,
             )
+
+        duplicate_mobile_preloads = re.findall(
+            r"""<link\b(?=[^>]*\brel=["']preload["'])"""
+            r"""(?=[^>]*\bas=["']image["'])"""
+            r"""(?=[^>]*\bhref=["'][^"']*/assets/images/hero/"""
+            r"""product-hero-mobile(?:-crop)?\.(?:avif|webp)(?:\?[^"']*)?["'])"""
+            r"""[^>]*>""",
+            raw,
+            flags=re.I | re.S,
+        )
+        if len(duplicate_mobile_preloads) != 1:
+            fail(
+                f"{path.relative_to(ROOT)}: duplicate mobile hero image preloads detected ({len(duplicate_mobile_preloads)})",
+                errors,
+            )
+        if duplicate_mobile_preloads and "product-hero-mobile-crop.avif" not in duplicate_mobile_preloads[0]:
+            fail(f"{path.relative_to(ROOT)}: the sole mobile hero preload must be the AVIF crop", errors)
 
         # The responsive <picture> already selects the correct source. A separate
         # desktop preload was still fetched by mobile Lighthouse despite its
@@ -332,6 +355,29 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
                 f"{path.relative_to(ROOT)}: product hero <picture> is missing the high-priority desktop image",
                 errors,
             )
+
+    # The homepage hero media must occupy an explicit positive stacking layer.
+    # A negative z-index inside an isolated hero can put the image behind the
+    # section background and delay its visible paint on mobile browsers.
+    index_css = ROOT / "assets" / "css" / "bundles" / "index.css"
+    if not index_css.is_file():
+        fail("missing assets/css/bundles/index.css for homepage hero paint-layer contract", errors)
+    else:
+        css = index_css.read_text(encoding="utf-8", errors="ignore")
+        media = re.search(
+            r'\.home-hero-media\s*\{([^}]*)\}',
+            css,
+            flags=re.I | re.S,
+        )
+        content = re.search(
+            r'\.home-hero-container\s*\{([^}]*)\}',
+            css,
+            flags=re.I | re.S,
+        )
+        if not media or not re.search(r'\bz-index\s*:\s*0\s*;', media.group(1), re.I):
+            fail("assets/css/bundles/index.css: homepage hero media must use z-index: 0", errors)
+        if not content or not re.search(r'\bz-index\s*:\s*1\s*;', content.group(1), re.I):
+            fail("assets/css/bundles/index.css: homepage hero content must use z-index: 1", errors)
 
     products_css = ROOT / "assets" / "css" / "bundles" / "products.css"
     if not products_css.is_file():
@@ -478,6 +524,7 @@ def main() -> int:
     check_responsive_mobile_hero_assets(errors)
     check_listing_hydration_waits_for_lcp(errors)
     check_listing_critical_image_loading(errors)
+    check_mobile_listing_hero_assets(errors)
     check_mobile_listing_hero_assets(errors)
 
     if errors:

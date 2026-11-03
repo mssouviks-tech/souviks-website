@@ -24,6 +24,7 @@ on:
       - "scripts/audit/critical_build.py"
       - "scripts/audit/performance_guard.py"
       - "scripts/audit/optimize_static_images.py"
+      - "scripts/audit/prepare_mobile_listing_lcp.py"
       - "scripts/audit/generate_product_thumbnails.py"
       - "scripts/catalogue/sync_root_homepage.py"
       - "assets/images/product-thumbnails/**"
@@ -88,8 +89,8 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Install image optimisation dependency
-        run: python3 -m pip install --user --break-system-packages Pillow
+      - name: Install image optimisation dependencies
+        run: python3 -m pip install --user --break-system-packages Pillow pillow-avif-plugin
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -124,6 +125,7 @@ jobs:
               "scripts/audit/critical_build.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/optimize_static_images.py",
+              "scripts/audit/prepare_mobile_listing_lcp.py",
               "scripts/audit/generate_product_thumbnails.py",
               "scripts/catalogue/sync_root_homepage.py",
               "scripts/audit/production_smoke.py",
@@ -194,6 +196,7 @@ jobs:
             python3 scripts/js/refactor.py
             npm run build:js
             python3 scripts/audit/optimize_static_images.py
+            python3 scripts/audit/prepare_mobile_listing_lcp.py
             python3 scripts/js/refresh_versions.py
             python3 scripts/catalogue/sync_root_homepage.py
             run_candidate_checks
@@ -278,6 +281,7 @@ jobs:
             python3 scripts/js/refactor.py
             npm run build:js
             python3 scripts/audit/optimize_static_images.py
+            python3 scripts/audit/prepare_mobile_listing_lcp.py
             python3 scripts/js/refresh_versions.py
             python3 scripts/catalogue/sync_root_homepage.py
             run_candidate_checks

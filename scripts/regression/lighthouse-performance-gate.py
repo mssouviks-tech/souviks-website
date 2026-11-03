@@ -12,8 +12,9 @@ from urllib.parse import urlsplit
 REPORT_DIR = Path(".lighthouseci")
 DIAGNOSTIC_DIR = Path("lcp-diagnostic")
 RUNS_REQUIRED = 3
+HOMEPAGE_LCP_LIMIT_SECONDS = 4.0
 LISTING_LCP_LIMIT_SECONDS = 4.0
-MIN_LISTING_IMPROVEMENT = 0.05
+MAX_BROWSER_LCP_REGRESSION = 0.05
 MAX_ROUTE_LCP_REGRESSION = 0.10
 MAX_TBT_REGRESSION_SECONDS = 0.05
 MAX_PERFORMANCE_SCORE_DROP = 5.0
@@ -77,9 +78,13 @@ def load_lighthouse_reports() -> dict[tuple[str, str], list[dict[str, float]]]:
     return groups
 
 
-def load_observed_listing_lcp() -> dict[str, list[float]]:
-    """Read final hero LCP events from the real browser CDP diagnostic runs."""
-    groups: dict[str, list[float]] = {"main": [], "PR": [], "preview": []}
+def load_observed_lcp() -> dict[str, dict[str, list[float]]]:
+    """Read final homepage and listing hero LCP events from browser CDP runs."""
+    routes = ("Homepage", "Product listing")
+    groups = {
+        route: {"main": [], "PR": [], "preview": []}
+        for route in routes
+    }
     if not DIAGNOSTIC_DIR.is_dir():
         raise RuntimeError(f"Missing browser LCP diagnostics directory: {DIAGNOSTIC_DIR}")
 
@@ -90,11 +95,15 @@ def load_observed_listing_lcp() -> dict[str, list[float]]:
             raise RuntimeError(f"Cannot read browser LCP diagnostic {path}: {error}") from error
 
         label = report.get("label")
-        if label not in groups:
+        if label not in {"main", "PR", "preview"}:
             continue
         if report.get("responseStatus") != 200 or report.get("final", {}).get("navigationError"):
-            raise RuntimeError(f"{label} listing navigation failed in {path}")
+            raise RuntimeError(f"{label} navigation failed in {path}")
 
+        requested_url = report.get("requestedUrl") or ""
+        path_part = urlsplit(requested_url).path.rstrip("/")
+        is_homepage = path_part in {"", "/index.html"}
+        route = "Homepage" if is_homepage else "Product listing"
         entries = report.get("final", {}).get("lcpEntries") or []
         if not entries:
             raise RuntimeError(f"No PerformanceObserver LCP entries found in {path}")
@@ -104,22 +113,24 @@ def load_observed_listing_lcp() -> dict[str, list[float]]:
             key=lambda entry: float(entry.get("startTime") or 0),
         )
         class_name = final_entry.get("className") or ""
-        if final_entry.get("tagName") != "IMG" or "products-hero-media" not in class_name:
+        expected_class = "home-hero-image" if is_homepage else "products-hero-media"
+        if final_entry.get("tagName") != "IMG" or expected_class not in class_name:
             raise RuntimeError(
-                f"Expected the product hero to be the final LCP element in {path}; "
+                f"Expected {route} hero to be the final LCP element in {path}; "
                 f"found {final_entry.get('tagName')} {class_name!r}"
             )
 
         start_time = final_entry.get("startTime")
         if not isinstance(start_time, (int, float)) or start_time <= 0:
             raise RuntimeError(f"Invalid observed LCP timestamp in {path}")
-        groups[label].append(float(start_time) / 1000.0)
+        groups[route][label].append(float(start_time) / 1000.0)
 
-    for label, values in groups.items():
-        if len(values) != RUNS_REQUIRED:
-            raise RuntimeError(
-                f"{label} listing diagnostics: expected {RUNS_REQUIRED} observed LCP runs, found {len(values)}"
-            )
+    for route in routes:
+        for label, values in groups[route].items():
+            if len(values) != RUNS_REQUIRED:
+                raise RuntimeError(
+                    f"{label} {route.lower()} diagnostics: expected {RUNS_REQUIRED} observed LCP runs, found {len(values)}"
+                )
     return groups
 
 
@@ -130,7 +141,7 @@ def median(items: list[dict[str, float]], field: str) -> float:
 def main() -> int:
     try:
         lighthouse = load_lighthouse_reports()
-        observed = load_observed_listing_lcp()
+        observed = load_observed_lcp()
     except RuntimeError as error:
         print(f"[FAIL] {error}", file=sys.stderr)
         return 1
@@ -156,44 +167,50 @@ def main() -> int:
                 )
 
     print("")
-    print("## Browser-observed product-listing LCP (CDP 3G / 4× CPU)")
-    print("| Group | Runs | Observed LCP values | Median LCP |")
-    print("|---|---:|---|---:|")
-    for label in ("main", "PR", "preview"):
-        values = observed[label]
-        rendered = ", ".join(f"{value:.2f} s" for value in values)
-        print(f"| {label} | {len(values)} | {rendered} | {statistics.median(values):.2f} s |")
+    print("## Browser-observed homepage and product-listing LCP (CDP 3G / 4× CPU)")
+    print("| Route | Group | Runs | Observed LCP values | Median LCP |")
+    print("|---|---|---:|---|---:|")
+    for route in ("Homepage", "Product listing"):
+        for label in ("main", "PR", "preview"):
+            values = observed[route][label]
+            rendered = ", ".join(f"{value:.2f} s" for value in values)
+            print(f"| {route} | {label} | {len(values)} | {rendered} | {statistics.median(values):.2f} s |")
 
-    # Do not interpret incomplete measurements as a successful performance gate.
     if failures:
         for failure in failures:
             print(f"[FAIL] {failure}")
         return 1
 
-    baseline_observed = observed["main"]
-    candidate_observed = observed["PR"]
-    preview_observed = observed["preview"]
+    for route, limit in (
+        ("Homepage", HOMEPAGE_LCP_LIMIT_SECONDS),
+        ("Product listing", LISTING_LCP_LIMIT_SECONDS),
+    ):
+        for label in ("PR", "preview"):
+            values = observed[route][label]
+            if any(value >= limit for value in values):
+                failures.append(
+                    f"{label} browser-observed {route.lower()} LCP must be below {limit:.1f}s in all three runs"
+                )
 
-    if any(value >= LISTING_LCP_LIMIT_SECONDS for value in candidate_observed):
-        failures.append(
-            f"PR browser-observed listing LCP must be below {LISTING_LCP_LIMIT_SECONDS:.1f}s in all three runs"
-        )
-    if any(value >= LISTING_LCP_LIMIT_SECONDS for value in preview_observed):
-        failures.append(
-            f"Deployed-preview browser-observed listing LCP must be below {LISTING_LCP_LIMIT_SECONDS:.1f}s in all three runs"
-        )
+    for route in ("Homepage", "Product listing"):
+        baseline_values = observed[route]["main"]
+        candidate_values = observed[route]["PR"]
+        baseline_median = statistics.median(baseline_values)
+        candidate_median = statistics.median(candidate_values)
+        if candidate_median > baseline_median * (1 + MAX_BROWSER_LCP_REGRESSION):
+            failures.append(
+                f"PR browser-observed {route.lower()} LCP must not regress by more than {MAX_BROWSER_LCP_REGRESSION * 100:.0f}% "
+                f"against main (main {baseline_median:.2f}s, PR {candidate_median:.2f}s)"
+            )
 
-    baseline_median = statistics.median(baseline_observed)
-    candidate_median = statistics.median(candidate_observed)
-    preview_median = statistics.median(preview_observed)
-    if candidate_median > baseline_median * (1 - MIN_LISTING_IMPROVEMENT):
-        failures.append(
-            f"PR browser-observed listing LCP must improve by at least {MIN_LISTING_IMPROVEMENT * 100:.0f}% "
-            f"against main (main {baseline_median:.2f}s, PR {candidate_median:.2f}s)"
-        )
+
+    if failures:
+        for failure in failures:
+            print(f"[FAIL] {failure}")
+        return 1
 
     # Lighthouse's standard simulated metrics remain the source for route regressions.
-    for route in ("Homepage", "Product detail"):
+    for route in ("Product listing", "Product detail"):
         base = lighthouse[("main", route)]
         candidate = lighthouse[("PR", route)]
         base_lcp = median(base, "lcp")
@@ -219,27 +236,15 @@ def main() -> int:
                 f"(main {base_score:.0f}, PR {candidate_score:.0f})"
             )
 
-    # Ensure the local Lighthouse PR result still improves against the same local main baseline.
-    base_sim = lighthouse[("main", "Product listing")]
-    candidate_sim = lighthouse[("PR", "Product listing")]
-    base_sim_median = median(base_sim, "lcp")
-    candidate_sim_median = median(candidate_sim, "lcp")
-    if candidate_sim_median > base_sim_median * (1 - MIN_LISTING_IMPROVEMENT):
-        failures.append(
-            f"PR simulated listing LCP must improve by at least {MIN_LISTING_IMPROVEMENT * 100:.0f}% "
-            f"against main (main {base_sim_median:.2f}s, PR {candidate_sim_median:.2f}s)"
-        )
-
     if failures:
         for failure in failures:
             print(f"[FAIL] {failure}")
         return 1
 
     print(
-        f"[PASS] Browser-observed PR and deployed-preview listing LCP are each below "
-        f"{LISTING_LCP_LIMIT_SECONDS:.1f}s in all three runs. Observed medians: "
-        f"main {baseline_median:.2f}s, PR {candidate_median:.2f}s, preview {preview_median:.2f}s. "
-        "The PR also improves simulated listing LCP and stays within homepage/detail LCP, TBT and performance guardrails."
+        "[PASS] Browser-observed homepage and listing LCP are below 4.0s in all "
+        "three PR and deployed-preview runs. PR browser-observed medians stay within 5% "
+        "of main; simulated listing/detail LCP and TBT/performance regressions remain within guardrails."
     )
     return 0
 

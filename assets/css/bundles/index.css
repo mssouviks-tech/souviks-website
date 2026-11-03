@@ -293,8 +293,13 @@
 .home-hero-media {
     position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
     overflow: hidden;
+    pointer-events: none;
+}
+.home-hero-container {
+    position: relative;
+    z-index: 1;
 }
 .home-hero-media::after {
     content: "";
