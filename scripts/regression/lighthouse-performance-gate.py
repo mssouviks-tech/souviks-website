@@ -243,8 +243,8 @@ def main() -> int:
 
     print(
         "[PASS] Browser-observed homepage and listing LCP are below 4.0s in all "
-        "three PR and deployed-preview runs. Both PR medians improve by at least 5% "
-        "against main; simulated LCP/TBT/performance regressions remain within guardrails."
+        "three PR and deployed-preview runs. PR browser-observed medians stay within 5% "
+        "of main; simulated listing/detail LCP and TBT/performance regressions remain within guardrails."
     )
     return 0
 
