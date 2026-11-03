@@ -81,11 +81,11 @@ jobs:
                   sys.exit(1)
               if f"index-hero-mobile.webp?v={hero_hash}" not in html:
                   sys.exit(1)
-              tags = re.findall(r"<link\\b[^>]*>", html, flags=re.I)
+              tags = re.findall(r"<link[^>]*>", html, flags=re.I)
               preload = [
                   tag for tag in tags
-                  if re.search(r"\\brel=[\\"']preload[\\"']", tag, re.I)
-                  and re.search(r"\\bas=[\\"']image[\\"']", tag, re.I)
+                  if 'rel="preload"' in tag
+                  and 'as="image"' in tag
                   and "index-hero-mobile.webp" in tag
               ]
               if len(preload) != 1:
@@ -97,11 +97,11 @@ jobs:
                   html = show(path).decode("utf-8")
               except (subprocess.CalledProcessError, UnicodeDecodeError):
                   sys.exit(1)
-              tags = re.findall(r"<link\\b[^>]*>", html, flags=re.I)
+              tags = re.findall(r"<link[^>]*>", html, flags=re.I)
               preload = [
                   tag for tag in tags
-                  if re.search(r"\\brel=[\\"']preload[\\"']", tag, re.I)
-                  and re.search(r"\\bas=[\\"']image[\\"']", tag, re.I)
+                  if 'rel="preload"' in tag
+                  and 'as="image"' in tag
                   and "product-hero-mobile" in tag
               ]
               if len(preload) != 1 or "product-hero-mobile-crop.avif" not in preload[0]:
