@@ -317,7 +317,8 @@ try {
 
       const result = {
         label: target.label,
-        repeat,        routeType,
+        repeat,
+        routeType,
 
         requestedUrl: target.url,
         responseStatus,
@@ -333,7 +334,8 @@ try {
       console.log(
         JSON.stringify({
           label: target.label,
-          repeat,          routeType,
+          repeat,
+          routeType,
 
           responseStatus,
           fcp: final.paint?.find((entry) => entry.name === "first-contentful-paint")
