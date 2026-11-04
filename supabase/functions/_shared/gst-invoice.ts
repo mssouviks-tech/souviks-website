@@ -439,12 +439,12 @@ function drawHeader(page: any, fonts: any, label: string, logo: any | null) {
   page.drawText(SELLER.address2, { x: 26, y: height - 79, size: 7.3, font: fonts.regular, color: dark });
   page.drawText("State Code: 19 | GSTIN: " + SELLER.gstin, { x: 26, y: height - 92, size: 7.1, font: fonts.bold, color: dark });
   if (logo) {
-    const scale = Math.min(52 / logo.width, 52 / logo.height);
+    const scale = Math.min(40 / logo.width, 40 / logo.height);
     const logoWidth = logo.width * scale;
     const logoHeight = logo.height * scale;
     page.drawImage(logo, {
       x: 298 - logoWidth / 2,
-      y: height - 70,
+      y: height - 62,
       width: logoWidth,
       height: logoHeight,
     });
