@@ -143,7 +143,7 @@ Deno.serve(async (req: Request) => {
     const state = fulfillmentMethod === "delivery" ? clean(address.state, 100) : "";
     const postalCode = fulfillmentMethod === "delivery" ? clean(address.postal_code, 6) : "";
     const country = clean(address.country || "IN", 2).toUpperCase();
-    const billingSameAsShipping = input?.billing_same_as_shipping === true && fulfillmentMethod === "delivery";
+    const billingSameAsShipping = input?.billing_same_as_shipping !== false && fulfillmentMethod === "delivery";
     const billingInput = input?.billing_address && typeof input.billing_address === "object" ? input.billing_address : {};
     const billingAddress1 = billingSameAsShipping ? address1 : clean(billingInput.line1, 180);
     const billingAddress2 = billingSameAsShipping ? address2 : clean(billingInput.line2, 120);
