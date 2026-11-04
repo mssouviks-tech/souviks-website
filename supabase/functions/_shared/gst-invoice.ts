@@ -493,7 +493,7 @@ function drawTop(page: any, fonts: any, snapshot: any, invoiceNumber: string) {
 }
 
 function drawTableHeader(page: any, fonts: any, top: number): number {
-  const columns = [
+  const columns: Array<[number, string]> = [
     [28, "DESCRIPTION / PART NO."], [178, "HSN/SAC"], [228, "QTY"],
     [268, "GROSS UNIT"], [335, "TAXABLE"], [412, "GST"], [474, "AMOUNT"],
   ];
@@ -612,10 +612,12 @@ async function uploadPdf(path: string, bytes: Uint8Array): Promise<void> {
   };
   if (!key.startsWith("sb_secret_")) headers["Authorization"] = "Bearer " + key;
   const pathValue = path.split("/").map(encodeURIComponent).join("/");
+  const bodyBytes = new Uint8Array(bytes.byteLength);
+  bodyBytes.set(bytes);
   const response = await fetch(base + "/storage/v1/object/sales-invoices-private/" + pathValue, {
     method: "POST",
     headers,
-    body: bytes,
+    body: bodyBytes.buffer,
     signal: AbortSignal.timeout(20000),
   });
   if (!response.ok) {
@@ -669,7 +671,9 @@ export async function prepareInvoiceDraft(gatewayOrderId: string): Promise<Recor
   let storagePath = String(invoice.pdf_storage_path || "");
   if (!storagePath) {
     const bytes = await renderInvoicePdf(String(invoice.invoice_number), invoice.snapshot);
-    const digestBytes = await crypto.subtle.digest("SHA-256", bytes);
+    const digestInput = new Uint8Array(bytes.byteLength);
+    digestInput.set(bytes);
+    const digestBytes = await crypto.subtle.digest("SHA-256", digestInput);
     const digest = Array.from(new Uint8Array(digestBytes)).map((value) => value.toString(16).padStart(2, "0")).join("");
     storagePath = String(invoice.financial_year) + "/" + String(invoice.invoice_number) + ".pdf";
     await uploadPdf(storagePath, bytes);
