@@ -50,7 +50,9 @@ jobs:
 
       - name: Check Cashfree Edge Function types
         run: deno check --config supabase/functions/deno.json supabase/functions/_shared/cashfree.ts supabase/functions/_shared/gst-invoice.ts supabase/functions/cashfree-create-order/index.ts supabase/functions/cashfree-verify-order/index.ts supabase/functions/cashfree-webhook/index.ts supabase/functions/account-orders/index.ts supabase/functions/sales-invoice/index.ts
-          deno test --config supabase/functions/deno.json supabase/functions/_shared/gst-invoice.test.ts
+
+      - name: Run GST invoice PDF generation tests
+        run: deno test --config supabase/functions/deno.json supabase/functions/_shared/gst-invoice.test.ts
 
       - name: Check Delhivery Edge Function types
         run: deno check supabase/functions/delhivery-estimate/index.ts
