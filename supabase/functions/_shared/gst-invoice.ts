@@ -235,8 +235,14 @@ async function buildSnapshot(order: any, invoiceDate: string): Promise<Record<st
     throw new InvoiceError("invoice_recipient_gstin_invalid", 409);
   }
   const recipientName = clean(order.company || order.customer_name, 160);
+  if (address.lines.length && !address.state_code) {
+    throw new InvoiceError("invoice_recipient_state_unrecognised", 409);
+  }
   if (isB2B && (!recipientName || !address.lines.length)) {
     throw new InvoiceError("invoice_b2b_recipient_details_missing", 409);
+  }
+  if (isB2B && address.state_code && gstin.slice(0, 2) !== address.state_code) {
+    throw new InvoiceError("invoice_recipient_gstin_state_mismatch", 409);
   }
   if (!isB2B && toPaise(order.total_amount) >= 5000000 && (!recipientName || !address.lines.length)) {
     throw new InvoiceError("invoice_recipient_address_required", 409);
