@@ -105,6 +105,8 @@ type TaxProfile = {
   unit_code: string;
   gst_rate_percent: string | number;
   amount_includes_gst: boolean;
+  reverse_charge_applicable: boolean;
+  cess_applicable: boolean;
   approval_status: string;
   source_reference: string | null;
   approved_by: string | null;
@@ -120,6 +122,7 @@ function validProfile(profile: TaxProfile | undefined, key: string, date: string
   if (!/^\d{4,8}$/.test(String(profile.hsn_sac_code || ""))) return false;
   if (!/^[A-Z0-9]{2,8}$/.test(String(profile.unit_code || ""))) return false;
   if (profile.amount_includes_gst !== true) return false;
+  if (typeof profile.reverse_charge_applicable !== "boolean" || typeof profile.cess_applicable !== "boolean") return false;
   if (String(profile.valid_from || "") > date) return false;
   if (profile.valid_to && String(profile.valid_to) < date) return false;
   const rate = Number(profile.gst_rate_percent);
@@ -197,7 +200,7 @@ async function buildSnapshot(order: any, invoiceDate: string): Promise<Record<st
   }
 
   const profilesRaw = await supabaseRest("gst_tax_profiles", "GET", {
-    select: "profile_key,hsn_sac_code,item_description,unit_code,gst_rate_percent,amount_includes_gst,approval_status,source_reference,approved_by,approved_at,valid_from,valid_to,is_active",
+    select: "profile_key,hsn_sac_code,item_description,unit_code,gst_rate_percent,amount_includes_gst,reverse_charge_applicable,cess_applicable,approval_status,source_reference,approved_by,approved_at,valid_from,valid_to,is_active",
     profile_key: "in.(" + keys.join(",") + ")",
     is_active: "eq.true",
     order: "valid_from.desc",
@@ -209,6 +212,13 @@ async function buildSnapshot(order: any, invoiceDate: string): Promise<Record<st
     if (!profiles.has(key) && validProfile(profile, key, invoiceDate)) profiles.set(key, profile);
   }
   if (keys.some((key) => !profiles.has(key))) throw new InvoiceError("invoice_tax_profile_missing", 409);
+  const approvedProfiles = keys.map((key) => profiles.get(key)!);
+  if (approvedProfiles.some((profile) => profile.reverse_charge_applicable)) {
+    throw new InvoiceError("invoice_reverse_charge_not_supported", 409);
+  }
+  if (approvedProfiles.some((profile) => profile.cess_applicable)) {
+    throw new InvoiceError("invoice_cess_not_supported", 409);
+  }
 
   const fulfillmentMethod = String(order.fulfillment_method || "delivery");
   const address = recipientAddress(order);
