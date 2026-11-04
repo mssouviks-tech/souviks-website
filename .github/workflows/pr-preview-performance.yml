@@ -8,6 +8,7 @@ on:
       - "assets/css/**"
       - "**/*.html"
       - ".github/workflows/pr-preview-performance.yml"
+      - ".github/workflows/performance-monitor.yml"
       - ".lighthouserc.json"
       - "assets/images/hero/**"
       - "assets/data/**"
