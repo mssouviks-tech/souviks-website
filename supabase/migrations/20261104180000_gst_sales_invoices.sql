@@ -12,7 +12,8 @@ alter table public.orders
     add column if not exists billing_postal_code text;
 
 create table if not exists public.gst_tax_profiles (
-    profile_key text primary key,
+    profile_id uuid primary key default gen_random_uuid(),
+    profile_key text not null,
     hsn_sac_code text not null,
     item_description text,
     unit_code text,
@@ -30,6 +31,7 @@ create table if not exists public.gst_tax_profiles (
     is_active boolean not null default true,
     created_at timestamptz not null default now(),
     updated_at timestamptz not null default now(),
+    constraint gst_tax_profiles_key_valid_from_unique unique (profile_key, valid_from),
     constraint gst_tax_profiles_validity_check check (valid_to is null or valid_to >= valid_from),
     constraint gst_tax_profiles_approval_check check (
         approval_status <> 'approved'
