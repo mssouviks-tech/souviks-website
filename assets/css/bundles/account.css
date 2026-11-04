@@ -3861,3 +3861,24 @@ body:not(.account-auth-pending)
     .account-order-item-pricing { text-align: left; }
 }
 
+
+
+/* GST invoice download controls */
+.account-order-invoice-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-color);
+}
+.account-order-invoice-download {
+    min-height: 40px;
+}
+.account-order-invoice-note {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: .78rem;
+    line-height: 1.45;
+}
