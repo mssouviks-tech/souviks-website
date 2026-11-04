@@ -3,7 +3,6 @@ import {
   getSupabaseServiceKey,
   getSupabaseUrl,
   supabaseRest,
-  CheckoutError,
 } from "./cashfree.ts";
 
 export class InvoiceError extends Error {
@@ -336,6 +335,14 @@ async function buildSnapshot(order: any, invoiceDate: string): Promise<Record<st
       country: "India",
     },
     place_of_supply: { state_name: posState, state_code: posCode, intra_state: intraState },
+    delivery_address: fulfillmentMethod === "delivery" ? [
+      clean(order.shipping_address_line1, 180),
+      clean(order.shipping_address_line2, 120),
+      clean(order.shipping_city, 100),
+      clean(order.shipping_state, 100),
+      clean(order.shipping_postal_code, 6),
+    ].filter(Boolean) : [],
+    reverse_charge: "No",
     fulfillment_method: fulfillmentMethod,
     payment: {
       status: "PAID",
@@ -445,6 +452,7 @@ function drawTop(page: any, fonts: any, snapshot: any, invoiceNumber: string) {
   page.drawText("Payment Status: PAID", { x: 26, y: 676, size: 8, font: fonts.bold, color: dark });
   page.drawText("Order Ref: " + pdfText(snapshot.order_number, 42), { x: 26, y: 662, size: 8, font: fonts.regular, color: dark });
   page.drawText("Place of Supply: " + pdfText(snapshot.place_of_supply.state_name, 40) + " (" + snapshot.place_of_supply.state_code + ")", { x: 26, y: 648, size: 7.6, font: fonts.regular, color: dark });
+  page.drawText("Reverse Charge: " + pdfText(snapshot.reverse_charge || "No", 10), { x: 26, y: 635, size: 7.3, font: fonts.regular, color: dark });
   page.drawRectangle({ x: 350, y: 634, width: 219, height: 92, borderColor: pale, borderWidth: 0.8, color: rgb(1, 1, 1) });
   page.drawText("BILL TO", { x: 360, y: 711, size: 8, font: fonts.bold, color: red });
   const recipient = snapshot.recipient || {};
@@ -458,12 +466,26 @@ function drawTop(page: any, fonts: any, snapshot: any, invoiceNumber: string) {
     y -= 11;
   }
   page.drawLine({ start: { x: 26, y: 626 }, end: { x: 569, y: 626 }, thickness: 0.8, color: pale });
+  const deliveryAddress = Array.isArray(snapshot.delivery_address) ? snapshot.delivery_address.filter(Boolean) : [];
+  const billAddress = Array.isArray(recipient.address) ? recipient.address.filter(Boolean) : [];
+  const isSeparateDelivery = deliveryAddress.length > 0 && deliveryAddress.join("|") !== billAddress.join("|");
+  if (isSeparateDelivery) {
+    const shipText = "SHIP TO: " + deliveryAddress.map((value: unknown) => pdfText(value, 100)).join(", ");
+    const shipLines = wrap(shipText, fonts.regular, 7, 540).slice(0, 3);
+    let shipY = 610;
+    for (const shipLine of shipLines) {
+      page.drawText(shipLine, { x: 28, y: shipY, size: 7, font: fonts.regular, color: dark, maxWidth: 540 });
+      shipY -= 10;
+    }
+    return shipY - 2;
+  }
+  return 612;
 }
 
 function drawTableHeader(page: any, fonts: any, top: number): number {
   const columns = [
     [28, "DESCRIPTION / PART NO."], [178, "HSN/SAC"], [228, "QTY"],
-    [268, "UNIT RATE"], [335, "TAXABLE"], [412, "GST"], [474, "AMOUNT"],
+    [268, "GROSS UNIT"], [335, "TAXABLE"], [412, "GST"], [474, "AMOUNT"],
   ];
   page.drawRectangle({ x: 26, y: top - 22, width: 543, height: 22, borderColor: rgb(0.75, 0.78, 0.82), borderWidth: 0.5, color: rgb(0.96, 0.97, 0.98) });
   for (const column of columns) {
@@ -535,8 +557,8 @@ export async function renderInvoicePdf(invoiceNumber: string, snapshot: Record<s
 
   let page = pdf.addPage([595.28, 841.89]);
   drawHeader(page, fonts, "DRAFT");
-  drawTop(page, fonts, snapshot, invoiceNumber);
-  let y = drawTableHeader(page, fonts, 612);
+  const tableTop = drawTop(page, fonts, snapshot, invoiceNumber);
+  let y = drawTableHeader(page, fonts, tableTop);
   let index = 0;
   for (const line of lines) {
     if (y < 150) {
