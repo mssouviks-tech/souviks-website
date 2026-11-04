@@ -25,6 +25,7 @@ TEXT = {
         "fulfillment_heading": "How would you like to receive your order?", "home_delivery": "Delivery", "store_pickup": "Store pickup", "pickup_note": "No courier charge applies. The Souviks team will confirm collection details after your order is placed.",
         "delivery": "Delivery address", "delivery_note": "Delivery charges are calculated automatically at checkout based on your PIN code and the combined weight of your cart. The displayed rate is an estimate; we recheck the applicable amount before payment.", "address1": "Address line 1", "address2": "Address line 2 (optional)",
         "city": "City", "state": "State", "pin": "PIN code",
+        "billing_same": "Billing address is the same as the delivery address", "billing_pickup": "Enter the billing address for store pickup", "billing_title": "Billing address",
         "terms": "I agree to the Terms & Conditions, Privacy Policy and Refund Policy.",
         "review": "Review total & continue", "review_title": "Review your order total",
         "review_explain": "Check this exact amount before opening Cashfree's secure payment page.",
@@ -51,6 +52,7 @@ TEXT = {
         "fulfillment_heading": "आप अपना ऑर्डर कैसे प्राप्त करना चाहेंगे?", "home_delivery": "डिलीवरी", "store_pickup": "स्टोर से पिकअप", "pickup_note": "कोई कूरियर शुल्क नहीं लगेगा। ऑर्डर देने के बाद Souviks टीम पिकअप विवरण की पुष्टि करेगी।",
         "delivery": "डिलीवरी का पता", "delivery_note": "डिलीवरी शुल्क की गणना चेकआउट में पिन कोड और कार्ट के कुल वज़न के आधार पर अपने-आप होगी। दिखाया गया शुल्क अनुमानित है; भुगतान से पहले लागू राशि की दोबारा जाँच होगी।", "address1": "पता पंक्ति 1", "address2": "पता पंक्ति 2 (वैकल्पिक)",
         "city": "शहर", "state": "राज्य", "pin": "पिन कोड",
+        "billing_same": "बिलिंग पता डिलीवरी पते जैसा ही है", "billing_pickup": "स्टोर पिकअप के लिए बिलिंग पता दर्ज करें", "billing_title": "बिलिंग पता",
         "terms": "मैं नियम और शर्तें, गोपनीयता नीति और रिफंड नीति स्वीकार करता/करती हूँ।",
         "review": "कुल राशि जाँचें और आगे बढ़ें", "review_title": "ऑर्डर की कुल राशि जाँचें",
         "review_explain": "Cashfree के सुरक्षित भुगतान पेज पर जाने से पहले इस राशि की पुष्टि करें।",
@@ -77,6 +79,7 @@ TEXT = {
         "fulfillment_heading": "আপনি কীভাবে অর্ডারটি পেতে চান?", "home_delivery": "ডেলিভারি", "store_pickup": "স্টোর থেকে সংগ্রহ", "pickup_note": "কুরিয়ার চার্জ লাগবে না। অর্ডার দেওয়ার পর Souviks টিম সংগ্রহের বিস্তারিত নিশ্চিত করবে।",
         "delivery": "ডেলিভারির ঠিকানা", "delivery_note": "চেকআউটে পিন কোড ও কার্টের মোট ওজনের ভিত্তিতে ডেলিভারি চার্জ স্বয়ংক্রিয়ভাবে হিসাব হবে। দেখানো চার্জটি আনুমানিক; পেমেন্টের আগে প্রযোজ্য পরিমাণ আবার যাচাই করা হবে।", "address1": "ঠিকানা লাইন ১", "address2": "ঠিকানা লাইন ২ (ঐচ্ছিক)",
         "city": "শহর", "state": "রাজ্য", "pin": "পিন কোড",
+        "billing_same": "বিলিং ঠিকানা ডেলিভারি ঠিকানার একই", "billing_pickup": "স্টোর থেকে সংগ্রহের জন্য বিলিং ঠিকানা দিন", "billing_title": "বিলিং ঠিকানা",
         "terms": "আমি শর্তাবলী, গোপনীয়তা নীতি এবং রিফান্ড নীতি মেনে নিচ্ছি।",
         "review": "মোট মূল্য যাচাই করে এগিয়ে যান", "review_title": "অর্ডারের মোট মূল্য যাচাই করুন",
         "review_explain": "Cashfree-এর নিরাপদ পেমেন্ট পেজে যাওয়ার আগে এই নির্দিষ্ট মূল্য যাচাই করুন।",
@@ -162,6 +165,19 @@ CART_TEMPLATE = """<!doctype html>
               <div class="form-group"><label for="checkout-state">__STATE__</label><input type="text" id="checkout-state" name="state" autocomplete="address-level1" maxlength="100"></div>
               <div class="form-group"><label for="checkout-pincode">__PIN__</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6"></div>
             </div>
+            </div>
+            <div class="purchase-billing-section">
+              <label class="purchase-terms"><input type="checkbox" id="checkout-billing-same" checked><span id="checkout-billing-same-label">__BILLING_SAME__</span></label>
+              <div id="checkout-billing-fields" hidden>
+                <h3>__BILLING_TITLE__</h3>
+                <div class="purchase-address-grid">
+                  <div class="form-group form-group-full"><label for="checkout-billing-address1">__ADDRESS1__</label><input type="text" id="checkout-billing-address1" maxlength="180"></div>
+                  <div class="form-group form-group-full"><label for="checkout-billing-address2">__ADDRESS2__</label><input type="text" id="checkout-billing-address2" maxlength="120"></div>
+                  <div class="form-group"><label for="checkout-billing-city">__CITY__</label><input type="text" id="checkout-billing-city" maxlength="100"></div>
+                  <div class="form-group"><label for="checkout-billing-state">__STATE__</label><input type="text" id="checkout-billing-state" maxlength="100"></div>
+                  <div class="form-group"><label for="checkout-billing-pincode">__PIN__</label><input type="text" id="checkout-billing-pincode" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6"></div>
+                </div>
+              </div>
             </div>
             <label class="purchase-terms"><input type="checkbox" id="checkout-terms" name="terms_accepted" required><span>__TERMS__ <a href="/__LANG__/terms">__TERMS_LINK__</a> · <a href="/__LANG__/privacy-policy">__PRIVACY_LINK__</a> · <a href="/__LANG__/refund">__REFUND_LINK__</a></span></label>
             <button id="purchase-review-button" type="submit" class="btn btn-primary">__REVIEW__</button>
@@ -319,6 +335,9 @@ def main() -> int:
             "city": labels["city"],
             "state": labels["state"],
             "pin": labels["pin"],
+            "billing_same": labels["billing_same"],
+            "billing_pickup": labels["billing_pickup"],
+            "billing_title": labels["billing_title"],
             "terms": labels["terms"],
             "terms_link": labels["terms_link"],
             "privacy_link": labels["privacy_link"],
