@@ -155,13 +155,30 @@ async function loadPaidOrder(gatewayOrderId: string): Promise<any> {
 }
 
 function recipientAddress(order: any) {
-  return [
-    clean(order.shipping_address_line1, 180),
-    clean(order.shipping_address_line2, 120),
-    clean(order.shipping_city, 100),
-    clean(order.shipping_state, 100),
-    clean(order.shipping_postal_code, 6),
-  ].filter(Boolean);
+  const hasBillingAddress = Boolean(
+    clean(order.billing_address_line1, 180) ||
+    clean(order.billing_city, 100) ||
+    clean(order.billing_state, 100) ||
+    clean(order.billing_postal_code, 6)
+  );
+  const useBilling = order.billing_same_as_shipping === false || hasBillingAddress;
+  const line1 = useBilling ? order.billing_address_line1 : order.shipping_address_line1;
+  const line2 = useBilling ? order.billing_address_line2 : order.shipping_address_line2;
+  const city = useBilling ? order.billing_city : order.shipping_city;
+  const state = useBilling ? order.billing_state : order.shipping_state;
+  const postalCode = useBilling ? order.billing_postal_code : order.shipping_postal_code;
+  return {
+    lines: [
+      clean(line1, 180),
+      clean(line2, 120),
+      clean(city, 100),
+      clean(state, 100),
+      clean(postalCode, 6),
+    ].filter(Boolean),
+    state_name: clean(state, 100),
+    state_code: stateCode(state),
+    postal_code: clean(postalCode, 6),
+  };
 }
 
 async function buildSnapshot(order: any, invoiceDate: string): Promise<Record<string, any>> {
@@ -196,6 +213,8 @@ async function buildSnapshot(order: any, invoiceDate: string): Promise<Record<st
 
   const fulfillmentMethod = String(order.fulfillment_method || "delivery");
   const address = recipientAddress(order);
+  // For goods moved to the customer, place of supply follows the delivery
+  // destination. For store pickup, the goods are made available at Souviks.
   const posState = fulfillmentMethod === "pickup" ? SELLER.stateName : clean(order.shipping_state, 100);
   const posCode = stateCode(posState);
   if (!posCode) throw new InvoiceError("invoice_place_of_supply_state_unrecognised", 409);
@@ -310,10 +329,10 @@ async function buildSnapshot(order: any, invoiceDate: string): Promise<Record<st
       name: recipientName,
       company: clean(order.company, 160),
       gstin: isB2B ? gstin : null,
-      address,
-      state_name: posState,
-      state_code: posCode,
-      postal_code: clean(order.shipping_postal_code, 6),
+      address: address.lines,
+      state_name: address.state_name || posState,
+      state_code: address.state_code || posCode,
+      postal_code: address.postal_code,
       country: "India",
     },
     place_of_supply: { state_name: posState, state_code: posCode, intra_state: intraState },
