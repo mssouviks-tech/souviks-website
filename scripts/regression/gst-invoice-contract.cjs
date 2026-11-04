@@ -40,9 +40,8 @@ assert.match(migration, /tax_included is distinct from true/);
 assert.match(migration, /values \('sales-invoices-private', 'sales-invoices-private', false/);
 assert.match(migration, /revoke all on table public\.sales_invoices from public, anon, authenticated/);
 assert.match(migration, /grant select, insert, update, delete on table public\.sales_invoices to service_role/);
-assert.match(migration, /status = 'issued'/);
-assert.match(migration, /signature_status = 'signed'/);
-assert.match(migration, /p_signature_reference/);
+assert.doesNotMatch(migration, /mark_sales_invoice_signed/);
+assert.match(migration, /coalesce\\(jsonb_typeof\\(p_snapshot -> 'lines'\\), ''\\) <> 'array'/);
 assert.doesNotMatch(migration, /insert into public\.gst_tax_profiles/i, "No GST rate or HSN/SAC profile may be pre-approved or seeded.");
 
 assert.match(invoice, /payment_status.*paid/);
