@@ -99,6 +99,7 @@ jobs:
           node --check scripts/regression/production-browser-smoke.cjs
           node --check scripts/regression/cashfree-checkout-contract.cjs
           node --check scripts/regression/account-orders-contract.cjs
+          node --check scripts/regression/gst-invoice-contract.cjs
           node --check scripts/regression/delhivery-estimate-contract.cjs
 
       - name: Validate RFQ security contract
@@ -109,6 +110,9 @@ jobs:
 
       - name: Validate authenticated account order history contract
         run: node scripts/regression/account-orders-contract.cjs
+
+      - name: Validate GST invoice creation and download contract
+        run: node scripts/regression/gst-invoice-contract.cjs
 
       - name: Validate Delhivery delivery estimator contract
         run: node scripts/regression/delhivery-estimate-contract.cjs
