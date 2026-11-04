@@ -617,7 +617,7 @@ export async function renderInvoicePdf(
   if (y < 230) {
     drawWatermark(page, fonts);
     page = pdf.addPage([595.28, 841.89]);
-    drawHeader(page, fonts, "DRAFT");
+    drawHeader(page, fonts, "DRAFT", logo);
     page.drawText("DRAFT TAX INVOICE - SUMMARY", { x: 26, y: 720, size: 11, font: bold, color: rgb(0.82, 0.08, 0.1) });
     y = 690;
   }
