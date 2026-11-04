@@ -143,6 +143,13 @@ Deno.serve(async (req: Request) => {
     const state = fulfillmentMethod === "delivery" ? clean(address.state, 100) : "";
     const postalCode = fulfillmentMethod === "delivery" ? clean(address.postal_code, 6) : "";
     const country = clean(address.country || "IN", 2).toUpperCase();
+    const billingSameAsShipping = input?.billing_same_as_shipping === true && fulfillmentMethod === "delivery";
+    const billingInput = input?.billing_address && typeof input.billing_address === "object" ? input.billing_address : {};
+    const billingAddress1 = billingSameAsShipping ? address1 : clean(billingInput.line1, 180);
+    const billingAddress2 = billingSameAsShipping ? address2 : clean(billingInput.line2, 120);
+    const billingCity = billingSameAsShipping ? city : clean(billingInput.city, 100);
+    const billingState = billingSameAsShipping ? state : clean(billingInput.state, 100);
+    const billingPostalCode = billingSameAsShipping ? postalCode : clean(billingInput.postal_code, 6);
 
     if (customerName.length < 2) throw new CheckoutError("customer_name_required", 400);
     if (!/^\d{10}$/.test(customerPhone)) throw new CheckoutError("valid_indian_phone_required", 400);
@@ -152,6 +159,10 @@ Deno.serve(async (req: Request) => {
       throw new CheckoutError("valid_indian_shipping_address_required", 400);
     }
     if (gstNumber && !/^[0-9A-Z]{15}$/.test(gstNumber)) throw new CheckoutError("valid_gst_number_required", 400);
+    if (!billingSameAsShipping &&
+        (!billingAddress1 || !billingCity || !billingState || !/^\d{6}$/.test(billingPostalCode))) {
+      throw new CheckoutError("valid_indian_billing_address_required", 400);
+    }
 
     const itemsInput = input?.items;
     if (!Array.isArray(itemsInput) || itemsInput.length < 1) throw new CheckoutError("cart_empty", 400);
@@ -259,6 +270,12 @@ Deno.serve(async (req: Request) => {
       company: company || null,
       gst_number: gstNumber || null,
       fulfillment_method: fulfillmentMethod,
+      billing_same_as_shipping: billingSameAsShipping,
+      billing_address_line1: billingAddress1 || null,
+      billing_address_line2: billingAddress2 || null,
+      billing_city: billingCity || null,
+      billing_state: billingState || null,
+      billing_postal_code: billingPostalCode || null,
       shipping_address_line1: fulfillmentMethod === "delivery" ? address1 : null,
       shipping_address_line2: fulfillmentMethod === "delivery" ? (address2 || null) : null,
       shipping_city: fulfillmentMethod === "delivery" ? city : null,
