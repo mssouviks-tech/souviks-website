@@ -18,6 +18,8 @@ create table if not exists public.gst_tax_profiles (
     unit_code text not null default 'NOS',
     gst_rate_percent numeric(6,3) not null check (gst_rate_percent >= 0 and gst_rate_percent <= 100),
     amount_includes_gst boolean not null default true,
+    reverse_charge_applicable boolean,
+    cess_applicable boolean,
     approval_status text not null default 'pending'
         check (approval_status in ('pending', 'approved', 'rejected')),
     source_reference text,
@@ -35,6 +37,8 @@ create table if not exists public.gst_tax_profiles (
             nullif(trim(source_reference), '') is not null
             and nullif(trim(approved_by), '') is not null
             and approved_at is not null
+            and reverse_charge_applicable is not null
+            and cess_applicable is not null
         )
     )
 );
