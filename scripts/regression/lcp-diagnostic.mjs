@@ -156,7 +156,8 @@ try {
             const style = hero ? getComputedStyle(hero) : null;
             const resources = performance
               .getEntriesByType("resource")
-              .filter((entry) => /index-hero|product-hero|\\/assets\\/images\\/products\\//i.test(entry.name))              .map((entry) => ({
+              .filter((entry) => /index-hero|product-hero|\\/assets\\/images\\/products\\//i.test(entry.name))
+              .map((entry) => ({
                 name: entry.name,
                 startTime: round(entry.startTime),
                 responseEnd: round(entry.responseEnd),
