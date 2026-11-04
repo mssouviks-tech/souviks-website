@@ -427,7 +427,7 @@ function fmtDate(value: string): string {
   return parts.length === 3 ? parts[2] + "/" + parts[1] + "/" + parts[0] : value;
 }
 
-function drawHeader(page: any, fonts: any, label: string) {
+function drawHeader(page: any, fonts: any, label: string, logo: any | null) {
   const width = 595.28;
   const height = 841.89;
   const red = rgb(0.82, 0.08, 0.10);
@@ -438,9 +438,21 @@ function drawHeader(page: any, fonts: any, label: string) {
   page.drawText(SELLER.address1, { x: 26, y: height - 67, size: 7.3, font: fonts.regular, color: dark });
   page.drawText(SELLER.address2, { x: 26, y: height - 79, size: 7.3, font: fonts.regular, color: dark });
   page.drawText("State Code: 19 | GSTIN: " + SELLER.gstin, { x: 26, y: height - 92, size: 7.1, font: fonts.bold, color: dark });
-  page.drawCircle({ x: 298, y: height - 42, size: 19, borderColor: dark, borderWidth: 1.7, color: rgb(1, 1, 1) });
-  page.drawText("S", { x: 291, y: height - 50, size: 23, font: fonts.bold, color: dark });
-  page.drawText("Souviks", { x: 282, y: height - 66, size: 7, font: fonts.bold, color: dark });
+  if (logo) {
+    const scale = Math.min(52 / logo.width, 52 / logo.height);
+    const logoWidth = logo.width * scale;
+    const logoHeight = logo.height * scale;
+    page.drawImage(logo, {
+      x: 298 - logoWidth / 2,
+      y: height - 70,
+      width: logoWidth,
+      height: logoHeight,
+    });
+  } else {
+    page.drawCircle({ x: 298, y: height - 42, size: 19, borderColor: dark, borderWidth: 1.7, color: rgb(1, 1, 1) });
+    page.drawText("S", { x: 291, y: height - 50, size: 23, font: fonts.bold, color: dark });
+    page.drawText("Souviks", { x: 282, y: height - 66, size: 7, font: fonts.bold, color: dark });
+  }
   page.drawText("Your vehicle deserves the best. We", { x: 232, y: height - 81, size: 7.1, font: fonts.bold, color: red });
   page.drawText("promise it.", { x: 265, y: height - 92, size: 7.1, font: fonts.bold, color: red });
   page.drawText("INVOICE CUSTOMER COPY", { x: 420, y: height - 35, size: 7.1, font: fonts.bold, color: dark });
@@ -563,7 +575,11 @@ function drawTotals(page: any, fonts: any, snapshot: any, yStart: number): numbe
   return y - 34;
 }
 
-export async function renderInvoicePdf(invoiceNumber: string, snapshot: Record<string, any>): Promise<Uint8Array> {
+export async function renderInvoicePdf(
+  invoiceNumber: string,
+  snapshot: Record<string, any>,
+  logoBytes?: Uint8Array,
+): Promise<Uint8Array> {
   const pdf = await PDFDocument.create();
   pdf.setTitle("Draft Tax Invoice " + invoiceNumber + " | Souviks");
   pdf.setAuthor("Souviks - CHANDRANI SADHU");
@@ -571,11 +587,19 @@ export async function renderInvoicePdf(invoiceNumber: string, snapshot: Record<s
   const regular = await pdf.embedFont(StandardFonts.Helvetica);
   const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
   const fonts = { regular, bold };
+  let logo: any | null = null;
+  if (logoBytes?.length) {
+    try {
+      logo = await pdf.embedPng(logoBytes);
+    } catch {
+      logo = null;
+    }
+  }
   const lines = Array.isArray(snapshot.lines) ? snapshot.lines : [];
   if (!lines.length) throw new InvoiceError("invoice_lines_missing", 409);
 
   let page = pdf.addPage([595.28, 841.89]);
-  drawHeader(page, fonts, "DRAFT");
+  drawHeader(page, fonts, "DRAFT", logo);
   const tableTop = drawTop(page, fonts, snapshot, invoiceNumber);
   let y = drawTableHeader(page, fonts, tableTop);
   let index = 0;
@@ -583,7 +607,7 @@ export async function renderInvoicePdf(invoiceNumber: string, snapshot: Record<s
     if (y < 150) {
       drawWatermark(page, fonts);
       page = pdf.addPage([595.28, 841.89]);
-      drawHeader(page, fonts, "DRAFT");
+      drawHeader(page, fonts, "DRAFT", logo);
       page.drawText("DRAFT TAX INVOICE - CONTINUED", { x: 26, y: 720, size: 11, font: bold, color: rgb(0.82, 0.08, 0.1) });
       y = drawTableHeader(page, fonts, 690);
     }
@@ -609,6 +633,37 @@ export async function renderInvoicePdf(invoiceNumber: string, snapshot: Record<s
     drawFooter(current, fonts, pageIndex + 1, pages.length);
   });
   return await pdf.save();
+}
+
+const INVOICE_LOGO_URL = "https://raw.githubusercontent.com/mssouviks-tech/souviks-website/main/assets/logo/souviks-logo.png";
+let cachedInvoiceLogo: Uint8Array | null | undefined;
+
+async function loadInvoiceLogo(): Promise<Uint8Array | null> {
+  if (cachedInvoiceLogo !== undefined) return cachedInvoiceLogo;
+  try {
+    const response = await fetch(INVOICE_LOGO_URL, {
+      headers: { "Accept": "image/png" },
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!response.ok) {
+      cachedInvoiceLogo = null;
+      return null;
+    }
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    const isPng = bytes.length > 8 &&
+      bytes[0] === 0x89 && bytes[1] === 0x50 && bytes[2] === 0x4e &&
+      bytes[3] === 0x47 && bytes[4] === 0x0d && bytes[5] === 0x0a &&
+      bytes[6] === 0x1a && bytes[7] === 0x0a;
+    if (!isPng || bytes.byteLength > 512 * 1024) {
+      cachedInvoiceLogo = null;
+      return null;
+    }
+    cachedInvoiceLogo = bytes;
+    return bytes;
+  } catch {
+    cachedInvoiceLogo = null;
+    return null;
+  }
 }
 
 async function uploadPdf(path: string, bytes: Uint8Array): Promise<void> {
@@ -679,7 +734,8 @@ export async function prepareInvoiceDraft(gatewayOrderId: string): Promise<Recor
   }
   let storagePath = String(invoice.pdf_storage_path || "");
   if (!storagePath) {
-    const bytes = await renderInvoicePdf(String(invoice.invoice_number), invoice.snapshot);
+    const logoBytes = await loadInvoiceLogo();
+    const bytes = await renderInvoicePdf(String(invoice.invoice_number), invoice.snapshot, logoBytes || undefined);
     const digestInput = new Uint8Array(bytes.byteLength);
     digestInput.set(bytes);
     const digestBytes = await crypto.subtle.digest("SHA-256", digestInput);
