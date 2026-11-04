@@ -33,6 +33,7 @@ TEXT = {
         "status_title": "Payment status", "status_label": "Payment status", "status_loading": "Checking your payment with Cashfree…",
         "amount": "Amount", "retry": "Retry verification", "back": "Continue shopping",
         "help": "Need help? Contact us at", "terms_link": "Terms & Conditions", "privacy_link": "Privacy Policy", "refund_link": "Refund Policy",
+        "invoice_download": "Download draft tax invoice", "invoice_note": "This is a draft only and is not an issued tax invoice until authorised signature is applied.", "invoice_failed": "Invoice preparation is pending verified GST classification. Please contact Souviks.",
     },
     "hi": {
         "cart_title": "आपका कार्ट | Souviks", "cart_heading": "कार्ट",
@@ -58,6 +59,7 @@ TEXT = {
         "status_title": "भुगतान स्थिति", "status_label": "भुगतान स्थिति", "status_loading": "Cashfree से भुगतान की पुष्टि हो रही है…",
         "amount": "राशि", "retry": "पुष्टि फिर जाँचें", "back": "खरीदारी जारी रखें",
         "help": "सहायता चाहिए? संपर्क करें", "terms_link": "नियम और शर्तें", "privacy_link": "गोपनीयता नीति", "refund_link": "रिफंड नीति",
+        "invoice_download": "ड्राफ्ट टैक्स इनवॉइस डाउनलोड करें", "invoice_note": "यह केवल ड्राफ्ट है। अधिकृत हस्ताक्षर होने तक इसे जारी टैक्स इनवॉइस नहीं माना जाएगा।", "invoice_failed": "सत्यापित GST वर्गीकरण लंबित है। कृपया Souviks से संपर्क करें।
     },
     "bn": {
         "cart_title": "আপনার কার্ট | Souviks", "cart_heading": "কার্ট",
@@ -83,6 +85,7 @@ TEXT = {
         "status_title": "পেমেন্টের অবস্থা", "status_label": "পেমেন্টের অবস্থা", "status_loading": "Cashfree থেকে পেমেন্ট যাচাই হচ্ছে…",
         "amount": "পরিমাণ", "retry": "আবার যাচাই করুন", "back": "কেনাকাটা চালিয়ে যান",
         "help": "সাহায্য দরকার? যোগাযোগ করুন", "terms_link": "শর্তাবলী", "privacy_link": "গোপনীয়তা নীতি", "refund_link": "রিফান্ড নীতি",
+        "invoice_download": "ড্রাফ্ট ট্যাক্স ইনভয়েস ডাউনলোড করুন", "invoice_note": "এটি শুধুমাত্র ড্রাফ্ট। অনুমোদিত স্বাক্ষর না হওয়া পর্যন্ত এটি ইস্যু করা ট্যাক্স ইনভয়েস নয়।", "invoice_failed": "যাচাইকৃত GST শ্রেণিবিভাগের জন্য অপেক্ষা চলছে। অনুগ্রহ করে Souviks-এর সঙ্গে যোগাযোগ করুন।
     },
 }
 
@@ -236,6 +239,8 @@ STATUS_TEMPLATE = """<!doctype html>
       <h1>__STATUS_TITLE__</h1><p id="payment-status-message" role="status" aria-live="polite">__STATUS_LOADING__</p>
       <dl><div><dt>__ORDER_REF__</dt><dd id="payment-status-reference" class="payment-status-reference">—</dd></div><div><dt>__AMOUNT__</dt><dd id="payment-status-detail" class="payment-status-detail">—</dd></div></dl>
       <button id="payment-status-retry" type="button" class="btn btn-secondary" hidden>__RETRY__</button>
+      <button id="payment-status-invoice" type="button" class="btn btn-primary" hidden>__INVOICE_DOWNLOAD__</button>
+      <p id="payment-status-invoice-note" class="payment-status-invoice-note" hidden>__INVOICE_NOTE__</p>
       <p><a href="/__LANG__/products">__BACK_PRODUCTS__</a></p>
       <p>__HELP__ <a href="mailto:info@souviks.co.in">info@souviks.co.in</a> · <a href="tel:+919434331896">+91 94343 31896</a></p>
     </section>
@@ -339,6 +344,8 @@ def main() -> int:
                 "retry": labels["retry"],
                 "back_products": labels["back"],
                 "help": labels["help"],
+                "invoice_download": labels["invoice_download"],
+                "invoice_note": labels["invoice_note"],
             })),
         )
         for path, content in pages:
