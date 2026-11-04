@@ -35,8 +35,8 @@ const browser = await chromium.launch({
 
 try {
   for (const target of targets) {
-    // One label can be used for multiple routes (homepage and listing). Keep
-    // their reports and checkpoint screenshots separate instead of overwriting.
+    // One label can be used for each core route. Keep reports and checkpoint
+    // screenshots separate so homepage, listing and PDP runs never overwrite.
     const routeKey =
       new URL(target.url).pathname.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") ||
       "home";
