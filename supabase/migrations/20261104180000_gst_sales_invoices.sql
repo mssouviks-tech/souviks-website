@@ -15,7 +15,7 @@ create table if not exists public.gst_tax_profiles (
     profile_key text primary key,
     hsn_sac_code text not null,
     item_description text,
-    unit_code text not null default 'NOS',
+    unit_code text,
     gst_rate_percent numeric(6,3) not null check (gst_rate_percent >= 0 and gst_rate_percent <= 100),
     amount_includes_gst boolean not null default true,
     reverse_charge_applicable boolean,
@@ -37,6 +37,7 @@ create table if not exists public.gst_tax_profiles (
             nullif(trim(source_reference), '') is not null
             and nullif(trim(approved_by), '') is not null
             and approved_at is not null
+            and nullif(trim(unit_code), '') is not null
             and reverse_charge_applicable is not null
             and cess_applicable is not null
         )
