@@ -20,6 +20,8 @@
             cartTooLarge: "The cart can contain up to 50 different products.",
             quantityLimit: "Quantity must be between 1 and 9,999.",
             reviewFailed: "We could not prepare this order. Check the information and try again.",
+            billingSame: "Billing address is the same as the delivery address",
+            billingPickup: "Enter the billing address for store pickup",
             continueFailed: "Cashfree Checkout could not open. Please retry the checkout.",
             statusLoading: "Checking your payment with Cashfree…",
             statusPaid: "Payment confirmed. Your order is recorded; Souviks will confirm availability and fulfilment.",
@@ -50,6 +52,8 @@
             cartTooLarge: "कार्ट में अधिकतम 50 अलग-अलग उत्पाद हो सकते हैं।",
             quantityLimit: "मात्रा 1 से 9,999 के बीच होनी चाहिए।",
             reviewFailed: "ऑर्डर तैयार नहीं हो सका। जानकारी जाँचकर फिर कोशिश करें।",
+            billingSame: "बिलिंग पता डिलीवरी पते जैसा ही है",
+            billingPickup: "स्टोर पिकअप के लिए बिलिंग पता दर्ज करें",
             continueFailed: "Cashfree Checkout नहीं खुल सका। कृपया फिर कोशिश करें।",
             statusLoading: "Cashfree से भुगतान की पुष्टि हो रही है…",
             statusPaid: "भुगतान की पुष्टि हो गई है। आपका ऑर्डर दर्ज है; Souviks उपलब्धता और डिलीवरी की पुष्टि करेगा।",
@@ -80,6 +84,8 @@
             cartTooLarge: "কার্টে সর্বাধিক ৫০টি আলাদা পণ্য থাকতে পারে।",
             quantityLimit: "পরিমাণ ১ থেকে ৯,৯৯৯-এর মধ্যে হতে হবে।",
             reviewFailed: "অর্ডার তৈরি করা যায়নি। তথ্য যাচাই করে আবার চেষ্টা করুন।",
+            billingSame: "বিলিং ঠিকানা ডেলিভারি ঠিকানার একই",
+            billingPickup: "স্টোর থেকে সংগ্রহের জন্য বিলিং ঠিকানা দিন",
             continueFailed: "Cashfree Checkout খোলা যায়নি। আবার চেষ্টা করুন।",
             statusLoading: "Cashfree থেকে পেমেন্ট যাচাই হচ্ছে…",
             statusPaid: "পেমেন্ট নিশ্চিত হয়েছে। আপনার অর্ডার রেকর্ড করা হয়েছে; Souviks পণ্যের উপলভ্যতা ও ডেলিভারি নিশ্চিত করবে।",
@@ -398,11 +404,24 @@
         const fulfillmentInputs = Array.from(form?.querySelectorAll('input[name="fulfillment_method"]') || []);
         const deliveryFields = document.getElementById("checkout-delivery-fields");
         const pickupNote = document.getElementById("checkout-pickup-note");
+        const billingSame = document.getElementById("checkout-billing-same");
+        const billingFields = document.getElementById("checkout-billing-fields");
+        const billingLabel = document.getElementById("checkout-billing-same-label");
         function syncFulfillmentFields() {
             const method = fulfillmentInputs.find(input => input.checked)?.value || "";
             const isDelivery = method === "delivery";
             if (deliveryFields) deliveryFields.hidden = !isDelivery;
             if (pickupNote) pickupNote.hidden = method !== "pickup";
+            if (method === "pickup" && billingSame?.checked) billingSame.checked = false;
+            if (billingLabel) billingLabel.textContent = method === "pickup" ? T.billingPickup : T.billingSame;
+            const showBillingFields = method === "pickup" || (isDelivery && billingSame?.checked === false);
+            if (billingFields) billingFields.hidden = !showBillingFields;
+            billingFields?.querySelectorAll("input").forEach(input => {
+                input.disabled = !showBillingFields;
+                if (["checkout-billing-address1", "checkout-billing-city", "checkout-billing-state", "checkout-billing-pincode"].includes(input.id)) {
+                    input.required = showBillingFields;
+                }
+            });
             deliveryFields?.querySelectorAll("input").forEach(input => {
                 input.disabled = !isDelivery;
                 if (["checkout-address1", "checkout-city", "checkout-state", "checkout-pincode"].includes(input.id)) {
@@ -465,6 +484,14 @@
                 postal_code: document.getElementById("checkout-pincode")?.value || "",
                 country: "IN"
             };
+            const billingSameAsShipping = fulfillmentMethod === "delivery" && Boolean(document.getElementById("checkout-billing-same")?.checked);
+            const billingAddress = billingSameAsShipping ? shippingAddress : {
+                line1: document.getElementById("checkout-billing-address1")?.value || "",
+                line2: document.getElementById("checkout-billing-address2")?.value || "",
+                city: document.getElementById("checkout-billing-city")?.value || "",
+                state: document.getElementById("checkout-billing-state")?.value || "",
+                postal_code: document.getElementById("checkout-billing-pincode")?.value || ""
+            };
             const terms = Boolean(document.getElementById("checkout-terms")?.checked);
             try {
                 const response = await supabaseClient.functions.invoke("cashfree-create-order", {
@@ -474,6 +501,8 @@
                         customer,
                         fulfillment_method: fulfillmentMethod,
                         shipping_address: shippingAddress,
+                        billing_same_as_shipping: billingSameAsShipping,
+                        billing_address: billingAddress,
                         terms_accepted: terms
                     }
                 });
