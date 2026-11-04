@@ -18,3 +18,8 @@ verify_jwt = false
 # Account order history validates the user inside the handler and scopes every query to the verified user ID.
 [functions.account-orders]
 verify_jwt = false
+
+# Guest invoice download is protected by an order-owned checkout token; signed-in
+# downloads are additionally scoped to the authenticated order owner.
+[functions.sales-invoice]
+verify_jwt = false
