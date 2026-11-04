@@ -17,7 +17,7 @@
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site-base.css?v=bea9281ce3fb">
-  <link rel="stylesheet" href="/assets/css/bundles/cart.css?v=15ed6401555a">
+  <link rel="stylesheet" href="/assets/css/bundles/cart.css?v=gst-invoice-20261104">
   <link rel="stylesheet" href="/assets/css/delhivery-estimator.css?v=711998a87394">
 </head>
 <body class="site-page page-cart">
@@ -99,6 +99,19 @@
               <div class="form-group"><label for="checkout-pincode">পিন কোড</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6"></div>
             </div>
             </div>
+            <div class="purchase-billing-section">
+              <label class="purchase-terms"><input type="checkbox" id="checkout-billing-same" checked><span id="checkout-billing-same-label" data-pickup-label="স্টোর থেকে সংগ্রহের জন্য বিলিং ঠিকানা দিন">বিলিং ঠিকানা ডেলিভারি ঠিকানার একই</span></label>
+              <div id="checkout-billing-fields" hidden>
+                <h3>বিলিং ঠিকানা</h3>
+                <div class="purchase-address-grid">
+                  <div class="form-group form-group-full"><label for="checkout-billing-address1">ঠিকানা লাইন ১</label><input type="text" id="checkout-billing-address1" maxlength="180"></div>
+                  <div class="form-group form-group-full"><label for="checkout-billing-address2">ঠিকানা লাইন ২ (ঐচ্ছিক)</label><input type="text" id="checkout-billing-address2" maxlength="120"></div>
+                  <div class="form-group"><label for="checkout-billing-city">শহর</label><input type="text" id="checkout-billing-city" maxlength="100"></div>
+                  <div class="form-group"><label for="checkout-billing-state">রাজ্য</label><input type="text" id="checkout-billing-state" maxlength="100"></div>
+                  <div class="form-group"><label for="checkout-billing-pincode">পিন কোড</label><input type="text" id="checkout-billing-pincode" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6"></div>
+                </div>
+              </div>
+            </div>
             <label class="purchase-terms"><input type="checkbox" id="checkout-terms" name="terms_accepted" required><span>আমি শর্তাবলী, গোপনীয়তা নীতি এবং রিফান্ড নীতি মেনে নিচ্ছি। <a href="/bn/terms">শর্তাবলী</a> · <a href="/bn/privacy-policy">গোপনীয়তা নীতি</a> · <a href="/bn/refund">রিফান্ড নীতি</a></span></label>
             <button id="purchase-review-button" type="submit" class="btn btn-primary">মোট মূল্য যাচাই করে এগিয়ে যান</button>
           </form>
@@ -138,7 +151,7 @@
   <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
   <script defer src="/assets/js/site-core.js?v=c2e5b8438e2b"></script>
   <script defer src="/assets/js/attribution.js?v=6b8229cb515b"></script>
-  <script defer src="/assets/js/cart/cart.js?v=4ad7a7ec116a"></script>
+  <script defer src="/assets/js/cart/cart.js?v=gst-invoice-20261104"></script>
   <script defer src="/assets/js/cart/delivery-estimate.js?v=8953d65ca5a5"></script>
 </body>
 </html>
