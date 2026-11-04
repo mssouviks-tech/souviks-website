@@ -28,6 +28,7 @@ function errorMessage(code: string): string {
     invoice_place_of_supply_state_unrecognised: "The recipient state could not be verified for GST calculation. Please contact Souviks.",
     invoice_recipient_gstin_invalid: "The GSTIN entered at checkout is invalid. Please contact Souviks to correct the invoice details.",
     invoice_b2b_recipient_details_missing: "Business recipient details are incomplete. Please contact Souviks.",
+    invoice_text_requires_english: "Please enter the recipient name and billing address in English letters for this invoice. Contact Souviks if you need help.",
     invoice_recipient_state_unrecognised: "The billing state could not be matched to a GST state code. Please correct the billing address.",
     invoice_recipient_gstin_state_mismatch: "The GSTIN state code does not match the billing address state. Please correct the recipient details.",
     invoice_order_total_mismatch: "The invoice total does not match the verified paid order. Please contact Souviks.",
