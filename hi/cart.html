@@ -17,7 +17,7 @@
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site-base.css?v=bea9281ce3fb">
-  <link rel="stylesheet" href="/assets/css/bundles/cart.css?v=15ed6401555a">
+  <link rel="stylesheet" href="/assets/css/bundles/cart.css?v=gst-invoice-20261104">
   <link rel="stylesheet" href="/assets/css/delhivery-estimator.css?v=711998a87394">
 </head>
 <body class="site-page page-cart">
@@ -99,6 +99,19 @@
               <div class="form-group"><label for="checkout-pincode">पिन कोड</label><input type="text" id="checkout-pincode" name="postal_code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6"></div>
             </div>
             </div>
+            <div class="purchase-billing-section">
+              <label class="purchase-terms"><input type="checkbox" id="checkout-billing-same" checked><span id="checkout-billing-same-label" data-pickup-label="स्टोर पिकअप के लिए बिलिंग पता दर्ज करें">बिलिंग पता डिलीवरी पते जैसा ही है</span></label>
+              <div id="checkout-billing-fields" hidden>
+                <h3>बिलिंग पता</h3>
+                <div class="purchase-address-grid">
+                  <div class="form-group form-group-full"><label for="checkout-billing-address1">पता पंक्ति 1</label><input type="text" id="checkout-billing-address1" maxlength="180"></div>
+                  <div class="form-group form-group-full"><label for="checkout-billing-address2">पता पंक्ति 2 (वैकल्पिक)</label><input type="text" id="checkout-billing-address2" maxlength="120"></div>
+                  <div class="form-group"><label for="checkout-billing-city">शहर</label><input type="text" id="checkout-billing-city" maxlength="100"></div>
+                  <div class="form-group"><label for="checkout-billing-state">राज्य</label><input type="text" id="checkout-billing-state" maxlength="100"></div>
+                  <div class="form-group"><label for="checkout-billing-pincode">पिन कोड</label><input type="text" id="checkout-billing-pincode" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6"></div>
+                </div>
+              </div>
+            </div>
             <label class="purchase-terms"><input type="checkbox" id="checkout-terms" name="terms_accepted" required><span>मैं नियम और शर्तें, गोपनीयता नीति और रिफंड नीति स्वीकार करता/करती हूँ। <a href="/hi/terms">नियम और शर्तें</a> · <a href="/hi/privacy-policy">गोपनीयता नीति</a> · <a href="/hi/refund">रिफंड नीति</a></span></label>
             <button id="purchase-review-button" type="submit" class="btn btn-primary">कुल राशि जाँचें और आगे बढ़ें</button>
           </form>
@@ -138,7 +151,7 @@
   <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
   <script defer src="/assets/js/site-core.js?v=c2e5b8438e2b"></script>
   <script defer src="/assets/js/attribution.js?v=6b8229cb515b"></script>
-  <script defer src="/assets/js/cart/cart.js?v=4ad7a7ec116a"></script>
+  <script defer src="/assets/js/cart/cart.js?v=gst-invoice-20261104"></script>
   <script defer src="/assets/js/cart/delivery-estimate.js?v=8953d65ca5a5"></script>
 </body>
 </html>
