@@ -27,6 +27,10 @@
             statusFailed: "Cashfree reports that this payment failed. Review the reason below, then try again with a different payment method if needed.",
             failureReasonPrefix: "Reason: ",
             statusUnknown: "We could not verify this order in this browser session. Keep the order reference and contact Souviks.",
+            invoiceDownload: "Download draft tax invoice",
+            invoiceNote: "This is a draft only. It is not an issued GST tax invoice until an authorised signature is applied.",
+            invoicePreparing: "Preparing your draft tax invoice…",
+            invoiceFailed: "Invoice preparation is pending verified GST classification. Please contact Souviks.",
             retry: "Retry verification",
             remove: "Remove",
             reviewTotal: "Review total & continue",
@@ -53,6 +57,10 @@
             statusFailed: "Cashfree के अनुसार भुगतान विफल हुआ। नीचे दिया गया कारण देखें और ज़रूरत होने पर किसी अन्य भुगतान तरीके से फिर कोशिश करें।",
             failureReasonPrefix: "कारण: ",
             statusUnknown: "इस ब्राउज़र सत्र में ऑर्डर की पुष्टि नहीं हो सकी। ऑर्डर संदर्भ रखें और Souviks से संपर्क करें।",
+            invoiceDownload: "ड्राफ्ट टैक्स इनवॉइस डाउनलोड करें",
+            invoiceNote: "यह केवल ड्राफ्ट है। अधिकृत हस्ताक्षर होने तक इसे जारी GST टैक्स इनवॉइस नहीं माना जाएगा।",
+            invoicePreparing: "ड्राफ्ट टैक्स इनवॉइस तैयार हो रहा है…",
+            invoiceFailed: "सत्यापित GST वर्गीकरण लंबित है। कृपया Souviks से संपर्क करें।",
             retry: "पुष्टि फिर जाँचें",
             remove: "हटाएँ",
             reviewTotal: "कुल राशि जाँचें और आगे बढ़ें",
@@ -79,6 +87,10 @@
             statusFailed: "Cashfree অনুযায়ী পেমেন্ট ব্যর্থ হয়েছে। নিচের কারণ দেখুন, প্রয়োজনে অন্য পেমেন্ট পদ্ধতিতে আবার চেষ্টা করুন।",
             failureReasonPrefix: "কারণ: ",
             statusUnknown: "এই ব্রাউজার সেশনে অর্ডার যাচাই করা যায়নি। অর্ডার রেফারেন্স রেখে Souviks-এর সঙ্গে যোগাযোগ করুন।",
+            invoiceDownload: "ড্রাফ্ট ট্যাক্স ইনভয়েস ডাউনলোড করুন",
+            invoiceNote: "এটি শুধুমাত্র ড্রাফ্ট। অনুমোদিত স্বাক্ষর না হওয়া পর্যন্ত এটি ইস্যু করা GST ট্যাক্স ইনভয়েস নয়।",
+            invoicePreparing: "ড্রাফ্ট ট্যাক্স ইনভয়েস তৈরি হচ্ছে…",
+            invoiceFailed: "যাচাইকৃত GST শ্রেণিবিভাগের জন্য অপেক্ষা চলছে। অনুগ্রহ করে Souviks-এর সঙ্গে যোগাযোগ করুন।",
             retry: "আবার যাচাই করুন",
             reviewTotal: "মোট মূল্য যাচাই করে এগিয়ে যান",
             continuePayment: "নিরাপদ পেমেন্টে এগিয়ে যান",
@@ -660,6 +672,8 @@
         const reference = document.getElementById("payment-status-reference");
         const detail = document.getElementById("payment-status-detail");
         const retry = document.getElementById("payment-status-retry");
+        const invoiceButton = document.getElementById("payment-status-invoice");
+        const invoiceNote = document.getElementById("payment-status-invoice-note");
         const orderId = new URL(window.location.href).searchParams.get("order_id") || "";
         if (reference && orderId) reference.textContent = orderId;
 
@@ -680,6 +694,8 @@
                 retry.disabled = true;
                 retry.hidden = true;
             }
+            if (invoiceButton) invoiceButton.hidden = true;
+            if (invoiceNote) invoiceNote.hidden = true;
             setStatus(status, T.statusLoading, "info");
             try {
                 const response = await supabaseClient.functions.invoke("cashfree-verify-order", {
@@ -697,9 +713,18 @@
                     setStatus(status, T.statusPaid, "success");
                     try {
                         localStorage.removeItem(STORAGE_KEY);
-                        sessionStorage.removeItem(TOKEN_KEY_PREFIX + orderId);
+                        // Keep the short-lived guest checkout token so the customer can
+                        // download the invoice after payment. The token expires server-side.
                     } catch {
                         // A failed local cleanup cannot change verified payment status.
+                    }
+                    if (invoiceButton) {
+                        invoiceButton.textContent = T.invoiceDownload;
+                        invoiceButton.hidden = false;
+                    }
+                    if (invoiceNote) {
+                        invoiceNote.textContent = T.invoiceNote;
+                        invoiceNote.hidden = false;
                     }
                     updateCartLink();
                     window.souviksAnalytics?.trackEvent?.("purchase", {
@@ -730,6 +755,37 @@
                 }
             }
         };
+        invoiceButton?.addEventListener("click", async () => {
+            if (!orderId || typeof supabaseClient === "undefined" || invoiceButton.disabled) return;
+            let token = "";
+            try { token = sessionStorage.getItem(TOKEN_KEY_PREFIX + orderId) || ""; } catch { token = ""; }
+            if (!/^[a-f0-9]{64}$/.test(token)) {
+                if (invoiceNote) {
+                    invoiceNote.textContent = T.statusUnknown;
+                    invoiceNote.hidden = false;
+                }
+                return;
+            }
+            invoiceButton.disabled = true;
+            invoiceButton.textContent = T.invoicePreparing;
+            try {
+                const result = await supabaseClient.functions.invoke("sales-invoice", {
+                    body: { order_id: orderId, checkout_token: token }
+                });
+                if (result.error || !result.data?.ok || !result.data?.pdf_url) {
+                    const message = result.data?.message || await getFunctionError(result.error) || T.invoiceFailed;
+                    throw new Error(message);
+                }
+                window.location.assign(String(result.data.pdf_url));
+            } catch (error) {
+                if (invoiceNote) {
+                    invoiceNote.textContent = String(error?.message || T.invoiceFailed);
+                    invoiceNote.hidden = false;
+                }
+                invoiceButton.textContent = T.invoiceDownload;
+                invoiceButton.disabled = false;
+            }
+        });
         retry?.addEventListener("click", verify);
         await verify();
     }
