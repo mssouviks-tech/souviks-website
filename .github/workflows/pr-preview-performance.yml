@@ -266,12 +266,15 @@ jobs:
           args=(
             "main=http://127.0.0.1:4173/"
             "main=http://127.0.0.1:4173/en/products.html"
+            "main=http://127.0.0.1:4173/en/products/10-x-15-nut.html"
             "PR=http://127.0.0.1:4174/"
             "PR=http://127.0.0.1:4174/en/products.html"
+            "PR=http://127.0.0.1:4174/en/products/10-x-15-nut.html"
           )
           if [ -n "${PREVIEW_URL:-}" ]; then
             args+=("preview=${PREVIEW_URL}/")
             args+=("preview=${PREVIEW_URL}/en/products")
+            args+=("preview=${PREVIEW_URL}/en/products/10-x-15-nut")
           fi
           node scripts/regression/lcp-diagnostic.mjs "${args[@]}"
 
