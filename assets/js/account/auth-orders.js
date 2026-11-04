@@ -21,6 +21,10 @@
             homeDelivery: "Home delivery",
             storePickup: "Store pickup",
             failureReason: "Payment failure reason",
+            downloadDraftInvoice: "Download draft tax invoice",
+            invoiceDraftNote: "Draft only — authorised signature is pending.",
+            invoiceDownloadFailed: "Invoice preparation is pending verified GST classification. Please contact Souviks.",
+            invoicePreparing: "Preparing invoice…",
             unknown: "Not available"
         },
         hi: {
@@ -41,6 +45,10 @@
             homeDelivery: "घर पर डिलीवरी",
             storePickup: "स्टोर से पिकअप",
             failureReason: "भुगतान विफल होने का कारण",
+            downloadDraftInvoice: "ड्राफ्ट टैक्स इनवॉइस डाउनलोड करें",
+            invoiceDraftNote: "केवल ड्राफ्ट — अधिकृत हस्ताक्षर लंबित है।",
+            invoiceDownloadFailed: "सत्यापित GST वर्गीकरण लंबित है। कृपया Souviks से संपर्क करें।",
+            invoicePreparing: "इनवॉइस तैयार हो रहा है…",
             unknown: "उपलब्ध नहीं"
         },
         bn: {
@@ -61,6 +69,10 @@
             homeDelivery: "বাড়িতে ডেলিভারি",
             storePickup: "স্টোর থেকে সংগ্রহ",
             failureReason: "পেমেন্ট ব্যর্থ হওয়ার কারণ",
+            downloadDraftInvoice: "ড্রাফ্ট ট্যাক্স ইনভয়েস ডাউনলোড করুন",
+            invoiceDraftNote: "শুধুমাত্র ড্রাফ্ট — অনুমোদিত স্বাক্ষর এখনও বাকি।",
+            invoiceDownloadFailed: "যাচাইকৃত GST শ্রেণিবিভাগের জন্য অপেক্ষা চলছে। অনুগ্রহ করে Souviks-এর সঙ্গে যোগাযোগ করুন।",
+            invoicePreparing: "ইনভয়েস তৈরি হচ্ছে…",
             unknown: "উপলভ্য নয়"
         }
     };
@@ -178,6 +190,32 @@
             card.appendChild(failure);
         }
         card.appendChild(renderItems(order));
+        if (String(order.payment_status || "").toLowerCase() === "paid" && order.gateway_order_id) {
+            const invoiceActions = element("div", "account-order-invoice-actions");
+            const invoiceButton = element("button", "btn btn-secondary account-order-invoice-download", T.downloadDraftInvoice);
+            invoiceButton.type = "button";
+            const invoiceNote = element("p", "account-order-invoice-note", T.invoiceDraftNote);
+            invoiceButton.addEventListener("click", async () => {
+                if (invoiceButton.disabled || typeof supabaseClient === "undefined" || !supabaseClient?.functions?.invoke) return;
+                invoiceButton.disabled = true;
+                invoiceButton.textContent = T.invoicePreparing;
+                try {
+                    const result = await supabaseClient.functions.invoke("sales-invoice", {
+                        body: { order_id: String(order.gateway_order_id) }
+                    });
+                    if (result.error || !result.data?.ok || !result.data?.pdf_url) {
+                        throw new Error(result.data?.message || T.invoiceDownloadFailed);
+                    }
+                    window.location.assign(String(result.data.pdf_url));
+                } catch (error) {
+                    setMessage(String(error?.message || T.invoiceDownloadFailed), "error");
+                    invoiceButton.textContent = T.downloadDraftInvoice;
+                    invoiceButton.disabled = false;
+                }
+            });
+            invoiceActions.append(invoiceButton, invoiceNote);
+            card.appendChild(invoiceActions);
+        }
         return card;
     }
 
