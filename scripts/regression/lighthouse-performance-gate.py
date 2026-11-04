@@ -12,8 +12,7 @@ from urllib.parse import urlsplit
 REPORT_DIR = Path(".lighthouseci")
 DIAGNOSTIC_DIR = Path("lcp-diagnostic")
 RUNS_REQUIRED = 3
-HOMEPAGE_LCP_LIMIT_SECONDS = 4.0
-LISTING_LCP_LIMIT_SECONDS = 4.0
+BROWSER_LCP_LIMIT_SECONDS = 4.0
 MAX_BROWSER_LCP_REGRESSION = 0.05
 MAX_ROUTE_LCP_REGRESSION = 0.10
 MAX_TBT_REGRESSION_SECONDS = 0.05
@@ -79,8 +78,8 @@ def load_lighthouse_reports() -> dict[tuple[str, str], list[dict[str, float]]]:
 
 
 def load_observed_lcp() -> dict[str, dict[str, list[float]]]:
-    """Read final homepage and listing hero LCP events from browser CDP runs."""
-    routes = ("Homepage", "Product listing")
+    """Read final homepage, listing hero and PDP image LCP events from browser CDP runs."""
+    routes = ROUTES
     groups = {
         route: {"main": [], "PR": [], "preview": []}
         for route in routes
@@ -101,9 +100,15 @@ def load_observed_lcp() -> dict[str, dict[str, list[float]]]:
             raise RuntimeError(f"{label} navigation failed in {path}")
 
         requested_url = report.get("requestedUrl") or ""
-        path_part = urlsplit(requested_url).path.rstrip("/")
-        is_homepage = path_part in {"", "/index.html"}
-        route = "Homepage" if is_homepage else "Product listing"
+        path_part = urlsplit(requested_url).path.rstrip("/") or "/"
+        if path_part in {"/", "/index.html"}:
+            route = "Homepage"
+        elif path_part.endswith("/products/10-x-15-nut.html") or path_part.endswith("/products/10-x-15-nut"):
+            route = "Product detail"
+        elif path_part.endswith("/products.html") or path_part.endswith("/products"):
+            route = "Product listing"
+        else:
+            continue
         entries = report.get("final", {}).get("lcpEntries") or []
         if not entries:
             raise RuntimeError(f"No PerformanceObserver LCP entries found in {path}")
@@ -113,11 +118,25 @@ def load_observed_lcp() -> dict[str, dict[str, list[float]]]:
             key=lambda entry: float(entry.get("startTime") or 0),
         )
         class_name = final_entry.get("className") or ""
-        expected_class = "home-hero-image" if is_homepage else "products-hero-media"
-        if final_entry.get("tagName") != "IMG" or expected_class not in class_name:
+        element_id = final_entry.get("id") or ""
+        expected_class = {
+            "Homepage": "home-hero-image",
+            "Product listing": "products-hero-media",
+        }.get(route)
+        if final_entry.get("tagName") != "IMG":
             raise RuntimeError(
-                f"Expected {route} hero to be the final LCP element in {path}; "
-                f"found {final_entry.get('tagName')} {class_name!r}"
+                f"Expected an image as the final LCP element for {route} in {path}; "
+                f"found {final_entry.get('tagName')}"
+            )
+        if expected_class and expected_class not in class_name:
+            raise RuntimeError(
+                f"Expected {route} hero class {expected_class!r} to be the final LCP element in {path}; "
+                f"found {class_name!r}"
+            )
+        if route == "Product detail" and element_id != "pdpMainImage":
+            raise RuntimeError(
+                f"Expected #pdpMainImage to be the final LCP element for Product detail in {path}; "
+                f"found id={element_id!r}, class={class_name!r}"
             )
 
         start_time = final_entry.get("startTime")
@@ -167,10 +186,10 @@ def main() -> int:
                 )
 
     print("")
-    print("## Browser-observed homepage and product-listing LCP (CDP 3G / 4× CPU)")
+    print("## Browser-observed LCP across all three routes (CDP 3G / 4× CPU)")
     print("| Route | Group | Runs | Observed LCP values | Median LCP |")
     print("|---|---|---:|---|---:|")
-    for route in ("Homepage", "Product listing"):
+    for route in ROUTES:
         for label in ("main", "PR", "preview"):
             values = observed[route][label]
             rendered = ", ".join(f"{value:.2f} s" for value in values)
@@ -181,18 +200,16 @@ def main() -> int:
             print(f"[FAIL] {failure}")
         return 1
 
-    for route, limit in (
-        ("Homepage", HOMEPAGE_LCP_LIMIT_SECONDS),
-        ("Product listing", LISTING_LCP_LIMIT_SECONDS),
-    ):
+    for route in ROUTES:
         for label in ("PR", "preview"):
             values = observed[route][label]
-            if any(value >= limit for value in values):
+            if any(value >= BROWSER_LCP_LIMIT_SECONDS for value in values):
                 failures.append(
-                    f"{label} browser-observed {route.lower()} LCP must be below {limit:.1f}s in all three runs"
+                    f"{label} browser-observed {route.lower()} LCP must be below "
+                    f"{BROWSER_LCP_LIMIT_SECONDS:.1f}s in all three runs"
                 )
 
-    for route in ("Homepage", "Product listing"):
+    for route in ROUTES:
         baseline_values = observed[route]["main"]
         candidate_values = observed[route]["PR"]
         baseline_median = statistics.median(baseline_values)
@@ -242,7 +259,7 @@ def main() -> int:
         return 1
 
     print(
-        "[PASS] Browser-observed homepage and listing LCP are below 4.0s in all "
+        "[PASS] Browser-observed homepage, listing and PDP LCP are below 4.0s in all "
         "three PR and deployed-preview runs. PR browser-observed medians stay within 5% "
         "of main; simulated listing/detail LCP and TBT/performance regressions remain within guardrails."
     )
