@@ -2,6 +2,15 @@
 -- No product tax rates are seeded: invoice creation fails closed until an accountant
 -- approves the HSN/SAC, GST rate and inclusive-price treatment for each SKU/profile.
 
+-- Keep recipient billing details separate from the delivery address for B2B/B2C invoices.
+alter table public.orders
+    add column if not exists billing_same_as_shipping boolean not null default true,
+    add column if not exists billing_address_line1 text,
+    add column if not exists billing_address_line2 text,
+    add column if not exists billing_city text,
+    add column if not exists billing_state text,
+    add column if not exists billing_postal_code text;
+
 create table if not exists public.gst_tax_profiles (
     profile_key text primary key,
     hsn_sac_code text not null,
