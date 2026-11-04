@@ -33,15 +33,16 @@ Bank details are transcribed from the supplied letterhead only (PNB, IFSC PUNB00
 
 ## Tax profile requirements
 
-The migration creates `public.gst_tax_profiles`, but intentionally inserts no tax rates or HSN/SAC values. The accountant must approve one profile for every active SKU and a separate profile for freight, with:
+The migration creates `public.gst_tax_profiles`, but intentionally inserts no tax rates or HSN/SAC values. The accountant must approve an effective-dated profile for every active SKU and a separate profile for freight, with:
 - HSN/SAC code and item description;
 - unit of measure;
 - GST rate and confirmation that the checkout amount includes GST;
-- effective date range and documentary source;
+- effective date range and documentary source (a new profile row is required when the treatment changes, preserving prior approved rows);
 - approver identity and approval timestamp;
-- explicit reverse-charge and cess applicability.
+- explicit reverse-charge and cess applicability;
+- approver identity and approval timestamp for every effective-dated row.
 
-Only profiles with `approval_status=approved`, evidence fields, valid dates and explicit reverse-charge/cess decisions are accepted. The current invoice calculation does not support reverse-charge or cess-rated lines; such orders fail closed pending a separate implementation. A zero GST rate must be an explicit accountant-approved classification, not a default.
+Only profiles with `approval_status=approved`, evidence fields, valid dates, a non-empty unit code and explicit reverse-charge/cess decisions are accepted. The database allows multiple rows for one SKU with different effective dates, and the invoice lookup selects a profile valid on the invoice date. The current invoice calculation does not support reverse-charge or cess-rated lines; such orders fail closed pending a separate implementation. A zero GST rate must be an explicit accountant-approved classification, not a default.
 
 Worklist: `docs/audit/gst-tax-profile-worklist.csv` (1,157 active SKUs plus one freight profile). It is a data-collection sheet, not an approved rate master.
 
