@@ -16,10 +16,10 @@ if (targets.length < 2) {
 }
 
 function routeForPath(pathname) {
-  const route = pathname.replace(/\\/+$/, "") || "/";
+  const route = pathname.replace(/\/+$/, "") || "/";
   if (route === "/" || route.endsWith("/index.html")) return "Homepage";
-  if (/\\/products\\/[^/]+(?:\\.html)?$/i.test(route)) return "Product detail";
-  if (/\\/products(?:\\.html)?$/i.test(route)) return "Product listing";
+  if (/\/products\/[^/]+(?:\.html)?$/i.test(route)) return "Product detail";
+  if (/\/products(?:\.html)?$/i.test(route)) return "Product listing";
   throw new Error(`Unsupported LCP diagnostic route: ${pathname}`);
 }
 
@@ -140,10 +140,10 @@ try {
           const snapshot = await page.evaluate(() => {
             const round = (value) =>
               Number.isFinite(value) ? Math.round(value * 10) / 10 : null;
-            const currentPath = location.pathname.replace(/\\/+$/, "") || "/";
+            const currentPath = location.pathname.replace(/\/+$/, "") || "/";
             const route = currentPath === "/" || currentPath.endsWith("/index.html")
               ? "Homepage"
-              : /\\/products\\/[^/]+(?:\\.html)?$/i.test(currentPath)
+              : /\/products\/[^/]+(?:\.html)?$/i.test(currentPath)
                 ? "Product detail"
                 : "Product listing";
             const heroSelector = route === "Homepage"
@@ -216,10 +216,10 @@ try {
             const round = (value) =>
               Number.isFinite(value) ? Math.round(value * 10) / 10 : null;
             const navigation = performance.getEntriesByType("navigation")[0];
-            const currentPath = location.pathname.replace(/\\/+$/, "") || "/";
+            const currentPath = location.pathname.replace(/\/+$/, "") || "/";
             const route = currentPath === "/" || currentPath.endsWith("/index.html")
               ? "Homepage"
-              : /\\/products\\/[^/]+(?:\\.html)?$/i.test(currentPath)
+              : /\/products\/[^/]+(?:\.html)?$/i.test(currentPath)
                 ? "Product detail"
                 : "Product listing";
             const primarySelector = route === "Homepage"
