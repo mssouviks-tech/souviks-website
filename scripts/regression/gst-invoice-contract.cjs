@@ -56,6 +56,9 @@ assert.match(invoice, /typeof profile\.reverse_charge_applicable !== "boolean"/)
 assert.match(invoice, /typeof profile\.cess_applicable !== "boolean"/);
 assert.match(invoice, /invoice_reverse_charge_not_supported/);
 assert.match(invoice, /invoice_cess_not_supported/);
+assert.match(invoice, /invoice_recipient_state_unrecognised/);
+assert.match(invoice, /invoice_recipient_gstin_state_mismatch/);
+assert.match(invoice, /gstin\.slice\(0, 2\) !== address\.state_code/);
 assert.match(invoice, /order: "valid_from.desc"/);
 assert.match(invoice, /profiles\.get\("FREIGHT"\)/);
 assert.match(invoice, /invoice_tax_profile_missing/);
