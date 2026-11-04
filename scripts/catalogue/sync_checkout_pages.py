@@ -88,7 +88,7 @@ TEXT = {
         "status_title": "পেমেন্টের অবস্থা", "status_label": "পেমেন্টের অবস্থা", "status_loading": "Cashfree থেকে পেমেন্ট যাচাই হচ্ছে…",
         "amount": "পরিমাণ", "retry": "আবার যাচাই করুন", "back": "কেনাকাটা চালিয়ে যান",
         "help": "সাহায্য দরকার? যোগাযোগ করুন", "terms_link": "শর্তাবলী", "privacy_link": "গোপনীয়তা নীতি", "refund_link": "রিফান্ড নীতি",
-        "invoice_download": "ড্রাফ্ট ট্যাক্স ইনভয়েস ডাউনলোড করুন", "invoice_note": "এটি শুধুমাত্র ড্রাফ্ট। অনুমোদিত স্বাক্ষর না হওয়া পর্যন্ত এটি ইস্যু করা ট্যাক্স ইনভয়েস নয়।", "invoice_failed": "যাচাইকৃত GST শ্রেণিবিভাগের জন্য অপেক্ষা চলছে। অনুগ্রহ করে Souviks-এর সঙ্গে যোগাযোগ করুন।
+        "invoice_download": "ড্রাফ্ট ট্যাক্স ইনভয়েস ডাউনলোড করুন", "invoice_note": "এটি শুধুমাত্র ড্রাফ্ট। অনুমোদিত স্বাক্ষর না হওয়া পর্যন্ত এটি ইস্যু করা ট্যাক্স ইনভয়েস নয়।", "invoice_failed": "যাচাইকৃত GST শ্রেণিবিভাগের জন্য অপেক্ষা চলছে। অনুগ্রহ করে Souviks-এর সঙ্গে যোগাযোগ করুন।",
     },
 }
 
@@ -167,7 +167,7 @@ CART_TEMPLATE = """<!doctype html>
             </div>
             </div>
             <div class="purchase-billing-section">
-              <label class="purchase-terms"><input type="checkbox" id="checkout-billing-same" checked><span id="checkout-billing-same-label">__BILLING_SAME__</span></label>
+              <label class="purchase-terms"><input type="checkbox" id="checkout-billing-same" checked><span id="checkout-billing-same-label" data-pickup-label="__BILLING_PICKUP__">__BILLING_SAME__</span></label>
               <div id="checkout-billing-fields" hidden>
                 <h3>__BILLING_TITLE__</h3>
                 <div class="purchase-address-grid">
