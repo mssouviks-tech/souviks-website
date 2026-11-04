@@ -474,7 +474,6 @@ function drawTop(page: any, fonts: any, snapshot: any, invoiceNumber: string) {
   const recipient = snapshot.recipient || {};
   const lines = [recipient.name, recipient.gstin ? "GSTIN: " + recipient.gstin : "Unregistered customer"]
     .concat(Array.isArray(recipient.address) ? recipient.address : [])
-    .concat([[recipient.state_name, recipient.postal_code].filter(Boolean).join(" - ")])
     .filter(Boolean);
   let y = 697;
   for (const line of lines.slice(0, 6)) {
