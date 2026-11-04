@@ -391,7 +391,11 @@ async function buildSnapshot(order: any, invoiceDate: string): Promise<Record<st
 }
 
 function pdfText(value: unknown, max = 220): string {
-  return clean(value, max).normalize("NFKD").replace(/[^\x20-\x7E]/g, " ");
+  const text = clean(value, max);
+  if (/[^\x20-\x7E]/.test(text)) {
+    throw new InvoiceError("invoice_text_requires_english", 409);
+  }
+  return text;
 }
 
 function inr(value: unknown): string {
