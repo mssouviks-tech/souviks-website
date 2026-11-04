@@ -35,7 +35,10 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python3 scripts/audit/production_smoke.py --wait-only
 
-      - name: Measure mobile performance and Core Web Vitals proxies
+      # Lighthouse's standard mobile preset uses simulated throttling. Keep its
+      # CLS/TBT/performance and route-regression diagnostics, but use the following
+      # CDP-throttled browser runs as the production LCP budget authority.
+      - name: Collect simulated-mobile Lighthouse diagnostics
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
@@ -46,3 +49,32 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: false
           runs: 3
+
+      - name: Set up Node for production browser LCP tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install Playwright Chromium for production LCP tests
+        run: |
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright@latest
+          npx playwright install --with-deps chromium
+
+      - name: Measure production browser-observed LCP under CDP 3G and 4x CPU
+        run: |
+          node scripts/regression/lcp-diagnostic.mjs \\
+            "production=https://www.souviks.co.in/" \\
+            "production=https://www.souviks.co.in/en/products" \\
+            "production=https://www.souviks.co.in/en/products/10-x-15-nut"
+
+      - name: Enforce the production browser-observed LCP budget
+        run: python3 scripts/regression/production-browser-lcp-gate.py
+
+      - name: Upload production browser LCP diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-browser-lcp-${{ github.run_id }}
+          path: lcp-diagnostic/
+          if-no-files-found: error
+          retention-days: 14
