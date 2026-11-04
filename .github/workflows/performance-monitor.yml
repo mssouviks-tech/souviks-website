@@ -61,11 +61,11 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Measure production browser-observed LCP under CDP 3G and 4x CPU
-        run: |
-          node scripts/regression/lcp-diagnostic.mjs \\
-            "production=https://www.souviks.co.in/" \\
-            "production=https://www.souviks.co.in/en/products" \\
-            "production=https://www.souviks.co.in/en/products/10-x-15-nut"
+        run: >-
+          node scripts/regression/lcp-diagnostic.mjs
+          "production=https://www.souviks.co.in/"
+          "production=https://www.souviks.co.in/en/products"
+          "production=https://www.souviks.co.in/en/products/10-x-15-nut"
 
       - name: Enforce the production browser-observed LCP budget
         run: python3 scripts/regression/production-browser-lcp-gate.py
