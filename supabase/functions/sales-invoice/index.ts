@@ -54,11 +54,10 @@ Deno.serve(async (req: Request) => {
     const userId = await optionalUserId(req);
     const ownerId = order.user_id ? String(order.user_id) : null;
 
-    if (userId) {
-      if (!ownerId || ownerId !== userId) {
-        return jsonResponse(req, { ok: false, code: "invoice_access_denied" }, 403);
-      }
-    } else {
+    const authenticatedOwner = Boolean(userId && ownerId && ownerId === userId);
+    if (!authenticatedOwner) {
+      // The high-entropy checkout token remains a valid bearer credential for
+      // guest orders, including when the customer signs in after checkout.
       if (!/^[a-f0-9]{64}$/.test(token)) {
         return jsonResponse(req, { ok: false, code: "invoice_access_denied" }, 403);
       }
