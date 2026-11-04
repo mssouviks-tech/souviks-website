@@ -21,7 +21,9 @@ function errorMessage(code: string): string {
   const messages: Record<string, string> = {
     invoice_order_not_found: "The order could not be found.",
     invoice_payment_not_confirmed: "A draft invoice is available only after Cashfree confirms payment.",
-    invoice_tax_profile_missing: "Invoice preparation is pending accountant-approved HSN/SAC and GST-rate details for one or more items. Please contact Souviks.",
+    invoice_tax_profile_missing: "Invoice preparation is pending accountant-approved HSN/SAC, GST-rate, reverse-charge and cess classifications for one or more items. Please contact Souviks.",
+    invoice_reverse_charge_not_supported: "This order includes a reverse-charge supply that needs a separately approved invoice process. Please contact Souviks.",
+    invoice_cess_not_supported: "This order includes a cess classification that is not supported by the current invoice process. Please contact Souviks.",
     invoice_order_tax_basis_unconfirmed: "Invoice preparation is on hold until the tax basis is verified.",
     invoice_place_of_supply_state_unrecognised: "The recipient state could not be verified for GST calculation. Please contact Souviks.",
     invoice_recipient_gstin_invalid: "The GSTIN entered at checkout is invalid. Please contact Souviks to correct the invoice details.",
