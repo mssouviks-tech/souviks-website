@@ -139,7 +139,7 @@ function calculateTax(grossPaise: number, rate: number, intraState: boolean) {
 
 async function loadPaidOrder(gatewayOrderId: string): Promise<any> {
   const rows = await supabaseRest("orders", "GET", {
-    select: "id,order_number,gateway_order_id,user_id,customer_name,customer_email,customer_phone,company,gst_number,shipping_address_line1,shipping_address_line2,shipping_city,shipping_state,shipping_postal_code,shipping_country,fulfillment_method,currency,subtotal,shipping_amount,total_amount,tax_included,payment_status,cf_payment_id,paid_at,created_at",
+    select: "id,order_number,gateway_order_id,user_id,customer_name,customer_email,customer_phone,company,gst_number,billing_same_as_shipping,billing_address_line1,billing_address_line2,billing_city,billing_state,billing_postal_code,shipping_address_line1,shipping_address_line2,shipping_city,shipping_state,shipping_postal_code,shipping_country,fulfillment_method,currency,subtotal,shipping_amount,total_amount,tax_included,payment_status,cf_payment_id,paid_at,created_at",
     gateway_order_id: "eq." + gatewayOrderId,
     limit: "1",
   });
@@ -226,10 +226,10 @@ async function buildSnapshot(order: any, invoiceDate: string): Promise<Record<st
     throw new InvoiceError("invoice_recipient_gstin_invalid", 409);
   }
   const recipientName = clean(order.company || order.customer_name, 160);
-  if (isB2B && (!recipientName || !address.length)) {
+  if (isB2B && (!recipientName || !address.lines.length)) {
     throw new InvoiceError("invoice_b2b_recipient_details_missing", 409);
   }
-  if (!isB2B && toPaise(order.total_amount) >= 5000000 && (!recipientName || !address.length)) {
+  if (!isB2B && toPaise(order.total_amount) >= 5000000 && (!recipientName || !address.lines.length)) {
     throw new InvoiceError("invoice_recipient_address_required", 409);
   }
 
