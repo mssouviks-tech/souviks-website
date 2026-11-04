@@ -279,3 +279,23 @@
 #payment-status-invoice {
     margin-top: 14px;
 }
+
+
+/* Optional separate billing address for GST invoice recipient details */
+.purchase-billing-section {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-color);
+}
+.purchase-billing-section > .purchase-terms {
+    margin-bottom: 12px;
+}
+#checkout-billing-fields {
+    padding: 12px;
+    background: var(--surface-primary-soft, #f8f8f8);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md, 8px);
+}
+#checkout-billing-fields h3 {
+    margin-top: 0;
+}
