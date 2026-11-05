@@ -15,6 +15,15 @@ if (targets.length < 2) {
   throw new Error("Pass at least main=url and PR=url.");
 }
 
+function routeForPath(pathname) {
+  const route = pathname.replace(/\/+$/, "") || "/";
+  if (route === "/" || route.endsWith("/index.html")) return "Homepage";
+  if (/\/products\/[^/]+(?:\.html)?$/i.test(route)) return "Product detail";
+  if (/\/products(?:\.html)?$/i.test(route)) return "Product listing";
+  throw new Error(`Unsupported LCP diagnostic route: ${pathname}`);
+}
+
+
 const outputDir = path.resolve("lcp-diagnostic");
 const checkpoints = [1250, 2500, 3750, 5000, 6250];
 await mkdir(outputDir, { recursive: true });
@@ -26,11 +35,12 @@ const browser = await chromium.launch({
 
 try {
   for (const target of targets) {
-    // One label can be used for multiple routes (homepage and listing). Keep
-    // their reports and checkpoint screenshots separate instead of overwriting.
+    // One label can be used for each core route. Keep reports and checkpoint
+    // screenshots separate so homepage, listing and PDP runs never overwrite.
     const routeKey =
       new URL(target.url).pathname.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") ||
       "home";
+    const routeType = routeForPath(new URL(target.url).pathname);
 
     for (const repeat of [1, 2, 3]) {
       const context = await browser.newContext({
@@ -75,6 +85,9 @@ try {
                   typeof element?.className === "string"
                     ? element.className
                     : null,
+                decoding: element?.getAttribute?.("decoding") || null,
+                loading: element?.getAttribute?.("loading") || null,
+                fetchpriority: element?.getAttribute?.("fetchpriority") || null,
                 rect: rect
                   ? {
                       top: round(rect.top),
@@ -127,16 +140,25 @@ try {
           const snapshot = await page.evaluate(() => {
             const round = (value) =>
               Number.isFinite(value) ? Math.round(value * 10) / 10 : null;
-            const heroSelector = location.pathname === "/" || /\/index(?:\.html)?$/i.test(location.pathname)
+            const currentPath = location.pathname.replace(/\/+$/, "") || "/";
+            const route = currentPath === "/" || currentPath.endsWith("/index.html")
+              ? "Homepage"
+              : /\/products\/[^/]+(?:\.html)?$/i.test(currentPath)
+                ? "Product detail"
+                : "Product listing";
+            const heroSelector = route === "Homepage"
               ? ".home-hero-image"
-              : ".products-hero-media";
+              : route === "Product detail"
+                ? "#pdpMainImage"
+                : ".products-hero-media";
             const hero = document.querySelector(heroSelector);
             const rect = hero?.getBoundingClientRect();
             const style = hero ? getComputedStyle(hero) : null;
             const resources = performance
               .getEntriesByType("resource")
               .filter((entry) =>
-                /(?:index-hero|product-hero)(?:-mobile(?:-crop)?)?\.(?:avif|webp)/i.test(entry.name),
+                /index-hero|product-hero/i.test(entry.name) ||
+                entry.name.includes("assets/images/products"),
               )
               .map((entry) => ({
                 name: entry.name,
@@ -197,12 +219,26 @@ try {
             const round = (value) =>
               Number.isFinite(value) ? Math.round(value * 10) / 10 : null;
             const navigation = performance.getEntriesByType("navigation")[0];
+            const currentPath = location.pathname.replace(/\/+$/, "") || "/";
+            const route = currentPath === "/" || currentPath.endsWith("/index.html")
+              ? "Homepage"
+              : /\/products\/[^/]+(?:\.html)?$/i.test(currentPath)
+                ? "Product detail"
+                : "Product listing";
+            const primarySelector = route === "Homepage"
+              ? ".home-hero-image"
+              : route === "Product detail"
+                ? "#pdpMainImage"
+                : ".products-hero-media";
+            const primaryElement = document.querySelector(primarySelector);
+            const primaryStyle = primaryElement ? getComputedStyle(primaryElement) : null;
+            const primaryRect = primaryElement?.getBoundingClientRect();
             const resources = performance
               .getEntriesByType("resource")
               .filter((entry) =>
-                /(?:index-hero|product-hero)(?:-mobile(?:-crop)?)?\.(?:avif|webp)|site-base\.css|index\.css|products\.css|fonts\.(?:googleapis|gstatic)/i.test(
-                  entry.name,
-                ),
+                /index-hero|product-hero/i.test(entry.name) ||
+                entry.name.includes("assets/images/products") ||
+                /site-base[.]css|index[.]css|products[.]css|product[.]css|fonts[.](?:googleapis|gstatic)/i.test(entry.name),
               )
               .map((entry) => ({
                 name: entry.name,
@@ -233,6 +269,33 @@ try {
                 })),
               lcpEntries:
                 window.__souviksLcpDiagnostics?.entries || [],
+              route,
+              primaryElement: primaryElement
+                ? {
+                    selector: primarySelector,
+                    id: primaryElement.id || null,
+                    className: typeof primaryElement.className === "string" ? primaryElement.className : null,
+                    src: primaryElement.getAttribute("src"),
+                    currentSrc: primaryElement.currentSrc || null,
+                    complete: primaryElement.complete,
+                    naturalWidth: primaryElement.naturalWidth,
+                    naturalHeight: primaryElement.naturalHeight,
+                    loading: primaryElement.getAttribute("loading"),
+                    decoding: primaryElement.getAttribute("decoding"),
+                    fetchpriority: primaryElement.getAttribute("fetchpriority"),
+                    opacity: primaryStyle?.opacity,
+                    visibility: primaryStyle?.visibility,
+                    display: primaryStyle?.display,
+                    rect: primaryRect
+                      ? {
+                          top: round(primaryRect.top),
+                          left: round(primaryRect.left),
+                          width: round(primaryRect.width),
+                          height: round(primaryRect.height),
+                        }
+                      : null,
+                  }
+                : null,
               homepageHero: (() => {
                 const target = document.querySelector(".home-hero-image");
                 if (!target) return null;
@@ -262,6 +325,8 @@ try {
       const result = {
         label: target.label,
         repeat,
+        routeType,
+
         requestedUrl: target.url,
         responseStatus,
         screenshots,
@@ -277,6 +342,8 @@ try {
         JSON.stringify({
           label: target.label,
           repeat,
+          routeType,
+
           responseStatus,
           fcp: final.paint?.find((entry) => entry.name === "first-contentful-paint")
             ?.startTime,

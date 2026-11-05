@@ -55,6 +55,26 @@ for estimate in estimates:
         fail(f"{pid} has invalid net_weight_g: {net_weight!r}")
     if net_weight != calculated_weight:
         fail(f"{pid} net weight does not match its calculated weight")
+    dimensions = estimate.get("dimensions_mm")
+    if (
+        not isinstance(dimensions, list)
+        or len(dimensions) != 3
+        or any(not isinstance(value, (int, float)) or isinstance(value, bool) or value <= 0 for value in dimensions)
+    ):
+        fail(f"{pid} has invalid U-bolt component dimensions: {dimensions!r}")
+    leg_length_mm, inside_width_mm, rod_diameter_mm = dimensions
+    if rod_diameter_mm not in (20, 22):
+        fail(f"{pid} has unsupported rod/nut size: {rod_diameter_mm!r}")
+    centreline_length_mm = 2 * leg_length_mm + math.pi * (inside_width_mm + rod_diameter_mm) / 2
+    rod_mass_g = math.pi * rod_diameter_mm ** 2 / 4 * centreline_length_mm * 0.00785
+    nut_mass_each_g = 60.5 if rod_diameter_mm == 20 else 85.0
+    theoretical_net_weight = round((rod_mass_g + estimate.get("nut_count", 0) * nut_mass_each_g) * 10) / 10
+    if abs(net_weight - theoretical_net_weight) > 0.15:
+        fail(f"{pid} theoretical steel-rod/nut weight mismatch: {net_weight!r} vs {theoretical_net_weight!r}")
+    if estimate.get("weight_estimation_status") != "estimated":
+        fail(f"{pid} must be explicitly marked as estimated")
+    if not estimate.get("weight_estimation_method") or not estimate.get("weight_estimation_notes"):
+        fail(f"{pid} is missing calculation method or limitations")
     if packaging_percent != 5:
         fail(f"{pid} must retain the documented 5% packaging allowance")
     expected_packed_grams = math.ceil((net_weight * (1 + packaging_percent / 100)) / 50) * 50
@@ -90,5 +110,9 @@ for estimate in estimates:
             fail(f"Invalid embedded JSON in {page.relative_to(ROOT)}: {exc}")
         if page_data.get("approx_weight_g") != grams:
             fail(f"{language} static page weight mismatch for {pid}")
+        if page_data.get("calculated_weight_g") != net_weight:
+            fail(f"{language} static page net-weight mismatch for {pid}")
+        if page_data.get("weight_estimation_status") != "estimated":
+            fail(f"{language} static page missing estimated-weight status for {pid}")
 
 print(f"Product weight estimates validated across canonical data, public projection and {len(LANGUAGES)} languages: {len(estimates)} products.")

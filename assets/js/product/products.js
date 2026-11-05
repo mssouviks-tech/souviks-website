@@ -142,7 +142,22 @@ constructor() {
                 mainImage.dataset.galleryFallback === "done" ||
                 String(mainImage.getAttribute("src") || "").endsWith("/assets/images/placeholder.webp");
             if (!mainImageFallbackComplete) {
-                mainImage.src = src;
+                // Static product pages already preload and render the primary image
+                // in their HTML. Do not reassign the same URL during hydration:
+                // doing so can restart image selection/decode and move its paint
+                // later even though the resource was already fetched.
+                const resolveImageUrl = value => {
+                    try {
+                        return new URL(String(value || ""), document.baseURI).href;
+                    } catch {
+                        return String(value || "");
+                    }
+                };
+                const resolvedCurrentSrc = resolveImageUrl(mainImage.getAttribute("src"));
+                const resolvedNextSrc = resolveImageUrl(src);
+                if (resolvedCurrentSrc !== resolvedNextSrc) {
+                    mainImage.src = src;
+                }
             }
             mainImage.alt = String(product?.product_name || product?.name || "Product image");
             const dims = dimensionsFor(galleryFiles[0] || String(product?.image || "").trim());
@@ -172,7 +187,10 @@ constructor() {
                 img = document.createElement("img");
                 button.appendChild(img);
             }
-            img.src = srcFor(filename);
+            const thumbnailSrc = srcFor(filename);
+            if (img.getAttribute("src") !== thumbnailSrc) {
+                img.src = thumbnailSrc;
+            }
             img.alt = `${String(product?.product_name || product?.name || "Product")} image ${index + 1}`;
             img.loading = "lazy";
             img.decoding = "async";
