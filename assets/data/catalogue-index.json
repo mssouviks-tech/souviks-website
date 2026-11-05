@@ -5496,12 +5496,12 @@
       "Engine Overhaul"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169340",
-    "hsn_description": "Gaskets, of vulcanised rubber",
+    "hsn_code": "84841090",
+    "hsn_description": "Other gaskets of metal sheeting combined with other material or of two or more layers of metal",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is a gasket, but the material is not stated.",
-    "hsn_review_note": "Confirm construction: rubber gasket 40169340; metal/composite gasket 84841090; paper/fibre gasket may fall under another heading.",
+    "hsn_basis": "The product is a commercial-vehicle engine/oil-sump/cylinder-head-cover gasket; the candidate uses the gasket-specific tariff heading rather than residual vehicle parts.",
+    "hsn_review_note": "The catalogue record does not state gasket material/construction. Confirm whether it is metal sheeting combined with other material or multilayer metal (84841090), vulcanised rubber (40169340), or paper/fibre (a different heading).",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -5608,12 +5608,12 @@
       "Cylinder Head Cover Assembly"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169340",
-    "hsn_description": "Gaskets, of vulcanised rubber",
+    "hsn_code": "84841090",
+    "hsn_description": "Other gaskets of metal sheeting combined with other material or of two or more layers of metal",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is a gasket, but the material is not stated.",
-    "hsn_review_note": "Confirm construction: rubber gasket 40169340; metal/composite gasket 84841090; paper/fibre gasket may fall under another heading.",
+    "hsn_basis": "The product is a commercial-vehicle engine/oil-sump/cylinder-head-cover gasket; the candidate uses the gasket-specific tariff heading rather than residual vehicle parts.",
+    "hsn_review_note": "The catalogue record does not state gasket material/construction. Confirm whether it is metal sheeting combined with other material or multilayer metal (84841090), vulcanised rubber (40169340), or paper/fibre (a different heading).",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -17361,12 +17361,12 @@
       "Steering Linkage System"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_basis": "Bell Crank Bush L/L is described as a bush/bushing providing a bearing/pivot surface in a steering, bell-crank or kingpin joint. A plain-bearing heading is a better candidate than assuming vulcanised rubber.",
+    "hsn_review_note": "Confirm the supplied article is a plain shaft bearing/bush (e.g. metal/graphite/polymer bearing material). If it is a vulcanised-rubber bush, use 40169960; if part of a complete linkage assembly, review the assembly heading.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -18189,12 +18189,12 @@
       "Chassis Protection"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169360",
-    "hsn_description": "Plugs, of vulcanised rubber",
-    "hsn_confidence": "medium",
-    "hsn_classification_status": "provisional",
-    "hsn_basis": "The product is identified as a rubber stopper/plug.",
-    "hsn_review_note": "Confirm the article is a rubber plug/stopper rather than a cushion/pad; 401699 may apply to some other articles.",
+    "hsn_code": "40169950",
+    "hsn_description": "Rubber cushions",
+    "hsn_confidence": "low",
+    "hsn_classification_status": "review_required",
+    "hsn_basis": "The product description identifies a compliant rubber stopper pad used to limit impact/travel between components.",
+    "hsn_review_note": "Confirm it is a cushioning pad rather than a rubber stopper (40169980) or a plug/seal (40169360).",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -20069,12 +20069,12 @@
       "Steering Linkage System"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_basis": "Bell Crank Bush L/L is described as a bush/bushing providing a bearing/pivot surface in a steering, bell-crank or kingpin joint. A plain-bearing heading is a better candidate than assuming vulcanised rubber.",
+    "hsn_review_note": "Confirm the supplied article is a plain shaft bearing/bush (e.g. metal/graphite/polymer bearing material). If it is a vulcanised-rubber bush, use 40169960; if part of a complete linkage assembly, review the assembly heading.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -25380,12 +25380,12 @@
       "Engine Overhaul"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169340",
-    "hsn_description": "Gaskets, of vulcanised rubber",
+    "hsn_code": "84841090",
+    "hsn_description": "Other gaskets of metal sheeting combined with other material or of two or more layers of metal",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is a gasket, but the material is not stated.",
-    "hsn_review_note": "Confirm construction: rubber gasket 40169340; metal/composite gasket 84841090; paper/fibre gasket may fall under another heading.",
+    "hsn_basis": "The product is a commercial-vehicle engine/oil-sump/cylinder-head-cover gasket; the candidate uses the gasket-specific tariff heading rather than residual vehicle parts.",
+    "hsn_review_note": "The catalogue record does not state gasket material/construction. Confirm whether it is metal sheeting combined with other material or multilayer metal (84841090), vulcanised rubber (40169340), or paper/fibre (a different heading).",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -29385,12 +29385,12 @@
       "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
+    "hsn_code": "87089300",
+    "hsn_description": "Clutches and parts thereof",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_basis": "The product is a major lever kit described in the catalogue as part of the collector-ring/clutch range; its listed applications are pressure-plate rebuild, clutch overhaul and clutch repair.",
+    "hsn_review_note": "Confirm the kit's contents and essential character; if it is only a standalone bush, classify by actual bush material/construction instead.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -30343,12 +30343,12 @@
       "fitment/specification: Kingpin bush for Tata 1312 (set of 4 nos.)."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_basis": "Kingpin bush for Tata 1312 (set of 4 nos.) is described as a bush/bushing providing a bearing/pivot surface in a steering, bell-crank or kingpin joint. A plain-bearing heading is a better candidate than assuming vulcanised rubber.",
+    "hsn_review_note": "Confirm the supplied article is a plain shaft bearing/bush (e.g. metal/graphite/polymer bearing material). If it is a vulcanised-rubber bush, use 40169960; if part of a complete linkage assembly, review the assembly heading.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -39770,12 +39770,12 @@
       "aluminium-bronze lever-bush-set application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
+    "hsn_confidence": "medium",
+    "hsn_classification_status": "provisional",
+    "hsn_basis": "Aluminium Bronze Lever   Bush Set A/L Allied explicitly identifies an aluminium-bronze lever-bush set, consistent with a plain bearing/bush.",
+    "hsn_review_note": "Confirm the supplied set is a plain shaft-bearing/bush set and not a larger steering/suspension linkage assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -39826,12 +39826,12 @@
       "aluminium-bronze lever-bush-set application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
+    "hsn_confidence": "medium",
+    "hsn_classification_status": "provisional",
+    "hsn_basis": "Aluminium Bronze Bush   set Tata Allied Product explicitly identifies an aluminium-bronze lever-bush set, consistent with a plain bearing/bush.",
+    "hsn_review_note": "Confirm the supplied set is a plain shaft-bearing/bush set and not a larger steering/suspension linkage assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -39881,12 +39881,12 @@
       "front aluminium-bronze lever-bush-set application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
+    "hsn_confidence": "medium",
+    "hsn_classification_status": "provisional",
+    "hsn_basis": "Aluminium Bronze Lever   Bush Set of 2pc Tata Prima Front explicitly identifies an aluminium-bronze lever-bush set, consistent with a plain bearing/bush.",
+    "hsn_review_note": "Confirm the supplied set is a plain shaft-bearing/bush set and not a larger steering/suspension linkage assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -39936,12 +39936,12 @@
       "aluminium-bronze lever-bush-set application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
+    "hsn_confidence": "medium",
+    "hsn_classification_status": "provisional",
+    "hsn_basis": "BS4923TAAP- Aluminium Bronze Lever   Bush Set Tata Signa explicitly identifies an aluminium-bronze lever-bush set, consistent with a plain bearing/bush.",
+    "hsn_review_note": "Confirm the supplied set is a plain shaft-bearing/bush set and not a larger steering/suspension linkage assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -40261,12 +40261,12 @@
       "EICHER"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_code": "87088000",
+    "hsn_description": "Suspension systems and parts thereof",
+    "hsn_confidence": "medium",
+    "hsn_classification_status": "provisional",
+    "hsn_basis": "F/S Shackle (Steel Bush) identifies a spring shackle/shackle assembly whose essential character is a vehicle suspension component; the included steel/brass bush does not make the whole assembly a rubber article.",
+    "hsn_review_note": "Confirm the supplied SKU is the complete shackle assembly with its bush, not a separately supplied bush.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -40864,12 +40864,12 @@
       "4018"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_code": "87088000",
+    "hsn_description": "Suspension systems and parts thereof",
+    "hsn_confidence": "medium",
+    "hsn_classification_status": "provisional",
+    "hsn_basis": "Front Spring Shackle 2416   with Brass Bush identifies a spring shackle/shackle assembly whose essential character is a vehicle suspension component; the included steel/brass bush does not make the whole assembly a rubber article.",
+    "hsn_review_note": "Confirm the supplied SKU is the complete shackle assembly with its bush, not a separately supplied bush.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -41268,12 +41268,12 @@
       "TATA Signa"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_code": "87088000",
+    "hsn_description": "Suspension systems and parts thereof",
+    "hsn_confidence": "medium",
+    "hsn_classification_status": "provisional",
+    "hsn_basis": "Shackle Assembly for Tata   Signa Front Spring (fits with J1606 24mm Bush) identifies a spring shackle/shackle assembly whose essential character is a vehicle suspension component; the included steel/brass bush does not make the whole assembly a rubber article.",
+    "hsn_review_note": "Confirm the supplied SKU is the complete shackle assembly with its bush, not a separately supplied bush.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -42740,12 +42740,12 @@
       "exact model fitment not established in the indexed source."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_basis": "King Pin Bush-FA99 is described as a bush/bushing providing a bearing/pivot surface in a steering, bell-crank or kingpin joint. A plain-bearing heading is a better candidate than assuming vulcanised rubber.",
+    "hsn_review_note": "Confirm the supplied article is a plain shaft bearing/bush (e.g. metal/graphite/polymer bearing material). If it is a vulcanised-rubber bush, use 40169960; if part of a complete linkage assembly, review the assembly heading.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -42958,12 +42958,12 @@
       "bell-crank bush application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_basis": "Bell Crank Bush L/L is described as a bush/bushing providing a bearing/pivot surface in a steering, bell-crank or kingpin joint. A plain-bearing heading is a better candidate than assuming vulcanised rubber.",
+    "hsn_review_note": "Confirm the supplied article is a plain shaft bearing/bush (e.g. metal/graphite/polymer bearing material). If it is a vulcanised-rubber bush, use 40169960; if part of a complete linkage assembly, review the assembly heading.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -43013,12 +43013,12 @@
       "bell-crank bush application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_basis": "Bell Crank Bush Tata 2416 is described as a bush/bushing providing a bearing/pivot surface in a steering, bell-crank or kingpin joint. A plain-bearing heading is a better candidate than assuming vulcanised rubber.",
+    "hsn_review_note": "Confirm the supplied article is a plain shaft bearing/bush (e.g. metal/graphite/polymer bearing material). If it is a vulcanised-rubber bush, use 40169960; if part of a complete linkage assembly, review the assembly heading.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -55251,12 +55251,12 @@
       "replacement/service use for the stated specification."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_basis": "Bush set for Bell Crank is described as a bush/bushing providing a bearing/pivot surface in a steering, bell-crank or kingpin joint. A plain-bearing heading is a better candidate than assuming vulcanised rubber.",
+    "hsn_review_note": "Confirm the supplied article is a plain shaft bearing/bush (e.g. metal/graphite/polymer bearing material). If it is a vulcanised-rubber bush, use 40169960; if part of a complete linkage assembly, review the assembly heading.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -55529,12 +55529,12 @@
       "fitment/specification: Kingpin Graphite Bush for Tata Signa."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40169960",
-    "hsn_description": "Rubber bushes",
+    "hsn_code": "84833000",
+    "hsn_description": "Bearing housings not incorporating ball or roller bearings; plain shaft bearings",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is identified as a bush/bushing.",
-    "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
+    "hsn_basis": "Kingpin Graphite Bush for Tata Signa is described as a bush/bushing providing a bearing/pivot surface in a steering, bell-crank or kingpin joint. A plain-bearing heading is a better candidate than assuming vulcanised rubber.",
+    "hsn_review_note": "Confirm the supplied article is a plain shaft bearing/bush (e.g. metal/graphite/polymer bearing material). If it is a vulcanised-rubber bush, use 40169960; if part of a complete linkage assembly, review the assembly heading.",
     "hsn_reference_date": "2026-10-01"
   },
   {
