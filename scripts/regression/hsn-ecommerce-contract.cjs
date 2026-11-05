@@ -65,7 +65,7 @@ const publicById = new Map(publicProducts.map(product => [String(product.id), pr
 const confirmed = catalogue.find(product =>
   product.hsn_classification_status === "classified" &&
   product.hsn_confidence === "high" &&
-  /^\\d{8}$/.test(String(product.hsn_code || ""))
+  /^\d{8}$/.test(String(product.hsn_code || ""))
 );
 assert.ok(confirmed, "Build must include at least one high-confidence classified HSN product");
 const projected = publicById.get(String(confirmed.id));
@@ -86,7 +86,7 @@ const labels = {
 };
 for (const lang of ["en", "hi", "bn"]) {
   const page = read(lang + "/products/" + confirmed.slug + ".html");
-  const embedded = page.match(/window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});/s);
+  const embedded = page.match(/window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});/s);
   assert.ok(embedded, lang + " PDP must embed product data");
   const pageData = JSON.parse(embedded[1]);
   assert.equal(pageData.hsn_code, confirmed.hsn_code, lang + " PDP must carry the confirmed HSN code");
