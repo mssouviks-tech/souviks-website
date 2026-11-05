@@ -1595,7 +1595,7 @@ def reconcile_catalogue_projections():
             hsn_is_confirmed = (
                 text(product.get("hsn_classification_status")).casefold() == "classified"
                 and text(product.get("hsn_confidence")).casefold() == "high"
-                and bool(re.fullmatch(r"\\d{8}", hsn_code))
+                and bool(re.fullmatch(r"\d{8}", hsn_code))
             )
             hsn_labels = {
                 "en": "HSN Code",
@@ -1603,8 +1603,8 @@ def reconcile_catalogue_projections():
                 "bn": "এইচএসএন কোড",
             }
             html = re.sub(
-                r'<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-row\\b[^"\\']*["\\'][^>]*>\\s*'
-                r'<strong>\\s*(?:HSN Code|एचएसएन कोड|এইচএসএন কোড)\\s*</strong>\\s*<span>.*?</span>\\s*</div>',
+                r'<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                r'<strong>\s*(?:HSN Code|एचएसएन कोड|এইচএসএন কোড)\s*</strong>\s*<span>.*?</span>\s*</div>',
                 "",
                 html,
                 count=1,
@@ -1620,8 +1620,8 @@ def reconcile_catalogue_projections():
                     + '</span></div>'
                 )
                 html, hsn_inserted = re.subn(
-                    r'(?=<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-row\\b[^"\\']*["\\'][^>]*>\\s*'
-                    r'<strong>\\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|অ্যাপ্লিকেশন)\\s*</strong>)',
+                    r'(?=<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                    r'<strong>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|অ্যাপ্লিকেশন)\s*</strong>)',
                     lambda _: hsn_row,
                     html,
                     count=1,
