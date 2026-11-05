@@ -1,8 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
   "source": "Nirmal Engineering Works (Regd.), Price List No. 67/2026, effective 2026-01-01",
   "purpose": "Approximate product unit weights for catalogue freight estimates",
-  "method": "Theoretical steel rod mass using 7,850 kg/m³; rod centreline length = 2 × listed leg length + π × (inside width + rod diameter) / 2; add two estimated steel hex nuts using conservative approximate M20/M22 hex-nut dimensions for net product mass. For approx_weight_g, apply a 5% packaging allowance and round upward to the next 50 g for checkout freight estimation.",
+  "method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
   "assumptions": {
     "material_density_kg_m3": 7850,
     "nut_count_per_ubolt": 2,
@@ -12,7 +12,8 @@
     },
     "packaging_included": true,
     "measured_by_manufacturer": false,
-    "estimated_packaging_allowance_percent": 5
+    "estimated_packaging_allowance_percent": 5,
+    "nominal_inch_to_mm_model_factor": 25
   },
   "products": [
     {
@@ -28,7 +29,10 @@
       "calculated_weight_g": 2274,
       "approx_weight_g": 2400,
       "net_weight_g": 2274,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001064",
@@ -43,7 +47,10 @@
       "calculated_weight_g": 2423.3,
       "approx_weight_g": 2550,
       "net_weight_g": 2423.3,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001066",
@@ -58,7 +65,10 @@
       "calculated_weight_g": 2196,
       "approx_weight_g": 2350,
       "net_weight_g": 2196,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001072",
@@ -73,7 +83,10 @@
       "calculated_weight_g": 3194,
       "approx_weight_g": 3400,
       "net_weight_g": 3194,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001071",
@@ -88,7 +101,10 @@
       "calculated_weight_g": 3343.2,
       "approx_weight_g": 3550,
       "net_weight_g": 3343.2,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001073",
@@ -103,7 +119,10 @@
       "calculated_weight_g": 3492.4,
       "approx_weight_g": 3700,
       "net_weight_g": 3492.4,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001074",
@@ -118,7 +137,10 @@
       "calculated_weight_g": 3641.6,
       "approx_weight_g": 3850,
       "net_weight_g": 3641.6,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001075",
@@ -133,7 +155,10 @@
       "calculated_weight_g": 3790.8,
       "approx_weight_g": 4000,
       "net_weight_g": 3790.8,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001076",
@@ -148,7 +173,10 @@
       "calculated_weight_g": 3940,
       "approx_weight_g": 4150,
       "net_weight_g": 3940,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001077",
@@ -163,7 +191,10 @@
       "calculated_weight_g": 4089.2,
       "approx_weight_g": 4300,
       "net_weight_g": 4089.2,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001078",
@@ -178,7 +209,10 @@
       "calculated_weight_g": 4238.4,
       "approx_weight_g": 4500,
       "net_weight_g": 4238.4,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001079",
@@ -193,7 +227,10 @@
       "calculated_weight_g": 4387.6,
       "approx_weight_g": 4650,
       "net_weight_g": 4387.6,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001069",
@@ -208,7 +245,10 @@
       "calculated_weight_g": 1788,
       "approx_weight_g": 1900,
       "net_weight_g": 1788,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001067",
@@ -223,7 +263,10 @@
       "calculated_weight_g": 1911.3,
       "approx_weight_g": 2050,
       "net_weight_g": 1911.3,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001062",
@@ -238,7 +281,10 @@
       "calculated_weight_g": 1826.8,
       "approx_weight_g": 1950,
       "net_weight_g": 1826.8,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001070",
@@ -253,7 +299,10 @@
       "calculated_weight_g": 2047.3,
       "approx_weight_g": 2150,
       "net_weight_g": 2047.3,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001068",
@@ -268,7 +317,10 @@
       "calculated_weight_g": 2345.7,
       "approx_weight_g": 2500,
       "net_weight_g": 2345.7,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     },
     {
       "id": "SVKS001065",
@@ -283,7 +335,154 @@
       "calculated_weight_g": 2494.9,
       "approx_weight_g": 2650,
       "net_weight_g": 2494.9,
-      "packaging_allowance_percent": 5
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
+    },
+    {
+      "id": "SVKS000394",
+      "part_number": "NIRMAL/UB/204",
+      "product_name": "Bolt w/ Nut 20 x 70 x 10\" HR",
+      "dimensions_mm": [
+        250,
+        70,
+        20
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 1702.7,
+      "approx_weight_g": 1800,
+      "net_weight_g": 1702.7,
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
+    },
+    {
+      "id": "SVKS000395",
+      "part_number": "NIRMAL/UB/205",
+      "product_name": "Bolt w/ Nut 20 x 70 x 11\" HR",
+      "dimensions_mm": [
+        275,
+        70,
+        20
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 1826,
+      "approx_weight_g": 1950,
+      "net_weight_g": 1826,
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
+    },
+    {
+      "id": "SVKS000396",
+      "part_number": "NIRMAL/UB/229",
+      "product_name": "Bolt w/ Nut 22 x 82 x 20\" FR",
+      "dimensions_mm": [
+        500,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 3641.5,
+      "approx_weight_g": 3850,
+      "net_weight_g": 3641.5,
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
+    },
+    {
+      "id": "SVKS000397",
+      "part_number": "NIRMAL/UB/230",
+      "product_name": "Bolt w/ Nut 22 x 82 x 21\" FR",
+      "dimensions_mm": [
+        525,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 3790.7,
+      "approx_weight_g": 4000,
+      "net_weight_g": 3790.7,
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
+    },
+    {
+      "id": "SVKS000398",
+      "part_number": "NIRMAL/UB/231",
+      "product_name": "Bolt w/ Nut 22 x 82 x 22\" FR",
+      "dimensions_mm": [
+        550,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 3939.9,
+      "approx_weight_g": 4150,
+      "net_weight_g": 3939.9,
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
+    },
+    {
+      "id": "SVKS000399",
+      "part_number": "NIRMAL/UB/232",
+      "product_name": "Bolt w/ Nut 22 x 82 x 23\" FR",
+      "dimensions_mm": [
+        575,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 4089.1,
+      "approx_weight_g": 4300,
+      "net_weight_g": 4089.1,
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
+    },
+    {
+      "id": "SVKS000400",
+      "part_number": "NIRMAL/UB/233",
+      "product_name": "Bolt w/ Nut 22 x 82 x 24\" FR",
+      "dimensions_mm": [
+        600,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 4238.3,
+      "approx_weight_g": 4500,
+      "net_weight_g": 4238.3,
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
+    },
+    {
+      "id": "SVKS000401",
+      "part_number": "NIRMAL/UB/234",
+      "product_name": "Bolt w/ Nut 22 x 82 x 25\" FR",
+      "dimensions_mm": [
+        625,
+        82,
+        22
+      ],
+      "nut_count": 2,
+      "calculated_weight_g": 4387.5,
+      "approx_weight_g": 4650,
+      "net_weight_g": 4387.5,
+      "packaging_allowance_percent": 5,
+      "weight_estimation_status": "estimated",
+      "weight_estimation_method": "Estimated steel U-bolt mass: theoretical solid steel rod at 7,850 kg/m³ using centreline length = 2 × nominal leg length + π × (inside width + rod diameter) / 2, plus two estimated hex nuts (M20 60.5 g each; M22 85 g each). Nominal inch leg length is converted using the existing Nirmal catalogue model convention of 25 mm per inch. Packed checkout weight adds 5% and rounds up to the next 50 g.",
+      "weight_estimation_notes": "Calculated estimate only; not manufacturer-weighed. U-bolt profile, end threads, bends, plating, exact nut grade/geometry and actual leg length can change mass. Confirm with a physical sample before treating as a net weight. Product dimensions are component geometry, not packed-carton dimensions."
     }
   ]
 }

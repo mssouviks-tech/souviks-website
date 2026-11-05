@@ -234,6 +234,17 @@ def reconcile_catalogue_projections():
             if product.get("approx_weight_g") != estimate_grams:
                 product["approx_weight_g"] = estimate_grams
                 weights_changed = True
+            # Keep calculation and provenance alongside the packed checkout weight.
+            for field in (
+                "calculated_weight_g",
+                "weight_estimation_status",
+                "weight_estimation_method",
+                "weight_estimation_notes",
+            ):
+                value = estimate.get(field)
+                if value is not None and product.get(field) != value:
+                    product[field] = value
+                    weights_changed = True
 
         if weights_changed:
             CATALOGUE_PATH.write_text(
@@ -241,6 +252,203 @@ def reconcile_catalogue_projections():
                 encoding="utf-8",
             )
 
+    # Explicit component and fitment dimensions are not parcel/carton dimensions.
+    dimension_specs_path = ROOT / "assets" / "data" / "product-dimension-specifications.json"
+    if dimension_specs_path.exists():
+        try:
+            dimension_data = json.loads(dimension_specs_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid product dimension specifications file: {exc}")
+        dimension_records = dimension_data.get("products") if isinstance(dimension_data, dict) else None
+        if not isinstance(dimension_records, list):
+            raise SystemExit("Product dimension specifications must contain a products array")
+
+        dimension_products_by_id = {
+            text(product.get("id")): product
+            for product in catalogue
+            if isinstance(product, dict) and text(product.get("id"))
+        }
+        seen_dimension_ids = set()
+        dimensions_changed = False
+        for record in dimension_records:
+            if not isinstance(record, dict):
+                raise SystemExit("Every product dimension record must be an object")
+            pid = text(record.get("id"))
+            expected_part_number = text(record.get("part_number"))
+            expected_product_name = text(record.get("product_name"))
+            if not pid or not expected_product_name:
+                raise SystemExit("Every product dimension record needs id and product_name")
+            if pid in seen_dimension_ids:
+                raise SystemExit(f"Duplicate product dimension record for {pid}")
+            seen_dimension_ids.add(pid)
+
+            product = dimension_products_by_id.get(pid)
+            if product is None or product.get("active") is False:
+                raise SystemExit(f"Dimension record references an unknown/inactive product: {pid}")
+            actual_part_number = text(product.get("part_number") or product.get("partNumber"))
+            actual_product_name = text(product.get("product_name") or product.get("name"))
+            if actual_part_number != expected_part_number:
+                raise SystemExit(
+                    f"Dimension part-number mismatch for {pid}: "
+                    f"{expected_part_number!r} != {actual_part_number!r}"
+                )
+            if actual_product_name != expected_product_name:
+                raise SystemExit(
+                    f"Dimension product-name mismatch for {pid}: "
+                    f"{expected_product_name!r} != {actual_product_name!r}"
+                )
+
+            specifications = record.get("specs", [])
+            has_optional_weight_metadata = (
+                "declared_net_content_g" in record
+                or "manufacturer_weight_kg" in record
+            )
+            if not isinstance(specifications, list) or (
+                not specifications and not has_optional_weight_metadata
+            ):
+                raise SystemExit(f"Product measurement record has no dimensions or weight metadata: {pid}")
+            current_specs = product.get("dimension_specs_mm")
+            if current_specs is None:
+                current_specs = []
+            if not isinstance(current_specs, list):
+                raise SystemExit(f"Invalid existing dimension_specs_mm for {pid}")
+            merged_specs = list(current_specs)
+            current_by_name = {
+                text(spec.get("name")): spec
+                for spec in merged_specs
+                if isinstance(spec, dict) and text(spec.get("name"))
+            }
+            seen_names = set()
+            for specification in specifications:
+                if not isinstance(specification, dict):
+                    raise SystemExit(f"Invalid dimension specification for {pid}")
+                name = text(specification.get("name"))
+                value = specification.get("value_mm")
+                source = text(specification.get("source"))
+                if (
+                    not name
+                    or not isinstance(value, (int, float))
+                    or isinstance(value, bool)
+                    or not (0 < value < float("inf"))
+                    or not source
+                ):
+                    raise SystemExit(f"Invalid named dimension value for {pid}: {specification!r}")
+                if name in seen_names:
+                    raise SystemExit(f"Duplicate dimension name for {pid}: {name}")
+                seen_names.add(name)
+                normalized = {"name": name, "value_mm": value, "source": source}
+                previous = current_by_name.get(name)
+                if previous is not None:
+                    if previous.get("value_mm") != value:
+                        raise SystemExit(
+                            f"Conflicting dimension value for {pid} / {name}: "
+                            f"{previous.get('value_mm')!r} != {value!r}"
+                        )
+                    continue
+                merged_specs.append(normalized)
+                current_by_name[name] = normalized
+                dimensions_changed = True
+
+            if product.get("dimension_specs_mm") != merged_specs:
+                product["dimension_specs_mm"] = merged_specs
+                dimensions_changed = True
+            dimension_label = text(record.get("dimensions_label")) or (
+                "Named component or fitment specifications (mm); not shipping-carton dimensions"
+            )
+            if product.get("dimensions_label") != dimension_label:
+                product["dimensions_label"] = dimension_label
+                dimensions_changed = True
+            dimension_source = "product_dimension_specifications_manifest"
+            if product.get("dimensions_source") != dimension_source:
+                product["dimensions_source"] = dimension_source
+                dimensions_changed = True
+
+            # Preserve declared contents mass separately from packed shipping mass.
+            if "declared_net_content_g" in record:
+                declared_net_content_g = record.get("declared_net_content_g")
+                if (
+                    not isinstance(declared_net_content_g, (int, float))
+                    or isinstance(declared_net_content_g, bool)
+                    or not (0 < declared_net_content_g <= 50000)
+                ):
+                    raise SystemExit(f"Invalid declared net-content mass for {pid}")
+                content_status = text(record.get("declared_net_content_status"))
+                content_source = text(record.get("declared_net_content_source"))
+                content_notes = text(record.get("declared_net_content_notes"))
+                if content_status != "catalogue_declared_content" or not content_source or not content_notes:
+                    raise SystemExit(f"Missing declared-content provenance for {pid}")
+                for field, value in (
+                    ("declared_net_content_g", int(declared_net_content_g)),
+                    ("declared_net_content_status", content_status),
+                    ("declared_net_content_source", content_source),
+                    ("declared_net_content_notes", content_notes),
+                ):
+                    if product.get(field) != value:
+                        product[field] = value
+                        dimensions_changed = True
+                # Never treat content-only mass as packed shipping weight.
+                if product.get("approx_weight_g") is None:
+                    product.pop("approx_weight_g", None)
+
+
+            # Exact manufacturer net weights can coexist with component dimensions.
+            # Only publish a packed checkout value after validating source, model,
+            # the stated packaging allowance and the round-up calculation.
+            if "manufacturer_weight_kg" in record:
+                try:
+                    manufacturer_weight_kg = float(record.get("manufacturer_weight_kg"))
+                except (TypeError, ValueError):
+                    raise SystemExit(f"Invalid manufacturer weight for {pid}")
+                if (
+                    not (0 < manufacturer_weight_kg < float("inf"))
+                    or manufacturer_weight_kg != manufacturer_weight_kg
+                ):
+                    raise SystemExit(f"Invalid manufacturer weight for {pid}")
+                if text(record.get("manufacturer_weight_status")) != "verified":
+                    raise SystemExit(f"Manufacturer weight is not verified for {pid}")
+                source_url = text(record.get("manufacturer_weight_source_url"))
+                if not source_url.startswith("https://cad.timken.com/"):
+                    raise SystemExit(f"Unapproved manufacturer weight source for {pid}")
+                if text(product.get("brand")).casefold() != "timken":
+                    raise SystemExit(f"Manufacturer weight source does not match Timken brand for {pid}")
+                if not text(record.get("manufacturer_weight_notes")):
+                    raise SystemExit(f"Missing manufacturer weight notes for {pid}")
+                allowance = record.get("manufacturer_weight_packaging_allowance_percent")
+                rounding_step = record.get("manufacturer_weight_round_up_to_g")
+                if allowance != 5 or rounding_step != 50:
+                    raise SystemExit(f"Unsupported manufacturer packed-weight method for {pid}")
+                import math
+                packed_weight_g = math.ceil(
+                    (manufacturer_weight_kg * 1000 * (1 + allowance / 100)) / rounding_step
+                ) * rounding_step
+                if record.get("manufacturer_weight_approx_packed_g") != packed_weight_g:
+                    raise SystemExit(f"Manufacturer packed-weight calculation mismatch for {pid}")
+                notes = text(record.get("manufacturer_weight_notes"))
+                method = (
+                    "Manufacturer-reported net product weight; packed checkout estimate "
+                    "adds a 5% packaging allowance and rounds up to the next 50 g."
+                )
+                manufacturer_metadata = {
+                    "manufacturer_weight_kg": manufacturer_weight_kg,
+                    "manufacturer_weight_status": "verified",
+                    "manufacturer_spec_source": source_url,
+                    "manufacturer_spec_notes": notes,
+                    "calculated_weight_g": int(round(manufacturer_weight_kg * 1000)),
+                    "approx_weight_g": packed_weight_g,
+                    "weight_estimation_status": "manufacturer_verified",
+                    "weight_estimation_method": method,
+                    "weight_estimation_notes": notes,
+                }
+                for field, value in manufacturer_metadata.items():
+                    if product.get(field) != value:
+                        product[field] = value
+                        dimensions_changed = True
+
+        if dimensions_changed:
+            CATALOGUE_PATH.write_text(
+                json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
     # Manufacturer-sourced WABCO metadata and safe packed-weight estimates.
     wabco_specs_path = ROOT / "assets" / "data" / "wabco-product-specifications.json"
     if wabco_specs_path.exists():
@@ -829,6 +1037,10 @@ def reconcile_catalogue_projections():
             "discount_percent": p.get("discount_percent"),
             "discountPercent": p.get("discount_percent"),
             "approx_weight_g": approximate_weight_grams(p),
+            "declared_net_content_g": p.get("declared_net_content_g"),
+            "declared_net_content_status": text(p.get("declared_net_content_status")),
+            "declared_net_content_source": text(p.get("declared_net_content_source")),
+            "declared_net_content_notes": text(p.get("declared_net_content_notes")),
             "dimensions_mm": p.get("dimensions_mm"),
             "dimension_specs_mm": list(p.get("dimension_specs_mm") or []),
             "weight_calculation_quantity": p.get("weight_calculation_quantity"),
@@ -951,7 +1163,7 @@ def reconcile_catalogue_projections():
         projection_fields = (
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
-            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
+            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -1002,7 +1214,7 @@ def reconcile_catalogue_projections():
         "vehicles", "part_number", "manufacturer_part_number",
         "manufacturer_part_numbers", "alternate_part_numbers",
         "oem_numbers", "cross_references", "slug", "image",
-        "vehicle_count", "featured", "active", "approx_weight_g", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes",
+        "vehicle_count", "featured", "active", "approx_weight_g", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes",
         "manufacturer_weight_kg", "manufacturer_weight_status",
         "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
         "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -1444,6 +1656,10 @@ def reconcile_catalogue_projections():
             data["discount_percent"] = product.get("discount_percent")
             data["discountPercent"] = product.get("discount_percent")
             data["approx_weight_g"] = approximate_weight_grams(product)
+            data["declared_net_content_g"] = product.get("declared_net_content_g")
+            data["declared_net_content_status"] = text(product.get("declared_net_content_status"))
+            data["declared_net_content_source"] = text(product.get("declared_net_content_source"))
+            data["declared_net_content_notes"] = text(product.get("declared_net_content_notes"))
             data["dimensions_mm"] = product.get("dimensions_mm")
             data["dimension_specs_mm"] = list(product.get("dimension_specs_mm") or [])
             data["weight_calculation_quantity"] = product.get("weight_calculation_quantity")
