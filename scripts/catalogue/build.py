@@ -826,7 +826,7 @@ def reconcile_catalogue_projections():
             "cross_references": list(p.get("cross_references") or []),
             "mrp": p.get("mrp"),
             "selling_price": p.get("selling_price"),
-
+            "approx_weight_g": approximate_weight_grams(p),
             "hsn_code": text(p.get("hsn_code")),
             "hsn_description": text(p.get("hsn_description")),
             "hsn_confidence": text(p.get("hsn_confidence")),
@@ -836,7 +836,6 @@ def reconcile_catalogue_projections():
             "hsn_reference_date": text(p.get("hsn_reference_date")),
             "discount_percent": p.get("discount_percent"),
             "discountPercent": p.get("discount_percent"),
-            "approx_weight_g": approximate_weight_grams(p),
             "dimensions_mm": p.get("dimensions_mm"),
             "dimension_specs_mm": list(p.get("dimension_specs_mm") or []),
             "weight_calculation_quantity": p.get("weight_calculation_quantity"),
@@ -1452,6 +1451,13 @@ def reconcile_catalogue_projections():
             )
             data["mrp"] = product.get("mrp")
             data["selling_price"] = product.get("selling_price")
+            data["hsn_code"] = text(product.get("hsn_code"))
+            data["hsn_description"] = text(product.get("hsn_description"))
+            data["hsn_confidence"] = text(product.get("hsn_confidence"))
+            data["hsn_classification_status"] = text(product.get("hsn_classification_status"))
+            data["hsn_basis"] = text(product.get("hsn_basis"))
+            data["hsn_review_note"] = text(product.get("hsn_review_note"))
+            data["hsn_reference_date"] = text(product.get("hsn_reference_date"))
             data["discount_percent"] = product.get("discount_percent")
             data["discountPercent"] = product.get("discount_percent")
             data["approx_weight_g"] = approximate_weight_grams(product)
@@ -1580,6 +1586,49 @@ def reconcile_catalogue_projections():
                 count=1,
                 flags=re.I | re.S,
             )
+
+            # Publish only high-confidence product HSN on the customer-facing PDP.
+            # Provisional/review-required candidates remain in the catalogue and order
+            # snapshot metadata but are not presented as final customer classifications.
+            hsn_code = text(product.get("hsn_code"))
+            hsn_description = text(product.get("hsn_description"))
+            hsn_is_confirmed = (
+                text(product.get("hsn_classification_status")).casefold() == "classified"
+                and text(product.get("hsn_confidence")).casefold() == "high"
+                and bool(re.fullmatch(r"\\d{8}", hsn_code))
+            )
+            hsn_labels = {
+                "en": "HSN Code",
+                "hi": "एचएसएन कोड",
+                "bn": "এইচএসএন কোড",
+            }
+            html = re.sub(
+                r'<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-row\\b[^"\\']*["\\'][^>]*>\\s*'
+                r'<strong>\\s*(?:HSN Code|एचएसएन कोड|এইচএসএন কোড)\\s*</strong>\\s*<span>.*?</span>\\s*</div>',
+                "",
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
+            if hsn_is_confirmed:
+                hsn_value = hsn_code + ((" - " + hsn_description) if hsn_description else "")
+                hsn_row = (
+                    '<div class="pdp-row"><strong>'
+                    + html_module.escape(hsn_labels.get(lang, "HSN Code"), quote=False)
+                    + '</strong><span>'
+                    + html_module.escape(hsn_value, quote=False)
+                    + '</span></div>'
+                )
+                html, hsn_inserted = re.subn(
+                    r'(?=<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-row\\b[^"\\']*["\\'][^>]*>\\s*'
+                    r'<strong>\\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|অ্যাপ্লিকেশন)\\s*</strong>)',
+                    lambda _: hsn_row,
+                    html,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+                if hsn_inserted != 1:
+                    raise SystemExit(f"Could not add the confirmed HSN row to {path}")
 
             # Replace a thin/static Description paragraph with the same
             # factual content used by the generated embedded product record.
