@@ -23006,7 +23006,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000476/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index and supplier listing, exact code 29067074): the supplier listing describes an M/M 25/32-tonner, cowl/tipper and 40-tonne tractor clutch master-cylinder configuration, while the Souviks vehicle field currently lists Tata 1109, 1210 and 1312. This exact-code source does not substantiate those Tata models; verify the part marking, bore and mounting before assigning fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23103,7 +23104,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000478/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29067429): listed for Jan Bus 12 m / JanBus Midi, Lynx Smart wheelbase variants and Viking 180 HP. This does not support the current Tata 1109 / 1210 / 1312 mapping; verify the cylinder and bus configuration before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23152,7 +23154,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000479/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment evidence (TVS Girling exact-code supplier listing, part 29067792): Tata LPK 1616 clutch master-cylinder assembly. Other price-list references associate the code with Tata 2518 / Signa HCV applications; those broader variants need bore and mounting confirmation. The current Tata 1109 / 1210 / 1312 vehicle labels are not established by these exact-code references."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23200,7 +23203,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000480/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling exact-code supplier listing, part 29068077): identified as a clutch master-cylinder assembly for Ashok Leyland 1616 truck (older part reference 29067430). The current Souviks vehicle field lists Tata LPT and Tata Signa; those applications are not established by the cited exact-code listing. Verify the part label and cylinder interface before confirming."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23249,7 +23253,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000481/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index and Brakes India price-list references, exact code 29068102): listed as an Ashok Leyland SFC tipper HCV clutch master-cylinder assembly. The current Souviks vehicle field lists Tata 1109 / 1210 / 1312, which is not supported by this code-specific application. Confirm the installed vehicle and cylinder variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23396,7 +23401,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000484/1.webp",
     "applications": [
       "Brake Hydraulic System",
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle-system qualification (TVS Girling part-number index, exact code 29068161): identified as a TML LPO-series clutch master-cylinder assembly. The supplier list does not identify the specific LPO chassis/model variant; the existing Souviks Tata LPT label is too broad to treat as exact fitment without checking the LPO clutch actuation configuration."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23444,7 +23450,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000485/1.webp",
     "applications": [
       "Pneumatic System",
-      "Air Brake Maintenance"
+      "Air Brake Maintenance",
+      "Application qualification (TVS Girling exact-code supplier references, part 29068166): identified as a CMC assembly, with a related supplier listing specifying a 25.4 mm bore and an older reference 29067550. The sources reviewed do not specify a vehicle model. The current generic air-brake application note is not appropriate for a clutch master cylinder; confirm bore, ports and mounting before assigning vehicle fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
