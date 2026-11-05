@@ -42936,8 +42936,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 2780,
-    "selling_price": 2585.4,
+    "mrp": 578,
+    "selling_price": 537.54,
     "product_name": "Diaphragm",
     "name": "Diaphragm",
     "partNumber": "8971200154",
@@ -42960,7 +42960,7 @@
     ],
     "featured": false,
     "active": true,
-    "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
+    "catalogue_updated_at": "2026-11-05T13:14:00+05:30",
     "description": "The WABCO 8971200154 Diaphragm flexes under a pressure difference to transmit force or separate chambers within the associated air-operated component. Vehicle applications include Eicher 1110, Tata 1109 and Eicher Pro Series.",
     "image_folder": "SVKS000874",
     "gallery": [
@@ -42977,7 +42977,7 @@
     "applications": [
       "VECV 11.10 / 1109 commercial vehicles."
     ],
-    "updated_at": "2026-10-30T18:45:00+05:30"
+    "updated_at": "2026-11-05T13:14:00+05:30"
   },
   {
     "id": "SVKS000875",
