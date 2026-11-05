@@ -266,7 +266,6 @@ def reconcile_catalogue_projections():
             weight_metadata = {
                 "approx_weight_g": estimate_grams,
                 "calculated_weight_g": calculated_weight,
-                "dimensions_mm": list(dimensions),
                 "weight_estimation_status": text(estimate.get("weight_estimation_status")),
                 "weight_estimation_method": text(estimate.get("weight_estimation_method")),
                 "weight_estimation_notes": text(estimate.get("weight_estimation_notes")),
