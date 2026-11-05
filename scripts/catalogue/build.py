@@ -1619,16 +1619,17 @@ def reconcile_catalogue_projections():
                     + html_module.escape(hsn_value, quote=False)
                     + '</span></div>'
                 )
-                html, hsn_inserted = re.subn(
-                    r'(?=<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
-                    r'<strong>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|অ্যাপ্লিকেশন)\s*</strong>)',
-                    lambda _: hsn_row,
-                    html,
-                    count=1,
+                meta_row_pattern = re.compile(
+                    r'(<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b[^"\']*["\'][^>]*>.*?)(</div>\s*<section\b[^>]*id=["\']product-delivery-estimator["\'])',
                     flags=re.I | re.S,
                 )
+                html, hsn_inserted = meta_row_pattern.subn(
+                    lambda match: match.group(1) + hsn_row + match.group(2),
+                    html,
+                    count=1,
+                )
                 if hsn_inserted != 1:
-                    raise SystemExit(f"Could not add the confirmed HSN row to {path}")
+                    raise SystemExit(f"Could not add the confirmed HSN row to product metadata in {path}")
 
             # Replace a thin/static Description paragraph with the same
             # factual content used by the generated embedded product record.
