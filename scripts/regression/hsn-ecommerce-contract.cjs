@@ -59,4 +59,41 @@ assert.match(accountUi, /hsnCode/);
 for (const column of ["hsn_code", "hsn_description", "hsn_classification_status", "hsn_confidence"]) {
   assert.match(migration, new RegExp("add column if not exists "+column));
 }
+const catalogue = JSON.parse(read("assets/data/catalogue-index.json"));
+const publicProducts = JSON.parse(read("assets/data/products.json"));
+const publicById = new Map(publicProducts.map(product => [String(product.id), product]));
+const confirmed = catalogue.find(product =>
+  product.hsn_classification_status === "classified" &&
+  product.hsn_confidence === "high" &&
+  /^\\d{8}$/.test(String(product.hsn_code || ""))
+);
+assert.ok(confirmed, "Build must include at least one high-confidence classified HSN product");
+const projected = publicById.get(String(confirmed.id));
+assert.ok(projected, "Confirmed HSN product must exist in public products.json");
+for (const field of [
+  "hsn_code",
+  "hsn_description",
+  "hsn_confidence",
+  "hsn_classification_status",
+]) {
+  assert.equal(projected[field], confirmed[field], "Public projection must preserve " + field);
+}
+
+const labels = {
+  en: "HSN Code",
+  hi: "एचएसएन कोड",
+  bn: "এইচএসএন কোড",
+};
+for (const lang of ["en", "hi", "bn"]) {
+  const page = read(lang + "/products/" + confirmed.slug + ".html");
+  const embedded = page.match(/window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});/s);
+  assert.ok(embedded, lang + " PDP must embed product data");
+  const pageData = JSON.parse(embedded[1]);
+  assert.equal(pageData.hsn_code, confirmed.hsn_code, lang + " PDP must carry the confirmed HSN code");
+  assert.equal(pageData.hsn_classification_status, "classified", lang + " PDP HSN status must be classified");
+  assert.equal(pageData.hsn_confidence, "high", lang + " PDP HSN confidence must be high");
+  assert.ok(page.includes(labels[lang]), lang + " PDP must render the localized HSN label");
+  assert.ok(page.includes(confirmed.hsn_code), lang + " PDP must render the HSN code");
+}
+
 console.log("HSN ecommerce contract OK: catalogue projection, confidence-gated PDP display, server-side checkout snapshots, and authenticated order-history output.");
