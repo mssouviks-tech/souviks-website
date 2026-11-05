@@ -259,9 +259,44 @@ for product_id, expected in EXPECTED.items():
         assert display_price(expected["selling_price"]) in pricing, (
             f"{product_id}: {language} pricing block missing selling price {display_price(expected['selling_price'])}"
         )
-        assert f'{expected["discount_percent"]}% OFF' in pricing, (
-            f"{product_id}: {language} pricing block missing rounded discount"
+        assert "% OFF" not in pricing and "product-price-discount" not in pricing, (
+            f"{product_id}: {language} pricing block must not claim a discount without a verified 30-day prior price"
         )
+        period_labels = {
+            "en": {
+                "price_history_1m": "1 month",
+                "price_history_3m": "3 months",
+                "price_history_6m": "6 months",
+                "price_history_all_time": "All time",
+            },
+            "hi": {
+                "price_history_1m": "1 माह",
+                "price_history_3m": "3 माह",
+                "price_history_6m": "6 माह",
+                "price_history_all_time": "अब तक",
+            },
+            "bn": {
+                "price_history_1m": "১ মাস",
+                "price_history_3m": "৩ মাস",
+                "price_history_6m": "৬ মাস",
+                "price_history_all_time": "এখন পর্যন্ত",
+            },
+        }[language]
+        for field, period_label in period_labels.items():
+            recorded_low = embedded.get(field)
+            if recorded_low not in (None, ""):
+                assert period_label in pricing, (
+                    f"{product_id}: {language} price history panel missing {period_label}"
+                )
+                assert display_price(recorded_low) in pricing, (
+                    f"{product_id}: {language} price history panel missing {field} value"
+                )
+        all_time_low = embedded.get("price_history_all_time")
+        since = str(embedded.get("price_history_since") or "")[:10]
+        if all_time_low not in (None, "") and since:
+            assert since in pricing, (
+                f"{product_id}: {language} all-time price history is missing its tracking start date"
+            )
 
         stock_match = re.search(
             r'<span\b(?=[^>]*class=["\'][^"\']*\bpdp-stock\b[^"\']*["\'])[^>]*>(.*?)</span>',

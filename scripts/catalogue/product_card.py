@@ -11,9 +11,9 @@ from urllib.parse import urlencode
 ROOT = Path(__file__).resolve().parents[2]
 
 LABELS = {
-    "en": {"part": "Part No.", "request": "Get current price", "purchase": "Add to Cart", "quantity": "Quantity", "decrease": "Decrease quantity", "increase": "Increase quantity", "request_part": "Request a Part"},
-    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "purchase": "कार्ट में जोड़ें", "quantity": "मात्रा", "decrease": "मात्रा घटाएँ", "increase": "मात्रा बढ़ाएँ", "request_part": "पार्ट का अनुरोध"},
-    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "purchase": "কার্টে যোগ করুন", "quantity": "পরিমাণ", "decrease": "পরিমাণ কমান", "increase": "পরিমাণ বাড়ান", "request_part": "পার্টের অনুরোধ"},
+    "en": {"part": "Part No.", "request": "Get current price", "purchase": "Add to Cart", "quantity": "Quantity", "decrease": "Decrease quantity", "increase": "Increase quantity", "request_part": "Request a Part", "prior": "Lowest recorded price in last 1 month:"},
+    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "purchase": "कार्ट में जोड़ें", "quantity": "मात्रा", "decrease": "मात्रा घटाएँ", "increase": "मात्रा बढ़ाएँ", "request_part": "पार्ट का अनुरोध", "prior": "पिछले 1 माह का सबसे कम दर्ज मूल्य:"},
+    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "purchase": "কার্টে যোগ করুন", "quantity": "পরিমাণ", "decrease": "পরিমাণ কমান", "increase": "পরিমাণ বাড়ান", "request_part": "পার্টের অনুরোধ", "prior": "গত ১ মাসের সর্বনিম্ন নথিভুক্ত মূল্য:"},
 }
 
 
@@ -123,23 +123,21 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
     mrp_number = positive_price(product.get("mrp"))
     price = format_money(selling) if selling is not None else ""
     mrp = format_money(mrp_number) if mrp_number is not None else ""
-    discount = ""
-    if selling is not None and mrp_number is not None and mrp_number > selling:
-        discount = str(round((mrp_number - selling) / mrp_number * 100))
-
-    if selling is not None and mrp and discount:
-        price_html = (
-            '<div class="product-price product-price-sale" aria-label="Sale price">'
-            f'<span class="product-price-current">{esc(price)}</span>'
-            f'<span class="product-price-mrp">MRP {esc(mrp)}</span>'
-            f'<span class="product-price-discount">{esc(discount)}% OFF</span>'
-            "</div>"
+    prior_price_number = positive_price(product.get("prior_price_30d"))
+    prior_price = format_money(prior_price_number) if prior_price_number is not None else ""
+    prior_price_html = ""
+    if selling is not None and prior_price_number is not None and prior_price_number > selling:
+        prior_price_html = (
+            f'<span class="product-price-prior">{esc(labels["prior"])} {esc(prior_price)}</span>'
         )
-    elif selling is not None:
+
+    if selling is not None:
         price_html = (
             '<div class="product-price" aria-label="Price">'
             f'<span class="product-price-current">{esc(price)}</span>'
-            "</div>"
+            + (f'<span class="product-price-mrp">MRP {esc(mrp)}</span>' if mrp else "")
+            + prior_price_html
+            + "</div>"
         )
     elif mrp:
         price_html = (

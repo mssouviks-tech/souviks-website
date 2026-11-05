@@ -2838,7 +2838,14 @@ textarea:focus {
     color: var(--text-muted, var(--text-secondary));
     font-size: 11px;
     font-weight: 600;
-    text-decoration: line-through;
+    text-decoration: none;
+}
+
+.product-card .product-price-prior {
+    flex-basis: 100%;
+    color: var(--text-secondary);
+    font-size: 10px;
+    font-weight: 600;
 }
 
 .product-card .product-price-discount {
@@ -4305,9 +4312,13 @@ body.auth-modal-open {
 .pdp-price-mrp .pdp-price-value {
     color: var(--text-secondary);
     font-size: .92rem;
-    text-decoration-line: line-through;
-    text-decoration-thickness: 1.5px;
-    text-decoration-color: currentColor;
+    text-decoration: none;
+}
+
+.pdp-price-prior {
+    color: var(--text-secondary);
+    font-size: .76rem;
+    font-weight: 600;
 }
 
 .pdp-price-selling {

@@ -119,7 +119,11 @@ def projection_value(source, field: str):
         return bool(source.get("featured"))
     if field == "active":
         return source.get("active") is not False
-    if field in {"mrp", "selling_price"}:
+    if field in {
+        "mrp", "selling_price", "prior_price_30d",
+        "price_history_1m", "price_history_3m",
+        "price_history_6m", "price_history_all_time",
+    }:
         return number(source.get(field))
     return text(source.get(field)) if isinstance(source.get(field), str) else source.get(field)
 
@@ -1452,7 +1456,9 @@ def validate_critical_catalogue_contract(errors: list[str]) -> dict[str, list]:
             errors.append(f"products.json missing active product {pid}")
             continue
         for field in (
-            "slug", "mrp", "selling_price", "product_name", "name",
+            "slug", "mrp", "selling_price", "prior_price_30d",
+            "price_history_1m", "price_history_3m", "price_history_6m",
+            "price_history_all_time", "price_history_since", "product_name", "name",
             "brand_id", "brand_name", "category_id", "category_name",
             "subcategory_id", "subcategory_name", "image", "primary_image",
             "image_url", "vehicles", "applications", "featured", "active",
@@ -1460,7 +1466,11 @@ def validate_critical_catalogue_contract(errors: list[str]) -> dict[str, list]:
         ):
             expected = projection_value(source, field)
             actual = projection.get(field)
-            if field in {"mrp", "selling_price"}:
+            if field in {
+                "mrp", "selling_price", "prior_price_30d",
+                "price_history_1m", "price_history_3m",
+                "price_history_6m", "price_history_all_time",
+            }:
                 actual = number(actual)
             elif field in {"applications", "vehicles"}:
                 actual = arrayish(actual)

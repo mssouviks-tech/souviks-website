@@ -1034,6 +1034,12 @@ def reconcile_catalogue_projections():
             "cross_references": list(p.get("cross_references") or []),
             "mrp": p.get("mrp"),
             "selling_price": p.get("selling_price"),
+            "prior_price_30d": p.get("prior_price_30d"),
+            "price_history_1m": p.get("price_history_1m"),
+            "price_history_3m": p.get("price_history_3m"),
+            "price_history_6m": p.get("price_history_6m"),
+            "price_history_all_time": p.get("price_history_all_time"),
+            "price_history_since": p.get("price_history_since"),
             "discount_percent": p.get("discount_percent"),
             "discountPercent": p.get("discount_percent"),
             "approx_weight_g": approximate_weight_grams(p),
@@ -1163,7 +1169,9 @@ def reconcile_catalogue_projections():
         projection_fields = (
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
-            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
+            "oem_numbers", "cross_references", "mrp", "selling_price", "prior_price_30d",
+            "price_history_1m", "price_history_3m", "price_history_6m",
+            "price_history_all_time", "price_history_since", "approx_weight_g", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -1397,28 +1405,16 @@ def reconcile_catalogue_projections():
                 page,
                 count=2,
             )
-            try:
-                mrp_value = float(product.get("mrp"))
-                selling_value = float(product.get("selling_price"))
-            except (TypeError, ValueError):
-                mrp_value = selling_value = 0.0
-            if mrp_value and selling_value and selling_value < mrp_value:
-                discount = round((mrp_value - selling_value) / mrp_value * 100)
-                page = re.sub(
-                    r'(<span\b[^>]*class=["\'][^"\']*\bpdp-price-discount\b[^"\']*["\'][^>]*>).*?(</span>)',
-                    lambda match: match.group(1) + f"{discount}% OFF" + match.group(2),
-                    page,
-                    count=1,
-                    flags=re.I | re.S,
-                )
-            else:
-                page = re.sub(
-                    r'<span\b[^>]*class=["\'][^"\']*\bpdp-price-discount\b[^"\']*["\'][^>]*>.*?</span>',
-                    "",
-                    page,
-                    count=1,
-                    flags=re.I | re.S,
-                )
+            # MRP is not the 30-day prior price required for a price-reduction claim.
+            # Remove legacy MRP-derived discount badges; verified prior-price evidence is
+            # rendered separately below when the observation window is complete.
+            page = re.sub(
+                r'<span\b[^>]*class=["\'][^"\']*\bpdp-price-discount\b[^"\']*["\'][^>]*>.*?</span>',
+                "",
+                page,
+                count=1,
+                flags=re.I | re.S,
+            )
 
             # Align the static description and application list so the page is
             # meaningful even before JavaScript enhancement has run.
@@ -1653,6 +1649,12 @@ def reconcile_catalogue_projections():
             )
             data["mrp"] = product.get("mrp")
             data["selling_price"] = product.get("selling_price")
+            data["prior_price_30d"] = product.get("prior_price_30d")
+            data["price_history_1m"] = product.get("price_history_1m")
+            data["price_history_3m"] = product.get("price_history_3m")
+            data["price_history_6m"] = product.get("price_history_6m")
+            data["price_history_all_time"] = product.get("price_history_all_time")
+            data["price_history_since"] = product.get("price_history_since")
             data["discount_percent"] = product.get("discount_percent")
             data["discountPercent"] = product.get("discount_percent")
             data["approx_weight_g"] = approximate_weight_grams(product)
@@ -1731,16 +1733,86 @@ def reconcile_catalogue_projections():
                     '</div>'
                 )
             if selling_display is not None:
-                discount_html = ""
-                if mrp_value is not None and selling_value is not None and mrp_value > 0 and selling_value < mrp_value:
-                    discount = round((mrp_value - selling_value) / mrp_value * 100)
-                    discount_html = f'<span class="pdp-price-discount">{discount}% OFF</span>'
+                prior_price_html = ""
                 pricing_parts.append(
                     '<div class="pdp-price-selling">'
                     '<span class="pdp-price-label">Selling Price</span>'
                     f'<span class="pdp-price-value">{html_module.escape(selling_display, quote=False)}</span>'
-                    f'{discount_html}'
                     '</div>'
+                )
+            history_periods = (
+                ("1m", "price_history_1m"),
+                ("3m", "price_history_3m"),
+                ("6m", "price_history_6m"),
+                ("all_time", "price_history_all_time"),
+            )
+            history_labels = {
+                "en": {
+                    "heading": "Lowest recorded catalogue price",
+                    "1m": "1 month",
+                    "3m": "3 months",
+                    "6m": "6 months",
+                    "all_time": "All time",
+                    "since": "Tracking since",
+                    "note": "Based on recorded catalogue prices, not completed transaction prices.",
+                },
+                "hi": {
+                    "heading": "दर्ज न्यूनतम कैटलॉग मूल्य",
+                    "1m": "1 माह",
+                    "3m": "3 माह",
+                    "6m": "6 माह",
+                    "all_time": "अब तक",
+                    "since": "ट्रैकिंग से",
+                    "note": "यह दर्ज कैटलॉग कीमतों पर आधारित है, पूर्ण लेन-देन कीमतों पर नहीं।",
+                },
+                "bn": {
+                    "heading": "নথিভুক্ত সর্বনিম্ন ক্যাটালগ মূল্য",
+                    "1m": "১ মাস",
+                    "3m": "৩ মাস",
+                    "6m": "৬ মাস",
+                    "all_time": "এখন পর্যন্ত",
+                    "since": "ট্র্যাকিং থেকে",
+                    "note": "এটি নথিভুক্ত ক্যাটালগ মূল্যের উপর ভিত্তি করে, সম্পন্ন লেনদেনের মূল্যের উপর নয়।",
+                },
+            }
+            labels_for_history = history_labels.get(lang, history_labels["en"])
+            history_rows = []
+            for period_key, product_field in history_periods:
+                try:
+                    recorded_value = float(product.get(product_field))
+                    if recorded_value <= 0 or recorded_value in (float("inf"), float("-inf")):
+                        continue
+                except (TypeError, ValueError):
+                    continue
+                period_label = labels_for_history[period_key]
+                since_html = ""
+                if period_key == "all_time":
+                    since_value = str(product.get("price_history_since") or "").strip()
+                    since_date = since_value[:10] if len(since_value) >= 10 else ""
+                    if since_date:
+                        since_html = (
+                            '<small class="pdp-price-history-since">'
+                            f'{html_module.escape(labels_for_history["since"], quote=False)}: '
+                            f'{html_module.escape(since_date, quote=False)}'
+                            '</small>'
+                        )
+                history_rows.append(
+                    '<div class="pdp-price-history-row">'
+                    f'<dt>{html_module.escape(period_label, quote=False)}</dt>'
+                    f'<dd>{html_module.escape(format_pdp_price(recorded_value), quote=False)}</dd>'
+                    f'{since_html}'
+                    '</div>'
+                )
+            price_history_html = ""
+            if history_rows:
+                price_history_html = (
+                    '<section class="pdp-price-history" aria-label="Recorded price history">'
+                    f'<h3>{html_module.escape(labels_for_history["heading"], quote=False)}</h3>'
+                    '<dl class="pdp-price-history-list">'
+                    + ''.join(history_rows)
+                    + '</dl>'
+                    f'<p class="pdp-price-history-note">{html_module.escape(labels_for_history["note"], quote=False)}</p>'
+                    '</section>'
                 )
             if not pricing_parts:
                 pricing_parts.append('<span class="pdp-price-label">Price on request</span>')
