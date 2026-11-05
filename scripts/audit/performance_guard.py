@@ -532,6 +532,7 @@ def main() -> int:
     check_mobile_listing_hero_assets(errors)
     check_mobile_listing_hero_assets(errors)
     check_mobile_listing_hero_assets(errors)
+    check_mobile_listing_hero_assets(errors)
 
     if errors:
         for error in errors:
