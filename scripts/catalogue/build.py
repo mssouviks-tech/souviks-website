@@ -231,9 +231,57 @@ def reconcile_catalogue_projections():
             estimate_grams = approximate_weight_grams(estimate)
             if estimate_grams is None:
                 raise SystemExit(f"Invalid approximate weight for catalogue product {pid}")
-            if product.get("approx_weight_g") != estimate_grams:
-                product["approx_weight_g"] = estimate_grams
-                weights_changed = True
+            net_weight = estimate.get("net_weight_g")
+            calculated_weight = estimate.get("calculated_weight_g")
+            if (
+                not isinstance(net_weight, (int, float))
+                or isinstance(net_weight, bool)
+                or net_weight <= 0
+            ):
+                raise SystemExit(f"Invalid net weight for catalogue product {pid}")
+            if (
+                not isinstance(calculated_weight, (int, float))
+                or isinstance(calculated_weight, bool)
+                or calculated_weight <= 0
+                or calculated_weight != net_weight
+            ):
+                raise SystemExit(
+                    f"Calculated/net weight mismatch for catalogue product {pid}: "
+                    f"{calculated_weight!r} != {net_weight!r}"
+                )
+
+            dimensions = estimate.get("dimensions_mm")
+            if (
+                not isinstance(dimensions, list)
+                or len(dimensions) != 3
+                or any(
+                    not isinstance(value, (int, float))
+                    or isinstance(value, bool)
+                    or value <= 0
+                    for value in dimensions
+                )
+            ):
+                raise SystemExit(f"Invalid component dimensions for catalogue product {pid}")
+
+            weight_metadata = {
+                "approx_weight_g": estimate_grams,
+                "calculated_weight_g": calculated_weight,
+                "dimensions_mm": list(dimensions),
+                "weight_estimation_status": text(estimate.get("weight_estimation_status")),
+                "weight_estimation_method": text(estimate.get("weight_estimation_method")),
+                "weight_estimation_notes": text(estimate.get("weight_estimation_notes")),
+            }
+            if (
+                weight_metadata["weight_estimation_status"] != "estimated"
+                or not weight_metadata["weight_estimation_method"]
+                or not weight_metadata["weight_estimation_notes"]
+            ):
+                raise SystemExit(f"Incomplete weight-estimation provenance for catalogue product {pid}")
+
+            for field, value in weight_metadata.items():
+                if product.get(field) != value:
+                    product[field] = value
+                    weights_changed = True
 
         if weights_changed:
             CATALOGUE_PATH.write_text(
