@@ -17,7 +17,7 @@ const productsRuntime = read("assets/js/products/products.js");
 const checkout = read("supabase/functions/cashfree-create-order/index.ts");
 const accountOrders = read("supabase/functions/account-orders/index.ts");
 const accountUi = read("assets/js/account/auth-orders.js");
-const migration = read("supabase/migrations/20261105160000_order_item_hsn_snapshot.sql");
+const migration = read("supabase/migrations/20261105102932_order_item_hsn_snapshot.sql");
 
 for (const field of [
   "hsn_code",
