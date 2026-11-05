@@ -1043,6 +1043,13 @@ def reconcile_catalogue_projections():
             "discount_percent": p.get("discount_percent"),
             "discountPercent": p.get("discount_percent"),
             "approx_weight_g": approximate_weight_grams(p),
+            "hsn_code": text(p.get("hsn_code")),
+            "hsn_description": text(p.get("hsn_description")),
+            "hsn_confidence": text(p.get("hsn_confidence")),
+            "hsn_classification_status": text(p.get("hsn_classification_status")),
+            "hsn_basis": text(p.get("hsn_basis")),
+            "hsn_review_note": text(p.get("hsn_review_note")),
+            "hsn_reference_date": text(p.get("hsn_reference_date")),
             "declared_net_content_g": p.get("declared_net_content_g"),
             "declared_net_content_status": text(p.get("declared_net_content_status")),
             "declared_net_content_source": text(p.get("declared_net_content_source")),
@@ -1171,7 +1178,10 @@ def reconcile_catalogue_projections():
             "manufacturer_part_numbers", "alternate_part_numbers",
             "oem_numbers", "cross_references", "mrp", "selling_price", "prior_price_30d",
             "price_history_1m", "price_history_3m", "price_history_6m",
-            "price_history_all_time", "price_history_since", "approx_weight_g", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
+            "price_history_all_time", "price_history_since", "approx_weight_g",
+            "hsn_code", "hsn_description", "hsn_confidence",
+            "hsn_classification_status", "hsn_basis", "hsn_review_note",
+            "hsn_reference_date", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -1649,6 +1659,13 @@ def reconcile_catalogue_projections():
             )
             data["mrp"] = product.get("mrp")
             data["selling_price"] = product.get("selling_price")
+            data["hsn_code"] = text(product.get("hsn_code"))
+            data["hsn_description"] = text(product.get("hsn_description"))
+            data["hsn_confidence"] = text(product.get("hsn_confidence"))
+            data["hsn_classification_status"] = text(product.get("hsn_classification_status"))
+            data["hsn_basis"] = text(product.get("hsn_basis"))
+            data["hsn_review_note"] = text(product.get("hsn_review_note"))
+            data["hsn_reference_date"] = text(product.get("hsn_reference_date"))
             data["prior_price_30d"] = product.get("prior_price_30d")
             data["price_history_1m"] = product.get("price_history_1m")
             data["price_history_3m"] = product.get("price_history_3m")
@@ -1857,6 +1874,50 @@ def reconcile_catalogue_projections():
                 count=1,
                 flags=re.I | re.S,
             )
+
+            # Publish only high-confidence product HSN on the customer-facing PDP.
+            # Provisional/review-required candidates remain in the catalogue and order
+            # snapshot metadata but are not presented as final customer classifications.
+            hsn_code = text(product.get("hsn_code"))
+            hsn_description = text(product.get("hsn_description"))
+            hsn_is_confirmed = (
+                text(product.get("hsn_classification_status")).casefold() == "classified"
+                and text(product.get("hsn_confidence")).casefold() == "high"
+                and bool(re.fullmatch(r"\d{8}", hsn_code))
+            )
+            hsn_labels = {
+                "en": "HSN Code",
+                "hi": "एचएसएन कोड",
+                "bn": "এইচএসএন কোড",
+            }
+            html = re.sub(
+                r'<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                r'<strong>\s*(?:HSN Code|एचएसएन कोड|এইচএসএন কোড)\s*</strong>\s*<span>.*?</span>\s*</div>',
+                "",
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
+            if hsn_is_confirmed:
+                hsn_value = hsn_code + ((" - " + hsn_description) if hsn_description else "")
+                hsn_row = (
+                    '<div class="pdp-row"><strong>'
+                    + html_module.escape(hsn_labels.get(lang, "HSN Code"), quote=False)
+                    + '</strong><span>'
+                    + html_module.escape(hsn_value, quote=False)
+                    + '</span></div>'
+                )
+                meta_row_pattern = re.compile(
+                    r'(<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b[^"\']*["\'][^>]*>.*?)(</div>\s*<section\b[^>]*id=["\']product-delivery-estimator["\'])',
+                    flags=re.I | re.S,
+                )
+                html, hsn_inserted = meta_row_pattern.subn(
+                    lambda match: match.group(1) + hsn_row + match.group(2),
+                    html,
+                    count=1,
+                )
+                if hsn_inserted != 1:
+                    raise SystemExit(f"Could not add the confirmed HSN row to product metadata in {path}")
 
             # Replace a thin/static Description paragraph with the same
             # factual content used by the generated embedded product record.

@@ -1267,6 +1267,14 @@ ${galleryHtml}
         <span>${product.subcategory_name || ""}</span>
     </div>
 
+    ${String(product.hsn_classification_status || "").toLowerCase() === "classified" &&
+        String(product.hsn_confidence || "").toLowerCase() === "high" &&
+        /^\d{8}$/.test(String(product.hsn_code || "")) ? `
+    <div class="pdp-row">
+        <strong>${document.documentElement.lang.startsWith("hi") ? "एचएसएन कोड" : document.documentElement.lang.startsWith("bn") ? "এইচএসএন কোড" : "HSN Code"}</strong>
+        <span>${Breadcrumb.escape(product.hsn_code)}${product.hsn_description ? " — " + Breadcrumb.escape(product.hsn_description) : ""}</span>
+    </div>` : ""}
+
     <div class="pdp-row">
         <strong>Applications</strong>
         <span>${(product.applications || []).join(", ")}</span>

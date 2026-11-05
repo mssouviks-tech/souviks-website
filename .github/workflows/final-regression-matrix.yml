@@ -102,6 +102,7 @@ jobs:
           node --check scripts/regression/production-browser-smoke.cjs
           node --check scripts/regression/cashfree-checkout-contract.cjs
           node --check scripts/regression/account-orders-contract.cjs
+          node --check scripts/regression/hsn-ecommerce-contract.cjs
           node --check scripts/regression/delhivery-estimate-contract.cjs
 
       - name: Validate RFQ security contract
@@ -112,6 +113,9 @@ jobs:
 
       - name: Validate authenticated account order history contract
         run: node scripts/regression/account-orders-contract.cjs
+
+      - name: Validate HSN ecommerce integration contract
+        run: node scripts/regression/hsn-ecommerce-contract.cjs
 
       - name: Validate Delhivery delivery estimator contract
         run: node scripts/regression/delhivery-estimate-contract.cjs

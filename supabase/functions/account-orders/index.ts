@@ -77,7 +77,7 @@ Deno.serve(async (req: Request) => {
     const orderIds = orders.map(order => String(order?.id || "")).filter(id => /^[0-9a-f-]{36}$/i.test(id));
     const items = orderIds.length
       ? await supabaseRest("order_items", "GET", {
-          select: "order_id,part_number,product_name,brand,quantity,unit_price,line_total",
+          select: "order_id,part_number,product_name,brand,hsn_code,hsn_description,hsn_classification_status,hsn_confidence,quantity,unit_price,line_total",
           order_id: "in.(" + orderIds.join(",") + ")",
           limit: "1000",
         })
@@ -90,6 +90,10 @@ Deno.serve(async (req: Request) => {
         part_number: item.part_number || null,
         product_name: String(item.product_name || ""),
         brand: item.brand || null,
+        hsn_code: item.hsn_code || null,
+        hsn_description: item.hsn_description || null,
+        hsn_classification_status: item.hsn_classification_status || null,
+        hsn_confidence: item.hsn_confidence || null,
         quantity: Number(item.quantity) || 0,
         unit_price: Number(item.unit_price) || 0,
         line_total: Number(item.line_total) || 0,
