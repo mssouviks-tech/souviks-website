@@ -15,6 +15,7 @@
             items: "Items",
             quantity: "Qty",
             unitPrice: "Unit price",
+            hsnCode: "HSN code",
             paymentStates: { paid: "Paid", pending: "Pending", failed: "Failed", cancelled: "Cancelled", refunded: "Refunded" },
             orderStates: { awaiting_payment: "Awaiting payment", confirmed: "Confirmed", processing: "Processing", dispatched: "Dispatched", delivered: "Delivered", cancelled: "Cancelled" },
             fulfillment: "Fulfilment",
@@ -35,6 +36,7 @@
             items: "आइटम",
             quantity: "मात्रा",
             unitPrice: "प्रति यूनिट",
+            hsnCode: "एचएसएन कोड",
             paymentStates: { paid: "भुगतान हो गया", pending: "लंबित", failed: "विफल", cancelled: "रद्द", refunded: "वापस किया गया" },
             orderStates: { awaiting_payment: "भुगतान की प्रतीक्षा", confirmed: "पुष्ट", processing: "प्रक्रिया में", dispatched: "भेज दिया गया", delivered: "डिलीवर हो गया", cancelled: "रद्द" },
             fulfillment: "ऑर्डर प्राप्ति",
@@ -55,6 +57,7 @@
             items: "পণ্য",
             quantity: "পরিমাণ",
             unitPrice: "প্রতি ইউনিট",
+            hsnCode: "এইচএসএন কোড",
             paymentStates: { paid: "পেমেন্ট হয়েছে", pending: "অপেক্ষমাণ", failed: "ব্যর্থ", cancelled: "বাতিল", refunded: "ফেরত দেওয়া হয়েছে" },
             orderStates: { awaiting_payment: "পেমেন্টের অপেক্ষায়", confirmed: "নিশ্চিত", processing: "প্রক্রিয়াধীন", dispatched: "পাঠানো হয়েছে", delivered: "ডেলিভারি হয়েছে", cancelled: "বাতিল" },
             fulfillment: "অর্ডার সংগ্রহের পদ্ধতি",
@@ -138,6 +141,12 @@
             description.appendChild(element("strong", "", item.product_name || T.unknown));
             const meta = [item.part_number, item.brand].filter(Boolean).join(" · ");
             if (meta) description.appendChild(element("span", "account-order-item-meta", meta));
+            const isConfirmedHsn = item.hsn_classification_status === "classified" &&
+                item.hsn_confidence === "high" &&
+                /^\d{8}$/.test(String(item.hsn_code || ""));
+            if (isConfirmedHsn) {
+                description.appendChild(element("span", "account-order-item-meta", T.hsnCode + ": " + item.hsn_code));
+            }
             const pricing = element("div", "account-order-item-pricing");
             pricing.appendChild(element("span", "", T.quantity + ": " + Number(item.quantity || 0)));
             pricing.appendChild(element("span", "", T.unitPrice + ": " + currency(item.unit_price, order.currency)));
