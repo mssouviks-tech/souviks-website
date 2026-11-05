@@ -8430,7 +8430,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000176/1.webp",
     "applications": [
-      "Engine Air Intake Filtration System"
+      "Engine Air Intake Filtration System",
+      "Vehicle fitment evidence (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part 820006900 and OE part 885409041613): air-filter set AF947 + AF963 is listed for Tata 1612 to 3118 TC Series. Fleetguard identifies AF947 as the primary element and AF963 as the secondary element. Confirm the TC-series engine and air-cleaner housing before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -13912,7 +13913,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000290/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence (Fleetguard official FF5544 product listing and Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part FF5544): Fleetguard identifies Tata Cummins application, and the HCV list includes FF5544 as a component of the Tata 3118 TC BS III three-piece kit (OE 885418013118; kit FG part 502286500). This supports the specified BS III kit context only; do not infer standalone BS IV fitment from this listing."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -13960,7 +13962,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000291/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Application identifier conflict (Fleetguard HCV/LCV After Market Price Lists, effective 21-May-2021 and 2022): FHJ01000 is listed for the Ashok Leyland CB18 FIP CRS engine against Fleetguard filter FF0555200, while FF5552 is separately listed as the CB18 FIP CRS filter-head assembly (FG head-assembly part 502113500). This Souviks record pairs part number FF5552 with manufacturer reference FHJ01000. Do not promote the CB18 filter fitment for this identifier pair until the supplied part label and item type are reconciled."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -14007,7 +14010,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000292/1.webp",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle fitment evidence (Fleetguard HCV Parts Catalogue and Fleetguard FS19636 product equipment listing; exact FG part FS19636 / OE cross-reference F8835100): listed as a fuel-water separator for Ashok Leyland BS II and BS III applications. Fleetguard's equipment table specifically lists Ashok Leyland 412 TCAC (2012) and 2521 (2011). Treat these as catalogue-listed equipment associations; confirm engine variant, year and separator configuration before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -14054,7 +14058,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000293/1.webp",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle fitment evidence (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part FS1966900 / Souviks part FS19669 / OE cross-reference FHJ00700): listed for the Ashok Leyland H6 engine with inline-pump configuration. The source identifies an engine/fuel-system application, not a complete model-year list; confirm H6 engine variant and inline-pump arrangement before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -14149,7 +14154,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000295/1.webp",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle fitment evidence (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part FS1967100V / Souviks part FS19671V / OE cross-reference FHN00400): Ashok Leyland CB18 FIP CRS engine, BS IV, with drain valve. Confirm the drain-valve version; the catalogue lists a separate no-drain variant and they must not be substituted without checking the installed separator assembly."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -14247,7 +14253,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000297/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Fitment reconciliation required (Fleetguard HCV Parts Catalogue; exact FG part LF16079 / OE cross-reference X4001000): the supplier catalogue lists this lube filter for the Ashok Leyland U-Truck H-Series engine. The current Souviks vehicle field lists Tata 1109, Tata 1210, Tata 1312 and Tata LPT, which does not match that supplier application. Do not treat those Tata models as confirmed by this cross-reference; reconcile the physical part, engine and OEM reference before promoting a vehicle fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -14294,7 +14301,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000298/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence (Fleetguard HCV Parts Catalogue and HCV/LCV After Market Price List; exact FG part LF16305 / OE cross-reference F7A05000): Ashok Leyland BOSS with 4CTI engine. Confirm the 4CTI engine variant and filter housing before ordering; the source does not establish every BOSS model/year."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -14342,7 +14350,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000299/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence (Fleetguard HCV Parts Catalogue and HCV/LCV After Market Price List; exact FG part LF16309 / OE cross-reference FPA00300): Ashok Leyland NGIT Guru with H4CTi engine. Confirm the engine and filter housing before ordering; the source does not identify individual Guru model years."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
