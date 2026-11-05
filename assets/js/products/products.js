@@ -735,12 +735,53 @@ priceHtml(product) {
             maximumFractionDigits: 2
         }).format(value);
 
-    let discountHtml = "";
-
-    if (hasMrp && hasSellingPrice && mrp > 0 && sellingPrice < mrp) {
-        const discount = Math.round(((mrp - sellingPrice) / mrp) * 100);
-        discountHtml = `<span class="pdp-price-discount">${discount}% OFF</span>`;
-    }
+    const language = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+    const historyLabels = language === "hi"
+        ? {
+            heading: "दर्ज न्यूनतम कैटलॉग मूल्य",
+            periods: { "1m": "1 माह", "3m": "3 माह", "6m": "6 माह", all_time: "अब तक" },
+            since: "ट्रैकिंग शुरू होने से",
+            note: "यह दर्ज कैटलॉग कीमतों पर आधारित है, पूर्ण लेन-देन कीमतों पर नहीं।"
+        }
+        : language === "bn"
+            ? {
+                heading: "নথিভুক্ত সর্বনিম্ন ক্যাটালগ মূল্য",
+                periods: { "1m": "১ মাস", "3m": "৩ মাস", "6m": "৬ মাস", all_time: "এখন পর্যন্ত" },
+                since: "ট্র্যাকিং থেকে",
+                note: "এটি নথিভুক্ত ক্যাটালগ মূল্যের উপর ভিত্তি করে, সম্পন্ন লেনদেনের মূল্যের উপর নয়।"
+            }
+            : {
+                heading: "Lowest recorded catalogue price",
+                periods: { "1m": "1 month", "3m": "3 months", "6m": "6 months", all_time: "All time" },
+                since: "Tracking since",
+                note: "Based on recorded catalogue prices, not completed transaction prices."
+            };
+    const historyFields = [
+        ["1m", "price_history_1m"],
+        ["3m", "price_history_3m"],
+        ["6m", "price_history_6m"],
+        ["all_time", "price_history_all_time"]
+    ];
+    const historyRows = historyFields
+        .map(([period, field]) => {
+            const value = Number(product?.[field]);
+            if (!Number.isFinite(value) || value <= 0) return "";
+            const since = period === "all_time"
+                ? String(product?.price_history_since || "").slice(0, 10)
+                : "";
+            const sinceHtml = since
+                ? '<small class="pdp-price-history-since">' + historyLabels.since + ': ' + since + '</small>'
+                : "";
+            return '<div class="pdp-price-history-row"><dt>' + historyLabels.periods[period] +
+                '</dt><dd>' + formatPrice(value) + '</dd>' + sinceHtml + '</div>';
+        })
+        .filter(Boolean)
+        .join("");
+    const priceHistoryHtml = historyRows
+        ? '<section class="pdp-price-history" aria-label="Recorded price history"><h3>' +
+            historyLabels.heading + '</h3><dl class="pdp-price-history-list">' + historyRows +
+            '</dl><p class="pdp-price-history-note">' + historyLabels.note + '</p></section>'
+        : "";
 
     return `
         <div class="pdp-pricing" aria-label="Product pricing">
@@ -754,9 +795,9 @@ priceHtml(product) {
                 <div class="pdp-price-selling">
                     <span class="pdp-price-label">Selling Price</span>
                     <span class="pdp-price-value">${formatPrice(sellingPrice)}</span>
-                    ${discountHtml}
                 </div>
             ` : ""}
+            ${priceHistoryHtml}
         </div>
     `;
 }

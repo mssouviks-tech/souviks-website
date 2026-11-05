@@ -27,29 +27,31 @@ const ProductCard = {
         const mrpNumber = Number(product?.mrp);
         const sellingNumber = Number(product?.selling_price);
         const hasMrp = Number.isFinite(mrpNumber) && mrpNumber > 0;
+        const language = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+        const priorPriceLabel = language === "hi"
+            ? "पिछले 1 माह का सबसे कम दर्ज मूल्य:"
+            : language === "bn"
+                ? "গত ১ মাসের সর্বনিম্ন নথিভুক্ত মূল্য:"
+                : "Lowest recorded price in last 1 month:";
         const purchasable =
             Boolean(productId) &&
             product?.active !== false &&
             Number.isFinite(sellingNumber) &&
             sellingNumber > 0;
-        const discounted =
-            purchasable &&
-            hasMrp &&
-            sellingNumber < mrpNumber;
-        const discount = discounted
-            ? Math.round(((mrpNumber - sellingNumber) / mrpNumber) * 100)
-            : null;
+        const priorPriceNumber = Number(product?.prior_price_30d);
+        const hasPriorPrice =
+            Number.isFinite(priorPriceNumber) &&
+            priorPriceNumber > sellingNumber &&
+            purchasable;
 
-        const price = discounted
+        const price = purchasable
             ? '<span class="product-price-current">' + Utils.currency(sellingNumber) + "</span>" +
-              '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" +
-              '<span class="product-price-discount">' + discount + "% OFF</span>"
-            : purchasable
-                ? '<span class="product-price-current">' + Utils.currency(sellingNumber) + "</span>"
-                : hasMrp
-                    ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" +
-                      '<span class="product-price-request">Get current price</span>'
-                    : "Get current price";
+              (hasMrp ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" : "") +
+              (hasPriorPrice ? '<span class="product-price-prior">' + priorPriceLabel + " " + Utils.currency(priorPriceNumber) + "</span>" : "")
+            : hasMrp
+                ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" +
+                  '<span class="product-price-request">Get current price</span>'
+                : "Get current price";
 
         const isSaved =
             typeof SavedProducts !== "undefined" &&
@@ -71,7 +73,6 @@ const ProductCard = {
             ? "Remove from saved products"
             : "Save product";
         const savedIcon = isSaved ? "♥" : "♡";
-        const language = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
         const purchaseLabel = language === "hi"
             ? "कार्ट में जोड़ें"
             : language === "bn"
@@ -138,8 +139,8 @@ const ProductCard = {
                 '<h3 class="product-title"><a href="' +
                     Utils.productUrl(product) + '">' + escape(name) + "</a></h3>" +
                 '<div class="product-price' +
-                    (discounted ? " product-price-sale" : (!purchasable ? " product-price-on-request" : "")) +
-                    '" aria-label="' + (discounted ? "Sale price" : (hasMrp && !purchasable ? "Reference MRP; current price on request" : "Price")) +
+                    (!purchasable ? " product-price-on-request" : "") +
+                    '" aria-label="' + (hasMrp && !purchasable ? "Reference MRP; current price on request" : "Price") +
                     '">' + price + "</div>" +
                 purchaseControls +
                 requestPartButton +

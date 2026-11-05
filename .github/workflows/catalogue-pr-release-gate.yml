@@ -1,4 +1,6 @@
 name: Catalogue PR Release Gate
+# Generated mobile LCP preparation must be idempotent across release-gate retries.
+# Final PR validation includes an explicit base-history fetch for Gitleaks.
 
 on:
   pull_request:
@@ -232,6 +234,8 @@ jobs:
 
           # Retry if a human or another workflow advances the PR branch between
           # fetch and push. Rebase the generated-output commit on the newest head.
+          # This allow-listed commit is kept intact across retries; only generated
+          # workspace changes outside the allow-list are discarded before rebasing.
           for attempt in 1 2 3; do
             if git -C "${publish_repo}" push origin "HEAD:refs/heads/${PR_HEAD_REF}"; then
               echo "Published generated mobile LCP output to ${PR_HEAD_REF}."
@@ -241,6 +245,10 @@ jobs:
               echo "Unable to publish generated mobile LCP output after three attempts."
               exit 1
             fi
+            # Optimisation scripts may leave additional generated files modified
+            # outside the commit allow-list. Clear those workspace changes before
+            # rebasing, otherwise Git aborts with "cannot rebase: unstaged changes".
+            git -C "${publish_repo}" reset --hard HEAD
             git fetch --no-tags origin "+refs/heads/${PR_HEAD_REF}:${remote_ref}"
             git -C "${publish_repo}" rebase "${remote_ref}"
           done

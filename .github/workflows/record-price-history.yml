@@ -1,0 +1,76 @@
+name: Record Deployed Price History
+
+on:
+  schedule:
+    # 00:31 Asia/Kolkata (GitHub Actions cron is UTC).
+    - cron: "1 19 * * *"
+  workflow_run:
+    workflows: ["Build Static Catalogue"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  checks: read
+
+concurrency:
+  group: souviks-main-publisher
+  cancel-in-progress: false
+
+jobs:
+  record:
+    # The recorder's commit can legitimately trigger a catalogue rebuild when
+    # prior-price fields change. Do not take another snapshot from that rebuild,
+    # or the workflow would repeatedly snapshot its own commits.
+    if: >-
+      ${{ github.event_name != 'workflow_run' ||
+          (github.event.workflow_run.conclusion == 'success' &&
+           github.event.workflow_run.head_commit.message != 'Record deployed catalogue price history') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Wait for this main revision to deploy to Cloudflare Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 scripts/audit/production_smoke.py --wait-only
+
+      - name: Capture production catalogue and calculate evidence-backed prior prices
+        run: |
+          python3 scripts/audit/record_price_history.py \
+            --source-url "https://souviks-website.pages.dev/assets/data/catalogue-index.json" \
+            --source-commit "$(git rev-parse HEAD)" \
+            --capture-id "${GITHUB_RUN_ID}"
+
+      - name: Rebuild generated product projections and validate pricing
+        run: |
+          python3 scripts/catalogue/build.py
+          python3 scripts/catalogue/sync_product_cards.py
+          python3 scripts/catalogue/validate.py
+          python3 scripts/audit/test_static_product_pricing.py
+          python3 scripts/audit/test_price_history.py
+          git diff --check
+
+      - name: Publish price evidence and generated prior-price fields
+        shell: bash
+        run: |
+          set -euo pipefail
+          find scripts -type d -name "__pycache__" -prune -exec rm -rf {} +
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No price-history or catalogue changes to publish."
+            exit 0
+          fi
+
+          git commit -m "Record deployed catalogue price history"
+          git push origin HEAD:main
