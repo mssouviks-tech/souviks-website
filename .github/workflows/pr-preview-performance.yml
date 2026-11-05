@@ -184,7 +184,7 @@ jobs:
           script: |
             const sha = require('node:child_process').execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
             const shortSha = sha.slice(0, 7);
-            const deadline = Date.now() + 4 * 60 * 1000;
+            const deadline = Date.now() + 15 * 60 * 1000;
 
             const branchPreviewFromComment = body => {
               const latest = body.match(/Latest commit:[\s\S]*?<code>([0-9a-f]{7,40})<\/code>/i);
@@ -242,7 +242,7 @@ jobs:
               await new Promise(resolve => setTimeout(resolve, 15000));
             }
 
-            core.setFailed(`No successful Cloudflare Pages preview for ${shortSha} within four minutes. The local main-vs-PR Lighthouse A/B results remain available; deployed-preview verification is still outstanding.`);
+            core.setFailed(`No successful Cloudflare Pages preview for ${shortSha} within fifteen minutes. The local main-vs-PR Lighthouse A/B results remain available; deployed-preview verification is still outstanding.`);
 
       - name: Run mobile Lighthouse on deployed branch preview
         if: ${{ steps.preview.outputs.url != '' }}
