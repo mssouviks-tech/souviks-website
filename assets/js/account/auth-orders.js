@@ -143,7 +143,7 @@
             if (meta) description.appendChild(element("span", "account-order-item-meta", meta));
             const isConfirmedHsn = item.hsn_classification_status === "classified" &&
                 item.hsn_confidence === "high" &&
-                /^\\d{8}$/.test(String(item.hsn_code || ""));
+                /^\d{8}$/.test(String(item.hsn_code || ""));
             if (isConfirmedHsn) {
                 description.appendChild(element("span", "account-order-item-meta", T.hsnCode + ": " + item.hsn_code));
             }
