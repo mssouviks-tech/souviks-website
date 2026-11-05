@@ -133,9 +133,9 @@ begin
     if p_order_id is null
        or p_financial_year !~ '^[0-9]{4}-[0-9]{2}$'
        or p_invoice_date is null
-       or jsonb_typeof(p_snapshot) <> 'object'
-       or jsonb_typeof(p_snapshot -> 'lines') <> 'array'
-       or jsonb_array_length(p_snapshot -> 'lines') < 1 then
+       or coalesce(jsonb_typeof(p_snapshot), '') <> 'object'
+       or coalesce(jsonb_typeof(p_snapshot -> 'lines'), '') <> 'array'
+       or coalesce(jsonb_array_length(p_snapshot -> 'lines'), 0) < 1 then
         raise exception 'Invalid invoice draft payload' using errcode = '22023';
     end if;
 
