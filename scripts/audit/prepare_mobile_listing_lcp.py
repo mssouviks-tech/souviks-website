@@ -234,10 +234,21 @@ def check_mobile_listing_hero_assets(errors: list[str]) -> None:
 
 '''
     guard = guard[:start] + revised + guard[end:]
+    # This generator runs in both validation and publish worktrees. Keep its
+    # guard mutation idempotent so repeated builds never accumulate duplicate
+    # calls to the mobile hero validator.
+    guard = re.sub(
+        r"(?m)^    check_mobile_listing_hero_assets\\(errors\\)\\s*\\n",
+        "",
+        guard,
+    )
+    marker = "    check_listing_critical_image_loading(errors)\\n"
+    if marker not in guard:
+        raise SystemExit("performance_guard.py is missing its listing-image validator call")
     guard = guard.replace(
-        "    check_listing_critical_image_loading(errors)\n",
-        "    check_listing_critical_image_loading(errors)\n    check_mobile_listing_hero_assets(errors)\n",
-        1
+        marker,
+        marker + "    check_mobile_listing_hero_assets(errors)\\n",
+        1,
     )
     guard_path.write_text(guard, encoding="utf-8", newline="")
 
