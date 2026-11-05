@@ -34,6 +34,9 @@
     <loc>https://www.souviks.co.in/en/refund</loc>
   </url>
   <url>
+    <loc>https://www.souviks.co.in/en/shipping</loc>
+  </url>
+  <url>
     <loc>https://www.souviks.co.in/bn/</loc>
   </url>
   <url>
@@ -67,6 +70,9 @@
     <loc>https://www.souviks.co.in/bn/refund</loc>
   </url>
   <url>
+    <loc>https://www.souviks.co.in/bn/shipping</loc>
+  </url>
+  <url>
     <loc>https://www.souviks.co.in/hi/</loc>
   </url>
   <url>
@@ -98,5 +104,8 @@
   </url>
   <url>
     <loc>https://www.souviks.co.in/hi/refund</loc>
+  </url>
+  <url>
+    <loc>https://www.souviks.co.in/hi/shipping</loc>
   </url>
 </urlset>

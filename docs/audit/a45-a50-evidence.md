@@ -5,19 +5,21 @@ This checklist separates deterministic repository checks from evidence that must
 ## A45 — Price labels and pricing claims
 
 - [x] Validate that selling price does not exceed MRP where both values exist.
-- [x] Validate stored discount percentages against the MRP/selling-price arithmetic.
+- [x] Validate stored catalogue discount arithmetic against MRP/selling-price data for internal pricing integrity.
+- [ ] Do not publish a discount/price-reduction claim unless the lowest price offered in the preceding 30 days is evidenced and shown as the prior price; MRP is not a substitute for that prior-price record.
 - [x] Keep catalogue product/brand counts tied to the JSON projections and brand IDs, rather than distinct display-name spellings.
 - [ ] Reconcile the complete active catalogue against current manufacturer/distributor price lists. The currently available workbook evidence covers only a curated 20-part Texspin set; it is not a complete price source for all products.
 - [ ] Confirm all records without a fixed price show the intended current-price/quotation label in every generated product view.
 
 ## A46 — Shipping, cancellation, return and refund wording
 
-- [x] Policy pages retain the 1 September 2026 effective date in English, Hindi and Bengali.
-- [x] Published Terms state that all shipped orders incur shipping charges, alongside the estimated 5–10 working-day delivery window and the no-cancellation-after-dispatch rule.
+- [x] Policy pages were rewritten in English, Hindi and Bengali with a 2 November 2026 review date; the Shipping & Delivery Policy is separately published in all three languages.
+- [x] Published Terms and Shipping & Delivery Policy state that every courier-shipped order incurs freight (no free-shipping threshold), store pickup has no courier charge, the usual estimated delivery window is 5–10 working days, and standard cancellation is unavailable after dispatch, subject to mandatory consumer rights.
 - [x] Business owner confirmed there is no free-shipping threshold; freight charges vary by shipment and destination.
 - [ ] Confirm the one-hour delivery-damage report window, general seven-day return/exchange request window, lubricant exclusion and inspection/approval process against actual operations.
 - [ ] Have the policy reviewed by an appropriately qualified Indian legal professional. Automated consistency is not legal advice.
-- [ ] Include a pre-effective-date review of the Consumer Protection (E-Commerce) (Amendment) Rules, 2026. The Department of Consumer Affairs announced that these amendments come into force on 1 January 2027; confirm applicability to Souviks and update disclosures before that date if required: https://www.pib.gov.in/newsite/erelcontent.aspx?lang=2&reg=48&relid=294532
+- [x] Reviewed the Consumer Protection (E-Commerce) (Amendment) Rules, 2026 and added a separate implementation register at `docs/audit/ecommerce-compliance-2026.md`; the amendment takes effect on 1 January 2027.
+- [ ] Close the 2026 amendment implementation gates in that register: NCH convergence partnership, imported-goods origin/importer data, 30-day prior-price display, invoice seller-name prominence, search/sponsored-listing controls and annual dark-pattern self-audit/certificate.
 
 ## A48 — Enquiry conversion and delivery
 

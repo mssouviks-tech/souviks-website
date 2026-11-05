@@ -56,6 +56,9 @@ PAGES = {
     "/en/terms": "https://www.souviks.co.in/en/terms",
     "/en/privacy-policy": "https://www.souviks.co.in/en/privacy-policy",
     "/en/refund": "https://www.souviks.co.in/en/refund",
+    "/en/shipping": "https://www.souviks.co.in/en/shipping",
+    "/hi/shipping": "https://www.souviks.co.in/hi/shipping",
+    "/bn/shipping": "https://www.souviks.co.in/bn/shipping",
 }
 
 SITEMAPS = (
@@ -342,6 +345,9 @@ def run_smoke() -> int:
         "/en/products.html": "/en/products",
         "/en/brands.html": "/en/brands",
         "/en/terms.html": "/en/terms",
+        "/en/shipping.html": "/en/shipping",
+        "/hi/shipping.html": "/hi/shipping",
+        "/bn/shipping.html": "/bn/shipping",
         "/en/request-quote": "/en/cart",
         "/hi/request-quote": "/hi/cart",
         "/bn/request-quote": "/bn/cart",
