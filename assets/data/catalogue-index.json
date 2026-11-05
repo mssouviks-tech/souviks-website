@@ -11360,7 +11360,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000237/1.webp",
     "applications": [
       "Fuel Filtration System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Automotive Filters India catalogue, HCV Filter Application Chart, pp. 21–22; exact part-number match F 002 H22 012): Ashok Leyland MiTR diesel and Partner diesel. Bosch's cross-reference chart also lists NALT ZD30 TCIC BS III/BS IV engine families. Confirm engine and filter position against the vehicle before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -11411,7 +11412,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000238/1.webp",
     "applications": [
       "Engine Lubrication Filtration System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Automotive Filters India catalogue, HCV Filter Application Chart, pp. 21–22; exact part-number match F 002 H24 520 / LF16090 / ID201024): Eicher 10.75 diesel, 10.80 E2 Plus diesel, 10.90 L40 diesel, Pro 1049 diesel, Pro Series 1075 and Pro Series 1080. Bosch identifies this as a spin-on bypass oil filter; confirm engine and bypass-filter position before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -11462,7 +11464,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000239/1.webp",
     "applications": [
       "Engine Lubrication Filtration System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Automotive Filters India catalogue, HCV Filter Application Chart, pp. 21–22; exact part-number match F 002 H60 015 / LF16082 / ID203204): Eicher Galaxy 30.25, Galaxy 30.25 XP, Galaxy 33.25, Jumbo 15.16 and Jumbo 20.16 diesel. Bosch identifies this as an oil-filter element; confirm the engine and housing before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -27985,7 +27988,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 50,
     "applications": [
-      "Air Compressor Overhaul"
+      "Air Compressor Overhaul",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001215): TATA and Ashok Leyland; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Gasket”; confirm the kit contents and compressor variant before treating the Souviks product description as the same kit scope. No individual truck model is listed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28040,7 +28044,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 100,
     "applications": [
-      "Air Compressor Head Overhaul"
+      "Air Compressor Head Overhaul",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001202): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Valve”, not a cylinder-head assembly kit; verify the kit contents and application before treating the catalogue title as equivalent. No individual truck model is listed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28270,7 +28275,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 100,
     "applications": [
-      "Air Compressor Maintenance"
+      "Air Compressor Maintenance",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001215): TATA and Ashok Leyland; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Gasket”, whereas this Souviks record is titled as a cylinder-head assembly repair kit; the exact kit contents/title mapping remains to be reconciled. No individual truck model is listed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28380,7 +28386,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 150,
     "applications": [
-      "Air Compressor Overhaul"
+      "Air Compressor Overhaul",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001458): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO identifies it as a repair kit; no individual truck model is listed, so confirm the compressor variant before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -46306,7 +46313,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 100304941): TATA commercial vehicles; DDU-(VOSS), listed in the twin-cylinder 704 cc flange-mounted compressor context. WABCO does not name individual Tata models; confirm mounting, VOSS connections and the installed air-system configuration."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -50458,7 +50466,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact material number 9347020150): TATA. WABCO identifies the component as a protection valve; no individual Tata model is listed. Confirm circuit configuration, pressure settings and port connections before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -50518,7 +50527,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (ZF CVCS Product Catalogue 2023, p. 66; exact material number 9732980290): listed as an RG2 relay valve for BAJAJ TEMPO. The source does not specify an individual model/year; verify valve connection style and brake-circuit configuration before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
