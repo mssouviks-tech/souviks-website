@@ -32,9 +32,20 @@ for (const field of [
 }
 assert.match(
   catalogueProjection,
-  /"mrp": p\.get\("mrp"\),\s*"selling_price": p\.get\("selling_price"\),\s*"approx_weight_g": approximate_weight_grams\(p\)/,
-  "HSN additions must not break the existing price/weight projection contract",
+  /"mrp": p\.get\("mrp"\),\s*"selling_price": p\.get\("selling_price"\),[\s\S]*?"approx_weight_g": approximate_weight_grams\(p\)/,
+  "HSN additions must preserve MRP, selling price and approximate-weight projection",
 );
+for (const field of [
+  "prior_price_30d",
+  "price_history_1m",
+  "price_history_3m",
+  "price_history_6m",
+  "price_history_all_time",
+  "price_history_since",
+]) {
+  assert.match(catalogueProjection, new RegExp('"' + field + '"\\s*:\\s*p\\.get\\("' + field + '"\\)'),
+    "Merged catalogue projection must preserve " + field);
+}
 assert.match(builder, /hsn_is_confirmed/);
 assert.match(builder, /hsn_classification_status/);
 assert.match(builder, /hsn_confidence/);
