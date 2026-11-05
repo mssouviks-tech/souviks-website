@@ -1180,22 +1180,41 @@ async function main() {
         if (count < 1) throw new Error("product listing images missing");
         const sampleCount = Math.min(count, 5);
         for (let i = 0; i < sampleCount; i++) {
-          const image = images.nth(i);
-          await image.scrollIntoViewIfNeeded();
-          const state = await image.evaluate(async element => {
-            if (!element.complete) {
-              await new Promise(resolve => {
-                element.addEventListener("load", resolve, { once: true });
-                element.addEventListener("error", resolve, { once: true });
-                setTimeout(resolve, 4000);
+          let state = null;
+          let lastDetachError = null;
+          for (let attempt = 0; attempt < 3; attempt++) {
+            // Product-card hydration and lazy-image layout can replace a card
+            // between locating it and scrolling. Re-resolve the locator after
+            // a transient detach rather than failing a healthy listing.
+            const image = page.locator("#product-grid .product-card img").nth(i);
+            try {
+              await image.waitFor({ state: "attached", timeout: 5000 });
+              await image.scrollIntoViewIfNeeded({ timeout: 5000 });
+              state = await page.locator("#product-grid .product-card img").nth(i).evaluate(async element => {
+                if (!element.complete) {
+                  await new Promise(resolve => {
+                    element.addEventListener("load", resolve, { once: true });
+                    element.addEventListener("error", resolve, { once: true });
+                    setTimeout(resolve, 4000);
+                  });
+                }
+                return {
+                  src: element.getAttribute("src") || "",
+                  width: element.naturalWidth,
+                  complete: element.complete
+                };
               });
+              lastDetachError = null;
+              break;
+            } catch (error) {
+              if (!/not attached|detached|not stable/i.test(String(error))) throw error;
+              lastDetachError = error;
+              await page.waitForTimeout(150);
             }
-            return {
-              src: element.getAttribute("src") || "",
-              width: element.naturalWidth,
-              complete: element.complete
-            };
-          });
+          }
+          if (!state) {
+            throw lastDetachError || new Error(`image ${i + 1} could not be inspected after retries`);
+          }
           if (!state.complete || state.width < 1) {
             throw new Error(`image ${i + 1} failed to load: ${state.src}`);
           }
