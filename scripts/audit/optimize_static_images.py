@@ -394,8 +394,10 @@ def sync_responsive_hero_assets(mobile_variants: dict[str, str]) -> int:
                 "    }\n"
                 "}\n"
             )
+        # Consume all prior whitespace before the generated block so repeated
+        # builds keep the CSS content hash and dependent page URLs stable.
         existing_block = re.compile(
-            r"\n?/\* Generated responsive mobile product-hero source\. \*/[\s\S]*$",
+            r"\n*/\* Generated responsive mobile product-hero source\. \*/[\s\S]*$",
             flags=re.I,
         )
         if existing_block.search(css):

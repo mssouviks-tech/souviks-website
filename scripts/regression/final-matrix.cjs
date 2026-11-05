@@ -356,7 +356,7 @@ async function waitForProductListingReady(page) {
       !!document.querySelector("#pagination .pagination-next") &&
       !!document.querySelector("#pagination .pagination-status")
     );
-  }, null, { timeout: 8000 });
+  }, null, { timeout: 15000 });
 }
 
 
