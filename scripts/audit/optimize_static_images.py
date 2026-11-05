@@ -395,7 +395,7 @@ def sync_responsive_hero_assets(mobile_variants: dict[str, str]) -> int:
                 "}\n"
             )
         existing_block = re.compile(
-            r"\n?/\* Generated responsive mobile product-hero source\. \*/[\s\S]*$",
+            r"\n*/\* Generated responsive mobile product-hero source\. \*/[\s\S]*$",
             flags=re.I,
         )
         if existing_block.search(css):
