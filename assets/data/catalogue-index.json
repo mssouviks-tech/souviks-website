@@ -51,7 +51,8 @@
     "applications": [
       "Fuel filtration system",
       "diesel engine protection",
-      "periodic service replacement."
+      "periodic service replacement.",
+      "Vehicle fitment evidence (Souviks Tata and Eicher commercial-vehicle brochures; exact part-number match): Tata Signa, Tata LPT, Eicher Pro Series and Eicher 1110."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -2852,7 +2853,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000060/1.webp",
     "applications": [
       "Rear brake system",
-      "wheel-end braking assembly."
+      "wheel-end braking assembly.",
+      "Vehicle fitment evidence (Souviks Tata commercial-vehicle brochure; exact part-number match): Tata Ace."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -2998,7 +3000,9 @@
     "gallery_dimensions": {},
     "applications": [
       "Engine timing system",
-      "scheduled maintenance replacement."
+      "scheduled maintenance replacement.",
+      "Vehicle fitment evidence (Souviks Tata commercial-vehicle brochure; exact part-number match): Tata 407, Tata 709 and Tata 1109.",
+      "Independent catalogue cross-check: public supplier listings for Tata part 254705116312 also report Winger School and Ace 275/EX/HT/Magic HT applications (Vikings Automobile; exact part-number listing). This conflicts with the Souviks brochure's 407/709/1109 mapping; confirm by VIN/Tata eCATS before promoting either list as exclusive."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -3048,7 +3052,8 @@
     "applications": [
       "Wheel hub assembly",
       "gearbox assembly",
-      "axle applications."
+      "axle applications.",
+      "Vehicle fitment evidence (Souviks Tata commercial-vehicle brochure; exact part-number match): Tata 1109, 1210, 1312 and 1512."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -4518,7 +4523,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000094/1.webp",
     "applications": [
-      "Clutch Transmission System"
+      "Clutch Transmission System",
+      "Vehicle fitment evidence (Souviks Tata commercial-vehicle brochure; exact part-number match): Tata Ace and Tata Magic."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -4997,7 +5003,9 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000104/1.webp",
     "applications": [
-      "Air Intake Filtration System"
+      "Air Intake Filtration System",
+      "Vehicle fitment evidence (Souviks Tata commercial-vehicle brochure; exact part-number match): Tata 1109, 1210 and 1312.",
+      "Independent catalogue cross-check: public listings for OEM 278809130114 identify Tata Ace / Ace Gold / Ace HT / Ace Magic (Boodmo and Vikings Automobile; exact OEM number). This conflicts with the Souviks brochure's 1109/1210/1312 mapping; verify by VIN/Tata eCATS before treating the lists as interchangeable."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -8471,7 +8479,8 @@
     "applications": [
       "Front Air Brake System",
       "S-Cam Brake Assembly",
-      "Brake Adjustment Mechanism"
+      "Brake Adjustment Mechanism",
+      "Vehicle fitment evidence (Souviks Tata and Ashok Leyland commercial-vehicle brochures; exact part-number match): Tata 1512 and Ashok Leyland 2516."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -8521,7 +8530,8 @@
     "applications": [
       "Rear Air Brake System",
       "S-Cam Brake Assembly",
-      "Brake Adjustment Mechanism"
+      "Brake Adjustment Mechanism",
+      "Vehicle fitment evidence (Souviks Ashok Leyland commercial-vehicle brochure; exact part-number match): Ashok Leyland 2516."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -9043,7 +9053,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000189/1.webp",
     "applications": [
-      "Engine Cooling System"
+      "Engine Cooling System",
+      "Vehicle fitment evidence (Tata parts price-list cross-reference; exact part-number match): Tata 2518 E-III / 25-ton high-flow water-pump application. Do not infer 407/709/1109/1512 from the broad LPT family label."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -9517,7 +9528,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000199/1.webp",
     "applications": [
       "Drum Brake System",
-      "Brake Shoe Assembly"
+      "Brake Shoe Assembly",
+      "Vehicle fitment evidence (Souviks Ashok Leyland commercial-vehicle brochure; exact catalogue description match): Ashok Leyland 2516."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -10143,7 +10155,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000212/1.webp",
     "applications": [
       "Fuel Filtration System",
-      "Fuel Filter Mounting Assembly"
+      "Fuel Filter Mounting Assembly",
+      "Vehicle fitment evidence (Souviks Ashok Leyland and Eicher commercial-vehicle brochures; exact part-number match): Ashok Leyland 2516 and Ecomet; Eicher Pro Series and Eicher 1110."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -11246,7 +11259,8 @@
     "applications": [
       "Fuel Filtration System",
       "Water Separation System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Automotive Filters India catalogue; exact OE reference ID320704): Eicher Pro 3012 TCI BS IV, Pro 3015 TCI BS IV and Pro Series 1110 applications as printed in the Bosch application chart. Match engine/version and filtration position before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -11297,7 +11311,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Fuel Filtration System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Commercial Vehicle Filters catalogue; exact OE reference ID320481 / ID320867): Eicher Pro 3013, Pro 3015 TCI BS IV, Pro 10.90 and Pro 10.75 family applications as printed in the Bosch application chart. Match engine/version and filtration position before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -12024,7 +12039,8 @@
     "applications": [
       "Suspension Assembly",
       "Steering System",
-      "Chassis Components"
+      "Chassis Components",
+      "Supplier application evidence (Nirmal Price List No. 67/2026, p. 21; exact item code NIRMAL/CP/446): Tata 2416 cotter fastener with nyloc nut, standard long size (14×94×1.5P). Nirmal classifies the item as a cotter pin; reconcile the catalogue’s “cotter bolt” wording before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -12167,7 +12183,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000254/1.webp",
     "applications": [
       "Suspension System",
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 3; exact JMP part-code match): Tata 3118, 3718, Signa, 5523 and Prima series. Double-pin hanger, 50 mm hole."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimension_specs_mm": [
@@ -13375,7 +13392,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence (Souviks Ashok Leyland commercial-vehicle brochure; exact part-number match): Ashok Leyland 2516 and Ecomet."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -13653,7 +13671,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Engine Accessory Drive System"
+      "Engine Accessory Drive System",
+      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Maruti Suzuki Alto, Maruti Suzuki Wagon R and Tata Indica. Alternator-belt application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -13700,7 +13719,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Engine Accessory Drive System"
+      "Engine Accessory Drive System",
+      "Vehicle fitment evidence (Souviks Mahindra commercial-vehicle brochure; exact belt-code match): Mahindra Bolero Pik-Up and Bolero MaXX Pik-Up."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -13794,7 +13814,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000288/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence (Fleetguard/Tata catalogue; exact head-assembly reference): Tata 3718 and 4923 BS IV, through the FS1003/FS19664 separator assembly. This is an indirect assembly-level application, not a direct vehicle-level OEM head listing."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -14366,7 +14387,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000300/1.webp",
     "applications": [
       "Trailer Suspension System",
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 12; exact JMP part-code match): Ashok Leyland U-Truck new model and the listed 3718 / BS6 haulage / BS6 tractor / BS6 tipper family section. Double-pin hanger; confirm chassis revision and pin dimensions."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimension_specs_mm": [
@@ -15876,7 +15898,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000331/1.webp",
     "applications": [
       "Suspension System",
-      "Chassis Protection"
+      "Chassis Protection",
+      "Assembly-derived application evidence (JMP Product Price List, March 2026, p. 4; exact part-code match): Rubber stopper pad is explicitly listed for parent parts J1067/J1067A/J1067B/J1067C and J1090/J1091. Those parent parts are listed in the Tata 3118, 3718, Signa, 5523 and Prima section (p. 3). This is a linked-parent application, not an independently enumerated vehicle list."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16183,7 +16206,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000337/1.webp",
     "applications": [
       "Suspension System",
-      "Leaf Spring Mounting"
+      "Leaf Spring Mounting",
+      "Vehicle fitment evidence (JMP listing and GS catalogue cross-reference MB336002): Ashok Leyland U-Truck BS6. Sub-model/tonnage not specified."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16231,7 +16255,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000338/1.webp",
     "applications": [
       "Steering Linkage System",
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 12; exact JMP part-code match): Ashok Leyland U-Truck small bell-crank application; catalog section groups U-Truck, 3718 and BS6 haulage/tractor/tipper families."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16280,7 +16305,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000339/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Driveline System"
+      "Driveline System",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 1; exact RKI part number RK103): Tata 1210, 608, 609, 807 and 407 N/M rear U.J. cross; RKI specifies a 38 mm cup."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16328,7 +16354,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000340/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Driveline System"
+      "Driveline System",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 1; exact RKI part number RK105): Tata 1613 Turbo and 2515 HYWA RSB-shaft U.J. cross, single-roller type, 42×129 mm."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16375,7 +16402,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000341/1.webp",
     "applications": [
-      "Steering Linkage System"
+      "Steering Linkage System",
+      "Vehicle fitment evidence (Kafila Price List effective 15-May-2026, p. 3; exact part-number match): Tata Intra tie-rod end."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16423,7 +16451,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000342/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Driveline System"
+      "Driveline System",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 2; exact KFL code KF-5143): Tata Ace Mega joint-cross bearing."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16471,7 +16500,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000343/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Driveline System"
+      "Driveline System",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 1; exact KFL code KF-5120): Tata 3516 HYWA / 2515 HYWA, Spicer-type joint cross. Kafila specifies 41.30×125.90 mm; this catalogue item is named 41.28×125.90 mm, so verify the physical cross dimensions before treating it as interchangeable."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16519,7 +16549,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000344/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Driveline System"
+      "Driveline System",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 1; exact KFL code KF-5121): Tata 1613 Turbo Euro II RSB-shaft joint-cross application, 42×129 mm."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16568,7 +16599,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000345/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Driveline System"
+      "Driveline System",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 1; exact KFL code KF-5122): HYWA 4018 / TELCO 216 7411 20107 RSB-shaft joint-cross application, 48×135 mm."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -16618,7 +16650,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000346/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Driveline System"
+      "Driveline System",
+      "Supplier-source conflict requiring fitment verification (Kafila Updated Price List, pp. 2 and 20; exact KFL code KF-5152): the primary code entry describes an agriculture-combine / JCB 3DX joint cross; related KF-5152 component references mention Tata 407 Pickup / JCB 3DX. This source does not substantiate the product title’s 1109 reference. Confirm the marking and dimensions before assigning a vehicle application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -17044,7 +17077,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence (Souviks Ashok Leyland commercial-vehicle brochure; exact part-number match): Ashok Leyland 2516 and Ecomet."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -17323,7 +17357,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000361/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence (Souviks Mahindra commercial-vehicle brochure; exact part-number match): Mahindra Blazo 16T."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -18654,7 +18689,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000389/1.webp",
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Vehicle fitment evidence (Souviks Mahindra commercial-vehicle brochure; exact part-number match): Mahindra Blazo and Furio."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -18703,7 +18739,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000390/1.webp",
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Vehicle fitment evidence (Souviks Mahindra commercial-vehicle brochure; exact part-number match): Mahindra Blazo and Furio."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -18764,7 +18801,8 @@
     "applications": [
       "Suspension System",
       "Balance Beam Assembly",
-      "Lever Assembly"
+      "Lever Assembly",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 20; exact item code NIRMAL/SP/1200 and size 42×170): Leyland 3118 and Tata Prima lever-pin application."
     ]
   },
   {
@@ -18824,7 +18862,8 @@
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
       "Leaf Spring Suspension System",
-      "Suspension Repair"
+      "Suspension Repair",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 20; exact item code NIRMAL/pSP/1201 and size 32×151): Tata Prima front spring-pin application."
     ]
   },
   {
@@ -18882,7 +18921,8 @@
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
       "Leaf Spring Suspension System",
-      "Suspension Overhaul"
+      "Suspension Overhaul",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 20; exact item code NIRMAL/SP/740 and size 50×151): Tata Prima / Tata Signa spring-pin application."
     ]
   },
   {
@@ -18930,7 +18970,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000394/1.webp",
     "applications": [
       "Leaf Spring Suspension System",
-      "Axle Mounting Assembly"
+      "Axle Mounting Assembly",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 4; exact part-number match): Tata 1312 and 1210 front U-bolt."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -18979,7 +19020,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000395/1.webp",
     "applications": [
       "Leaf Spring Suspension System",
-      "Suspension Repair"
+      "Suspension Repair",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 4; exact part-number match): Tata 1312 and 1210 front U-bolt."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -19028,7 +19070,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000396/1.webp",
     "applications": [
       "Leaf Spring Suspension System",
-      "Axle Mounting Assembly"
+      "Axle Mounting Assembly",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 5; exact part-number match): Tata 1312, 1612, 2213 and 2416 rear U-bolt."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -19077,7 +19120,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000397/1.webp",
     "applications": [
       "Suspension System",
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 5; exact part-number match): Tata 1312, 1612, 2213 and 2416 rear U-bolt."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -19126,7 +19170,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000398/1.webp",
     "applications": [
       "Suspension System",
-      "Axle Mounting Assembly"
+      "Axle Mounting Assembly",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 5; exact part-number match): Tata 1312, 1612, 2213 and 2416 rear U-bolt."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -19175,7 +19220,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000399/1.webp",
     "applications": [
       "Suspension System",
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 5; exact part-number match): Tata 1312, 1612, 2213 and 2416 rear U-bolt."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -19224,7 +19270,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000400/1.webp",
     "applications": [
       "Suspension System",
-      "Axle Mounting Assembly"
+      "Axle Mounting Assembly",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 5; exact part-number match): Tata 1312, 1612, 2213 and 2416 rear U-bolt."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -19273,7 +19320,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000401/1.webp",
     "applications": [
       "Suspension System",
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 5; exact part-number match): Tata 1312, 1612, 2213 and 2416 rear U-bolt."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -21634,7 +21682,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Rear Suspension System",
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2582 / MPN 2782 3240 0114 / 2782 3240 0112): Tata 2515 LPT rear, Tata 3723 LPT rear and Tata LPT 3118 TC rear leaf-spring group. Confirm the spring specification and leaf stack against the vehicle before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23417,7 +23466,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release System"
+      "Clutch Release System",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 12; exact part-number match): Tata 1210, 1312, 1313, 1510, 1512, 1612, 1613, 1615 and 1616. With-hub variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23509,7 +23559,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "352 Dia Clutch Release Bearing"
+      "352 Dia Clutch Release Bearing",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, pp. 12 and 14; exact part-number match): Volvo Eicher Pro-5000 and Tata LPK 1615/1616. Texspin lists the same code in both application sections; verify bearing variant and clutch interface before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23555,7 +23606,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "352 Dia Push Type CRB"
+      "352 Dia Push Type CRB",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, pp. 12 and 14; exact part-number match): Volvo Eicher VE1102 and Tata 352 push-type clutch applications. The same code appears in both sections; confirm clutch interface before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23696,7 +23748,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing"
+      "Clutch Release Bearing",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 13; exact part-number match): Tata 909 and Tata 1109 Turbo."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23746,7 +23799,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing | GB40"
+      "Clutch Release Bearing | GB40",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 13; exact part-number match): Tata 1109, 1112, 1210, 1312, 1510, 1512, 1612 and 1613 Turbo."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23795,7 +23849,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release System"
+      "Clutch Release System",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 14; exact part-number match): Eicher VE2100 8×2 and 6×2 haulage vehicles."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23934,7 +23989,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing | BS6 Signa"
+      "Clutch Release Bearing | BS6 Signa",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 13; exact part-number match): Tata Signa BS6 with GB75 next-generation clutch bearing."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23980,7 +24036,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing | 395 Dia"
+      "Clutch Release Bearing | 395 Dia",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 13; exact part-number match): Tata Signa 4225.S trailer, BS6, 395 mm clutch."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24074,7 +24131,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing | 430  Dia"
+      "Clutch Release Bearing | 430  Dia",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 13; exact part-number match): Tata Signa 2825.K, 3525.K, 4225.K, 4825.K and 2823.K; Tata Prima 3525.TK, 2825.K and 2528.K."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24123,7 +24181,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release System"
+      "Clutch Release System",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 13; exact part-number match): Tata Prima BS6, 430 mm clutch, CB-L9661."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24172,7 +24231,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release System"
+      "Clutch Release System",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 13; exact part-number match): Tata Prima 4928S, 4023S and 4028S."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24219,7 +24279,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing | 430  Dia 2\" spline"
+      "Clutch Release Bearing | 430  Dia 2\" spline",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 13; exact part-number match): Tata Prima and Eicher Pro-8000, 430 mm clutch / 2-inch spline."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24265,7 +24326,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing with Hub | 280-300 Dia clutch"
+      "Clutch Release Bearing with Hub | 280-300 Dia clutch",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 14; exact part-number match): Ashok Leyland Ecomet clutch applications, 280–300 mm clutch diameter."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24312,7 +24374,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "380 Dia Clutch"
+      "380 Dia Clutch",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 14; exact part-number match): Ashok Leyland 2516IL, 3116IL, 3118IL, 4019IL, 3518IL, 2516XL, 1218 Boss and 918 Boss."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24362,7 +24425,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing"
+      "Clutch Release Bearing",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 13; exact part-number match): Tata 909, 1109, 1112, 1210, 1312, 1510, 1512, 1612 and 1613."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24413,7 +24477,8 @@
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Tata 207",
       "HWD 35",
-      "Swaraj 735."
+      "Swaraj 735.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 19; exact part-number match): Tata 207, Hindustan HWD 35 and Swaraj 735."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24463,7 +24528,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door",
-      "Escorts and New Holland/Force Motors Minidor differential."
+      "Escorts and New Holland/Force Motors Minidor differential.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 19; exact part-number match): Bajaj Tempo Mini Door/Mata Door; Escorts; New Holland/Force Motors Minidor differential."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24514,7 +24580,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Tata 707/807/909/1210",
-      "Dodge 7.5 ton."
+      "Dodge 7.5 ton.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 19; exact part-number match): Tata 707, 807, 909 and 1210; Dodge 7.5-ton applications."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24568,7 +24635,8 @@
       "IMT 504",
       "HWD 50",
       "MF504",
-      "Bedford J6/J4."
+      "Bedford J6/J4.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata 707, 807, 909 and 1210; IMT 504; Hindustan HWD 50; Massey Ferguson 504; Bedford J6/J4."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24618,7 +24686,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tapper Roller Bearing for Tata 608/1312/1516."
+      "fitment/specification: Tapper Roller Bearing for Tata 608/1312/1516.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata 608, 1312 and 1516."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24669,7 +24738,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Tata 707/807/909/1210",
-      "Isuzu truck."
+      "Isuzu truck.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata 707, 807, 909 and 1210; Isuzu trucks."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24719,7 +24789,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Tata truck",
-      "Isuzu truck."
+      "Isuzu truck.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata trucks and Isuzu trucks. The supplier list does not specify individual models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24771,7 +24842,8 @@
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Tata 707/807/909/1210",
       "Dodge 7.5 ton",
-      "Bedford J6."
+      "Bedford J6.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata 707, 807, 909 and 1210; Dodge 7.5-ton; Bedford J6."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24825,7 +24897,8 @@
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Tata 207/1312/1516/1613/2416/2515/2516/3516",
       "Allwyn Nissan",
-      "Harsha T25."
+      "Harsha T25.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata 207, 1312, 1516, 1613, 2416, 2515, 2516 and 3516; Allwyn Nissan; Harsha T25."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24875,7 +24948,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Escort 335/345",
-      "Swaraj 735."
+      "Swaraj 735.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Escorts 335/345 tractors and Swaraj 735."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -24926,7 +25000,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tapper Roller Bearing for Tata 1312/1516/1512/1612/1613."
+      "fitment/specification: Tapper Roller Bearing for Tata 1312/1516/1512/1612/1613.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata 1312, 1512, 1516, 1612 and 1613."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -25124,7 +25199,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Wheel twin kit for Ashok Leyland 1312 front outer side (2 bearings)."
+      "fitment/specification: Wheel twin kit for Ashok Leyland 1312 front outer side (2 bearings).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 24; exact part-number match): Ashok Leyland 1312 front outer wheel twin kit."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -25173,7 +25249,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Wheel twin kit for Ashok Leyland Comet/Viking/Cheetah (2 bearings)."
+      "fitment/specification: Wheel twin kit for Ashok Leyland Comet/Viking/Cheetah (2 bearings).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 24; exact part-number match): Ashok Leyland Comet, Viking and Cheetah."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -25222,7 +25299,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Wheel twin kit for Tata 1312 front inner side (2 bearings)."
+      "fitment/specification: Wheel twin kit for Tata 1312 front inner side (2 bearings).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 24; exact part-number match): Tata 1312 front inner wheel twin kit."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -25271,7 +25349,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Wheel twin kit for Ashok Leyland front outer side (2 bearings)."
+      "fitment/specification: Wheel twin kit for Ashok Leyland front outer side (2 bearings).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, pp. 22 and 24; exact part-number match): Ashok Leyland Comet, Viking, Taurus and Tusker; Iveco 1312, 1412, 1512 and 1614; AMW. Confirm axle position and twin-kit contents."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -25320,7 +25399,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Wheel twin kit for Eicher Terra 20 rear inner side (2 bearings)."
+      "fitment/specification: Wheel twin kit for Eicher Terra 20 rear inner side (2 bearings).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 24; exact product/kit match): Eicher Terra 20 rear inner wheel twin kit."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -25370,7 +25450,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Ashok Leyland Beaver/Hippo/Tusker",
-      "Cargo 2516/3516."
+      "Cargo 2516/3516.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 22; exact part-number match): Ashok Leyland Beaver, Hippo, Tusker and Cargo 2516/3516."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -25419,7 +25500,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Wheel twin kit for Tata 2515 EX rear inner side (2 bearings)."
+      "fitment/specification: Wheel twin kit for Tata 2515 EX rear inner side (2 bearings).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 24; exact part-number match): Tata 2515 EX rear inner wheel twin kit."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -25468,7 +25550,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tata 4018 wheel bearing."
+      "fitment/specification: Tata 4018 wheel bearing.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 22; exact part-number match): Tata 4018."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -25951,7 +26034,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Propeller shaft bearing for Tata 2518/3118/4018",
-      "Ashok Leyland 3118."
+      "Ashok Leyland 3118.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 2518, 3118 and 4018; Ashok Leyland 3118 propeller-shaft bearing."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26001,7 +26085,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tata 3118/2518 (RSB type)."
+      "fitment/specification: Tata 3118/2518 (RSB type).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 3118 and 2518, RSB type."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26051,7 +26136,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Center bearing for Ashok Leyland with rubber (MSL type)."
+      "fitment/specification: Center bearing for Ashok Leyland with rubber (MSL type).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 39; exact part-number match): Ashok Leyland MSL-type center bearing with rubber. Specific chassis models are not stated."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26098,7 +26184,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub."
+      "fitment/specification: Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 12; exact part-number match): Tata 1210, 1312, 1313, 1510, 1512, 1612, 1613, 1615 and 1616. With-hub variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26146,7 +26233,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000542/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Ashok Leyland Taurus with hub (bearing no. TX-27D-1511)."
+      "fitment/specification: Ashok Leyland Taurus with hub (bearing no. TX-27D-1511).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26; exact part-number/bearing-reference match): Ashok Leyland Taurus with hub, bearing reference TX-27D-1511."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26197,7 +26285,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tata 1312/1516/1510/2516/1513/1613/2515 SR-type kingpin bearing",
-      "standard."
+      "standard.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 17; exact part-number match): Tata 1312, 1516, 1510, 2516, 1513, 1613 and 2515."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26248,7 +26337,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tata 1312/1516/1510/2515/1613 kingpin thrust-brass type",
-      "standard."
+      "standard.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, pp. 14, 17 and 18; exact part-number match): Tata 1312, 1516, 1510, 2515 and 1613; Ashok Leyland truck kingpin-thrust applications are also listed under this code in a separate catalogue section. Verify axle family before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26300,7 +26390,8 @@
       "driveline or support-bearing system",
       "fitment/specification: Tata 1312/1516/1510/1612/2515 kingpin thrust pad",
       "left-hand side",
-      "standard."
+      "standard.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 17; exact part-number match): Tata 1312, 1516, 1510, 1612 and 2515."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26352,7 +26443,8 @@
       "driveline or support-bearing system",
       "fitment/specification: Tata 1312/1516/1510/1612/2515 kingpin thrust pad",
       "left-hand side",
-      "1st O/S."
+      "1st O/S.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 17; exact part-number match): Tata 1312, 1516, 1510, 1612 and 2515, first oversize."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26403,7 +26495,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tata 1312/1516/1510/2515/1613 kingpin thrust-brass type",
-      "2nd O/S."
+      "2nd O/S.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, pp. 14 and 18; exact part-number match): Tata 1312, 1516, 1510, 2515 and 1613, second oversize."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26454,7 +26547,8 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tata 1312/1516/1510/2515/1613 kingpin thrust-brass type",
-      "3rd O/S."
+      "3rd O/S.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 18; exact part-number match): Tata 1312, 1516, 1510, 2515 and 1613, third oversize."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26504,7 +26598,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Kingpin bush for Tata 1312 (set of 4 nos.)."
+      "fitment/specification: Kingpin bush for Tata 1312 (set of 4 nos.).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 63; exact part-number match): Tata 1312 kingpin bush."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -26556,7 +26651,8 @@
       "fitment/specification: Kingpin shaft for Tata 1312",
       "standard",
       "chrome plated (set of 2 pins",
-      "size 38.25 mm)."
+      "size 38.25 mm).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, pp. 63–64; exact part-number match): Tata 1312 standard kingpin shaft, chrome-plated."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimensions_mm": [
@@ -28425,7 +28521,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000587/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2951 / MPN 2829 3210 1601): Tata Magic front parabolic leaf spring."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28472,7 +28569,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000588/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 14031 / MPN 46 3210 01): Tata Intra V30 front leaf-spring assembly. JAI lists the assembly, not the individual replacement-leaf position; verify leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28520,7 +28618,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000589/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2332S / MPN 2829 3240 0134): Tata Ace Magic SPL rear parabolic leaf-spring application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28568,7 +28667,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000590/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 1952 / MPN 0402AA0310N): Mahindra Bolero rear spring application. The supplier entry does not identify individual replacement-leaf position; verify the leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28616,7 +28716,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000591/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 17341 / MPN 0401ACG00200N): Mahindra Max Pickup New spring application. The JAI entry describes the spring/leaf construction but does not state an axle position; confirm front/rear and individual leaf layer against the vehicle."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28663,7 +28764,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000592/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28710,7 +28812,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000593/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 6481 / MPN 5523 3210 0109): Tata Ace Dicor High GVW front leaf-spring application. The supplier does not identify the individual replacement-leaf position; verify leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28758,7 +28861,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000594/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 0661N / MPN 0401AA0540N): Mahindra Bolero Pickup Maxx New Model front spring application. JAI lists 3-/4-leaf configuration, not the individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28806,7 +28910,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000595/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; supplier item code 642 / MPN 29726): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual leaf position; verify the pickup variant and leaf stack."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28853,7 +28958,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000596/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 0181N): Tata 1210D front leaf-spring application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28900,7 +29006,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000597/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2582 / MPN 2782 3240 0114 / 2782 3240 0112): Tata 2515 LPT rear, Tata 3723 LPT rear and Tata LPT 3118 TC rear leaf-spring group. Confirm the spring specification and leaf stack against the vehicle before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28947,7 +29054,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000598/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2731 / MPN 2782 3210 0143): Tata 2515 EX and Tata 4018 front parabolic leaf-spring application; JAI specifies the spring with bush."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -28994,7 +29102,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000599/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 7032 / MPN 5545 3240 0113): Tata Ace Dicor / Ace Mega rear leaf-spring application. The supplier entry does not identify individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29041,7 +29150,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000600/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 6891 / MPN 5039 3210 0137): Tata LPT 3718 front parabolic leaf-spring application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29088,7 +29198,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000601/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 6901 / MPN 5039 3210 0138): Tata LPT 3718 front parabolic leaf-spring application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29134,7 +29245,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 1931 / MPN 2576 3210 0110): Tata 1516, 1616 and 2213 front leaf-spring application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29230,7 +29342,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000604/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 14031 / MPN 46 3210 01): Tata Intra V30 front leaf-spring assembly. JAI lists the assembly, not the individual replacement-leaf position; verify leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29331,7 +29444,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000606/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 1952 / MPN 0402AA0310N): Mahindra Bolero rear spring application. The supplier entry does not identify individual replacement-leaf position; verify the leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29379,7 +29493,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000607/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 17341 / MPN 0401ACG00200N): Mahindra Max Pickup New spring application. The JAI entry describes the spring/leaf construction but does not state an axle position; confirm front/rear and individual leaf layer against the vehicle."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29426,7 +29541,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000608/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29473,7 +29589,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000609/1.webp",
     "applications": [
-      "Cabin Suspension System"
+      "Cabin Suspension System",
+      "Supplier assembly evidence (JAI Price List W.E.F. 01-04-2026, row 252; exact JAI code 0904E / MPN 2576 8910 0122): cabin spring, 8-leaf assembly, rear. The price-list row does not specify the vehicle model."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29521,7 +29638,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000610/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 0661N / MPN 0401AA0540N): Mahindra Bolero Pickup Maxx New Model front spring application. JAI lists 3-/4-leaf configuration, not the individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29568,7 +29686,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000611/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; supplier item code 642 / MPN 29726): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual leaf position; verify the pickup variant and leaf stack."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29769,7 +29888,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000615/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 7032 / MPN 5545 3240 0113): Tata Ace Dicor / Ace Mega rear leaf-spring application. The supplier entry does not identify individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -29815,7 +29935,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000616/1.webp",
     "applications": [
       "Alternator drive",
-      "AMW Truck."
+      "AMW Truck.",
+      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact OE cross-reference 122610006): AMW trucks. The catalogue identifies the vehicle make, not a specific model."
     ],
     "pending_image_filename": "avx13-1175.webp",
     "seo": {},
@@ -29866,7 +29987,8 @@
       "Alternator drive",
       "Ashok Leyland 2560",
       "3560",
-      "Taurus and 2514 Tipper 6x4."
+      "Taurus and 2514 Tipper 6x4.",
+      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match AV13X850): Ashok Leyland AL2560, AL3560, Taurus and 2514 Tipper 6×4. Cross-reference discrepancy: Fenner lists OE F0301450; this Souviks product record carries F0300458. Vehicle applications are supported by belt code, but reconcile the OE field separately."
     ],
     "pending_image_filename": "av13x850.webp",
     "seo": {},
@@ -29914,7 +30036,8 @@
     "gallery_dimensions": {},
     "applications": [
       "JCB Earth Mover alternator application",
-      "confirm machine fitment."
+      "confirm machine fitment.",
+      "Vehicle/machine fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): JCB earth movers, alternator drive."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS000618/1.webp",
     "pending_image_filename": "spax1250.webp",
@@ -29966,7 +30089,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000619/1.webp",
     "applications": [
-      "Alternator Charging System"
+      "Alternator Charging System",
+      "Vehicle fitment evidence (Souviks Mahindra commercial-vehicle brochure; exact part-number match): Mahindra Bolero Pik-Up and Bolero MaXX Pik-Up."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -32689,7 +32813,8 @@
       "Volvo Eicher",
       "Mahindra",
       "Daimler India Commercial Vehicles (DICV)",
-      "AMW and MAN commercial vehicles."
+      "AMW and MAN commercial vehicles.",
+      "Vehicle fitment evidence (Souviks Ashok Leyland and Eicher commercial-vehicle brochures; exact part-number match): Ashok Leyland 2516 and Eicher Pro Series."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -33075,7 +33200,8 @@
     "applications": [
       "Bosch diesel filter application",
       "exact vehicle fitment for 1457-431-003 was not established from the indexed Bosch India catalogue",
-      "so no vehicle models are being invented."
+      "so no vehicle models are being invented.",
+      "Vehicle fitment evidence (Bosch India Automotive Filters catalogues; exact part-number match): Ashok Leyland Artik 3014, Cheetah and Comet 1616H; Swaraj Mazda Premium WT49 ESA, Sartaj WV26S, Super ZT54 BS I and T3500 Prestige WT49LWB; Tata 1510 LP, LPT 1613 and 1516 LPT."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -33124,7 +33250,8 @@
     "applications": [
       "Bosch diesel filter application",
       "exact vehicle fitment for 9451-037-409 was not established from the indexed Bosch India catalogue",
-      "so no vehicle models are being invented."
+      "so no vehicle models are being invented.",
+      "Vehicle fitment evidence (Bosch India CV Filters catalogue; exact part-number match): Tata LPT 810 Ex2 BS IV, LPT 909 BS IV, 1516 LPT, SE 1613 BS IV, SK 1613 and LPT 1613."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -34311,7 +34438,8 @@
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
       "Commercial-vehicle leaf-spring suspension assemblies",
-      "exact vehicle model varies by spring-pin size."
+      "exact vehicle model varies by spring-pin size.",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 19; exact item code NIRMAL/SP/402 and size 35×140): Tata 1516, 2213 and 2416 rear spring-pin application."
     ]
   },
   {
@@ -34429,7 +34557,8 @@
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
       "Tata 2416 / Tata 2515",
-      "42 x 116 lever-pin size cross-reference. JAI lists 42 x 116 for these applications."
+      "42 x 116 lever-pin size cross-reference. JAI lists 42 x 116 for these applications.",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 19; exact item code NIRMAL/SP/404 and size 42×116): Tata 2416 rear spring-pin application."
     ]
   },
   {
@@ -34603,7 +34732,8 @@
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
       "Ashok Leyland 2214 / 2516 / 3116",
-      "42 x 160 lever-pin size cross-reference. JAI lists 42 x 160 for these applications."
+      "42 x 160 lever-pin size cross-reference. JAI lists 42 x 160 for these applications.",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 20; exact item code NIRMAL/SP/435 and size 42×160): Leyland Taurus 2516 large lever-pin application."
     ]
   },
   {
@@ -34661,7 +34791,8 @@
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
       "Tata 3718",
-      "50 x 148 lever-pin size cross-reference. GS lists 50 x 148 for Tata 3718."
+      "50 x 148 lever-pin size cross-reference. GS lists 50 x 148 for Tata 3718.",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 20; exact item code NIRMAL/SP/740B and size 50×148): Tata Signa spring-pin application."
     ]
   },
   {
@@ -34997,7 +35128,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000714/1.webp",
     "applications": [
       "Leyland 370",
-      "rear-spring bracket application. JMP lists F7101222 as an R/S bracket for 370."
+      "rear-spring bracket application. JMP lists F7101222 as an R/S bracket for 370.",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 10; exact part-code match): Rear spring bracket listed for the Leyland 370 application. Confirm exact chassis generation and bracket offset before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35044,7 +35176,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000715/1.webp",
     "applications": [
-      "Leyland BS6 commercial-vehicle front suspension/shackle application."
+      "Leyland BS6 commercial-vehicle front suspension/shackle application.",
+      "Vehicle application evidence (JMP Product Price List, March 2026, p. 13; exact part-code match): Ashok Leyland SA BS6 front-shackle application. The catalogue does not state a specific chassis model."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35091,7 +35224,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000716/1.webp",
     "applications": [
-      "Ashok Leyland Ecomet/Chittal commercial-vehicle rear-spring application."
+      "Ashok Leyland Ecomet/Chittal commercial-vehicle rear-spring application.",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 11; exact part-code match): Ashok Leyland Chital and Ecomet rear spring bracket, 14 mm hole."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35138,7 +35272,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000717/1.webp",
     "applications": [
-      "Ashok Leyland Ecomet commercial-vehicle front-spring application."
+      "Ashok Leyland Ecomet commercial-vehicle front-spring application.",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 11; exact part-code match): Ashok Leyland Chital front-spring bracket."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35185,7 +35320,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000718/1.webp",
     "applications": [
-      "EICHER"
+      "EICHER",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Front-spring rear bracket."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35232,7 +35368,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000719/1.webp",
     "applications": [
-      "EICHER"
+      "EICHER",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Front-spring shackle."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35279,7 +35416,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000720/1.webp",
     "applications": [
-      "EICHER"
+      "EICHER",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Rear-suspension front bracket, 35 mm."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35326,7 +35464,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000721/1.webp",
     "applications": [
-      "EICHER"
+      "EICHER",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Rear-suspension rear bracket, 42 mm."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35373,7 +35512,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000722/1.webp",
     "applications": [
-      "EICHER"
+      "EICHER",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Rear H-type shackle."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35428,7 +35568,8 @@
       "1618",
       "1612",
       "1613",
-      "4018"
+      "4018",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018. Double-pin hanger, 14 mm."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimension_specs_mm": [
@@ -35492,7 +35633,8 @@
       "1618",
       "1612",
       "1613",
-      "4018"
+      "4018",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018 catalogue section. Rear-suspension bracket, 42 mm, 16 mm holes."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35547,7 +35689,8 @@
       "1618",
       "1612",
       "1613",
-      "4018"
+      "4018",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018 catalogue section. Rear-suspension front bracket, 35 mm, 16 mm holes."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35602,7 +35745,8 @@
       "1618",
       "1612",
       "1613",
-      "4018"
+      "4018",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018 catalogue section. Rear-suspension rear bracket, 42 mm, 14 mm holes."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35657,7 +35801,8 @@
       "1618",
       "1612",
       "1613",
-      "4018"
+      "4018",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018 catalogue section. Rear-suspension rear bracket, 42 mm, 16 mm holes."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35710,7 +35855,8 @@
       "3718",
       "Signa",
       "5523",
-      "Prima"
+      "Prima",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 3; exact part-code match): Tata 3718 front-axle front-hanger application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35765,7 +35911,8 @@
       "1618",
       "1612",
       "1613",
-      "4018"
+      "4018",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 3; exact part-code match): Tata 2416 front-spring shackle with brass bush."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35820,7 +35967,8 @@
       "1618",
       "1612",
       "1613",
-      "4018"
+      "4018",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 3; exact part-code match): Tata 2416 H-type steel shackle."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35873,7 +36021,8 @@
       "3718",
       "Signa",
       "5523",
-      "Prima"
+      "Prima",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 6; exact part-code match): Tata 3718 front shackle, 32 mm."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35926,7 +36075,8 @@
       "3718",
       "Signa",
       "5523",
-      "Prima"
+      "Prima",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 6; exact part-code match): Tata 3718 front H-type shackle."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -35979,7 +36129,8 @@
       "3718",
       "Signa",
       "5523",
-      "Prima"
+      "Prima",
+      "Vehicle application evidence (JMP Product Price List, March 2026, p. 6; exact part-code match): H-type shackle for the new-model Tata bell-crank assembly. The catalogue does not name a chassis model for this row."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36026,7 +36177,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000734/1.webp",
     "applications": [
-      "TATA Signa / BS6 section"
+      "TATA Signa / BS6 section",
+      "Vehicle application evidence (JMP Product Price List, March 2026, p. 4; exact part-code match): Tata Signa BS6 family, right-hand double-pin hanger, 8-hole."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36073,7 +36225,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000735/1.webp",
     "applications": [
-      "TATA Signa"
+      "TATA Signa",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 4; exact part-code match): Tata Signa front-spring bolt-and-nut application, M24 × 2 × 185."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36120,7 +36273,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000736/1.webp",
     "applications": [
-      "TATA Signa"
+      "TATA Signa",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 4; exact part-code match): Tata Signa front-spring shackle assembly; JMP states it fits with bush J1606."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36224,7 +36378,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000738/1.webp",
     "applications": [
-      "EICHER"
+      "EICHER",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Front-spring front bracket."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36275,7 +36430,8 @@
     "applications": [
       "Tata 1616/2416 Turbo",
       "Cargo 709",
-      "tie rod end pair"
+      "tie rod end pair",
+      "Vehicle fitment evidence (Kafila Price List effective 15-May-2026, p. 3; exact part-number match): Tata 1616/2416 Turbo and Leyland Cargo 709 applications. Supplier heading also groups this product in its heavy-commercial-vehicle range."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36323,7 +36479,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000740/1.webp",
     "applications": [
-      "Tata GB-40 applications."
+      "Tata GB-40 applications.",
+      "Gearbox-series application evidence (Kafila price list effective 15-May-2026; exact part-number match): Tata GB-40 gearbox. The supplier list does not specify vehicle chassis models for this code."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36370,7 +36527,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000741/1.webp",
     "applications": [
-      "Tata 1312 / 1510 centre-bearing applications."
+      "Tata 1312 / 1510 centre-bearing applications.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 21; exact KFL code KF4004): Tata 1312 / 1510 centre-bearing assembly, modified 1997-model type, with 88509 bearing."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36421,7 +36579,8 @@
       "Tata Signa 4923",
       "LPO 1625 BS IV",
       "rear engine mounting",
-      "12 mm bore"
+      "12 mm bore",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 30; exact KFL code KF-5098): Tata Signa 4923 / LPO 1625 BS IV rear engine mounting, 12 mm bore."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36472,7 +36631,8 @@
       "Tata Signa 4923",
       "LPO 1625 BS IV",
       "rear engine mounting",
-      "16 mm bore"
+      "16 mm bore",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 30; exact KFL code KF-5099): Tata Signa 4923 / LPO 1625 BS IV rear engine mounting, 16 mm bore."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36520,7 +36680,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000744/1.webp",
     "applications": [
       "Commercial-vehicle tie-rod-end application",
-      "exact model not reliably indexed."
+      "exact model not reliably indexed.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 5; exact KFL code KF1518S): Leyland FA90 front-axle seal-type tie-rod end. The catalogue code specifies the seal-type version."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36568,7 +36729,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000745/1.webp",
     "applications": [
       "Tata LPT 3118",
-      "RH."
+      "RH.",
+      "Vehicle fitment evidence (Kafila Price List effective 15-May-2026, p. 3; exact part-number match): Tata LPT 3118 RH tie-rod end."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36616,7 +36778,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000746/1.webp",
     "applications": [
       "Tata LPT 3118",
-      "LH."
+      "LH.",
+      "Vehicle fitment evidence (Kafila Price List effective 15-May-2026, p. 3; exact part-number match): Tata LPT 3118 LH tie-rod end."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36663,7 +36826,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000747/1.webp",
     "applications": [
-      "Tata LPT 2518 / 3118 drag-link-end application."
+      "Tata LPT 2518 / 3118 drag-link-end application.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 5; exact KFL code KF-3395): Tata LPT 2518 / 3118 drag-link-end assembly, M30×1.5 and M20×1.5 threads."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36758,7 +36922,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000749/1.webp",
     "applications": [
-      "Tata Ace / Mint joint-cross application."
+      "Tata Ace / Mint joint-cross application.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 1; exact KFL code KF-5110): Tata Ace Mint joint-cross application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -36805,7 +36970,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000750/1.webp",
     "applications": [
-      "Tata 4928S / Prima joint-cross-bearing application."
+      "Tata 4928S / Prima joint-cross-bearing application.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 2; exact KFL code KF-5126): Tata 4928S (Prima) joint-cross bearing, 52×147 mm."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -37695,7 +37861,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000768/1.webp",
     "applications": [
-      "Ashok Leyland N.V. Star commercial-vehicle suspension/leaf-spring application."
+      "Ashok Leyland N.V. Star commercial-vehicle suspension/leaf-spring application.",
+      "Vehicle application evidence (Nirmal Price List No. 67/2026, p. 21; exact item code NIRMAL/CP/449): Canter / Navistar head-type small cotter pin. Nirmal does not specify an individual chassis model."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -37884,7 +38051,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000772/1.webp",
     "applications": [
       "Tata/Ashok Leyland commercial-vehicle rear-teeth applications",
-      "exact axle/gearbox variant depends on K146 configuration."
+      "exact axle/gearbox variant depends on K146 configuration.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 60; exact RKI part number K146): Leyland / Tata heavy-vehicle rear-teeth application; RKI catalogue identifies Tata 1616, LPT 1613, Leyland 3516 / 3014 / 4018, LPS 3015 and 1210 series. Confirm the matching spline and driveline assembly."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -37937,7 +38105,8 @@
       "Tusker Long Interaxle. Specifications: 4 holes 12.8mm",
       "21 bolts",
       "height 105mm",
-      "34.92×126.2"
+      "34.92×126.2",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14B): Tata 2515 TC, Leyland 2516 and Leyland Tusker Long interaxle cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -37992,7 +38161,8 @@
       "19 bolts",
       "plate 150mm",
       "height 116mm",
-      "41.27×126"
+      "41.27×126",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14C): Tata 2518, LPO 1616, bus 1625, LPO 1628 and LPO 2521 cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38043,7 +38213,8 @@
       "24 bolts",
       "plate 165mm",
       "height 134mm",
-      "49.2×154.8"
+      "49.2×154.8",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14D): Tata 4018 cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38095,7 +38266,8 @@
       "17 bolts",
       "plate 130mm",
       "height 113mm",
-      "41.27×126"
+      "41.27×126",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14EX): Tata 2515 EX, Big Nut cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38148,7 +38320,8 @@
       "17 bolts",
       "plate 130mm",
       "height 114mm",
-      "42×119"
+      "42×119",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14FX): Tata 2515 EX, LPT 1510 and 1613, Big Nut cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38199,7 +38372,8 @@
       "TATA-LP 1512",
       "2515 EX",
       "LPT 1613. Specifications: 42×119",
-      "height 131mm"
+      "height 131mm",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 70; exact RKI part number K260): Tata LP 1512, 2515 EX and LPT 1613 half-yoke application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38253,7 +38427,8 @@
       "LPK 1518",
       "LPK 1616",
       "LPK 1618. Specifications: 42×129",
-      "height 139mm"
+      "height 139mm",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 70; exact RKI part number K261): Tata 2518, LPT 1613 / 1615, SK 1613, LPK 1518 / 1616 / 1618 half-yoke application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38301,7 +38476,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000780/1.webp",
     "applications": [
       "RSB 4018 (490 Series). Specifications: 48×135",
-      "height 148mm"
+      "height 148mm",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 70; exact RKI part number K262): RSB 4018 / 490-series half-yoke application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38362,7 +38538,8 @@
       "19 bolts",
       "plate 150mm",
       "height 113mm",
-      "49.2×154.8"
+      "49.2×154.8",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 81; exact RKI part number K295): Tata 3118 / 1618 / 2518 / 2521, AMW 2518, Leyland 2516 / 4921, Tata 3121 and MAN 25T cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38413,7 +38590,8 @@
       "19 bolts",
       "plate 150mm",
       "height 116mm",
-      "42×129"
+      "42×129",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 81; exact RKI part number K298): Tata 2518 N/M, RSB big-type cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38467,7 +38645,8 @@
       "19 bolts",
       "plate 150mm",
       "height 110mm",
-      "42×119"
+      "42×119",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 82; exact RKI part number K329A): RSB 325 cross-holder for Tata LPO 1616, SE 1613, 2515 EX and LPT 1510; 42×119 mm, 4-hole plate."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38518,7 +38697,8 @@
       "17 bolts",
       "plate 120mm",
       "height 90mm",
-      "34.92×126.2"
+      "34.92×126.2",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 82; exact RKI part number K335A): Tata 1109 cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38569,7 +38749,8 @@
       "15 bolts",
       "plate 175mm",
       "height 136mm",
-      "42×129"
+      "42×129",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K368): Leyland 2516 RSB 403 cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38621,7 +38802,8 @@
       "19 bolts",
       "plate 150mm",
       "height 118mm",
-      "41.27×126"
+      "41.27×126",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K370): Tata 2518 cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38673,7 +38855,8 @@
       "22 bolts",
       "plate 180mm",
       "height 112mm",
-      "48×135"
+      "48×135",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K371): Tata 4018 and Leyland 4921 RSB 490 cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38727,7 +38910,8 @@
       "22 bolts",
       "plate 180mm",
       "height 126mm",
-      "48×135"
+      "48×135",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K372): Tata 4018, LPS 4923 and Leyland 4921 RSB 490 cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38781,7 +38965,8 @@
       "24 bolts",
       "plate 165mm",
       "height 133mm",
-      "41.27×126"
+      "41.27×126",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K373): Tata 4018 and HYWA cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38833,7 +39018,8 @@
       "18 bolts",
       "plate 130mm",
       "height 107mm",
-      "41.27×126"
+      "41.27×126",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K374): Tata 2518 cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -38882,7 +39068,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000791/1.webp",
     "applications": [
       "RG2 relay-valve repair-kit application",
-      "Tata/Ashok Leyland/DICV/VECV commercial vehicles."
+      "Tata/Ashok Leyland/DICV/VECV commercial vehicles.",
+      "Vehicle fitment evidence (Souviks Ashok Leyland and Eicher commercial-vehicle brochures; exact part-number match): Ashok Leyland 2516 and Eicher Pro Series. RG2 valve repair-kit application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -39075,7 +39262,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000795/1.webp",
     "applications": [
       "Commercial-vehicle rear suspension/bracket application",
-      "exact vehicle model not identified in indexed source data."
+      "exact vehicle model not identified in indexed source data.",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018 catalogue section. Rear-suspension bracket, 42 mm, 14 mm holes."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -39264,7 +39452,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000799/1.webp",
     "applications": [
-      "Eicher 395 mm clutch application."
+      "Eicher 395 mm clutch application.",
+      "Vehicle fitment evidence (Souviks Eicher commercial-vehicle brochure; exact part-number match): Eicher Pro Series, 395 mm clutch application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -39358,7 +39547,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000801/1.webp",
     "applications": [
-      "Eicher 395 mm clutch-cover application."
+      "Eicher 395 mm clutch-cover application.",
+      "Vehicle fitment evidence (Souviks Eicher commercial-vehicle brochure; exact part-number match): Eicher Pro Series, 395 mm clutch cover application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -39892,7 +40082,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Commercial-vehicle wheel/suspension bolt-and-nut application",
-      "M22 x 2.5 x 115."
+      "M22 x 2.5 x 115.",
+      "Vehicle fitment evidence (SFL/TVS Girling Parts Catalogue; exact part-number and OE-equivalent match): Tata 1312, 1612, 1510, 1610 and 1613 rear-wheel bolt application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -39939,7 +40130,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Commercial-vehicle hub/wheel application",
-      "M22 x 2.5 x 125 knurled hub bolt."
+      "M22 x 2.5 x 125 knurled hub bolt.",
+      "Vehicle fitment evidence (SFL/TVS Girling Parts Catalogue; exact part-number match): Tata 1312, 1612, 1510, 1610 and 1613 rear-wheel bolt application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -39986,7 +40178,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Commercial-vehicle suspension/hardware application",
-      "M10 x 1.5 x 30 bolt-and-nut assembly."
+      "M10 x 1.5 x 30 bolt-and-nut assembly.",
+      "Vehicle application evidence (SFL/TVS Girling Parts Catalogue; exact part-number match): Tata common HCV transmission applications. The catalogue does not specify individual Tata models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -40080,7 +40273,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Commercial-vehicle suspension/hardware application",
-      "M12 x 1.5 x 35 bolt."
+      "M12 x 1.5 x 35 bolt.",
+      "Vehicle fitment evidence (SFL/TVS Girling Parts Catalogue; exact part-number match): Tata 1210 and 1210SE rear foundation-bolt application. Catalogue also mentions a rotavator context; verify the installed assembly."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -42550,7 +42744,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 3600,
     "applications": [
-      "Tata commercial vehicles."
+      "Tata commercial vehicles.",
+      "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata commercial vehicles. The WABCO catalogue gives make-level application only; no individual model is stated."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -42657,7 +42852,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 200,
     "applications": [
-      "Tata and MAN commercial vehicles."
+      "Tata and MAN commercial vehicles.",
+      "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata and MAN commercial vehicles. The catalogue gives make-level applications only; no individual model is stated."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -42923,7 +43119,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 850,
     "applications": [
-      "Tata commercial vehicles."
+      "Tata commercial vehicles.",
+      "Vehicle application evidence (WABCO Customer Centre catalogue, make-level) plus secondary distributor model listing: Tata; distributor-reported Tata Signa 4223 TC, 4223.T TC ISBE 5.9 UMB, 4223.TK TC ISBE 5.9 and 4823.T TC ISBE 5.9, BS3/BS4 (2008–2020). Model/year detail is not OEM-verified; confirm before using as a hard fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43126,7 +43323,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Vehicle-specific SBAM 231 leaf-spring centre-bolt application",
-      "exact 14-inch LH vehicle fitment not reliably indexed."
+      "exact 14-inch LH vehicle fitment not reliably indexed.",
+      "Vehicle fitment evidence (GS Price Lists, 2021 and 06-May-2024; exact part-number match): Tata 1210, 1612, 2515 EX and 2416; Ashok Leyland (model not specified). Rear LH centre bolt."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43459,7 +43657,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000884/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 1952 / MPN 0402AA0310N): Mahindra Bolero rear spring application. The supplier entry does not identify individual replacement-leaf position; verify the leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43507,7 +43706,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000885/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 1952 / MPN 0402AA0310N): Mahindra Bolero rear spring application. The supplier entry does not identify individual replacement-leaf position; verify the leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43555,7 +43755,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000886/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 1952 / MPN 0402AA0310N): Mahindra Bolero rear spring application. The supplier entry does not identify individual replacement-leaf position; verify the leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43603,7 +43804,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000887/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 1952 / MPN 0402AA0310N): Mahindra Bolero rear spring application. The supplier entry does not identify individual replacement-leaf position; verify the leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43651,7 +43853,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000888/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43699,7 +43902,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000889/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43747,7 +43951,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000890/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 0661N / MPN 0401AA0540N): Mahindra Bolero Pickup Maxx New Model front spring application. JAI lists 3-/4-leaf configuration, not the individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43795,7 +44000,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000891/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 0661N / MPN 0401AA0540N): Mahindra Bolero Pickup Maxx New Model front spring application. JAI lists 3-/4-leaf configuration, not the individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -43890,7 +44096,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000893/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact MPN 84818): Mahindra Armada New front leaf-spring application. The supplier row carries an additional “Pickup Max 0661” cross-note; confirm the vehicle variant before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44078,7 +44285,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000897/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 3322 / MPN 2818 3240 0169): Tata Super Ace rear leaf-spring application. The source identifies the rear spring group, not the individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44125,7 +44333,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000898/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 3322 / MPN 2818 3240 0169): Tata Super Ace rear leaf-spring application. The source identifies the rear spring group, not the individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44172,7 +44381,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000899/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 14032 / MPN 554632400120): Tata Intra V30 spring application. The supplier entry does not specify axle position or individual replacement-leaf position; verify against the vehicle before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44219,7 +44429,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000900/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 14032 / MPN 554632400120): Tata Intra V30 spring application. The supplier entry does not specify axle position or individual replacement-leaf position; verify against the vehicle before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44266,7 +44477,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000901/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 6481 / MPN 5523 3210 0109): Tata Ace Dicor High GVW front leaf-spring application. The supplier does not identify the individual replacement-leaf position; verify leaf layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44313,7 +44525,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000902/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 3252 / MPN 2829 3240 0183): Tata Ace Dicor rear parabolic leaf-spring application. The supplier entry does not identify individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44360,7 +44573,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000903/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 3252 / MPN 2829 3240 0183): Tata Ace Dicor rear parabolic leaf-spring application. The supplier entry does not identify individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44454,7 +44668,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000905/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2332N / MPN 2829 3240 0152): Tata Ace / CUB rear parabolic leaf-spring application. The supplier entry does not identify individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44501,7 +44716,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000906/1.webp",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2332N / MPN 2829 3240 0152): Tata Ace / CUB rear parabolic leaf-spring application. The supplier entry does not identify individual replacement-leaf position; verify layer separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44549,7 +44765,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000908/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Driveline System"
+      "Driveline System",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 69; exact RKI part number K185): Leyland Tusker 3-inch, Leyland 350 / 370, Bedford, Tata 1510 TC, Tata 1109 BS III and Eicher 20.16 / Terra 16 long-fork application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44597,7 +44814,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000909/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Centre Coupling"
+      "Centre Coupling",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 107; exact RKI part number K317): large Tata 2518 centre / differential flange; 26-spline."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44645,7 +44863,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000910/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 80; exact RKI part number K276): Tata LPT 2518 N/M RSB type, Tata 697 6×2 BS III and LPT 2516 697 TC/IC BS II 6×2 cross-holder flange-yoke application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44692,7 +44911,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000911/1.webp",
     "applications": [
-      "Gearbox / Propeller Shaft Coupling"
+      "Gearbox / Propeller Shaft Coupling",
+      "Supplier component evidence (RKI Auto Parts Catalogue 2023, p. 114; exact RKI part number K567): GBS-1150 gear coupling, 26-spline. The source identifies gearbox series GBS-1150 but does not specify a vehicle chassis model."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44740,7 +44960,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000912/1.webp",
     "applications": [
       "Gearbox Coupling",
-      "Propeller Shaft Assembly"
+      "Propeller Shaft Assembly",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 108; exact RKI part number K319): Tata GBS 75 gear coupling for Tata 2518 / 4018; 26-spline."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44788,7 +45009,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000913/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 82; exact RKI part number K331): Tata 4018 centre-coupling flange application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44836,7 +45058,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000914/1.webp",
     "applications": [
       "Front Propeller Shaft Connection",
-      "Driveline Assembly"
+      "Driveline Assembly",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 12; exact KFL code KF-6104): Tata 1210 New Model front-teeth driveline application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44886,7 +45109,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000915/1.webp",
     "applications": [
       "Centre Coupling",
-      "Propeller Shaft Assembly"
+      "Propeller Shaft Assembly",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 19; exact KFL code KF-6929): Tata 3718, LPT 2518, LPT 3118, Signa 4323 and Prima 3525 centre-coupling flange, 26-spline."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -44934,7 +45158,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000916/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 12; exact KFL code KF-6117): Tata 1109 six-hole cross-holder application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45031,7 +45256,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000918/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 15; exact KFL code KF-6259): Leyland Tusker truck half-yoke, 3-inch base, for cross KF-5116."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45079,7 +45305,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000919/1.webp",
     "applications": [
       "Gearbox Coupling",
-      "Propeller Shaft Assembly"
+      "Propeller Shaft Assembly",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 18; exact KFL code KF-6289): Tata 3118, 4018 and 2518 GB75 gearbox-coupling application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45127,7 +45354,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000920/1.webp",
     "applications": [
       "Steering System",
-      "Steering Linkage"
+      "Steering Linkage",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 12; exact KFL code KF-6114A): steering joint-cross assembly for 2516 / 1613."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45176,7 +45404,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000921/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Slip Joint"
+      "Slip Joint",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 50; exact RKI part number K141A): Leyland 2214 (10-spline thick spline) and Tata 2515 EX slip-yoke application; RKI specifies 41.27×126 mm and 16-spline product option."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45224,7 +45453,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000922/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Slip Joint"
+      "Slip Joint",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 59; exact RKI part number K144): Leyland 2214 / 3516 10-inch thin-spline rear-teeth application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45272,7 +45502,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000923/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Slip Joint"
+      "Slip Joint",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 58; exact RKI part number K9A): Tata LPK thin-spline 10-inch driveline application and Tata 2515 EX."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45320,7 +45551,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000924/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Legacy Replacement"
+      "Legacy Replacement",
+      "Supplier catalogue status (RKI Auto Parts Catalogue 2023, p. 58; exact RKI part number K9C): RKI Catalogue 2023, p. 58 marks K9C as discontinued and identifies K144 as its replacement. This is a supersession/status note, not a current vehicle-fitment claim."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45369,7 +45601,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000925/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Slip Joint"
+      "Slip Joint",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 50; exact RKI part number K141): Tata 2515 EX / 2516, Leyland 2214 / 2516 / 3516 / 4018 and Eicher Galaxy slip-yoke application; RKI specifies 41.27×126 mm, 30 spline."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45417,7 +45650,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000926/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Slip Joint"
+      "Slip Joint",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 53; exact RKI part number K310): Tata 4018 Patti-type slip-yoke application; RKI also lists Tata 1618 / 3118 / 2521, LPO 3118, LPT 2518 BS III, LPO bus 1625 / 1616 / 1623, Leyland 2516 tipper / 4921 / 3123, AMW 2515 / 2518 and MAN Force 25T New. Confirm the matching shaft length, spline and mating configuration."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45467,7 +45701,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000927/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Slip Joint"
+      "Slip Joint",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 52; exact RKI part number K269A): Tata 1710 series and Leyland 2516 / 2214 interaxle slip-yoke application; 41.27×126 mm, 16-spline."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45515,7 +45750,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000928/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Legacy Replacement"
+      "Legacy Replacement",
+      "Supplier catalogue status (RKI Auto Parts Catalogue 2023, p. 62; exact RKI part number K270): RKI Catalogue 2023, p. 62 marks K270 as discontinued and identifies K311 as its replacement. This is a supersession/status note, not a current vehicle-fitment claim."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45564,7 +45800,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000929/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Slip Joint"
+      "Slip Joint",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 62; exact RKI part number K311): Tata 3118 / 4018 Extra Long, LPT 2518 BS III / 2521, LPO bus 1623, Leyland 2516 / 4921 / 3116 and AMW 2518 rear-teeth application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -45614,7 +45851,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000930/1.webp",
     "applications": [
       "Centre Coupling",
-      "Propeller Shaft Assembly"
+      "Propeller Shaft Assembly",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 118; exact RKI part number K652): centre-coupling flange for Tata 3718, LPT 2518 / 3118, Signa 4323 and Prima 3525; 26-spline."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -48070,7 +48308,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (BP Auto Spares India OEM-detail listing; exact Tata OE part-number match): Tata M&HCV Haulage LPK 1618 TC and Signa 2523 TC. Product title also mentions LPK 2518; that additional model was not independently established by this source."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -48408,7 +48647,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000987/1.webp",
     "applications": [
       "Commercial-vehicle lubrication and fluid-maintenance system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle application evidence (Tata Motors CV Customer Care lubricant guidance; exact oil-grade/part family, pack-size variant): Tata diesel commercial vehicles meeting BS-III/BS-IV requirements. This is a specification-level application, not a model list."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -48456,7 +48696,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000988/1.webp",
     "applications": [
       "Commercial-vehicle lubrication and fluid-maintenance system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle application evidence (Tata Motors CV Customer Care lubricant guidance; exact oil-grade/part family, pack-size variant): Tata diesel commercial vehicles meeting BS-III/BS-IV requirements. This is a specification-level application, not a model list."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -48504,7 +48745,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000989/1.webp",
     "applications": [
       "Commercial-vehicle lubrication and fluid-maintenance system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle application evidence (Tata Motors CV Customer Care lubricant guidance; exact oil-grade/part family, pack-size variant): Tata diesel commercial vehicles meeting BS-III/BS-IV requirements. This is a specification-level application, not a model list."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -48554,7 +48796,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Eicher 11.10 Center Bearing."
+      "fitment/specification: Eicher 11.10 Center Bearing.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 39; exact part-number match): Eicher 11.10 center-bearing application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -49045,7 +49288,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tata 407 N/M with rubber & oil seal."
+      "fitment/specification: Tata 407 N/M with rubber & oil seal.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 407 N/M center bearing with rubber and oil seal."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -49097,7 +49341,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Center Bearing for Tata 407 EX/709 EX/ 909EX/ 1109EX."
+      "fitment/specification: Center Bearing for Tata 407 EX/709 EX/ 909EX/ 1109EX.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 407 EX, 709 EX, 909 EX and 1109 EX."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -49145,7 +49390,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS001002/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Volvo/Man Truck."
+      "fitment/specification: Clutch Release Bearing for Volvo/Man Truck.",
+      "Vehicle application evidence (Texspin Master Price List 2025–26, p. 14; exact part-number match): Volvo and MAN trucks. Supplier list does not specify individual chassis models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -49196,7 +49442,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Center bearing for tata 407/2213/4018 all new models."
+      "fitment/specification: Center bearing for tata 407/2213/4018 all new models.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 407, 2213 and 4018, all-new-model application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -49962,7 +50209,8 @@
     "approx_weight_g": 4200,
     "applications": [
       "Commercial-vehicle braking system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata and Ashok Leyland commercial vehicles. The catalogue gives make-level applications only; no individual model is stated."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -50028,7 +50276,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata commercial vehicles. The catalogue gives make-level application only; no individual model is stated."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -50608,7 +50857,8 @@
     "applications": [
       "Rear spring suspension bracket",
       "6 hole",
-      "30 mm"
+      "30 mm",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Rear-suspension rear bracket, 6-hole, 30 mm."
     ],
     "gallery": [
       "1.webp",
@@ -50656,7 +50906,8 @@
     "image_folder": "SVKS001031",
     "applications": [
       "Rear spring rear hanger",
-      "8 hole"
+      "8 hole",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Rear-suspension rear hanger, 8-hole."
     ],
     "gallery": [
       "1.webp",
@@ -50705,7 +50956,8 @@
     "applications": [
       "Double pin hanger",
       "LH",
-      "BS6"
+      "BS6",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 12; exact part-code match): Ashok Leyland U-Truck / 3718 / BS6 haulage / BS6 tractor / BS6 tipper catalogue section. Left-hand double-pin hanger, BS6."
     ],
     "gallery": [
       "1.webp",
@@ -50755,7 +51007,8 @@
     "applications": [
       "Helper bracket",
       "new model",
-      "threaded type"
+      "threaded type",
+      "Vehicle application evidence (JMP Product Price List, March 2026, p. 6; exact part-code match): Tata bogie-suspension section, new-model threaded helper bracket. The catalogue does not enumerate chassis models on this row."
     ],
     "gallery": [
       "1.webp",
@@ -50804,7 +51057,8 @@
     "applications": [
       "Double pin hanger",
       "RH",
-      "BS6"
+      "BS6",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 12; exact part-code match): Ashok Leyland U-Truck / 3718 / BS6 haulage / BS6 tractor / BS6 tipper catalogue section. Right-hand double-pin hanger, BS6."
     ],
     "gallery": [
       "1.webp",
@@ -50851,7 +51105,8 @@
     "description": "JMP J4037 front spring rear shackle, part number IC 334595, for Eicher Pro Series suspension applications. This shackle is a suspension linkage component associated with compatible front spring assemblies.",
     "image_folder": "SVKS001035",
     "applications": [
-      "Front spring rear shackle"
+      "Front spring rear shackle",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 19; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Front-spring rear shackle."
     ],
     "gallery": [
       "1.webp",
@@ -50900,7 +51155,8 @@
     "applications": [
       "Rear suspension front bracket",
       "35 mm",
-      "17 mm chassis holes"
+      "17 mm chassis holes",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Rear-suspension front bracket, 35 mm, 17 mm chassis holes."
     ],
     "gallery": [
       "1.webp",
@@ -50948,7 +51204,8 @@
     "image_folder": "SVKS001037",
     "applications": [
       "Front spring rear hanger",
-      "3 hole"
+      "3 hole",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Front-spring rear hanger."
     ],
     "gallery": [
       "1.webp",
@@ -50996,7 +51253,8 @@
     "image_folder": "SVKS001038",
     "applications": [
       "Double pin hanger",
-      "Eicher Terra 25"
+      "Eicher Terra 25",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Terra 25 double-pin hanger."
     ],
     "gallery": [
       "1.webp",
@@ -51045,7 +51303,8 @@
     "applications": [
       "Front spring rear hanger",
       "4 hole",
-      "LH"
+      "LH",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 17; exact part-code match): Eicher Pro and Eicher Jumbo 20.16 catalogue section. Front-spring rear hanger, LH."
     ],
     "gallery": [
       "1.webp",
@@ -51095,7 +51354,8 @@
       "Spring seat",
       "LH",
       "bogie suspension",
-      "rear axle"
+      "rear axle",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 12; exact part-code match): Ashok Leyland U-Truck / 3718 / BS6 haulage / BS6 tractor / BS6 tipper catalogue section. Rear-spring front bracket for 14-tyre application."
     ],
     "gallery": [
       "1.webp",
@@ -51147,7 +51407,8 @@
     "image_folder": "SVKS001041",
     "applications": [
       "First axle shackle",
-      "LH"
+      "LH",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 3; exact part-code match): Tata 3118, 3718, Signa, 5523 and Prima catalogue section. First-axle LH shackle."
     ],
     "gallery": [
       "1.webp",
@@ -51196,7 +51457,8 @@
     "image_folder": "SVKS001042",
     "applications": [
       "First axle shackle",
-      "RH"
+      "RH",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 3; exact part-code match): Tata 3118, 3718, Signa, 5523 and Prima catalogue section. First-axle RH shackle."
     ],
     "gallery": [
       "1.webp",
@@ -51245,7 +51507,8 @@
     "image_folder": "SVKS001043",
     "applications": [
       "Second axle shackle",
-      "LH"
+      "LH",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 3; exact part-code match): Tata 3118, 3718, Signa, 5523 and Prima catalogue section. Second-axle LH shackle."
     ],
     "gallery": [
       "1.webp",
@@ -51294,7 +51557,8 @@
     "image_folder": "SVKS001044",
     "applications": [
       "Second axle shackle",
-      "RH"
+      "RH",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 3; exact part-code match): Tata 3118, 3718, Signa, 5523 and Prima catalogue section. Second-axle RH shackle."
     ],
     "gallery": [
       "1.webp",
@@ -51343,7 +51607,8 @@
     "applications": [
       "Bell crank",
       "small",
-      "U-Truck"
+      "U-Truck",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 12; exact part-code match): Ashok Leyland U-Truck small bell-crank application; catalog section groups U-Truck, 3718 and BS6 haulage/tractor/tipper families."
     ],
     "gallery": [
       "1.webp",
@@ -51391,7 +51656,8 @@
     "image_folder": "SVKS001046",
     "applications": [
       "Rear spring front bracket",
-      "2516"
+      "2516",
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 10; exact part-code match): Ashok Leyland 2516 rear-spring front bracket."
     ],
     "gallery": [
       "1.webp",
@@ -51430,7 +51696,8 @@
     ],
     "applications": [
       "Tata 3118 / 4018",
-      "Spicer type."
+      "Spicer type.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 3118/4018 and Ashok Leyland 3118, Spicer-type propeller-shaft center bearing."
     ],
     "featured": false,
     "active": true,
@@ -51479,7 +51746,8 @@
     ],
     "applications": [
       "Tata 3723 / Bharat Benz / Ashok Leyland U-Truck",
-      "bearing width 22 mm."
+      "bearing width 22 mm.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 3723, Bharat Benz and Ashok Leyland U-Truck, 22 mm bearing width. Confirm shaft width before ordering."
     ],
     "featured": false,
     "active": true,
@@ -51526,7 +51794,8 @@
       "Eicher 1110"
     ],
     "applications": [
-      "Eicher 11.10."
+      "Eicher 11.10.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 39; exact part-number match): Eicher 11.10 center bearing."
     ],
     "featured": false,
     "active": true,
@@ -51573,7 +51842,8 @@
       "Ashok Leyland 2516"
     ],
     "applications": [
-      "Ashok Leyland (RSB type)."
+      "Ashok Leyland (RSB type).",
+      "Vehicle application evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Ashok Leyland RSB-type center bearing. Specific chassis model is not listed."
     ],
     "featured": false,
     "active": true,
@@ -51622,7 +51892,8 @@
     ],
     "applications": [
       "Tata 3118",
-      "65 mm diameter."
+      "65 mm diameter.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 3118, 65 mm center bearing."
     ],
     "featured": false,
     "active": true,
@@ -51670,7 +51941,8 @@
       "Tata Signa"
     ],
     "applications": [
-      "Tata HYVA model."
+      "Tata HYVA model.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata HYVA application."
     ],
     "featured": false,
     "active": true,
@@ -51720,7 +51992,8 @@
       "VECV 8035 / PRO-8000 / ALL-3532",
       "4932 and 4936",
       "OE: ID802381",
-      "P0F00111."
+      "P0F00111.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 39; exact part-number match): VECV 8035, Pro-8000, ALL-3532, 4932 and 4936, 65 mm center bearing."
     ],
     "featured": false,
     "active": true,
@@ -51771,7 +52044,8 @@
     ],
     "applications": [
       "Ashok Leyland 1618 bus",
-      "BS-IV."
+      "BS-IV.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 39; exact part-number match): Ashok Leyland 1618 bus, BS-IV."
     ],
     "featured": false,
     "active": true,
@@ -51819,7 +52093,8 @@
       "Tata Signa"
     ],
     "applications": [
-      "Tata 2416 / 2518."
+      "Tata 2416 / 2518.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 2416 and 2518."
     ],
     "featured": false,
     "active": true,
@@ -51869,7 +52144,8 @@
     ],
     "applications": [
       "Tata LCV 407 / 609 / 709 / 1109",
-      "all EX models."
+      "all EX models.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata LCV 407, 609, 709 and 1109, all EX models."
     ],
     "featured": false,
     "active": true,
@@ -51920,7 +52196,8 @@
     ],
     "applications": [
       "Tata 407 EX / 709 EX / 909 EX / 1109 EX",
-      "also listed as Eicher Jumbo (Spicer type)."
+      "also listed as Eicher Jumbo (Spicer type).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 407 EX, 709 EX, 909 EX and 1109 EX."
     ],
     "featured": false,
     "active": true,
@@ -51969,7 +52246,8 @@
     ],
     "applications": [
       "Mahindra Scorpio (printed p.34)",
-      "Tata 407 N/M with rubber and oil seal (printed p.35)."
+      "Tata 407 N/M with rubber and oil seal (printed p.35).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, pp. 39–40; exact part-number match): Mahindra Scorpio and Tata 407 N/M. The supplier catalogue lists this code in both Mahindra and Tata sections; verify shaft length/bracket style."
     ],
     "featured": false,
     "active": true,
@@ -52017,7 +52295,8 @@
     ],
     "applications": [
       "Ashok Leyland Euro-4 MSL type",
-      "with rubber."
+      "with rubber.",
+      "Vehicle application evidence (Texspin Master Price List 2025–26, p. 39; exact part-number match): Ashok Leyland Euro-4 MSL-type center bearing with rubber. No model is stated."
     ],
     "featured": false,
     "active": true,
@@ -52067,7 +52346,8 @@
     ],
     "applications": [
       "Tata 407 / 2213 / 4018",
-      "all new models."
+      "all new models.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata 407, 2213 and 4018, all-new-model center bearing."
     ],
     "featured": false,
     "active": true,
@@ -52115,7 +52395,8 @@
       "Tata LPT"
     ],
     "applications": [
-      "Propeller shaft bearing for Tata."
+      "Propeller shaft bearing for Tata.",
+      "Vehicle application evidence (Texspin Master Price List 2025–26, p. 40; exact part-number match): Tata propeller-shaft bearing. Individual chassis models are not listed."
     ],
     "featured": false,
     "active": true,
@@ -52163,7 +52444,8 @@
     ],
     "applications": [
       "L/L U-2528 / U-4923",
-      "front/rear"
+      "front/rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 8; exact part-number match): Leyland U-Truck 2528 and 4923, truck/trailer front or rear U-bolt application."
     ],
     "featured": false,
     "active": true,
@@ -52212,7 +52494,8 @@
     ],
     "applications": [
       "Tata Prima 4018 / 3118",
-      "front flat"
+      "front flat",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 16; exact part-number match): Tata Prima 4018 and 3118 front, flat-type U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52261,7 +52544,8 @@
     ],
     "applications": [
       "Tata Prima 4018 / 3118",
-      "front flat"
+      "front flat",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 16; exact part-number match): Tata Prima 4018 and 3118 front, flat-type U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52361,7 +52645,8 @@
     ],
     "applications": [
       "Tata 1312 / 1210",
-      "front"
+      "front",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 4; exact part-number match): Tata 1312 and 1210 front U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52410,7 +52695,8 @@
       "Tata Ultra"
     ],
     "applications": [
-      "Mahindra Max Navistar / Tata Ultra / AMW"
+      "Mahindra Max Navistar / Tata Ultra / AMW",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 8; exact part-number match): Mahindra Max/Navistar, Ultra and AMW applications as grouped in the Nirmal list. Confirm the specific chassis/axle before ordering."
     ],
     "featured": false,
     "active": true,
@@ -52460,7 +52746,8 @@
     ],
     "applications": [
       "Tata BS-6",
-      "front"
+      "front",
+      "Vehicle application evidence (Nirmal Price List No. 67/2026, p. 11; exact part-number match): Tata BS6 front U-bolt application. Individual model is not specified."
     ],
     "featured": false,
     "active": true,
@@ -52509,7 +52796,8 @@
       "Ashok Leyland Captain"
     ],
     "applications": [
-      "Leyland BS-6"
+      "Leyland BS-6",
+      "Vehicle application evidence (Nirmal Price List No. 67/2026, p. 8; exact part-number match): Leyland BS6 U-bolt application. Individual model is not specified."
     ],
     "featured": false,
     "active": true,
@@ -52559,7 +52847,8 @@
     ],
     "applications": [
       "Tata BS-6",
-      "front"
+      "front",
+      "Vehicle application evidence (Nirmal Price List No. 67/2026, p. 11; exact part-number match): Tata BS6 front U-bolt application. Individual model is not specified."
     ],
     "featured": false,
     "active": true,
@@ -52611,7 +52900,8 @@
     ],
     "applications": [
       "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
-      "rear"
+      "rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 6; exact part-number match): Tata 1612, 2416, 1510 T.C. and 2515 EX rear U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52663,7 +52953,8 @@
     ],
     "applications": [
       "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
-      "rear"
+      "rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 6; exact part-number match): Tata 1612, 2416, 1510 T.C. and 2515 EX rear U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52715,7 +53006,8 @@
     ],
     "applications": [
       "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
-      "rear"
+      "rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 6; exact part-number match): Tata 1612, 2416, 1510 T.C. and 2515 EX rear U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52767,7 +53059,8 @@
     ],
     "applications": [
       "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
-      "rear"
+      "rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 6; exact part-number match): Tata 1612, 2416, 1510 T.C. and 2515 EX rear U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52819,7 +53112,8 @@
     ],
     "applications": [
       "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
-      "rear"
+      "rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 6; exact part-number match): Tata 1612, 2416, 1510 T.C. and 2515 EX rear U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52871,7 +53165,8 @@
     ],
     "applications": [
       "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
-      "rear"
+      "rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 6; exact part-number match): Tata 1612, 2416, 1510 T.C. and 2515 EX rear U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52923,7 +53218,8 @@
     ],
     "applications": [
       "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
-      "rear"
+      "rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 6; exact part-number match): Tata 1612, 2416, 1510 T.C. and 2515 EX rear U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -52975,7 +53271,8 @@
     ],
     "applications": [
       "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
-      "rear"
+      "rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 6; exact part-number match): Tata 1612, 2416, 1510 T.C. and 2515 EX rear U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -53027,7 +53324,8 @@
     ],
     "applications": [
       "Tata 1612 / 2416 / 1510 T.C. / 2515 EX",
-      "rear"
+      "rear",
+      "Vehicle fitment evidence (Nirmal Price List No. 67/2026, p. 6; exact part-number match): Tata 1612, 2416, 1510 T.C. and 2515 EX rear U-bolt."
     ],
     "featured": false,
     "active": true,
@@ -53077,7 +53375,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 100; exact RKI part number K21B): Tata 2515 / 3516 differential-coupling conversion, Spicer type, Patti style; confirm mating cross and spline configuration."
     ],
     "featured": false,
     "active": true,
@@ -53126,7 +53425,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 100; exact RKI part number K22B): Tata 2515 / 3516 differential-coupling conversion, Spicer type, SPL 90 cross, Patti style; confirm mating cross and spline configuration."
     ],
     "featured": false,
     "active": true,
@@ -53175,7 +53475,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 106; exact RKI part number K313): Tata 2518 centre-coupling flange; 34-spline."
     ],
     "featured": false,
     "active": true,
@@ -53224,7 +53525,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 106; exact RKI part number K313A): Tata 2518 large centre-coupling flange; 34-spline."
     ],
     "featured": false,
     "active": true,
@@ -53274,7 +53576,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Long Fork and Sleeve-Bottle Set",
-      "Driveline Repair. Confirm exact vehicle variant and mating dimensions before installation."
+      "Driveline Repair. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Supplier component evidence (RKI Auto Parts Catalogue 2023, p. 10; exact RKI part number K303): complete long-fork / sleeve-bottle set for the RSB 490 series, 48×135 mm cross, 30 splines and 95 mm pipe diameter. The catalogue page does not specify a vehicle chassis model."
     ],
     "featured": false,
     "active": true,
@@ -53323,7 +53626,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 107; exact RKI part number K316): small Tata 2518 centre / differential flange; 26-spline."
     ],
     "featured": false,
     "active": true,
@@ -53372,7 +53676,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 99; exact RKI part number K15): Tata 2416 centre-coupling application."
     ],
     "featured": false,
     "active": true,
@@ -53422,7 +53727,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 106; exact RKI part number K277): centre-coupling application for Tata 2416 N/M and Tata 2515; 26-spline flange."
     ],
     "featured": false,
     "active": true,
@@ -53471,7 +53777,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 107; exact RKI part number K314A): Tata 2515 / 2518 interaxle centre-coupling flange; 34-spline."
     ],
     "featured": false,
     "active": true,
@@ -53521,7 +53828,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 101; exact RKI part number K23A): Tata 4018 gear-coupling application."
     ],
     "featured": false,
     "active": true,
@@ -53570,7 +53878,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Supplier application evidence (RKI Auto Parts Catalogue 2023, p. 104; exact RKI part number K152): Leyland 2214 centre-coupling flange, 34-spline; 175 mm flange, 7-inch diameter."
     ],
     "featured": false,
     "active": true,
@@ -53619,7 +53928,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 99; exact RKI part number K17): Tata 1312 gear-coupling application."
     ],
     "featured": false,
     "active": true,
@@ -53668,7 +53978,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 107; exact RKI part number K314): Leyland 3116 centre-coupling flange; 34-spline."
     ],
     "featured": false,
     "active": true,
@@ -53717,7 +54028,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 100; exact RKI part number K21): differential-coupling conversion for Tata 3516 / 2516; 39-spline. Match flange and shaft dimensions before installation."
     ],
     "featured": false,
     "active": true,
@@ -53766,7 +54078,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 103; exact RKI part number K123): Tata 1510 TC centre-coupling conversion application."
     ],
     "featured": false,
     "active": true,
@@ -53815,7 +54128,8 @@
     "applications": [
       "Commercial Truck Driveline",
       "Front Teeth Component",
-      "Splined Shaft/Driveline Service. Confirm exact vehicle variant and mating dimensions before installation."
+      "Splined Shaft/Driveline Service. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 90; exact RKI part number K183): Leyland Tusker 3.5-inch front-teeth application."
     ],
     "featured": false,
     "active": true,
@@ -53864,7 +54178,8 @@
     "applications": [
       "Commercial Truck Driveline",
       "Front Teeth Component",
-      "Splined Shaft/Driveline Service. Confirm exact vehicle variant and mating dimensions before installation."
+      "Splined Shaft/Driveline Service. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 89; exact RKI part number K11A): Tata 2518 N/M front-teeth application."
     ],
     "featured": false,
     "active": true,
@@ -53913,7 +54228,8 @@
     "applications": [
       "Tata 1312 Propeller Shaft Assembly",
       "Front Teeth Component",
-      "26-Spline Driveline Application. Confirm exact vehicle variant and mating dimensions before installation."
+      "26-Spline Driveline Application. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 89; exact RKI part number K10): Tata 1312 front-teeth application."
     ],
     "featured": false,
     "active": true,
@@ -53964,7 +54280,8 @@
       "Leyland 307",
       "Leyland 370 and Bedford Driveline Applications",
       "Front Teeth Component",
-      "10-Spline Application. Confirm exact vehicle variant and mating dimensions before installation."
+      "10-Spline Application. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 90; exact RKI part number K182): Leyland Tusker 3-inch, Leyland 3507 / 370 and Bedford front-teeth application."
     ],
     "featured": false,
     "active": true,
@@ -54014,7 +54331,8 @@
     "applications": [
       "Commercial Truck Driveline",
       "Rear Teeth Component",
-      "Splined Shaft/Driveline Service. Confirm exact vehicle variant and mating dimensions before installation."
+      "Splined Shaft/Driveline Service. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 61; exact RKI part number K181): Leyland Tusker, Leyland 350 / 370, Bedford and Tata 1510 TC rear-teeth application."
     ],
     "featured": false,
     "active": true,
@@ -54064,7 +54382,8 @@
     "applications": [
       "Tata 1510TC and Leyland 1613 Turbo Heavy Duty Propeller Shaft/Driveline Applications",
       "Front Teeth",
-      "10-Spline Application. Confirm exact vehicle variant and mating dimensions before installation."
+      "10-Spline Application. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 90; exact RKI part number K120): Tata 1510 TC and Leyland 1613 Turbo heavy-duty front-teeth application."
     ],
     "featured": false,
     "active": true,
@@ -54113,7 +54432,8 @@
     "applications": [
       "Commercial Truck Driveline",
       "Yoke and Teeth Assembly",
-      "Propeller Shaft Service. Confirm exact vehicle variant and mating dimensions before installation."
+      "Propeller Shaft Service. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 37; exact RKI part number K268): Tata 407 (old-model) yoke-and-teeth set; 16-spline involute, 30×81.8 mm."
     ],
     "featured": false,
     "active": true,
@@ -54212,7 +54532,8 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Driveline System",
-      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation."
+      "Coupling Flange Replacement. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 99; exact RKI part number K16): Tata 1312 centre-coupling application."
     ],
     "featured": false,
     "active": true,
@@ -54261,7 +54582,8 @@
     "applications": [
       "Tata LPK 3128 8x4 tipper",
       "5250 mm wheelbase",
-      "Benz 3123."
+      "Benz 3123.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 19; exact KFL code KF-6934B): front-teeth driveline application for Tata LPK 3128 8×4 tipper, 5,250 mm wheelbase, and Benz 3123."
     ],
     "featured": false,
     "active": true,
@@ -54313,7 +54635,8 @@
       "AL 3518",
       "MNAL 35T",
       "Tata LPS 4921",
-      "LPO 1625/1624 and Benz 3123S."
+      "LPO 1625/1624 and Benz 3123S.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 19; exact KFL code KF-6907A): 20-spline centre-coupling flange for Ashok Leyland 3518, MNAL 35T, Tata LPS 4921, Tata LPO 1625 / 1624 and Benz 3123S."
     ],
     "featured": false,
     "active": true,
@@ -54365,7 +54688,8 @@
       "Tata 3718",
       "LPT 2518",
       "LPT 3118",
-      "Signa 4323 and Prima 3525."
+      "Signa 4323 and Prima 3525.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 19; exact KFL code KF-6929A): Tata 3718, LPT 2518, LPT 3118, Signa 4323 and Prima 3525 centre-coupling flange, 26-spline."
     ],
     "featured": false,
     "active": true,
@@ -54466,7 +54790,8 @@
     "applications": [
       "HYWA 2515 EX",
       "2516/3516 TCAC",
-      "4-inch pipe size."
+      "4-inch pipe size.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 13; exact KFL code KF-6817A): front-teeth driveline application for HYWA Tata 2515 EX, 2516 and 3516 TCAC; 4-inch pipe size."
     ],
     "featured": false,
     "active": true,
@@ -54516,7 +54841,8 @@
     "applications": [
       "2515 EX",
       "2516/3516 TCAC",
-      "HYWA and Leyland Super."
+      "HYWA and Leyland Super.",
+      "Vehicle fitment evidence (Kafila Updated Price List, p. 13; exact KFL code KF-6817B): front-teeth driveline application for Tata 2515 EX / 2516 / 3516 TCAC and HYWA / Leyland Super."
     ],
     "featured": false,
     "active": true,
@@ -54565,7 +54891,8 @@
     ],
     "applications": [
       "Tie rod end for Tata GB-40 gearbox",
-      "vehicle model not specified in the catalogue entry."
+      "vehicle model not specified in the catalogue entry.",
+      "Gearbox application evidence (Kafila Updated Price List, p. 3; exact KFL code KF3359): big tie-rod end for Tata GB-40 gearbox. The supplier entry does not specify a vehicle chassis model."
     ],
     "featured": false,
     "active": true,
@@ -54614,7 +54941,8 @@
     ],
     "applications": [
       "Tie rod end for Tata GB-40 gearbox",
-      "supplied as a pair according to the catalogue."
+      "supplied as a pair according to the catalogue.",
+      "Gearbox application evidence (Kafila Updated Price List, p. 3; exact KFL code KF3358): tie-rod end for Tata GB-40 gearbox, listed as a pair. The supplier entry does not specify a vehicle chassis model."
     ],
     "featured": false,
     "active": true,
@@ -54663,7 +54991,8 @@
     ],
     "applications": [
       "Tata and Tata Ace",
-      "also referenced in the Tata 709 LPT/SFC catalogue section."
+      "also referenced in the Tata 709 LPT/SFC catalogue section.",
+      "Vehicle fitment evidence (Kafila Price List effective 15-May-2026, pp. 3 and 10; exact part-number match): Tata Ace and Tata 709 LPT gear-shifter application."
     ],
     "featured": false,
     "active": true,
@@ -54711,7 +55040,8 @@
     ],
     "applications": [
       "Tie rod repair",
-      "catalogue states all models and references KF3738/KF3748."
+      "catalogue states all models and references KF3738/KF3748.",
+      "Vehicle application evidence (Kafila Price List effective 15-May-2026, p. 3; exact part-number match): Kafila lists KF3738/KF3748 as a tie-rod repair kit for 'all models' within its heavy-commercial-vehicle section; the price list does not enumerate every compatible chassis."
     ],
     "featured": false,
     "active": true,
@@ -54759,7 +55089,8 @@
     ],
     "applications": [
       "Drag link repair kit for 1616/2416 Turbo applications",
-      "as listed in the catalogue."
+      "as listed in the catalogue.",
+      "Vehicle fitment evidence (Kafila Price List effective 15-May-2026, p. 4; exact part-number match): Tata 1616/2416 Turbo drag-link repair kit."
     ],
     "featured": false,
     "active": true,
@@ -55580,7 +55911,8 @@
     "applications": [
       "Leyland FA90 front axle",
       "tie rod end pair",
-      "M30 × 1.5 and M20 × 1.5 threads"
+      "M30 × 1.5 and M20 × 1.5 threads",
+      "Vehicle fitment evidence (Kafila Price List effective 15-May-2026, p. 5; exact part-number match): Leyland FA90 front axle."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001129/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30"
@@ -55631,7 +55963,8 @@
     "applications": [
       "Tata Ultra truck and bus",
       "M30 × 1.5 thread",
-      "14 × 1.5 ball pin"
+      "14 × 1.5 ball pin",
+      "Vehicle fitment evidence (Kafila Price List effective 15-May-2026, p. 3; exact part-number match): Tata Ultra truck and bus drag-link end."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001130/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30"
@@ -55685,7 +56018,8 @@
       "Tata 1510/1612/2213/2416/4018/1613 family",
       "front engine mount",
       "single hole",
-      "16 mm"
+      "16 mm",
+      "Vehicle fitment evidence (Kafila Price List effective 15-May-2026, p. 29; exact part-number match): Tata 1510, 1612, 2213, 2416, 4018 and 1613 front engine mounting, 16 mm."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001131/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30"
@@ -55941,7 +56275,8 @@
       "Tata 1210/1109 front axle",
       "first oversize",
       "35.10 mm shaft diameter",
-      "set of two pins."
+      "set of two pins.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 63; exact part-number match): Tata 1210 and 1109, first-oversize kingpin shaft."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001136/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -56006,7 +56341,8 @@
       "Tata 1210/1109 front axle",
       "second oversize",
       "35.20 mm shaft diameter",
-      "set of two pins."
+      "set of two pins.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 63; exact part-number match): Tata 1210 and 1109, second-oversize kingpin shaft."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001137/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -56071,7 +56407,8 @@
       "Tata 1210/1109 front axle",
       "third oversize",
       "35.30 mm shaft diameter",
-      "set of two pins."
+      "set of two pins.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 63; exact part-number match): Tata 1210 and 1109, third-oversize kingpin shaft."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001138/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -56746,7 +57083,8 @@
     "description": "The Fenner AV13X820 is a cogged V-belt designed for tractor engine accessory-drive applications. Its profile provides engagement with compatible pulleys and transfers engine power to the connected accessory. Fenner's tractor application reference associates this belt with the 255 TU Stage III tractor engine application.",
     "vehicles": [],
     "applications": [
-      "Fitment requires confirmation of the exact belt marking and application."
+      "Fitment requires confirmation of the exact belt marking and application.",
+      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Mahindra tractor with BS III 255 TU engine."
     ],
     "featured": false,
     "active": true,
@@ -56896,7 +57234,8 @@
     "vehicles": [],
     "applications": [
       "Alternator drive",
-      "twin-groove pulley application."
+      "twin-groove pulley application.",
+      "Vehicle application evidence (JK Fenner automotive belt catalogue; exact belt-code match TW1475): Ashok Leyland twin-groove-pulley drive. No chassis model is specified. Cross-reference discrepancy: this catalogue identifies F0332350, whereas the Souviks product record lists F0301850; model fitment is not being promoted until the reference number is reconciled."
     ],
     "featured": false,
     "active": true,
@@ -57196,7 +57535,8 @@
       "A/C compressor drive",
       "Ashok Leyland 2560",
       "3560",
-      "Taurus and 2514 Tipper 6x4."
+      "Taurus and 2514 Tipper 6x4.",
+      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Ashok Leyland AL2560, AL3560, Taurus and 2514 Tipper 6×4."
     ],
     "featured": false,
     "active": true,
