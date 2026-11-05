@@ -238,16 +238,16 @@ def check_mobile_listing_hero_assets(errors: list[str]) -> None:
     # guard mutation idempotent so repeated builds never accumulate duplicate
     # calls to the mobile hero validator.
     guard = re.sub(
-        r"(?m)^    check_mobile_listing_hero_assets\\(errors\\)\\s*\\n",
+        r"(?m)^    check_mobile_listing_hero_assets\(errors\)\s*\n",
         "",
         guard,
     )
-    marker = "    check_listing_critical_image_loading(errors)\\n"
+    marker = "    check_listing_critical_image_loading(errors)\n"
     if marker not in guard:
         raise SystemExit("performance_guard.py is missing its listing-image validator call")
     guard = guard.replace(
         marker,
-        marker + "    check_mobile_listing_hero_assets(errors)\\n",
+        marker + "    check_mobile_listing_hero_assets(errors)\n",
         1,
     )
     guard_path.write_text(guard, encoding="utf-8", newline="")
