@@ -5296,7 +5296,8 @@
     "applications": [
       "Front Disc Brake System",
       "Wheel-End Braking Assembly",
-      "Caliper Brake System"
+      "Caliper Brake System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29390067): the cross-reference list assigns 29390067 to Ciaz / Dzire (2008–2017) / Ritz / Swift (2005–2017), while it assigns Tata Ace / Magic to 29390069. This Souviks record currently pairs 29390067 with Tata Ace; verify the rotor marking before confirming Tata Ace fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -5785,7 +5786,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000120/1.webp",
     "applications": [
       "Front Disc Brake System",
-      "Caliper Brake Assembly"
+      "Caliper Brake Assembly",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29932512): the index lists this pad kit for Mahindra Maxximo Pickup; other reseller cross-references also associate it with Jeeto/Jeeto Mini Van. This Souviks record currently lists Tata Ace, which is not supported by these references. Verify the physical part number and brake-caliper variant before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -5833,7 +5835,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000121/1.webp",
     "applications": [
       "Disc Brake System",
-      "Caliper Brake Assembly"
+      "Caliper Brake Assembly",
+      "Vehicle fitment evidence (TVS Girling part-number index and exact-code retailer listing, part 29932629): Tata Ace / Tata Ace Magic front disc-brake pad kit. Match the caliper and pad shape before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -5881,7 +5884,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000122/1.webp",
     "applications": [
       "Disc Brake System",
-      "Caliper Brake Assembly"
+      "Caliper Brake Assembly",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29933025): the cross-reference list assigns this pad kit to Mahindra Bolero / Sumo / 207DI / Tata Intra V30, not Tata Ace. This Souviks record currently lists Tata Ace; verify the part marking and caliper before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -5929,7 +5933,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000123/1.webp",
     "applications": [
       "Hydraulic Drum Brake System",
-      "Rear Brake Assembly"
+      "Rear Brake Assembly",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29937393): the cross-reference list identifies this as a non-TVS-brake lined-shoe kit for Maruti Esteem (1998–2006). This Souviks record currently lists Tata Ace; do not confirm Tata Ace fitment without resolving the part-number mismatch."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -22703,7 +22708,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000470/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence (TVS Girling part-number index, exact code 29066443): concentric slave-cylinder assembly for Tata Motors 2516. The existing Souviks vehicle field lists Tata LPT; reconcile the vehicle mapping against the clutch housing and installed cylinder before treating the broader LPT designation as confirmed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -22801,7 +22807,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000472/1.webp",
     "applications": [
       "Hydraulic Clutch System",
-      "Clutch Release Mechanism"
+      "Clutch Release Mechanism",
+      "Vehicle fitment evidence (TVS Girling part-number index, exact code 29066426): concentric slave-cylinder assembly for Tata 407 / 608 / 609 / 709. The product name already describes this family, but the current vehicle field lists Tata LPT; reconcile that vehicle mapping before promoting additional models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -22848,7 +22855,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000473/1.webp",
     "applications": [
-      "Hydraulic Clutch System"
+      "Hydraulic Clutch System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29066463): the supplier list identifies this clutch master-cylinder assembly for VECV 10.80 / 10.90 (air), 11.10 / 11.12 (air), 10.80 / 10.90 (110 mm hydraulic) and 10.50 / 10.59 / 10.60 / 10.75 (90 mm hydraulic) configurations. This does not support the current Ashok Leyland 2516 vehicle label; confirm the actual cylinder and linkage before assigning that vehicle."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -22898,7 +22906,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000474/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment evidence (TVS Girling part-number index, exact code 29067016): clutch master-cylinder assembly for Tata LP 1510 / LP 1512 / LP 1613 / LPO 1612 / LPO 1613 / LPO 1618 / LPO 1621 / LPT 2516 / LPT 2518. The source does not establish Tata Ace, Intra or Signa fitment for this exact code; confirm the bore, ports and mounting before extending the current vehicle list."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -22947,7 +22956,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000475/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29067055): clutch master-cylinder assembly for Ashok Leyland U 2518 / U 2523 / U 3123 / U 3718 / U 4019 / U 4923. This conflicts with the current Souviks Tata 1109 / 1210 / 1312 vehicle field; reconcile the part label and master-cylinder configuration before confirming any vehicle fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23286,7 +23296,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000482/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment evidence (TVS Girling part-number index, exact code 29068117): clutch master-cylinder assembly for Tata 2515 / 3515. The exact supplier part-number match supports these models; verify cylinder bore and port configuration for the chassis variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
@@ -23336,7 +23347,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000483/1.webp",
     "applications": [
       "Brake Hydraulic System",
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29068118): the supplier list classifies this item as a concentric slave-cylinder assembly for Tata LP 1510 / LP 1512 (BS II) / LP 1613 / LPO 1612 / LPO 1613. The Souviks record is titled as a clutch master cylinder and currently lists Tata 1109 / 1210 / 1312; reconcile component type and installed clutch system before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30"
   },
