@@ -41,7 +41,9 @@ assert.match(migration, /values \('sales-invoices-private', 'sales-invoices-priv
 assert.match(migration, /revoke all on table public\.sales_invoices from public, anon, authenticated/);
 assert.match(migration, /grant select, insert, update, delete on table public\.sales_invoices to service_role/);
 assert.doesNotMatch(migration, /mark_sales_invoice_signed/);
-assert.match(migration, /coalesce\\(jsonb_typeof\\(p_snapshot -> 'lines'\\), ''\\) <> 'array'/);
+assert.ok(migration.includes("coalesce(jsonb_typeof(p_snapshot), '') <> 'object'"));
+assert.ok(migration.includes("coalesce(jsonb_typeof(p_snapshot -> 'lines'), '') <> 'array'"));
+assert.ok(migration.includes("coalesce(jsonb_array_length(p_snapshot -> 'lines'), 0) < 1"));
 assert.doesNotMatch(migration, /insert into public\.gst_tax_profiles/i, "No GST rate or HSN/SAC profile may be pre-approved or seeded.");
 
 assert.match(invoice, /payment_status.*paid/);
