@@ -826,6 +826,7 @@ def reconcile_catalogue_projections():
             "cross_references": list(p.get("cross_references") or []),
             "mrp": p.get("mrp"),
             "selling_price": p.get("selling_price"),
+
             "hsn_code": text(p.get("hsn_code")),
             "hsn_description": text(p.get("hsn_description")),
             "hsn_confidence": text(p.get("hsn_confidence")),
@@ -958,10 +959,10 @@ def reconcile_catalogue_projections():
         projection_fields = (
             "slug", "part_number", "manufacturer_part_number",
             "manufacturer_part_numbers", "alternate_part_numbers",
-            "oem_numbers", "cross_references", "mrp", "selling_price",
+            "oem_numbers", "cross_references", "mrp", "selling_price", "approx_weight_g",
             "hsn_code", "hsn_description", "hsn_confidence",
             "hsn_classification_status", "hsn_basis", "hsn_review_note",
-            "hsn_reference_date", "approx_weight_g", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
+            "hsn_reference_date", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",
