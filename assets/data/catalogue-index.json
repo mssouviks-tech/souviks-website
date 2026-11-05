@@ -6059,7 +6059,8 @@
     "applications": [
       "Front Disc Brake System",
       "Wheel-End Braking Assembly",
-      "Caliper Brake System"
+      "Caliper Brake System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29390067): the cross-reference list assigns 29390067 to Ciaz / Dzire (2008–2017) / Ritz / Swift (2005–2017), while it assigns Tata Ace / Magic to 29390069. This Souviks record currently pairs 29390067 with Tata Ace; verify the rotor marking before confirming Tata Ace fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -6618,7 +6619,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000120/1.webp",
     "applications": [
       "Front Disc Brake System",
-      "Caliper Brake Assembly"
+      "Caliper Brake Assembly",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29932512): the index lists this pad kit for Mahindra Maxximo Pickup; other reseller cross-references also associate it with Jeeto/Jeeto Mini Van. This Souviks record currently lists Tata Ace, which is not supported by these references. Verify the physical part number and brake-caliper variant before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -6673,7 +6675,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000121/1.webp",
     "applications": [
       "Disc Brake System",
-      "Caliper Brake Assembly"
+      "Caliper Brake Assembly",
+      "Vehicle fitment evidence (TVS Girling part-number index and exact-code retailer listing, part 29932629): Tata Ace / Tata Ace Magic front disc-brake pad kit. Match the caliper and pad shape before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -6728,7 +6731,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000122/1.webp",
     "applications": [
       "Disc Brake System",
-      "Caliper Brake Assembly"
+      "Caliper Brake Assembly",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29933025): the cross-reference list assigns this pad kit to Mahindra Bolero / Sumo / 207DI / Tata Intra V30, not Tata Ace. This Souviks record currently lists Tata Ace; verify the part marking and caliper before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -6783,7 +6787,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000123/1.webp",
     "applications": [
       "Hydraulic Drum Brake System",
-      "Rear Brake Assembly"
+      "Rear Brake Assembly",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29937393): the cross-reference list identifies this as a non-TVS-brake lined-shoe kit for Maruti Esteem (1998–2006). This Souviks record currently lists Tata Ace; do not confirm Tata Ace fitment without resolving the part-number mismatch."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -9655,7 +9660,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000176/1.webp",
     "applications": [
-      "Engine Air Intake Filtration System"
+      "Engine Air Intake Filtration System",
+      "Vehicle fitment evidence (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part 820006900 and OE part 885409041613): air-filter set AF947 + AF963 is listed for Tata 1612 to 3118 TC Series. Fleetguard identifies AF947 as the primary element and AF963 as the secondary element. Confirm the TC-series engine and air-cleaner housing before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -13012,7 +13018,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000237/1.webp",
     "applications": [
       "Fuel Filtration System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Automotive Filters India catalogue, HCV Filter Application Chart, pp. 21–22; exact part-number match F 002 H22 012): Ashok Leyland MiTR diesel and Partner diesel. Bosch's cross-reference chart also lists NALT ZD30 TCIC BS III/BS IV engine families. Confirm engine and filter position against the vehicle before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -13070,7 +13077,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000238/1.webp",
     "applications": [
       "Engine Lubrication Filtration System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Automotive Filters India catalogue, HCV Filter Application Chart, pp. 21–22; exact part-number match F 002 H24 520 / LF16090 / ID201024): Eicher 10.75 diesel, 10.80 E2 Plus diesel, 10.90 L40 diesel, Pro 1049 diesel, Pro Series 1075 and Pro Series 1080. Bosch identifies this as a spin-on bypass oil filter; confirm engine and bypass-filter position before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -13128,7 +13136,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000239/1.webp",
     "applications": [
       "Engine Lubrication Filtration System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Automotive Filters India catalogue, HCV Filter Application Chart, pp. 21–22; exact part-number match F 002 H60 015 / LF16082 / ID203204): Eicher Galaxy 30.25, Galaxy 30.25 XP, Galaxy 33.25, Jumbo 15.16 and Jumbo 20.16 diesel. Bosch identifies this as an oil-filter element; confirm the engine and housing before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -15932,7 +15941,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000290/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence (Fleetguard official FF5544 product listing and Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part FF5544): Fleetguard identifies Tata Cummins application, and the HCV list includes FF5544 as a component of the Tata 3118 TC BS III three-piece kit (OE 885418013118; kit FG part 502286500). This supports the specified BS III kit context only; do not infer standalone BS IV fitment from this listing."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -15987,7 +15997,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000291/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Application identifier conflict (Fleetguard HCV/LCV After Market Price Lists, effective 21-May-2021 and 2022): FHJ01000 is listed for the Ashok Leyland CB18 FIP CRS engine against Fleetguard filter FF0555200, while FF5552 is separately listed as the CB18 FIP CRS filter-head assembly (FG head-assembly part 502113500). This Souviks record pairs part number FF5552 with manufacturer reference FHJ01000. Do not promote the CB18 filter fitment for this identifier pair until the supplied part label and item type are reconciled."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -16041,7 +16052,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000292/1.webp",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle fitment evidence (Fleetguard HCV Parts Catalogue and Fleetguard FS19636 product equipment listing; exact FG part FS19636 / OE cross-reference F8835100): listed as a fuel-water separator for Ashok Leyland BS II and BS III applications. Fleetguard's equipment table specifically lists Ashok Leyland 412 TCAC (2012) and 2521 (2011). Treat these as catalogue-listed equipment associations; confirm engine variant, year and separator configuration before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -16095,7 +16107,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000293/1.webp",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle fitment evidence (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part FS1966900 / Souviks part FS19669 / OE cross-reference FHJ00700): listed for the Ashok Leyland H6 engine with inline-pump configuration. The source identifies an engine/fuel-system application, not a complete model-year list; confirm H6 engine variant and inline-pump arrangement before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -16204,7 +16217,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000295/1.webp",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle fitment evidence (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part FS1967100V / Souviks part FS19671V / OE cross-reference FHN00400): Ashok Leyland CB18 FIP CRS engine, BS IV, with drain valve. Confirm the drain-valve version; the catalogue lists a separate no-drain variant and they must not be substituted without checking the installed separator assembly."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -16316,7 +16330,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000297/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Fitment reconciliation required (Fleetguard HCV Parts Catalogue; exact FG part LF16079 / OE cross-reference X4001000): the supplier catalogue lists this lube filter for the Ashok Leyland U-Truck H-Series engine. The current Souviks vehicle field lists Tata 1109, Tata 1210, Tata 1312 and Tata LPT, which does not match that supplier application. Do not treat those Tata models as confirmed by this cross-reference; reconcile the physical part, engine and OEM reference before promoting a vehicle fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -16370,7 +16385,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000298/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence (Fleetguard HCV Parts Catalogue and HCV/LCV After Market Price List; exact FG part LF16305 / OE cross-reference F7A05000): Ashok Leyland BOSS with 4CTI engine. Confirm the 4CTI engine variant and filter housing before ordering; the source does not establish every BOSS model/year."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -16425,7 +16441,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000299/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence (Fleetguard HCV Parts Catalogue and HCV/LCV After Market Price List; exact FG part LF16309 / OE cross-reference FPA00300): Ashok Leyland NGIT Guru with H4CTi engine. Confirm the engine and filter housing before ordering; the source does not identify individual Guru model years."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -25974,7 +25991,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000470/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence (TVS Girling part-number index, exact code 29066443): concentric slave-cylinder assembly for Tata Motors 2516. The existing Souviks vehicle field lists Tata LPT; reconcile the vehicle mapping against the clutch housing and installed cylinder before treating the broader LPT designation as confirmed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26086,7 +26104,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000472/1.webp",
     "applications": [
       "Hydraulic Clutch System",
-      "Clutch Release Mechanism"
+      "Clutch Release Mechanism",
+      "Vehicle fitment evidence (TVS Girling part-number index, exact code 29066426): concentric slave-cylinder assembly for Tata 407 / 608 / 609 / 709. The product name already describes this family, but the current vehicle field lists Tata LPT; reconcile that vehicle mapping before promoting additional models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26140,7 +26159,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000473/1.webp",
     "applications": [
-      "Hydraulic Clutch System"
+      "Hydraulic Clutch System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29066463): the supplier list identifies this clutch master-cylinder assembly for VECV 10.80 / 10.90 (air), 11.10 / 11.12 (air), 10.80 / 10.90 (110 mm hydraulic) and 10.50 / 10.59 / 10.60 / 10.75 (90 mm hydraulic) configurations. This does not support the current Ashok Leyland 2516 vehicle label; confirm the actual cylinder and linkage before assigning that vehicle."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26197,7 +26217,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000474/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment evidence (TVS Girling part-number index, exact code 29067016): clutch master-cylinder assembly for Tata LP 1510 / LP 1512 / LP 1613 / LPO 1612 / LPO 1613 / LPO 1618 / LPO 1621 / LPT 2516 / LPT 2518. The source does not establish Tata Ace, Intra or Signa fitment for this exact code; confirm the bore, ports and mounting before extending the current vehicle list."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26253,7 +26274,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000475/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29067055): clutch master-cylinder assembly for Ashok Leyland U 2518 / U 2523 / U 3123 / U 3718 / U 4019 / U 4923. This conflicts with the current Souviks Tata 1109 / 1210 / 1312 vehicle field; reconcile the part label and master-cylinder configuration before confirming any vehicle fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26309,7 +26331,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000476/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index and supplier listing, exact code 29067074): the supplier listing describes an M/M 25/32-tonner, cowl/tipper and 40-tonne tractor clutch master-cylinder configuration, while the Souviks vehicle field currently lists Tata 1109, 1210 and 1312. This exact-code source does not substantiate those Tata models; verify the part marking, bore and mounting before assigning fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26420,7 +26443,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000478/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29067429): listed for Jan Bus 12 m / JanBus Midi, Lynx Smart wheelbase variants and Viking 180 HP. This does not support the current Tata 1109 / 1210 / 1312 mapping; verify the cylinder and bus configuration before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26476,7 +26500,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000479/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment evidence (TVS Girling exact-code supplier listing, part 29067792): Tata LPK 1616 clutch master-cylinder assembly. Other price-list references associate the code with Tata 2518 / Signa HCV applications; those broader variants need bore and mounting confirmation. The current Tata 1109 / 1210 / 1312 vehicle labels are not established by these exact-code references."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26531,7 +26556,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000480/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling exact-code supplier listing, part 29068077): identified as a clutch master-cylinder assembly for Ashok Leyland 1616 truck (older part reference 29067430). The current Souviks vehicle field lists Tata LPT and Tata Signa; those applications are not established by the cited exact-code listing. Verify the part label and cylinder interface before confirming."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26587,7 +26613,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000481/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index and Brakes India price-list references, exact code 29068102): listed as an Ashok Leyland SFC tipper HCV clutch master-cylinder assembly. The current Souviks vehicle field lists Tata 1109 / 1210 / 1312, which is not supported by this code-specific application. Confirm the installed vehicle and cylinder variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26641,7 +26668,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000482/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment evidence (TVS Girling part-number index, exact code 29068117): clutch master-cylinder assembly for Tata 2515 / 3515. The exact supplier part-number match supports these models; verify cylinder bore and port configuration for the chassis variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26698,7 +26726,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000483/1.webp",
     "applications": [
       "Brake Hydraulic System",
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Application identifier conflict (TVS Girling part-number index, exact code 29068118): the supplier list classifies this item as a concentric slave-cylinder assembly for Tata LP 1510 / LP 1512 (BS II) / LP 1613 / LPO 1612 / LPO 1613. The Souviks record is titled as a clutch master cylinder and currently lists Tata 1109 / 1210 / 1312; reconcile component type and installed clutch system before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26753,7 +26782,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000484/1.webp",
     "applications": [
       "Brake Hydraulic System",
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle-system qualification (TVS Girling part-number index, exact code 29068161): identified as a TML LPO-series clutch master-cylinder assembly. The supplier list does not identify the specific LPO chassis/model variant; the existing Souviks Tata LPT label is too broad to treat as exact fitment without checking the LPO clutch actuation configuration."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -26808,7 +26838,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000485/1.webp",
     "applications": [
       "Pneumatic System",
-      "Air Brake Maintenance"
+      "Air Brake Maintenance",
+      "Application qualification (TVS Girling exact-code supplier references, part 29068166): identified as a CMC assembly, with a related supplier listing specifying a 25.4 mm bore and an older reference 29067550. The sources reviewed do not specify a vehicle model. The current generic air-brake application note is not appropriate for a clutch master cylinder; confirm bore, ports and mounting before assigning vehicle fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -32017,7 +32048,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 50,
     "applications": [
-      "Air Compressor Overhaul"
+      "Air Compressor Overhaul",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001215): TATA and Ashok Leyland; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Gasket”; confirm the kit contents and compressor variant before treating the Souviks product description as the same kit scope. No individual truck model is listed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -32079,7 +32111,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 100,
     "applications": [
-      "Air Compressor Head Overhaul"
+      "Air Compressor Head Overhaul",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001202): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Valve”, not a cylinder-head assembly kit; verify the kit contents and application before treating the catalogue title as equivalent. No individual truck model is listed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -32337,7 +32370,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 100,
     "applications": [
-      "Air Compressor Maintenance"
+      "Air Compressor Maintenance",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001215): TATA and Ashok Leyland; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Gasket”, whereas this Souviks record is titled as a cylinder-head assembly repair kit; the exact kit contents/title mapping remains to be reconciled. No individual truck model is listed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -32461,7 +32495,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 150,
     "applications": [
-      "Air Compressor Overhaul"
+      "Air Compressor Overhaul",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001458): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO identifies it as a repair kit; no individual truck model is listed, so confirm the compressor variant before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -52865,7 +52900,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 100304941): TATA commercial vehicles; DDU-(VOSS), listed in the twin-cylinder 704 cc flange-mounted compressor context. WABCO does not name individual Tata models; confirm mounting, VOSS connections and the installed air-system configuration."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84213990",
@@ -57598,7 +57634,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact material number 9347020150): TATA. WABCO identifies the component as a protection valve; no individual Tata model is listed. Confirm circuit configuration, pressure settings and port connections before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
@@ -57665,7 +57702,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (ZF CVCS Product Catalogue 2023, p. 66; exact material number 9732980290): listed as an RG2 relay valve for BAJAJ TEMPO. The source does not specify an individual model/year; verify valve connection style and brake-circuit configuration before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
