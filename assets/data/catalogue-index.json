@@ -13756,7 +13756,8 @@
     "applications": [
       "Steering Column Controls",
       "Lighting Control System",
-      "Indicator System"
+      "Indicator System",
+      "Vehicle fitment evidence / variant qualification (Anupam Industries official Combination Switches catalogue; exact code AI-421): listed as suitable for Tata Ace, with 18-coupler / 16-cable configuration. Anupam separately lists AI-422 for Tata Ace Magic / Ace HT / Ace Mega / Intra. Therefore this AI-421 record supports older Tata Ace, not a blanket Tata Magic fitment. Match the coupler and cable count before ordering. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -13812,7 +13813,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000219/1.webp",
     "applications": [
       "Steering Column Controls",
-      "Electrical System"
+      "Electrical System",
+      "Vehicle fitment evidence (Anupam Industries official Combination Switches catalogue; exact code AI-425): listed for Tata 207 / 407 new model, Spacio, 709, 909, 1109 and Marcopolo. This supports the current Tata 709 / 1109 tags; verify switch coupler, cables and steering-column configuration. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -13868,7 +13870,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000220/1.webp",
     "applications": [
       "Steering Column Controls",
-      "Lighting Controls"
+      "Lighting Controls",
+      "Vehicle fitment evidence / tag qualification (Anupam Industries official Combination Switches catalogue; exact code AI-461): the manufacturer specifies AI-461 as a metal-body combination switch suitable for Tata 1210. The catalogue does not extend this exact code to Tata 1312, so the current 1312 tag remains unconfirmed until the switch/coupler is matched. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -13924,7 +13927,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000221/1.webp",
     "applications": [
       "Steering Column Controls",
-      "Electrical System"
+      "Electrical System",
+      "Vehicle fitment evidence / tag qualification (Anupam Industries official Combination Switches catalogue; exact code AI-463): the manufacturer lists this self-cancelling combination switch for Tata 1612 / 1210, with 9-coupler / 9-cable configuration. The source does not identify the full Tata LPT family, so the generic LPT tag must be verified against the exact column switch and wiring. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -13979,7 +13983,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000222/1.webp",
     "applications": [
       "Steering Column Controls",
-      "Electrical System"
+      "Electrical System",
+      "Supplier fitment qualification (Anupam Industries official Combination Switches catalogue and Anupam MRP list effective 01-Jul-2022; exact code AI-487): manufacturer sources identify AI-487 as suitable for Eicher Canter, with a 10+7+12 coupler / 9+6+11 cable configuration. The Anupam list assigns Eicher Jumbo to a different code, AI-489. The current Eicher 1110 tag is not independently confirmed by the manufacturer source; match the connector and vehicle variant before confirming. Sources: https://anupamind.com/Combination%20Switches%20and%20Spares.html ; https://www.anupamind.com/Anupam%20MRP%20list%2001.07.22.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -40724,7 +40729,8 @@
     "applications": [
       "Tata Ace Magic",
       "Ace HT",
-      "Ace Mega and Intra."
+      "Ace Mega and Intra.",
+      "Vehicle fitment evidence / SKU separation (Anupam Industries official Combination Switches catalogue; exact code AI-422): listed as suitable for Tata Ace Magic / Ace HT / Ace Mega / Intra, with 18-coupler / 18-cable configuration. This supports the specific model family named for AI-422; it must not be conflated with AI-421, which Anupam lists for older Tata Ace only. Confirm coupler and cable count before ordering. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
