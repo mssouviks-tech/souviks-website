@@ -52382,7 +52382,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Tata 1210 / 1312."
+      "Tata 1210 / 1312.",
+      "Vehicle fitment evidence (Varroc fast-moving LH/RH SKU list, dated 05-Sep-2025; exact code HLA-1312-02NL): the supplier list identifies this as headlamp assembly for Tata 1312 / 1210, WT/P line glass P43, left-hand. This matches the product's LH designation and Tata 1210/1312 vehicle tags; confirm the wiring, rim and mounting variant before ordering. Source: https://www.scribd.com/document/924277874/Final-Varroc-Fast-Moving-LH-RH-SKUs-List-05092025"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
@@ -52436,7 +52437,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Tata 1210 / 1312."
+      "Tata 1210 / 1312.",
+      "Supplier part-number conflict (Varroc fast-moving LH/RH SKU list, dated 05-Sep-2025): the supplier identifies HLA-1312-02NL as the LH unit and HLA-1312-02NR as the RH unit for Tata 1312 / 1210, WT/P line glass P43. This Souviks record is described as RH but carries code HLA-1312-02NL, which is the supplier's LH code. Do not publish this as an exact RH fitment until the physical lamp marking is checked and the product reference is corrected if needed. Source: https://www.scribd.com/document/924277874/Final-Varroc-Fast-Moving-LH-RH-SKUs-List-05092025"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
