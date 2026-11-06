@@ -20,13 +20,14 @@ const catalogue=JSON.parse(read("assets/data/catalogue-index.json"));
 const products=JSON.parse(read("assets/data/products.json"));
 const matches=parseCsv(read("docs/audit/hsn-supplier-invoice-matches-2026-11-06.csv"));
 const review=parseCsv(read("docs/audit/hsn-supplier-invoice-review-queue-2026-11-06.csv"));
+const manual=JSON.parse(read("assets/data/hsn-supplier-invoice-manual-resolutions.json"));
 const byId=new Map(catalogue.map(p=>[p.id,p]));
 const projections=new Map(products.map(p=>[p.id,p]));
 const matched=catalogue.filter(p=>p.hsn_supplier_invoice_match_status==="matched");
 const conflicts=catalogue.filter(p=>p.hsn_supplier_invoice_match_status==="conflict");
 if(catalogue.length!==1159||products.length!==1157)throw new Error("Unexpected catalogue/projection coverage");
-if(matched.length!==842||conflicts.length!==15)throw new Error("Unexpected SKU totals");
-if(matches.length!==901||review.length!==133||matches.length+review.length!==1034)throw new Error("Supplier source rows not fully accounted for");
+if(matched.length!==846||conflicts.length!==15)throw new Error("Unexpected SKU totals");
+if(matches.length!==905||review.length!==129||matches.length+review.length!==1034)throw new Error("Supplier source rows not fully accounted for");
 for(const p of [...matched,...conflicts]){
  if(p.hsn_supplier_invoice_source_file!=="hsn.xlsx")throw new Error("Missing source file "+p.id);
  if(p.active){
@@ -40,4 +41,13 @@ for(const p of [...matched,...conflicts]){
 }
 for(const row of matches){if(!byId.has(row.catalogue_id)||!row.supplier_odoo_external_id||!row.supplier_invoice_hsn_code)throw new Error("Invalid match row "+row.catalogue_id);}
 for(const row of review){if(!row.review_status||!row.supplier_product_name)throw new Error("Invalid review row");}
-console.log("Supplier invoice HSN reconciliation passed",{matched_skus:matched.length,conflict_skus:conflicts.length,matched_source_rows:matches.length,review_rows:review.length});
+const expectedManual=[
+ ["SVKS000243","__export__.product_template_100_50575a30"],
+ ["SVKS000244","__export__.product_template_101_eb05c8c5"],
+ ["SVKS000345","__export__.product_template_5066_e37080aa"],
+ ["SVKS000840","__export__.product_template_6774_d034ad4c"],
+];
+const manualKeys=new Set(manual.records.map(r=>`${r.id}|${r.supplier_odoo_external_id}`));
+for(const [id,externalId] of expectedManual){if(!manualKeys.has(`${id}|${externalId}`))throw new Error("Missing verified manual supplier identity "+id);}
+if(manual.records.length!==81)throw new Error("Unexpected manual resolution ledger size");
+console.log("Supplier invoice HSN reconciliation passed",{matched_skus:matched.length,conflict_skus:conflicts.length,matched_source_rows:matches.length,review_rows:review.length,manual_resolutions:manual.records.length});
