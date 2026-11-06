@@ -712,6 +712,26 @@
       "part_reference": "TX-539/532X",
       "evidence": "Exact Texspin part number TX-539/532X appears on the catalogue page. The catalogue display title describes a wheel twin kit containing two bearings, while the supplier invoice line describes taper roller bearings; identity is anchored by the exact manufacturer part number and matching Texspin brand. Product descriptions and HSN classifications are not being overwritten.",
       "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000764",
+      "supplier_invoice_hsn_code": "87083000",
+      "supplier_product_name": "MEI - SMS3007 Manual Slack Adjuster",
+      "supplier_odoo_external_id": "__export__.product_template_5551_83ced5b3",
+      "match_method": "manual_exact_part_number_title_cross_brand",
+      "part_reference": "SMS3007",
+      "evidence": "Exact part number SMS3007 and exact Manual Slack Adjuster title. The supplier invoice row labels the brand MEI while the catalogue product page brand is Meritor; the direct exact reference and non-LH title distinguish this SKU from the separate SMS3007 LH catalogue variant SVKS000447.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000282",
+      "supplier_invoice_hsn_code": "87083000",
+      "supplier_product_name": "Leyparts - FA0067900 - Brake Lining (with rivets)",
+      "supplier_odoo_external_id": "__export__.product_template_5497_1829515d",
+      "match_method": "manual_exact_part_number_title_cross_brand",
+      "part_reference": "FA0067900",
+      "evidence": "Exact part number FA0067900 and exact Brake Lining with Rivets product title on the catalogue page. The supplier row uses the Leyparts brand label while the catalogue page shows Fleetguard; the brand-label discrepancy is retained in source traceability rather than normalised away.",
+      "review_status": "manual_identity_verified"
     }
   ]
 }
