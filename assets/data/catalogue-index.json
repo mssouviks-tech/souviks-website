@@ -6572,7 +6572,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Engine Accessory Drive System"
+      "Engine Accessory Drive System",
+      "Vehicle fitment evidence / current-tag reconciliation (Tata Motors Prima LX 252.7 TC ISU6.9 BS III parts catalogue, VC 50420552000R, water-pump drive group WP97519.15.03H, p. 40; exact part 278603990126): listed as the BS1/2/3/4 V-ribbed belt on the Prima LX 252.7 TC. Tata Motors LPS 4018 TC 6BT BS II parts catalogue also lists the same exact number under alternator mounting. These sources support those specific engine/vehicle configurations, not the current Tata 1109 / 1210 / 1312 tags; verify belt length, pulley routing and engine variant before claiming interchangeability. Sources: https://www.pssao.com/catlog/tm/prima.pdf ; https://www.pssao.com/catlog/tm/hcv-3.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40103190",
@@ -7307,7 +7308,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000112/1.webp",
     "applications": [
       "Cabin Door Locking System",
-      "Vehicle Body Hardware"
+      "Vehicle Body Hardware",
+      "Vehicle fitment evidence (Tata Motors ACE EX2 Euro II export parts catalogue, VC 55372220000R, chassis type 445083, 275 IDI NA / GBS65-5 gearbox; body group 60, door-lock-and-links table, p. 84; exact part 282972300119): listed as the LEFT-HAND door latch assembly (RH counterpart 282972300120). This supports the Ace EX2 variant and the part-side designation; do not assume it is interchangeable with other Ace/Magic body variants or the RH door. Source: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/ACE-EX-2.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "83012000",
@@ -7366,7 +7368,8 @@
     "applications": [
       "Differential Rebuild",
       "Axle Overhaul",
-      "Final Drive Maintenance"
+      "Final Drive Maintenance",
+      "Vehicle fitment reconciliation (Tata Motors Ace/Ace HT parts list, March 2013, group 35.35.01A, chassis 445010 / 445011; exact part 285035300109): Tata identifies this as the major differential-case kit for the Ace/Ace HT Salisbury-type rear axle. The Tata Ace Magic February 2009 parts list also includes the exact kit for chassis 445111 / 445121 / 445112 / 445122. These exact references support those Ace/Ace HT/Magic axle configurations, not the current Souviks tags Tata 407, 709, 1109, 1512 and generic Tata LPT. Confirm axle family, chassis type and ratio before offering it against the heavier-vehicle tags. Sources: https://pdfcoffee.com/cataloguestata-ace-tataace-htpdf-pdf-free.html ; https://www.scribd.com/document/655235579/Magic"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87085000",
@@ -7477,7 +7480,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Manual Transmission Overhaul",
-      "Gearbox Repair"
+      "Gearbox Repair",
+      "Vehicle / gearbox fitment reconciliation (Tata Motors ACE / ACE HT Diesel BS-IV parts catalogue, June 2010, chassis type 445057, gearbox group 2851010426R.02, pp. 46–47; exact part 285126200115): listed as the 1/2-speed synchroniser kit, comprising the synchroniser springs, balls, sleeve and carrier. The source is specific to Tata Ace HT 275 IDI NA BS-IV with the listed gearbox. It does not establish the current Souviks vehicle tags Tata 1109 / 1210 / 1312; confirm gearbox family and part contents before any cross-model fitment is claimed. Source: https://www.scribd.com/document/512677113/TATA-ACE-TATA-ACE-HT-DIESEL-BS-IV"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87084000",
