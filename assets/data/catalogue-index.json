@@ -17347,7 +17347,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Drum Brake System"
+      "Drum Brake System",
+      "Vehicle application evidence (Fleetguard HCV/LCV price-list entry, exact part number FA0067900; secondary distributor listing cross-check): Fleetguard lists this as a standard 12-hole brake-lining set for LPT 2523 TC BS IV (reference row describes “LPT2523 TC-BS4”). This does not independently support the current Ashok Leyland 2516 vehicle tag. Confirm the shoe/lining pattern and OE cross-reference before changing the vehicle field. Source references: https://www.scribd.com/document/704429716/fleet-guard-new ; https://www.smartpartsexports.com/brands/aftermarkets-brands/fleetguard-spare-parts"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -18118,7 +18119,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000296/1.webp",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle application evidence (Fleetguard Filter Parts Catalogue, exact part number FS20117 and OE reference 278609119910): listed for Tata ISBe 5.9 BS IV, including LP 1515 / TC ISBe 5.9 BS IV application context. This supports the Tata ISBe 5.9 family, not all Tata Signa/Prima variants. Confirm engine and filter position before ordering. Sources: https://www.scribd.com/document/726511498/FLEETGUARD-FILTERS-HCV-CATALOG ; https://mymotoco.com/filteration/cummins-fleetguard-diesel-filter-tata-isbe-5-9-bs-iv-fs20117/"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -41376,7 +41378,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000683/1.webp",
     "applications": [
-      "Ashok Leyland/Stag BS III air-filter kit application."
+      "Ashok Leyland/Stag BS III air-filter kit application.",
+      "Vehicle application evidence (Fleetguard 2024 price-list row, exact part number 502622200 and elements AF26069 + AF26070; Bosch Commercial Vehicle Filters catalogue cross-check): Fleetguard identifies this as the Ashok Leyland Stag BS III air-filter kit. Bosch's CV filter catalogue includes the AF26069/AF26070/502622200 reference in the Stag application section. The supplier listing identifies Stag, not a generic Ashok Leyland 2516 fitment; verify Stag variant/engine before order. Sources: https://www.scribd.com/document/704429716/fleet-guard-new ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84213100",
@@ -41485,7 +41488,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000685/1.webp",
     "applications": [
-      "Commercial/off-highway applications using Fleetguard twin filter head."
+      "Commercial/off-highway applications using Fleetguard twin filter head.",
+      "Vehicle application and assembly evidence (Fleetguard HCV/LCV price list, exact assembly code 502349300): listed as “Head Assy with FS1003” for Tata Prima 3128. This is an assembly-level application and the source does not support every Tata LPT vehicle. Check FS1003 connection and head configuration before treating it as interchangeable. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -62324,7 +62328,8 @@
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
       "replacement/service use for the stated specification.",
-      "Vehicle application evidence and duplicate-reference qualification (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms compressor family, not an individual Tata truck model. This record shares WABCO material number 300001366 with Souviks SKU SVKS000579; confirm whether both catalogue entries represent the same kit and contents before treating them as distinct fitments."
+      "Vehicle application evidence and duplicate-reference qualification (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms compressor family, not an individual Tata truck model. This record shares WABCO material number 300001366 with Souviks SKU SVKS000579; confirm whether both catalogue entries represent the same kit and contents before treating them as distinct fitments.",
+      "Vehicle application evidence and duplicate-reference qualification (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms compressor family, not an individual Tata truck model. This record shares WABCO material number 300001366 with Souviks SKU SVKS000579; confirm whether both catalogue entries represent the same kit and contents before treating them as distinct fitments. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
