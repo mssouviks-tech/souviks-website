@@ -83,6 +83,18 @@
       "append": [
         "Manufacturer application evidence — WABCO Customer Centre exact part number 4730170250 identifies the product as a relay valve, anti-compounding. The accessible record confirms exact product identity but did not expose an India vehicle-application field in the extracted page. Do not assign named makes/models without a WABCO or OEM cross-reference. Source: https://www.wabco-customercentre.com/catalog/en_US/4730170250"
       ]
+    },
+    {
+      "id": "SVKS000676",
+      "append": [
+        "Manufacturer application evidence — Bosch Automotive Filters India catalogue, HCV Filter Application Chart (printed page 21), exact part 1 457 431 003, Fuel Filter Element: Ashok Leyland Artik 3014, Cheetah and Comet 1616H; Swaraj Mazda Premium WT 49 ESA, Sartaj WV26S, Super ZT54 BS I and T3500 Prestige WT49LWB; Tata 1510 LP and LPT 1613. Bosch Commercial Vehicle Filter Catalogue further gives exact Cheetah power/year variants (84 kW, 1995.04–2010.10; 97 kW, 2005.04–2010.10; 88 kW, 2000.11–2005.03) in its brand-wise application chart. These exact catalogue applications supersede the page’s generic Universal label for fitment lookup; confirm the vehicle’s engine and filter housing before supply. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/pdf_8/bosch-automotive-filters-india-catalogue.pdf ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000677",
+      "append": [
+        "Manufacturer application evidence — Bosch Automotive Filters India catalogue, HCV Filter Application Chart (printed page 22), exact part 9 451 037 409, Fuel Filter Element: Ashok Leyland 12M and Cheetah; Tata LPT 1613. Bosch Commercial Vehicle Filter Catalogue further identifies Cheetah diesel variants 84 kW (1995.04–2010.10) and 97 kW (2005.04–2010.10), plus the 88 kW Cheetah variant (2000.11–2005.03), against this exact filter number. These exact catalogue applications supersede the page’s generic Universal label for fitment lookup; confirm engine, production period and filter housing before supply. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/pdf_8/bosch-automotive-filters-india-catalogue.pdf ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf"
+      ]
     }
   ],
   "updated_at": "2026-11-06",
