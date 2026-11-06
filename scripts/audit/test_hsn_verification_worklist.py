@@ -66,7 +66,7 @@ with tempfile.TemporaryDirectory(prefix="souviks-hsn-") as temp_dir:
         for row_number, (committed_row, generated_row) in enumerate(
             zip(rows, generated_rows), start=2
         ):
-            for field in FIELDS:
+            for field in committed_row.keys():
                 if committed_row.get(field) != generated_row.get(field):
                     mismatch.append(
                         f"CSV line {row_number} SKU {committed_row.get('catalogue_id')}: "
