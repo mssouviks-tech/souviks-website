@@ -95,6 +95,18 @@
       "append": [
         "Manufacturer application evidence — Bosch Automotive Filters India catalogue, HCV Filter Application Chart (printed page 22), exact part 9 451 037 409, Fuel Filter Element: Ashok Leyland 12M and Cheetah; Tata LPT 1613. Bosch Commercial Vehicle Filter Catalogue further identifies Cheetah diesel variants 84 kW (1995.04–2010.10) and 97 kW (2005.04–2010.10), plus the 88 kW Cheetah variant (2000.11–2005.03), against this exact filter number. These exact catalogue applications supersede the page’s generic Universal label for fitment lookup; confirm engine, production period and filter housing before supply. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/pdf_8/bosch-automotive-filters-india-catalogue.pdf ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf"
       ]
+    },
+    {
+      "id": "SVKS000102",
+      "append": [
+        "Supplier-catalogue application evidence — the exact Tata OEM number 278801155304 is listed as GASKET CYL. HEAD COVER BS2/3/4. Boodmo’s TATA OEM catalogue page identifies compatibility with Tata Commercial ACE, ACE Gold, ACE HT, ACE Magic and ACE XL, with application rows spanning 0.7 L engine variants and BS II/III/IV. This supports the current Ace/Magic tags and adds ACE Gold, ACE HT and ACE XL only where the described engine/emissions variant matches. Confirm engine serial/chassis and head-cover revision before supply. Source: https://boodmo.com/catalog/part-gasket_cyl_head_cover_bs2_3_4-58376631/"
+      ]
+    },
+    {
+      "id": "SVKS000100",
+      "append": [
+        "Fitment evidence remains incomplete. The product’s exact Tata OEM reference 278801135304 appears in Souviks as an oil-sump gasket, but the accessible Tata Genuine Parts catalogue portal is restricted to internal/dealer use and the available public catalogue evidence did not provide a reliable exact model/engine compatibility table for this reference. The current Tata Ace application must therefore be treated as a provisional catalogue mapping, not independently verified fitment. Confirm against Tata ECATS by VIN/chassis and BS/engine variant before supply. Tata catalogue portal: https://www.customercare-cv.tatamotors.com/tata-genuine-parts/product-catalogue.aspx"
+      ]
     }
   ],
   "updated_at": "2026-11-06",
