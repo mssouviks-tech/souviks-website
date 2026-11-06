@@ -6262,7 +6262,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000094/1.webp",
     "applications": [
       "Clutch Transmission System",
-      "Vehicle fitment evidence (Souviks Tata commercial-vehicle brochure; exact part-number match): Tata Ace and Tata Magic."
+      "Vehicle fitment evidence (Souviks Tata commercial-vehicle brochure; exact part-number match): Tata Ace and Tata Magic.",
+      "Fitment reconciliation note (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, pp. 4–5; exact part 272425000134): the supplier table identifies this reference as a 200 mm clutch cover/disc set for Super Ace/Venture (475/1.4L). This conflicts with the current Ace/Magic vehicle mapping and the product title’s generic description. Keep the model fitment unconfirmed until the VIN/gearbox and pack contents are checked."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -6317,7 +6318,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000095/1.webp",
     "applications": [
-      "Clutch Transmission System"
+      "Clutch Transmission System",
+      "Vehicle/gearbox fitment evidence (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, pp. 4–5; exact part 272425000223): listed as a 190 mm clutch cover/disc set for the 800 cc V10/Express application. This does not support the current Ace/Magic mapping; confirm the gearbox and vehicle before publishing a chassis fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -11503,7 +11505,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000179/1.webp",
     "applications": [
       "Clutch Transmission System",
-      "Clutch Overhaul"
+      "Clutch Overhaul",
+      "Vehicle fitment / product-description reconciliation (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, p. 4; exact part 885425052829): listed as a 170 mm clutch cover-and-disc set for Ace/Magic. Souviks title describes a clutch/pressure-plate kit; confirm the supplied pack contents and clutch diameter before treating the two descriptions as identical."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -11557,7 +11560,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Clutch Transmission System",
-      "Clutch Rebuild"
+      "Clutch Rebuild",
+      "Vehicle/gearbox fitment evidence (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, p. 4; exact part 885425092829): listed as a 190 mm clutch cover/disc set with bearing for Mega/Magic. The existing Magic tag is supported, but the current Ace tag is not confirmed by this supplier line; verify the engine/gearbox variant before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -11613,7 +11617,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000181/1.webp",
     "applications": [
       "Clutch Transmission System",
-      "Clutch Repair"
+      "Clutch Repair",
+      "Vehicle fitment / pack-description evidence (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, p. 4; exact part 885425102829): listed as a 170 mm clutch cover/disc set with bearing and bush for Ace/Magic. Tata e-Dukaan also lists this exact reference as “Kit-CL/PR Plate Tata Ace w/BRG”. Confirm that the supplied kit includes the components required by the vehicle variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -11727,7 +11732,8 @@
     "applications": [
       "Scheduled Service",
       "Fuel Filtration",
-      "Engine Lubrication"
+      "Engine Lubrication",
+      "Vehicle fitment evidence (Tata Motors e-Dukaan, Service Kit catalogue; exact part 885499102829): listed as “Kit-Oil & Fuel Filter Elements (ACE)”. This confirms the ACE service-kit application; the current Magic tag is not independently supported by this listing and should be checked against the chassis/engine variant."
     ],
     "hsn_code": "84212300",
     "hsn_description": "Oil or petrol-filters for internal combustion engines",
@@ -12156,7 +12162,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000191/1.webp",
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Vehicle fitment evidence (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742000003): listed as “Front Brake Pad-ACE”. Confirms the Tata Ace front-brake application; check brake-disc and model-year variant before order."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "68138100",
@@ -12211,7 +12218,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000192/1.webp",
     "applications": [
-      "Rear Drum Brake System"
+      "Rear Drum Brake System",
+      "Vehicle fitment reconciliation (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742000014): listed as “Kit Lined Shoe ACE & Super ACE (K-Type)”. The source supports ACE/Super ACE K-type rear shoe fitment, not the current Magic tag; verify shoe profile and vehicle variant before confirming Magic compatibility."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -12320,7 +12328,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000194/1.webp",
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Vehicle fitment reconciliation (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742010207): listed as “Front Brake Pad - 207 Pickup”. This does not support the current Tata LPT vehicle tag. Do not publish LPT fitment as confirmed until the pad marking and front-caliper application are reconciled."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "68138100",
@@ -50398,7 +50407,8 @@
       "Tata Cargo rear brake-lining kit",
       "standard rear",
       "410 x 180 mm with rivets. Commercial-vehicle/Cargo rear-brake application",
-      "exact model variant not established from the part-specific public references located."
+      "exact model variant not established from the part-specific public references located.",
+      "Supplier reference confirmation (Tata Motors e-Dukaan, Brakes catalogue; exact part 885442071618): listed as standard rear brake lining, 4 pieces, with rivets, 410 × 180 mm, for Cargo. The listing confirms the part description and dimensions but does not specify a chassis model; retain model-level fitment as unconfirmed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
