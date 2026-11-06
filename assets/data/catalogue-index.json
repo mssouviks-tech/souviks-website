@@ -5760,7 +5760,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "TVS Girling - 215163075-0200 - M16 x 1.5 x 75 bolt"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5585_d05722b4"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000073",
@@ -20895,7 +20912,24 @@
     "hsn_classification_status": "provisional",
     "hsn_basis": "The product is identified as a 12V/24V vehicle electrical relay.",
     "hsn_review_note": "Confirm the rated voltage is not above 60 V and that it is an electrical relay rather than a pneumatic relay valve.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "85119000"
+    ],
+    "hsn_supplier_invoice_code": "85119000",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Leyparts - F0987915 - Pivot Pin Relay Drop Arm"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5491_908866c8"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000277",
@@ -22591,7 +22625,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt - 15/32 10\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6637_eecff08c"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000302",
@@ -22662,7 +22713,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt - 15/32 12\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6638_f2f5016c"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000303",
@@ -22733,7 +22801,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt - 15/32 14\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6639_71ad0695"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000304",
@@ -22802,7 +22887,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt - 15/32 16\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6640_6c684b69"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000305",
@@ -22871,7 +22973,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt - 15/32 18\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6641_d0d98020"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000306",
@@ -23026,7 +23145,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt - 5/8 16\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6635_951c0810"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000308",
@@ -23095,7 +23231,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt - 5/8 18\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6636_9246bd71"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000309",
@@ -23159,7 +23312,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt 3118 - 10\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6642_9732cfb1"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000310",
@@ -23223,7 +23393,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt 3118 - 12\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6643_29f00aa9"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000311",
@@ -23287,7 +23474,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt Turbo - 12\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6646_7b26ac31"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000312",
@@ -23351,7 +23555,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt Turbo - 14\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6647_71d36bbd"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000313",
@@ -23415,7 +23636,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt U truck - 10\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6644_4f8df23b"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000314",
@@ -23479,7 +23717,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "73181500"
+    ],
+    "hsn_supplier_invoice_code": "73181500",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "GS - Centre Bolt U truck - 12\""
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6645_f71a4cb9"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_dimensions"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000315",
@@ -27182,7 +27437,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "87089300"
+    ],
+    "hsn_supplier_invoice_code": "87089300",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "MEI CB 300130 Clutch Booster Assy. 700 Dia"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5072_c66d5458"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000365",
@@ -27439,7 +27711,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is a brake actuator, chamber, slack-adjuster, anchor-pin or brake-linkage component.",
     "hsn_review_note": "Verify brake-system function; a separately supplied pneumatic valve belongs under 84812000.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87083000"
+    ],
+    "hsn_supplier_invoice_code": "87083000",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "MEI - MSA AF18-257P - Manual Slack Adjuster"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5076_4b3330a5"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000369",
@@ -28404,7 +28693,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 520 L/R headlamps for Volvo Eicher LCV (H4 P43T; 12V/24V; LHT/RHT). Souviks records NEO520 (L), which is close but not an exact code suffix match to the catalogue's NEO-520L E. The catalogue does not support the current Tata 407/709 tags; confirm package marking, OE, beam, connector and mounting before asserting Tata fitment. Source: https://neolitezkw.com/wp-content/uploads/2026/02/NeoliteZKW_Company-Catalogue_2022.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -28475,7 +28765,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 520 L/R headlamps for Volvo Eicher LCV (H4 P43T; 12V/24V; LHT/RHT). Souviks records NEO520 (R), which is close but not an exact suffix match to catalogue item NEO-520R E. The catalogue does not support the current Tata 407/709 tags; confirm package marking, OE, beam, connector and mounting before asserting Tata fitment. Source: Neolite ZKW Company Catalogue 2022, p. 134."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -28741,7 +29032,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Indicator System",
-      "Front Lighting System"
+      "Front Lighting System",
+      "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 521 as an L/R side-lamp assembly for Volvo Eicher LCV (PY21W; 12V/24V). The Souviks record describes NEO521 as a signal lamp for Tata Signa. The supplier listing does not substantiate Tata Signa fitment or the indexed signal-lamp description; its code is NEO-521 E and it does not show separate LH/RH codes. Verify marking, lamp function, voltage, connector and OE before confirming. Source: Neolite ZKW Company Catalogue 2022, p. 134."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -28812,7 +29104,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Indicator System",
-      "Front Lighting System"
+      "Front Lighting System",
+      "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 521 as an L/R side-lamp assembly for Volvo Eicher LCV (PY21W; 12V/24V). The Souviks record describes NEO521 as a signal lamp for Tata Signa. The supplier listing does not substantiate Tata Signa fitment or the indexed signal-lamp description; its code is NEO-521 E and it does not show separate LH/RH codes. Verify marking, lamp function, voltage, connector and OE before confirming. Source: Neolite ZKW Company Catalogue 2022, p. 134."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -28895,7 +29188,24 @@
     "hsn_classification_status": "provisional",
     "hsn_basis": "The product is a complete engine oil/fuel filter or fuel-water separator.",
     "hsn_review_note": "Confirm it is a complete filter unit rather than a replacement cartridge/element.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84212300"
+    ],
+    "hsn_supplier_invoice_code": "84212300",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "Mahle - KS 54 - Fuel Water Separator Navistar"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6756_ac889ea0"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000390",
@@ -32254,7 +32564,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000434/1.webp",
     "applications": [
       "Electrical System",
-      "Steering Column Controls"
+      "Steering Column Controls",
+      "Uno Minda's exact-code listing for S11404-000M00 identifies a lever combination switch for Tata Prima and lists compatibility as SIGNA / PRIMA. This does not substantiate the current Tata 1109/1210/1312/1512 tags. Confirm coupler, stalk functions and column interface. Source: https://unomindakart.com/product/uno-minda-s11404-000m00-lever-combination-switch-for-tata-prima"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -32641,7 +32952,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000439/1.webp",
     "applications": [
       "Battery Isolation System",
-      "Electrical Safety System"
+      "Electrical Safety System",
+      "Uno Minda's 4W Switch Catalogue 2022 lists multiple TD-4006 variants: a 24V HCV Universal–Tata switch with four inline terminals and 2500A/10-sec rating; a separate 12V, 2-pole LCV/MCV/MUV/marine variant; and TD-4006N as a 24V, 2-pole Fuel Tanker switch. Uno Minda's current TD-4006 product page also describes universal fuel-tanker/Viking CNG use, so the fuel-tanker wording is not by itself proof of an N suffix. The catalogue and product-page descriptions leave the exact variant ambiguous. Verify the physical label, terminal layout, voltage and current rating before confirming the Souviks title/application. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-4006-battery-cutoff-switch--4-inline-terminals--24v--2500amp.-10-sec.-for-universal-fuel-tankers-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -32813,7 +33125,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000441/1.webp",
     "applications": [
       "Battery Isolation System",
-      "Electrical Safety System"
+      "Electrical Safety System",
+      "Uno Minda identifies TD-4007 as a universal 24V commercial-vehicle battery cutoff switch; its 4W Switch Catalogue specifies a 2-pin configuration. This is universal electrical-system evidence, not independent certification of each current Tata, Ashok Leyland or Eicher model tag. Match voltage, terminals, mounting and current rating. Sources: https://unomindakart.com/product/uno-minda-td-4007-battery-cutoff-switch-for-all-commercial-vehicles ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -33112,7 +33425,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is a brake actuator, chamber, slack-adjuster, anchor-pin or brake-linkage component.",
     "hsn_review_note": "Verify brake-system function; a separately supplied pneumatic valve belongs under 84812000.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87083000"
+    ],
+    "hsn_supplier_invoice_code": "87083000",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "Meritor - SMS 3001T Manual Slack Adjuster Trailer Straight 10 Splines"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5548_ababb0a5"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000446",
@@ -33439,7 +33769,8 @@
     "applications": [
       "Lighting Control System",
       "Indicator Control System",
-      "Steering Column Controls"
+      "Steering Column Controls",
+      "Uno Minda's 4W Switch Catalogue 2022 lists exact code TD-11425 as a 2-stalk combination switch (19 wires, 20-pole single coupler) for Tata 207 / 07 N/M / 709 / 909 / 1109 and Marco Polo. This is not a blanket Tata LPT application; verify model, coupler, wiring and stalk functions. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-11425-lever-combination-switch--2-stalk--19-wires-20-pole-single-coupler-for-tata-207-709-909-1109-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -33512,7 +33843,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000451/1.webp",
     "applications": [
       "Battery Isolation System",
-      "Electrical Safety System"
+      "Electrical Safety System",
+      "Uno Minda lists exact code TD-4001 as a 24V two-position battery cutoff switch for universal Tata/Leyland HCV applications, with 2 IN / 2 OUT terminals. This supports the broad Tata/Leyland HCV class but does not identify a chassis or establish Eicher application. Confirm voltage, terminals and mounting. Sources: https://unomindakart.com/product/uno-minda-td-4001-battery-cutoff-switch-for-tata-universal-hcv-leyland-set-of-1 ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -36445,7 +36777,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a separately presented clutch-release bearing.",
     "hsn_review_note": "Confirm rolling-element construction and bore; if integrated into a clutch slave-cylinder assembly, classify the assembly under clutch parts.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 55TPH - Clutch Release Bearing for Tata 909/1109 Turbo with plastic hub"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6291_8bbdfa9d"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000493",
@@ -36649,7 +36998,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 60TM - Clutch Release Bearing for Tata GB60 (1.75 inch / 4.45 cm)"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6282_1dccf6f6"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000496",
@@ -36713,7 +37079,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 6346SC - Clutch Release Bearing for Ashok Leyland 1.75\" clutch [15\" RDC 20, 95GB & 850 OD gearboxes] – New Design"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6288_157b3bfc"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000497",
@@ -36767,7 +37150,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a separately presented clutch-release bearing.",
     "hsn_review_note": "Confirm rolling-element construction and bore; if integrated into a clutch slave-cylinder assembly, classify the assembly under clutch parts.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 6646SC - Clutch Release Bearing for Tata Signa BS6 GB75"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6280_f99b3885"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000498",
@@ -36821,7 +37221,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a separately presented clutch-release bearing.",
     "hsn_review_note": "Confirm rolling-element construction and bore; if integrated into a clutch slave-cylinder assembly, classify the assembly under clutch parts.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 6679SC - Clutch Release Bearing for Tata BS6 Signa 4225.S Trailer with 395 Dia clutch"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6295_674bf7a5"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000499",
@@ -36957,7 +37374,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a separately presented clutch-release bearing.",
     "hsn_review_note": "Confirm rolling-element construction and bore; if integrated into a clutch slave-cylinder assembly, classify the assembly under clutch parts.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 78109SC - Clutch Release Bearing for Tata BSVI Signa and Prima"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6276_47bfc30b"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000501",
@@ -37088,7 +37522,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a separately presented clutch-release bearing.",
     "hsn_review_note": "Confirm rolling-element construction and bore; if integrated into a clutch slave-cylinder assembly, classify the assembly under clutch parts.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 78126SC - Clutch Release Bearing for Tata Prima 4928 S, 4023 S and 4028 S"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6292_b8f398f9"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000503",
@@ -37157,7 +37608,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 7896SC - Clutch Release Bearing for 430 DIA 2.0\" spline applications in Tata Prima / Eicher Pro-8000 (Self Centering)"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6294_dc24e070"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000504",
@@ -37225,7 +37693,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 92 AL-H - Clutch Release Bearing for Ashok Leyland 280–300DIA/ECOMET with hub"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6284_ec31b806"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000505",
@@ -42415,7 +42900,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000571/1.webp",
     "applications": [
-      "Hazard Warning System"
+      "Hazard Warning System",
+      "Uno Minda's 4W Switch Catalogue 2022 lists a Tata hazard switch as S31380-000M00 (OE 283954559924), 24V/8-pin, for Tata 1210 SE / 1312 / 2515 / HCV. The Souviks stock code S31380-000700 is not an exact code match. Treat this only as a discrepancy lead; verify pack marking, OE, pin count and coupler before confirming fitment. Source: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -42562,7 +43048,8 @@
     "applications": [
       "Lighting Control System",
       "Indicator Control System",
-      "Wiper Control System"
+      "Wiper Control System",
+      "Uno Minda's 4W Switch Catalogue 2022 indexes exact code TD-1019 as a 12V/2-pole air-intake sensor for Maruti Suzuki MPFI 800 / Omni / Wagon R / Esteem / Zen / Baleno / Altura. This materially conflicts with the Souviks title “3 Lever Combination Switch” and Tata 1109/1210/1312/1512 tags. Verify physical part, label, coupler and code before confirming product identity or fitment. Source: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -42645,7 +43132,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000574/1.webp",
     "applications": [
-      "Engine Lubrication Monitoring System"
+      "Engine Lubrication Monitoring System",
+      "Uno Minda's 4W Switch Catalogue 2022 lists exact code TD-1105 as a 12V, 1-pin oil-pressure switch for Mahindra Bolero Marshall MaxiTruck. This source does not substantiate the current Tata, Ashok Leyland or Eicher vehicle tags. Keep those applications unconfirmed pending an exact OE cross-reference and matching thread, connector and pressure-switch threshold. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-1105-oil-pressure-switch-for-mahindra-bolero-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -42719,7 +43207,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000575/1.webp",
     "applications": [
-      "Battery Isolation System"
+      "Battery Isolation System",
+      "Uno Minda identifies TD-4007 as a universal 24V commercial-vehicle battery cutoff switch; its 4W Switch Catalogue specifies 2-pin configuration. This is universal electrical-system evidence, not independent certification of each current Tata, Ashok Leyland or Eicher model tag. Match voltage, terminals, mounting and current rating. Sources: https://unomindakart.com/product/uno-minda-td-4007-battery-cutoff-switch-for-all-commercial-vehicles ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -43103,7 +43592,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is an air-compressor repair kit or compressor-head component.",
     "hsn_review_note": "Confirm that it is compressor parts and not a complete compressor or a separately classifiable valve.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "WABCO - Air Compressor Kit - Prima 3718"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6239_1a9e09dc"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_product_title_application"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000581",
@@ -43166,7 +43672,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is an air-compressor repair kit or compressor-head component.",
     "hsn_review_note": "Confirm that it is compressor parts and not a complete compressor or a separately classifiable valve.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "WABCO - Cargo 1/185 Cyl. Head Assy. Repair Kit"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6240_4e7fdda8"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_application"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000582",
@@ -43229,7 +43752,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is an air-compressor repair kit or compressor-head component.",
     "hsn_review_note": "Confirm that it is compressor parts and not a complete compressor or a separately classifiable valve.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "WABCO - Cyl. Head Assy. Repair Kit 4018 BS II"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6243_39f096a6"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_application"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000583",
@@ -43292,7 +43832,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is an air-compressor repair kit or compressor-head component.",
     "hsn_review_note": "Confirm that it is compressor parts and not a complete compressor or a separately classifiable valve.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "WABCO - Hino (1/137) Air Compressor Kit"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6241_bd3a0677"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000584",
@@ -53850,13 +54407,16 @@
     ],
     "hsn_supplier_invoice_match_status": "matched",
     "hsn_supplier_invoice_match_methods": [
-      "brand_and_exact_part_reference"
+      "brand_and_exact_part_reference",
+      "manual_exact_part_number"
     ],
     "hsn_supplier_invoice_source_names": [
-      "KFL - KF3352 - Tie Rod End"
+      "KFL - KF3352 - Tie Rod End",
+      "KF 3352 - Tie Rod End All Models / 1616/2416 Turbo"
     ],
     "hsn_supplier_invoice_external_ids": [
-      "__export__.product_template_7696_898906d4"
+      "__export__.product_template_7696_898906d4",
+      "__export__.product_template_6784_d6ccad10"
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
@@ -53916,7 +54476,24 @@
     "hsn_classification_status": "provisional",
     "hsn_basis": "The product is a dedicated steering mechanism/linkage component.",
     "hsn_review_note": null,
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "KF 3359 - Tie Rod End Big for GB-40 TATA"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6782_c3196aed"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000741",
@@ -53971,7 +54548,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is a propeller-shaft centre-support bearing/housing assembly.",
     "hsn_review_note": "Confirm the housing incorporates a ball/roller bearing; a standalone bearing belongs under heading 8482 and a rubber support may be classified by material.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84822090"
+    ],
+    "hsn_supplier_invoice_code": "84822090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "KF 4004 - Centre Bearing Assy. (TATA 1312/1510)"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6783_8d3b828d"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000742",
@@ -54040,23 +54634,27 @@
     ],
     "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
     "dimensions_source": "product_dimension_specifications_manifest",
-    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_code": "",
     "hsn_supplier_invoice_codes": [
-      "87089900"
+      "87089900",
+      "40169990"
     ],
-    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_status": "conflict",
     "hsn_supplier_invoice_match_methods": [
-      "brand_and_exact_part_reference"
+      "brand_and_exact_part_reference",
+      "manual_exact_part_number"
     ],
     "hsn_supplier_invoice_source_names": [
-      "KFL - KF5098 - Rear Engine Mounting"
+      "KFL - KF5098 - Rear Engine Mounting",
+      "KF 5098 - Engine Mounting TATA Signa 4923/LPO 1625 BS4 Rear"
     ],
     "hsn_supplier_invoice_external_ids": [
-      "__export__.product_template_7700_ee8c3145"
+      "__export__.product_template_7700_ee8c3145",
+      "__export__.product_template_6780_1c1f1c8b"
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "agrees"
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes"
   },
   {
     "id": "SVKS000743",
@@ -60196,7 +60794,24 @@
     "hsn_classification_status": "provisional",
     "hsn_basis": "The product is an automotive inflatable air spring.",
     "hsn_review_note": "Confirm vulcanised-rubber construction and inflatable article design.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87169010"
+    ],
+    "hsn_supplier_invoice_code": "87169010",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "TVS Girling - SIAS 6214DT - For Trailer balloon CA-20Ft 2 Duo for TR"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6769_eac8cdeb"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000818",
@@ -62191,7 +62806,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Ashok Leyland commercial vehicles",
-      "stop-light switch."
+      "stop-light switch.",
+      "Uno Minda's 4W Switch Catalogue 2022 lists TD-1098 as an Ashok Leyland stop-light switch without wire, 12V/2 screw terminals. It separately lists TD-1098N as a 12/24V hydraulic switch for Tata HCV / Ashok Leyland HCV. This supports the Ashok Leyland class for TD-1098, but not the separate N-suffix Tata HCV variant. Confirm voltage, terminal and thread. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-1098-stop-light-switch--w-o-wire-for-ashok-leyland-hcv-tata-hcv-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -62938,7 +63554,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
     "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "85122010"
+    ],
+    "hsn_supplier_invoice_code": "85122010",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Varroc - HLA-1312-02NL - H/L Assy 1312/1210 WT/P Line Glass P43 LH"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6800_0cef89b9"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_side_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000855",
@@ -62993,7 +63626,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
     "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "85122010"
+    ],
+    "hsn_supplier_invoice_code": "85122010",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Varroc - HLA-1312-02NL - H/L Assy 1312/1210 WT/P Line Glass P43 RH"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6801_55ceee73"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_side_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000856",
@@ -80468,7 +81118,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is described as a drive-axle, axle-shaft, drive-flange or stub-shaft component.",
     "hsn_review_note": "Confirm it is dedicated to the drive axle; separately presented shaft couplings/gears may fall under 8483.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "RKI - K10 - Front Teeth"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_7620_228a3073"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS001098",
