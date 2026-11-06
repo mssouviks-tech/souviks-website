@@ -1,3 +1,35 @@
 {
-  "application_updates": []
+  "application_updates": [
+    {
+      "id": "SVKS000434",
+      "append": [
+        "Uno Minda's exact-code listing for S11404-000M00 identifies a lever combination switch for Tata Prima and lists compatibility as SIGNA / PRIMA. This does not substantiate the current Tata 1109/1210/1312/1512 tags. Confirm coupler, stalk functions and column interface. Source: https://unomindakart.com/product/uno-minda-s11404-000m00-lever-combination-switch-for-tata-prima"
+      ]
+    },
+    {
+      "id": "SVKS000439",
+      "append": [
+        "Uno Minda's 4W Switch Catalogue 2022 distinguishes TD-4006 (24V, four inline terminals, 2500A/10 sec, HCV universal Tata) from TD-4006N (24V, two-pole inline fuel-tanker switch). The Souviks title combines TD-4006's four-terminal rating with TD-4006N's fuel-tanker wording. Verify suffix, terminal layout and current rating before confirming the fuel-tanker description. Source: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000441",
+      "append": [
+        "Uno Minda identifies TD-4007 as a universal 24V commercial-vehicle battery cutoff switch; its 4W Switch Catalogue specifies a 2-pin configuration. This is universal electrical-system evidence, not independent certification of each current Tata, Ashok Leyland or Eicher model tag. Match voltage, terminals, mounting and current rating. Sources: https://unomindakart.com/product/uno-minda-td-4007-battery-cutoff-switch-for-all-commercial-vehicles ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000450",
+      "append": [
+        "Uno Minda's 4W Switch Catalogue 2022 lists exact code TD-11425 as a 2-stalk combination switch (19 wires, 20-pole single coupler) for Tata 207 / 07 N/M / 709 / 909 / 1109 and Marco Polo. This is not a blanket Tata LPT application; verify model, coupler, wiring and stalk functions. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-11425-lever-combination-switch--2-stalk--19-wires-20-pole-single-coupler-for-tata-207-709-909-1109-set-of-1"
+      ]
+    },
+    {
+      "id": "SVKS000451",
+      "append": [
+        "Uno Minda lists exact code TD-4001 as a 24V two-position battery cutoff switch for universal Tata/Leyland HCV applications, with 2 IN / 2 OUT terminals. This supports the broad Tata/Leyland HCV class but does not identify a chassis or establish Eicher application. Confirm voltage, terminals and mounting. Sources: https://unomindakart.com/product/uno-minda-td-4001-battery-cutoff-switch-for-tata-universal-hcv-leyland-set-of-1 ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
+      ]
+    }
+  ],
+  "updated_at": "2026-11-06"
 }
