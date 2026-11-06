@@ -1125,6 +1125,11 @@ def reconcile_catalogue_projections():
             "url": f"/en/products/{text(p.get('slug'))}",
             "image": text(p.get("image")),
             "approx_weight_g": approximate_weight_grams(p),
+            # Declared contents remain separate from packed/carrier mass.
+            "declared_net_content_g": p.get("declared_net_content_g"),
+            "declared_net_content_status": text(p.get("declared_net_content_status")),
+            "declared_net_content_source": text(p.get("declared_net_content_source")),
+            "declared_net_content_notes": text(p.get("declared_net_content_notes")),
             "dimensions_mm": p.get("dimensions_mm"),
             "dimension_specs_mm": list(p.get("dimension_specs_mm") or []),
             "weight_calculation_quantity": p.get("weight_calculation_quantity"),
