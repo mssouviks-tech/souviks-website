@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "source_file": "hsn.xlsx",
+  "match_date": "2026-11-06",
+  "records": [
+    {
+      "id": "SVKS000301",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt - 15/32 10\"",
+      "supplier_odoo_external_id": "__export__.product_template_6637_eecff08c",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 145",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000302",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt - 15/32 12\"",
+      "supplier_odoo_external_id": "__export__.product_template_6638_f2f5016c",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 146",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000303",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt - 15/32 14\"",
+      "supplier_odoo_external_id": "__export__.product_template_6639_71ad0695",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 147",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000304",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt - 15/32 16\"",
+      "supplier_odoo_external_id": "__export__.product_template_6640_6c684b69",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 228",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000305",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt - 15/32 18\"",
+      "supplier_odoo_external_id": "__export__.product_template_6641_d0d98020",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 369",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000307",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt - 5/8 16\"",
+      "supplier_odoo_external_id": "__export__.product_template_6635_951c0810",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 427",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000308",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt - 5/8 18\"",
+      "supplier_odoo_external_id": "__export__.product_template_6636_9246bd71",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 442",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000309",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt 3118 - 10\"",
+      "supplier_odoo_external_id": "__export__.product_template_6642_9732cfb1",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 499",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000310",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt 3118 - 12\"",
+      "supplier_odoo_external_id": "__export__.product_template_6643_29f00aa9",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 500",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000311",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt Turbo - 12\"",
+      "supplier_odoo_external_id": "__export__.product_template_6646_7b26ac31",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBBS 1424",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000312",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt Turbo - 14\"",
+      "supplier_odoo_external_id": "__export__.product_template_6647_71d36bbd",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBBS 1426",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000313",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt U truck - 10\"",
+      "supplier_odoo_external_id": "__export__.product_template_6644_4f8df23b",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 496",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000314",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - Centre Bolt U truck - 12\"",
+      "supplier_odoo_external_id": "__export__.product_template_6645_f71a4cb9",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "SBAM 596",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000739",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "KF 3352 - Tie Rod End All Models / 1616/2416 Turbo",
+      "supplier_odoo_external_id": "__export__.product_template_6784_d6ccad10",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "KF3352",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000740",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "KF 3359 - Tie Rod End Big for GB-40 TATA",
+      "supplier_odoo_external_id": "__export__.product_template_6782_c3196aed",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "KF3359",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000741",
+      "supplier_invoice_hsn_code": "84822090",
+      "supplier_product_name": "KF 4004 - Centre Bearing Assy. (TATA 1312/1510)",
+      "supplier_odoo_external_id": "__export__.product_template_6783_8d3b828d",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "KF4004",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000742",
+      "supplier_invoice_hsn_code": "40169990",
+      "supplier_product_name": "KF 5098 - Engine Mounting TATA Signa 4923/LPO 1625 BS4 Rear",
+      "supplier_odoo_external_id": "__export__.product_template_6780_1c1f1c8b",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "KF5098",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000368",
+      "supplier_invoice_hsn_code": "87083000",
+      "supplier_product_name": "MEI - MSA AF18-257P - Manual Slack Adjuster",
+      "supplier_odoo_external_id": "__export__.product_template_5076_4b3330a5",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "MSA AF 18-257P",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000364",
+      "supplier_invoice_hsn_code": "87089300",
+      "supplier_product_name": "MEI CB 300130 Clutch Booster Assy. 700 Dia",
+      "supplier_odoo_external_id": "__export__.product_template_5072_c66d5458",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "CB300130",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000445",
+      "supplier_invoice_hsn_code": "87083000",
+      "supplier_product_name": "Meritor - SMS 3001T Manual Slack Adjuster Trailer Straight 10 Splines",
+      "supplier_odoo_external_id": "__export__.product_template_5548_ababb0a5",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "SMS3001T",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS001097",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "RKI - K10 - Front Teeth",
+      "supplier_odoo_external_id": "__export__.product_template_7620_228a3073",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "K10",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000072",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "TVS Girling - 215163075-0200 - M16 x 1.5 x 75 bolt",
+      "supplier_odoo_external_id": "__export__.product_template_5585_d05722b4",
+      "match_method": "manual_exact_product_title_dimensions",
+      "part_reference": "16 x 1.5 x 75",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000817",
+      "supplier_invoice_hsn_code": "87169010",
+      "supplier_product_name": "TVS Girling - SIAS 6214DT - For Trailer balloon CA-20Ft 2 Duo for TR",
+      "supplier_odoo_external_id": "__export__.product_template_6769_eac8cdeb",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "SIAS6214DT",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000580",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "WABCO - Air Compressor Kit - Prima 3718",
+      "supplier_odoo_external_id": "__export__.product_template_6239_1a9e09dc",
+      "match_method": "manual_exact_product_title_application",
+      "part_reference": "Air Compressor Kit",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000581",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "WABCO - Cargo 1/185 Cyl. Head Assy. Repair Kit",
+      "supplier_odoo_external_id": "__export__.product_template_6240_4e7fdda8",
+      "match_method": "manual_exact_part_number_application",
+      "part_reference": "Cargo 1/185",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000582",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "WABCO - Cyl. Head Assy. Repair Kit 4018 BS II",
+      "supplier_odoo_external_id": "__export__.product_template_6243_39f096a6",
+      "match_method": "manual_exact_part_number_application",
+      "part_reference": "4018 BS II",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000583",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "WABCO - Hino (1/137) Air Compressor Kit",
+      "supplier_odoo_external_id": "__export__.product_template_6241_bd3a0677",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "300001137",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000854",
+      "supplier_invoice_hsn_code": "85122010",
+      "supplier_product_name": "Varroc - HLA-1312-02NL - H/L Assy 1312/1210 WT/P Line Glass P43 LH",
+      "supplier_odoo_external_id": "__export__.product_template_6800_0cef89b9",
+      "match_method": "manual_exact_part_number_side_variant",
+      "part_reference": "HLA-1312-02NL",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000855",
+      "supplier_invoice_hsn_code": "85122010",
+      "supplier_product_name": "Varroc - HLA-1312-02NL - H/L Assy 1312/1210 WT/P Line Glass P43 RH",
+      "supplier_odoo_external_id": "__export__.product_template_6801_55ceee73",
+      "match_method": "manual_exact_part_number_side_variant",
+      "part_reference": "HLA-1312-02NL",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000276",
+      "supplier_invoice_hsn_code": "85119000",
+      "supplier_product_name": "Leyparts - F0987915 - Pivot Pin Relay Drop Arm",
+      "supplier_odoo_external_id": "__export__.product_template_5491_908866c8",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "F0987915",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000389",
+      "supplier_invoice_hsn_code": "84212300",
+      "supplier_product_name": "Mahle - KS 54 - Fuel Water Separator Navistar",
+      "supplier_odoo_external_id": "__export__.product_template_6756_ac889ea0",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "KS54",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000492",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 55TPH - Clutch Release Bearing for Tata 909/1109 Turbo with plastic hub",
+      "supplier_odoo_external_id": "__export__.product_template_6291_8bbdfa9d",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "TX-55 TPH",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000495",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 60TM - Clutch Release Bearing for Tata GB60 (1.75 inch / 4.45 cm)",
+      "supplier_odoo_external_id": "__export__.product_template_6282_1dccf6f6",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "TX-60 TM",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000496",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 6346SC - Clutch Release Bearing for Ashok Leyland 1.75\" clutch [15\" RDC 20, 95GB & 850 OD gearboxes] – New Design",
+      "supplier_odoo_external_id": "__export__.product_template_6288_157b3bfc",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "TX-6346 SC",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000497",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 6646SC - Clutch Release Bearing for Tata Signa BS6 GB75",
+      "supplier_odoo_external_id": "__export__.product_template_6280_f99b3885",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "TX-6646 SC",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000498",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 6679SC - Clutch Release Bearing for Tata BS6 Signa 4225.S Trailer with 395 Dia clutch",
+      "supplier_odoo_external_id": "__export__.product_template_6295_674bf7a5",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "TX-6679 SC",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000500",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 78109SC - Clutch Release Bearing for Tata BSVI Signa and Prima",
+      "supplier_odoo_external_id": "__export__.product_template_6276_47bfc30b",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "TX-78109 SC",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000502",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 78126SC - Clutch Release Bearing for Tata Prima 4928 S, 4023 S and 4028 S",
+      "supplier_odoo_external_id": "__export__.product_template_6292_b8f398f9",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "TX-78126 SC",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000503",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 7896SC - Clutch Release Bearing for 430 DIA 2.0\" spline applications in Tata Prima / Eicher Pro-8000 (Self Centering)",
+      "supplier_odoo_external_id": "__export__.product_template_6294_dc24e070",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "TX-7896 SC",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000504",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 92 AL-H - Clutch Release Bearing for Ashok Leyland 280–300DIA/ECOMET with hub",
+      "supplier_odoo_external_id": "__export__.product_template_6284_ec31b806",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "TX-92AL-H",
+      "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
+      "review_status": "manual_identity_verified"
+    }
+  ]
+}
