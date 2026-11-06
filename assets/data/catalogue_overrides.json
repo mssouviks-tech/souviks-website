@@ -9,7 +9,7 @@
     {
       "id": "SVKS000439",
       "append": [
-        "Uno Minda's 4W Switch Catalogue 2022 distinguishes TD-4006 (24V, four inline terminals, 2500A/10 sec, HCV universal Tata) from TD-4006N (24V, two-pole inline fuel-tanker switch). The Souviks title combines TD-4006's four-terminal rating with TD-4006N's fuel-tanker wording. Verify suffix, terminal layout and current rating before confirming the fuel-tanker description. Source: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
+        "Uno Minda's 4W Switch Catalogue 2022 lists multiple TD-4006 variants: a 24V HCV Universal–Tata switch with four inline terminals and 2500A/10-sec rating; a separate 12V, 2-pole LCV/MCV/MUV/marine variant; and TD-4006N as a 24V, 2-pole Fuel Tanker switch. Uno Minda's current TD-4006 product page also describes universal fuel-tanker/Viking CNG use, so the fuel-tanker wording is not by itself proof of an N suffix. The catalogue and product-page descriptions leave the exact variant ambiguous. Verify the physical label, terminal layout, voltage and current rating before confirming the Souviks title/application. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-4006-battery-cutoff-switch--4-inline-terminals--24v--2500amp.-10-sec.-for-universal-fuel-tankers-set-of-1"
       ]
     },
     {
@@ -45,7 +45,7 @@
     {
       "id": "SVKS000574",
       "append": [
-        "Uno Minda's exact-code TD-1105 listing describes an oil-pressure switch with manufacturer compatibility listed as Mahindra Bolero (passenger-vehicle segment). It does not substantiate current Tata, Ashok Leyland or Eicher truck tags. Keep those applications unconfirmed pending OE reference, thread, connector and pressure-switch threshold match. Sources: https://unomindakart.com/product/uno-minda-td-1105-oil-pressure-switch-for-mahindra-bolero-set-of-1 ; https://unomindakart.com//brochure/uno-minda-td-1105-oil-pressure-switch-for-mahindra-bolero-set-of-1"
+        "Uno Minda's 4W Switch Catalogue 2022 lists exact code TD-1105 as a 12V, 1-pin oil-pressure switch for Mahindra Bolero Marshall MaxiTruck. This source does not substantiate the current Tata, Ashok Leyland or Eicher vehicle tags. Keep those applications unconfirmed pending an exact OE cross-reference and matching thread, connector and pressure-switch threshold. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-1105-oil-pressure-switch-for-mahindra-bolero-set-of-1"
       ]
     },
     {
