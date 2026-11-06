@@ -26174,7 +26174,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000430/1.webp",
     "applications": [
       "Vehicle Lighting System",
-      "Front Lighting Assembly"
+      "Front Lighting Assembly",
+      "Vehicle fitment evidence / model qualification (Uno Minda Spare Parts Price List 2023, commercial-vehicle lighting, exact supplier code HL-5541BM; Souviks part number R/HL5541BM): identified as an RH P43 headlamp assembly for Tata 1312 / 1516. This supports Tata 1312 where the P43 RH configuration matches; the current Tata 1210 and Tata 1512 tags are not established by this exact supplier row and should be checked against the lamp marking and fitment. Source: https://krishnadistributionhouse.com/wp-content/uploads/2024/01/Uno-Minda-Commercial-and-Tractor-Pricelist.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -26228,7 +26229,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Vehicle Lighting System",
-      "Front Lighting Assembly"
+      "Front Lighting Assembly",
+      "Vehicle fitment evidence (Uno Minda Spare Parts Price List 2023, commercial-vehicle lighting, exact supplier code HL-5541FM; Souviks part number R/HL5541FM): identified as an RH headlight unit for Ashok Leyland Cargo–Ecomet, cross-reference 016-HLA-FR. This supports the Ecomet family subject to right-hand orientation, lens/bulb-holder type and marking verification. Source: https://krishnadistributionhouse.com/wp-content/uploads/2024/01/Uno-Minda-Commercial-and-Tractor-Pricelist.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -28894,7 +28896,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000477/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment conflict (TVS Girling part-number cross-reference index, exact code 29067129; cross-checked against TVS Girling 2021 brake parts list): the exact code is listed as a CMC assembly for Ashok Leyland LPS 4018 and LPS 3516. This does not support the current Tata LPT / Tata Signa vehicle tags. Verify the part marking, bore, mounting and master-cylinder connection before confirming any Tata fitment. The supplier index classifies it as a clutch master cylinder assembly; source: https://ashvinautoparts.com/tvs-girling/"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -68697,7 +68700,8 @@
     ],
     "applications": [
       "Fan-belt drive",
-      "listed Tata commercial-vehicle applications."
+      "listed Tata commercial-vehicle applications.",
+      "Vehicle fitment evidence (JK Fenner CV/PV/Tractors Belt Price List 2024, LCV/HCV belt table; exact part AV13X1325T): listed for the 697 Turbo / 1612 / 1616 / 1516 / 709 (2013 onwards) as a fan belt. This supports Tata 709 on the current vehicle list; the broad Tata LPT tag must be narrowed to the listed engine/model variants rather than treated as a blanket LPT fitment. Source: https://pssao.com/catlog/fenner/Fan%20Belt%20List%202024.pdf"
     ],
     "featured": false,
     "active": true,
@@ -71269,7 +71273,8 @@
     "applications": [
       "Alternator and fan drive",
       "Tata 697 NA",
-      "1313 and 1610."
+      "1313 and 1610.",
+      "Vehicle fitment evidence (JK Fenner CV/PV/Tractors Belt Price List 2024, LCV/HCV belt table; exact part TW1280, OE cross-reference 252520156305): listed for Tata 697 N.A. / 1313 / 1610 as an alternator/fan belt. The current Tata LPT family tag is broader than the supplier's specific engine/model application; check engine code before confirming a vehicle. Source: https://pssao.com/catlog/fenner/Fan%20Belt%20List%202024.pdf"
     ],
     "featured": false,
     "active": true,
@@ -71580,7 +71585,8 @@
     ],
     "applications": [
       "Fan and alternator drive",
-      "Tata 2515 Turbo CMVR."
+      "Tata 2515 Turbo CMVR.",
+      "Vehicle fitment evidence (JK Fenner CV/PV/Tractors Belt Price List 2024, LCV/HCV belt table; exact part TW1355): listed for Tata 2515 Turbo CMVR engine as an alternator/fan belt. The current Tata LPT tag should be treated as a vehicle-family label only; confirm the 2515 Turbo CMVR engine and belt routing before order. Source: https://pssao.com/catlog/fenner/Fan%20Belt%20List%202024.pdf"
     ],
     "featured": false,
     "active": true,
@@ -71638,7 +71644,8 @@
     ],
     "applications": [
       "Water-pump drive",
-      "Escorts 3036 and Zetor 5511."
+      "Escorts 3036 and Zetor 5511.",
+      "Vehicle fitment evidence (JK Fenner CV/PV/Tractors Belt Price List 2024, tractor belt table; exact part TRK1240, reference 5.05.02.0): listed for Escorts 3036 / Zetor 5511 (B-46) in a water-pump (WP) application. The generic “Tractors” vehicle label is consistent with the part category, but these exact tractor models are the catalogue-supported applications. Source: https://pssao.com/catlog/fenner/Fan%20Belt%20List%202024.pdf"
     ],
     "featured": false,
     "active": true,
