@@ -21762,7 +21762,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Manufacturer cross-reference and vehicle-fitment evidence (Bosch Commercial Vehicle Filters catalogue, p. 13; exact OE cross-reference FHJ00700 = Bosch F 002 H24 921): the Bosch application table lists Ashok Leyland 1612 BS-III, U4019, 3118-T BS-III, Boss 1212 LE, Ecomet 1012 BS-III, Stag, 12M BS-III, Viking and Lynx BS-III. Bosch classifies its corresponding part as a fuel filter. The Souviks title describes a fuel element/water separator; confirm the physical filter function and assembly position before treating those two product descriptions as identical."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -21814,7 +21815,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Manufacturer cross-reference and vehicle-fitment evidence (Bosch Commercial Vehicle Filters catalogue, p. 13; exact OE cross-reference FHJ01000 = Bosch F 002 H26 309): Bosch classifies this as a fuel pre-filter and lists Ashok Leyland 1612 BS-IV, 3118 BS-IV, 3718 BS-IV, Captain 2518 BS-IV, Viking BS-IV, Lynx BS-IV and Ecomet 1212 BS-IV. Confirm the pre-filter position and emission variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -21868,7 +21870,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Manufacturer cross-reference and vehicle-fitment evidence (Bosch Commercial Vehicle Filters catalogue, p. 13; exact OE cross-reference FHN00400 = Bosch F 002 H26 310): Bosch classifies this as a main fuel filter and lists Ashok Leyland Captain 40, 2523 BS-IV and 4623 BS-IV. This is narrower than the Souviks product's broad H6 CB18 label; confirm engine, filter-head arrangement and OE marking before extending to other models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
