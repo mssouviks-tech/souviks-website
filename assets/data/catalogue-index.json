@@ -11871,7 +11871,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence (The Alternate Parts Guide, Volume 01, Filters section, p. 6; exact alternate part no. 886409000003): cross-reference OE 571009110105 identifies the item as an assembly filter element for Tata ACE, ACE Mega, ACE XL, ACE Zip, Magic, Magic Express, Magic Iris, Magic Mantra and V10, with BS3/BS4 application. Confirm the filter element shape and housing/emission variant before ordering. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -11981,7 +11982,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Brake-pad cross-reference qualification (The Alternate Parts Guide, Volume 01, Brake Pads section, p. 33): the Tata reference 885442012829 appears with the 886743012829 pad-assembly cross-reference, whose stated application is ACE XL CNG / Magic / Magic CNG / Magic HT, BS2/BS3/BS4. This does not establish fitment to every basic ACE/ACE Magic derivative; confirm caliper, pad dimensions and OE number before extending the existing Ace tag. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "68138100",
@@ -51105,7 +51107,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000832/1.webp",
     "applications": [
       "Tata Ace wiper-set application",
-      "exact Ace variant not established from the part-specific public references located."
+      "exact Ace variant not established from the part-specific public references located.",
+      "Vehicle fitment evidence (The Alternate Parts Guide, Volume 01, Wipers section, p. 38; exact part no. 886782000014): listed as “Wiper for Tata Ace” for BS1/BS3/BS4/BS6-PH1. This supports the Tata Ace application; the source does not extend this exact number to all Magic/other derivatives. Confirm blade length and arm interface. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
