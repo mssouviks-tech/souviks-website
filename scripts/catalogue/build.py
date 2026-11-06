@@ -1675,6 +1675,9 @@ def reconcile_catalogue_projections():
             data["discount_percent"] = product.get("discount_percent")
             data["discountPercent"] = product.get("discount_percent")
             data["approx_weight_g"] = approximate_weight_grams(product)
+            # Declared container contents are catalogue metadata, not packed mass.
+            # Keep this aligned with catalogue/product/search projections without
+            # feeding it into approximate_weight_grams() or checkout shipping logic.
             data["declared_net_content_g"] = product.get("declared_net_content_g")
             data["declared_net_content_status"] = text(product.get("declared_net_content_status"))
             data["declared_net_content_source"] = text(product.get("declared_net_content_source"))
