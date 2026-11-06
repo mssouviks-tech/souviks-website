@@ -14088,7 +14088,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000224/1.webp",
     "applications": [
       "Steering Linkage Assembly",
-      "Steering System Repair"
+      "Steering System Repair",
+      "Supplier-code reconciliation (Alok DLP 151 price list, effective 20-Jan-2026, Tata Intra section): the list identifies Intra V10/V20 drag-link end code 1074 for OE 554546900102 and tie-rod-end code 1076, but it does not list Souviks' code ALK 1014. Therefore the existing Tata Intra tag remains unverified for this exact SKU. Confirm the full Alok code, thread sizes, ball dimensions and OE reference from the physical part before publishing a confirmed fitment. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089400",
@@ -14143,7 +14144,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000225/1.webp",
     "applications": [
       "Steering Linkage Assembly",
-      "Front Steering System"
+      "Front Steering System",
+      "Vehicle fitment evidence (Alok DLP 151 price list, effective 20-Jan-2026, Tata Ace Mega section; exact Alok code 2312): listed as tie-rod ends for Tata Ace Mega, H-18×1.5 R/L and B-12×1.5, OE refs 552333990101 / 552333990102. This supports Tata Ace Mega and the specified thread configuration, not every Tata Ace variant. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089400",
@@ -14198,7 +14200,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000226/1.webp",
     "applications": [
       "Steering Linkage Assembly",
-      "Front Steering System"
+      "Front Steering System",
+      "Vehicle fitment evidence (Alok DLP 151 price list, effective 20-Jan-2026, Tata Ace HT section; exact Alok code 2314): listed as Tata Ace HT RH/LH tie-rod ends, H-14×1.5 R/L and B-12×1.25. The source separately lists 2314-S for the short-length new-model variant; confirm the SKU suffix, length and thread configuration. This supports Tata Ace HT, not all Tata Ace variants. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089400",
