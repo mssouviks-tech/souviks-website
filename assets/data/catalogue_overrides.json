@@ -29,6 +29,36 @@
       "append": [
         "Uno Minda lists exact code TD-4001 as a 24V two-position battery cutoff switch for universal Tata/Leyland HCV applications, with 2 IN / 2 OUT terminals. This supports the broad Tata/Leyland HCV class but does not identify a chassis or establish Eicher application. Confirm voltage, terminals and mounting. Sources: https://unomindakart.com/product/uno-minda-td-4001-battery-cutoff-switch-for-tata-universal-hcv-leyland-set-of-1 ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
       ]
+    },
+    {
+      "id": "SVKS000571",
+      "append": [
+        "Uno Minda's 4W Switch Catalogue 2022 lists a Tata hazard switch as S31380-000M00 (OE 283954559924), 24V/8-pin, for Tata 1210 SE / 1312 / 2515 / HCV. The Souviks stock code S31380-000700 is not an exact code match. Treat this only as a discrepancy lead; verify pack marking, OE, pin count and coupler before confirming fitment. Source: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000573",
+      "append": [
+        "Uno Minda's 4W Switch Catalogue 2022 indexes exact code TD-1019 as a 12V/2-pole air-intake sensor for Maruti Suzuki MPFI 800 / Omni / Wagon R / Esteem / Zen / Baleno / Altura. This materially conflicts with the Souviks title “3 Lever Combination Switch” and Tata 1109/1210/1312/1512 tags. Verify physical part, label, coupler and code before confirming product identity or fitment. Source: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000574",
+      "append": [
+        "Uno Minda's exact-code TD-1105 listing describes an oil-pressure switch with manufacturer compatibility listed as Mahindra Bolero (passenger-vehicle segment). It does not substantiate current Tata, Ashok Leyland or Eicher truck tags. Keep those applications unconfirmed pending OE reference, thread, connector and pressure-switch threshold match. Sources: https://unomindakart.com/product/uno-minda-td-1105-oil-pressure-switch-for-mahindra-bolero-set-of-1 ; https://unomindakart.com//brochure/uno-minda-td-1105-oil-pressure-switch-for-mahindra-bolero-set-of-1"
+      ]
+    },
+    {
+      "id": "SVKS000575",
+      "append": [
+        "Uno Minda identifies TD-4007 as a universal 24V commercial-vehicle battery cutoff switch; its 4W Switch Catalogue specifies 2-pin configuration. This is universal electrical-system evidence, not independent certification of each current Tata, Ashok Leyland or Eicher model tag. Match voltage, terminals, mounting and current rating. Sources: https://unomindakart.com/product/uno-minda-td-4007-battery-cutoff-switch-for-all-commercial-vehicles ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000844",
+      "append": [
+        "Uno Minda's 4W Switch Catalogue 2022 lists TD-1098 as an Ashok Leyland stop-light switch without wire, 12V/2 screw terminals. It separately lists TD-1098N as a 12/24V hydraulic switch for Tata HCV / Ashok Leyland HCV. This supports the Ashok Leyland class for TD-1098, but not the separate N-suffix Tata HCV variant. Confirm voltage, terminal and thread. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-1098-stop-light-switch--w-o-wire-for-ashok-leyland-hcv-tata-hcv-set-of-1"
+      ]
     }
   ],
   "updated_at": "2026-11-06"
