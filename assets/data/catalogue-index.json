@@ -28404,7 +28404,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 520 L/R headlamps for Volvo Eicher LCV (H4 P43T; 12V/24V; LHT/RHT). Souviks records NEO520 (L), which is close but not an exact code suffix match to the catalogue's NEO-520L E. The catalogue does not support the current Tata 407/709 tags; confirm package marking, OE, beam, connector and mounting before asserting Tata fitment. Source: https://neolitezkw.com/wp-content/uploads/2026/02/NeoliteZKW_Company-Catalogue_2022.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -28475,7 +28476,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 520 L/R headlamps for Volvo Eicher LCV (H4 P43T; 12V/24V; LHT/RHT). Souviks records NEO520 (R), which is close but not an exact suffix match to catalogue item NEO-520R E. The catalogue does not support the current Tata 407/709 tags; confirm package marking, OE, beam, connector and mounting before asserting Tata fitment. Source: Neolite ZKW Company Catalogue 2022, p. 134."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -28741,7 +28743,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Indicator System",
-      "Front Lighting System"
+      "Front Lighting System",
+      "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 521 as an L/R side-lamp assembly for Volvo Eicher LCV (PY21W; 12V/24V). The Souviks record describes NEO521 as a signal lamp for Tata Signa. The supplier listing does not substantiate Tata Signa fitment or the indexed signal-lamp description; its code is NEO-521 E and it does not show separate LH/RH codes. Verify marking, lamp function, voltage, connector and OE before confirming. Source: Neolite ZKW Company Catalogue 2022, p. 134."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -28812,7 +28815,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Indicator System",
-      "Front Lighting System"
+      "Front Lighting System",
+      "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 521 as an L/R side-lamp assembly for Volvo Eicher LCV (PY21W; 12V/24V). The Souviks record describes NEO521 as a signal lamp for Tata Signa. The supplier listing does not substantiate Tata Signa fitment or the indexed signal-lamp description; its code is NEO-521 E and it does not show separate LH/RH codes. Verify marking, lamp function, voltage, connector and OE before confirming. Source: Neolite ZKW Company Catalogue 2022, p. 134."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -32254,7 +32258,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000434/1.webp",
     "applications": [
       "Electrical System",
-      "Steering Column Controls"
+      "Steering Column Controls",
+      "Uno Minda's exact-code listing for S11404-000M00 identifies a lever combination switch for Tata Prima and lists compatibility as SIGNA / PRIMA. This does not substantiate the current Tata 1109/1210/1312/1512 tags. Confirm coupler, stalk functions and column interface. Source: https://unomindakart.com/product/uno-minda-s11404-000m00-lever-combination-switch-for-tata-prima"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -32641,7 +32646,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000439/1.webp",
     "applications": [
       "Battery Isolation System",
-      "Electrical Safety System"
+      "Electrical Safety System",
+      "Uno Minda's 4W Switch Catalogue 2022 lists multiple TD-4006 variants: a 24V HCV Universal–Tata switch with four inline terminals and 2500A/10-sec rating; a separate 12V, 2-pole LCV/MCV/MUV/marine variant; and TD-4006N as a 24V, 2-pole Fuel Tanker switch. Uno Minda's current TD-4006 product page also describes universal fuel-tanker/Viking CNG use, so the fuel-tanker wording is not by itself proof of an N suffix. The catalogue and product-page descriptions leave the exact variant ambiguous. Verify the physical label, terminal layout, voltage and current rating before confirming the Souviks title/application. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-4006-battery-cutoff-switch--4-inline-terminals--24v--2500amp.-10-sec.-for-universal-fuel-tankers-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -32813,7 +32819,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000441/1.webp",
     "applications": [
       "Battery Isolation System",
-      "Electrical Safety System"
+      "Electrical Safety System",
+      "Uno Minda identifies TD-4007 as a universal 24V commercial-vehicle battery cutoff switch; its 4W Switch Catalogue specifies a 2-pin configuration. This is universal electrical-system evidence, not independent certification of each current Tata, Ashok Leyland or Eicher model tag. Match voltage, terminals, mounting and current rating. Sources: https://unomindakart.com/product/uno-minda-td-4007-battery-cutoff-switch-for-all-commercial-vehicles ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -33439,7 +33446,8 @@
     "applications": [
       "Lighting Control System",
       "Indicator Control System",
-      "Steering Column Controls"
+      "Steering Column Controls",
+      "Uno Minda's 4W Switch Catalogue 2022 lists exact code TD-11425 as a 2-stalk combination switch (19 wires, 20-pole single coupler) for Tata 207 / 07 N/M / 709 / 909 / 1109 and Marco Polo. This is not a blanket Tata LPT application; verify model, coupler, wiring and stalk functions. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-11425-lever-combination-switch--2-stalk--19-wires-20-pole-single-coupler-for-tata-207-709-909-1109-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -33512,7 +33520,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000451/1.webp",
     "applications": [
       "Battery Isolation System",
-      "Electrical Safety System"
+      "Electrical Safety System",
+      "Uno Minda lists exact code TD-4001 as a 24V two-position battery cutoff switch for universal Tata/Leyland HCV applications, with 2 IN / 2 OUT terminals. This supports the broad Tata/Leyland HCV class but does not identify a chassis or establish Eicher application. Confirm voltage, terminals and mounting. Sources: https://unomindakart.com/product/uno-minda-td-4001-battery-cutoff-switch-for-tata-universal-hcv-leyland-set-of-1 ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -42415,7 +42424,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000571/1.webp",
     "applications": [
-      "Hazard Warning System"
+      "Hazard Warning System",
+      "Uno Minda's 4W Switch Catalogue 2022 lists a Tata hazard switch as S31380-000M00 (OE 283954559924), 24V/8-pin, for Tata 1210 SE / 1312 / 2515 / HCV. The Souviks stock code S31380-000700 is not an exact code match. Treat this only as a discrepancy lead; verify pack marking, OE, pin count and coupler before confirming fitment. Source: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -42562,7 +42572,8 @@
     "applications": [
       "Lighting Control System",
       "Indicator Control System",
-      "Wiper Control System"
+      "Wiper Control System",
+      "Uno Minda's 4W Switch Catalogue 2022 indexes exact code TD-1019 as a 12V/2-pole air-intake sensor for Maruti Suzuki MPFI 800 / Omni / Wagon R / Esteem / Zen / Baleno / Altura. This materially conflicts with the Souviks title “3 Lever Combination Switch” and Tata 1109/1210/1312/1512 tags. Verify physical part, label, coupler and code before confirming product identity or fitment. Source: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -42645,7 +42656,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000574/1.webp",
     "applications": [
-      "Engine Lubrication Monitoring System"
+      "Engine Lubrication Monitoring System",
+      "Uno Minda's 4W Switch Catalogue 2022 lists exact code TD-1105 as a 12V, 1-pin oil-pressure switch for Mahindra Bolero Marshall MaxiTruck. This source does not substantiate the current Tata, Ashok Leyland or Eicher vehicle tags. Keep those applications unconfirmed pending an exact OE cross-reference and matching thread, connector and pressure-switch threshold. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-1105-oil-pressure-switch-for-mahindra-bolero-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -42719,7 +42731,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000575/1.webp",
     "applications": [
-      "Battery Isolation System"
+      "Battery Isolation System",
+      "Uno Minda identifies TD-4007 as a universal 24V commercial-vehicle battery cutoff switch; its 4W Switch Catalogue specifies 2-pin configuration. This is universal electrical-system evidence, not independent certification of each current Tata, Ashok Leyland or Eicher model tag. Match voltage, terminals, mounting and current rating. Sources: https://unomindakart.com/product/uno-minda-td-4007-battery-cutoff-switch-for-all-commercial-vehicles ; https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -62191,7 +62204,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Ashok Leyland commercial vehicles",
-      "stop-light switch."
+      "stop-light switch.",
+      "Uno Minda's 4W Switch Catalogue 2022 lists TD-1098 as an Ashok Leyland stop-light switch without wire, 12V/2 screw terminals. It separately lists TD-1098N as a 12/24V hydraulic switch for Tata HCV / Ashok Leyland HCV. This supports the Ashok Leyland class for TD-1098, but not the separate N-suffix Tata HCV variant. Confirm voltage, terminal and thread. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-1098-stop-light-switch--w-o-wire-for-ashok-leyland-hcv-tata-hcv-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
