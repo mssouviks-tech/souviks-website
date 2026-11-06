@@ -7989,7 +7989,8 @@
       "Engine Lubrication System",
       "Oil Pan Assembly",
       "Engine Overhaul",
-      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Product Spare Parts Catalogue; MAGIC 7S 275 CNG BS-IV, VC 55233320000R, page 8; exact part number 278801135304): listed as the oil-sump gasket BS 2/3/4/6. This source confirms this specific Magic 7S CNG variant; it does not independently confirm other Ace variants."
+      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Product Spare Parts Catalogue; MAGIC 7S 275 CNG BS-IV, VC 55233320000R, page 8; exact part number 278801135304): listed as the oil-sump gasket BS 2/3/4/6. This source confirms this specific Magic 7S CNG variant; it does not independently confirm other Ace variants.",
+      "Fitment evidence remains incomplete. The product’s exact Tata OEM reference 278801135304 appears in Souviks as an oil-sump gasket, but the accessible Tata Genuine Parts catalogue portal is restricted to internal/dealer use and the available public catalogue evidence did not provide a reliable exact model/engine compatibility table for this reference. The current Tata Ace application must therefore be treated as a provisional catalogue mapping, not independently verified fitment. Confirm against Tata ECATS by VIN/chassis and BS/engine variant before supply. Tata catalogue portal: https://www.customercare-cv.tatamotors.com/tata-genuine-parts/product-catalogue.aspx"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84841090",
@@ -8137,7 +8138,8 @@
     "applications": [
       "Engine Sealing System",
       "Cylinder Head Cover Assembly",
-      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801155304): listed as the cylinder-head-cover gasket for ACE EX2. Verify export market and variant before generalising to other Magic/Ace trims."
+      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801155304): listed as the cylinder-head-cover gasket for ACE EX2. Verify export market and variant before generalising to other Magic/Ace trims.",
+      "Supplier-catalogue application evidence — the exact Tata OEM number 278801155304 is listed as GASKET CYL. HEAD COVER BS2/3/4. Boodmo’s TATA OEM catalogue page identifies compatibility with Tata Commercial ACE, ACE Gold, ACE HT, ACE Magic and ACE XL, with application rows spanning 0.7 L engine variants and BS II/III/IV. This supports the current Ace/Magic tags and adds ACE Gold, ACE HT and ACE XL only where the described engine/emissions variant matches. Confirm engine serial/chassis and head-cover revision before supply. Source: https://boodmo.com/catalog/part-gasket_cyl_head_cover_bs2_3_4-58376631/"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84841090",
@@ -43034,7 +43036,8 @@
     "approx_weight_g": 100,
     "applications": [
       "Air Compressor Overhaul",
-      "Vehicle application evidence (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms the compressor family and kit role, not an individual Tata truck model. Reconcile the contents of Souviks' “Air Compressor Repair Kit” against the WABCO kit drawing before confirming the assembly scope."
+      "Vehicle application evidence (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms the compressor family and kit role, not an individual Tata truck model. Reconcile the contents of Souviks' “Air Compressor Repair Kit” against the WABCO kit drawing before confirming the assembly scope.",
+      "Manufacturer application evidence — WABCO Customer Centre exact material number 300001366 identifies the product as a cover repair kit and states “Vehicle application (India): TATA”. This is a make-level product application only; it does not verify the product-page title’s “T-2518” model claim. Confirm the repaired compressor model and kit contents before supplying. Source: https://www.wabco-customercentre.com/catalog/en_US/300001366"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -43296,7 +43299,8 @@
     "approx_weight_g": 150,
     "applications": [
       "Air Compressor Service",
-      "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300001137): WABCO identifies this as a “Kit: Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is listed. Reconcile the “Air Compressor Kit” product title and internal kit contents against WABCO’s valve-kit designation before confirming any exact vehicle model."
+      "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300001137): WABCO identifies this as a “Kit: Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is listed. Reconcile the “Air Compressor Kit” product title and internal kit contents against WABCO’s valve-kit designation before confirming any exact vehicle model.",
+      "The current catalogue vehicle tag is Universal, but WABCO Customer Centre lists exact material 300001137 as a repair kit for Vehicle application (India): Ashok Leyland. Correct make-level evidence; not model/chassis-specific. Confirm compressor model and included components. Source: https://www.wabco-customercentre.com/catalog/en_US/300001137"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -43359,7 +43363,8 @@
     "approx_weight_g": 150,
     "applications": [
       "Air Compressor Overhaul",
-      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001458): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO identifies it as a repair kit; no individual truck model is listed, so confirm the compressor variant before ordering."
+      "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001458): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO identifies it as a repair kit; no individual truck model is listed, so confirm the compressor variant before ordering.",
+      "The current product page carries Tata LPT, but WABCO Customer Centre for exact material 300001458 states Vehicle application (India): TATA at make level only. The specific Tata LPT model tag is not established by the manufacturer page. Confirm compressor cylinder-head type and kit contents before treating it as LPT-specific. Source: https://www.wabco-customercentre.com/catalog/en_US/300001458"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -49100,7 +49105,8 @@
       "Bosch diesel filter application",
       "exact vehicle fitment for 1457-431-003 was not established from the indexed Bosch India catalogue",
       "so no vehicle models are being invented.",
-      "Vehicle fitment evidence (Bosch India Automotive Filters catalogues; exact part-number match): Ashok Leyland Artik 3014, Cheetah and Comet 1616H; Swaraj Mazda Premium WT49 ESA, Sartaj WV26S, Super ZT54 BS I and T3500 Prestige WT49LWB; Tata 1510 LP, LPT 1613 and 1516 LPT."
+      "Vehicle fitment evidence (Bosch India Automotive Filters catalogues; exact part-number match): Ashok Leyland Artik 3014, Cheetah and Comet 1616H; Swaraj Mazda Premium WT49 ESA, Sartaj WV26S, Super ZT54 BS I and T3500 Prestige WT49LWB; Tata 1510 LP, LPT 1613 and 1516 LPT.",
+      "Manufacturer application evidence — Bosch Automotive Filters India catalogue, HCV Filter Application Chart (printed page 21), exact part 1 457 431 003, Fuel Filter Element: Ashok Leyland Artik 3014, Cheetah and Comet 1616H; Swaraj Mazda Premium WT 49 ESA, Sartaj WV26S, Super ZT54 BS I and T3500 Prestige WT49LWB; Tata 1510 LP and LPT 1613. Bosch Commercial Vehicle Filter Catalogue further gives exact Cheetah power/year variants (84 kW, 1995.04–2010.10; 97 kW, 2005.04–2010.10; 88 kW, 2000.11–2005.03). Note: the CV chart also shows this part against the 1616H 5.7 L and 1613H model variants. These catalogue applications supersede the generic Universal label for fitment lookup; confirm engine and filter housing. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/pdf_8/bosch-automotive-filters-india-catalogue.pdf ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -49174,7 +49180,8 @@
       "Bosch diesel filter application",
       "exact vehicle fitment for 9451-037-409 was not established from the indexed Bosch India catalogue",
       "so no vehicle models are being invented.",
-      "Vehicle fitment evidence (Bosch India CV Filters catalogue; exact part-number match): Tata LPT 810 Ex2 BS IV, LPT 909 BS IV, 1516 LPT, SE 1613 BS IV, SK 1613 and LPT 1613."
+      "Vehicle fitment evidence (Bosch India CV Filters catalogue; exact part-number match): Tata LPT 810 Ex2 BS IV, LPT 909 BS IV, 1516 LPT, SE 1613 BS IV, SK 1613 and LPT 1613.",
+      "Manufacturer application evidence — Bosch Automotive Filters India catalogue, HCV Filter Application Chart (printed page 22), exact part 9 451 037 409, Fuel Filter Element: Ashok Leyland 12M and Cheetah; Tata LPT 1613. Bosch Commercial Vehicle Filter Catalogue specifies Cheetah diesel variants 84 kW (1995.04–2010.10), 97 kW (2005.04–2010.10) and 88 kW (2000.11–2005.03), and a Viking 84 kW (2004.02–2010.10) chart row for this filter. These exact catalogue applications supersede the generic Universal label for fitment lookup; confirm engine, production period and filter housing before supply. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/pdf_8/bosch-automotive-filters-india-catalogue.pdf ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -54847,7 +54854,8 @@
     "discountPercent": 8,
     "applications": [
       "Rear Cargo cab mounting",
-      "rubber cab-to-chassis vibration isolation."
+      "rubber cab-to-chassis vibration isolation.",
+      "Fitment qualification — current model tag Ashok Leyland 2516 is not backed by an exact OE cross-reference in the reviewed source set. The supplier reference F2637300 and description identify a rear cargo-cab rubber mount, but do not establish cab variant, bracket geometry or chassis range. Retain as provisional; verify mount height, hole centres, rubber profile and OE number against the cargo-cab/chassis before confirming 2516 or other models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169990",
@@ -54923,7 +54931,8 @@
     "applications": [
       "Front cabin mounting bush",
       "8.1 cm length",
-      "1.95 cm inner diameter."
+      "1.95 cm inner diameter.",
+      "Fitment qualification — current model tag Ashok Leyland 2516 is not supported by an exact OE/model table in the reviewed source set. The 81 mm outside length and 19.5 mm ID alone are insufficient to establish cab-bush interchange. Confirm OD, length, inner sleeve, flange/profile and mounting arrangement against the front cab bracket and OE cross-reference before treating 2516 as verified."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169960",
@@ -55100,7 +55109,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Ashok Leyland H4/H6-CRS-CB18 BS III/BS IV and N4 BS IV fuel-system application",
-      "PHJ00004 is the spin-on main-filter element without sensor."
+      "PHJ00004 is the spin-on main-filter element without sensor.",
+      "Fitment qualification — PHJ00004 is listed as a BS IV spin-on main fuel-filter element without drain valve for Ashok Leyland H4/H6-CRS-CB18 BS III/BS IV and N4 BS IV fuel systems. These are engine/fuel-system designations, not an exact vehicle model list. The current Ashok Leyland 2516 tag must not be treated as independently verified until engine serial, filter head, sensor/drain arrangement and OE cross-reference are confirmed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
@@ -55172,7 +55182,8 @@
     "applications": [
       "Ashok Leyland 4CTI / 6DTI application",
       "X0301750 is an 8PK1250 alternator belt",
-      "alternate to X0301650."
+      "alternate to X0301650.",
+      "Fitment qualification — supplier application 4CTI / 6DTI for exact reference X0301750, 8PK1250 alternator belt (alternate X0301650), is an engine/accessory-drive application and does not by itself verify the current Ashok Leyland 2516 tag. Confirm belt routing, pulley count, alternator bracket and engine variant before model-level fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40103190",
@@ -55335,7 +55346,8 @@
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
       "Ashok Leyland 6x2 and 6x8 vehicle application",
-      "F0986215 is the bell-crank pin (small)."
+      "F0986215 is the bell-crank pin (small).",
+      "Fitment qualification — supplier note describes F0986215 as a small bell-crank pin for Ashok Leyland 6x2 and 6x8 applications, but the current exact vehicle tag is Ashok Leyland 2516 only. The axle/configuration description is not enough to assign every 6x2/6x8 model. Confirm 42 × 123 mm dimensions, shoulder/retention profile, bell-crank hole and exact chassis/OE reference; 2516 remains provisional pending this check."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -55416,7 +55428,8 @@
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
       "Ashok Leyland 6x2 and 6x8 vehicle application",
-      "F0986415 is the bell-crank pin (long)."
+      "F0986415 is the bell-crank pin (long).",
+      "Fitment qualification — supplier note describes F0986415 as a long bell-crank pin for Ashok Leyland 6x2 and 6x8 applications, while the current exact vehicle tag is Ashok Leyland 2516 only. Do not generalise to all 6x2/6x8 vehicles. Confirm 42 × 160 mm dimensions, shoulder/retention profile, bell-crank hole and chassis/OE reference before finalising model fitment."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -55489,7 +55502,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000761/1.webp",
     "applications": [
       "Ashok Leyland commercial-vehicle steering/suspension linkage application",
-      "exact model fitment not established in the indexed source."
+      "exact model fitment not established in the indexed source.",
+      "Fitment qualification — F0987915 is described as a relay drop-arm pivot pin for Ashok Leyland steering linkage, but no exact model/chassis cross-reference was found in the reviewed public source set. The Ashok Leyland 2516 tag remains provisional. Verify pin diameter/length, shoulder, retention, drop-arm geometry and OE reference before expanding or confirming applications."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85364100",
@@ -55544,7 +55558,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000762/1.webp",
     "applications": [
       "Ashok Leyland FA99 front-axle king-pin bush application",
-      "exact model fitment not established in the indexed source."
+      "exact model fitment not established in the indexed source.",
+      "Fitment qualification — FS203500 is identified as an FA99 front-axle king-pin bush; this identifies the axle family, not a verified vehicle model. The existing Ashok Leyland 2516 vehicle tag is provisional until an FA99 axle-to-chassis/OE table and bush dimensions (ID, OD, length, flange and material) are matched. Do not apply to other FA99-equipped models without dimensional confirmation."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84833000",
@@ -63606,7 +63621,8 @@
     "applications": [
       "Tata",
       "Ashok Leyland and Volvo Eicher (VECV) commercial vehicles.",
-      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100250150): stop-light switch; vehicle application listed for TATA, Ashok Leyland and Volvo Eicher (VECV), associated with twin-cylinder 704 cc flange-mounted compressor applications. WABCO does not specify individual truck models here."
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100250150): stop-light switch; vehicle application listed for TATA, Ashok Leyland and Volvo Eicher (VECV), associated with twin-cylinder 704 cc flange-mounted compressor applications. WABCO does not specify individual truck models here.",
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 100250150 states Vehicle application (India): TATA, Ashok Leyland, Volvo Eicher (VECV). Its technical record specifies a 24 V stop-light switch, screw-mounted electrical connection and M14 × 1.5 thread. This supports the three make-level applications, not every model currently listed. Verify voltage, terminal arrangement, thread and switch pressure. Source: https://www.wabco-customercentre.com/catalog/en_US/100250150"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -63687,7 +63703,8 @@
     "approx_weight_g": 1400,
     "applications": [
       "Tata commercial vehicles.",
-      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100306470): pressure-reducing valve; vehicle application TATA, specified for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is stated."
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100306470): pressure-reducing valve; vehicle application TATA, specified for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is stated.",
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 100306470 identifies a Pressure Reducing Valve and states Vehicle application (India): TATA. The record specifies M22 × 1.5 ports and two Ø9 mm mounting points. This supports Tata make-level application only; match delivered pressure, port orientation and mounting pattern before assigning individual models. Source: https://www.wabco-customercentre.com/catalog/en_US/100306470"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
@@ -63771,7 +63788,8 @@
     "approx_weight_g": 3600,
     "applications": [
       "Tata commercial vehicles.",
-      "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata commercial vehicles. The WABCO catalogue gives make-level application only; no individual model is stated."
+      "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata commercial vehicles. The WABCO catalogue gives make-level application only; no individual model is stated.",
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 100600920 identifies a Foot Brake Valve and states Vehicle application (India): TATA. Technical matching includes M630310 actuation, treadle assembly, 3-point mounting and published port threads. This supports Tata make-level application only; exact chassis and pedal interface still need confirmation. Source: https://www.wabco-customercentre.com/catalog/en_US/100600920"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
@@ -63853,7 +63871,8 @@
     "approx_weight_g": 3900,
     "applications": [
       "Tata commercial vehicles.",
-      "Vehicle fitment evidence / description reconciliation (WABCO Customer Centre India; exact material number 100601130): WABCO lists this brake-valve device for TATA and specifies twin-cylinder 704 cc flange-mounted compressor application. WABCO’s product heading is “Brake”; reconcile the supplied “Dual Brake Valve with pedal (VOSS)” description/reference before confirming any detailed model fitment."
+      "Vehicle fitment evidence / description reconciliation (WABCO Customer Centre India; exact material number 100601130): WABCO lists this brake-valve device for TATA and specifies twin-cylinder 704 cc flange-mounted compressor application. WABCO’s product heading is “Brake”; reconcile the supplied “Dual Brake Valve with pedal (VOSS)” description/reference before confirming any detailed model fitment.",
+      "Manufacturer application evidence — WABCO Customer Centre India product page for exact material number 100601130 identifies the product as a brake valve and states Vehicle application (India): TATA. Technical data includes 45° pedal angle, 3 × Ø9.5 mm mounting and M22 × 1.5 ports. This supports Tata make-level application only; confirm valve variant, pedal geometry and mounting before assigning individual Tata models. Source: https://www.wabco-customercentre.com/catalog/en_IN/100601130"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
@@ -63928,7 +63947,8 @@
     "approx_weight_g": 200,
     "applications": [
       "Tata and MAN commercial vehicles.",
-      "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata and MAN commercial vehicles. The catalogue gives make-level applications only; no individual model is stated."
+      "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata and MAN commercial vehicles. The catalogue gives make-level applications only; no individual model is stated.",
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 100870460 identifies a diaphragm and states Vehicle application (India): TATA, MAN. This supports those makes at manufacturer level; it does not establish a specific vehicle model. Confirm brake-chamber type and diaphragm profile/diameter before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/100870460"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169990",
@@ -64003,7 +64023,8 @@
     "approx_weight_g": 150,
     "applications": [
       "Tata and Ashok Leyland commercial vehicles.",
-      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100870580): diaphragm for twin-cylinder 704 cc flange-mounted compressor; vehicle application listed as TATA and Ashok Leyland. No individual truck model is stated."
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100870580): diaphragm for twin-cylinder 704 cc flange-mounted compressor; vehicle application listed as TATA and Ashok Leyland. No individual truck model is stated.",
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 100870580 identifies a diaphragm and states Vehicle application (India): TATA, Ashok Leyland. This supports those makes at manufacturer level; it does not establish every model in the current tag list. Confirm brake-chamber series and diaphragm dimensions before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/100870580"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169990",
@@ -64082,7 +64103,8 @@
     "approx_weight_g": 150,
     "applications": [
       "R12 vertical relay-valve applications",
-      "VECV/Bharat Benz commercial vehicles."
+      "VECV/Bharat Benz commercial vehicles.",
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 300003072 identifies a relay-valve repair kit and states Vehicle application (India): TATA. This conflicts with the current catalogue application note naming VECV/Bharat Benz; keep the latter unconfirmed unless a separate exact cross-reference is produced. Match relay-valve type and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
@@ -64236,7 +64258,8 @@
     "applications": [
       "WABCO dual-brake-valve repair-kit applications",
       "including BS IV commercial vehicles.",
-      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 300006018): “Kit: Dual Brake Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is specified."
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 300006018): “Kit: Dual Brake Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is specified.",
+      "Manufacturer application evidence — WABCO Customer Centre exact material number 300006018 identifies the product as a Dual Brake Valve repair kit. The accessible product record confirms product identity but did not expose an India vehicle-application field in the extracted page; current Tata/BS IV wording remains unverified pending a valve-assembly cross-reference. Source: https://www.wabco-customercentre.com/catalog/en_US/300006018"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
@@ -74647,7 +74670,8 @@
       "air-suspension and compressed-air line system",
       "replacement/service use for the stated specification.",
       "Vehicle application evidence and duplicate-reference qualification (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms compressor family, not an individual Tata truck model. This record shares WABCO material number 300001366 with Souviks SKU SVKS000579; confirm whether both catalogue entries represent the same kit and contents before treating them as distinct fitments.",
-      "Vehicle application evidence and duplicate-reference qualification (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms compressor family, not an individual Tata truck model. This record shares WABCO material number 300001366 with Souviks SKU SVKS000579; confirm whether both catalogue entries represent the same kit and contents before treating them as distinct fitments. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
+      "Vehicle application evidence and duplicate-reference qualification (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms compressor family, not an individual Tata truck model. This record shares WABCO material number 300001366 with Souviks SKU SVKS000579; confirm whether both catalogue entries represent the same kit and contents before treating them as distinct fitments. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf",
+      "Manufacturer application evidence — WABCO Customer Centre exact material number 300001366 identifies the product as a cover repair kit and states Vehicle application (India): TATA. This is make-level evidence only and does not establish T-2518 model fitment. The current product title and existing nominal application must be checked against the actual compressor/kit mapping; do not infer Tata 2518 fitment from the kit name alone. Source: https://www.wabco-customercentre.com/catalog/en_US/300001366. Note: the same WABCO material number is already present on another Souviks SKU (SVKS000579), so this is a duplicate-reference conflict requiring stock-label verification."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -74997,7 +75021,8 @@
     "applications": [
       "Commercial-vehicle braking system",
       "replacement/service use for the stated specification.",
-      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 4730170250): relay valve, anti-compounding version; WABCO lists the Indian vehicle application as Mahindra. Confirm vehicle/air-brake configuration and matching valve ports before ordering."
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 4730170250): relay valve, anti-compounding version; WABCO lists the Indian vehicle application as Mahindra. Confirm vehicle/air-brake configuration and matching valve ports before ordering.",
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 4730170250 identifies the product as a relay valve, anti-compounding. The accessible record confirms exact product identity but did not expose an India vehicle-application field in the extracted page. Do not assign named makes/models without a WABCO or OEM cross-reference. Source: https://www.wabco-customercentre.com/catalog/en_US/4730170250"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
@@ -83397,7 +83422,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Front engine mounting pad",
-      "compatible Leyland truck and Ecomet engine-mounting applications."
+      "compatible Leyland truck and Ecomet engine-mounting applications.",
+      "Vehicle application evidence — Ashok Leyland Value Parts Catalogue, section Rubber Components, item 284, lists Leyparts 59YE001 / F2630200 ENGINE MOUNTING for ECOMET 912, 1012, 1112; LYNX BUS; 2516, 2518, U 2518, 3123; VIKING and 12M BUS. This is a supplier-catalogue match to the exact F2630200 reference. The catalogue does not establish every year/engine/chassis revision; verify mount geometry and OE substitution before ordering. Source: https://pssao.com/catlog/al/VALUE%20PARTS%20CATALOGUE.pdf (item 284)."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001132/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
