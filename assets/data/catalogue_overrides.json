@@ -107,6 +107,54 @@
       "append": [
         "Fitment evidence remains incomplete. The product’s exact Tata OEM reference 278801135304 appears in Souviks as an oil-sump gasket, but the accessible Tata Genuine Parts catalogue portal is restricted to internal/dealer use and the available public catalogue evidence did not provide a reliable exact model/engine compatibility table for this reference. The current Tata Ace application must therefore be treated as a provisional catalogue mapping, not independently verified fitment. Confirm against Tata ECATS by VIN/chassis and BS/engine variant before supply. Tata catalogue portal: https://www.customercare-cv.tatamotors.com/tata-genuine-parts/product-catalogue.aspx"
       ]
+    },
+    {
+      "id": "SVKS000753",
+      "append": [
+        "Fitment qualification — current model tag Ashok Leyland 2516 is not backed by an exact OE cross-reference in the reviewed source set. The supplier reference F2637300 and description identify a rear cargo-cab rubber mount, but do not establish cab variant, bracket geometry or chassis range. Retain as provisional; verify mount height, hole centres, rubber profile and OE number against the cargo-cab/chassis before confirming 2516 or other models."
+      ]
+    },
+    {
+      "id": "SVKS000754",
+      "append": [
+        "Fitment qualification — current model tag Ashok Leyland 2516 is not supported by an exact OE/model table in the reviewed source set. The 81 mm outside length and 19.5 mm ID alone are insufficient to establish cab-bush interchange. Confirm OD, length, inner sleeve, flange/profile and mounting arrangement against the front cab bracket and OE cross-reference before treating 2516 as verified."
+      ]
+    },
+    {
+      "id": "SVKS000759",
+      "append": [
+        "Fitment qualification — supplier note describes F0986215 as a small bell-crank pin for Ashok Leyland 6x2 and 6x8 applications, but the current exact vehicle tag is Ashok Leyland 2516 only. The axle/configuration description is not enough to assign every 6x2/6x8 model. Confirm 42 × 123 mm dimensions, shoulder/retention profile, bell-crank hole and exact chassis/OE reference; 2516 remains provisional pending this check."
+      ]
+    },
+    {
+      "id": "SVKS000760",
+      "append": [
+        "Fitment qualification — supplier note describes F0986415 as a long bell-crank pin for Ashok Leyland 6x2 and 6x8 applications, while the current exact vehicle tag is Ashok Leyland 2516 only. Do not generalise to all 6x2/6x8 vehicles. Confirm 42 × 160 mm dimensions, shoulder/retention profile, bell-crank hole and chassis/OE reference before finalising model fitment."
+      ]
+    },
+    {
+      "id": "SVKS000761",
+      "append": [
+        "Fitment qualification — F0987915 is described as a relay drop-arm pivot pin for Ashok Leyland steering linkage, but no exact model/chassis cross-reference was found in the reviewed public source set. The Ashok Leyland 2516 tag remains provisional. Verify pin diameter/length, shoulder, retention, drop-arm geometry and OE reference before expanding or confirming applications."
+      ]
+    },
+    {
+      "id": "SVKS000762",
+      "append": [
+        "Fitment qualification — FS203500 is identified as an FA99 front-axle king-pin bush; this identifies the axle family, not a verified vehicle model. The existing Ashok Leyland 2516 vehicle tag is provisional until an FA99 axle-to-chassis/OE table and bush dimensions (ID, OD, length, flange and material) are matched. Do not apply to other FA99-equipped models without dimensional confirmation."
+      ]
+    },
+    {
+      "id": "SVKS000756",
+      "append": [
+        "Fitment qualification — PHJ00004 is listed as a BS IV spin-on main fuel-filter element without drain valve for Ashok Leyland H4/H6-CRS-CB18 BS III/BS IV and N4 BS IV fuel systems. These are engine/fuel-system designations, not an exact vehicle model list. The current Ashok Leyland 2516 tag must not be treated as independently verified until engine serial, filter head, sensor/drain arrangement and OE cross-reference are confirmed."
+      ]
+    },
+    {
+      "id": "SVKS000757",
+      "append": [
+        "Fitment qualification — supplier application 4CTI / 6DTI for exact reference X0301750, 8PK1250 alternator belt (alternate X0301650), is an engine/accessory-drive application and does not by itself verify the current Ashok Leyland 2516 tag. Confirm belt routing, pulley count, alternator bracket and engine variant before model-level fitment."
+      ]
     }
   ],
   "updated_at": "2026-11-06",
