@@ -12,13 +12,13 @@ Matching to the Souviks catalogue uses exact product names, supplier brand plus 
 |---|---:|
 | Populated supplier invoice HSN source rows | 1034 |
 | Distinct supplier product names | 1010 |
-| Source rows linked to a catalogue SKU | 824 |
-| Catalogue SKUs with one consistent supplier code | 785 |
-| Catalogue SKUs with conflicting supplier codes | 7 |
-| Supplier rows requiring manual review | 210 |
+| Source rows linked to a catalogue SKU | 864 |
+| Catalogue SKUs with one consistent supplier code | 822 |
+| Catalogue SKUs with conflicting supplier codes | 8 |
+| Supplier rows requiring manual review | 170 |
 | Of which: plausible/ambiguous catalogue matches | 95 |
 | Of which: no reliable catalogue match found | 115 |
-| Active SKUs with one consistent supplier reference | 785 |
+| Active SKUs with one consistent supplier reference | 822 |
 | Active SKUs with conflicting supplier references | 7 |
 
 Match methods:
@@ -28,7 +28,15 @@ Match methods:
 - `part_reference_and_title`: 8 source rows
 - `high_confidence_brand_and_title`: 2 source rows
 
-Among the 785 SKUs with one consistent supplier code, 231 agree with the current catalogue HSN candidate and 554 differ. This is recorded as a comparison, not a decision that the supplier or catalogue candidate is legally definitive.
+Among the original 785 SKUs with one consistent supplier code, 231 agree with the current catalogue HSN candidate and 554 differ. The additional manual matches are not included in that comparison unless a prior candidate comparison already existed. Supplier invoice evidence remains supporting data, not a legal determination of classification.
+
+## Manual reconciliation tranche — 6 November 2026
+
+A second review of the supplier queue confirmed 40 additional source rows against exact catalogue part numbers or exact product/title/size/side variants. The rows cover GS centre bolts, KFL components, MEI and Meritor brake components, RKI K10, TVS Girling parts, WABCO compressor/repair kits, Varroc left/right headlamps, a Leyparts pivot pin, a Mahle separator and Texspin clutch bearings.
+
+Of these rows, 38 identify catalogue SKUs that were not previously linked to supplier invoice evidence. One adds a second source record with the same code to SVKS000739. The KF5098 record identity-matches SVKS000742 but carries a different supplier invoice code from the code already recorded for that SKU; both values are preserved and the SKU is now marked as a conflict. As a result, the uniquely matched SKU count is 822 and the conflict count is 8.
+
+The matching evidence and rule for each row are recorded in `assets/data/hsn-supplier-invoice-manual-resolutions.json`. The remaining review queue comprises 41 brand/title reviews, 17 ambiguous part-reference rows, 101 rows without a reliable catalogue match, 10 supplier-name/code conflicts and one ambiguous exact-name match.
 
 ## Catalogue fields
 
@@ -39,14 +47,15 @@ The supplier invoice evidence is stored separately from the existing HSN candida
 - `hsn_supplier_invoice_match_methods`: the identity matching route(s);
 - `hsn_supplier_invoice_source_names` and `hsn_supplier_invoice_external_ids`: source traceability;
 - `hsn_supplier_invoice_source_file` and `hsn_supplier_invoice_match_date`;
-- `hsn_supplier_invoice_candidate_alignment`: `agrees`, `differs`, or `conflicting_supplier_codes`.
+- `hsn_supplier_invoice_candidate_alignment`: `agrees`, `differs`, `not_compared`, or `conflicting_supplier_codes`.
 
-The 7 conflict SKUs have no single selected supplier code. Existing `hsn_code`, `hsn_description`, `hsn_confidence`, `hsn_classification_status`, `hsn_basis`, `hsn_review_note` and `hsn_reference_date` values remain unchanged. The catalogue builder carries supplier metadata into the active static product projection.
+The 8 conflict SKUs have no single selected supplier code. Existing `hsn_code`, `hsn_description`, `hsn_confidence`, `hsn_classification_status`, `hsn_basis`, `hsn_review_note` and `hsn_reference_date` values remain unchanged. The catalogue builder carries supplier metadata into the active static product projection.
 
 ## Audit files
 
 - `hsn-supplier-invoice-matches-2026-11-06.csv` lists all source rows linked to a SKU, including supplier-code conflicts.
 - `hsn-supplier-invoice-review-queue-2026-11-06.csv` lists every remaining supplier row with candidate catalogue records and match scores where available.
+- `assets/data/hsn-supplier-invoice-manual-resolutions.json` records the 40 identity-verified manual matches applied by the canonical builder.
 
 ## Tax and invoice boundary
 
