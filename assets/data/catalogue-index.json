@@ -7028,7 +7028,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000107/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle application reconciliation (Nitol Motors e-Dukan listing; exact Tata reference 279018130107): the listing identifies this part as “OIL FILTER ASSY ACE/EX2”. This supports an ACE / ACE EX2 oil-filter application, not the current Tata 1109 / 1210 / 1312 tags. Keep those truck tags unverified until the filter body, thread, sealing face and engine/filter-housing family are matched to the OE unit. Source: https://www.nitoltata-edukan.com/"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -7596,7 +7597,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000117/1.webp",
     "applications": [
       "Gearbox Sealing System",
-      "Transmission Maintenance"
+      "Transmission Maintenance",
+      "Vehicle/gearbox fitment evidence (Tata Motors SUPER ACE EURO-II DLE parts catalogue, VC 28187824000R, gearbox group 26, p. 46; exact part 285126207803): listed as OIL SEAL MAIN SHAFT 38X48X8. Tata ACE HT Diesel BS-IV parts catalogue, chassis type 445057, also lists the exact reference in its gearbox housing group. This supports those specified gearbox configurations only; the current Tata Ace tag is too broad to certify every Ace derivative or gearbox. Confirm the 38×48×8 dimensions, gearbox family and emission/chassis variant before ordering. Sources: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/SUPER-ACE-DLE.pdf ; https://www.scribd.com/document/512677113/TATA-ACE-TATA-ACE-HT-DIESEL-BS-IV"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169330",
@@ -32160,7 +32162,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tata Prima front wheel bearing."
+      "fitment/specification: Tata Prima front wheel bearing.",
+      "Supplier application reconciliation (Texspin Master Price List effective 04-Jan-2024): the supplier lists TX-1-500/Q as “TATA PRIMA FRONT WHEEL BEARING”. Souviks records TX-I-500Q; the supplier code uses the numeral “1” and slash notation, while the catalogue uses a capital “I” and omits the slash. Do not treat this as an exact part-number match until the physical package/bearing marking is checked. The current “Tractors” vehicle tag is not supported by the supplier listing; if the code is confirmed, the stated application is Tata Prima front wheel bearing. Source: https://www.scribd.com/document/755912573/BEARING-TEXSPIN-01-2024"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822090",
@@ -32217,7 +32220,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tata Prima front wheel bearing."
+      "fitment/specification: Tata Prima front wheel bearing.",
+      "Supplier application reconciliation (Texspin Master Price List effective 04-Jan-2024): the supplier lists TX-1-501/Q as “TATA PRIMA FRONT WHEEL BEARING”. Souviks records TX-I-501Q; the supplier code uses the numeral “1” and slash notation, while the catalogue uses a capital “I” and omits the slash. Do not treat this as an exact part-number match until the physical package/bearing marking is checked. The current “Tractors” vehicle tag is not supported by the supplier listing; if the code is confirmed, the stated application is Tata Prima front wheel bearing. Source: https://www.scribd.com/document/755912573/BEARING-TEXSPIN-01-2024"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822090",
