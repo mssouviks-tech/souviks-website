@@ -20478,7 +20478,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000334/1.webp",
     "applications": [
       "Bell Crank Assembly",
-      "Steering Linkage System"
+      "Steering Linkage System",
+      "Fitment status — supplier/OE confirmation pending: the available JAI source material reviewed in this audit does not provide a vehicle-specific application row for code BS4923TAP. “50 mm” identifies a nominal bell-crank size, not proof of Tata LPT compatibility. Confirm bell-crank bore, pivot diameter, bush type, arm geometry and OEM reference against the actual steering assembly before treating Tata LPT fitment as verified."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089400",
@@ -20553,7 +20554,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Leaf Spring Suspension System"
+      "Leaf Spring Suspension System",
+      "Fitment status — part-code conflict pending resolution: JAI code P32151D (32 × 151 mm) appears in two catalogue records, one tagged Tata LPT/Tata Signa and the other Ashok Leyland 2516. The nominal dimensions do not establish interchangeability across these models. Obtain the manufacturer's drawing/pack marking and confirm spring-eye width, pin profile, lubrication groove and chassis/axle application before confirming either vehicle mapping."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -20617,7 +20619,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Leaf Spring Suspension System"
+      "Leaf Spring Suspension System",
+      "Fitment status — product-function conflict pending resolution: JAI code P52148 (52 × 148 mm) appears in this catalogue both as a “Spring Pin” and as a “Lever Pin”, with different vehicle tags. The shared code/dimensions are not enough to treat the two functions or applications as interchangeable. Verify the manufacturer's part marking, pin-end profile, grease path, bush/eye dimensions and assembly location before confirming Tata LPT/Tata Prima application."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38084,7 +38087,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P16110: the part title identifies Spring Pin 16x110, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Ace, Tata Intra. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38148,7 +38152,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22116: the part title identifies Front Spring Pin 22x116, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38212,7 +38217,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22125: the part title identifies Front Spring Pin 22x125, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38276,7 +38282,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22126: the part title identifies Front Spring Pin 22x126, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38340,7 +38347,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22127: the part title identifies Front Spring Pin 22x127, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38404,7 +38412,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22136: the part title identifies Front Spring Pin 22x136, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Ultra. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38468,7 +38477,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22140: the part title identifies Front Spring Pin 22x140, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Ultra. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38532,7 +38542,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22142: the part title identifies Front Spring Pin 22x142, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Ultra. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38596,7 +38607,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25130: the part title identifies Front Spring Pin 25x130, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 1312. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38660,7 +38672,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25135: the part title identifies Front Spring Pin 25x135, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 1312. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38724,7 +38737,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25142: the part title identifies Front Spring Pin 25x142, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 1312. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38776,7 +38790,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25174: the part title identifies Heavy Duty Front Pin 25x174, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimensions_mm": [
@@ -38853,7 +38868,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25134: the part title identifies Front Spring Pin 25x134, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT, Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38917,7 +38933,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25152: the part title identifies Front Spring Pin 25x152, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -38981,7 +38998,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P30130: the part title identifies Front Spring Pin 30x130, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39045,7 +39063,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P30139: the part title identifies Rear Spring Pin 30x139, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39109,7 +39128,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P30150: the part title identifies Rear Spring Pin 30x150, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39173,7 +39193,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P30165: the part title identifies Rear Spring Pin 30x165, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39237,7 +39258,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — part-code conflict pending resolution: JAI code P32151D (32 × 151 mm) appears in two catalogue records, one tagged Tata LPT/Tata Signa and the other Ashok Leyland 2516. The nominal dimensions do not establish interchangeability across these models. Obtain the manufacturer's drawing/pack marking and confirm spring-eye width, pin profile, lubrication groove and chassis/axle application before confirming either vehicle mapping."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39301,7 +39323,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35130: the part title identifies Rear Spring Pin 35x130, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39365,7 +39388,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35135: the part title identifies Rear Spring Pin 35x135, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39429,7 +39453,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35136: the part title identifies Rear Spring Pin 35x136, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39493,7 +39518,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35139S: the part title identifies Rear Spring Pin 35x139 small, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39557,7 +39583,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35140: the part title identifies Rear Spring Pin 35x140, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39622,7 +39649,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35149: the part title identifies Rear Spring Pin 35x149, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39686,7 +39714,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35151D: the part title identifies Rear Spring Pin 35x151, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39751,7 +39780,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35155D: the part title identifies Rear Spring Pin 35x155, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Eicher Pro Series, Ashok Leyland Captain. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39815,7 +39845,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35164: the part title identifies Rear Spring Pin35x164, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39879,7 +39910,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35165: the part title identifies Rear Spring Pin 35x165, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -39944,7 +39976,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42109: the part title identifies Lever Pin 42x109, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -40009,7 +40042,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42110: the part title identifies Lever Pin 42x110, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -40074,7 +40108,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42116S: the part title identifies Lever Pin 42x116 small, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -40138,7 +40173,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42123: the part title identifies Lever Pin 42x123, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -40202,7 +40238,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42131: the part title identifies Lever Pin 42x131, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -40267,7 +40304,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42148S: the part title identifies Lever Pin 42x148 small, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -40331,7 +40369,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42160: the part title identifies Lever Pin 42x160, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -40396,7 +40435,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42170D: the part title identifies Lever Pin 42x170, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Signa, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -40461,7 +40501,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — product-function conflict pending resolution: JAI code P52148 (52 × 148 mm) appears in this catalogue both as a “Spring Pin” and as a “Lever Pin”, with different vehicle tags. The shared code/dimensions are not enough to treat the two functions or applications as interchangeable. Verify the manufacturer's part marking, pin-end profile, grease path, bush/eye dimensions and assembly location before confirming Tata LPT/Tata Prima application."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
@@ -40526,7 +40567,8 @@
     "weight_estimation_notes": "Estimated from nominal diameter and overall length in the product name; actual stepped features, holes, grooves and chamfers are not measured.",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P52151: the part title identifies Lever Pin 52x151, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Prima, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "hsn_code": "73209020",
     "hsn_description": "Springpins, of iron or steel",
