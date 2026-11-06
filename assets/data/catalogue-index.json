@@ -29426,7 +29426,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing with Hub"
+      "Clutch Release Bearing with Hub",
+      "Vehicle fitment evidence / part-number normalization (Texspin Master Price List 2025–26, Ashok Leyland clutch-release-bearing table, printed p. 2; exact supplier code TX-27D1511WH): Ashok Leyland Taurus clutch-release bearing with hub, using bearing TX-27D-1511. The Souviks MPN “TX-27WH (O-1511)” does not exactly match the supplier code; confirm the physical manufacturer marking and internal reference before treating the SKU as an exact-code match."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -29587,7 +29588,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "GB75 Self-Centering Release Bearing"
+      "GB75 Self-Centering Release Bearing",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 8; exact code TX-4546SC): Tata GB75 self-centering clutch-release bearing with hub, new-model short-hub design. The supplier specifies the gearbox/bearing interface, not a chassis model; confirm GB75 and hub design before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -29643,7 +29645,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release System"
+      "Clutch Release System",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 8; exact code TX-4576): Tata GB75 clutch-release bearing with hub, using bearing TX-3527. The supplier specifies the gearbox rather than an individual truck chassis; existing vehicle labels are not independently confirmed by this line."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -29874,7 +29877,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing | HCV Gearbox"
+      "Clutch Release Bearing | HCV Gearbox",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 8; exact code TX-60TM): Tata GB60 clutch-release bearing, 1.75-inch / 4.45 cm interface. This is a gearbox specification; confirm GB60 and clutch interface rather than inferring a model-specific fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -29937,7 +29941,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing"
+      "Clutch Release Bearing",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6346SC): Ashok Leyland clutch-release bearing, 1.75-inch clutch, 15-inch RDC 2095 GB and 850 OD gearbox, new design, reference FVB01600. Confirm gearbox and clutch dimensions; the supplier does not provide a specific chassis/model list for this line."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -30107,7 +30112,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Release Bearing"
+      "Clutch Release Bearing",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6698SC): Ashok Leyland 25–31 tonne applications, 1.75-inch clutch, 15-inch RDC 2095 GB and 850 OD gearbox; reference FVB00700. Confirm gearbox and clutch dimensions before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -31443,7 +31449,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tapper Roller Bearing for Bharat Benz truck rear wheel bearing."
+      "fitment/specification: Tapper Roller Bearing for Bharat Benz truck rear wheel bearing.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33117): rear wheel bearing for Bharat Benz trucks. The supplier does not enumerate individual Bharat Benz models or axle variants; confirm the bearing dimensions and axle position."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822012",
@@ -31499,7 +31506,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle-class application evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33213): taper-roller bearing listed for HCV trailer applications. The source does not specify trailer manufacturer, axle, or model; match bearing dimensions and axle specification."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822012",
@@ -31557,7 +31565,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tapper Roller Bearing for Tata 1312/1516/2416."
+      "fitment/specification: Tapper Roller Bearing for Tata 1312/1516/2416.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33215): Tata 1312, Tata 1516 and Tata 2416 application. Confirm axle position and bearing dimensions against the vehicle specification."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822012",
@@ -32184,7 +32193,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000531/1.webp",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-310-CRK7): lever kit for Tata GB40 clutch assembly. Supplier listing confirms the gearbox family, not the current website vehicle labels individually; confirm GB40 interface and clutch assembly."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -32239,7 +32249,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000532/1.webp",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Vehicle fitment evidence / vehicle-tag conflict (Texspin Master Price List 2025–26, printed p. 52; exact code TX-330-CRK7-4LB-A): 330-4L major lever kit for Sonalika 740, bush type. The current Souviks vehicle array contains Tata 1210 and Tata 1312, which are not supported by this supplier entry. Treat those existing vehicle labels as unverified; confirm the Sonalika 740 clutch assembly and bush design."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -32293,7 +32304,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000533/1.webp",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-352-CRK7): Ø352 major lever kit with bearing for Tata GB60. Confirm the GB60 clutch assembly and push/pull configuration; supplier line does not specify chassis models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -32401,7 +32413,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000535/1.webp",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-380-CRK7): Ø380 major lever kit with bearing for Tata/Eicher GB75. This is a gearbox-family fitment; verify bearing inclusion and GB75 clutch interface."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -32455,7 +32468,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000536/1.webp",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 51; exact code TX-380-CRK9): Ø380 clutch collector ring / withdrawal plate for GB75 pressure-plate assembly. Confirm GB75 and pressure-plate configuration; supplier does not enumerate chassis models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -32509,7 +32523,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000537/1.webp",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Vehicle / clutch-assembly fitment evidence (Texspin Master Price List 2025–26, printed p. 51; exact code TX-430-CRK9): Tata Prima 430 mm clutch collector ring. Confirm 430 mm clutch and collector-ring geometry before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -50993,7 +51008,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000833/1.webp",
     "applications": [
-      "Tata GB-75 / 380 gearbox clutch-plate application."
+      "Tata GB-75 / 380 gearbox clutch-plate application.",
+      "Part-number reconciliation (Texspin Master Price List 2025–26, printed p. 46): the catalogue lists Ashok Leyland 380 mm clutch plates as TX-380-DPA-4-36 (6-speed, BS-IV) and TX-380-DPA-4-39 (9-speed, BS-IV); it does not list the Souviks code TX-380-DPA-1. Do not treat the Tata GB75 title or current Tata Signa vehicle tag as supplier-confirmed until the physical part marking and clutch plate are reconciled."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -51047,7 +51063,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000834/1.webp",
     "applications": [
-      "Tata GB-75 / 380 gearbox clutch-plate application."
+      "Tata GB-75 / 380 gearbox clutch-plate application.",
+      "Part-number reconciliation (Texspin Master Price List 2025–26, printed p. 46): the catalogue lists TX-380-DPA-4-36 for Ashok Leyland 6-speed BS-IV and TX-380-DPA-4-39 for Ashok Leyland 9-speed BS-IV; the Souviks code TX-380-DPA-4 omits the suffix needed to distinguish those variants. Do not assign a specific Ashok Leyland gearbox or retain the current Tata GB75 / Tata Signa claim as supplier-confirmed until the exact suffix and plate marking are checked."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -51101,7 +51118,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000835/1.webp",
     "applications": [
-      "Tata GB-75 / 380 gearbox cover-assembly application."
+      "Tata GB-75 / 380 gearbox cover-assembly application.",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-380-PPA-G): cover assembly for Tata GB75 gearbox. The supplier separately lists TX-380-PPA-G-3 for Ashok Leyland GB75 and TX-380-PPA-G-6 for Eicher Terra 25; those suffix variants are distinct and must not be conflated with the base Tata GB75 code."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -51156,7 +51174,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000836/1.webp",
     "applications": [
       "Tata 1312 king-pin application",
-      "1st oversize."
+      "1st oversize.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 54; exact code TX-610/1KP): kingpin shaft for Tata 1312, first oversize, 38.35 mm, set of two pins. Match the measured kingpin bore and oversize before fitting."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimensions_mm": [
@@ -51223,7 +51242,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000837/1.webp",
     "applications": [
       "Tata 1312 king-pin application",
-      "2nd oversize."
+      "2nd oversize.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 54; exact code TX-610/2KP): kingpin shaft for Tata 1312, second oversize, 38.45 mm, set of two pins. Match the measured kingpin bore and oversize before fitting."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimensions_mm": [
@@ -51290,7 +51310,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000838/1.webp",
     "applications": [
       "Tata 1312 king-pin application",
-      "4th oversize."
+      "4th oversize.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 54; exact code TX-610/4KP): kingpin shaft for Tata 1312, fourth oversize, 38.65 mm, set of two pins. Match the measured kingpin bore and oversize before fitting."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimensions_mm": [
@@ -56040,7 +56061,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000917/1.webp",
     "applications": [
       "Differential Assembly",
-      "Propeller Shaft Connection"
+      "Propeller Shaft Connection",
+      "Supplier-reference conflict (Kafila Updated Price List, effective 15-May-2026, propeller-shaft components): the source lists KF-6847 as a gear coupling with 4×13 mm hole pattern and 6 mm plate; it does not list KF-6847A. The Souviks description “Differential Coupling Flange – Tata 2518 Small” is not supported by the supplier description for KF-6847. Verify the physical part marking and supplier cross-reference before publishing any vehicle fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84836090",
@@ -57669,7 +57691,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000942/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Tata Commercial Vehicles 430 dia."
+      "fitment/specification: Clutch Release Bearing for Tata Commercial Vehicles 430 dia.",
+      "Vehicle / specification evidence (Texspin Master Price List 2025–26, printed p. 8; exact code TX-78139SC): clutch-release bearing for Tata commercial vehicles, 430 mm diameter; OE reference 5805 2560 0113. The supplier does not enumerate individual chassis models; confirm clutch diameter, spline/interface and OE number."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -57916,7 +57939,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000946/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.5\" haulage U-truck."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.5\" haulage U-truck.",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-4865SC): Ashok Leyland 1.5-inch clutch haulage U-Truck application. Confirm clutch size and gearbox configuration."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -58044,7 +58068,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000948/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.75 inch 9S GB - 395 dia BS 6."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.75 inch 9S GB - 395 dia BS 6.",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6398SC): Ashok Leyland 1.75-inch, 9-speed gearbox, 395 mm clutch, BS-VI application. Confirm the clutch and gearbox configuration."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -58108,7 +58133,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000949/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 430 pull type."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 430 pull type.",
+      "Vehicle / clutch-interface fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-E22SC): Ashok Leyland 430 mm pull-type clutch-release bearing, reference FVB01800. Confirm pull-type actuation and 430 mm clutch interface."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -60609,7 +60635,8 @@
     "applications": [
       "Commercial-vehicle suspension",
       "steering and axle-linkage system",
-      "fitment/specification: Kingpin Graphite Bush for Tata Signa."
+      "fitment/specification: Kingpin Graphite Bush for Tata Signa.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 54; exact code TX-1059B): kingpin graphite bush for Tata Signa, set of four. Confirm steering axle and kingpin dimensions."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84833000",
@@ -60668,7 +60695,8 @@
       "driveline or support-bearing system",
       "fitment/specification: Tata 607/707/809/909",
       "Harsha T-25",
-      "Swaraj 735."
+      "Swaraj 735.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 16; exact code TX-32212): bearing application listed for Tata 608/707/809/909, Harsha T-25 and Swaraj 735. The current website vehicle array contains only Tata 407, which is not named in this supplier row; treat that tag as unverified and match bearing dimensions before fitting."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822012",
@@ -60723,7 +60751,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000993/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.7\" Tipper 25-40 ton."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.7\" Tipper 25-40 ton.",
+      "Vehicle / clutch-assembly fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-4556SC): Ashok Leyland 1.7-inch clutch-release bearing for 25–40 tonne tipper applications. Confirm the truck's clutch and gearbox interface."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -61012,7 +61041,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000997/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.75\" 6S GB 380 dia BS6."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.75\" 6S GB 380 dia BS6.",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6396SC): Ashok Leyland 1.75-inch, 6-speed gearbox, 380 mm clutch, BS-VI application. Confirm gearbox and clutch dimensions."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -61081,7 +61111,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000998/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland (1.5\" clutch haulage- 1616 all model + pv viking + cheetha)."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland (1.5\" clutch haulage- 1616 all model + pv viking + cheetha).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6647SC): Ashok Leyland 1.5-inch clutch haulage application, 1616 all models plus PV Viking and Cheetah. The supplier models are more specific than the current Ashok Leyland 2516 vehicle tag; verify the actual vehicle/clutch arrangement rather than assuming all 2516 variants."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -61146,7 +61177,8 @@
     "applications": [
       "Clutch release and actuation system",
       "fitment/specification: Clutch Release Bearing for Ashok Leyland (1.7\" clutch/25-40 ton",
-      "Tipper)."
+      "Tipper).",
+      "Vehicle / clutch-assembly fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6651SC): Ashok Leyland 1.7-inch clutch, 25–40 tonne tipper application. Confirm clutch and gearbox configuration."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -68056,7 +68088,8 @@
       "Tata 3718",
       "LPT 2518",
       "LPT 3118",
-      "Signa 4323 and Prima 3525."
+      "Signa 4323 and Prima 3525.",
+      "Supplier-reference conflict (Kafila Updated Price List, effective 15-May-2026, propeller-shaft components): the source lists KF-6847 as a gear coupling with 4×13 mm hole pattern and 6 mm plate; it does not list KF-6847A or substantiate the website's “26 Spline” descriptor. The Souviks code and description therefore remain unverified against the supplier line. Confirm exact part marking, spline count and supplier cross-reference before publishing Tata 3718 / LPT 2518 / LPT 3118 / Signa 4323 / Prima 3525 fitments."
     ],
     "featured": false,
     "active": true,
