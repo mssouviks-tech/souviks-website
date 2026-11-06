@@ -15568,12 +15568,12 @@
       "Engine Cooling System"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "38200000",
-    "hsn_description": "Anti-freezing preparations and prepared de-icing fluids",
-    "hsn_confidence": "medium",
-    "hsn_classification_status": "provisional",
-    "hsn_basis": "The product is engine/radiator coolant.",
-    "hsn_review_note": "Confirm product formulation and coolant/antifreeze specification.",
+    "hsn_code": "39174000",
+    "hsn_description": "Fittings of plastics for tubes, pipes and hoses",
+    "hsn_confidence": "low",
+    "hsn_classification_status": "review_required",
+    "hsn_basis": "The catalogue identifies this article as a coolant-pipe socket/coupler, not a prepared coolant. A plastic pipe-fitting heading is the current candidate.",
+    "hsn_review_note": "Verify the fitting body material and construction. Use 39174000 only for plastic fittings; steel and copper-alloy fittings require their own tariff headings.",
     "hsn_reference_date": "2026-10-01",
     "dimension_specs_mm": [
       {
@@ -17042,12 +17042,12 @@
       "Relay Arm Assembly"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85364100",
-    "hsn_description": "Relays for a voltage not exceeding 60 V",
-    "hsn_confidence": "medium",
-    "hsn_classification_status": "provisional",
-    "hsn_basis": "The product is identified as a 12V/24V vehicle electrical relay.",
-    "hsn_review_note": "Confirm the rated voltage is not above 60 V and that it is an electrical relay rather than a pneumatic relay valve.",
+    "hsn_code": "87089400",
+    "hsn_description": "Steering wheels, steering columns and steering boxes; parts thereof",
+    "hsn_confidence": "low",
+    "hsn_classification_status": "review_required",
+    "hsn_basis": "Exact part F0987915 is listed as a pivot pin; Souviks identifies the assembly as a steering relay/drop-arm pivot. It is a mechanical steering item, not an electrical relay.",
+    "hsn_review_note": "Confirm the supplied part's dedicated steering-linkage function and whether it is a standalone pin or part of a complete linkage assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -21944,12 +21944,12 @@
       "Coolant Filtration System"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "38200000",
-    "hsn_description": "Anti-freezing preparations and prepared de-icing fluids",
+    "hsn_code": "84212900",
+    "hsn_description": "Other filtering or purifying machinery and apparatus for liquids",
     "hsn_confidence": "medium",
     "hsn_classification_status": "provisional",
-    "hsn_basis": "The product is engine/radiator coolant.",
-    "hsn_review_note": "Confirm product formulation and coolant/antifreeze specification.",
+    "hsn_basis": "Bosch's commercial-vehicle filter catalogue maps exact OE reference X4000700 to a coolant filter; this is filtering equipment, not antifreeze fluid.",
+    "hsn_review_note": "Confirm whether the supplied SKU is a complete coolant-filter apparatus or a replacement element/part (which may fall under 84219900).",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -22738,12 +22738,12 @@
       "Transmission Controls"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "39235090",
-    "hsn_description": "Other plastic stoppers, lids, caps and other closures",
+    "hsn_code": "87084000",
+    "hsn_description": "Gear boxes and parts thereof",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is a tank cap or gear-lever knob, but its material is not stated.",
-    "hsn_review_note": "Confirm material; this candidate is only for plastic closures. Rubber or metal articles may classify elsewhere.",
+    "hsn_basis": "The product is described as a gear-lever knob used at the driver's transmission gear-selection interface, not a plastic closure.",
+    "hsn_review_note": "Confirm whether it is a dedicated gearbox/gear-selection part or a standalone knob whose material/function requires a different heading.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -25138,12 +25138,12 @@
       "Water Pump Drive"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "40103290",
+    "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "PIX AVX13-family product is a trapezoidal V-belt; the catalogue part-number size is 1325 mm, within the 60–180 cm tariff circumference band if the size marking is the belt outside circumference.",
+    "hsn_review_note": "Verify exact non-V-ribbed section, measured outside circumference and rubber-compound content by weight. If rubber compound is below 25%, use 40103210; otherwise 40103290 is the candidate.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -25192,12 +25192,12 @@
       "Compressor Drive"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "40103290",
+    "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "PIX AVX13-family product is a trapezoidal V-belt; the catalogue part-number size is 1400 mm, within the 60–180 cm tariff circumference band if the size marking is the belt outside circumference.",
+    "hsn_review_note": "Verify exact non-V-ribbed section, measured outside circumference and rubber-compound content by weight. If rubber compound is below 25%, use 40103210; otherwise 40103290 is the candidate.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -25250,12 +25250,12 @@
       "Alternator Drive"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "40103290",
+    "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "PIX AVX13-family product is a trapezoidal V-belt; the catalogue part-number size is 1450 mm, within the 60–180 cm tariff circumference band if the size marking is the belt outside circumference.",
+    "hsn_review_note": "Verify exact non-V-ribbed section, measured outside circumference and rubber-compound content by weight. If rubber compound is below 25%, use 40103210; otherwise 40103290 is the candidate.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -40674,12 +40674,12 @@
       "exact vehicle fitment not specified in the indexed product data."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -46188,12 +46188,12 @@
       "exact model fitment not established in the indexed source."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85364100",
-    "hsn_description": "Relays for a voltage not exceeding 60 V",
-    "hsn_confidence": "medium",
-    "hsn_classification_status": "provisional",
-    "hsn_basis": "The product is identified as a 12V/24V vehicle electrical relay.",
-    "hsn_review_note": "Confirm the rated voltage is not above 60 V and that it is an electrical relay rather than a pneumatic relay valve.",
+    "hsn_code": "87089400",
+    "hsn_description": "Steering wheels, steering columns and steering boxes; parts thereof",
+    "hsn_confidence": "low",
+    "hsn_classification_status": "review_required",
+    "hsn_basis": "Exact part F0987915 is listed as a pivot pin; Souviks identifies the assembly as a steering relay/drop-arm pivot. It is a mechanical steering item, not an electrical relay.",
+    "hsn_review_note": "Confirm the supplied part's dedicated steering-linkage function and whether it is a standalone pin or part of a complete linkage assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -50990,12 +50990,12 @@
       "exact Ace variant not established from the part-specific public references located."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85124000",
+    "hsn_description": "Windscreen wipers, defrosters and demisters",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The exact Tata Genuine Parts item 886782000014 is named 'Set Wipers for TATA Ace'; tariff item 85124000 expressly covers vehicle windscreen wipers.",
+    "hsn_review_note": "No material classification qualifier remains for the supplied complete wiper set; retain the exact Tata item mapping.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -51762,12 +51762,12 @@
       "exact vehicle model not reliably indexed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -51816,12 +51816,12 @@
       "exact vehicle model not reliably indexed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52167,12 +52167,12 @@
       "Tata 1210 / 1312."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52221,12 +52221,12 @@
       "Tata 1210 / 1312."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52275,12 +52275,12 @@
       "Tata 1210 / 1312."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52329,12 +52329,12 @@
       "Tata 1210 / 1312."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52384,12 +52384,12 @@
       "Tata 2416 / 4018."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52439,12 +52439,12 @@
       "Tata 2416 / 4018."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52494,12 +52494,12 @@
       "Tata 2416 / 4018."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52549,12 +52549,12 @@
       "Tata 2416 / 4018."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52602,12 +52602,12 @@
       "Ashok Leyland trucks."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52655,12 +52655,12 @@
       "Universal commercial-vehicle headlamp applications using 7-inch P43 fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "dimension_specs_mm": [
       {
@@ -52717,12 +52717,12 @@
       "Commercial-vehicle 12 V / 24 V P43 lighting applications."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -52770,12 +52770,12 @@
       "Commercial-vehicle 12 V / 24 V P43 lighting applications."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -59952,12 +59952,12 @@
       "replacement/service use for the stated specification."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "87084000",
+    "hsn_description": "Gear boxes and parts thereof",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "Tata part 285126700171 is identified in parts lists as a top-cover assembly alongside gearbox shifting/selector components, not a diesel-engine cover.",
+    "hsn_review_note": "Confirm exact Tata gearbox model and that this is supplied as a gearbox top-cover/shift-control component; retain non-final status until OEM drawing is checked.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -70075,12 +70075,12 @@
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001133/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "87089900",
+    "hsn_description": "Other parts and accessories of motor vehicles of headings 8701 to 8705",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "The exact Leyparts reference F1837914 is described as Seating Block-C; a historical trade record for the exact part number used 87089900, which contradicts its current engine-parts candidate.",
+    "hsn_review_note": "Treat the historical export code only as corroboration. Obtain the current Leyparts OEM drawing and confirm whether the block is a body/vehicle part or a more specific gearbox selector part.",
     "hsn_reference_date": "2026-10-01"
   },
   {

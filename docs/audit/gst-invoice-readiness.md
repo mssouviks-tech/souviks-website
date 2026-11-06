@@ -110,3 +110,15 @@ A one-page A4 fillable PDF has been prepared using the supplied letterhead PDF a
 The example transaction's third-party buyer, furniture items, USD amounts, 15% tax rate and dates have not been carried into the template. No GST rate is pre-filled. Freight must be added as a separate line item with the correct SAC/HSN and accountant-approved tax treatment where applicable.
 
 **Limitations:** PDF fields are fillable, but totals and GST are not calculated automatically. The template is a layout prototype, not a deployed invoice-generation feature. Invoice numbering, server-side tax computation, PDF generation, storage, credit notes and delivery through the order workflow remain to be implemented and accountant-tested.
+
+## 6 November 2026 — SKU-level HSN verification and rate release gate
+
+The latest HSN audit:
+- corrected product-type candidate mismatches where stronger product identity evidence was available;
+- promoted only the exact Tata wiper set and named headlamp assemblies to classified/high-confidence;
+- retained material-, composition- and assembly-dependent candidates as provisional/review-required; and
+- generated `docs/audit/hsn-verification-worklist.csv` for every remaining non-final SKU, with evidence requirements and blank final HSN/GST sign-off fields.
+
+Current non-final HSN worklist: 1076 rows (629 provisional; 447 review-required). These products are not invoice-ready. The heading-level rate guide is in `docs/audit/gst-rate-crosswalk-2026-11.md`; it captures the 8708 tractor-specific exception and is not an executable SKU rate master.
+
+Automated tax invoice release remains blocked pending current GST Portal registration verification, supplier/OEM classification evidence, accountant-approved SKU rates, place-of-supply/freight treatment, numbering policy, and credit-note/refund rules. No production invoice generation or dispatch is enabled by this audit tranche.

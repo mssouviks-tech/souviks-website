@@ -15,6 +15,8 @@ on:
       - 'scripts/audit/generate_product_thumbnails.py'
       - 'scripts/catalogue/sync_root_homepage.py'
       - 'scripts/regression/**'
+      - 'scripts/audit/build_hsn_verification_worklist.py'
+      - 'scripts/audit/test_hsn_verification_worklist.py'
       - '_headers'
       - '.github/workflows/**'
   push:
@@ -116,6 +118,9 @@ jobs:
 
       - name: Validate HSN ecommerce integration contract
         run: node scripts/regression/hsn-ecommerce-contract.cjs
+
+      - name: Validate SKU-level HSN verification worklist
+        run: python3 scripts/audit/test_hsn_verification_worklist.py
 
       - name: Validate Delhivery delivery estimator contract
         run: node scripts/regression/delhivery-estimate-contract.cjs
