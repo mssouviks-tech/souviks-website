@@ -772,6 +772,46 @@
       "part_reference": "B 1151",
       "evidence": "Exact manufacturer reference B 1151 (normalised spacing) and exact Rear Engine Mount Signa 16mm title match catalogue SKU SVKS000229. Source brand is Nirmal while catalogue brand is BIR; the supplier label remains recorded separately. Supplier invoice code agrees with the existing catalogue HSN candidate; this does not promote the candidate to a legal classification.",
       "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000243",
+      "supplier_invoice_hsn_code": "85441920",
+      "supplier_product_name": "CB - AU003BK",
+      "supplier_odoo_external_id": "__export__.product_template_100_50575a30",
+      "match_method": "manual_exact_part_number_cross_brand",
+      "part_reference": "AU003BK",
+      "evidence": "The supplier reference AU003BK with its CB prefix exactly forms catalogue part_number CBAU003BK on SKU SVKS000243. The catalogue brand is Motherson while the supplier label is CB; both labels are retained in source provenance. The existing catalogue HSN candidate remains unchanged.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000244",
+      "supplier_invoice_hsn_code": "85441920",
+      "supplier_product_name": "CB - AU003RD",
+      "supplier_odoo_external_id": "__export__.product_template_101_eb05c8c5",
+      "match_method": "manual_exact_part_number_cross_brand",
+      "part_reference": "AU003RD",
+      "evidence": "The supplier reference AU003RD with its CB prefix exactly forms catalogue part_number CBAU003RD on SKU SVKS000244. The catalogue's generated title currently says black 25m, the same as the BK variant, despite the RD suffix; identity is linked by exact part number and the title/color inconsistency is flagged for separate catalogue QA. The catalogue brand is Motherson while the supplier label is CB; both labels are retained in provenance. The existing catalogue HSN candidate remains unchanged.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000345",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "KFL - KF5122 - UJ Cross 48 x 135",
+      "supplier_odoo_external_id": "__export__.product_template_5066_e37080aa",
+      "match_method": "manual_exact_part_number_title_application",
+      "part_reference": "KF5122",
+      "evidence": "Exact KFL part number KF5122, UJ Cross product family and 48 x 135 dimensions match active published catalogue SKU SVKS000345. The review queue also listed duplicate SKU SVKS000841 with the same product reference, but the 2026-11-06 catalogue snapshot marks SVKS000841 inactive; the active published SKU SVKS000345 is selected. Supplier brand, code and Odoo ID are retained in provenance. The existing catalogue HSN candidate remains unchanged.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000840",
+      "supplier_invoice_hsn_code": "27101990",
+      "supplier_product_name": "Texspin - TXL 3 - 1SG + 1 KG Superior Grease",
+      "supplier_odoo_external_id": "__export__.product_template_6774_d034ad4c",
+      "match_method": "manual_exact_part_number_package_size",
+      "part_reference": "TXL 3 - 1SG + 1 KG",
+      "evidence": "Exact Texspin part/package reference TXL 3 - 1SG + 1 KG matches catalogue SKU SVKS000840 part_number TXL 3 - 1SG + 1KG. The automatic review candidate list returned other grease pack sizes but omitted this exact product. The supplier invoice HSN is retained only as source evidence; the existing catalogue HSN candidate remains unchanged.",
+      "review_status": "manual_identity_verified"
     }
   ]
 }
