@@ -61,6 +61,10 @@ jobs:
       - name: Validate auditable multi-period price history logic
         run: python3 scripts/audit/test_price_history.py
 
+      # Validate the committed catalogue/worklist pair before the build pipeline mutates generated catalogue projections.
+      - name: Validate SKU-level HSN verification worklist
+        run: python3 scripts/audit/test_hsn_verification_worklist.py
+
       - name: Build candidate static output
         shell: bash
         run: |
@@ -119,8 +123,6 @@ jobs:
       - name: Validate HSN ecommerce integration contract
         run: node scripts/regression/hsn-ecommerce-contract.cjs
 
-      - name: Validate SKU-level HSN verification worklist
-        run: python3 scripts/audit/test_hsn_verification_worklist.py
 
       - name: Validate Delhivery delivery estimator contract
         run: node scripts/regression/delhivery-estimate-contract.cjs
