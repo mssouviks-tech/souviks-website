@@ -12004,7 +12004,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000188/1.webp",
     "applications": [
-      "Engine Cooling System"
+      "Engine Cooling System",
+      "Vehicle fitment evidence (secondary Tata alternate-parts catalogue, cooling-system table; OE 278820100102 ↔ alternate part 886720000003): the water-pump assembly is listed for ACE/ACE CNG/ACE GOLD/ACE GOLD+/ACE HT/ACE XL/ACE XL CNG and MAGIC/MAGIC CNG/MAGIC HT, plus SUPER ACE/VENTURE, across the stated BS1–BS6 phase 2 variants. This supports the current Ace/Magic family tags only where the OE number and engine/emission variant match. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84133030",
@@ -12113,7 +12114,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000190/1.webp",
     "applications": [
-      "Rear Drum Brake System"
+      "Rear Drum Brake System",
+      "Vehicle fitment evidence (secondary Tata alternate-parts catalogue, brake-shoe table; exact alternate part 886742000002): the kit-lined-shoe listing covers ACE/ACE CNG/ACE GOLD/ACE GOLD PETROL/ACE HT/ACE XL, MAGIC/MAGIC CNG/MAGIC EXPRESS/MAGIC HT, MANTRA/SUPER ACE/VENTURE, with BS2–BS6 phase 1 norms as tabulated. The product title says Super ACE B Type while the current vehicle tag is generic Tata Ace; confirm the K-type/B-type shoe profile and brake-drum variant before order. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -12224,7 +12226,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000192/1.webp",
     "applications": [
       "Rear Drum Brake System",
-      "Vehicle fitment reconciliation (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742000014): listed as “Kit Lined Shoe ACE & Super ACE (K-Type)”. The source supports ACE/Super ACE K-type rear shoe fitment, not the current Magic tag; verify shoe profile and vehicle variant before confirming Magic compatibility."
+      "Vehicle fitment reconciliation (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742000014): listed as “Kit Lined Shoe ACE & Super ACE (K-Type)”. The source supports ACE/Super ACE K-type rear shoe fitment, not the current Magic tag; verify shoe profile and vehicle variant before confirming Magic compatibility.",
+      "Cross-source fitment reconciliation (secondary Tata alternate-parts catalogue, brake-shoe table; exact alternate part 886742000014): this guide maps the code to a brake-shoe kit for MAGIC/MAGIC CNG/MAGIC HT, while the Tata Genuine Parts e-Dukaan listing already cited for this SKU describes an ACE/SUPER ACE K-type lined-shoe kit. These source descriptions do not fully agree. Keep the Ace/Magic model mapping unconfirmed until the OE reference, brake-shoe profile and vehicle variant are checked; do not infer interchangeability from the shared part code alone. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -27145,7 +27148,8 @@
     "applications": [
       "Air Brake System",
       "S-Cam Brake Assembly",
-      "Brake Adjustment Mechanism"
+      "Brake Adjustment Mechanism",
+      "Vehicle fitment evidence / model qualification (Meritor India PartsXpress, Slack Adjuster catalogue; exact product code SMS3006): supplier listing identifies this as “MSA – TATA HCV (16 mm Offset) – 24 Splines”. This supports the Tata HCV slack-adjuster class and its offset/spline specification, but does not substantiate the current Ashok Leyland 2516 tag. Verify 16 mm offset, 24-spline interface and axle/brake arrangement before confirming a chassis fitment. Source: https://www.meritorpartsxpress.com/webapp/wcs/stores/servlet/CategoryDisplay?catalogId=11551&categoryId=158568&langId=-1&storeId=11851&urlLangId=-1&urlRequestType=Base"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -27202,7 +27206,8 @@
     "applications": [
       "Air Brake System",
       "S-Cam Brake Assembly",
-      "Brake Adjustment Mechanism"
+      "Brake Adjustment Mechanism",
+      "Vehicle fitment evidence / model qualification (Meritor India PartsXpress, Slack Adjuster catalogue; exact product code SMS3007): supplier listing identifies this as “MSA – TATA HCV (16 mm Offset) – 24 Splines”. This supports the Tata HCV slack-adjuster class and its offset/spline specification, but does not substantiate the current Ashok Leyland 2516 tag. Verify 16 mm offset, 24-spline interface and axle/brake arrangement before confirming a chassis fitment. Source: https://www.meritorpartsxpress.com/webapp/wcs/stores/servlet/CategoryDisplay?catalogId=11551&categoryId=158568&langId=-1&storeId=11851&urlLangId=-1&urlRequestType=Base"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -27927,7 +27932,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000460/1.webp",
     "applications": [
       "Engine Cylinder Head Assembly",
-      "Engine Overhaul"
+      "Engine Overhaul",
+      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Business Unit, ACE EX2 Euro II Indonesia/export parts catalogue, VC No. 55372220000R, engine group / cylinder-head table; exact part 278801155303): listed as “Gasket Cyl. Head (1.8 THK.)” for the ACE EX2 Euro II export configuration. This is a variant-specific confirmation, not blanket evidence for every Tata Ace/Magic engine or emission version. Match the chassis/engine and required gasket thickness before order. Source: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/ACE-EX-2.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84841090",
@@ -28255,7 +28261,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000466/1.webp",
     "applications": [
-      "Engine Cooling System"
+      "Engine Cooling System",
+      "Vehicle fitment evidence (secondary Tata alternate-parts catalogue, cooling-system table; OE 278850100124 / 278850100104 ↔ alternate part 886750000002): the complete radiator listing covers ACE/ACE BIFUEL/ACE CNG/ACE GOLD/ACE GOLD PETROL/ACE GOLD XL/ACE GOLD+/ACE HT/ACE XL and MAGIC/MAGIC BIFUEL/MAGIC CNG/MAGIC HT/MAGIC PETROL variants, across the stated BS2–BS6 phase 2 norms. This supports the Ace/Magic family tags only after matching the OE number, engine and emission variant. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089100",
@@ -28379,7 +28386,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000468/1.webp",
     "applications": [
       "Starting System",
-      "Engine Combustion System"
+      "Engine Combustion System",
+      "Vehicle fitment conflict (secondary Tata alternate-parts catalogue, engine-electrical table; exact alternate part 886781000067, OE 270215409912): the listing assigns this glow plug to MAGIC HT/SUPER ACE/VENTURE BS3/BS4. It does not list the regular ACE model named in this product title and current vehicle tag. Do not treat Tata Ace fitment as confirmed from this reference; verify the full OE number, plug dimensions and engine variant. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85118000",
@@ -35939,7 +35947,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000592/1.webp",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering.",
+      "Fitment reconciliation (JAI Spring Price List effective April 2026, Mahindra section; product code 0152): JAI lists code 0152 as “ARMADA NEW (R)” (rear spring) with section dimensions 63.5 × 7.94 / 63.5 × 9.53. That source does not identify Mahindra Blazo. The current Blazo vehicle tag is therefore not supplier-confirmed by this code; verify the JAI stamp, leaf position and pack dimensions before publishing Blazo fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -36120,7 +36129,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000595/1.webp",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; supplier item code 642 / MPN 29726): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual leaf position; verify the pickup variant and leaf stack."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; supplier item code 642 / MPN 29726): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual leaf position; verify the pickup variant and leaf stack.",
+      "Supplier application qualification (JAI Spring Price List effective April 2026, M&M Pickup Van section; exact supplier code 0642): listed as “PICKUP VAN (R)” with section 63.5 × 7.94 / 63.5 × 9.53 / 63.5 × 12.7. The price list does not name Bolero Pik-Up or Bolero MaXX separately and does not establish the individual leaf position; confirm model year, leaf section and stack configuration before treating both current vehicle tags as exact fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -36842,7 +36852,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000608/1.webp",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering.",
+      "Fitment reconciliation (JAI Spring Price List effective April 2026, Mahindra section; product code 0152): JAI lists code 0152 as “ARMADA NEW (R)” (rear spring) with section dimensions 63.5 × 7.94 / 63.5 × 9.53. That source does not identify Mahindra Blazo or an individual second-leaf replacement. The current Blazo vehicle tag is not supplier-confirmed by this code; verify the JAI stamp and leaf-stack position before publishing fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -54326,7 +54337,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000888/1.webp",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack.",
+      "Supplier application qualification (JAI Spring Price List effective April 2026, M&M Pickup Van section; exact supplier code 0642): listed as “PICKUP VAN (R)” with section 63.5 × 7.94 / 63.5 × 9.53 / 63.5 × 12.7. The supplier list does not assign this code to a named Bolero model or identify an AUX-A leaf; confirm the vehicle variant and spring-stack position before treating current Bolero Pik-Up/MaXX tags as exact fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -54382,7 +54394,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000889/1.webp",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack.",
+      "Supplier application qualification (JAI Spring Price List effective April 2026, M&M Pickup Van section; exact supplier code 0642): listed as “PICKUP VAN (R)” with section 63.5 × 7.94 / 63.5 × 9.53 / 63.5 × 12.7. The supplier list does not assign this code to a named Bolero model or identify an AUX-B leaf; confirm the vehicle variant and spring-stack position before treating current Bolero Pik-Up/MaXX tags as exact fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -57498,7 +57511,8 @@
       "fuel",
       "oil",
       "hydraulic or coolant service",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (Fleetguard HCV/LCV price list 2024, Hydraulic/Steering Filter – Tata HCV section; exact Fleetguard part 820080500, OE 275144159901): listed as the large hydraulic filter for Tata 1612–4023 tippers equipped with a HYVA tipping unit. This is narrower than the current broad Tata Prima/Tata LPT tags; confirm the tipping-body system and OE cross-reference before treating those model tags as confirmed. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212900",
@@ -67792,7 +67806,8 @@
     "applications": [
       "Tata 3118 Propeller Shaft Assembly",
       "Front Teeth Component",
-      "26-Spline Driveline Application. Confirm exact vehicle variant and mating dimensions before installation."
+      "26-Spline Driveline Application. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle application evidence (RKI Auto Parts Catalogue 2023, p. 93; exact RKI part number K562): identified as a Tata 3118 front-teeth component, 26-spline, 168.5 mm length, 54.5 mm spline OD and 55 mm bearing size. This supports the Tata 3118 driveline interface only; the current broader Tata LPT/Tata Signa tags require matching the actual shaft dimensions and spline before being treated as confirmed. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
     ],
     "featured": false,
     "active": true,
