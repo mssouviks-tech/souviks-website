@@ -27543,7 +27543,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000452/1.webp",
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Vehicle fitment evidence / application qualification (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 10; exact OE reference 220747709902): Bosch cross-references this OE number to fuel filter F 002 H26 567 for Tata LPT 2518 BS IV, LPK 2818 BS IV, Signa 3118.T, Signa 3518.S BS IV, Signa 2821.K and Prima 3138 K 8x4. The Souviks vehicle tag “Tata LPT” is broader than the exact listed models; confirm the engine/filter-head and BS variant before ordering. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -27653,7 +27654,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000454/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence / variant reconciliation (exact OE reference 252518130139): Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 6, cross-references this number to oil filter F 002 H23 516 for Tata LPT 1613 Turbo EX, LPK 1616 BS-III, SE 1613 Turbo BS-II and LPT 2518 BS-III. Tata Motors LPT-913 EX2/34WB (E-II) parts catalogue, VC 55150134000R / chassis 494151, also lists 252518130139 as the spin-on oil-filter element (p. 31). This supports the specified LPT variants, not every Tata LPT; match engine, filter head and emission variant. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://tatamotors.co.id/old/wp-content/uploads/2017/03/LPT-913.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
