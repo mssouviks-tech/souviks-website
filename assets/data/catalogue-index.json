@@ -52,7 +52,8 @@
       "Fuel filtration system",
       "diesel engine protection",
       "periodic service replacement.",
-      "Vehicle fitment evidence (Souviks Tata and Eicher commercial-vehicle brochures; exact part-number match): Tata Signa, Tata LPT, Eicher Pro Series and Eicher 1110."
+      "Vehicle fitment evidence (Souviks Tata and Eicher commercial-vehicle brochures; exact part-number match): Tata Signa, Tata LPT, Eicher Pro Series and Eicher 1110.",
+      "Reference reconciliation required (Fleetguard HCV filter catalogue / Tata-HCV price list): the cited catalogue uses FS19662 for a fuel-water-separator assembly serving Tata 1612–4018 all-TC BS III/IV applications; it does not list LF19662. This SKU is recorded as LF19662. Do not infer that the two references are interchangeable or publish the existing vehicle tags as supplier-confirmed until the full part marking and assembly are checked."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -6378,7 +6379,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Transmission System"
+      "Clutch Transmission System",
+      "Vehicle fitment / cross-reference reconciliation (Valeo Clutches 2024 catalogue; Tata Intra V30 1.5L diesel from 2020, 215 mm): the exact OE reference 272425000235 is listed as the clutch-kit reference alongside cover 272425400235 and disc 272425200235. This conflicts with the Souviks title “Dia 275” and the title’s “Disc Assy” wording versus Valeo’s kit reference. Confirm pack contents and diameter before publishing as a confirmed 275 mm disc application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -6440,7 +6442,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Transmission System"
+      "Clutch Transmission System",
+      "Vehicle fitment evidence (Valeo Clutches 2024 catalogue; exact OE disc reference 272425200235): Tata Intra V30 1.5L diesel, from 2020; 215 mm clutch disc (Valeo 843662 application)."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -6502,7 +6505,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Clutch Transmission System"
+      "Clutch Transmission System",
+      "Vehicle fitment evidence (Valeo Clutches 2024 catalogue; exact OE cover reference 272425400235): Tata Intra V30 1.5L diesel, from 2020; 215 mm clutch cover (Valeo 843662 application)."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -6621,7 +6625,8 @@
     "applications": [
       "Engine Lubrication System",
       "Oil Pan Assembly",
-      "Engine Overhaul"
+      "Engine Overhaul",
+      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Product Spare Parts Catalogue; MAGIC 7S 275 CNG BS-IV, VC 55233320000R, page 8; exact part number 278801135304): listed as the oil-sump gasket BS 2/3/4/6. This source confirms this specific Magic 7S CNG variant; it does not independently confirm other Ace variants."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84841090",
@@ -6677,7 +6682,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000101/1.webp",
     "applications": [
       "Engine Top Cover System",
-      "Valve Train Protection"
+      "Valve Train Protection",
+      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801150104): listed as the complete cylinder-head-cover assembly for ACE EX2, through August 2015. Verify export market and variant before generalising to other Magic/Ace trims."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84099900",
@@ -6733,7 +6739,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000102/1.webp",
     "applications": [
       "Engine Sealing System",
-      "Cylinder Head Cover Assembly"
+      "Cylinder Head Cover Assembly",
+      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801155304): listed as the cylinder-head-cover gasket for ACE EX2. Verify export market and variant before generalising to other Magic/Ace trims."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84841090",
@@ -6903,7 +6910,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000105/1.webp",
     "applications": [
       "Engine Sealing System",
-      "Crankshaft Assembly"
+      "Crankshaft Assembly",
+      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Product Spare Parts Catalogue; MAGIC 7S 275 CNG BS-IV, VC 55233320000R, page 8; exact part number 279001107802): listed as the crankshaft rear oil seal, BS 1/2/3/4/6. Confirms this specific Magic 7S CNG configuration only."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169330",
@@ -6958,7 +6966,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Engine Timing System",
-      "Crankshaft Drive Assembly"
+      "Crankshaft Drive Assembly",
+      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 279005110107): listed as a sintered crankshaft gear in the ACE EX2 engine moving-parts table. Confirm chassis/model variant before extending beyond ACE EX2."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84834000",
@@ -7069,7 +7078,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000108/1.webp",
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Vehicle fitment evidence (Setco Auto Systems brake-disc catalogue; exact Tata reference 281842103701): front ventilated-disc application listed for Super Ace, Ace Venture and Intra V10/V20. The supplier table is model-specific; it does not establish blanket fitment to every Ace/Intra variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -7125,7 +7135,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000109/1.webp",
     "applications": [
       "Front Axle Assembly",
-      "Wheel End System"
+      "Wheel End System",
+      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Product Spare Parts Catalogue; MAGIC 7S 275 CNG BS-IV, VC 55233320000R; exact part number 282933103702): listed as the front hub, BS 2/3/4. The source supports this specific Magic 7S CNG variant; verify cross-model use separately."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87087000",
@@ -7239,7 +7250,8 @@
     "discountPercent": 6,
     "applications": [
       "Front Disc Brake System",
-      "Wheel End Braking Assembly"
+      "Wheel End Braking Assembly",
+      "Fitment reconciliation note (Setco Auto Systems brake-disc catalogue; exact reference 282942103701): Setco maps this ventilated front disc to TATA ACE/MAGIC. This does not support the current Tata Intra vehicle tag; retain that tag for audit only and reconcile the OE reference before confirming Intra fitment."
     ],
     "hsn_code": "87083000",
     "hsn_description": "Brakes and servo-brakes; parts thereof",
@@ -9574,7 +9586,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence (Uno Minda NPD Catalogue, June 2024; exact Tata OE cross-reference 571018130104): lubrication oil filter OF4241SP is listed for TATA ACE DCOR / ACE DECOR. Confirm engine variant before extending to other Ace models."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -14962,7 +14975,8 @@
     "applications": [
       "Fuel Filtration System",
       "Preventive Maintenance",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Cross-reference reconciliation note (Bosch Commercial Vehicle Filter Application Chart): base reference F 002 H23 554 appears in the oil-filter column for Tata LPT 1613. This Souviks item is titled “Diesel Filter Kit” and its part number adds suffix -8F8, which is not shown in the chart. Do not treat the Tata LPT/fuel-filter fitment as confirmed until the component category and full reference are reconciled."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -15894,7 +15908,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000256/1.webp",
     "applications": [
       "Engine Lubrication Filtration System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Commercial Vehicle Filters catalogue; base reference F 002 H26 361, listed as an oil filter): Eicher Pro 3012 TCI BS IV, Pro 3015 TCI BS IV and Skyline Pro 3008; additional Eicher references include Pro 1110XP BS IV, Pro 1110 BS IV and Starline 12.12K BS IV. A Tata Autocomp cross-reference also maps the same base Bosch number to Tata 1612–3118 (697 engine, BS IV) and Eicher Pro 3000 E494 (BS IV). Souviks MPN carries suffix -4AR; confirm the suffix/variant before treating all cross-references as interchangeable."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -17225,7 +17240,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Drum Brake System",
-      "Brake Shoe Relining"
+      "Brake Shoe Relining",
+      "Fitment reconciliation note (Fleetguard HCV/LCV After Market Price List effective 21-May-2021; Tata-HCV brake-lining table; exact FG number FA0032500 / OE cross-reference 885442011512): listed for Tata PRIMA/3118 front, 14-hole standard. The current Ashok Leyland 2516 tag is not supported by this source; confirm lining dimensions, hole count and OE reference before promoting any fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -17278,7 +17294,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Drum Brake System"
+      "Drum Brake System",
+      "Fitment reconciliation note (Fleetguard HCV/LCV After Market Price List effective 21-May-2021; Tata-HCV brake-lining table; exact FG number FA0032600 / OE cross-reference 885442041512): listed for Tata PRIMA/3118 rear, 14-hole standard. The current Tata LPT/Ashok Leyland 2516 tags are not supported by this source; confirm axle position, lining dimensions, hole count and OE reference before promoting any fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -22854,7 +22871,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Vehicle fitment evidence (Neolite Automobile Lighting catalogue 2022; exact part family NEO 1405): multi-reflector headlamp suitable for Tata 709, 1109, 1012 and 1112; H4 P43T bulb, with parking, LHT/RHD only. This left-hand SKU is one side of the listed L/R assembly."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -22907,7 +22925,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Vehicle fitment evidence (Neolite Automobile Lighting catalogue 2022; exact part family NEO 1405): multi-reflector headlamp suitable for Tata 709, 1109, 1012 and 1112; H4 P43T bulb, with parking, LHT/RHD only. This right-hand SKU is one side of the listed L/R assembly."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -22961,7 +22980,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Vehicle fitment evidence (Neolite Automobile Lighting catalogue 2022; exact part family NEO 1406): multi-reflector headlamp suitable for Tata 1312, 1210 and 1612; H4 P43T bulb, with parking, LHT/RHD only. The supplier list does not include Tata 1512, which remains unverified for this SKU."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -23015,7 +23035,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Vehicle fitment evidence (Neolite Automobile Lighting catalogue 2022; exact part family NEO 1406): multi-reflector headlamp suitable for Tata 1312, 1210 and 1612; H4 P43T bulb, with parking, LHT/RHD only. The supplier list does not include Tata 1512, which remains unverified for this SKU."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85122010",
@@ -27266,7 +27287,8 @@
     "applications": [
       "Rear Suspension System",
       "Leaf Spring Assembly",
-      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2582 / MPN 2782 3240 0114 / 2782 3240 0112): Tata 2515 LPT rear, Tata 3723 LPT rear and Tata LPT 3118 TC rear leaf-spring group. Confirm the spring specification and leaf stack against the vehicle before ordering."
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2582 / MPN 2782 3240 0114 / 2782 3240 0112): Tata 2515 LPT rear, Tata 3723 LPT rear and Tata LPT 3118 TC rear leaf-spring group. Confirm the spring specification and leaf stack against the vehicle before ordering.",
+      "Vehicle fitment evidence (JAI Spring Price List effective April 2026; exact JAI code 2582): Tata 2515 LPT rear main leaf. Match the spring section, leaf count and dimensions to the vehicle before replacement."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -33836,7 +33858,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000559/1.webp",
     "applications": [
-      "Engine Lubrication System"
+      "Engine Lubrication System",
+      "Vehicle fitment evidence (Tata Autocomp aftermarket filter price list, 1-Jan-2022; exact part number TLFCV1046): lube filter F-6306 for Tata 1612–4018, all TC BS-IV applications. The current Tata LPT vehicle label is broader than this source; verify engine/variant and OE cross-reference before generalising."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -35350,7 +35373,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 150,
     "applications": [
-      "Air Compressor Service"
+      "Air Compressor Service",
+      "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300001137): WABCO identifies this as a “Kit: Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is listed. Reconcile the “Air Compressor Kit” product title and internal kit contents against WABCO’s valve-kit designation before confirming any exact vehicle model."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -41215,7 +41239,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000681/1.webp",
     "applications": [
-      "Force Motors Cruiser Classic 2.6 Diesel. Bosch identifies F-002-H27-407 as the complete fuel-box filter for this model."
+      "Force Motors Cruiser Classic 2.6 Diesel. Bosch identifies F-002-H27-407 as the complete fuel-box filter for this model.",
+      "Vehicle fitment evidence / reconciliation (Bosch Automotive Filters India Catalogue; exact base reference F 002 H27 407): listed as a fuel-filter spin-on for Force Motors Cruiser Classic 2.6 Diesel. This source does not support the current Tata 407 or Ashok Leyland Captain vehicle tags; keep those tags unverified pending part/OE-reference reconciliation."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -50116,7 +50141,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000819/1.webp",
     "applications": [
       "Tata commercial-vehicle BS IV oil-filter application",
-      "exact model fitment not reliably indexed."
+      "exact model fitment not reliably indexed.",
+      "Vehicle fitment evidence / cross-reference qualification (Tata Autocomp oil-filter listing; base code TLFCV1062): Tata 1612–3118 with 697 engine, BS-IV, and Eicher Pro 3000 Series E494, BS-IV. This Souviks entry adds suffix “-497” not shown in the supplier listing; confirm that suffix and filter variant before treating the base-code applications as exact for this SKU."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -52744,7 +52770,8 @@
     "approx_weight_g": 150,
     "applications": [
       "Tata",
-      "Ashok Leyland and Volvo Eicher (VECV) commercial vehicles."
+      "Ashok Leyland and Volvo Eicher (VECV) commercial vehicles.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100250150): stop-light switch; vehicle application listed for TATA, Ashok Leyland and Volvo Eicher (VECV), associated with twin-cylinder 704 cc flange-mounted compressor applications. WABCO does not specify individual truck models here."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -52807,7 +52834,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 1400,
     "applications": [
-      "Tata commercial vehicles."
+      "Tata commercial vehicles.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100306470): pressure-reducing valve; vehicle application TATA, specified for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is stated."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
@@ -52938,7 +52966,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 3900,
     "applications": [
-      "Tata commercial vehicles."
+      "Tata commercial vehicles.",
+      "Vehicle fitment evidence / description reconciliation (WABCO Customer Centre India; exact material number 100601130): WABCO lists this brake-valve device for TATA and specifies twin-cylinder 704 cc flange-mounted compressor application. WABCO’s product heading is “Brake”; reconcile the supplied “Dual Brake Valve with pedal (VOSS)” description/reference before confirming any detailed model fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
@@ -53053,7 +53082,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 150,
     "applications": [
-      "Tata and Ashok Leyland commercial vehicles."
+      "Tata and Ashok Leyland commercial vehicles.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100870580): diaphragm for twin-cylinder 704 cc flange-mounted compressor; vehicle application listed as TATA and Ashok Leyland. No individual truck model is stated."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169990",
@@ -53176,7 +53206,8 @@
     "approx_weight_g": 150,
     "applications": [
       "WABCO relay-valve repair-kit applications",
-      "commercial vehicles."
+      "commercial vehicles.",
+      "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300003079): WABCO identifies this as a “Kit: Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. Reconcile the Souviks “Relay Valve Kit” title and kit contents with the supplier description; no individual truck model is specified."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
@@ -53233,7 +53264,8 @@
     "approx_weight_g": 150,
     "applications": [
       "WABCO dual-brake-valve repair-kit applications",
-      "including BS IV commercial vehicles."
+      "including BS IV commercial vehicles.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 300006018): “Kit: Dual Brake Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is specified."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
@@ -62442,7 +62474,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300003086): WABCO lists a “Kit: Valve” repair kit for TATA, Ashok Leyland, Volvo Eicher (VECV) and Swaraj Mazda, for a twin-cylinder 704 cc flange-mounted compressor. Reconcile the Souviks “DDU Repair Kit” title and internal kit contents against the supplier designation before confirming an exact truck model."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
@@ -62514,7 +62547,8 @@
     "approx_weight_g": 1550,
     "applications": [
       "Commercial-vehicle braking system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 4730170250): relay valve, anti-compounding version; WABCO lists the Indian vehicle application as Mahindra. Confirm vehicle/air-brake configuration and matching valve ports before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
