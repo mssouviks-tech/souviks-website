@@ -662,6 +662,56 @@
       "part_reference": "24569ESCI",
       "evidence": "Manual identity reconciliation: Duplicate Philips 24569ESCI source identity; exact part number and product title match SKU SVKS000405; conflicting supplier invoice code retained. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
       "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000486",
+      "supplier_invoice_hsn_code": "84828000",
+      "supplier_product_name": "Texspin - TX - 1888180 WH",
+      "supplier_odoo_external_id": "__export__.product_template_90_db144ead",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "TX-1888180 WH",
+      "evidence": "Exact Texspin catalogue part number TX-1888180 WH, distinct from the shorter 1888180 WH reference on duplicate SKU SVKS000541. A second supplier invoice row for this exact product carries a different HSN code; preserve both as a conflict.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000486",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX - 1888180 WH Clutch Release Bearing for TATA 1210/1312/1313/1510/1512/1612/1613/ 1615/1616 with hub",
+      "supplier_odoo_external_id": "__export__.product_template_6293_08b35a54",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "TX-1888180 WH",
+      "evidence": "Duplicate supplier identity with exact Texspin catalogue part number TX-1888180 WH and matching Tata heavy-vehicle application. Supplier invoice value differs from the other invoice line for the same part; retain as a conflict.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000487",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX - 27WH (O-1511) Clutch Release Bearing for ASHOK LEYLAND WITH HUB (BEARING NO:TX-27D-1511)",
+      "supplier_odoo_external_id": "__export__.product_template_6277_4864c0e1",
+      "match_method": "manual_exact_part_number_application",
+      "part_reference": "TX-27WH (O-1511)",
+      "evidence": "Exact Texspin catalogue part number TX-27WH (O-1511) and matching Ashok Leyland Taurus with-hub application. The competing SKU SVKS000542 carries only the shorter 27WH reference.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000489",
+      "supplier_invoice_hsn_code": "84828000",
+      "supplier_product_name": "Texspin - TX - 45128 SC",
+      "supplier_odoo_external_id": "__export__.product_template_86_e12790f8",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "TX-45128SC",
+      "evidence": "Exact Texspin part number TX-45128SC on the catalogue page. An existing supplier-source row linked to this SKU carries 84821090, so both invoice codes remain visible as a conflict.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000522",
+      "supplier_invoice_hsn_code": "84822000",
+      "supplier_product_name": "Texspin - TX 539/532 X Taper Roller Bearings",
+      "supplier_odoo_external_id": "__export__.product_template_6216_22cb20d4",
+      "match_method": "manual_exact_part_number_with_title_variant",
+      "part_reference": "TX-539/532X",
+      "evidence": "Exact Texspin part number TX-539/532X appears on the catalogue page. The catalogue display title describes a wheel twin kit containing two bearings, while the supplier invoice line describes taper roller bearings; identity is anchored by the exact manufacturer part number and matching Texspin brand. Product descriptions and HSN classifications are not being overwritten.",
+      "review_status": "manual_identity_verified"
     }
   ]
 }
