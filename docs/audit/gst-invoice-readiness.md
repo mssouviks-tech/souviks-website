@@ -110,3 +110,25 @@ A one-page A4 fillable PDF has been prepared using the supplied letterhead PDF a
 The example transaction's third-party buyer, furniture items, USD amounts, 15% tax rate and dates have not been carried into the template. No GST rate is pre-filled. Freight must be added as a separate line item with the correct SAC/HSN and accountant-approved tax treatment where applicable.
 
 **Limitations:** PDF fields are fillable, but totals and GST are not calculated automatically. The template is a layout prototype, not a deployed invoice-generation feature. Invoice numbering, server-side tax computation, PDF generation, storage, credit notes and delivery through the order workflow remain to be implemented and accountant-tested.
+
+## 6 November 2026 — SKU-level HSN verification and rate release gate
+
+The latest HSN audit:
+- corrected product-type candidate mismatches where stronger product identity evidence was available;
+- promoted only the exact Tata wiper set and named headlamp assemblies to classified/high-confidence;
+- retained material-, composition- and assembly-dependent candidates as provisional/review-required; and
+- generated `docs/audit/hsn-verification-worklist.csv` for every remaining non-final SKU, with evidence requirements and blank final HSN/GST sign-off fields.
+
+Current non-final HSN worklist: 1076 rows (629 provisional; 447 review-required). These products are not invoice-ready. The heading-level rate guide is in `docs/audit/gst-rate-crosswalk-2026-11.md`; it captures the 8708 tractor-specific exception and is not an executable SKU rate master.
+
+Automated tax invoice release remains blocked pending current GST Portal registration verification, supplier/OEM classification evidence, accountant-approved SKU rates, place-of-supply/freight treatment, numbering policy, and credit-note/refund rules. No production invoice generation or dispatch is enabled by this audit tranche.
+
+## 6 November 2026 — GST rate schedule reconciliation
+
+The HSN audit worklist contains 1,075 non-final SKU rows. No GST rate has been prefilled for those rows, and they remain not invoice-ready.
+
+The goods-rate crosswalk has been reconciled to the Ministry of Finance / PIB summary of Notification 9/2025-Central Tax (Rate), effective from 22 September 2025, and checked against later 2026 amendment notifications. Notification 01/2026-Central Tax (Rate) of 30 April 2026 adjusts beverage tariff-item references; Notification 02/2026-Central Tax (Rate) of 27 October 2026, effective 1 November 2026, adjusts specified fertilizer and tyre entries. No change to the listed vehicle-parts entries was identified in those two amendments.
+
+**Important source discrepancy:** the CBIC public HTML rate table still presents a legacy 28% entry for heading 8708 and conflicting tractor-part rows. The Ministry of Finance / PIB Notification 9/2025 summary states that general motor-vehicle components move to 18%, with specifically enumerated tractor parts at 5%. This inconsistency must be resolved by the accountant against the operative notification annexure before tax calculations are enabled. Do not hard-code 8708 rates from the CBIC HTML page.
+
+Automated tax invoice release remains blocked pending current GST Portal registration verification, supplier/OEM HSN evidence, accountant-approved SKU rates, place-of-supply/freight treatment, numbering policy, and credit-note/refund rules. No production invoice generation or dispatch is enabled by this audit tranche.
