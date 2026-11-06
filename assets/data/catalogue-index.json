@@ -17584,12 +17584,12 @@
       "Vehicle fitment evidence (Souviks Mahindra commercial-vehicle brochure; exact belt-code match): Mahindra Bolero Pik-Up and Bolero MaXX Pik-Up."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "40103290",
-    "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
+    "hsn_code": "40103190",
+    "hsn_description": "Other endless V-ribbed transmission belts, outside circumference >60 cm and <=180 cm",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product name/profile indicates a cogged/fan V-belt.",
-    "hsn_review_note": "Confirm non-V-ribbed profile, outside circumference 60–180 cm and rubber-compound percentage; 40103210 or another size band may apply.",
+    "hsn_basis": "Fenner part number 4PK-986SPV and the product's V-ribbed/Poly-V description identify a ribbed accessory-drive belt, not a non-V-ribbed trapezoidal belt. Candidate 40103190 applies if verified outside circumference is 60–180 cm and rubber compound is not below 25% by weight.",
+    "hsn_review_note": "Obtain Fenner datasheet confirming actual outside circumference and rubber-compound content. 986 mm is the nominal/effective length marking and is not, by itself, proof of the statutory outside-circumference measurement. If <25% rubber compound use 40103110; if the circumference is outside 60–180 cm use the corresponding tariff band.",
     "hsn_reference_date": "2026-10-01"
   },
   {
@@ -34623,12 +34623,12 @@
       "Electrical Control Circuit"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85365090",
+    "hsn_description": "Other switches for electrical circuits not exceeding 1,000 V",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "Uno Minda's manufacturer brochure for exact part LSC-24V87 (Lift Axle Solenoid, TATA/LEYLAND 24V) explicitly publishes HSN 85365090; the item is also listed by Uno Minda under Switch, Relay & Sensor.",
+    "hsn_review_note": "Manufacturer-published product-level HSN is recorded. Keep the GST rate separately unassigned until the exact description is matched to the current Notification 9/2025 schedule and its applicable entry; HSN 85365090 can map to more than one GST-rate entry depending on description.",
     "hsn_reference_date": "2026-10-01"
   },
   {

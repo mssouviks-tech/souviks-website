@@ -30,6 +30,8 @@ SOURCE_REFERENCES = {
     "SVKS000863": "https://www.souviks.co.in/en/categories/electricals",
     "SVKS000978": "https://oswalstorage1.blob.core.windows.net/univomrimg21/JaipurGreaterPDF/PDF/NitTender/jmc07dcgarrage_Tender_13881.pdf",
     "SVKS001133": "https://www.seair.co.in/ashok-leyland-spare-parts-export-data/country-south-africa/indian-port-banglore-air-cargo/april.aspx",
+    "SVKS000286": "https://www.souviks.co.in/en/categories/engine-components",
+    "SVKS000570": "https://unomindakart.com//brochure/uno-minda-lsc-24v87-lift-axle-solenoid-for-ashok-leyland-universal-24v",
 }
 for number in range(852, 862):
     SOURCE_REFERENCES[f"SVKS{number:06d}"] = "https://www.souviks.co.in/en/categories/electricals"
