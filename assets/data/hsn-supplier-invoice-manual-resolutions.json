@@ -402,6 +402,266 @@
       "part_reference": "TX-92AL-H",
       "evidence": "Manual identity reconciliation against the supplier product name and catalogue part number/title/variant; supplier invoice HSN string retained as provided.",
       "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000240",
+      "supplier_invoice_hsn_code": "84219900",
+      "supplier_product_name": "Bosch - F-002-H23-554-8F8 - Diesel Filter Kit",
+      "supplier_odoo_external_id": "__export__.product_template_6316_31d6d572",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "F002-H23-554-8F8",
+      "evidence": "Manual identity reconciliation: Supplier and catalogue brand Bosch, exact catalogue part-number identifier F002-H23-554-8F8, product title Diesel Filter Kit. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000241",
+      "supplier_invoice_hsn_code": "84219900",
+      "supplier_product_name": "Bosch - F-002-H27-738-4AR - Diesel Filter Kit",
+      "supplier_odoo_external_id": "__export__.product_template_6315_d6f325ec",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "F002-H27-738-4AR",
+      "evidence": "Manual identity reconciliation: Supplier and catalogue brand Bosch, exact catalogue part number F002-H27-738-4AR and Diesel Filter Kit title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000202",
+      "supplier_invoice_hsn_code": "68138100",
+      "supplier_product_name": "ASK - AFF/BP/TTS/2 (STD) Brake Linings",
+      "supplier_odoo_external_id": "__export__.product_template_79_8ce081f9",
+      "match_method": "manual_exact_part_number_title_variant",
+      "part_reference": "AFF/BP/TTS/2 (STD)",
+      "evidence": "Manual identity reconciliation: Exact ASK part number AFF/BP/TTS/2 (STD) and exact Brake Linings title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000207",
+      "supplier_invoice_hsn_code": "68138100",
+      "supplier_product_name": "ASK - AFF/XL/TZ/1/1 (STD) Brake Linings",
+      "supplier_odoo_external_id": "__export__.product_template_76_aaecc5b6",
+      "match_method": "manual_exact_part_number_title_variant",
+      "part_reference": "AFF/XL/TZ/1/1 (STD)",
+      "evidence": "Manual identity reconciliation: Exact ASK part number AFF/XL/TZ/1/1 (STD) and exact Brake Linings title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000208",
+      "supplier_invoice_hsn_code": "87083000",
+      "supplier_product_name": "ASK - AFF/XL/TZ/1/1 (Std.) Brake Lining with rivets",
+      "supplier_odoo_external_id": "__export__.product_template_5455_3b018053",
+      "match_method": "manual_exact_part_number_title_variant",
+      "part_reference": "AFF/XL/TZ/1/1 (Std.)",
+      "evidence": "Manual identity reconciliation: Exact ASK part number AFF/XL/TZ/1/1 (Std.) and exact Brake Lining with Rivets title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000208",
+      "supplier_invoice_hsn_code": "87083000",
+      "supplier_product_name": "ASK - AFF/XL/TZ/1/1 (Std.) Brake Lining with rivets",
+      "supplier_odoo_external_id": "__export__.product_template_5013_0e6b0d0a",
+      "match_method": "manual_exact_part_number_title_variant",
+      "part_reference": "AFF/XL/TZ/1/1 (Std.)",
+      "evidence": "Manual identity reconciliation: Duplicate supplier Odoo record; exact ASK part number AFF/XL/TZ/1/1 (Std.) and exact Brake Lining with Rivets title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000209",
+      "supplier_invoice_hsn_code": "68138100",
+      "supplier_product_name": "ASK - AFF/XL/TZ/2/1 (STD) Brake Linings",
+      "supplier_odoo_external_id": "__export__.product_template_77_2bd76766",
+      "match_method": "manual_exact_part_number_title_variant",
+      "part_reference": "AFF/XL/TZ/2/1 (STD)",
+      "evidence": "Manual identity reconciliation: Exact ASK part number AFF/XL/TZ/2/1 (STD) and exact Brake Linings title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000210",
+      "supplier_invoice_hsn_code": "87083000",
+      "supplier_product_name": "ASK - AFF/XL/TZ/2/1 (Std.) Brake Lining with rivets",
+      "supplier_odoo_external_id": "__export__.product_template_5014_476969cb",
+      "match_method": "manual_exact_part_number_title_variant",
+      "part_reference": "AFF/XL/TZ/2/1 (Std.)",
+      "evidence": "Manual identity reconciliation: Exact ASK part number AFF/XL/TZ/2/1 (Std.) and exact Brake Lining with Rivets title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000210",
+      "supplier_invoice_hsn_code": "87083000",
+      "supplier_product_name": "ASK - AFF/XL/TZ/2/1 (Std.) Brake Lining with rivets",
+      "supplier_odoo_external_id": "__export__.product_template_5456_1b0805df",
+      "match_method": "manual_exact_part_number_title_variant",
+      "part_reference": "AFF/XL/TZ/2/1 (Std.)",
+      "evidence": "Manual identity reconciliation: Duplicate supplier Odoo record; exact ASK part number AFF/XL/TZ/2/1 (Std.) and exact Brake Lining with Rivets title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000318",
+      "supplier_invoice_hsn_code": "73181500",
+      "supplier_product_name": "GS - SBAM394 - Centre Bolt - 5/8 14\"",
+      "supplier_odoo_external_id": "__export__.product_template_6831_906d0deb",
+      "match_method": "manual_exact_part_number_dimensions",
+      "part_reference": "SBAM 394",
+      "evidence": "Manual identity reconciliation: Exact GS part number SBAM 394 and matching 5/8-inch by 14-inch centre-bolt dimensions; adds a second same-code source record. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000743",
+      "supplier_invoice_hsn_code": "40169990",
+      "supplier_product_name": "KF 5099 - Engine Mounting TATA Signa",
+      "supplier_odoo_external_id": "__export__.product_template_6781_b122584d",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "KF5099",
+      "evidence": "Manual identity reconciliation: Exact KFL part number KF5099 and matching Rear Engine Mounting Tata Signa application; invoice code differs from the existing supplier record, so preserve both as a conflict. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000390",
+      "supplier_invoice_hsn_code": "84212300",
+      "supplier_product_name": "Mahle - KS 55 - Fuel Water Seperator Navistar",
+      "supplier_odoo_external_id": "__export__.product_template_6757_ec2b1e4f",
+      "match_method": "manual_exact_part_number",
+      "part_reference": "KS55",
+      "evidence": "Manual identity reconciliation: Exact Mahle part number KS55 and Fuel Water Separator title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000493",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 5592RHS - Clutch Release Bearing for Tata 1109, 1112, 1210, 1312, 1510, 1512, 1612 and 1613 Turbo",
+      "supplier_odoo_external_id": "__export__.product_template_6287_dff4ba44",
+      "match_method": "manual_exact_part_number_application",
+      "part_reference": "TX-5592 RHS",
+      "evidence": "Manual identity reconciliation: Exact Texspin part number TX-5592 RHS and Tata heavy-vehicle application/title. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000554",
+      "supplier_invoice_hsn_code": "27101990",
+      "supplier_product_name": "Texspin - TXL 3 - 2SG + 2 KG Superior Grease",
+      "supplier_odoo_external_id": "__export__.product_template_95_5c087f36",
+      "match_method": "manual_exact_part_number_package_size",
+      "part_reference": "TXL 3 - 2SG + 2KG",
+      "evidence": "Manual identity reconciliation: Exact Texspin part number and 2SG + 2KG package size. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000555",
+      "supplier_invoice_hsn_code": "27101990",
+      "supplier_product_name": "Texspin - TXL 3 - 3SG + 3 KG Superior Grease",
+      "supplier_odoo_external_id": "__export__.product_template_96_502cc28d",
+      "match_method": "manual_exact_part_number_package_size",
+      "part_reference": "TXL 3 - 3SG + 3KG",
+      "evidence": "Manual identity reconciliation: Exact Texspin part number and 3SG + 3KG package size. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000556",
+      "supplier_invoice_hsn_code": "27101990",
+      "supplier_product_name": "Texspin - TXL 3 - 5SG + 5 KG Superior Grease",
+      "supplier_odoo_external_id": "__export__.product_template_97_0919366d",
+      "match_method": "manual_exact_part_number_package_size",
+      "part_reference": "TXL 3 - 5SG + 5KG",
+      "evidence": "Manual identity reconciliation: Exact Texspin part number and 5SG + 5KG package size. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000557",
+      "supplier_invoice_hsn_code": "27101990",
+      "supplier_product_name": "Texspin - TXL 3 - 7SG + 7 KG Superior Grease",
+      "supplier_odoo_external_id": "__export__.product_template_98_1209a526",
+      "match_method": "manual_exact_part_number_package_size",
+      "part_reference": "TXL 3 - 7SG + 7KG",
+      "evidence": "Manual identity reconciliation: Exact Texspin part number and 7SG + 7KG package size. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000857",
+      "supplier_invoice_hsn_code": "85122010",
+      "supplier_product_name": "Varroc - HLA-2416-03NL - HL Assy. 2416/4018/WT/P Lineglass Hywa LH",
+      "supplier_odoo_external_id": "__export__.product_template_6879_c4e6fc59",
+      "match_method": "manual_exact_part_number_side_variant",
+      "part_reference": "HLA-2416-03NL",
+      "evidence": "Manual identity reconciliation: Exact Varroc part number HLA-2416-03NL plus catalogue title and LH side variant. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000858",
+      "supplier_invoice_hsn_code": "85122010",
+      "supplier_product_name": "Varroc - HLA-2416-03NL - HL Assy. 2416/4018/WT/P Lineglass Hywa RH",
+      "supplier_odoo_external_id": "__export__.product_template_6880_5afd9164",
+      "match_method": "manual_exact_part_number_side_variant",
+      "part_reference": "HLA-2416-03NL",
+      "evidence": "Manual identity reconciliation: Exact Varroc part number HLA-2416-03NL plus catalogue title and RH side variant. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000810",
+      "supplier_invoice_hsn_code": "84818030",
+      "supplier_product_name": "TVS Girling - 4006094160 - Drain Valve With O Rings Set of 15 nos",
+      "supplier_odoo_external_id": "__export__.product_template_6365_77ea9f43",
+      "match_method": "manual_exact_part_number_title_cross_brand",
+      "part_reference": "4006094160",
+      "evidence": "Manual identity reconciliation: Exact part number 4006094160 and exact Drain Valve with O Rings title. Supplier row is labelled TVS Girling while catalogue brand is WABCO; identity is anchored by the exact reference, not the brand label. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000290",
+      "supplier_invoice_hsn_code": "84212300",
+      "supplier_product_name": "Fleetguard - FF5544 - Fuel Filter Tata 3118 BS 3 & 4",
+      "supplier_odoo_external_id": "__export__.product_template_6335_6b429453",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "FF5544",
+      "evidence": "Manual identity reconciliation: Exact Fleetguard part number FF5544 and matching Fuel Filter Tata 3118 BS 3 & 4 title; second invoice row for same supplier part carries a different HSN code, preserve as conflict. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000290",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "Fleetguard - FF5544 - Fuel Filter Tata 3118 BS 3 & 4",
+      "supplier_odoo_external_id": "__export__.product_template_5593_727b3447",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "FF5544",
+      "evidence": "Manual identity reconciliation: Duplicate Fleetguard FF5544 source identity; exact part number and product title match SKU SVKS000290; conflicting supplier invoice code retained. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000284",
+      "supplier_invoice_hsn_code": "84212300",
+      "supplier_product_name": "Fleetguard - FS1967100 - FWS w/o DV for AL CB18 FIP CRS Engine [1338]",
+      "supplier_odoo_external_id": "__export__.product_template_119_0a9c466b",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "FS1967100",
+      "evidence": "Manual identity reconciliation: Exact Fleetguard part number FS1967100 and matching FWS w/o DV for AL CB18 title; second invoice row for the same supplier part carries a different HSN code, preserve as conflict. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000284",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "Fleetguard - FS1967100 - FWS w/o DV for AL CB18 FIP CRS Engine [1338]",
+      "supplier_odoo_external_id": "__export__.product_template_6331_507264d1",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "FS1967100",
+      "evidence": "Manual identity reconciliation: Duplicate Fleetguard FS1967100 source identity; exact part number and product title match SKU SVKS000284; conflicting supplier invoice code retained. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000405",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "Philips - 24569ESCI - H4 24V 100/90W P43t",
+      "supplier_odoo_external_id": "__export__.product_template_6274_bc800da2",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "24569ESCI",
+      "evidence": "Manual identity reconciliation: Exact Philips part number 24569ESCI and matching H4 24V 100/90W P43t title; second invoice row for the same supplier part carries a different HSN code, preserve as conflict. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000405",
+      "supplier_invoice_hsn_code": "85392110",
+      "supplier_product_name": "Philips - 24569ESCI - H4 24V 100/90W P43t",
+      "supplier_odoo_external_id": "__export__.product_template_6820_0a11384c",
+      "match_method": "manual_exact_part_number_supplier_code_conflict",
+      "part_reference": "24569ESCI",
+      "evidence": "Manual identity reconciliation: Duplicate Philips 24569ESCI source identity; exact part number and product title match SKU SVKS000405; conflicting supplier invoice code retained. Supplier invoice HSN string is retained exactly as supplied; it is not promoted to a legal classification.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
     }
   ]
 }
