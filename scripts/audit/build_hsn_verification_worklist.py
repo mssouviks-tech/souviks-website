@@ -1,13 +1,39 @@
 #!/usr/bin/env python3
-"""Build a non-final, SKU-level HSN verification queue from catalogue-index.json."""
+"""Build a deterministic non-final HSN verification queue from catalogue-index.json."""
 from __future__ import annotations
+
 import csv
 import json
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "assets" / "data" / "catalogue-index.json"
-OUTPUT = ROOT / "docs" / "audit" / "hsn-verification-worklist.csv"
+OUTPUT = Path(os.environ.get(
+    "HSN_WORKLIST_OUTPUT",
+    str(ROOT / "docs" / "audit" / "hsn-verification-worklist.csv"),
+))
+SOURCE_REFERENCES = {
+    "SVKS000250": "https://www.souviks.co.in/en/categories/cooling-system",
+    "SVKS000359": "https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf",
+    "SVKS000373": "https://www.souviks.co.in/en/categories/fasteners-hardware",
+    "SVKS000276": "https://www.souviks.co.in/en/products/f0987915-pivot-pin-relay-drop-arm",
+    "SVKS000761": "https://www.souviks.co.in/en/products/f0987915-pivot-pin-relay-drop-arm",
+    "SVKS000412": "https://www.amitautomotive.in/images/pix-belt.pdf",
+    "SVKS000413": "https://www.amitautomotive.in/images/pix-belt.pdf",
+    "SVKS000414": "https://www.amitautomotive.in/images/pix-belt.pdf",
+    "SVKS000670": "https://www.souviks.co.in/en/categories/electricals",
+    "SVKS000845": "https://www.souviks.co.in/en/categories/electricals",
+    "SVKS000846": "https://www.souviks.co.in/en/categories/electricals",
+    "SVKS000832": "https://www.souviks.co.in/en/vehicles/tata-ace",
+    "SVKS000862": "https://www.souviks.co.in/en/categories/electricals",
+    "SVKS000863": "https://www.souviks.co.in/en/categories/electricals",
+    "SVKS000978": "https://oswalstorage1.blob.core.windows.net/univomrimg21/JaipurGreaterPDF/PDF/NitTender/jmc07dcgarrage_Tender_13881.pdf",
+    "SVKS001133": "https://www.seair.co.in/ashok-leyland-spare-parts-export-data/country-south-africa/indian-port-banglore-air-cargo/april.aspx",
+}
+for number in range(852, 862):
+    SOURCE_REFERENCES[f"SVKS{number:06d}"] = "https://www.souviks.co.in/en/categories/electricals"
+
 FIELDS = [
     "catalogue_id", "active", "product_name", "brand", "part_number",
     "manufacturer_part_number", "manufacturer_part_numbers", "oem_numbers",
@@ -20,8 +46,9 @@ FIELDS = [
     "gst_rate_source_reference", "invoice_ready",
 ]
 
-def evidence_for(p: dict) -> str:
-    code = str(p.get("hsn_code") or "")
+
+def evidence_for(product: dict) -> str:
+    code = str(product.get("hsn_code") or "")
     if code.startswith("4010"):
         return "Manufacturer sheet plus physical measurement: V-ribbed vs plain V/synchronous profile; outside circumference; rubber-compound mass percentage (<25% vs >=25%)."
     if code.startswith("8421"):
@@ -50,42 +77,48 @@ def evidence_for(p: dict) -> str:
         return "Manufacturer SDS/TDS: full formulation, petroleum-oil percentage, BIS conformity and product's intended preparation/use."
     if code.startswith("8409"):
         return "OEM engine application/drawing: compression-ignition vs spark-ignition engine, exact engine part identity and complete/part supply."
-    return p.get("hsn_review_note") or "OEM/supplier technical sheet, physical material/construction details and exact product function are required before final classification."
+    return product.get("hsn_review_note") or "OEM/supplier technical sheet, physical material/construction details and exact product function are required before final classification."
+
 
 def flat(value) -> str:
     if isinstance(value, list):
-        return " | ".join(str(x) for x in value)
+        return " | ".join(str(item) for item in value)
     return "" if value is None else str(value)
+
 
 def main() -> None:
     products = json.loads(SOURCE.read_text(encoding="utf-8"))
-    unresolved = [p for p in products if p.get("hsn_classification_status") != "classified"]
+    unresolved = [
+        product for product in products
+        if product.get("hsn_classification_status") != "classified"
+    ]
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT.open("w", encoding="utf-8-sig", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=FIELDS)
+    with OUTPUT.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=FIELDS)
         writer.writeheader()
-        for p in unresolved:
+        for product in unresolved:
+            product_id = str(product.get("id") or "")
             writer.writerow({
-                "catalogue_id": p.get("id", ""),
-                "active": str(bool(p.get("active", False))).lower(),
-                "product_name": p.get("product_name") or p.get("name") or "",
-                "brand": p.get("brand_name") or p.get("brand") or "",
-                "part_number": p.get("part_number") or "",
-                "manufacturer_part_number": p.get("manufacturer_part_number") or "",
-                "manufacturer_part_numbers": flat(p.get("manufacturer_part_numbers")),
-                "oem_numbers": flat(p.get("oem_numbers")),
-                "cross_references": flat(p.get("cross_references")),
-                "applications": flat(p.get("applications")),
-                "vehicles": flat(p.get("vehicles")),
-                "product_description": p.get("description") or "",
-                "candidate_hsn_code": p.get("hsn_code") or "",
-                "candidate_hsn_description": p.get("hsn_description") or "",
-                "candidate_confidence": p.get("hsn_confidence") or "",
-                "classification_status": p.get("hsn_classification_status") or "",
-                "classification_basis": p.get("hsn_basis") or "",
-                "open_review_note": p.get("hsn_review_note") or "",
-                "evidence_to_close": evidence_for(p),
-                "candidate_source_reference": "",
+                "catalogue_id": product_id,
+                "active": str(bool(product.get("active", False))).lower(),
+                "product_name": product.get("product_name") or product.get("name") or "",
+                "brand": product.get("brand_name") or product.get("brand") or "",
+                "part_number": product.get("part_number") or "",
+                "manufacturer_part_number": product.get("manufacturer_part_number") or "",
+                "manufacturer_part_numbers": flat(product.get("manufacturer_part_numbers")),
+                "oem_numbers": flat(product.get("oem_numbers")),
+                "cross_references": flat(product.get("cross_references")),
+                "applications": flat(product.get("applications")),
+                "vehicles": flat(product.get("vehicles")),
+                "product_description": product.get("description") or "",
+                "candidate_hsn_code": product.get("hsn_code") or "",
+                "candidate_hsn_description": product.get("hsn_description") or "",
+                "candidate_confidence": product.get("hsn_confidence") or "",
+                "classification_status": product.get("hsn_classification_status") or "",
+                "classification_basis": product.get("hsn_basis") or "",
+                "open_review_note": product.get("hsn_review_note") or "",
+                "evidence_to_close": evidence_for(product),
+                "candidate_source_reference": SOURCE_REFERENCES.get(product_id, ""),
                 "final_hsn_code": "",
                 "final_hsn_description": "",
                 "reviewed_by": "",
@@ -96,7 +129,8 @@ def main() -> None:
                 "gst_rate_source_reference": "",
                 "invoice_ready": "FALSE",
             })
-    print(f"Wrote {len(unresolved)} non-final SKU rows to {OUTPUT.relative_to(ROOT)}")
+    print(f"Wrote {len(unresolved)} non-final SKU rows to {OUTPUT}")
+
 
 if __name__ == "__main__":
     main()
