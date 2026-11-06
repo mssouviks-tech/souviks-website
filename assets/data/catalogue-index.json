@@ -4033,7 +4033,8 @@
     "applications": [
       "Differential repair",
       "axle overhaul",
-      "drivetrain maintenance."
+      "drivetrain maintenance.",
+      "Fitment evidence (Dana Spicer exact-part listing; SADC2149KDC): the supplier identifies this as an “Ace-Banjo-Diff Major Kit” for “ACE 0.75 T” / “TATA ACE .75T”. This confirms the Tata Ace 0.75-ton Banjo axle application, not every Ace axle or 1-ton/Salisbury variant. Match axle type and tonnage before supply. Sources: https://www.danaaftermarket.in/pd-481_spicer-ace-banjo-diff-major-kit-sadc2149kdc ; https://www.anandgroupindia.com/wp-content/uploads/2022/08/Drive-Shaft-Axle-Spares-List-for-ACE-Model.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87085000",
@@ -4088,7 +4089,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000062/1.webp",
     "applications": [
       "Differential final drive assembly",
-      "axle transmission system."
+      "axle transmission system.",
+      "Fitment evidence (Dana Spicer exact-part listing and Spicer/Ace axle matrix; SACW2149B398): identified as “Ace CWP Banjo-39/8”, with 39 crown-wheel teeth, 8 pinion teeth and 4.875 ratio; Dana lists Tata Ace Pickup / Tata Ace Magic, and the axle matrix specifies Ace HT Pickup/Magic Banjo configurations. Confirm Banjo axle type and 39/8 ratio before ordering; do not generalise to every Ace axle or Salisbury configuration. Sources: https://www.danaaftermarket.in/pd-355_spicer-ace-cwp-banjo-39-8-sacw2149b398 ; https://www.anandgroupindia.com/wp-content/uploads/2022/08/Drive-Shaft-Axle-Spares-List-for-ACE-Model.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84834000",
@@ -6745,7 +6747,8 @@
     "applications": [
       "Engine Sealing System",
       "Cylinder Head Cover Assembly",
-      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801155304): listed as the cylinder-head-cover gasket for ACE EX2. Verify export market and variant before generalising to other Magic/Ace trims."
+      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801155304): listed as the cylinder-head-cover gasket for ACE EX2. Verify export market and variant before generalising to other Magic/Ace trims.",
+      "Vehicle fitment evidence (Tata Motors ACE EX2, Euro II export parts catalogue, VC 55372220000R, chassis type 445083, cylinder-head-cover group, fig. 35, p. 12; exact part 278801155304): listed as the cylinder-head-cover gasket. This confirms the named ACE EX2 export configuration only; it does not independently confirm every Tata Ace/Magic engine or cover variant. Verify chassis, engine and cover design before extending the fitment. Source: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/ACE-EX-2.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84841090",
@@ -12426,7 +12429,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Reverse Warning System",
-      "Vehicle Safety System"
+      "Vehicle Safety System",
+      "Supplier application qualification (Uno Minda, exact code 890004): the 2024 Car Electrical Catalogue classifies RHN 12V TukTuk reverse horn 890004 under UNIV / UNIVERSAL; the separate 4W Horn Catalogue also shows this code in CAR and CV sections as a 12V reverse horn, but does not name a specific vehicle model. Neither source establishes Mahindra Blazo-specific fitment. Keep the Blazo tag unverified pending connector, voltage and mounting match. Sources: https://unomindakart.com/catalog/open/19/Electrical%20Catalogue%20-%204W.pdf ; https://unomindakart.com/catalog/open/23/Horn%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85123010",
@@ -12479,7 +12483,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Warning & Emergency Signalling System"
+      "Warning & Emergency Signalling System",
+      "Supplier specification confirmation (Uno Minda 4W Horn Catalogue, exact code 890008): listed as an RHN 12/24V 6-tone siren with application category “UNIV”. This supports a universal warning/signalling use, subject to selecting the correct 12V or 24V configuration and verifying wiring. Source: https://unomindakart.com/catalog/open/23/Horn%20Catalogue%20-%204W.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85123090",
@@ -16960,7 +16965,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Propeller Shaft Assembly",
-      "Driveline System"
+      "Driveline System",
+      "Supplier fitment reconciliation (exact code SDUJFM40D48): Dana Aftermarket identifies this UJ kit as 47.68 × 135.17 mm. The SVL/Dana Spicer cross catalogue places this code in the 2040 series and lists LPS 4928, LPTA 3138, LPO 1624/1623/1625/1628, LPK 2521/2528/2523/3123, GBLPK 2528, GBLPO 1925, LPTA 1623/1828/2038, LPTA 5252, LPS 4923, LPT 3721 and TRANSLPK 2523. That list does not specifically identify Tata LPT as a whole or Ashok Leyland 2516; current tags remain unverified pending cup/yoke, lock-ring and shaft fitment checks. Sources: https://www.danaaftermarket.in/pd-2402_spicer-uj-kit-47.68x135.17-sdujfm40d48 ; https://ammanauto.co.in/assets/BROUCHER/OEM/SVL_cross.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84836090",
