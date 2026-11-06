@@ -573,6 +573,7 @@ def reconcile_catalogue_projections():
         override = json.loads(override_path.read_text(encoding="utf-8"))
         overrides = {text(p.get("id")): p for p in override.get("products", []) if p.get("id")}
         category_updates = {text(p.get("id")): p for p in override.get("category_updates", []) if p.get("id")}
+        application_updates = override.get("application_updates", [])
     
         by_id = {text(p.get("id")): p for p in catalogue if p.get("id")}
 
@@ -668,6 +669,36 @@ def reconcile_catalogue_projections():
                     )
                 if not (0 < selling_price <= mrp):
                     raise SystemExit(f"Invalid MRP/selling price relationship for {pid}")
+
+        # Application-only source reconciliations are intentionally separate from
+        # the sheet product overrides above. Each entry may append notes to exactly
+        # one existing product's applications array and cannot alter other fields.
+        if not isinstance(application_updates, list):
+            raise SystemExit("Catalogue application_updates must be a list")
+        application_update_ids = []
+        for application_update in application_updates:
+            if not isinstance(application_update, dict):
+                raise SystemExit("Catalogue application update must be an object")
+            if set(application_update) != {"id", "append"}:
+                raise SystemExit("Catalogue application update may contain only id and append")
+            pid = text(application_update.get("id"))
+            current = by_id.get(pid)
+            if not pid or current is None:
+                raise SystemExit(f"Application update references unknown catalogue product: {pid}")
+            if pid in application_update_ids:
+                raise SystemExit(f"Duplicate catalogue application update: {pid}")
+            application_update_ids.append(pid)
+            appended_notes = application_update.get("append")
+            if not isinstance(appended_notes, list) or not appended_notes:
+                raise SystemExit(f"Application update must append at least one note: {pid}")
+            existing_applications = arr(current.get("applications"))
+            for note in appended_notes:
+                note_text = text(note)
+                if not note_text:
+                    raise SystemExit(f"Application update contains an empty note: {pid}")
+                if note_text not in existing_applications:
+                    existing_applications.append(note_text)
+            current["applications"] = existing_applications
 
         for pid, sheet_row in overrides.items():
             current = by_id.get(pid)
