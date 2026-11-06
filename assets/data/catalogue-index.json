@@ -41621,13 +41621,13 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000687/1.webp",
     "applications": [
-      "Cummins B-Series commercial-vehicle applications including Tata 1510",
       "1613",
       "2515 TC/EX",
       "2516",
       "3015",
       "3516TC",
-      "4923 and 4018 EX."
+      "4923 and 4018 EX.",
+      "Vehicle application evidence (Fleetguard FF0547900 product listing; exact code): Tata Cummins B-Series 1510, 1613, 2515 TC/EX, 2516, 3015, 3516 TC, 4923 and 4018 EX, new-model BS II (small-hole). The associated supplier listing also identifies Ashok Leyland BS II/III and Eicher BS III applications, but model-specific details are not stated in the available source. Current vehicle tags Ashok Leyland 2516 and Tata Signa are broader than this exact list; verify engine family and strainer seat/hole pattern. Sources: https://mymotoco.com/filteration/cummins-fleetguard-fuel-strainer-diesel-filter-tata-cummins-b-1510-to-4018-bs-ii-iii-ashok-leyland-all-bs-ii-iii-eicher-bs-iii-fuel-strainer/ ; https://www.souviks.co.in/en/products/fleetguard-ff0547900-fuel-strainer-euro-ii-new-model.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -41683,7 +41683,7 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000688/1.webp",
     "applications": [
-      "Tata 697 engine BS III applications."
+      "Vehicle application evidence (Fleetguard 2024 HCV/LCV price-list rows, exact code FS1964400V and OE 252509120239): Tata 1612–3118 vehicles with 697 engine, BS III/IV, with drain valve. This does not prove every listed chassis without confirming the 697 engine and drain-valve configuration. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -41737,7 +41737,7 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000689/1.webp",
     "applications": [
-      "Tata 2515 through 4018 BS VI / ISBE commercial-vehicle applications."
+      "Vehicle application evidence (Fleetguard Filter Parts Catalogue and cross-reference rows, exact code FF5551 and OE 278609999828 / 5403508): Tata 2515–4018 B5.9 ISBe BS IV fuel-filter application. This is not confirmed as BS VI; the current product title should not be read as proof of BS VI fitment. Confirm the B5.9 ISBe engine and filter-head interface. Sources: https://www.scribd.com/document/726511498/FLEETGUARD-FILTERS-HCV-CATALOG ; https://www.lumanauto.com/lumana-catalouge2021.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
