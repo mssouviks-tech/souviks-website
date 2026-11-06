@@ -7538,7 +7538,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000116/1.webp",
     "applications": [
       "Manual Transmission Overhaul",
-      "Gearbox Repair"
+      "Gearbox Repair",
+      "Supplier/OE catalogue fitment evidence (Tata Motors ACE HT Diesel BS-IV Parts List, chassis type 445057, printed pp. 46–47; exact part 285126200116): listed as the 3rd/4th-speed synchro kit. This model-specific list supports ACE HT Diesel BS-IV; it does not establish the current Tata 1109 / 1210 / 1312 tags. Confirm gearbox type and chassis before extending the fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87084000",
@@ -7593,7 +7594,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000117/1.webp",
     "applications": [
       "Gearbox Sealing System",
-      "Transmission Maintenance"
+      "Transmission Maintenance",
+      "Tata Motors parts-catalogue evidence (exact OE 285126207803, main-shaft oil seal 38×48×8): listed in ACE EX2 Euro II (VC 55372220000R), Super Ace DLE and Intra V10 AC 800 cc BS-IV parts references. This supports those documented gearbox variants; confirm VC/chassis and gearbox revision before treating all Tata Ace-family vehicles as interchangeable."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169330",
@@ -9539,7 +9541,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Engine Timing System",
-      "Scheduled Maintenance"
+      "Scheduled Maintenance",
+      "OE catalogue fitment evidence (exact part 571005116302): Tata Intra V10 AC 800 cc BS-IV parts list identifies this as TIMING BELT BS3/4/6; Tata Magic Mantra 800 cc BS-IV parts listing also carries the same number. This supports those specific engine variants and does not prove fitment for every Ace or Magic derivative. Verify engine code and vehicle configuration."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40103590",
@@ -12279,7 +12282,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000193/1.webp",
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Alternate-parts catalogue fitment qualification (Alternate Parts Catalogue, Vol. 1, printed p. 32; exact OE/alternate code 886742000019): listed for Ace / Magic / Magic Express / Magic Mantra, BS3/BS4. The same table lists a different code, 886742000024, for Intra EV / V50 / V50 Gold / V70 variants. The existing Tata Intra tag on this record is not substantiated for 886742000019; verify the exact OE number and brake-caliper variant before confirming Intra fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "68138100",
