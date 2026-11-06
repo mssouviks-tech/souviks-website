@@ -125,7 +125,7 @@ Automated tax invoice release remains blocked pending current GST Portal registr
 
 ## 6 November 2026 — GST rate schedule reconciliation
 
-The HSN audit worklist contains 1,076 non-final SKU rows. No GST rate has been prefilled for those rows, and they remain not invoice-ready.
+The HSN audit worklist contains 1,075 non-final SKU rows. No GST rate has been prefilled for those rows, and they remain not invoice-ready.
 
 The goods-rate crosswalk has been reconciled to the Ministry of Finance / PIB summary of Notification 9/2025-Central Tax (Rate), effective from 22 September 2025, and checked against later 2026 amendment notifications. Notification 01/2026-Central Tax (Rate) of 30 April 2026 adjusts beverage tariff-item references; Notification 02/2026-Central Tax (Rate) of 27 October 2026, effective 1 November 2026, adjusts specified fertilizer and tyre entries. No change to the listed vehicle-parts entries was identified in those two amendments.
 
