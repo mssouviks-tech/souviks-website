@@ -12,26 +12,27 @@ Matching to the Souviks catalogue uses exact product names, supplier brand plus 
 |---|---:|
 | Populated supplier invoice HSN source rows | 1034 |
 | Distinct supplier product names | 1010 |
-| Source rows linked to a catalogue SKU | 895 |
-| Catalogue SKUs with one consistent supplier code | 838 |
+| Source rows linked to a catalogue SKU | 897 |
+| Catalogue SKUs with one consistent supplier code | 840 |
 | Catalogue SKUs with conflicting supplier codes | 14 |
-| Supplier rows requiring manual review | 139 |
+| Supplier rows requiring manual review | 137 |
 | Brand/title review rows | 34 |
 | Ambiguous part-reference rows | 5 |
 | Supplier-name/code conflict rows | 4 |
 | Ambiguous exact-name rows | 1 |
 | No reliable catalogue match rows | 95 |
-| Active SKUs with one consistent supplier reference | 838 |
+| Active SKUs with one consistent supplier reference | 840 |
 | Active SKUs with conflicting supplier references | 14 |
 
-The 1,034 populated source rows are fully accounted for between the linked-source register (895) and the outstanding review queue (139). The 14 conflict SKUs have no single selected supplier code.
+The 1,034 populated source rows are fully accounted for between the linked-source register (897) and the outstanding review queue (137). The 14 conflict SKUs have no single selected supplier code.
 
 ## Manual identity review
 
-The manual identity ledger now contains 71 additional supplier-source resolutions across three tranches:
+The manual identity ledger now contains 73 additional supplier-source resolutions across three tranches:
 - The first tranche added 40 source rows: 38 previously unlinked catalogue SKUs, one same-code supporting source record for an already-linked SKU, and one KF5098 source row that created a supplier-code conflict.
 - The second tranche added 26 source rows. It linked 16 new consistent SKUs across Bosch diesel filter kits, ASK brake-lining variants, Mahle KS55, Texspin TX-5592 RHS and TXL grease pack sizes, Varroc left/right headlamps, and the WABCO drain valve. It also added one same-code GS SBAM394 source record, moved KFL KF5099 (SVKS000743) into conflict, and added three additional conflict SKUs: Fleetguard FF5544 (SVKS000290), Fleetguard FS1967100 (SVKS000284), and Philips 24569ESCI (SVKS000405).
 - The third tranche added five Texspin source rows. TX-1888180 WH maps to SVKS000486 by the full Texspin part number, while its two invoice rows carry different codes and remain a conflict. TX-27WH (O-1511) maps to SVKS000487 by the full reference and application. TX-45128SC maps to existing SKU SVKS000489 by exact part number, but its new invoice code differs from the already linked supplier row, so it becomes a conflict. TX-539/532X maps to SVKS000522 by exact Texspin part number; the catalogue item is described as a wheel twin kit containing two bearings, while the invoice line calls it taper roller bearings, so the title variance is explicitly documented.
+- A fourth tranche added two cross-brand exact part-number matches: MEI SMS3007 to Meritor SKU SVKS000764 (distinguished from its LH variant), and Leyparts FA0067900 to the exact brake-lining part-number SKU SVKS000282. These brand-label differences are retained explicitly as source provenance.
 
 The current 14 conflicts include the eight conflicts present after the first manual tranche, the KF5099, FF5544, FS1967100 and Philips conflicts added in the second tranche, and the TX-1888180 WH and TX-45128SC conflicts added in the third tranche. All source rows and distinct supplier codes are retained; no winning supplier HSN has been selected.
 
@@ -54,7 +55,7 @@ The 14 conflict SKUs have no single selected supplier code. Existing `hsn_code`,
 
 - `hsn-supplier-invoice-matches-2026-11-06.csv` lists all source rows linked to a SKU, including supplier-code conflicts.
 - `hsn-supplier-invoice-review-queue-2026-11-06.csv` lists every remaining supplier row with candidate catalogue records and match scores where available.
-- `assets/data/hsn-supplier-invoice-manual-resolutions.json` records the 71 identity-verified manual matches and supplier-code conflicts applied by the canonical builder.
+- `assets/data/hsn-supplier-invoice-manual-resolutions.json` records the 73 identity-verified manual matches and supplier-code conflicts applied by the canonical builder.
 
 ## Tax and invoice boundary
 
