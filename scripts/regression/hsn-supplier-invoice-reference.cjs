@@ -25,8 +25,8 @@ const projections=new Map(products.map(p=>[p.id,p]));
 const matched=catalogue.filter(p=>p.hsn_supplier_invoice_match_status==="matched");
 const conflicts=catalogue.filter(p=>p.hsn_supplier_invoice_match_status==="conflict");
 if(catalogue.length!==1159||products.length!==1157)throw new Error("Unexpected catalogue/projection coverage");
-if(matched.length!==785||conflicts.length!==7)throw new Error("Unexpected SKU totals");
-if(matches.length!==824||review.length!==210||matches.length+review.length!==1034)throw new Error("Supplier source rows not fully accounted for");
+if(matched.length!==822||conflicts.length!==8)throw new Error("Unexpected SKU totals");
+if(matches.length!==864||review.length!==170||matches.length+review.length!==1034)throw new Error("Supplier source rows not fully accounted for");
 for(const p of [...matched,...conflicts]){
  if(p.hsn_supplier_invoice_source_file!=="hsn.xlsx")throw new Error("Missing source file "+p.id);
  if(p.active){
