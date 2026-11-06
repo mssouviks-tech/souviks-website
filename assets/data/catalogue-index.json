@@ -25203,7 +25203,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Alternator Drive",
-      "Water Pump Drive"
+      "Water Pump Drive",
+      "Supplier application evidence (PIX HCV/HEMM Application Chart & Price List, effective 1-Aug-2024; exact belt designation CWA-1325 / AU-AVX13-1325, OE cross-reference 252520156306): listed for Tata 609 / 697 Turbo / 709 / 1109 BS III / 1312 / 1516 / 1612 / 1616. This supports the current Tata 1109 and 1312 tags only for the stated configurations; it does not establish Tata 1210 / 1512 or Ashok Leyland 2516. Confirm belt section and driven component before ordering. Source: https://www.amitautomotive.in/images/pix-belt.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84099900",
@@ -25485,7 +25486,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Engine Accessory Drive System"
+      "Engine Accessory Drive System",
+      "Supplier catalogue qualification (PIX HCV/HEMM Application Chart & Price List, effective 1-Aug-2024; exact belt designation EPDM-8PK-1385 / SP-XC-8PK-1385): the chart lists this size in a generic “Ashok Leyland” row without a model, engine or OE reference; it is also listed for Hyundai 210 excavator. The generic row is insufficient to certify the current Ashok Leyland 2516 tag, and it does not substantiate the Tata 1109 / 1210 / 1312 / 1512 tags. Match belt length, rib profile, engine and routing before confirming. Source: https://www.amitautomotive.in/images/pix-belt.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40103190",
