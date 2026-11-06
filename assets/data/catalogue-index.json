@@ -35135,7 +35135,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 100,
     "applications": [
-      "Air Compressor Overhaul"
+      "Air Compressor Overhaul",
+      "Supplier application and component evidence (ZF/WABCO CVCS Product Catalogue 2023, p. 8; exact material number 300001366): WABCO lists this as a minor kit for Tata 160 cc air-compressor configurations; the WABCO Customer Centre identifies 300001366 as “Kit: Cover” and lists the India vehicle application as TATA. The supplier references do not specify a Tata chassis/model. Souviks product title says “Air Compressor Repair Kit”; reconcile the supplied kit contents and compressor assembly before claiming a model-specific fitment. Sources: https://www.wabco-customercentre.com/catalog/en_US/300001366 ; https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -35270,7 +35271,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 100,
     "applications": [
-      "Air Compressor Head Service"
+      "Air Compressor Head Service",
+      "Supplier application and component evidence (WABCO Customer Centre, exact material number 300001185; WABCO/ZF CVCS Product Catalogue 2023, pp. 6–7): WABCO identifies 300001185 as “Kit: Gasket” for a single-cylinder compressor and lists India vehicle applications as Ashok Leyland, Volvo Eicher (VECV) and Swaraj Mazda; the CVCS catalogue uses the code as a minor kit in specified 160 cc compressor configurations. This does not confirm Tata LPT. The Souviks title “Cargo 1/185 - Cylinder Head Assembly Repair Kit” differs from the supplier description; verify the material label and kit contents before confirming fitment. Sources: https://www.wabco-customercentre.com/catalog/en/300001185 ; https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
