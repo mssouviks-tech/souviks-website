@@ -21686,7 +21686,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence / engine-variant qualification (Bosch Commercial Vehicle Filters 2023, Ashok Leyland application chart; exact OE reference F7A05000): listed as an oil-filter reference for multiple Ashok Leyland variants, including 2516 iL, 2518/2518 T, U 2518, U 3118, 3118, 4123, 4923, 12M, Viking and other HCV models. This supports a subset of the current Ashok Leyland 2516 label (2516 iL only as specifically listed); it does not by itself confirm all Ecomet variants. Match the engine, filter housing and full OE marking before order. Luman's 2021 catalogue also cross-references F7A05000 as an oil filter for AL Boss vehicles with 4CTI engine and combines. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf ; https://www.pssao.com/catlog/lm/LUMAN%20PRODUCT%20CATALOGUE%202021.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -21955,7 +21956,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Engine Cooling System",
-      "Coolant Filtration System"
+      "Coolant Filtration System",
+      "Vehicle fitment / component-description conflict (Bosch Commercial Vehicle Filters 2023 Application Chart, exact OE reference X4000700): Bosch classifies X4000700 as a coolant filter for Ashok Leyland U 4923, eComet 1212, U 4023, 3121, U 3123, U 1618, Captain 40, U 2523, U 2518, 4921, eComet 1012 Smart and eComet 1214. This does not directly support the current Ashok Leyland 2516 tag. A separate Leyparts cross-reference list classifies X4000700 as a diesel filter for A/C bus, creating a part-description conflict. Verify the full Leyparts marking, filter media/housing and engine circuit before assigning a vehicle or selling it as a coolant filter. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf ; https://filongfilter.com/en/newshow.asp?id=219"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "38200000",
