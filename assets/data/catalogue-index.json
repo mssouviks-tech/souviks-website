@@ -6747,8 +6747,7 @@
     "applications": [
       "Engine Sealing System",
       "Cylinder Head Cover Assembly",
-      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801155304): listed as the cylinder-head-cover gasket for ACE EX2. Verify export market and variant before generalising to other Magic/Ace trims.",
-      "Vehicle fitment evidence (Tata Motors ACE EX2, Euro II export parts catalogue, VC 55372220000R, chassis type 445083, cylinder-head-cover group, fig. 35, p. 12; exact part 278801155304): listed as the cylinder-head-cover gasket. This confirms the named ACE EX2 export configuration only; it does not independently confirm every Tata Ace/Magic engine or cover variant. Verify chassis, engine and cover design before extending the fitment. Source: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/ACE-EX-2.pdf"
+      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801155304): listed as the cylinder-head-cover gasket for ACE EX2. Verify export market and variant before generalising to other Magic/Ace trims."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84841090",
