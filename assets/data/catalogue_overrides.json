@@ -59,6 +59,12 @@
       "append": [
         "Uno Minda's 4W Switch Catalogue 2022 lists TD-1098 as an Ashok Leyland stop-light switch without wire, 12V/2 screw terminals. It separately lists TD-1098N as a 12/24V hydraulic switch for Tata HCV / Ashok Leyland HCV. This supports the Ashok Leyland class for TD-1098, but not the separate N-suffix Tata HCV variant. Confirm voltage, terminal and thread. Sources: https://unomindakart.com/catalog/open/32/Switch%20Catalogue%20-%204W.pdf ; https://unomindakart.com/product/uno-minda-td-1098-stop-light-switch--w-o-wire-for-ashok-leyland-hcv-tata-hcv-set-of-1"
       ]
+    },
+    {
+      "id": "SVKS000382",
+      "append": [
+        "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 520 L/R headlamps for Volvo Eicher LCV (H4 P43T; 12V/24V; LHT/RHT). Souviks records NEO520 (L), which is close but not an exact code suffix match to the catalogue's NEO-520L E. The catalogue does not support the current Tata 407/709 tags; confirm package marking, OE, beam, connector and mounting before asserting Tata fitment. Source: https://neolitezkw.com/wp-content/uploads/2026/02/NeoliteZKW_Company-Catalogue_2022.pdf"
+      ]
     }
   ],
   "updated_at": "2026-11-06"
