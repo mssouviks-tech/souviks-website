@@ -16,10 +16,13 @@ Matching to the Souviks catalogue uses exact product names, supplier brand plus 
 | Catalogue SKUs with one consistent supplier code | 822 |
 | Catalogue SKUs with conflicting supplier codes | 8 |
 | Supplier rows requiring manual review | 170 |
-| Of which: plausible/ambiguous catalogue matches | 95 |
-| Of which: no reliable catalogue match found | 115 |
+| Brand/title review rows | 42 |
+| Ambiguous part-reference rows | 17 |
+| Supplier-name/code conflict rows | 10 |
+| Ambiguous exact-name rows | 1 |
+| No reliable catalogue match rows | 100 |
 | Active SKUs with one consistent supplier reference | 822 |
-| Active SKUs with conflicting supplier references | 7 |
+| Active SKUs with conflicting supplier references | 8 |
 
 Match methods:
 - `exact_product_name`: 45 source rows
@@ -36,7 +39,7 @@ A second review of the supplier queue confirmed 40 additional source rows agains
 
 Of these rows, 38 identify catalogue SKUs that were not previously linked to supplier invoice evidence. One adds a second source record with the same code to SVKS000739. The KF5098 record identity-matches SVKS000742 but carries a different supplier invoice code from the code already recorded for that SKU; both values are preserved and the SKU is now marked as a conflict. As a result, the uniquely matched SKU count is 822 and the conflict count is 8.
 
-The matching evidence and rule for each row are recorded in `assets/data/hsn-supplier-invoice-manual-resolutions.json`. The remaining review queue comprises 41 brand/title reviews, 17 ambiguous part-reference rows, 101 rows without a reliable catalogue match, 10 supplier-name/code conflicts and one ambiguous exact-name match.
+The matching evidence and rule for each row are recorded in `assets/data/hsn-supplier-invoice-manual-resolutions.json`. The remaining review queue comprises 42 brand/title reviews, 17 ambiguous part-reference rows, 100 rows without a reliable catalogue match, 10 supplier-name/code conflicts and one ambiguous exact-name match.
 
 ## Catalogue fields
 
