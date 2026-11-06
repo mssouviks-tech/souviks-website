@@ -68883,7 +68883,8 @@
       "Tata 1516",
       "long RH greaseless type",
       "reference 250726700149",
-      "M18 × 1.5 and M12 × 1.5 threads."
+      "M18 × 1.5 and M12 × 1.5 threads.",
+      "Supplier application evidence (Alok DLP Price List 151, effective 20-Jan-2026; exact part 723-G): the list identifies a long RH greaseless gearbox gear-lever end for Tata 1516, OE 250726700149, with M18 × 1.5 housing and M12 × 1.5 ball-pin threads. The source does not support the current Tata LPT vehicle tag; retain fitment to the named Tata 1516 configuration only after thread and length match. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "featured": false,
     "active": true,
@@ -69063,7 +69064,8 @@
       "2416",
       "1613 and 2515 EX Turbo",
       "LH type",
-      "references IA233495 and 264126800193."
+      "references IA233495 and 264126800193.",
+      "Supplier application evidence (Alok DLP Price List 151, effective 20-Jan-2026; exact part 773): listed as an LH gear-lever end for Tata 2516 / 609 / 709 / 1510 / 1612 / 2213 / 2416 / 1613 / 2515 EX Turbo, with OE references IA233495 and 264126800193, M12 × 1.25 LH housing thread and M10 × 1.0 ball-pin thread. The source supports the existing Tata 709 and 2416 tags among the current mapping; it does not establish 407 / 1109 / 1512 or generic Tata LPT. Verify gearbox and thread. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "featured": false,
     "active": true,
@@ -69229,7 +69231,8 @@
       "Tractor steering system",
       "four-piece large ball-pin set",
       "35 mm ball diameter",
-      "M18 × 1.5 thread."
+      "M18 × 1.5 thread.",
+      "Supplier description conflict (Alok DLP Price List 151, effective 20-Jan-2026; exact part 5858): the list describes 5858 as a Sonalika repair kit with four large ball-pin pieces, 35 mm ball diameter and M18 × 1.5 thread. It does not describe the item as a power-steering hydraulic repair kit or identify a tractor model. Do not treat the current product title or generic “Tractors” tag as verified until the package contents and physical part are matched to the Alok code. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "featured": false,
     "active": true,
@@ -69311,7 +69314,8 @@
       "2516",
       "2213 and 2515 EX",
       "M30 × 1.5 threads",
-      "M18 × 1.5 ball-pin threads."
+      "M18 × 1.5 ball-pin threads.",
+      "Supplier application evidence (Alok DLP Price List 151, effective 20-Jan-2026; exact part 728): listed as a RH/LH tie-rod-end pair for Tata 3516 / 3118 / 1616 / 2416 / 2516 / 2213 / 2515 EX, M30 × 1.5 housing threads and M18 × 1.5 ball-pin threads. This supports the current Tata 2416 tag; the source does not independently confirm the broad Tata Signa or Tata LPT tags without the exact model/steering geometry match. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "featured": false,
     "active": true,
@@ -69394,7 +69398,8 @@
       "1613 and 2214 U Truck",
       "four ball-pin set",
       "35 mm diameter",
-      "M20 × 1.5 thread."
+      "M20 × 1.5 thread.",
+      "Supplier application conflict (Alok DLP Price List 151, effective 20-Jan-2026; exact part 9756): the list identifies a four-ball-pin tie-rod/drag-link repair kit for Leyland IVECO 909 / 1613 / tipper, 35 mm ball-pin diameter and M20 × 1.5 thread. It does not name Ashok Leyland U-Truck or Ecomet for this exact code. Keep those current tags unconfirmed until the OE reference, ball-pin geometry and kit contents match. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "featured": false,
     "active": true,
@@ -69469,7 +69474,8 @@
       "FA 90 axle",
       "35 mm pin-head diameter",
       "M20 × 1.5 thread",
-      "references P2406551 and P2616951."
+      "references P2406551 and P2616951.",
+      "Supplier application evidence (Alok DLP Price List 151, effective 20-Jan-2026; exact part 975): listed as a drag-link kit for Leyland IVECO 909 / 1109 / 2214 U-Truck and Captain series, FA90 axle, 35 mm pin head, M20 × 1.5 thread; OE P2406551, alternate P2616951. This supports the current U-Truck / Captain family tags only where the FA90 axle and OE/geometry match; do not extend it to other axles or variants. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "featured": false,
     "active": true,
@@ -69567,7 +69573,8 @@
       "Leyland 1613 Tipper",
       "RH steering tie rod end",
       "M30 × 1.5 RH thread",
-      "M20 × 1.5 ball-pin thread"
+      "M20 × 1.5 ball-pin thread",
+      "Supplier application correction (Alok DLP Price List 151, effective 20-Jan-2026; exact part 750-R-1): listed as the RH tie-rod end for Leyland 1613 tipper, M30 × 1.5 RH housing thread and M20 × 1.5 ball-pin thread. The source does not list Ashok Leyland 2516 for this code; retain the 2516 tag as unverified pending OE number, axle and thread match. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001125/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -69655,7 +69662,8 @@
       "Leyland 1613 Tipper",
       "LH steering tie rod end",
       "M30 × 1.5 LH thread",
-      "M20 × 1.5 ball-pin thread"
+      "M20 × 1.5 ball-pin thread",
+      "Supplier application correction (Alok DLP Price List 151, effective 20-Jan-2026; exact part 750-L-1): listed as the LH tie-rod end for Leyland 1613 tipper, M30 × 1.5 LH housing thread and M20 × 1.5 ball-pin thread. The source does not list Ashok Leyland 2516 for this code; retain the 2516 tag as unverified pending OE number, axle and thread match. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001126/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -69740,7 +69748,8 @@
       "Tata LPT-2518",
       "3118 EX family",
       "LH drag link end",
-      "OE 501346990103"
+      "OE 501346990103",
+      "Supplier application evidence (Alok DLP Price List 151, effective 20-Jan-2026; exact part 1012-L): listed as the LH thin-ball-pin drag-link end for Tata LPT-2518 / 3118 EX, M30 × 1.5 LH housing thread, M20 × 1.5 ball pin, OE 501346990103. This narrows the current generic Tata LPT tag to the named 2518 / 3118 EX configuration; confirm thread and OE reference. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001127/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -69829,7 +69838,8 @@
     "applications": [
       "Tata 3118 EX/LPT family",
       "RH drag link end",
-      "OE 501346990104"
+      "OE 501346990104",
+      "Supplier application evidence (Alok DLP Price List 151, effective 20-Jan-2026; exact part 1012-R): listed as the RH thin-ball-pin drag-link end for Tata LPT / 3118 EX, M30 × 1.5 RH housing thread, M20 × 1.5 ball pin, OE 501346990104. This narrows the current generic Tata LPT tag to the named 3118 EX configuration; confirm thread and OE reference. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001128/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
