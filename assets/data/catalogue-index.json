@@ -17401,7 +17401,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000283/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Cross-reference and vehicle-fitment qualification (Fleetguard official product page for FF5540): Fleetguard identifies the base reference FF5540 as a spin-on fuel filter and lists Cummins B5.9 LCCR 230 HP BS III equipment. This SKU is recorded as FF0554400, which resembles the same base reference but is not an exact string match; confirm the full canister marking and cross-reference before treating it as FF5540 or assigning a Tata model."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -17455,7 +17456,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000284/1.webp",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle application evidence (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part FS1967100): fuel-water separator without drain valve for Ashok Leyland CB18 FIP CRS engine, BS IV. The supplier identifies the engine/fuel-system configuration, not a complete chassis/model-year list. Confirm the no-drain version before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -17618,7 +17620,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000287/1.webp",
     "applications": [
-      "Scheduled Service Kit"
+      "Scheduled Service Kit",
+      "Vehicle fitment reconciliation (Fleetguard After Market Price List effective 18-Jun-2018; exact FG part 826107400 / TC kit FF5052 + FS1275 + LF3959): listed under Cummins B-Series engine models 2515, 2516, 3015, 3516 and 4018 EX. The current Souviks vehicle tag is Tata 2416, which is not listed in that source. Because the reference is an older 2018 list and does not map this SKU to Tata 2416, verify the full kit/OE reference and engine before confirming that model."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -17727,7 +17730,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000289/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence and BS-level qualification (Fleetguard official product page, exact FG part FF5540): identified as a spin-on fuel filter; equipment data lists Cummins B5.9 LCCR 230 HP BS III. The current Souviks title says “TC B5.9 BS IV” and vehicle field says Tata 2416; those specific claims are not established by the official equipment entry. Confirm the engine emission variant, housing and OE reference before publishing Tata 2416/BS IV as verified."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -18003,7 +18007,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000294/1.webp",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Part-description reconciliation (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part reference FS19671): the supplier list identifies FS19671 as a CB18 FIP CRS Engine BS IV filter-head assembly (head assembly part 502113600), not a fuel-water separator element. This conflicts with the Souviks product name “Fuel Water Separator”. Check the physical assembly/label and stock contents before describing or fitting this as a separator."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -35186,7 +35191,8 @@
     "manufacturer_spec_notes": "WABCO record previously showed 0 kg; the supplied catalogue weight of 0.077 kg is used instead. WABCO lists replacement part 9121400320.",
     "approx_weight_g": 100,
     "applications": [
-      "Air Compressor Maintenance"
+      "Air Compressor Maintenance",
+      "Vehicle application and component-type reconciliation (WABCO Customer Centre India, exact material number 9121400130): WABCO describes the reference as a One-Cylinder Compressor-WBR, vehicle application TATA, with single-cylinder type and 318 cm³ swept volume. The catalogue page also displays a contradictory “Twin-Cyl.Compressor 704cc” context line. This Souviks record is titled “Air Compressor Kit - Prima 3718”; the supplier page does not confirm a repair-kit contents list or a Prima 3718 model. Confirm the physical contents and compressor configuration before asserting that exact model fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84149019",
@@ -53453,7 +53459,8 @@
     "manufacturer_spec_notes": "",
     "approx_weight_g": 850,
     "applications": [
-      "RG2 relay-valve applications on Tata/Ashok Leyland/DICV/VECV commercial vehicles."
+      "RG2 relay-valve applications on Tata/Ashok Leyland/DICV/VECV commercial vehicles.",
+      "Vehicle fitment evidence and scope qualification (WABCO Customer Centre India, exact material number 9732980270): RG2 relay valve, listed for Ashok Leyland in the twin-cylinder 704 cc flange-mounted compressor context. The current application note's Tata, DICV and VECV makes are broader than this exact supplier entry; treat Ashok Leyland as the supplier-confirmed make and verify any other make against its own OE cross-reference."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
