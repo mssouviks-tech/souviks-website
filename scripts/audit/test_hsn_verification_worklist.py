@@ -58,9 +58,33 @@ with tempfile.TemporaryDirectory(prefix="souviks-hsn-") as temp_dir:
         capture_output=True,
         text=True,
     )
-    assert generated.read_bytes() == WORKLIST_PATH.read_bytes(), (
-        "Committed HSN worklist differs from deterministic generator output"
-    )
+    with generated.open(encoding="utf-8-sig", newline="") as handle:
+        generated_rows = list(csv.DictReader(handle))
+
+    if generated_rows != rows:
+        mismatch = []
+        for row_number, (committed_row, generated_row) in enumerate(
+            zip(rows, generated_rows), start=2
+        ):
+            for field in FIELDS:
+                if committed_row.get(field) != generated_row.get(field):
+                    mismatch.append(
+                        f"CSV line {row_number} SKU {committed_row.get('catalogue_id')}: "
+                        f"{field} differs (committed={committed_row.get(field)!r}; "
+                        f"generated={generated_row.get(field)!r})"
+                    )
+                    if len(mismatch) >= 5:
+                        break
+            if len(mismatch) >= 5:
+                break
+        if len(rows) != len(generated_rows):
+            mismatch.append(
+                f"row count differs (committed={len(rows)}; generated={len(generated_rows)})"
+            )
+        raise AssertionError(
+            "Committed HSN worklist differs from deterministic generator output: "
+            + " | ".join(mismatch or ["unknown CSV difference"])
+        )
 
 print(
     f"HSN review worklist contract passed: {len(rows)} non-final SKUs; "
