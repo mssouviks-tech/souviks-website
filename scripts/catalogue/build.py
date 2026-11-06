@@ -1050,6 +1050,15 @@ def reconcile_catalogue_projections():
             "hsn_basis": text(p.get("hsn_basis")),
             "hsn_review_note": text(p.get("hsn_review_note")),
             "hsn_reference_date": text(p.get("hsn_reference_date")),
+            "hsn_supplier_invoice_code": text(p.get("hsn_supplier_invoice_code")),
+            "hsn_supplier_invoice_codes": list(p.get("hsn_supplier_invoice_codes") or []),
+            "hsn_supplier_invoice_match_status": text(p.get("hsn_supplier_invoice_match_status")),
+            "hsn_supplier_invoice_match_methods": list(p.get("hsn_supplier_invoice_match_methods") or []),
+            "hsn_supplier_invoice_source_names": list(p.get("hsn_supplier_invoice_source_names") or []),
+            "hsn_supplier_invoice_external_ids": list(p.get("hsn_supplier_invoice_external_ids") or []),
+            "hsn_supplier_invoice_source_file": text(p.get("hsn_supplier_invoice_source_file")),
+            "hsn_supplier_invoice_match_date": text(p.get("hsn_supplier_invoice_match_date")),
+            "hsn_supplier_invoice_candidate_alignment": text(p.get("hsn_supplier_invoice_candidate_alignment")),
             "declared_net_content_g": p.get("declared_net_content_g"),
             "declared_net_content_status": text(p.get("declared_net_content_status")),
             "declared_net_content_source": text(p.get("declared_net_content_source")),
@@ -1186,7 +1195,11 @@ def reconcile_catalogue_projections():
             "price_history_all_time", "price_history_since", "approx_weight_g",
             "hsn_code", "hsn_description", "hsn_confidence",
             "hsn_classification_status", "hsn_basis", "hsn_review_note",
-            "hsn_reference_date", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
+            "hsn_reference_date", "hsn_supplier_invoice_code", "hsn_supplier_invoice_codes",
+            "hsn_supplier_invoice_match_status", "hsn_supplier_invoice_match_methods",
+            "hsn_supplier_invoice_source_names", "hsn_supplier_invoice_external_ids",
+            "hsn_supplier_invoice_source_file", "hsn_supplier_invoice_match_date",
+            "hsn_supplier_invoice_candidate_alignment", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",
@@ -1671,6 +1684,15 @@ def reconcile_catalogue_projections():
             data["hsn_basis"] = text(product.get("hsn_basis"))
             data["hsn_review_note"] = text(product.get("hsn_review_note"))
             data["hsn_reference_date"] = text(product.get("hsn_reference_date"))
+            data["hsn_supplier_invoice_code"] = text(product.get("hsn_supplier_invoice_code"))
+            data["hsn_supplier_invoice_codes"] = list(product.get("hsn_supplier_invoice_codes") or [])
+            data["hsn_supplier_invoice_match_status"] = text(product.get("hsn_supplier_invoice_match_status"))
+            data["hsn_supplier_invoice_match_methods"] = list(product.get("hsn_supplier_invoice_match_methods") or [])
+            data["hsn_supplier_invoice_source_names"] = list(product.get("hsn_supplier_invoice_source_names") or [])
+            data["hsn_supplier_invoice_external_ids"] = list(product.get("hsn_supplier_invoice_external_ids") or [])
+            data["hsn_supplier_invoice_source_file"] = text(product.get("hsn_supplier_invoice_source_file"))
+            data["hsn_supplier_invoice_match_date"] = text(product.get("hsn_supplier_invoice_match_date"))
+            data["hsn_supplier_invoice_candidate_alignment"] = text(product.get("hsn_supplier_invoice_candidate_alignment"))
             data["prior_price_30d"] = product.get("prior_price_30d")
             data["price_history_1m"] = product.get("price_history_1m")
             data["price_history_3m"] = product.get("price_history_3m")
