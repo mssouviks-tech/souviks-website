@@ -7028,7 +7028,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000107/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle application reconciliation (Nitol Motors e-Dukan listing; exact Tata reference 279018130107): the listing identifies this part as “OIL FILTER ASSY ACE/EX2”. This supports an ACE / ACE EX2 oil-filter application, not the current Tata 1109 / 1210 / 1312 tags. Keep those truck tags unverified until the filter body, thread, sealing face and engine/filter-housing family are matched to the OE unit. Source: https://www.nitoltata-edukan.com/"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -7596,7 +7597,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000117/1.webp",
     "applications": [
       "Gearbox Sealing System",
-      "Transmission Maintenance"
+      "Transmission Maintenance",
+      "Vehicle/gearbox fitment evidence (Tata Motors SUPER ACE EURO-II DLE parts catalogue, VC 28187824000R, gearbox group 26, p. 46; exact part 285126207803): listed as OIL SEAL MAIN SHAFT 38X48X8. Tata ACE HT Diesel BS-IV parts catalogue, chassis type 445057, also lists the exact reference in its gearbox housing group. This supports those specified gearbox configurations only; the current Tata Ace tag is too broad to certify every Ace derivative or gearbox. Confirm the 38×48×8 dimensions, gearbox family and emission/chassis variant before ordering. Sources: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/SUPER-ACE-DLE.pdf ; https://www.scribd.com/document/512677113/TATA-ACE-TATA-ACE-HT-DIESEL-BS-IV"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169330",
@@ -11313,7 +11315,8 @@
     "applications": [
       "Electrical System",
       "Steering Column Controls",
-      "Lighting Controls"
+      "Lighting Controls",
+      "Supplier application conflict (Anupam Industries official Combination Switches catalogue; exact Anupam code AI-468): the manufacturer lists AI-468 for Ashok Leyland G45 and Ecomet passenger models, with a 2-pin 12+15=27 connector. This does not substantiate the current Tata 1512 / Ashok Leyland 2516 vehicle tags. Keep those tags unconfirmed until the physical switch body, connector pinout and wiring configuration are matched. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -11868,7 +11871,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence (The Alternate Parts Guide, Volume 01, Filters section, p. 6; exact alternate part no. 886409000003): cross-reference OE 571009110105 identifies the item as an assembly filter element for Tata ACE, ACE Mega, ACE XL, ACE Zip, Magic, Magic Express, Magic Iris, Magic Mantra and V10, with BS3/BS4 application. Confirm the filter element shape and housing/emission variant before ordering. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -11978,7 +11982,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Brake-pad cross-reference qualification (The Alternate Parts Guide, Volume 01, Brake Pads section, p. 33): the Tata reference 885442012829 appears with the 886743012829 pad-assembly cross-reference, whose stated application is ACE XL CNG / Magic / Magic CNG / Magic HT, BS2/BS3/BS4. This does not establish fitment to every basic ACE/ACE Magic derivative; confirm caliper, pad dimensions and OE number before extending the existing Ace tag. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "68138100",
@@ -13753,7 +13758,8 @@
     "applications": [
       "Steering Column Controls",
       "Lighting Control System",
-      "Indicator System"
+      "Indicator System",
+      "Vehicle fitment evidence / variant qualification (Anupam Industries official Combination Switches catalogue; exact code AI-421): listed as suitable for Tata Ace, with 18-coupler / 16-cable configuration. Anupam separately lists AI-422 for Tata Ace Magic / Ace HT / Ace Mega / Intra. Therefore this AI-421 record supports older Tata Ace, not a blanket Tata Magic fitment. Match the coupler and cable count before ordering. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -13809,7 +13815,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000219/1.webp",
     "applications": [
       "Steering Column Controls",
-      "Electrical System"
+      "Electrical System",
+      "Vehicle fitment evidence (Anupam Industries official Combination Switches catalogue; exact code AI-425): listed for Tata 207 / 407 new model, Spacio, 709, 909, 1109 and Marcopolo. This supports the current Tata 709 / 1109 tags; verify switch coupler, cables and steering-column configuration. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -13865,7 +13872,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000220/1.webp",
     "applications": [
       "Steering Column Controls",
-      "Lighting Controls"
+      "Lighting Controls",
+      "Vehicle fitment evidence / tag qualification (Anupam Industries official Combination Switches catalogue; exact code AI-461): the manufacturer specifies AI-461 as a metal-body combination switch suitable for Tata 1210. The catalogue does not extend this exact code to Tata 1312, so the current 1312 tag remains unconfirmed until the switch/coupler is matched. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -13921,7 +13929,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000221/1.webp",
     "applications": [
       "Steering Column Controls",
-      "Electrical System"
+      "Electrical System",
+      "Vehicle fitment evidence / tag qualification (Anupam Industries official Combination Switches catalogue; exact code AI-463): the manufacturer lists this self-cancelling combination switch for Tata 1612 / 1210, with 9-coupler / 9-cable configuration. The source does not identify the full Tata LPT family, so the generic LPT tag must be verified against the exact column switch and wiring. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -13976,7 +13985,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000222/1.webp",
     "applications": [
       "Steering Column Controls",
-      "Electrical System"
+      "Electrical System",
+      "Supplier fitment qualification (Anupam Industries official Combination Switches catalogue and Anupam MRP list effective 01-Jul-2022; exact code AI-487): manufacturer sources identify AI-487 as suitable for Eicher Canter, with a 10+7+12 coupler / 9+6+11 cable configuration. The Anupam list assigns Eicher Jumbo to a different code, AI-489. The current Eicher 1110 tag is not independently confirmed by the manufacturer source; match the connector and vehicle variant before confirming. Sources: https://anupamind.com/Combination%20Switches%20and%20Spares.html ; https://www.anupamind.com/Anupam%20MRP%20list%2001.07.22.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -14085,7 +14095,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000224/1.webp",
     "applications": [
       "Steering Linkage Assembly",
-      "Steering System Repair"
+      "Steering System Repair",
+      "Supplier-code reconciliation (Alok DLP 151 price list, effective 20-Jan-2026, Tata Intra section): the list identifies Intra V10/V20 drag-link end code 1074 for OE 554546900102 and tie-rod-end code 1076, but it does not list Souviks' code ALK 1014. Therefore the existing Tata Intra tag remains unverified for this exact SKU. Confirm the full Alok code, thread sizes, ball dimensions and OE reference from the physical part before publishing a confirmed fitment. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089400",
@@ -14140,7 +14151,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000225/1.webp",
     "applications": [
       "Steering Linkage Assembly",
-      "Front Steering System"
+      "Front Steering System",
+      "Vehicle fitment evidence (Alok DLP 151 price list, effective 20-Jan-2026, Tata Ace Mega section; exact Alok code 2312): listed as tie-rod ends for Tata Ace Mega, H-18×1.5 R/L and B-12×1.5, OE refs 552333990101 / 552333990102. This supports Tata Ace Mega and the specified thread configuration, not every Tata Ace variant. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089400",
@@ -14195,7 +14207,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000226/1.webp",
     "applications": [
       "Steering Linkage Assembly",
-      "Front Steering System"
+      "Front Steering System",
+      "Vehicle fitment evidence (Alok DLP 151 price list, effective 20-Jan-2026, Tata Ace HT section; exact Alok code 2314): listed as Tata Ace HT RH/LH tie-rod ends, H-14×1.5 R/L and B-12×1.25. The source separately lists 2314-S for the short-length new-model variant; confirm the SKU suffix, length and thread configuration. This supports Tata Ace HT, not all Tata Ace variants. Source: https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089400",
@@ -17126,7 +17139,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Front Air Brake System",
-      "S-Cam Brake Assembly"
+      "S-Cam Brake Assembly",
+      "OEM application / current-tag conflict (Ashok Leyland Genuine Parts Application Manual, Brake Slack Adjuster table; exact OE part F3P00100): specifies front LH manual slack adjuster, 160 mm offset, for U3518, U4923 (NRS/Bogie), U4023, 12M FE CRS and Luxura BS3. The current Ashok Leyland 2516 tag is not listed for this exact part in that table. MEI cross-reference maps F3P00100 to MSA 18-150 and gives 38.10 mm CD, 160 mm offset, 10-spline product configuration. Verify physical OE marking and spline/offset before extending fitment. Sources: https://pssao.com/catlog/al/APPLICATION%20MANUAL.pdf ; https://pssao.com/catlog/mei/MEI%20PARTS%20CATALOGUE.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -17179,7 +17193,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Front Air Brake System",
-      "S-Cam Brake Assembly"
+      "S-Cam Brake Assembly",
+      "OEM application / current-tag conflict (Ashok Leyland Genuine Parts Application Manual, Brake Slack Adjuster table; exact OE part F3P00200): specifies front RH manual slack adjuster, 160 mm offset, for U3518, U4923 (NRS/Bogie), U4023, 12M FE CRS and Luxura BS3. The current Ashok Leyland 2516 tag is not listed for this exact part in that table. MEI cross-reference maps F3P00200 to MSA 18-151 and gives 38.10 mm CD, 160 mm offset, 10-spline product configuration. Verify physical OE marking and spline/offset before extending fitment. Sources: https://pssao.com/catlog/al/APPLICATION%20MANUAL.pdf ; https://pssao.com/catlog/mei/MEI%20PARTS%20CATALOGUE.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -26380,7 +26395,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000433/1.webp",
     "applications": [
       "Electrical System",
-      "Lighting Control System"
+      "Lighting Control System",
+      "Supplier application evidence and current-tag qualification (Uno Minda product brochure; exact part S11180-000M00): lists TATA 1210 / 1510 / 2515 / 2516 / 2518 / 3118 — AGRO PACK for this 2-stalk light-and-wiper combination switch. The current generic Tata LPT tag is broader than the source and does not identify the Agro Pack configuration. Match the switch coupler, wiring/pinout and steering-column variant; do not treat every Tata LPT as confirmed. Source: https://unomindakart.com/brochure/uno-minda-s11180-000m00-lever-combination-switch--2-stalk-light--wiper-for-tata-1210-1510-2515-2516-2518-3118-agropack-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -27529,7 +27545,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000452/1.webp",
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Vehicle fitment evidence / application qualification (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 10; exact OE reference 220747709902): Bosch cross-references this OE number to fuel filter F 002 H26 567 for Tata LPT 2518 BS IV, LPK 2818 BS IV, Signa 3118.T, Signa 3518.S BS IV, Signa 2821.K and Prima 3138 K 8x4. The Souviks vehicle tag “Tata LPT” is broader than the exact listed models; confirm the engine/filter-head and BS variant before ordering. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -27639,7 +27656,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000454/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence / variant reconciliation (exact OE reference 252518130139): Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 6, cross-references this number to oil filter F 002 H23 516 for Tata LPT 1613 Turbo EX, LPK 1616 BS-III, SE 1613 Turbo BS-II and LPT 2518 BS-III. Tata Motors LPT-913 EX2/34WB (E-II) parts catalogue, VC 55150134000R / chassis 494151, also lists 252518130139 as the spin-on oil-filter element (p. 31). This supports the specified LPT variants, not every Tata LPT; match engine, filter head and emission variant. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://tatamotors.co.id/old/wp-content/uploads/2017/03/LPT-913.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -28030,7 +28048,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000461/1.webp",
     "applications": [
       "Engine Overhaul",
-      "Piston Assembly"
+      "Piston Assembly",
+      "Vehicle fitment evidence (Tata piston-ring application table; exact part 278803990113): listed as “SET PISTON RINGS” for ACE / MAGIC, BS II / III / IV. This supports the Ace and Magic engine family within those emission variants; it does not establish CNG derivatives or other engine families. Confirm engine code and piston/ring grade before ordering. Source: https://3.imimg.com/data3/GY/AD/MY-6342005/piston-ring.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84099900",
@@ -32160,7 +32179,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tata Prima front wheel bearing."
+      "fitment/specification: Tata Prima front wheel bearing.",
+      "Supplier application reconciliation (Texspin Master Price List effective 04-Jan-2024): the supplier lists TX-1-500/Q as “TATA PRIMA FRONT WHEEL BEARING”. Souviks records TX-I-500Q; the supplier code uses the numeral “1” and slash notation, while the catalogue uses a capital “I” and omits the slash. Do not treat this as an exact part-number match until the physical package/bearing marking is checked. The current “Tractors” vehicle tag is not supported by the supplier listing; if the code is confirmed, the stated application is Tata Prima front wheel bearing. Source: https://www.scribd.com/document/755912573/BEARING-TEXSPIN-01-2024"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822090",
@@ -32217,7 +32237,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tata Prima front wheel bearing."
+      "fitment/specification: Tata Prima front wheel bearing.",
+      "Supplier application reconciliation (Texspin Master Price List effective 04-Jan-2024): the supplier lists TX-1-501/Q as “TATA PRIMA FRONT WHEEL BEARING”. Souviks records TX-I-501Q; the supplier code uses the numeral “1” and slash notation, while the catalogue uses a capital “I” and omits the slash. Do not treat this as an exact part-number match until the physical package/bearing marking is checked. The current “Tractors” vehicle tag is not supported by the supplier listing; if the code is confirmed, the stated application is Tata Prima front wheel bearing. Source: https://www.scribd.com/document/755912573/BEARING-TEXSPIN-01-2024"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822090",
@@ -40712,7 +40733,8 @@
     "applications": [
       "Tata Ace Magic",
       "Ace HT",
-      "Ace Mega and Intra."
+      "Ace Mega and Intra.",
+      "Vehicle fitment evidence / SKU separation (Anupam Industries official Combination Switches catalogue; exact code AI-422): listed as suitable for Tata Ace Magic / Ace HT / Ace Mega / Intra, with 18-coupler / 18-cable configuration. This supports the specific model family named for AI-422; it must not be conflated with AI-421, which Anupam lists for older Tata Ace only. Confirm coupler and cable count before ordering. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -51085,7 +51107,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000832/1.webp",
     "applications": [
       "Tata Ace wiper-set application",
-      "exact Ace variant not established from the part-specific public references located."
+      "exact Ace variant not established from the part-specific public references located.",
+      "Vehicle fitment evidence (The Alternate Parts Guide, Volume 01, Wipers section, p. 38; exact part no. 886782000014): listed as “Wiper for Tata Ace” for BS1/BS3/BS4/BS6-PH1. This supports the Tata Ace application; the source does not extend this exact number to all Magic/other derivatives. Confirm blade length and arm interface. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
@@ -52370,7 +52393,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Tata 1210 / 1312."
+      "Tata 1210 / 1312.",
+      "Vehicle fitment evidence (Varroc fast-moving LH/RH SKU list, dated 05-Sep-2025; exact code HLA-1312-02NL): the supplier list identifies this as headlamp assembly for Tata 1312 / 1210, WT/P line glass P43, left-hand. This matches the product's LH designation and Tata 1210/1312 vehicle tags; confirm the wiring, rim and mounting variant before ordering. Source: https://www.scribd.com/document/924277874/Final-Varroc-Fast-Moving-LH-RH-SKUs-List-05092025"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
@@ -52424,7 +52448,8 @@
     ],
     "gallery_dimensions": {},
     "applications": [
-      "Tata 1210 / 1312."
+      "Tata 1210 / 1312.",
+      "Supplier part-number conflict (Varroc fast-moving LH/RH SKU list, dated 05-Sep-2025): the supplier identifies HLA-1312-02NL as the LH unit and HLA-1312-02NR as the RH unit for Tata 1312 / 1210, WT/P line glass P43. This Souviks record is described as RH but carries code HLA-1312-02NL, which is the supplier's LH code. Do not publish this as an exact RH fitment until the physical lamp marking is checked and the product reference is corrected if needed. Source: https://www.scribd.com/document/924277874/Final-Varroc-Fast-Moving-LH-RH-SKUs-List-05092025"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
@@ -62927,7 +62952,8 @@
       "Speedometer control",
       "speedometer cable",
       "3.2 mm DIA",
-      "2350 mm"
+      "2350 mm",
+      "Vehicle fitment evidence (Tata ACE MAGIC Parts List, February 2009, Electrical Equipments Group 54; exact part 282954209902): listed as 3.2 mm diameter, 2350 mm speedometer cable for Ace Magic chassis types 445111 / 445112 and 445121 / 445122 (BS-II / BS-III passenger variants). This supports the specified cable length and listed chassis variants, not every later Ace/Magic derivative. Verify instrument-cluster ratio and cable end fittings. Source: https://www.scribd.com/document/655235579/Magic"
     ],
     "gallery": [
       "1.webp",
