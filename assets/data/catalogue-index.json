@@ -18712,7 +18712,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is described as a PVC-insulated electrical wire/cable.",
     "hsn_review_note": "Confirm voltage rating, insulation material and whether connectors are attached.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "85441920"
+    ],
+    "hsn_supplier_invoice_code": "85441920",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "CB - AU003BK"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_100_50575a30"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000244",
@@ -18766,7 +18783,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is described as a PVC-insulated electrical wire/cable.",
     "hsn_review_note": "Confirm voltage rating, insulation material and whether connectors are attached.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "85441920"
+    ],
+    "hsn_supplier_invoice_code": "85441920",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "CB - AU003RD"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_101_eb05c8c5"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000245",
@@ -26281,7 +26315,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "KFL - KF5122 - UJ Cross 48 x 135"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5066_e37080aa"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_application"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000346",
@@ -63028,7 +63079,24 @@
     "declared_net_content_g": 1000,
     "declared_net_content_status": "catalogue_declared_content",
     "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
-    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added.",
+    "hsn_supplier_invoice_codes": [
+      "27101990"
+    ],
+    "hsn_supplier_invoice_code": "27101990",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TXL 3 - 1SG + 1 KG Superior Grease"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6774_d034ad4c"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_package_size"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000841",

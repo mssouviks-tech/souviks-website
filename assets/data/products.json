@@ -24364,15 +24364,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "85441920",
+    "hsn_supplier_invoice_codes": [
+      "85441920"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "CB - AU003BK"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_100_50575a30"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS000244",
@@ -24451,15 +24459,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "85441920",
+    "hsn_supplier_invoice_codes": [
+      "85441920"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "CB - AU003RD"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_101_eb05c8c5"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS000245",
@@ -34356,15 +34372,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_application"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "KFL - KF5122 - UJ Cross 48 x 135"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5066_e37080aa"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS000346",
@@ -83051,15 +83075,23 @@
     "declared_net_content_status": "catalogue_declared_content",
     "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
     "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added.",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "27101990",
+    "hsn_supplier_invoice_codes": [
+      "27101990"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_package_size"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TXL 3 - 1SG + 1 KG Superior Grease"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6774_d034ad4c"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS000842",
