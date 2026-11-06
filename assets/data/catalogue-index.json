@@ -41489,7 +41489,7 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000685/1.webp",
     "applications": [
       "Commercial/off-highway applications using Fleetguard twin filter head.",
-      "Vehicle application and assembly evidence (Fleetguard HCV/LCV price list, exact assembly code 502349300): listed as “Head Assy with FS1003” for Tata Prima 3128. This is an assembly-level application and the source does not support every Tata LPT vehicle. Check FS1003 connection and head configuration before treating it as interchangeable. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
+      "Part-application reconciliation (Fleetguard HCV/LCV price list and Filter Parts Catalogue; exact assembly code 502349300): Fleetguard describes this as “Head Assy with FS1003” (OE reference 220747700101). The same catalogue extract separately lists an FS1003 application for Tata 3718/4923 BS IV; the extracted table layout does not establish a direct chassis application for assembly code 502349300. The adjacent Prima 3128 ISBe / 3138 LPT line appears associated with a different filter code, FS19732. Do not publish Tata Prima 3128/3138 as confirmed for 502349300 until the assembly/element cross-reference is verified. The current broader Tata LPT vehicle label also remains unverified for this exact head assembly."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
