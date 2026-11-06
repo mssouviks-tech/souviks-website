@@ -32359,7 +32359,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000534/1.webp",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-380-CRK5): coil spring kit for Tata GB75 gearbox. Confirm GB75 clutch pressure-plate configuration and spring count."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -51378,7 +51379,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000839/1.webp",
     "applications": [
       "Tata 1312 king-pin application",
-      "5th oversize designation in stock data — exact manufacturer catalogue fitment should be confirmed before publishing."
+      "5th oversize designation in stock data — exact manufacturer catalogue fitment should be confirmed before publishing.",
+      "Vehicle-fitment reconciliation (Texspin Master Price List 2025–26, kingpin-bearing tables): the product claims a Tata 1312 fifth-oversize kingpin shaft, 38.75 mm, but the indexed supplier table does not establish this exact TX-610/5 KP reference/oversize in the rows located. Treat the fifth-oversize dimension as an internal stock specification only until the manufacturer confirms the part code and bore size; do not use the vehicle label alone to infer interchangeability."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimensions_mm": [
@@ -56961,7 +56963,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000931/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, pp. 85–86; exact code K637): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 150 mm plate, 4 × 13.0 mm holes, 19-bolt pattern; the detailed application row lists Tata 2518. The current Souviks vehicle field says Tata LPT, which is broader and not the exact model in that row; verify the mating yoke and vehicle variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84836090",
@@ -57040,7 +57043,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000932/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, p. 85; exact code K543): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 180 mm plate, 4 × 15.0 mm holes, 22-bolt pattern; the detailed application row lists Tata 3118. The current Souviks vehicle field says Tata LPT; verify the mating yoke and vehicle variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84836090",
@@ -57120,7 +57124,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000933/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle-fitment reconciliation (RKI Auto Parts Catalogue 2023, p. 84; exact code K478): the SPR-series dimension table lists a 47.62 × 135 mm cross-holder yoke with 150 mm plate, 4 × 13.0 mm holes and 19-bolt pattern in the Taurus section. The Souviks tags Ashok Leyland U-Truck and Tata LPT are not directly proven by that entry; confirm cross dimensions and the correct RKI application page before publishing either as confirmed."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84836090",
@@ -57199,7 +57204,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000934/1.webp",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, p. 86; exact code K631): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 180 mm plate, 4 × 15.0 mm holes, 22-bolt pattern; the detailed application row lists Tata 3118. The current Souviks vehicle field says Tata LPT; verify the mating yoke and vehicle variant."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84836090",
@@ -57756,7 +57762,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000943/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Mahindra Navistar."
+      "fitment/specification: Mahindra Navistar.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 5; exact code TX-4585): clutch-release bearing for Mahindra Navistar. The price list does not specify a particular Navistar model or clutch dimension for this code; verify the release-bearing interface against the vehicle."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -57811,7 +57818,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000944/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Mahindra Blazo (395 dia)."
+      "fitment/specification: Mahindra Blazo (395 dia).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 5; exact code TX-4049SC-M): clutch-release bearing for Mahindra Blazo 49, 395 mm clutch diameter. Do not generalise to other Blazo engine/gearbox variants without an OE cross-reference."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
@@ -58004,7 +58012,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000947/1.webp",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland Heavy Duty Truck 31ton and 9speen GB 380dia."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland Heavy Duty Truck 31ton and 9speen GB 380dia.",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6638SC): Ashok Leyland heavy-duty truck, 31-tonne class, 9-speed gearbox, 380 mm clutch. Confirm the truck/gearbox and clutch assembly dimensions."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84828000",
