@@ -7422,7 +7422,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Manual Transmission System",
-      "Gear Selector Assembly"
+      "Gear Selector Assembly",
+      "Vehicle / gearbox fitment evidence and current-tag conflict (Tata ACE MAGIC 275 IDI NA BS2 parts catalogue, updated 31-May-2022, VC 55231520000R, gearbox group 28510104 26R.03, p. 29; exact part 285126700112): listed as the GB65 top-cover assembly in the Ace Magic 275 IDI NA 20 WB gearbox. Tata e-Dukaan also lists this exact reference under its GB65 group. The current vehicle tags Tata 1109, 1210 and 1312 are not supported by these exact references; confirm the gearbox family and chassis before publishing those models as compatible. Sources: https://www.scribd.com/document/816409121/Ace-magic ; https://edukaan.cv.tatamotors/spare-parts/gear-parts/gb-65"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87084000",
@@ -27530,7 +27531,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000453/1.webp",
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Vehicle / component evidence and emission-scope qualification (Tata Motors LPT-913 parts catalogue, VC 55150134000R, fuel-filter/mechanical-feed-pump group 2525153509R.01, p. 22; exact part 252509120239): listed as a fuel-water separator, spin-on Fleetguard type, supplied without head, in the 697-engine fuel-filter assembly. Bosch Commercial Vehicle Filters catalogue also cross-references this OE number in its Tata fuel-filter applications, including LPK 2518 BS III / SK 407 listings. Tata e-Dukaan currently labels the same number “Fuel Filter (FWS) Element Spinon BS2/3”, whereas this Souviks title says BS3/4. Retain the LPT-913 / 697-engine evidence, but do not infer universal LPT fitment or BS4 compatibility without matching the filter head and full emissions variant. Sources: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/LPT-913.pdf ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://edukaan.cv.tatamotors/spare-parts/filter/fuel-filter-tata"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -27639,7 +27641,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000455/1.webp",
     "applications": [
       "Engine Lubrication Filtration System",
-      "Scheduled Service"
+      "Scheduled Service",
+      "Vehicle fitment evidence (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 6; exact OE references 252718130145 / 252718130139): the catalogue lists the matching spin-on oil filter for Tata 407 3.0 Diesel SFC Turbo, 407 3.0 Diesel LP Turbo Bus, SFC 407 EX BS III, LP 410, 407 3.0 Diesel LPT, LPT 3118, LPT 2518, Signa 3118 T, LPT 2516 TC 6x2, LPS 4923 TC 6x4 and Prima LX 2523 K/T. A Tata LPT-1109 BS IV parts catalogue also lists 252718130145 in its oil-filter group. The current generic Tata LPT tag is therefore too broad; confirm engine, housing and BS variant before assuming interchangeability across all LPT models. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://www.scribd.com/document/435129545/CATALOGUES-CI-LPT1109-36-EX2-BS4"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -27694,7 +27697,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000456/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Fitment reconciliation note (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 8; exact OE reference 278607989967): Bosch cross-references this fuel filter to Tata 1510 LP and 1516 LPT. This does not support the current Tata Ace / Tata Magic vehicle tags. Tata e-Dukaan confirms the part description “Fuel Filter BS3” but its unfiltered catalogue listing does not establish Ace/Magic fitment. Keep those tags unconfirmed until the engine and filter-head interface are checked. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://edukaan.cv.tatamotors/spare-parts/filter/all"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -27749,7 +27753,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000457/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Fitment reconciliation note (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 9; exact OE reference 278609119910): Bosch lists this fuel-filter element for Tata LPT 1918 BS6, LPT 2818 BS6, LPT 4825 BS6, Signa 4925.T BS6, Signa 5525.S BS6 and Signa 5530.S BS6. This does not support the current Tata Ace / Tata Magic vehicle tags. Verify the BS6 filter-head arrangement and exact pre-filter configuration before offering it for those models. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -27859,7 +27864,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000459/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Fitment reconciliation note (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 6; exact OE reference 278618999994): Bosch lists the matching oil-filter element for Tata Prima LX 2825.K HRT BS IV, Prima LX 2530.K BS IV, Prima LX 3123.TTS BS III and Prima LX 4028 S. This does not support the current Tata Ace / Tata Magic tags. Confirm the Prima engine and filter housing before treating the Bosch cross-reference as interchangeable with the Ace/Magic application. Tata e-Dukaan confirms the product name and BS4 filter description but does not identify a vehicle model on its unfiltered listing. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://edukaan.cv.tatamotors/spare-parts/filter/all"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -28079,7 +28085,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000463/1.webp",
     "applications": [
-      "Engine Air Intake System"
+      "Engine Air Intake System",
+      "Vehicle fitment evidence and cross-catalogue scope (Bosch Commercial Vehicle Filters Tata section, p. 5; Uno Minda Commercial Filter Catalogue, AFK1022; Millard India datasheet MK-97076; exact OE reference 885409052516): Bosch lists this filter set against Tata 1512 LP/LPO TC BS III, Signa 2818.T BS IV, Signa 3518.S BS IV, LPO 1613 CNG, LPT 3718 BS IV and Signa 4018.S BS IV. Uno Minda cross-references AFK1022 to Tata 2515EX / 2516 / 3015 / 3516 / 4018 Cummins B-Series applications. Millard additionally lists Ashok Leyland 2516 (412 TCAC BS-II/III) and Tata 1510 / 1612 / 1613 / 2515 families. The current Ashok Leyland 2516 tag is supported by Millard, but the source families differ; verify element set, air-cleaner housing and engine before extending beyond the exact cited applications. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://unomindakart.com/catalog/open/21/Filter%20Catalogue%20-%204W%20Commercial.pdf ; https://www.millardcatalog.com/inc/datasheet_generatesheet.php?catalog=India&itemCode=MK-97076&lang=en"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -50350,7 +50357,8 @@
       "Tata filter kit using OE 885418032516",
       "Bosch cross-reference lists Ace Magic",
       "Ace XL 0.7D",
-      "Ace 0.7D and Ace Gold."
+      "Ace 0.7D and Ace Gold.",
+      "Vehicle fitment evidence (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 8; exact OE reference 885418032516): Bosch lists the matching filter kit for Tata Ace Magic, Ace XL 0.7D, Ace 0.7D and Ace Gold. The Tata e-Dukaan Service Kit catalogue confirms the supplied set description and exact contents “9902 + 9904 + 9916”. This supports the Ace-family variants stated by Bosch; check engine / model-year and filter-set contents before ordering. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://edukaan.cv.tatamotors/service-kit"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
