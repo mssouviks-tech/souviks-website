@@ -1,0 +1,93 @@
+{
+  "application_updates": [
+    {
+      "id": "SVKS001132",
+      "append": [
+        "Vehicle application evidence — Ashok Leyland Value Parts Catalogue, section Rubber Components, item 284, lists Leyparts 59YE001 / F2630200 ENGINE MOUNTING for ECOMET 912, 1012, 1112; LYNX BUS; 2516, 2518, U 2518, 3123; VIKING and 12M BUS. This is a supplier-catalogue match to the exact F2630200 reference. The catalogue does not establish every year/engine/chassis revision; verify mount geometry and OE substitution before ordering. Source: https://pssao.com/catlog/al/VALUE%20PARTS%20CATALOGUE.pdf (item 284)."
+      ]
+    },
+    {
+      "id": "SVKS000583",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact material number 300001137 identifies this item as a repair kit and states “Vehicle application (India): Ashok Leyland”. This confirms the manufacturer application at make level; no specific model/chassis is stated on the accessible product record. Match the repaired compressor assembly and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300001137"
+      ]
+    },
+    {
+      "id": "SVKS000584",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact material number 300001458 identifies this item as a repair kit and states “Vehicle application (India): TATA”. This confirms the manufacturer application at make level; no specific model/chassis is stated on the accessible product record. Match compressor cylinder-head configuration and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300001458"
+      ]
+    },
+    {
+      "id": "SVKS000579",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact material number 300001366 identifies the product as a cover repair kit and states “Vehicle application (India): TATA”. This is a make-level product application only; it does not verify the product-page title’s “T-2518” model claim. Confirm the repaired compressor model and kit contents before supplying. Source: https://www.wabco-customercentre.com/catalog/en_US/300001366"
+      ]
+    },
+    {
+      "id": "SVKS001017",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact material number 300001366 identifies the product as a cover repair kit and states “Vehicle application (India): TATA”. This is make-level evidence only and does not establish T-2518 model fitment. The current product title and existing nominal application must be checked against the actual compressor/kit mapping; do not infer Tata 2518 fitment from the kit name alone. Source: https://www.wabco-customercentre.com/catalog/en_US/300001366. Note: the same WABCO material number is already present on another Souviks SKU (SVKS000579), so this is a duplicate-reference conflict requiring stock-label verification."
+      ]
+    },
+    {
+      "id": "SVKS000864",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact part number 100250150 states “Vehicle application (India): TATA, Ashok Leyland, Volvo Eicher (VECV)”. Its technical record specifies a 24 V stop-light switch, screw-mounted electrical connection and M14 × 1.5 thread. This supports the three make-level tags, not every model currently nested under them. Verify voltage, terminal arrangement, thread and switch pressure against the vehicle circuit. Source: https://www.wabco-customercentre.com/catalog/en_US/100250150"
+      ]
+    },
+    {
+      "id": "SVKS000865",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact part number 100306470 identifies a Pressure Reducing Valve and states “Vehicle application (India): TATA”. The record specifies M22 × 1.5 ports and two Ø9 mm mounting points. This supports Tata make-level application only; match delivered pressure, port orientation and mounting pattern before extending to individual models. Source: https://www.wabco-customercentre.com/catalog/en_US/100306470"
+      ]
+    },
+    {
+      "id": "SVKS000866",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact part number 100600920 identifies a Foot Brake Valve and states “Vehicle application (India): TATA”. Technical matching includes M630310 actuation, treadle assembly, 3-point mounting and the published port threads. This supports Tata make-level application only; exact chassis and pedal interface still need confirmation. Source: https://www.wabco-customercentre.com/catalog/en_US/100600920"
+      ]
+    },
+    {
+      "id": "SVKS000867",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre India product page for exact material number 100601130 identifies the product as a brake valve and states “Vehicle application (India): TATA”. Technical data includes 45° pedal angle, 3 × Ø9.5 mm mounting and M22 × 1.5 ports. This supports Tata make-level application only; confirm valve variant, pedal geometry and mounting before assigning individual Tata models. Source: https://www.wabco-customercentre.com/catalog/en_IN/100601130"
+      ]
+    },
+    {
+      "id": "SVKS000868",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact part number 100870460 identifies a diaphragm and states “Vehicle application (India): TATA, MAN”. This supports those makes at manufacturer level; it does not establish the current broader generic tag or a specific vehicle model. Confirm brake-chamber type and diaphragm profile/diameter before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/100870460"
+      ]
+    },
+    {
+      "id": "SVKS000869",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact part number 100870580 identifies a diaphragm and states “Vehicle application (India): TATA, Ashok Leyland”. This supports those makes at manufacturer level; it does not establish every model in the current tag list. Confirm brake-chamber series and diaphragm dimensions before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/100870580"
+      ]
+    },
+    {
+      "id": "SVKS000870",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact part number 300003072 identifies a relay-valve repair kit and states “Vehicle application (India): TATA”. This conflicts with the current catalogue application note naming VECV/Bharat Benz; keep the latter unconfirmed unless a separate exact cross-reference is produced. Match the relay-valve type and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072"
+      ]
+    },
+    {
+      "id": "SVKS000872",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact material number 300006018 identifies the product as a Dual Brake Valve repair kit. The accessible product record confirms product identity but did not expose an India vehicle-application field in the extracted page; therefore it does not substantiate current Tata/BS IV vehicle wording. Retain individual vehicle fitments as unverified pending WABCO application or valve-assembly cross-reference. Source: https://www.wabco-customercentre.com/catalog/en_US/300006018"
+      ]
+    },
+    {
+      "id": "SVKS001021",
+      "append": [
+        "Manufacturer application evidence — WABCO Customer Centre exact part number 4730170250 identifies the product as a relay valve, anti-compounding. The accessible record confirms the exact product identity but did not expose an India vehicle-application field in the extracted page. Do not broaden its current application to named makes/models without a WABCO or OEM cross-reference. Source: https://www.wabco-customercentre.com/catalog/en_US/4730170250"
+      ]
+    }
+  ],
+  "updated_at": "2026-11-06",
+  "sources": {
+    "ashok_leyland_value_parts_catalogue": "https://pssao.com/catlog/al/VALUE%20PARTS%20CATALOGUE.pdf",
+    "wabco_customer_centre": "https://www.wabco-customercentre.com/catalog/en_IN"
+  }
+}
