@@ -15668,7 +15668,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is in a dedicated vehicle brake-system subcategory.",
     "hsn_review_note": "Confirm exact article and whether friction material is supplied mounted or unmounted.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "68138100"
+    ],
+    "hsn_supplier_invoice_code": "68138100",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "ASK - AFF/BP/TTS/2 (STD) Brake Linings"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_79_8ce081f9"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000203",
@@ -15991,7 +16008,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is in a dedicated vehicle brake-system subcategory.",
     "hsn_review_note": "Confirm exact article and whether friction material is supplied mounted or unmounted.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "68138100"
+    ],
+    "hsn_supplier_invoice_code": "68138100",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "ASK - AFF/XL/TZ/1/1 (STD) Brake Linings"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_76_aaecc5b6"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000208",
@@ -16046,7 +16080,25 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a brake lining/pad kit or assembly.",
     "hsn_review_note": "Confirm whether friction material is supplied unmounted and asbestos-free (68138100) or mounted/assembled (87083000).",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87083000"
+    ],
+    "hsn_supplier_invoice_code": "87083000",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "ASK - AFF/XL/TZ/1/1 (Std.) Brake Lining with rivets"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5455_3b018053",
+      "__export__.product_template_5013_0e6b0d0a"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000209",
@@ -16101,7 +16153,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is in a dedicated vehicle brake-system subcategory.",
     "hsn_review_note": "Confirm exact article and whether friction material is supplied mounted or unmounted.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "68138100"
+    ],
+    "hsn_supplier_invoice_code": "68138100",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "ASK - AFF/XL/TZ/2/1 (STD) Brake Linings"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_77_2bd76766"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000210",
@@ -16157,7 +16226,25 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a brake lining/pad kit or assembly.",
     "hsn_review_note": "Confirm whether friction material is supplied unmounted and asbestos-free (68138100) or mounted/assembled (87083000).",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87083000"
+    ],
+    "hsn_supplier_invoice_code": "87083000",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "ASK - AFF/XL/TZ/2/1 (Std.) Brake Lining with rivets"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5014_476969cb",
+      "__export__.product_template_5456_1b0805df"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000211",
@@ -18382,7 +18469,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is an engine fuel/oil-filter element, cartridge, head, set or service kit.",
     "hsn_review_note": "Confirm the SKU does not include a complete filter unit; complete engine oil/petrol filters are 84212300.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84219900"
+    ],
+    "hsn_supplier_invoice_code": "84219900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "Bosch - F-002-H23-554-8F8 - Diesel Filter Kit"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6316_31d6d572"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000241",
@@ -18438,7 +18542,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is an engine fuel/oil-filter element, cartridge, head, set or service kit.",
     "hsn_review_note": "Confirm the SKU does not include a complete filter unit; complete engine oil/petrol filters are 84212300.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84219900"
+    ],
+    "hsn_supplier_invoice_code": "84219900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "Bosch - F-002-H27-738-4AR - Diesel Filter Kit"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6315_d6f325ec"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000242",
@@ -21322,7 +21443,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a brake lining/pad kit or assembly.",
     "hsn_review_note": "Confirm whether friction material is supplied unmounted and asbestos-free (68138100) or mounted/assembled (87083000).",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87083000"
+    ],
+    "hsn_supplier_invoice_code": "87083000",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "Leyparts - FA0067900 - Brake Lining (with rivets)"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5497_1829515d"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000283",
@@ -21432,7 +21570,26 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is in the filtration family, but complete-unit vs replacement-part status is not established.",
     "hsn_review_note": "Identify filter medium, complete-unit status and whether it is a cartridge/element.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84212300",
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "",
+    "hsn_supplier_invoice_match_status": "conflict",
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes",
+    "hsn_supplier_invoice_source_names": [
+      "Fleetguard - FS1967100 - FWS w/o DV for AL CB18 FIP CRS Engine [1338]"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_119_0a9c466b",
+      "__export__.product_template_6331_507264d1"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_supplier_code_conflict"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000285",
@@ -21846,7 +22003,26 @@
     "hsn_classification_status": "provisional",
     "hsn_basis": "The product is a complete engine oil/fuel filter or fuel-water separator.",
     "hsn_review_note": "Confirm it is a complete filter unit rather than a replacement cartridge/element.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84212300",
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "",
+    "hsn_supplier_invoice_match_status": "conflict",
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes",
+    "hsn_supplier_invoice_source_names": [
+      "Fleetguard - FF5544 - Fuel Filter Tata 3118 BS 3 & 4"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6335_6b429453",
+      "__export__.product_template_5593_727b3447"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_supplier_code_conflict"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000291",
@@ -24047,13 +24223,16 @@
     ],
     "hsn_supplier_invoice_match_status": "matched",
     "hsn_supplier_invoice_match_methods": [
-      "brand_and_exact_part_reference"
+      "brand_and_exact_part_reference",
+      "manual_exact_part_number_dimensions"
     ],
     "hsn_supplier_invoice_source_names": [
-      "GS - SBAM 394 - Center Bolt 5/8 - 14\""
+      "GS - SBAM 394 - Center Bolt 5/8 - 14\"",
+      "GS - SBAM394 - Centre Bolt - 5/8 14\""
     ],
     "hsn_supplier_invoice_external_ids": [
-      "__export__.product_template_6373_44c7d56e"
+      "__export__.product_template_6373_44c7d56e",
+      "__export__.product_template_6831_906d0deb"
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
@@ -29262,7 +29441,24 @@
     "hsn_classification_status": "provisional",
     "hsn_basis": "The product is a complete engine oil/fuel filter or fuel-water separator.",
     "hsn_review_note": "Confirm it is a complete filter unit rather than a replacement cartridge/element.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84212300"
+    ],
+    "hsn_supplier_invoice_code": "84212300",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "Mahle - KS 55 - Fuel Water Seperator Navistar"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6757_ec2b1e4f"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000391",
@@ -30462,7 +30658,26 @@
     "hsn_classification_status": "provisional",
     "hsn_basis": "The product is identified as an automotive halogen bulb.",
     "hsn_review_note": "Confirm tungsten-halogen rather than LED or another lamp technology.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87089900",
+      "85392110"
+    ],
+    "hsn_supplier_invoice_code": "",
+    "hsn_supplier_invoice_match_status": "conflict",
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes",
+    "hsn_supplier_invoice_source_names": [
+      "Philips - 24569ESCI - H4 24V 100/90W P43t"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6274_bc800da2",
+      "__export__.product_template_6820_0a11384c"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_supplier_code_conflict"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000406",
@@ -36379,7 +36594,27 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a separately presented clutch-release bearing.",
     "hsn_review_note": "Confirm rolling-element construction and bore; if integrated into a clutch slave-cylinder assembly, classify the assembly under clutch parts.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84828000",
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "",
+    "hsn_supplier_invoice_match_status": "conflict",
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX - 1888180 WH",
+      "Texspin - TX - 1888180 WH Clutch Release Bearing for TATA 1210/1312/1313/1510/1512/1612/1613/ 1615/1616 with hub"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_90_db144ead",
+      "__export__.product_template_6293_08b35a54"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_supplier_code_conflict"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000487",
@@ -36433,7 +36668,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a separately presented clutch-release bearing.",
     "hsn_review_note": "Confirm rolling-element construction and bore; if integrated into a clutch slave-cylinder assembly, classify the assembly under clutch parts.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX - 27WH (O-1511) Clutch Release Bearing for ASHOK LEYLAND WITH HUB (BEARING NO:TX-27D-1511)"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6277_4864c0e1"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_application"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000488",
@@ -36559,23 +36811,27 @@
     "hsn_basis": "The item is a separately presented clutch-release bearing.",
     "hsn_review_note": "Confirm rolling-element construction and bore; if integrated into a clutch slave-cylinder assembly, classify the assembly under clutch parts.",
     "hsn_reference_date": "2026-10-01",
-    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_code": "",
     "hsn_supplier_invoice_codes": [
-      "84821090"
+      "84821090",
+      "84828000"
     ],
-    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_status": "conflict",
     "hsn_supplier_invoice_match_methods": [
-      "brand_and_exact_part_reference"
+      "brand_and_exact_part_reference",
+      "manual_exact_part_number_supplier_code_conflict"
     ],
     "hsn_supplier_invoice_source_names": [
-      "Texspin - TX 45128SC - Clutch Release Bearing for Tata 352 with a push-type clutch system"
+      "Texspin - TX 45128SC - Clutch Release Bearing for Tata 352 with a push-type clutch system",
+      "Texspin - TX - 45128 SC"
     ],
     "hsn_supplier_invoice_external_ids": [
-      "__export__.product_template_6286_15ad21f9"
+      "__export__.product_template_6286_15ad21f9",
+      "__export__.product_template_86_e12790f8"
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "differs"
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes"
   },
   {
     "id": "SVKS000490",
@@ -36852,7 +37108,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The item is a separately presented clutch-release bearing.",
     "hsn_review_note": "Confirm rolling-element construction and bore; if integrated into a clutch slave-cylinder assembly, classify the assembly under clutch parts.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84821090"
+    ],
+    "hsn_supplier_invoice_code": "84821090",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 5592RHS - Clutch Release Bearing for Tata 1109, 1112, 1210, 1312, 1510, 1512, 1612 and 1613 Turbo"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6287_dff4ba44"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_application"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000494",
@@ -39236,7 +39509,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "A tapered roller bearing is identified, but bore/type is not established.",
     "hsn_review_note": "Verify bore diameter and whether it is radial type; the tariff has separate bands for up to 50 mm, 50–100 mm and over 100 mm.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84822000"
+    ],
+    "hsn_supplier_invoice_code": "84822000",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TX 539/532 X Taper Roller Bearings"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6216_22cb20d4"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_with_title_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000523",
@@ -41647,7 +41937,24 @@
     "declared_net_content_g": 2000,
     "declared_net_content_status": "catalogue_declared_content",
     "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
-    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added.",
+    "hsn_supplier_invoice_codes": [
+      "27101990"
+    ],
+    "hsn_supplier_invoice_code": "27101990",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TXL 3 - 2SG + 2 KG Superior Grease"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_95_5c087f36"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_package_size"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000555",
@@ -41707,7 +42014,24 @@
     "declared_net_content_g": 3000,
     "declared_net_content_status": "catalogue_declared_content",
     "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
-    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added.",
+    "hsn_supplier_invoice_codes": [
+      "27101990"
+    ],
+    "hsn_supplier_invoice_code": "27101990",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TXL 3 - 3SG + 3 KG Superior Grease"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_96_502cc28d"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_package_size"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000556",
@@ -41767,7 +42091,24 @@
     "declared_net_content_g": 5000,
     "declared_net_content_status": "catalogue_declared_content",
     "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
-    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added.",
+    "hsn_supplier_invoice_codes": [
+      "27101990"
+    ],
+    "hsn_supplier_invoice_code": "27101990",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TXL 3 - 5SG + 5 KG Superior Grease"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_97_0919366d"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_package_size"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000557",
@@ -41827,7 +42168,24 @@
     "declared_net_content_g": 7000,
     "declared_net_content_status": "catalogue_declared_content",
     "declared_net_content_source": "part_number; Texspin TXL 3 grease code contains the matching + KG net-content declaration",
-    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added."
+    "declared_net_content_notes": "Declared grease fill mass only. This is not gross packaged mass or carrier billable weight; container/tin/pail weight and outer packaging have not been added.",
+    "hsn_supplier_invoice_codes": [
+      "27101990"
+    ],
+    "hsn_supplier_invoice_code": "27101990",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Texspin - TXL 3 - 7SG + 7 KG Superior Grease"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_98_1209a526"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_package_size"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000558",
@@ -54723,23 +55081,27 @@
     ],
     "dimensions_label": "Named component, fitment or mating-interface specifications (mm); not shipping-carton dimensions",
     "dimensions_source": "product_dimension_specifications_manifest",
-    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_code": "",
     "hsn_supplier_invoice_codes": [
-      "87089900"
+      "87089900",
+      "40169990"
     ],
-    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_status": "conflict",
     "hsn_supplier_invoice_match_methods": [
-      "brand_and_exact_part_reference"
+      "brand_and_exact_part_reference",
+      "manual_exact_part_number_supplier_code_conflict"
     ],
     "hsn_supplier_invoice_source_names": [
-      "KFL - KF5099 - Rear Engine Mounting"
+      "KFL - KF5099 - Rear Engine Mounting",
+      "KF 5099 - Engine Mounting TATA Signa"
     ],
     "hsn_supplier_invoice_external_ids": [
-      "__export__.product_template_7699_a4287e74"
+      "__export__.product_template_7699_a4287e74",
+      "__export__.product_template_6781_b122584d"
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "agrees"
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes"
   },
   {
     "id": "SVKS000744",
@@ -56265,7 +56627,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is a brake actuator, chamber, slack-adjuster, anchor-pin or brake-linkage component.",
     "hsn_review_note": "Verify brake-system function; a separately supplied pneumatic valve belongs under 84812000.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87083000"
+    ],
+    "hsn_supplier_invoice_code": "87083000",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "MEI - SMS3007 Manual Slack Adjuster"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5551_83ced5b3"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000765",
@@ -60191,7 +60570,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is a pneumatic drain-valve assembly supplied with O-rings.",
     "hsn_review_note": "Confirm the supplied SKU is the complete valve assembly and not only rubber valve components.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "84818030"
+    ],
+    "hsn_supplier_invoice_code": "84818030",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "TVS Girling - 4006094160 - Drain Valve With O Rings Set of 15 nos"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6365_77ea9f43"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000811",
@@ -63770,7 +64166,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
     "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "85122010"
+    ],
+    "hsn_supplier_invoice_code": "85122010",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Varroc - HLA-2416-03NL - HL Assy. 2416/4018/WT/P Lineglass Hywa LH"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6879_c4e6fc59"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_side_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000858",
@@ -63825,7 +64238,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
     "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "85122010"
+    ],
+    "hsn_supplier_invoice_code": "85122010",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Varroc - HLA-2416-03NL - HL Assy. 2416/4018/WT/P Lineglass Hywa RH"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6880_5afd9164"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_side_variant"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000859",
