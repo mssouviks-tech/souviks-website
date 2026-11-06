@@ -20354,7 +20354,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000332/1.webp",
     "applications": [
       "Rear Suspension System",
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Supplier group fitment evidence (JAI Spring Price List effective 01-Apr-2026; supplier code 2582): Tata 2515 LPT rear leaf-spring group. Souviks stock code 258201 is not individually itemised in the list; confirm the 2582 sub-code, spring section and leaf position before treating this as a standalone replacement fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -20409,7 +20410,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000333/1.webp",
     "applications": [
       "Rear Suspension System",
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Supplier group fitment evidence (JAI Spring Price List effective 01-Apr-2026; supplier code 2582): Tata 2515 LPT rear leaf-spring group. Souviks stock code 258202 is not individually itemised in the list; confirm the 2582 sub-code, spring section and leaf position before treating this as a standalone replacement fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -54547,7 +54549,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000892/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Supplier cross-reference qualification (JAI Spring Price List effective 01-Apr-2026; code 5271): listed for Mahindra Bolero Maxi Truck Plus. The JAI row does not confirm Mahindra Supro, axle position or the individual leaf configuration; do not treat the product title's Supro wording or the existing broad vehicle tags as supplier-confirmed without a separate exact reference."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -54602,7 +54605,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000893/1.webp",
     "applications": [
       "Front Suspension System",
-      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact MPN 84818): Mahindra Armada New front leaf-spring application. The supplier row carries an additional “Pickup Max 0661” cross-note; confirm the vehicle variant before ordering."
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact MPN 84818): Mahindra Armada New front leaf-spring application. The supplier row carries an additional “Pickup Max 0661” cross-note; confirm the vehicle variant before ordering.",
+      "Supplier / vehicle-tag reconciliation (JAI Spring Price List effective 01-Apr-2026; code 0151): JAI lists 0151 as Mahindra Armada New front spring. This conflicts with this SKU's current Tata Signa vehicle tag; retain the tag as an existing catalogue assertion only, not supplier-confirmed fitment, until the pack marking and vehicle reference are reconciled."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -54670,7 +54674,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000894/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Supplier / product-code conflict (JAI Spring Price List effective 01-Apr-2026): JAI lists code 0152 as Mahindra Armada New rear spring, while this record is titled Armada New front 2nd leaf and is currently tagged Tata Signa. The list does not substantiate code 0152 as a front leaf or Tata Signa fitment. Verify the full code and leaf stack before confirming application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -54738,7 +54743,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000895/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Supplier / product-code conflict (JAI Spring Price List effective 01-Apr-2026): the JAI list identifies 0151 as Mahindra Armada New front and 0152 as Mahindra Armada New rear; it does not individually identify code 0153. This record is titled Armada New front 3rd leaf and tagged Tata Signa, neither of which is substantiated by the cited row. Verify supplier label and leaf position before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -54806,7 +54812,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000896/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Supplier / product-code conflict (JAI Spring Price List effective 01-Apr-2026): the JAI list identifies 0151 as Mahindra Armada New front and 0152 as Mahindra Armada New rear; it does not individually identify code 0154. This record is titled Armada New front AUX-A and tagged Tata Signa, neither of which is substantiated by the cited row. Verify supplier label and leaf position before confirming fitment."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -55287,7 +55294,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000904/1.webp",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Supplier group fitment evidence (JAI Spring Price List effective 01-Apr-2026; code 14031): Tata Intra V30 front leaf-spring group. The JAI entry does not distinguish the individual AUX-A replacement-leaf position; verify the actual spring stack and stock suffix before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -57615,7 +57623,8 @@
     "applications": [
       "Commercial-vehicle suspension",
       "steering and axle-linkage system",
-      "fitment/specification: Tata Ace Magic Fr Para M/L."
+      "fitment/specification: Tata Ace Magic Fr Para M/L.",
+      "Supplier group fitment evidence (JAI Spring Price List effective 01-Apr-2026; code 2951): Tata Magic front parabolic leaf-spring group. The list does not itemise Souviks sub-code 295101 or confirm an individual main-leaf position; verify spring section and leaf stack."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -57672,7 +57681,8 @@
     "applications": [
       "Commercial-vehicle suspension",
       "steering and axle-linkage system",
-      "fitment/specification: Tata Ace Magic Fr Para 2/L."
+      "fitment/specification: Tata Ace Magic Fr Para 2/L.",
+      "Supplier group fitment evidence (JAI Spring Price List effective 01-Apr-2026; code 2951): Tata Magic front parabolic leaf-spring group. The list does not itemise Souviks sub-code 295102 or confirm an individual second-leaf position; verify spring section and leaf stack."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
@@ -58933,7 +58943,8 @@
     "applications": [
       "Commercial-vehicle suspension",
       "steering and axle-linkage system",
-      "fitment/specification: Tata Ace N/M Para (cub rear) 2/L AML."
+      "fitment/specification: Tata Ace N/M Para (cub rear) 2/L AML.",
+      "Supplier group fitment evidence (JAI Spring Price List effective 01-Apr-2026; code 2332N): Tata Ace/CUB rear parabolic leaf-spring group. The list does not itemise Souviks sub-code 233202N or confirm an individual second-leaf position; verify the exact spring specification and leaf stack before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73201011",
