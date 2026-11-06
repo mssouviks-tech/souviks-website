@@ -17,7 +17,9 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle application evidence and duplicate-reference qualification (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms compressor family, not an individual Tata truck model. This record shares WABCO material number 300001366 with Souviks SKU SVKS000579; confirm whether both catalogue entries represent the same kit and contents before treating them as distinct fitments.",
+      "Vehicle application evidence and duplicate-reference qualification (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms compressor family, not an individual Tata truck model. This record shares WABCO material number 300001366 with Souviks SKU SVKS000579; confirm whether both catalogue entries represent the same kit and contents before treating them as distinct fitments. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
     "vehicles": [
       "Universal"
@@ -6700,7 +6702,8 @@
     ],
     "description": "Texspin 330-4L major lever kit for Sonalika 740 – bush type (Part No. TX-330-CRK7-4LB-A) is listed in Souviks' Collector Ring range within Clutch Parts. Vehicle references: Tata 1210, Tata 1312.",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Vehicle fitment evidence / vehicle-tag conflict (Texspin Master Price List 2025–26, printed p. 52; exact code TX-330-CRK7-4LB-A): 330-4L major lever kit for Sonalika 740, bush type. The current Souviks vehicle array contains Tata 1210 and Tata 1312, which are not supported by this supplier entry. Treat those existing vehicle labels as unverified; confirm the Sonalika 740 clutch assembly and bush design."
     ],
     "vehicles": [
       "Tata 1210",
@@ -12147,7 +12150,8 @@
     ],
     "description": "The Fleetguard 502622200 AF Kit for A/L Stag BS III [AF26069+AF26070) removes airborne dust and particles from intake air before it enters the engine. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Ashok Leyland/Stag BS III air-filter kit application."
+      "Ashok Leyland/Stag BS III air-filter kit application.",
+      "Vehicle application evidence (Fleetguard 2024 price-list row, exact part number 502622200 and elements AF26069 + AF26070; Bosch Commercial Vehicle Filters catalogue cross-check): Fleetguard identifies this as the Ashok Leyland Stag BS III air-filter kit. Bosch's CV filter catalogue includes the AF26069/AF26070/502622200 reference in the Stag application section. The supplier listing identifies Stag, not a generic Ashok Leyland 2516 fitment; verify Stag variant/engine before order. Sources: https://www.scribd.com/document/704429716/fleet-guard-new ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf"
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -12201,7 +12205,8 @@
     ],
     "description": "The WABCO 1/137 Air Compressor Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly.",
     "applications": [
-      "Air Compressor Service"
+      "Air Compressor Service",
+      "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300001137): WABCO identifies this as a “Kit: Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is listed. Reconcile the “Air Compressor Kit” product title and internal kit contents against WABCO’s valve-kit designation before confirming any exact vehicle model."
     ],
     "vehicles": [
       "Universal"
@@ -12261,7 +12266,8 @@
     ],
     "description": "The WABCO Air Compressor Kit - Prima 3718 supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata Prima.",
     "applications": [
-      "Air Compressor Maintenance"
+      "Air Compressor Maintenance",
+      "Vehicle application and component-type reconciliation (WABCO Customer Centre India, exact material number 9121400130): WABCO describes the reference as a One-Cylinder Compressor-WBR, vehicle application TATA, with single-cylinder type and 318 cm³ swept volume. The catalogue page also displays a contradictory “Twin-Cyl.Compressor 704cc” context line. This Souviks record is titled “Air Compressor Kit - Prima 3718”; the supplier page does not confirm a repair-kit contents list or a Prima 3718 model. Confirm the physical contents and compressor configuration before asserting that exact model fitment."
     ],
     "vehicles": [
       "Tata Prima"
@@ -12331,7 +12337,8 @@
     ],
     "description": "The WABCO 1/366 Air Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Air Compressor Overhaul"
+      "Air Compressor Overhaul",
+      "Vehicle application evidence (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms the compressor family and kit role, not an individual Tata truck model. Reconcile the contents of Souviks' “Air Compressor Repair Kit” against the WABCO kit drawing before confirming the assembly scope."
     ],
     "vehicles": [
       "Tata LPT"
@@ -13806,7 +13813,8 @@
     ],
     "description": "The Texspin TX-6698 SC Ashok Leyland 1.75 inch, 25 ton to 31 ton, 15\" RDC 2095 GB & 850 OD gearbox, FVB00700 transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Clutch Release Bearing"
+      "Clutch Release Bearing",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6698SC): Ashok Leyland 25–31 tonne applications, 1.75-inch clutch, 15-inch RDC 2095 GB and 850 OD gearbox; reference FVB00700. Confirm gearbox and clutch dimensions before ordering."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -14054,7 +14062,8 @@
     ],
     "description": "The Texspin TX-27WH (O-1511) Ashok Leyland Taurus with hub (bearing no. TX-27D-1511) supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Tractors.",
     "applications": [
-      "Clutch Release Bearing with Hub"
+      "Clutch Release Bearing with Hub",
+      "Vehicle fitment evidence / part-number normalization (Texspin Master Price List 2025–26, Ashok Leyland clutch-release-bearing table, printed p. 2; exact supplier code TX-27D1511WH): Ashok Leyland Taurus clutch-release bearing with hub, using bearing TX-27D-1511. The Souviks MPN “TX-27WH (O-1511)” does not exactly match the supplier code; confirm the physical manufacturer marking and internal reference before treating the SKU as an exact-code match."
     ],
     "vehicles": [
       "Tractors"
@@ -14166,7 +14175,8 @@
     "description": "The Tata Genuine Parts 272425000134 Assy. Clutch Disc and Cover 200 provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
       "Clutch Transmission System",
-      "Vehicle fitment evidence (Souviks Tata commercial-vehicle brochure; exact part-number match): Tata Ace and Tata Magic."
+      "Vehicle fitment evidence (Souviks Tata commercial-vehicle brochure; exact part-number match): Tata Ace and Tata Magic.",
+      "Fitment reconciliation note (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, pp. 4–5; exact part 272425000134): the supplier table identifies this reference as a 200 mm clutch cover/disc set for Super Ace/Venture (475/1.4L). This conflicts with the current Ace/Magic vehicle mapping and the product title’s generic description. Keep the model fitment unconfirmed until the VIN/gearbox and pack contents are checked."
     ],
     "vehicles": [
       "Tata Ace",
@@ -14223,7 +14233,8 @@
     "description": "The Tata Genuine Parts 279005110107 Assy. Crankshaft Gear transmits rotation from the crankshaft to the connected engine timing or drive gear train. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
       "Engine Timing System",
-      "Crankshaft Drive Assembly"
+      "Crankshaft Drive Assembly",
+      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 279005110107): listed as a sintered crankshaft gear in the ACE EX2 engine moving-parts table. Confirm chassis/model variant before extending beyond ACE EX2."
     ],
     "vehicles": [
       "Tata Ace",
@@ -14280,7 +14291,8 @@
     "description": "The Tata Genuine Parts 278801150104 Assy. Cylinder Head Cover Comp. BS 2/3/4 covers the upper cylinder-head area, helping protect the rocker-arm and valve-train components and retain engine oil within the upper engine assembly. Vehicle applications include ['Tata Ace', 'Tata Magic'].",
     "applications": [
       "Engine Top Cover System",
-      "Valve Train Protection"
+      "Valve Train Protection",
+      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801150104): listed as the complete cylinder-head-cover assembly for ACE EX2, through August 2015. Verify export market and variant before generalising to other Magic/Ace trims."
     ],
     "vehicles": [
       "Tata Ace",
@@ -14336,7 +14348,8 @@
     "description": "The Tata Genuine Parts 282972300119 Assy. Door Latch CH BS 2/3/4/6 retains the door in its closed position and releases it when the opening mechanism is operated. Vehicle applications include Tata Ace.",
     "applications": [
       "Cabin Door Locking System",
-      "Vehicle Body Hardware"
+      "Vehicle Body Hardware",
+      "Vehicle fitment evidence (Tata Motors ACE EX2 Euro II export parts catalogue, VC 55372220000R, chassis type 445083, 275 IDI NA / GBS65-5 gearbox; body group 60, door-lock-and-links table, p. 84; exact part 282972300119): listed as the LEFT-HAND door latch assembly (RH counterpart 282972300120). This supports the Ace EX2 variant and the part-side designation; do not assume it is interchangeable with other Ace/Magic body variants or the RH door. Source: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/ACE-EX-2.pdf"
     ],
     "vehicles": [
       "Tata Ace"
@@ -14449,7 +14462,8 @@
     ],
     "description": "The Tata Genuine Parts 571018130104 Assy. Oil Filter (Spinon) captures contaminants carried by circulating engine oil before they can recirculate through lubricated components. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence (Uno Minda NPD Catalogue, June 2024; exact Tata OE cross-reference 571018130104): lubrication oil filter OF4241SP is listed for TATA ACE DCOR / ACE DECOR. Confirm engine variant before extending to other Ace models."
     ],
     "vehicles": [
       "Tata Ace",
@@ -14507,7 +14521,8 @@
     "description": "The Tata Genuine Parts 285126700112 Assy. Top Cover BS 2/3/4 forms the upper cover of the manual transmission and houses the gear-selector and shift-control components used to operate the gearbox. Vehicle applications include ['Tata 1109', 'Tata 1210', 'Tata 1312'].",
     "applications": [
       "Manual Transmission System",
-      "Gear Selector Assembly"
+      "Gear Selector Assembly",
+      "Vehicle / gearbox fitment evidence and current-tag conflict (Tata ACE MAGIC 275 IDI NA BS2 parts catalogue, updated 31-May-2022, VC 55231520000R, gearbox group 28510104 26R.03, p. 29; exact part 285126700112): listed as the GB65 top-cover assembly in the Ace Magic 275 IDI NA 20 WB gearbox. Tata e-Dukaan also lists this exact reference under its GB65 group. The current vehicle tags Tata 1109, 1210 and 1312 are not supported by these exact references; confirm the gearbox family and chassis before publishing those models as compatible. Sources: https://www.scribd.com/document/816409121/Ace-magic ; https://edukaan.cv.tatamotors/spare-parts/gear-parts/gb-65"
     ],
     "vehicles": [
       "Tata 1109",
@@ -14622,7 +14637,7 @@
     ],
     "description": "The Fleetguard 502349300 Assy. Twin Filter Head removes airborne dust and particles from intake air before it enters the engine. Vehicle applications include Tata LPT.",
     "applications": [
-      "Commercial/off-highway applications using Fleetguard twin filter head."
+      "Supplier part-application reconciliation (Fleetguard HCV/LCV price list, exact assembly code 502349300 and OE reference 220747700101): Fleetguard describes this as “Head Assy with FS1003”. The accessible price-list extract does not unambiguously establish the chassis or the association with an adjacent Tata Prima model row; the current Tata LPT vehicle tag is not confirmed for this head assembly. Verify the OE label, FS1003 connection and the original line layout before asserting any vehicle model. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
     ],
     "vehicles": [
       "Tata LPT"
@@ -16536,7 +16551,8 @@
     ],
     "description": "The Tata Genuine Parts 278603990126 Belt V Ribbed BS 1/2/3/4 transmits rotation from the driving pulley to connected engine accessories; ribbed or Poly-V designs use multiple longitudinal ribs to engage matching pulleys. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
     "applications": [
-      "Engine Accessory Drive System"
+      "Engine Accessory Drive System",
+      "Vehicle fitment evidence / current-tag reconciliation (Tata Motors Prima LX 252.7 TC ISU6.9 BS III parts catalogue, VC 50420552000R, water-pump drive group WP97519.15.03H, p. 40; exact part 278603990126): listed as the BS1/2/3/4 V-ribbed belt on the Prima LX 252.7 TC. Tata Motors LPS 4018 TC 6BT BS II parts catalogue also lists the same exact number under alternator mounting. These sources support those specific engine/vehicle configurations, not the current Tata 1109 / 1210 / 1312 tags; verify belt length, pulley routing and engine variant before claiming interchangeability. Sources: https://www.pssao.com/catlog/tm/prima.pdf ; https://www.pssao.com/catlog/tm/hcv-3.pdf"
     ],
     "vehicles": [
       "Tata 1109",
@@ -18075,7 +18091,8 @@
     "description": "The Fleetguard FA0032500 Brake Lining (with Rivets) supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Ashok Leyland 2516'].",
     "applications": [
       "Drum Brake System",
-      "Brake Shoe Relining"
+      "Brake Shoe Relining",
+      "Fitment reconciliation note (Fleetguard HCV/LCV After Market Price List effective 21-May-2021; Tata-HCV brake-lining table; exact FG number FA0032500 / OE cross-reference 885442011512): listed for Tata PRIMA/3118 front, 14-hole standard. The current Ashok Leyland 2516 tag is not supported by this source; confirm lining dimensions, hole count and OE reference before promoting any fitment."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -18130,7 +18147,8 @@
     ],
     "description": "The Fleetguard FA0032600 Brake Lining (with Rivets) supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Tata LPT', 'Ashok Leyland 2516'].",
     "applications": [
-      "Drum Brake System"
+      "Drum Brake System",
+      "Fitment reconciliation note (Fleetguard HCV/LCV After Market Price List effective 21-May-2021; Tata-HCV brake-lining table; exact FG number FA0032600 / OE cross-reference 885442041512): listed for Tata PRIMA/3118 rear, 14-hole standard. The current Tata LPT/Ashok Leyland 2516 tags are not supported by this source; confirm axle position, lining dimensions, hole count and OE reference before promoting any fitment."
     ],
     "vehicles": [
       "Tata LPT",
@@ -18185,7 +18203,8 @@
     ],
     "description": "The Fleetguard FA0067900 Brake Lining (with Rivets) supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Ashok Leyland 2516'].",
     "applications": [
-      "Drum Brake System"
+      "Drum Brake System",
+      "Vehicle application evidence (Fleetguard HCV/LCV price list, exact part number FA0067900 and reference 885442212523/180; secondary Fleetguard distributor cross-check): Fleetguard lists a standard 12-hole brake-lining set of four for Tata LPT 2523 TC BS IV. This does not confirm the current Ashok Leyland 2516 vehicle tag. Verify the OE reference, shoe pattern and hole layout before treating as compatible. Sources: https://www.scribd.com/document/704429716/fleet-guard-new ; https://www.smartpartsexports.com/brands/aftermarkets-brands/fleetguard-spare-parts"
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -19139,7 +19158,8 @@
       "Tata Cargo rear brake-lining kit",
       "standard rear",
       "410 x 180 mm with rivets. Commercial-vehicle/Cargo rear-brake application",
-      "exact model variant not established from the part-specific public references located."
+      "exact model variant not established from the part-specific public references located.",
+      "Supplier reference confirmation (Tata Motors e-Dukaan, Brakes catalogue; exact part 885442071618): listed as standard rear brake lining, 4 pieces, with rivets, 410 × 180 mm, for Cargo. The listing confirms the part description and dimensions but does not specify a chassis model; retain model-level fitment as unconfirmed."
     ],
     "vehicles": [
       "Universal"
@@ -19485,7 +19505,8 @@
     "description": "The Tata Autocomp TLFCV 1062-497 BS IV Oil Filter captures contaminants carried by circulating engine oil before they can recirculate through lubricated components. Vehicle applications include Tata 2416, Tata Signa and Tata LPT.",
     "applications": [
       "Tata commercial-vehicle BS IV oil-filter application",
-      "exact model fitment not reliably indexed."
+      "exact model fitment not reliably indexed.",
+      "Vehicle fitment evidence / cross-reference qualification (Tata Autocomp oil-filter listing; base code TLFCV1062): Tata 1612–3118 with 697 engine, BS-IV, and Eicher Pro 3000 Series E494, BS-IV. This Souviks entry adds suffix “-497” not shown in the supplier listing; confirm that suffix and filter variant before treating the base-code applications as exact for this SKU."
     ],
     "vehicles": [
       "Tata 2416",
@@ -19831,7 +19852,8 @@
     ],
     "description": "The WABCO Cargo 1/185 - Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Air Compressor Head Service"
+      "Air Compressor Head Service",
+      "Vehicle application and source-conflict qualification (WABCO Customer Centre India, exact material number 300001185): WABCO identifies this as “Kit: Gasket” for a twin-cylinder 704 cc flange-mounted compressor, with India vehicle applications Ashok Leyland, Volvo Eicher (VECV) and Swaraj Mazda. This conflicts with the ZF/WABCO CVCS Product Catalogue 2023 (printed p. 6), which lists 300001185 as a minor kit in 160 cc compressor tables. The Souviks title “Cargo 1/185 - Cylinder Head Assembly Repair Kit” also differs from WABCO's description. Do not confirm Tata LPT or a particular compressor size until the physical material marking, kit contents and compressor variant are checked."
     ],
     "vehicles": [
       "Tata LPT"
@@ -21920,7 +21942,8 @@
     ],
     "description": "The Texspin Clutch collector ring/withdrawal plate, dia. 380 PPA (GB75) transfers force from the release mechanism to the clutch cover or pressure-plate release assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 51; exact code TX-380-CRK9): Ø380 clutch collector ring / withdrawal plate for GB75 pressure-plate assembly. Confirm GB75 and pressure-plate configuration; supplier does not enumerate chassis models."
     ],
     "vehicles": [
       "Tata LPT"
@@ -21974,7 +21997,8 @@
     ],
     "description": "The Tata Genuine Parts 272425400235 Clutch Cover Assy. Dia 215 BS6 clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. The specified clutch diameter is 215 mm. Vehicle applications include Tata Intra.",
     "applications": [
-      "Clutch Transmission System"
+      "Clutch Transmission System",
+      "Vehicle fitment evidence (Valeo Clutches 2024 catalogue; exact OE cover reference 272425400235): Tata Intra V30 1.5L diesel, from 2020; 215 mm clutch cover (Valeo 843662 application)."
     ],
     "vehicles": [
       "Tata Intra"
@@ -22034,7 +22058,8 @@
     ],
     "description": "The Tata Genuine Parts 272425000235 Clutch Disc Assy. (Dia 275) BS6 provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Intra.",
     "applications": [
-      "Clutch Transmission System"
+      "Clutch Transmission System",
+      "Vehicle fitment / cross-reference reconciliation (Valeo Clutches 2024 catalogue; Tata Intra V30 1.5L diesel from 2020, 215 mm): the exact OE reference 272425000235 is listed as the clutch-kit reference alongside cover 272425400235 and disc 272425200235. This conflicts with the Souviks title “Dia 275” and the title’s “Disc Assy” wording versus Valeo’s kit reference. Confirm pack contents and diameter before publishing as a confirmed 275 mm disc application."
     ],
     "vehicles": [
       "Tata Intra"
@@ -22094,7 +22119,8 @@
     ],
     "description": "The Tata Genuine Parts 272425200235 Clutch Disc Dia 215 BS6 provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. The specified clutch diameter is 215 mm. Vehicle applications include Tata Intra.",
     "applications": [
-      "Clutch Transmission System"
+      "Clutch Transmission System",
+      "Vehicle fitment evidence (Valeo Clutches 2024 catalogue; exact OE disc reference 272425200235): Tata Intra V30 1.5L diesel, from 2020; 215 mm clutch disc (Valeo 843662 application)."
     ],
     "vehicles": [
       "Tata Intra"
@@ -23164,7 +23190,8 @@
     ],
     "description": "The Texspin TX-380-DPA-1 Clutch plate for Tata GB-75 gearbox provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Signa.",
     "applications": [
-      "Tata GB-75 / 380 gearbox clutch-plate application."
+      "Tata GB-75 / 380 gearbox clutch-plate application.",
+      "Part-number reconciliation (Texspin Master Price List 2025–26, printed p. 46): the catalogue lists Ashok Leyland 380 mm clutch plates as TX-380-DPA-4-36 (6-speed, BS-IV) and TX-380-DPA-4-39 (9-speed, BS-IV); it does not list the Souviks code TX-380-DPA-1. Do not treat the Tata GB75 title or current Tata Signa vehicle tag as supplier-confirmed until the physical part marking and clutch plate are reconciled."
     ],
     "vehicles": [
       "Tata Signa"
@@ -23218,7 +23245,8 @@
     ],
     "description": "The Texspin TX-380-DPA-4 Clutch plate for Tata GB-75 gearbox provides the friction interface between the flywheel and pressure plate to transmit engine torque when engaged and separate the drive during gear changes. Vehicle applications include Tata Signa.",
     "applications": [
-      "Tata GB-75 / 380 gearbox clutch-plate application."
+      "Tata GB-75 / 380 gearbox clutch-plate application.",
+      "Part-number reconciliation (Texspin Master Price List 2025–26, printed p. 46): the catalogue lists TX-380-DPA-4-36 for Ashok Leyland 6-speed BS-IV and TX-380-DPA-4-39 for Ashok Leyland 9-speed BS-IV; the Souviks code TX-380-DPA-4 omits the suffix needed to distinguish those variants. Do not assign a specific Ashok Leyland gearbox or retain the current Tata GB75 / Tata Signa claim as supplier-confirmed until the exact suffix and plate marking are checked."
     ],
     "vehicles": [
       "Tata Signa"
@@ -23273,7 +23301,8 @@
     "description": "The Texspin TX 6647SC Clutch Release Bearing for Ashok Leyland (1.5\" clutch haulage- 1616 all model + pv viking + cheetha) transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland (1.5\" clutch haulage- 1616 all model + pv viking + cheetha)."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland (1.5\" clutch haulage- 1616 all model + pv viking + cheetha).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6647SC): Ashok Leyland 1.5-inch clutch haulage application, 1616 all models plus PV Viking and Cheetah. The supplier models are more specific than the current Ashok Leyland 2516 vehicle tag; verify the actual vehicle/clutch arrangement rather than assuming all 2516 variants."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -23335,7 +23364,8 @@
     "applications": [
       "Clutch release and actuation system",
       "fitment/specification: Clutch Release Bearing for Ashok Leyland (1.7\" clutch/25-40 ton",
-      "Tipper)."
+      "Tipper).",
+      "Vehicle / clutch-assembly fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6651SC): Ashok Leyland 1.7-inch clutch, 25–40 tonne tipper application. Confirm clutch and gearbox configuration."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -23396,7 +23426,8 @@
     "description": "The Texspin TX 4865SC Clutch Release Bearing for Ashok Leyland 1.5\" haulage U-truck transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.5\" haulage U-truck."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.5\" haulage U-truck.",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-4865SC): Ashok Leyland 1.5-inch clutch haulage U-Truck application. Confirm clutch size and gearbox configuration."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -23459,7 +23490,8 @@
     "description": "The Texspin TX 4556SC Clutch Release Bearing for Ashok Leyland 1.7\" Tipper 25-40 ton transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.7\" Tipper 25-40 ton."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.7\" Tipper 25-40 ton.",
+      "Vehicle / clutch-assembly fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-4556SC): Ashok Leyland 1.7-inch clutch-release bearing for 25–40 tonne tipper applications. Confirm the truck's clutch and gearbox interface."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -23520,7 +23552,8 @@
     ],
     "description": "The Texspin TX-6346 SC Clutch release bearing for Ashok Leyland 1.75 inch 15\" RDC 2095 GB & 850 OD gearbox transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Clutch Release Bearing"
+      "Clutch Release Bearing",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6346SC): Ashok Leyland clutch-release bearing, 1.75-inch clutch, 15-inch RDC 2095 GB and 850 OD gearbox, new design, reference FVB01600. Confirm gearbox and clutch dimensions; the supplier does not provide a specific chassis/model list for this line."
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -23582,7 +23615,8 @@
     "description": "The Texspin TX 6398SC Clutch Release Bearing for Ashok Leyland 1.75 inch 9S GB - 395 dia BS 6 transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.75 inch 9S GB - 395 dia BS 6."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.75 inch 9S GB - 395 dia BS 6.",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6398SC): Ashok Leyland 1.75-inch, 9-speed gearbox, 395 mm clutch, BS-VI application. Confirm the clutch and gearbox configuration."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -23645,7 +23679,8 @@
     "description": "The Texspin TX 6396SC Clutch Release Bearing for Ashok Leyland 1.75\" 6S GB 380 dia BS6 transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.75\" 6S GB 380 dia BS6."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 1.75\" 6S GB 380 dia BS6.",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6396SC): Ashok Leyland 1.75-inch, 6-speed gearbox, 380 mm clutch, BS-VI application. Confirm gearbox and clutch dimensions."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -23711,7 +23746,8 @@
     "description": "The Texspin TX E22 SC Clutch Release Bearing for Ashok Leyland 430 pull type transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland 430 pull type."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland 430 pull type.",
+      "Vehicle / clutch-interface fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-E22SC): Ashok Leyland 430 mm pull-type clutch-release bearing, reference FVB01800. Confirm pull-type actuation and 430 mm clutch interface."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -23768,7 +23804,8 @@
     "description": "The Texspin TX 6638SC Clutch Release Bearing for Ashok Leyland Heavy Duty Truck 31ton and 9speen GB 380dia transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Ashok Leyland Heavy Duty Truck 31ton and 9speen GB 380dia."
+      "fitment/specification: Clutch Release Bearing for Ashok Leyland Heavy Duty Truck 31ton and 9speen GB 380dia.",
+      "Vehicle / gearbox fitment evidence (Texspin Master Price List 2025–26, printed p. 2; exact code TX-6638SC): Ashok Leyland heavy-duty truck, 31-tonne class, 9-speed gearbox, 380 mm clutch. Confirm the truck/gearbox and clutch assembly dimensions."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -23947,7 +23984,8 @@
     "description": "The Texspin TX 78139SC Clutch Release Bearing for Tata Commercial Vehicles 430 dia transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata LPT, Tata Signa and Tata Prima.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Clutch Release Bearing for Tata Commercial Vehicles 430 dia."
+      "fitment/specification: Clutch Release Bearing for Tata Commercial Vehicles 430 dia.",
+      "Vehicle / specification evidence (Texspin Master Price List 2025–26, printed p. 8; exact code TX-78139SC): clutch-release bearing for Tata commercial vehicles, 430 mm diameter; OE reference 5805 2560 0113. The supplier does not enumerate individual chassis models; confirm clutch diameter, spline/interface and OE number."
     ],
     "vehicles": [
       "Tata LPT",
@@ -24412,7 +24450,8 @@
     ],
     "description": "The Texspin TX-380-CRK5 Coil spring kit for Tata GB-75 gearbox provides spring force within the clutch mechanism to support engagement or release according to the named assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-380-CRK5): coil spring kit for Tata GB75 gearbox. Confirm GB75 clutch pressure-plate configuration and spring count."
     ],
     "vehicles": [
       "Tata LPT"
@@ -25655,7 +25694,8 @@
     ],
     "description": "The Texspin TX-380-PPA-G Cover assembly for Tata GB-75 gearbox clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. Vehicle applications include Tata Signa.",
     "applications": [
-      "Tata GB-75 / 380 gearbox cover-assembly application."
+      "Tata GB-75 / 380 gearbox cover-assembly application.",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-380-PPA-G): cover assembly for Tata GB75 gearbox. The supplier separately lists TX-380-PPA-G-3 for Ashok Leyland GB75 and TX-380-PPA-G-6 for Eicher Terra 25; those suffix variants are distinct and must not be conflated with the base Tata GB75 code."
     ],
     "vehicles": [
       "Tata Signa"
@@ -25980,7 +26020,8 @@
     "description": "The RKI K637 Cross Holder Flange Yoke – SPR 2040 locates and supports the cross-joint assembly within the connected driveline yoke. Its specified configuration includes a 47.68 × 135 cross, a 150 mm plate, 4 holes of 13.0 mm and a 19-bolt pattern. Vehicle applications include Tata LPT.",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, pp. 85–86; exact code K637): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 150 mm plate, 4 × 13.0 mm holes, 19-bolt pattern; the detailed application row lists Tata 2518. The current Souviks vehicle field says Tata LPT, which is broader and not the exact model in that row; verify the mating yoke and vehicle variant. Source: https://www.rkpropshaft.com/download_files/66d7e88f79b55082350852.pdf"
     ],
     "vehicles": [
       "Tata LPT"
@@ -26057,7 +26098,8 @@
     "description": "The RKI K478 Cross Holder Flange Yoke – SPR 2040 locates and supports the cross-joint assembly within the connected driveline yoke. Its specified configuration includes a 47.68 × 135 cross, a 150 mm plate, 4 holes of 13.0 mm and a 19-bolt pattern. Vehicle applications include Ashok Leyland U Truck and Tata LPT.",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle-fitment reconciliation (RKI Auto Parts Catalogue 2023, p. 84; exact code K478): the SPR-series dimension table lists a 47.62 × 135 mm cross-holder yoke with 150 mm plate, 4 × 13.0 mm holes and 19-bolt pattern in the Taurus section. The Souviks tags Ashok Leyland U-Truck and Tata LPT are not directly proven by that entry; confirm the precise cross-holder application page and mating shaft before treating either model as confirmed. Source: https://www.rkpropshaft.com/download_files/66d7e88f79b55082350852.pdf"
     ],
     "vehicles": [
       "Ashok Leyland U-Truck",
@@ -26134,7 +26176,8 @@
     "description": "The RKI K543 Cross Holder Flange Yoke – SPR 2040 7 in locates and supports the cross-joint assembly within the connected driveline yoke. Its specified configuration includes a 47.68 × 135 cross, a 180 mm plate, 4 holes of 15.0 mm and a 22-bolt pattern. Vehicle applications include Tata LPT.",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, p. 85; exact code K543): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 180 mm plate, 4 × 15.0 mm holes, 22-bolt pattern; the detailed application row lists Tata 3118. The current Souviks vehicle field says Tata LPT; verify the mating yoke and vehicle variant. Source: https://www.rkpropshaft.com/download_files/66d7e88f79b55082350852.pdf"
     ],
     "vehicles": [
       "Tata LPT"
@@ -26210,7 +26253,8 @@
     "description": "The RKI K631 Cross Holder Flange Yoke – SPR 2040 7 in locates and supports the cross-joint assembly within the connected driveline yoke. Its specified configuration includes a 47.68 × 135 cross, a 180 mm plate, 4 holes of 15.0 mm and a 22-bolt pattern. Vehicle applications include Tata LPT.",
     "applications": [
       "Propeller Shaft Assembly",
-      "Cross Joint Mounting"
+      "Cross Joint Mounting",
+      "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, p. 86; exact code K631): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 180 mm plate, 4 × 15.0 mm holes, 22-bolt pattern; the detailed application row lists Tata 3118. The current Souviks vehicle field says Tata LPT; verify the mating yoke and vehicle variant. Source: https://www.rkpropshaft.com/download_files/66d7e88f79b55082350852.pdf"
     ],
     "vehicles": [
       "Tata LPT"
@@ -27720,7 +27764,8 @@
     "description": "The WABCO 300006018 DBV Minor Kit supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system.",
     "applications": [
       "WABCO dual-brake-valve repair-kit applications",
-      "including BS IV commercial vehicles."
+      "including BS IV commercial vehicles.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 300006018): “Kit: Dual Brake Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is specified."
     ],
     "vehicles": [
       "Universal"
@@ -27782,7 +27827,8 @@
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300003086): WABCO lists a “Kit: Valve” repair kit for TATA, Ashok Leyland, Volvo Eicher (VECV) and Swaraj Mazda, for a twin-cylinder 704 cc flange-mounted compressor. Reconcile the Souviks “DDU Repair Kit” title and internal kit contents against the supplier designation before confirming an exact truck model."
     ],
     "vehicles": [
       "Universal"
@@ -28015,7 +28061,8 @@
     ],
     "description": "The WABCO 100870580 Diaphragm flexes under a pressure difference to transmit force or separate chambers within the associated air-operated component. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Tata and Ashok Leyland commercial vehicles."
+      "Tata and Ashok Leyland commercial vehicles.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100870580): diaphragm for twin-cylinder 704 cc flange-mounted compressor; vehicle application listed as TATA and Ashok Leyland. No individual truck model is stated."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -28430,7 +28477,8 @@
     ],
     "description": "The Bosch F-002-H27-407 Diesel Filter captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Tata 407 and Ashok Leyland Captain.",
     "applications": [
-      "Force Motors Cruiser Classic 2.6 Diesel. Bosch identifies F-002-H27-407 as the complete fuel-box filter for this model."
+      "Force Motors Cruiser Classic 2.6 Diesel. Bosch identifies F-002-H27-407 as the complete fuel-box filter for this model.",
+      "Vehicle fitment evidence / reconciliation (Bosch Automotive Filters India Catalogue; exact base reference F 002 H27 407): listed as a fuel-filter spin-on for Force Motors Cruiser Classic 2.6 Diesel. This source does not support the current Tata 407 or Ashok Leyland Captain vehicle tags; keep those tags unverified pending part/OE-reference reconciliation."
     ],
     "vehicles": [
       "Tata 407",
@@ -28546,7 +28594,8 @@
     "applications": [
       "Fuel Filtration System",
       "Preventive Maintenance",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Cross-reference reconciliation note (Bosch Commercial Vehicle Filter Application Chart): base reference F 002 H23 554 appears in the oil-filter column for Tata LPT 1613. This Souviks item is titled “Diesel Filter Kit” and its part number adds suffix -8F8, which is not shown in the chart. Do not treat the Tata LPT/fuel-filter fitment as confirmed until the component category and full reference are reconciled."
     ],
     "vehicles": [
       "Tata LPT"
@@ -28717,7 +28766,8 @@
     "applications": [
       "Differential Rebuild",
       "Axle Overhaul",
-      "Final Drive Maintenance"
+      "Final Drive Maintenance",
+      "Vehicle fitment reconciliation (Tata Motors Ace/Ace HT parts list, March 2013, group 35.35.01A, chassis 445010 / 445011; exact part 285035300109): Tata identifies this as the major differential-case kit for the Ace/Ace HT Salisbury-type rear axle. The Tata Ace Magic February 2009 parts list also includes the exact kit for chassis 445111 / 445121 / 445112 / 445122. These exact references support those Ace/Ace HT/Magic axle configurations, not the current Souviks tags Tata 407, 709, 1109, 1512 and generic Tata LPT. Confirm axle family, chassis type and ratio before offering it against the heavier-vehicle tags. Sources: https://pdfcoffee.com/cataloguestata-ace-tataace-htpdf-pdf-free.html ; https://www.scribd.com/document/655235579/Magic"
     ],
     "vehicles": [
       "Tata 407",
@@ -28776,7 +28826,8 @@
     "description": "The KFL KF6847A Differential Coupling Flange – Tata 2518 Small joins connected shafts or coupling elements to transfer torque through the driveline. Its specified configuration includes a 150 mm plate, 4 holes of 13 mm, a 19-bolt pattern, 26 splines and an oil-seal size of 70 mm. Vehicle applications include Tata LPT.",
     "applications": [
       "Differential Assembly",
-      "Propeller Shaft Connection"
+      "Propeller Shaft Connection",
+      "Supplier-reference conflict (Kafila Updated Price List, effective 15-May-2026, propeller-shaft components): the source lists KF-6847 as a gear coupling with 4×13 mm hole pattern and 6 mm plate; it does not list KF-6847A. The Souviks description “Differential Coupling Flange – Tata 2518 Small” is not supported by the supplier description for KF-6847. Verify the physical part marking and supplier cross-reference before publishing any vehicle fitment."
     ],
     "vehicles": [
       "Tata LPT"
@@ -29510,7 +29561,8 @@
     ],
     "description": "The WABCO 100601130 Dual Brake Valve with pedal (VOSS) controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
-      "Tata commercial vehicles."
+      "Tata commercial vehicles.",
+      "Vehicle fitment evidence / description reconciliation (WABCO Customer Centre India; exact material number 100601130): WABCO lists this brake-valve device for TATA and specifies twin-cylinder 704 cc flange-mounted compressor application. WABCO’s product heading is “Brake”; reconcile the supplied “Dual Brake Valve with pedal (VOSS)” description/reference before confirming any detailed model fitment."
     ],
     "vehicles": [
       "Universal"
@@ -31391,7 +31443,8 @@
     ],
     "description": "The Fleetguard 278607989967 FF0554400 captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Tata LPT.",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Cross-reference and vehicle-fitment qualification (Fleetguard official product page for FF5540): Fleetguard identifies the base reference FF5540 as a spin-on fuel filter and lists Cummins B5.9 LCCR 230 HP BS III equipment. This SKU is recorded as FF0554400, which resembles the same base reference but is not an exact string match; confirm the full canister marking and cross-reference before treating it as FF5540 or assigning a Tata model."
     ],
     "vehicles": [
       "Tata LPT"
@@ -31509,7 +31562,8 @@
       "Fuel filtration system",
       "diesel engine protection",
       "periodic service replacement.",
-      "Vehicle fitment evidence (Souviks Tata and Eicher commercial-vehicle brochures; exact part-number match): Tata Signa, Tata LPT, Eicher Pro Series and Eicher 1110."
+      "Vehicle fitment evidence (Souviks Tata and Eicher commercial-vehicle brochures; exact part-number match): Tata Signa, Tata LPT, Eicher Pro Series and Eicher 1110.",
+      "Reference reconciliation required (Fleetguard HCV filter catalogue / Tata-HCV price list): the cited catalogue uses FS19662 for a fuel-water-separator assembly serving Tata 1612–4018 all-TC BS III/IV applications; it does not list LF19662. This SKU is recorded as LF19662. Do not infer that the two references are interchangeable or publish the existing vehicle tags as supplier-confirmed until the full part marking and assembly are checked."
     ],
     "vehicles": [
       "Tata Signa",
@@ -31877,7 +31931,8 @@
     ],
     "description": "The Tata Genuine Parts 281842103701 Front Brake Disc BS4 provides the rotating friction surface against which the brake pads press to slow the wheel. Vehicle applications include Tata Ace and Tata Intra.",
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Vehicle fitment evidence (Setco Auto Systems brake-disc catalogue; exact Tata reference 281842103701): front ventilated-disc application listed for Super Ace, Ace Venture and Intra V10/V20. The supplier table is model-specific; it does not establish blanket fitment to every Ace/Intra variant."
     ],
     "vehicles": [
       "Tata Ace",
@@ -31932,7 +31987,8 @@
     ],
     "description": "The Tata Genuine Parts 886742010207 Front Brake Pad - 207 Pickup supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Tata LPT'].",
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Vehicle fitment reconciliation (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742010207): listed as “Front Brake Pad - 207 Pickup”. This does not support the current Tata LPT vehicle tag. Do not publish LPT fitment as confirmed until the pad marking and front-caliper application are reconciled."
     ],
     "vehicles": [
       "Tata LPT"
@@ -32042,7 +32098,8 @@
     ],
     "description": "The Tata Genuine Parts 886742000003 Front Brake Pad ACE supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Tata Ace'].",
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Vehicle fitment evidence (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742000003): listed as “Front Brake Pad-ACE”. Confirms the Tata Ace front-brake application; check brake-disc and model-year variant before order."
     ],
     "vehicles": [
       "Tata Ace"
@@ -32217,7 +32274,8 @@
     "description": "The Tata Genuine Parts 282933103702 Front Hub BS 2/3/4 supports the wheel mounting at the axle end and interfaces with the wheel-end bearing assembly. Vehicle applications include Tata Ace and Tata Intra.",
     "applications": [
       "Front Axle Assembly",
-      "Wheel End System"
+      "Wheel End System",
+      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Product Spare Parts Catalogue; MAGIC 7S 275 CNG BS-IV, VC 55233320000R; exact part number 282933103702): listed as the front hub, BS 2/3/4. The source supports this specific Magic 7S CNG variant; verify cross-model use separately."
     ],
     "vehicles": [
       "Tata Ace",
@@ -33420,7 +33478,8 @@
     "description": "The Leyparts FHJ00700 Fuel Element Cum Water Separator separates water and particulate contamination from diesel fuel before the fuel continues through the fuel system. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Manufacturer cross-reference and vehicle-fitment evidence (Bosch Commercial Vehicle Filters catalogue, p. 13; exact OE cross-reference FHJ00700 = Bosch F 002 H24 921): the Bosch application table lists Ashok Leyland 1612 BS-III, U4019, 3118-T BS-III, Boss 1212 LE, Ecomet 1012 BS-III, Stag, 12M BS-III, Viking and Lynx BS-III. Bosch classifies its corresponding part as a fuel filter. The Souviks title describes a fuel element/water separator; confirm the physical filter function and assembly position before treating those two product descriptions as identical."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -33645,7 +33704,8 @@
     "description": "The Tata Genuine Parts 252509120239 Fuel Filter (FWS) Element Spinon BS3/4 captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Tata LPT.",
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Vehicle / component evidence and emission-scope qualification (Tata Motors LPT-913 parts catalogue, VC 55150134000R, fuel-filter/mechanical-feed-pump group 2525153509R.01, p. 22; exact part 252509120239): listed as a fuel-water separator, spin-on Fleetguard type, supplied without head, in the 697-engine fuel-filter assembly. Bosch Commercial Vehicle Filters catalogue also cross-references this OE number in its Tata fuel-filter applications, including LPK 2518 BS III / SK 407 listings. Tata e-Dukaan currently labels the same number “Fuel Filter (FWS) Element Spinon BS2/3”, whereas this Souviks title says BS3/4. Retain the LPT-913 / 697-engine evidence, but do not infer universal LPT fitment or BS4 compatibility without matching the filter head and full emissions variant. Sources: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/LPT-913.pdf ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://edukaan.cv.tatamotors/spare-parts/filter/fuel-filter-tata"
     ],
     "vehicles": [
       "Tata LPT"
@@ -33699,7 +33759,7 @@
     ],
     "description": "The Fleetguard FF5551 Fuel Filter 2515 to 4018 BS 6 ISBE BS IV (filter) captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Tata LPT.",
     "applications": [
-      "Tata 2515 through 4018 BS VI / ISBE commercial-vehicle applications."
+      "Vehicle application evidence (Fleetguard Filter Parts Catalogue and cross-reference rows, exact code FF5551 and OE 278609999828 / 5403508): Tata 2515–4018 B5.9 ISBe BS IV fuel-filter application. This is not confirmed as BS VI; the current product title should not be read as proof of BS VI fitment. Confirm the B5.9 ISBe engine and filter-head interface. Sources: https://www.scribd.com/document/726511498/FLEETGUARD-FILTERS-HCV-CATALOG ; https://www.lumanauto.com/lumana-catalouge2021.pdf"
     ],
     "vehicles": [
       "Tata LPT"
@@ -33813,7 +33873,8 @@
     ],
     "description": "The Tata Genuine Parts 278607989967 Fuel Filter BS3 captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Fitment reconciliation note (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 8; exact OE reference 278607989967): Bosch cross-references this fuel filter to Tata 1510 LP and 1516 LPT. This does not support the current Tata Ace / Tata Magic vehicle tags. Tata e-Dukaan confirms the part description “Fuel Filter BS3” but its unfiltered catalogue listing does not establish Ace/Magic fitment. Keep those tags unconfirmed until the engine and filter-head interface are checked. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://edukaan.cv.tatamotors/spare-parts/filter/all"
     ],
     "vehicles": [
       "Tata Ace",
@@ -33981,7 +34042,8 @@
     ],
     "description": "The Tata Genuine Parts 278609119910 Fuel Filter Element BS4/6 captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Fitment reconciliation note (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 9; exact OE reference 278609119910): Bosch lists this fuel-filter element for Tata LPT 1918 BS6, LPT 2818 BS6, LPT 4825 BS6, Signa 4925.T BS6, Signa 5525.S BS6 and Signa 5530.S BS6. This does not support the current Tata Ace / Tata Magic vehicle tags. Verify the BS6 filter-head arrangement and exact pre-filter configuration before offering it for those models. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf"
     ],
     "vehicles": [
       "Tata Ace",
@@ -34263,7 +34325,8 @@
     ],
     "description": "The Fleetguard FF5540 Fuel Filter TC B5.9 BS IV captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Tata 2416.",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence and BS-level qualification (Fleetguard official product page, exact FG part FF5540): identified as a spin-on fuel filter; equipment data lists Cummins B5.9 LCCR 230 HP BS III. The current Souviks title says “TC B5.9 BS IV” and vehicle field says Tata 2416; those specific claims are not established by the official equipment entry. Confirm the engine emission variant, housing and OE reference before publishing Tata 2416/BS IV as verified."
     ],
     "vehicles": [
       "Tata 2416"
@@ -34320,13 +34383,13 @@
     ],
     "description": "The Fleetguard FF0547900 Fuel Strainer (Euro II - New Model) captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Ashok Leyland 2516 and Tata Signa.",
     "applications": [
-      "Cummins B-Series commercial-vehicle applications including Tata 1510",
       "1613",
       "2515 TC/EX",
       "2516",
       "3015",
       "3516TC",
-      "4923 and 4018 EX."
+      "4923 and 4018 EX.",
+      "Vehicle application evidence (Fleetguard FF0547900 product listing; exact code): Tata Cummins B-Series 1510, 1613, 2515 TC/EX, 2516, 3015, 3516 TC, 4923 and 4018 EX, new-model BS II (small-hole). The associated supplier listing also identifies Ashok Leyland BS II/III and Eicher BS III applications, but model-specific details are not stated in the available source. Current vehicle tags Ashok Leyland 2516 and Tata Signa are broader than this exact list; verify engine family and strainer seat/hole pattern. Sources: https://mymotoco.com/filteration/cummins-fleetguard-fuel-strainer-diesel-filter-tata-cummins-b-1510-to-4018-bs-ii-iii-ashok-leyland-all-bs-ii-iii-eicher-bs-iii-fuel-strainer/ ; https://www.souviks.co.in/en/products/fleetguard-ff0547900-fuel-strainer-euro-ii-new-model.html"
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -34555,7 +34618,8 @@
     ],
     "description": "The Fleetguard FS19671 Fuel Water Separator AL CB18 FIP CRS separates water and particulate contamination from diesel fuel before the fuel continues through the fuel system. Vehicle applications include Ashok Leyland 2516 and Ashok Leyland Ecomet.",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Part-description reconciliation (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part reference FS19671): the supplier list identifies FS19671 as a CB18 FIP CRS Engine BS IV filter-head assembly (head assembly part 502113600), not a fuel-water separator element. This conflicts with the Souviks product name “Fuel Water Separator”. Check the physical assembly/label and stock contents before describing or fitting this as a separator."
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -34727,7 +34791,8 @@
     ],
     "description": "The Fleetguard FS20117 Fuel Water Separator Cartridge separates water and particulate contamination from diesel fuel before the fuel continues through the fuel system. Vehicle applications include Tata Signa and Tata Prima.",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle application evidence (Fleetguard Filter Parts Catalogue, exact part number FS20117 and OE reference 278609119910): listed for Tata ISBe 5.9 BS IV, including LP 1515 / TC ISBe 5.9 BS IV application context. This supports the Tata ISBe 5.9 family, not all Tata Signa/Prima variants. Confirm engine and filter position before ordering. Sources: https://www.scribd.com/document/726511498/FLEETGUARD-FILTERS-HCV-CATALOG ; https://mymotoco.com/filteration/cummins-fleetguard-diesel-filter-tata-isbe-5-9-bs-iv-fs20117/"
     ],
     "vehicles": [
       "Tata Signa",
@@ -34784,7 +34849,7 @@
     ],
     "description": "The Fleetguard FS1964400V Fuel/Water Separator for Tata 697 Engine BS III separates water and particulate contamination from diesel fuel before the fuel continues through the fuel system. Vehicle applications include Tata 407, Tata 709 and Tata 1109.",
     "applications": [
-      "Tata 697 engine BS III applications."
+      "Vehicle application evidence (Fleetguard 2024 HCV/LCV price-list rows, exact code FS1964400V and OE 252509120239): Tata 1612–3118 vehicles with 697 engine, BS III/IV, with drain valve. The current product title calls out Tata 697 BS III; use the 697 engine and valve configuration as the fitment qualifiers rather than assuming every vehicle within the model range. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
     ],
     "vehicles": [
       "Tata 407",
@@ -34840,7 +34905,8 @@
     ],
     "description": "The Fleetguard FS1967100 FWS w/o DV for AL CB18 FIP CRS Engine [1338] separates water and particulate contamination from diesel fuel before the fuel continues through the fuel system. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Fuel Water Separation System"
+      "Fuel Water Separation System",
+      "Vehicle application evidence (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part FS1967100): fuel-water separator without drain valve for Ashok Leyland CB18 FIP CRS engine, BS IV. The supplier identifies the engine/fuel-system configuration, not a complete chassis/model-year list. Confirm the no-drain version before ordering."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -34898,7 +34964,8 @@
     "applications": [
       "Engine Lubrication System",
       "Oil Pan Assembly",
-      "Engine Overhaul"
+      "Engine Overhaul",
+      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Product Spare Parts Catalogue; MAGIC 7S 275 CNG BS-IV, VC 55233320000R, page 8; exact part number 278801135304): listed as the oil-sump gasket BS 2/3/4/6. This source confirms this specific Magic 7S CNG variant; it does not independently confirm other Ace variants."
     ],
     "vehicles": [
       "Tata Ace"
@@ -34954,7 +35021,8 @@
     "description": "The Tata Genuine Parts 278801155304 Gasket Cyl. Head Cover BS 2/3/4 forms a sealing layer between mating engine or mechanical surfaces to help contain fluid, oil, coolant or combustion pressure at the joint. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
       "Engine Sealing System",
-      "Cylinder Head Cover Assembly"
+      "Cylinder Head Cover Assembly",
+      "Vehicle fitment evidence (Tata Motors ACE EX2 / Euro II Indonesia export parts catalogue, VC 55372220000R; exact part number 278801155304): listed as the cylinder-head-cover gasket for ACE EX2. Verify export market and variant before generalising to other Magic/Ace trims."
     ],
     "vehicles": [
       "Tata Ace",
@@ -36850,7 +36918,8 @@
     ],
     "description": "The NeoLite NEO1406 (L) Headlight Assy. 1312 MFR provides forward road illumination and integrates the lamp housing with its optical and mounting elements. Vehicle applications include Tata 1312 and Tata 1512.",
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Vehicle fitment evidence (Neolite Automobile Lighting catalogue 2022; exact part family NEO 1406): multi-reflector headlamp suitable for Tata 1312, 1210 and 1612; H4 P43T bulb, with parking, LHT/RHD only. The supplier list does not include Tata 1512, which remains unverified for this SKU."
     ],
     "vehicles": [
       "Tata 1312",
@@ -36906,7 +36975,8 @@
     ],
     "description": "The NeoLite NEO1406 (R) Headlight Assy. 1312 MFR provides forward road illumination and integrates the lamp housing with its optical and mounting elements. Vehicle applications include Tata 1312 and Tata 1512.",
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Vehicle fitment evidence (Neolite Automobile Lighting catalogue 2022; exact part family NEO 1406): multi-reflector headlamp suitable for Tata 1312, 1210 and 1612; H4 P43T bulb, with parking, LHT/RHD only. The supplier list does not include Tata 1512, which remains unverified for this SKU."
     ],
     "vehicles": [
       "Tata 1312",
@@ -36961,7 +37031,8 @@
     ],
     "description": "The NeoLite NEO1405 (L) Headlight Assy. 709 MFR provides forward road illumination and integrates the lamp housing with its optical and mounting elements. Vehicle applications include Tata 709.",
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Vehicle fitment evidence (Neolite Automobile Lighting catalogue 2022; exact part family NEO 1405): multi-reflector headlamp suitable for Tata 709, 1109, 1012 and 1112; H4 P43T bulb, with parking, LHT/RHD only. This left-hand SKU is one side of the listed L/R assembly."
     ],
     "vehicles": [
       "Tata 709"
@@ -37015,7 +37086,8 @@
     ],
     "description": "The NeoLite NEO1405 (R) Headlight Assy. 709 MFR provides forward road illumination and integrates the lamp housing with its optical and mounting elements. Vehicle applications include Tata 709.",
     "applications": [
-      "Vehicle Lighting System"
+      "Vehicle Lighting System",
+      "Vehicle fitment evidence (Neolite Automobile Lighting catalogue 2022; exact part family NEO 1405): multi-reflector headlamp suitable for Tata 709, 1109, 1012 and 1112; H4 P43T bulb, with parking, LHT/RHD only. This right-hand SKU is one side of the listed L/R assembly."
     ],
     "vehicles": [
       "Tata 709"
@@ -38696,7 +38768,8 @@
     "applications": [
       "Commercial-vehicle suspension",
       "steering and axle-linkage system",
-      "fitment/specification: Kingpin Graphite Bush for Tata Signa."
+      "fitment/specification: Kingpin Graphite Bush for Tata Signa.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 54; exact code TX-1059B): kingpin graphite bush for Tata Signa, set of four. Confirm steering axle and kingpin dimensions."
     ],
     "vehicles": [
       "Tata Signa"
@@ -38751,7 +38824,8 @@
     "description": "The Texspin TX-610/1 KP Kingpin shaft for Tata 1312, 1st O/S (set of 2 pins, size 38.35 mm) forms the pivot between the steering knuckle and axle assembly, allowing the wheel end to turn while supporting steering loads.",
     "applications": [
       "Tata 1312 king-pin application",
-      "1st oversize."
+      "1st oversize.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 54; exact code TX-610/1KP): kingpin shaft for Tata 1312, first oversize, 38.35 mm, set of two pins. Match the measured kingpin bore and oversize before fitting."
     ],
     "vehicles": [
       "Tata 1312"
@@ -38813,7 +38887,8 @@
     "description": "The Texspin TX-610/2 KP Kingpin shaft for Tata 1312, 2nd O/S (set of 2 pins, size 38.45 mm) forms the pivot between the steering knuckle and axle assembly, allowing the wheel end to turn while supporting steering loads.",
     "applications": [
       "Tata 1312 king-pin application",
-      "2nd oversize."
+      "2nd oversize.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 54; exact code TX-610/2KP): kingpin shaft for Tata 1312, second oversize, 38.45 mm, set of two pins. Match the measured kingpin bore and oversize before fitting."
     ],
     "vehicles": [
       "Tata 1312"
@@ -38875,7 +38950,8 @@
     "description": "The Texspin TX-610/4 KP Kingpin shaft for Tata 1312, 4th O/S (set of 2 pins, size 38.65 mm) forms the pivot between the steering knuckle and axle assembly, allowing the wheel end to turn while supporting steering loads.",
     "applications": [
       "Tata 1312 king-pin application",
-      "4th oversize."
+      "4th oversize.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 54; exact code TX-610/4KP): kingpin shaft for Tata 1312, fourth oversize, 38.65 mm, set of two pins. Match the measured kingpin bore and oversize before fitting."
     ],
     "vehicles": [
       "Tata 1312"
@@ -38937,7 +39013,8 @@
     "description": "The Texspin TX-610/5 KP Kingpin shaft for Tata 1312, 5th O/S (set of 2 pins, size 38.75 mm) forms the pivot between the steering knuckle and axle assembly, allowing the wheel end to turn while supporting steering loads.",
     "applications": [
       "Tata 1312 king-pin application",
-      "5th oversize designation in stock data — exact manufacturer catalogue fitment should be confirmed before publishing."
+      "5th oversize designation in stock data — exact manufacturer catalogue fitment should be confirmed before publishing.",
+      "Vehicle-fitment reconciliation (Texspin Master Price List 2025–26, kingpin-bearing tables): the product claims a Tata 1312 fifth-oversize kingpin shaft, 38.75 mm, but the indexed supplier table does not establish this exact TX-610/5 KP reference/oversize in the rows located. Treat the fifth-oversize dimension as an internal stock specification only until the manufacturer confirms the part code and bore size; do not use the vehicle label alone to infer interchangeability."
     ],
     "vehicles": [
       "Tata 1312"
@@ -39066,7 +39143,8 @@
     "description": "The Tata Genuine Parts 885425052829 Kit - CL/PR Plate TATA Ace combines the clutch components identified in the product title to connect and disconnect engine torque from the transmission.",
     "applications": [
       "Clutch Transmission System",
-      "Clutch Overhaul"
+      "Clutch Overhaul",
+      "Vehicle fitment / product-description reconciliation (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, p. 4; exact part 885425052829): listed as a 170 mm clutch cover-and-disc set for Ace/Magic. Souviks title describes a clutch/pressure-plate kit; confirm the supplied pack contents and clutch diameter before treating the two descriptions as identical."
     ],
     "vehicles": [
       "Tata Ace"
@@ -39122,7 +39200,8 @@
     "description": "The Tata Genuine Parts 885425102829 Kit - CL/PR Plate TATA Ace w/BRG combines the clutch components identified in the product title to connect and disconnect engine torque from the transmission. Vehicle applications include Tata Magic.",
     "applications": [
       "Clutch Transmission System",
-      "Clutch Repair"
+      "Clutch Repair",
+      "Vehicle fitment / pack-description evidence (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, p. 4; exact part 885425102829): listed as a 170 mm clutch cover/disc set with bearing and bush for Ace/Magic. Tata e-Dukaan also lists this exact reference as “Kit-CL/PR Plate Tata Ace w/BRG”. Confirm that the supplied kit includes the components required by the vehicle variant."
     ],
     "vehicles": [
       "Tata Ace",
@@ -39293,7 +39372,8 @@
     "applications": [
       "Scheduled Service",
       "Fuel Filtration",
-      "Engine Lubrication"
+      "Engine Lubrication",
+      "Vehicle fitment evidence (Tata Motors e-Dukaan, Service Kit catalogue; exact part 885499102829): listed as “Kit-Oil & Fuel Filter Elements (ACE)”. This confirms the ACE service-kit application; the current Magic tag is not independently supported by this listing and should be checked against the chassis/engine variant."
     ],
     "vehicles": [
       "Tata Ace",
@@ -39860,7 +39940,8 @@
     ],
     "description": "Texspin Lever kit for Tata GB-40 (Part No. TX-310-CRK7) is listed in Souviks' Collector Ring range within Clutch Parts. Vehicle references: Tata 407, Tata 709, Tata 1109.",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-310-CRK7): lever kit for Tata GB40 clutch assembly. Supplier listing confirms the gearbox family, not the current website vehicle labels individually; confirm GB40 interface and clutch assembly."
     ],
     "vehicles": [
       "Tata 407",
@@ -40718,7 +40799,8 @@
     "applications": [
       "Engine Lubrication Filtration System",
       "Preventive Maintenance",
-      "Scheduled Service"
+      "Scheduled Service",
+      "Vehicle application evidence and source-scope qualification (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG reference LF9028): Fleetguard includes LF9028 as the lube-filter element in a three-piece TC service kit (FF5544 + 5000549 + LF9028) with OE kit reference 885418013118 for Tata 3118 TC BS III. This establishes an inclusion in that specific service-kit configuration, not a universal direct-fit claim for every Tata LPT engine. Confirm engine series, emissions level and housing before ordering."
     ],
     "vehicles": [
       "Tata LPT"
@@ -40834,7 +40916,8 @@
     ],
     "description": "The Tata Genuine Parts 886742000014 Lined Shoe - 4PCS - K Type - ACE BS3/4/6 supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Tata Ace', 'Tata Magic'].",
     "applications": [
-      "Rear Drum Brake System"
+      "Rear Drum Brake System",
+      "Vehicle fitment reconciliation (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742000014): listed as “Kit Lined Shoe ACE & Super ACE (K-Type)”. The source supports ACE/Super ACE K-type rear shoe fitment, not the current Magic tag; verify shoe profile and vehicle variant before confirming Magic compatibility."
     ],
     "vehicles": [
       "Tata Ace",
@@ -41273,7 +41356,8 @@
     ],
     "description": "The Tata AutoComp TLFCV1046 Lube Filter captures contaminants carried by circulating engine oil before they can recirculate through lubricated components. Vehicle applications include Tata LPT.",
     "applications": [
-      "Engine Lubrication System"
+      "Engine Lubrication System",
+      "Vehicle fitment evidence (Tata Autocomp aftermarket filter price list, 1-Jan-2022; exact part number TLFCV1046): lube filter F-6306 for Tata 1612–4018, all TC BS-IV applications. The current Tata LPT vehicle label is broader than this source; verify engine/variant and OE cross-reference before generalising."
     ],
     "vehicles": [
       "Tata LPT"
@@ -41806,7 +41890,8 @@
     "description": "The Texspin TX 4049 SC M Mahindra Blazo (395 dia) transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Mahindra Blazo (395 dia)."
+      "fitment/specification: Mahindra Blazo (395 dia).",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 5; exact code TX-4049SC-M): clutch-release bearing for Mahindra Blazo 49, 395 mm clutch diameter. Do not generalise to other Blazo engine/gearbox variants without an OE cross-reference."
     ],
     "vehicles": [
       "Mahindra Blazo"
@@ -41983,7 +42068,8 @@
     "description": "The Texspin TX 4585 Mahindra Navistar transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Mahindra Blazo.",
     "applications": [
       "Clutch release and actuation system",
-      "fitment/specification: Mahindra Navistar."
+      "fitment/specification: Mahindra Navistar.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 5; exact code TX-4585): clutch-release bearing for Mahindra Navistar. The price list does not specify a particular Navistar model or clutch dimension for this code; verify the release-bearing interface against the vehicle."
     ],
     "vehicles": [
       "Mahindra Blazo"
@@ -42150,7 +42236,8 @@
     "description": "The Leyparts FHN00400 Main Fuel Cum Water Element - H6 CB18 separates water and particulate contamination from diesel fuel before the fuel continues through the fuel system. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Fuel Filtration System",
-      "Water Separation System"
+      "Water Separation System",
+      "Manufacturer cross-reference and vehicle-fitment evidence (Bosch Commercial Vehicle Filters catalogue, p. 13; exact OE cross-reference FHN00400 = Bosch F 002 H26 310): Bosch classifies this as a main fuel filter and lists Ashok Leyland Captain 40, 2523 BS-IV and 4623 BS-IV. This is narrower than the Souviks product's broad H6 CB18 label; confirm engine, filter-head arrangement and OE marking before extending to other models."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -43502,7 +43589,8 @@
     "description": "The Bosch F-002-H26-361-4AR Oil Filter captures contaminants carried by circulating engine oil before they can recirculate through lubricated components. Vehicle applications include Tata LPT and Eicher Pro Series.",
     "applications": [
       "Engine Lubrication Filtration System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Vehicle fitment evidence (Bosch Commercial Vehicle Filters catalogue; base reference F 002 H26 361, listed as an oil filter): Eicher Pro 3012 TCI BS IV, Pro 3015 TCI BS IV and Skyline Pro 3008; additional Eicher references include Pro 1110XP BS IV, Pro 1110 BS IV and Starline 12.12K BS IV. A Tata Autocomp cross-reference also maps the same base Bosch number to Tata 1612–3118 (697 engine, BS IV) and Eicher Pro 3000 E494 (BS IV). Souviks MPN carries suffix -4AR; confirm the suffix/variant before treating all cross-references as interchangeable."
     ],
     "vehicles": [
       "Tata LPT",
@@ -43726,7 +43814,8 @@
     "description": "The Tata Genuine Parts 252718130145 Oil Filter Element Spinon BS3/4/6 captures contaminants carried by circulating engine oil before they can recirculate through lubricated components. Vehicle applications include Tata LPT.",
     "applications": [
       "Engine Lubrication Filtration System",
-      "Scheduled Service"
+      "Scheduled Service",
+      "Vehicle fitment evidence (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 6; exact OE references 252718130145 / 252718130139): the catalogue lists the matching spin-on oil filter for Tata 407 3.0 Diesel SFC Turbo, 407 3.0 Diesel LP Turbo Bus, SFC 407 EX BS III, LP 410, 407 3.0 Diesel LPT, LPT 3118, LPT 2518, Signa 3118 T, LPT 2516 TC 6x2, LPS 4923 TC 6x4 and Prima LX 2523 K/T. A Tata LPT-1109 BS IV parts catalogue also lists 252718130145 in its oil-filter group. The current generic Tata LPT tag is therefore too broad; confirm engine, housing and BS variant before assuming interchangeability across all LPT models. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://www.scribd.com/document/435129545/CATALOGUES-CI-LPT1109-36-EX2-BS4"
     ],
     "vehicles": [
       "Tata LPT"
@@ -43781,7 +43870,8 @@
     ],
     "description": "The Tata Genuine Parts 278618999994 Oil Filter Element Spinon BS4 captures contaminants carried by circulating engine oil before they can recirculate through lubricated components. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Fitment reconciliation note (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 6; exact OE reference 278618999994): Bosch lists the matching oil-filter element for Tata Prima LX 2825.K HRT BS IV, Prima LX 2530.K BS IV, Prima LX 3123.TTS BS III and Prima LX 4028 S. This does not support the current Tata Ace / Tata Magic tags. Confirm the Prima engine and filter housing before treating the Bosch cross-reference as interchangeable with the Ace/Magic application. Tata e-Dukaan confirms the product name and BS4 filter description but does not identify a vehicle model on its unfiltered listing. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://edukaan.cv.tatamotors/spare-parts/filter/all"
     ],
     "vehicles": [
       "Tata Ace",
@@ -44082,7 +44172,8 @@
     "description": "The Tata Genuine Parts 279001107802 Oil Seal (Crank Shaft Rear) BS 1/2/3/4/6 helps retain lubricant around a rotating shaft and limits leakage where the shaft passes through a housing. Vehicle applications include Tata Ace.",
     "applications": [
       "Engine Sealing System",
-      "Crankshaft Assembly"
+      "Crankshaft Assembly",
+      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Product Spare Parts Catalogue; MAGIC 7S 275 CNG BS-IV, VC 55233320000R, page 8; exact part number 279001107802): listed as the crankshaft rear oil seal, BS 1/2/3/4/6. Confirms this specific Magic 7S CNG configuration only."
     ],
     "vehicles": [
       "Tata Ace"
@@ -45338,7 +45429,8 @@
     ],
     "description": "The Leyparts FHJ01000 Pre Fuel Filter Element - H6 CB18 captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Manufacturer cross-reference and vehicle-fitment evidence (Bosch Commercial Vehicle Filters catalogue, p. 13; exact OE cross-reference FHJ01000 = Bosch F 002 H26 309): Bosch classifies this as a fuel pre-filter and lists Ashok Leyland 1612 BS-IV, 3118 BS-IV, 3718 BS-IV, Captain 2518 BS-IV, Viking BS-IV, Lynx BS-IV and Ecomet 1212 BS-IV. Confirm the pre-filter position and emission variant."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -45780,7 +45872,8 @@
     ],
     "description": "The WABCO 100306470 Pressure Reductio Valve regulates or directs compressed-air flow within a vehicle’s pneumatic circuit.",
     "applications": [
-      "Tata commercial vehicles."
+      "Tata commercial vehicles.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100306470): pressure-reducing valve; vehicle application TATA, specified for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is stated."
     ],
     "vehicles": [
       "Universal"
@@ -48711,7 +48804,8 @@
     "description": "The WABCO 300003079 Relay Valve Kit controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
       "WABCO relay-valve repair-kit applications",
-      "commercial vehicles."
+      "commercial vehicles.",
+      "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300003079): WABCO identifies this as a “Kit: Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. Reconcile the Souviks “Relay Valve Kit” title and kit contents with the supplier description; no individual truck model is specified."
     ],
     "vehicles": [
       "Universal"
@@ -48772,7 +48866,8 @@
     "description": "The WABCO 4730170250 Relay valve, anti-compounding controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
       "Commercial-vehicle braking system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 4730170250): relay valve, anti-compounding version; WABCO lists the Indian vehicle application as Mahindra. Confirm vehicle/air-brake configuration and matching valve ports before ordering."
     ],
     "vehicles": [
       "Universal"
@@ -48969,7 +49064,8 @@
     ],
     "description": "The WABCO 9732980270 RG2 Assy supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system. Vehicle applications include Ashok Leyland 2516 and Eicher Pro Series.",
     "applications": [
-      "RG2 relay-valve applications on Tata/Ashok Leyland/DICV/VECV commercial vehicles."
+      "RG2 relay-valve applications on Tata/Ashok Leyland/DICV/VECV commercial vehicles.",
+      "Vehicle fitment evidence and scope qualification (WABCO Customer Centre India, exact material number 9732980270): RG2 relay valve, listed for Ashok Leyland in the twin-cylinder 704 cc flange-mounted compressor context. The current application note's Tata, DICV and VECV makes are broader than this exact supplier entry; treat Ashok Leyland as the supplier-confirmed make and verify any other make against its own OE cross-reference."
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -49428,7 +49524,8 @@
       "Tata filter kit using OE 885418032516",
       "Bosch cross-reference lists Ace Magic",
       "Ace XL 0.7D",
-      "Ace 0.7D and Ace Gold."
+      "Ace 0.7D and Ace Gold.",
+      "Vehicle fitment evidence (Bosch Commercial Vehicle Filters catalogue, Tata Motors section, p. 8; exact OE reference 885418032516): Bosch lists the matching filter kit for Tata Ace Magic, Ace XL 0.7D, Ace 0.7D and Ace Gold. The Tata e-Dukaan Service Kit catalogue confirms the supplied set description and exact contents “9902 + 9904 + 9916”. This supports the Ace-family variants stated by Bosch; check engine / model-year and filter-set contents before ordering. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://edukaan.cv.tatamotors/service-kit"
     ],
     "vehicles": [
       "Tata Ace"
@@ -49538,7 +49635,8 @@
     ],
     "description": "The Tata Genuine Parts 272425000223 Set - Clutch Assy. Dia 190 combines the clutch components identified in the product title to connect and disconnect engine torque from the transmission. The specified clutch diameter is 190 mm. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
-      "Clutch Transmission System"
+      "Clutch Transmission System",
+      "Vehicle/gearbox fitment evidence (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, pp. 4–5; exact part 272425000223): listed as a 190 mm clutch cover/disc set for the 800 cc V10/Express application. This does not support the current Ace/Magic mapping; confirm the gearbox and vehicle before publishing a chassis fitment."
     ],
     "vehicles": [
       "Tata Ace",
@@ -49600,7 +49698,8 @@
     "description": "The Fleetguard 820007000 Set of AF25884+AF26085 removes airborne dust and particles from intake air before it enters the engine. Vehicle applications include Tata 1512.",
     "applications": [
       "Air-filter kit using AF25884 + AF25885",
-      "commercial/off-highway applications."
+      "commercial/off-highway applications.",
+      "Vehicle fitment evidence / current vehicle-tag conflict (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part 820007000, OE reference 885409051613): the set AF25884 + AF25885 is listed for Tata 1612 SE with 697 engine, BS II. AF25884 is the primary element and AF25885 the safety element. The current Souviks vehicle tag “Tata 1512” is not supported by this exact source entry; verify the engine and air-cleaner housing before promoting the application."
     ],
     "vehicles": [
       "Tata 1512"
@@ -49711,7 +49810,8 @@
     ],
     "description": "The Tata Genuine Parts 885409052516 Set of 2516 Air Filter Element removes airborne dust and particles from intake air before it enters the engine. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Engine Air Intake System"
+      "Engine Air Intake System",
+      "Vehicle fitment evidence and cross-catalogue scope (Bosch Commercial Vehicle Filters Tata section, p. 5; Uno Minda Commercial Filter Catalogue, AFK1022; Millard India datasheet MK-97076; exact OE reference 885409052516): Bosch lists this filter set against Tata 1512 LP/LPO TC BS III, Signa 2818.T BS IV, Signa 3518.S BS IV, LPO 1613 CNG, LPT 3718 BS IV and Signa 4018.S BS IV. Uno Minda cross-references AFK1022 to Tata 2515EX / 2516 / 3015 / 3516 / 4018 Cummins B-Series applications. Millard additionally lists Ashok Leyland 2516 (412 TCAC BS-II/III) and Tata 1510 / 1612 / 1613 / 2515 families. The current Ashok Leyland 2516 tag is supported by Millard, but the source families differ; verify element set, air-cleaner housing and engine before extending beyond the exact cited applications. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/filters_5/pdf_49/cv_filters.pdf ; https://unomindakart.com/catalog/open/21/Filter%20Catalogue%20-%204W%20Commercial.pdf ; https://www.millardcatalog.com/inc/datasheet_generatesheet.php?catalog=India&itemCode=MK-97076&lang=en"
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -49767,7 +49867,8 @@
     "description": "The Tata Genuine Parts 885425092829 Set of 3 (CP + PR + CRB) 190 Dia combines the clutch components identified in the product title to connect and disconnect engine torque from the transmission. The set contains a clutch plate, pressure plate and clutch release bearing. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
       "Clutch Transmission System",
-      "Clutch Rebuild"
+      "Clutch Rebuild",
+      "Vehicle/gearbox fitment evidence (Tata Genuine Parts Clutch Reckoner, published 31-Mar-2022, p. 4; exact part 885425092829): listed as a 190 mm clutch cover/disc set with bearing for Mega/Magic. The existing Magic tag is supported, but the current Ace tag is not confirmed by this supplier line; verify the engine/gearbox variant before ordering."
     ],
     "vehicles": [
       "Tata Ace",
@@ -52822,7 +52923,8 @@
     "description": "The WABCO 100250150 Stop Light Switch opens, closes or changes an electrical circuit in response to a driver command or the operating state named by the switch. Vehicle applications include Ashok Leyland 2516 and Eicher Pro Series.",
     "applications": [
       "Tata",
-      "Ashok Leyland and Volvo Eicher (VECV) commercial vehicles."
+      "Ashok Leyland and Volvo Eicher (VECV) commercial vehicles.",
+      "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100250150): stop-light switch; vehicle application listed for TATA, Ashok Leyland and Volvo Eicher (VECV), associated with twin-cylinder 704 cc flange-mounted compressor applications. WABCO does not specify individual truck models here."
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -53785,7 +53887,8 @@
     "description": "The Tata Genuine Parts 285126200115 Synchro Kit (1/2 Speed) W supports smooth gear engagement by bringing rotating transmission components closer to matching speed before the gear teeth engage. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
     "applications": [
       "Manual Transmission Overhaul",
-      "Gearbox Repair"
+      "Gearbox Repair",
+      "Vehicle / gearbox fitment reconciliation (Tata Motors ACE / ACE HT Diesel BS-IV parts catalogue, June 2010, chassis type 445057, gearbox group 2851010426R.02, pp. 46–47; exact part 285126200115): listed as the 1/2-speed synchroniser kit, comprising the synchroniser springs, balls, sleeve and carrier. The source is specific to Tata Ace HT 275 IDI NA BS-IV with the listed gearbox. It does not establish the current Souviks vehicle tags Tata 1109 / 1210 / 1312; confirm gearbox family and part contents before any cross-model fitment is claimed. Source: https://www.scribd.com/document/512677113/TATA-ACE-TATA-ACE-HT-DIESEL-BS-IV"
     ],
     "vehicles": [
       "Tata 1109",
@@ -54488,7 +54591,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tapper Roller Bearing for Bharat Benz truck rear wheel bearing."
+      "fitment/specification: Tapper Roller Bearing for Bharat Benz truck rear wheel bearing.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33117): rear wheel bearing for Bharat Benz trucks. The supplier does not enumerate individual Bharat Benz models or axle variants; confirm the bearing dimensions and axle position."
     ],
     "vehicles": [
       "Universal"
@@ -54620,7 +54724,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle-class application evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33213): taper-roller bearing listed for HCV trailer applications. The source does not specify trailer manufacturer, axle, or model; match bearing dimensions and axle specification."
     ],
     "vehicles": [
       "Universal"
@@ -54757,7 +54862,8 @@
       "Rotating-assembly",
       "wheel-end",
       "driveline or support-bearing system",
-      "fitment/specification: Tapper Roller Bearing for Tata 1312/1516/2416."
+      "fitment/specification: Tapper Roller Bearing for Tata 1312/1516/2416.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33215): Tata 1312, Tata 1516 and Tata 2416 application. Confirm axle position and bearing dimensions against the vehicle specification."
     ],
     "vehicles": [
       "Tata 1312",
@@ -56172,7 +56278,8 @@
     "applications": [
       "Rear Suspension System",
       "Leaf Spring Assembly",
-      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2582 / MPN 2782 3240 0114 / 2782 3240 0112): Tata 2515 LPT rear, Tata 3723 LPT rear and Tata LPT 3118 TC rear leaf-spring group. Confirm the spring specification and leaf stack against the vehicle before ordering."
+      "Vehicle fitment evidence (JAI Price List W.E.F. 01-04-2026; exact JAI code 2582 / MPN 2782 3240 0114 / 2782 3240 0112): Tata 2515 LPT rear, Tata 3723 LPT rear and Tata LPT 3118 TC rear leaf-spring group. Confirm the spring specification and leaf stack against the vehicle before ordering.",
+      "Vehicle fitment evidence (JAI Spring Price List effective April 2026; exact JAI code 2582): Tata 2515 LPT rear main leaf. Match the spring section, leaf count and dimensions to the vehicle before replacement."
     ],
     "vehicles": [
       "Tata LPT"
@@ -56809,7 +56916,8 @@
       "driveline or support-bearing system",
       "fitment/specification: Tata 607/707/809/909",
       "Harsha T-25",
-      "Swaraj 735."
+      "Swaraj 735.",
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 16; exact code TX-32212): bearing application listed for Tata 608/707/809/909, Harsha T-25 and Swaraj 735. The current website vehicle array contains only Tata 407, which is not named in this supplier row; treat that tag as unverified and match bearing dimensions before fitting."
     ],
     "vehicles": [
       "Tata 407"
@@ -57159,7 +57267,8 @@
     ],
     "description": "The Texspin Tata GB60 (1.75 inch/4.45 cm) transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata LPT.",
     "applications": [
-      "Clutch Release Bearing | HCV Gearbox"
+      "Clutch Release Bearing | HCV Gearbox",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 8; exact code TX-60TM): Tata GB60 clutch-release bearing, 1.75-inch / 4.45 cm interface. This is a gearbox specification; confirm GB60 and clutch interface rather than inferring a model-specific fitment."
     ],
     "vehicles": [
       "Tata LPT"
@@ -57222,7 +57331,8 @@
     ],
     "description": "The Texspin TX-4576 Tata GB75 with hub (bearing no. TX-3527) supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
     "applications": [
-      "Clutch Release System"
+      "Clutch Release System",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 8; exact code TX-4576): Tata GB75 clutch-release bearing with hub, using bearing TX-3527. The supplier specifies the gearbox rather than an individual truck chassis; existing vehicle labels are not independently confirmed by this line."
     ],
     "vehicles": [
       "Tata 1109",
@@ -57279,7 +57389,8 @@
     ],
     "description": "The Texspin TX-4546SC Tata GB75 with hub (self-centering), new model – short hub transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface. Vehicle applications include Tata LPT.",
     "applications": [
-      "GB75 Self-Centering Release Bearing"
+      "GB75 Self-Centering Release Bearing",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 8; exact code TX-4546SC): Tata GB75 self-centering clutch-release bearing with hub, new-model short-hub design. The supplier specifies the gearbox/bearing interface, not a chassis model; confirm GB75 and hub design before ordering."
     ],
     "vehicles": [
       "Tata LPT"
@@ -57857,7 +57968,8 @@
     ],
     "description": "Texspin Tata Prima 430 dia. collector ring (Part No. TX-430-CRK9) is listed in Souviks' Collector Ring range within Clutch Parts. Vehicle references: Tata LPT.",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Vehicle / clutch-assembly fitment evidence (Texspin Master Price List 2025–26, printed p. 51; exact code TX-430-CRK9): Tata Prima 430 mm clutch collector ring. Confirm 430 mm clutch and collector-ring geometry before ordering."
     ],
     "vehicles": [
       "Tata LPT"
@@ -58031,7 +58143,8 @@
     ],
     "description": "The Fleetguard 826107400 TC Kit (FF5052 + FS1275 + LF3959) captures contaminants carried by circulating engine oil before they can recirculate through lubricated components. Vehicle applications include Tata 2416.",
     "applications": [
-      "Scheduled Service Kit"
+      "Scheduled Service Kit",
+      "Vehicle fitment reconciliation (Fleetguard After Market Price List effective 18-Jun-2018; exact FG part 826107400 / TC kit FF5052 + FS1275 + LF3959): listed under Cummins B-Series engine models 2515, 2516, 3015, 3516 and 4018 EX. The current Souviks vehicle tag is Tata 2416, which is not listed in that source. Because the reference is an older 2018 list and does not map this SKU to Tata 2416, verify the full kit/OE reference and engine before confirming that model."
     ],
     "vehicles": [
       "Tata 2416"
@@ -60972,7 +61085,8 @@
     "description": "The Tata Genuine Parts 282942103701 Ventilated Brake Disc 17 provides the rotating friction surface against which the brake pads press to slow the wheel. Vehicle applications include Tata Intra.",
     "applications": [
       "Front Disc Brake System",
-      "Wheel End Braking Assembly"
+      "Wheel End Braking Assembly",
+      "Fitment reconciliation note (Setco Auto Systems brake-disc catalogue; exact reference 282942103701): Setco maps this ventilated front disc to TATA ACE/MAGIC. This does not support the current Tata Intra vehicle tag; retain that tag for audit only and reconcile the OE reference before confirming Intra fitment."
     ],
     "vehicles": [
       "Tata Intra"
@@ -61824,7 +61938,8 @@
     ],
     "description": "The Texspin Ø352 major lever kit with bearing GB-60 (Tata) supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Tata 1512.",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-352-CRK7): Ø352 major lever kit with bearing for Tata GB60. Confirm the GB60 clutch assembly and push/pull configuration; supplier line does not specify chassis models."
     ],
     "vehicles": [
       "Tata 1512"
@@ -61878,7 +61993,8 @@
     ],
     "description": "The Texspin Ø380 major lever kit with bearing GB-75 (Tata/Eicher) supports relative rotation between connected parts and reduces friction in the rotating assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair"
+      "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
+      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-380-CRK7): Ø380 major lever kit with bearing for Tata/Eicher GB75. This confirms the gearbox family, not specific chassis models; verify the clutch diameter, lever configuration and bearing inclusion. Source: https://img1.wsimg.com/blobby/go/d9b2b195-f65e-4aae-848f-9899d2a5231e/Texspin.pdf"
     ],
     "vehicles": [
       "Tata LPT"
@@ -68877,7 +68993,8 @@
       "Tata 3718",
       "LPT 2518",
       "LPT 3118",
-      "Signa 4323 and Prima 3525."
+      "Signa 4323 and Prima 3525.",
+      "Supplier-reference conflict (Kafila Updated Price List, effective 15-May-2026, propeller-shaft components): the source lists KF-6847 as a gear coupling with 4×13 mm hole pattern and 6 mm plate; it does not list KF-6847A or substantiate the website's “26 Spline” descriptor. The Souviks code and description therefore remain unverified against the supplier line. Confirm exact part marking, spline count and supplier cross-reference before publishing Tata 3718 / LPT 2518 / LPT 3118 / Signa 4323 / Prima 3525 fitments."
     ],
     "vehicles": [
       "Tata LPT",
@@ -73108,7 +73225,8 @@
     "applications": [
       "MSP 25/33 kit",
       "diaphragm and cut-off valve assembly",
-      "commercial vehicle air-system applications."
+      "commercial vehicle air-system applications.",
+      "Vehicle fitment evidence (WABCO Customer Centre India, exact material number 300025033): WABCO identifies this as “Kit: Diaphragm + Cut-Off Valve” for a twin-cylinder 704 cc flange-mounted compressor, with India vehicle applications TATA, Ashok Leyland, Volvo Eicher (VECV), Daimler (Bharat Benz) and MAN. This supports make-level use only; no individual truck model is stated. Confirm compressor family and actuator configuration before ordering."
     ],
     "vehicles": [
       "Universal"
