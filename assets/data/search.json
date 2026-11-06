@@ -6166,7 +6166,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Maintenance",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 25 mm spring leaf side washer 4mm thickness SKU. The 25 mm size and thickness alone do not validate Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Eicher 1110 fitment. Confirm the spring-pack width, side clearance, washer profile/material, thickness and installed location against the vehicle before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -6235,7 +6236,8 @@
     "description": "The Harish 25 mm Spring Leaf Side Washer 5mm Thickness provides a bearing or spacing surface at the side of a leaf-spring assembly to control contact between adjacent components. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
     "applications": [
       "Leaf Spring Assembly",
-      "Suspension Repair"
+      "Suspension Repair",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 25 mm spring leaf side washer 5mm thickness SKU. The 25 mm size and thickness alone do not validate Tata LPT, Ashok Leyland 2516 fitment. Confirm the spring-pack width, side clearance, washer profile/material, thickness and installed location against the vehicle before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -6432,7 +6434,8 @@
     "description": "The Harish 30 mm Spring Leaf Side Washer 4mm Thickness provides a bearing or spacing surface at the side of a leaf-spring assembly to control contact between adjacent components. Vehicle applications include Tata LPT, Ashok Leyland 2516 and Eicher Pro Series.",
     "applications": [
       "Leaf Spring Assembly",
-      "Suspension Maintenance"
+      "Suspension Maintenance",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 30 mm spring leaf side washer 4mm thickness SKU. The 30 mm size and thickness alone do not validate Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Eicher 1110 fitment. Confirm the spring-pack width, side clearance, washer profile/material, thickness and installed location against the vehicle before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -6501,7 +6504,8 @@
     "description": "The Harish 30 mm Spring Leaf Side Washer 5mm Thickness provides a bearing or spacing surface at the side of a leaf-spring assembly to control contact between adjacent components. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
     "applications": [
       "Leaf Spring Assembly",
-      "Suspension Repair"
+      "Suspension Repair",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 30 mm spring leaf side washer 5mm thickness SKU. The 30 mm size and thickness alone do not validate Tata LPT, Ashok Leyland 2516 fitment. Confirm the spring-pack width, side clearance, washer profile/material, thickness and installed location against the vehicle before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -6568,7 +6572,8 @@
     "description": "The Harish 32 mm Spring Leaf Side Washer 4mm Thickness provides a bearing or spacing surface at the side of a leaf-spring assembly to control contact between adjacent components. Vehicle applications include Tata LPT and Eicher Pro Series.",
     "applications": [
       "Leaf Spring Assembly",
-      "Suspension Rebuild"
+      "Suspension Rebuild",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 32 mm spring leaf side washer 4mm thickness SKU. The 32 mm size and thickness alone do not validate Tata LPT, Eicher Pro Series fitment. Confirm the spring-pack width, side clearance, washer profile/material, thickness and installed location against the vehicle before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -6635,7 +6640,8 @@
     "description": "The Harish 32 mm Spring Leaf Side Washer 5mm Thickness provides a bearing or spacing surface at the side of a leaf-spring assembly to control contact between adjacent components. Vehicle applications include Tata Signa and Tata Prima.",
     "applications": [
       "Leaf Spring Assembly",
-      "Suspension Overhaul"
+      "Suspension Overhaul",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 32 mm spring leaf side washer 5mm thickness SKU. The 32 mm size and thickness alone do not validate Tata Signa, Tata Prima fitment. Confirm the spring-pack width, side clearance, washer profile/material, thickness and installed location against the vehicle before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata Signa",
@@ -6823,7 +6829,8 @@
     "applications": [
       "Bell Crank Assembly",
       "Steering Linkage System",
-      "Steering Repair"
+      "Steering Repair",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 35 mm bell crank washer 4mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata 407, Tata 709, Tata 1109, Tata LPT, Ashok Leyland 2516 fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata 407",
@@ -6896,7 +6903,8 @@
     "description": "The Harish 35 mm Bell Crank Washer 5mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata 407, Tata 709 and Tata 1109.",
     "applications": [
       "Bell Crank Assembly",
-      "Steering Linkage System"
+      "Steering Linkage System",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 35 mm bell crank washer 5mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata 407, Tata 709, Tata 1109, Tata LPT, Ashok Leyland 2516 fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata 407",
@@ -6974,7 +6982,8 @@
     "description": "The Harish 35 mm Bell Crank Washer 6mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata 407, Tata 709 and Tata 1109.",
     "applications": [
       "Bell Crank Assembly",
-      "Steering Maintenance"
+      "Steering Maintenance",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 35 mm bell crank washer 6mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata 407, Tata 709, Tata 1109, Tata 1210, Tata 1312, Tata 1512, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Eicher 1110 fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata 407",
@@ -7048,7 +7057,8 @@
     ],
     "description": "The Harish 35 mm Bell Crank Washer 7mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
     "applications": [
-      "Steering Linkage Assembly"
+      "Steering Linkage Assembly",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 35 mm bell crank washer 7mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata LPT, Ashok Leyland 2516 fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -7116,7 +7126,8 @@
     "description": "The Harish 35 mm Bell Crank Washer 8mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata LPT, Tata Signa and Ashok Leyland 2516.",
     "applications": [
       "Steering Linkage Assembly",
-      "Suspension & Steering Repair"
+      "Suspension & Steering Repair",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 35 mm bell crank washer 8mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata LPT, Tata Signa, Ashok Leyland 2516 fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -7793,7 +7804,8 @@
     "description": "The Harish 42 mm Bell Crank Washer 4mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
     "applications": [
       "Bell Crank Assembly",
-      "Steering Linkage System"
+      "Steering Linkage System",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 42 mm bell crank washer 4mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata LPT, Ashok Leyland 2516 fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -7859,7 +7871,8 @@
     ],
     "description": "The Harish 42 mm Bell Crank Washer 5mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
     "applications": [
-      "Steering Linkage Assembly"
+      "Steering Linkage Assembly",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 42 mm bell crank washer 5mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata LPT, Ashok Leyland 2516 fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -7926,7 +7939,8 @@
     ],
     "description": "The Harish 42 mm Bell Crank Washer 6mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata LPT, Ashok Leyland 2516 and Eicher Pro Series.",
     "applications": [
-      "Steering System Repair"
+      "Steering System Repair",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 42 mm bell crank washer 6mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata LPT, Ashok Leyland 2516, Eicher Pro Series fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -7993,7 +8007,8 @@
     ],
     "description": "The Harish 42 mm Bell Crank Washer 7mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata Signa and Tata Prima.",
     "applications": [
-      "Steering Linkage Assembly"
+      "Steering Linkage Assembly",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 42 mm bell crank washer 7mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata Signa, Tata Prima fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata Signa",
@@ -8058,7 +8073,8 @@
     ],
     "description": "The Harish 42 mm Bell Crank Washer 8mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata Prima.",
     "applications": [
-      "Steering System Overhaul"
+      "Steering System Overhaul",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 42 mm bell crank washer 8mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata Prima fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata Prima"
@@ -8708,7 +8724,8 @@
     ],
     "description": "The Harish 50 mm Bell Crank Washer 4mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 50 mm bell crank washer 4mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata LPT, Ashok Leyland 2516 fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -8774,7 +8791,8 @@
     ],
     "description": "The Harish 50 mm Bell Crank Washer 5mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
     "applications": [
-      "Steering Linkage System"
+      "Steering Linkage System",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 50 mm bell crank washer 5mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata LPT, Ashok Leyland 2516 fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -8839,7 +8857,8 @@
     ],
     "description": "The Harish 50 mm Bell Crank Washer 6mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata Signa.",
     "applications": [
-      "Steering Maintenance & Repair"
+      "Steering Maintenance & Repair",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 50 mm bell crank washer 6mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata Signa fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata Signa"
@@ -8903,7 +8922,8 @@
     ],
     "description": "The Harish 50 mm Bell Crank Washer 7mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata Prima.",
     "applications": [
-      "Steering Linkage Assembly"
+      "Steering Linkage Assembly",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 50 mm bell crank washer 7mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata Prima fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata Prima"
@@ -8967,7 +8987,8 @@
     ],
     "description": "The Harish 50 mm Bell Crank Washer 8mm Thickness sits between a fastener and the mating surface to distribute clamping load and protect the joint from local surface damage. Vehicle applications include Tata Prima.",
     "applications": [
-      "Steering System Overhaul"
+      "Steering System Overhaul",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific cross-reference is recorded for this 50 mm bell crank washer 8mm thickness SKU. The nominal bore/size and washer thickness alone do not validate Tata Prima fitment. Confirm actual bell-crank pivot diameter, washer ID/OD, thickness, shoulder depth, clearance and steering-linkage variant against the installed assembly before treating the current vehicle tags as verified."
     ],
     "vehicles": [
       "Tata Prima"
@@ -12806,7 +12827,8 @@
     ],
     "description": "The TVS Girling SIAS6214DT Air Spring For Trailer balloon CA-20Ft 2 Duo for TR uses pressurised air within a flexible spring element to support load and provide suspension movement. Vehicle applications include Tata Ultra.",
     "applications": [
-      "CA-20 ft trailer / 2-duo trailer balloon application."
+      "CA-20 ft trailer / 2-duo trailer balloon application.",
+      "Supplier cross-reference qualification (TVS Air Springs product note; source code SIAS6214D): supplier lists a 20F (DUO) lift-axle air spring for TATA / Ashok Leyland / BharatBenz / Mahindra. The Souviks part number is SIAS6214DT, with an additional trailing “T” not shown in the supplier reference. Treat the source as a possible base-code cross-reference only; verify the complete manufacturer marking, bellows height, top/bottom plates and stroke before confirming Tata Ultra fitment. Source: https://rhinoautomobiles.in/pdf/tvs-air-springs.pdf"
     ],
     "vehicles": [
       "Tata Ultra"
@@ -13521,7 +13543,8 @@
     "description": "The JAI 0152 ARMADA NEW (RR) - 2nd leaf supports vehicle load and helps absorb road inputs through the controlled flexing of spring leaves in the suspension. Its stated leaf section is 70 × 18. Vehicle applications include Mahindra Blazo.",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering.",
+      "Fitment reconciliation (JAI Spring Price List effective April 2026, Mahindra section; product code 0152): JAI lists code 0152 as “ARMADA NEW (R)” (rear spring) with section dimensions 63.5 × 7.94 / 63.5 × 9.53. That source does not identify Mahindra Blazo or an individual second-leaf replacement. The current Blazo vehicle tag is not supplier-confirmed by this code; verify the JAI stamp and leaf-stack position before publishing fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "vehicles": [
       "Mahindra Blazo"
@@ -13587,7 +13610,8 @@
     "description": "The JAI 0152 ARMADA NEW (RR) - Main leaf supports vehicle load and helps absorb road inputs through the controlled flexing of spring leaves in the suspension. Its stated leaf section is 70 × 18. Vehicle applications include Mahindra Blazo.",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 302; supplier item code 152 / MPN 89943): Mahindra Armada New rear leaf-spring group. The source does not identify the individual replacement-leaf position; verify the leaf stack before ordering.",
+      "Fitment reconciliation (JAI Spring Price List effective April 2026, Mahindra section; product code 0152): JAI lists code 0152 as “ARMADA NEW (R)” (rear spring) with section dimensions 63.5 × 7.94 / 63.5 × 9.53. That source does not identify Mahindra Blazo. The current Blazo vehicle tag is therefore not supplier-confirmed by this code; verify the JAI stamp, leaf position and pack dimensions before publishing Blazo fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "vehicles": [
       "Mahindra Blazo"
@@ -14752,7 +14776,8 @@
     ],
     "description": "The Tata Genuine Parts 886720000003 Assy. Water Pump TATA ACE/Magic circulates coolant through the engine and radiator circuit to maintain coolant flow during operation. Vehicle applications include Tata Magic.",
     "applications": [
-      "Engine Cooling System"
+      "Engine Cooling System",
+      "Vehicle fitment evidence (secondary Tata alternate-parts catalogue, cooling-system table; OE 278820100102 ↔ alternate part 886720000003): the water-pump assembly is listed for ACE/ACE CNG/ACE GOLD/ACE GOLD+/ACE HT/ACE XL/ACE XL CNG and MAGIC/MAGIC CNG/MAGIC HT, plus SUPER ACE/VENTURE, across the stated BS1–BS6 phase 2 variants. This supports the current Ace/Magic family tags only where the OE number and engine/emission variant match. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "vehicles": [
       "Tata Ace",
@@ -16129,7 +16154,8 @@
     "description": "The Harish Bell Crank Set - Tata Prima (Big) provides a bearing surface at a pivot joint and helps control movement between connected suspension or steering components. Vehicle applications include Tata Signa and Tata LPT.",
     "applications": [
       "Steering Linkage System",
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — model-specific confirmation pending: the product name identifies Bell Crank Set - Tata Prima (Big), but no manufacturer/OE part number or chassis-specific supplier application is recorded. Do not infer both Tata Prima and related LPT/Signa compatibility from the name alone. Confirm bell-crank casting/marking, bore, pivot diameter, arm geometry, linkage length and steering box configuration against the vehicle."
     ],
     "vehicles": [
       "Tata Signa",
@@ -16187,7 +16213,8 @@
     "description": "The Harish Bell Crank Set - Tata Prima (Small) provides a bearing surface at a pivot joint and helps control movement between connected suspension or steering components. Vehicle applications include Tata LPT.",
     "applications": [
       "Steering Linkage System",
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — model-specific confirmation pending: the product name identifies Bell Crank Set - Tata Prima (Small), but no manufacturer/OE part number or chassis-specific supplier application is recorded. Do not infer both Tata Prima and related LPT/Signa compatibility from the name alone. Confirm bell-crank casting/marking, bore, pivot diameter, arm geometry, linkage length and steering box configuration against the vehicle."
     ],
     "vehicles": [
       "Tata Prima",
@@ -16306,7 +16333,8 @@
     "applications": [
       "Bell Crank Assembly",
       "Steering Linkage System",
-      "Steering Repair"
+      "Steering Repair",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific supplier cross-reference is recorded for this Bell Crank Set 50 mm. The current Tata LPT, Ashok Leyland 2516 tags are catalogue-level associations, not supplier-confirmed fitment. Confirm pivot diameter, bore, arm geometry, mounting face, bush type and complete steering linkage configuration against the installed vehicle before order."
     ],
     "vehicles": [
       "Tata LPT",
@@ -16368,7 +16396,8 @@
     "description": "The JAI BS4923TAP Bell Crank Set 50 mm provides a bearing surface at a pivot joint and helps control movement between connected suspension or steering components. Vehicle applications include Tata LPT.",
     "applications": [
       "Bell Crank Assembly",
-      "Steering Linkage System"
+      "Steering Linkage System",
+      "Fitment status — supplier/OE confirmation pending: the available JAI source material reviewed in this audit does not provide a vehicle-specific application row for code BS4923TAP. “50 mm” identifies a nominal bell-crank size, not proof of Tata LPT compatibility. Confirm bell-crank bore, pivot diameter, bush type, arm geometry and OEM reference against the actual steering assembly before treating Tata LPT fitment as verified."
     ],
     "vehicles": [
       "Tata LPT"
@@ -16492,7 +16521,8 @@
     "applications": [
       "Bell Crank Assembly",
       "Steering Linkage System",
-      "Steering Repair"
+      "Steering Repair",
+      "Fitment status — supplier/OE confirmation pending: no manufacturer part number or chassis-specific supplier cross-reference is recorded for this Bell Crank Set 50 mm. The current Tata LPT, Ashok Leyland 2516 tags are catalogue-level associations, not supplier-confirmed fitment. Confirm pivot diameter, bore, arm geometry, mounting face, bush type and complete steering linkage configuration against the installed vehicle before order."
     ],
     "vehicles": [
       "Tata LPT",
@@ -22485,7 +22515,8 @@
     ],
     "description": "The TVS Girling 29067129 Clutch Master Cylinder converts clutch-pedal movement into hydraulic pressure for the clutch actuation circuit. Vehicle applications include Tata LPT and Tata Signa.",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment conflict (TVS Girling part-number cross-reference index, exact code 29067129; cross-checked against TVS Girling 2021 brake parts list): the exact code is listed as a CMC assembly for Ashok Leyland LPS 4018 and LPS 3516. This does not support the current Tata LPT / Tata Signa vehicle tags. Verify the part marking, bore, mounting and master-cylinder connection before confirming any Tata fitment. The supplier index classifies it as a clutch master cylinder assembly; source: https://ashvinautoparts.com/tvs-girling/"
     ],
     "vehicles": [
       "Tata LPT",
@@ -23018,7 +23049,8 @@
     "description": "The Tata Genuine Parts 554629100110 Clutch Master Cylinder with Hose BS6 converts clutch-pedal movement into hydraulic pressure for the clutch actuation circuit. Vehicle applications include Tata Intra.",
     "applications": [
       "Hydraulic Clutch System",
-      "Clutch Actuation Assembly"
+      "Clutch Actuation Assembly",
+      "OE-description evidence / model fitment still requires confirmation (Tata Genuine Parts part list; exact OE reference 554629100110): Tata lists this as a “Clutch Master Cylinder with Hose BS6”. The source confirms component type and BS6 service classification but does not identify a specific Intra chassis, engine or transmission. An independent OE cross-reference groups the same reference under Tata bus/truck applications but does not confirm Intra specifically. Keep the current Tata Intra mapping pending VIN/eCATS and bore/port verification. Sources: https://www.souviks.co.in/en/products?category_id=engine-components&vehicles=tata-magic ; https://manuals.plus/m/c6b1c3d6884422fd11f92c5403e3ddc08f595b4ccf1d5b31037097029ca381b9.pdf"
     ],
     "vehicles": [
       "Tata Intra"
@@ -24343,7 +24375,8 @@
     "description": "The TVS Girling 29068117 CMC Assy 29066705 - TML 2515/3515 clamps the clutch disc against the flywheel when engaged and releases clamping force when the clutch is operated. Vehicle applications include Tata LPT.",
     "applications": [
       "Hydraulic Clutch System",
-      "Clutch Actuation Assembly"
+      "Clutch Actuation Assembly",
+      "Vehicle fitment evidence (Brakes India Updated List effective 01-Nov-2025, exact BI part 29068117 / CMC assembly 29066705; cross-reference corroborated by TVS Girling part-number listing): specified for Tata 2515 / 3515 HCV applications. This supports the model family in the product title; the current generic Tata LPT tag should be interpreted only for the matching 2515/3515 chassis, clutch master-cylinder bore and mounting configuration. Source: https://www.scribd.com/document/940942382/Brakes-India-Updated-List-w-e-f-1-1-2025"
     ],
     "vehicles": [
       "Tata LPT"
@@ -24400,7 +24433,8 @@
     ],
     "description": "The TVS Girling 29967062 CMC Kit Major-TML 1210/1312 converts clutch-pedal movement into hydraulic pressure for the clutch actuation circuit. Vehicle applications include Tata 1210 and Tata 1312.",
     "applications": [
-      "Tata 1210 / 1312 master-cylinder repair application."
+      "Tata 1210 / 1312 master-cylinder repair application.",
+      "Vehicle fitment evidence (TVS Girling / Ashvin Auto Parts supplier part-number index and Brakes India Updated List effective 01-Nov-2025; exact part 29967062): listed as a CMC Major Kit for Tata 1210 / 1312 DAOH. The Tata HCV guide cross-references this kit to TML OE 261829100109 and identifies the parent CMC as 25.4 mm AS type, BS-II. Confirm the installed cylinder bore and DAOH variant before use. Sources: https://ashvinautoparts.com/tvs-girling/ ; https://www.scribd.com/document/940942382/Brakes-India-Updated-List-w-e-f-1-1-2025"
     ],
     "vehicles": [
       "Tata 1210",
@@ -25077,7 +25111,8 @@
     ],
     "description": "The TVS Girling 29066296 Concentric Slave Cylinder converts hydraulic pressure from the clutch circuit into movement that operates the clutch-release mechanism. Vehicle applications include Tata LPT.",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment evidence (Tata HCV Spare Parts Guide / Brakes India parts cross-reference, pp. 72–73; exact BI part 29066296, TML OE references 257329100154 / 251029300102): identified as a 38.1 mm concentric slave cylinder for the SE/SK 1613 BS-II and BS-III variants, including SE 1613TC and SK 1613TC. This is variant-specific and does not establish all Tata LPT models; match the bellhousing/clutch system and 38.1 mm cylinder before order. Source: https://www.scribd.com/document/528015224/Tml-Hcv-Final"
     ],
     "vehicles": [
       "Tata LPT"
@@ -25135,7 +25170,8 @@
     "applications": [
       "Hydraulic Clutch System",
       "Clutch Release Mechanism",
-      "Transmission Assembly"
+      "Transmission Assembly",
+      "OE-description evidence / model fitment still requires confirmation (Tata Genuine Parts part list; exact OE reference 554629100109): Tata lists this as a “Concentric Slave Cylinder Assy BS6”. The source confirms component type and BS6 service classification but does not identify a specific Intra chassis, engine or transmission. Keep Tata Intra as an unverified application pending VIN/gearbox or exact eCATS match; do not generalise to all Tata BS6 vehicles. Source: https://www.souviks.co.in/en/products?category_id=engine-components&vehicles=tata-magic"
     ],
     "vehicles": [
       "Tata Intra"
@@ -31506,7 +31542,8 @@
     "description": "The Leyparts X4000700 Filter - Coolant Circuit Euro 3 captures particles from circulating coolant before they can pass through the cooling circuit. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Engine Cooling System",
-      "Coolant Filtration System"
+      "Coolant Filtration System",
+      "Vehicle fitment / component-description conflict (Bosch Commercial Vehicle Filters 2023 Application Chart, exact OE reference X4000700): Bosch classifies X4000700 as a coolant filter for Ashok Leyland U 4923, eComet 1212, U 4023, 3121, U 3123, U 1618, Captain 40, U 2523, U 2518, 4921, eComet 1012 Smart and eComet 1214. This does not directly support the current Ashok Leyland 2516 tag. A separate Leyparts cross-reference list classifies X4000700 as a diesel filter for A/C bus, creating a part-description conflict. Verify the full Leyparts marking, filter media/housing and engine circuit before assigning a vehicle or selling it as a coolant filter. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf ; https://filongfilter.com/en/newshow.asp?id=219"
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -32159,7 +32196,8 @@
     ],
     "description": "The Tata Genuine Parts 886742000019 Front Brake Pad Magic Intra supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Tata Magic', 'Tata Intra'].",
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Vehicle fitment evidence / model conflict (Tata alternate-parts catalogue, brake-pad table; exact alternate part 886742000019, OE references 553742100106 / 553742100121): listed for ACE, MAGIC, MAGIC EXPRESS and MAGIC MANTRA, BS3/BS4/BS6-PH1/BS6-PH2. This supports the Magic family tag; the current Tata Intra tag is not supported by this code-specific row (the same source lists a separate Intra EV / V50 / V70 brake-pad kit under 886742000024). Confirm pad profile and caliper before treating the Intra tag as compatible. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "vehicles": [
       "Tata Magic",
@@ -32520,7 +32558,8 @@
     ],
     "description": "The JAI P22116 Front Spring Pin 22x116 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22116: the part title identifies Front Spring Pin 22x116, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -32580,7 +32619,8 @@
     ],
     "description": "The JAI P22125 Front Spring Pin 22x125 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22125: the part title identifies Front Spring Pin 22x125, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -32640,7 +32680,8 @@
     ],
     "description": "The JAI P22126 Front Spring Pin 22x126 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22126: the part title identifies Front Spring Pin 22x126, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -32700,7 +32741,8 @@
     ],
     "description": "The JAI P22127 Front Spring Pin 22x127 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22127: the part title identifies Front Spring Pin 22x127, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -32760,7 +32802,8 @@
     ],
     "description": "The JAI P22136 Front Spring Pin 22x136 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Ultra.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22136: the part title identifies Front Spring Pin 22x136, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Ultra. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata Ultra"
@@ -32820,7 +32863,8 @@
     ],
     "description": "The JAI P22140 Front Spring Pin 22x140 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Ultra.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22140: the part title identifies Front Spring Pin 22x140, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Ultra. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata Ultra"
@@ -32880,7 +32924,8 @@
     ],
     "description": "The JAI P22142 Front Spring Pin 22x142 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Ultra.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P22142: the part title identifies Front Spring Pin 22x142, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Ultra. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata Ultra"
@@ -32940,7 +32985,8 @@
     ],
     "description": "The JAI P25130 Front Spring Pin 25x130 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 1312.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25130: the part title identifies Front Spring Pin 25x130, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 1312. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata 1312"
@@ -33001,7 +33047,8 @@
     ],
     "description": "The JAI P25134 Front Spring Pin 25x134 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT and Ashok Leyland 2516.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25134: the part title identifies Front Spring Pin 25x134, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT, Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata LPT",
@@ -33062,7 +33109,8 @@
     ],
     "description": "The JAI P25135 Front Spring Pin 25x135 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 1312.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25135: the part title identifies Front Spring Pin 25x135, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 1312. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata 1312"
@@ -33122,7 +33170,8 @@
     ],
     "description": "The JAI P25142 Front Spring Pin 25x142 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 1312.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25142: the part title identifies Front Spring Pin 25x142, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 1312. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata 1312"
@@ -33182,7 +33231,8 @@
     ],
     "description": "The JAI P25152 Front Spring Pin 25x152 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25152: the part title identifies Front Spring Pin 25x152, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata LPT"
@@ -33242,7 +33292,8 @@
     ],
     "description": "The JAI P30130 Front Spring Pin 30x130 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P30130: the part title identifies Front Spring Pin 30x130, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -33302,7 +33353,8 @@
     ],
     "description": "The JAI P32151D Front Spring Pin 32x151 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — part-code conflict pending resolution: JAI code P32151D (32 × 151 mm) appears in two catalogue records, one tagged Tata LPT/Tata Signa and the other Ashok Leyland 2516. The nominal dimensions do not establish interchangeability across these models. Obtain the manufacturer's drawing/pack marking and confirm spring-eye width, pin profile, lubrication groove and chassis/axle application before confirming either vehicle mapping."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -33935,7 +33987,8 @@
     ],
     "description": "The Tata Genuine Parts 571009110105 Fuel Filter Element BS3/4 captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence (Tata alternate-parts catalogue, filters table; exact OE part 571009110105 ↔ alternate part 886409000003): listed as an assembly filter element for ACE, ACE MEGA, ACE XL, ACE ZIP, MAGIC, MAGIC EXPRESS, MAGIC IRIS, MAGIC MANTRA and V10, BS3/BS4. The current ACE/MAGIC family tags are supported at this family level; match the engine, filter head and emission norm before order. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "vehicles": [
       "Tata Ace",
@@ -35084,7 +35137,8 @@
     "description": "The Tata Genuine Parts 278801155303 Gasket Cylinder Head (1.8 THK) ACE/MAGIC forms a sealing layer between mating engine or mechanical surfaces to help contain fluid, oil, coolant or combustion pressure at the joint. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
       "Engine Cylinder Head Assembly",
-      "Engine Overhaul"
+      "Engine Overhaul",
+      "Vehicle fitment evidence (Tata Motors Commercial Vehicle Business Unit, ACE EX2 Euro II Indonesia/export parts catalogue, VC No. 55372220000R, engine group / cylinder-head table; exact part 278801155303): listed as “Gasket Cyl. Head (1.8 THK.)” for the ACE EX2 Euro II export configuration. This is a variant-specific confirmation, not blanket evidence for every Tata Ace/Magic engine or emission version. Match the chassis/engine and required gasket thickness before order. Source: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/ACE-EX-2.pdf"
     ],
     "vehicles": [
       "Tata Ace",
@@ -35733,7 +35787,8 @@
     "description": "The Tata Genuine Parts 886781000067 Glow Plug ACE BS3/4 heats the combustion chamber or pre-chamber area to support cold starting in a compatible diesel engine. Vehicle applications include Tata Ace.",
     "applications": [
       "Starting System",
-      "Engine Combustion System"
+      "Engine Combustion System",
+      "Vehicle fitment conflict (secondary Tata alternate-parts catalogue, engine-electrical table; exact alternate part 886781000067, OE 270215409912): the listing assigns this glow plug to MAGIC HT/SUPER ACE/VENTURE BS3/BS4. It does not list the regular ACE model named in this product title and current vehicle tag. Do not treat Tata Ace fitment as confirmed from this reference; verify the full OE number, plug dimensions and engine variant. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "vehicles": [
       "Tata Ace"
@@ -37367,7 +37422,8 @@
     "description": "The UnoMinda R/HL5541FM Headlight Assy. Leyland Cargo provides forward road illumination and integrates the lamp housing with its optical and mounting elements. Vehicle applications include Ashok Leyland Ecomet.",
     "applications": [
       "Vehicle Lighting System",
-      "Front Lighting Assembly"
+      "Front Lighting Assembly",
+      "Vehicle fitment evidence (Uno Minda Spare Parts Price List 2023, commercial-vehicle lighting, exact supplier code HL-5541FM; Souviks part number R/HL5541FM): identified as an RH headlight unit for Ashok Leyland Cargo–Ecomet, cross-reference 016-HLA-FR. This supports the Ecomet family subject to right-hand orientation, lens/bulb-holder type and marking verification. Source: https://krishnadistributionhouse.com/wp-content/uploads/2024/01/Uno-Minda-Commercial-and-Tractor-Pricelist.pdf"
     ],
     "vehicles": [
       "Ashok Leyland Ecomet"
@@ -37813,7 +37869,8 @@
     "description": "The UnoMinda R/HL5541BM Headlight Assy. Tata 1312 P43 Type provides forward road illumination and integrates the lamp housing with its optical and mounting elements. Vehicle applications include Tata 1210 and Tata 1512.",
     "applications": [
       "Vehicle Lighting System",
-      "Front Lighting Assembly"
+      "Front Lighting Assembly",
+      "Vehicle fitment evidence / model qualification (Uno Minda Spare Parts Price List 2023, commercial-vehicle lighting, exact supplier code HL-5541BM; Souviks part number R/HL5541BM): identified as an RH P43 headlamp assembly for Tata 1312 / 1516. This supports Tata 1312 where the P43 RH configuration matches; the current Tata 1210 and Tata 1512 tags are not established by this exact supplier row and should be checked against the lamp marking and fitment. Source: https://krishnadistributionhouse.com/wp-content/uploads/2024/01/Uno-Minda-Commercial-and-Tractor-Pricelist.pdf"
     ],
     "vehicles": [
       "Tata 1210",
@@ -37924,7 +37981,8 @@
     ],
     "description": "The JAI P25174 Heavy Duty Front Pin 25x174 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Front Suspension System"
+      "Front Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P25174: the part title identifies Heavy Duty Front Pin 25x174, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata LPT"
@@ -38274,7 +38332,8 @@
       "fuel",
       "oil",
       "hydraulic or coolant service",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Vehicle fitment evidence (Fleetguard HCV/LCV price list 2024, Hydraulic/Steering Filter – Tata HCV section; exact Fleetguard part 820080500, OE 275144159901): listed as the large hydraulic filter for Tata 1612–4023 tippers equipped with a HYVA tipping unit. This is narrower than the current broad Tata Prima/Tata LPT tags; confirm the tipping-body system and OE cross-reference before treating those model tags as confirmed. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
     ],
     "vehicles": [
       "Tata Prima",
@@ -39263,7 +39322,8 @@
     "applications": [
       "Fuel Filtration System",
       "Scheduled Service Maintenance",
-      "BS6 Diesel Engine Protection"
+      "BS6 Diesel Engine Protection",
+      "Vehicle fitment conflict / cross-reference correction (Tata alternate-parts catalogue, filters table; exact alternate part 886409000006): listed as a kit-filter element for ACE GOLD / WINGER / YODHA BS6-PH1 and BS6-PH2, while this Souviks product title is “1.5L/2.2L BS6” and its vehicle tag is Tata Intra. The cited supplier table does not establish Tata Intra fitment; verify the OE reference, filter head and engine before offering for Intra. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "vehicles": [
       "Tata Intra"
@@ -40068,7 +40128,8 @@
     ],
     "description": "The JAI P42109 Lever Pin 42x109 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42109: the part title identifies Lever Pin 42x109, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata 2416",
@@ -40130,7 +40191,8 @@
     ],
     "description": "The JAI P42110 Lever Pin 42x110 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42110: the part title identifies Lever Pin 42x110, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata 2416",
@@ -40192,7 +40254,8 @@
     ],
     "description": "The JAI P42116S Lever Pin 42x116 small locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42116S: the part title identifies Lever Pin 42x116 small, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata 2416",
@@ -40253,7 +40316,8 @@
     ],
     "description": "The JAI P42123 Lever Pin 42x123 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42123: the part title identifies Lever Pin 42x123, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -40313,7 +40377,8 @@
     ],
     "description": "The JAI P42131 Lever Pin 42x131 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42131: the part title identifies Lever Pin 42x131, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -40374,7 +40439,8 @@
     ],
     "description": "The JAI P42148S Lever Pin 42x148 small locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42148S: the part title identifies Lever Pin 42x148 small, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata 2416",
@@ -40435,7 +40501,8 @@
     ],
     "description": "The JAI P42160 Lever Pin 42x160 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42160: the part title identifies Lever Pin 42x160, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -40496,7 +40563,8 @@
     ],
     "description": "The JAI P42170D Lever Pin 42x170 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Signa and Tata LPT.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P42170D: the part title identifies Lever Pin 42x170, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Signa, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata Signa",
@@ -40558,7 +40626,8 @@
     ],
     "description": "The JAI P52148 Lever Pin 52x148 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Prima and Tata LPT.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — product-function conflict pending resolution: JAI code P52148 (52 × 148 mm) appears in this catalogue both as a “Spring Pin” and as a “Lever Pin”, with different vehicle tags. The shared code/dimensions are not enough to treat the two functions or applications as interchangeable. Verify the manufacturer's part marking, pin-end profile, grease path, bush/eye dimensions and assembly location before confirming Tata LPT/Tata Prima application."
     ],
     "vehicles": [
       "Tata Prima",
@@ -40620,7 +40689,8 @@
     ],
     "description": "The JAI P52151 Lever Pin 52x151 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Prima and Tata LPT.",
     "applications": [
-      "Bell Crank Assembly"
+      "Bell Crank Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P52151: the part title identifies Lever Pin 52x151, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Prima, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata Prima",
@@ -40922,7 +40992,8 @@
     "description": "The Tata Genuine Parts 886742000014 Lined Shoe - 4PCS - K Type - ACE BS3/4/6 supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Tata Ace', 'Tata Magic'].",
     "applications": [
       "Rear Drum Brake System",
-      "Vehicle fitment reconciliation (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742000014): listed as “Kit Lined Shoe ACE & Super ACE (K-Type)”. The source supports ACE/Super ACE K-type rear shoe fitment, not the current Magic tag; verify shoe profile and vehicle variant before confirming Magic compatibility."
+      "Vehicle fitment reconciliation (Tata Motors e-Dukaan, Brakes / Linings catalogue; exact part 886742000014): listed as “Kit Lined Shoe ACE & Super ACE (K-Type)”. The source supports ACE/Super ACE K-type rear shoe fitment, not the current Magic tag; verify shoe profile and vehicle variant before confirming Magic compatibility.",
+      "Cross-source fitment reconciliation (secondary Tata alternate-parts catalogue, brake-shoe table; exact alternate part 886742000014): this guide maps the code to a brake-shoe kit for MAGIC/MAGIC CNG/MAGIC HT, while the Tata Genuine Parts e-Dukaan listing already cited for this SKU describes an ACE/SUPER ACE K-type lined-shoe kit. These source descriptions do not fully agree. Keep the Ace/Magic model mapping unconfirmed until the OE reference, brake-shoe profile and vehicle variant are checked; do not infer interchangeability from the shared part code alone. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "vehicles": [
       "Tata Ace",
@@ -40977,7 +41048,8 @@
     ],
     "description": "The Tata Genuine Parts 886742000002 Lined Shoe - Super ACE B Type supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking. Vehicle applications include ['Tata Ace'].",
     "applications": [
-      "Rear Drum Brake System"
+      "Rear Drum Brake System",
+      "Vehicle fitment evidence (secondary Tata alternate-parts catalogue, brake-shoe table; exact alternate part 886742000002): the kit-lined-shoe listing covers ACE/ACE CNG/ACE GOLD/ACE GOLD PETROL/ACE HT/ACE XL, MAGIC/MAGIC CNG/MAGIC EXPRESS/MAGIC HT, MANTRA/SUPER ACE/VENTURE, with BS2–BS6 phase 1 norms as tabulated. The product title says Super ACE B Type while the current vehicle tag is generic Tata Ace; confirm the K-type/B-type shoe profile and brake-drum variant before order. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "vehicles": [
       "Tata Ace"
@@ -42689,7 +42761,8 @@
     "applications": [
       "Air Brake System",
       "S-Cam Brake Assembly",
-      "Brake Adjustment Mechanism"
+      "Brake Adjustment Mechanism",
+      "Vehicle fitment evidence / model qualification (Meritor India PartsXpress, Slack Adjuster catalogue; exact product code SMS3007): supplier listing identifies this as “MSA – TATA HCV (16 mm Offset) – 24 Splines”. This supports the Tata HCV slack-adjuster class and its offset/spline specification, but does not substantiate the current Ashok Leyland 2516 tag. Verify 16 mm offset, 24-spline interface and axle/brake arrangement before confirming a chassis fitment. Source: https://www.meritorpartsxpress.com/webapp/wcs/stores/servlet/CategoryDisplay?catalogId=11551&categoryId=158568&langId=-1&storeId=11851&urlLangId=-1&urlRequestType=Base"
     ],
     "vehicles": [
       "Tata LPT",
@@ -42919,7 +42992,8 @@
     "applications": [
       "Air Brake System",
       "S-Cam Brake Assembly",
-      "Brake Adjustment Mechanism"
+      "Brake Adjustment Mechanism",
+      "Vehicle fitment evidence / model qualification (Meritor India PartsXpress, Slack Adjuster catalogue; exact product code SMS3006): supplier listing identifies this as “MSA – TATA HCV (16 mm Offset) – 24 Splines”. This supports the Tata HCV slack-adjuster class and its offset/spline specification, but does not substantiate the current Ashok Leyland 2516 tag. Verify 16 mm offset, 24-spline interface and axle/brake arrangement before confirming a chassis fitment. Source: https://www.meritorpartsxpress.com/webapp/wcs/stores/servlet/CategoryDisplay?catalogId=11551&categoryId=158568&langId=-1&storeId=11851&urlLangId=-1&urlRequestType=Base"
     ],
     "vehicles": [
       "Tata LPT",
@@ -44580,7 +44654,8 @@
     "description": "The JAI 0642 Pickup Van Rear - AUX-A supports vehicle load and helps absorb road inputs through the controlled flexing of spring leaves in the suspension. Vehicle applications include Mahindra Bolero PIK UP and Mahindra Bolero Maxx PIK UP.",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack.",
+      "Supplier application qualification (JAI Spring Price List effective April 2026, M&M Pickup Van section; exact supplier code 0642): listed as “PICKUP VAN (R)” with section 63.5 × 7.94 / 63.5 × 9.53 / 63.5 × 12.7. The supplier list does not assign this code to a named Bolero model or identify an AUX-A leaf; confirm the vehicle variant and spring-stack position before treating current Bolero Pik-Up/MaXX tags as exact fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "vehicles": [
       "Mahindra Bolero Pik-Up",
@@ -44639,7 +44714,8 @@
     "description": "The JAI 0642 Pickup Van Rear - AUX-B supports vehicle load and helps absorb road inputs through the controlled flexing of spring leaves in the suspension. Vehicle applications include Mahindra Bolero PIK UP and Mahindra Bolero Maxx PIK UP.",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; exact MPN 29726 / supplier item code 642): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual AUX-leaf position; verify the pickup variant and leaf stack.",
+      "Supplier application qualification (JAI Spring Price List effective April 2026, M&M Pickup Van section; exact supplier code 0642): listed as “PICKUP VAN (R)” with section 63.5 × 7.94 / 63.5 × 9.53 / 63.5 × 12.7. The supplier list does not assign this code to a named Bolero model or identify an AUX-B leaf; confirm the vehicle variant and spring-stack position before treating current Bolero Pik-Up/MaXX tags as exact fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "vehicles": [
       "Mahindra Bolero Pik-Up",
@@ -44698,7 +44774,8 @@
     "description": "The JAI 0642 Pickup Van Rear - Main Leaf supports vehicle load and helps absorb road inputs through the controlled flexing of spring leaves in the suspension. Vehicle applications include Mahindra Bolero PIK UP and Mahindra Bolero Maxx PIK UP.",
     "applications": [
       "Rear Suspension System",
-      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; supplier item code 642 / MPN 29726): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual leaf position; verify the pickup variant and leaf stack."
+      "Vehicle group evidence (JAI Price List W.E.F. 01-04-2026, row 309; supplier item code 642 / MPN 29726): Pickup Van rear leaf-spring group. JAI does not identify the vehicle manufacturer/model or individual leaf position; verify the pickup variant and leaf stack.",
+      "Supplier application qualification (JAI Spring Price List effective April 2026, M&M Pickup Van section; exact supplier code 0642): listed as “PICKUP VAN (R)” with section 63.5 × 7.94 / 63.5 × 9.53 / 63.5 × 12.7. The price list does not name Bolero Pik-Up or Bolero MaXX separately and does not establish the individual leaf position; confirm model year, leaf section and stack configuration before treating both current vehicle tags as exact fitment. Source: https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26"
     ],
     "vehicles": [
       "Mahindra Bolero Pik-Up",
@@ -46232,7 +46309,8 @@
     ],
     "description": "The Tata Genuine Parts 573720999901 Pump Water BS6 circulates coolant through the engine and radiator circuit to maintain coolant flow during operation. Vehicle applications include Tata Intra.",
     "applications": [
-      "Engine Cooling System"
+      "Engine Cooling System",
+      "Vehicle application conflict (Tata Motors Signa 2823.K TC ISBe5.6 BS6, VC 50690256000R, water-pump table WP98166.20.10; exact part 573720999901): Tata's parts catalogue lists this reference as the water pump for the Signa 2823.K TC ISBe5.6 BS6 configuration. This is not evidence for the current Tata Intra vehicle tag; match the Cummins engine, pump pulley/impeller and OE reference before confirming fitment. Source: https://www.scribd.com/document/912640734/TATA-Signa-2823-1"
     ],
     "vehicles": [
       "Tata Intra"
@@ -47017,7 +47095,8 @@
     ],
     "description": "The Tata Genuine Parts 886750000002 Radiator Complete ACE/Magic BS3/4/6 transfers heat from circulating engine coolant to airflow so the coolant can return to the engine at a lower temperature. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
-      "Engine Cooling System"
+      "Engine Cooling System",
+      "Vehicle fitment evidence (secondary Tata alternate-parts catalogue, cooling-system table; OE 278850100124 / 278850100104 ↔ alternate part 886750000002): the complete radiator listing covers ACE/ACE BIFUEL/ACE CNG/ACE GOLD/ACE GOLD PETROL/ACE GOLD XL/ACE GOLD+/ACE HT/ACE XL and MAGIC/MAGIC BIFUEL/MAGIC CNG/MAGIC HT/MAGIC PETROL variants, across the stated BS2–BS6 phase 2 norms. This supports the Ace/Magic family tags only after matching the OE number, engine and emission variant. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "vehicles": [
       "Tata Ace",
@@ -47362,7 +47441,8 @@
     ],
     "description": "The JAI P30139 Rear Spring Pin 30x139 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P30139: the part title identifies Rear Spring Pin 30x139, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -47422,7 +47502,8 @@
     ],
     "description": "The JAI P30150 Rear Spring Pin 30x150 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P30150: the part title identifies Rear Spring Pin 30x150, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -47482,7 +47563,8 @@
     ],
     "description": "The JAI P30165 Rear Spring Pin 30x165 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P30165: the part title identifies Rear Spring Pin 30x165, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -47542,7 +47624,8 @@
     ],
     "description": "The JAI P35130 Rear Spring Pin 35x130 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35130: the part title identifies Rear Spring Pin 35x130, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata LPT"
@@ -47602,7 +47685,8 @@
     ],
     "description": "The JAI P35135 Rear Spring Pin 35x135 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35135: the part title identifies Rear Spring Pin 35x135, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -47662,7 +47746,8 @@
     ],
     "description": "The JAI P35136 Rear Spring Pin 35x136 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35136: the part title identifies Rear Spring Pin 35x136, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata LPT"
@@ -47722,7 +47807,8 @@
     ],
     "description": "The JAI P35139S Rear Spring Pin 35x139 small locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35139S: the part title identifies Rear Spring Pin 35x139 small, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -47782,7 +47868,8 @@
     ],
     "description": "The JAI P35140 Rear Spring Pin 35x140 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35140: the part title identifies Rear Spring Pin 35x140, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -47843,7 +47930,8 @@
     ],
     "description": "The JAI P35149 Rear Spring Pin 35x149 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata 2416 and Tata LPT.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35149: the part title identifies Rear Spring Pin 35x149, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata 2416, Tata LPT. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata 2416",
@@ -47904,7 +47992,8 @@
     ],
     "description": "The JAI P35151D Rear Spring Pin 35x151 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35151D: the part title identifies Rear Spring Pin 35x151, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -47965,7 +48054,8 @@
     ],
     "description": "The JAI P35155D Rear Spring Pin 35x155 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Eicher Pro Series and Ashok Leyland Captain.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35155D: the part title identifies Rear Spring Pin 35x155, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Eicher Pro Series, Ashok Leyland Captain. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Eicher Pro Series",
@@ -48026,7 +48116,8 @@
     ],
     "description": "The JAI P35165 Rear Spring Pin 35x165 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35165: the part title identifies Rear Spring Pin 35x165, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -48086,7 +48177,8 @@
     ],
     "description": "The JAI P35164 Rear Spring Pin35x164 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "Rear Suspension System"
+      "Rear Suspension System",
+      "Fitment status — supplier/OE confirmation pending for JAI code P35164: the part title identifies Rear Spring Pin35x164, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Ashok Leyland 2516. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -51126,7 +51218,8 @@
     ],
     "description": "The Leyparts F7A05000 Spin On Oil Filter 80K-S captures contaminants carried by circulating engine oil before they can recirculate through lubricated components. Vehicle applications include Ashok Leyland 2516 and Ashok Leyland Ecomet.",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle fitment evidence / engine-variant qualification (Bosch Commercial Vehicle Filters 2023, Ashok Leyland application chart; exact OE reference F7A05000): listed as an oil-filter reference for multiple Ashok Leyland variants, including 2516 iL, 2518/2518 T, U 2518, U 3118, 3118, 4123, 4923, 12M, Viking and other HCV models. This supports a subset of the current Ashok Leyland 2516 label (2516 iL only as specifically listed); it does not by itself confirm all Ecomet variants. Match the engine, filter housing and full OE marking before order. Luman's 2021 catalogue also cross-references F7A05000 as an oil filter for AL Boss vehicles with 4CTI engine and combines. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf ; https://www.pssao.com/catlog/lm/LUMAN%20PRODUCT%20CATALOGUE%202021.pdf"
     ],
     "vehicles": [
       "Ashok Leyland 2516",
@@ -51379,7 +51472,8 @@
     "description": "The Harish Spring Bush Front Prima N/M provides a bearing surface at a pivot joint and helps control movement between connected suspension or steering components. Vehicle applications include Tata Signa, Tata Prima and Tata LPT.",
     "applications": [
       "Leaf Spring Suspension System",
-      "Suspension Repair"
+      "Suspension Repair",
+      "Fitment status — supplier/OE confirmation pending: this SKU has no manufacturer part number or OE cross-reference recorded. The current Tata Signa, Tata Prima, Tata LPT tags are catalogue-level associations, not supplier-confirmed fitment. Confirm front spring-bush inner/outer diameter, length, flange, sleeve dimensions and spring-eye/chassis variant before order."
     ],
     "vehicles": [
       "Tata Signa",
@@ -51500,7 +51594,8 @@
     ],
     "description": "The JAI P16110 Spring Pin 16x110 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata Ace and Tata Intra.",
     "applications": [
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "Fitment status — supplier/OE confirmation pending for JAI code P16110: the part title identifies Spring Pin 16x110, but the supplier references available in this audit do not provide a vehicle-specific cross-reference for Tata Ace, Tata Intra. The dimensional code alone does not prove make/model compatibility. Confirm actual pin/lever diameter and length, bush or spring-eye width, end profile, lubrication groove and axle/steering position against the vehicle and JAI pack marking before treating the listed vehicle mapping as verified."
     ],
     "vehicles": [
       "Tata Ace",
@@ -51623,7 +51718,8 @@
     ],
     "description": "The JAI P32151D Spring Pin 32 x 151 locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT and Tata Signa.",
     "applications": [
-      "Leaf Spring Suspension System"
+      "Leaf Spring Suspension System",
+      "Fitment status — part-code conflict pending resolution: JAI code P32151D (32 × 151 mm) appears in two catalogue records, one tagged Tata LPT/Tata Signa and the other Ashok Leyland 2516. The nominal dimensions do not establish interchangeability across these models. Obtain the manufacturer's drawing/pack marking and confirm spring-eye width, pin profile, lubrication groove and chassis/axle application before confirming either vehicle mapping."
     ],
     "vehicles": [
       "Tata LPT",
@@ -52312,7 +52408,8 @@
     ],
     "description": "The JAI P52148 Spring Pin 52 x 148 mm locates a suspension or steering joint and provides a pivot surface for the connected link, lever or spring-eye assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Leaf Spring Suspension System"
+      "Leaf Spring Suspension System",
+      "Fitment status — product-function conflict pending resolution: JAI code P52148 (52 × 148 mm) appears in this catalogue both as a “Spring Pin” and as a “Lever Pin”, with different vehicle tags. The shared code/dimensions are not enough to treat the two functions or applications as interchangeable. Verify the manufacturer's part marking, pin-end profile, grease path, bush/eye dimensions and assembly location before confirming Tata LPT/Tata Prima application."
     ],
     "vehicles": [
       "Tata LPT"
@@ -53952,7 +54049,8 @@
     "description": "The Tata Genuine Parts 285126200116 Synchro Kit (3/4 Speed) W supports smooth gear engagement by bringing rotating transmission components closer to matching speed before the gear teeth engage. Vehicle applications include Tata 1109, Tata 1210 and Tata 1312.",
     "applications": [
       "Manual Transmission Overhaul",
-      "Gearbox Repair"
+      "Gearbox Repair",
+      "Vehicle fitment evidence / gearbox-variant qualification (Tata ACE / ACE HT Diesel BS-IV parts catalogue, chassis type 445057; exact part 285126200116): listed as the 3rd/4th-speed synchronizer kit in the gears-and-shafts group. This confirms the part in that ACE/ACE HT BS-IV gearbox configuration, not the current broader Tata 1109 / 1210 / 1312 tags. Match chassis, gearbox and synchronizer carrier before treating it as interchangeable with those models. Source: https://www.scribd.com/document/512677113/TATA-ACE-TATA-ACE-HT-DIESEL-BS-IV"
     ],
     "vehicles": [
       "Tata 1109",
@@ -58724,7 +58822,8 @@
     "description": "The Tata Genuine Parts 571005116302 Timing Belt transmits rotation from the driving pulley to connected engine accessories; ribbed or Poly-V designs use multiple longitudinal ribs to engage matching pulleys. Vehicle applications include Tata Ace and Tata Magic.",
     "applications": [
       "Engine Timing System",
-      "Scheduled Maintenance"
+      "Scheduled Maintenance",
+      "Vehicle fitment evidence / variant qualification (Tata Motors Magic Mantra 800 CC BS4 parts catalogue, VC 55375720000R, engine timing parts table; exact part 571005116302): listed as the BS3/BS4/BS6 timing belt for the Magic Mantra 800 CC BS4 powertrain. This supports that specific Magic Mantra configuration only; it does not establish all Ace/Magic engine and emission variants. Verify engine and belt routing before order. Source: https://www.scribd.com/document/514058700/Tata-Magic-Mantra-Catloge"
     ],
     "vehicles": [
       "Tata Ace",
@@ -69544,7 +69643,8 @@
     "description": "The Fenner AV13X1325T is a cogged engine fan belt designed for commercial vehicle cooling-system drives. It transfers engine power to the belt-driven fan assembly, supporting airflow through the engine cooling system. Fenner application references associate this belt with Tata 697 Turbo, 1612, 1616, 1516 and 709 applications, subject to the listed engine configuration.",
     "applications": [
       "Fan-belt drive",
-      "listed Tata commercial-vehicle applications."
+      "listed Tata commercial-vehicle applications.",
+      "Vehicle fitment evidence (JK Fenner CV/PV/Tractors Belt Price List 2024, LCV/HCV belt table; exact part AV13X1325T): listed for the 697 Turbo / 1612 / 1616 / 1516 / 709 (2013 onwards) as a fan belt. This supports Tata 709 on the current vehicle list; the broad Tata LPT tag must be narrowed to the listed engine/model variants rather than treated as a blanket LPT fitment. Source: https://pssao.com/catlog/fenner/Fan%20Belt%20List%202024.pdf"
     ],
     "vehicles": [
       "Tata 709",
@@ -70879,7 +70979,8 @@
     "applications": [
       "Tata 3118 Propeller Shaft Assembly",
       "Front Teeth Component",
-      "26-Spline Driveline Application. Confirm exact vehicle variant and mating dimensions before installation."
+      "26-Spline Driveline Application. Confirm exact vehicle variant and mating dimensions before installation.",
+      "Vehicle application evidence (RKI Auto Parts Catalogue 2023, p. 93; exact RKI part number K562): identified as a Tata 3118 front-teeth component, 26-spline, 168.5 mm length, 54.5 mm spline OD and 55 mm bearing size. This supports the Tata 3118 driveline interface only; the current broader Tata LPT/Tata Signa tags require matching the actual shaft dimensions and spline before being treated as confirmed. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
     ],
     "vehicles": [
       "Tata LPT",
@@ -73489,7 +73590,8 @@
     "applications": [
       "Alternator and fan drive",
       "Tata 697 NA",
-      "1313 and 1610."
+      "1313 and 1610.",
+      "Vehicle fitment evidence (JK Fenner CV/PV/Tractors Belt Price List 2024, LCV/HCV belt table; exact part TW1280, OE cross-reference 252520156305): listed for Tata 697 N.A. / 1313 / 1610 as an alternator/fan belt. The current Tata LPT family tag is broader than the supplier's specific engine/model application; check engine code before confirming a vehicle. Source: https://pssao.com/catlog/fenner/Fan%20Belt%20List%202024.pdf"
     ],
     "vehicles": [
       "Tata LPT"
@@ -73794,7 +73896,8 @@
     "description": "The Fenner TW1355 is a cogged engine belt listed for Tata 2515 Turbo CMVR engine applications. It is used in the engine's fan and alternator drive arrangement, transferring mechanical power to the connected accessories. Its profile is designed for engagement with the matching engine pulleys and consistent belt-driven operation.",
     "applications": [
       "Fan and alternator drive",
-      "Tata 2515 Turbo CMVR."
+      "Tata 2515 Turbo CMVR.",
+      "Vehicle fitment evidence (JK Fenner CV/PV/Tractors Belt Price List 2024, LCV/HCV belt table; exact part TW1355): listed for Tata 2515 Turbo CMVR engine as an alternator/fan belt. The current Tata LPT tag should be treated as a vehicle-family label only; confirm the 2515 Turbo CMVR engine and belt routing before order. Source: https://pssao.com/catlog/fenner/Fan%20Belt%20List%202024.pdf"
     ],
     "vehicles": [
       "Tata LPT"
@@ -73852,7 +73955,8 @@
     "description": "The Fenner TRK1240 is a tractor V-belt designed for water-pump drive applications. It transfers engine power to the water-pump pulley, supporting circulation within the engine cooling system. Fenner application references associate this belt with Swaraj tractors, Escorts 3036 and Zetor 5511 applications.",
     "applications": [
       "Water-pump drive",
-      "Escorts 3036 and Zetor 5511."
+      "Escorts 3036 and Zetor 5511.",
+      "Vehicle fitment evidence (JK Fenner CV/PV/Tractors Belt Price List 2024, tractor belt table; exact part TRK1240, reference 5.05.02.0): listed for Escorts 3036 / Zetor 5511 (B-46) in a water-pump (WP) application. The generic “Tractors” vehicle label is consistent with the part category, but these exact tractor models are the catalogue-supported applications. Source: https://pssao.com/catlog/fenner/Fan%20Belt%20List%202024.pdf"
     ],
     "vehicles": [
       "Tractors"
