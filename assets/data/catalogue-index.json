@@ -7724,7 +7724,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000119/1.webp",
     "applications": [
       "Hydraulic Clutch System",
-      "Clutch Actuation Assembly"
+      "Clutch Actuation Assembly",
+      "Vehicle fitment evidence (Brakes India Updated List effective 01-Nov-2025, exact BI part 29068117 / CMC assembly 29066705; cross-reference corroborated by TVS Girling part-number listing): specified for Tata 2515 / 3515 HCV applications. This supports the model family in the product title; the current generic Tata LPT tag should be interpreted only for the matching 2515/3515 chassis, clutch master-cylinder bore and mounting configuration. Source: https://www.scribd.com/document/940942382/Brakes-India-Updated-List-w-e-f-1-1-2025"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -28558,7 +28559,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000471/1.webp",
     "applications": [
-      "Clutch Hydraulic System"
+      "Clutch Hydraulic System",
+      "Vehicle fitment evidence (Tata HCV Spare Parts Guide / Brakes India parts cross-reference, pp. 72–73; exact BI part 29066296, TML OE references 257329100154 / 251029300102): identified as a 38.1 mm concentric slave cylinder for the SE/SK 1613 BS-II and BS-III variants, including SE 1613TC and SK 1613TC. This is variant-specific and does not establish all Tata LPT models; match the bellhousing/clutch system and 38.1 mm cylinder before order. Source: https://www.scribd.com/document/528015224/Tml-Hcv-Final"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -49424,7 +49426,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000807/1.webp",
     "applications": [
-      "Tata 1210 / 1312 master-cylinder repair application."
+      "Tata 1210 / 1312 master-cylinder repair application.",
+      "Vehicle fitment evidence (TVS Girling / Ashvin Auto Parts supplier part-number index and Brakes India Updated List effective 01-Nov-2025; exact part 29967062): listed as a CMC Major Kit for Tata 1210 / 1312 DAOH. The Tata HCV guide cross-references this kit to TML OE 261829100109 and identifies the parent CMC as 25.4 mm AS type, BS-II. Confirm the installed cylinder bore and DAOH variant before use. Sources: https://ashvinautoparts.com/tvs-girling/ ; https://www.scribd.com/document/940942382/Brakes-India-Updated-List-w-e-f-1-1-2025"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -50092,7 +50095,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000817/1.webp",
     "applications": [
-      "CA-20 ft trailer / 2-duo trailer balloon application."
+      "CA-20 ft trailer / 2-duo trailer balloon application.",
+      "Supplier cross-reference qualification (TVS Air Springs product note; source code SIAS6214D): supplier lists a 20F (DUO) lift-axle air spring for TATA / Ashok Leyland / BharatBenz / Mahindra. The Souviks part number is SIAS6214DT, with an additional trailing “T” not shown in the supplier reference. Treat the source as a possible base-code cross-reference only; verify the complete manufacturer marking, bellows height, top/bottom plates and stroke before confirming Tata Ultra fitment. Source: https://rhinoautomobiles.in/pdf/tvs-air-springs.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40169590",
