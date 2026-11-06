@@ -130,9 +130,87 @@ def reconcile_catalogue_projections():
     SEARCH_PATH = ROOT / "assets/data/search.json"
     
     catalogue = json.loads(CATALOGUE_PATH.read_text(encoding="utf-8"))
-    
+
     def text(v):
         return str(v or "").strip()
+
+    # Apply auditable manual supplier-invoice matches before generating the
+    # canonical catalogue projections. This overlay is idempotent: the source
+    # file remains the evidence ledger, while repeated builds merge unique
+    # values without duplicating supplier names, Odoo IDs or match methods.
+    supplier_resolution_path = ROOT / "assets/data/hsn-supplier-invoice-manual-resolutions.json"
+    if supplier_resolution_path.exists():
+        try:
+            supplier_resolution_data = json.loads(supplier_resolution_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid manual supplier HSN resolution file: {exc}")
+        supplier_resolution_records = supplier_resolution_data.get("records") if isinstance(supplier_resolution_data, dict) else None
+        if not isinstance(supplier_resolution_records, list):
+            raise SystemExit("Manual supplier HSN resolutions must contain a records array")
+        catalogue_by_id = {text(p.get("id")): p for p in catalogue if isinstance(p, dict) and text(p.get("id"))}
+
+        def merge_unique_strings(existing, addition):
+            values = existing if isinstance(existing, list) else []
+            result = []
+            for value in [*values, addition]:
+                value = text(value)
+                if value and value not in result:
+                    result.append(value)
+            return result
+
+        seen_manual_resolution_keys = set()
+        for resolution in supplier_resolution_records:
+            if not isinstance(resolution, dict):
+                raise SystemExit("Every manual supplier HSN resolution must be an object")
+            product_id = text(resolution.get("id"))
+            supplier_code = text(resolution.get("supplier_invoice_hsn_code"))
+            supplier_name = text(resolution.get("supplier_product_name"))
+            supplier_external_id = text(resolution.get("supplier_odoo_external_id"))
+            match_method = text(resolution.get("match_method"))
+            if not all([product_id, supplier_name, supplier_external_id, match_method]):
+                raise SystemExit("Manual supplier HSN resolution is missing required identity/provenance fields")
+            if not supplier_code.isdigit() or len(supplier_code) not in (6, 7, 8):
+                raise SystemExit(f"Invalid supplier invoice HSN code for {product_id}: {supplier_code!r}")
+            unique_key = (product_id, supplier_external_id)
+            if unique_key in seen_manual_resolution_keys:
+                raise SystemExit(f"Duplicate manual supplier HSN resolution: {product_id} / {supplier_external_id}")
+            seen_manual_resolution_keys.add(unique_key)
+            product = catalogue_by_id.get(product_id)
+            if product is None:
+                raise SystemExit(f"Manual supplier HSN resolution references unknown catalogue SKU: {product_id}")
+
+            codes = product.get("hsn_supplier_invoice_codes")
+            if not isinstance(codes, list):
+                codes = []
+            existing_code = text(product.get("hsn_supplier_invoice_code"))
+            if existing_code and existing_code not in codes:
+                codes.append(existing_code)
+            if supplier_code not in codes:
+                codes.append(supplier_code)
+            product["hsn_supplier_invoice_codes"] = codes
+            if len(codes) == 1:
+                product["hsn_supplier_invoice_code"] = codes[0]
+                product["hsn_supplier_invoice_match_status"] = "matched"
+                catalogue_candidate = text(product.get("hsn_code"))
+                product["hsn_supplier_invoice_candidate_alignment"] = (
+                    "not_compared" if not catalogue_candidate
+                    else ("agrees" if catalogue_candidate == codes[0] else "differs")
+                )
+            else:
+                product["hsn_supplier_invoice_code"] = ""
+                product["hsn_supplier_invoice_match_status"] = "conflict"
+                product["hsn_supplier_invoice_candidate_alignment"] = "conflicting_supplier_codes"
+            product["hsn_supplier_invoice_source_names"] = merge_unique_strings(
+                product.get("hsn_supplier_invoice_source_names"), supplier_name
+            )
+            product["hsn_supplier_invoice_external_ids"] = merge_unique_strings(
+                product.get("hsn_supplier_invoice_external_ids"), supplier_external_id
+            )
+            product["hsn_supplier_invoice_match_methods"] = merge_unique_strings(
+                product.get("hsn_supplier_invoice_match_methods"), match_method
+            )
+            product["hsn_supplier_invoice_source_file"] = text(product.get("hsn_supplier_invoice_source_file")) or "hsn.xlsx"
+            product["hsn_supplier_invoice_match_date"] = text(product.get("hsn_supplier_invoice_match_date")) or "2026-11-06"
 
     def normalize_slug(value):
         value = text(value).casefold()
