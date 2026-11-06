@@ -732,6 +732,26 @@
       "part_reference": "FA0067900",
       "evidence": "Exact part number FA0067900 and exact Brake Lining with Rivets product title on the catalogue page. The supplier row uses the Leyparts brand label while the catalogue page shows Fleetguard; the brand-label discrepancy is retained in source traceability rather than normalised away.",
       "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000482",
+      "supplier_invoice_hsn_code": "87083000",
+      "supplier_product_name": "TVS Girling - 29068117 - CMC Assy for TML 2515/3515",
+      "supplier_odoo_external_id": "__export__.product_template_121_bdd057b1",
+      "match_method": "manual_exact_part_number_title_application",
+      "part_reference": "29068117",
+      "evidence": "Exact supplier part number 29068117 equals catalogue part_number 29068117 and catalogue manufacturer part reference. Catalogue SKU SVKS000482 is the Clutch Master Cylinder for Tata LPT; supplier's CMC assembly label and TML 2515/3515 application are consistent with the product type. A separate source row for the same exact part carries HSN 87089300; preserve both as a supplier-code conflict.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000482",
+      "supplier_invoice_hsn_code": "87089300",
+      "supplier_product_name": "TVS Girling - 29068117 - Clutch Master Cylinder Assembly",
+      "supplier_odoo_external_id": "__export__.product_template_6351_fcc71802",
+      "match_method": "manual_exact_part_number_title_application",
+      "part_reference": "29068117",
+      "evidence": "Exact supplier part number 29068117 equals catalogue part_number 29068117, and title Clutch Master Cylinder Assembly matches the catalogue title. A separate invoice row for the same exact part carries 87083000; preserve both as a supplier-code conflict.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
     }
   ]
 }
