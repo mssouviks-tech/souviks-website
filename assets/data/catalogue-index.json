@@ -21277,7 +21277,8 @@
     "applications": [
       "Engine Lubrication Filtration System",
       "Preventive Maintenance",
-      "Scheduled Service"
+      "Scheduled Service",
+      "Vehicle application evidence and source-scope qualification (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG reference LF9028): Fleetguard includes LF9028 as the lube-filter element in a three-piece TC service kit (FF5544 + 5000549 + LF9028) with OE kit reference 885418013118 for Tata 3118 TC BS III. This establishes an inclusion in that specific service-kit configuration, not a universal direct-fit claim for every Tata LPT engine. Confirm engine series, emissions level and housing before ordering."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -41435,7 +41436,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000684/1.webp",
     "applications": [
       "Air-filter kit using AF25884 + AF25885",
-      "commercial/off-highway applications."
+      "commercial/off-highway applications.",
+      "Vehicle fitment evidence / current vehicle-tag conflict (Fleetguard HCV/LCV After Market Price List, effective 21-May-2021; exact FG part 820007000, OE reference 885409051613): the set AF25884 + AF25885 is listed for Tata 1612 SE with 697 engine, BS II. AF25884 is the primary element and AF25885 the safety element. The current Souviks vehicle tag “Tata 1512” is not supported by this exact source entry; verify the engine and air-cleaner housing before promoting the application."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84213100",
