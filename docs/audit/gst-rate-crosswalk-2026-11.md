@@ -2,7 +2,7 @@
 
 ## Release decision
 
-**Do not enable automated tax invoices yet.** The HSN catalogue is more accurate, but 1,076 SKU records remain provisional or review-required. HSN alone does not determine the GST amount: the notified goods description, special schedule wording, vehicle use, composition, place of supply, freight treatment and effective date can change the result.
+**Do not enable automated tax invoices yet.** The HSN catalogue is more accurate, but 1,075 SKU records remain provisional or review-required. HSN alone does not determine the GST amount: the notified goods description, special schedule wording, vehicle use, composition, place of supply, freight treatment and effective date can change the result.
 
 This is a heading-level crosswalk for accountant review, not an executable SKU rate table. The unresolved SKU worklist deliberately leaves GST rate fields blank.
 
@@ -32,7 +32,7 @@ Relevant subsequent amendment checks:
 | 2710 / 3403 — petroleum oils / lubricating preparations | Product-specific schedule match required | Petroleum-oil percentage, BIS conformity and formulation determine classification; do not infer from the marketing name alone. |
 | 3102 — urea | Description/use-specific | Fertilizer goods and other urea/aqueous preparations are not interchangeable classifications. Check the exact notified description. |
 | 8708 — motor-vehicle parts | **18% general auto-component rate** | The Ministry of Finance's published change table lists heading 8708 parts/accessories generally at 18%; it separately lists specified tractor components at 5%. Exact product description and tractor-use conditions must match the listed exceptions. |
-| 8409 / 8413 / 8414 / 8511 / 8536 / 8539 and remaining headings | No SKU rate populated in this tranche | Each needs a match to the current operative notification and the exact goods description. |
+| 8409 / 8413 / 8414 / 8511 / 8536 / 8539 and remaining headings | No SKU rate populated in this tranche | Each needs a match to the current operative notification and the exact goods description. For SVKS000570, Uno Minda publishes HSN 85365090; that is a classification reference, not a GST-rate approval. The applicable rate must be matched to the exact entry and goods description in Notification 9/2025. |
 
 ### 8708 source-conflict warning
 
@@ -43,7 +43,7 @@ References for the conflict and operative rate change:
 - PIB / Ministry of Finance table: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163671&lang=2&reg=3
 - The Ministry's 57th Council amendment, effective 1 November 2026, lists the affected fertilizer and tyre entries; it does not amend the vehicle-parts table: https://egazette.servantsofknowledge.in/details/in.gazette.central.e.2026-10-27.277454/
 
-A customs-tariff page's basic customs duty is **not** the GST rate. Do not map basic customs duty percentages to GST.
+A customs-tariff page's basic customs duty is **not** the GST rate. Do not map basic customs duty percentages to GST. The supplier-published HSN for a product also does not, by itself, select the GST rate: use the notified description, effective date and all applicable conditions.
 
 ## Server-side invoice gate
 
@@ -70,7 +70,7 @@ The supplied GST REG-06 certificate is dated 7 July 2018. It shows the details o
 
 ## Work remaining
 
-- Supplier/OEM evidence for 1,076 non-final HSN rows.
+- Supplier/OEM evidence for 1,075 non-final HSN rows.
 - Accountant approval of GST rate and effective date per SKU.
 - Current GST Portal status check and seller identity reconciliation.
 - Production invoice generation, storage, numbering, delivery and credit-note/refund workflow; the fillable PDF layout remains a non-calculating template.
