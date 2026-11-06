@@ -762,6 +762,16 @@
       "part_reference": "B 1145",
       "evidence": "Exact manufacturer part reference B 1145 equals the catalogue part_number B 1145 (normalised spacing) and exact Balance Rod Bush title. The source brand is Nirmal while the catalogue brand is BIR; that label difference is retained in provenance. Existing catalogue HSN candidate remains untouched.",
       "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000229",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "Nirmal - B 1151 - Rear Engine Mount Signa 16mm",
+      "supplier_odoo_external_id": "__export__.product_template_5467_2d8708a0",
+      "match_method": "manual_exact_part_number_title_cross_brand",
+      "part_reference": "B 1151",
+      "evidence": "Exact manufacturer reference B 1151 (normalised spacing) and exact Rear Engine Mount Signa 16mm title match catalogue SKU SVKS000229. Source brand is Nirmal while catalogue brand is BIR; the supplier label remains recorded separately. Supplier invoice code agrees with the existing catalogue HSN candidate; this does not promote the candidate to a legal classification.",
+      "review_status": "manual_identity_verified"
     }
   ]
 }
