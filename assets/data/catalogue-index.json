@@ -7026,7 +7026,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000107/1.webp",
     "applications": [
-      "Engine Lubrication Filtration System"
+      "Engine Lubrication Filtration System",
+      "Vehicle application evidence and current-tag reconciliation (Nitol Motors e-Dukan; Tata Motors distributor in Bangladesh; exact part 279018130107): listed as “Oil Filter Assy ACE/EX2”. This supplier/dealer listing supports ACE / ACE EX2 oil-filter application; it does not substantiate the current Tata 1109 / 1210 / 1312 tags. Confirm the engine and filter housing before extending fitment to other chassis."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
