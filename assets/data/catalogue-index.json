@@ -17597,7 +17597,24 @@
     "hsn_classification_status": "review_required",
     "hsn_basis": "The product is identified as a bush/bushing.",
     "hsn_review_note": "Confirm vulcanised-rubber construction and whether it is a standalone bush rather than a bearing or complete linkage assembly.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87089300"
+    ],
+    "hsn_supplier_invoice_code": "87089300",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_source_names": [
+      "Nirmal - B 1145 - Balance Rod Bush"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5466_cc916865"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000229",
@@ -17661,7 +17678,24 @@
       }
     ],
     "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
-    "dimensions_source": "product_dimension_specifications_manifest"
+    "dimensions_source": "product_dimension_specifications_manifest",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "Nirmal - B 1151 - Rear Engine Mount Signa 16mm"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5467_2d8708a0"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000230",
@@ -36319,7 +36353,27 @@
     "hsn_classification_status": "provisional",
     "hsn_basis": "The product is a clutch assembly, actuator, plate, cover, hydraulic cylinder, booster or dedicated clutch-service component.",
     "hsn_review_note": "Confirm that a separately presented bearing, spring or unmounted friction material is not being supplied as a standalone good.",
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "87083000",
+      "87089300"
+    ],
+    "hsn_supplier_invoice_code": "",
+    "hsn_supplier_invoice_match_status": "conflict",
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes",
+    "hsn_supplier_invoice_source_names": [
+      "TVS Girling - 29068117 - CMC Assy for TML 2515/3515",
+      "TVS Girling - 29068117 - Clutch Master Cylinder Assembly"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_121_bdd057b1",
+      "__export__.product_template_6351_fcc71802"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_application"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000483",

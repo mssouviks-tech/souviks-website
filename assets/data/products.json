@@ -22905,15 +22905,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "87089300",
+    "hsn_supplier_invoice_codes": [
+      "87089300"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "Nirmal - B 1145 - Balance Rod Bush"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5466_cc916865"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS000229",
@@ -22998,15 +23006,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "Nirmal - B 1151 - Rear Engine Mount Signa 16mm"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_5467_2d8708a0"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "agrees"
   },
   {
     "id": "SVKS000230",
@@ -47685,14 +47701,25 @@
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
     "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_codes": [
+      "87083000",
+      "87089300"
+    ],
+    "hsn_supplier_invoice_match_status": "conflict",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_application"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "TVS Girling - 29068117 - CMC Assy for TML 2515/3515",
+      "TVS Girling - 29068117 - Clutch Master Cylinder Assembly"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_121_bdd057b1",
+      "__export__.product_template_6351_fcc71802"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes"
   },
   {
     "id": "SVKS000483",
