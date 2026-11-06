@@ -11315,7 +11315,8 @@
     "applications": [
       "Electrical System",
       "Steering Column Controls",
-      "Lighting Controls"
+      "Lighting Controls",
+      "Supplier application conflict (Anupam Industries official Combination Switches catalogue; exact Anupam code AI-468): the manufacturer lists AI-468 for Ashok Leyland G45 and Ecomet passenger models, with a 2-pin 12+15=27 connector. This does not substantiate the current Tata 1512 / Ashok Leyland 2516 vehicle tags. Keep those tags unconfirmed until the physical switch body, connector pinout and wiring configuration are matched. Source: https://anupamind.com/Combination%20Switches%20and%20Spares.html"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -17128,7 +17129,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Front Air Brake System",
-      "S-Cam Brake Assembly"
+      "S-Cam Brake Assembly",
+      "OEM application / current-tag conflict (Ashok Leyland Genuine Parts Application Manual, Brake Slack Adjuster table; exact OE part F3P00100): specifies front LH manual slack adjuster, 160 mm offset, for U3518, U4923 (NRS/Bogie), U4023, 12M FE CRS and Luxura BS3. The current Ashok Leyland 2516 tag is not listed for this exact part in that table. MEI cross-reference maps F3P00100 to MSA 18-150 and gives 38.10 mm CD, 160 mm offset, 10-spline product configuration. Verify physical OE marking and spline/offset before extending fitment. Sources: https://pssao.com/catlog/al/APPLICATION%20MANUAL.pdf ; https://pssao.com/catlog/mei/MEI%20PARTS%20CATALOGUE.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -17181,7 +17183,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Front Air Brake System",
-      "S-Cam Brake Assembly"
+      "S-Cam Brake Assembly",
+      "OEM application / current-tag conflict (Ashok Leyland Genuine Parts Application Manual, Brake Slack Adjuster table; exact OE part F3P00200): specifies front RH manual slack adjuster, 160 mm offset, for U3518, U4923 (NRS/Bogie), U4023, 12M FE CRS and Luxura BS3. The current Ashok Leyland 2516 tag is not listed for this exact part in that table. MEI cross-reference maps F3P00200 to MSA 18-151 and gives 38.10 mm CD, 160 mm offset, 10-spline product configuration. Verify physical OE marking and spline/offset before extending fitment. Sources: https://pssao.com/catlog/al/APPLICATION%20MANUAL.pdf ; https://pssao.com/catlog/mei/MEI%20PARTS%20CATALOGUE.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -26382,7 +26385,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000433/1.webp",
     "applications": [
       "Electrical System",
-      "Lighting Control System"
+      "Lighting Control System",
+      "Supplier application evidence and current-tag qualification (Uno Minda product brochure; exact part S11180-000M00): lists TATA 1210 / 1510 / 2515 / 2516 / 2518 / 3118 — AGRO PACK for this 2-stalk light-and-wiper combination switch. The current generic Tata LPT tag is broader than the source and does not identify the Agro Pack configuration. Match the switch coupler, wiring/pinout and steering-column variant; do not treat every Tata LPT as confirmed. Source: https://unomindakart.com/brochure/uno-minda-s11180-000m00-lever-combination-switch--2-stalk-light--wiper-for-tata-1210-1510-2515-2516-2518-3118-agropack-set-of-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -28032,7 +28036,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000461/1.webp",
     "applications": [
       "Engine Overhaul",
-      "Piston Assembly"
+      "Piston Assembly",
+      "Vehicle fitment evidence (Tata piston-ring application table; exact part 278803990113): listed as “SET PISTON RINGS” for ACE / MAGIC, BS II / III / IV. This supports the Ace and Magic engine family within those emission variants; it does not establish CNG derivatives or other engine families. Confirm engine code and piston/ring grade before ordering. Source: https://3.imimg.com/data3/GY/AD/MY-6342005/piston-ring.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84099900",
@@ -62931,7 +62936,8 @@
       "Speedometer control",
       "speedometer cable",
       "3.2 mm DIA",
-      "2350 mm"
+      "2350 mm",
+      "Vehicle fitment evidence (Tata ACE MAGIC Parts List, February 2009, Electrical Equipments Group 54; exact part 282954209902): listed as 3.2 mm diameter, 2350 mm speedometer cable for Ace Magic chassis types 445111 / 445112 and 445121 / 445122 (BS-II / BS-III passenger variants). This supports the specified cable length and listed chassis variants, not every later Ace/Magic derivative. Verify instrument-cluster ratio and cable end fittings. Source: https://www.scribd.com/document/655235579/Magic"
     ],
     "gallery": [
       "1.webp",
