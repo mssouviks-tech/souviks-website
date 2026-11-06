@@ -752,6 +752,16 @@
       "part_reference": "29068117",
       "evidence": "Exact supplier part number 29068117 equals catalogue part_number 29068117, and title Clutch Master Cylinder Assembly matches the catalogue title. A separate invoice row for the same exact part carries 87083000; preserve both as a supplier-code conflict.",
       "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000228",
+      "supplier_invoice_hsn_code": "87089300",
+      "supplier_product_name": "Nirmal - B 1145 - Balance Rod Bush",
+      "supplier_odoo_external_id": "__export__.product_template_5466_cc916865",
+      "match_method": "manual_exact_part_number_title_cross_brand",
+      "part_reference": "B 1145",
+      "evidence": "Exact manufacturer part reference B 1145 equals the catalogue part_number B 1145 (normalised spacing) and exact Balance Rod Bush title. The source brand is Nirmal while the catalogue brand is BIR; that label difference is retained in provenance. Existing catalogue HSN candidate remains untouched.",
+      "review_status": "manual_identity_verified"
     }
   ]
 }
