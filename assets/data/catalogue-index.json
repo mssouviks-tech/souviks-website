@@ -17348,7 +17348,7 @@
     "gallery_dimensions": {},
     "applications": [
       "Drum Brake System",
-      "Vehicle application evidence (Fleetguard HCV/LCV price-list entry, exact part number FA0067900; secondary distributor listing cross-check): Fleetguard lists this as a standard 12-hole brake-lining set for LPT 2523 TC BS IV (reference row describes “LPT2523 TC-BS4”). This does not independently support the current Ashok Leyland 2516 vehicle tag. Confirm the shoe/lining pattern and OE cross-reference before changing the vehicle field. Source references: https://www.scribd.com/document/704429716/fleet-guard-new ; https://www.smartpartsexports.com/brands/aftermarkets-brands/fleetguard-spare-parts"
+      "Vehicle application evidence (Fleetguard HCV/LCV price list, exact part number FA0067900 and reference 885442212523/180; secondary Fleetguard distributor cross-check): Fleetguard lists a standard 12-hole brake-lining set of four for Tata LPT 2523 TC BS IV. This does not confirm the current Ashok Leyland 2516 vehicle tag. Verify the OE reference, shoe pattern and hole layout before treating as compatible. Sources: https://www.scribd.com/document/704429716/fleet-guard-new ; https://www.smartpartsexports.com/brands/aftermarkets-brands/fleetguard-spare-parts"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87083000",
@@ -32421,7 +32421,6 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000535/1.webp",
     "applications": [
       "Pressure Plate Rebuild\nClutch Overhaul\nClutch Repair",
-      "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-380-CRK7): Ø380 major lever kit with bearing for Tata/Eicher GB75. This is a gearbox-family fitment; verify bearing inclusion and GB75 clutch interface.",
       "Gearbox application evidence (Texspin Master Price List 2025–26, printed p. 52; exact code TX-380-CRK7): Ø380 major lever kit with bearing for Tata/Eicher GB75. This confirms the gearbox family, not specific chassis models; verify the clutch diameter, lever configuration and bearing inclusion. Source: https://img1.wsimg.com/blobby/go/d9b2b195-f65e-4aae-848f-9899d2a5231e/Texspin.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -41491,8 +41490,7 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000685/1.webp",
     "applications": [
-      "Commercial/off-highway applications using Fleetguard twin filter head.",
-      "Part-application reconciliation (Fleetguard HCV/LCV price list and Filter Parts Catalogue; exact assembly code 502349300): Fleetguard describes this as “Head Assy with FS1003” (OE reference 220747700101). The same catalogue extract separately lists an FS1003 application for Tata 3718/4923 BS IV; the extracted table layout does not establish a direct chassis application for assembly code 502349300. The adjacent Prima 3128 ISBe / 3138 LPT line appears associated with a different filter code, FS19732. Do not publish Tata Prima 3128/3138 as confirmed for 502349300 until the assembly/element cross-reference is verified. The current broader Tata LPT vehicle label also remains unverified for this exact head assembly."
+      "Supplier part-application reconciliation (Fleetguard HCV/LCV price list, exact assembly code 502349300 and OE reference 220747700101): Fleetguard describes this as “Head Assy with FS1003”. The accessible price-list extract does not unambiguously establish the chassis or the association with an adjacent Tata Prima model row; the current Tata LPT vehicle tag is not confirmed for this head assembly. Verify the OE label, FS1003 connection and the original line layout before asserting any vehicle model. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -41683,7 +41681,7 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000688/1.webp",
     "applications": [
-      "Vehicle application evidence (Fleetguard 2024 HCV/LCV price-list rows, exact code FS1964400V and OE 252509120239): Tata 1612–3118 vehicles with 697 engine, BS III/IV, with drain valve. This does not prove every listed chassis without confirming the 697 engine and drain-valve configuration. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
+      "Vehicle application evidence (Fleetguard 2024 HCV/LCV price-list rows, exact code FS1964400V and OE 252509120239): Tata 1612–3118 vehicles with 697 engine, BS III/IV, with drain valve. The current product title calls out Tata 697 BS III; use the 697 engine and valve configuration as the fitment qualifiers rather than assuming every vehicle within the model range. Source: https://www.scribd.com/document/704429716/fleet-guard-new"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84212300",
@@ -56976,7 +56974,6 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Cross Joint Mounting",
-      "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, pp. 85–86; exact code K637): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 150 mm plate, 4 × 13.0 mm holes, 19-bolt pattern; the detailed application row lists Tata 2518. The current Souviks vehicle field says Tata LPT, which is broader and not the exact model in that row; verify the mating yoke and vehicle variant.",
       "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, pp. 85–86; exact code K637): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 150 mm plate, 4 × 13.0 mm holes, 19-bolt pattern; the detailed application row lists Tata 2518. The current Souviks vehicle field says Tata LPT, which is broader and not the exact model in that row; verify the mating yoke and vehicle variant. Source: https://www.rkpropshaft.com/download_files/66d7e88f79b55082350852.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -57057,7 +57054,6 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Cross Joint Mounting",
-      "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, p. 85; exact code K543): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 180 mm plate, 4 × 15.0 mm holes, 22-bolt pattern; the detailed application row lists Tata 3118. The current Souviks vehicle field says Tata LPT; verify the mating yoke and vehicle variant.",
       "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, p. 85; exact code K543): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 180 mm plate, 4 × 15.0 mm holes, 22-bolt pattern; the detailed application row lists Tata 3118. The current Souviks vehicle field says Tata LPT; verify the mating yoke and vehicle variant. Source: https://www.rkpropshaft.com/download_files/66d7e88f79b55082350852.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -57139,7 +57135,6 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Cross Joint Mounting",
-      "Vehicle-fitment reconciliation (RKI Auto Parts Catalogue 2023, p. 84; exact code K478): the SPR-series dimension table lists a 47.62 × 135 mm cross-holder yoke with 150 mm plate, 4 × 13.0 mm holes and 19-bolt pattern in the Taurus section. The Souviks tags Ashok Leyland U-Truck and Tata LPT are not directly proven by that entry; confirm cross dimensions and the correct RKI application page before publishing either as confirmed.",
       "Vehicle-fitment reconciliation (RKI Auto Parts Catalogue 2023, p. 84; exact code K478): the SPR-series dimension table lists a 47.62 × 135 mm cross-holder yoke with 150 mm plate, 4 × 13.0 mm holes and 19-bolt pattern in the Taurus section. The Souviks tags Ashok Leyland U-Truck and Tata LPT are not directly proven by that entry; confirm the precise cross-holder application page and mating shaft before treating either model as confirmed. Source: https://www.rkpropshaft.com/download_files/66d7e88f79b55082350852.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -57220,7 +57215,6 @@
     "applications": [
       "Propeller Shaft Assembly",
       "Cross Joint Mounting",
-      "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, p. 86; exact code K631): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 180 mm plate, 4 × 15.0 mm holes, 22-bolt pattern; the detailed application row lists Tata 3118. The current Souviks vehicle field says Tata LPT; verify the mating yoke and vehicle variant.",
       "Vehicle fitment evidence / vehicle-tag correction required (RKI Auto Parts Catalogue 2023, p. 86; exact code K631): SPR 2040 cross-holder flange yoke, 47.68 × 135 mm cross, 180 mm plate, 4 × 15.0 mm holes, 22-bolt pattern; the detailed application row lists Tata 3118. The current Souviks vehicle field says Tata LPT; verify the mating yoke and vehicle variant. Source: https://www.rkpropshaft.com/download_files/66d7e88f79b55082350852.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
