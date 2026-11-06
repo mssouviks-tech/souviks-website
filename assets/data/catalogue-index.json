@@ -7538,7 +7538,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000116/1.webp",
     "applications": [
       "Manual Transmission Overhaul",
-      "Gearbox Repair"
+      "Gearbox Repair",
+      "Vehicle fitment evidence / gearbox-variant qualification (Tata ACE / ACE HT Diesel BS-IV parts catalogue, chassis type 445057; exact part 285126200116): listed as the 3rd/4th-speed synchronizer kit in the gears-and-shafts group. This confirms the part in that ACE/ACE HT BS-IV gearbox configuration, not the current broader Tata 1109 / 1210 / 1312 tags. Match chassis, gearbox and synchronizer carrier before treating it as interchangeable with those models. Source: https://www.scribd.com/document/512677113/TATA-ACE-TATA-ACE-HT-DIESEL-BS-IV"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87084000",
@@ -9430,7 +9431,8 @@
     "applications": [
       "Hydraulic Clutch System",
       "Clutch Release Mechanism",
-      "Transmission Assembly"
+      "Transmission Assembly",
+      "OE-description evidence / model fitment still requires confirmation (Tata Genuine Parts part list; exact OE reference 554629100109): Tata lists this as a “Concentric Slave Cylinder Assy BS6”. The source confirms component type and BS6 service classification but does not identify a specific Intra chassis, engine or transmission. Keep Tata Intra as an unverified application pending VIN/gearbox or exact eCATS match; do not generalise to all Tata BS6 vehicles. Source: https://www.souviks.co.in/en/products?category_id=engine-components&vehicles=tata-magic"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -9485,7 +9487,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000146/1.webp",
     "applications": [
       "Hydraulic Clutch System",
-      "Clutch Actuation Assembly"
+      "Clutch Actuation Assembly",
+      "OE-description evidence / model fitment still requires confirmation (Tata Genuine Parts part list; exact OE reference 554629100110): Tata lists this as a “Clutch Master Cylinder with Hose BS6”. The source confirms component type and BS6 service classification but does not identify a specific Intra chassis, engine or transmission. An independent OE cross-reference groups the same reference under Tata bus/truck applications but does not confirm Intra specifically. Keep the current Tata Intra mapping pending VIN/eCATS and bore/port verification. Sources: https://www.souviks.co.in/en/products?category_id=engine-components&vehicles=tata-magic ; https://manuals.plus/m/c6b1c3d6884422fd11f92c5403e3ddc08f595b4ccf1d5b31037097029ca381b9.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -9540,7 +9543,8 @@
     "gallery_dimensions": {},
     "applications": [
       "Engine Timing System",
-      "Scheduled Maintenance"
+      "Scheduled Maintenance",
+      "Vehicle fitment evidence / variant qualification (Tata Motors Magic Mantra 800 CC BS4 parts catalogue, VC 55375720000R, engine timing parts table; exact part 571005116302): listed as the BS3/BS4/BS6 timing belt for the Magic Mantra 800 CC BS4 powertrain. This supports that specific Magic Mantra configuration only; it does not establish all Ace/Magic engine and emission variants. Verify engine and belt routing before order. Source: https://www.scribd.com/document/514058700/Tata-Magic-Mantra-Catloge"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "40103590",
@@ -9705,7 +9709,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000150/1.webp",
     "applications": [
-      "Fuel Filtration System"
+      "Fuel Filtration System",
+      "Vehicle fitment evidence (Tata alternate-parts catalogue, filters table; exact OE part 571009110105 ↔ alternate part 886409000003): listed as an assembly filter element for ACE, ACE MEGA, ACE XL, ACE ZIP, MAGIC, MAGIC EXPRESS, MAGIC IRIS, MAGIC MANTRA and V10, BS3/BS4. The current ACE/MAGIC family tags are supported at this family level; match the engine, filter head and emission norm before order. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -9759,7 +9764,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000151/1.webp",
     "applications": [
-      "Engine Cooling System"
+      "Engine Cooling System",
+      "Vehicle application conflict (Tata Motors Signa 2823.K TC ISBe5.6 BS6, VC 50690256000R, water-pump table WP98166.20.10; exact part 573720999901): Tata's parts catalogue lists this reference as the water pump for the Signa 2823.K TC ISBe5.6 BS6 configuration. This is not evidence for the current Tata Intra vehicle tag; match the Cummins engine, pump pulley/impeller and OE reference before confirming fitment. Source: https://www.scribd.com/document/912640734/TATA-Signa-2823-1"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84133030",
@@ -11896,7 +11902,8 @@
     "applications": [
       "Fuel Filtration System",
       "Scheduled Service Maintenance",
-      "BS6 Diesel Engine Protection"
+      "BS6 Diesel Engine Protection",
+      "Vehicle fitment conflict / cross-reference correction (Tata alternate-parts catalogue, filters table; exact alternate part 886409000006): listed as a kit-filter element for ACE GOLD / WINGER / YODHA BS6-PH1 and BS6-PH2, while this Souviks product title is “1.5L/2.2L BS6” and its vehicle tag is Tata Intra. The cited supplier table does not establish Tata Intra fitment; verify the OE reference, filter head and engine before offering for Intra. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84219900",
@@ -12283,7 +12290,8 @@
     "gallery_dimensions": {},
     "card_image_url": "/assets/images/product-thumbnails/SVKS000193/1.webp",
     "applications": [
-      "Front Disc Brake System"
+      "Front Disc Brake System",
+      "Vehicle fitment evidence / model conflict (Tata alternate-parts catalogue, brake-pad table; exact alternate part 886742000019, OE references 553742100106 / 553742100121): listed for ACE, MAGIC, MAGIC EXPRESS and MAGIC MANTRA, BS3/BS4/BS6-PH1/BS6-PH2. This supports the Magic family tag; the current Tata Intra tag is not supported by this code-specific row (the same source lists a separate Intra EV / V50 / V70 brake-pad kit under 886742000024). Confirm pad profile and caliper before treating the Intra tag as compatible. Source: https://www.scribd.com/document/1074991489/Alternate-Parts-Catalogue"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "68138100",
