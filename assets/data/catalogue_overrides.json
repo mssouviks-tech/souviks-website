@@ -65,6 +65,12 @@
       "append": [
         "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 520 L/R headlamps for Volvo Eicher LCV (H4 P43T; 12V/24V; LHT/RHT). Souviks records NEO520 (L), which is close but not an exact code suffix match to the catalogue's NEO-520L E. The catalogue does not support the current Tata 407/709 tags; confirm package marking, OE, beam, connector and mounting before asserting Tata fitment. Source: https://neolitezkw.com/wp-content/uploads/2026/02/NeoliteZKW_Company-Catalogue_2022.pdf"
       ]
+    },
+    {
+      "id": "SVKS000383",
+      "append": [
+        "Neolite ZKW Company Catalogue 2022, printed p. 134, identifies NEO 520 L/R headlamps for Volvo Eicher LCV (H4 P43T; 12V/24V; LHT/RHT). Souviks records NEO520 (R), which is close but not an exact suffix match to catalogue item NEO-520R E. The catalogue does not support the current Tata 407/709 tags; confirm package marking, OE, beam, connector and mounting before asserting Tata fitment. Source: Neolite ZKW Company Catalogue 2022, p. 134."
+      ]
     }
   ],
   "updated_at": "2026-11-06"
