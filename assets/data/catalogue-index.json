@@ -86073,11 +86073,13 @@
     "mrp": 245,
     "selling_price": 225,
     "description": "The Fenner AV13X820 is a cogged V-belt designed for tractor engine accessory-drive applications. Its profile provides engagement with compatible pulleys and transfers engine power to the connected accessory. Fenner's tractor application reference associates this belt with the 255 TU Stage III tractor engine application.",
-    "vehicles": [],
+    "vehicles": [
+      "Tractors"
+    ],
     "applications": [
-      "Fitment requires confirmation of the exact belt marking and application.",
-      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Mahindra tractor with BS III 255 TU engine.",
-      "Manufacturer-catalogue source cross-check (JK Fenner Auto Belts product catalogue (indexed manufacturer catalogue): https://jkfenner.com/downloads/down.php?file=Belts.pdf): JK Fenner lists exact code AV13X820 for a Mahindra tractor with BS III 255 TU engine. The source identifies an engine/tractor family but does not provide an individual model/chassis or OE reference in the indexed entry. Retain this as engine-level fitment evidence only; do not create a specific searchable vehicle mapping without model/chassis confirmation."
+      "Alternator drive",
+      "Cummins tractor engine family application — confirm exact belt section and pulley fitment.",
+      "Manufacturer catalogue cross-check (JK Fenner Automotive Belts catalogue, exact belt code AV13X820): listed for a Mahindra tractor with BS III 255 TU engine. This establishes engine/equipment-family use, not a named tractor model or chassis. The current vehicle master has only a generic Tractors entry, so the catalogue maps only to that broad equipment class; no specific Mahindra tractor model is claimed. Confirm belt profile, effective length and pulley grooves against the installed unit before supply. Source: https://jkfenner.com/downloads/down.php?file=Belts.pdf"
     ],
     "featured": false,
     "active": true,
