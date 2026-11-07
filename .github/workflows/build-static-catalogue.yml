@@ -7,6 +7,7 @@ on:
     paths:
       - "assets/data/catalogue-index.json"
       - "assets/data/hsn-dpiit-ministry-mappings.json"
+      - "assets/data/hsn-candidate-overrides-2026-11-06.json"
       - "assets/data/approximate-product-weights.json"
       - "assets/data/product-dimension-specifications.json"
       - "assets/data/wabco-product-specifications.json"
@@ -144,6 +145,8 @@ jobs:
               "scripts/audit/test_navigation_dropdowns.py",
               "scripts/audit/test_seo_contract.py",
               "scripts/audit/test_entity_titles.py",
+              "scripts/audit/build_hsn_verification_worklist.py",
+              "scripts/audit/test_hsn_verification_worklist.py",
               "scripts/js/refactor.py",
               "scripts/js/refresh_versions.py",
           ):
@@ -171,6 +174,8 @@ jobs:
             python3 scripts/audit/test_product_title.py
             python3 scripts/audit/test_seo_contract.py
             python3 scripts/audit/test_entity_titles.py
+            python3 scripts/audit/test_hsn_verification_worklist.py
+            node scripts/regression/hsn-candidate-overrides.cjs
             python3 scripts/audit/test_vehicle_page_layout.py
             python3 scripts/audit/seo_contract.py
             python3 scripts/audit/site_quality.py
@@ -187,6 +192,7 @@ jobs:
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
+            python3 scripts/audit/build_hsn_verification_worklist.py
             python3 scripts/catalogue/sync_checkout_pages.py
             python3 scripts/audit/generate_product_thumbnails.py
             python3 scripts/catalogue/enrich_entities.py
@@ -273,6 +279,7 @@ jobs:
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
+            python3 scripts/audit/build_hsn_verification_worklist.py
             python3 scripts/catalogue/sync_checkout_pages.py
             python3 scripts/audit/generate_product_thumbnails.py
             python3 scripts/catalogue/enrich_entities.py
