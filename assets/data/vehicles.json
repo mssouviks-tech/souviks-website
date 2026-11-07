@@ -276,9 +276,10 @@
       "SVKS001107",
       "SVKS001108",
       "SVKS001109",
-      "SVKS001122"
+      "SVKS001122",
+      "SVKS000980"
     ],
-    "product_count": 106,
+    "product_count": 107,
     "featured": true,
     "active": true,
     "seo": {
@@ -318,8 +319,8 @@
     "cutout": "/assets/images/vehicles/TATA_LPT/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_LPT/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 323 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Electricals, Brakes and more and common replacement areas such as Cross Joint, Spring Pin, U Bolt, Flange, Leaf Spring and more; listed brands include RKI, JAI, Nirmal, Tata Genuine Parts, Harish.",
-    "short_description": "Tata LPT: 323 active parts mapped across Suspension & Steering, Clutch Parts, Filters, Electricals and more.",
+    "description": "Souviks lists 320 active spare parts for Tata LPT, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Filters, Electricals, Brakes and more and common replacement areas such as Cross Joint, Spring Pin, U Bolt, Flange, Leaf Spring and more; listed brands include RKI, JAI, Nirmal, Tata Genuine Parts, Harish.",
+    "short_description": "Tata LPT: 320 active parts mapped across Suspension & Steering, Clutch Parts, Filters, Electricals and more.",
     "categories": [
       {
         "id": "air-system",
@@ -873,9 +874,10 @@
       "SVKS001146",
       "SVKS001147",
       "SVKS001152",
-      "SVKS001157"
+      "SVKS001157",
+      "SVKS000980"
     ],
-    "product_count": 319,
+    "product_count": 320,
     "featured": true,
     "active": true,
     "seo": {
@@ -1734,8 +1736,8 @@
     "cutout": "/assets/images/vehicles/UNIVERSAL/transparent-cutout.png",
     "hero": "/assets/images/vehicles/UNIVERSAL/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 298 active spare parts for Universal, a Multi-brand / Universal application. Current catalogue coverage includes Fasteners & Hardware, Air System, Electricals, Lubricants, Bearings and more and common replacement areas such as Air Repair Kit, Washer, Bolt, Bulb, Taper Roller Bearing and more; listed brands include TVS Girling, Rider, Bosch, Texspin, Tata Genuine Parts.",
-    "short_description": "Universal: 298 active parts mapped across Fasteners & Hardware, Air System, Electricals, Lubricants and more.",
+    "description": "Souviks lists 272 active spare parts for Universal, a Multi-brand / Universal application. Current catalogue coverage includes Fasteners & Hardware, Air System, Electricals, Lubricants, Bearings and more and common replacement areas such as Air Repair Kit, Washer, Bolt, Bulb, Taper Roller Bearing and more; listed brands include TVS Girling, Rider, Bosch, Texspin, Tata Genuine Parts.",
+    "short_description": "Universal: 272 active parts mapped across Fasteners & Hardware, Air System, Electricals, Lubricants and more.",
     "categories": [
       {
         "id": "air-system",
@@ -2127,7 +2129,6 @@
       "SVKS000323",
       "SVKS000325",
       "SVKS000326",
-      "SVKS000331",
       "SVKS000362",
       "SVKS000373",
       "SVKS000405",
@@ -2142,10 +2143,6 @@
       "SVKS000445",
       "SVKS000451",
       "SVKS000496",
-      "SVKS000508",
-      "SVKS000513",
-      "SVKS000518",
-      "SVKS000519",
       "SVKS000551",
       "SVKS000552",
       "SVKS000553",
@@ -2223,11 +2220,8 @@
       "SVKS000973",
       "SVKS000974",
       "SVKS000975",
-      "SVKS000976",
-      "SVKS000977",
       "SVKS000978",
       "SVKS000979",
-      "SVKS000980",
       "SVKS000981",
       "SVKS000982",
       "SVKS000983",
@@ -2240,11 +2234,9 @@
       "SVKS000994",
       "SVKS000995",
       "SVKS000996",
-      "SVKS001002",
       "SVKS001004",
       "SVKS001005",
       "SVKS001006",
-      "SVKS001008",
       "SVKS001010",
       "SVKS001011",
       "SVKS001012",
@@ -2252,14 +2244,13 @@
       "SVKS001014",
       "SVKS001015",
       "SVKS001016",
-      "SVKS001113",
       "SVKS001134",
       "SVKS001141",
       "SVKS001148",
       "SVKS001149",
       "SVKS001150"
     ],
-    "product_count": 283,
+    "product_count": 272,
     "featured": true,
     "active": true,
     "seo": {
@@ -2299,8 +2290,8 @@
     "cutout": "/assets/images/vehicles/TATA_ACE/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_ACE/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 77 active spare parts for Tata Ace, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Engine Components, Brakes, Filters, Clutch Parts and more and common replacement areas such as Leaf Spring, Brake Lining, Accelerator Cable, Fuel Filter, Gasket and more; listed brands include Tata Genuine Parts, JAI, TVS Girling, Spicer, KFL.",
-    "short_description": "Tata Ace: 77 active parts mapped across Suspension & Steering, Engine Components, Brakes, Filters and more.",
+    "description": "Souviks lists 79 active spare parts for Tata Ace, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Engine Components, Brakes, Filters, Clutch Parts and more and common replacement areas such as Leaf Spring, Brake Lining, Accelerator Cable, Fuel Filter, Gasket and more; listed brands include Tata Genuine Parts, JAI, TVS Girling, Spicer, KFL.",
+    "short_description": "Tata Ace: 79 active parts mapped across Suspension & Steering, Engine Components, Brakes, Filters and more.",
     "categories": [
       {
         "id": "bearings",
@@ -2464,9 +2455,11 @@
       "SVKS001026",
       "SVKS001027",
       "SVKS001029",
-      "SVKS001112"
+      "SVKS001112",
+      "SVKS000976",
+      "SVKS000977"
     ],
-    "product_count": 77,
+    "product_count": 79,
     "featured": true,
     "active": true,
     "seo": {
@@ -3974,8 +3967,8 @@
     "cutout": "/assets/images/vehicles/TATA_PRIMA/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_PRIMA/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 49 active spare parts for Tata Prima, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Fasteners & Hardware, Brakes, Filters and more and common replacement areas such as Shackle Plate, Washer, Suspension Bush, Air Spring, Clutch Release Bearing and more; listed brands include JMP, Harish, Texspin, KFL, JAI.",
-    "short_description": "Tata Prima: 49 active parts mapped across Suspension & Steering, Clutch Parts, Fasteners & Hardware, Brakes and more.",
+    "description": "Souviks lists 48 active spare parts for Tata Prima, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Fasteners & Hardware, Brakes, Filters and more and common replacement areas such as Shackle Plate, Washer, Suspension Bush, Air Spring, Clutch Release Bearing and more; listed brands include JMP, Harish, Texspin, KFL, JAI.",
+    "short_description": "Tata Prima: 48 active parts mapped across Suspension & Steering, Clutch Parts, Fasteners & Hardware, Brakes and more.",
     "categories": [
       {
         "id": "air-system",
@@ -4145,9 +4138,10 @@
       "SVKS001064",
       "SVKS001089",
       "SVKS001106",
-      "SVKS001107"
+      "SVKS001107",
+      "SVKS000331"
     ],
-    "product_count": 47,
+    "product_count": 48,
     "featured": false,
     "active": true,
     "seo": {
@@ -5250,9 +5244,10 @@
       "SVKS001123",
       "SVKS001124",
       "SVKS001132",
-      "SVKS001135"
+      "SVKS001135",
+      "SVKS000980"
     ],
-    "product_count": 30,
+    "product_count": 31,
     "featured": false,
     "active": true,
     "seo": {
