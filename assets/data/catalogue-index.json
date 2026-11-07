@@ -21925,23 +21925,27 @@
     "hsn_basis": "The catalogue record identifies a filter-related product, but its exact medium or complete/part status is unclear.",
     "hsn_review_note": "Confirm filter medium (air, oil, fuel, hydraulic liquid or gas) and whether the supplied article is a complete unit or replacement part.",
     "hsn_reference_date": "2026-10-01",
-    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_code": "",
     "hsn_supplier_invoice_codes": [
-      "87089900"
+      "87089900",
+      "84212300"
     ],
-    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_status": "conflict",
     "hsn_supplier_invoice_match_methods": [
-      "brand_and_exact_part_reference"
+      "brand_and_exact_part_reference",
+      "manual_fleetguard_exact_part_number_suffix_zero_title_reference_supplier_code_conflict"
     ],
     "hsn_supplier_invoice_source_names": [
-      "Fleetguard - 8710124 - Head Assembly"
+      "Fleetguard - 8710124 - Head Assembly",
+      "Fleetguard - 871012400 - FS-Head for FS19664"
     ],
     "hsn_supplier_invoice_external_ids": [
-      "__export__.product_template_6313_4d1dec2b"
+      "__export__.product_template_6313_4d1dec2b",
+      "__export__.product_template_7076_1626c985"
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "differs"
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes"
   },
   {
     "id": "SVKS000289",
