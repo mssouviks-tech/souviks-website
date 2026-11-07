@@ -10,8 +10,7 @@
       "WABCO",
       "Air System",
       "Air Compressor",
-      "The WABCO (1/366) Repair Kit T-2518 supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly.",
-      "Universal"
+      "The WABCO (1/366) Repair Kit T-2518 supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly."
     ],
     "description": "The WABCO (1/366) Repair Kit T-2518 supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly.",
     "applications": [
@@ -22,9 +21,7 @@
       "Vehicle application evidence and duplicate-reference qualification (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms compressor family, not an individual Tata truck model. This record shares WABCO material number 300001366 with Souviks SKU SVKS000579; confirm whether both catalogue entries represent the same kit and contents before treating them as distinct fitments. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf",
       "Manufacturer application evidence — WABCO Customer Centre exact material number 300001366 identifies the product as a cover repair kit and states Vehicle application (India): TATA. This is make-level evidence only and does not establish T-2518 model fitment. The current product title and existing nominal application must be checked against the actual compressor/kit mapping; do not infer Tata 2518 fitment from the kit name alone. Source: https://www.wabco-customercentre.com/catalog/en_US/300001366. Note: the same WABCO material number is already present on another Souviks SKU (SVKS000579), so this is a duplicate-reference conflict requiring stock-label verification."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "300001366",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -43,7 +40,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -7736,17 +7733,14 @@
       "WABCO",
       "Air System",
       "Air Compressor",
-      "The WABCO 4018 BS II - Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
-      "Tata LPT"
+      "The WABCO 4018 BS II - Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT."
     ],
     "description": "The WABCO 4018 BS II - Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
     "applications": [
       "Air Compressor Maintenance",
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001215): TATA and Ashok Leyland; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Gasket”, whereas this Souviks record is titled as a cylinder-head assembly repair kit; the exact kit contents/title mapping remains to be reconciled. No individual truck model is listed."
     ],
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "part_number": "300001215",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -7765,7 +7759,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -12284,17 +12278,14 @@
       "WABCO",
       "Air System",
       "Air Compressor",
-      "The WABCO Air Compressor Kit - Prima 3718 supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata Prima.",
-      "Tata Prima"
+      "The WABCO Air Compressor Kit - Prima 3718 supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata Prima."
     ],
     "description": "The WABCO Air Compressor Kit - Prima 3718 supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata Prima.",
     "applications": [
       "Air Compressor Maintenance",
       "Vehicle application and component-type reconciliation (WABCO Customer Centre India, exact material number 9121400130): WABCO describes the reference as a One-Cylinder Compressor-WBR, vehicle application TATA, with single-cylinder type and 318 cm³ swept volume. The catalogue page also displays a contradictory “Twin-Cyl.Compressor 704cc” context line. This Souviks record is titled “Air Compressor Kit - Prima 3718”; the supplier page does not confirm a repair-kit contents list or a Prima 3718 model. Confirm the physical contents and compressor configuration before asserting that exact model fitment."
     ],
-    "vehicles": [
-      "Tata Prima"
-    ],
+    "vehicles": [],
     "part_number": "9121400130",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -12313,7 +12304,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -12355,8 +12346,7 @@
       "WABCO",
       "Air System",
       "Air Compressor",
-      "The WABCO 1/366 Air Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
-      "Tata LPT"
+      "The WABCO 1/366 Air Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT."
     ],
     "description": "The WABCO 1/366 Air Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
     "applications": [
@@ -12364,9 +12354,7 @@
       "Vehicle application evidence (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms the compressor family and kit role, not an individual Tata truck model. Reconcile the contents of Souviks' “Air Compressor Repair Kit” against the WABCO kit drawing before confirming the assembly scope.",
       "Manufacturer application evidence — WABCO Customer Centre exact material number 300001366 identifies the product as a cover repair kit and states “Vehicle application (India): TATA”. This is a make-level product application only; it does not verify the product-page title’s “T-2518” model claim. Confirm the repaired compressor model and kit contents before supplying. Source: https://www.wabco-customercentre.com/catalog/en_US/300001366"
     ],
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "part_number": "300001366",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -12385,7 +12373,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -12417,8 +12405,7 @@
       "WABCO",
       "Air System",
       "Air Compressor",
-      "The WABCO T-1616 Air Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
-      "Tata LPT"
+      "The WABCO T-1616 Air Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT."
     ],
     "description": "The WABCO T-1616 Air Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
     "applications": [
@@ -12426,9 +12413,7 @@
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001458): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO identifies it as a repair kit; no individual truck model is listed, so confirm the compressor variant before ordering.",
       "The current product page carries Tata LPT, but WABCO Customer Centre for exact material 300001458 states Vehicle application (India): TATA at make level only. The specific Tata LPT model tag is not established by the manufacturer page. Confirm compressor cylinder-head type and kit contents before treating it as LPT-specific. Source: https://www.wabco-customercentre.com/catalog/en_US/300001458"
     ],
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "part_number": "300001458",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -12447,7 +12432,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -19890,17 +19875,14 @@
       "WABCO",
       "Air System",
       "Air Compressor",
-      "The WABCO Cargo 1/185 - Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
-      "Tata LPT"
+      "The WABCO Cargo 1/185 - Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT."
     ],
     "description": "The WABCO Cargo 1/185 - Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
     "applications": [
       "Air Compressor Head Service",
       "Vehicle application and source-conflict qualification (WABCO Customer Centre India, exact material number 300001185): WABCO identifies this as “Kit: Gasket” for a twin-cylinder 704 cc flange-mounted compressor, with India vehicle applications Ashok Leyland, Volvo Eicher (VECV) and Swaraj Mazda. This conflicts with the ZF/WABCO CVCS Product Catalogue 2023 (printed p. 6), which lists 300001185 as a minor kit in 160 cc compressor tables. The Souviks title “Cargo 1/185 - Cylinder Head Assembly Repair Kit” also differs from WABCO's description. Do not confirm Tata LPT or a particular compressor size until the physical material marking, kit contents and compressor variant are checked."
     ],
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "part_number": "300001185",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -19919,7 +19901,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -27768,17 +27750,14 @@
       "WABCO",
       "Air System",
       "Air Compressor",
-      "The WABCO 1/202 Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. The named compressor application has a 77 mm size designation. Vehicle applications include Tata 709.",
-      "Tata 709"
+      "The WABCO 1/202 Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. The named compressor application has a 77 mm size designation. Vehicle applications include Tata 709."
     ],
     "description": "The WABCO 1/202 Cylinder Head Assembly Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. The named compressor application has a 77 mm size designation. Vehicle applications include Tata 709.",
     "applications": [
       "Air Compressor Head Overhaul",
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001202): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Valve”, not a cylinder-head assembly kit; verify the kit contents and application before treating the catalogue title as equivalent. No individual truck model is listed."
     ],
-    "vehicles": [
-      "Tata 709"
-    ],
+    "vehicles": [],
     "part_number": "300001202",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -27797,7 +27776,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -27835,8 +27814,7 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 300006018 DBV Minor Kit supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system.",
-      "Universal"
+      "The WABCO 300006018 DBV Minor Kit supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system."
     ],
     "description": "The WABCO 300006018 DBV Minor Kit supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system.",
     "applications": [
@@ -27845,9 +27823,7 @@
       "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 300006018): “Kit: Dual Brake Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is specified.",
       "Manufacturer application evidence — WABCO Customer Centre exact material number 300006018 identifies the product as a Dual Brake Valve repair kit. The accessible product record confirms product identity but did not expose an India vehicle-application field in the extracted page; current Tata/BS IV wording remains unverified pending a valve-assembly cross-reference. Source: https://www.wabco-customercentre.com/catalog/en_US/300006018"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "300006018",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -27866,7 +27842,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -28070,8 +28046,7 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 100870460 Diaphragm flexes under a pressure difference to transmit force or separate chambers within the associated air-operated component.",
-      "Universal"
+      "The WABCO 100870460 Diaphragm flexes under a pressure difference to transmit force or separate chambers within the associated air-operated component."
     ],
     "description": "The WABCO 100870460 Diaphragm flexes under a pressure difference to transmit force or separate chambers within the associated air-operated component.",
     "applications": [
@@ -28079,9 +28054,7 @@
       "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata and MAN commercial vehicles. The catalogue gives make-level applications only; no individual model is stated.",
       "Manufacturer application evidence — WABCO Customer Centre exact part number 100870460 identifies a diaphragm and states Vehicle application (India): TATA, MAN. This supports those makes at manufacturer level; it does not establish a specific vehicle model. Confirm brake-chamber type and diaphragm profile/diameter before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/100870460"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "100870460",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -28100,7 +28073,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -28132,8 +28105,7 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 100870580 Diaphragm flexes under a pressure difference to transmit force or separate chambers within the associated air-operated component. Vehicle applications include Ashok Leyland 2516.",
-      "Ashok Leyland 2516"
+      "The WABCO 100870580 Diaphragm flexes under a pressure difference to transmit force or separate chambers within the associated air-operated component. Vehicle applications include Ashok Leyland 2516."
     ],
     "description": "The WABCO 100870580 Diaphragm flexes under a pressure difference to transmit force or separate chambers within the associated air-operated component. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
@@ -28141,9 +28113,7 @@
       "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100870580): diaphragm for twin-cylinder 704 cc flange-mounted compressor; vehicle application listed as TATA and Ashok Leyland. No individual truck model is stated.",
       "Manufacturer application evidence — WABCO Customer Centre exact part number 100870580 identifies a diaphragm and states Vehicle application (India): TATA, Ashok Leyland. This supports those makes at manufacturer level; it does not establish every model in the current tag list. Confirm brake-chamber series and diaphragm dimensions before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/100870580"
     ],
-    "vehicles": [
-      "Ashok Leyland 2516"
-    ],
+    "vehicles": [],
     "part_number": "100870580",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -28162,7 +28132,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -29448,16 +29418,14 @@
       "WABCO",
       "Rubber Parts",
       "O Ring",
-      "The WABCO 4006094160 Drain Valve With O Rings Set of 15 nos compresses between mating surfaces to form a seal and help prevent fluid or air leakage at a joint. Vehicle applications include Ashok Leyland 2516.",
-      "Ashok Leyland 2516"
+      "The WABCO 4006094160 Drain Valve With O Rings Set of 15 nos compresses between mating surfaces to form a seal and help prevent fluid or air leakage at a joint. Vehicle applications include Ashok Leyland 2516."
     ],
     "description": "The WABCO 4006094160 Drain Valve With O Rings Set of 15 nos compresses between mating surfaces to form a seal and help prevent fluid or air leakage at a joint. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
-      "WABCO/Tata/Ashok Leyland air-brake drain-valve applications."
+      "WABCO/Tata/Ashok Leyland air-brake drain-valve applications.",
+      "Supplier package reference (ZF/WABCO CVCS Product Catalogue 2023, printed p. 105): set 4006094160 contains 15 units of drain valve 4343000090. This is a pack/content reference, not a chassis application table; it does not establish Ashok Leyland 2516 fitment. Verify the valve threads, port arrangement and air-reservoir interface before assigning a vehicle. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
-    "vehicles": [
-      "Ashok Leyland 2516"
-    ],
+    "vehicles": [],
     "part_number": "4006094160",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -29476,7 +29444,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -29508,8 +29476,7 @@
       "WABCO",
       "Air System",
       "Air Dryer",
-      "The WABCO 100304941 Drying and Distribution Unit removes moisture from compressed air and supports distribution of air to the vehicle’s pneumatic systems.",
-      "Universal"
+      "The WABCO 100304941 Drying and Distribution Unit removes moisture from compressed air and supports distribution of air to the vehicle’s pneumatic systems."
     ],
     "description": "The WABCO 100304941 Drying and Distribution Unit removes moisture from compressed air and supports distribution of air to the vehicle’s pneumatic systems.",
     "applications": [
@@ -29518,9 +29485,7 @@
       "replacement/service use for the stated specification.",
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 100304941): TATA commercial vehicles; DDU-(VOSS), listed in the twin-cylinder 704 cc flange-mounted compressor context. WABCO does not name individual Tata models; confirm mounting, VOSS connections and the installed air-system configuration."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "100304941",
     "manufacturer_part_number": "2463 4370 0124",
     "manufacturer_part_numbers": [
@@ -29541,7 +29506,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -29633,8 +29598,7 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 100601130 Dual Brake Valve with pedal (VOSS) controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
-      "Universal"
+      "The WABCO 100601130 Dual Brake Valve with pedal (VOSS) controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function."
     ],
     "description": "The WABCO 100601130 Dual Brake Valve with pedal (VOSS) controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
@@ -29642,9 +29606,7 @@
       "Vehicle fitment evidence / description reconciliation (WABCO Customer Centre India; exact material number 100601130): WABCO lists this brake-valve device for TATA and specifies twin-cylinder 704 cc flange-mounted compressor application. WABCO’s product heading is “Brake”; reconcile the supplied “Dual Brake Valve with pedal (VOSS)” description/reference before confirming any detailed model fitment.",
       "Manufacturer application evidence — WABCO Customer Centre India product page for exact material number 100601130 identifies the product as a brake valve and states Vehicle application (India): TATA. Technical data includes 45° pedal angle, 3 × Ø9.5 mm mounting and M22 × 1.5 ports. This supports Tata make-level application only; confirm valve variant, pedal geometry and mounting before assigning individual Tata models. Source: https://www.wabco-customercentre.com/catalog/en_IN/100601130"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "100601130",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -29663,7 +29625,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -31950,8 +31912,7 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 100600920 Foot Brake Valve with treaddle controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
-      "Universal"
+      "The WABCO 100600920 Foot Brake Valve with treaddle controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function."
     ],
     "description": "The WABCO 100600920 Foot Brake Valve with treaddle controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
@@ -31959,9 +31920,7 @@
       "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata commercial vehicles. The WABCO catalogue gives make-level application only; no individual model is stated.",
       "Manufacturer application evidence — WABCO Customer Centre exact part number 100600920 identifies a Foot Brake Valve and states Vehicle application (India): TATA. Technical matching includes M630310 actuation, treadle assembly, 3-point mounting and published port threads. This supports Tata make-level application only; exact chassis and pedal interface still need confirmation. Source: https://www.wabco-customercentre.com/catalog/en_US/100600920"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "100600920",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -31980,7 +31939,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -46011,8 +45970,7 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 100306470 Pressure Reductio Valve regulates or directs compressed-air flow within a vehicle’s pneumatic circuit.",
-      "Universal"
+      "The WABCO 100306470 Pressure Reductio Valve regulates or directs compressed-air flow within a vehicle’s pneumatic circuit."
     ],
     "description": "The WABCO 100306470 Pressure Reductio Valve regulates or directs compressed-air flow within a vehicle’s pneumatic circuit.",
     "applications": [
@@ -46020,9 +45978,7 @@
       "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100306470): pressure-reducing valve; vehicle application TATA, specified for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is stated.",
       "Manufacturer application evidence — WABCO Customer Centre exact part number 100306470 identifies a Pressure Reducing Valve and states Vehicle application (India): TATA. The record specifies M22 × 1.5 ports and two Ø9 mm mounting points. This supports Tata make-level application only; match delivered pressure, port orientation and mounting pattern before assigning individual models. Source: https://www.wabco-customercentre.com/catalog/en_US/100306470"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "100306470",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -46041,7 +45997,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -46078,17 +46034,15 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 4750010080 Pressure Reduction Valve regulates or directs compressed-air flow within a vehicle’s pneumatic circuit.",
-      "Universal"
+      "The WABCO 4750010080 Pressure Reduction Valve regulates or directs compressed-air flow within a vehicle’s pneumatic circuit."
     ],
     "description": "The WABCO 4750010080 Pressure Reduction Valve regulates or directs compressed-air flow within a vehicle’s pneumatic circuit.",
     "applications": [
       "Tata commercial vehicles.",
-      "Vehicle application evidence (WABCO Customer Centre catalogue, make-level) plus secondary distributor model listing: Tata; distributor-reported Tata Signa 4223 TC, 4223.T TC ISBE 5.9 UMB, 4223.TK TC ISBE 5.9 and 4823.T TC ISBE 5.9, BS3/BS4 (2008–2020). Model/year detail is not OEM-verified; confirm before using as a hard fitment."
+      "Vehicle application evidence (WABCO Customer Centre catalogue, make-level) plus secondary distributor model listing: Tata; distributor-reported Tata Signa 4223 TC, 4223.T TC ISBE 5.9 UMB, 4223.TK TC ISBE 5.9 and 4823.T TC ISBE 5.9, BS3/BS4 (2008–2020). Model/year detail is not OEM-verified; confirm before using as a hard fitment.",
+      "Manufacturer/model scope qualification (WABCO Customer Centre, exact material 4750010080): WABCO lists TATA at make level and does not name a truck model. A secondary distributor reports Tata Signa 4223 variants, but that model detail is not OEM-confirmed and is not promoted to a model mapping. Confirm delivered pressure, mounting spacing and port threads before supply. Source: https://www.wabco-customercentre.com/catalog/en_IN/4750010080"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "4750010080",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -46107,7 +46061,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -46422,8 +46376,7 @@
       "WABCO",
       "Air System",
       "Valve",
-      "The WABCO 9347020150 Quad System Protection Valve controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
-      "Universal"
+      "The WABCO 9347020150 Quad System Protection Valve controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function."
     ],
     "description": "The WABCO 9347020150 Quad System Protection Valve controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
@@ -46432,9 +46385,7 @@
       "replacement/service use for the stated specification.",
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact material number 9347020150): TATA. WABCO identifies the component as a protection valve; no individual Tata model is listed. Confirm circuit configuration, pressure settings and port connections before ordering."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "9347020150",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -46453,7 +46404,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -48760,8 +48711,7 @@
       "WABCO",
       "Air System",
       "Valve",
-      "The WABCO 100306080 Relay Valve controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
-      "Universal"
+      "The WABCO 100306080 Relay Valve controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function."
     ],
     "description": "The WABCO 100306080 Relay Valve controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
@@ -48770,9 +48720,7 @@
       "replacement/service use for the stated specification.",
       "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata commercial vehicles. The catalogue gives make-level application only; no individual model is stated."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "100306080",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -48791,7 +48739,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -48896,20 +48844,16 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 300003072 Relay Valve Kit controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function. Vehicle applications include Eicher Pro Series.",
-      "Eicher Pro Series",
-      "Universal"
+      "The WABCO 300003072 Relay Valve Kit controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function. Vehicle applications include Eicher Pro Series."
     ],
     "description": "The WABCO 300003072 Relay Valve Kit controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function. Vehicle applications include Eicher Pro Series.",
     "applications": [
       "R12 vertical relay-valve applications",
       "VECV/Bharat Benz commercial vehicles.",
-      "Manufacturer application evidence — WABCO Customer Centre exact part number 300003072 identifies a relay-valve repair kit and states Vehicle application (India): TATA. This conflicts with the current catalogue application note naming VECV/Bharat Benz; keep the latter unconfirmed unless a separate exact cross-reference is produced. Match relay-valve type and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072"
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 300003072 identifies a relay-valve repair kit and states Vehicle application (India): TATA. This conflicts with the current catalogue application note naming VECV/Bharat Benz; keep the latter unconfirmed unless a separate exact cross-reference is produced. Match relay-valve type and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072",
+      "Manufacturer scope correction (WABCO Customer Centre, exact material 300003072): the manufacturer lists India vehicle application TATA only. It does not identify Eicher Pro Series, VECV or Bharat Benz model fitment. The previous Eicher Pro Series tag is removed; confirm the valve family, R12 variant and repair-kit contents against the installed assembly. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072"
     ],
-    "vehicles": [
-      "Eicher Pro Series",
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "300003072",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -48928,7 +48872,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 2,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -49019,8 +48963,7 @@
       "WABCO",
       "Brakes",
       "Brake Valve",
-      "The WABCO 4730170250 Relay valve, anti-compounding controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
-      "Universal"
+      "The WABCO 4730170250 Relay valve, anti-compounding controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function."
     ],
     "description": "The WABCO 4730170250 Relay valve, anti-compounding controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
@@ -49029,9 +48972,7 @@
       "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 4730170250): relay valve, anti-compounding version; WABCO lists the Indian vehicle application as Mahindra. Confirm vehicle/air-brake configuration and matching valve ports before ordering.",
       "Manufacturer application evidence — WABCO Customer Centre exact part number 4730170250 identifies the product as a relay valve, anti-compounding. The accessible record confirms exact product identity but did not expose an India vehicle-application field in the extracted page. Do not assign named makes/models without a WABCO or OEM cross-reference. Source: https://www.wabco-customercentre.com/catalog/en_US/4730170250"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "4730170250",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -49050,7 +48991,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -49093,19 +49034,17 @@
       "WABCO",
       "Air System",
       "Valve",
-      "The WABCO 9732980290 Relay valve, RG2 controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
-      "Universal"
+      "The WABCO 9732980290 Relay valve, RG2 controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function."
     ],
     "description": "The WABCO 9732980290 Relay valve, RG2 controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
       "replacement/service use for the stated specification.",
-      "Vehicle fitment evidence (ZF CVCS Product Catalogue 2023, p. 66; exact material number 9732980290): listed as an RG2 relay valve for BAJAJ TEMPO. The source does not specify an individual model/year; verify valve connection style and brake-circuit configuration before ordering."
+      "Vehicle fitment evidence (ZF CVCS Product Catalogue 2023, p. 66; exact material number 9732980290): listed as an RG2 relay valve for BAJAJ TEMPO. The source does not specify an individual model/year; verify valve connection style and brake-circuit configuration before ordering.",
+      "Vehicle-master scope qualification: the ZF/WABCO CVCS Product Catalogue 2023 (printed p. 66) lists material 9732980290 for Bajaj Tempo, but the current vehicle master has no Bajaj Tempo/Force model entry. The generic Universal tag is removed rather than substituting an unrelated vehicle family. Match the RG2 valve's port layout and brake-circuit configuration before supply. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "9732980290",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -49124,7 +49063,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -49218,19 +49157,14 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 9732980270 RG2 Assy supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system. Vehicle applications include Ashok Leyland 2516 and Eicher Pro Series.",
-      "Ashok Leyland 2516",
-      "Eicher Pro Series"
+      "The WABCO 9732980270 RG2 Assy supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system. Vehicle applications include Ashok Leyland 2516 and Eicher Pro Series."
     ],
     "description": "The WABCO 9732980270 RG2 Assy supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system. Vehicle applications include Ashok Leyland 2516 and Eicher Pro Series.",
     "applications": [
       "RG2 relay-valve applications on Tata/Ashok Leyland/DICV/VECV commercial vehicles.",
       "Vehicle fitment evidence and scope qualification (WABCO Customer Centre India, exact material number 9732980270): RG2 relay valve, listed for Ashok Leyland in the twin-cylinder 704 cc flange-mounted compressor context. The current application note's Tata, DICV and VECV makes are broader than this exact supplier entry; treat Ashok Leyland as the supplier-confirmed make and verify any other make against its own OE cross-reference."
     ],
-    "vehicles": [
-      "Ashok Leyland 2516",
-      "Eicher Pro Series"
-    ],
+    "vehicles": [],
     "part_number": "9732980270",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -49249,7 +49183,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 2,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -53087,9 +53021,7 @@
       "WABCO",
       "Electricals",
       "Stop Light Switch",
-      "The WABCO 100250150 Stop Light Switch opens, closes or changes an electrical circuit in response to a driver command or the operating state named by the switch. Vehicle applications include Ashok Leyland 2516 and Eicher Pro Series.",
-      "Ashok Leyland 2516",
-      "Eicher Pro Series"
+      "The WABCO 100250150 Stop Light Switch opens, closes or changes an electrical circuit in response to a driver command or the operating state named by the switch. Vehicle applications include Ashok Leyland 2516 and Eicher Pro Series."
     ],
     "description": "The WABCO 100250150 Stop Light Switch opens, closes or changes an electrical circuit in response to a driver command or the operating state named by the switch. Vehicle applications include Ashok Leyland 2516 and Eicher Pro Series.",
     "applications": [
@@ -53098,10 +53030,7 @@
       "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100250150): stop-light switch; vehicle application listed for TATA, Ashok Leyland and Volvo Eicher (VECV), associated with twin-cylinder 704 cc flange-mounted compressor applications. WABCO does not specify individual truck models here.",
       "Manufacturer application evidence — WABCO Customer Centre exact part number 100250150 states Vehicle application (India): TATA, Ashok Leyland, Volvo Eicher (VECV). Its technical record specifies a 24 V stop-light switch, screw-mounted electrical connection and M14 × 1.5 thread. This supports the three make-level applications, not every model currently listed. Verify voltage, terminal arrangement, thread and switch pressure. Source: https://www.wabco-customercentre.com/catalog/en_US/100250150"
     ],
-    "vehicles": [
-      "Ashok Leyland 2516",
-      "Eicher Pro Series"
-    ],
+    "vehicles": [],
     "part_number": "100250150",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -53120,7 +53049,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 2,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -61205,17 +61134,14 @@
       "WABCO",
       "Air System",
       "Air Compressor",
-      "The WABCO 1/215 VE TCL Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
-      "Tata LPT"
+      "The WABCO 1/215 VE TCL Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT."
     ],
     "description": "The WABCO 1/215 VE TCL Compressor Repair Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly. Vehicle applications include Tata LPT.",
     "applications": [
       "Air Compressor Overhaul",
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001215): TATA and Ashok Leyland; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Gasket”; confirm the kit contents and compressor variant before treating the Souviks product description as the same kit scope. No individual truck model is listed."
     ],
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "part_number": "300001215",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -61234,7 +61160,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -73301,21 +73227,15 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 3000025039 MSP 25/39 repair kit is designed for servicing compatible spring brake actuator assemblies in commercial vehicle pneumatic braking systems. It supports maintenance of the actuator's braking mechanism and associated service components.",
-      "Tata LPT",
-      "Tata Prima",
-      "Tata Signa"
+      "The WABCO 3000025039 MSP 25/39 repair kit is designed for servicing compatible spring brake actuator assemblies in commercial vehicle pneumatic braking systems. It supports maintenance of the actuator's braking mechanism and associated service components."
     ],
     "description": "The WABCO 3000025039 MSP 25/39 repair kit is designed for servicing compatible spring brake actuator assemblies in commercial vehicle pneumatic braking systems. It supports maintenance of the actuator's braking mechanism and associated service components.",
     "applications": [
       "MSP 25/39",
-      "spring brake actuator configurations including 20/75 and 24/75 types."
+      "spring brake actuator configurations including 20/75 and 24/75 types.",
+      "Application qualification: MSP 25/39 identifies the actuator repair-kit family/reference. The current product record does not include a supplier/OE cross-reference tying this kit to Tata LPT, Tata Prima or Tata Signa. Those model tags are removed pending confirmation against the installed spring-brake actuator type, physical markings and OE reference."
     ],
-    "vehicles": [
-      "Tata LPT",
-      "Tata Prima",
-      "Tata Signa"
-    ],
+    "vehicles": [],
     "part_number": "3000025039",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -73342,7 +73262,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 3,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -73480,19 +73400,15 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 3000025002 MSP 25/2 repair kit is intended for compatible spring brake actuator assemblies in commercial vehicle air-brake systems. It provides the service components associated with the specified actuator repair-kit configuration.",
-      "Ashok Leyland 2516",
-      "Ashok Leyland U-Truck"
+      "The WABCO 3000025002 MSP 25/2 repair kit is intended for compatible spring brake actuator assemblies in commercial vehicle air-brake systems. It provides the service components associated with the specified actuator repair-kit configuration."
     ],
     "description": "The WABCO 3000025002 MSP 25/2 repair kit is intended for compatible spring brake actuator assemblies in commercial vehicle air-brake systems. It provides the service components associated with the specified actuator repair-kit configuration.",
     "applications": [
       "MSP 25/2",
-      "Type 20/20 spring brake actuator configuration."
+      "Type 20/20 spring brake actuator configuration.",
+      "Application qualification: MSP 25/2 identifies an actuator repair-kit family/configuration. The current product record does not include a supplier/OE cross-reference tying this kit to Ashok Leyland 2516 or U-Truck. Those model tags are removed pending confirmation against the installed actuator type, physical markings and OE reference."
     ],
-    "vehicles": [
-      "Ashok Leyland 2516",
-      "Ashok Leyland U-Truck"
-    ],
+    "vehicles": [],
     "part_number": "3000025002",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -73519,7 +73435,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 2,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,

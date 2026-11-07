@@ -57276,9 +57276,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000577/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "applications": [
       "Air Compressor Overhaul",
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001215): TATA and Ashok Leyland; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Gasket”; confirm the kit contents and compressor variant before treating the Souviks product description as the same kit scope. No individual truck model is listed."
@@ -57377,9 +57375,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000578/1.webp",
-    "vehicles": [
-      "Tata 709"
-    ],
+    "vehicles": [],
     "applications": [
       "Air Compressor Head Overhaul",
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001202): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Valve”, not a cylinder-head assembly kit; verify the kit contents and application before treating the catalogue title as equivalent. No individual truck model is listed."
@@ -57484,9 +57480,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000579/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "applications": [
       "Air Compressor Overhaul",
       "Vehicle application evidence (ZF/WABCO CVCS Product Catalogue 2023, printed p. 8; exact material number 300001366): listed as a minor kit against the Tata 160 cc air-compressor family. The source confirms the compressor family and kit role, not an individual Tata truck model. Reconcile the contents of Souviks' “Air Compressor Repair Kit” against the WABCO kit drawing before confirming the assembly scope.",
@@ -57578,9 +57572,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000580/1.webp",
-    "vehicles": [
-      "Tata Prima"
-    ],
+    "vehicles": [],
     "applications": [
       "Air Compressor Maintenance",
       "Vehicle application and component-type reconciliation (WABCO Customer Centre India, exact material number 9121400130): WABCO describes the reference as a One-Cylinder Compressor-WBR, vehicle application TATA, with single-cylinder type and 318 cm³ swept volume. The catalogue page also displays a contradictory “Twin-Cyl.Compressor 704cc” context line. This Souviks record is titled “Air Compressor Kit - Prima 3718”; the supplier page does not confirm a repair-kit contents list or a Prima 3718 model. Confirm the physical contents and compressor configuration before asserting that exact model fitment."
@@ -57689,9 +57681,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000581/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "applications": [
       "Air Compressor Head Service",
       "Vehicle application and source-conflict qualification (WABCO Customer Centre India, exact material number 300001185): WABCO identifies this as “Kit: Gasket” for a twin-cylinder 704 cc flange-mounted compressor, with India vehicle applications Ashok Leyland, Volvo Eicher (VECV) and Swaraj Mazda. This conflicts with the ZF/WABCO CVCS Product Catalogue 2023 (printed p. 6), which lists 300001185 as a minor kit in 160 cc compressor tables. The Souviks title “Cargo 1/185 - Cylinder Head Assembly Repair Kit” also differs from WABCO's description. Do not confirm Tata LPT or a particular compressor size until the physical material marking, kit contents and compressor variant are checked."
@@ -57790,9 +57780,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000582/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "applications": [
       "Air Compressor Maintenance",
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001215): TATA and Ashok Leyland; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO names this item “Kit: Gasket”, whereas this Souviks record is titled as a cylinder-head assembly repair kit; the exact kit contents/title mapping remains to be reconciled. No individual truck model is listed."
@@ -57991,9 +57979,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000584/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "applications": [
       "Air Compressor Overhaul",
       "Vehicle fitment evidence (WABCO Customer Centre India catalogue, exact part number 300001458): TATA; specified for a twin-cylinder 704 cc flange-mounted compressor. WABCO identifies it as a repair kit; no individual truck model is listed, so confirm the compressor variant before ordering.",
@@ -80018,11 +80004,10 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000810/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516"
-    ],
+    "vehicles": [],
     "applications": [
-      "WABCO/Tata/Ashok Leyland air-brake drain-valve applications."
+      "WABCO/Tata/Ashok Leyland air-brake drain-valve applications.",
+      "Supplier package reference (ZF/WABCO CVCS Product Catalogue 2023, printed p. 105): set 4006094160 contains 15 units of drain valve 4343000090. This is a pack/content reference, not a chassis application table; it does not establish Ashok Leyland 2516 fitment. Verify the valve threads, port arrangement and air-reservoir interface before assigning a vehicle. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
     "featured": false,
     "active": true,
@@ -85263,10 +85248,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000864/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516",
-      "Eicher Pro Series"
-    ],
+    "vehicles": [],
     "applications": [
       "Tata",
       "Ashok Leyland and Volvo Eicher (VECV) commercial vehicles.",
@@ -85369,9 +85351,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000865/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Tata commercial vehicles.",
       "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100306470): pressure-reducing valve; vehicle application TATA, specified for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is stated.",
@@ -85475,9 +85455,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000866/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Tata commercial vehicles.",
       "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata commercial vehicles. The WABCO catalogue gives make-level application only; no individual model is stated.",
@@ -85584,9 +85562,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000867/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Tata commercial vehicles.",
       "Vehicle fitment evidence / description reconciliation (WABCO Customer Centre India; exact material number 100601130): WABCO lists this brake-valve device for TATA and specifies twin-cylinder 704 cc flange-mounted compressor application. WABCO’s product heading is “Brake”; reconcile the supplied “Dual Brake Valve with pedal (VOSS)” description/reference before confirming any detailed model fitment.",
@@ -85690,9 +85666,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000868/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Tata and MAN commercial vehicles.",
       "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata and MAN commercial vehicles. The catalogue gives make-level applications only; no individual model is stated.",
@@ -85790,9 +85764,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000869/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516"
-    ],
+    "vehicles": [],
     "applications": [
       "Tata and Ashok Leyland commercial vehicles.",
       "Vehicle fitment evidence (WABCO Customer Centre India; exact material number 100870580): diaphragm for twin-cylinder 704 cc flange-mounted compressor; vehicle application listed as TATA and Ashok Leyland. No individual truck model is stated.",
@@ -85892,14 +85864,12 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000870/1.webp",
-    "vehicles": [
-      "Eicher Pro Series",
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "R12 vertical relay-valve applications",
       "VECV/Bharat Benz commercial vehicles.",
-      "Manufacturer application evidence — WABCO Customer Centre exact part number 300003072 identifies a relay-valve repair kit and states Vehicle application (India): TATA. This conflicts with the current catalogue application note naming VECV/Bharat Benz; keep the latter unconfirmed unless a separate exact cross-reference is produced. Match relay-valve type and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072"
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 300003072 identifies a relay-valve repair kit and states Vehicle application (India): TATA. This conflicts with the current catalogue application note naming VECV/Bharat Benz; keep the latter unconfirmed unless a separate exact cross-reference is produced. Match relay-valve type and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072",
+      "Manufacturer scope correction (WABCO Customer Centre, exact material 300003072): the manufacturer lists India vehicle application TATA only. It does not identify Eicher Pro Series, VECV or Bharat Benz model fitment. The previous Eicher Pro Series tag is removed; confirm the valve family, R12 variant and repair-kit contents against the installed assembly. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072"
     ],
     "featured": false,
     "active": true,
@@ -86092,9 +86062,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000872/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "WABCO dual-brake-valve repair-kit applications",
       "including BS IV commercial vehicles.",
@@ -86195,12 +86163,11 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000873/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Tata commercial vehicles.",
-      "Vehicle application evidence (WABCO Customer Centre catalogue, make-level) plus secondary distributor model listing: Tata; distributor-reported Tata Signa 4223 TC, 4223.T TC ISBE 5.9 UMB, 4223.TK TC ISBE 5.9 and 4823.T TC ISBE 5.9, BS3/BS4 (2008–2020). Model/year detail is not OEM-verified; confirm before using as a hard fitment."
+      "Vehicle application evidence (WABCO Customer Centre catalogue, make-level) plus secondary distributor model listing: Tata; distributor-reported Tata Signa 4223 TC, 4223.T TC ISBE 5.9 UMB, 4223.TK TC ISBE 5.9 and 4823.T TC ISBE 5.9, BS3/BS4 (2008–2020). Model/year detail is not OEM-verified; confirm before using as a hard fitment.",
+      "Manufacturer/model scope qualification (WABCO Customer Centre, exact material 4750010080): WABCO lists TATA at make level and does not name a truck model. A secondary distributor reports Tata Signa 4223 variants, but that model detail is not OEM-confirmed and is not promoted to a model mapping. Confirm delivered pressure, mounting spacing and port threads before supply. Source: https://www.wabco-customercentre.com/catalog/en_IN/4750010080"
     ],
     "featured": false,
     "active": true,
@@ -86400,10 +86367,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000875/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516",
-      "Eicher Pro Series"
-    ],
+    "vehicles": [],
     "applications": [
       "RG2 relay-valve applications on Tata/Ashok Leyland/DICV/VECV commercial vehicles.",
       "Vehicle fitment evidence and scope qualification (WABCO Customer Centre India, exact material number 9732980270): RG2 relay valve, listed for Ashok Leyland in the twin-cylinder 704 cc flange-mounted compressor context. The current application note's Tata, DICV and VECV makes are broader than this exact supplier entry; treat Ashok Leyland as the supplier-confirmed make and verify any other make against its own OE cross-reference."
@@ -92455,9 +92419,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000939/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
@@ -100199,9 +100161,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001017/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
@@ -100414,9 +100374,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001019/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
@@ -100631,9 +100589,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001021/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Commercial-vehicle braking system",
       "replacement/service use for the stated specification.",
@@ -100745,9 +100701,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001022/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
@@ -100854,14 +100808,13 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001023/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
       "replacement/service use for the stated specification.",
-      "Vehicle fitment evidence (ZF CVCS Product Catalogue 2023, p. 66; exact material number 9732980290): listed as an RG2 relay valve for BAJAJ TEMPO. The source does not specify an individual model/year; verify valve connection style and brake-circuit configuration before ordering."
+      "Vehicle fitment evidence (ZF CVCS Product Catalogue 2023, p. 66; exact material number 9732980290): listed as an RG2 relay valve for BAJAJ TEMPO. The source does not specify an individual model/year; verify valve connection style and brake-circuit configuration before ordering.",
+      "Vehicle-master scope qualification: the ZF/WABCO CVCS Product Catalogue 2023 (printed p. 66) lists material 9732980290 for Bajaj Tempo, but the current vehicle master has no Bajaj Tempo/Force model entry. The generic Universal tag is removed rather than substituting an unrelated vehicle family. Match the RG2 valve's port layout and brake-circuit configuration before supply. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
     "featured": false,
     "active": true,
@@ -111578,14 +111531,11 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001142/1.webp",
-    "vehicles": [
-      "Tata LPT",
-      "Tata Prima",
-      "Tata Signa"
-    ],
+    "vehicles": [],
     "applications": [
       "MSP 25/39",
-      "spring brake actuator configurations including 20/75 and 24/75 types."
+      "spring brake actuator configurations including 20/75 and 24/75 types.",
+      "Application qualification: MSP 25/39 identifies the actuator repair-kit family/reference. The current product record does not include a supplier/OE cross-reference tying this kit to Tata LPT, Tata Prima or Tata Signa. Those model tags are removed pending confirmation against the installed spring-brake actuator type, physical markings and OE reference."
     ],
     "featured": false,
     "active": true,
@@ -111836,13 +111786,11 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001145/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516",
-      "Ashok Leyland U-Truck"
-    ],
+    "vehicles": [],
     "applications": [
       "MSP 25/2",
-      "Type 20/20 spring brake actuator configuration."
+      "Type 20/20 spring brake actuator configuration.",
+      "Application qualification: MSP 25/2 identifies an actuator repair-kit family/configuration. The current product record does not include a supplier/OE cross-reference tying this kit to Ashok Leyland 2516 or U-Truck. Those model tags are removed pending confirmation against the installed actuator type, physical markings and OE reference."
     ],
     "featured": false,
     "active": true,
