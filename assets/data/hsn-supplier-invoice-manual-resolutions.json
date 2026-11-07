@@ -822,6 +822,66 @@
       "part_reference": "103",
       "evidence": "Exact supplier part reference 103 equals catalogue part_number 103 on SKU SVKS000386, and the supplier description exactly matches the catalogue title Tail Lamp Assy. Tata 4 Chamber 24V. The catalogue brand is NeoLite while the supplier invoice label is NG; the source-brand difference is preserved as provenance, not normalised. Existing catalogue HSN candidate 85122010 is unchanged.",
       "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000404",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "Palak - PLK 199F - Bell Crank Set 50 mm",
+      "supplier_odoo_external_id": "__export__.product_template_6266_00471767",
+      "match_method": "manual_exact_part_number_dimensions_cross_brand",
+      "part_reference": "PLK199F",
+      "evidence": "Exact supplier reference PLK 199F normalises to catalogue part_number PLK199F on active SKU SVKS000404. The supplier description and 50 mm Bell Crank Set specification match the catalogue title and dimensions. Supplier label Palak differs from the catalogue brand label Harish; both source and catalogue labels are retained in traceability. Supplier invoice code remains separate from the catalogue HSN candidate.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS001086",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "RKI - K15 - Coupling Flange",
+      "supplier_odoo_external_id": "__export__.product_template_7609_cdb920bf",
+      "match_method": "manual_exact_part_number_supplier_brand",
+      "part_reference": "K15",
+      "evidence": "Exact RKI part number K15 and supplier brand match active catalogue SKU SVKS001086, whose part_number is K15. The generic catalogue title Coupling Flange does not distinguish variants, but the exact part number resolves this identity. Existing catalogue HSN candidate 84836090 remains unchanged; supplier invoice code is retained as separate evidence.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS001103",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "RKI - K16 - Coupling Flange",
+      "supplier_odoo_external_id": "__export__.product_template_7626_4655580d",
+      "match_method": "manual_exact_part_number_supplier_brand",
+      "part_reference": "K16",
+      "evidence": "Exact RKI part number K16 and supplier brand match active catalogue SKU SVKS001103, whose part_number is K16. The generic catalogue title Coupling Flange does not distinguish variants, but the exact part number resolves this identity. Existing catalogue HSN candidate 84836090 remains unchanged; supplier invoice code is retained as separate evidence.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS001091",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "RKI - K17 - Coupling Flange",
+      "supplier_odoo_external_id": "__export__.product_template_7614_c9ae6068",
+      "match_method": "manual_exact_part_number_supplier_brand",
+      "part_reference": "K17",
+      "evidence": "Exact RKI part number K17 and supplier brand match active catalogue SKU SVKS001091, whose part_number is K17. The generic catalogue title Coupling Flange does not distinguish variants, but the exact part number resolves this identity. Existing catalogue HSN candidate 84836090 remains unchanged; supplier invoice code is retained as separate evidence.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS001093",
+      "supplier_invoice_hsn_code": "87089900",
+      "supplier_product_name": "RKI - K21 - Coupling Flange",
+      "supplier_odoo_external_id": "__export__.product_template_7616_e70bd6b0",
+      "match_method": "manual_exact_part_number_supplier_brand",
+      "part_reference": "K21",
+      "evidence": "Exact RKI part number K21 and supplier brand match active catalogue SKU SVKS001093, whose part_number is K21. The generic catalogue title Coupling Flange does not distinguish variants, but the exact part number resolves this identity. Existing catalogue HSN candidate 84836090 remains unchanged; supplier invoice code is retained as separate evidence.",
+      "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000499",
+      "supplier_invoice_hsn_code": "84821090",
+      "supplier_product_name": "Texspin - TX 6698SC - Clutch Release Bearing for ASHOK LEYLAND 1.75” 25TON TO 31TON (ASHOK LEYLAND 1.75” 15\"RDC 20 95GB & 850 OD GEAR BOX)",
+      "supplier_odoo_external_id": "__export__.product_template_6290_e5504680",
+      "match_method": "manual_exact_part_number_title_application_supplier_code_conflict",
+      "part_reference": "TX-6698 SC",
+      "evidence": "The supplier reference TX 6698SC normalises to catalogue part_number TX-6698 SC on active Texspin SKU SVKS000499. The supplier title and Ashok Leyland 1.75 inch / 15 inch RDC 2095 GB / 850 OD gearbox application align with the catalogue product. A previously linked supplier invoice row for the same exact product and source part carries HSN 84828000; this second row carries 84821090. Both supplier invoice values must remain a conflict with no selected single code. The existing catalogue HSN candidate is unchanged.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
     }
   ]
 }
