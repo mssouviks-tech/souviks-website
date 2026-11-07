@@ -1,0 +1,136 @@
+{
+  "application_updates": [
+    {
+      "id": "SVKS000047",
+      "append": [
+        "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): code SBAM495 is listed as a 10-inch bolt for Leyland U-Truck, 16 mm / 5/8-inch. The current Souviks record describes SBAM495 as a 14-inch centre bolt and maps it to Tata LPT. Both the nominal length and vehicle application conflict with this supplier entry. Do not treat the current 14-inch/Tata LPT claim as supplier-confirmed; check the physical bolt length, shank diameter, head and pack marking before changing the product identity or vehicle tag."
+      ]
+    },
+    {
+      "id": "SVKS000301",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM145 is listed as 10 × 15/32 inch. This confirms the nominal size recorded in the product title. The price list provides no vehicle/model application for SBAM145, so it does not independently validate the current Tata 407 / Tata 709 / Eicher 1110 tags. Confirm spring-pack position and actual bolt length before final fitment."
+      ]
+    },
+    {
+      "id": "SVKS000302",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM146 is listed as 12 × 15/32 inch, matching the nominal size in the product title. No vehicle/model application is stated for this code in the source; the current Tata 407 / Tata 709 / Eicher 1110 tags are not independently established by this GS entry. Confirm spring-pack position and actual bolt length before final fitment."
+      ]
+    },
+    {
+      "id": "SVKS000303",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM147 is listed as 14 × 15/32 inch, matching the nominal size in the product title. No vehicle/model application is stated for this code in the source; the current Tata 407 / Tata 709 / Eicher 1110 tags are not independently established by this GS entry. Confirm spring-pack position and actual bolt length before final fitment."
+      ]
+    },
+    {
+      "id": "SVKS000304",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM228 is listed as 16 × 15/32 inch, matching the nominal size in the product title. The source gives no vehicle/model application for SBAM228; it does not independently verify the current Tata 1109 tag. Confirm installed spring-pack position and bolt length before final fitment."
+      ]
+    },
+    {
+      "id": "SVKS000305",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM369 is listed as 18 × 15/32 inch, matching the nominal size in the product title. The source gives no vehicle/model application for SBAM369; it does not independently verify the current Tata 1109 tag. Confirm installed spring-pack position and bolt length before final fitment."
+      ]
+    },
+    {
+      "id": "SVKS000306",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM366 is listed as 10 inches. The GS entry gives the nominal length but no vehicle/model application or 5/8-inch interface detail for this code; it therefore does not independently substantiate the current Tata LPT tag. Confirm shank diameter, head profile and spring-pack position against the vehicle."
+      ]
+    },
+    {
+      "id": "SVKS000307",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM427 is listed as 16 inches. The GS entry gives the nominal length but no vehicle/model application or 5/8-inch interface detail for this code; it therefore does not independently substantiate the current Tata LPT tag. Confirm shank diameter, head profile and spring-pack position against the vehicle."
+      ]
+    },
+    {
+      "id": "SVKS000308",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM442 is listed as 18 inches. The GS entry gives the nominal length but no vehicle/model application or 5/8-inch interface detail for this code; it therefore does not independently substantiate the current Tata LPT tag. Confirm shank diameter, head profile and spring-pack position against the vehicle."
+      ]
+    },
+    {
+      "id": "SVKS000309",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM499 is listed as 10 inches. The source does not attach a vehicle/model application to SBAM499; it does not independently confirm the current Tata 3118 / Tata LPT fitment claim. Confirm head style, shank/thread size and spring-pack position before ordering."
+      ]
+    },
+    {
+      "id": "SVKS000310",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM500 is listed as 12 inches. The source does not attach a vehicle/model application to SBAM500; it does not independently confirm the current Tata 3118 / Tata LPT fitment claim. Confirm head style, shank/thread size and spring-pack position before ordering."
+      ]
+    },
+    {
+      "id": "SVKS000311",
+      "append": [
+        "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 4): SBBS1424 is listed as a 12-inch item in the supplier's “Spring Leaf Bolt With Nuts” section. The cited row does not name a Turbo model or any vehicle application. The source therefore confirms the listed nominal length only; it does not establish that the stocked product is a centre bolt for Tata LPT Turbo. Verify product type, thread/section and installed spring-pack position before retaining a vehicle-specific claim."
+      ]
+    },
+    {
+      "id": "SVKS000312",
+      "append": [
+        "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 4): SBBS1426 is listed as a 14-inch item in the supplier's “Spring Leaf Bolt With Nuts” section. The cited row does not name a Turbo model or any vehicle application. The source therefore confirms the listed nominal length only; it does not establish that the stocked product is a centre bolt for Tata LPT Turbo. Verify product type, thread/section and installed spring-pack position before retaining a vehicle-specific claim."
+      ]
+    },
+    {
+      "id": "SVKS000313",
+      "append": [
+        "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM496 is listed as a 12-inch bolt. The current Souviks title describes SBAM496 as a 10-inch “U Truck” centre bolt and maps it to Tata Ultra. The nominal length conflicts with the supplier list, while that list does not attach a vehicle/model to SBAM496. Do not treat the current 10-inch/U-Truck/Tata Ultra claim as supplier-confirmed; measure the physical part and confirm its head, shank and thread before correcting the record."
+      ]
+    },
+    {
+      "id": "SVKS000314",
+      "append": [
+        "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM596 is listed as a 14-inch bolt. The current Souviks title describes SBAM596 as a 12-inch “U Truck” centre bolt and maps it to Tata Ultra. The nominal length conflicts with the supplier list, while that list does not attach a vehicle/model to SBAM596. Do not treat the current 12-inch/U-Truck/Tata Ultra claim as supplier-confirmed; measure the physical part and confirm its head, shank and thread before correcting the record."
+      ]
+    },
+    {
+      "id": "SVKS000317",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM367 is listed as 12 inches, matching the nominal length in the Souviks title. No vehicle/model application is attached to this GS code; the entry does not independently substantiate the current Tata LPT tag. Confirm the actual shank diameter, thread and spring-pack position."
+      ]
+    },
+    {
+      "id": "SVKS000318",
+      "append": [
+        "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM394 is listed as 14 inches, matching the nominal length in the Souviks title. No vehicle/model application is attached to this GS code; the entry does not independently substantiate the current Tata LPT tag. Confirm the actual shank diameter, thread and spring-pack position."
+      ]
+    },
+    {
+      "id": "SVKS000690",
+      "append": [
+        "GS Auto supplier cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): MBJS112 is listed as an Eye Bolt With Nut for Leyland, 10 inches. This is make-level component evidence only; the GS entry does not specify Ashok Leyland 2516 or an axle/spring position. Confirm eye profile, thread, shank dimensions and installed position before treating the current 2516 tag as verified."
+      ]
+    },
+    {
+      "id": "SVKS000691",
+      "append": [
+        "GS Auto supplier cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): MBJS114 is listed as an Eye Bolt With Nut for Leyland, 11 inches. This is make-level component evidence only; the GS entry does not specify Ashok Leyland 2516 or an axle/spring position. Confirm eye profile, thread, shank dimensions and installed position before treating the current 2516 tag as verified."
+      ]
+    },
+    {
+      "id": "SVKS000692",
+      "append": [
+        "GS Auto supplier cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): MBJS116 is listed as an Eye Bolt With Nut for Leyland, 12 inches. This is make-level component evidence only; the GS entry does not specify Ashok Leyland 2516 or an axle/spring position. Confirm eye profile, thread, shank dimensions and installed position before treating the current 2516 tag as verified."
+      ]
+    },
+    {
+      "id": "SVKS000693",
+      "append": [
+        "GS Auto supplier-code discrepancy (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): the GS list identifies a 13-inch Leyland Eye Bolt With Nut as MBJS217, while the current Souviks record carries MSJS217. The code prefixes do not match, so this is not an exact part-number confirmation. The supplier entry also does not specify Ashok Leyland 2516 or an axle/spring position. Check the physical marking/pack before linking MSJS217 to MBJS217 or treating the 2516 tag as verified."
+      ]
+    },
+    {
+      "id": "SVKS000694",
+      "append": [
+        "GS Auto supplier cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): MBJS258 is listed as an Eye Bolt With Nut for Leyland, 14 inches. This is make-level component evidence only; the GS entry does not specify Ashok Leyland 2516 or an axle/spring position. Confirm eye profile, thread, shank dimensions and installed position before treating the current 2516 tag as verified."
+      ]
+    }
+  ]
+}
