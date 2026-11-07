@@ -1,0 +1,2132 @@
+{
+  "schema_version": 1,
+  "source_research": "GST rate schedule mapping against product-level HSN candidates classified/high in the 6 November HSN audit",
+  "research_date": "2026-11-08",
+  "catalogue_status_basis": "hsn_classification_status=classified and hsn_confidence=high",
+  "current_as_of": "2026-11-08",
+  "rate_reference_effective_from": "2025-09-22",
+  "record_count": 84,
+  "candidate_total_rate_percent": 18,
+  "candidate_cgst_rate_percent": 9,
+  "candidate_sgst_rate_percent": 9,
+  "candidate_igst_rate_percent": 18,
+  "status_counts": {
+    "candidate_for_accountant_review": 75,
+    "material_and_hsn_review": 5,
+    "vehicle_use_exception_check": 4
+  },
+  "references": {
+    "cgst_notification": "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+    "igst_notification": "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf",
+    "heading_8708_exception_table": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48",
+    "latest_amendment": "Notification No. 02/2026-Central Tax (Rate), G.S.R. 921(E), 27 October 2026, effective 1 November 2026",
+    "latest_amendment_reference": "https://egazette.servantsofknowledge.in/details/in.gazette.central.e.2026-10-27.277454/"
+  },
+  "note": "These are draft GST rate candidates, not approved final rates. No gst_rate_percent final field is set and no record is marked invoice-ready. The 8708 tractor exception and material/classification mismatches remain explicitly flagged.",
+  "records": [
+    {
+      "id": "SVKS000016",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000017",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000018",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "material_and_hsn_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "The product name contains 'Steel', whereas HSN 39174000 is for plastic fittings. Confirm the actual body material and correct HSN before invoice use. A steel-fitting alternative may have a similar rate, but do not infer the HSN from the rate.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000019",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000030",
+      "hsn_code": "85123010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000031",
+      "hsn_code": "85123010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000035",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000036",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000037",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "material_and_hsn_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "The product name contains 'Steel', whereas HSN 39174000 is for plastic fittings. Confirm the actual body material and correct HSN before invoice use. A steel-fitting alternative may have a similar rate, but do not infer the HSN from the rate.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000038",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000048",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000050",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000051",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000052",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "material_and_hsn_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "The product name contains 'Steel', whereas HSN 39174000 is for plastic fittings. Confirm the actual body material and correct HSN before invoice use. A steel-fitting alternative may have a similar rate, but do not infer the HSN from the rate.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000060",
+      "hsn_code": "87083000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "vehicle_use_exception_check",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "General motor-vehicle parts under heading 8708 are listed at 18%; the published table separately lists specified tractor components at 5%",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf",
+          "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "18% is the general heading-8708 candidate. Check whether the actual part is supplied for a tractor and falls within one of the specifically enumerated tractor parts in Notification 9/2025; those entries carry 5%. Product-level vehicle/function evidence must decide.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000065",
+      "hsn_code": "85123010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000073",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000108",
+      "hsn_code": "87083000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "vehicle_use_exception_check",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "General motor-vehicle parts under heading 8708 are listed at 18%; the published table separately lists specified tractor components at 5%",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf",
+          "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "18% is the general heading-8708 candidate. Check whether the actual part is supplied for a tractor and falls within one of the specifically enumerated tractor parts in Notification 9/2025; those entries carry 5%. Product-level vehicle/function evidence must decide.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000110",
+      "hsn_code": "87083000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "vehicle_use_exception_check",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "General motor-vehicle parts under heading 8708 are listed at 18%; the published table separately lists specified tractor components at 5%",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf",
+          "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "18% is the general heading-8708 candidate. Check whether the actual part is supplied for a tractor and falls within one of the specifically enumerated tractor parts in Notification 9/2025; those entries carry 5%. Product-level vehicle/function evidence must decide.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000111",
+      "hsn_code": "87083000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "vehicle_use_exception_check",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "General motor-vehicle parts under heading 8708 are listed at 18%; the published table separately lists specified tractor components at 5%",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf",
+          "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "18% is the general heading-8708 candidate. Check whether the actual part is supplied for a tractor and falls within one of the specifically enumerated tractor parts in Notification 9/2025; those entries carry 5%. Product-level vehicle/function evidence must decide.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000124",
+      "hsn_code": "38190010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 106: heading 3819 hydraulic brake fluids and other prepared hydraulic-transmission liquids",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000149",
+      "hsn_code": "84133030",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 400: heading 8413, including fuel/lubricating/cooling-medium pumps for internal-combustion engines",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000162",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000163",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000164",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000165",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "material_and_hsn_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "The product name contains 'Steel', whereas HSN 39174000 is for plastic fittings. Confirm the actual body material and correct HSN before invoice use. A steel-fitting alternative may have a similar rate, but do not infer the HSN from the rate.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000166",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000188",
+      "hsn_code": "84133030",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 400: heading 8413, including fuel/lubricating/cooling-medium pumps for internal-combustion engines",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000189",
+      "hsn_code": "84133030",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 400: heading 8413, including fuel/lubricating/cooling-medium pumps for internal-combustion engines",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000195",
+      "hsn_code": "85123010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000196",
+      "hsn_code": "85123090",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000214",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000215",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000216",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "material_and_hsn_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "The product name contains 'Steel', whereas HSN 39174000 is for plastic fittings. Confirm the actual body material and correct HSN before invoice use. A steel-fitting alternative may have a similar rate, but do not infer the HSN from the rate.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000217",
+      "hsn_code": "39174000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 118: heading 3917 plastic tubes, pipes, hoses and fittings",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000252",
+      "hsn_code": "85123010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000319",
+      "hsn_code": "85123010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000350",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000351",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000374",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000375",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000376",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000377",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000378",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000379",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000380",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000381",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000382",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000383",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000384",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000385",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000386",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000387",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000388",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000430",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000431",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000432",
+      "hsn_code": "85123090",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000468",
+      "hsn_code": "85118000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 484: heading 8511 engine ignition/starting equipment",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000558",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000570",
+      "hsn_code": "85365090",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 508: heading 8536 electrical switching apparatus up to 1,000 V",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000672",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000673",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000675",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000708",
+      "hsn_code": "84254200",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 414: heading 8425 pulley tackle, hoists, winches and jacks",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000748",
+      "hsn_code": "84133030",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 400: heading 8413, including fuel/lubricating/cooling-medium pumps for internal-combustion engines",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000805",
+      "hsn_code": "38190010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 106: heading 3819 hydraulic brake fluids and other prepared hydraulic-transmission liquids",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000806",
+      "hsn_code": "38190010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 106: heading 3819 hydraulic brake fluids and other prepared hydraulic-transmission liquids",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000832",
+      "hsn_code": "85124000",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000843",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000849",
+      "hsn_code": "85122020",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000850",
+      "hsn_code": "85122020",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000851",
+      "hsn_code": "85122020",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000852",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000853",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000854",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000855",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000856",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000857",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000858",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000859",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000860",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000861",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS000968",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    },
+    {
+      "id": "SVKS001014",
+      "hsn_code": "85122010",
+      "hsn_classification_status": "classified",
+      "hsn_confidence": "high",
+      "gst_rate_candidate": {
+        "total_rate_percent": 18,
+        "cgst_rate_percent": 9,
+        "sgst_rate_percent": 9,
+        "igst_rate_percent": 18,
+        "status": "candidate_for_accountant_review",
+        "effective_from": "2025-09-22",
+        "cgst_notification": "Notification No. 9/2025-Central Tax (Rate), G.S.R. 641(E), 17 September 2025",
+        "igst_notification": "Notification No. 9/2025-Integrated Tax (Rate), 17 September 2025",
+        "schedule_basis": "Schedule II entry 485: heading 8512 motor-vehicle lighting/signalling and wipers",
+        "source_references": [
+          "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+          "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+        ],
+        "last_checked_on": "2026-11-08",
+        "review_note": "Candidate only. Confirm the exact goods description and tariff item against the physical product and the current notification schedule; accountant approval is required before invoicing.",
+        "accountant_approval_required": true,
+        "invoice_ready": false
+      }
+    }
+  ]
+}
