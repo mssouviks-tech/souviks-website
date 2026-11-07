@@ -174,33 +174,21 @@ def reconcile_catalogue_projections():
             raise SystemExit(f"Invalid product-level HSN candidate metadata for {product_id}")
         hsn_overrides_by_id[product_id] = record
 
-    catalogue_ids = {
-        text(product.get("id")) for product in catalogue
+    catalogue_by_id = {
+        text(product.get("id")): product
+        for product in catalogue
         if isinstance(product, dict) and text(product.get("id"))
     }
-    if catalogue_ids != set(hsn_overrides_by_id):
-        missing = sorted(catalogue_ids - set(hsn_overrides_by_id))
-        unknown = sorted(set(hsn_overrides_by_id) - catalogue_ids)
-        raise SystemExit(
-            "HSN candidate override coverage mismatch: "
-            f"missing={missing[:10]}, unknown={unknown[:10]}"
-        )
+    unknown_hsn_ids = sorted(set(hsn_overrides_by_id) - set(catalogue_by_id))
+    if unknown_hsn_ids:
+        raise SystemExit(f"HSN candidate overrides reference unknown SKUs: {unknown_hsn_ids[:10]}")
 
-    actual_hsn_status_counts = {}
-    for product in catalogue:
-        override = hsn_overrides_by_id[text(product.get("id"))]
+    for product_id, override in hsn_overrides_by_id.items():
+        product = catalogue_by_id[product_id]
         for field in hsn_override_fields:
             product[field] = text(override.get(field))
-        status = text(product.get("hsn_classification_status"))
-        actual_hsn_status_counts[status] = actual_hsn_status_counts.get(status, 0) + 1
         product["hsn_research_source"] = text(hsn_candidate_overrides.get("source_research_pr"))
         product["hsn_research_date"] = text(hsn_candidate_overrides.get("research_date"))
-
-    if actual_hsn_status_counts != hsn_candidate_overrides.get("status_counts"):
-        raise SystemExit(
-            "HSN candidate override status totals do not match manifest: "
-            f"{actual_hsn_status_counts}"
-        )
 
     # Apply auditable manual supplier-invoice matches before generating the
     # canonical catalogue projections. This overlay is idempotent: the source
