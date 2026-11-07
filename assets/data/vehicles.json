@@ -276,7 +276,8 @@
       "SVKS001108",
       "SVKS001109",
       "SVKS001122",
-      "SVKS001142"
+      "SVKS001142",
+      "SVKS001007"
     ],
     "product_count": 106,
     "featured": true,
@@ -875,7 +876,9 @@
       "SVKS001152",
       "SVKS001157",
       "SVKS000676",
-      "SVKS000677"
+      "SVKS000677",
+      "SVKS000813",
+      "SVKS001007"
     ],
     "product_count": 319,
     "featured": true,
@@ -2214,11 +2217,7 @@
       "SVKS000806",
       "SVKS000808",
       "SVKS000809",
-      "SVKS000812",
-      "SVKS000813",
-      "SVKS000814",
       "SVKS000815",
-      "SVKS000816",
       "SVKS000842",
       "SVKS000846",
       "SVKS000847",
@@ -2272,7 +2271,6 @@
       "SVKS001004",
       "SVKS001005",
       "SVKS001006",
-      "SVKS001007",
       "SVKS001008",
       "SVKS001010",
       "SVKS001011",
@@ -3268,7 +3266,8 @@
       "SVKS001111",
       "SVKS001136",
       "SVKS001137",
-      "SVKS001138"
+      "SVKS001138",
+      "SVKS000816"
     ],
     "product_count": 59,
     "featured": false,
@@ -3484,7 +3483,8 @@
       "SVKS001097",
       "SVKS001103",
       "SVKS001110",
-      "SVKS001111"
+      "SVKS001111",
+      "SVKS000813"
     ],
     "product_count": 70,
     "featured": false,
@@ -4178,7 +4178,8 @@
       "SVKS001089",
       "SVKS001106",
       "SVKS001107",
-      "SVKS001142"
+      "SVKS001142",
+      "SVKS001007"
     ],
     "product_count": 48,
     "featured": false,
@@ -4442,7 +4443,8 @@
       "SVKS000859",
       "SVKS000937",
       "SVKS001067",
-      "SVKS001130"
+      "SVKS001130",
+      "SVKS001007"
     ],
     "product_count": 18,
     "featured": false,
