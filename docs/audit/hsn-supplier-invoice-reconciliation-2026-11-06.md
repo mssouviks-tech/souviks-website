@@ -1,4 +1,4 @@
-# Supplier-invoice HSN reconciliation — 6 November 2026
+# Supplier-invoice HSN reconciliation — 7 November 2026 (follow-up to the 6 November source audit)
 
 ## Source and treatment
 
@@ -12,23 +12,23 @@ Matching to the Souviks catalogue uses exact product names, supplier brand plus 
 |---|---:|
 | Populated supplier invoice HSN source rows | 1034 |
 | Distinct supplier product names | 1010 |
-| Source rows linked to a catalogue SKU | 906 |
-| Catalogue SKUs with one consistent supplier code | 847 |
-| Catalogue SKUs with conflicting supplier codes | 15 |
-| Supplier rows requiring manual review | 128 |
-| Brand/title review rows | 32 |
-| Ambiguous part-reference rows | 2 |
+| Source rows linked to a catalogue SKU | 912 |
+| Catalogue SKUs with one consistent supplier code | 851 |
+| Catalogue SKUs with conflicting supplier codes | 16 |
+| Supplier rows requiring manual review | 122 |
+| Brand/title review rows | 27 |
+| Ambiguous part-reference rows | 1 |
 | Supplier-name/code conflict rows | 4 |
 | Ambiguous exact-name rows | 1 |
 | No reliable catalogue match rows | 89 |
-| Active SKUs with one consistent supplier reference | 847 |
-| Active SKUs with conflicting supplier references | 15 |
+| Active SKUs with one consistent supplier reference | 851 |
+| Active SKUs with conflicting supplier references | 16 |
 
-The 1,034 populated source rows are fully accounted for between the linked-source register (906) and the outstanding review queue (128). The 15 conflict SKUs have no single selected supplier code.
+The 1,034 populated source rows are fully accounted for between the linked-source register (912) and the outstanding review queue (122). The 15 conflict SKUs have no single selected supplier code.
 
 ## Manual identity review
 
-The manual identity ledger now contains 82 supplier-source resolutions across eight tranches:
+The manual identity ledger now contains 88 supplier-source resolutions across nine tranches:
 - The first tranche added 40 source rows: 38 previously unlinked catalogue SKUs, one same-code supporting source record for an already-linked SKU, and one KF5098 source row that created a supplier-code conflict.
 - The second tranche added 26 source rows. It linked 16 new consistent SKUs across Bosch diesel filter kits, ASK brake-lining variants, Mahle KS55, Texspin TX-5592 RHS and TXL grease pack sizes, Varroc left/right headlamps, and the WABCO drain valve. It also added one same-code GS SBAM394 source record, moved KFL KF5099 (SVKS000743) into conflict, and added three additional conflict SKUs: Fleetguard FF5544 (SVKS000290), Fleetguard FS1967100 (SVKS000284), and Philips 24569ESCI (SVKS000405).
 - The third tranche added five Texspin source rows. TX-1888180 WH maps to SVKS000486 by the full Texspin part number, while its two invoice rows carry different codes and remain a conflict. TX-27WH (O-1511) maps to SVKS000487 by the full reference and application. TX-45128SC maps to existing SKU SVKS000489 by exact part number, but its new invoice code differs from the already linked supplier row, so it becomes a conflict. TX-539/532X maps to SVKS000522 by exact Texspin part number; the catalogue item is described as a wheel twin kit containing two bearings, while the invoice line calls it taper roller bearings, so the title variance is explicitly documented.
@@ -37,10 +37,11 @@ The manual identity ledger now contains 82 supplier-source resolutions across ei
 - A sixth tranche added two further cross-brand exact part-number matches: Nirmal B 1145 to BIR SKU SVKS000228 and Nirmal B 1151 to BIR SKU SVKS000229. Both catalogue part numbers and product descriptions match; supplier brand labels remain in provenance.
 - A seventh tranche resolved four additional source rows where the automatic candidate ranking had missed or failed to disambiguate exact catalogue identity: CB AU003BK to Motherson SKU SVKS000243 and CB AU003RD to SVKS000244 by exact concatenated part reference; KFL KF5122 to active SKU SVKS000345 after excluding duplicate inactive SKU SVKS000841; and Texspin TXL 3 - 1SG + 1 KG to the exact 1 kg pack SKU SVKS000840. The RD cable page title currently says black despite the RD suffix; that catalogue title/color inconsistency is documented and not silently corrected.
 - An eighth tranche links NG part 103 to NeoLite catalogue SKU SVKS000386 by the exact supplier part number and exact Tata 4 Chamber 24V tail-lamp description. The supplier brand label NG and catalogue brand NeoLite are both retained in provenance.
+- A ninth tranche added six source rows after checking exact catalogue identifiers: Palak PLK 199F to SVKS000404 by the exact normalised part number and 50 mm Bell Crank Set title/dimension (the Palak supplier label and Harish catalogue brand remain separately recorded); RKI K15/K16/K17/K21 to their four active catalogue SKUs by exact RKI part number; and Texspin TX 6698SC to SVKS000499 by exact part number, title and application. The Texspin source row carries 84821090 while the previously linked invoice row for the same part carries 84828000, so the SKU becomes a supplier-code conflict and neither value is selected. Existing catalogue HSN candidates remain unchanged.
 
-The current 15 conflicts include the eight conflicts present after the first manual tranche, the KF5099, FF5544, FS1967100 and Philips conflicts added in the second tranche, the TX-1888180 WH and TX-45128SC conflicts added in the third tranche, and TVS Girling 29068117 (SVKS000482) added in the fifth tranche. All source rows and distinct supplier codes are retained; no winning supplier HSN has been selected.
+The current 16 conflicts include the eight conflicts present after the first manual tranche, the KF5099, FF5544, FS1967100 and Philips conflicts added in the second tranche, the TX-1888180 WH and TX-45128SC conflicts added in the third tranche, and TVS Girling 29068117 (SVKS000482) added in the fifth tranche. All source rows and distinct supplier codes are retained; no winning supplier HSN has been selected.
 
-The remaining 128 review rows were checked against available catalogue identity evidence. They remain unlinked where the supplier reference is absent, the actual catalogue part number differs, brand/title alone cannot prove identity, or duplicate SKUs/variants prevent a reliable one-to-one assignment. Examples include the Bosch F-002-919-4AR-8F8 row whose apparent URL candidate has a different actual catalogue part number, and several brake-lining, bearing, spring-pin and mounting variants where a nearby description is not a safe substitute for a match.
+The remaining 122 review rows were checked against available catalogue identity evidence. They remain unlinked where the supplier reference is absent, the actual catalogue part number differs, brand/title alone cannot prove identity, or duplicate SKUs/variants prevent a reliable one-to-one assignment. Examples include the Bosch F-002-919-4AR-8F8 row whose apparent URL candidate has a different actual catalogue part number, and several brake-lining, bearing, spring-pin and mounting variants where a nearby description is not a safe substitute for a match.
 
 ## Catalogue fields
 
