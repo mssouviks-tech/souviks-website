@@ -1,0 +1,34 @@
+{
+  "application_updates": [
+    {
+      "id": "SVKS001147",
+      "append": [
+        "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 25–26): exact AM part B25TM1263332 is identified as the Solenoid Coil, Knorr-Bremse reference K043332. The LACV repair-kit matrix lists K043332 for seven configurations: TML 31T (K067500), TML 37T (K081535), TML 31T (K117107), DICV 31/37T (K068103), Ashok Leyland 31/37T (K105572), MTBL 37T (K089060) and Eicher 37T (K124211). The adjacent lift-axle system matrix names TML 3118, TML 3118 BS-IV, TML 3718, Ashok Leyland 3118/3718, BharatBenz 3123/3723, Volvo Eicher and Mahindra T&B as system contexts. Match the installed LACV assembly number, generation and connector before confirming a vehicle; do not interpret the existing broad Tata LPT / Ashok Leyland 2516 / Eicher Pro Series tags as fitment across every model in those families. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
+      ]
+    },
+    {
+      "id": "SVKS001148",
+      "append": [
+        "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 18 and 46–47): exact AM part B13TM1000151 is listed as Hand Brake Valve V, Version 1 (KB reference HBVP06001). The Tata Motors application chart marks this part for LP1512, LPO1512, LPO1623, LP2123, LPK2528 PRIMA (39 WB) and LPS3518. Confirm valve version, mounting, porting and brake-system configuration against the vehicle before supply; these six listed variants do not establish fitment for every Tata LPT or Prima model. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
+      ]
+    },
+    {
+      "id": "SVKS001150",
+      "append": [
+        "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 18 and 46–47): exact AM part B13TM1000152 is listed as Hand Brake Valve V (KB reference HBVP06002). The Tata Motors application chart marks this part for LPO1618. Treat this as a single-variant application only; confirm valve version, mounting, porting and brake-system configuration before supply. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000963",
+      "append": [
+        "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 13 and 46–47): exact AM part B13TM1000150 is listed as Relay Valve - V (KB reference K003355). No vehicle mark is shown for this part in the Tata Motors application-chart columns checked, so this source does not substantiate a model-specific Tata fitment. Retain the existing Universal classification only as a catalogue-level generic tag, not as evidence that this part fits all vehicles; verify porting, pressure specification and chassis application before supply. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
+      ]
+    },
+    {
+      "id": "SVKS001149",
+      "append": [
+        "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 23 and 46–47): the exact AM part B13TM1000182 / KB reference K013794 appears in the Tata application chart under the description Quick Release Valve, while the current Souviks title says Quick Relay Valve V/M. This is a product-description/function discrepancy requiring physical-part or manufacturer confirmation. The chart does not establish a model-specific application for this part; do not convert the Universal tag into a vehicle fitment claim. Confirm whether the stocked item is a quick-release valve or quick-relay valve, together with ports and operating specification, before supply. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
+      ]
+    }
+  ]
+}
