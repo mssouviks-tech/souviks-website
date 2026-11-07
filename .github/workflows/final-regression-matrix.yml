@@ -66,6 +66,7 @@ jobs:
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
           python3 scripts/audit/build_hsn_verification_worklist.py
+          # GST-rate candidates are applied by the canonical catalogue builder.
           python3 scripts/catalogue/sync_checkout_pages.py
           python3 scripts/audit/generate_product_thumbnails.py
           python3 scripts/catalogue/sync_navigation.py
@@ -124,6 +125,8 @@ jobs:
         run: node scripts/regression/hsn-supplier-invoice-reference.cjs
       - name: Validate product-level HSN candidate schema and evidence parity
         run: node scripts/regression/hsn-candidate-overrides.cjs
+      - name: Validate GST rate candidates and invoice-safety controls
+        run: node scripts/regression/gst-rate-candidate-contract.cjs
 
       - name: Validate Delhivery delivery estimator contract
         run: node scripts/regression/delhivery-estimate-contract.cjs
