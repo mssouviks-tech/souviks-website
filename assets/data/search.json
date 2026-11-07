@@ -485,18 +485,13 @@
       "TVS Girling",
       "Fasteners & Hardware",
       "Nut",
-      "The TVS Girling B00941020-0200 10 x 1.5 x 30 bolt & Nut Assy OAF secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
-      "Universal"
+      "The TVS Girling B00941020-0200 10 x 1.5 x 30 bolt & Nut Assy OAF secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint."
     ],
     "description": "The TVS Girling B00941020-0200 10 x 1.5 x 30 bolt & Nut Assy OAF secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
     "applications": [
-      "Commercial-vehicle suspension/hardware application",
-      "M10 x 1.5 x 30 bolt-and-nut assembly.",
-      "Vehicle application evidence (SFL/TVS Girling Parts Catalogue; exact part-number match): Tata common HCV transmission applications. The catalogue does not specify individual Tata models."
+      "Supplier catalogue confirmation (Sundram Fasteners Limited, Parts Catalogue, p. 19, 'Suitable for Tata - Common Applications / Transmission'; exact SFL part B00941020-0200): M10 x 1.5 x 30 joint bolt with standard nut, old A/F. The 2021 SFL Automotive Products Retail Price List (p. 31) also identifies B00941020-0200 as a 30 mm M10 x 1.5 shaft bolt-and-nut assembly, old A/F. These references establish a generic Tata transmission component description, not an individual vehicle model; Tata references in the catalogue are stated to be nominative/descriptive. Do not treat this as a universal vehicle fitment. Verify A/F, nut and installed joint before supply. Sources: https://pssao.com/catlog/sfl/PARTS%20CATALOGUE.pdf ; https://pssao.com/catlog/sfl/TVS%20AUTOMOTIVE%20PRODUCTS%20w.e.f.%201.9.2021.pdf"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "B00941020-0200",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -515,7 +510,7 @@
       "id": "tvs-girling",
       "name": "TVS Girling"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -21871,15 +21866,20 @@
       "Clutch Parts",
       "Clutch Booster",
       "The TVS Girling 29050626 Clutch Booster Assy 4\" 16mm (Ball End) assists clutch actuation by increasing the force available to operate the clutch-release mechanism.",
-      "Universal"
+      "Tata LPT",
+      "Tata Ultra",
+      "Tata Signa",
+      "Tata Prima"
     ],
     "description": "The TVS Girling 29050626 Clutch Booster Assy 4\" 16mm (Ball End) assists clutch actuation by increasing the force available to operate the clutch-release mechanism.",
     "applications": [
-      "Clutch hydraulic or pneumatic actuation system",
-      "replacement/service use for the stated specification."
+      "Manufacturer application evidence (TVS-Girling Genuine Brake Parts, Clutch Booster - Sheet Metal Version brochure, Jan-2026; exact part 29050626): 16 mm ball-end push rod, TML OE; similar aluminium-version part 29050309; OEM cross-references 503929300101 / 553029300104 / 500629300101 and 970051644L / 9700516480 / 9700516230. The manufacturer's applicable-model table lists Tata LPK 2518/2523/1618/3518/4018/3118, Ultra T.16/1918/3021/16.5, LPT 1913 / BS4–BS6 1913 / 2821 / 2038, LPO 1616 BS4 / 1618 BS6, Signa 2821/3521/1918 and Prima 4038/4938. Search mappings are limited to the corresponding existing Tata LPT, Tata Ultra, Tata Signa and Tata Prima families; the exact model list remains authoritative. Confirm the 16 mm ball-end rod, bore/port arrangement and chassis variant before supply. Source: https://www.tvsgirling.com/wp-content/uploads/2026/01/Clutch-Booster.pdf"
     ],
     "vehicles": [
-      "Universal"
+      "Tata LPT",
+      "Tata Ultra",
+      "Tata Signa",
+      "Tata Prima"
     ],
     "part_number": "29050626",
     "manufacturer_part_number": "",
@@ -21899,7 +21899,7 @@
       "id": "tvs-girling",
       "name": "TVS Girling"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 4,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -41810,16 +41810,14 @@
       "Fasteners & Hardware",
       "Bolt",
       "The TVS Girling M13520-0200 M12x1.5x35 secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
-      "Universal"
+      "Tata 1210"
     ],
     "description": "The TVS Girling M13520-0200 M12x1.5x35 secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
     "applications": [
-      "Commercial-vehicle suspension/hardware application",
-      "M12 x 1.5 x 35 bolt.",
-      "Vehicle fitment evidence (SFL/TVS Girling Parts Catalogue; exact part-number match): Tata 1210 and 1210SE rear foundation-bolt application. Catalogue also mentions a rotavator context; verify the installed assembly."
+      "Supplier catalogue application evidence (Sundram Fasteners Limited, Parts Catalogue, p. 12, 'Suitable for Tata - 1210/1210SE'; exact SFL part M13520-0200): listed as a rear foundation bolt / rotovator bolt, M12 x 1.5 x 35 mm. The 2021 SFL Automotive Products Retail Price List (p. 31) also identifies M13520-0200 as a 35 mm M12 x 1.5 foundation bolt for 1210 SE. This supports the Tata 1210 family entry; the source also notes a rotovator context, so confirm the installed application and thread before supply. Sources: https://pssao.com/catlog/sfl/PARTS%20CATALOGUE.pdf ; https://pssao.com/catlog/sfl/TVS%20AUTOMOTIVE%20PRODUCTS%20w.e.f.%201.9.2021.pdf"
     ],
     "vehicles": [
-      "Universal"
+      "Tata 1210"
     ],
     "part_number": "M13520-0200",
     "manufacturer_part_number": "",
@@ -41881,18 +41879,13 @@
       "TVS Girling",
       "Fasteners & Hardware",
       "Nut",
-      "The TVS Girling A15979020-0200 M22 x 2.5 x 115 Bolt W/M85900 Nut secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
-      "Universal"
+      "The TVS Girling A15979020-0200 M22 x 2.5 x 115 Bolt W/M85900 Nut secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint."
     ],
     "description": "The TVS Girling A15979020-0200 M22 x 2.5 x 115 Bolt W/M85900 Nut secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
     "applications": [
-      "Commercial-vehicle wheel/suspension bolt-and-nut application",
-      "M22 x 2.5 x 115.",
-      "Vehicle fitment evidence (SFL/TVS Girling Parts Catalogue; exact part-number and OE-equivalent match): Tata 1312, 1612, 1510, 1610 and 1613 rear-wheel bolt application."
+      "Supplier catalogue cross-check (Sundram Fasteners Limited, Automotive Products Retail Price List SF/AUTO/02/2021, effective 1-Sep-2021, p. 29): exact SFL part A15979020-0200 is listed as an M22 x 2.5 x 115 mm knurled bolt-and-nut assembly with M85900 nut under 'Wheel Fasteners Suitable for Tata Vehicles'. The 2021 row does not specify individual Tata models. The Souviks note previously naming Tata 1312/1612/1510/1610/1613 is not substantiated by this exact part row: the older SFL catalogue's Tata 1312/1612/1510/1610/1613 section lists a different 125 mm part, A22479020-0200. Keep model-level fitment unconfirmed for A15979020-0200 until the physical marking / hub position is checked. Source: https://pssao.com/catlog/sfl/TVS%20AUTOMOTIVE%20PRODUCTS%20w.e.f.%201.9.2021.pdf ; related model-specific Tata wheel-bolt catalogue: https://pssao.com/catlog/sfl/PARTS%20CATALOGUE.pdf"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "A15979020-0200",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -41911,7 +41904,7 @@
       "id": "tvs-girling",
       "name": "TVS Girling"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -41954,16 +41947,16 @@
       "Fasteners & Hardware",
       "Nut",
       "The TVS Girling A22479020-0200 M22 x 2.5 x 125 Hub Bolt W/Nut Knurlbolt secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
-      "Universal"
+      "Tata 1312",
+      "Tata LPT"
     ],
     "description": "The TVS Girling A22479020-0200 M22 x 2.5 x 125 Hub Bolt W/Nut Knurlbolt secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
     "applications": [
-      "Commercial-vehicle hub/wheel application",
-      "M22 x 2.5 x 125 knurled hub bolt.",
-      "Vehicle fitment evidence (SFL/TVS Girling Parts Catalogue; exact part-number match): Tata 1312, 1612, 1510, 1610 and 1613 rear-wheel bolt application."
+      "Manufacturer/supplier catalogue application evidence (Sundram Fasteners Limited, Parts Catalogue, p. 13, 'Suitable for Tata - 1312/1612/1510/1610/1613'; exact SFL part A22479020-0200): listed as an M22 x 2.5 x 125 mm knurled rear-wheel bolt. SFL's 2021 Automotive Products Retail Price List (p. 29) independently lists the exact part as a 125 mm M22 x 2.5 bolt-and-nut assembly with M85900 nut. This supports the named Tata HCV series; use only the knurled rear-wheel position and confirm hub / drum interface. The older catalogue states Tata references are nominative/descriptive. Sources: https://pssao.com/catlog/sfl/PARTS%20CATALOGUE.pdf ; https://pssao.com/catlog/sfl/TVS%20AUTOMOTIVE%20PRODUCTS%20w.e.f.%201.9.2021.pdf"
     ],
     "vehicles": [
-      "Universal"
+      "Tata 1312",
+      "Tata LPT"
     ],
     "part_number": "A22479020-0200",
     "manufacturer_part_number": "",
@@ -41983,7 +41976,7 @@
       "id": "tvs-girling",
       "name": "TVS Girling"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 2,
     "product_count": 0,
     "featured": false,
     "active": true,
