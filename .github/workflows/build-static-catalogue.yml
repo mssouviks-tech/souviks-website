@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "assets/data/catalogue-index.json"
+      - "assets/data/hsn-dpiit-ministry-mappings.json"
       - "assets/data/approximate-product-weights.json"
       - "assets/data/product-dimension-specifications.json"
       - "assets/data/wabco-product-specifications.json"

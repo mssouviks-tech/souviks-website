@@ -212,6 +212,54 @@ def reconcile_catalogue_projections():
             product["hsn_supplier_invoice_source_file"] = text(product.get("hsn_supplier_invoice_source_file")) or "hsn.xlsx"
             product["hsn_supplier_invoice_match_date"] = text(product.get("hsn_supplier_invoice_match_date")) or "2026-11-06"
 
+    # Attach the DPIIT guidebook ministry/department mapping to each product.
+    # The crosswalk is versioned separately so the catalogue build can apply it
+    # deterministically to both catalogue HSN candidates and supplier invoice codes.
+    dpiit_hsn_mapping_path = ROOT / "assets/data/hsn-dpiit-ministry-mappings.json"
+    try:
+        dpiit_hsn_mapping_data = json.loads(dpiit_hsn_mapping_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"Invalid DPIIT HSN ministry mapping file: {exc}")
+    if not isinstance(dpiit_hsn_mapping_data, dict) or dpiit_hsn_mapping_data.get("schema_version") != 1:
+        raise SystemExit("DPIIT HSN ministry mapping file has an unsupported schema")
+    dpiit_codes = dpiit_hsn_mapping_data.get("codes")
+    if not isinstance(dpiit_codes, dict):
+        raise SystemExit("DPIIT HSN ministry mapping file must contain a codes object")
+
+    def map_dpiit_hsn_code(raw_code):
+        code = text(raw_code)
+        if not code:
+            return {"code": "", "mapping_status": "missing_code", "ministry_departments": [], "residual_probable_ministries": []}
+        entry = dpiit_codes.get(code)
+        if not isinstance(entry, dict):
+            return {"code": code, "mapping_status": "not_found_in_guidebook", "ministry_departments": [], "residual_probable_ministries": []}
+        status = text(entry.get("mapping_status"))
+        if status not in {"accepted_by_ministry", "residual_probable_ministry", "not_found_in_guidebook"}:
+            raise SystemExit(f"Invalid DPIIT mapping status for HSN {code}: {status!r}")
+        return {
+            "code": code,
+            "mapping_status": status,
+            "ministry_departments": list(entry.get("ministry_departments") or []),
+            "residual_probable_ministries": list(entry.get("residual_probable_ministries") or []),
+        }
+
+    for product in catalogue:
+        supplier_codes = product.get("hsn_supplier_invoice_codes")
+        if not isinstance(supplier_codes, list):
+            supplier_codes = []
+        existing_supplier_code = text(product.get("hsn_supplier_invoice_code"))
+        if existing_supplier_code and existing_supplier_code not in supplier_codes:
+            supplier_codes.append(existing_supplier_code)
+        supplier_codes = sorted({text(code) for code in supplier_codes if text(code)})
+        product["hsn_dpiit_mapping"] = {
+            "guidebook_title": text(dpiit_hsn_mapping_data.get("guidebook_title")),
+            "guidebook_version": text(dpiit_hsn_mapping_data.get("guidebook_version")),
+            "guidebook_url": text(dpiit_hsn_mapping_data.get("guidebook_url")),
+            "mapping_scope": text(dpiit_hsn_mapping_data.get("mapping_scope")),
+            "catalogue_hsn": map_dpiit_hsn_code(product.get("hsn_code")),
+            "supplier_invoice_hsn": [map_dpiit_hsn_code(code) for code in supplier_codes],
+        }
+
     def normalize_slug(value):
         value = text(value).casefold()
         value = re.sub(r"[^a-z0-9]+", "-", value)
@@ -1168,6 +1216,7 @@ def reconcile_catalogue_projections():
             "hsn_supplier_invoice_source_file": text(p.get("hsn_supplier_invoice_source_file")),
             "hsn_supplier_invoice_match_date": text(p.get("hsn_supplier_invoice_match_date")),
             "hsn_supplier_invoice_candidate_alignment": text(p.get("hsn_supplier_invoice_candidate_alignment")),
+            "hsn_dpiit_mapping": p.get("hsn_dpiit_mapping") if isinstance(p.get("hsn_dpiit_mapping"), dict) else {},
             "declared_net_content_g": p.get("declared_net_content_g"),
             "declared_net_content_status": text(p.get("declared_net_content_status")),
             "declared_net_content_source": text(p.get("declared_net_content_source")),
@@ -1308,7 +1357,7 @@ def reconcile_catalogue_projections():
             "hsn_supplier_invoice_match_status", "hsn_supplier_invoice_match_methods",
             "hsn_supplier_invoice_source_names", "hsn_supplier_invoice_external_ids",
             "hsn_supplier_invoice_source_file", "hsn_supplier_invoice_match_date",
-            "hsn_supplier_invoice_candidate_alignment", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
+            "hsn_supplier_invoice_candidate_alignment", "hsn_dpiit_mapping", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",

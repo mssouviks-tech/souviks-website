@@ -15,6 +15,20 @@ Each catalogue record now carries:
 - `hsn_review_note`: missing specification/material/fitment that must be checked.
 - `hsn_reference_date`: tariff schedule reference date (`2026-10-01`).
 
+- `hsn_dpiit_mapping`: guidebook-based ministry/department mapping for the existing catalogue HSN candidate and each distinct supplier-invoice HSN code.
+
+## DPIIT ministry/department mapping
+
+The canonical catalogue builder populates `hsn_dpiit_mapping` for every product and carries it into `assets/data/products.json`. It keeps the catalogue HSN and supplier invoice HSN mappings separate so supplier conflicts remain visible without selecting a winner.
+
+The source is the DPIIT *Guidebook on Mapping of Harmonized System of Nomenclature (HSN) Codes*, revised 16 December 2025:
+[Government of India / DPIIT guidebook](https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf).
+
+The mapping records exact eight-digit code matches to the ministry/department accepted-code lists, or the probable ministry/department in the guidebook's residual list. A code not found as an exact entry is marked `not_found_in_guidebook`; no prefix or approximate code match is substituted.
+
+This is an administrative ministry/department ownership crosswalk, not a product-classification ruling. It does not determine the legally correct HSN for the physical product, override the current `hsn_code` candidate or supplier-invoice evidence, or assign a GST rate.
+
+
 The public product projection in `assets/data/products.json` is also updated by `scripts/catalogue/build.py` to preserve these fields.
 
 ## Classification approach
