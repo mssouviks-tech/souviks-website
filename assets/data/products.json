@@ -28660,23 +28660,27 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_code": "",
     "hsn_supplier_invoice_codes": [
-      "87089900"
+      "87089900",
+      "84212300"
     ],
-    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_status": "conflict",
     "hsn_supplier_invoice_match_methods": [
-      "brand_and_exact_part_reference"
+      "brand_and_exact_part_reference",
+      "manual_fleetguard_exact_part_number_suffix_zero_title_reference_supplier_code_conflict"
     ],
     "hsn_supplier_invoice_source_names": [
-      "Fleetguard - 8710124 - Head Assembly"
+      "Fleetguard - 8710124 - Head Assembly",
+      "Fleetguard - 871012400 - FS-Head for FS19664"
     ],
     "hsn_supplier_invoice_external_ids": [
-      "__export__.product_template_6313_4d1dec2b"
+      "__export__.product_template_6313_4d1dec2b",
+      "__export__.product_template_7076_1626c985"
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "differs"
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes"
   },
   {
     "id": "SVKS000289",
@@ -40170,15 +40174,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_dimensions_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "Palak - PLK 199F - Bell Crank Set 50 mm"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6266_00471767"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS000405",
@@ -49417,23 +49429,27 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "84828000",
+    "hsn_supplier_invoice_code": "",
     "hsn_supplier_invoice_codes": [
-      "84828000"
+      "84828000",
+      "84821090"
     ],
-    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_status": "conflict",
     "hsn_supplier_invoice_match_methods": [
-      "brand_and_exact_part_reference"
+      "brand_and_exact_part_reference",
+      "manual_exact_part_number_title_application_supplier_code_conflict"
     ],
     "hsn_supplier_invoice_source_names": [
-      "Texspin - TX - 6698 SC (OE No. FBV00700)"
+      "Texspin - TX - 6698 SC (OE No. FBV00700)",
+      "Texspin - TX 6698SC - Clutch Release Bearing for ASHOK LEYLAND 1.75” 25TON TO 31TON (ASHOK LEYLAND 1.75” 15\"RDC 20 95GB & 850 OD GEAR BOX)"
     ],
     "hsn_supplier_invoice_external_ids": [
-      "__export__.product_template_94_ab645cd1"
+      "__export__.product_template_94_ab645cd1",
+      "__export__.product_template_6290_e5504680"
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "agrees"
+    "hsn_supplier_invoice_candidate_alignment": "conflicting_supplier_codes"
   },
   {
     "id": "SVKS000500",
@@ -107292,15 +107308,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_supplier_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "RKI - K15 - Coupling Flange"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_7609_cdb920bf"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS001087",
@@ -107696,15 +107720,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_supplier_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "RKI - K17 - Coupling Flange"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_7614_c9ae6068"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS001092",
@@ -107852,15 +107884,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_supplier_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "RKI - K21 - Coupling Flange"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_7616_e70bd6b0"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS001094",
@@ -108669,15 +108709,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "87089900",
+    "hsn_supplier_invoice_codes": [
+      "87089900"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_supplier_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "RKI - K16 - Coupling Flange"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_7626_4655580d"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "differs"
   },
   {
     "id": "SVKS001117",
