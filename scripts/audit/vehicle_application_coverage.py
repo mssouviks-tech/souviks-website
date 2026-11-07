@@ -106,11 +106,25 @@ def main() -> int:
     active_products = [p for p in all_products if p.get("active") is not False]
     inactive_products = [p for p in all_products if p.get("active") is False]
     active_vehicles = [v for v in vehicles if isinstance(v, dict) and v.get("active") is not False]
-    vehicle_by_id = {
-        str(v.get("id") or "").strip(): v
-        for v in active_vehicles
-        if str(v.get("id") or "").strip()
-    }
+    def normalize_vehicle_label(value: Any) -> str:
+        normalized = str(value or "").casefold()
+        normalized = re.sub(r"[^a-z0-9]+", " ", normalized)
+        return re.sub(r"\\s+", " ", normalized).strip()
+
+    # Product.vehicles contains display labels (e.g. "Tata LPT"), not IDs.
+    # Reconcile labels to the active vehicle master before checking the inverse
+    # vehicle.products relationship.
+    vehicle_by_label: dict[str, dict[str, Any]] = {}
+    for vehicle in active_vehicles:
+        for alias in (
+            vehicle.get("id"),
+            vehicle.get("slug"),
+            vehicle.get("model"),
+            vehicle.get("name"),
+        ):
+            key = normalize_vehicle_label(alias)
+            if key:
+                vehicle_by_label[key] = vehicle
     product_by_id = {str(p["id"]).strip(): p for p in all_products}
 
     application_note_count = 0
@@ -121,7 +135,7 @@ def main() -> int:
     products_with_no_application_notes = 0
     products_with_no_vehicle_mapping = 0
     products_with_vehicle_mapping = 0
-    products_with_unresolved_vehicle_ids = 0
+    products_with_unresolved_vehicle_labels = 0
     mapped_pairs: set[tuple[str, str]] = set()
     unresolved_pairs: list[dict[str, str]] = []
     worklist_rows: list[dict[str, str]] = []
@@ -132,7 +146,7 @@ def main() -> int:
     for p in active_products:
         pid = str(p["id"]).strip()
         apps = as_list(p.get("applications"))
-        vehicle_ids = as_list(p.get("vehicles"))
+        vehicle_labels = as_list(p.get("vehicles"))
         application_note_count += len(apps)
         if apps:
             products_with_any_application += 1
@@ -144,21 +158,22 @@ def main() -> int:
         products_with_fitment_evidence_wording += int(features["has_fitment_evidence_wording"])
         products_with_qualification += int(features["has_qualification_or_conflict_wording"])
 
-        valid_vehicle_ids = []
-        missing_vehicle_ids = []
-        for vid in vehicle_ids:
-            if vid in vehicle_by_id:
-                valid_vehicle_ids.append(vid)
-                mapped_pairs.add((pid, vid))
+        valid_vehicle_matches: list[tuple[str, dict[str, Any]]] = []
+        missing_vehicle_labels = []
+        for label in vehicle_labels:
+            vehicle = vehicle_by_label.get(normalize_vehicle_label(label))
+            if vehicle is not None:
+                valid_vehicle_matches.append((label, vehicle))
+                mapped_pairs.add((pid, str(vehicle.get("id") or "").strip()))
             else:
-                missing_vehicle_ids.append(vid)
-                unresolved_pairs.append({"product_id": pid, "vehicle_id": vid})
-        if vehicle_ids:
+                missing_vehicle_labels.append(label)
+                unresolved_pairs.append({"product_id": pid, "vehicle_label": label})
+        if valid_vehicle_matches:
             products_with_vehicle_mapping += 1
         else:
             products_with_no_vehicle_mapping += 1
-        if missing_vehicle_ids:
-            products_with_unresolved_vehicle_ids += 1
+        if missing_vehicle_labels:
+            products_with_unresolved_vehicle_labels += 1
 
         if features["has_source_reference"] and features["has_fitment_evidence_wording"]:
             bucket = "source-cited evidence note (requires content review)"
@@ -183,17 +198,18 @@ def main() -> int:
             "part_number": part_number(p),
             "category": category,
             "active": "true",
-            "vehicle_ids": ";".join(vehicle_ids),
-            "vehicle_names": ";".join(
-                str(vehicle_by_id[v].get("model") or vehicle_by_id[v].get("name") or v)
-                for v in valid_vehicle_ids
+            "vehicle_ids": ";".join(
+                str(vehicle.get("id") or "").strip()
+                for _, vehicle in valid_vehicle_matches
             ),
+            "vehicle_names": ";".join(label for label, _ in valid_vehicle_matches),
+            "vehicle_labels_unmatched": ";".join(missing_vehicle_labels),
             "application_note_count": str(len(apps)),
             "has_source_reference": str(features["has_source_reference"]).lower(),
             "has_fitment_evidence_wording": str(features["has_fitment_evidence_wording"]).lower(),
             "has_qualification_or_conflict_wording": str(features["has_qualification_or_conflict_wording"]).lower(),
             "audit_bucket": bucket,
-            "missing_vehicle_ids": ";".join(missing_vehicle_ids),
+            "missing_vehicle_labels": ";".join(missing_vehicle_labels),
             "application_notes": note_text,
             "source_urls": ";".join(note_urls),
         })
@@ -248,7 +264,7 @@ def main() -> int:
             "active_products_with_qualification_or_conflict_wording": products_with_qualification,
             "active_products_with_vehicle_mapping": products_with_vehicle_mapping,
             "active_products_without_vehicle_mapping": products_with_no_vehicle_mapping,
-            "active_products_with_unresolved_vehicle_ids": products_with_unresolved_vehicle_ids,
+            "active_products_with_unresolved_vehicle_labels": products_with_unresolved_vehicle_labels,
             "product_vehicle_mapping_pairs": len(mapped_pairs),
             "vehicle_product_inverse_pairs": len(inverse_pairs),
             "missing_vehicle_inverse_pairs": len(missing_inverse_pairs),
@@ -259,7 +275,7 @@ def main() -> int:
         "heuristic_buckets": dict(confidence_buckets),
         "vehicle_names": active_vehicle_names,
         "integrity": {
-            "product_vehicle_ids_not_in_active_vehicles_master": unresolved_pairs,
+            "product_vehicle_labels_not_in_active_vehicles_master": unresolved_pairs,
             "product_vehicle_pairs_missing_from_vehicles_products": [
                 {"product_id": pid, "vehicle_id": vid} for pid, vid in missing_inverse_pairs
             ],
@@ -307,7 +323,7 @@ def main() -> int:
         f"- Vehicle-page inverse pairs: **{summary['vehicle_product_inverse_pairs']}**.",
         f"- Product-to-vehicle pairs missing from vehicle pages: **{summary['missing_vehicle_inverse_pairs']}**.",
         f"- Vehicle-page pairs missing from product records: **{summary['vehicle_only_product_pairs']}**.",
-        f"- Product records containing unknown vehicle IDs: **{summary['active_products_with_unresolved_vehicle_ids']}**.",
+        f"- Product records containing vehicle labels not found in the active vehicle master: **{summary['active_products_with_unresolved_vehicle_labels']}**.",
         f"- Vehicle pages with active products: **{summary['vehicle_pages_with_active_products']} / {summary['vehicle_pages_total']}**.",
         "",
         "## Important interpretation",
