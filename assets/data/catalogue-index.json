@@ -85938,7 +85938,8 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001148/1.webp",
     "vehicles": [
-      "Universal"
+      "Tata 1512",
+      "Tata Prima"
     ],
     "featured": false,
     "active": true,
@@ -85957,7 +85958,7 @@
       "Version 1",
       "Knorr-Bremse reference HBVP06001",
       "WABCO cross-reference 9611700010.",
-      "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 18 and 46–47): exact AM part B13TM1000151 is listed as Hand Brake Valve V, Version 1 (KB reference HBVP06001). The Tata Motors application chart marks this part for LP1512, LPO1512, LPO1623, LP2123, LPK2528 PRIMA (39 WB) and LPS3518. Confirm valve version, mounting, porting and brake-system configuration against the vehicle before supply; these six listed variants do not establish fitment for every Tata LPT or Prima model. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
+      "Manufacturer application evidence (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 46–47, Tata Motors application chart; exact AM part B13TM1000151 / KB reference HBVP06001): the hand-brake-valve row for B13TM1000151 is marked for LP1512, LPO1512, LPO1623, LP2123, LPK2528 PRIMA (39 WB) and LPS3518. Of these, the current Souviks vehicle master represents LP1512/LPO1512 as Tata 1512 and LPK2528 PRIMA (39 WB) under the family-level Tata Prima entry. The vehicle tags are therefore limited to Tata 1512 and Tata Prima; the remaining chart models are not represented in the current master. The Tata Prima tag represents only the stated 39 WB variant, not a blanket all-PRIMA claim. Verify valve version, mounting, porting and brake-system configuration before supply. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001148/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",

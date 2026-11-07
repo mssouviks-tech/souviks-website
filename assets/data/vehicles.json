@@ -1725,8 +1725,8 @@
     "cutout": "/assets/images/vehicles/UNIVERSAL/transparent-cutout.png",
     "hero": "/assets/images/vehicles/UNIVERSAL/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 255 active spare parts for Universal, a Multi-brand / Universal application. Current catalogue coverage includes Fasteners & Hardware, Electricals, Air System, Lubricants, Bearings and more and common replacement areas such as Air Repair Kit, Washer, Bolt, Bulb, Taper Roller Bearing and more; listed brands include TVS Girling, Rider, Bosch, Texspin, Tata Genuine Parts.",
-    "short_description": "Universal: 255 active parts mapped across Fasteners & Hardware, Electricals, Air System, Lubricants and more.",
+    "description": "Souviks lists 254 active spare parts for Universal, a Multi-brand / Universal application. Current catalogue coverage includes Fasteners & Hardware, Electricals, Air System, Lubricants, Bearings and more and common replacement areas such as Air Repair Kit, Washer, Bolt, Bulb, Taper Roller Bearing and more; listed brands include TVS Girling, Rider, Bosch, Texspin, Tata Genuine Parts.",
+    "short_description": "Universal: 254 active parts mapped across Fasteners & Hardware, Electricals, Air System, Lubricants and more.",
     "categories": [
       {
         "id": "air-system",
@@ -2214,11 +2214,10 @@
       "SVKS001016",
       "SVKS001134",
       "SVKS001141",
-      "SVKS001148",
       "SVKS001149",
       "SVKS001150"
     ],
-    "product_count": 255,
+    "product_count": 254,
     "featured": true,
     "active": true,
     "seo": {
@@ -3462,8 +3461,8 @@
     "cutout": "/assets/images/vehicles/TATA_1512/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_1512/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 53 active spare parts for Tata 1512, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Engine Components, Electricals, Clutch Parts, Bearings and more and common replacement areas such as Timing Belt, U Bolt, Clutch Release Bearing, Taper Roller Bearing, Head Light and more; listed brands include Pix, Texspin, Nirmal, UnoMinda, NeoLite.",
-    "short_description": "Tata 1512: 53 active parts mapped across Suspension & Steering, Engine Components, Electricals, Clutch Parts and more.",
+    "description": "Souviks lists 54 active spare parts for Tata 1512, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Engine Components, Electricals, Clutch Parts, Bearings and more and common replacement areas such as Timing Belt, U Bolt, Clutch Release Bearing, Taper Roller Bearing, Head Light and more; listed brands include Pix, Texspin, Nirmal, UnoMinda, NeoLite.",
+    "short_description": "Tata 1512: 54 active parts mapped across Suspension & Steering, Engine Components, Electricals, Clutch Parts and more.",
     "categories": [
       {
         "id": "bearings",
@@ -3612,6 +3611,7 @@
       "SVKS000684",
       "SVKS000737",
       "SVKS000778",
+      "SVKS000975",
       "SVKS001071",
       "SVKS001072",
       "SVKS001073",
@@ -3623,9 +3623,9 @@
       "SVKS001079",
       "SVKS001119",
       "SVKS001131",
-      "SVKS000975"
+      "SVKS001148"
     ],
-    "product_count": 53,
+    "product_count": 54,
     "featured": false,
     "active": true,
     "seo": {
@@ -3943,8 +3943,8 @@
     "cutout": "/assets/images/vehicles/TATA_PRIMA/transparent-cutout.png",
     "hero": "/assets/images/vehicles/TATA_PRIMA/hero-1920x1080.webp",
     "banner": "",
-    "description": "Souviks lists 48 active spare parts for Tata Prima, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Fasteners & Hardware, Brakes, Filters and more and common replacement areas such as Shackle Plate, Washer, Suspension Bush, Air Spring, Clutch Release Bearing and more; listed brands include JMP, Harish, Texspin, KFL, JAI.",
-    "short_description": "Tata Prima: 48 active parts mapped across Suspension & Steering, Clutch Parts, Fasteners & Hardware, Brakes and more.",
+    "description": "Souviks lists 49 active spare parts for Tata Prima, a Tata Motors application. Current catalogue coverage includes Suspension & Steering, Clutch Parts, Fasteners & Hardware, Brakes, Filters and more and common replacement areas such as Shackle Plate, Washer, Suspension Bush, Air Spring, Clutch Release Bearing and more; listed brands include JMP, Harish, Texspin, KFL, JAI.",
+    "short_description": "Tata Prima: 49 active parts mapped across Suspension & Steering, Clutch Parts, Fasteners & Hardware, Brakes and more.",
     "categories": [
       {
         "id": "air-system",
@@ -4076,6 +4076,7 @@
       "SVKS000327",
       "SVKS000328",
       "SVKS000330",
+      "SVKS000331",
       "SVKS000360",
       "SVKS000364",
       "SVKS000371",
@@ -4111,9 +4112,9 @@
       "SVKS001089",
       "SVKS001106",
       "SVKS001107",
-      "SVKS000331"
+      "SVKS001148"
     ],
-    "product_count": 48,
+    "product_count": 49,
     "featured": false,
     "active": true,
     "seo": {
