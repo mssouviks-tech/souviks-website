@@ -23,7 +23,9 @@ for(const row of manifest.records) {
 }
 const byId=new Map(catalogue.map(p=>[String(p.id),p]));
 const projected=new Map(products.map(p=>[String(p.id),p]));
-if(byId.size!==1159||overrides.size!==byId.size) throw new Error("HSN override/canonical catalogue coverage mismatch");
+if(byId.size!==manifest.catalogue_reviewed_record_count||overrides.size!==manifest.record_count) {
+ throw new Error("HSN correction manifest/canonical catalogue coverage mismatch");
+}
 const statusCounts={classified:0,provisional:0,review_required:0};
 for(const [id,row] of overrides) {
  const product=byId.get(id);
