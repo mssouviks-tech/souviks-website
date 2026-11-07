@@ -14,7 +14,8 @@ Each catalogue record now carries:
 - `hsn_basis`: product-specific reason for the candidate.
 - `hsn_review_note`: missing specification/material/fitment that must be checked.
 - `hsn_reference_date`: tariff schedule reference date (`2026-10-01`).
-- `hsn_research_source` and `hsn_research_date`: provenance of the SKU-level candidate audit applied by the canonical catalogue builder.
+
+The 28 SKU records corrected in the 6 November audit also carry `hsn_research_source` and `hsn_research_date` so the correction provenance is traceable in the product projection.
 
 - `hsn_dpiit_mapping`: guidebook-based ministry/department mapping for the existing catalogue HSN candidate and each distinct supplier-invoice HSN code.
 
