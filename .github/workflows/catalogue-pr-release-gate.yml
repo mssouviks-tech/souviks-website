@@ -211,6 +211,7 @@ jobs:
           # actual PR branch, not the synthetic merge candidate used by validation.
           (
             cd "${publish_repo}"
+            python3 scripts/catalogue/build.py
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/audit/prepare_mobile_listing_lcp.py
             python3 scripts/js/refresh_versions.py
@@ -219,6 +220,9 @@ jobs:
           )
 
           generated_paths=(
+            assets/data/catalogue-index.json
+            assets/data/products.json
+            assets/data/search.json
             assets/images/hero/index-hero-mobile.webp
             assets/images/hero/product-hero-mobile.webp
             assets/images/hero/product-hero-mobile-crop.avif
