@@ -74,3 +74,24 @@ The supplied GST REG-06 certificate is dated 7 July 2018. It shows the details o
 - Accountant approval of GST rate and effective date per SKU.
 - Current GST Portal status check and seller identity reconciliation.
 - Production invoice generation, storage, numbering, delivery and credit-note/refund workflow; the fillable PDF layout remains a non-calculating template.
+
+
+## Product-level GST rate candidate tranche — 8 November 2026
+
+The first candidate tranche adds a separate `gst_rate_candidate` object to 84 products already classified/high-confidence in the product HSN catalogue. The candidate is **18% total** (9% CGST + 9% SGST for intra-State supplies; 18% IGST for inter-State supplies), based on the exact Schedule II tariff descriptions in Notification No. 9/2025-Central Tax (Rate) and Notification No. 9/2025-Integrated Tax (Rate), effective 22 September 2025.
+
+Coverage:
+- 84 product-level candidate records, across 12 distinct HSN tariff items.
+- 75 are flagged for ordinary accountant review.
+- 5 connector SKUs whose names include “Steel” are flagged for material/HSN review because 39174000 is a plastic-fitting heading.
+- 4 heading-8708 brake SKUs are flagged for vehicle-use exception review. General motor-vehicle parts are 18%; specified tractor brake assemblies/parts have a 5% entry. Do not use the 18% candidate for an eligible tractor application without resolving that exception.
+
+The data is stored in `assets/data/gst-rate-candidate-overrides-2026-11-08.json` and projected to `assets/data/products.json` as `gst_rate_candidate`. It does **not** set `gst_rate_percent`, mark a product invoice-ready, or create final accountant approval. The rate-candidate object is explicitly separate from any final rate used by the invoice engine.
+
+Notification No. 02/2026-Central Tax (Rate), dated 27 October 2026 and effective 1 November 2026, changes the fertiliser and tyre entries; it does not amend the Schedule II headings used in this 84-product tranche. The catalogue still requires rate and HSN review for the 1,075 provisional/review-required SKUs. The candidate fields are not an authorization to issue tax invoices.
+
+Primary sources:
+- [Notification No. 9/2025-Central Tax (Rate)](https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications)
+- [Notification No. 9/2025-Integrated Tax (Rate)](https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf)
+- [Ministry of Finance / PIB rate table for heading 8708 and specified tractor exceptions](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48)
+- [Notification No. 02/2026-Central Tax (Rate), 27 October 2026](https://egazette.servantsofknowledge.in/details/in.gazette.central.e.2026-10-27.277454/)

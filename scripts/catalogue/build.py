@@ -316,6 +316,67 @@ def reconcile_catalogue_projections():
             "supplier_invoice_hsn": [map_dpiit_hsn_code(code) for code in supplier_codes],
         }
 
+    # Apply draft GST-rate candidates only to products whose HSN candidate is
+    # already classified/high-confidence. The separate candidate object is
+    # never copied into a final gst_rate_percent field or treated as approved.
+    gst_rate_overrides_path = ROOT / "assets/data/gst-rate-candidate-overrides-2026-11-08.json"
+    try:
+        gst_rate_overrides_data = json.loads(gst_rate_overrides_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"Invalid GST rate candidate manifest: {exc}")
+    if (
+        not isinstance(gst_rate_overrides_data, dict)
+        or gst_rate_overrides_data.get("schema_version") != 1
+        or not isinstance(gst_rate_overrides_data.get("records"), list)
+        or len(gst_rate_overrides_data["records"]) != gst_rate_overrides_data.get("record_count")
+    ):
+        raise SystemExit("GST rate candidate manifest has an unsupported schema or count")
+
+    catalogue_by_id = {
+        text(product.get("id")): product
+        for product in catalogue
+        if isinstance(product, dict) and text(product.get("id"))
+    }
+    gst_rate_override_ids = set()
+    for record in gst_rate_overrides_data["records"]:
+        if not isinstance(record, dict):
+            raise SystemExit("Every GST rate candidate record must be an object")
+        product_id = text(record.get("id"))
+        if not product_id or product_id in gst_rate_override_ids:
+            raise SystemExit(f"Missing or duplicate GST rate candidate SKU: {product_id!r}")
+        gst_rate_override_ids.add(product_id)
+        product = catalogue_by_id.get(product_id)
+        candidate = record.get("gst_rate_candidate")
+        if product is None:
+            raise SystemExit(f"GST rate candidate references unknown product {product_id}")
+        if (
+            text(product.get("hsn_code")) != text(record.get("hsn_code"))
+            or text(product.get("hsn_classification_status")) != "classified"
+            or text(product.get("hsn_confidence")) != "high"
+        ):
+            raise SystemExit(f"GST rate candidate is not supported by a classified/high HSN record: {product_id}")
+        if not isinstance(candidate, dict):
+            raise SystemExit(f"Missing GST rate candidate object for {product_id}")
+        if (
+            candidate.get("total_rate_percent") != 18
+            or candidate.get("cgst_rate_percent") != 9
+            or candidate.get("sgst_rate_percent") != 9
+            or candidate.get("igst_rate_percent") != 18
+            or candidate.get("effective_from") != "2025-09-22"
+            or candidate.get("invoice_ready") is not False
+            or candidate.get("accountant_approval_required") is not True
+            or not text(candidate.get("review_note"))
+            or not isinstance(candidate.get("source_references"), list)
+            or not candidate.get("source_references")
+        ):
+            raise SystemExit(f"Malformed or unapproved GST rate candidate for {product_id}")
+        if text(product.get("gst_rate_percent")):
+            raise SystemExit(f"Refusing to overwrite a final GST rate for {product_id}")
+        product["gst_rate_candidate"] = candidate
+
+    if len(gst_rate_override_ids) != 84:
+        raise SystemExit(f"Unexpected GST rate candidate coverage: {len(gst_rate_override_ids)}")
+
     def normalize_slug(value):
         value = text(value).casefold()
         value = re.sub(r"[^a-z0-9]+", "-", value)
@@ -1277,6 +1338,7 @@ def reconcile_catalogue_projections():
             "hsn_supplier_invoice_match_date": text(p.get("hsn_supplier_invoice_match_date")),
             "hsn_supplier_invoice_candidate_alignment": text(p.get("hsn_supplier_invoice_candidate_alignment")),
             "hsn_dpiit_mapping": p.get("hsn_dpiit_mapping") if isinstance(p.get("hsn_dpiit_mapping"), dict) else {},
+            **({"gst_rate_candidate": p.get("gst_rate_candidate")} if isinstance(p.get("gst_rate_candidate"), dict) else {}),
             "declared_net_content_g": p.get("declared_net_content_g"),
             "declared_net_content_status": text(p.get("declared_net_content_status")),
             "declared_net_content_source": text(p.get("declared_net_content_source")),
@@ -1418,7 +1480,7 @@ def reconcile_catalogue_projections():
             "hsn_supplier_invoice_match_status", "hsn_supplier_invoice_match_methods",
             "hsn_supplier_invoice_source_names", "hsn_supplier_invoice_external_ids",
             "hsn_supplier_invoice_source_file", "hsn_supplier_invoice_match_date",
-            "hsn_supplier_invoice_candidate_alignment", "hsn_dpiit_mapping", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
+            "hsn_supplier_invoice_candidate_alignment", "hsn_dpiit_mapping", "gst_rate_candidate", "declared_net_content_g", "declared_net_content_status", "declared_net_content_source", "declared_net_content_notes", "dimensions_mm", "dimension_specs_mm", "weight_calculation_quantity", "dimensions_label", "dimensions_source", "calculated_weight_g", "weight_estimation_status", "weight_estimation_method", "weight_estimation_notes", "discount_percent", "discountPercent",
             "manufacturer_weight_kg", "manufacturer_weight_status",
             "manufacturer_dimensions_mm", "manufacturer_dimension_specs",
             "manufacturer_spec_source", "manufacturer_spec_notes",
