@@ -14818,15 +14818,16 @@
       "Electricals",
       "Window Regulator",
       "The Tata Genuine Parts 282972500105 Assy. Window Reg. LH BS 2/3/4/6 guides and raises or lowers the door window glass through the window operating mechanism.",
-      "Universal"
+      "Tata Ace"
     ],
     "description": "The Tata Genuine Parts 282972500105 Assy. Window Reg. LH BS 2/3/4/6 guides and raises or lowers the door window glass through the window operating mechanism.",
     "applications": [
       "Commercial-vehicle cab window regulator mechanism",
-      "BS2/BS3/BS4/BS6 specification stated in the product name."
+      "BS2/BS3/BS4/BS6 specification stated in the product name.",
+      "Manufacturer application evidence (Tata Motors Commercial Vehicle Business Unit, Product Spare Parts Catalogue, ACE EX2 Euro II Indonesia export, VC No. 55372220000R, Group 60 BODY, Table 5523912072R.02, printed p. 83; exact part number 282972500105): listed as ASSY WINDOW REGULATOR LH. This supports the existing Tata Ace master entry for the left-hand assembly only; other Tata models and later variants are not established by this source. Source: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/ACE-EX-2.pdf"
     ],
     "vehicles": [
-      "Universal"
+      "Tata Ace"
     ],
     "part_number": "282972500105",
     "manufacturer_part_number": "",
@@ -14873,15 +14874,16 @@
       "Electricals",
       "Window Regulator",
       "The Tata Genuine Parts 282972500106 Assy. Window Reg. RH BS 2/3/4/6 guides and raises or lowers the door window glass through the window operating mechanism.",
-      "Universal"
+      "Tata Ace"
     ],
     "description": "The Tata Genuine Parts 282972500106 Assy. Window Reg. RH BS 2/3/4/6 guides and raises or lowers the door window glass through the window operating mechanism.",
     "applications": [
       "Commercial-vehicle cab window regulator mechanism",
-      "BS2/BS3/BS4/BS6 specification stated in the product name."
+      "BS2/BS3/BS4/BS6 specification stated in the product name.",
+      "Manufacturer application evidence (Tata Motors Commercial Vehicle Business Unit, Product Spare Parts Catalogue, ACE EX2 Euro II Indonesia export, VC No. 55372220000R, Group 60 BODY, Table 5523912072R.02, printed p. 83; exact part number 282972500106): listed as ASSY WINDOW REGULATOR RH. This supports the existing Tata Ace master entry for the right-hand assembly only; other Tata models and later variants are not established by this source. Source: https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/ACE-EX-2.pdf"
     ],
     "vehicles": [
-      "Universal"
+      "Tata Ace"
     ],
     "part_number": "282972500106",
     "manufacturer_part_number": "",
@@ -24327,18 +24329,16 @@
       "Texspin",
       "Clutch Parts",
       "Clutch Release Bearing",
-      "The Texspin TX E21SC Clutch Release Bearing for Volvo/Man Truck transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface.",
-      "Universal"
+      "The Texspin TX E21SC Clutch Release Bearing for Volvo/Man Truck transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface."
     ],
     "description": "The Texspin TX E21SC Clutch Release Bearing for Volvo/Man Truck transfers release force from the clutch actuation mechanism to the pressure plate while accommodating relative rotation at the contact interface.",
     "applications": [
       "Clutch release and actuation system",
       "fitment/specification: Clutch Release Bearing for Volvo/Man Truck.",
-      "Vehicle application evidence (Texspin Master Price List 2025–26, p. 14; exact part-number match): Volvo and MAN trucks. Supplier list does not specify individual chassis models."
+      "Vehicle application evidence (Texspin Master Price List 2025–26, p. 14; exact part-number match): Volvo and MAN trucks. Supplier list does not specify individual chassis models.",
+      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 14; exact part TX E21SC): listed for Volvo and MAN trucks, with no individual chassis models or variants. Neither make is represented in the current vehicle master. The Universal tag is removed and no model mapping is inferred; confirm release-bearing dimensions and clutch assembly specification."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "TX E21SC",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -24357,7 +24357,7 @@
       "id": "texspin",
       "name": "Texspin"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -49452,16 +49452,17 @@
       "Rubber Parts",
       "Rubber Pad",
       "The JMP J1095 Rubber Stopper Pad provides a compliant stop at the contact point to limit metal-to-metal impact or travel between the connected parts.",
-      "Universal"
+      "Tata Prima"
     ],
     "description": "The JMP J1095 Rubber Stopper Pad provides a compliant stop at the contact point to limit metal-to-metal impact or travel between the connected parts.",
     "applications": [
       "Suspension System",
       "Chassis Protection",
-      "Assembly-derived application evidence (JMP Product Price List, March 2026, p. 4; exact part-code match): Rubber stopper pad is explicitly listed for parent parts J1067/J1067A/J1067B/J1067C and J1090/J1091. Those parent parts are listed in the Tata 3118, 3718, Signa, 5523 and Prima section (p. 3). This is a linked-parent application, not an independently enumerated vehicle list."
+      "Assembly-derived application evidence (JMP Product Price List, March 2026, p. 4; exact part-code match): Rubber stopper pad is explicitly listed for parent parts J1067/J1067A/J1067B/J1067C and J1090/J1091. Those parent parts are listed in the Tata 3118, 3718, Signa, 5523 and Prima section (p. 3). This is a linked-parent application, not an independently enumerated vehicle list.",
+      "Manufacturer cross-reference (JMP Manufacturing Co. official Tata Hangers & Brackets listing; exact part code J1095): JMP lists J1095 as a rubber stopper pad for parent parts J1067/J1067A/J1067B/J1067C/J1090/J1091. The same manufacturer listing identifies J1090 and J1091 as rear bell-crank levers LH/RH for Tata Prima. The vehicle mapping is therefore limited to the existing Tata Prima master entry through these exact parent-part references; confirm pad geometry and installation position before supply. Source: https://www.jmp.co.in/truck-parts.html"
     ],
     "vehicles": [
-      "Universal"
+      "Tata Prima"
     ],
     "part_number": "J1095",
     "manufacturer_part_number": "",
@@ -49851,17 +49852,23 @@
       "Filters",
       "Air Filter",
       "The Tata Genuine Parts 885421012518 Set of 2 Air Filter Kit LPK 2518 removes airborne dust and particles from intake air before it enters the engine.",
-      "Universal"
+      "Tata LPT",
+      "Tata Signa",
+      "Ashok Leyland U-Truck"
     ],
     "description": "The Tata Genuine Parts 885421012518 Set of 2 Air Filter Kit LPK 2518 removes airborne dust and particles from intake air before it enters the engine.",
     "applications": [
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
       "replacement/service use for the stated specification.",
-      "Vehicle fitment evidence (BP Auto Spares India OEM-detail listing; exact Tata OE part-number match): Tata M&HCV Haulage LPK 1618 TC and Signa 2523 TC. Product title also mentions LPK 2518; that additional model was not independently established by this source."
+      "Vehicle fitment evidence (BP Auto Spares India OEM-detail listing; exact Tata OE part-number match): Tata M&HCV Haulage LPK 1618 TC and Signa 2523 TC. Product title also mentions LPK 2518; that additional model was not independently established by this source.",
+      "Tata OE part-number confirmation (exact 885421012518): the Tata dealer parts listing identifies this as “Set of 2 Air Filter Kit LPK 2518” and lists Tata vehicle models 1923/2518/4028. The existing BP Auto source note on this record independently lists Tata LPK 1618 TC and Signa 2523 TC for the same OE code. These references support the existing Tata LPT and Tata Signa master families; Tata 1923/2518/4028 are not separately represented in the current vehicle master. Source: https://dealers.taaif.org/parts/885421012518-115",
+      "Supplier cross-reference (LUMAN Industries Ltd. Product Catalogue, February 2024, printed p. 17; exact kit reference 885421012518): LUMAN lists KIT 885421012518 for the primary air filter application on Ashok Leyland U-Truck 1300 Series. This is treated as a supplier-equivalent kit reference; verify that the stocked two-element kit contents and housing match the U-Truck assembly before supply. Source: https://exhibitorsearch.messefrankfurt.com/images/original/document_downloads/10000007202401/385101/1720785646633_124664018.pdf"
     ],
     "vehicles": [
-      "Universal"
+      "Tata LPT",
+      "Tata Signa",
+      "Ashok Leyland U-Truck"
     ],
     "part_number": "885421012518",
     "manufacturer_part_number": "",
@@ -49881,7 +49888,7 @@
       "id": "tata-genuine-parts",
       "name": "Tata Genuine Parts"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 3,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -50020,18 +50027,16 @@
       "TVS Girling",
       "Suspension & Steering",
       "Hub Bolt",
-      "The TVS Girling M58340-5901 SFL M16 x 1.5 x 144 collar bolt secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
-      "Universal"
+      "The TVS Girling M58340-5901 SFL M16 x 1.5 x 144 collar bolt secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint."
     ],
     "description": "The TVS Girling M58340-5901 SFL M16 x 1.5 x 144 collar bolt secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
     "applications": [
       "Commercial-vehicle suspension",
       "steering and axle-linkage system",
-      "replacement/service use for the stated specification."
+      "replacement/service use for the stated specification.",
+      "Supplier catalogue scope correction (Sundram Fasteners Limited, Automotive Products Retail Price List, 2021; exact SFL part M58340-5901, OE reference 284642106706): the M16 x 1.5 x 144 collar/third-arm bolt is listed in the section for fasteners suitable for Tata vehicles under common applications. The source does not identify a Tata chassis model or establish broad all-vehicle compatibility. The Universal vehicle tag is removed; no model mapping is inferred. Source: https://pssao.com/catlog/sfl/TVS%20AUTOMOTIVE%20PRODUCTS%20w.e.f.%201.9.2021.pdf"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "M58340-5901",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -50050,7 +50055,7 @@
       "id": "tvs-girling",
       "name": "TVS Girling"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -54615,8 +54620,7 @@
       "Texspin",
       "Bearings",
       "Taper Roller Bearing",
-      "The Texspin TX-30210 Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
-      "Universal"
+      "The Texspin TX-30210 Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies."
     ],
     "description": "The Texspin TX-30210 Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door, Escorts and New Holland/Force Motors Minidor differential uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
     "applications": [
@@ -54625,11 +54629,10 @@
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door",
       "Escorts and New Holland/Force Motors Minidor differential.",
-      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 19; exact part-number match): Bajaj Tempo Mini Door/Mata Door; Escorts; New Holland/Force Motors Minidor differential."
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 19; exact part-number match): Bajaj Tempo Mini Door/Mata Door; Escorts; New Holland/Force Motors Minidor differential.",
+      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 19; exact part TX-30210): the listed applications are Bajaj Tempo Mini Door/Mata Door, Escorts, and New Holland/Force Motors Minidor differential. These are named product/machine applications, not universal vehicle coverage. No corresponding manufacturer/model entry for these applications exists in the current vehicle master, so the Universal tag is removed and no substitute model is inferred."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "TX-30210",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -54648,7 +54651,7 @@
       "id": "texspin",
       "name": "Texspin"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -54690,8 +54693,7 @@
       "Texspin",
       "Bearings",
       "Taper Roller Bearing",
-      "The Texspin TX-33117 Tapper Roller Bearing for Bharat Benz truck rear wheel bearing uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
-      "Universal"
+      "The Texspin TX-33117 Tapper Roller Bearing for Bharat Benz truck rear wheel bearing uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies."
     ],
     "description": "The Texspin TX-33117 Tapper Roller Bearing for Bharat Benz truck rear wheel bearing uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
     "applications": [
@@ -54699,11 +54701,10 @@
       "wheel-end",
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Bharat Benz truck rear wheel bearing.",
-      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33117): rear wheel bearing for Bharat Benz trucks. The supplier does not enumerate individual Bharat Benz models or axle variants; confirm the bearing dimensions and axle position."
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33117): rear wheel bearing for Bharat Benz trucks. The supplier does not enumerate individual Bharat Benz models or axle variants; confirm the bearing dimensions and axle position.",
+      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33117): listed as a rear-wheel bearing for Bharat Benz trucks. No Bharat Benz model, axle variant or vehicle-master entry is specified. The Universal tag is removed and no model mapping is inferred; confirm bearing dimensions and axle position."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "TX-33117",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -54722,7 +54723,7 @@
       "id": "texspin",
       "name": "Texspin"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -54823,8 +54824,7 @@
       "Texspin",
       "Bearings",
       "Taper Roller Bearing",
-      "The Texspin TX-33213 Tapper Roller Bearing for HCV trailer uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
-      "Universal"
+      "The Texspin TX-33213 Tapper Roller Bearing for HCV trailer uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies."
     ],
     "description": "The Texspin TX-33213 Tapper Roller Bearing for HCV trailer uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
     "applications": [
@@ -54832,11 +54832,10 @@
       "wheel-end",
       "driveline or support-bearing system",
       "replacement/service use for the stated specification.",
-      "Vehicle-class application evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33213): taper-roller bearing listed for HCV trailer applications. The source does not specify trailer manufacturer, axle, or model; match bearing dimensions and axle specification."
+      "Vehicle-class application evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33213): taper-roller bearing listed for HCV trailer applications. The source does not specify trailer manufacturer, axle, or model; match bearing dimensions and axle specification.",
+      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33213): listed for HCV trailer applications only. The source does not identify a trailer manufacturer, model or axle configuration. The Universal tag is removed and no vehicle mapping is inferred; match bearing dimensions and trailer axle specification."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "TX-33213",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -54855,7 +54854,7 @@
       "id": "texspin",
       "name": "Texspin"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -55551,8 +55550,7 @@
       "Texspin",
       "Bearings",
       "Taper Roller Bearing",
-      "The Texspin TX-32218 Tapper Roller Bearing for Tata truck, Isuzu truck uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
-      "Universal"
+      "The Texspin TX-32218 Tapper Roller Bearing for Tata truck, Isuzu truck uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies."
     ],
     "description": "The Texspin TX-32218 Tapper Roller Bearing for Tata truck, Isuzu truck uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
     "applications": [
@@ -55561,11 +55559,10 @@
       "driveline or support-bearing system",
       "fitment/specification: Tapper Roller Bearing for Tata truck",
       "Isuzu truck.",
-      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata trucks and Isuzu trucks. The supplier list does not specify individual models."
+      "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata trucks and Isuzu trucks. The supplier list does not specify individual models.",
+      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 20; exact part TX-32218): listed for Tata trucks and Isuzu trucks at make level only, without individual chassis models or axle positions. The current vehicle master has no Isuzu entry and the supplier does not substantiate a particular Tata model. The Universal tag is removed; no model mapping is inferred."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "TX-32218",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -55584,7 +55581,7 @@
       "id": "texspin",
       "name": "Texspin"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -69467,18 +69464,16 @@
       "KFL",
       "Suspension & Steering",
       "Tie Rod End",
-      "The KFL KF3738 tie rod repair kit is a service kit for tie-rod linkage assemblies. Part reference KF3738, cross-reference KF3748, application designation: all models.",
-      "Universal"
+      "The KFL KF3738 tie rod repair kit is a service kit for tie-rod linkage assemblies. Part reference KF3738, cross-reference KF3748, application designation: all models."
     ],
     "description": "The KFL KF3738 tie rod repair kit is a service kit for tie-rod linkage assemblies. Part reference KF3738, cross-reference KF3748, application designation: all models.",
     "applications": [
       "Tie rod repair",
       "catalogue states all models and references KF3738/KF3748.",
-      "Vehicle application evidence (Kafila Price List effective 15-May-2026, p. 3; exact part-number match): Kafila lists KF3738/KF3748 as a tie-rod repair kit for 'all models' within its heavy-commercial-vehicle section; the price list does not enumerate every compatible chassis."
+      "Vehicle application evidence (Kafila Price List effective 15-May-2026, p. 3; exact part-number match): Kafila lists KF3738/KF3748 as a tie-rod repair kit for 'all models' within its heavy-commercial-vehicle section; the price list does not enumerate every compatible chassis.",
+      "Supplier scope qualification (Kafila Price List effective 15-May-2026, printed p. 3; exact references KF3738/KF3748): the tie-rod repair kit is listed as “all models” within the heavy-commercial-vehicle section. This is an HCV-category statement, not all vehicles in the catalogue, and no individual chassis models are enumerated. The Universal tag is removed; no model mapping is inferred."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "KF3738",
     "manufacturer_part_number": "KF3748",
     "manufacturer_part_numbers": [
@@ -69499,7 +69494,7 @@
       "id": "kfl",
       "name": "KFL"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
