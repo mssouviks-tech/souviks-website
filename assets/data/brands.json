@@ -508,6 +508,8 @@
       "Ashok Leyland 2516",
       "Eicher 1110",
       "Tata 1109",
+      "Tata 1210",
+      "Tata 2416",
       "Tata 407",
       "Tata 709",
       "Tata LPT",
@@ -1983,8 +1985,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata Signa, Eicher Pro Series, Tata LPT, Tata Prima, Tata 2416 and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "JMP products at Souviks cover Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering and applications across Tata Signa, Eicher Pro Series, Tata LPT and more.",
+    "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Eicher Pro Series, Tata 2416, Tata Prima and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "JMP products at Souviks cover Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering and applications across Tata LPT, Tata Signa, Eicher Pro Series and more.",
     "product_count": 52,
     "categories": [
       "brakes",
@@ -2082,7 +2084,7 @@
     "active": true,
     "seo": {
       "title": "JMP Parts | Souviks",
-      "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata Signa, Eicher Pro Series, Tata LPT, Tata Prima, Tata 2416 and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Eicher Pro Series, Tata 2416, Tata Prima and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "JMP",
         "commercial vehicle spare parts",
@@ -2221,8 +2223,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 16 active Fenner products across Engine Components. The listed range is mapped to applications such as Tata LPT, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up, Tata 709, Tractors and common replacement areas including Timing Belt.  Current catalogue examples include Micro V Belt, V Belt Mahindra Bolero, AV13X850 Cogged Belt. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Fenner products at Souviks cover Engine Components and applications across Tata LPT, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up and more.",
+    "description": "Souviks currently lists 16 active Fenner products across Engine Components. The listed range is mapped to applications such as Tata LPT, Tractors, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up, Tata 709 and common replacement areas including Timing Belt.  Current catalogue examples include Micro V Belt, V Belt Mahindra Bolero, AV13X850 Cogged Belt. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Fenner products at Souviks cover Engine Components and applications across Tata LPT, Tractors, Mahindra Bolero Pik-Up and more.",
     "product_count": 16,
     "categories": [
       "engine-components"
@@ -2263,7 +2265,7 @@
     "active": true,
     "seo": {
       "title": "Fenner Parts | Souviks",
-      "description": "Souviks currently lists 16 active Fenner products across Engine Components. The listed range is mapped to applications such as Tata LPT, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up, Tata 709, Tractors and common replacement areas including Timing Belt.  Current catalogue examples include Micro V Belt, V Belt Mahindra Bolero, AV13X850 Cogged Belt. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 16 active Fenner products across Engine Components. The listed range is mapped to applications such as Tata LPT, Tractors, Mahindra Bolero Pik-Up, Mahindra Bolero MaXX Pik-Up, Tata 709 and common replacement areas including Timing Belt.  Current catalogue examples include Micro V Belt, V Belt Mahindra Bolero, AV13X850 Cogged Belt. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Fenner",
         "commercial vehicle spare parts",
@@ -4001,8 +4003,8 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 33 active WABCO products across Air System, Brakes, Electricals, Rubber Parts. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 709 and more and common replacement areas including Air Repair Kit, Air Compressor, Valve, O Ring, Stop Light Switch and more.  Current catalogue examples include VE TCL Compressor Repair Kit, Cylinder Head Assembly Repair Kit, Air Compressor Repair Kit. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "WABCO products at Souviks cover Air System, Brakes, Electricals, Rubber Parts and applications across Universal, Tata LPT, Ashok Leyland 2516 and more.",
+    "description": "Souviks currently lists 33 active WABCO products across Air System, Brakes, Electricals, Rubber Parts. The listed range is mapped to applications such as Tata 1109, Eicher 1110, Eicher Pro Series, Tata 709 and common replacement areas including Air Repair Kit, Air Compressor, Valve, O Ring, Stop Light Switch and more.  Current catalogue examples include VE TCL Compressor Repair Kit, Cylinder Head Assembly Repair Kit, Air Compressor Repair Kit. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "WABCO products at Souviks cover Air System, Brakes, Electricals, Rubber Parts and applications across Tata 1109, Eicher 1110, Eicher Pro Series and more.",
     "product_count": 33,
     "categories": [
       "air-system",
@@ -4021,16 +4023,10 @@
       "valve"
     ],
     "vehicles": [
-      "Ashok Leyland 2516",
-      "Ashok Leyland U-Truck",
       "Eicher 1110",
       "Eicher Pro Series",
       "Tata 1109",
-      "Tata 709",
-      "Tata LPT",
-      "Tata Prima",
-      "Tata Signa",
-      "Universal"
+      "Tata 709"
     ],
     "featured_products": [
       "SVKS000577",
@@ -4081,7 +4077,7 @@
     "active": true,
     "seo": {
       "title": "WABCO Parts | Souviks",
-      "description": "Souviks currently lists 33 active WABCO products across Air System, Brakes, Electricals, Rubber Parts. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 709 and more and common replacement areas including Air Repair Kit, Air Compressor, Valve, O Ring, Stop Light Switch and more.  Current catalogue examples include VE TCL Compressor Repair Kit, Cylinder Head Assembly Repair Kit, Air Compressor Repair Kit. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 33 active WABCO products across Air System, Brakes, Electricals, Rubber Parts. The listed range is mapped to applications such as Tata 1109, Eicher 1110, Eicher Pro Series, Tata 709 and common replacement areas including Air Repair Kit, Air Compressor, Valve, O Ring, Stop Light Switch and more.  Current catalogue examples include VE TCL Compressor Repair Kit, Cylinder Head Assembly Repair Kit, Air Compressor Repair Kit. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "WABCO",
         "commercial vehicle spare parts",
