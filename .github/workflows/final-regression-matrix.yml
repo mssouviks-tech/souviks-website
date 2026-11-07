@@ -118,6 +118,8 @@ jobs:
         run: node scripts/regression/hsn-ecommerce-contract.cjs
       - name: Validate supplier invoice HSN reference reconciliation
         run: node scripts/regression/hsn-supplier-invoice-reference.cjs
+      - name: Validate product-level HSN candidate schema and evidence parity
+        run: node scripts/regression/hsn-candidate-overrides.cjs
 
       - name: Validate Delhivery delivery estimator contract
         run: node scripts/regression/delhivery-estimate-contract.cjs
