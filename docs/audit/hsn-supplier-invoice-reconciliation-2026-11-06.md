@@ -20,7 +20,7 @@ Matching to the Souviks catalogue uses exact product names, supplier brand plus 
 | Ambiguous part-reference rows | 1 |
 | Supplier-name/code conflict rows | 4 |
 | Ambiguous exact-name rows | 1 |
-| No reliable catalogue match rows | 89 |
+| No reliable catalogue match rows | 88 |
 | Active SKUs with one consistent supplier reference | 850 |
 | Active SKUs with conflicting supplier references | 17 |
 
