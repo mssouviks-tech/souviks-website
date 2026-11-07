@@ -104,6 +104,7 @@ jobs:
               "scripts/audit/structured_data.py",
               "scripts/audit/seo_contract.py",
               "scripts/audit/site_quality.py",
+              "scripts/audit/vehicle_application_coverage.py",
               "scripts/audit/code_quality.py",
               "scripts/js/refactor.py",
               "scripts/js/validate.py",
@@ -116,6 +117,9 @@ jobs:
               )
           print("Python syntax OK")
           PY
+
+      - name: Generate catalogue-wide vehicle application coverage audit
+        run: python3 scripts/audit/vehicle_application_coverage.py --out-dir artifacts/vehicle-application-audit
 
       - name: Build and validate candidate
         shell: bash
@@ -173,6 +177,15 @@ jobs:
           npm run format:check
 
           echo "Catalogue release gate passed."
+
+      - name: Upload vehicle application coverage audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vehicle-application-audit-${{ github.event.pull_request.number }}
+          path: artifacts/vehicle-application-audit/
+          if-no-files-found: warn
+          retention-days: 14
 
       - name: Commit generated mobile LCP assets to the pull-request branch
         if: ${{ success() && github.event.pull_request.head.repo.full_name == github.repository }}
