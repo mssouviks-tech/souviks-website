@@ -3370,7 +3370,8 @@
     ],
     "description": "The GS SBAM 495 14\" Center Bolt 5/8 passes through the aligned leaves of a spring pack to locate the leaves relative to one another and help retain their position during assembly. Vehicle applications include Tata LPT.",
     "applications": [
-      "Leaf Spring Assembly"
+      "Leaf Spring Assembly",
+      "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): code SBAM495 is listed as a 10-inch bolt for Leyland U-Truck, 16 mm / 5/8-inch. The current Souviks record describes SBAM495 as a 14-inch centre bolt and maps it to Tata LPT. Both the nominal length and vehicle application conflict with this supplier entry. Do not treat the current 14-inch/Tata LPT claim as supplier-confirmed; check the physical bolt length, shank diameter, head and pack marking before changing the product identity or vehicle tag."
     ],
     "vehicles": [
       "Tata LPT"
@@ -12229,8 +12230,7 @@
       "WABCO",
       "Air System",
       "Air Compressor",
-      "The WABCO 1/137 Air Compressor Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly.",
-      "Universal"
+      "The WABCO 1/137 Air Compressor Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly."
     ],
     "description": "The WABCO 1/137 Air Compressor Kit supports generation of compressed air for vehicle pneumatic systems; a named repair kit is used to service its corresponding compressor assembly.",
     "applications": [
@@ -12238,9 +12238,7 @@
       "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300001137): WABCO identifies this as a “Kit: Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. No individual truck model is listed. Reconcile the “Air Compressor Kit” product title and internal kit contents against WABCO’s valve-kit designation before confirming any exact vehicle model.",
       "The current catalogue vehicle tag is Universal, but WABCO Customer Centre lists exact material 300001137 as a repair kit for Vehicle application (India): Ashok Leyland. Correct make-level evidence; not model/chassis-specific. Confirm compressor model and included components. Source: https://www.wabco-customercentre.com/catalog/en_US/300001137"
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "300001137",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -12259,7 +12257,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -19202,8 +19200,7 @@
       "Tata Genuine Parts",
       "Brakes",
       "Brake Lining",
-      "The Tata Genuine Parts 885442071618 Brk   Lng Std. RR - 4 pcs W/Rvt 410X 180 Cargo supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking.",
-      "Universal"
+      "The Tata Genuine Parts 885442071618 Brk   Lng Std. RR - 4 pcs W/Rvt 410X 180 Cargo supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking."
     ],
     "description": "The Tata Genuine Parts 885442071618 Brk   Lng Std. RR - 4 pcs W/Rvt 410X 180 Cargo supplies the friction surface on the brake shoes, converting vehicle motion into heat as the lining presses against the brake drum during braking.",
     "applications": [
@@ -19213,9 +19210,7 @@
       "exact model variant not established from the part-specific public references located.",
       "Supplier reference confirmation (Tata Motors e-Dukaan, Brakes catalogue; exact part 885442071618): listed as standard rear brake lining, 4 pieces, with rivets, 410 × 180 mm, for Cargo. The listing confirms the part description and dimensions but does not specify a chassis model; retain model-level fitment as unconfirmed."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "885442071618",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -19234,7 +19229,7 @@
       "id": "tata-genuine-parts",
       "name": "Tata Genuine Parts"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -20206,7 +20201,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM367 is listed as 12 inches, matching the nominal length in the Souviks title. No vehicle/model application is attached to this GS code; the entry does not independently substantiate the current Tata LPT tag. Confirm the actual shank diameter, thread and spring-pack position."
     ],
     "vehicles": [
       "Tata LPT"
@@ -20272,7 +20268,8 @@
     "description": "The GS SBAM 394 Center Bolt 5/8 - 14\" passes through the aligned leaves of a spring pack to locate the leaves relative to one another and help retain their position during assembly. Vehicle applications include Tata LPT.",
     "applications": [
       "Leaf Spring Assembly",
-      "Suspension Maintenance"
+      "Suspension Maintenance",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM394 is listed as 14 inches, matching the nominal length in the Souviks title. No vehicle/model application is attached to this GS code; the entry does not independently substantiate the current Tata LPT tag. Confirm the actual shank diameter, thread and spring-pack position."
     ],
     "vehicles": [
       "Tata LPT"
@@ -20396,7 +20393,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM145 is listed as 10 × 15/32 inch. This confirms the nominal size recorded in the product title. The price list provides no vehicle/model application for SBAM145, so it does not independently validate the current Tata 407 / Tata 709 / Eicher 1110 tags. Confirm spring-pack position and actual bolt length before final fitment."
     ],
     "vehicles": [
       "Tata 407",
@@ -20467,7 +20465,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM146 is listed as 12 × 15/32 inch, matching the nominal size in the product title. No vehicle/model application is stated for this code in the source; the current Tata 407 / Tata 709 / Eicher 1110 tags are not independently established by this GS entry. Confirm spring-pack position and actual bolt length before final fitment."
     ],
     "vehicles": [
       "Tata 407",
@@ -20538,7 +20537,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM147 is listed as 14 × 15/32 inch, matching the nominal size in the product title. No vehicle/model application is stated for this code in the source; the current Tata 407 / Tata 709 / Eicher 1110 tags are not independently established by this GS entry. Confirm spring-pack position and actual bolt length before final fitment."
     ],
     "vehicles": [
       "Tata 407",
@@ -20607,7 +20607,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM228 is listed as 16 × 15/32 inch, matching the nominal size in the product title. The source gives no vehicle/model application for SBAM228; it does not independently verify the current Tata 1109 tag. Confirm installed spring-pack position and bolt length before final fitment."
     ],
     "vehicles": [
       "Tata 1109"
@@ -20674,7 +20675,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM369 is listed as 18 × 15/32 inch, matching the nominal size in the product title. The source gives no vehicle/model application for SBAM369; it does not independently verify the current Tata 1109 tag. Confirm installed spring-pack position and bolt length before final fitment."
     ],
     "vehicles": [
       "Tata 1109"
@@ -20741,7 +20743,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM366 is listed as 10 inches. The GS entry gives the nominal length but no vehicle/model application or 5/8-inch interface detail for this code; it therefore does not independently substantiate the current Tata LPT tag. Confirm shank diameter, head profile and spring-pack position against the vehicle."
     ],
     "vehicles": [
       "Tata LPT"
@@ -20808,7 +20811,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM427 is listed as 16 inches. The GS entry gives the nominal length but no vehicle/model application or 5/8-inch interface detail for this code; it therefore does not independently substantiate the current Tata LPT tag. Confirm shank diameter, head profile and spring-pack position against the vehicle."
     ],
     "vehicles": [
       "Tata LPT"
@@ -20875,7 +20879,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM442 is listed as 18 inches. The GS entry gives the nominal length but no vehicle/model application or 5/8-inch interface detail for this code; it therefore does not independently substantiate the current Tata LPT tag. Confirm shank diameter, head profile and spring-pack position against the vehicle."
     ],
     "vehicles": [
       "Tata LPT"
@@ -20942,7 +20947,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM499 is listed as 10 inches. The source does not attach a vehicle/model application to SBAM499; it does not independently confirm the current Tata 3118 / Tata LPT fitment claim. Confirm head style, shank/thread size and spring-pack position before ordering."
     ],
     "vehicles": [
       "Tata LPT"
@@ -21004,7 +21010,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code/dimension cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 3): SBAM500 is listed as 12 inches. The source does not attach a vehicle/model application to SBAM500; it does not independently confirm the current Tata 3118 / Tata LPT fitment claim. Confirm head style, shank/thread size and spring-pack position before ordering."
     ],
     "vehicles": [
       "Tata LPT"
@@ -21128,7 +21135,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 4): SBBS1424 is listed as a 12-inch item in the supplier's “Spring Leaf Bolt With Nuts” section. The cited row does not name a Turbo model or any vehicle application. The source therefore confirms the listed nominal length only; it does not establish that the stocked product is a centre bolt for Tata LPT Turbo. Verify product type, thread/section and installed spring-pack position before retaining a vehicle-specific claim."
     ],
     "vehicles": [
       "Tata LPT"
@@ -21190,7 +21198,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 4): SBBS1426 is listed as a 14-inch item in the supplier's “Spring Leaf Bolt With Nuts” section. The cited row does not name a Turbo model or any vehicle application. The source therefore confirms the listed nominal length only; it does not establish that the stocked product is a centre bolt for Tata LPT Turbo. Verify product type, thread/section and installed spring-pack position before retaining a vehicle-specific claim."
     ],
     "vehicles": [
       "Tata LPT"
@@ -21252,7 +21261,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM496 is listed as a 12-inch bolt. The current Souviks title describes SBAM496 as a 10-inch “U Truck” centre bolt and maps it to Tata Ultra. The nominal length conflicts with the supplier list, while that list does not attach a vehicle/model to SBAM496. Do not treat the current 10-inch/U-Truck/Tata Ultra claim as supplier-confirmed; measure the physical part and confirm its head, shank and thread before correcting the record."
     ],
     "vehicles": [
       "Tata Ultra"
@@ -21314,7 +21324,8 @@
     "applications": [
       "Leaf Spring Assembly",
       "Suspension Repair",
-      "Spring Pack Rebuilding"
+      "Spring Pack Rebuilding",
+      "GS Auto part-code reconciliation (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 2): SBAM596 is listed as a 14-inch bolt. The current Souviks title describes SBAM596 as a 12-inch “U Truck” centre bolt and maps it to Tata Ultra. The nominal length conflicts with the supplier list, while that list does not attach a vehicle/model to SBAM596. Do not treat the current 12-inch/U-Truck/Tata Ultra claim as supplier-confirmed; measure the physical part and confirm its head, shank and thread before correcting the record."
     ],
     "vehicles": [
       "Tata Ultra"
@@ -25532,7 +25543,7 @@
       "Suspension & Steering",
       "Cotter Bolt",
       "The Nirmal NIRMAL/CP/446 Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
-      "Universal"
+      "Tata 2416"
     ],
     "description": "The Nirmal NIRMAL/CP/446 Cotter Bolt for 2416 WITH NYLOC NUT ( STD. ) LONG SIZE secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint.",
     "applications": [
@@ -25542,7 +25553,7 @@
       "Supplier application evidence (Nirmal Price List No. 67/2026, p. 21; exact item code NIRMAL/CP/446): Tata 2416 cotter fastener with nyloc nut, standard long size (14×94×1.5P). Nirmal classifies the item as a cotter pin; reconcile the catalogue’s “cotter bolt” wording before ordering."
     ],
     "vehicles": [
-      "Universal"
+      "Tata 2416"
     ],
     "part_number": "NIRMAL/CP/446",
     "manufacturer_part_number": "",
@@ -27887,8 +27898,7 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 300003086 DDU Repair Kit supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system.",
-      "Universal"
+      "The WABCO 300003086 DDU Repair Kit supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system."
     ],
     "description": "The WABCO 300003086 DDU Repair Kit supports servicing of the pneumatic assembly identified by the kit name in the vehicle’s compressed-air system.",
     "applications": [
@@ -27897,9 +27907,7 @@
       "replacement/service use for the stated specification.",
       "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300003086): WABCO lists a “Kit: Valve” repair kit for TATA, Ashok Leyland, Volvo Eicher (VECV) and Swaraj Mazda, for a twin-cylinder 704 cc flange-mounted compressor. Reconcile the Souviks “DDU Repair Kit” title and internal kit contents against the supplier designation before confirming an exact truck model."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "300003086",
     "manufacturer_part_number": "885444202516",
     "manufacturer_part_numbers": [
@@ -27920,7 +27928,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -28315,8 +28323,7 @@
       "Bosch",
       "Filters",
       "Fuel Filter",
-      "The Bosch F-002-H22-012-8F8 Diesel Filter captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components.",
-      "Universal"
+      "The Bosch F-002-H22-012-8F8 Diesel Filter captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components."
     ],
     "description": "The Bosch F-002-H22-012-8F8 Diesel Filter captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components.",
     "applications": [
@@ -28324,9 +28331,7 @@
       "Bosch engine and electrical service applications",
       "Vehicle fitment evidence (Bosch Automotive Filters India catalogue, HCV Filter Application Chart, pp. 21–22; exact part-number match F 002 H22 012): Ashok Leyland MiTR diesel and Partner diesel. Bosch's cross-reference chart also lists NALT ZD30 TCIC BS III/BS IV engine families. Confirm engine and filter position against the vehicle before ordering."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "F-002-H22-012-8F8",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -28345,7 +28350,7 @@
       "id": "bosch",
       "name": "Bosch"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -28372,7 +28377,7 @@
       "Filters",
       "Fuel Filter",
       "The Bosch 1457-431-003 Diesel Filter captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components.",
-      "Universal"
+      "Tata LPT"
     ],
     "description": "The Bosch 1457-431-003 Diesel Filter captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components.",
     "applications": [
@@ -28383,7 +28388,7 @@
       "Manufacturer application evidence — Bosch Automotive Filters India catalogue, HCV Filter Application Chart (printed page 21), exact part 1 457 431 003, Fuel Filter Element: Ashok Leyland Artik 3014, Cheetah and Comet 1616H; Swaraj Mazda Premium WT 49 ESA, Sartaj WV26S, Super ZT54 BS I and T3500 Prestige WT49LWB; Tata 1510 LP and LPT 1613. Bosch Commercial Vehicle Filter Catalogue further gives exact Cheetah power/year variants (84 kW, 1995.04–2010.10; 97 kW, 2005.04–2010.10; 88 kW, 2000.11–2005.03). Note: the CV chart also shows this part against the 1616H 5.7 L and 1613H model variants. These catalogue applications supersede the generic Universal label for fitment lookup; confirm engine and filter housing. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/pdf_8/bosch-automotive-filters-india-catalogue.pdf ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf"
     ],
     "vehicles": [
-      "Universal"
+      "Tata LPT"
     ],
     "part_number": "1457-431-003",
     "manufacturer_part_number": "",
@@ -28430,7 +28435,7 @@
       "Filters",
       "Fuel Filter",
       "The Bosch 9451-037-409 Diesel Filter captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components.",
-      "Universal"
+      "Tata LPT"
     ],
     "description": "The Bosch 9451-037-409 Diesel Filter captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components.",
     "applications": [
@@ -28441,7 +28446,7 @@
       "Manufacturer application evidence — Bosch Automotive Filters India catalogue, HCV Filter Application Chart (printed page 22), exact part 9 451 037 409, Fuel Filter Element: Ashok Leyland 12M and Cheetah; Tata LPT 1613. Bosch Commercial Vehicle Filter Catalogue specifies Cheetah diesel variants 84 kW (1995.04–2010.10), 97 kW (2005.04–2010.10) and 88 kW (2000.11–2005.03), and a Viking 84 kW (2004.02–2010.10) chart row for this filter. These exact catalogue applications supersede the generic Universal label for fitment lookup; confirm engine, production period and filter housing before supply. Sources: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/pdf_8/bosch-automotive-filters-india-catalogue.pdf ; https://www.boschaftermarket.com/xrm/media/images/country_specific/in/services_and_support_1/downloads_10/pdf_5/cv_filter_catalogue.pdf"
     ],
     "vehicles": [
-      "Universal"
+      "Tata LPT"
     ],
     "part_number": "9451-037-409",
     "manufacturer_part_number": "",
@@ -29261,7 +29266,7 @@
       "Suspension & Steering",
       "Shackle Plate",
       "Right-hand double-pin spring hanger assembly manufactured for BS6 truck suspension systems. Designed to support leaf spring assemblies and distribute suspension loads.",
-      "Universal"
+      "Ashok Leyland U-Truck"
     ],
     "description": "Right-hand double-pin spring hanger assembly manufactured for BS6 truck suspension systems. Designed to support leaf spring assemblies and distribute suspension loads.",
     "applications": [
@@ -29270,7 +29275,7 @@
       "Vehicle fitment evidence (JMP listing and GS catalogue cross-reference MB336002): Ashok Leyland U-Truck BS6. Sub-model/tonnage not specified."
     ],
     "vehicles": [
-      "Universal"
+      "Ashok Leyland U-Truck"
     ],
     "part_number": "J2466",
     "manufacturer_part_number": "MB336002",
@@ -30881,7 +30886,8 @@
     "description": "The GS MBJS 112 Eye Bolt w/ Lock Nut 10\" secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Ashok Leyland/Leyland commercial-vehicle leaf-spring/suspension application",
-      "GS lists the 10-inch eye-bolt variant."
+      "GS lists the 10-inch eye-bolt variant.",
+      "GS Auto supplier cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): MBJS112 is listed as an Eye Bolt With Nut for Leyland, 10 inches. This is make-level component evidence only; the GS entry does not specify Ashok Leyland 2516 or an axle/spring position. Confirm eye profile, thread, shank dimensions and installed position before treating the current 2516 tag as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -30942,7 +30948,8 @@
     "description": "The GS MBJS 114 Eye Bolt w/ Lock Nut 11\" secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Ashok Leyland/Leyland commercial-vehicle leaf-spring/suspension application",
-      "GS lists the 11-inch eye-bolt variant."
+      "GS lists the 11-inch eye-bolt variant.",
+      "GS Auto supplier cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): MBJS114 is listed as an Eye Bolt With Nut for Leyland, 11 inches. This is make-level component evidence only; the GS entry does not specify Ashok Leyland 2516 or an axle/spring position. Confirm eye profile, thread, shank dimensions and installed position before treating the current 2516 tag as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -31003,7 +31010,8 @@
     "description": "The GS MBJS 116 Eye Bolt w/ Lock Nut 12\" secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Ashok Leyland/Leyland commercial-vehicle leaf-spring/suspension application",
-      "GS lists the 12-inch eye-bolt variant."
+      "GS lists the 12-inch eye-bolt variant.",
+      "GS Auto supplier cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): MBJS116 is listed as an Eye Bolt With Nut for Leyland, 12 inches. This is make-level component evidence only; the GS entry does not specify Ashok Leyland 2516 or an axle/spring position. Confirm eye profile, thread, shank dimensions and installed position before treating the current 2516 tag as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -31064,7 +31072,8 @@
     "description": "The GS MSJS 217 Eye Bolt w/ Lock Nut 13\" secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Ashok Leyland/Leyland commercial-vehicle leaf-spring/suspension application",
-      "GS lists the 13-inch eye-bolt variant."
+      "GS lists the 13-inch eye-bolt variant.",
+      "GS Auto supplier-code discrepancy (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): the GS list identifies a 13-inch Leyland Eye Bolt With Nut as MBJS217, while the current Souviks record carries MSJS217. The code prefixes do not match, so this is not an exact part-number confirmation. The supplier entry also does not specify Ashok Leyland 2516 or an axle/spring position. Check the physical marking/pack before linking MSJS217 to MBJS217 or treating the 2516 tag as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -31125,7 +31134,8 @@
     "description": "The GS MBJS 258 Eye Bolt w/ Lock Nut 14\" secures two or more components by engaging a matching threaded hole or nut and applying clamping force across the joint. Vehicle applications include Ashok Leyland 2516.",
     "applications": [
       "Ashok Leyland/Leyland commercial-vehicle leaf-spring/suspension application",
-      "GS lists the 14-inch eye-bolt variant."
+      "GS lists the 14-inch eye-bolt variant.",
+      "GS Auto supplier cross-check (GS Auto International Ltd. Handy Price List, dated 22-Sep-2025 (third-party hosted copy): https://www.scribd.com/document/964961256/New-Handy-Price-List-22-09-25-GS, p. 1): MBJS258 is listed as an Eye Bolt With Nut for Leyland, 14 inches. This is make-level component evidence only; the GS entry does not specify Ashok Leyland 2516 or an axle/spring position. Confirm eye profile, thread, shank dimensions and installed position before treating the current 2516 tag as verified."
     ],
     "vehicles": [
       "Ashok Leyland 2516"
@@ -36968,17 +36978,14 @@
       "Fleetguard",
       "Filters",
       "Filter Housing",
-      "The Fleetguard 8710124 Head Assembly captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components.",
-      "Universal"
+      "The Fleetguard 8710124 Head Assembly captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components."
     ],
     "description": "The Fleetguard 8710124 Head Assembly captures dirt and other solid contaminants from diesel fuel before they can reach precision fuel-system components.",
     "applications": [
       "Fuel Filtration System",
       "Vehicle fitment evidence (Fleetguard/Tata catalogue; exact head-assembly reference): Tata 3718 and 4923 BS IV, through the FS1003/FS19664 separator assembly. This is an indirect assembly-level application, not a direct vehicle-level OEM head listing."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "8710124",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -36997,7 +37004,7 @@
       "id": "fleetguard",
       "name": "Fleetguard"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -43214,17 +43221,14 @@
       "Fenner",
       "Engine Components",
       "Timing Belt",
-      "The Fenner 4PK-720 Micro V Belt transmits rotation from the driving pulley to connected engine accessories; ribbed or Poly-V designs use multiple longitudinal ribs to engage matching pulleys.",
-      "Universal"
+      "The Fenner 4PK-720 Micro V Belt transmits rotation from the driving pulley to connected engine accessories; ribbed or Poly-V designs use multiple longitudinal ribs to engage matching pulleys."
     ],
     "description": "The Fenner 4PK-720 Micro V Belt transmits rotation from the driving pulley to connected engine accessories; ribbed or Poly-V designs use multiple longitudinal ribs to engage matching pulleys.",
     "applications": [
       "Engine Accessory Drive System",
       "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Maruti Suzuki Alto, Maruti Suzuki Wagon R and Tata Indica. Alternator-belt application."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "4PK-720",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -43243,7 +43247,7 @@
       "id": "fenner",
       "name": "Fenner"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -48844,7 +48848,8 @@
     "applications": [
       "Pneumatic brake control",
       "Knorr-Bremse reference K003355",
-      "WABCO cross-reference 9732981530."
+      "WABCO cross-reference 9732981530.",
+      "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 13 and 46–47): exact AM part B13TM1000150 is listed as Relay Valve - V (KB reference K003355). No vehicle mark is shown for this part in the Tata Motors application-chart columns checked, so this source does not substantiate a model-specific Tata fitment. Retain the existing Universal classification only as a catalogue-level generic tag, not as evidence that this part fits all vehicles; verify porting, pressure specification and chassis application before supply. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
     ],
     "vehicles": [
       "Universal"
@@ -48962,8 +48967,7 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 300003079 Relay Valve Kit controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
-      "Universal"
+      "The WABCO 300003079 Relay Valve Kit controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function."
     ],
     "description": "The WABCO 300003079 Relay Valve Kit controls or distributes compressed air within the vehicle braking circuit according to the valve’s named function.",
     "applications": [
@@ -48971,9 +48975,7 @@
       "commercial vehicles.",
       "Vehicle fitment evidence / title reconciliation (WABCO Customer Centre India; exact material number 300003079): WABCO identifies this as a “Kit: Valve” repair kit for Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. Reconcile the Souviks “Relay Valve Kit” title and kit contents with the supplier description; no individual truck model is specified."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "300003079",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -48992,7 +48994,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -51469,8 +51471,7 @@
       "WABCO",
       "Brakes",
       "Brake Chamber",
-      "The WABCO 100251580 Spring Brake Actr (Type 24/75) P2C converts compressed-air pressure into mechanical force for brake application; spring-brake designs also provide a spring-applied parking or emergency-braking function.",
-      "Universal"
+      "The WABCO 100251580 Spring Brake Actr (Type 24/75) P2C converts compressed-air pressure into mechanical force for brake application; spring-brake designs also provide a spring-applied parking or emergency-braking function."
     ],
     "description": "The WABCO 100251580 Spring Brake Actr (Type 24/75) P2C converts compressed-air pressure into mechanical force for brake application; spring-brake designs also provide a spring-applied parking or emergency-braking function.",
     "applications": [
@@ -51478,9 +51479,7 @@
       "replacement/service use for the stated specification.",
       "Vehicle application evidence (WABCO Customer Centre official catalogue; exact part-number match): Tata and Ashok Leyland commercial vehicles. The catalogue gives make-level applications only; no individual model is stated."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "100251580",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -51499,7 +51498,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -54823,7 +54822,7 @@
       "Bearings",
       "Taper Roller Bearing",
       "The Texspin TX-32309 Tapper Roller Bearing for Escort 335/345, Swaraj 735 uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
-      "Universal"
+      "Tractors"
     ],
     "description": "The Texspin TX-32309 Tapper Roller Bearing for Escort 335/345, Swaraj 735 uses tapered rollers and matching raceways to support combined radial and axial loads in rotating assemblies.",
     "applications": [
@@ -54835,7 +54834,7 @@
       "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Escorts 335/345 tractors and Swaraj 735."
     ],
     "vehicles": [
-      "Universal"
+      "Tractors"
     ],
     "part_number": "TX-32309",
     "manufacturer_part_number": "",
@@ -56405,7 +56404,8 @@
     "applications": [
       "JCB Earth Mover alternator application",
       "confirm machine fitment.",
-      "Vehicle/machine fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): JCB earth movers, alternator drive."
+      "Vehicle/machine fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): JCB earth movers, alternator drive.",
+      "Manufacturer-catalogue source cross-check (JK Fenner Auto Belts product catalogue (indexed manufacturer catalogue): https://jkfenner.com/downloads/down.php?file=Belts.pdf): JK Fenner lists exact code SPAX1250 for JCB Earth Mover alternator drive. This is an off-road equipment application, not a road-vehicle chassis application. Keep the product's vehicle mapping empty; confirm the exact JCB machine model, alternator pulley profile and effective belt length before supply."
     ],
     "vehicles": [],
     "part_number": "SPAX1250",
@@ -57908,7 +57908,8 @@
       "Ashok Leyland 2560",
       "3560",
       "Taurus and 2514 Tipper 6x4.",
-      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match AV13X850): Ashok Leyland AL2560, AL3560, Taurus and 2514 Tipper 6×4. Cross-reference discrepancy: Fenner lists OE F0301450; this Souviks product record carries F0300458. Vehicle applications are supported by belt code, but reconcile the OE field separately."
+      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match AV13X850): Ashok Leyland AL2560, AL3560, Taurus and 2514 Tipper 6×4. Cross-reference discrepancy: Fenner lists OE F0301450; this Souviks product record carries F0300458. Vehicle applications are supported by belt code, but reconcile the OE field separately.",
+      "Manufacturer-catalogue source cross-check (JK Fenner Auto Belts product catalogue (indexed manufacturer catalogue): https://jkfenner.com/downloads/down.php?file=Belts.pdf): the JK Fenner Commercial Wheelers listing identifies exact belt code AV13X850 for Ashok Leyland AL2560, 3560, Taurus and 2514 Tipper 6×4, alternator drive, with Fenner OE reference F0301450. The Souviks master currently carries manufacturer reference F0300458. This supports the stated model family by exact belt code but leaves the OE-reference discrepancy unresolved; do not replace the reference field until the physical belt/pack marking is checked."
     ],
     "vehicles": [],
     "part_number": "AV13X850",
@@ -73055,7 +73056,8 @@
     "description": "The Knorr-Bremse B25TM1263332 solenoid coil is an electrical control component for compatible lift axle control valve systems. It enables electrically controlled operation within the pneumatic lift axle arrangement used on commercial vehicles.",
     "applications": [
       "Gen II lift axle control valve (LACV)",
-      "commercial vehicle pneumatic control systems."
+      "commercial vehicle pneumatic control systems.",
+      "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 25–26): exact AM part B25TM1263332 is identified as the Solenoid Coil, Knorr-Bremse reference K043332. The LACV repair-kit matrix lists K043332 for seven configurations: TML 31T (K067500), TML 37T (K081535), TML 31T (K117107), DICV 31/37T (K068103), Ashok Leyland 31/37T (K105572), MTBL 37T (K089060) and Eicher 37T (K124211). The adjacent lift-axle system matrix names TML 3118, TML 3118 BS-IV, TML 3718, Ashok Leyland 3118/3718, BharatBenz 3123/3723, Volvo Eicher and Mahindra T&B as system contexts. Match the installed LACV assembly number, generation and connector before confirming a vehicle; do not interpret the existing broad Tata LPT / Ashok Leyland 2516 / Eicher Pro Series tags as fitment across every model in those families. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
     ],
     "vehicles": [
       "Tata LPT",
@@ -73119,7 +73121,8 @@
       "Hand brake valve V",
       "Version 1",
       "Knorr-Bremse reference HBVP06001",
-      "WABCO cross-reference 9611700010."
+      "WABCO cross-reference 9611700010.",
+      "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 18 and 46–47): exact AM part B13TM1000151 is listed as Hand Brake Valve V, Version 1 (KB reference HBVP06001). The Tata Motors application chart marks this part for LP1512, LPO1512, LPO1623, LP2123, LPK2528 PRIMA (39 WB) and LPS3518. Confirm valve version, mounting, porting and brake-system configuration against the vehicle before supply; these six listed variants do not establish fitment for every Tata LPT or Prima model. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
     ],
     "vehicles": [
       "Universal"
@@ -73183,7 +73186,8 @@
     "applications": [
       "Quick relay valve",
       "Knorr-Bremse reference K013794",
-      "pneumatic braking system."
+      "pneumatic braking system.",
+      "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 23 and 46–47): the exact AM part B13TM1000182 / KB reference K013794 appears in the Tata application chart under the description Quick Release Valve, while the current Souviks title says Quick Relay Valve V/M. This is a product-description/function discrepancy requiring physical-part or manufacturer confirmation. The chart does not establish a model-specific application for this part; do not convert the Universal tag into a vehicle fitment claim. Confirm whether the stocked item is a quick-release valve or quick-relay valve, together with ports and operating specification, before supply. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
     ],
     "vehicles": [
       "Universal"
@@ -73246,7 +73250,8 @@
     "applications": [
       "Hand brake valve V",
       "Knorr-Bremse reference HBVP06002",
-      "WABCO cross-reference 9611700020."
+      "WABCO cross-reference 9611700020.",
+      "Manufacturer-source reconciliation (Knorr-Bremse Commercial Vehicle Systems catalogue, pp. 18 and 46–47): exact AM part B13TM1000152 is listed as Hand Brake Valve V (KB reference HBVP06002). The Tata Motors application chart marks this part for LPO1618. Treat this as a single-variant application only; confirm valve version, mounting, porting and brake-system configuration before supply. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
     ],
     "vehicles": [
       "Universal"
@@ -73425,8 +73430,7 @@
       "WABCO",
       "Air System",
       "Air Repair Kit",
-      "The WABCO 300025033 diaphragm and cut-off valve kit is designed for compatible commercial vehicle pneumatic assemblies. It supports servicing of the specified air-system components used within commercial vehicle braking and compressed-air systems.",
-      "Universal"
+      "The WABCO 300025033 diaphragm and cut-off valve kit is designed for compatible commercial vehicle pneumatic assemblies. It supports servicing of the specified air-system components used within commercial vehicle braking and compressed-air systems."
     ],
     "description": "The WABCO 300025033 diaphragm and cut-off valve kit is designed for compatible commercial vehicle pneumatic assemblies. It supports servicing of the specified air-system components used within commercial vehicle braking and compressed-air systems.",
     "applications": [
@@ -73435,9 +73439,7 @@
       "commercial vehicle air-system applications.",
       "Vehicle fitment evidence (WABCO Customer Centre India, exact material number 300025033): WABCO identifies this as “Kit: Diaphragm + Cut-Off Valve” for a twin-cylinder 704 cc flange-mounted compressor, with India vehicle applications TATA, Ashok Leyland, Volvo Eicher (VECV), Daimler (Bharat Benz) and MAN. This supports make-level use only; no individual truck model is stated. Confirm compressor family and actuator configuration before ordering."
     ],
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "part_number": "300025033",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
@@ -73464,7 +73466,7 @@
       "id": "wabco",
       "name": "WABCO"
     },
-    "vehicle_count": 1,
+    "vehicle_count": 0,
     "product_count": 0,
     "featured": false,
     "active": true,
@@ -73617,7 +73619,8 @@
     "description": "The Fenner AV13X820 is a cogged V-belt designed for tractor engine accessory-drive applications. Its profile provides engagement with compatible pulleys and transfers engine power to the connected accessory. Fenner's tractor application reference associates this belt with the 255 TU Stage III tractor engine application.",
     "applications": [
       "Fitment requires confirmation of the exact belt marking and application.",
-      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Mahindra tractor with BS III 255 TU engine."
+      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Mahindra tractor with BS III 255 TU engine.",
+      "Manufacturer-catalogue source cross-check (JK Fenner Auto Belts product catalogue (indexed manufacturer catalogue): https://jkfenner.com/downloads/down.php?file=Belts.pdf): JK Fenner lists exact code AV13X820 for a Mahindra tractor with BS III 255 TU engine. The source identifies an engine/tractor family but does not provide an individual model/chassis or OE reference in the indexed entry. Retain this as engine-level fitment evidence only; do not create a specific searchable vehicle mapping without model/chassis confirmation."
     ],
     "vehicles": [],
     "part_number": "AV13X820",
@@ -73801,7 +73804,8 @@
     "applications": [
       "Alternator drive",
       "twin-groove pulley application.",
-      "Vehicle application evidence (JK Fenner automotive belt catalogue; exact belt-code match TW1475): Ashok Leyland twin-groove-pulley drive. No chassis model is specified. Cross-reference discrepancy: this catalogue identifies F0332350, whereas the Souviks product record lists F0301850; model fitment is not being promoted until the reference number is reconciled."
+      "Vehicle application evidence (JK Fenner automotive belt catalogue; exact belt-code match TW1475): Ashok Leyland twin-groove-pulley drive. No chassis model is specified. Cross-reference discrepancy: this catalogue identifies F0332350, whereas the Souviks product record lists F0301850; model fitment is not being promoted until the reference number is reconciled.",
+      "Manufacturer-catalogue source cross-check (JK Fenner Auto Belts product catalogue (indexed manufacturer catalogue): https://jkfenner.com/downloads/down.php?file=Belts.pdf): JK Fenner identifies exact belt code TW1475 as a Leyland twin-groove-pulley belt (listed as “Best”), with reference F0332350. The Souviks master currently carries F0301850. The source supports only a make/component-level pulley application, not an individual chassis model. Keep the reference conflict explicit and confirm groove profile, pulley geometry and the physical belt marking before supply."
     ],
     "vehicles": [],
     "part_number": "TW1475",
@@ -74110,7 +74114,8 @@
     "description": "The Fenner TK1125 is a cogged alternator belt listed for the Kirloskar Cummins B-42 engine application. It transfers rotational power from the engine pulley to the alternator, supporting the vehicle's electrical charging system. Its cogged V-belt construction provides pulley engagement and flexibility during continuous engine operation.",
     "applications": [
       "Alternator drive",
-      "Cummins B-42 engine."
+      "Cummins B-42 engine.",
+      "Manufacturer-catalogue source cross-check (JK Fenner Auto Belts product catalogue (indexed manufacturer catalogue): https://jkfenner.com/downloads/down.php?file=Belts.pdf): JK Fenner lists exact belt code TK1125 for Kirloskar Cummins (B-42), reference 0719026M01. The source supports the existing Cummins B-42 engine-level alternator application, but it does not identify an individual vehicle model or chassis. Retain the product without a model-specific vehicle ID until the equipment/engine installation is confirmed."
     ],
     "vehicles": [],
     "part_number": "TK1125",
@@ -74170,7 +74175,8 @@
       "Ashok Leyland 2560",
       "3560",
       "Taurus and 2514 Tipper 6x4.",
-      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Ashok Leyland AL2560, AL3560, Taurus and 2514 Tipper 6×4."
+      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Ashok Leyland AL2560, AL3560, Taurus and 2514 Tipper 6×4.",
+      "Manufacturer-catalogue source cross-check (JK Fenner Auto Belts product catalogue (indexed manufacturer catalogue): https://jkfenner.com/downloads/down.php?file=Belts.pdf): JK Fenner lists exact belt code AV13X1580 for Ashok Leyland AL2560, AL3560, Taurus and 2514 Tipper 6×4, A/C compressor drive, reference F0301350. This supports the named model family at belt-code level. The current product has no vehicle IDs; do not add a broader Ashok Leyland family tag where the vehicle master does not represent these exact variants. Confirm compressor pulley and belt routing before supply."
     ],
     "vehicles": [],
     "part_number": "AV13X1580",
