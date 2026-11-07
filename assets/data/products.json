@@ -25671,12 +25671,14 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000257/1.webp",
     "vehicles": [
-      "Universal"
+      "Tata 407",
+      "Tata 709"
     ],
     "applications": [
       "Starter Motor Repair",
       "Starting System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Focus Part List, exact Bosch part number F 002 G20 084-4AV): listed as a Brush Holder for Tata LCV application, Telco 3SP/4SP and 497 Euro II engines, for 407, 609, 709 and 909 vehicles. The current Souviks vehicle master contains Tata 407 and Tata 709 but not 609 or 909, so only those two represented models are mapped. Confirm starter family and brush-holder dimensions before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -25767,11 +25769,12 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000258/1.webp",
     "vehicles": [
-      "Universal"
+      "Tractors"
     ],
     "applications": [
       "Starter Motor Assembly",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Tractors section, exact component number F 002 G20 278): Bosch lists this overrunning-clutch component in tractor starter assemblies for Agri King, Eicher Tractors 290/298 and Escorts Tractor P4. The current Souviks vehicle master has one generic Tractors entry and no separate Agri King/Eicher 290/298/Escorts model entries; the mapping is therefore limited to Tractors. Verify starter type and overrunning-clutch geometry before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -25956,12 +25959,11 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000260/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Starter Motor Repair",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Focus Part List, exact Bosch part number F 002 G20 522-4AV): listed as a Brush Holder for Chevrolet passenger-car application, Tavera. The current vehicle master has no Chevrolet Tavera entry. The Universal tag is removed; no substitute vehicle mapping is inferred. Confirm starter version and brush-holder dimensions before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -26051,12 +26053,11 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000261/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Starter Motor Assembly",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, exact Bosch component number F 002 G20 724): listed as the overrunning clutch for an Ashok Leyland FH001000 Back Hoe starter assembly. This is an equipment/starter-family application and not a listed road-vehicle model in the current vehicle master. The Universal tag is removed; no model mapping is inferred. Confirm starter assembly and overrunning-clutch geometry before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -26146,12 +26147,11 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000262/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Starter Motor Gear Reduction System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, JCB 320/09661 starter assembly, exact EGT number F 002 G20 727): listed for JCB 3DX Backhoe / Dieselmax 444, 4.4/4.8-litre four-cylinder application. The current vehicle master has no JCB equipment entry. The Universal tag is removed; no vehicle mapping is inferred. Confirm starter family and gear-train configuration before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -26336,12 +26336,11 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000264/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Starter Motor Assembly",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, Ashok Leyland FH001100, exact armature number F 002 G20 946): listed for a 6-cylinder, 5.759-litre wheel-loader starter assembly. The current vehicle master has no wheel-loader entry. The Universal tag is removed; no vehicle mapping is inferred. Confirm starter type and armature fit before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -26432,11 +26431,12 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000265/1.webp",
     "vehicles": [
-      "Universal"
+      "Tractors"
     ],
     "applications": [
       "Starter Motor Assembly",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Tractors section, Case New Holland starter assembly 5802070261, exact armature number F 002 G70 024): the manufacturer identifies a 4-cylinder, 3.9-litre tractor application. The current vehicle master represents this equipment family only as Tractors, so no CNH model is inferred. Confirm starter type and armature fit before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -26526,12 +26526,11 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000266/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Starter Motor Repair",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, Ashok Leyland FH001000 Back Hoe starter assembly, exact brush-holder number F 002 G70 105): this is an equipment-specific brush-holder application and is not an enumerated road-vehicle model in the current vehicle master. The Universal tag is removed; no model mapping is inferred. Confirm starter assembly and brush-holder geometry before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -26717,11 +26716,12 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000268/1.webp",
     "vehicles": [
-      "Universal"
+      "Tractors"
     ],
     "applications": [
       "Starter Motor Assembly",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Tractors section, Case New Holland starter assembly 5802070261, exact overrunning-clutch number F 002 G70 445): the manufacturer identifies a 4-cylinder, 3.9-litre tractor application. The current vehicle master represents this equipment family only as Tractors, so no CNH model is inferred. Confirm starter type and overrunning-clutch geometry before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -26907,11 +26907,12 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000270/1.webp",
     "vehicles": [
-      "Universal"
+      "Tractors"
     ],
     "applications": [
       "Starter Motor Gear Reduction System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Tractors section, Case New Holland starter assembly 5802070261, exact EGT/planetary gear-train number F 002 G70 675): the manufacturer identifies a 4-cylinder, 3.9-litre tractor application. The current vehicle master represents this equipment family only as Tractors, so no CNH model is inferred. Confirm starter family and gear-train configuration before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -27097,11 +27098,12 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000272/1.webp",
     "vehicles": [
-      "Universal"
+      "Tractors"
     ],
     "applications": [
       "Alternator Charging System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Tractors section, vehicle-manufacturer reference 48047952, exact rectifier number F 002 G90 170): Bosch lists this rectifier for a tractor alternator application. The same part number is also present in industrial/heavy-equipment sections, so the Souviks mapping is limited to the master’s generic Tractors entry and does not assert a particular tractor make/model. Verify alternator family and regulator pairing before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
@@ -27191,12 +27193,11 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000273/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "applications": [
       "Alternator Charging System",
-      "Bosch engine and electrical service applications"
+      "Bosch engine and electrical service applications",
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, exact regulator number F 002 G90 356): listed in the SL90 stationary-engine application. This is not a vehicle model application. The Universal tag is removed; no vehicle mapping is inferred. Confirm regulator type and alternator family before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "featured": false,
     "active": true,
