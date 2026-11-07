@@ -43808,9 +43808,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000577/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -43888,9 +43886,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000578/1.webp",
-    "vehicles": [
-      "Tata 709"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -43977,9 +43973,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000579/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -44041,9 +44035,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000580/1.webp",
-    "vehicles": [
-      "Tata Prima"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -44131,9 +44123,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000581/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -44211,9 +44201,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000582/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -44370,9 +44358,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000584/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -59564,7 +59550,8 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000795/1.webp",
     "vehicles": [
-      "Universal"
+      "Tata 2416",
+      "Tata LPT"
     ],
     "featured": false,
     "active": true,
@@ -59581,8 +59568,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000795/1.webp",
     "applications": [
       "Commercial-vehicle rear suspension/bracket application",
-      "exact vehicle model not identified in indexed source data.",
-      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018 catalogue section. Rear-suspension bracket, 42 mm, 14 mm holes."
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018 catalogue section. Rear-suspension bracket, 42 mm, 14 mm holes.",
+      "Manufacturer cross-check (JMP Manufacturing Co. official truck-parts listing, Tata Hangers & Brackets section): exact code J1029, OEM 2617 3240 3304, description R/s Bracket 42mm 4 Holes 14mm. The March 2026 Tata parts list places the same code and OEM under Tata 2416/2213/2515 TC/2515 EX/1618/1612/1613/4018. The current vehicle master represents Tata 2416 and Tata LPT (1612/1613); the other listed variants are not mapped because they have no separate vehicle-master entries. Confirm bracket geometry and axle position before supply. Sources: https://www.jmp.co.in/truck-parts.html ; https://www.scribd.com/document/704428027/Price-List-1st-March-2023-jmp"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87088000",
@@ -60691,9 +60678,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000810/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -60714,7 +60699,8 @@
     "manufacturer_spec_notes": "WABCO print page returned 0 kg and no product dimensions; the supplied catalogue weight of 0.285 kg is used.",
     "approx_weight_g": 300,
     "applications": [
-      "WABCO/Tata/Ashok Leyland air-brake drain-valve applications."
+      "WABCO/Tata/Ashok Leyland air-brake drain-valve applications.",
+      "Supplier package reference (ZF/WABCO CVCS Product Catalogue 2023, printed p. 105): set 4006094160 contains 15 units of drain valve 4343000090. This is a pack/content reference, not a chassis application table; it does not establish Ashok Leyland 2516 fitment. Verify the valve threads, port arrangement and air-reservoir interface before assigning a vehicle. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
@@ -64801,10 +64787,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000864/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516",
-      "Eicher Pro Series"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -64884,9 +64867,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000865/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -64966,9 +64947,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000866/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -65051,9 +65030,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000867/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -65134,9 +65111,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000868/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -65210,9 +65185,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000869/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -65286,10 +65259,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000870/1.webp",
-    "vehicles": [
-      "Eicher Pro Series",
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -65312,7 +65282,8 @@
     "applications": [
       "R12 vertical relay-valve applications",
       "VECV/Bharat Benz commercial vehicles.",
-      "Manufacturer application evidence — WABCO Customer Centre exact part number 300003072 identifies a relay-valve repair kit and states Vehicle application (India): TATA. This conflicts with the current catalogue application note naming VECV/Bharat Benz; keep the latter unconfirmed unless a separate exact cross-reference is produced. Match relay-valve type and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072"
+      "Manufacturer application evidence — WABCO Customer Centre exact part number 300003072 identifies a relay-valve repair kit and states Vehicle application (India): TATA. This conflicts with the current catalogue application note naming VECV/Bharat Benz; keep the latter unconfirmed unless a separate exact cross-reference is produced. Match relay-valve type and kit contents before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072",
+      "Manufacturer scope correction (WABCO Customer Centre, exact material 300003072): the manufacturer lists India vehicle application TATA only. It does not identify Eicher Pro Series, VECV or Bharat Benz model fitment. The previous Eicher Pro Series tag is removed; confirm the valve family, R12 variant and repair-kit contents against the installed assembly. Source: https://www.wabco-customercentre.com/catalog/en_US/300003072"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
@@ -65443,9 +65414,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000872/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -65519,9 +65488,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000873/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -65547,7 +65514,8 @@
     "approx_weight_g": 850,
     "applications": [
       "Tata commercial vehicles.",
-      "Vehicle application evidence (WABCO Customer Centre catalogue, make-level) plus secondary distributor model listing: Tata; distributor-reported Tata Signa 4223 TC, 4223.T TC ISBE 5.9 UMB, 4223.TK TC ISBE 5.9 and 4823.T TC ISBE 5.9, BS3/BS4 (2008–2020). Model/year detail is not OEM-verified; confirm before using as a hard fitment."
+      "Vehicle application evidence (WABCO Customer Centre catalogue, make-level) plus secondary distributor model listing: Tata; distributor-reported Tata Signa 4223 TC, 4223.T TC ISBE 5.9 UMB, 4223.TK TC ISBE 5.9 and 4823.T TC ISBE 5.9, BS3/BS4 (2008–2020). Model/year detail is not OEM-verified; confirm before using as a hard fitment.",
+      "Manufacturer/model scope qualification (WABCO Customer Centre, exact material 4750010080): WABCO lists TATA at make level and does not name a truck model. A secondary distributor reports Tata Signa 4223 variants, but that model detail is not OEM-confirmed and is not promoted to a model mapping. Confirm delivered pressure, mounting spacing and port threads before supply. Source: https://www.wabco-customercentre.com/catalog/en_IN/4750010080"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84819090",
@@ -65677,10 +65645,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000875/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516",
-      "Eicher Pro Series"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -65814,7 +65779,9 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000877/1.webp",
     "vehicles": [
-      "Universal"
+      "Tata 1210",
+      "Tata LPT",
+      "Tata 2416"
     ],
     "featured": false,
     "active": true,
@@ -65830,8 +65797,7 @@
     "gallery_dimensions": {},
     "applications": [
       "Vehicle-specific SBAM 231 leaf-spring centre-bolt application",
-      "exact 14-inch LH vehicle fitment not reliably indexed.",
-      "Vehicle fitment evidence (GS Price Lists, 2021 and 06-May-2024; exact part-number match): Tata 1210, 1612, 2515 EX and 2416; Ashok Leyland (model not specified). Rear LH centre bolt."
+      "Manufacturer application evidence (GS Auto International Ltd., Maximum Retail Price List effective 11-Jan-2021; exact part code SBAM-231): 12 × 350 × 1.75P, 14 in × 15/32 in LH, rear application for Tata 1210/1612/2515 EX/2416 and Leyland. Exact size, hand and code match the Souviks product. The existing vehicle master represents Tata 1210, Tata LPT (1612 family) and Tata 2416, so only those three mappings are applied. Tata 2515 EX is not a 2516 model; “Leyland” is make-level only and is not converted into an Ashok Leyland 2516 mapping. Confirm centre-bolt length, thread and LH orientation against the spring pack before supply. Source: https://www.pssao.com/catlog/gsi/PRICE%20LIST.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73181500",
@@ -69777,9 +69743,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000939/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -75850,9 +75814,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001017/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -76021,9 +75983,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001019/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -76190,9 +76150,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001021/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -76281,9 +76239,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001022/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -76367,9 +76323,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001023/1.webp",
-    "vehicles": [
-      "Universal"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -76398,7 +76352,8 @@
       "Pneumatic brake",
       "air-suspension and compressed-air line system",
       "replacement/service use for the stated specification.",
-      "Vehicle fitment evidence (ZF CVCS Product Catalogue 2023, p. 66; exact material number 9732980290): listed as an RG2 relay valve for BAJAJ TEMPO. The source does not specify an individual model/year; verify valve connection style and brake-circuit configuration before ordering."
+      "Vehicle fitment evidence (ZF CVCS Product Catalogue 2023, p. 66; exact material number 9732980290): listed as an RG2 relay valve for BAJAJ TEMPO. The source does not specify an individual model/year; verify valve connection style and brake-circuit configuration before ordering.",
+      "Vehicle-master scope qualification: the ZF/WABCO CVCS Product Catalogue 2023 (printed p. 66) lists material 9732980290 for Bajaj Tempo, but the current vehicle master has no Bajaj Tempo/Force model entry. The generic Universal tag is removed rather than substituting an unrelated vehicle family. Match the RG2 valve's port layout and brake-circuit configuration before supply. Source: https://pssao.com/catlog/wil/wabco%20zf%20cvcs%20catalogue%202023.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84812000",
@@ -85426,11 +85381,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001142/1.webp",
-    "vehicles": [
-      "Tata LPT",
-      "Tata Prima",
-      "Tata Signa"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -85445,7 +85396,8 @@
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/39",
-      "spring brake actuator configurations including 20/75 and 24/75 types."
+      "spring brake actuator configurations including 20/75 and 24/75 types.",
+      "Application qualification: MSP 25/39 identifies the actuator repair-kit family/reference. The current product record does not include a supplier/OE cross-reference tying this kit to Tata LPT, Tata Prima or Tata Signa. Those model tags are removed pending confirmation against the installed spring-brake actuator type, physical markings and OE reference."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001142/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -85651,10 +85603,7 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001145/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516",
-      "Ashok Leyland U-Truck"
-    ],
+    "vehicles": [],
     "featured": false,
     "active": true,
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
@@ -85669,7 +85618,8 @@
     "gallery_dimensions": {},
     "applications": [
       "MSP 25/2",
-      "Type 20/20 spring brake actuator configuration."
+      "Type 20/20 spring brake actuator configuration.",
+      "Application qualification: MSP 25/2 identifies an actuator repair-kit family/configuration. The current product record does not include a supplier/OE cross-reference tying this kit to Ashok Leyland 2516 or U-Truck. Those model tags are removed pending confirmation against the installed actuator type, physical markings and OE reference."
     ],
     "card_image_url": "/assets/images/product-thumbnails/SVKS001145/1.webp",
     "updated_at": "2026-10-30T18:45:00+05:30",
@@ -86123,11 +86073,13 @@
     "mrp": 245,
     "selling_price": 225,
     "description": "The Fenner AV13X820 is a cogged V-belt designed for tractor engine accessory-drive applications. Its profile provides engagement with compatible pulleys and transfers engine power to the connected accessory. Fenner's tractor application reference associates this belt with the 255 TU Stage III tractor engine application.",
-    "vehicles": [],
+    "vehicles": [
+      "Tractors"
+    ],
     "applications": [
-      "Fitment requires confirmation of the exact belt marking and application.",
-      "Vehicle fitment evidence (JK Fenner automotive belt catalogue; exact belt-code match): Mahindra tractor with BS III 255 TU engine.",
-      "Manufacturer-catalogue source cross-check (JK Fenner Auto Belts product catalogue (indexed manufacturer catalogue): https://jkfenner.com/downloads/down.php?file=Belts.pdf): JK Fenner lists exact code AV13X820 for a Mahindra tractor with BS III 255 TU engine. The source identifies an engine/tractor family but does not provide an individual model/chassis or OE reference in the indexed entry. Retain this as engine-level fitment evidence only; do not create a specific searchable vehicle mapping without model/chassis confirmation."
+      "Alternator drive",
+      "Cummins tractor engine family application — confirm exact belt section and pulley fitment.",
+      "Manufacturer catalogue cross-check (JK Fenner Automotive Belts catalogue, exact belt code AV13X820): listed for a Mahindra tractor with BS III 255 TU engine. This establishes engine/equipment-family use, not a named tractor model or chassis. The current vehicle master has only a generic Tractors entry, so the catalogue maps only to that broad equipment class; no specific Mahindra tractor model is claimed. Confirm belt profile, effective length and pulley grooves against the installed unit before supply. Source: https://jkfenner.com/downloads/down.php?file=Belts.pdf"
     ],
     "featured": false,
     "active": true,
