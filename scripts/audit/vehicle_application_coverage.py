@@ -136,8 +136,12 @@ def main() -> int:
     products_with_no_vehicle_mapping = 0
     products_with_vehicle_mapping = 0
     products_with_unresolved_vehicle_labels = 0
+    products_with_universal_label = 0
+    products_universal_only = 0
+    products_universal_with_other_labels = 0
     mapped_pairs: set[tuple[str, str]] = set()
     unresolved_pairs: list[dict[str, str]] = []
+    vehicle_label_counts: Counter[str] = Counter()
     worklist_rows: list[dict[str, str]] = []
     brand_counts: Counter[str] = Counter()
     category_counts: Counter[str] = Counter()
@@ -147,6 +151,11 @@ def main() -> int:
         pid = str(p["id"]).strip()
         apps = as_list(p.get("applications"))
         vehicle_labels = as_list(p.get("vehicles"))
+        vehicle_label_counts.update(vehicle_labels)
+        has_universal_label = any(normalize_vehicle_label(label) == "universal" for label in vehicle_labels)
+        products_with_universal_label += int(has_universal_label)
+        products_universal_only += int(has_universal_label and len(vehicle_labels) == 1)
+        products_universal_with_other_labels += int(has_universal_label and len(vehicle_labels) > 1)
         application_note_count += len(apps)
         if apps:
             products_with_any_application += 1
@@ -203,6 +212,8 @@ def main() -> int:
                 for _, vehicle in valid_vehicle_matches
             ),
             "vehicle_names": ";".join(label for label, _ in valid_vehicle_matches),
+            "has_universal_vehicle_label": str(has_universal_label).lower(),
+            "universal_only": str(has_universal_label and len(vehicle_labels) == 1).lower(),
             "application_note_count": str(len(apps)),
             "has_source_reference": str(features["has_source_reference"]).lower(),
             "has_fitment_evidence_wording": str(features["has_fitment_evidence_wording"]).lower(),
@@ -264,6 +275,9 @@ def main() -> int:
             "active_products_with_vehicle_mapping": products_with_vehicle_mapping,
             "active_products_without_vehicle_mapping": products_with_no_vehicle_mapping,
             "active_products_with_unresolved_vehicle_labels": products_with_unresolved_vehicle_labels,
+            "active_products_with_universal_vehicle_label": products_with_universal_label,
+            "active_products_mapped_only_to_universal": products_universal_only,
+            "active_products_with_universal_plus_other_labels": products_universal_with_other_labels,
             "product_vehicle_mapping_pairs": len(mapped_pairs),
             "vehicle_product_inverse_pairs": len(inverse_pairs),
             "missing_vehicle_inverse_pairs": len(missing_inverse_pairs),
@@ -284,6 +298,7 @@ def main() -> int:
             "vehicles_products_referencing_unknown_products": inverse_unknown_products,
             "vehicles_products_referencing_inactive_products": inactive_vehicle_refs,
         },
+        "vehicle_label_counts": dict(vehicle_label_counts.most_common()),
         "brand_counts": dict(brand_counts.most_common()),
         "category_counts": dict(category_counts.most_common()),
     }
@@ -315,6 +330,7 @@ def main() -> int:
         f"- Active products with qualification/conflict wording: **{summary['active_products_with_qualification_or_conflict_wording']}**.",
         f"- Active products mapped to one or more vehicles: **{summary['active_products_with_vehicle_mapping']}**.",
         f"- Active products with no vehicle mapping: **{summary['active_products_without_vehicle_mapping']}**.",
+        f"- Active products carrying a Universal label: **{summary['active_products_with_universal_vehicle_label']}** ({summary['active_products_mapped_only_to_universal']} Universal-only; {summary['active_products_with_universal_plus_other_labels']} with additional labels).",
         "",
         "## Vehicle mapping integrity",
         "",
