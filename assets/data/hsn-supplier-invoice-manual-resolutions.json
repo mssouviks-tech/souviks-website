@@ -812,6 +812,16 @@
       "part_reference": "TXL 3 - 1SG + 1 KG",
       "evidence": "Exact Texspin part/package reference TXL 3 - 1SG + 1 KG matches catalogue SKU SVKS000840 part_number TXL 3 - 1SG + 1KG. The automatic review candidate list returned other grease pack sizes but omitted this exact product. The supplier invoice HSN is retained only as source evidence; the existing catalogue HSN candidate remains unchanged.",
       "review_status": "manual_identity_verified"
+    },
+    {
+      "id": "SVKS000386",
+      "supplier_invoice_hsn_code": "85122010",
+      "supplier_product_name": "NG - 103 - Tail Lamp Assy. Tata 4 Chamber 24V",
+      "supplier_odoo_external_id": "__export__.product_template_6760_c23083f8",
+      "match_method": "manual_exact_part_number_title_cross_brand",
+      "part_reference": "103",
+      "evidence": "Exact supplier part reference 103 equals catalogue part_number 103 on SKU SVKS000386, and the supplier description exactly matches the catalogue title Tail Lamp Assy. Tata 4 Chamber 24V. The catalogue brand is NeoLite while the supplier invoice label is NG; the source-brand difference is preserved as provenance, not normalised. Existing catalogue HSN candidate 85122010 is unchanged.",
+      "review_status": "manual_identity_verified"
     }
   ]
 }
