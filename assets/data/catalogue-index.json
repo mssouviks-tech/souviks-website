@@ -59550,7 +59550,8 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000795/1.webp",
     "vehicles": [
-      "Universal"
+      "Tata 2416",
+      "Tata LPT"
     ],
     "featured": false,
     "active": true,
@@ -59567,8 +59568,8 @@
     "card_image_url": "/assets/images/product-thumbnails/SVKS000795/1.webp",
     "applications": [
       "Commercial-vehicle rear suspension/bracket application",
-      "exact vehicle model not identified in indexed source data.",
-      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018 catalogue section. Rear-suspension bracket, 42 mm, 14 mm holes."
+      "Vehicle fitment evidence (JMP Product Price List, March 2026, p. 2; exact part-code match): Tata 2416, 2213, 2515 TC, 2515 EX, 1618, 1612, 1613 and 4018 catalogue section. Rear-suspension bracket, 42 mm, 14 mm holes.",
+      "Manufacturer cross-check (JMP Manufacturing Co. official truck-parts listing, Tata Hangers & Brackets section): exact code J1029, OEM 2617 3240 3304, description R/s Bracket 42mm 4 Holes 14mm. The March 2026 Tata parts list places the same code and OEM under Tata 2416/2213/2515 TC/2515 EX/1618/1612/1613/4018. The current vehicle master represents Tata 2416 and Tata LPT (1612/1613); the other listed variants are not mapped because they have no separate vehicle-master entries. Confirm bracket geometry and axle position before supply. Sources: https://www.jmp.co.in/truck-parts.html ; https://www.scribd.com/document/704428027/Price-List-1st-March-2023-jmp"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87088000",
@@ -65778,7 +65779,9 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000877/1.webp",
     "vehicles": [
-      "Universal"
+      "Tata 1210",
+      "Tata LPT",
+      "Tata 2416"
     ],
     "featured": false,
     "active": true,
@@ -65794,8 +65797,7 @@
     "gallery_dimensions": {},
     "applications": [
       "Vehicle-specific SBAM 231 leaf-spring centre-bolt application",
-      "exact 14-inch LH vehicle fitment not reliably indexed.",
-      "Vehicle fitment evidence (GS Price Lists, 2021 and 06-May-2024; exact part-number match): Tata 1210, 1612, 2515 EX and 2416; Ashok Leyland (model not specified). Rear LH centre bolt."
+      "Manufacturer application evidence (GS Auto International Ltd., Maximum Retail Price List effective 11-Jan-2021; exact part code SBAM-231): 12 × 350 × 1.75P, 14 in × 15/32 in LH, rear application for Tata 1210/1612/2515 EX/2416 and Leyland. Exact size, hand and code match the Souviks product. The existing vehicle master represents Tata 1210, Tata LPT (1612 family) and Tata 2416, so only those three mappings are applied. Tata 2515 EX is not a 2516 model; “Leyland” is make-level only and is not converted into an Ashok Leyland 2516 mapping. Confirm centre-bolt length, thread and LH orientation against the spring pack before supply. Source: https://www.pssao.com/catlog/gsi/PRICE%20LIST.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73181500",
