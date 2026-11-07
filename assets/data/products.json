@@ -30660,12 +30660,12 @@
         "source": "product_name"
       }
     ],
-    "hsn_code": "38200000",
-    "hsn_description": "Anti-freezing preparations and prepared de-icing fluids",
-    "hsn_confidence": "medium",
-    "hsn_classification_status": "provisional",
-    "hsn_basis": "The product is engine/radiator coolant.",
-    "hsn_review_note": "Confirm product formulation and coolant/antifreeze specification.",
+    "hsn_code": "39174000",
+    "hsn_description": "Fittings of plastics for tubes, pipes and hoses",
+    "hsn_confidence": "low",
+    "hsn_classification_status": "review_required",
+    "hsn_basis": "The catalogue identifies this article as a coolant-pipe socket/coupler, not a prepared coolant. A plastic pipe-fitting heading is the current candidate.",
+    "hsn_review_note": "Verify the fitting body material and construction. Use 39174000 only for plastic fittings; steel and copper-alloy fittings require their own tariff headings.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -30685,7 +30685,7 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "38200000",
+        "code": "39174000",
         "mapping_status": "accepted_by_ministry",
         "ministry_departments": [
           "Department of Chemicals & Petro-Chemicals"
@@ -30693,7 +30693,9 @@
         "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": []
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000251",
@@ -33729,12 +33731,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85364100",
-    "hsn_description": "Relays for a voltage not exceeding 60 V",
-    "hsn_confidence": "medium",
-    "hsn_classification_status": "provisional",
-    "hsn_basis": "The product is identified as a 12V/24V vehicle electrical relay.",
-    "hsn_review_note": "Confirm the rated voltage is not above 60 V and that it is an electrical relay rather than a pneumatic relay valve.",
+    "hsn_code": "87089400",
+    "hsn_description": "Steering wheels, steering columns and steering boxes; parts thereof",
+    "hsn_confidence": "low",
+    "hsn_classification_status": "review_required",
+    "hsn_basis": "Exact part F0987915 is listed as a pivot pin; Souviks identifies the assembly as a steering relay/drop-arm pivot. It is a mechanical steering item, not an electrical relay.",
+    "hsn_review_note": "Confirm the supplied part's dedicated steering-linkage function and whether it is a standalone pin or part of a complete linkage assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -33762,7 +33764,7 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85364100",
+        "code": "87089400",
         "mapping_status": "accepted_by_ministry",
         "ministry_departments": [
           "Ministry of Heavy Industries"
@@ -33779,7 +33781,9 @@
           ]
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000277",
@@ -34898,12 +34902,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "40103290",
-    "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
+    "hsn_code": "40103190",
+    "hsn_description": "Other endless V-ribbed transmission belts, outside circumference >60 cm and <=180 cm",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product name/profile indicates a cogged/fan V-belt.",
-    "hsn_review_note": "Confirm non-V-ribbed profile, outside circumference 60–180 cm and rubber-compound percentage; 40103210 or another size band may apply.",
+    "hsn_basis": "Fenner part number 4PK-986SPV and the product's V-ribbed/Poly-V description identify a ribbed accessory-drive belt, not a non-V-ribbed trapezoidal belt. Candidate 40103190 applies if verified outside circumference is 60–180 cm and rubber compound is not below 25% by weight.",
+    "hsn_review_note": "Obtain Fenner datasheet confirming actual outside circumference and rubber-compound content. 986 mm is the nominal/effective length marking and is not, by itself, proof of the statutory outside-circumference measurement. If <25% rubber compound use 40103110; if the circumference is outside 60–180 cm use the corresponding tariff band.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -34931,7 +34935,7 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "40103290",
+        "code": "40103190",
         "mapping_status": "accepted_by_ministry",
         "ministry_departments": [
           "Department for Promotion of Industry and Internal Trade"
@@ -34946,7 +34950,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000287",
@@ -43897,12 +43903,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "38200000",
-    "hsn_description": "Anti-freezing preparations and prepared de-icing fluids",
+    "hsn_code": "84212900",
+    "hsn_description": "Other filtering or purifying machinery and apparatus for liquids",
     "hsn_confidence": "medium",
     "hsn_classification_status": "provisional",
-    "hsn_basis": "The product is engine/radiator coolant.",
-    "hsn_review_note": "Confirm product formulation and coolant/antifreeze specification.",
+    "hsn_basis": "Bosch's commercial-vehicle filter catalogue maps exact OE reference X4000700 to a coolant filter; this is filtering equipment, not antifreeze fluid.",
+    "hsn_review_note": "Confirm whether the supplied SKU is a complete coolant-filter apparatus or a replacement element/part (which may fall under 84219900).",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -43930,10 +43936,10 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "38200000",
+        "code": "84212900",
         "mapping_status": "accepted_by_ministry",
         "ministry_departments": [
-          "Department of Chemicals & Petro-Chemicals"
+          "Department for Promotion of Industry and Internal Trade"
         ],
         "residual_probable_ministries": []
       },
@@ -43947,7 +43953,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000360",
@@ -45586,12 +45594,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "39235090",
-    "hsn_description": "Other plastic stoppers, lids, caps and other closures",
+    "hsn_code": "87084000",
+    "hsn_description": "Gear boxes and parts thereof",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is a tank cap or gear-lever knob, but its material is not stated.",
-    "hsn_review_note": "Confirm material; this candidate is only for plastic closures. Rubber or metal articles may classify elsewhere.",
+    "hsn_basis": "The product is described as a gear-lever knob used at the driver's transmission gear-selection interface, not a plastic closure.",
+    "hsn_review_note": "Confirm whether it is a dedicated gearbox/gear-selection part or a standalone knob whose material/function requires a different heading.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -45611,15 +45619,17 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "39235090",
+        "code": "87084000",
         "mapping_status": "accepted_by_ministry",
         "ministry_departments": [
-          "Department of Chemicals & Petro-Chemicals"
+          "Ministry of Heavy Industries"
         ],
         "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": []
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000374",
@@ -50312,12 +50322,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "40103290",
+    "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "PIX AVX13-family product is a trapezoidal V-belt; the catalogue part-number size is 1325 mm, within the 60–180 cm tariff circumference band if the size marking is the belt outside circumference.",
+    "hsn_review_note": "Verify exact non-V-ribbed section, measured outside circumference and rubber-compound content by weight. If rubber compound is below 25%, use 40103210; otherwise 40103290 is the candidate.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -50345,9 +50355,11 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "84099900",
-        "mapping_status": "not_found_in_guidebook",
-        "ministry_departments": [],
+        "code": "40103290",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
+          "Department for Promotion of Industry and Internal Trade"
+        ],
         "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
@@ -50360,7 +50372,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000413",
@@ -50429,12 +50443,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "40103290",
+    "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "PIX AVX13-family product is a trapezoidal V-belt; the catalogue part-number size is 1400 mm, within the 60–180 cm tariff circumference band if the size marking is the belt outside circumference.",
+    "hsn_review_note": "Verify exact non-V-ribbed section, measured outside circumference and rubber-compound content by weight. If rubber compound is below 25%, use 40103210; otherwise 40103290 is the candidate.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -50462,9 +50476,11 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "84099900",
-        "mapping_status": "not_found_in_guidebook",
-        "ministry_departments": [],
+        "code": "40103290",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
+          "Department for Promotion of Industry and Internal Trade"
+        ],
         "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
@@ -50477,7 +50493,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000414",
@@ -50550,12 +50568,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "40103290",
+    "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "PIX AVX13-family product is a trapezoidal V-belt; the catalogue part-number size is 1450 mm, within the 60–180 cm tariff circumference band if the size marking is the belt outside circumference.",
+    "hsn_review_note": "Verify exact non-V-ribbed section, measured outside circumference and rubber-compound content by weight. If rubber compound is below 25%, use 40103210; otherwise 40103290 is the candidate.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -50583,9 +50601,11 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "84099900",
-        "mapping_status": "not_found_in_guidebook",
-        "ministry_departments": [],
+        "code": "40103290",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
+          "Department for Promotion of Industry and Internal Trade"
+        ],
         "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
@@ -50598,7 +50618,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000415",
@@ -69687,12 +69709,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85365090",
+    "hsn_description": "Other switches for electrical circuits not exceeding 1,000 V",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "Uno Minda's manufacturer brochure for exact part LSC-24V87 (Lift Axle Solenoid, TATA/LEYLAND 24V) explicitly publishes HSN 85365090; the item is also listed by Uno Minda under Switch, Relay & Sensor.",
+    "hsn_review_note": "Manufacturer-published product-level HSN is recorded. Keep the GST rate separately unassigned until the exact description is matched to the current Notification 9/2025 schedule and its applicable entry; HSN 85365090 can map to more than one GST-rate entry depending on description.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -69720,12 +69742,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85365090",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -69737,7 +69759,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000571",
@@ -80571,12 +80595,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -80606,12 +80630,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122020",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -80621,7 +80645,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000671",
@@ -91664,12 +91690,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85364100",
-    "hsn_description": "Relays for a voltage not exceeding 60 V",
-    "hsn_confidence": "medium",
-    "hsn_classification_status": "provisional",
-    "hsn_basis": "The product is identified as a 12V/24V vehicle electrical relay.",
-    "hsn_review_note": "Confirm the rated voltage is not above 60 V and that it is an electrical relay rather than a pneumatic relay valve.",
+    "hsn_code": "87089400",
+    "hsn_description": "Steering wheels, steering columns and steering boxes; parts thereof",
+    "hsn_confidence": "low",
+    "hsn_classification_status": "review_required",
+    "hsn_basis": "Exact part F0987915 is listed as a pivot pin; Souviks identifies the assembly as a steering relay/drop-arm pivot. It is a mechanical steering item, not an electrical relay.",
+    "hsn_review_note": "Confirm the supplied part's dedicated steering-linkage function and whether it is a standalone pin or part of a complete linkage assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -91689,7 +91715,7 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85364100",
+        "code": "87089400",
         "mapping_status": "accepted_by_ministry",
         "ministry_departments": [
           "Ministry of Heavy Industries"
@@ -91697,7 +91723,9 @@
         "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": []
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000762",
@@ -100770,12 +100798,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85124000",
+    "hsn_description": "Windscreen wipers, defrosters and demisters",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The exact Tata Genuine Parts item 886782000014 is named 'Set Wipers for TATA Ace'; tariff item 85124000 expressly covers vehicle windscreen wipers.",
+    "hsn_review_note": "No material classification qualifier remains for the supplied complete wiper set; retain the exact Tata item mapping.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -100803,12 +100831,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85124000",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -100820,7 +100848,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000833",
@@ -102215,12 +102245,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -102248,12 +102278,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122020",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -102265,7 +102295,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000846",
@@ -102334,12 +102366,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -102367,12 +102399,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122020",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -102384,7 +102416,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000847",
@@ -103062,12 +103096,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -103095,12 +103129,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -103112,7 +103146,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000853",
@@ -103181,12 +103217,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -103214,12 +103250,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -103231,7 +103267,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000854",
@@ -103301,12 +103339,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -103327,19 +103365,19 @@
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
     "hsn_dpiit_mapping": {
       "guidebook_title": "Guidebook on Mapping of Harmonized System of Nomenclature (HSN) Codes",
       "guidebook_version": "2025-12-16",
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -103351,7 +103389,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000855",
@@ -103421,12 +103461,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -103447,19 +103487,19 @@
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
     "hsn_dpiit_mapping": {
       "guidebook_title": "Guidebook on Mapping of Harmonized System of Nomenclature (HSN) Codes",
       "guidebook_version": "2025-12-16",
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -103471,7 +103511,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000856",
@@ -103541,12 +103583,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -103574,12 +103616,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -103591,7 +103633,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000857",
@@ -103661,12 +103705,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -103687,19 +103731,19 @@
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
     "hsn_dpiit_mapping": {
       "guidebook_title": "Guidebook on Mapping of Harmonized System of Nomenclature (HSN) Codes",
       "guidebook_version": "2025-12-16",
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -103711,7 +103755,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000858",
@@ -103781,12 +103827,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -103807,19 +103853,19 @@
     ],
     "hsn_supplier_invoice_source_file": "hsn.xlsx",
     "hsn_supplier_invoice_match_date": "2026-11-06",
-    "hsn_supplier_invoice_candidate_alignment": "differs",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
     "hsn_dpiit_mapping": {
       "guidebook_title": "Guidebook on Mapping of Harmonized System of Nomenclature (HSN) Codes",
       "guidebook_version": "2025-12-16",
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -103831,7 +103877,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000859",
@@ -103901,12 +103949,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -103934,12 +103982,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -103951,7 +103999,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000860",
@@ -104019,12 +104069,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -104052,12 +104102,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -104069,7 +104119,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000861",
@@ -104143,12 +104195,12 @@
         "source": "product_name; inch converted to millimetres at 25.4 mm/in"
       }
     ],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
-    "hsn_confidence": "low",
-    "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_code": "85122010",
+    "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+    "hsn_confidence": "high",
+    "hsn_classification_status": "classified",
+    "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+    "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -104176,12 +104228,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122010",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -104193,7 +104245,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000862",
@@ -104261,12 +104315,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -104294,12 +104348,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122020",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -104311,7 +104365,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000863",
@@ -104379,12 +104435,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "85119000",
-    "hsn_description": "Parts of electrical ignition or starting equipment for internal combustion engines",
+    "hsn_code": "85122020",
+    "hsn_description": "Other automobile lighting equipment",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the automotive-electrical family, but its exact function is not established.",
-    "hsn_review_note": "Determine whether it is a starter/alternator part (8511), lighting/horn (8512), switch/relay (8536), cable (8544) or other apparatus.",
+    "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+    "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -104412,12 +104468,12 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "85119000",
-        "mapping_status": "residual_probable_ministry",
-        "ministry_departments": [],
-        "residual_probable_ministries": [
+        "code": "85122020",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
           "Ministry of Heavy Industries"
-        ]
+        ],
+        "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
         {
@@ -104429,7 +104485,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000864",
@@ -117659,12 +117717,12 @@
     "weight_estimation_method": "",
     "weight_estimation_notes": "",
     "dimension_specs_mm": [],
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "87084000",
+    "hsn_description": "Gear boxes and parts thereof",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "Tata part 285126700171 is identified in parts lists as a top-cover assembly alongside gearbox shifting/selector components, not a diesel-engine cover.",
+    "hsn_review_note": "Confirm exact Tata gearbox model and that this is supplied as a gearbox top-cover/shift-control component; retain non-final status until OEM drawing is checked.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -117692,9 +117750,11 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "84099900",
-        "mapping_status": "not_found_in_guidebook",
-        "ministry_departments": [],
+        "code": "87084000",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
+          "Ministry of Heavy Industries"
+        ],
         "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
@@ -117707,7 +117767,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS000979",
@@ -135435,12 +135497,12 @@
     "catalogue_updated_at": "2026-10-30T18:45:00+05:30",
     "updated_at": "2026-10-30T18:45:00+05:30",
     "dimension_specs_mm": [],
-    "hsn_code": "84099900",
-    "hsn_description": "Other parts for compression-ignition internal combustion piston engines",
+    "hsn_code": "87089900",
+    "hsn_description": "Other parts and accessories of motor vehicles of headings 8701 to 8705",
     "hsn_confidence": "low",
     "hsn_classification_status": "review_required",
-    "hsn_basis": "The product is in the engine-component family, but the exact part/function is not established.",
-    "hsn_review_note": "Confirm diesel vs petrol engine use and check for a more specific heading (e.g. belts, gears, pumps, seals or vehicle parts).",
+    "hsn_basis": "The exact Leyparts reference F1837914 is described as Seating Block-C; a historical trade record for the exact part number used 87089900, which contradicts its current engine-parts candidate.",
+    "hsn_review_note": "Treat the historical export code only as corroboration. Obtain the current Leyparts OEM drawing and confirm whether the block is a body/vehicle part or a more specific gearbox selector part.",
     "hsn_reference_date": "2026-10-01",
     "declared_net_content_status": "",
     "declared_net_content_source": "",
@@ -135468,9 +135530,11 @@
       "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
       "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
       "catalogue_hsn": {
-        "code": "84099900",
-        "mapping_status": "not_found_in_guidebook",
-        "ministry_departments": [],
+        "code": "87089900",
+        "mapping_status": "accepted_by_ministry",
+        "ministry_departments": [
+          "Ministry of Heavy Industries"
+        ],
         "residual_probable_ministries": []
       },
       "supplier_invoice_hsn": [
@@ -135483,7 +135547,9 @@
           "residual_probable_ministries": []
         }
       ]
-    }
+    },
+    "hsn_research_source": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+    "hsn_research_date": "2026-11-06"
   },
   {
     "id": "SVKS001134",
