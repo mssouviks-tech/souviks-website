@@ -45,6 +45,19 @@ The current 17 conflicts include the eight conflicts present after the first man
 
 The remaining 121 review rows were checked against available catalogue identity evidence. They remain unlinked where the supplier reference is absent, the actual catalogue part number differs, brand/title alone cannot prove identity, or duplicate SKUs/variants prevent a reliable one-to-one assignment. Examples include the Bosch F-002-919-4AR-8F8 row whose apparent URL candidate has a different actual catalogue part number, and several brake-lining, bearing, spring-pin and mounting variants where a nearby description is not a safe substitute for a match.
 
+The outstanding 121 rows break down as follows:
+
+| Review disposition | Rows |
+|---|---:|
+| No reliable catalogue match | 88 |
+| Brand/title review (variant or exact part reference not confirmed) | 27 |
+| Supplier-name/code conflict | 4 |
+| Ambiguous part reference | 1 |
+| Ambiguous exact-name match | 1 |
+| **Total** | **121** |
+
+These rows remain in the review queue rather than being forced onto the closest-looking SKU. In particular, generic belt-size matches, brake-lining families, bearing variants, spring-pin dimensions, and product titles with mismatched part numbers are not treated as exact identity evidence.
+
 ## Catalogue fields
 
 Supplier invoice evidence is stored separately from existing catalogue HSN classification:
