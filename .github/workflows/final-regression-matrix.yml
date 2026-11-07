@@ -65,6 +65,7 @@ jobs:
           set -euo pipefail
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
+          python3 scripts/audit/build_hsn_verification_worklist.py
           python3 scripts/catalogue/sync_checkout_pages.py
           python3 scripts/audit/generate_product_thumbnails.py
           python3 scripts/catalogue/sync_navigation.py
@@ -83,6 +84,9 @@ jobs:
           npm run build:js
           python3 scripts/js/refresh_versions.py
           python3 scripts/catalogue/sync_root_homepage.py
+
+      - name: Validate SKU-level HSN verification worklist
+        run: python3 scripts/audit/test_hsn_verification_worklist.py
 
       - name: Start local static server
         run: |
