@@ -29251,7 +29251,24 @@
     "hsn_classification_status": "classified",
     "hsn_basis": "The product is an automotive lighting/signalling assembly.",
     "hsn_review_note": null,
-    "hsn_reference_date": "2026-10-01"
+    "hsn_reference_date": "2026-10-01",
+    "hsn_supplier_invoice_codes": [
+      "85122010"
+    ],
+    "hsn_supplier_invoice_code": "85122010",
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_candidate_alignment": "agrees",
+    "hsn_supplier_invoice_source_names": [
+      "NG - 103 - Tail Lamp Assy. Tata 4 Chamber 24V"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6760_c23083f8"
+    ],
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06"
   },
   {
     "id": "SVKS000387",

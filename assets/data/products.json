@@ -38294,15 +38294,23 @@
     "declared_net_content_status": "",
     "declared_net_content_source": "",
     "declared_net_content_notes": "",
-    "hsn_supplier_invoice_code": "",
-    "hsn_supplier_invoice_codes": [],
-    "hsn_supplier_invoice_match_status": "",
-    "hsn_supplier_invoice_match_methods": [],
-    "hsn_supplier_invoice_source_names": [],
-    "hsn_supplier_invoice_external_ids": [],
-    "hsn_supplier_invoice_source_file": "",
-    "hsn_supplier_invoice_match_date": "",
-    "hsn_supplier_invoice_candidate_alignment": ""
+    "hsn_supplier_invoice_code": "85122010",
+    "hsn_supplier_invoice_codes": [
+      "85122010"
+    ],
+    "hsn_supplier_invoice_match_status": "matched",
+    "hsn_supplier_invoice_match_methods": [
+      "manual_exact_part_number_title_cross_brand"
+    ],
+    "hsn_supplier_invoice_source_names": [
+      "NG - 103 - Tail Lamp Assy. Tata 4 Chamber 24V"
+    ],
+    "hsn_supplier_invoice_external_ids": [
+      "__export__.product_template_6760_c23083f8"
+    ],
+    "hsn_supplier_invoice_source_file": "hsn.xlsx",
+    "hsn_supplier_invoice_match_date": "2026-11-06",
+    "hsn_supplier_invoice_candidate_alignment": "agrees"
   },
   {
     "id": "SVKS000387",
