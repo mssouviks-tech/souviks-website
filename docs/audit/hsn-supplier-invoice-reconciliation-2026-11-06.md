@@ -61,6 +61,10 @@ The 15 conflict SKUs have no single selected supplier code. Existing `hsn_code`,
 - `hsn-supplier-invoice-review-queue-2026-11-06.csv` lists every remaining supplier row with candidate catalogue records and match scores where available.
 - `assets/data/hsn-supplier-invoice-manual-resolutions.json` records the 82 identity-verified manual matches and supplier-code conflicts applied by the canonical builder.
 
+## Generated catalogue projection
+
+On 7 November 2026, the catalogue release workflow regenerated the static product projections in commit [`dec19c4`](https://github.com/mssouviks-tech/souviks-website/commit/dec19c4cdb698188556b775b01ea2cd99f16abb6). The commit updates `assets/data/catalogue-index.json` and `assets/data/products.json` for the NG part 103 match on SKU SVKS000386, carrying the supplier invoice evidence and source traceability into the static catalogue. The existing `hsn_code`, description, confidence and classification status remain unchanged.
+
 ## Tax and invoice boundary
 
 A supplier invoice code is supporting evidence for how that supplier invoiced a product. It does not prove the legally correct classification for the exact article sold by Souviks. No GST rate, cess, invoice-ready status or final classification promotion is inferred. Customer-facing HSN display remains subject to the existing classified/high-confidence rule. GST invoice generation remains separately gated.
