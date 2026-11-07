@@ -8,6 +8,7 @@ on:
       - "assets/data/catalogue-index.json"
       - "assets/data/hsn-dpiit-ministry-mappings.json"
       - "assets/data/hsn-candidate-overrides-2026-11-06.json"
+      - "assets/data/gst-rate-candidate-overrides-2026-11-08.json"
       - "assets/data/approximate-product-weights.json"
       - "assets/data/product-dimension-specifications.json"
       - "assets/data/wabco-product-specifications.json"
@@ -59,6 +60,7 @@ on:
       - "scripts/audit/build_hsn_verification_worklist.py"
       - "scripts/audit/test_hsn_verification_worklist.py"
       - "scripts/regression/hsn-candidate-overrides.cjs"
+      - "scripts/regression/gst-rate-candidate-contract.cjs"
       - "scripts/audit/site_quality.py"
       - "scripts/audit/code_quality.py"
       - "eslint.config.js"
@@ -179,6 +181,7 @@ jobs:
             python3 scripts/audit/test_entity_titles.py
             python3 scripts/audit/test_hsn_verification_worklist.py
             node scripts/regression/hsn-candidate-overrides.cjs
+            node scripts/regression/gst-rate-candidate-contract.cjs
             python3 scripts/audit/test_vehicle_page_layout.py
             python3 scripts/audit/seo_contract.py
             python3 scripts/audit/site_quality.py
