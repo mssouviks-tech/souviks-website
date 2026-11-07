@@ -434,7 +434,7 @@
       400
     ],
     "banner": "",
-    "description": "Air System covers 88 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
+    "description": "Air System covers 88 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 1512 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
     "short_description": "Air System: 88 active parts across Air Compressor, Air Dryer, Air Repair Kit, Air Spring and more.",
     "parent_category": "",
     "subcategories": [
@@ -494,6 +494,7 @@
       "Eicher 1110",
       "Eicher Pro Series",
       "Tata 1109",
+      "Tata 1512",
       "Tata 709",
       "Tata LPT",
       "Tata Prima",
@@ -605,7 +606,7 @@
     "active": true,
     "seo": {
       "title": "Air System Parts | Souviks",
-      "description": "Air System covers 88 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 709 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
+      "description": "Air System covers 88 active commercial-vehicle spare parts used across Ashok Leyland 2516, Eicher 1110, Eicher Pro Series, Tata 1109, Tata 1512 and more. The category includes subcategories such as Air Compressor, Air Dryer, Air Repair Kit, Air Spring, Valve and brands including GS, Knorr-Bremse, Rane, Rider, TVS Girling and more.",
       "keywords": [
         "Air System",
         "commercial vehicle spare parts",
@@ -2365,6 +2366,7 @@
       "Tata Ace",
       "Tata LPT",
       "Tata Magic",
+      "Tata Prima",
       "Universal"
     ],
     "featured_products": [

@@ -644,7 +644,7 @@
     "banner": "",
     "website": "https://www.customercare-cv.tatamotors.com/tata-genuine-parts/tgp-overview.aspx",
     "country": "India",
-    "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Tata Intra, Tata 1109 and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Tata Genuine Parts products at Souviks cover Bearings, Brakes, Clutch Parts, Cooling Pump and more and applications across Tata Ace, Tata Magic, Tata LPT and more.",
     "product_count": 101,
     "categories": [
@@ -700,6 +700,7 @@
     ],
     "vehicles": [
       "Ashok Leyland 2516",
+      "Ashok Leyland U-Truck",
       "Tata 1109",
       "Tata 1210",
       "Tata 1312",
@@ -831,7 +832,7 @@
     "active": true,
     "seo": {
       "title": "Tata Genuine Parts Parts | Souviks",
-      "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Universal, Tata Intra and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 101 active Tata Genuine Parts products across Bearings, Brakes, Clutch Parts, Cooling Pump, Cooling System and more. The listed range is mapped to applications such as Tata Ace, Tata Magic, Tata LPT, Tata Intra, Tata 1109 and more and common replacement areas including Oil Seal, Timing Belt, Oil Filter, Fuel Filter, Brake Lining and more.  Manufacturer country: India. Current catalogue examples include Timing Belt, Taper Roller Bearing 30204, Assy. Clutch Disc and Cover 200. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Tata Genuine Parts",
         "commercial vehicle spare parts",
@@ -1573,8 +1574,8 @@
     "banner": "",
     "website": "https://www.bosch.in/",
     "country": "Germany",
-    "description": "Souviks currently lists 34 active Bosch products across Electricals, Filters. The listed range is mapped to applications such as Universal, Eicher Pro Series, Tata LPT, Tractors, Tata 407 and more and common replacement areas including Fuel Filter, Light Holder, Clutch Drive, Oil Filter, Armature and more.  Manufacturer country: Germany. Current catalogue examples include Diesel Filter (with Water Separator), Fuel Filter, Diesel Filter. Use the part number, application and vehicle details when checking fitment.",
-    "short_description": "Bosch products at Souviks cover Electricals, Filters and applications across Universal, Eicher Pro Series, Tata LPT and more.",
+    "description": "Souviks currently lists 34 active Bosch products across Electricals, Filters. The listed range is mapped to applications such as Universal, Tractors, Eicher Pro Series, Tata LPT, Tata 407 and more and common replacement areas including Fuel Filter, Light Holder, Clutch Drive, Oil Filter, Armature and more.  Manufacturer country: Germany. Current catalogue examples include Diesel Filter (with Water Separator), Fuel Filter, Diesel Filter. Use the part number, application and vehicle details when checking fitment.",
+    "short_description": "Bosch products at Souviks cover Electricals, Filters and applications across Universal, Tractors, Eicher Pro Series and more.",
     "product_count": 34,
     "categories": [
       "electricals",
@@ -1598,6 +1599,7 @@
       "Ashok Leyland Captain",
       "Eicher Pro Series",
       "Tata 407",
+      "Tata 709",
       "Tata LPT",
       "Tractors",
       "Universal"
@@ -1652,7 +1654,7 @@
     "active": true,
     "seo": {
       "title": "Bosch Parts | Souviks",
-      "description": "Souviks currently lists 34 active Bosch products across Electricals, Filters. The listed range is mapped to applications such as Universal, Eicher Pro Series, Tata LPT, Tractors, Tata 407 and more and common replacement areas including Fuel Filter, Light Holder, Clutch Drive, Oil Filter, Armature and more.  Manufacturer country: Germany. Current catalogue examples include Diesel Filter (with Water Separator), Fuel Filter, Diesel Filter. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 34 active Bosch products across Electricals, Filters. The listed range is mapped to applications such as Universal, Tractors, Eicher Pro Series, Tata LPT, Tata 407 and more and common replacement areas including Fuel Filter, Light Holder, Clutch Drive, Oil Filter, Armature and more.  Manufacturer country: Germany. Current catalogue examples include Diesel Filter (with Water Separator), Fuel Filter, Diesel Filter. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Bosch",
         "commercial vehicle spare parts",
@@ -1985,7 +1987,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Eicher Pro Series, Tata 2416, Tata Prima and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Eicher Pro Series, Tata Prima, Tata 2416 and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "JMP products at Souviks cover Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering and applications across Tata LPT, Tata Signa, Eicher Pro Series and more.",
     "product_count": 52,
     "categories": [
@@ -2084,7 +2086,7 @@
     "active": true,
     "seo": {
       "title": "JMP Parts | Souviks",
-      "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Eicher Pro Series, Tata 2416, Tata Prima and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 52 active JMP products across Brakes, Fasteners & Hardware, Rubber Parts, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Tata Signa, Eicher Pro Series, Tata Prima, Tata 2416 and more and common replacement areas including Shackle Plate, Bracket, Hanger, Spring Hanger, Rubber Pad and more.  Current catalogue examples include Double Pin Hanger 50MM Hole, Double Pin Hanger U-Truck 42/35mm, Rubber Stopper Pad. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "JMP",
         "commercial vehicle spare parts",
@@ -3631,7 +3633,7 @@
     "banner": "",
     "website": "https://www.texspin.com/",
     "country": "India",
-    "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata 1312, Universal, Tata Signa and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Collector Ring and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata 1312, Tata Signa, Tata 1109 and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Collector Ring and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Texspin products at Souviks cover Bearings, Clutch Parts, Lubricants, Suspension & Steering and applications across Tata LPT, Ashok Leyland 2516, Tata 1312 and more.",
     "product_count": 121,
     "categories": [
@@ -3813,7 +3815,7 @@
     "active": true,
     "seo": {
       "title": "Texspin Parts | Souviks",
-      "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata 1312, Universal, Tata Signa and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Collector Ring and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 121 active Texspin products across Bearings, Clutch Parts, Lubricants, Suspension & Steering. The listed range is mapped to applications such as Tata LPT, Ashok Leyland 2516, Tata 1312, Tata Signa, Tata 1109 and more and common replacement areas including Clutch Release Bearing, Taper Roller Bearing, Center Bearing, King Pin Kit, Collector Ring and more.  Manufacturer country: India. Current catalogue examples include Tata 1210/1312/1313/1510/1512/1612/1613/1615/1616 with hub, Ashok Leyland Taurus with hub (bearing no. TX-27D-1511), Clutch release bearing for Volvo Eicher Pro-5000 (OE part no. ID340859). Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Texspin",
         "commercial vehicle spare parts",
@@ -4592,7 +4594,7 @@
     "banner": "",
     "website": "",
     "country": "",
-    "description": "Souviks currently lists 5 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series and common replacement areas including Valve.  Current catalogue examples include Relay Valve (Type V), Lift Axle Control Valve Solenoid Coil, Hand Brake Valve V, Version 1. Use the part number, application and vehicle details when checking fitment.",
+    "description": "Souviks currently lists 5 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 1512 and more and common replacement areas including Valve.  Current catalogue examples include Relay Valve (Type V), Lift Axle Control Valve Solenoid Coil, Hand Brake Valve V, Version 1. Use the part number, application and vehicle details when checking fitment.",
     "short_description": "Knorr-Bremse products at Souviks cover Air System and applications across Universal, Tata LPT, Ashok Leyland 2516 and more.",
     "product_count": 5,
     "categories": [
@@ -4604,7 +4606,9 @@
     "vehicles": [
       "Ashok Leyland 2516",
       "Eicher Pro Series",
+      "Tata 1512",
       "Tata LPT",
+      "Tata Prima",
       "Universal"
     ],
     "featured_products": [
@@ -4621,7 +4625,7 @@
     "active": true,
     "seo": {
       "title": "Knorr-Bremse Parts | Souviks",
-      "description": "Souviks currently lists 5 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series and common replacement areas including Valve.  Current catalogue examples include Relay Valve (Type V), Lift Axle Control Valve Solenoid Coil, Hand Brake Valve V, Version 1. Use the part number, application and vehicle details when checking fitment.",
+      "description": "Souviks currently lists 5 active Knorr-Bremse products across Air System. The listed range is mapped to applications such as Universal, Tata LPT, Ashok Leyland 2516, Eicher Pro Series, Tata 1512 and more and common replacement areas including Valve.  Current catalogue examples include Relay Valve (Type V), Lift Axle Control Valve Solenoid Coil, Hand Brake Valve V, Version 1. Use the part number, application and vehicle details when checking fitment.",
       "keywords": [
         "Knorr-Bremse",
         "commercial vehicle spare parts",
