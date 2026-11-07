@@ -19710,7 +19710,7 @@
       "Starter Motor Repair",
       "Starting System",
       "Bosch engine and electrical service applications",
-      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Focus Part List, exact Bosch part number F 002 G20 084-4AV): listed as a Brush Holder for Tata LCV application, Telco 3SP/4SP and 497 Euro II engines, for 407, 609, 709 and 909 vehicles. The manufacturer lists Tata 407, 609, 709 and 909 for this starter application. Tata 407 and Tata 709 are the corresponding represented model families in the current catalogue; the other two are not separate entries. This note records source scope only and does not change any vehicle classification. Confirm starter family and brush-holder dimensions before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
+      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Focus Part List, exact Bosch part number F 002 G20 084-4AV): listed as a Brush Holder for Tata LCV application, Telco 3SP/4SP and 497 Euro II engines, covering Tata 407, 609, 709 and 909. The current catalogue represents Tata 407 and Tata 709; 609 and 909 are not separate model entries. This note records the manufacturer’s application evidence only; all vehicle classification fields remain unchanged. Confirm starter family and brush-holder dimensions before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
@@ -19783,7 +19783,7 @@
     "applications": [
       "Starter Motor Assembly",
       "Bosch engine and electrical service applications",
-      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Tractors section, exact component number F 002 G20 278): Bosch lists this overrunning-clutch component in tractor starter assemblies for Agri King, Eicher Tractors 290/298 and Escorts Tractor P4. The current Souviks vehicle master has one generic Tractors entry and no separate Agri King/Eicher 290/298/Escorts model entries; the evidence supports a tractor-equipment application only; no individual tractor make or model is asserted. Verify starter type and overrunning-clutch geometry before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
+      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Tractors section, exact component number F 002 G20 278): Bosch lists this overrunning-clutch component in tractor starter assemblies for Agri King, Eicher Tractors 290/298 and Escorts Tractor P4. This note records the listed Agri King, Eicher 290/298 and Escorts P4 tractor starter applications; it does not create individual vehicle classifications or claim fitment to other tractor models. Verify starter type and overrunning-clutch geometry before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -19928,7 +19928,7 @@
     "applications": [
       "Starter Motor Repair",
       "Bosch engine and electrical service applications",
-      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Focus Part List, exact Bosch part number F 002 G20 522-4AV): listed as a Brush Holder for Chevrolet passenger-car application, Tavera. The current vehicle master has no Chevrolet Tavera entry. The source identifies Chevrolet Tavera, which is not represented as a named model in the current vehicle master. This application note does not create or change a vehicle classification. Confirm starter version and brush-holder dimensions before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Focus Part List, exact Bosch part number F 002 G20 522-4AV): listed as a Brush Holder for Chevrolet passenger-car application, Tavera. The source specifically identifies Chevrolet Tavera; that named model is not an entry in the current vehicle master. This is recorded only as application scope; no other model fitment is inferred, and existing vehicle classifications remain unchanged. Confirm starter version and brush-holder dimensions before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
@@ -20001,7 +20001,7 @@
     "applications": [
       "Starter Motor Assembly",
       "Bosch engine and electrical service applications",
-      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, exact Bosch component number F 002 G20 724): listed as the overrunning clutch for an Ashok Leyland FH001000 Back Hoe starter assembly. This is an equipment/starter-family application and not a listed road-vehicle model in the current vehicle master. This is an equipment/starter-family application rather than a road-vehicle model application. The existing vehicle classification is unchanged. Confirm starter assembly and overrunning-clutch geometry before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, exact Bosch component number F 002 G20 724): listed as the overrunning clutch for an Ashok Leyland FH001000 Back Hoe starter assembly. This is an equipment/starter-family application rather than a road-vehicle model application; it does not establish a chassis-model fitment. Existing vehicle classifications remain unchanged. Confirm starter assembly and overrunning-clutch geometry before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "87089300",
@@ -20074,7 +20074,7 @@
     "applications": [
       "Starter Motor Gear Reduction System",
       "Bosch engine and electrical service applications",
-      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, JCB 320/09661 starter assembly, exact EGT number F 002 G20 727): listed for JCB 3DX Backhoe / Dieselmax 444, 4.4/4.8-litre four-cylinder application. The current vehicle master has no JCB equipment entry. The source does not identify a vehicle model. The existing vehicle classification is unchanged. Confirm starter family and gear-train configuration before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, JCB 320/09661 starter assembly, exact EGT number F 002 G20 727): listed for JCB 3DX Backhoe / Dieselmax 444, 4.4/4.8-litre four-cylinder application. The source identifies a JCB 3DX / Dieselmax 444 backhoe application, which is an equipment fitment rather than a represented road-vehicle entry. Existing vehicle classifications remain unchanged. Confirm starter family and gear-train configuration before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84834000",
@@ -20219,7 +20219,7 @@
     "applications": [
       "Starter Motor Assembly",
       "Bosch engine and electrical service applications",
-      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, Ashok Leyland FH001100, exact armature number F 002 G20 946): listed for a 6-cylinder, 5.759-litre wheel-loader starter assembly. The current vehicle master has no wheel-loader entry. The source does not identify a vehicle model. The existing vehicle classification is unchanged. Confirm starter type and armature fit before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, Ashok Leyland FH001100, exact armature number F 002 G20 946): listed for a 6-cylinder, 5.759-litre wheel-loader starter assembly. The source identifies an Ashok Leyland FH001100 wheel-loader starter application rather than a road-vehicle chassis model. Existing vehicle classifications remain unchanged. Confirm starter type and armature fit before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
@@ -20800,7 +20800,7 @@
     "applications": [
       "Alternator Charging System",
       "Bosch engine and electrical service applications",
-      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Tractors section, vehicle-manufacturer reference 48047952, exact rectifier number F 002 G90 170): Bosch lists this rectifier for a tractor alternator application. The same part number is also present in industrial/heavy-equipment sections, so the Souviks mapping is limited to the master’s generic Tractors entry and does not assert a particular tractor make/model. Verify alternator family and regulator pairing before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
+      "Manufacturer application evidence (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Tractors section, vehicle-manufacturer reference 48047952, exact rectifier number F 002 G90 170): Bosch lists this rectifier for a tractor alternator application. The same part number also appears in industrial/heavy-equipment sections. The manufacturer source supports a general tractor-alternator application but does not identify a particular tractor make/model; existing vehicle classifications remain unchanged. Verify alternator family and regulator pairing before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85119000",
@@ -20873,7 +20873,7 @@
     "applications": [
       "Alternator Charging System",
       "Bosch engine and electrical service applications",
-      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, exact regulator number F 002 G90 356): listed in the SL90 stationary-engine application. This is not a vehicle model application. The source does not identify a vehicle model. The existing vehicle classification is unchanged. Confirm regulator type and alternator family before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
+      "Manufacturer application scope correction (Bosch Rotating Machines, Starters and Alternators Auto Electrical Spares Manual V6.0 (2023), Genset and others section, exact regulator number F 002 G90 356): listed in the SL90 stationary-engine application. This is a stationary-engine alternator-regulator application, not a road-vehicle model application. Existing vehicle classifications remain unchanged. Confirm regulator type and alternator family before supply. Source: https://www.boschaftermarket.com/xrm/media/images/country_specific/in/parts_11/starter_and_alternator/bosch-starters-alternatrors-catalogue.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85118000",
@@ -38440,7 +38440,7 @@
       "fitment/specification: Tapper Roller Bearing for Bajaj Tempo/Mini Door/Mata Door",
       "Escorts and New Holland/Force Motors Minidor differential.",
       "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 19; exact part-number match): Bajaj Tempo Mini Door/Mata Door; Escorts; New Holland/Force Motors Minidor differential.",
-      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 19; exact part TX-30210): the listed applications are Bajaj Tempo Mini Door/Mata Door, Escorts, and New Holland/Force Motors Minidor differential. These are named product/machine applications, not universal vehicle coverage. No corresponding manufacturer/model entry for these applications exists in the current vehicle master, so the Universal tag is removed and no substitute model is inferred."
+      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 19; exact part TX-30210): the listed applications are Bajaj Tempo Mini Door/Mata Door, Escorts, and New Holland/Force Motors Minidor differential. These are named product/machine applications, not universal vehicle coverage. No corresponding manufacturer/model entry for these applications exists in the current vehicle master. The note retains the source-listed machine/vehicle scope without asserting a substitute model or changing existing vehicle classifications."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822011",
@@ -38901,7 +38901,7 @@
       "fitment/specification: Tapper Roller Bearing for Tata truck",
       "Isuzu truck.",
       "Vehicle fitment evidence (Texspin Master Price List 2025–26, p. 20; exact part-number match): Tata trucks and Isuzu trucks. The supplier list does not specify individual models.",
-      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 20; exact part TX-32218): listed for Tata trucks and Isuzu trucks at make level only, without individual chassis models or axle positions. The current vehicle master has no Isuzu entry and the supplier does not substantiate a particular Tata model. This is an equipment/starter-family application rather than a road-vehicle model application. The existing vehicle classification is unchanged."
+      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 20; exact part TX-32218): listed for Tata trucks and Isuzu trucks at make level only, without individual chassis models or axle positions. The current vehicle master has no Isuzu entry, and the supplier does not substantiate a specific Tata model; this remains a make-level note. Existing vehicle classifications remain unchanged."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822012",
@@ -39453,7 +39453,7 @@
       "driveline or support-bearing system",
       "replacement/service use for the stated specification.",
       "Vehicle-class application evidence (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33213): taper-roller bearing listed for HCV trailer applications. The source does not specify trailer manufacturer, axle, or model; match bearing dimensions and axle specification.",
-      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33213): listed for HCV trailer applications only. The source does not identify a trailer manufacturer, model or axle configuration. The Universal tag is removed and no vehicle mapping is inferred; match bearing dimensions and trailer axle specification."
+      "Supplier scope qualification (Texspin Master Price List 2025–26, printed p. 11; exact code TX-33213): listed for HCV trailer applications only. The source does not identify a trailer manufacturer, model or axle configuration. The source does not provide a vehicle model; match bearing dimensions and trailer axle specification. Existing vehicle classifications remain unchanged."
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "84822012",
@@ -43290,7 +43290,7 @@
       "Horn Circuit",
       "Headlamp Circuit",
       "Starter Circuit",
-      "Manufacturer/distributor application scope (Uno Minda Kart, exact part number 850029): the 5-pin 24V mini relay is listed for all commercial vehicles of TATA. This is make/segment-level coverage, not a universal cross-make claim and not an enumerated model list. The Universal vehicle tag is removed; no individual Tata model mapping is inferred. Source: https://unomindakart.com/product/uno-minda-850029-mini-relay--5-pin--24v-for-all-commercial-vehicles-of-tata"
+      "Manufacturer/distributor application scope (Uno Minda Kart, exact part number 850029): the 5-pin 24V mini relay is listed for all commercial vehicles of TATA. This is make/segment-level coverage, not a universal cross-make claim and not an enumerated model list. The source does not identify individual Tata models. This note records make/segment-level scope only; existing vehicle classifications remain unchanged. Source: https://unomindakart.com/product/uno-minda-850029-mini-relay--5-pin--24v-for-all-commercial-vehicles-of-tata"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85364100",
@@ -50318,7 +50318,7 @@
     "applications": [
       "5.9L Cummins engine applications. Bosch F-002-D13-640 is a 12V shutoff solenoid",
       "cross-references include Cummins 3903575 and Zexel 146650-0720. It is also cross-listed for Renault Rapid/Express and Volkswagen Caddy applications.",
-      "Part-specific application qualification (Bosch F-002-D13-640 / F002D13640): manufacturer-number cross-reference sources identify a 12V fuel shut-off solenoid for Bosch VE rotary injection pumps and 5.9L Cummins applications, with cross-references including Cummins 3903575 and Zexel 146650-0720. These engine/injection-pump references do not establish fitment across all vehicles, and the current vehicle master has no Cummins engine or the listed non-master passenger-vehicle models. The Universal vehicle tag is removed; no truck model mapping is inferred. Confirm pump type, voltage, terminal and plunger geometry before supply. Sources: https://shop.areadieselservice.com/Category/F-002-D13-640 ; https://www.xtremediesel.com/bosch-f002d13640-fuel-shutoff-solenoid"
+      "Part-specific application qualification (Bosch F-002-D13-640 / F002D13640): manufacturer-number cross-reference sources identify a 12V fuel shut-off solenoid for Bosch VE rotary injection pumps and 5.9L Cummins applications, with cross-references including Cummins 3903575 and Zexel 146650-0720. These engine/injection-pump references do not establish fitment across all vehicles, and the current vehicle master has no Cummins engine or the listed non-master passenger-vehicle models. These engine/injection-pump references do not establish a truck model. Existing vehicle classifications remain unchanged. Confirm pump type, voltage, terminal and plunger geometry before supply. Sources: https://shop.areadieselservice.com/Category/F-002-D13-640 ; https://www.xtremediesel.com/bosch-f002d13640-fuel-shutoff-solenoid"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85365090",
@@ -75187,7 +75187,7 @@
       "Commercial-vehicle suspension",
       "steering and axle-linkage system",
       "replacement/service use for the stated specification.",
-      "Supplier catalogue scope correction (Sundram Fasteners Limited, Automotive Products Retail Price List, 2021; exact SFL part M58340-5901, OE reference 284642106706): the M16 x 1.5 x 144 collar/third-arm bolt is listed in the section for fasteners suitable for Tata vehicles under common applications. The source does not identify a Tata chassis model or establish broad all-vehicle compatibility. The Universal vehicle tag is removed; no model mapping is inferred. Source: https://pssao.com/catlog/sfl/TVS%20AUTOMOTIVE%20PRODUCTS%20w.e.f.%201.9.2021.pdf"
+      "Supplier catalogue scope correction (Sundram Fasteners Limited, Automotive Products Retail Price List, 2021; exact SFL part M58340-5901, OE reference 284642106706): the M16 x 1.5 x 144 collar/third-arm bolt is listed in the section for fasteners suitable for Tata vehicles under common applications. The source does not identify a Tata chassis model or establish broad all-vehicle compatibility. The source does not identify a Tata chassis model or broad all-vehicle compatibility. Existing vehicle classifications remain unchanged. Source: https://pssao.com/catlog/sfl/TVS%20AUTOMOTIVE%20PRODUCTS%20w.e.f.%201.9.2021.pdf"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "73181500",
@@ -75371,7 +75371,7 @@
       "starting",
       "charging and lighting system",
       "replacement/service use for the stated specification.",
-      "Manufacturer/distributor application scope (Uno Minda Kart, exact part number 850077): the 4-pin 24V relay is listed for TATA TC. The source gives a Tata commercial-vehicle application but does not specify an individual model or a blanket cross-make application. The Universal vehicle tag is removed; no individual model mapping is inferred. Source: https://unomindakart.com/product/uno-minda-850077-relay--4-pin--24v-dc-for-tata-tata-tc"
+      "Manufacturer/distributor application scope (Uno Minda Kart, exact part number 850077): the 4-pin 24V relay is listed for TATA TC. The source gives a Tata commercial-vehicle application but does not specify an individual model or a blanket cross-make application. The source does not specify an individual Tata model. Existing vehicle classifications remain unchanged. Source: https://unomindakart.com/product/uno-minda-850077-relay--4-pin--24v-dc-for-tata-tata-tc"
     ],
     "updated_at": "2026-10-30T18:45:00+05:30",
     "hsn_code": "85364100",
@@ -83014,7 +83014,7 @@
       "Tie rod repair",
       "catalogue states all models and references KF3738/KF3748.",
       "Vehicle application evidence (Kafila Price List effective 15-May-2026, p. 3; exact part-number match): Kafila lists KF3738/KF3748 as a tie-rod repair kit for 'all models' within its heavy-commercial-vehicle section; the price list does not enumerate every compatible chassis.",
-      "Supplier scope qualification (Kafila Price List effective 15-May-2026, printed p. 3; exact references KF3738/KF3748): the tie-rod repair kit is listed as “all models” within the heavy-commercial-vehicle section. This is an HCV-category statement, not all vehicles in the catalogue, and no individual chassis models are enumerated. This is an equipment/starter-family application rather than a road-vehicle model application. The existing vehicle classification is unchanged."
+      "Supplier scope qualification (Kafila Price List effective 15-May-2026, printed p. 3; exact references KF3738/KF3748): the tie-rod repair kit is listed as “all models” within the heavy-commercial-vehicle section. This is an HCV-category statement, not all vehicles in the catalogue, and no individual chassis models are enumerated. This is a heavy-commercial-vehicle category statement, not a model-specific fitment claim. Existing vehicle classifications remain unchanged."
     ],
     "featured": false,
     "active": true,
