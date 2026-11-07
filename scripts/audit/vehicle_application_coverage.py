@@ -109,7 +109,7 @@ def main() -> int:
     def normalize_vehicle_label(value: Any) -> str:
         normalized = str(value or "").casefold()
         normalized = re.sub(r"[^a-z0-9]+", " ", normalized)
-        return re.sub(r"\\s+", " ", normalized).strip()
+        return re.sub(r"\s+", " ", normalized).strip()
 
     # Product.vehicles contains display labels (e.g. "Tata LPT"), not IDs.
     # Reconcile labels to the active vehicle master before checking the inverse
@@ -203,7 +203,6 @@ def main() -> int:
                 for _, vehicle in valid_vehicle_matches
             ),
             "vehicle_names": ";".join(label for label, _ in valid_vehicle_matches),
-            "vehicle_labels_unmatched": ";".join(missing_vehicle_labels),
             "application_note_count": str(len(apps)),
             "has_source_reference": str(features["has_source_reference"]).lower(),
             "has_fitment_evidence_wording": str(features["has_fitment_evidence_wording"]).lower(),
