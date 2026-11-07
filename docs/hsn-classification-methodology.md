@@ -55,7 +55,7 @@ Section XVII Note 2 to the Customs Tariff Act excludes specified goods from the 
 
 ## SKU-level candidate audit applied on 7 November 2026
 
-The 6 November source-backed review tranche is stored as a versioned data input at `assets/data/hsn-candidate-overrides-2026-11-06.json`. The canonical builder applies its HSN-only fields by exact catalogue ID, checks complete 1,159-record coverage, validates eight-digit codes and status values, and carries the fields and research provenance into `assets/data/products.json`. It does not update product identity, pricing, fitment, supplier-invoice evidence, or DPIIT mappings.
+The 6 November source-backed review tranche is stored as a versioned data input at `assets/data/hsn-candidate-overrides-2026-11-06.json`. The canonical builder applies these 28 HSN-only corrections by exact catalogue ID, validates eight-digit codes and status values, and carries the corrected fields and research provenance into `assets/data/products.json`. The other 1,131 catalogue records are not overwritten by this correction overlay. It does not update product identity, pricing, fitment, supplier-invoice evidence, or DPIIT mappings.
 
 The audit corrected candidate headings where the product type conflicted with the previous candidate, while retaining low-confidence/review-required status where material, construction, function, or assembly scope remains unverified. Exact manufacturer-backed evidence was used to classify the Tata wiper set, Varroc headlamp assemblies, and Uno Minda LSC-24V87 lift-axle solenoid. The Fenner 4PK-986SPV correction to the V-ribbed family remains review-required pending actual outside circumference and rubber-compound evidence.
 
