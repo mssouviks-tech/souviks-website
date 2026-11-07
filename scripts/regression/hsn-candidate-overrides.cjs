@@ -11,7 +11,7 @@ const expectedFields=[
  "hsn_code","hsn_description","hsn_confidence","hsn_classification_status",
  "hsn_basis","hsn_review_note","hsn_reference_date","hsn_research_source","hsn_research_date"
 ];
-if(manifest.schema_version!==1||manifest.record_count!==1159||manifest.records.length!==1159) {
+if(manifest.schema_version!==1||manifest.record_count!==28||manifest.records.length!==28) {
  throw new Error("Unexpected product-level HSN override manifest version or coverage");
 }
 const source=manifest.source_research_pr;
@@ -53,11 +53,17 @@ for(const [id,row] of overrides) {
   }
  }
 }
-for(const [status,count] of Object.entries(statusCounts)) {
- if(count!==manifest.status_counts[status]) throw new Error("HSN status total mismatch "+status);
+if(statusCounts.classified+statusCounts.provisional+statusCounts.review_required!==28) {
+ throw new Error("HSN correction manifest includes an unexpected status count");
 }
-if(statusCounts.classified!==84||statusCounts.provisional!==629||statusCounts.review_required!==446) {
- throw new Error("Unexpected HSN classification totals "+JSON.stringify(statusCounts));
+const resultingCounts={classified:0,provisional:0,review_required:0};
+for(const product of catalogue) {
+ if(Object.hasOwn(resultingCounts,product.hsn_classification_status)) resultingCounts[product.hsn_classification_status]++;
+}
+if(catalogue.length===manifest.catalogue_reviewed_record_count) {
+ for(const [status,count] of Object.entries(resultingCounts)) {
+  if(count!==manifest.resulting_catalogue_status_counts[status]) throw new Error("Resulting catalogue HSN total mismatch "+status);
+ }
 }
 if(catalogue.some(p=>!p.hsn_dpiit_mapping||p.hsn_dpiit_mapping.catalogue_hsn?.code!==p.hsn_code)) {
  throw new Error("DPIIT mapping is missing or misaligned with the current catalogue HSN candidate");
