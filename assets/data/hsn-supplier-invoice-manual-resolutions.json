@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source_file": "hsn.xlsx",
-  "match_date": "2026-11-06",
+  "match_date": "2026-11-07",
   "records": [
     {
       "id": "SVKS000301",
@@ -881,6 +881,16 @@
       "match_method": "manual_exact_part_number_title_application_supplier_code_conflict",
       "part_reference": "TX-6698 SC",
       "evidence": "The supplier reference TX 6698SC normalises to catalogue part_number TX-6698 SC on active Texspin SKU SVKS000499. The supplier title and Ashok Leyland 1.75 inch / 15 inch RDC 2095 GB / 850 OD gearbox application align with the catalogue product. A previously linked supplier invoice row for the same exact product and source part carries HSN 84828000; this second row carries 84821090. Both supplier invoice values must remain a conflict with no selected single code. The existing catalogue HSN candidate is unchanged.",
+      "review_status": "manual_identity_verified_supplier_code_conflict"
+    },
+    {
+      "id": "SVKS000288",
+      "supplier_invoice_hsn_code": "84212300",
+      "supplier_product_name": "Fleetguard - 871012400 - FS-Head for FS19664",
+      "supplier_odoo_external_id": "__export__.product_template_7076_1626c985",
+      "match_method": "manual_fleetguard_exact_part_number_suffix_zero_title_reference_supplier_code_conflict",
+      "part_reference": "871012400",
+      "evidence": "Fleetguard Filters HCV/LCV after-market price lists identify Fleetguard part 871012400 as 'Only Head for FS19664' and list OE cross-reference 288547700101. The active catalogue SKU SVKS000288 is Fleetguard Head Assembly, records part_number 8710124 (same identifier with terminal zeros omitted), and has an application note linking the head assembly to FS19664. The supplier source and existing catalogue identity therefore refer to the same head. A previously linked supplier invoice row for this SKU carries HSN 87089900; this new invoice row carries 84212300. Retain both supplier invoice codes as a conflict with no selected code. Existing catalogue HSN 84219900, description, confidence, review status, basis and review note remain unchanged.",
       "review_status": "manual_identity_verified_supplier_code_conflict"
     }
   ]
