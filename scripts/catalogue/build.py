@@ -1263,8 +1263,10 @@ def reconcile_catalogue_projections():
             "hsn_basis": text(p.get("hsn_basis")),
             "hsn_review_note": text(p.get("hsn_review_note")),
             "hsn_reference_date": text(p.get("hsn_reference_date")),
-            "hsn_research_source": text(p.get("hsn_research_source")),
-            "hsn_research_date": text(p.get("hsn_research_date")),
+            **({
+                "hsn_research_source": text(p.get("hsn_research_source")),
+                "hsn_research_date": text(p.get("hsn_research_date")),
+            } if text(p.get("hsn_research_source")) or text(p.get("hsn_research_date")) else {}),
             "hsn_supplier_invoice_code": text(p.get("hsn_supplier_invoice_code")),
             "hsn_supplier_invoice_codes": list(p.get("hsn_supplier_invoice_codes") or []),
             "hsn_supplier_invoice_match_status": text(p.get("hsn_supplier_invoice_match_status")),
