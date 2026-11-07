@@ -58,4 +58,39 @@ const expectedManual=[
 const manualKeys=new Set(manual.records.map(r=>`${r.id}|${r.supplier_odoo_external_id}`));
 for(const [id,externalId] of expectedManual){if(!manualKeys.has(`${id}|${externalId}`))throw new Error("Missing verified manual supplier identity "+id);}
 if(manual.records.length!==89)throw new Error("Unexpected manual resolution ledger size");
+
+const dpiitReference = JSON.parse(read("assets/data/hsn-dpiit-ministry-mappings.json"));
+if (dpiitReference.schema_version !== 1 || dpiitReference.guidebook_version !== "2025-12-16") {
+  throw new Error("Unexpected DPIIT HSN guidebook mapping schema/version");
+}
+const dpiitUrl = dpiitReference.guidebook_url;
+const dpiitStatusValues = new Set(["accepted_by_ministry","residual_probable_ministry","not_found_in_guidebook","missing_code"]);
+for (const product of catalogue) {
+  const mapping = product.hsn_dpiit_mapping;
+  if (!mapping || mapping.guidebook_url !== dpiitUrl || mapping.guidebook_version !== dpiitReference.guidebook_version) {
+    throw new Error("Missing or stale DPIIT HSN mapping on product " + product.id + " (run catalogue builder)");
+  }
+  const catalogueCode = String(product.hsn_code || "");
+  if (mapping.catalogue_hsn?.code !== catalogueCode) throw new Error("DPIIT catalogue HSN code mismatch " + product.id);
+  const expectedCatalogue = catalogueCode ? dpiitReference.codes[catalogueCode] : null;
+  if (expectedCatalogue && mapping.catalogue_hsn.mapping_status !== expectedCatalogue.mapping_status) {
+    throw new Error("DPIIT catalogue HSN status mismatch " + product.id);
+  }
+  const sourceCodes = [...new Set([
+    ...(Array.isArray(product.hsn_supplier_invoice_codes) ? product.hsn_supplier_invoice_codes : []),
+    ...(product.hsn_supplier_invoice_code ? [product.hsn_supplier_invoice_code] : [])
+  ].map(String).filter(Boolean))].sort();
+  const mappedCodes = (mapping.supplier_invoice_hsn || []).map(row => String(row.code)).sort();
+  if (JSON.stringify(sourceCodes) !== JSON.stringify(mappedCodes)) throw new Error("DPIIT supplier HSN mapping coverage mismatch " + product.id);
+  for (const row of [mapping.catalogue_hsn, ...(mapping.supplier_invoice_hsn || [])]) {
+    if (!dpiitStatusValues.has(row.mapping_status) || !Array.isArray(row.ministry_departments) ||
+        !Array.isArray(row.residual_probable_ministries)) throw new Error("Malformed DPIIT mapping row " + product.id);
+  }
+  if (product.active) {
+    const projected = projections.get(String(product.id));
+    if (!projected || JSON.stringify(projected.hsn_dpiit_mapping) !== JSON.stringify(mapping)) {
+      throw new Error("DPIIT HSN mapping projection mismatch " + product.id);
+    }
+  }
+}
 console.log("Supplier invoice HSN reconciliation passed",{matched_skus:matched.length,conflict_skus:conflicts.length,matched_source_rows:matches.length,review_rows:review.length,manual_resolutions:manual.records.length});

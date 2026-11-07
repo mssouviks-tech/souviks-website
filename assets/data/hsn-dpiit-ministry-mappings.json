@@ -1,0 +1,785 @@
+{
+  "schema_version": 1,
+  "guidebook_title": "Guidebook on Mapping of Harmonized System of Nomenclature (HSN) Codes",
+  "guidebook_version": "2025-12-16",
+  "guidebook_url": "https://www.dpiit.gov.in/static/uploads/2025/12/aa547e2ea8a7d7ddd98325a155ad4549.pdf",
+  "mapping_scope": "Ministry/Department ownership mapping; not a tariff classification ruling or GST-rate determination.",
+  "codes": {
+    "731815": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "870899": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "27101212": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "27101972": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Petroleum & Natural Gas"
+      ],
+      "residual_probable_ministries": []
+    },
+    "27101979": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Petroleum & Natural Gas"
+      ],
+      "residual_probable_ministries": []
+    },
+    "27101980": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "27101983": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Petroleum & Natural Gas"
+      ],
+      "residual_probable_ministries": []
+    },
+    "27101990": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Petroleum & Natural Gas"
+      ],
+      "residual_probable_ministries": []
+    },
+    "31021000": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "31021090": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "38111900": {
+      "mapping_status": "residual_probable_ministry",
+      "ministry_departments": [],
+      "residual_probable_ministries": [
+        "Department of Chemicals & Petro-Chemicals"
+      ]
+    },
+    "38190010": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Petroleum & Natural Gas"
+      ],
+      "residual_probable_ministries": []
+    },
+    "38200000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department of Chemicals & Petro-Chemicals"
+      ],
+      "residual_probable_ministries": []
+    },
+    "39174000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department of Chemicals & Petro-Chemicals"
+      ],
+      "residual_probable_ministries": []
+    },
+    "39235090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department of Chemicals & Petro-Chemicals"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40094200": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40103190": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40103290": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40103590": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40103900": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "40103999": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40169330": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40169390": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40169590": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40169950": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40169960": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "40169990": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "68138100": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "68138900": {
+      "mapping_status": "residual_probable_ministry",
+      "ministry_departments": [],
+      "residual_probable_ministries": [
+        "Ministry of Heavy Industries"
+      ]
+    },
+    "73079990": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73181500": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73181600": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73181900": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73182100": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73182200": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73182400": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73182990": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73201000": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "73201011": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries",
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73201020": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "73209020": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Steel"
+      ],
+      "residual_probable_ministries": []
+    },
+    "83012000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade",
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84099113": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84099900": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "84131199": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84133030": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84133090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84136090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84138120": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84149019": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84149090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84212190": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84212300": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade",
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84212900": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84213100": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade",
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84213990": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84219900": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84254200": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84812000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84818030": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84818090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84819090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84821020": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84821090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84822000": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "84822011": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84822012": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84822090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84828000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84829900": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84832000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84833000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84834000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "84835090": {
+      "mapping_status": "residual_probable_ministry",
+      "ministry_departments": [],
+      "residual_probable_ministries": [
+        "Ministry of Heavy Industries"
+      ]
+    },
+    "84836090": {
+      "mapping_status": "residual_probable_ministry",
+      "ministry_departments": [],
+      "residual_probable_ministries": [
+        "Ministry of Heavy Industries"
+      ]
+    },
+    "84841090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85114000": {
+      "mapping_status": "residual_probable_ministry",
+      "ministry_departments": [],
+      "residual_probable_ministries": [
+        "Ministry of Heavy Industries"
+      ]
+    },
+    "85118000": {
+      "mapping_status": "residual_probable_ministry",
+      "ministry_departments": [],
+      "residual_probable_ministries": [
+        "Ministry of Heavy Industries"
+      ]
+    },
+    "85119000": {
+      "mapping_status": "residual_probable_ministry",
+      "ministry_departments": [],
+      "residual_probable_ministries": [
+        "Ministry of Heavy Industries"
+      ]
+    },
+    "85122000": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "85122010": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85122020": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85123010": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85123090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85124000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85129000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85361020": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85361030": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85364100": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85365090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85391000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85392110": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85392120": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85392190": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85395000": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    },
+    "85399090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85441920": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85444220": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85444920": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "85446020": {
+      "mapping_status": "residual_probable_ministry",
+      "ministry_departments": [],
+      "residual_probable_ministries": [
+        "Ministry of Heavy Industries"
+      ]
+    },
+    "87081090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87083000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87084000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87085000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87087000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87088000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87089100": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87089300": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87089400": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87089900": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87169010": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "87169090": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Ministry of Heavy Industries"
+      ],
+      "residual_probable_ministries": []
+    },
+    "90299000": {
+      "mapping_status": "accepted_by_ministry",
+      "ministry_departments": [
+        "Department for Promotion of Industry and Internal Trade"
+      ],
+      "residual_probable_ministries": []
+    },
+    "93201020": {
+      "mapping_status": "not_found_in_guidebook",
+      "ministry_departments": [],
+      "residual_probable_ministries": []
+    }
+  }
+}
