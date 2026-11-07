@@ -15,6 +15,8 @@ Each catalogue record now carries:
 - `hsn_review_note`: missing specification/material/fitment that must be checked.
 - `hsn_reference_date`: tariff schedule reference date (`2026-10-01`).
 
+The 28 SKU records corrected in the 6 November audit also carry `hsn_research_source` and `hsn_research_date` so the correction provenance is traceable in the product projection.
+
 - `hsn_dpiit_mapping`: guidebook-based ministry/department mapping for the existing catalogue HSN candidate and each distinct supplier-invoice HSN code.
 
 ## DPIIT ministry/department mapping
@@ -52,14 +54,22 @@ Section XVII Note 2 to the Customs Tariff Act excludes specified goods from the 
 - **provisional / medium:** The product type is reasonably clear, but a material, rating, composition or construction detail should be confirmed.
 - **review_required / low:** The code is a product-specific candidate, but available catalogue data does not establish a necessary classification fact. The `hsn_review_note` identifies what must be checked.
 
-Current mapping summary:
+## SKU-level candidate audit applied on 7 November 2026
+
+The 6 November source-backed review tranche is stored as a versioned data input at `assets/data/hsn-candidate-overrides-2026-11-06.json`. The canonical builder applies these 28 HSN-only corrections by exact catalogue ID, validates eight-digit codes and status values, and carries the corrected fields and research provenance into `assets/data/products.json`. The other 1,131 catalogue records are not overwritten by this correction overlay. It does not update product identity, pricing, fitment, supplier-invoice evidence, or DPIIT mappings.
+
+The audit corrected candidate headings where the product type conflicted with the previous candidate, while retaining low-confidence/review-required status where material, construction, function, or assembly scope remains unverified. Exact manufacturer-backed evidence was used to classify the Tata wiper set, Varroc headlamp assemblies, and Uno Minda LSC-24V87 lift-axle solenoid. The Fenner 4PK-986SPV correction to the V-ribbed family remains review-required pending actual outside circumference and rubber-compound evidence.
+
+Current mapping summary after the audit:
 
 | Status | Records |
 | --- | ---: |
-| classified | 72 |
-| provisional | 632 |
-| review_required | 455 |
+| classified | 84 |
+| provisional | 629 |
+| review_required | 446 |
 | **Total** | **1,159** |
+
+The non-final verification worklist contains 1,075 records. Blank final-HSN and GST sign-off columns are intentional; none of these candidates is automatically promoted to invoice-ready.
 
 The residual candidate 87089900 is limited to 13 records (including engine-mounting assemblies and accelerator-control cables) and is flagged for review; it is not used as a blanket code for the catalogue.
 

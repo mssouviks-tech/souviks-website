@@ -134,6 +134,62 @@ def reconcile_catalogue_projections():
     def text(v):
         return str(v or "").strip()
 
+    # Apply the source-backed SKU-level HSN corrections as a versioned,
+    # auditable overlay. Only the corrected products' HSN metadata is changed;
+    # supplier-invoice evidence and DPIIT mappings are applied independently.
+    hsn_candidate_overrides_path = ROOT / "assets/data/hsn-candidate-overrides-2026-11-06.json"
+    try:
+        hsn_candidate_overrides = json.loads(hsn_candidate_overrides_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"Invalid HSN candidate override file: {exc}")
+    if not isinstance(hsn_candidate_overrides, dict) or hsn_candidate_overrides.get("schema_version") != 1:
+        raise SystemExit("HSN candidate override file has an unsupported schema")
+    hsn_override_records = hsn_candidate_overrides.get("records")
+    if not isinstance(hsn_override_records, list) or len(hsn_override_records) != hsn_candidate_overrides.get("record_count"):
+        raise SystemExit("HSN candidate override record count is inconsistent")
+
+    hsn_override_fields = (
+        "hsn_code", "hsn_description", "hsn_confidence",
+        "hsn_classification_status", "hsn_basis", "hsn_review_note",
+        "hsn_reference_date",
+    )
+    hsn_overrides_by_id = {}
+    for record in hsn_override_records:
+        if not isinstance(record, dict):
+            raise SystemExit("Every HSN candidate override must be an object")
+        product_id = text(record.get("id"))
+        if not product_id or product_id in hsn_overrides_by_id:
+            raise SystemExit(f"Missing or duplicate HSN candidate override id: {product_id!r}")
+        code = text(record.get("hsn_code"))
+        status = text(record.get("hsn_classification_status"))
+        confidence = text(record.get("hsn_confidence"))
+        if (
+            len(code) != 8 or not code.isdigit()
+            or not text(record.get("hsn_description"))
+            or confidence not in {"high", "medium", "low"}
+            or status not in {"classified", "provisional", "review_required"}
+            or not text(record.get("hsn_basis"))
+            or (status == "review_required" and not text(record.get("hsn_review_note")))
+        ):
+            raise SystemExit(f"Invalid product-level HSN candidate metadata for {product_id}")
+        hsn_overrides_by_id[product_id] = record
+
+    catalogue_by_id = {
+        text(product.get("id")): product
+        for product in catalogue
+        if isinstance(product, dict) and text(product.get("id"))
+    }
+    unknown_hsn_ids = sorted(set(hsn_overrides_by_id) - set(catalogue_by_id))
+    if unknown_hsn_ids:
+        raise SystemExit(f"HSN candidate overrides reference unknown SKUs: {unknown_hsn_ids[:10]}")
+
+    for product_id, override in hsn_overrides_by_id.items():
+        product = catalogue_by_id[product_id]
+        for field in hsn_override_fields:
+            product[field] = text(override.get(field))
+        product["hsn_research_source"] = text(hsn_candidate_overrides.get("source_research_pr"))
+        product["hsn_research_date"] = text(hsn_candidate_overrides.get("research_date"))
+
     # Apply auditable manual supplier-invoice matches before generating the
     # canonical catalogue projections. This overlay is idempotent: the source
     # file remains the evidence ledger, while repeated builds merge unique
@@ -1207,6 +1263,10 @@ def reconcile_catalogue_projections():
             "hsn_basis": text(p.get("hsn_basis")),
             "hsn_review_note": text(p.get("hsn_review_note")),
             "hsn_reference_date": text(p.get("hsn_reference_date")),
+            **({
+                "hsn_research_source": text(p.get("hsn_research_source")),
+                "hsn_research_date": text(p.get("hsn_research_date")),
+            } if text(p.get("hsn_research_source")) or text(p.get("hsn_research_date")) else {}),
             "hsn_supplier_invoice_code": text(p.get("hsn_supplier_invoice_code")),
             "hsn_supplier_invoice_codes": list(p.get("hsn_supplier_invoice_codes") or []),
             "hsn_supplier_invoice_match_status": text(p.get("hsn_supplier_invoice_match_status")),
@@ -1353,7 +1413,8 @@ def reconcile_catalogue_projections():
             "price_history_all_time", "price_history_since", "approx_weight_g",
             "hsn_code", "hsn_description", "hsn_confidence",
             "hsn_classification_status", "hsn_basis", "hsn_review_note",
-            "hsn_reference_date", "hsn_supplier_invoice_code", "hsn_supplier_invoice_codes",
+            "hsn_reference_date", "hsn_research_source", "hsn_research_date",
+            "hsn_supplier_invoice_code", "hsn_supplier_invoice_codes",
             "hsn_supplier_invoice_match_status", "hsn_supplier_invoice_match_methods",
             "hsn_supplier_invoice_source_names", "hsn_supplier_invoice_external_ids",
             "hsn_supplier_invoice_source_file", "hsn_supplier_invoice_match_date",

@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "source_research_pr": "https://github.com/mssouviks-tech/souviks-website/pull/187",
+  "source_audit_document": "docs/audit/hsn-candidate-corrections-2026-11-06.md",
+  "research_date": "2026-11-06",
+  "reference_tariff_date": "2026-10-01",
+  "description": "Only the evidence-backed HSN candidate corrections from the SKU-level audit. The other catalogue HSN fields remain as previously recorded.",
+  "catalogue_reviewed_record_count": 1159,
+  "record_count": 28,
+  "resulting_catalogue_status_counts": {
+    "classified": 84,
+    "provisional": 629,
+    "review_required": 446
+  },
+  "fields": [
+    "hsn_code",
+    "hsn_description",
+    "hsn_confidence",
+    "hsn_classification_status",
+    "hsn_basis",
+    "hsn_review_note",
+    "hsn_reference_date"
+  ],
+  "records": [
+    {
+      "id": "SVKS000250",
+      "hsn_code": "39174000",
+      "hsn_description": "Fittings of plastics for tubes, pipes and hoses",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "The catalogue identifies this article as a coolant-pipe socket/coupler, not a prepared coolant. A plastic pipe-fitting heading is the current candidate.",
+      "hsn_review_note": "Verify the fitting body material and construction. Use 39174000 only for plastic fittings; steel and copper-alloy fittings require their own tariff headings.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000276",
+      "hsn_code": "87089400",
+      "hsn_description": "Steering wheels, steering columns and steering boxes; parts thereof",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "Exact part F0987915 is listed as a pivot pin; Souviks identifies the assembly as a steering relay/drop-arm pivot. It is a mechanical steering item, not an electrical relay.",
+      "hsn_review_note": "Confirm the supplied part's dedicated steering-linkage function and whether it is a standalone pin or part of a complete linkage assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000286",
+      "hsn_code": "40103190",
+      "hsn_description": "Other endless V-ribbed transmission belts, outside circumference >60 cm and <=180 cm",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "Fenner part number 4PK-986SPV and the product's V-ribbed/Poly-V description identify a ribbed accessory-drive belt, not a non-V-ribbed trapezoidal belt. Candidate 40103190 applies if verified outside circumference is 60–180 cm and rubber compound is not below 25% by weight.",
+      "hsn_review_note": "Obtain Fenner datasheet confirming actual outside circumference and rubber-compound content. 986 mm is the nominal/effective length marking and is not, by itself, proof of the statutory outside-circumference measurement. If <25% rubber compound use 40103110; if the circumference is outside 60–180 cm use the corresponding tariff band.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000359",
+      "hsn_code": "84212900",
+      "hsn_description": "Other filtering or purifying machinery and apparatus for liquids",
+      "hsn_confidence": "medium",
+      "hsn_classification_status": "provisional",
+      "hsn_basis": "Bosch's commercial-vehicle filter catalogue maps exact OE reference X4000700 to a coolant filter; this is filtering equipment, not antifreeze fluid.",
+      "hsn_review_note": "Confirm whether the supplied SKU is a complete coolant-filter apparatus or a replacement element/part (which may fall under 84219900).",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000373",
+      "hsn_code": "87084000",
+      "hsn_description": "Gear boxes and parts thereof",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "The product is described as a gear-lever knob used at the driver's transmission gear-selection interface, not a plastic closure.",
+      "hsn_review_note": "Confirm whether it is a dedicated gearbox/gear-selection part or a standalone knob whose material/function requires a different heading.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000412",
+      "hsn_code": "40103290",
+      "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "PIX AVX13-family product is a trapezoidal V-belt; the catalogue part-number size is 1325 mm, within the 60–180 cm tariff circumference band if the size marking is the belt outside circumference.",
+      "hsn_review_note": "Verify exact non-V-ribbed section, measured outside circumference and rubber-compound content by weight. If rubber compound is below 25%, use 40103210; otherwise 40103290 is the candidate.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000413",
+      "hsn_code": "40103290",
+      "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "PIX AVX13-family product is a trapezoidal V-belt; the catalogue part-number size is 1400 mm, within the 60–180 cm tariff circumference band if the size marking is the belt outside circumference.",
+      "hsn_review_note": "Verify exact non-V-ribbed section, measured outside circumference and rubber-compound content by weight. If rubber compound is below 25%, use 40103210; otherwise 40103290 is the candidate.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000414",
+      "hsn_code": "40103290",
+      "hsn_description": "Other endless V-belts (not V-ribbed), outside circumference >60 cm and <=180 cm",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "PIX AVX13-family product is a trapezoidal V-belt; the catalogue part-number size is 1450 mm, within the 60–180 cm tariff circumference band if the size marking is the belt outside circumference.",
+      "hsn_review_note": "Verify exact non-V-ribbed section, measured outside circumference and rubber-compound content by weight. If rubber compound is below 25%, use 40103210; otherwise 40103290 is the candidate.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000570",
+      "hsn_code": "85365090",
+      "hsn_description": "Other switches for electrical circuits not exceeding 1,000 V",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "Uno Minda's manufacturer brochure for exact part LSC-24V87 (Lift Axle Solenoid, TATA/LEYLAND 24V) explicitly publishes HSN 85365090; the item is also listed by Uno Minda under Switch, Relay & Sensor.",
+      "hsn_review_note": "Manufacturer-published product-level HSN is recorded. Keep the GST rate separately unassigned until the exact description is matched to the current Notification 9/2025 schedule and its applicable entry; HSN 85365090 can map to more than one GST-rate entry depending on description.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000670",
+      "hsn_code": "85122020",
+      "hsn_description": "Other automobile lighting equipment",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+      "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000761",
+      "hsn_code": "87089400",
+      "hsn_description": "Steering wheels, steering columns and steering boxes; parts thereof",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "Exact part F0987915 is listed as a pivot pin; Souviks identifies the assembly as a steering relay/drop-arm pivot. It is a mechanical steering item, not an electrical relay.",
+      "hsn_review_note": "Confirm the supplied part's dedicated steering-linkage function and whether it is a standalone pin or part of a complete linkage assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000832",
+      "hsn_code": "85124000",
+      "hsn_description": "Windscreen wipers, defrosters and demisters",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The exact Tata Genuine Parts item 886782000014 is named 'Set Wipers for TATA Ace'; tariff item 85124000 expressly covers vehicle windscreen wipers.",
+      "hsn_review_note": "No material classification qualifier remains for the supplied complete wiper set; retain the exact Tata item mapping.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000845",
+      "hsn_code": "85122020",
+      "hsn_description": "Other automobile lighting equipment",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+      "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000846",
+      "hsn_code": "85122020",
+      "hsn_description": "Other automobile lighting equipment",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+      "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000852",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000853",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000854",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000855",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000856",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000857",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000858",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000859",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000860",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000861",
+      "hsn_code": "85122010",
+      "hsn_description": "Head lamps, tail lamps, stop lamps, side lamps and blinkers",
+      "hsn_confidence": "high",
+      "hsn_classification_status": "classified",
+      "hsn_basis": "The product name identifies a complete motor-vehicle headlamp assembly/unit; tariff item 85122010 specifically covers vehicle head lamps.",
+      "hsn_review_note": "Check LH/RH and vehicle application as a fitment matter; no separate HSN material qualifier is apparent for the complete headlamp assembly.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000862",
+      "hsn_code": "85122020",
+      "hsn_description": "Other automobile lighting equipment",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+      "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000863",
+      "hsn_code": "85122020",
+      "hsn_description": "Other automobile lighting equipment",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "Product description identifies an LED/DRL/parking-type vehicle lighting article rather than an ignition or starting-equipment part.",
+      "hsn_review_note": "Confirm exact lamp function, mounting position and supplier product datasheet before treating 85122020 as final.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS000978",
+      "hsn_code": "87084000",
+      "hsn_description": "Gear boxes and parts thereof",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "Tata part 285126700171 is identified in parts lists as a top-cover assembly alongside gearbox shifting/selector components, not a diesel-engine cover.",
+      "hsn_review_note": "Confirm exact Tata gearbox model and that this is supplied as a gearbox top-cover/shift-control component; retain non-final status until OEM drawing is checked.",
+      "hsn_reference_date": "2026-10-01"
+    },
+    {
+      "id": "SVKS001133",
+      "hsn_code": "87089900",
+      "hsn_description": "Other parts and accessories of motor vehicles of headings 8701 to 8705",
+      "hsn_confidence": "low",
+      "hsn_classification_status": "review_required",
+      "hsn_basis": "The exact Leyparts reference F1837914 is described as Seating Block-C; a historical trade record for the exact part number used 87089900, which contradicts its current engine-parts candidate.",
+      "hsn_review_note": "Treat the historical export code only as corroboration. Obtain the current Leyparts OEM drawing and confirm whether the block is a body/vehicle part or a more specific gearbox selector part.",
+      "hsn_reference_date": "2026-10-01"
+    }
+  ]
+}
