@@ -26,8 +26,8 @@ const projections=new Map(products.map(p=>[p.id,p]));
 const matched=catalogue.filter(p=>p.hsn_supplier_invoice_match_status==="matched");
 const conflicts=catalogue.filter(p=>p.hsn_supplier_invoice_match_status==="conflict");
 if(catalogue.length!==1159||products.length!==1157)throw new Error("Unexpected catalogue/projection coverage");
-if(matched.length!==847||conflicts.length!==15)throw new Error("Unexpected SKU totals");
-if(matches.length!==906||review.length!==128||matches.length+review.length!==1034)throw new Error("Supplier source rows not fully accounted for");
+if(matched.length!==851||conflicts.length!==16)throw new Error("Unexpected SKU totals");
+if(matches.length!==912||review.length!==122||matches.length+review.length!==1034)throw new Error("Supplier source rows not fully accounted for");
 for(const p of [...matched,...conflicts]){
  if(p.hsn_supplier_invoice_source_file!=="hsn.xlsx")throw new Error("Missing source file "+p.id);
  if(p.active){
@@ -47,8 +47,14 @@ const expectedManual=[
  ["SVKS000345","__export__.product_template_5066_e37080aa"],
  ["SVKS000840","__export__.product_template_6774_d034ad4c"],
  ["SVKS000386","__export__.product_template_6760_c23083f8"],
+ ["SVKS000404","__export__.product_template_6266_00471767"],
+ ["SVKS001086","__export__.product_template_7609_cdb920bf"],
+ ["SVKS001103","__export__.product_template_7626_4655580d"],
+ ["SVKS001091","__export__.product_template_7614_c9ae6068"],
+ ["SVKS001093","__export__.product_template_7616_e70bd6b0"],
+ ["SVKS000499","__export__.product_template_6290_e5504680"],
 ];
 const manualKeys=new Set(manual.records.map(r=>`${r.id}|${r.supplier_odoo_external_id}`));
 for(const [id,externalId] of expectedManual){if(!manualKeys.has(`${id}|${externalId}`))throw new Error("Missing verified manual supplier identity "+id);}
-if(manual.records.length!==82)throw new Error("Unexpected manual resolution ledger size");
+if(manual.records.length!==88)throw new Error("Unexpected manual resolution ledger size");
 console.log("Supplier invoice HSN reconciliation passed",{matched_skus:matched.length,conflict_skus:conflicts.length,matched_source_rows:matches.length,review_rows:review.length,manual_resolutions:manual.records.length});
