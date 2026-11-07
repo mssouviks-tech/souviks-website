@@ -134,8 +134,8 @@ def reconcile_catalogue_projections():
     def text(v):
         return str(v or "").strip()
 
-    # Apply the complete product-level HSN audit as a versioned, auditable
-    # overlay. Only HSN candidate/classification metadata is changed here;
+    # Apply the source-backed SKU-level HSN corrections as a versioned,
+    # auditable overlay. Only the corrected products' HSN metadata is changed;
     # supplier-invoice evidence and DPIIT mappings are applied independently.
     hsn_candidate_overrides_path = ROOT / "assets/data/hsn-candidate-overrides-2026-11-06.json"
     try:
