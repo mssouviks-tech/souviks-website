@@ -95,3 +95,19 @@ Primary sources:
 - [Notification No. 9/2025-Integrated Tax (Rate)](https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf)
 - [Ministry of Finance / PIB rate table for heading 8708 and specified tractor exceptions](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48)
 - [Notification No. 02/2026-Central Tax (Rate), 27 October 2026](https://egazette.servantsofknowledge.in/details/in.gazette.central.e.2026-10-27.277454/)
+
+
+## Product-level GST rate assignment — 8 November 2026
+
+The product data now carries `gst_rate_percent` for all 1,159 catalogue records (1,157 active products). The default is **18% total**: 9% CGST + 9% SGST for intra-State supply, or 18% IGST for inter-State supply.
+
+Two product records match the specified tractor-component entries in Notification No. 9/2025:
+
+- **SVKS000429 — Pressure Plate 330 Dia Sonalika 4 Lever**, HSN 87089300: **5%** (2.5% CGST + 2.5% SGST, or 5% IGST), as a tractor clutch-assembly part.
+- **SVKS001121 — Power Steering Repair Kit**, HSN 87089400: **5%** (2.5% CGST + 2.5% SGST, or 5% IGST), based on the tractor steering-linkage description. The supplier description/physical-kit contents remain subject to technical review.
+
+The four previously flagged HSN 87083000 products are not tractor parts: their catalogue fitments are Tata Ace and/or Tata Intra. They retain the 18% rate. Bosch tractor starter overrunning-clutch items also remain at 18%; they are starter-drive components, not the notified tractor clutch assembly.
+
+The catalogue's HSN review states have not been changed. Product GST rates are populated as instructed, but `accountant_approval_required` remains true and `invoice_ready` remains false. This update does not activate tax invoice generation.
+
+The tractor exception descriptions are taken from Notification No. 9/2025-Central Tax (Rate) and Notification No. 9/2025-Integrated Tax (Rate), effective 22 September 2025. The Ministry of Finance / PIB change table lists HSN 8708 93 00 tractor clutch assemblies/parts and HSN 8708 94 00 tractor steering parts in the 5% group: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48.
