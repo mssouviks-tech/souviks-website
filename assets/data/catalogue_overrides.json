@@ -2447,10 +2447,6 @@
       ]
     },
     {
-      "id": "SVKS001104",
-      "append": []
-    },
-    {
       "id": "SVKS000118",
       "append": [
         "Independent parts-schedule description cross-check (MCGM municipal procurement schedule, exact reference 285126700124): the part is listed as “ASSY. TOP COVER”, consistent with the Souviks top-cover assembly description. The schedule row does not specify a vehicle model, gearbox type or BS variant; it therefore does not verify the current Tata 1109/1210/1312 tags. Confirm gearbox family, selector-shaft arrangement, mounting pattern and exact OE/chassis reference before confirming fitment. Source: https://oswalstorage1.blob.core.windows.net/univomrimg21/JaipurGreaterPDF/PDF/NitTender_jmc07dcgarrage_Tender_13881.pdf"
