@@ -241,7 +241,7 @@ def add_cover(story, rows, title, subtitle, styles):
     ]))
     story.append(t)
     story.append(Spacer(1, 13*mm))
-    story.append(Paragraph("MRP and Out Price shown in INR. Product applications combine listed vehicle models and supported vehicle-family references. Please confirm the exact part number, variant and specification before ordering.", styles["sub"]))
+    story.append(Paragraph("Price snapshot: 8 November 2026. MRP and Out Price are shown in INR; Out Price is Souviks customer price. Applications combine listed vehicle models and family references. Confirm the exact part number, variant and specification before ordering.", styles["sub"]))
     story.append(PageBreak())
 
 def cover_page(canvas, doc, light_watermark):
