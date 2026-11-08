@@ -31,9 +31,14 @@ assert actual == expected, (
 )
 assert len(actual) == len(rows), "duplicate catalogue IDs in HSN worklist"
 
+catalogue_by_id = {product["id"]: product for product in catalogue}
 for row in rows:
+    product = catalogue_by_id[row["catalogue_id"]]
     assert row["invoice_ready"] == "FALSE", row["catalogue_id"]
-    assert not row["gst_rate_percent"], row["catalogue_id"]
+    assert row["gst_rate_percent"] == str(product.get("gst_rate_percent") or ""), row["catalogue_id"]
+    assert row["gst_rate_effective_from"] == str(product.get("gst_rate_effective_from") or ""), row["catalogue_id"]
+    assert row["gst_rate_source_reference"] == str(product.get("gst_rate_source_reference") or ""), row["catalogue_id"]
+    assert row["gst_rate_percent"] in {"5", "18"}, row["catalogue_id"]
     assert not row["final_hsn_code"], row["catalogue_id"]
     assert row["candidate_hsn_code"], row["catalogue_id"]
     assert row["evidence_to_close"], row["catalogue_id"]
