@@ -2409,6 +2409,24 @@
       "append": [
         "WABCO Customer Centre technical confirmation (9347020150): WABCO identifies this as a Protection Valve with India vehicle application TATA. The record specifies M22 × 1.5 ports and staged opening/charging pressures; it does not name an individual Tata truck model. Confirm circuit layout, pressure settings, port numbering and installed protection-valve generation before supply. Source: https://www.wabco-customercentre.com/catalog/en/9347020150"
       ]
+    },
+    {
+      "id": "SVKS001144",
+      "append": [
+        "WABCO Customer Centre official exact-material confirmation (300025033): WABCO identifies this as “Kit: Diaphragm + Cut-Off Valve” with India vehicle applications TATA, Ashok Leyland, Volvo Eicher (VECV), Daimler (Bharat Benz) and MAN, for a twin-cylinder 704 cc flange-mounted compressor. This is manufacturer make-level evidence only, not an individual chassis/model list. Confirm the Souviks product contents, compressor family and actuator configuration against the WABCO kit drawing before supplying. Source: https://www.wabco-customercentre.com/catalog/en_IN/300025033"
+      ]
+    },
+    {
+      "id": "SVKS000939",
+      "append": [
+        "WABCO Customer Centre official exact-material confirmation (100304941): identified as “DDU-(VOSS)” with India vehicle application TATA, intended for the twin-cylinder 704 cc flange-mounted compressor. The official data specifies a desiccant cartridge, 8.5 bar cut-out pressure, four M22 × 1.5 ports and −40 °C to +85 °C operating range. This confirms Tata make-level application only; verify VOSS connection layout, silencer and installed DDU model before assigning an individual truck. Source: https://www.wabco-customercentre.com/catalog/en/100304941"
+      ]
+    },
+    {
+      "id": "SVKS000584",
+      "append": [
+        "WABCO Customer Centre traceability check (exact material 300001458): the archived WABCO price list effective March 2021 describes material 300001458 as “Head Major Kit”. The list does not provide an India vehicle application or enough compressor context to confirm a truck model. This is historical product-description evidence only; reconcile the actual contents and compressor type against the current WABCO drawing/pack marking before treating the Souviks “Air Compressor Repair Kit” title as equivalent. The indexed price-list copy is hosted on Scribd, not on a WABCO-controlled domain. Source: https://www.scribd.com/document/567062973/WABCO-Price-List-W-E-F-March-1st-2021-1"
+      ]
     }
   ]
 }
