@@ -11,9 +11,9 @@ from urllib.parse import urlencode
 ROOT = Path(__file__).resolve().parents[2]
 
 LABELS = {
-    "en": {"part": "Part No.", "request": "Get current price", "purchase": "Add to Cart", "quantity": "Quantity", "decrease": "Decrease quantity", "increase": "Increase quantity", "request_part": "Request a Part", "prior": "Lowest recorded price in last 1 month:"},
-    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "purchase": "कार्ट में जोड़ें", "quantity": "मात्रा", "decrease": "मात्रा घटाएँ", "increase": "मात्रा बढ़ाएँ", "request_part": "पार्ट का अनुरोध", "prior": "पिछले 1 माह का सबसे कम दर्ज मूल्य:"},
-    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "purchase": "কার্টে যোগ করুন", "quantity": "পরিমাণ", "decrease": "পরিমাণ কমান", "increase": "পরিমাণ বাড়ান", "request_part": "পার্টের অনুরোধ", "prior": "গত ১ মাসের সর্বনিম্ন নথিভুক্ত মূল্য:"},
+    "en": {"part": "Part No.", "request": "Get current price", "purchase": "Add to Cart", "quantity": "Quantity", "decrease": "Decrease quantity", "increase": "Increase quantity", "request_part": "Request a Part", "prior": "Lowest price in last 30 days:", "lower_30d": "lower than the lowest price in the last 30 days"},
+    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "purchase": "कार्ट में जोड़ें", "quantity": "मात्रा", "decrease": "मात्रा घटाएँ", "increase": "मात्रा बढ़ाएँ", "request_part": "पार्ट का अनुरोध", "prior": "पिछले 30 दिनों का सबसे कम दर्ज मूल्य:", "lower_30d": "पिछले 30 दिनों के सबसे कम मूल्य से कम"},
+    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "purchase": "কার্টে যোগ করুন", "quantity": "পরিমাণ", "decrease": "পরিমাণ কমান", "increase": "পরিমাণ বাড়ান", "request_part": "পার্টের অনুরোধ", "prior": "গত ৩০ দিনের সর্বনিম্ন নথিভুক্ত মূল্য:", "lower_30d": "গত ৩০ দিনের সর্বনিম্ন মূল্যের চেয়ে কম"},
 }
 
 
@@ -126,10 +126,21 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
     prior_price_number = positive_price(product.get("prior_price_30d"))
     prior_price = format_money(prior_price_number) if prior_price_number is not None else ""
     prior_price_html = ""
+    verified_discount_html = ""
     if selling is not None and prior_price_number is not None and prior_price_number > selling:
+        verified_discount_percent = int(round(
+            (prior_price_number - selling) / prior_price_number * 100
+        ))
         prior_price_html = (
-            f'<span class="product-price-prior">{esc(labels["prior"])} {esc(prior_price)}</span>'
+            '<span class="product-price-prior">'
+            f'<span class="product-price-prior-label">{esc(labels["prior"])}</span> '
+            f'<s class="product-price-prior-value">{esc(prior_price)}</s></span>'
         )
+        if verified_discount_percent > 0:
+            verified_discount_html = (
+                '<span class="product-price-discount">'
+                f'{verified_discount_percent}% {esc(labels["lower_30d"])}</span>'
+            )
 
     if selling is not None:
         price_html = (
@@ -137,6 +148,7 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
             f'<span class="product-price-current">{esc(price)}</span>'
             + (f'<span class="product-price-mrp">MRP {esc(mrp)}</span>' if mrp else "")
             + prior_price_html
+            + verified_discount_html
             + "</div>"
         )
     elif mrp:
