@@ -15,10 +15,10 @@ BUILDER_PATH = ROOT / "scripts/audit/build_hsn_verification_worklist.py"
 
 def assert_lf_only_no_trailing_whitespace(path: Path) -> None:
     raw = path.read_bytes()
-    assert b"\\r\\n" not in raw, f"{path}: CSV must use LF-only line endings"
+    assert b"\r\n" not in raw, f"{path}: CSV must use LF-only line endings"
     offenders = [
-        index for index, line in enumerate(raw.split(b"\\n"), start=1)
-        if line.endswith((b" ", b"\\t", b"\\r"))
+        index for index, line in enumerate(raw.split(b"\n"), start=1)
+        if line.endswith((b" ", b"\t", b"\r"))
     ]
     assert not offenders, (
         f"{path}: trailing whitespace on CSV lines {offenders[:20]}"
