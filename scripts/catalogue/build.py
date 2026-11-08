@@ -2255,15 +2255,57 @@ def reconcile_catalogue_projections():
                 r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*'
                 r'(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ)\s*</h3>\s*<ul>)(.*?)(</ul>)'
             )
-            html, application_list_count = re.subn(
-                application_list_pattern,
-                lambda m: m.group(1) + application_items + m.group(3),
-                html,
-                count=1,
-                flags=re.I | re.S,
+            application_list_matches = list(
+                re.finditer(application_list_pattern, html, flags=re.I | re.S)
             )
-            if application_list_count != 1:
-                raise SystemExit(f"Could not update public Applications list in {path}")
+            if len(application_list_matches) == 1:
+                html = re.sub(
+                    application_list_pattern,
+                    lambda m: m.group(1) + application_items + m.group(3),
+                    html,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+            elif not application_list_matches:
+                # Older localized PDP shells have an Applications summary row
+                # but no detailed card. Add a public section instead of leaving
+                # the researched notes hidden in the catalogue data.
+                application_heading = {
+                    "en": "Applications",
+                    "hi": "उपयोग",
+                    "bn": "প্রয়োগ",
+                }.get(lang, "Applications")
+                application_section = (
+                    '<section id="applications-section" class="pdp-section">'
+                    '<div class="pdp-description-grid"><div class="pdp-description-card">'
+                    f'<h3>{html_module.escape(application_heading, quote=False)}</h3>'
+                    f'<ul>{application_items}</ul>'
+                    '</div></div></section>'
+                )
+                description_section_pattern = re.compile(
+                    r'(<section\\b[^>]*id=["\\']description-section["\\'][^>]*>.*?</section>)',
+                    flags=re.I | re.S,
+                )
+                if description_section_pattern.search(html):
+                    html = description_section_pattern.sub(
+                        lambda m: m.group(1) + application_section,
+                        html,
+                        count=1,
+                    )
+                else:
+                    vehicles_section_pattern = re.compile(
+                        r'(<section\\b[^>]*id=["\\']vehicles-section["\\'])',
+                        flags=re.I,
+                    )
+                    if not vehicles_section_pattern.search(html):
+                        raise SystemExit(f"Could not place the public Applications section in {path}")
+                    html = vehicles_section_pattern.sub(
+                        application_section + r"\\1",
+                        html,
+                        count=1,
+                    )
+            else:
+                raise SystemExit(f"Multiple public Applications lists found in {path}")
 
             html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title_text}</title>", html, count=1, flags=re.I)
             # Replace the entire tag so legacy trailing fragments from malformed quoted titles are removed.
