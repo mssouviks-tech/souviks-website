@@ -16,6 +16,15 @@ sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
 from product_card import product_card_html
 
 EXPECTED = {
+    # Representative product used to catch stale embedded PDP JSON. Its MRP and
+    # selling price are both present in the canonical catalogue and must have a
+    # matching MRP-relative discount_percent after the static build.
+    "SVKS000006": {
+        "mrp": 25,
+        "selling_price": 13,
+        "discount_percent": 48,
+        "part_number": "",
+    },
     "SVKS000111": {
         "mrp": 1490,
         "selling_price": 1400.6,
