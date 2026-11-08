@@ -1,0 +1,353 @@
+{
+  "schema_version": 1,
+  "source": "JAI Spring Price List w.e.f. April 2026",
+  "source_url": "https://www.scribd.com/document/1052927292/JAI-Spring-Price-List-w-e-f-Apr-26",
+  "source_note": "The document identifies itself as JAI Suspension Systems LLP & Jamna Auto Industries Ltd and an authorised dealer, M/S Mayur Auto Agency. The accessed copy is hosted on Scribd, not on a JAI-controlled domain.",
+  "scope": "Append only source-linked application evidence and explicit product/source discrepancies. Do not modify vehicles.json or product vehicles arrays.",
+  "base_commit": "608e3dd11428fec66b8f9136d63a7c70aafab127",
+  "records": [
+    {
+      "id": "SVKS000332",
+      "brand": "JAI",
+      "part_number": "258201",
+      "name": "Tata 2515 LPT (R) M/L",
+      "note": "Supplier-group qualification (JAI Spring Price List w.e.f. April 2026, code 2582): the listed application is Tata 2515 LPT rear. Souviks stock sub-codes 258201 are not separately itemised in the list; confirm the full JAI marking, section and individual leaf position before treating this sub-code as a standalone fitment. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000333",
+      "brand": "JAI",
+      "part_number": "258202",
+      "name": "Tata 2515 LPT (R) 2/L",
+      "note": "Supplier-group qualification (JAI Spring Price List w.e.f. April 2026, code 2582): the listed application is Tata 2515 LPT rear. Souviks stock sub-codes 258202 are not separately itemised in the list; confirm the full JAI marking, section and individual leaf position before treating this sub-code as a standalone fitment. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000449",
+      "brand": "JAI",
+      "part_number": "2582",
+      "name": "Tata 2515 (Rear) Main Leaf",
+      "note": "Exact-code source reconciliation (JAI Spring Price List w.e.f. April 2026, code 2582): the reviewed line identifies Tata 2515 LPT rear. It does not, by itself, establish the additional 3723 LPT or 3118 TC applications appearing elsewhere in existing catalogue notes; retain those only where supported by their separate source evidence. Confirm section and leaf stack before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000597",
+      "brand": "JAI",
+      "part_number": "2582",
+      "name": "Tata 2515 LPT 3723 LPT 3118 TC Rear Leaf Spring",
+      "note": "Exact-code source reconciliation (JAI Spring Price List w.e.f. April 2026, code 2582): the reviewed line identifies Tata 2515 LPT rear. It does not, by itself, establish the additional 3723 LPT or 3118 TC applications appearing elsewhere in existing catalogue notes; retain those only where supported by their separate source evidence. Confirm section and leaf stack before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000587",
+      "brand": "JAI",
+      "part_number": "2951",
+      "name": "Tata Magic Front Parabolic Leaf Spring",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 2951): listed as “MAGIC PARA FRONT”, supporting a Tata Magic front parabolic spring group. This list does not enumerate individual replacement-leaf positions. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000940",
+      "brand": "JAI",
+      "part_number": "295101",
+      "name": "Tata Ace Magic Fr Para M/L",
+      "note": "Supplier-group source evidence (JAI Spring Price List w.e.f. April 2026, code 2951): listed as “MAGIC PARA FRONT”. The list does not separately itemise Souviks sub-code 295101 or establish a main/second-leaf suffix; verify the exact pack marking and leaf layer. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000941",
+      "brand": "JAI",
+      "part_number": "295102",
+      "name": "Tata Ace Magic Fr Para 2/L",
+      "note": "Supplier-group source evidence (JAI Spring Price List w.e.f. April 2026, code 2951): listed as “MAGIC PARA FRONT”. The list does not separately itemise Souviks sub-code 295102 or establish a main/second-leaf suffix; verify the exact pack marking and leaf layer. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000588",
+      "brand": "JAI",
+      "part_number": "14031",
+      "name": "TML Intra V30 Front - Main Leaf",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 14031): listed as “TML INTRA V30 FRONT LEAF SPRING”. This confirms the Intra V30 front spring group, not the individual replacement-leaf suffix represented by this Souviks SKU. Match the leaf layer and section before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000604",
+      "brand": "JAI",
+      "part_number": "14031",
+      "name": "TML Intra V30 Front - 2nd Leaf",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 14031): listed as “TML INTRA V30 FRONT LEAF SPRING”. This confirms the Intra V30 front spring group, not the individual replacement-leaf suffix represented by this Souviks SKU. Match the leaf layer and section before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000904",
+      "brand": "JAI",
+      "part_number": "14031",
+      "name": "TML Intra V30 Front - AUX-A",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 14031): listed as “TML INTRA V30 FRONT LEAF SPRING”. This confirms the Intra V30 front spring group, not the individual replacement-leaf suffix represented by this Souviks SKU. Match the leaf layer and section before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000899",
+      "brand": "JAI",
+      "part_number": "14032",
+      "name": "TML Intra V30 - Main Leaf",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 14032): listed as “TML INTRA V30 REAR LEAF SPRING”. This confirms the Intra V30 rear spring group; the source does not uniquely assign the Souviks main/AUX leaf suffix. Match the exact leaf layer and section before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000900",
+      "brand": "JAI",
+      "part_number": "14032",
+      "name": "TML Intra V30 - AUX-A",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 14032): listed as “TML INTRA V30 REAR LEAF SPRING”. This confirms the Intra V30 rear spring group; the source does not uniquely assign the Souviks main/AUX leaf suffix. Match the exact leaf layer and section before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000589",
+      "brand": "JAI",
+      "part_number": "2332S",
+      "name": "Ace Magic SPL Rear Leaf Spring",
+      "note": "Supplier-code discrepancy (JAI Spring Price List w.e.f. April 2026, code 2332S): the list describes this code as “TATA ACE RR (CON.)” (conventional rear), not “Ace Magic SPL Rear”. The cited row supports a Tata Ace conventional rear application only; it does not name Tata Magic or establish a parabolic Ace Magic spring. Reconcile the physical JAI label/MPN and spring construction before treating the existing Ace Magic wording or vehicle tag as supplier-confirmed. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000590",
+      "brand": "JAI",
+      "part_number": "1952",
+      "name": "Bolero Rear - Main Leaf",
+      "note": "Supplier application scope (JAI Spring Price List w.e.f. April 2026, code 1952): listed as “BOLERO (R)”. The same list shows a distinct code 1952W as “M&M BOLERO RR”; it does not identify the exact Bolero Pik-Up or Bolero MaXX variant or an individual leaf layer for code 1952. Confirm the JAI code/MPN and vehicle generation against the pack and spring stack before confirming those narrower variants. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000606",
+      "brand": "JAI",
+      "part_number": "1952",
+      "name": "Bolero Rear - 2nd Leaf",
+      "note": "Supplier application scope (JAI Spring Price List w.e.f. April 2026, code 1952): listed as “BOLERO (R)”. The same list shows a distinct code 1952W as “M&M BOLERO RR”; it does not identify the exact Bolero Pik-Up or Bolero MaXX variant or an individual leaf layer for code 1952. Confirm the JAI code/MPN and vehicle generation against the pack and spring stack before confirming those narrower variants. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000884",
+      "brand": "JAI",
+      "part_number": "1952",
+      "name": "Bolero Rear - AUX-A",
+      "note": "Supplier application scope (JAI Spring Price List w.e.f. April 2026, code 1952): listed as “BOLERO (R)”. The same list shows a distinct code 1952W as “M&M BOLERO RR”; it does not identify the exact Bolero Pik-Up or Bolero MaXX variant or an individual leaf layer for code 1952. Confirm the JAI code/MPN and vehicle generation against the pack and spring stack before confirming those narrower variants. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000885",
+      "brand": "JAI",
+      "part_number": "1952",
+      "name": "Bolero Rear - 3rd Leaf",
+      "note": "Supplier application scope (JAI Spring Price List w.e.f. April 2026, code 1952): listed as “BOLERO (R)”. The same list shows a distinct code 1952W as “M&M BOLERO RR”; it does not identify the exact Bolero Pik-Up or Bolero MaXX variant or an individual leaf layer for code 1952. Confirm the JAI code/MPN and vehicle generation against the pack and spring stack before confirming those narrower variants. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000886",
+      "brand": "JAI",
+      "part_number": "1952",
+      "name": "Bolero Rear - 4th Leaf",
+      "note": "Supplier application scope (JAI Spring Price List w.e.f. April 2026, code 1952): listed as “BOLERO (R)”. The same list shows a distinct code 1952W as “M&M BOLERO RR”; it does not identify the exact Bolero Pik-Up or Bolero MaXX variant or an individual leaf layer for code 1952. Confirm the JAI code/MPN and vehicle generation against the pack and spring stack before confirming those narrower variants. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000887",
+      "brand": "JAI",
+      "part_number": "1952",
+      "name": "Bolero Rear - 5th Leaf",
+      "note": "Supplier application scope (JAI Spring Price List w.e.f. April 2026, code 1952): listed as “BOLERO (R)”. The same list shows a distinct code 1952W as “M&M BOLERO RR”; it does not identify the exact Bolero Pik-Up or Bolero MaXX variant or an individual leaf layer for code 1952. Confirm the JAI code/MPN and vehicle generation against the pack and spring stack before confirming those narrower variants. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000591",
+      "brand": "JAI",
+      "part_number": "17341",
+      "name": "Mahindra Max Pickup New - Main Leaf",
+      "note": "Supplier application scope (JAI Spring Price List w.e.f. April 2026, code 17341): listed as “M&M MAX PICK-UP … FR N/M”. This establishes a Mahindra Max Pick-Up new-model front spring group. The row does not use the Bolero Pik-Up or Bolero MaXX model names; confirm the OE cross-reference before treating those current tags as exact aliases, and verify the individual leaf suffix. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000607",
+      "brand": "JAI",
+      "part_number": "17341",
+      "name": "Mahindra Max Pickup New - 2nd Leaf",
+      "note": "Supplier application scope (JAI Spring Price List w.e.f. April 2026, code 17341): listed as “M&M MAX PICK-UP … FR N/M”. This establishes a Mahindra Max Pick-Up new-model front spring group. The row does not use the Bolero Pik-Up or Bolero MaXX model names; confirm the OE cross-reference before treating those current tags as exact aliases, and verify the individual leaf suffix. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000593",
+      "brand": "JAI",
+      "part_number": "6481",
+      "name": "Ace Dicor High GVW Front - Main Leaf",
+      "note": "Supplier/product-description conflict (JAI Spring Price List w.e.f. April 2026, code 6481; Souviks MPN 5523 3210 0109): the reviewed JAI list describes code 6481 as “ACE MEGA FRONT”, not “Ace Dicor High GVW Front”. The cited row therefore does not substantiate the current Ace Dicor wording. Do not treat Ace Mega and Ace Dicor as interchangeable without an exact manufacturer cross-reference or matching original JAI pack/drawing; the individual leaf position also remains unverified. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000901",
+      "brand": "JAI",
+      "part_number": "6481",
+      "name": "Ace Dicor High GVW Front - AUX-B",
+      "note": "Supplier/product-description conflict (JAI Spring Price List w.e.f. April 2026, code 6481; Souviks MPN 5523 3210 0109): the reviewed JAI list describes code 6481 as “ACE MEGA FRONT”, not “Ace Dicor High GVW Front”. The cited row therefore does not substantiate the current Ace Dicor wording. Do not treat Ace Mega and Ace Dicor as interchangeable without an exact manufacturer cross-reference or matching original JAI pack/drawing; the individual leaf position also remains unverified. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000594",
+      "brand": "JAI",
+      "part_number": "0661N",
+      "name": "Bolero Pickup Maxx N/M - Main Leaf",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 0661N): listed as “BOLERO PICKUP MAXX N/M (F)”. This supports the Bolero Pickup Maxx new-model front spring group. The row does not assign the individual main/second/AUX replacement-leaf suffix to this Souviks SKU; verify the exact JAI pack marking and leaf stack. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000610",
+      "brand": "JAI",
+      "part_number": "0661N",
+      "name": "Bolero Pickup Maxx N/M - 2nd Leaf",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 0661N): listed as “BOLERO PICKUP MAXX N/M (F)”. This supports the Bolero Pickup Maxx new-model front spring group. The row does not assign the individual main/second/AUX replacement-leaf suffix to this Souviks SKU; verify the exact JAI pack marking and leaf stack. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000890",
+      "brand": "JAI",
+      "part_number": "0661N",
+      "name": "Bolero Pickup Maxx N/M - AUX-A",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 0661N): listed as “BOLERO PICKUP MAXX N/M (F)”. This supports the Bolero Pickup Maxx new-model front spring group. The row does not assign the individual main/second/AUX replacement-leaf suffix to this Souviks SKU; verify the exact JAI pack marking and leaf stack. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000891",
+      "brand": "JAI",
+      "part_number": "0661N",
+      "name": "Bolero Pickup Maxx N/M - AUX-B",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 0661N): listed as “BOLERO PICKUP MAXX N/M (F)”. This supports the Bolero Pickup Maxx new-model front spring group. The row does not assign the individual main/second/AUX replacement-leaf suffix to this Souviks SKU; verify the exact JAI pack marking and leaf stack. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000595",
+      "brand": "JAI",
+      "part_number": "0642",
+      "name": "Pickup Van Rear - Main Leaf",
+      "note": "Supplier-group qualification (JAI Spring Price List w.e.f. April 2026, code 0642): listed under “M&M PICKUP VAN” as “PICKUP VAN (R)”, with section sizes shown in the source. The row does not name Bolero Pik-Up or Bolero MaXX, and does not identify individual main/second/AUX leaf positions. Do not treat those narrower vehicle tags as supplier-confirmed from this row alone; match spring section and vehicle-specific OE reference. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000611",
+      "brand": "JAI",
+      "part_number": "0642",
+      "name": "Pickup Van Rear - 2nd Leaf",
+      "note": "Supplier-group qualification (JAI Spring Price List w.e.f. April 2026, code 0642): listed under “M&M PICKUP VAN” as “PICKUP VAN (R)”, with section sizes shown in the source. The row does not name Bolero Pik-Up or Bolero MaXX, and does not identify individual main/second/AUX leaf positions. Do not treat those narrower vehicle tags as supplier-confirmed from this row alone; match spring section and vehicle-specific OE reference. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000888",
+      "brand": "JAI",
+      "part_number": "0642",
+      "name": "Pickup Van Rear - AUX-A",
+      "note": "Supplier-group qualification (JAI Spring Price List w.e.f. April 2026, code 0642): listed under “M&M PICKUP VAN” as “PICKUP VAN (R)”, with section sizes shown in the source. The row does not name Bolero Pik-Up or Bolero MaXX, and does not identify individual main/second/AUX leaf positions. Do not treat those narrower vehicle tags as supplier-confirmed from this row alone; match spring section and vehicle-specific OE reference. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000889",
+      "brand": "JAI",
+      "part_number": "0642",
+      "name": "Pickup Van Rear - AUX-B",
+      "note": "Supplier-group qualification (JAI Spring Price List w.e.f. April 2026, code 0642): listed under “M&M PICKUP VAN” as “PICKUP VAN (R)”, with section sizes shown in the source. The row does not name Bolero Pik-Up or Bolero MaXX, and does not identify individual main/second/AUX leaf positions. Do not treat those narrower vehicle tags as supplier-confirmed from this row alone; match spring section and vehicle-specific OE reference. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000592",
+      "brand": "JAI",
+      "part_number": "0152",
+      "name": "ARMADA NEW (RR) - Main leaf",
+      "note": "Exact-code source reconciliation (JAI Spring Price List w.e.f. April 2026, code 0152): listed under Mahindra as “ARMADA NEW (R)” (rear). This supports an Armada New rear spring group, not Mahindra Blazo. The current Blazo vehicle tag is not supported by this source; retain it only if a separate exact OE/vehicle reference is available, and confirm the leaf layer/marking. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000608",
+      "brand": "JAI",
+      "part_number": "0152",
+      "name": "ARMADA NEW (RR) - 2nd leaf",
+      "note": "Exact-code source reconciliation (JAI Spring Price List w.e.f. April 2026, code 0152): listed under Mahindra as “ARMADA NEW (R)” (rear). This supports an Armada New rear spring group, not Mahindra Blazo. The current Blazo vehicle tag is not supported by this source; retain it only if a separate exact OE/vehicle reference is available, and confirm the leaf layer/marking. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000893",
+      "brand": "JAI",
+      "part_number": "0151",
+      "name": "ARMADA NEW (FR) - main leaf",
+      "note": "Exact-code source reconciliation (JAI Spring Price List w.e.f. April 2026, code 0151): listed under Mahindra as “ARMADA NEW (F)” (front). This does not support the current Tata Signa vehicle tag. Do not treat that tag as supplier-confirmed until the JAI pack marking and Tata OE reference are reconciled. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000894",
+      "brand": "JAI",
+      "part_number": "0152",
+      "name": "ARMADA NEW (FR) - 2nd Leaf",
+      "note": "Exact-code source reconciliation (JAI Spring Price List w.e.f. April 2026, code 0152): listed under Mahindra as “ARMADA NEW (R)” (rear), whereas this Souviks record is titled as an Armada New front second leaf and carries a Tata Signa vehicle tag. The source conflicts with both the stated axle position and vehicle tag; do not confirm fitment until the product code/pack marking and leaf stack are reconciled. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000895",
+      "brand": "JAI",
+      "part_number": "0153",
+      "name": "ARMADA NEW (FR) - 3rd Leaf",
+      "note": "Supplier-code scope check (JAI Spring Price List w.e.f. April 2026, Mahindra section): the Armada New rows identify code 0151 as front and 0152 as rear; the reviewed list does not establish the individual Souviks codes 0153 as Armada New third-leaf/AUX parts or Tata Signa applications. Verify the original JAI pack label, full code and leaf stack before confirming fitment. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000896",
+      "brand": "JAI",
+      "part_number": "0154",
+      "name": "ARMADA NEW (FR) - AUX-A",
+      "note": "Supplier-code scope check (JAI Spring Price List w.e.f. April 2026, Mahindra section): the Armada New rows identify code 0151 as front and 0152 as rear; the reviewed list does not establish the individual Souviks codes 0154 as Armada New third-leaf/AUX parts or Tata Signa applications. Verify the original JAI pack label, full code and leaf stack before confirming fitment. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000596",
+      "brand": "JAI",
+      "part_number": "0181N",
+      "name": "Tata 1210D Front Leaf Spring",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 0181N): the source lists “1210D (T) (F) WITH 70” for this code, supporting a Tata 1210D front leaf-spring application. Match spring section and mounting/leaf stack to the vehicle before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000598",
+      "brand": "JAI",
+      "part_number": "2731",
+      "name": "Tata 2515 EX 4018 Front Parabolic Leaf Spring",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 2731): the list identifies “2515 EX … PARABOLIC FR”. This supports Tata 2515 EX front parabolic spring fitment; the code row does not name Tata 4018, so that additional model must rely on separate source evidence. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000600",
+      "brand": "JAI",
+      "part_number": "6891",
+      "name": "Tata LPT 3718 Front Parabolic Leaf Spring",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 6891): listed in the LPT 3718 front section. This supports a Tata LPT 3718 front spring application; verify the matching spring section and leaf stack before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000601",
+      "brand": "JAI",
+      "part_number": "6901",
+      "name": "Tata LPT 3718 Front Parabolic Leaf Spring Type 2",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 6901): listed in the LPT 3718 front section. This supports a Tata LPT 3718 front spring application; verify the matching spring section and leaf stack before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000602",
+      "brand": "JAI",
+      "part_number": "1931",
+      "name": "Tata 1516 1616 2213 Front Leaf Spring",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 1931): the Tata Motors MCV section identifies the 1516/1616/2213 front application for this code. This supports those named front-spring applications; verify the exact vehicle variant and spring section before supply. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000897",
+      "brand": "JAI",
+      "part_number": "3322",
+      "name": "Super Ace Rear - Main Leaf",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 3322): listed as “SUPER ACE REAR” / “TML SUPER ACE RR”. This supports the Tata Super Ace rear spring group; the source does not identify the individual main/AUX leaf position for this SKU. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000898",
+      "brand": "JAI",
+      "part_number": "3322",
+      "name": "Super Ace Rear - AUX-A",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 3322): listed as “SUPER ACE REAR” / “TML SUPER ACE RR”. This supports the Tata Super Ace rear spring group; the source does not identify the individual main/AUX leaf position for this SKU. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000902",
+      "brand": "JAI",
+      "part_number": "3252",
+      "name": "Ace Dicor Rear - 2nd Leaf",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 3252): listed as “ACE DICOR (RR)” / “TML ACE DICOR RR”. This supports a Tata Ace Dicor rear spring group; verify the exact replacement-leaf layer represented by this SKU. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000903",
+      "brand": "JAI",
+      "part_number": "3252",
+      "name": "Ace Dicor Rear - AUX-A",
+      "note": "Exact-code source evidence (JAI Spring Price List w.e.f. April 2026, code 3252): listed as “ACE DICOR (RR)” / “TML ACE DICOR RR”. This supports a Tata Ace Dicor rear spring group; verify the exact replacement-leaf layer represented by this SKU. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000905",
+      "brand": "JAI",
+      "part_number": "2332N",
+      "name": "Ace / CUB Rear P.B. - Main Leaf",
+      "note": "Supplier-group source evidence (JAI Spring Price List w.e.f. April 2026, code 2332N): listed as “ACE/CUB (R) P.B.”, supporting a Tata Ace/CUB rear parabolic spring group. The row does not say Tata Magic and does not itemise Souviks suffix 2332N; confirm vehicle generation and leaf layer before treating the Magic tag or individual sub-code as supplier-confirmed. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000906",
+      "brand": "JAI",
+      "part_number": "2332N",
+      "name": "Ace / CUB Rear P.B. - AUX-A",
+      "note": "Supplier-group source evidence (JAI Spring Price List w.e.f. April 2026, code 2332N): listed as “ACE/CUB (R) P.B.”, supporting a Tata Ace/CUB rear parabolic spring group. The row does not say Tata Magic and does not itemise Souviks suffix 2332N; confirm vehicle generation and leaf layer before treating the Magic tag or individual sub-code as supplier-confirmed. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    },
+    {
+      "id": "SVKS000961",
+      "brand": "JAI",
+      "part_number": "233202N",
+      "name": "Tata Ace N/M Para (cub rear) 2/L AML",
+      "note": "Supplier-group source evidence (JAI Spring Price List w.e.f. April 2026, code 2332N): listed as “ACE/CUB (R) P.B.”, supporting a Tata Ace/CUB rear parabolic spring group. The row does not say Tata Magic and does not itemise Souviks suffix 233202N; confirm vehicle generation and leaf layer before treating the Magic tag or individual sub-code as supplier-confirmed. Source: JAI Spring Price List w.e.f. April 2026, issued under the JAI Suspension Systems LLP / Jamna Auto Industries Ltd heading by authorised dealer M/S Mayur Auto Agency; the copy reviewed is hosted on Scribd, not an RKI/JAI-controlled domain. Confirm current supplier pack marking and drawing before ordering."
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-11-08",
+  "scope": "applications-only exact-code source links and fitment reconciliations; no product vehicles arrays or vehicles.json modifications",
+  "source_urls": {
+    "roots": "https://www.rootsautomotives.com/",
+    "roots_windtone": "https://www.rootsautomotives.com/air-horns/",
+    "roots_pdf": "https://www.rootsautomotives.com/wp-content/uploads/2022/02/ELECTRIC-HORNS-AUTOMOTIVE-PRODUCTS.pdf",
+    "tata_clutch_reckoner": "https://3.imimg.com/data3/PU/CD/MY-6342005/tata-genuine-clutche.pdf",
+    "valeo_clutch_catalogue": "https://ammanauto.co.in/assets/BROUCHER/OEM/Valeo_Clutch.pdf",
+    "setco_brake_disc_catalogue": "https://setcoauto.com/product/brake-disc/",
+    "brakes_india_2021_list": "https://www.scribd.com/document/646283379/BIPL-30th-LP-List-Wef-16-11-2021",
+    "tvs_girling_index": "https://ashvinautoparts.com/tvs-girling/",
+    "mark1_29932512": "https://mark1india.com/products/29932512-tvsbrakepad",
+    "unominda_npd": "https://unomindakart.com/catalog/open/26/NPD%20Catalogue%20-%204W%20-%20FY%202024.pdf",
+    "tata_edukaan_brakes": "https://newui.edukaan.tatamotors/spare-parts/brakes/all",
+    "tata_edukaan_service_kit": "https://edukaan.cv.tatamotors/service-kit",
+    "tata_edukaan_fuel_filter": "https://newui.edukaan.tatamotors/spare-parts/filter/fuel-filter-tata",
+    "anupam_catalogue": "https://www.anupamind.com/Combination%20Switches%20and%20Spares.html",
+    "anupam_mrp": "https://www.anupamind.com/Anupam%20MRP%20list%2001.07.22.pdf"
+  },
+  "records": [
+    {
+      "id": "SVKS000030",
+      "brand": "Roots",
+      "part_number": "12V/VSU0128",
+      "product_name": "Vibrosonic Horn 12V",
+      "kind": "manufacturer family reference",
+      "note": "Manufacturer family application reference (Roots Automotives, Vibrosonic horn family): Roots describes Vibrosonic as a universal-fit electric horn suitable for trucks, cars, jeeps and tractors, and lists the family across several voltage options including 12 V. This supports the broad horn-family use for this 12 V SKU, but the public family page does not individually identify stock code 12V/VSU0128. Confirm the stamped model, voltage, current draw, connector and mounting before supply. Sources: https://www.rootsautomotives.com/ ; https://www.rootsautomotives.com/wp-content/uploads/2022/02/ELECTRIC-HORNS-AUTOMOTIVE-PRODUCTS.pdf"
+    },
+    {
+      "id": "SVKS000031",
+      "brand": "Roots",
+      "part_number": "12V/WNUO12S",
+      "product_name": "Wind Tone Horn",
+      "kind": "manufacturer scope limitation",
+      "note": "Manufacturer family scope qualification (Roots Automotives, WindTone air-horn family): the official WindTone family page describes application for cars, jeeps, SUVs and two-wheelers; it does not state truck/commercial-vehicle coverage for this family. The current Universal tag must not be interpreted as universal commercial-vehicle fitment. The page does not individually identify stock code 12V/WNUO12S; verify the product marking, voltage, mounting and compressor/air connection before supply. Source: https://www.rootsautomotives.com/air-horns/"
+    },
+    {
+      "id": "SVKS000065",
+      "brand": "Roots",
+      "part_number": "24V/VSU024H",
+      "product_name": "Vibrosonic Horn",
+      "kind": "manufacturer family reference",
+      "note": "Manufacturer family application reference (Roots Automotives, Vibrosonic horn family): Roots lists Vibrosonic horns for trucks and documents 24 V within the family voltage range. This is consistent with a 24 V truck-horn use for the product family, but the public page does not independently certify the exact vehicle models Tata LPT, Tata Signa or Ashok Leyland 2516 for stock code 24V/VSU024H. Verify the stamped model, current draw, connector, relay and mounting before supply. Sources: https://www.rootsautomotives.com/ ; https://www.rootsautomotives.com/wp-content/uploads/2022/02/ELECTRIC-HORNS-AUTOMOTIVE-PRODUCTS.pdf"
+    },
+    {
+      "id": "SVKS000094",
+      "brand": "Tata Genuine Parts",
+      "part_number": "272425000134",
+      "product_name": "Assy. Clutch Disc and Cover 200",
+      "kind": "exact part conflict / provenance",
+      "note": "Independent Tata-parts catalogue cross-check (Tata Genuine Clutch Reckoner, printed pp. 4–5, exact reference 272425000134): the table identifies this as a 200 mm clutch cover/disc set for Super Ace/Venture (475/1.4L), not the currently tagged Ace/Magic application. This agrees with the product's existing conflict qualification; do not confirm Ace/Magic fitment from the present source. The accessible catalogue copy is hosted by an image/PDF reseller, not a Tata-controlled domain. Verify VIN, gearbox, kit contents and the genuine pack marking before sale. Source: https://3.imimg.com/data3/PU/CD/MY-6342005/tata-genuine-clutche.pdf"
+    },
+    {
+      "id": "SVKS000096",
+      "brand": "Tata Genuine Parts",
+      "part_number": "272425000235",
+      "product_name": "Clutch Disc Assy. (Dia 275) BS6",
+      "kind": "exact OE cross-reference / title conflict",
+      "note": "Manufacturer clutch-catalogue cross-reference (Valeo Clutches 2024, exact Tata OE reference 272425000235): Valeo lists this reference as a clutch-kit reference for Tata Intra V30 1.5 L diesel from 2020, 215 mm, alongside disc 272425200235 and cover 272425400235 (Valeo application 843662). This source does not support the Souviks title “Dia 275” or identify 272425000235 as a standalone disc. Confirm package contents and physical diameter; correct title/description only after pack verification. Source: https://ammanauto.co.in/assets/BROUCHER/OEM/Valeo_Clutch.pdf"
+    },
+    {
+      "id": "SVKS000097",
+      "brand": "Tata Genuine Parts",
+      "part_number": "272425200235",
+      "product_name": "Clutch Disc Dia 215 BS6",
+      "kind": "exact OE application reference",
+      "note": "Manufacturer clutch-catalogue evidence (Valeo Clutches 2024, exact Tata OE disc reference 272425200235): listed for Tata Intra V30 1.5 L diesel from 2020, 215 mm clutch disc, in Valeo application 843662. Match the gearbox, disc diameter, spline and pack marking before supply. Source: https://ammanauto.co.in/assets/BROUCHER/OEM/Valeo_Clutch.pdf"
+    },
+    {
+      "id": "SVKS000098",
+      "brand": "Tata Genuine Parts",
+      "part_number": "272425400235",
+      "product_name": "Clutch Cover Assy. Dia 215 BS6",
+      "kind": "exact OE application reference",
+      "note": "Manufacturer clutch-catalogue evidence (Valeo Clutches 2024, exact Tata OE cover reference 272425400235): listed for Tata Intra V30 1.5 L diesel from 2020, 215 mm clutch cover, in Valeo application 843662. Match the flywheel/bolt pattern, cover height, release system and pack marking before supply. Source: https://ammanauto.co.in/assets/BROUCHER/OEM/Valeo_Clutch.pdf"
+    },
+    {
+      "id": "SVKS000108",
+      "brand": "Tata Genuine Parts",
+      "part_number": "281842103701",
+      "product_name": "Front Brake Disc BS4",
+      "kind": "exact OE application with variant qualification",
+      "note": "Manufacturer brake-disc catalogue reconciliation (Setco Auto Systems, exact Tata OE reference 281842103701 / Setco SBDR-2705): the listed front ventilated-disc applications are Super Ace, Ace Venture and Intra V10/V20. This source does not prove fitment to every Tata Ace or every Intra generation/variant. The existing Ace/Intra family tags remain broader than the model list in this catalogue; verify vehicle variant, disc dimensions, hub offset and mounting before supply. Source: https://setcoauto.com/product/brake-disc/"
+    },
+    {
+      "id": "SVKS000110",
+      "brand": "TVS Girling",
+      "part_number": "29390067",
+      "product_name": "Rotor",
+      "kind": "exact part number conflict",
+      "note": "Part-number conflict cross-check (Brakes India 30th price list, effective 16-Nov-2021, exact code 29390067): the indexed price list places this rotor in the Maruti/Suzuki application segment, not Tata Ace. A separate TVS Girling part-number index identifies 29390069—not 29390067—for Tata Ace/Magic. The current Tata Ace mapping for 29390067 is therefore not supported by these cross-references; verify the physical rotor marking, diameter, thickness, offset and caliper before confirming fitment. Sources: https://www.scribd.com/document/646283379/BIPL-30th-LP-List-Wef-16-11-2021 ; https://ashvinautoparts.com/tvs-girling/"
+    },
+    {
+      "id": "SVKS000111",
+      "brand": "Tata Genuine Parts",
+      "part_number": "282942103701",
+      "product_name": "Ventilated Brake Disc 17",
+      "kind": "exact OE application conflict",
+      "note": "Manufacturer brake-disc catalogue reconciliation (Setco Auto Systems, exact Tata reference 282942103701 / Setco SBDR-2704): the listed front ventilated-disc application is Tata ACE/MAGIC. The catalogue does not list Tata Intra for this reference. The current Tata Intra vehicle tag is unsupported by this source; verify OE marking, disc dimensions, hub offset and caliper before publishing Intra fitment. Source: https://setcoauto.com/product/brake-disc/"
+    },
+    {
+      "id": "SVKS000120",
+      "brand": "TVS Girling",
+      "part_number": "29932512",
+      "product_name": "Kit Pad Assy.",
+      "kind": "secondary exact-code conflict",
+      "note": "Independent exact-code brake-pad cross-reference (Mark1 listing for TVS Girling 29932512): the listing identifies this kit for Mahindra Maxximo Pickup, not Tata Ace; other reseller cross-references also report Jeeto/Jeeto Mini Van. These are secondary listings, not a TVS-controlled catalogue, but they conflict with the current Tata Ace tag. Do not confirm Tata Ace fitment until the pad shape, caliper and stamped part number are checked against an OE or TVS source. Source: https://mark1india.com/products/29932512-tvsbrakepad"
+    },
+    {
+      "id": "SVKS000121",
+      "brand": "TVS Girling",
+      "part_number": "29932629",
+      "product_name": "Kit Pad Assy.",
+      "kind": "exact-code cross-reference",
+      "note": "Independent exact-code application cross-check (TVS Girling part-number index, code 29932629): the index lists this pad kit for TML ACE / ACE MAGIC. This supports the current Tata Ace family application and adds Ace Magic at index level; confirm caliper, pad outline, wear-sensor provision and model-year before supply. Source: https://ashvinautoparts.com/tvs-girling/"
+    },
+    {
+      "id": "SVKS000122",
+      "brand": "TVS Girling",
+      "part_number": "29933025",
+      "product_name": "Kit Pad Assy.",
+      "kind": "exact-code conflict",
+      "note": "Independent exact-code brake-pad cross-reference (TVS Girling part-number index, code 29933025): the index lists the pad kit for Mahindra Bolero, Sumo, 207DI and Tata Intra V30, not Tata Ace. The current Tata Ace tag is not supported by this source. Verify the physical pad marking, caliper, pad outline and vehicle variant before confirming fitment. Source: https://ashvinautoparts.com/tvs-girling/"
+    },
+    {
+      "id": "SVKS000148",
+      "brand": "Tata Genuine Parts",
+      "part_number": "571018130104",
+      "product_name": "Assy. Oil Filter (Spinon)",
+      "kind": "exact OE application with variant qualification",
+      "note": "Supplier-catalogue provenance (Uno Minda NPD Catalogue, June 2024, exact Tata OE reference 571018130104): listed as OF4241SP for TATA ACE DCOR / ACE DECOR. This source does not list Tata Magic or every Ace engine variant; keep Magic fitment unconfirmed until a separate OE cross-reference is obtained. Match filter thread, gasket, height and engine variant before supply. Source: https://unomindakart.com/catalog/open/26/NPD%20Catalogue%20-%204W%20-%20FY%202024.pdf"
+    },
+    {
+      "id": "SVKS000181",
+      "brand": "Tata Genuine Parts",
+      "part_number": "885425102829",
+      "product_name": "Kit - CL/PR Plate TATA Ace w/BRG",
+      "kind": "OEM retail catalogue reference",
+      "note": "Tata e-Dukaan exact-reference cross-check (Tata Motors Service Kit catalogue, part 885425102829): listed as “Kit-CL/PR Plate Tata Ace w/BRG”. This supports a Tata Ace clutch/pressure-plate kit with bearing as the catalogue describes; confirm the actual supplied pack contents and vehicle variant before treating the existing Magic tag as independently proven. Source: https://edukaan.cv.tatamotors/service-kit"
+    },
+    {
+      "id": "SVKS000183",
+      "brand": "Tata Genuine Parts",
+      "part_number": "885499102829",
+      "product_name": "Kit - Oil & Fuel Filter ACE",
+      "kind": "OEM retail catalogue reference with vehicle-scope limitation",
+      "note": "Tata e-Dukaan exact-reference reconciliation (Tata Motors Service Kit catalogue, part 885499102829): listed as “Kit-Oil & Fuel Filter Elements (ACE)”. This confirms the ACE service-kit application, but the listing does not name Tata Magic; the existing Magic tag remains unconfirmed by this source. Match filter elements, engine and chassis variant before supply. Sources: https://edukaan.cv.tatamotors/service-kit ; https://newui.edukaan.tatamotors/spare-parts/filter/fuel-filter-tata"
+    },
+    {
+      "id": "SVKS000191",
+      "brand": "Tata Genuine Parts",
+      "part_number": "886742000003",
+      "product_name": "Front Brake Pad ACE",
+      "kind": "OEM retail catalogue reference",
+      "note": "Tata e-Dukaan exact-reference cross-check (Brakes / Linings catalogue, part 886742000003): listed as “Front Brake Pad-ACE”. This supports Tata Ace front-brake application but does not define every Ace generation or caliper. Verify disc/caliper version, pad outline and model year before supply. Source: https://newui.edukaan.tatamotors/spare-parts/brakes/all"
+    },
+    {
+      "id": "SVKS000222",
+      "brand": "Anupam",
+      "part_number": "AI 487",
+      "product_name": "Combination Switch Eicher",
+      "kind": "manufacturer exact-code fitment limitation",
+      "note": "Manufacturer-source link and fitment limitation (Anupam Industries, exact code AI-487): the Combination Switches catalogue identifies AI-487 as suitable for Eicher Canter and specifies a 10+7+12 coupler with 9+6+11 cable configuration; the 1-Jul-2022 Anupam MRP list is an additional supplier reference. Neither source identifies Eicher 1110 for AI-487, so the current Eicher 1110 vehicle tag must remain unconfirmed until connector/vehicle cross-reference is obtained. Match coupler, cable pinout and switch functions before supply. Sources: https://www.anupamind.com/Combination%20Switches%20and%20Spares.html ; https://www.anupamind.com/Anupam%20MRP%20list%2001.07.22.pdf"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-11-08",
+  "scope": "Tata OE manual, clutch and e-Dukaan exact-reference notes; applications arrays only.",
+  "source_urls": {
+    "tata_magic_ace_parts_manual": "https://www.pssao.com/catlog/tm/ace.pdf",
+    "tata_genuine_clutch_reckoner": "https://3.imimg.com/data3/PU/CD/MY-6342005/tata-genuine-clutche.pdf",
+    "tata_edukaan_brakes": "https://edukaan.cv.tatamotors/spare-parts/brakes/linings",
+    "tata_sumogold_contract": "https://portal.mcgm.gov.in/irj/go/km/docs/documents/Tenders/ETH/ETH_7000023382_041022.pdf",
+    "tata_xenon_parts_manual": "https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/XENON-RX.pdf"
+  },
+  "records": [
+    {
+      "id": "SVKS000105",
+      "part": "279001107802",
+      "name": "Oil Seal (Crank Shaft Rear) BS 1/2/3/4/6",
+      "kind": "OEM parts-manual exact-variant scope",
+      "note": "Tata Motors Commercial Vehicle parts-manual evidence (MAGIC 7S 275 CNG BS-IV, vehicle code 55233320000R, Group 00 Engine / Cylinder Crankcase; exact part 279001107802): listed as “OIL SEAL (CRANKSHAFT REAR) BS1/2/3/4/6”. This proves the part description in the specified Magic 7S CNG engine catalogue; it does not confirm the current Tata Ace mapping or every Ace/Magic engine variant. Verify engine family, seal dimensions and crankcase revision before supply. Source: https://www.pssao.com/catlog/tm/ace.pdf"
+    },
+    {
+      "id": "SVKS000109",
+      "part": "282933103702",
+      "name": "Front Hub BS 2/3/4",
+      "kind": "OEM parts-manual exact-variant scope",
+      "note": "Tata Motors Commercial Vehicle parts-manual evidence (MAGIC 7S 275 CNG BS-IV, vehicle code 55233320000R, Group 33 Front Axle; exact part 282933103702): listed as “FRONT HUB BS2/3/4”. The source is specific to this Magic 7S CNG configuration; it does not independently verify the current Tata Ace or Tata Intra tags. Match hub offset, bearing seats, stud pattern and brake-disc interface before supply. Source: https://www.pssao.com/catlog/tm/ace.pdf"
+    },
+    {
+      "id": "SVKS000180",
+      "part": "885425092829",
+      "name": "Set of 3 (CP + PR + CRB) 190 Dia",
+      "kind": "OEM clutch kit application with vehicle-scope qualification",
+      "note": "Tata Genuine Clutch Reckoner cross-reference (published 31-Mar-2022, p. 4; exact part 885425092829): listed as a 190 mm clutch set for Mega/Magic and includes clutch plate, pressure plate and clutch release bearing as reflected by the source kit description. This supports a Magic application in the stated family; the Ace tag is not separately established by that row. Confirm the clutch diameter, spline, flywheel and release-bearing components against the engine/gearbox before supply. Source: https://3.imimg.com/data3/PU/CD/MY-6342005/tata-genuine-clutche.pdf"
+    },
+    {
+      "id": "SVKS000820",
+      "part": "265433407801",
+      "name": "Oil   Seal",
+      "kind": "OEM/municipal parts cross-reference conflict",
+      "note": "Tata vehicle-parts cross-check (exact oil-seal reference 265433407801): the Tata Sumo Gold rate-contract document identifies this as “OIL SEAL TATA SUMO GOLD”; Tata Xenon P/Up 4SPTC EII front-axle parts list also includes 265433407801 as an oil seal. These references support Sumo Gold and a Xenon 4SPTC EII front-axle context, not the current Tata 2416/LPT vehicle tags. Confirm axle design, seal dimensions and physical marking before assigning truck fitment. Sources: https://portal.mcgm.gov.in/irj/go/km/docs/documents/Tenders/ETH/ETH_7000023382_041022.pdf ; https://www.tatamotors.co.id/old/wp-content/uploads/2017/03/XENON-RX.pdf"
+    },
+    {
+      "id": "SVKS000823",
+      "part": "885442071618",
+      "name": "Brk   Lng Std. RR - 4 pcs W/Rvt 410X 180 Cargo",
+      "kind": "OEM part description and dimensional application",
+      "note": "Tata e-Dukaan exact-reference confirmation (Brakes / Linings catalogue, part 885442071618): listed as “BRK LNG STD RR-4 PCS W/RVT 410X180 CARGO”. This confirms the Cargo rear lining description, four-piece riveted set and nominal 410 × 180 mm size. The listing does not identify a chassis model, so model-level fitment remains unconfirmed; match drum/shoe dimensions, lining arc and rivet pattern before supply. Source: https://edukaan.cv.tatamotors/spare-parts/brakes/linings"
+    }
+  ]
+}
