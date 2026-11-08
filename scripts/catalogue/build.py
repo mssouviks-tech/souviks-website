@@ -2450,7 +2450,7 @@ def reconcile_catalogue_projections():
                 count=1,
                 flags=re.I | re.S,
             )
-# Refresh the public Applications summary and full list from the canonical catalogue.
+            # Refresh the public Applications summary and full list from the canonical catalogue.
             # Keep the metadata row concise; all application notes remain available in the detail card.
             applications = arr(product.get("applications"))
             application_fallback = {
@@ -2531,7 +2531,7 @@ def reconcile_catalogue_projections():
             else:
                 raise SystemExit(f"Multiple public Applications lists found in {path}")
 
-                        html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title_text}</title>", html, count=1, flags=re.I)
+            html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title_text}</title>", html, count=1, flags=re.I)
             # Replace the entire tag so legacy trailing fragments from malformed quoted titles are removed.
             html = re.sub(
                 r'<meta\b(?=[^>]*\bproperty=["\']og:title["\'])[^>]*>',
