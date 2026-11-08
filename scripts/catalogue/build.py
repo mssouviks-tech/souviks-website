@@ -1683,7 +1683,7 @@ def reconcile_catalogue_projections():
             page = replace_row_value(page, ("Brand", "ब्रांड", "ব্র্যান্ড"), brand or "—")
             page = replace_row_value(page, ("Category", "श्रेणी", "विभाग", "বিভাগ", "ক্যাটাগরি"), category or "—")
             page = replace_row_value(page, ("Sub Category", "Subcategory", "उपश्रेणी", "उप-विभाग", "উপ-বিভাগ", "উপবিভাগ"), subcategory or "—")
-            page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "অ্যাপ্লিকেশন"), ", ".join(applications) if applications else "Confirm by part number")
+            page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "অ্যাপ্লিকেশন"), ", ".join(applications[:2]) if applications else "Confirm by part number")
             page = replace_row_value(page, ("Compatible Vehicles", "संगत वाहन", "उपयुक्त वाहन", "সামঞ্জস্যপূর্ণ গাড়ি", "উপযুক্ত গাড়ি"), ", ".join(vehicles) if vehicles else "Confirm vehicle application")
 
             # Replace the visible price values in MRP-then-selling-price order.
@@ -1721,7 +1721,7 @@ def reconcile_catalogue_projections():
                 f"<li>{html_module.escape(item, quote=False)}</li>" for item in applications
             ) or "<li>Confirm by part number</li>"
             page = re.sub(
-                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*(?:Applications|अनुप्रयोग|অ্যাপ্লিকেশন)\s*</h3>\s*<ul>).*?(</ul>)',
+                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ)\s*</h3>\s*<ul>).*?(</ul>)',
                 lambda match: match.group(1) + application_items + match.group(2),
                 page,
                 count=1,
@@ -2283,7 +2283,7 @@ def reconcile_catalogue_projections():
                     '</div></div></section>'
                 )
                 description_section_pattern = re.compile(
-                    r'(<section\b[^>]*id=["\\']description-section["\\'][^>]*>.*?</section>)',
+                    r"(<section\\b[^>]*id=\\"description-section\\"[^>]*>.*?</section>)",
                     flags=re.I | re.S,
                 )
                 if description_section_pattern.search(html):
@@ -2294,7 +2294,7 @@ def reconcile_catalogue_projections():
                     )
                 else:
                     vehicles_section_pattern = re.compile(
-                        r'(<section\b[^>]*id=["\\']vehicles-section["\\'])',
+                        r"(<section\\b[^>]*id=\\"vehicles-section\\")",
                         flags=re.I,
                     )
                     if not vehicles_section_pattern.search(html):
