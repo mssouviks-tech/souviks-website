@@ -28,6 +28,21 @@ const ProductCard = {
         const sellingNumber = Number(product?.selling_price);
         const hasMrp = Number.isFinite(mrpNumber) && mrpNumber > 0;
         const language = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+        const priorPriceLabel = language === "hi"
+            ? "पिछले 30 दिनों का सबसे कम दर्ज मूल्य:"
+            : language === "bn"
+                ? "গত ৩০ দিনের সর্বনিম্ন নথিভুক্ত মূল্য:"
+                : "Lowest price in last 30 days:";
+        const priorPriceLowerLabel = language === "hi"
+            ? "पिछले 30 दिनों के सबसे कम मूल्य से कम"
+            : language === "bn"
+                ? "গত ৩০ দিনের সর্বনিম্ন মূল্যের চেয়ে কম"
+                : "lower than the lowest price in the last 30 days";
+        const purchasable =
+            Boolean(productId) &&
+            product?.active !== false &&
+            Number.isFinite(sellingNumber) &&
+            sellingNumber > 0;
         const storedMrpDiscount = Number(product?.discount_percent ?? product?.discountPercent);
         const hasMrpDiscount =
             purchasable &&
@@ -51,21 +66,6 @@ const ProductCard = {
             ? '<span class="product-price-discount product-price-mrp-discount">' +
               storedMrpDiscount + "% " + belowMrpLabel + "</span>"
             : "";
-        const priorPriceLabel = language === "hi"
-            ? "पिछले 30 दिनों का सबसे कम दर्ज मूल्य:"
-            : language === "bn"
-                ? "গত ৩০ দিনের সর্বনিম্ন নথিভুক্ত মূল্য:"
-                : "Lowest price in last 30 days:";
-        const priorPriceLowerLabel = language === "hi"
-            ? "पिछले 30 दिनों के सबसे कम मूल्य से कम"
-            : language === "bn"
-                ? "গত ৩০ দিনের সর্বনিম্ন মূল্যের চেয়ে কম"
-                : "lower than the lowest price in the last 30 days";
-        const purchasable =
-            Boolean(productId) &&
-            product?.active !== false &&
-            Number.isFinite(sellingNumber) &&
-            sellingNumber > 0;
         const priorPriceNumber = Number(product?.prior_price_30d);
         const hasPriorPrice =
             Number.isFinite(priorPriceNumber) &&
