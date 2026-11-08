@@ -382,7 +382,7 @@ assert '<s class="product-price-mrp-value">₹100</s>' in mrp_only_card
 assert 'class="product-price-mrp-discount">20% below MRP' in mrp_only_card
 assert "product-price-prior-value" not in mrp_only_card
 
-# A discount badge is allowed only when a verified 30-day prior price exists.
+# A separate 30-day price badge is allowed only with verified prior-price evidence.
 verified_prior_card = product_card_html({
     "id": "TEST-VERIFIED-PRIOR",
     "slug": "test-verified-prior",
