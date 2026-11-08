@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-11-08",
+  "scope": "BGL/Bharat Gears and Tata part-schedule cross-checks. Product applications only; no vehicle mappings changed.",
+  "records": [
+    {
+      "id": "SVKS000234",
+      "part_number": "6984",
+      "name": "L/L 4019 Setco Type (Sensor) 136 Teeth Engine",
+      "kind": "exact manufacturer part description conflicts with current vehicle tags",
+      "note": "Manufacturer/distributor catalogue reconciliation (Bharat Gears Limited, authorised distributor Fair Brother Auto Sales, price effective 15-Jun-2018; separate 15-May-2025 Bharat Gear listing; exact BGL part 6984): the 2025 listing describes “Leyland 4019 Setco Type (sensor) 136 Teeth - Engine”. This supports a specific Leyland 4019 Setco-type 136-tooth flywheel-ring application, not the current Tata LPT, Tata Ultra or Tata Signa tags. Do not confirm those Tata tags from this source; match the 136-tooth count, Setco sensor geometry, flywheel and starter ring before supply. The 2018 BGL price list is a distributor copy and does not list 6984; the 2025 trade-directory listing provides the exact part description. Sources: https://fairbrother.in/pdf/BGL-06-2018.pdf ; https://cdnc.heyzine.com/files/uploaded/1db23b250d584a5aae64dd834ff9ec13bcfe0e50.pdf"
+    },
+    {
+      "id": "SVKS000233",
+      "part_number": "5988",
+      "name": "Fly Wheel Ring Assembly GB 75 (138T)",
+      "kind": "exact component description; vehicle fitment not stated",
+      "note": "Bharat Gears Limited part-description provenance (authorised distributor Fair Brother Auto Sales, price effective 15-Jun-2018; exact BGL part 5988): listed as “Fly Wheel Ring Assy. GB-75 (138T)”. This confirms the GB-75 gearbox/ring-gear description and 138-tooth count, but the source does not state a vehicle make/model. The current Tata LPT tag is not independently proven by this listing; confirm the installed gearbox is GB-75 and check ring-gear tooth count, pitch/mesh and starter configuration before supply. Source: https://fairbrother.in/pdf/BGL-06-2018.pdf"
+    },
+    {
+      "id": "SVKS000188",
+      "part_number": "886720000003",
+      "name": "Assy. Water Pump TATA ACE/Magic",
+      "kind": "third-party Tata Ace parts inventory reference",
+      "note": "Indexed Tata Ace parts-inventory cross-reference (exact reference 886720000003): the listed item is “ASSY WATER PUMP TATA ACE/MAGIC”, matching the product description and current Tata Ace/Magic application. The consulted copy is a third-party inventory list hosted on Scribd, not Tata's authenticated ECATS catalogue; verify the original Tata pack/ECATS record and engine variant before supply. Source: https://www.scribd.com/document/852152507/Ace-Segment-Parts"
+    },
+    {
+      "id": "SVKS001104",
+      "part_number": "KF-6934B",
+      "name": "Front Teeth 20 Spline Bolt Type",
+      "kind": "exact part description; vehicle fitment not stated",
+      "note": "Independent parts-schedule description cross-check (MCGM municipal procurement schedule, exact reference 285126700124): the part is listed as “ASSY. TOP COVER”, consistent with the Souviks top-cover assembly description. The schedule row does not specify a vehicle model, gearbox type or BS variant; it therefore does not verify the current Tata 1109/1210/1312 tags. Confirm gearbox family, selector-shaft arrangement, mounting pattern and exact OE/chassis reference before confirming fitment. Source: https://oswalstorage1.blob.core.windows.net/univomrimg21/JaipurGreaterPDF/PDF/NitTender_jmc07dcgarrage_Tender_13881.pdf"
+    }
+  ]
+}
