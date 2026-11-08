@@ -78,6 +78,7 @@ with tempfile.TemporaryDirectory(prefix="souviks-hsn-") as temp_dir:
         capture_output=True,
         text=True,
     )
+    assert_no_trailing_whitespace(generated)
     with generated.open(encoding="utf-8-sig", newline="") as handle:
         generated_rows = list(csv.DictReader(handle))
 
