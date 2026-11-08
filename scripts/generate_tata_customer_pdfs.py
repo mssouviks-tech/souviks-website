@@ -322,19 +322,46 @@ def make_table(rows, styles, compact=False, with_category=False):
 def build_catalogue(rows, styles, wm, white_logo, path):
     story=[]
     add_cover(story, rows, "TATA VEHICLE PARTS CATALOGUE", "Commercial vehicle components, parts references and applications", styles)
+
     grouped=defaultdict(list)
-    for r in rows: grouped[r["category"]].append(r)
+    for r in rows:
+        grouped[r["category"]].append(r)
+
+    headers = ["PART NUMBER", "PART NAME", "APPLICATIONS", "MRP (INR)", "OUT PRICE (INR)"]
+    data = [[Paragraph(h, styles["tablehead"]) for h in headers]]
+    category_rows = []
     for cat in sorted(grouped, key=str.casefold):
-        header = Table([[Paragraph(escape(cat.upper()), styles["category"]), "","","",""]],
-                       colWidths=[32*mm,55*mm,110*mm,37*mm,37*mm], rowHeights=[9*mm])
-        header.setStyle(TableStyle([
-            ("SPAN",(0,0),(-1,-1)),("BACKGROUND",(0,0),(-1,-1),NAVY),
-            ("LEFTPADDING",(0,0),(-1,-1),7),("VALIGN",(0,0),(-1,-1),"MIDDLE"),
-            ("LINEBELOW",(0,0),(-1,-1),1.2,ORANGE)
-        ]))
-        story.append(header)
-        story.append(make_table(grouped[cat], styles, compact=False))
-        story.append(Spacer(1,5*mm))
+        cat_row = len(data)
+        category_rows.append(cat_row)
+        data.append([Paragraph(escape(cat.upper()), styles["category"]), "", "", "", ""])
+        for r in grouped[cat]:
+            data.append(row_cells(r, styles, compact=False))
+
+    widths = [32*mm, 55*mm, 110*mm, 37*mm, 37*mm]
+    table = LongTable(data, colWidths=widths, repeatRows=1, hAlign="LEFT", splitByRow=1)
+    ts = [
+        ("BACKGROUND",(0,0),(-1,0),NAVY2),
+        ("VALIGN",(0,0),(-1,-1),"TOP"),
+        ("LINEBELOW",(0,1),(-1,-1),0.35,colors.HexColor("#D7DEE6")),
+        ("LINEAFTER",(0,0),(-1,-1),0.25,colors.HexColor("#D7DEE6")),
+        ("LEFTPADDING",(0,0),(-1,-1),4),
+        ("RIGHTPADDING",(0,0),(-1,-1),4),
+        ("TOPPADDING",(0,0),(-1,-1),5),
+        ("BOTTOMPADDING",(0,0),(-1,-1),5),
+    ]
+    for cr in category_rows:
+        ts.extend([
+            ("SPAN",(0,cr),(-1,cr)),
+            ("BACKGROUND",(0,cr),(-1,cr),NAVY),
+            ("LINEBELOW",(0,cr),(-1,cr),1.2,ORANGE),
+            ("LEFTPADDING",(0,cr),(-1,cr),7),
+            ("TOPPADDING",(0,cr),(-1,cr),6),
+            ("BOTTOMPADDING",(0,cr),(-1,cr),6),
+            ("NOSPLIT",(0,cr),(-1,min(cr+1,len(data)-1))),
+        ])
+    table.setStyle(TableStyle(ts))
+    story.append(table)
+
     doc=SimpleDocTemplate(path,pagesize=landscape(A4),rightMargin=13*mm,leftMargin=13*mm,topMargin=22*mm,bottomMargin=16*mm,
                           title="Souviks Tata Vehicle Parts Catalogue",author="Souviks")
     doc.build(story,onFirstPage=lambda c,d: cover_page(c,d,white_logo),onLaterPages=lambda c,d: draw_white_page(c,d,wm))
