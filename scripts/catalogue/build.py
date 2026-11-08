@@ -1683,7 +1683,7 @@ def reconcile_catalogue_projections():
             page = replace_row_value(page, ("Brand", "ब्रांड", "ব্র্যান্ড"), brand or "—")
             page = replace_row_value(page, ("Category", "श्रेणी", "विभाग", "বিভাগ", "ক্যাটাগরি"), category or "—")
             page = replace_row_value(page, ("Sub Category", "Subcategory", "उपश्रेणी", "उप-विभाग", "উপ-বিভাগ", "উপবিভাগ"), subcategory or "—")
-            page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "অ্যাপ্লিকেশন"), ", ".join(applications[:2]) if applications else "Confirm by part number")
+            page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "उपयोग", "অ্যাপ্লিকেশন", "প্রয়োগ"), ", ".join(applications[:2]) if applications else "Confirm by part number")
             page = replace_row_value(page, ("Compatible Vehicles", "संगत वाहन", "उपयुक्त वाहन", "সামঞ্জস্যপূর্ণ গাড়ি", "উপযুক্ত গাড়ি"), ", ".join(vehicles) if vehicles else "Confirm vehicle application")
 
             # Replace the visible price values in MRP-then-selling-price order.
