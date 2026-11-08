@@ -1834,7 +1834,7 @@ def reconcile_catalogue_projections():
             page = replace_row_value(page, ("Brand", "ब्रांड", "ব্র্যান্ড"), brand or "—")
             page = replace_row_value(page, ("Category", "श्रेणी", "विभाग", "বিভাগ", "ক্যাটাগরি"), category or "—")
             page = replace_row_value(page, ("Sub Category", "Subcategory", "उपश्रेणी", "उप-विभाग", "উপ-বিভাগ", "উপবিভাগ"), subcategory or "—")
-            page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "অ্যাপ্লিকেশন"), ", ".join(applications) if applications else "Confirm by part number")
+            page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "उपयोग", "অ্যাপ্লিকেশন", "প্রয়োগ", "ব্যবহার"), ", ".join(applications[:2]) if applications else "Confirm by part number")
             page = replace_row_value(page, ("Compatible Vehicles", "संगत वाहन", "उपयुक्त वाहन", "সামঞ্জস্যপূর্ণ গাড়ি", "উপযুক্ত গাড়ি"), ", ".join(vehicles) if vehicles else "Confirm vehicle application")
 
             # Replace the visible price values in MRP-then-selling-price order.
@@ -1872,7 +1872,7 @@ def reconcile_catalogue_projections():
                 f"<li>{html_module.escape(item, quote=False)}</li>" for item in applications
             ) or "<li>Confirm by part number</li>"
             page = re.sub(
-                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*(?:Applications|अनुप्रयोग|অ্যাপ্লিকেশন)\s*</h3>\s*<ul>).*?(</ul>)',
+                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ|ব্যবহার)\s*</h3>\s*<ul>).*?(</ul>)',
                 lambda match: match.group(1) + application_items + match.group(2),
                 page,
                 count=1,
@@ -2076,6 +2076,7 @@ def reconcile_catalogue_projections():
             data["brand"] = brand
             data["product_name"] = name
             data["name"] = name
+            data["applications"] = arr(product.get("applications"))
     
             data["subcategory_id"] = text(product.get("subcategory_id"))
             data["subcategory_name"] = text(product.get("subcategory_name") or product.get("subcategory"))
@@ -2421,6 +2422,87 @@ def reconcile_catalogue_projections():
                 count=1,
                 flags=re.I | re.S,
             )
+            # Refresh the public Applications summary and full list from the canonical catalogue.
+            # Keep the metadata row concise; all application notes remain available in the detail card.
+            applications = arr(product.get("applications"))
+            application_fallback = {
+                "en": "Confirm by part number",
+                "hi": "पार्ट नंबर से पुष्टि करें",
+                "bn": "পার্ট নম্বর দিয়ে নিশ্চিত করুন",
+            }.get(lang, "Confirm by part number")
+            application_summary = ", ".join(applications[:2]) if applications else application_fallback
+            application_row_pattern = (
+                r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                r'<strong>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ|ব্যবহার)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)'
+            )
+            html, application_row_count = re.subn(
+                application_row_pattern,
+                lambda m: m.group(1) + html_module.escape(application_summary, quote=False) + m.group(3),
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
+            if application_row_count != 1:
+                raise SystemExit(f"Could not update public application summary row in {path}")
+
+            application_items = "".join(
+                f"<li>{html_module.escape(item, quote=False)}</li>" for item in applications
+            ) or f"<li>{html_module.escape(application_fallback, quote=False)}</li>"
+            application_list_pattern = (
+                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*'
+                r'(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ|ব্যবহার)\s*</h3>\s*<ul>)(.*?)(</ul>)'
+            )
+            application_list_matches = list(
+                re.finditer(application_list_pattern, html, flags=re.I | re.S)
+            )
+            if len(application_list_matches) == 1:
+                html = re.sub(
+                    application_list_pattern,
+                    lambda m: m.group(1) + application_items + m.group(3),
+                    html,
+                    count=1,
+                    flags=re.I | re.S,
+                )
+            elif not application_list_matches:
+                # Legacy PDP shells without a dedicated Applications card receive
+                # a customer-facing section rather than silently hiding the notes.
+                application_heading = {
+                    "en": "Applications",
+                    "hi": "उपयोग",
+                    "bn": "প্রয়োগ",
+                }.get(lang, "Applications")
+                application_section = (
+                    '<section id="applications-section" class="pdp-section">'
+                    '<div class="pdp-description-grid"><div class="pdp-description-card">'
+                    f'<h3>{html_module.escape(application_heading, quote=False)}</h3>'
+                    f'<ul>{application_items}</ul>'
+                    '</div></div></section>'
+                )
+                description_section_pattern = re.compile(
+                    r"(<section\b[^>]*id=['\"]description-section['\"][^>]*>.*?</section>)",
+                    flags=re.I | re.S,
+                )
+                if description_section_pattern.search(html):
+                    html = description_section_pattern.sub(
+                        lambda m: m.group(1) + application_section,
+                        html,
+                        count=1,
+                    )
+                else:
+                    vehicles_section_pattern = re.compile(
+                        r"(<section\b[^>]*id=['\"]vehicles-section['\"])",
+                        flags=re.I,
+                    )
+                    if not vehicles_section_pattern.search(html):
+                        raise SystemExit(f"Could not place the public Applications section in {path}")
+                    html = vehicles_section_pattern.sub(
+                        application_section + r"\1",
+                        html,
+                        count=1,
+                    )
+            else:
+                raise SystemExit(f"Multiple public Applications lists found in {path}")
+
             html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title_text}</title>", html, count=1, flags=re.I)
             # Replace the entire tag so legacy trailing fragments from malformed quoted titles are removed.
             html = re.sub(
