@@ -1683,7 +1683,7 @@ def reconcile_catalogue_projections():
             page = replace_row_value(page, ("Brand", "ब्रांड", "ব্র্যান্ড"), brand or "—")
             page = replace_row_value(page, ("Category", "श्रेणी", "विभाग", "বিভাগ", "ক্যাটাগরি"), category or "—")
             page = replace_row_value(page, ("Sub Category", "Subcategory", "उपश्रेणी", "उप-विभाग", "উপ-বিভাগ", "উপবিভাগ"), subcategory or "—")
-            page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "उपयोग", "অ্যাপ্লিকেশন", "প্রয়োগ"), ", ".join(applications[:2]) if applications else "Confirm by part number")
+            page = replace_row_value(page, ("Applications", "अनुप्रयोग", "एप्लिकेशन", "उपयोग", "অ্যাপ্লিকেশন", "প্রয়োগ", "ব্যবহার"), ", ".join(applications[:2]) if applications else "Confirm by part number")
             page = replace_row_value(page, ("Compatible Vehicles", "संगत वाहन", "उपयुक्त वाहन", "সামঞ্জস্যপূর্ণ গাড়ি", "উপযুক্ত গাড়ি"), ", ".join(vehicles) if vehicles else "Confirm vehicle application")
 
             # Replace the visible price values in MRP-then-selling-price order.
@@ -1721,7 +1721,7 @@ def reconcile_catalogue_projections():
                 f"<li>{html_module.escape(item, quote=False)}</li>" for item in applications
             ) or "<li>Confirm by part number</li>"
             page = re.sub(
-                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ)\s*</h3>\s*<ul>).*?(</ul>)',
+                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ|ব্যবহার)\s*</h3>\s*<ul>).*?(</ul>)',
                 lambda match: match.group(1) + application_items + match.group(2),
                 page,
                 count=1,
@@ -2236,7 +2236,7 @@ def reconcile_catalogue_projections():
             application_summary = ", ".join(applications[:2]) if applications else application_fallback
             application_row_pattern = (
                 r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
-                r'<strong>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)'
+                r'<strong>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ|ব্যবহার)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)'
             )
             html, application_row_count = re.subn(
                 application_row_pattern,
@@ -2253,7 +2253,7 @@ def reconcile_catalogue_projections():
             ) or f"<li>{html_module.escape(application_fallback, quote=False)}</li>"
             application_list_pattern = (
                 r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*'
-                r'(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ)\s*</h3>\s*<ul>)(.*?)(</ul>)'
+                r'(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ|ব্যবহার)\s*</h3>\s*<ul>)(.*?)(</ul>)'
             )
             application_list_matches = list(
                 re.finditer(application_list_pattern, html, flags=re.I | re.S)
