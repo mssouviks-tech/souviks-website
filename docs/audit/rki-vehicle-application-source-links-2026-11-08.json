@@ -1,0 +1,490 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-11-08",
+  "source_catalogue": "RKI Auto Parts Catalogue 2023",
+  "source_url": "https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable",
+  "source_host_note": "The document is an indexed copy hosted on Scribd; it is not an RKI-controlled domain.",
+  "scope": "Add clickable provenance to existing exact-code applications entries. No vehicle tags or product fields are changed.",
+  "records": [
+    {
+      "id": "SVKS000339",
+      "brand": "RKI",
+      "part_number": "RK103",
+      "printed_page": "1",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 1; exact RKI part number RK103): Tata 1210, 608, 609, 807 and 407 N/M rear U.J. cross; RKI specifies a 38 mm cup.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part RK103, printed page 1): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000340",
+      "brand": "RKI",
+      "part_number": "RK105",
+      "printed_page": "1",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 1; exact RKI part number RK105): Tata 1613 Turbo and 2515 HYWA RSB-shaft U.J. cross, single-roller type, 42×129 mm.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part RK105, printed page 1): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000772",
+      "brand": "RKI",
+      "part_number": "K146",
+      "printed_page": "60",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 60; exact RKI part number K146): Leyland / Tata heavy-vehicle rear-teeth application; RKI catalogue identifies Tata 1616, LPT 1613, Leyland 3516 / 3014 / 4018, LPS 3015 and 1210 series. Confirm the matching spline and driveline assembly.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K146, printed page 60): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000773",
+      "brand": "RKI",
+      "part_number": "K14B",
+      "printed_page": "77",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14B): Tata 2515 TC, Leyland 2516 and Leyland Tusker Long interaxle cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K14B, printed page 77): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000774",
+      "brand": "RKI",
+      "part_number": "K14C",
+      "printed_page": "77",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14C): Tata 2518, LPO 1616, bus 1625, LPO 1628 and LPO 2521 cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K14C, printed page 77): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000775",
+      "brand": "RKI",
+      "part_number": "K14D",
+      "printed_page": "77",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14D): Tata 4018 cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K14D, printed page 77): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000776",
+      "brand": "RKI",
+      "part_number": "K14EX",
+      "printed_page": "77",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14EX): Tata 2515 EX, Big Nut cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K14EX, printed page 77): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000777",
+      "brand": "RKI",
+      "part_number": "K14FX",
+      "printed_page": "77",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 77; exact RKI part number K14FX): Tata 2515 EX, LPT 1510 and 1613, Big Nut cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K14FX, printed page 77): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000778",
+      "brand": "RKI",
+      "part_number": "K260",
+      "printed_page": "70",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 70; exact RKI part number K260): Tata LP 1512, 2515 EX and LPT 1613 half-yoke application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K260, printed page 70): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000779",
+      "brand": "RKI",
+      "part_number": "K261",
+      "printed_page": "70",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 70; exact RKI part number K261): Tata 2518, LPT 1613 / 1615, SK 1613, LPK 1518 / 1616 / 1618 half-yoke application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K261, printed page 70): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000780",
+      "brand": "RKI",
+      "part_number": "K262",
+      "printed_page": "70",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 70; exact RKI part number K262): RSB 4018 / 490-series half-yoke application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K262, printed page 70): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000781",
+      "brand": "RKI",
+      "part_number": "K295",
+      "printed_page": "81",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 81; exact RKI part number K295): Tata 3118 / 1618 / 2518 / 2521, AMW 2518, Leyland 2516 / 4921, Tata 3121 and MAN 25T cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K295, printed page 81): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000782",
+      "brand": "RKI",
+      "part_number": "K298",
+      "printed_page": "81",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 81; exact RKI part number K298): Tata 2518 N/M, RSB big-type cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K298, printed page 81): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000783",
+      "brand": "RKI",
+      "part_number": "K329A",
+      "printed_page": "82",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 82; exact RKI part number K329A): RSB 325 cross-holder for Tata LPO 1616, SE 1613, 2515 EX and LPT 1510; 42×119 mm, 4-hole plate.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K329A, printed page 82): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000784",
+      "brand": "RKI",
+      "part_number": "K335A",
+      "printed_page": "82",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 82; exact RKI part number K335A): Tata 1109 cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K335A, printed page 82): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000785",
+      "brand": "RKI",
+      "part_number": "K368",
+      "printed_page": "83",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K368): Leyland 2516 RSB 403 cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K368, printed page 83): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000786",
+      "brand": "RKI",
+      "part_number": "K370",
+      "printed_page": "83",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K370): Tata 2518 cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K370, printed page 83): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000787",
+      "brand": "RKI",
+      "part_number": "K371",
+      "printed_page": "83",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K371): Tata 4018 and Leyland 4921 RSB 490 cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K371, printed page 83): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000788",
+      "brand": "RKI",
+      "part_number": "K372",
+      "printed_page": "83",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K372): Tata 4018, LPS 4923 and Leyland 4921 RSB 490 cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K372, printed page 83): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000789",
+      "brand": "RKI",
+      "part_number": "K373",
+      "printed_page": "83",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K373): Tata 4018 and HYWA cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K373, printed page 83): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000790",
+      "brand": "RKI",
+      "part_number": "K374",
+      "printed_page": "83",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 83; exact RKI part number K374): Tata 2518 cross-holder application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K374, printed page 83): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000908",
+      "brand": "RKI",
+      "part_number": "K185",
+      "printed_page": "69",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 69; exact RKI part number K185): Leyland Tusker 3-inch, Leyland 350 / 370, Bedford, Tata 1510 TC, Tata 1109 BS III and Eicher 20.16 / Terra 16 long-fork application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K185, printed page 69): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000909",
+      "brand": "RKI",
+      "part_number": "K317",
+      "printed_page": "107",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 107; exact RKI part number K317): large Tata 2518 centre / differential flange; 26-spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K317, printed page 107): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000910",
+      "brand": "RKI",
+      "part_number": "K276",
+      "printed_page": "80",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 80; exact RKI part number K276): Tata LPT 2518 N/M RSB type, Tata 697 6×2 BS III and LPT 2516 697 TC/IC BS II 6×2 cross-holder flange-yoke application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K276, printed page 80): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000911",
+      "brand": "RKI",
+      "part_number": "K567",
+      "printed_page": "114",
+      "existing_application_note": "Supplier component evidence (RKI Auto Parts Catalogue 2023, p. 114; exact RKI part number K567): GBS-1150 gear coupling, 26-spline. The source identifies gearbox series GBS-1150 but does not specify a vehicle chassis model.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K567, printed page 114): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000912",
+      "brand": "RKI",
+      "part_number": "K319",
+      "printed_page": "108",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 108; exact RKI part number K319): Tata GBS 75 gear coupling for Tata 2518 / 4018; 26-spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K319, printed page 108): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000913",
+      "brand": "RKI",
+      "part_number": "K331",
+      "printed_page": "82",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 82; exact RKI part number K331): Tata 4018 centre-coupling flange application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K331, printed page 82): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000921",
+      "brand": "RKI",
+      "part_number": "K141A",
+      "printed_page": "50",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 50; exact RKI part number K141A): Leyland 2214 (10-spline thick spline) and Tata 2515 EX slip-yoke application; RKI specifies 41.27×126 mm and 16-spline product option.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K141A, printed page 50): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000922",
+      "brand": "RKI",
+      "part_number": "K144",
+      "printed_page": "59",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 59; exact RKI part number K144): Leyland 2214 / 3516 10-inch thin-spline rear-teeth application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K144, printed page 59): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000923",
+      "brand": "RKI",
+      "part_number": "K9A",
+      "printed_page": "58",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 58; exact RKI part number K9A): Tata LPK thin-spline 10-inch driveline application and Tata 2515 EX.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K9A, printed page 58): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000924",
+      "brand": "RKI",
+      "part_number": "K9C",
+      "printed_page": "58",
+      "existing_application_note": "Supplier catalogue status (RKI Auto Parts Catalogue 2023, p. 58; exact RKI part number K9C): RKI Catalogue 2023, p. 58 marks K9C as discontinued and identifies K144 as its replacement. This is a supersession/status note, not a current vehicle-fitment claim.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K9C, printed page 58): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000925",
+      "brand": "RKI",
+      "part_number": "K141",
+      "printed_page": "50",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 50; exact RKI part number K141): Tata 2515 EX / 2516, Leyland 2214 / 2516 / 3516 / 4018 and Eicher Galaxy slip-yoke application; RKI specifies 41.27×126 mm, 30 spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K141, printed page 50): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000926",
+      "brand": "RKI",
+      "part_number": "K310",
+      "printed_page": "53",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 53; exact RKI part number K310): Tata 4018 Patti-type slip-yoke application; RKI also lists Tata 1618 / 3118 / 2521, LPO 3118, LPT 2518 BS III, LPO bus 1625 / 1616 / 1623, Leyland 2516 tipper / 4921 / 3123, AMW 2515 / 2518 and MAN Force 25T New. Confirm the matching shaft length, spline and mating configuration.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K310, printed page 53): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000927",
+      "brand": "RKI",
+      "part_number": "K269A",
+      "printed_page": "52",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 52; exact RKI part number K269A): Tata 1710 series and Leyland 2516 / 2214 interaxle slip-yoke application; 41.27×126 mm, 16-spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K269A, printed page 52): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000928",
+      "brand": "RKI",
+      "part_number": "K270",
+      "printed_page": "62",
+      "existing_application_note": "Supplier catalogue status (RKI Auto Parts Catalogue 2023, p. 62; exact RKI part number K270): RKI Catalogue 2023, p. 62 marks K270 as discontinued and identifies K311 as its replacement. This is a supersession/status note, not a current vehicle-fitment claim.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K270, printed page 62): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000929",
+      "brand": "RKI",
+      "part_number": "K311",
+      "printed_page": "62",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 62; exact RKI part number K311): Tata 3118 / 4018 Extra Long, LPT 2518 BS III / 2521, LPO bus 1623, Leyland 2516 / 4921 / 3116 and AMW 2518 rear-teeth application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K311, printed page 62): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS000930",
+      "brand": "RKI",
+      "part_number": "K652",
+      "printed_page": "118",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 118; exact RKI part number K652): centre-coupling flange for Tata 3718, LPT 2518 / 3118, Signa 4323 and Prima 3525; 26-spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K652, printed page 118): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001080",
+      "brand": "RKI",
+      "part_number": "K21B",
+      "printed_page": "100",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 100; exact RKI part number K21B): Tata 2515 / 3516 differential-coupling conversion, Spicer type, Patti style; confirm mating cross and spline configuration.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K21B, printed page 100): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001081",
+      "brand": "RKI",
+      "part_number": "K22B",
+      "printed_page": "100",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 100; exact RKI part number K22B): Tata 2515 / 3516 differential-coupling conversion, Spicer type, SPL 90 cross, Patti style; confirm mating cross and spline configuration.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K22B, printed page 100): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001082",
+      "brand": "RKI",
+      "part_number": "K313",
+      "printed_page": "106",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 106; exact RKI part number K313): Tata 2518 centre-coupling flange; 34-spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K313, printed page 106): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001083",
+      "brand": "RKI",
+      "part_number": "K313A",
+      "printed_page": "106",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 106; exact RKI part number K313A): Tata 2518 large centre-coupling flange; 34-spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K313A, printed page 106): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001084",
+      "brand": "RKI",
+      "part_number": "K303",
+      "printed_page": "10",
+      "existing_application_note": "Supplier component evidence (RKI Auto Parts Catalogue 2023, p. 10; exact RKI part number K303): complete long-fork / sleeve-bottle set for the RSB 490 series, 48×135 mm cross, 30 splines and 95 mm pipe diameter. The catalogue page does not specify a vehicle chassis model.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K303, printed page 10): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001085",
+      "brand": "RKI",
+      "part_number": "K316",
+      "printed_page": "107",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 107; exact RKI part number K316): small Tata 2518 centre / differential flange; 26-spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K316, printed page 107): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001086",
+      "brand": "RKI",
+      "part_number": "K15",
+      "printed_page": "99",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 99; exact RKI part number K15): Tata 2416 centre-coupling application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K15, printed page 99): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001087",
+      "brand": "RKI",
+      "part_number": "K277",
+      "printed_page": "106",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 106; exact RKI part number K277): centre-coupling application for Tata 2416 N/M and Tata 2515; 26-spline flange.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K277, printed page 106): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001088",
+      "brand": "RKI",
+      "part_number": "K314A",
+      "printed_page": "107",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 107; exact RKI part number K314A): Tata 2515 / 2518 interaxle centre-coupling flange; 34-spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K314A, printed page 107): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001089",
+      "brand": "RKI",
+      "part_number": "K23A",
+      "printed_page": "101",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 101; exact RKI part number K23A): Tata 4018 gear-coupling application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K23A, printed page 101): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001090",
+      "brand": "RKI",
+      "part_number": "K152",
+      "printed_page": "104",
+      "existing_application_note": "Supplier application evidence (RKI Auto Parts Catalogue 2023, p. 104; exact RKI part number K152): Leyland 2214 centre-coupling flange, 34-spline; 175 mm flange, 7-inch diameter.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K152, printed page 104): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001091",
+      "brand": "RKI",
+      "part_number": "K17",
+      "printed_page": "99",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 99; exact RKI part number K17): Tata 1312 gear-coupling application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K17, printed page 99): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001092",
+      "brand": "RKI",
+      "part_number": "K314",
+      "printed_page": "107",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 107; exact RKI part number K314): Leyland 3116 centre-coupling flange; 34-spline.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K314, printed page 107): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001093",
+      "brand": "RKI",
+      "part_number": "K21",
+      "printed_page": "100",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 100; exact RKI part number K21): differential-coupling conversion for Tata 3516 / 2516; 39-spline. Match flange and shaft dimensions before installation.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K21, printed page 100): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001094",
+      "brand": "RKI",
+      "part_number": "K123",
+      "printed_page": "103",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 103; exact RKI part number K123): Tata 1510 TC centre-coupling conversion application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K123, printed page 103): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001095",
+      "brand": "RKI",
+      "part_number": "K183",
+      "printed_page": "90",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 90; exact RKI part number K183): Leyland Tusker 3.5-inch front-teeth application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K183, printed page 90): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001096",
+      "brand": "RKI",
+      "part_number": "K11A",
+      "printed_page": "89",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 89; exact RKI part number K11A): Tata 2518 N/M front-teeth application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K11A, printed page 89): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001097",
+      "brand": "RKI",
+      "part_number": "K10",
+      "printed_page": "89",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 89; exact RKI part number K10): Tata 1312 front-teeth application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K10, printed page 89): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001098",
+      "brand": "RKI",
+      "part_number": "K182",
+      "printed_page": "90",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 90; exact RKI part number K182): Leyland Tusker 3-inch, Leyland 3507 / 370 and Bedford front-teeth application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K182, printed page 90): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001099",
+      "brand": "RKI",
+      "part_number": "K181",
+      "printed_page": "61",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 61; exact RKI part number K181): Leyland Tusker, Leyland 350 / 370, Bedford and Tata 1510 TC rear-teeth application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K181, printed page 61): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001100",
+      "brand": "RKI",
+      "part_number": "K120",
+      "printed_page": "90",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 90; exact RKI part number K120): Tata 1510 TC and Leyland 1613 Turbo heavy-duty front-teeth application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K120, printed page 90): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001101",
+      "brand": "RKI",
+      "part_number": "K268",
+      "printed_page": "37",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 37; exact RKI part number K268): Tata 407 (old-model) yoke-and-teeth set; 16-spline involute, 30×81.8 mm.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K268, printed page 37): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    },
+    {
+      "id": "SVKS001103",
+      "brand": "RKI",
+      "part_number": "K16",
+      "printed_page": "99",
+      "existing_application_note": "Vehicle fitment evidence (RKI Auto Parts Catalogue 2023, p. 99; exact RKI part number K16): Tata 1312 centre-coupling application.",
+      "traceability_note": "Source-link traceability (RKI Auto Parts Catalogue 2023, exact RKI part K16, printed page 99): the linked catalogue copy is the evidence reference for the exact-code application note already recorded in this product's applications. Retain the catalogue's stated vehicle/equipment, spline, series and dimensional limits; do not broaden fitment beyond that entry. This is an indexed catalogue copy hosted on Scribd, not an RKI-controlled domain; verify physical marking and supplier revision before ordering. Source: https://www.scribd.com/document/977511511/Rki-Catalogue-2023-Seachable"
+    }
+  ]
+}
