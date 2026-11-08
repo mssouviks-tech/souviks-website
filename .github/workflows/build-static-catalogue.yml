@@ -152,6 +152,7 @@ jobs:
               "scripts/audit/test_entity_titles.py",
               "scripts/audit/build_hsn_verification_worklist.py",
               "scripts/audit/test_hsn_verification_worklist.py",
+              "scripts/audit/test_application_public_display.py",
               "scripts/js/refactor.py",
               "scripts/js/refresh_versions.py",
           ):
@@ -180,6 +181,7 @@ jobs:
             python3 scripts/audit/test_seo_contract.py
             python3 scripts/audit/test_entity_titles.py
             python3 scripts/audit/test_hsn_verification_worklist.py
+            python3 scripts/audit/test_application_public_display.py
             node scripts/regression/hsn-candidate-overrides.cjs
             node scripts/regression/gst-rate-candidate-contract.cjs
             python3 scripts/audit/test_vehicle_page_layout.py
@@ -246,6 +248,7 @@ jobs:
             python3 scripts/audit/test_seo_contract.py
             python3 scripts/audit/test_entity_titles.py
             python3 scripts/audit/test_hsn_verification_worklist.py
+            python3 scripts/audit/test_application_public_display.py
             node scripts/regression/hsn-candidate-overrides.cjs
             node scripts/regression/gst-rate-candidate-contract.cjs
             python3 scripts/audit/test_vehicle_page_layout.py
