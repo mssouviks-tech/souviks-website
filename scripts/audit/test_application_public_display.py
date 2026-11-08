@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 CATALOGUE_PATH = ROOT / "assets" / "data" / "catalogue-index.json"
-LABELS = r"(?:Applications|अनुप्रयोग|एप्लिकेशन|অ্যাপ্লিকেশন)"
+LABELS = r"(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ)"
 FALLBACKS = {
     "en": "Confirm by part number",
     "hi": "पार्ट नंबर से पुष्टि करें",
@@ -53,7 +53,7 @@ for product in active_products:
 
         page = path.read_text(encoding="utf-8")
         embedded_match = re.search(
-            r"window\\.SOUVIKS_PRODUCT_PAGE_DATA\\s*=\\s*(\\{.*?\\});",
+            r"window\.SOUVIKS_PRODUCT_PAGE_DATA\s*=\s*(\{.*?\});",
             page,
             flags=re.S,
         )
@@ -70,8 +70,8 @@ for product in active_products:
                     stale_embedded.append(f"{label}: embedded applications differ from catalogue")
 
         summary_match = re.search(
-            r"<div\\b[^>]*class=[\"'][^\"']*\\bpdp-row\\b[^\"']*[\"'][^>]*>\\s*"
-            r"<strong>\\s*" + LABELS + r"\\s*</strong>\\s*<span>(.*?)</span>\\s*</div>",
+            r"<div\b[^>]*class=[\"'][^\"']*\bpdp-row\b[^\"']*[\"'][^>]*>\s*"
+            r"<strong>\s*" + LABELS + r"\s*</strong>\s*<span>(.*?)</span>\s*</div>",
             page,
             flags=re.I | re.S,
         )
@@ -85,9 +85,9 @@ for product in active_products:
             missing_summary.append(f"{label}: empty application fallback is missing")
 
         list_match = re.search(
-            r"<div\\s+class=[\"']pdp-description-card[\"']>\\s*<h3>\\s*"
+            r"<div\s+class=[\"']pdp-description-card[\"']>\s*<h3>\s*"
             + LABELS
-            + r"\\s*</h3>\\s*<ul>(.*?)</ul>",
+            + r"\s*</h3>\s*<ul>(.*?)</ul>",
             page,
             flags=re.I | re.S,
         )
