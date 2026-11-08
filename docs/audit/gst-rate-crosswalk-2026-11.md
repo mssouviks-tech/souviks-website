@@ -95,3 +95,20 @@ Primary sources:
 - [Notification No. 9/2025-Integrated Tax (Rate)](https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf)
 - [Ministry of Finance / PIB rate table for heading 8708 and specified tractor exceptions](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48)
 - [Notification No. 02/2026-Central Tax (Rate), 27 October 2026](https://egazette.servantsofknowledge.in/details/in.gazette.central.e.2026-10-27.277454/)
+
+
+## Product-level GST rate assignment — 8 November 2026
+
+The canonical product data and public product projection carry `gst_rate_percent`, the CGST/SGST/IGST split, effective date, source reference and rate basis for all 1,159 catalogue records (1,157 active products). The default rate is **18% total**: 9% CGST + 9% SGST for intra-State supply, or 18% IGST for inter-State supply.
+
+One product has an exact, evidence-backed match to the notified 5% tractor exception:
+
+- **SVKS000429 — Pressure Plate 330 Dia Sonalika 4 Lever**, HSN 87089300: **5%** (2.5% CGST + 2.5% SGST, or 5% IGST), as a tractor clutch-assembly part.
+
+The four HSN 87083000 products previously flagged for tractor-use review are Tata Ace/Tata Intra applications, not agricultural-tractor brake assemblies, so they receive 18%. The **SVKS001121 Power Steering Repair Kit** is also retained at 18%: its available product evidence describes a four-piece ball-pin steering-linkage repair kit; it does not establish an exact match to the narrower 5% notified description “steering wheels and parts thereof for tractor”. Its tax description remains flagged for accountant review.
+
+Bosch tractor starter overrunning-clutch products remain at 18%; their documented function is starter-drive engagement, not the tractor clutch assembly covered by the 8708 93 00 exception.
+
+All existing HSN codes, classification statuses, confidence and supplier/DPIIT evidence remain unchanged. Product rates are populated for catalogue purposes, but accountant approval remains required and `invoice_ready` remains false. This does not activate automated tax invoicing.
+
+The 5% tractor description is based on Notification No. 9/2025-Central Tax (Rate) and Notification No. 9/2025-Integrated Tax (Rate), effective 22 September 2025. The Ministry of Finance / PIB FAQ identifies the operative notification: https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=2168426&lang=2&reg=48. The 5% schedule specifies tractor clutch assemblies and their parts at HSN 8708 93 00: https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf.
