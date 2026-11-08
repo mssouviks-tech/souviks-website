@@ -1013,6 +1013,33 @@ def reconcile_catalogue_projections():
     
         CATALOGUE_PATH.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     
+    # Store the arithmetic difference between MRP and the current selling price
+    # on every canonical record. This field is descriptive catalogue data only;
+    # it is not a historical prior price and must never drive a public discount claim.
+    for product in catalogue:
+        try:
+            mrp_for_comparison = float(product.get("mrp"))
+            selling_for_comparison = float(product.get("selling_price"))
+        except (TypeError, ValueError):
+            mrp_for_comparison = None
+            selling_for_comparison = None
+
+        if (
+            mrp_for_comparison is not None
+            and selling_for_comparison is not None
+            and 0 < selling_for_comparison <= mrp_for_comparison
+            and mrp_for_comparison < float("inf")
+            and selling_for_comparison < float("inf")
+        ):
+            mrp_difference_percent = int(round(
+                (mrp_for_comparison - selling_for_comparison) / mrp_for_comparison * 100
+            ))
+            product["discount_percent"] = mrp_difference_percent
+            product["discountPercent"] = mrp_difference_percent
+        else:
+            product["discount_percent"] = None
+            product["discountPercent"] = None
+
     # Migrate useful metadata that already exists in the legacy product
     # projection into the catalogue master when the master field is blank.
     # This is a one-way normalization step; once populated, the master remains
