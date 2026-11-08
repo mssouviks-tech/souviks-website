@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-11-08",
+  "scope": "Knorr-Bremse and Tata gearbox/e-Dukaan exact part references; applications field only.",
+  "sources": {
+    "knorr_bremse_catalogue": "https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf",
+    "tata_g600_gearbox_guide": "https://www.scribd.com/document/719892707/Tata-Gear-Box-GB600",
+    "tata_edukaan_others": "https://newui.edukaan.tatamotors/spare-parts/others/all"
+  },
+  "records": [
+    {
+      "id": "SVKS001149",
+      "part": "B13TM1000182",
+      "name": "Quick Relay Valve V/M",
+      "kind": "manufacturer exact part and technical application",
+      "note": "Manufacturer-catalogue confirmation (Knorr-Bremse Commercial Vehicle Systems parts catalogue, “Quick Release Valve (QRV)” section; exact Knorr reference K013794 and AM reference B13TM1000182): described as “QUICK RELAY VALVE - V/M”; the section identifies chassis installation and a 10 bar operating-pressure rating, working temperature range −40 °C to 80 °C and integrated silencer. This establishes the component family and specification, not universal chassis fitment. Confirm that the installed pneumatic system uses the V/M QRV, matching ports, valve generation and mounting before supply. Source: https://www.pssao.com/catlog/kb/KNORR-BREMSE%20Catalogue.pdf"
+    },
+    {
+      "id": "SVKS000465",
+      "part": "885426032516",
+      "name": "Detent Kit Minor G600/G750",
+      "kind": "gearbox assembly application; chassis fitment limitation",
+      "note": "Tata gearbox-parts cross-reference (G600/G750 Gearbox Parts and Lubrication Guide, exact Tata Genuine reference 885426032516): identified as “DETENT PIN KIT Minor G600/750”, with detent components listed in the manual. This confirms gearbox-family compatibility, not a vehicle chassis/model by itself; do not treat the existing Tata LPT tag as confirmed from this gearbox reference alone. Match the installed gearbox identification, selector/detent arrangement and kit contents before supply. The indexed copy is hosted on Scribd, not a Tata-controlled domain. Source: https://www.scribd.com/document/719892707/Tata-Gear-Box-GB600"
+    },
+    {
+      "id": "SVKS000468",
+      "part": "886781000067",
+      "name": "Glow Plug ACE BS3/4",
+      "kind": "OEM exact part and variant scope",
+      "note": "Tata e-Dukaan exact-reference confirmation (Others / Parts catalogue, part 886781000067): Tata lists the item as “GLOW PLUG ACE BS3/4”. This supports the Tata Ace BS-III/BS-IV glow-plug description. An alternate-parts cross-reference separately associates the number with Magic HT / Super Ace / Venture BS3/BS4; do not infer those variants as interchangeable from the e-Dukaan listing alone. Confirm engine version, thread reach, voltage/resistance and physical pack/OE marking before supply. Source: https://newui.edukaan.tatamotors/spare-parts/others/all"
+    }
+  ]
+}
