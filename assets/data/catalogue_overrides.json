@@ -2349,6 +2349,66 @@
       "append": [
         "Tata e-Dukaan exact-reference confirmation (Others / Parts catalogue, part 886781000067): Tata lists the item as “GLOW PLUG ACE BS3/4”. This supports the Tata Ace BS-III/BS-IV glow-plug description. An alternate-parts cross-reference separately associates the number with Magic HT / Super Ace / Venture BS3/BS4; do not infer those variants as interchangeable from the e-Dukaan listing alone. Confirm engine version, thread reach, voltage/resistance and physical pack/OE marking before supply. Source: https://newui.edukaan.tatamotors/spare-parts/others/all"
       ]
+    },
+    {
+      "id": "SVKS000577",
+      "append": [
+        "WABCO Customer Centre exact-material reconciliation (300001215): WABCO identifies the item as “Kit: Gasket” with India vehicle applications TATA and Ashok Leyland, for a twin-cylinder 704 cc flange-mounted compressor. This does not by itself validate the Souviks “VE TCL Compressor Repair Kit” title or identify the contents beyond the manufacturer's gasket-kit description. Confirm the supplied kit contents and compressor variant against the WABCO pack before sale. Source: https://www.wabco-customercentre.com/catalog/en/300001215"
+      ]
+    },
+    {
+      "id": "SVKS000578",
+      "append": [
+        "WABCO Customer Centre exact-material reconciliation (300001202): WABCO identifies the item as “Kit: Valve”, with India vehicle application TATA, for a twin-cylinder 704 cc flange-mounted compressor. This is not described by WABCO as a cylinder-head assembly kit. Confirm the physical contents and compressor family against the part marking before treating the Souviks title “Cylinder Head Assembly Repair Kit” as equivalent. Source: https://www.wabco-customercentre.com/catalog/en/300001202"
+      ]
+    },
+    {
+      "id": "SVKS000580",
+      "append": [
+        "WABCO Customer Centre exact-material reconciliation (9121400130): WABCO identifies this reference as a One-Cylinder Compressor-WBR with 318 cm³ swept volume and India vehicle application TATA. This does not establish the Souviks product title “Air Compressor Kit - Prima 3718” as an exact model or service-kit application. The page's page-header compressor context line is inconsistent with its detailed one-cylinder / 318 cm³ specification; use the detailed material-number record and drawing, not the stray page context, and verify the physical configuration before sale. Source: https://www.wabco-customercentre.com/catalog/en_US/9121400130"
+      ]
+    },
+    {
+      "id": "SVKS000581",
+      "append": [
+        "WABCO Customer Centre exact-material record (300001185): WABCO identifies the item as “Kit: Gasket” for India applications Ashok Leyland, Volvo Eicher (VECV) and Swaraj Mazda, for a twin-cylinder 704 cc flange-mounted compressor. The ZF/WABCO CVCS 2023 catalogue separately lists 300001185 in a 160 cc compressor table. These source contexts conflict; do not promote either compressor size to confirmed fitment until the physical material label, compressor model and kit contents are reconciled. The product title “Cylinder Head Assembly Repair Kit” is also not WABCO's description. Source: https://www.wabco-customercentre.com/catalog/en/300001185"
+      ]
+    },
+    {
+      "id": "SVKS000582",
+      "append": [
+        "WABCO Customer Centre exact-material reconciliation (300001215): WABCO describes this material as “Kit: Gasket” for India applications TATA and Ashok Leyland, intended for a twin-cylinder 704 cc flange-mounted compressor. It does not describe a cylinder-head assembly repair kit or list a Tata 4018 model. Confirm the physical kit contents and compressor model before retaining the current “4018 BS II” product title as an exact WABCO application. Source: https://www.wabco-customercentre.com/catalog/en/300001215"
+      ]
+    },
+    {
+      "id": "SVKS000871",
+      "append": [
+        "WABCO Customer Centre exact-material confirmation (300003079): WABCO identifies this as “Kit: Valve” for India vehicle application Ashok Leyland, twin-cylinder 704 cc flange-mounted compressor. This confirms the make/compressor-family scope, not the product's specific model or whether the internal contents match the Souviks “Relay Valve Kit” title. Verify kit contents and compressor type before ordering. Source: https://www.wabco-customercentre.com/catalog/en/300003079"
+      ]
+    },
+    {
+      "id": "SVKS001018",
+      "append": [
+        "WABCO Customer Centre technical confirmation (100251580): manufacturer identifies this as a Spring Brake Actuator type 24/75 for India applications TATA and Ashok Leyland. The record specifies 4.2 bar maximum operating pressure, 57 mm stroke, M22 × 1.5 port, M16 × 1.5 mounting bolts, M14 × 1.50 push-rod thread and 120.6 mm bolt spacing. This confirms the actuator type and make-level scope, not an individual chassis model. Match the complete actuator geometry, boot, clevis and stroke before supply. Source: https://www.wabco-customercentre.com/catalog/en_US/100251580"
+      ]
+    },
+    {
+      "id": "SVKS001019",
+      "append": [
+        "WABCO Customer Centre technical confirmation (100306080): WABCO identifies this as a pressure-reduction Relay Valve with India vehicle application TATA. Technical data includes 13.0 bar maximum operating pressure, two M8 mounting points, M22 × 1.5 ports 1/2 and M16 × 1.5 port 4, with 1:1 regulating ratio. This is Tata make-level application only; confirm porting, mounting and pressure configuration on the installed air-brake system before supply. Source: https://www.wabco-customercentre.com/catalog/en/100306080"
+      ]
+    },
+    {
+      "id": "SVKS001020",
+      "append": [
+        "WABCO Customer Centre exact-material reconciliation (300003086): WABCO describes the reference as “Kit: Valve”, with India applications TATA, Ashok Leyland, Volvo Eicher (VECV) and Swaraj Mazda, for a twin-cylinder 704 cc flange-mounted compressor. This is make/compressor-family evidence only; no individual truck model is listed. The manufacturer's product heading is not “DDU Repair Kit”, so confirm the repair-kit contents and installed DDU valve assembly before ordering. Source: https://www.wabco-customercentre.com/catalog/en_IN/300003086"
+      ]
+    },
+    {
+      "id": "SVKS001022",
+      "append": [
+        "WABCO Customer Centre technical confirmation (9347020150): WABCO identifies this as a Protection Valve with India vehicle application TATA. The record specifies M22 × 1.5 ports and staged opening/charging pressures; it does not name an individual Tata truck model. Confirm circuit layout, pressure settings, port numbering and installed protection-valve generation before supply. Source: https://www.wabco-customercentre.com/catalog/en/9347020150"
+      ]
     }
   ]
 }
