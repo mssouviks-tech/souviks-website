@@ -829,7 +829,6 @@ priceHtml(product) {
         Number.isInteger(storedMrpDiscount) &&
         storedMrpDiscount > 0 &&
         storedMrpDiscount === Math.round((mrp - sellingPrice) / mrp * 100);
-    const belowMrpLabel = languagePlaceholder;
     const hasVerifiedPriorPrice =
         hasSellingPrice &&
         Number.isFinite(priorPrice30d) &&
