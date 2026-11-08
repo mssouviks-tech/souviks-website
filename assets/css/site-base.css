@@ -2842,10 +2842,19 @@ textarea:focus {
 }
 
 .product-card .product-price-prior {
+    display: inline-flex;
     flex-basis: 100%;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 3px 5px;
     color: var(--text-secondary);
     font-size: 10px;
     font-weight: 600;
+}
+
+.product-card .product-price-prior-value {
+    color: var(--text-secondary);
+    text-decoration: line-through;
 }
 
 .product-card .product-price-discount {
@@ -4316,9 +4325,18 @@ body.auth-modal-open {
 }
 
 .pdp-price-prior {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 7px;
     color: var(--text-secondary);
     font-size: .76rem;
     font-weight: 600;
+}
+
+.pdp-price-prior-value {
+    color: var(--text-secondary);
+    text-decoration: line-through;
 }
 
 .pdp-price-selling {

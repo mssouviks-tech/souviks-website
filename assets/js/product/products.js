@@ -816,9 +816,17 @@ priceHtml(product) {
 
     const mrp = Number(product?.mrp);
     const sellingPrice = Number(product?.selling_price);
+    const priorPrice30d = Number(product?.prior_price_30d);
 
     const hasMrp = Number.isFinite(mrp) && mrp >= 0;
     const hasSellingPrice = Number.isFinite(sellingPrice) && sellingPrice >= 0;
+    const hasVerifiedPriorPrice =
+        hasSellingPrice &&
+        Number.isFinite(priorPrice30d) &&
+        priorPrice30d > sellingPrice;
+    const verifiedPriorDiscountPercent = hasVerifiedPriorPrice
+        ? Math.round((priorPrice30d - sellingPrice) / priorPrice30d * 100)
+        : 0;
 
     if (!hasMrp && !hasSellingPrice) {
         return "";
@@ -878,6 +886,29 @@ priceHtml(product) {
             historyLabels.heading + '</h3><dl class="pdp-price-history-list">' + historyRows +
             '</dl><p class="pdp-price-history-note">' + historyLabels.note + '</p></section>'
         : "";
+    const priorPriceLabels = language === "hi"
+        ? {
+            heading: "पिछले 30 दिनों का सबसे कम मूल्य",
+            lower: "पिछले 30 दिनों के सबसे कम मूल्य से कम"
+        }
+        : language === "bn"
+            ? {
+                heading: "গত ৩০ দিনের সর্বনিম্ন মূল্য",
+                lower: "গত ৩০ দিনের সর্বনিম্ন মূল্যের চেয়ে কম"
+            }
+            : {
+                heading: "Lowest price in last 30 days",
+                lower: "lower than the lowest price in the last 30 days"
+            };
+    const verifiedPriorPriceHtml = hasVerifiedPriorPrice
+        ? '<div class="pdp-price-prior"><span class="pdp-price-label">' +
+            priorPriceLabels.heading + '</span><s class="pdp-price-prior-value">' +
+            formatPrice(priorPrice30d) + '</s></div>' +
+            (verifiedPriorDiscountPercent > 0
+                ? '<span class="pdp-price-discount">' + verifiedPriorDiscountPercent +
+                    '% ' + priorPriceLabels.lower + '</span>'
+                : '')
+        : "";
 
     return `
         <div class="pdp-pricing" aria-label="Product pricing">
@@ -893,6 +924,7 @@ priceHtml(product) {
                     <span class="pdp-price-value">${formatPrice(sellingPrice)}</span>
                 </div>
             ` : ""}
+            ${verifiedPriorPriceHtml}
             ${priceHistoryHtml}
         </div>
     `;

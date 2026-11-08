@@ -9,10 +9,22 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
+from product_card import product_card_html
 
 EXPECTED = {
+    # Representative product used to catch stale embedded PDP JSON. Its MRP and
+    # selling price are both present in the canonical catalogue and must have a
+    # matching MRP-relative discount_percent after the static build.
+    "SVKS000006": {
+        "mrp": 25,
+        "selling_price": 13,
+        "discount_percent": 48,
+        "part_number": "",
+    },
     "SVKS000111": {
         "mrp": 1490,
         "selling_price": 1400.6,
@@ -189,6 +201,27 @@ products_by_id = {
     if isinstance(product, dict) and product.get("id")
 }
 
+# The catalogue builder must persist the MRP-relative arithmetic on every
+# record with valid positive MRP and selling price. This remains an internal
+# reference field, not a public discount claim.
+for catalogue_product in catalogue:
+    try:
+        mrp_value = float(catalogue_product.get("mrp"))
+        selling_value = float(catalogue_product.get("selling_price"))
+    except (TypeError, ValueError):
+        continue
+    if not (0 < selling_value <= mrp_value and mrp_value < float("inf")):
+        continue
+    expected_discount = int(round((mrp_value - selling_value) / mrp_value * 100))
+    actual_discount = catalogue_product.get("discount_percent")
+    assert actual_discount is not None and int(actual_discount) == expected_discount, (
+        f"{catalogue_product.get('id')}: expected stored discount_percent "
+        f"{expected_discount}, got {actual_discount!r}"
+    )
+    assert catalogue_product.get("discountPercent") == expected_discount, (
+        f"{catalogue_product.get('id')}: discountPercent compatibility alias not synchronized"
+    )
+
 for product_id, expected in EXPECTED.items():
     product = products_by_id.get(product_id)
     assert product is not None, f"{product_id}: missing from catalogue-index.json"
@@ -322,5 +355,35 @@ new_slug = EXPECTED["SVKS000975"]["slug"]
 for language in ("en", "hi", "bn"):
     expected_redirect = f"/{language}/products/{old_slug} /{language}/products/{new_slug} 301"
     assert expected_redirect in redirects, f"Missing legacy bearing URL redirect: {expected_redirect}"
+
+# MRP-relative arithmetic is retained as catalogue data, but must not create a
+# public discount claim or strikethrough by itself.
+mrp_only_card = product_card_html({
+    "id": "TEST-MRP-ONLY",
+    "slug": "test-mrp-only",
+    "product_name": "Test part",
+    "brand_name": "Test brand",
+    "mrp": 100,
+    "selling_price": 80,
+    "discount_percent": 20,
+    "prior_price_30d": None,
+}, "en")
+assert "MRP ₹100" in mrp_only_card
+assert "product-price-discount" not in mrp_only_card
+assert "product-price-prior-value" not in mrp_only_card
+
+# A discount badge is allowed only when a verified 30-day prior price exists.
+verified_prior_card = product_card_html({
+    "id": "TEST-VERIFIED-PRIOR",
+    "slug": "test-verified-prior",
+    "product_name": "Test part",
+    "brand_name": "Test brand",
+    "mrp": 100,
+    "selling_price": 80,
+    "discount_percent": 20,
+    "prior_price_30d": 95,
+}, "en")
+assert '<s class="product-price-prior-value">₹95</s>' in verified_prior_card
+assert 'class="product-price-discount">16% lower than the lowest price in the last 30 days' in verified_prior_card
 
 print(f"Static product pricing regression passed for {len(EXPECTED)} SKUs across en/hi/bn pages.")

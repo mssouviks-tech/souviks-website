@@ -233,6 +233,11 @@ jobs:
             scripts/catalogue/sync_product_cards.py
             scripts/audit/performance_guard.py
           )
+          generated_product_page_directories=(
+            en/products
+            hi/products
+            bn/products
+          )
 
           for path in "${generated_paths[@]}"; do
             if [ ! -f "${publish_repo}/${path}" ]; then
@@ -240,8 +245,14 @@ jobs:
               exit 1
             fi
           done
+          for directory in "${generated_product_page_directories[@]}"; do
+            if [ ! -d "${publish_repo}/${directory}" ]; then
+              echo "Missing generated product-page directory on PR branch: ${directory}"
+              exit 1
+            fi
+          done
 
-          git -C "${publish_repo}" add -- "${generated_paths[@]}"
+          git -C "${publish_repo}" add -- "${generated_paths[@]}" "${generated_product_page_directories[@]}"
           if git -C "${publish_repo}" diff --cached --quiet; then
             echo "Generated mobile LCP assets and HTML are already current on the PR branch."
             exit 0
