@@ -29,10 +29,15 @@ const ProductCard = {
         const hasMrp = Number.isFinite(mrpNumber) && mrpNumber > 0;
         const language = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
         const priorPriceLabel = language === "hi"
-            ? "पिछले 1 माह का सबसे कम दर्ज मूल्य:"
+            ? "पिछले 30 दिनों का सबसे कम दर्ज मूल्य:"
             : language === "bn"
-                ? "গত ১ মাসের সর্বনিম্ন নথিভুক্ত মূল্য:"
-                : "Lowest recorded price in last 1 month:";
+                ? "গত ৩০ দিনের সর্বনিম্ন নথিভুক্ত মূল্য:"
+                : "Lowest price in last 30 days:";
+        const priorPriceLowerLabel = language === "hi"
+            ? "पिछले 30 दिनों के सबसे कम मूल्य से कम"
+            : language === "bn"
+                ? "গত ৩০ দিনের সর্বনিম্ন মূল্যের চেয়ে কম"
+                : "lower than the lowest price in the last 30 days";
         const purchasable =
             Boolean(productId) &&
             product?.active !== false &&
@@ -44,10 +49,22 @@ const ProductCard = {
             priorPriceNumber > sellingNumber &&
             purchasable;
 
+        const priorDiscountPercent = hasPriorPrice
+            ? Math.round((priorPriceNumber - sellingNumber) / priorPriceNumber * 100)
+            : 0;
+        const priorPriceHtml = hasPriorPrice
+            ? '<span class="product-price-prior"><span class="product-price-prior-label">' +
+              priorPriceLabel + '</span> <s class="product-price-prior-value">' +
+              Utils.currency(priorPriceNumber) + "</s></span>" +
+              (priorDiscountPercent > 0
+                  ? '<span class="product-price-discount">' + priorDiscountPercent + "% " +
+                    priorPriceLowerLabel + "</span>"
+                  : "")
+            : "";
         const price = purchasable
             ? '<span class="product-price-current">' + Utils.currency(sellingNumber) + "</span>" +
               (hasMrp ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" : "") +
-              (hasPriorPrice ? '<span class="product-price-prior">' + priorPriceLabel + " " + Utils.currency(priorPriceNumber) + "</span>" : "")
+              priorPriceHtml
             : hasMrp
                 ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" +
                   '<span class="product-price-request">Get current price</span>'
