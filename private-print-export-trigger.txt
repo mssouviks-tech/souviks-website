@@ -1,0 +1,1 @@
+Temporary pull request trigger for generation of private Souviks shop-print PDFs and editable PPTX files. Do not merge. No public website feature is intended.
