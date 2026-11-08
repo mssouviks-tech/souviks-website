@@ -9,6 +9,7 @@ on:
       - "assets/data/hsn-dpiit-ministry-mappings.json"
       - "assets/data/hsn-candidate-overrides-2026-11-06.json"
       - "assets/data/gst-rate-candidate-overrides-2026-11-08.json"
+      - "assets/data/gst-rate-final-policy-2026-11-08.json"
       - "assets/data/approximate-product-weights.json"
       - "assets/data/product-dimension-specifications.json"
       - "assets/data/wabco-product-specifications.json"
