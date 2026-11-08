@@ -316,29 +316,20 @@ def reconcile_catalogue_projections():
             "supplier_invoice_hsn": [map_dpiit_hsn_code(code) for code in supplier_codes],
         }
 
-    # Apply draft GST-rate candidates only to products whose HSN candidate is
-    # already classified/high-confidence. The separate candidate object is
-    # never copied into a final gst_rate_percent field or treated as approved.
+    # Apply catalogue-wide GST rate candidates from the approved business default.
+    # The candidate is separate from final tax fields and invoice release remains gated.
     gst_rate_overrides_path = ROOT / "assets/data/gst-rate-candidate-overrides-2026-11-08.json"
     try:
         gst_rate_overrides_data = json.loads(gst_rate_overrides_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise SystemExit(f"Invalid GST rate candidate manifest: {exc}")
-    if (
-        not isinstance(gst_rate_overrides_data, dict)
-        or gst_rate_overrides_data.get("schema_version") != 1
-        or not isinstance(gst_rate_overrides_data.get("records"), list)
-        or len(gst_rate_overrides_data["records"]) != gst_rate_overrides_data.get("record_count")
-    ):
+    gst_records = gst_rate_overrides_data.get("records") if isinstance(gst_rate_overrides_data, dict) else None
+    if gst_rate_overrides_data.get("schema_version") != 2 or not isinstance(gst_records, list) or len(gst_records) != gst_rate_overrides_data.get("record_count"):
         raise SystemExit("GST rate candidate manifest has an unsupported schema or count")
 
-    catalogue_by_id = {
-        text(product.get("id")): product
-        for product in catalogue
-        if isinstance(product, dict) and text(product.get("id"))
-    }
+    catalogue_by_id = {text(p.get("id")): p for p in catalogue if isinstance(p, dict) and text(p.get("id"))}
     gst_rate_override_ids = set()
-    for record in gst_rate_overrides_data["records"]:
+    for record in gst_records:
         if not isinstance(record, dict):
             raise SystemExit("Every GST rate candidate record must be an object")
         product_id = text(record.get("id"))
@@ -347,35 +338,27 @@ def reconcile_catalogue_projections():
         gst_rate_override_ids.add(product_id)
         product = catalogue_by_id.get(product_id)
         candidate = record.get("gst_rate_candidate")
-        if product is None:
-            raise SystemExit(f"GST rate candidate references unknown product {product_id}")
-        if (
-            text(product.get("hsn_code")) != text(record.get("hsn_code"))
-            or text(product.get("hsn_classification_status")) != "classified"
-            or text(product.get("hsn_confidence")) != "high"
-        ):
-            raise SystemExit(f"GST rate candidate is not supported by a classified/high HSN record: {product_id}")
-        if not isinstance(candidate, dict):
-            raise SystemExit(f"Missing GST rate candidate object for {product_id}")
-        if (
-            candidate.get("total_rate_percent") != 18
-            or candidate.get("cgst_rate_percent") != 9
-            or candidate.get("sgst_rate_percent") != 9
-            or candidate.get("igst_rate_percent") != 18
-            or candidate.get("effective_from") != "2025-09-22"
-            or candidate.get("invoice_ready") is not False
-            or candidate.get("accountant_approval_required") is not True
-            or not text(candidate.get("review_note"))
-            or not isinstance(candidate.get("source_references"), list)
-            or not candidate.get("source_references")
-        ):
-            raise SystemExit(f"Malformed or unapproved GST rate candidate for {product_id}")
+        if product is None or not isinstance(candidate, dict):
+            raise SystemExit(f"Missing GST product or candidate object for {product_id}")
+        # HSN identifiers are never changed by the GST overlay. If an HSN value
+        # was captured in the manifest, require an exact match before applying.
+        if text(record.get("hsn_code")) and text(product.get("hsn_code")) != text(record.get("hsn_code")):
+            raise SystemExit(f"GST overlay HSN mismatch for {product_id}")
+        if candidate.get("total_rate_percent") not in (5, 18):
+            raise SystemExit(f"Unsupported GST candidate rate for {product_id}")
+        expected_split = (9, 18) if candidate.get("total_rate_percent") == 18 else (2.5, 5)
+        if (candidate.get("cgst_rate_percent"), candidate.get("igst_rate_percent")) != expected_split or candidate.get("sgst_rate_percent") != expected_split[0]:
+            raise SystemExit(f"Invalid GST rate split for {product_id}")
+        if candidate.get("effective_from") != "2025-09-22" or candidate.get("invoice_ready") is not False or candidate.get("accountant_approval_required") is not True:
+            raise SystemExit(f"GST candidate must remain non-final for {product_id}")
+        if not text(candidate.get("review_note")) or not candidate.get("source_references"):
+            raise SystemExit(f"Missing GST evidence for {product_id}")
         if text(product.get("gst_rate_percent")):
             raise SystemExit(f"Refusing to overwrite a final GST rate for {product_id}")
         product["gst_rate_candidate"] = candidate
 
-    if len(gst_rate_override_ids) != 84:
-        raise SystemExit(f"Unexpected GST rate candidate coverage: {len(gst_rate_override_ids)}")
+    if len(gst_rate_override_ids) != len(catalogue_by_id):
+        raise SystemExit(f"GST candidate coverage mismatch: {len(gst_rate_override_ids)} of {len(catalogue_by_id)} catalogue records")
 
     def normalize_slug(value):
         value = text(value).casefold()
