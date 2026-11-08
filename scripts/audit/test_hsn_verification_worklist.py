@@ -13,6 +13,19 @@ CATALOGUE_PATH = ROOT / "assets/data/catalogue-index.json"
 WORKLIST_PATH = ROOT / "docs/audit/hsn-verification-worklist.csv"
 BUILDER_PATH = ROOT / "scripts/audit/build_hsn_verification_worklist.py"
 
+
+def assert_no_trailing_whitespace(path: Path) -> None:
+    lines = path.read_text(encoding="utf-8-sig").splitlines()
+    offenders = [
+        index for index, line in enumerate(lines, start=1)
+        if line.endswith((" ", "\t"))
+    ]
+    assert not offenders, (
+        f"{path}: trailing whitespace on CSV lines {offenders[:20]}"
+    )
+
+
+assert_no_trailing_whitespace(WORKLIST_PATH)
 catalogue = json.loads(CATALOGUE_PATH.read_text(encoding="utf-8"))
 with WORKLIST_PATH.open(encoding="utf-8-sig", newline="") as handle:
     rows = list(csv.DictReader(handle))
@@ -58,6 +71,7 @@ with tempfile.TemporaryDirectory(prefix="souviks-hsn-") as temp_dir:
         capture_output=True,
         text=True,
     )
+    assert_no_trailing_whitespace(generated)
     with generated.open(encoding="utf-8-sig", newline="") as handle:
         generated_rows = list(csv.DictReader(handle))
 
