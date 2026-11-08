@@ -2078,6 +2078,53 @@ def reconcile_catalogue_projections():
                     f'<span class="pdp-price-value">{html_module.escape(selling_display, quote=False)}</span>'
                     '</div>'
                 )
+
+            prior_price_30d_value = None
+            try:
+                prior_candidate = float(product.get("prior_price_30d"))
+                if prior_candidate > 0 and prior_candidate < float("inf"):
+                    prior_price_30d_value = prior_candidate
+            except (TypeError, ValueError):
+                pass
+            if (
+                selling_value is not None
+                and prior_price_30d_value is not None
+                and prior_price_30d_value > selling_value
+            ):
+                verified_prior_discount_percent = int(round(
+                    (prior_price_30d_value - selling_value) / prior_price_30d_value * 100
+                ))
+                prior_labels = {
+                    "en": {
+                        "heading": "Lowest price in last 30 days",
+                        "lower": "lower than the lowest price in the last 30 days",
+                    },
+                    "hi": {
+                        "heading": "पिछले 30 दिनों का सबसे कम मूल्य",
+                        "lower": "पिछले 30 दिनों के सबसे कम मूल्य से कम",
+                    },
+                    "bn": {
+                        "heading": "গত ৩০ দিনের সর্বনিম্ন মূল্য",
+                        "lower": "গত ৩০ দিনের সর্বনিম্ন মূল্যের চেয়ে কম",
+                    },
+                }.get(lang, {
+                    "heading": "Lowest price in last 30 days",
+                    "lower": "lower than the lowest price in the last 30 days",
+                })
+                prior_display = format_pdp_price(prior_price_30d_value)
+                pricing_parts.append(
+                    '<div class="pdp-price-prior">'
+                    f'<span class="pdp-price-label">{html_module.escape(prior_labels["heading"], quote=False)}</span>'
+                    f'<s class="pdp-price-prior-value">{html_module.escape(prior_display or "", quote=False)}</s>'
+                    '</div>'
+                )
+                if verified_prior_discount_percent > 0:
+                    pricing_parts.append(
+                        '<span class="pdp-price-discount">'
+                        f'{verified_prior_discount_percent}% {html_module.escape(prior_labels["lower"], quote=False)}'
+                        '</span>'
+                    )
+
             history_periods = (
                 ("1m", "price_history_1m"),
                 ("3m", "price_history_3m"),
