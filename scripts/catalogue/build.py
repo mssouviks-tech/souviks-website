@@ -2283,7 +2283,7 @@ def reconcile_catalogue_projections():
                     '</div></div></section>'
                 )
                 description_section_pattern = re.compile(
-                    r'(<section\\b[^>]*id=["\\']description-section["\\'][^>]*>.*?</section>)',
+                    r'(<section\b[^>]*id=["\\']description-section["\\'][^>]*>.*?</section>)',
                     flags=re.I | re.S,
                 )
                 if description_section_pattern.search(html):
@@ -2294,13 +2294,13 @@ def reconcile_catalogue_projections():
                     )
                 else:
                     vehicles_section_pattern = re.compile(
-                        r'(<section\\b[^>]*id=["\\']vehicles-section["\\'])',
+                        r'(<section\b[^>]*id=["\\']vehicles-section["\\'])',
                         flags=re.I,
                     )
                     if not vehicles_section_pattern.search(html):
                         raise SystemExit(f"Could not place the public Applications section in {path}")
                     html = vehicles_section_pattern.sub(
-                        application_section + r"\\1",
+                        application_section + r"\1",
                         html,
                         count=1,
                     )
