@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 CATALOGUE_PATH = ROOT / "assets" / "data" / "catalogue-index.json"
-LABELS = r"(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ)"
+LABELS = r"(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ्लिकেশন|প্রয়োগ|ব্যবহার)"
 FALLBACKS = {
     "en": "Confirm by part number",
     "hi": "पार्ट नंबर से पुष्टि करें",
