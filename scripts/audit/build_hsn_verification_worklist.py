@@ -82,10 +82,18 @@ def evidence_for(product: dict) -> str:
     return product.get("hsn_review_note") or "OEM/supplier technical sheet, physical material/construction details and exact product function are required before final classification."
 
 
+def clean_cell(value) -> str:
+    """Normalize whitespace without changing application/source wording."""
+    if value is None:
+        return ""
+    text = str(value).replace("\r\n", "\n").replace("\r", "\n")
+    return "\n".join(line.rstrip(" \t") for line in text.split("\n")).strip(" \t\n")
+
+
 def flat(value) -> str:
     if isinstance(value, list):
-        return " | ".join(str(item) for item in value)
-    return "" if value is None else str(value)
+        return " | ".join(clean_cell(item) for item in value if clean_cell(item))
+    return clean_cell(value)
 
 
 def main() -> None:
@@ -100,7 +108,7 @@ def main() -> None:
         writer.writeheader()
         for product in unresolved:
             product_id = str(product.get("id") or "")
-            writer.writerow({
+            row = {
                 "catalogue_id": product_id,
                 "active": str(bool(product.get("active", False))).lower(),
                 "product_name": product.get("product_name") or product.get("name") or "",
@@ -130,6 +138,10 @@ def main() -> None:
                 "gst_rate_effective_from": "",
                 "gst_rate_source_reference": "",
                 "invoice_ready": "FALSE",
+            }
+            writer.writerow({
+                key: clean_cell(value) if isinstance(value, str) else value
+                for key, value in row.items()
             })
     print(f"Wrote {len(unresolved)} non-final SKU rows to {OUTPUT}")
 
