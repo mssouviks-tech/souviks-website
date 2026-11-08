@@ -721,9 +721,18 @@ priceHtml(product) {
     const mrp = Number(product?.mrp);
     const sellingPrice = Number(product?.selling_price);
     const priorPrice30d = Number(product?.prior_price_30d);
+    const storedMrpDiscount = Number(product?.discount_percent ?? product?.discountPercent);
 
     const hasMrp = Number.isFinite(mrp) && mrp >= 0;
     const hasSellingPrice = Number.isFinite(sellingPrice) && sellingPrice >= 0;
+    const hasMrpDiscount =
+        hasMrp &&
+        hasSellingPrice &&
+        sellingPrice > 0 &&
+        sellingPrice < mrp &&
+        Number.isInteger(storedMrpDiscount) &&
+        storedMrpDiscount > 0 &&
+        storedMrpDiscount === Math.round((mrp - sellingPrice) / mrp * 100);
     const hasVerifiedPriorPrice =
         hasSellingPrice &&
         Number.isFinite(priorPrice30d) &&
@@ -744,6 +753,15 @@ priceHtml(product) {
         }).format(value);
 
     const language = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+    const belowMrpLabel = language === "hi"
+        ? "एमआरपी से कम"
+        : language === "bn"
+            ? "এমআরপি থেকে কম"
+            : "below MRP";
+    const mrpDiscountHtml = hasMrpDiscount
+        ? '<span class="pdp-price-discount pdp-price-mrp-discount">' +
+            storedMrpDiscount + '% ' + belowMrpLabel + '</span>'
+        : "";
     const historyLabels = language === "hi"
         ? {
             heading: "दर्ज न्यूनतम कैटलॉग मूल्य",
@@ -819,8 +837,11 @@ priceHtml(product) {
             ${hasMrp ? `
                 <div class="pdp-price-mrp">
                     <span class="pdp-price-label">MRP</span>
-                    <span class="pdp-price-value">${formatPrice(mrp)}</span>
+                    ${hasMrpDiscount
+                        ? '<s class="pdp-price-value pdp-price-mrp-value">' + formatPrice(mrp) + '</s>'
+                        : '<span class="pdp-price-value">' + formatPrice(mrp) + '</span>'}
                 </div>
+                ${mrpDiscountHtml}
             ` : ""}
             ${hasSellingPrice ? `
                 <div class="pdp-price-selling">

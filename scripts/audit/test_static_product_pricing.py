@@ -292,9 +292,19 @@ for product_id, expected in EXPECTED.items():
         assert display_price(expected["selling_price"]) in pricing, (
             f"{product_id}: {language} pricing block missing selling price {display_price(expected['selling_price'])}"
         )
-        assert "% OFF" not in pricing and "product-price-discount" not in pricing, (
-            f"{product_id}: {language} pricing block must not claim a discount without a verified 30-day prior price"
-        )
+        below_mrp_labels = {
+            "en": "below MRP",
+            "hi": "एमआरपी से कम",
+            "bn": "এমআরপি থেকে কম",
+        }
+        assert (
+            f'<s class="pdp-price-value pdp-price-mrp-value">{display_price(expected["mrp"])}</s>'
+            in pricing
+        ), f"{product_id}: {language} MRP must be struck through when a stored MRP discount exists"
+        assert (
+            f'class="pdp-price-discount pdp-price-mrp-discount">{expected["discount_percent"]}% '
+            f'{below_mrp_labels[language]}' in pricing
+        ), f"{product_id}: {language} MRP-relative percentage is missing"
         period_labels = {
             "en": {
                 "price_history_1m": "1 month",
@@ -356,8 +366,8 @@ for language in ("en", "hi", "bn"):
     expected_redirect = f"/{language}/products/{old_slug} /{language}/products/{new_slug} 301"
     assert expected_redirect in redirects, f"Missing legacy bearing URL redirect: {expected_redirect}"
 
-# MRP-relative arithmetic is retained as catalogue data, but must not create a
-# public discount claim or strikethrough by itself.
+# The stored MRP-relative arithmetic is displayed as a clearly qualified
+# comparison to the declared MRP, not as a historical prior-price claim.
 mrp_only_card = product_card_html({
     "id": "TEST-MRP-ONLY",
     "slug": "test-mrp-only",
@@ -368,11 +378,11 @@ mrp_only_card = product_card_html({
     "discount_percent": 20,
     "prior_price_30d": None,
 }, "en")
-assert "MRP ₹100" in mrp_only_card
-assert "product-price-discount" not in mrp_only_card
+assert '<s class="product-price-mrp-value">₹100</s>' in mrp_only_card
+assert 'product-price-mrp-discount">20% below MRP' in mrp_only_card
 assert "product-price-prior-value" not in mrp_only_card
 
-# A discount badge is allowed only when a verified 30-day prior price exists.
+# A separate 30-day price badge is allowed only with verified prior-price evidence.
 verified_prior_card = product_card_html({
     "id": "TEST-VERIFIED-PRIOR",
     "slug": "test-verified-prior",
@@ -383,6 +393,8 @@ verified_prior_card = product_card_html({
     "discount_percent": 20,
     "prior_price_30d": 95,
 }, "en")
+assert '<s class="product-price-mrp-value">₹100</s>' in verified_prior_card
+assert 'product-price-mrp-discount">20% below MRP' in verified_prior_card
 assert '<s class="product-price-prior-value">₹95</s>' in verified_prior_card
 assert 'class="product-price-discount">16% lower than the lowest price in the last 30 days' in verified_prior_card
 

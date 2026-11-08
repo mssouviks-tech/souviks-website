@@ -43,6 +43,29 @@ const ProductCard = {
             product?.active !== false &&
             Number.isFinite(sellingNumber) &&
             sellingNumber > 0;
+        const storedMrpDiscount = Number(product?.discount_percent ?? product?.discountPercent);
+        const hasMrpDiscount =
+            purchasable &&
+            hasMrp &&
+            mrpNumber > sellingNumber &&
+            Number.isInteger(storedMrpDiscount) &&
+            storedMrpDiscount > 0 &&
+            storedMrpDiscount === Math.round((mrpNumber - sellingNumber) / mrpNumber * 100);
+        const belowMrpLabel = language === "hi"
+            ? "एमआरपी से कम"
+            : language === "bn"
+                ? "এমআরপি থেকে কম"
+                : "below MRP";
+        const mrpHtml = hasMrp
+            ? hasMrpDiscount
+                ? '<span class="product-price-mrp"><span class="product-price-mrp-label">MRP</span> ' +
+                  '<s class="product-price-mrp-value">' + Utils.currency(mrpNumber) + "</s></span>"
+                : '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>"
+            : "";
+        const mrpDiscountHtml = hasMrpDiscount
+            ? '<span class="product-price-discount product-price-mrp-discount">' +
+              storedMrpDiscount + "% " + belowMrpLabel + "</span>"
+            : "";
         const priorPriceNumber = Number(product?.prior_price_30d);
         const hasPriorPrice =
             Number.isFinite(priorPriceNumber) &&
@@ -63,7 +86,8 @@ const ProductCard = {
             : "";
         const price = purchasable
             ? '<span class="product-price-current">' + Utils.currency(sellingNumber) + "</span>" +
-              (hasMrp ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" : "") +
+              mrpHtml +
+              mrpDiscountHtml +
               priorPriceHtml
             : hasMrp
                 ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" +
