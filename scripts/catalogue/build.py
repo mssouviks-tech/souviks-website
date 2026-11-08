@@ -2063,13 +2063,41 @@ def reconcile_catalogue_projections():
             pricing_parts = []
             mrp_display = format_pdp_price(mrp_value)
             selling_display = format_pdp_price(selling_value)
+            mrp_discount_percent = None
+            if mrp_value is not None and selling_value is not None and mrp_value > selling_value > 0:
+                try:
+                    stored_discount = int(product.get("discount_percent"))
+                    expected_discount = int(round((mrp_value - selling_value) / mrp_value * 100))
+                    if stored_discount > 0 and stored_discount == expected_discount:
+                        mrp_discount_percent = stored_discount
+                except (TypeError, ValueError, ZeroDivisionError):
+                    pass
+            below_mrp_labels = {
+                "en": "below MRP",
+                "hi": "एमआरपी से कम",
+                "bn": "এমআরপি থেকে কম",
+            }
+            below_mrp_label = below_mrp_labels.get(lang, below_mrp_labels["en"])
             if mrp_display is not None:
-                pricing_parts.append(
-                    '<div class="pdp-price-mrp">'
-                    '<span class="pdp-price-label">MRP</span>'
-                    f'<span class="pdp-price-value">{html_module.escape(mrp_display, quote=False)}</span>'
-                    '</div>'
-                )
+                if mrp_discount_percent is not None:
+                    pricing_parts.append(
+                        '<div class="pdp-price-mrp">'
+                        '<span class="pdp-price-label">MRP</span>'
+                        f'<s class="pdp-price-value pdp-price-mrp-value">{html_module.escape(mrp_display, quote=False)}</s>'
+                        '</div>'
+                    )
+                    pricing_parts.append(
+                        '<span class="pdp-price-discount pdp-price-mrp-discount">'
+                        f'{mrp_discount_percent}% {html_module.escape(below_mrp_label, quote=False)}'
+                        '</span>'
+                    )
+                else:
+                    pricing_parts.append(
+                        '<div class="pdp-price-mrp">'
+                        '<span class="pdp-price-label">MRP</span>'
+                        f'<span class="pdp-price-value">{html_module.escape(mrp_display, quote=False)}</span>'
+                        '</div>'
+                    )
             if selling_display is not None:
                 prior_price_html = ""
                 pricing_parts.append(
