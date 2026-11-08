@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "effective_from": "2025-09-22",
+  "default_rate_percent": 18,
+  "default_cgst_rate_percent": 9,
+  "default_sgst_rate_percent": 9,
+  "default_igst_rate_percent": 18,
+  "default_basis": "Catalogue-wide standard GST rate per Souviks' explicit instruction: 18% total; 9% CGST + 9% SGST for intra-State supply, or 18% IGST for inter-State supply.",
+  "default_source_references": [
+    "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+    "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf"
+  ],
+  "tractor_exceptions": [
+    {
+      "id": "SVKS000429",
+      "product_name": "Pressure Plate 330 Dia Sonalika 4 Lever",
+      "hsn_code": "87089300",
+      "gst_rate_percent": 5,
+      "cgst_rate_percent": 2.5,
+      "sgst_rate_percent": 2.5,
+      "igst_rate_percent": 5,
+      "basis": "BGL 330 mm Sonalika 4-lever pressure plate; a clutch assembly component for tractors. Matches the specified tractor clutch assemblies/parts entry under HSN 8708 93 00.",
+      "source_references": [
+        "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+        "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf",
+        "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48"
+      ],
+      "accountant_approval_required": true,
+      "invoice_ready": false
+    },
+    {
+      "id": "SVKS001121",
+      "product_name": "Power Steering Repair Kit",
+      "hsn_code": "87089400",
+      "gst_rate_percent": 5,
+      "cgst_rate_percent": 2.5,
+      "sgst_rate_percent": 2.5,
+      "igst_rate_percent": 5,
+      "basis": "Alok 5858 four-piece large ball-pin repair kit for tractor steering linkage. Treated under the specified tractor steering parts entry for HSN 8708 94 00. The supplier description/physical contents remain subject to technical cross-check.",
+      "source_references": [
+        "https://taxinformation.cbic.gov.in/view-pdf/1010436/ENG/Notifications",
+        "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf",
+        "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48",
+        "https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
+      ],
+      "accountant_approval_required": true,
+      "invoice_ready": false
+    }
+  ],
+  "resolved_general_rate_products": [
+    {
+      "id": "SVKS000060",
+      "product_name": "ACE Brake Drum",
+      "hsn_code": "87083000",
+      "vehicle_applications": [
+        "Tata Ace"
+      ],
+      "basis": "ACE brake drum fitment is Tata Ace; not a specified tractor brake assembly."
+    },
+    {
+      "id": "SVKS000108",
+      "product_name": "Front Brake Disc BS4",
+      "hsn_code": "87083000",
+      "vehicle_applications": [
+        "Tata Ace",
+        "Tata Intra"
+      ],
+      "basis": "Front brake disc fitment is Tata Ace/Tata Intra; not a specified tractor brake assembly."
+    },
+    {
+      "id": "SVKS000110",
+      "product_name": "Rotor",
+      "hsn_code": "87083000",
+      "vehicle_applications": [
+        "Tata Ace"
+      ],
+      "basis": "Rotor fitment is Tata Ace; not a specified tractor brake assembly."
+    },
+    {
+      "id": "SVKS000111",
+      "product_name": "Ventilated Brake Disc 17",
+      "hsn_code": "87083000",
+      "vehicle_applications": [
+        "Tata Intra"
+      ],
+      "basis": "Ventilated brake disc fitment is Tata Intra; not a specified tractor brake assembly."
+    }
+  ],
+  "note": "Every catalogue record receives gst_rate_percent. The two listed tractor-specific product records receive 5%; all remaining records receive 18%. HSN review states are preserved. accountant_approval_required remains true and invoice_ready remains false until HSN/tax review and transaction controls are signed off."
+}
