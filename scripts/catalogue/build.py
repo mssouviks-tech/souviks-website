@@ -2236,7 +2236,7 @@ def reconcile_catalogue_projections():
             application_summary = ", ".join(applications[:2]) if applications else application_fallback
             application_row_pattern = (
                 r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
-                r'<strong>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|অ্যাপ্লিকেশন)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)'
+                r'<strong>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)'
             )
             html, application_row_count = re.subn(
                 application_row_pattern,
@@ -2253,7 +2253,7 @@ def reconcile_catalogue_projections():
             ) or f"<li>{html_module.escape(application_fallback, quote=False)}</li>"
             application_list_pattern = (
                 r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*'
-                r'(?:Applications|अनुप्रयोग|एप्लिकेशन|অ্যাপ্লিকেশন)\s*</h3>\s*<ul>)(.*?)(</ul>)'
+                r'(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ্লিকেশন|প্রয়োগ)\s*</h3>\s*<ul>)(.*?)(</ul>)'
             )
             html, application_list_count = re.subn(
                 application_list_pattern,
