@@ -28,6 +28,29 @@ const ProductCard = {
         const sellingNumber = Number(product?.selling_price);
         const hasMrp = Number.isFinite(mrpNumber) && mrpNumber > 0;
         const language = String(document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+        const storedMrpDiscount = Number(product?.discount_percent ?? product?.discountPercent);
+        const hasMrpDiscount =
+            purchasable &&
+            hasMrp &&
+            mrpNumber > sellingNumber &&
+            Number.isInteger(storedMrpDiscount) &&
+            storedMrpDiscount > 0 &&
+            storedMrpDiscount === Math.round((mrpNumber - sellingNumber) / mrpNumber * 100);
+        const belowMrpLabel = language === "hi"
+            ? "एमआरपी से कम"
+            : language === "bn"
+                ? "এমআরপি থেকে কম"
+                : "below MRP";
+        const mrpHtml = hasMrp
+            ? hasMrpDiscount
+                ? '<span class="product-price-mrp"><span class="product-price-mrp-label">MRP</span> ' +
+                  '<s class="product-price-mrp-value">' + Utils.currency(mrpNumber) + "</s></span>"
+                : '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>"
+            : "";
+        const mrpDiscountHtml = hasMrpDiscount
+            ? '<span class="product-price-discount product-price-mrp-discount">' +
+              storedMrpDiscount + "% " + belowMrpLabel + "</span>"
+            : "";
         const priorPriceLabel = language === "hi"
             ? "पिछले 30 दिनों का सबसे कम दर्ज मूल्य:"
             : language === "bn"
@@ -63,7 +86,8 @@ const ProductCard = {
             : "";
         const price = purchasable
             ? '<span class="product-price-current">' + Utils.currency(sellingNumber) + "</span>" +
-              (hasMrp ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" : "") +
+              mrpHtml +
+              mrpDiscountHtml +
               priorPriceHtml
             : hasMrp
                 ? '<span class="product-price-mrp">MRP ' + Utils.currency(mrpNumber) + "</span>" +
