@@ -1925,6 +1925,7 @@ def reconcile_catalogue_projections():
             data["brand"] = brand
             data["product_name"] = name
             data["name"] = name
+            data["applications"] = arr(product.get("applications"))
     
             data["subcategory_id"] = text(product.get("subcategory_id"))
             data["subcategory_name"] = text(product.get("subcategory_name") or product.get("subcategory"))
@@ -2223,6 +2224,47 @@ def reconcile_catalogue_projections():
                 count=1,
                 flags=re.I | re.S,
             )
+            # Public product-page applications are refreshed from the canonical
+            # applications array. The summary row remains compact, while the full
+            # sourced notes are published as individual list items below.
+            applications = arr(product.get("applications"))
+            application_fallback = {
+                "en": "Confirm by part number",
+                "hi": "पार्ट नंबर से पुष्टि करें",
+                "bn": "পার্ট নম্বর দিয়ে নিশ্চিত করুন",
+            }.get(lang, "Confirm by part number")
+            application_summary = ", ".join(applications[:2]) if applications else application_fallback
+            application_row_pattern = (
+                r'(<div\b[^>]*class=["\'][^"\']*\bpdp-row\b[^"\']*["\'][^>]*>\s*'
+                r'<strong>\s*(?:Applications|अनुप्रयोग|एप्लिकेशन|অ্যাপ্লিকেশন)\s*</strong>\s*<span>)(.*?)(</span>\s*</div>)'
+            )
+            html, application_row_count = re.subn(
+                application_row_pattern,
+                lambda m: m.group(1) + html_module.escape(application_summary, quote=False) + m.group(3),
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
+            if application_row_count != 1:
+                raise SystemExit(f"Could not update public application summary row in {path}")
+
+            application_items = "".join(
+                f"<li>{html_module.escape(item, quote=False)}</li>" for item in applications
+            ) or f"<li>{html_module.escape(application_fallback, quote=False)}</li>"
+            application_list_pattern = (
+                r'(<div\s+class=["\']pdp-description-card["\']>\s*<h3>\s*'
+                r'(?:Applications|अनुप्रयोग|एप्लिकेशन|অ্যাপ্লিকেশন)\s*</h3>\s*<ul>)(.*?)(</ul>)'
+            )
+            html, application_list_count = re.subn(
+                application_list_pattern,
+                lambda m: m.group(1) + application_items + m.group(3),
+                html,
+                count=1,
+                flags=re.I | re.S,
+            )
+            if application_list_count != 1:
+                raise SystemExit(f"Could not update public Applications list in {path}")
+
             html = re.sub(r'<title>[\s\S]*?</title>', lambda m: f"<title>{title_text}</title>", html, count=1, flags=re.I)
             # Replace the entire tag so legacy trailing fragments from malformed quoted titles are removed.
             html = re.sub(
