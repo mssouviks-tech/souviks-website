@@ -2253,6 +2253,54 @@
       "append": [
         "Manufacturer-source link and fitment limitation (Anupam Industries, exact code AI-487): the Combination Switches catalogue identifies AI-487 as suitable for Eicher Canter and specifies a 10+7+12 coupler with 9+6+11 cable configuration; the 1-Jul-2022 Anupam MRP list is an additional supplier reference. Neither source identifies Eicher 1110 for AI-487, so the current Eicher 1110 vehicle tag must remain unconfirmed until connector/vehicle cross-reference is obtained. Match coupler, cable pinout and switch functions before supply. Sources: https://www.anupamind.com/Combination%20Switches%20and%20Spares.html ; https://www.anupamind.com/Anupam%20MRP%20list%2001.07.22.pdf"
       ]
+    },
+    {
+      "id": "SVKS000064",
+      "append": [
+        "Bearing-source reconciliation (Delta Bearing Co. Tata application table, exact standard bearing designation 30204; Tata Genuine OE reference 269533403101): Delta lists 30204 for Tata Ace front-wheel inner position and Tata 1512 water-pump application. The Souviks record is a 30204 taper-roller bearing and the exact OE number is independently identified as a Tata taper-roller bearing, but the catalogue currently tags Tata 1109, 1210, 1312 and 1512. This source supports only its stated Ace/1512 uses; it does not substantiate every current model tag. Match the bearing designation, cup/cone set, position and physical dimensions to the axle/pump before supply. Sources: https://www.deltabearing.com/application/21/bearings-for-tata.html ; https://www.bpautosparesindia.com/oem-detail/TA164DLX/"
+      ]
+    },
+    {
+      "id": "SVKS000103",
+      "append": [
+        "Tata e-Dukaan exact-reference confirmation (Engine / Gasket category, part 278801990103): Tata lists this part as “SUB KIT-SEAL ENG.OVERHAUL”. This establishes the genuine part description and engine-overhaul function; the viewed e-Dukaan listing does not identify a chassis/model fitment. The current Ace/Magic vehicle tags are therefore not independently confirmed by this listing; verify the vehicle-specific engine overhaul kit and pack marking before supply. Source: https://newui.edukaan.tatamotors/spare-parts/engine/eng-gasket-tata"
+      ]
+    },
+    {
+      "id": "SVKS000104",
+      "append": [
+        "Independent OE cross-reference conflict (WIX MHIN PC WIX Picture Catalogue, February 2023, exact OE 278809130114): WIX lists air filter WA11253A for Tata Ace Magic. This differs from the Souviks current 1109/1210/1312 application note and needs VIN/engine reconciliation; do not assume the WIX cross-reference proves interchangeability across those medium/heavy vehicle models. Match the filter shape, sealing face, dimensions and engine intake before supply. Source: https://www.pssao.com/catlog/mf/MHIN%20PC%20WIX%20Picture%20Catalogue%20Feb%202023%20without%20CAF-2.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000106",
+      "append": [
+        "Tata manufacturer-parts-manual evidence (Tata Motors Indonesia, Super Ace Euro-II DLE, VC 28187824000R, Group 00 Engine / Drive Parts; exact part 279005110107): listed as “ASSY GEAR (FOR CRANKSHAFT) (SINTERED)” for the Super Ace 475 IDI TCIC engine. This source supports the crankshaft-gear component description and Super Ace Euro-II engine assembly, but not the current broad Ace/Magic tags for every engine variant. Confirm engine code, timing gear tooth/module and physical marking before supply. Source: https://tatamotors.co.id/old/wp-content/uploads/2017/03/SUPER-ACE-DLE.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000063",
+      "append": [
+        "Independent Tata parts-catalogue cross-check (P14 / Indigo-Dicor parts catalogue, Engine Timing Parts, exact part 254705116312): listed as a Gates GD100 timing belt, “Chassis Type: ALL” within the Indigo-Dicor catalogue. The Souviks current application note separately cites Tata commercial-vehicle brochure evidence for 407/709/1109. These sources identify different vehicle contexts; do not use the P14 Indigo-Dicor entry to expand truck fitment or to discard the separate commercial-vehicle evidence without exact engine/OE validation. Confirm belt tooth count, profile, length, engine family and pack marking. Source: https://www.tatamotor.com.pl/file/catalogues-p14-indigo-dicor.pdf"
+      ]
+    },
+    {
+      "id": "SVKS000436",
+      "append": [
+        "Secondary exact-code U.J.-cross cross-reference (MOD Plus UJ Cross Finder, code 4054BP2): listed for Tata 1613 Turbo and 2515 HYWA, RSB type / RSB 403 (single-roller), 42 × 129 mm. This provides a specific driveline-series and dimension reference; the current broad Tata LPT tag is not by itself proof for every LPT configuration. Verify cup diameter, cross length, bearing style and shaft series before supply. Source: https://www.modspareparts.com/post/uj-cross-part-number-finder-match-your-vehicle-to-the-right-cross"
+      ]
+    },
+    {
+      "id": "SVKS000437",
+      "append": [
+        "Secondary exact-code U.J.-cross cross-reference (MOD Plus UJ Cross Finder, code 4054CP): listed for Tata 4018 circlip type and Tata 3118, RSB-490 single-roller, 48 × 135 mm. The current Tata LPT / Ashok Leyland 2516 tags should not be treated as confirmed from this source; confirm RSB series, circlip design, cup diameter and shaft geometry before supply. Source: https://www.modspareparts.com/post/uj-cross-part-number-finder-match-your-vehicle-to-the-right-cross"
+      ]
+    },
+    {
+      "id": "SVKS000438",
+      "append": [
+        "Secondary exact-code U.J.-cross cross-reference (MOD Plus UJ Cross Finder, code 4104GP): listed for Leyland 2214 / 3516 / 2516 / 3116 / 1616, Tata 2515 TC (EX) rear, Tata 2518 (EX) HYWA and Eicher Galaxy 3025; Spicer type, 41.28 × 126 mm. The current Tata LPT tag is broader than the named application list. Verify Spicer series, cup size, cross length, yoke/grease arrangement and shaft position before confirming fitment. Source: https://www.modspareparts.com/post/uj-cross-part-number-finder-match-your-vehicle-to-the-right-cross"
+      ]
     }
   ]
 }
