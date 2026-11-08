@@ -11,9 +11,9 @@ from urllib.parse import urlencode
 ROOT = Path(__file__).resolve().parents[2]
 
 LABELS = {
-    "en": {"part": "Part No.", "request": "Get current price", "purchase": "Add to Cart", "quantity": "Quantity", "decrease": "Decrease quantity", "increase": "Increase quantity", "request_part": "Request a Part", "prior": "Lowest price in last 30 days:", "lower_30d": "lower than the lowest price in the last 30 days"},
-    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "purchase": "कार्ट में जोड़ें", "quantity": "मात्रा", "decrease": "मात्रा घटाएँ", "increase": "मात्रा बढ़ाएँ", "request_part": "पार्ट का अनुरोध", "prior": "पिछले 30 दिनों का सबसे कम दर्ज मूल्य:", "lower_30d": "पिछले 30 दिनों के सबसे कम मूल्य से कम"},
-    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "purchase": "কার্টে যোগ করুন", "quantity": "পরিমাণ", "decrease": "পরিমাণ কমান", "increase": "পরিমাণ বাড়ান", "request_part": "পার্টের অনুরোধ", "prior": "গত ৩০ দিনের সর্বনিম্ন নথিভুক্ত মূল্য:", "lower_30d": "গত ৩০ দিনের সর্বনিম্ন মূল্যের চেয়ে কম"},
+    "en": {"part": "Part No.", "request": "Get current price", "purchase": "Add to Cart", "quantity": "Quantity", "decrease": "Decrease quantity", "increase": "Increase quantity", "request_part": "Request a Part", "prior": "Lowest price in last 30 days:", "lower_30d": "lower than the lowest price in the last 30 days", "below_mrp": "below MRP"},
+    "hi": {"part": "Part No.", "request": "वर्तमान कीमत प्राप्त करें", "purchase": "कार्ट में जोड़ें", "quantity": "मात्रा", "decrease": "मात्रा घटाएँ", "increase": "मात्रा बढ़ाएँ", "request_part": "पार्ट का अनुरोध", "prior": "पिछले 30 दिनों का सबसे कम दर्ज मूल्य:", "lower_30d": "पिछले 30 दिनों के सबसे कम मूल्य से कम", "below_mrp": "एमआरपी से कम"},
+    "bn": {"part": "Part No.", "request": "বর্তমান মূল্য জানুন", "purchase": "কার্টে যোগ করুন", "quantity": "পরিমাণ", "decrease": "পরিমাণ কমান", "increase": "পরিমাণ বাড়ান", "request_part": "পার্টের অনুরোধ", "prior": "গত ৩০ দিনের সর্বনিম্ন নথিভুক্ত মূল্য:", "lower_30d": "গত ৩০ দিনের সর্বনিম্ন মূল্যের চেয়ে কম", "below_mrp": "এমআরপি থেকে কম"},
 }
 
 
@@ -125,6 +125,30 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
     mrp = format_money(mrp_number) if mrp_number is not None else ""
     prior_price_number = positive_price(product.get("prior_price_30d"))
     prior_price = format_money(prior_price_number) if prior_price_number is not None else ""
+    mrp_discount_percent = None
+    if selling is not None and mrp_number is not None and mrp_number > selling:
+        try:
+            stored_discount = int(product.get("discount_percent"))
+            expected_discount = int(round((mrp_number - selling) / mrp_number * 100))
+            if stored_discount > 0 and stored_discount == expected_discount:
+                mrp_discount_percent = stored_discount
+        except (TypeError, ValueError, ZeroDivisionError):
+            pass
+    mrp_html = ""
+    mrp_discount_html = ""
+    if mrp:
+        if mrp_discount_percent is not None:
+            mrp_html = (
+                '<span class="product-price-mrp">'
+                '<span class="product-price-mrp-label">MRP</span> '
+                f'<s class="product-price-mrp-value">{esc(mrp)}</s></span>'
+            )
+            mrp_discount_html = (
+                '<span class="product-price-discount product-price-mrp-discount">'
+                f'{mrp_discount_percent}% {esc(labels["below_mrp"])}</span>'
+            )
+        else:
+            mrp_html = f'<span class="product-price-mrp">MRP {esc(mrp)}</span>'
     prior_price_html = ""
     verified_discount_html = ""
     if selling is not None and prior_price_number is not None and prior_price_number > selling:
@@ -146,7 +170,8 @@ def product_card_html(product: dict, lang: str, *, eager: bool = False) -> str:
         price_html = (
             '<div class="product-price" aria-label="Price">'
             f'<span class="product-price-current">{esc(price)}</span>'
-            + (f'<span class="product-price-mrp">MRP {esc(mrp)}</span>' if mrp else "")
+            + mrp_html
+            + mrp_discount_html
             + prior_price_html
             + verified_discount_html
             + "</div>"
