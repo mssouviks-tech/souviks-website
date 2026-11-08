@@ -96,7 +96,7 @@ def fmt_money(v):
     if v is None or v == "":
         return "On request"
     try:
-        return "\u20b9{:,.2f}".format(float(v))
+        return "INR {:,.2f}".format(float(v))
     except Exception:
         return "On request"
 
@@ -163,23 +163,20 @@ def build_rows():
     rows.sort(key=lambda r: (r["category"].casefold(), r["part_number"].casefold(), r["part_name"].casefold()))
     return rows
 
-def make_transparent_logo(src, dst, alpha=30):
-    im = Image.open(src).convert("RGBA")
-    # Trim large transparent borders while retaining the source artwork.
-    bbox = im.getbbox()
+def make_transparent_logo(src, dst, alpha=46, color=(23,43,70)):
+    from PIL import ImageOps
+    im = Image.open(src).convert("RGB")
+    # Repository logo art is rendered to a transparent, single-colour mark.
+    # The inverse luminance becomes the logo alpha; the white canvas is removed.
+    gray = ImageOps.grayscale(im)
+    mask = gray.point(lambda p: int((255-p) * alpha / 255))
+    rgba = Image.new("RGBA", im.size, color + (0,))
+    rgba.putalpha(mask)
+    bbox = rgba.getbbox()
     if bbox:
-        im = im.crop(bbox)
-    a = im.getchannel("A").point(lambda x: int(x * alpha / 255))
-    im.putalpha(a)
-    im.save(dst, "PNG")
+        rgba = rgba.crop(bbox)
+    rgba.save(dst, "PNG")
     return dst
-
-def add_cover_logo(canvas, img_path, dark=True):
-    iw, ih = Image.open(img_path).size
-    max_w, max_h = 92*mm, 34*mm
-    scale = min(max_w/iw, max_h/ih)
-    w, h = iw*scale, ih*scale
-    canvas.drawImage(img_path, (PAGE_W-w)/2, PAGE_H-92*mm, width=w, height=h, mask="auto", preserveAspectRatio=True, anchor="c")
 
 def build_styles():
     styles = getSampleStyleSheet()
@@ -199,11 +196,11 @@ def build_styles():
 
 def draw_white_page(canv, doc, watermark_path):
     canv.saveState()
-    # Full-page logo watermark, centered behind all table text.
+    # Full-page transparent logo watermark, centered behind all table text.
     iw, ih = Image.open(watermark_path).size
-    w = PAGE_W * 0.66
+    w = PAGE_W * 0.64
     h = w * ih / iw
-    canv.drawImage(watermark_path, (PAGE_W-w)/2, (PAGE_H-h)/2, width=w, height=h, mask="auto", preserveAspectRatio=True)
+    canv.drawImage(watermark_path, (PAGE_W-w)/2, (PAGE_H-h)/2, width=w, height=h, mask="auto")
     # Header
     canv.setFillColor(NAVY)
     canv.rect(0, PAGE_H-17*mm, PAGE_W, 17*mm, stroke=0, fill=1)
@@ -226,7 +223,7 @@ def draw_white_page(canv, doc, watermark_path):
 
 def add_cover(story, rows, title, subtitle, styles):
     story.append(Spacer(1, 1))
-    # Page callback adds dark background; a small clear title block sits above.
+    # Page callback paints the navy cover and draws the large transparent logo mark.
     story.append(Spacer(1, 72*mm))
     story.append(Paragraph(escape(title), styles["title"]))
     story.append(Paragraph(escape(subtitle), styles["sub"]))
@@ -247,20 +244,22 @@ def add_cover(story, rows, title, subtitle, styles):
     story.append(Paragraph("MRP and Out Price shown in INR. Product applications combine listed vehicle models and supported vehicle-family references. Please confirm the exact part number, variant and specification before ordering.", styles["sub"]))
     story.append(PageBreak())
 
-def cover_page(canvas, doc, white_logo):
+def cover_page(canvas, doc, light_watermark):
     canvas.saveState()
     canvas.setFillColor(NAVY)
     canvas.rect(0,0,PAGE_W,PAGE_H,stroke=0,fill=1)
     canvas.setFillColor(ORANGE)
     canvas.rect(0,0,7*mm,PAGE_H,stroke=0,fill=1)
+    # Oversized transparent Souviks mark, behind the cover copy.
+    iw, ih = Image.open(light_watermark).size
+    w = PAGE_W*0.63; h = w*ih/iw
+    canvas.drawImage(light_watermark,(PAGE_W-w)/2,(PAGE_H-h)/2,width=w,height=h,mask="auto")
+    canvas.setFillColor(WHITE)
+    canvas.setFont("Helvetica-Bold",13)
+    canvas.drawString(19*mm,PAGE_H-27*mm,"SOUVIKS")
     canvas.setStrokeColor(colors.HexColor("#47607C"))
     canvas.setLineWidth(0.7)
-    canvas.line(18*mm,PAGE_H-41*mm,PAGE_W-18*mm,PAGE_H-41*mm)
-    add_cover_logo(canvas, white_logo, True)
-    # White low-opacity watermark over dark cover.
-    iw, ih = Image.open(white_logo).size
-    w = PAGE_W*0.65; h=w*ih/iw
-    canvas.drawImage(white_logo,(PAGE_W-w)/2,(PAGE_H-h)/2,width=w,height=h,mask="auto",preserveAspectRatio=True)
+    canvas.line(18*mm,PAGE_H-37*mm,PAGE_W-18*mm,PAGE_H-37*mm)
     canvas.setFillColor(ORANGE)
     canvas.setFont("Helvetica-Bold",8)
     canvas.drawString(19*mm,27*mm,"CUSTOMER EDITION  |  NOVEMBER 2026")
@@ -303,7 +302,7 @@ def make_table(rows, styles, compact=False, with_category=False):
     headers = ["PART NUMBER", "PART NAME", "APPLICATIONS", "MRP (INR)", "OUT PRICE (INR)"]
     data = [[Paragraph(h, styles["tablehead"]) for h in headers]]
     data.extend(row_cells(r, styles, compact=compact) for r in rows)
-    widths = [112*mm, 135*mm, 276*mm, 39*mm, 41*mm]
+    widths = [32*mm, 55*mm, 110*mm, 37*mm, 37*mm]
     t = LongTable(data, colWidths=widths, repeatRows=1, hAlign="LEFT", splitByRow=1)
     font = 6.8 if compact else 7.1
     pad = 3 if compact else 4
@@ -311,8 +310,8 @@ def make_table(rows, styles, compact=False, with_category=False):
         ("BACKGROUND",(0,0),(-1,0),NAVY2),
         ("TEXTCOLOR",(0,0),(-1,0),WHITE),
         ("VALIGN",(0,0),(-1,-1),"TOP"),
-        ("GRID",(0,0),(-1,-1),0.25,colors.HexColor("#D7DEE6")),
-        ("ROWBACKGROUNDS",(0,1),(-1,-1),[colors.white,PALE]),
+        ("LINEBELOW",(0,1),(-1,-1),0.35,colors.HexColor("#D7DEE6")),
+        ("LINEAFTER",(0,0),(-1,-1),0.25,colors.HexColor("#D7DEE6")),
         ("LEFTPADDING",(0,0),(-1,-1),pad),
         ("RIGHTPADDING",(0,0),(-1,-1),pad),
         ("TOPPADDING",(0,0),(-1,-1),4 if compact else 5),
@@ -327,7 +326,7 @@ def build_catalogue(rows, styles, wm, white_logo, path):
     for r in rows: grouped[r["category"]].append(r)
     for cat in sorted(grouped, key=str.casefold):
         header = Table([[Paragraph(escape(cat.upper()), styles["category"]), "","","",""]],
-                       colWidths=[112*mm,135*mm,276*mm,39*mm,41*mm], rowHeights=[9*mm])
+                       colWidths=[32*mm,55*mm,110*mm,37*mm,37*mm], rowHeights=[9*mm])
         header.setStyle(TableStyle([
             ("SPAN",(0,0),(-1,-1)),("BACKGROUND",(0,0),(-1,-1),NAVY),
             ("LEFTPADDING",(0,0),(-1,-1),7),("VALIGN",(0,0),(-1,-1),"MIDDLE"),
@@ -336,7 +335,6 @@ def build_catalogue(rows, styles, wm, white_logo, path):
         story.append(header)
         story.append(make_table(grouped[cat], styles, compact=False))
         story.append(Spacer(1,5*mm))
-    story.append(PageBreak())
     doc=SimpleDocTemplate(path,pagesize=landscape(A4),rightMargin=13*mm,leftMargin=13*mm,topMargin=22*mm,bottomMargin=16*mm,
                           title="Souviks Tata Vehicle Parts Catalogue",author="Souviks")
     doc.build(story,onFirstPage=lambda c,d: cover_page(c,d,white_logo),onLaterPages=lambda c,d: draw_white_page(c,d,wm))
@@ -348,7 +346,6 @@ def build_price_list(rows, styles, wm, white_logo, path):
     # A compact, part-number-first lookup list; same five requested columns.
     sorted_rows=sorted(rows,key=lambda r:(r["part_number"].casefold(),r["part_name"].casefold()))
     story.append(make_table(sorted_rows, styles, compact=True))
-    story.append(PageBreak())
     doc=SimpleDocTemplate(path,pagesize=landscape(A4),rightMargin=13*mm,leftMargin=13*mm,topMargin=22*mm,bottomMargin=16*mm,
                           title="Souviks Tata Vehicle Parts Price List",author="Souviks")
     doc.build(story,onFirstPage=lambda c,d: cover_page(c,d,white_logo),onLaterPages=lambda c,d: draw_white_page(c,d,wm))
@@ -357,12 +354,13 @@ def main():
     rows=build_rows()
     if not rows:
         raise RuntimeError("No Tata-associated active products were found.")
-    wm=make_transparent_logo(LOGO_DARK,"/tmp/souviks-watermark.png",alpha=36)
+    wm=make_transparent_logo(LOGO_DARK,"/tmp/souviks-watermark-dark.png",alpha=46,color=(23,43,70))
+    light_wm=make_transparent_logo(LOGO_DARK,"/tmp/souviks-watermark-light.png",alpha=28,color=(255,255,255))
     cat=os.path.join(OUT,"Souviks_Tata_Customer_Catalogue.pdf")
     price=os.path.join(OUT,"Souviks_Tata_Customer_Price_List.pdf")
     styles=build_styles()
-    build_catalogue(rows,styles,wm,LOGO_WHITE,cat)
-    build_price_list(rows,styles,wm,LOGO_WHITE,price)
+    build_catalogue(rows,styles,wm,light_wm,cat)
+    build_price_list(rows,styles,wm,light_wm,price)
     report={
         "product_count":len(rows),
         "priced_count":sum(1 for r in rows if r["raw_out"] is not None and r["raw_out"]!=""),
