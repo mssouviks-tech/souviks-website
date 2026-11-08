@@ -1277,7 +1277,7 @@ ${galleryHtml}
 
     <div class="pdp-row">
         <strong>Applications</strong>
-        <span>${(product.applications || []).join(", ")}</span>
+        <span>${(product.applications || []).slice(0, 2).map(app => Breadcrumb.escape(app)).join(", ") || "Confirm by part number"}</span>
     </div>
 
     <div class="pdp-row">
@@ -1517,7 +1517,7 @@ ${galleryHtml}
                 ${(product.applications || [])
                     .map(
                         app =>
-                        `<li>${app}</li>`
+                        `<li>${Breadcrumb.escape(app)}</li>`
                     )
                     .join("")}
 
