@@ -379,7 +379,10 @@ mrp_only_card = product_card_html({
     "prior_price_30d": None,
 }, "en")
 assert '<s class="product-price-mrp-value">₹100</s>' in mrp_only_card
-assert 'product-price-mrp-discount">20% below MRP' in mrp_only_card
+assert re.search(
+    r'class="[^"]*\bproduct-price-mrp-discount\b[^"]*">20% below MRP',
+    mrp_only_card,
+), "MRP discount class and percentage must be present regardless of class ordering"
 assert "product-price-prior-value" not in mrp_only_card
 
 # A separate 30-day price badge is allowed only with verified prior-price evidence.
@@ -394,7 +397,10 @@ verified_prior_card = product_card_html({
     "prior_price_30d": 95,
 }, "en")
 assert '<s class="product-price-mrp-value">₹100</s>' in verified_prior_card
-assert 'product-price-mrp-discount">20% below MRP' in verified_prior_card
+assert re.search(
+    r'class="[^"]*\bproduct-price-mrp-discount\b[^"]*">20% below MRP',
+    verified_prior_card,
+), "MRP-relative percentage must remain separate when a 30-day comparison is also present"
 assert '<s class="product-price-prior-value">₹95</s>' in verified_prior_card
 assert 'class="product-price-discount">16% lower than the lowest price in the last 30 days' in verified_prior_card
 
