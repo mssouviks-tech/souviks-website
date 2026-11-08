@@ -2283,7 +2283,7 @@ def reconcile_catalogue_projections():
                     '</div></div></section>'
                 )
                 description_section_pattern = re.compile(
-                    r"(<section\\b[^>]*id=\\"description-section\\"[^>]*>.*?</section>)",
+                    r"(<section\b[^>]*id=['\"]description-section['\"][^>]*>.*?</section>)",
                     flags=re.I | re.S,
                 )
                 if description_section_pattern.search(html):
@@ -2294,7 +2294,7 @@ def reconcile_catalogue_projections():
                     )
                 else:
                     vehicles_section_pattern = re.compile(
-                        r"(<section\\b[^>]*id=\\"vehicles-section\\")",
+                        r"(<section\b[^>]*id=['\"]vehicles-section['\"])",
                         flags=re.I,
                     )
                     if not vehicles_section_pattern.search(html):
