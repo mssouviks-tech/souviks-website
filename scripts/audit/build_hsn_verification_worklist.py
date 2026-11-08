@@ -82,10 +82,17 @@ def evidence_for(product: dict) -> str:
     return product.get("hsn_review_note") or "OEM/supplier technical sheet, physical material/construction details and exact product function are required before final classification."
 
 
+def clean_csv_text(value) -> str:
+    """Strip trailing whitespace from every embedded line before CSV serialization."""
+    if value is None:
+        return ""
+    return "\n".join(line.rstrip() for line in str(value).splitlines())
+
+
 def flat(value) -> str:
     if isinstance(value, list):
-        return " | ".join(str(item) for item in value)
-    return "" if value is None else str(value)
+        return " | ".join(clean_csv_text(item) for item in value)
+    return clean_csv_text(value)
 
 
 def main() -> None:
@@ -100,7 +107,7 @@ def main() -> None:
         writer.writeheader()
         for product in unresolved:
             product_id = str(product.get("id") or "")
-            writer.writerow({
+            row = {
                 "catalogue_id": product_id,
                 "active": str(bool(product.get("active", False))).lower(),
                 "product_name": product.get("product_name") or product.get("name") or "",
@@ -126,10 +133,14 @@ def main() -> None:
                 "reviewed_by": "",
                 "reviewed_on": "",
                 "review_evidence_reference": "",
-                "gst_rate_percent": "",
-                "gst_rate_effective_from": "",
-                "gst_rate_source_reference": "",
+                "gst_rate_percent": product.get("gst_rate_percent") if product.get("gst_rate_percent") is not None else "",
+                "gst_rate_effective_from": product.get("gst_rate_effective_from") or "",
+                "gst_rate_source_reference": product.get("gst_rate_source_reference") or "",
                 "invoice_ready": "FALSE",
+            }
+            writer.writerow({
+                key: clean_csv_text(value) if isinstance(value, str) else value
+                for key, value in row.items()
             })
     print(f"Wrote {len(unresolved)} non-final SKU rows to {OUTPUT}")
 
