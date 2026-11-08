@@ -192,6 +192,27 @@ products_by_id = {
     if isinstance(product, dict) and product.get("id")
 }
 
+# The catalogue builder must persist the MRP-relative arithmetic on every
+# record with valid positive MRP and selling price. This remains an internal
+# reference field, not a public discount claim.
+for catalogue_product in catalogue:
+    try:
+        mrp_value = float(catalogue_product.get("mrp"))
+        selling_value = float(catalogue_product.get("selling_price"))
+    except (TypeError, ValueError):
+        continue
+    if not (0 < selling_value <= mrp_value and mrp_value < float("inf")):
+        continue
+    expected_discount = int(round((mrp_value - selling_value) / mrp_value * 100))
+    actual_discount = catalogue_product.get("discount_percent")
+    assert actual_discount is not None and int(actual_discount) == expected_discount, (
+        f"{catalogue_product.get('id')}: expected stored discount_percent "
+        f"{expected_discount}, got {actual_discount!r}"
+    )
+    assert catalogue_product.get("discountPercent") == expected_discount, (
+        f"{catalogue_product.get('id')}: discountPercent compatibility alias not synchronized"
+    )
+
 for product_id, expected in EXPECTED.items():
     product = products_by_id.get(product_id)
     assert product is not None, f"{product_id}: missing from catalogue-index.json"
