@@ -96,7 +96,7 @@ def parse_catalogue(path):
         raise RuntimeError("Deduplication changed the expected catalogue count; review source keys: %s" % len(deduped))
     return deduped
 
-def fetch_bytes(url, timeout=14):
+def fetch_bytes(url, timeout=6):
     if not url:
         return None
     try:
@@ -134,18 +134,30 @@ def download_images(rows, outdir):
         row["image_path"] = None
         if row["image_url"]:
             unique.setdefault(row["image_url"], []).append(index)
+    # Download representative photographs only: two per section/subcategory.
+    # Other cards keep their own neutral unavailable-image panel, never a mismatched image.
+    selected = {}
+    seen_per_category = {}
+    for index, row in enumerate(rows):
+        if not row["image_url"]:
+            continue
+        key = (row["section"], row["category"])
+        count = seen_per_category.get(key, 0)
+        if count < 2:
+            selected.setdefault(row["image_url"], []).append(index)
+            seen_per_category[key] = count + 1
     def one(item):
         url, indexes = item
-        data = fetch_bytes(url)
+        data = fetch_bytes(url, timeout=6)
         path = IMG_DIR / ("%04d.png" % indexes[0])
         return url, indexes, prepare_image(data, path)
-    with concurrent.futures.ThreadPoolExecutor(max_workers=14) as pool:
-        for url, indexes, path in pool.map(one, unique.items()):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=32) as pool:
+        for url, indexes, path in pool.map(one, selected.items()):
             if path:
                 for index in indexes:
                     rows[index]["image_path"] = path
     logo_url = "https://www.souviks.co.in/assets/logo/souviks-logo.webp?v=a5300f9e16e9"
-    LOGO_PATH = prepare_image(fetch_bytes(logo_url), Path(outdir) / "souviks-logo.png")
+    LOGO_PATH = prepare_image(fetch_bytes(logo_url, timeout=6), Path(outdir) / "souviks-logo.png")
     return sum(1 for x in rows if x.get("image_path"))
 
 def register_fonts():
@@ -311,7 +323,7 @@ def build_catalogue_pdf(rows, outpath, regular_font, bold_font):
             batch = group[start:start+6]
             draw_pdf_header(c, section, page_no, w, h, regular_font, bold_font)
             y_top = h - 47
-            card_w, card_h, gap_x, gap_y = (w - 56 - 2*12)/3, 253, 12, 10
+            card_w, card_h, gap_x, gap_y = (w - 56 - 2*12)/3, 245, 12, 10
             for j,row in enumerate(batch):
                 col, rrow = j % 3, j // 3
                 x = 28 + col*(card_w+gap_x)
@@ -405,7 +417,7 @@ def build_price_pdf(rows, outpath, regular_font, bold_font):
                 Paragraph(html.escape(r["price"]),body),
             ])
             row_types.append("product")
-    widths = [108, 160, 356, 76, 91]
+    widths = [104, 156, 354, 74, 90]
     table = LongTable(data, colWidths=widths, repeatRows=1, hAlign="LEFT", splitByRow=1)
     style_cmds = [
         ("BACKGROUND",(0,0),(-1,0),colors.HexColor("#102A43")),
@@ -459,13 +471,24 @@ def set_text(shape, text, size=9, color=INK, bold=False, font="Arial", align=Non
     run.font.color.rgb = pptx_rgb(color)
     return shape
 
+def add_watermark_picture(slide, path, x, y, width):
+    from pptx.oxml.xmlchemy import OxmlElement
+    pic = slide.shapes.add_picture(path, x, y, width=width)
+    try:
+        alpha = OxmlElement("a:alphaModFix")
+        alpha.set("amt", "5500")
+        pic._element.blipFill.blip.append(alpha)
+    except Exception:
+        pass
+    return pic
+
 def add_bg_and_header(slide, title, number, total, watermark_path=None):
     slide.background.fill.solid()
     slide.background.fill.fore_color.rgb = pptx_rgb("FFFFFF")
-    # watermark behind all content
+    # low-opacity logo watermark behind all content
     if watermark_path and os.path.exists(watermark_path):
         try:
-            slide.shapes.add_picture(watermark_path, Inches(4.3), Inches(2.55), width=Inches(4.7))
+            add_watermark_picture(slide, watermark_path, Inches(4.3), Inches(2.55), Inches(4.7))
         except Exception:
             pass
     else:
@@ -488,7 +511,7 @@ def add_cover_slide(prs, title, subtitle, rows, deck_type, wm_path=None):
     slide=prs.slides.add_slide(prs.slide_layouts[6])
     slide.background.fill.solid(); slide.background.fill.fore_color.rgb=pptx_rgb("FFFFFF")
     if wm_path and os.path.exists(wm_path):
-        try: slide.shapes.add_picture(wm_path, Inches(4.6), Inches(2.2), width=Inches(4.2))
+        try: add_watermark_picture(slide, wm_path, Inches(4.6), Inches(2.2), Inches(4.2))
         except Exception: pass
     else:
         wm=slide.shapes.add_textbox(Inches(3.5), Inches(2.7), Inches(6.4), Inches(1.0)); set_text(wm,"SOUVIKS",46,"E9EEF3",True,align=PP_ALIGN.CENTER)
