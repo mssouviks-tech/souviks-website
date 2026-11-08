@@ -56,11 +56,11 @@ for (const product of activeProducts) {
         continue;
     }
 
-    if (product.discount_percent !== null && product.discount_percent !== undefined && product.discount_percent !== "") {
-        const expected = Math.round(((mrp - selling) / mrp) * 100);
-        if (Math.abs(Number(product.discount_percent) - expected) > 1) {
-            pricingErrors.push(`${product.id}: discount ${product.discount_percent}% does not match price arithmetic (${expected}%)`);
-        }
+    const expectedDiscount = Math.round(((mrp - selling) / mrp) * 100);
+    if (product.discount_percent === null || product.discount_percent === undefined || product.discount_percent === "") {
+        pricingErrors.push(`${product.id}: missing stored MRP-relative discount percentage`);
+    } else if (Math.abs(Number(product.discount_percent) - expectedDiscount) > 1) {
+        pricingErrors.push(`${product.id}: discount ${product.discount_percent}% does not match price arithmetic (${expectedDiscount}%)`);
     }
 }
 assert.equal(pricingErrors.length, 0, "Catalogue pricing arithmetic errors:\n" + pricingErrors.slice(0, 20).join("\n"));
