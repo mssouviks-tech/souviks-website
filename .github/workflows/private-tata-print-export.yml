@@ -1,0 +1,42 @@
+name: Temporary Private Tata Print Export
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - "private-print-export-trigger.txt"
+permissions:
+  contents: read
+  actions: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out builder script
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: builder
+      - name: Check out approved catalogue source
+        uses: actions/checkout@v4
+        with:
+          ref: deliverables/tata-compatible-catalogue-2026-11-08
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install export dependencies
+        run: python -m pip install --disable-pip-version-check reportlab python-pptx pillow
+      - name: Generate private print files
+        run: python builder/scripts/build_private_tata_print_pack.py --source source/catalogues/tata-compatible-catalogue.html --out dist
+      - name: Upload private deliverables
+        uses: actions/upload-artifact@v4
+        with:
+          name: souviks-private-tata-print-pack
+          path: |
+            dist/Souviks_Tata-Compatible_Parts_Catalogue.pdf
+            dist/Souviks_Tata-Compatible_Price_List.pdf
+            dist/Souviks_Tata-Compatible_Parts_Catalogue_Editable.pptx
+            dist/Souviks_Tata-Compatible_Price_List_Editable.pptx
+            dist/build_report.json
+          retention-days: 1
