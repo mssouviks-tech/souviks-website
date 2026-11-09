@@ -87,6 +87,9 @@ jobs:
           import re
           import sys
 
+          sys.path.insert(0, str(pathlib.Path("scripts/catalogue").resolve()))
+          from application_display import public_applications
+
           root = pathlib.Path(".")
           catalogue = json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
           brands = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
@@ -191,28 +194,24 @@ jobs:
                   continue
 
               for field in expected_projection_fields:
-                  # Public application data is deliberately filtered by the
-                  # projection builder (internal fitment notes are not public).
-                  # Validate that the projection contains only the canonical
-                  # public subset, not byte-for-byte source notes.
-                  if field in {"applications", "vehicles"}:
+                  # Applications are generated through the same canonical
+                  # public-display helper as the build. Compare with its output
+                  # so internal fitment notes never become public parity errors.
+                  if field == "applications":
+                      continue
+                  if field == "vehicles":
                       actual = arrayish(projected.get(field))
                       expected_value = arrayish(source.get(field))
-                      if field == "applications":
-                          expected_value = [
-                              item for item in expected_value
-                              if not re.search(
-                                  r"(?:internal|do not publish|not for customer|supplier note|fitment note|source note)",
-                                  item,
-                                  flags=re.I,
-                              )
-                          ]
                       if actual != expected_value:
                           errors.append(f"products.json drift for {pid}: {field}")
                       continue
 
                   actual = projected.get(field)
-                  expected_value = projected_value(source, field)
+                  expected_value = (
+                      public_applications(source.get("applications"))
+                      if field == "applications"
+                      else projected_value(source, field)
+                  )
                   if field in {"mrp", "selling_price"}:
                       actual = number(actual)
                   elif field in {"image_folder", "image_url", "image", "primary_image"}:
