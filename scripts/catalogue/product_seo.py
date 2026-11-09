@@ -205,7 +205,7 @@ def _meta_context_candidates(
         contexts.append("Universal fitment")
 
     applications = [
-        value for value in values(product.get("applications"))
+        value for value in public_applications(product.get("applications"))
         if value.casefold() not in existing
     ]
     for count in range(min(2, len(applications)), 0, -1):
