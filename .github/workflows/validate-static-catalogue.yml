@@ -194,11 +194,6 @@ jobs:
                   continue
 
               for field in expected_projection_fields:
-                  # Applications are generated through the same canonical
-                  # public-display helper as the build. Compare with its output
-                  # so internal fitment notes never become public parity errors.
-                  if field == "applications":
-                      continue
                   if field == "vehicles":
                       actual = arrayish(projected.get(field))
                       expected_value = arrayish(source.get(field))
