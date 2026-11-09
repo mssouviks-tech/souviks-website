@@ -10,6 +10,7 @@ import re
 from typing import Any
 
 from product_title import shorten_product_name_for_title
+from application_display import public_applications
 
 MAX_META_DESCRIPTION = 158
 MIN_META_DESCRIPTION = 70
@@ -116,7 +117,7 @@ def build_factual_product_description(product: dict[str, Any]) -> str:
     part = product_part_number(product)
     category = clean_text(product.get("category_name") or product.get("category"))
     subcategory = clean_text(product.get("subcategory_name") or product.get("subcategory"))
-    applications = values(product.get("applications"))
+    applications = public_applications(product.get("applications"))
     vehicles = values(product.get("vehicles"))
 
     scope = subcategory or category or "commercial-vehicle spare-parts"
@@ -367,7 +368,7 @@ def build_product_meta_description(
         or product.get("category_name")
         or product.get("category")
     )
-    applications = values(product.get("applications"))
+    applications = public_applications(product.get("applications"))
     extra_parts = []
     if category and category.casefold() not in identity_lead.casefold():
         extra_parts.append(category)
