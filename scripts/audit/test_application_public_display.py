@@ -5,9 +5,28 @@ from __future__ import annotations
 import html
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
+from application_display import public_applications  # noqa: E402
+
+# Internal evidence remains in the canonical catalogue but must never be part
+# of customer-facing application projections. Ordinary application names and
+# component-system descriptions must remain available.
+assert public_applications([
+    "Front Suspension System",
+    "Supplier / product-code conflict: verify source and full code before ordering.",
+    "Exact-code source reconciliation (JAI Spring Price List): Source: https://example.invalid",
+    "Fitment qualification (catalogue-only audit): not independently verified.",
+    "Commercial-vehicle hydraulic brake systems requiring DOT 4 brake fluid.",
+]) == [
+    "Front Suspension System",
+    "Commercial-vehicle hydraulic brake systems requiring DOT 4 brake fluid.",
+]
+assert public_applications(["Trailer Suspension System"]) == ["Trailer Suspension System"]
+assert public_applications(["https://example.invalid/source"]) == []
 CATALOGUE_PATH = ROOT / "assets" / "data" / "catalogue-index.json"
 LABELS = r"(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ्लिकেশন|প্রয়োগ|ব্যবহার)"
 FALLBACKS = {
@@ -36,11 +55,7 @@ for product in active_products:
         missing_pages.append(f"{product_id}: missing slug")
         continue
 
-    applications = [
-        str(item).strip()
-        for item in (product.get("applications") or [])
-        if str(item).strip()
-    ]
+    applications = public_applications(product.get("applications"))
     expected_summary = ", ".join(applications[:2]) if applications else None
     expected_items = applications or []
 

@@ -19,6 +19,8 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
+from application_display import public_applications
 BASE = "https://www.souviks.co.in"
 LANGUAGES = ("en", "bn", "hi")
 ENTITY_KINDS = {
@@ -103,7 +105,11 @@ def arrayish(value):
 
 
 def projection_value(source, field: str):
-    if field in {"applications", "vehicles"}:
+    if field == "applications":
+        # The public products.json projection intentionally omits internal
+        # source/provenance and fitment-audit prose retained in the catalogue.
+        return public_applications(source.get(field))
+    if field == "vehicles":
         return arrayish(source.get(field))
     if field == "image_folder":
         return text(source.get("image_folder") or source.get("id"))

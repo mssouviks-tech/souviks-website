@@ -117,6 +117,7 @@ jobs:
           import py_compile
           for path in (
               "scripts/catalogue/build.py",
+              "scripts/catalogue/application_display.py",
               "scripts/catalogue/product_seo.py",
               "scripts/catalogue/product_title.py",
               "scripts/catalogue/normalize_page_config.py",
