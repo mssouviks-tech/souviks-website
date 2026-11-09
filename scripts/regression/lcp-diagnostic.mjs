@@ -118,6 +118,7 @@ try {
       });
 
       let responseStatus = null;
+      let responseHeaders = {};
       let navigationError = null;
       try {
         const response = await page.goto(target.url, {
@@ -125,6 +126,7 @@ try {
           timeout: 60_000,
         });
         responseStatus = response?.status() ?? null;
+        responseHeaders = response?.headers() ?? {};
       } catch (error) {
         navigationError = String(error);
       }
@@ -329,6 +331,12 @@ try {
 
         requestedUrl: target.url,
         responseStatus,
+        responseHeaders: {
+          server: responseHeaders.server || null,
+          cfRay: responseHeaders["cf-ray"] || null,
+          cfMitigated: responseHeaders["cf-mitigated"] || null,
+          contentType: responseHeaders["content-type"] || null,
+        },
         screenshots,
         final,
       };
