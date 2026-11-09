@@ -2453,7 +2453,7 @@ def reconcile_catalogue_projections():
                 flags=re.I | re.S,
             )
             # Refresh the public Applications summary and full list from the canonical catalogue.
-            # Keep the metadata row concise; all application notes remain available in the detail card.
+            # Keep the metadata row concise; all customer-facing applications remain in the detail card.
             applications = public_applications(product.get("applications"))
             application_fallback = {
                 "en": "Confirm by part number",
