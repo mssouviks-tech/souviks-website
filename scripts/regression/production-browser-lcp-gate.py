@@ -60,7 +60,16 @@ def main() -> int:
             failures.append(f"Unexpected production route in {path}: {requested_url!r}")
             continue
         if report.get("responseStatus") != 200 or report.get("final", {}).get("navigationError"):
-            failures.append(f"Production navigation failed for {route} in {path}")
+            status = report.get("responseStatus")
+            headers = report.get("responseHeaders") or {}
+            if status == 403 and (headers.get("cfRay") or headers.get("cfMitigated")):
+                ray = headers.get("cfRay") or "not supplied"
+                failures.append(
+                    f"Cloudflare edge denied the synthetic browser for {route} in {path} "
+                    f"(HTTP 403, cf-ray={ray}); this is an edge-access failure, not an LCP result."
+                )
+            else:
+                failures.append(f"Production navigation failed for {route} in {path} (HTTP {status})")
             continue
 
         entries = report.get("final", {}).get("lcpEntries") or []
