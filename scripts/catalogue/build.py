@@ -2362,12 +2362,12 @@ def reconcile_catalogue_projections():
             # idempotent because this builder regenerates already-generated PDPs.
             if price_history_html:
                 history_pattern = re.compile(
-                    r'<section\\b[^>]*class=["\\'][^"\\']*\\bpdp-price-history\\b[^"\\']*["\\'][^>]*>.*?</section>',
+                    r'<section\b[^>]*class=["\'][^"\']*\bpdp-price-history\b[^"\']*["\'][^>]*>.*?</section>',
                     flags=re.I | re.S,
                 )
                 html = history_pattern.sub("", html)
                 pricing_block_pattern = re.compile(
-                    r'(<div\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-pricing\\b[^"\\']*["\\'])[^>]*>.*?</div>)\\s*(?=<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-meta\\b)',
+                    r'(<div\b(?=[^>]*class=["\'][^"\']*\bpdp-pricing\b[^"\']*["\'])[^>]*>.*?</div>)\s*(?=<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b)',
                     flags=re.I | re.S,
                 )
                 html, history_inserted = pricing_block_pattern.subn(
