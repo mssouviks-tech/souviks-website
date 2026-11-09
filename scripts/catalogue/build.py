@@ -17,6 +17,8 @@ CATALOGUE_SCRIPTS = str(ROOT / "scripts" / "catalogue")
 if CATALOGUE_SCRIPTS not in sys.path:
     sys.path.insert(0, CATALOGUE_SCRIPTS)
 
+from application_display import public_applications
+
 from product_seo import (
     build_factual_product_description,
     build_product_meta_description,
@@ -1510,7 +1512,7 @@ def reconcile_catalogue_projections():
             "primary_image": text(p.get("primary_image")),
             "image_url": text(p.get("image_url")) or "/assets/images/placeholder.webp",
             "vehicles": arr(p.get("vehicles")),
-            "applications": arr(p.get("applications")),
+            "applications": public_applications(p.get("applications")),
             "featured": bool(p.get("featured")),
             "active": p.get("active") is not False,
             "description": text(p.get("description")),
@@ -1536,7 +1538,7 @@ def reconcile_catalogue_projections():
             "subtitle": f"Part No. {part}" if part else "Part number on request",
             "keywords": keywords,
             "description": description,
-            "applications": arr(p.get("applications")),
+            "applications": public_applications(p.get("applications")),
             "vehicles": vehicles,
             "part_number": part,
             "manufacturer_part_number": text(p.get("manufacturer_part_number")),
@@ -1801,7 +1803,7 @@ def reconcile_catalogue_projections():
             subcategory = text(product.get("subcategory_name") or product.get("subcategory"))
             part = part_number(product)
             description = text(product.get("description"))
-            applications = arr(product.get("applications"))
+            applications = public_applications(product.get("applications"))
             vehicles = arr(product.get("vehicles"))
 
             # Start with a known-good localized PDP shell, then replace its
@@ -1821,7 +1823,7 @@ def reconcile_catalogue_projections():
             seeded["seo"]["title"] = build_product_page_title(
                 brand, part, name, title_vehicle_by_id.get(product_id)
             )
-            seeded["seo"]["description"] = build_product_meta_description(product, language=lang)
+            seeded["seo"]["description"] = build_product_meta_description({**product, "applications": public_applications(product.get("applications"))}, language=lang)
             seeded["seo"]["keywords"] = [value for value in (name, part, "commercial vehicle spare parts", "truck spare parts") if value]
             seeded["schema"] = {}
             seeded["created_at"] = text(product.get("created_at") or template_data.get("created_at"))
@@ -2062,7 +2064,7 @@ def reconcile_catalogue_projections():
             # Keep full factual copy in the page and Product JSON-LD, while
             # using a separate, concise description for search-result snippets.
             content_description = build_product_schema_description(product)
-            description = build_product_meta_description(product, language=lang)
+            description = build_product_meta_description({**product, "applications": public_applications(product.get("applications"))}, language=lang)
             seo_description = content_description
     
             title_text = html_module.escape(title, quote=False)
@@ -2076,7 +2078,7 @@ def reconcile_catalogue_projections():
             data["brand"] = brand
             data["product_name"] = name
             data["name"] = name
-            data["applications"] = arr(product.get("applications"))
+            data["applications"] = public_applications(product.get("applications"))
     
             data["subcategory_id"] = text(product.get("subcategory_id"))
             data["subcategory_name"] = text(product.get("subcategory_name") or product.get("subcategory"))
@@ -2452,7 +2454,7 @@ def reconcile_catalogue_projections():
             )
             # Refresh the public Applications summary and full list from the canonical catalogue.
             # Keep the metadata row concise; all application notes remain available in the detail card.
-            applications = arr(product.get("applications"))
+            applications = public_applications(product.get("applications"))
             application_fallback = {
                 "en": "Confirm by part number",
                 "hi": "पार्ट नंबर से पुष्टि करें",
