@@ -2357,44 +2357,31 @@ def reconcile_catalogue_projections():
             if not pricing_parts:
                 pricing_parts.append('<span class="pdp-price-label">Price on request</span>')
             pricing_markup = '<div class="pdp-pricing" aria-label="Product pricing">' + ''.join(pricing_parts) + '</div>'
-            # Render the generated recorded-price history immediately after the
-            # pricing block, before product metadata. Keep the operation
-            # idempotent because this builder regenerates already-generated PDPs.
-            if price_history_html:
-                history_pattern = re.compile(
-                    r'<section\b[^>]*class=["\'][^"\']*\bpdp-price-history\b[^"\']*["\'][^>]*>.*?</section>',
-                    flags=re.I | re.S,
-                )
-                html = history_pattern.sub("", html)
-                pricing_block_pattern = re.compile(
-                    r'(<div\b(?=[^>]*class=["\'][^"\']*\bpdp-pricing\b[^"\']*["\'])[^>]*>.*?</div>)\s*(?=<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b)',
-                    flags=re.I | re.S,
-                )
-                html, history_inserted = pricing_block_pattern.subn(
-                    lambda match: match.group(1) + price_history_html,
-                    html,
-                    count=1,
-                )
-                if history_inserted != 1:
-                    raise SystemExit(f"Could not insert recorded price history panel in {path}")
-            else:
-                history_pattern = re.compile(
-                    r'<section\b[^>]*class=["\'][^"\']*\bpdp-price-history\b[^"\']*["\'][^>]*>.*?</section>',
-                    flags=re.I | re.S,
-                )
-                html = history_pattern.sub("", html)
+
+            # Remove any previously generated history section before updating
+            # the pricing block, then write both in a single deterministic
+            # replacement. This keeps repeated builds idempotent and prevents
+            # the later pricing replacement from discarding the history panel.
+            history_pattern = re.compile(
+                r'<section\\b[^>]*class=["\\'][^"\\']*\\bpdp-price-history\\b[^"\\']*["\\'][^>]*>.*?</section>',
+                flags=re.I | re.S,
+            )
+            html = history_pattern.sub("", html)
+
             pricing_pattern = (
-                r'<div\b(?=[^>]*class=["\'][^"\']*\bpdp-pricing\b[^"\']*["\'])'
-                r'[^>]*>.*?</div>\s*(?=<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b)'
+                r'<div\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-pricing\\b[^"\\']*["\\'])'
+                r'[^>]*>.*?</div>\\s*(?=<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-meta\\b)'
             )
             if re.search(pricing_pattern, html, flags=re.I | re.S):
                 html = re.sub(
                     pricing_pattern,
-                    lambda _: pricing_markup,
+                    lambda _: pricing_markup + price_history_html,
                     html,
                     count=1,
                     flags=re.I | re.S,
                 )
+            elif price_history_html:
+                raise SystemExit(f"Could not insert recorded price history panel in {path}")
 
             # A priced product must not retain the template's stale "Price & availability on request" badge.
             # Stock is still confirmed separately, so use an availability-only label once any price is shown.
