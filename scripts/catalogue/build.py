@@ -2369,8 +2369,8 @@ def reconcile_catalogue_projections():
             html = history_pattern.sub("", html)
 
             pricing_pattern = (
-                r'<div\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-pricing\\b[^"\\']*["\\'])'
-                r'[^>]*>.*?</div>\\s*(?=<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-meta\\b)'
+                r"""<div\\b(?=[^>]*class=["'][^"']*\\bpdp-pricing\\b[^"']*["'])"""
+                r""".*?</div>\\s*(?=<div\\b[^>]*class=["'][^"']*\\bpdp-meta\\b)"""
             )
             if re.search(pricing_pattern, html, flags=re.I | re.S):
                 html = re.sub(
