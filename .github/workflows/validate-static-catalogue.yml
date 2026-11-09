@@ -191,24 +191,40 @@ jobs:
                   continue
 
               for field in expected_projection_fields:
+                  # Public application data is deliberately filtered by the
+                  # projection builder (internal fitment notes are not public).
+                  # Validate that the projection contains only the canonical
+                  # public subset, not byte-for-byte source notes.
+                  if field in {"applications", "vehicles"}:
+                      actual = arrayish(projected.get(field))
+                      expected_value = arrayish(source.get(field))
+                      if field == "applications":
+                          expected_value = [
+                              item for item in expected_value
+                              if not re.search(
+                                  r"(?:internal|do not publish|not for customer|supplier note|fitment note|source note)",
+                                  item,
+                                  flags=re.I,
+                              )
+                          ]
+                      if actual != expected_value:
+                          errors.append(f"products.json drift for {pid}: {field}")
+                      continue
+
                   actual = projected.get(field)
                   expected_value = projected_value(source, field)
                   if field in {"mrp", "selling_price"}:
                       actual = number(actual)
-                  elif field in {"applications", "vehicles"}:
-                      actual = arrayish(actual)
                   elif field in {"image_folder", "image_url", "image", "primary_image"}:
                       actual = str(actual or "").strip()
                   elif field == "gallery":
                       actual = [str(v).strip() for v in (actual or []) if str(v).strip()] if isinstance(actual, list) else []
-                  elif field in {"featured"}:
+                  elif field == "featured":
                       actual = bool(actual)
                   elif field == "active":
                       actual = actual is not False
                   if actual != expected_value:
-                      errors.append(
-                          f"products.json drift for {pid}: {field}"
-                      )
+                      errors.append(f"products.json drift for {pid}: {field}")
 
               slug = str(source.get("slug") or "").strip()
               derived_part = str(source.get("part_number") or source.get("partNumber") or "").strip()
