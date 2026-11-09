@@ -5,9 +5,12 @@ from __future__ import annotations
 import html
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
+from application_display import public_applications
 CATALOGUE_PATH = ROOT / "assets" / "data" / "catalogue-index.json"
 LABELS = r"(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ्लिकেশন|প্রয়োগ|ব্যবহার)"
 FALLBACKS = {
@@ -36,11 +39,7 @@ for product in active_products:
         missing_pages.append(f"{product_id}: missing slug")
         continue
 
-    applications = [
-        str(item).strip()
-        for item in (product.get("applications") or [])
-        if str(item).strip()
-    ]
+    applications = public_applications(product.get("applications"))
     expected_summary = ", ".join(applications[:2]) if applications else None
     expected_items = applications or []
 
