@@ -2363,7 +2363,7 @@ def reconcile_catalogue_projections():
             # replacement. This keeps repeated builds idempotent and prevents
             # the later pricing replacement from discarding the history panel.
             history_pattern = re.compile(
-                r'<section\\b[^>]*class=["\\'][^"\\']*\\bpdp-price-history\\b[^"\\']*["\\'][^>]*>.*?</section>',
+                r"""<section\b[^>]*class=["'][^"']*\bpdp-price-history\b[^"']*["'][^>]*>.*?</section>""",
                 flags=re.I | re.S,
             )
             html = history_pattern.sub("", html)
