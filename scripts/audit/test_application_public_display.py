@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
-from application_display import public_applications
+from application_display import public_applications  # noqa: E402
 CATALOGUE_PATH = ROOT / "assets" / "data" / "catalogue-index.json"
 LABELS = r"(?:Applications|अनुप्रयोग|एप्लिकेशन|उपयोग|অ্যাপ्लिकেশন|প্রয়োগ|ব্যবহার)"
 FALLBACKS = {
