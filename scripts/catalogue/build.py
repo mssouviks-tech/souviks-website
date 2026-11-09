@@ -2378,13 +2378,11 @@ def reconcile_catalogue_projections():
                 if history_inserted != 1:
                     raise SystemExit(f"Could not insert recorded price history panel in {path}")
             else:
-                html = re.sub(
-                    r'<section\b[^>]*class=["\'][^"\']*\bpdp-price-history\b[^"\']*["\'][^"\']*["\'][^>]*>.*?</section>',
-                    "",
-                    html,
-                    count=1,
+                history_pattern = re.compile(
+                    r'<section\\b[^>]*class=["\\'][^"\\']*\\bpdp-price-history\\b[^"\\']*["\\'][^>]*>.*?</section>',
                     flags=re.I | re.S,
                 )
+                html = history_pattern.sub("", html)
             pricing_pattern = (
                 r'<div\b(?=[^>]*class=["\'][^"\']*\bpdp-pricing\b[^"\']*["\'])'
                 r'[^>]*>.*?</div>\s*(?=<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b)'
