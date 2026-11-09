@@ -286,6 +286,16 @@ for product_id, expected in EXPECTED.items():
         )
         assert pricing_match, f"{product_id}: missing server-rendered pricing block on {language} page"
         pricing = pricing_match.group(0)
+        # Recorded price history is a sibling of the pricing block, before the
+        # product metadata card; validate the whole rendered pricing area.
+        price_area_match = re.search(
+            r'(<div\b(?=[^>]*class=["\'][^"\']*\bpdp-pricing\b[^"\']*["\'])'
+            r'[^>]*>.*?</div>)(.*?)(?=<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b)',
+            page,
+            flags=re.I | re.S,
+        )
+        assert price_area_match, f"{product_id}: missing pricing area on {language} page"
+        pricing_area = price_area_match.group(1) + price_area_match.group(2)
         assert display_price(expected["mrp"]) in pricing, (
             f"{product_id}: {language} pricing block missing MRP {display_price(expected['mrp'])}"
         )
@@ -328,16 +338,16 @@ for product_id, expected in EXPECTED.items():
         for field, period_label in period_labels.items():
             recorded_low = embedded.get(field)
             if recorded_low not in (None, ""):
-                assert period_label in pricing, (
+                assert period_label in pricing_area, (
                     f"{product_id}: {language} price history panel missing {period_label}"
                 )
-                assert display_price(recorded_low) in pricing, (
+                assert display_price(recorded_low) in pricing_area, (
                     f"{product_id}: {language} price history panel missing {field} value"
                 )
         all_time_low = embedded.get("price_history_all_time")
         since = str(embedded.get("price_history_since") or "")[:10]
         if all_time_low not in (None, "") and since:
-            assert since in pricing, (
+            assert since in pricing_area, (
                 f"{product_id}: {language} all-time price history is missing its tracking start date"
             )
 

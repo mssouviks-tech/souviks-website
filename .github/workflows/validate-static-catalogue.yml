@@ -87,6 +87,9 @@ jobs:
           import re
           import sys
 
+          sys.path.insert(0, str(pathlib.Path("scripts/catalogue").resolve()))
+          from application_display import public_applications
+
           root = pathlib.Path(".")
           catalogue = json.loads((root / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
           brands = json.loads((root / "assets/data/brands.json").read_text(encoding="utf-8"))
@@ -191,24 +194,31 @@ jobs:
                   continue
 
               for field in expected_projection_fields:
+                  if field == "vehicles":
+                      actual = arrayish(projected.get(field))
+                      expected_value = arrayish(source.get(field))
+                      if actual != expected_value:
+                          errors.append(f"products.json drift for {pid}: {field}")
+                      continue
+
                   actual = projected.get(field)
-                  expected_value = projected_value(source, field)
+                  expected_value = (
+                      public_applications(source.get("applications"))
+                      if field == "applications"
+                      else projected_value(source, field)
+                  )
                   if field in {"mrp", "selling_price"}:
                       actual = number(actual)
-                  elif field in {"applications", "vehicles"}:
-                      actual = arrayish(actual)
                   elif field in {"image_folder", "image_url", "image", "primary_image"}:
                       actual = str(actual or "").strip()
                   elif field == "gallery":
                       actual = [str(v).strip() for v in (actual or []) if str(v).strip()] if isinstance(actual, list) else []
-                  elif field in {"featured"}:
+                  elif field == "featured":
                       actual = bool(actual)
                   elif field == "active":
                       actual = actual is not False
                   if actual != expected_value:
-                      errors.append(
-                          f"products.json drift for {pid}: {field}"
-                      )
+                      errors.append(f"products.json drift for {pid}: {field}")
 
               slug = str(source.get("slug") or "").strip()
               derived_part = str(source.get("part_number") or source.get("partNumber") or "").strip()
