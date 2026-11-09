@@ -289,13 +289,13 @@ for product_id, expected in EXPECTED.items():
         # Recorded price history is a sibling of the pricing block, before the
         # product metadata card; validate the whole rendered pricing area.
         price_area_match = re.search(
-            r'<div\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-pricing\\b[^"\\']*["\\'])'
-            r'[^>]*>.*?</div>(.*?)(?=<div\\b[^>]*class=["\\'][^"\\']*\\bpdp-meta\\b)',
+            r'(<div\b(?=[^>]*class=["\'][^"\']*\bpdp-pricing\b[^"\']*["\'])'
+            r'[^>]*>.*?</div>)(.*?)(?=<div\b[^>]*class=["\'][^"\']*\bpdp-meta\b)',
             page,
             flags=re.I | re.S,
         )
         assert price_area_match, f"{product_id}: missing pricing area on {language} page"
-        pricing_area = price_area_match.group(0)
+        pricing_area = price_area_match.group(1) + price_area_match.group(2)
         assert display_price(expected["mrp"]) in pricing, (
             f"{product_id}: {language} pricing block missing MRP {display_price(expected['mrp'])}"
         )
