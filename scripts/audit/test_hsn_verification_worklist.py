@@ -50,6 +50,12 @@ catalogue_by_id = {product["id"]: product for product in catalogue}
 for row in rows:
     product = catalogue_by_id[row["catalogue_id"]]
     assert row["invoice_ready"] == "FALSE", row["catalogue_id"]
+    assert row["stock_reference_hsn_code"] == str(product.get("hsn_stock_reference_code") or ""), row["catalogue_id"]
+    assert row["stock_reference_hsn_codes"] == (" | ".join(product.get("hsn_stock_reference_codes") or [])), row["catalogue_id"]
+    assert row["stock_reference_status"] == str(product.get("hsn_stock_reference_status") or "not_in_source"), row["catalogue_id"]
+    assert row["stock_reference_alignment"] == str(product.get("hsn_stock_reference_alignment") or "not_in_source"), row["catalogue_id"]
+    assert row["stock_reference_record_count"] == str(product.get("hsn_stock_reference_record_count") or 0), row["catalogue_id"]
+    assert row["stock_reference_source_files"] == (" | ".join(product.get("hsn_stock_reference_source_files") or [])), row["catalogue_id"]
     assert row["gst_rate_percent"] == str(product.get("gst_rate_percent") or ""), row["catalogue_id"]
     assert row["gst_rate_effective_from"] == str(product.get("gst_rate_effective_from") or ""), row["catalogue_id"]
     assert row["gst_rate_source_reference"] == str(product.get("gst_rate_source_reference") or ""), row["catalogue_id"]

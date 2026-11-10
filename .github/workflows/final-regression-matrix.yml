@@ -86,8 +86,10 @@ jobs:
           python3 scripts/js/refresh_versions.py
           python3 scripts/catalogue/sync_root_homepage.py
 
-      - name: Validate SKU-level HSN verification worklist
-        run: python3 scripts/audit/test_hsn_verification_worklist.py
+      - name: Build and validate SKU-level HSN verification worklist
+        run: |
+          python3 scripts/audit/build_hsn_verification_worklist.py
+          python3 scripts/audit/test_hsn_verification_worklist.py
 
       - name: Start local static server
         run: |
@@ -108,6 +110,7 @@ jobs:
           node --check scripts/regression/cashfree-checkout-contract.cjs
           node --check scripts/regression/account-orders-contract.cjs
           node --check scripts/regression/hsn-ecommerce-contract.cjs
+          node --check scripts/regression/hsn-stock-reference-crosswalk.cjs
           node --check scripts/regression/delhivery-estimate-contract.cjs
 
       - name: Validate RFQ security contract
@@ -123,6 +126,9 @@ jobs:
         run: node scripts/regression/hsn-ecommerce-contract.cjs
       - name: Validate supplier invoice HSN reference reconciliation
         run: node scripts/regression/hsn-supplier-invoice-reference.cjs
+
+      - name: Validate Odoo stock HSN reference crosswalk
+        run: node scripts/regression/hsn-stock-reference-crosswalk.cjs
       - name: Validate product-level HSN candidate schema and evidence parity
         run: node scripts/regression/hsn-candidate-overrides.cjs
       - name: Validate GST rate candidates and invoice-safety controls
