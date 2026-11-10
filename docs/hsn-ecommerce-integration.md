@@ -28,7 +28,7 @@ The authenticated `account-orders` function returns those saved fields with the 
 
 HSN and GST rate are separate data. This integration does not determine GST percentages, taxable values, CGST/SGST/IGST splits, cess, or place-of-supply treatment. It does not generate or issue tax invoices.
 
-The Souviks invoice template expects verified HSN/SAC and GST rates at line-item level. On 10 November 2026, the user reported accountant approval of all 1,159 GST rate candidates; each gst_rate_candidate invoice_ready flag is true and accountant_approval_required is false. This approves the GST candidate only. Do not use provisional or review-required HSN candidates as final invoice classifications unless a SKU-specific HSN exception is recorded. The end-to-end tax-invoice generator is not implemented by this flag change and must fail closed where either the HSN or transaction/tax treatment is unverified.
+The GST invoice generator is being implemented on branch `commerce/gst-invoice-generator-2026-11-10`. It adds server-calculated GST-inclusive price extraction, invoice-number reservations, immutable order snapshots, private PDF storage and authenticated/checkout-capability downloads. It must still fail closed for provisional or review-required HSN candidates; candidate GST approval is not a final HSN classification. The implementation is not production-active until the migration and Edge Functions are deployed and seller identity, electronic-issuance process, freight and accountant release gates are confirmed. See `docs/audit/gst-invoice-implementation-2026-11.md`.
 
 ## Validation
 

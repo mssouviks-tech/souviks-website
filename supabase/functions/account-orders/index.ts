@@ -82,6 +82,17 @@ Deno.serve(async (req: Request) => {
           limit: "1000",
         })
       : [];
+    const invoiceRows = orderIds.length
+      ? await supabaseRest("gst_invoices", "GET", {
+          select: "order_id,invoice_number,invoice_status",
+          order_id: "in.(" + orderIds.join(",") + ")",
+          limit: "20",
+        })
+      : [];
+    const invoicesByOrder = new Map<string, any>();
+    for (const invoice of Array.isArray(invoiceRows) ? invoiceRows : []) {
+      invoicesByOrder.set(String(invoice.order_id), invoice);
+    }
     const itemsByOrder = new Map<string, any[]>();
     for (const item of Array.isArray(items) ? items : []) {
       const key = String(item?.order_id || "");
@@ -116,6 +127,9 @@ Deno.serve(async (req: Request) => {
       updated_at: order.updated_at || null,
       payment_failure_code: order.payment_failure_code || null,
       payment_failure_reason: order.payment_failure_reason || null,
+      invoice_status: invoicesByOrder.get(String(order.id))?.invoice_status ||
+        (String(order.payment_status || "") === "paid" ? "pending" : null),
+      invoice_number: invoicesByOrder.get(String(order.id))?.invoice_number || null,
       items: itemsByOrder.get(String(order.id)) || [],
     }));
     return jsonResponse(req, { ok: true, orders: result });

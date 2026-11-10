@@ -22,6 +22,7 @@ TEXT = {
         "note": "Online checkout is for domestic Indian deliveries at present. If checkout is unavailable for your delivery address or an item, return to the product page and use Request a Part.",
         "contact": "Customer details", "full_name": "Full name", "email": "Email (optional)",
         "phone": "Mobile number", "company": "Company (optional)", "gst": "GSTIN (optional)",
+        "billing_details": "Invoice billing details", "billing_address": "Billing address", "billing_address2": "Address line 2 (optional)", "billing_city": "City", "billing_state": "State", "billing_pin": "PIN code",
         "fulfillment_heading": "How would you like to receive your order?", "home_delivery": "Delivery", "store_pickup": "Store pickup", "pickup_note": "No courier charge applies. The Souviks team will confirm collection details after your order is placed.",
         "delivery": "Delivery address", "delivery_note": "Delivery charges are calculated automatically at checkout based on your PIN code and the combined weight of your cart. The displayed rate is an estimate; we recheck the applicable amount before payment.", "address1": "Address line 1", "address2": "Address line 2 (optional)",
         "city": "City", "state": "State", "pin": "PIN code",
@@ -31,7 +32,7 @@ TEXT = {
         "order_ref": "Order reference", "lines_subtotal": "Items subtotal", "shipping_fee": "Shipping",
         "amount_due": "Amount payable", "pay": "Continue to secure payment",
         "status_title": "Payment status", "status_label": "Payment status", "status_loading": "Checking your payment with Cashfree…",
-        "amount": "Amount", "retry": "Retry verification", "back": "Continue shopping",
+        "amount": "Amount", "retry": "Retry verification", "invoice_download": "Download tax invoice", "back": "Continue shopping",
         "help": "Need help? Contact us at", "terms_link": "Terms & Conditions", "privacy_link": "Privacy Policy", "refund_link": "Refund Policy",
     },
     "hi": {
@@ -47,6 +48,7 @@ TEXT = {
         "note": "फिलहाल ऑनलाइन चेकआउट केवल भारत के भीतर डिलीवरी के लिए है। यदि आपके पते या किसी उत्पाद के लिए चेकआउट उपलब्ध नहीं है, तो उत्पाद पेज पर जाकर पार्ट का अनुरोध करें।",
         "contact": "ग्राहक विवरण", "full_name": "पूरा नाम", "email": "ईमेल (वैकल्पिक)",
         "phone": "मोबाइल नंबर", "company": "कंपनी (वैकल्पिक)", "gst": "GSTIN (वैकल्पिक)",
+        "billing_details": "चालान का बिलिंग विवरण", "billing_address": "बिलिंग पता", "billing_address2": "पता पंक्ति 2 (वैकल्पिक)", "billing_city": "शहर", "billing_state": "राज्य", "billing_pin": "पिन कोड",
         "fulfillment_heading": "आप अपना ऑर्डर कैसे प्राप्त करना चाहेंगे?", "home_delivery": "डिलीवरी", "store_pickup": "स्टोर से पिकअप", "pickup_note": "कोई कूरियर शुल्क नहीं लगेगा। ऑर्डर देने के बाद Souviks टीम पिकअप विवरण की पुष्टि करेगी।",
         "delivery": "डिलीवरी का पता", "delivery_note": "डिलीवरी शुल्क की गणना चेकआउट में पिन कोड और कार्ट के कुल वज़न के आधार पर अपने-आप होगी। दिखाया गया शुल्क अनुमानित है; भुगतान से पहले लागू राशि की दोबारा जाँच होगी।", "address1": "पता पंक्ति 1", "address2": "पता पंक्ति 2 (वैकल्पिक)",
         "city": "शहर", "state": "राज्य", "pin": "पिन कोड",
@@ -56,7 +58,7 @@ TEXT = {
         "order_ref": "ऑर्डर संदर्भ", "lines_subtotal": "उत्पादों का उप-योग", "shipping_fee": "शिपिंग",
         "amount_due": "देय राशि", "pay": "सुरक्षित भुगतान पर आगे बढ़ें",
         "status_title": "भुगतान स्थिति", "status_label": "भुगतान स्थिति", "status_loading": "Cashfree से भुगतान की पुष्टि हो रही है…",
-        "amount": "राशि", "retry": "पुष्टि फिर जाँचें", "back": "खरीदारी जारी रखें",
+        "amount": "राशि", "retry": "पुष्टि फिर जाँचें", "invoice_download": "टैक्स इनवॉइस डाउनलोड करें", "back": "खरीदारी जारी रखें",
         "help": "सहायता चाहिए? संपर्क करें", "terms_link": "नियम और शर्तें", "privacy_link": "गोपनीयता नीति", "refund_link": "रिफंड नीति",
     },
     "bn": {
@@ -72,6 +74,7 @@ TEXT = {
         "note": "এই পর্যায়ে অনলাইন চেকআউট শুধুমাত্র ভারতের মধ্যে ডেলিভারির জন্য। আপনার ঠিকানা বা কোনো পণ্যের জন্য চেকআউট উপলভ্য না হলে পণ্য পেজে ফিরে পার্টের অনুরোধ করুন।",
         "contact": "গ্রাহকের বিবরণ", "full_name": "পুরো নাম", "email": "ইমেল (ঐচ্ছিক)",
         "phone": "মোবাইল নম্বর", "company": "কোম্পানি (ঐচ্ছিক)", "gst": "GSTIN (ঐচ্ছিক)",
+        "billing_details": "ইনভয়েসের বিলিং বিবরণ", "billing_address": "বিলিং ঠিকানা", "billing_address2": "ঠিকানা লাইন ২ (ঐচ্ছিক)", "billing_city": "শহর", "billing_state": "রাজ্য", "billing_pin": "পিন কোড",
         "fulfillment_heading": "আপনি কীভাবে অর্ডারটি পেতে চান?", "home_delivery": "ডেলিভারি", "store_pickup": "স্টোর থেকে সংগ্রহ", "pickup_note": "কুরিয়ার চার্জ লাগবে না। অর্ডার দেওয়ার পর Souviks টিম সংগ্রহের বিস্তারিত নিশ্চিত করবে।",
         "delivery": "ডেলিভারির ঠিকানা", "delivery_note": "চেকআউটে পিন কোড ও কার্টের মোট ওজনের ভিত্তিতে ডেলিভারি চার্জ স্বয়ংক্রিয়ভাবে হিসাব হবে। দেখানো চার্জটি আনুমানিক; পেমেন্টের আগে প্রযোজ্য পরিমাণ আবার যাচাই করা হবে।", "address1": "ঠিকানা লাইন ১", "address2": "ঠিকানা লাইন ২ (ঐচ্ছিক)",
         "city": "শহর", "state": "রাজ্য", "pin": "পিন কোড",
@@ -81,7 +84,7 @@ TEXT = {
         "order_ref": "অর্ডার রেফারেন্স", "lines_subtotal": "পণ্যের উপমোট", "shipping_fee": "শিপিং",
         "amount_due": "পরিশোধযোগ্য", "pay": "নিরাপদ পেমেন্টে এগিয়ে যান",
         "status_title": "পেমেন্টের অবস্থা", "status_label": "পেমেন্টের অবস্থা", "status_loading": "Cashfree থেকে পেমেন্ট যাচাই হচ্ছে…",
-        "amount": "পরিমাণ", "retry": "আবার যাচাই করুন", "back": "কেনাকাটা চালিয়ে যান",
+        "amount": "পরিমাণ", "retry": "আবার যাচাই করুন", "invoice_download": "ট্যাক্স ইনভয়েস ডাউনলোড করুন", "back": "কেনাকাটা চালিয়ে যান",
         "help": "সাহায্য দরকার? যোগাযোগ করুন", "terms_link": "শর্তাবলী", "privacy_link": "গোপনীয়তা নীতি", "refund_link": "রিফান্ড নীতি",
     },
 }
@@ -143,6 +146,18 @@ CART_TEMPLATE = """<!doctype html>
             <div class="form-group"><label for="checkout-phone">__PHONE__</label><input type="tel" id="checkout-phone" name="phone" autocomplete="tel-national" inputmode="numeric" pattern="[0-9]{10}" minlength="10" maxlength="10" placeholder="10-digit mobile number" required></div>
             <div class="form-group"><label for="checkout-company">__COMPANY__</label><input type="text" id="checkout-company" name="company" autocomplete="organization" maxlength="160"></div>
             <div class="form-group"><label for="checkout-gst">__GST__</label><input type="text" id="checkout-gst" name="gst_number" maxlength="15" autocapitalize="characters"></div>
+            <fieldset class="purchase-billing-details">
+              <legend>__BILLING_DETAILS__</legend>
+              <div class="purchase-address-grid">
+                <div class="form-group form-group-full"><label for="checkout-billing-address1">__BILLING_ADDRESS__</label><input type="text" id="checkout-billing-address1" maxlength="180" autocomplete="billing address-line1" required></div>
+                <div class="form-group form-group-full"><label for="checkout-billing-address2">__BILLING_ADDRESS2__</label><input type="text" id="checkout-billing-address2" maxlength="180" autocomplete="billing address-line2"></div>
+                <div class="form-group"><label for="checkout-billing-city">__BILLING_CITY__</label><input type="text" id="checkout-billing-city" maxlength="100" required></div>
+                <div class="form-group"><label for="checkout-billing-state">__BILLING_STATE__</label><select id="checkout-billing-state" required><option value="">Select state</option>
+                  <option value="01">Jammu and Kashmir</option><option value="02">Himachal Pradesh</option><option value="03">Punjab</option><option value="04">Chandigarh</option><option value="05">Uttarakhand</option><option value="06">Haryana</option><option value="07">Delhi</option><option value="08">Rajasthan</option><option value="09">Uttar Pradesh</option><option value="10">Bihar</option><option value="11">Sikkim</option><option value="12">Arunachal Pradesh</option><option value="13">Nagaland</option><option value="14">Manipur</option><option value="15">Mizoram</option><option value="16">Tripura</option><option value="17">Meghalaya</option><option value="18">Assam</option><option value="19">West Bengal</option><option value="20">Jharkhand</option><option value="21">Odisha</option><option value="22">Chhattisgarh</option><option value="23">Madhya Pradesh</option><option value="24">Gujarat</option><option value="26">Dadra and Nagar Haveli and Daman and Diu</option><option value="27">Maharashtra</option><option value="29">Karnataka</option><option value="30">Goa</option><option value="31">Lakshadweep</option><option value="32">Kerala</option><option value="33">Tamil Nadu</option><option value="34">Puducherry</option><option value="35">Andaman and Nicobar Islands</option><option value="36">Telangana</option><option value="37">Andhra Pradesh</option><option value="38">Ladakh</option>
+                </select></div>
+                <div class="form-group"><label for="checkout-billing-pin">__BILLING_PIN__</label><input type="text" id="checkout-billing-pin" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" required></div>
+              </div>
+            </fieldset>
             <fieldset class="purchase-fulfillment-options">
               <legend>__FULFILLMENT_HEADING__</legend>
               <label class="purchase-fulfillment-option" for="checkout-fulfillment-delivery"><input type="radio" id="checkout-fulfillment-delivery" name="fulfillment_method" value="delivery" required><span>__HOME_DELIVERY__</span></label>
@@ -236,6 +251,7 @@ STATUS_TEMPLATE = """<!doctype html>
       <h1>__STATUS_TITLE__</h1><p id="payment-status-message" role="status" aria-live="polite">__STATUS_LOADING__</p>
       <dl><div><dt>__ORDER_REF__</dt><dd id="payment-status-reference" class="payment-status-reference">—</dd></div><div><dt>__AMOUNT__</dt><dd id="payment-status-detail" class="payment-status-detail">—</dd></div></dl>
       <button id="payment-status-retry" type="button" class="btn btn-secondary" hidden>__RETRY__</button>
+      <button id="payment-status-invoice" type="button" class="btn btn-secondary" hidden>__INVOICE_DOWNLOAD__</button>
       <p><a href="/__LANG__/products">__BACK_PRODUCTS__</a></p>
       <p>__HELP__ <a href="mailto:info@souviks.co.in">info@souviks.co.in</a> · <a href="tel:+919434331896">+91 94343 31896</a></p>
     </section>
@@ -303,6 +319,12 @@ def main() -> int:
             "phone": labels["phone"],
             "company": labels["company"],
             "gst": labels["gst"],
+            "billing_details": labels["billing_details"],
+            "billing_address": labels["billing_address"],
+            "billing_address2": labels["billing_address2"],
+            "billing_city": labels["billing_city"],
+            "billing_state": labels["billing_state"],
+            "billing_pin": labels["billing_pin"],
             "fulfillment_heading": labels["fulfillment_heading"],
             "home_delivery": labels["home_delivery"],
             "store_pickup": labels["store_pickup"],
@@ -337,6 +359,7 @@ def main() -> int:
                 "order_ref": labels["order_ref"],
                 "amount": labels["amount"],
                 "retry": labels["retry"],
+                "invoice_download": labels["invoice_download"],
                 "back_products": labels["back"],
                 "help": labels["help"],
             })),
