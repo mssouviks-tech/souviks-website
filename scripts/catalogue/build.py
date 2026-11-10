@@ -440,11 +440,27 @@ def reconcile_catalogue_projections():
         expected_split = (9, 18) if candidate.get("total_rate_percent") == 18 else (2.5, 5)
         if (candidate.get("cgst_rate_percent"), candidate.get("igst_rate_percent")) != expected_split or candidate.get("sgst_rate_percent") != expected_split[0]:
             raise SystemExit(f"Invalid GST candidate split for {product_id}")
-        if candidate.get("effective_from") != "2025-09-22" or candidate.get("invoice_ready") is not False or candidate.get("accountant_approval_required") is not True:
-            raise SystemExit(f"GST candidate must remain non-final for {product_id}")
+        if (
+            candidate.get("effective_from") != "2025-09-22"
+            or candidate.get("invoice_ready") is not True
+            or candidate.get("accountant_approval_required") is not False
+            or candidate.get("accountant_approval_status") != "approved"
+        ):
+            raise SystemExit(f"GST candidate accountant approval/readiness mismatch for {product_id}")
         if not text(candidate.get("review_note")) or not candidate.get("source_references"):
             raise SystemExit(f"Missing GST evidence for {product_id}")
         product["gst_rate_candidate"] = candidate
+
+    accountant_approval = gst_rate_overrides_data.get("accountant_approval")
+    if (
+        not isinstance(accountant_approval, dict)
+        or accountant_approval.get("status") != "approved"
+        or accountant_approval.get("approved_on") != "2026-11-10"
+        or not text(accountant_approval.get("approval_source"))
+        or not text(accountant_approval.get("scope"))
+        or not text(accountant_approval.get("limitation"))
+    ):
+        raise SystemExit("GST candidate accountant approval record is missing or invalid")
 
     if len(gst_rate_override_ids) != len(catalogue_by_id):
         raise SystemExit(f"GST candidate coverage mismatch: {len(gst_rate_override_ids)} of {len(catalogue_by_id)} catalogue records")
@@ -462,6 +478,9 @@ def reconcile_catalogue_projections():
         or gst_rate_policy.get("default_cgst_rate_percent") != 9
         or gst_rate_policy.get("default_sgst_rate_percent") != 9
         or gst_rate_policy.get("default_igst_rate_percent") != 18
+        or not isinstance(gst_rate_policy.get("accountant_approval"), dict)
+        or gst_rate_policy["accountant_approval"].get("status") != "approved"
+        or gst_rate_policy["accountant_approval"].get("approved_on") != "2026-11-10"
     ):
         raise SystemExit("Final GST rate policy has an unsupported schema/default rate")
 
@@ -485,8 +504,9 @@ def reconcile_catalogue_projections():
             or exception.get("igst_rate_percent") != 5
             or not any("tractor" in text(v).casefold() for v in (product.get("vehicles") or []))
             or not text(exception.get("basis")) or not exception.get("source_references")
-            or exception.get("invoice_ready") is not False
-            or exception.get("accountant_approval_required") is not True
+            or exception.get("invoice_ready") is not True
+            or exception.get("accountant_approval_required") is not False
+            or exception.get("accountant_approval_status") != "approved"
         ):
             raise SystemExit(f"GST tractor exception evidence/policy mismatch: {product_id}")
         exception_by_id[product_id] = exception
@@ -557,8 +577,9 @@ def reconcile_catalogue_projections():
             candidate["sgst_rate_percent"] = sgst_rate
             candidate["igst_rate_percent"] = rate
             candidate["effective_from"] = text(gst_rate_policy.get("effective_from"))
-            candidate["accountant_approval_required"] = True
-            candidate["invoice_ready"] = False
+            candidate["accountant_approval_status"] = "approved"
+            candidate["accountant_approval_required"] = False
+            candidate["invoice_ready"] = True
             candidate["source_references"] = list(dict.fromkeys(list(candidate.get("source_references") or []) + list(sources or [])))
             if product_id in general_rate_by_id:
                 candidate["status"] = "candidate_for_accountant_review"
@@ -568,7 +589,7 @@ def reconcile_catalogue_projections():
                 candidate["review_note"] = text(tractor_review_by_id[product_id].get("basis"))
             elif exception:
                 candidate["status"] = "candidate_for_accountant_review"
-                candidate["review_note"] = basis + " Accountant review remains required; product is not invoice-ready."
+                candidate["review_note"] = basis + " Accountant approval was recorded on 2026-11-10; the GST rate candidate is marked invoice-ready. HSN classification remains a separate control."
 
     def normalize_slug(value):
         value = text(value).casefold()

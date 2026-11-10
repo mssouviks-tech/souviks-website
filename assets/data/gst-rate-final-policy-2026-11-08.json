@@ -25,8 +25,9 @@
         "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf",
         "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163566&lang=2&reg=48"
       ],
-      "accountant_approval_required": true,
-      "invoice_ready": false
+      "accountant_approval_required": false,
+      "invoice_ready": true,
+      "accountant_approval_status": "approved"
     }
   ],
   "resolved_general_rate_products": [
@@ -68,7 +69,7 @@
       "basis": "Ventilated brake disc fitment is Tata Intra; not a specified tractor brake assembly."
     }
   ],
-  "note": "Every catalogue record receives gst_rate_percent. The catalogue has one exact product match for the specified 5% tractor clutch-parts entry (SVKS000429). All remaining products receive 18%, including SVKS001121 because its documented ball-pin steering-linkage contents do not yet establish an exact match to the narrower notified 'steering wheels and parts thereof for tractor' description. HSN review states remain unchanged; accountant_approval_required stays true and invoice_ready stays false.",
+  "note": "All 1,159 catalogue records have GST rate candidates. The default is 18% total and the one specified tractor clutch-assembly exception is 5%. The accountant green light was reported and recorded on 2026-11-10: all candidate rates are marked invoice_ready=true and accountant_approval_required=false. HSN classification status/confidence remains unchanged and separate. This flag does not itself generate or issue tax invoices.",
   "tractor_general_rate_review": [
     {
       "id": "SVKS001121",
@@ -84,5 +85,12 @@
         "https://www.scribd.com/document/1056230609/Price-List-DLP-Alok-2026-20-Jan-Final"
       ]
     }
-  ]
+  ],
+  "accountant_approval": {
+    "status": "approved",
+    "approved_on": "2026-11-10",
+    "approval_source": "User-confirmed accountant green light, recorded in ChatGPT on 2026-11-10",
+    "scope": "GST rate candidate approval for all 1,159 catalogue products at their currently assigned rate and effective date.",
+    "limitation": "This approval marks gst_rate_candidate.invoice_ready only. It does not change HSN classification status/confidence, resolve the remaining HSN review queue, or implement tax invoice generation."
+  }
 }

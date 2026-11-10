@@ -48,7 +48,7 @@ FIELDS = [
     "evidence_to_close", "candidate_source_reference", "final_hsn_code",
     "final_hsn_description", "reviewed_by", "reviewed_on",
     "review_evidence_reference", "gst_rate_percent", "gst_rate_effective_from",
-    "gst_rate_source_reference", "invoice_ready",
+    "gst_rate_source_reference", "gst_rate_candidate_approved", "invoice_ready",
 ]
 
 
@@ -145,6 +145,8 @@ def main() -> None:
                 "gst_rate_percent": product.get("gst_rate_percent") if product.get("gst_rate_percent") is not None else "",
                 "gst_rate_effective_from": product.get("gst_rate_effective_from") or "",
                 "gst_rate_source_reference": product.get("gst_rate_source_reference") or "",
+                "gst_rate_candidate_approved": "TRUE" if (product.get("gst_rate_candidate") or {}).get("invoice_ready") is True and (product.get("gst_rate_candidate") or {}).get("accountant_approval_required") is False else "FALSE",
+                # This worklist row is HSN-nonfinal; overall invoice readiness stays false until its HSN is confirmed.
                 "invoice_ready": "FALSE",
             }
             writer.writerow({

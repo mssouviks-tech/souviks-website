@@ -2,7 +2,7 @@
 
 ## Release decision
 
-**Do not enable automated tax invoices yet.** The HSN catalogue is more accurate, but 1,075 SKU records remain provisional or review-required. HSN alone does not determine the GST amount: the notified goods description, special schedule wording, vehicle use, composition, place of supply, freight treatment and effective date can change the result.
+**Accountant approval recorded (10 November 2026):** the user reports that the accountant has given the green light for all 1,159 current GST rate candidates. Their gst_rate_candidate invoice_ready values are now true, with accountant_approval_required=false. The 1,075 provisional/review-required HSN classifications remain unchanged. This approval flag is not a completed invoice-generation workflow; end-to-end tax invoices must still fail closed where the HSN classification or transaction data is unresolved.
 
 This is a heading-level crosswalk for accountant review, not an executable SKU rate table. The unresolved SKU worklist deliberately leaves GST rate fields blank.
 
@@ -71,7 +71,7 @@ The supplied GST REG-06 certificate is dated 7 July 2018. It shows the details o
 ## Work remaining
 
 - Supplier/OEM evidence for 1,075 non-final HSN rows.
-- Accountant approval of GST rate and effective date per SKU.
+- Complete HSN classification review for the 1,075 provisional/review-required records before those candidate HSN codes are used as final invoice classifications.
 - Current GST Portal status check and seller identity reconciliation.
 - Production invoice generation, storage, numbering, delivery and credit-note/refund workflow; the fillable PDF layout remains a non-calculating template.
 
@@ -109,6 +109,17 @@ The four HSN 87083000 products previously flagged for tractor-use review are Tat
 
 Bosch tractor starter overrunning-clutch products remain at 18%; their documented function is starter-drive engagement, not the tractor clutch assembly covered by the 8708 93 00 exception.
 
-All existing HSN codes, classification statuses, confidence and supplier/DPIIT evidence remain unchanged. Product rates are populated for catalogue purposes, but accountant approval remains required and `invoice_ready` remains false. This does not activate automated tax invoicing.
+All existing HSN codes, classification statuses, confidence and supplier/DPIIT evidence remain unchanged. The accountant green light was recorded on 10 November 2026: all 1,159 gst_rate_candidate invoice_ready flags are true and accountant_approval_required is false. This approves the rate-candidate data only; it does not upgrade provisional/review-required HSN classifications or activate automated tax invoicing.
 
 The 5% tractor description is based on Notification No. 9/2025-Central Tax (Rate) and Notification No. 9/2025-Integrated Tax (Rate), effective 22 September 2025. The Ministry of Finance / PIB FAQ identifies the operative notification: https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=2168426&lang=2&reg=48. The 5% schedule specifies tractor clutch assemblies and their parts at HSN 8708 93 00: https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20%28RATE%29%20-1759486719.pdf.
+
+
+## Accountant green light — 10 November 2026
+
+The user reported that the accountant approved the GST rate candidates. The approval is recorded in both the GST candidate manifest and final-rate policy, with the approval source noted as user-reported accountant confirmation. No signed approval attachment was supplied in this repository change.
+
+- All 1,159 GST rate candidate records now carry invoice_ready=true, accountant_approval_required=false, and accountant_approval_status=approved.
+- Current rate assignments and effective dates are unchanged: 1,158 products at 18% and one exact tractor clutch-assembly exception at 5%.
+- The five material/HSN review flags and four vehicle-use exception review flags remain present as technical notes. Accountant rate approval does not rewrite the HSN candidate or classification status.
+- The HSN verification worklist now has a separate gst_rate_candidate_approved column. Its overall invoice_ready field remains false for HSN-nonfinal products until the HSN is classified/high-confidence or a SKU-specific approved HSN exception is recorded.
+- The existing ecommerce documentation remains authoritative: no production tax-invoice generator is implemented by this flag change. Invoice creation still requires the HSN, effective rate, place of supply, freight treatment, seller identity, numbering and order-state controls to be implemented and tested.
