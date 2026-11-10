@@ -270,6 +270,97 @@ def reconcile_catalogue_projections():
             product["hsn_supplier_invoice_source_file"] = text(product.get("hsn_supplier_invoice_source_file")) or "hsn.xlsx"
             product["hsn_supplier_invoice_match_date"] = text(product.get("hsn_supplier_invoice_match_date")) or "2026-11-06"
 
+    # Attach the Odoo stock-export HSN crosswalk as separate source evidence.
+    # It never overwrites the catalogue HSN candidate or its classification status.
+    import gzip
+    stock_hsn_path = ROOT / "assets/data/hsn-stock-reference-crosswalk-2026-11-10.json.gz"
+    try:
+        stock_hsn_data = json.loads(gzip.decompress(stock_hsn_path.read_bytes()).decode("utf-8"))
+    except (OSError, EOFError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"Invalid stock HSN reference crosswalk: {exc}")
+    stock_records = stock_hsn_data.get("records") if isinstance(stock_hsn_data, dict) else None
+    stock_conflicts = stock_hsn_data.get("conflicts") if isinstance(stock_hsn_data, dict) else None
+    source_files = stock_hsn_data.get("source_files") if isinstance(stock_hsn_data, dict) else None
+    if (
+        stock_hsn_data.get("schema_version") != 1
+        or not isinstance(stock_records, list)
+        or not isinstance(stock_conflicts, list)
+        or not isinstance(source_files, list)
+        or len(stock_records) != stock_hsn_data.get("unique_website_product_count")
+        or len(stock_conflicts) != stock_hsn_data.get("conflict_website_product_count")
+    ):
+        raise SystemExit("Stock HSN reference crosswalk has an unsupported schema or count")
+
+    catalogue_by_id = {text(p.get("id")): p for p in catalogue if isinstance(p, dict) and text(p.get("id"))}
+    stock_reference_ids = set()
+    for product in catalogue:
+        product["hsn_stock_reference_code"] = ""
+        product["hsn_stock_reference_codes"] = []
+        product["hsn_stock_reference_status"] = "not_in_source"
+        product["hsn_stock_reference_alignment"] = "not_in_source"
+        product["hsn_stock_reference_record_count"] = 0
+        product["hsn_stock_reference_source_files"] = []
+        product["hsn_stock_reference_date"] = ""
+
+    unique_source_rows = 0
+    for record in stock_records:
+        if not isinstance(record, list) or len(record) != 3:
+            raise SystemExit("Every stock HSN reference record must be [website SKU, HSN code, source row count]")
+        product_id, source_code, source_count = record
+        product_id = text(product_id)
+        source_code = text(source_code)
+        product = catalogue_by_id.get(product_id)
+        if (
+            not product_id or product_id in stock_reference_ids or product is None
+            or not source_code.isdigit() or len(source_code) not in (6, 7, 8)
+            or not isinstance(source_count, int) or source_count < 1
+        ):
+            raise SystemExit(f"Invalid or duplicate unique stock HSN reference for {product_id!r}")
+        stock_reference_ids.add(product_id)
+        unique_source_rows += source_count
+        current_candidate = text(product.get("hsn_code"))
+        product["hsn_stock_reference_code"] = source_code
+        product["hsn_stock_reference_status"] = "unique_consistent"
+        product["hsn_stock_reference_alignment"] = (
+            "not_compared" if not current_candidate
+            else ("agrees" if current_candidate == source_code else "differs")
+        )
+        product["hsn_stock_reference_record_count"] = source_count
+        product["hsn_stock_reference_source_files"] = list(source_files)
+        product["hsn_stock_reference_date"] = text(stock_hsn_data.get("source_reconciliation_date"))
+
+    conflict_source_rows = 0
+    for record in stock_conflicts:
+        if not isinstance(record, list) or len(record) != 3:
+            raise SystemExit("Every stock HSN conflict must be [website SKU, HSN codes, source row count]")
+        product_id, conflict_codes, source_count = record
+        product_id = text(product_id)
+        codes = sorted({text(code) for code in conflict_codes if text(code)}) if isinstance(conflict_codes, list) else []
+        product = catalogue_by_id.get(product_id)
+        if (
+            not product_id or product_id in stock_reference_ids or product is None
+            or len(codes) < 2
+            or any(not code.isdigit() or len(code) not in (6, 7, 8) for code in codes)
+            or not isinstance(source_count, int) or source_count < 2
+        ):
+            raise SystemExit(f"Invalid or overlapping stock HSN conflict for {product_id!r}")
+        stock_reference_ids.add(product_id)
+        conflict_source_rows += source_count
+        product["hsn_stock_reference_codes"] = codes
+        product["hsn_stock_reference_status"] = "conflict"
+        product["hsn_stock_reference_alignment"] = "conflicting_source_codes"
+        product["hsn_stock_reference_record_count"] = source_count
+        product["hsn_stock_reference_source_files"] = list(source_files)
+        product["hsn_stock_reference_date"] = text(stock_hsn_data.get("source_reconciliation_date"))
+
+    if (
+        len(stock_records) != 796 or len(stock_conflicts) != 22
+        or unique_source_rows != 828 or conflict_source_rows != 44
+        or stock_hsn_data.get("unmapped_source_record_count") != 162
+        or unique_source_rows + conflict_source_rows + stock_hsn_data.get("unmapped_source_record_count", 0) != stock_hsn_data.get("source_record_count")
+    ):
+        raise SystemExit("Stock HSN reference coverage or source-row reconciliation failed")
+
     # Attach the DPIIT guidebook ministry/department mapping to each product.
     # The crosswalk is versioned separately so the catalogue build can apply it
     # deterministically to both catalogue HSN candidates and supplier invoice codes.
@@ -1453,6 +1544,13 @@ def reconcile_catalogue_projections():
             "hsn_basis": text(p.get("hsn_basis")),
             "hsn_review_note": text(p.get("hsn_review_note")),
             "hsn_reference_date": text(p.get("hsn_reference_date")),
+            "hsn_stock_reference_code": text(p.get("hsn_stock_reference_code")),
+            "hsn_stock_reference_codes": list(p.get("hsn_stock_reference_codes") or []),
+            "hsn_stock_reference_status": text(p.get("hsn_stock_reference_status")),
+            "hsn_stock_reference_alignment": text(p.get("hsn_stock_reference_alignment")),
+            "hsn_stock_reference_record_count": p.get("hsn_stock_reference_record_count", 0),
+            "hsn_stock_reference_source_files": list(p.get("hsn_stock_reference_source_files") or []),
+            "hsn_stock_reference_date": text(p.get("hsn_stock_reference_date")),
             **({
                 "hsn_research_source": text(p.get("hsn_research_source")),
                 "hsn_research_date": text(p.get("hsn_research_date")),
@@ -1612,6 +1710,10 @@ def reconcile_catalogue_projections():
             "hsn_code", "hsn_description", "hsn_confidence",
             "hsn_classification_status", "hsn_basis", "hsn_review_note",
             "hsn_reference_date", "hsn_research_source", "hsn_research_date",
+            "hsn_stock_reference_code", "hsn_stock_reference_codes",
+            "hsn_stock_reference_status", "hsn_stock_reference_alignment",
+            "hsn_stock_reference_record_count", "hsn_stock_reference_source_files",
+            "hsn_stock_reference_date",
             "hsn_supplier_invoice_code", "hsn_supplier_invoice_codes",
             "hsn_supplier_invoice_match_status", "hsn_supplier_invoice_match_methods",
             "hsn_supplier_invoice_source_names", "hsn_supplier_invoice_external_ids",
