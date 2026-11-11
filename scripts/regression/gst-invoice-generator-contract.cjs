@@ -92,6 +92,9 @@ assert.match(freightFunction, /72 \* 60 \* 60 \* 1000/);
 assert.match(freightFunction, /whatsapp_url/);
 assert.match(freightFunction, /email_url/);
 assert.match(freightFunction, /reconcileCashfreeFreightOrder/);
+assert.match(freightFunction, /freight_payment_session_active/);
+assert.match(freightFunction, /payment_session_expires_at/);
+assert.match(freightFunction, /payment_token_expires_at/);
 assert.match(checkout, /const shippingPaise = 0/);
 assert.match(shared, /order\.fulfillment_method === "delivery" \? "freight_pending" : "processing"/);
 
