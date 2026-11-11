@@ -11,6 +11,7 @@
             added: "Added to your cart.",
             shippingUnconfirmed: "Confirmed before payment",
             pickupShipping: "Store pickup — no shipping charge",
+            shippingAfterPacking: "Delivery charges calculated after packing",
             totalUnconfirmed: "Review to calculate",
             reviewInvalidated: "Your cart or checkout details changed. Review the total again before payment.",
             addFailed: "This item could not be added to the cart.",
@@ -22,7 +23,8 @@
             reviewFailed: "We could not prepare this order. Check the information and try again.",
             continueFailed: "Cashfree Checkout could not open. Please retry the checkout.",
             statusLoading: "Checking your payment with Cashfree…",
-            statusPaid: "Payment confirmed. Your order is recorded; Souviks will confirm availability and fulfilment.",
+            statusPaid: "Payment confirmed. Your order is recorded.",
+            statusPaidFreightPending: "Product payment confirmed. Souviks will pack your order, calculate delivery charges and send a separate quotation by email and WhatsApp.",
             statusPending: "Cashfree has not confirmed payment yet. Do not pay again while this status is pending. Retry verification shortly.",
             statusFailed: "Cashfree reports that this payment failed. Review the reason below, then try again with a different payment method if needed.",
             failureReasonPrefix: "Reason: ",
@@ -37,6 +39,7 @@
             added: "उत्पाद आपके कार्ट में जोड़ दिया गया है।",
             shippingUnconfirmed: "भुगतान से पहले पुष्टि होगी",
             pickupShipping: "स्टोर से पिकअप — शिपिंग शुल्क नहीं",
+            shippingAfterPacking: "पैकिंग के बाद डिलीवरी शुल्क की गणना होगी",
             totalUnconfirmed: "गणना के लिए समीक्षा करें",
             reviewInvalidated: "कार्ट या चेकआउट विवरण बदल गए हैं। भुगतान से पहले कुल राशि फिर से जाँचें।",
             addFailed: "इस उत्पाद को कार्ट में नहीं जोड़ा जा सका।",
@@ -48,7 +51,8 @@
             reviewFailed: "ऑर्डर तैयार नहीं हो सका। जानकारी जाँचकर फिर कोशिश करें।",
             continueFailed: "Cashfree Checkout नहीं खुल सका। कृपया फिर कोशिश करें।",
             statusLoading: "Cashfree से भुगतान की पुष्टि हो रही है…",
-            statusPaid: "भुगतान की पुष्टि हो गई है। आपका ऑर्डर दर्ज है; Souviks उपलब्धता और डिलीवरी की पुष्टि करेगा।",
+            statusPaid: "भुगतान की पुष्टि हो गई है। आपका ऑर्डर दर्ज है।",
+            statusPaidFreightPending: "उत्पाद का भुगतान मिल गया है। Souviks ऑर्डर पैक करके डिलीवरी शुल्क की गणना करेगा और ईमेल व WhatsApp पर अलग कोटेशन भेजेगा।",
             statusPending: "Cashfree ने अभी भुगतान की पुष्टि नहीं की है। इस स्थिति में दोबारा भुगतान न करें; थोड़ी देर बाद फिर जाँचें।",
             statusFailed: "Cashfree के अनुसार भुगतान विफल हुआ। नीचे दिया गया कारण देखें और ज़रूरत होने पर किसी अन्य भुगतान तरीके से फिर कोशिश करें।",
             failureReasonPrefix: "कारण: ",
@@ -63,6 +67,7 @@
             added: "পণ্যটি আপনার কার্টে যোগ করা হয়েছে।",
             shippingUnconfirmed: "পেমেন্টের আগে নিশ্চিত হবে",
             pickupShipping: "স্টোর থেকে সংগ্রহ — শিপিং চার্জ নেই",
+            shippingAfterPacking: "প্যাকিংয়ের পরে ডেলিভারি চার্জ গণনা করা হবে",
             totalUnconfirmed: "মূল্য যাচাই করুন",
             reviewInvalidated: "কার্ট বা চেকআউটের বিবরণ বদলেছে। পেমেন্টের আগে মোট মূল্য আবার যাচাই করুন।",
             addFailed: "পণ্যটি কার্টে যোগ করা যায়নি।",
@@ -74,7 +79,8 @@
             reviewFailed: "অর্ডার তৈরি করা যায়নি। তথ্য যাচাই করে আবার চেষ্টা করুন।",
             continueFailed: "Cashfree Checkout খোলা যায়নি। আবার চেষ্টা করুন।",
             statusLoading: "Cashfree থেকে পেমেন্ট যাচাই হচ্ছে…",
-            statusPaid: "পেমেন্ট নিশ্চিত হয়েছে। আপনার অর্ডার রেকর্ড করা হয়েছে; Souviks পণ্যের উপলভ্যতা ও ডেলিভারি নিশ্চিত করবে।",
+            statusPaid: "পেমেন্ট নিশ্চিত হয়েছে। আপনার অর্ডার রেকর্ড করা হয়েছে।",
+            statusPaidFreightPending: "পণ্যের পেমেন্ট নিশ্চিত হয়েছে। Souviks অর্ডার প্যাক করে ডেলিভারি চার্জ গণনা করবে এবং ইমেল ও WhatsApp-এ আলাদা কোটেশন পাঠাবে।",
             statusPending: "Cashfree এখনও পেমেন্ট নিশ্চিত করেনি। এই অবস্থায় আবার পেমেন্ট করবেন না; কিছুক্ষণ পরে যাচাই করুন।",
             statusFailed: "Cashfree অনুযায়ী পেমেন্ট ব্যর্থ হয়েছে। নিচের কারণ দেখুন, প্রয়োজনে অন্য পেমেন্ট পদ্ধতিতে আবার চেষ্টা করুন।",
             failureReasonPrefix: "কারণ: ",
@@ -493,7 +499,7 @@
                     cartSnapshot: JSON.stringify(currentCart),
                     formSnapshot: new FormData(form)
                 };
-                const shippingLabel = preparedCheckout.fulfillmentMethod === "pickup" ? T.pickupShipping : currency(preparedCheckout.shipping);
+                const shippingLabel = preparedCheckout.fulfillmentMethod === "pickup" ? T.pickupShipping : T.shippingAfterPacking;
                 document.getElementById("purchase-cart-shipping").textContent = shippingLabel;
                 document.getElementById("purchase-cart-total").textContent = currency(preparedCheckout.total);
                 document.getElementById("checkout-review-order-number").textContent = preparedCheckout.orderNumber;
@@ -702,7 +708,10 @@
                 if (reference) reference.textContent = String(data.order_number || orderId);
                 if (detail) detail.textContent = currency(data.amount) + " " + String(data.currency || "INR");
                 if (data.payment_status === "paid") {
-                    setStatus(status, T.statusPaid, "success");
+                    const paymentMessage = data.order_status === "freight_pending"
+                        ? T.statusPaidFreightPending
+                        : T.statusPaid;
+                    setStatus(status, paymentMessage, "success");
                     try {
                         localStorage.removeItem(STORAGE_KEY);
                         // Retain the short-lived order capability so a guest can download the invoice on this return page.
