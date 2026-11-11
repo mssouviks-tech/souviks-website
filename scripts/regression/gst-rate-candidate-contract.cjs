@@ -14,7 +14,7 @@ if(policy.schema_version!==1||policy.default_rate_percent!==18||policy.effective
 if(manifest.accountant_approval?.status!=="approved"||manifest.accountant_approval?.approved_on!=="2026-11-10"||policy.accountant_approval?.status!=="approved") throw new Error("Missing accountant approval record");
 const byId=new Map(catalogue.map(p=>[String(p.id),p]));
 const projected=new Map(products.map(p=>[String(p.id),p]));
-if(byId.size!==1175||products.length!==catalogue.filter(p=>p.active!==false).length||products.length!==1173) throw new Error("Unexpected catalogue/projection coverage after 11 November import");
+if(byId.size!==1175||products.length!==catalogue.filter(p=>p.active!==false).length||products.length!==1175) throw new Error("Unexpected catalogue/projection coverage after reactivating 2 SKUs and adding 16 new products");
 const exceptions=new Map(policy.tractor_exceptions.map(x=>[String(x.id),x]));
 const general=new Map(policy.resolved_general_rate_products.map(x=>[String(x.id),x]));
 const tractorGeneral=new Map(policy.tractor_general_rate_review.map(x=>[String(x.id),x]));
