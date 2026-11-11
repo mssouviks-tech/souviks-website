@@ -124,7 +124,7 @@ async function listDeliveryOrders(): Promise<any[]> {
   if (!Array.isArray(orders) || !orders.length) return [];
   const ids = orders.map(order => String(order.id));
   const quotes = await supabaseRest("freight_quotes", "GET", {
-    select: "id,order_id,quote_number,status,amount,chargeable_weight_g,carrier,service_level,delivery_estimate,quoted_at,valid_until",
+    select: "id,order_id,quote_number,status,amount,chargeable_weight_g,package_length_cm,package_width_cm,package_height_cm,carrier,service_level,delivery_estimate,quote_notes,quoted_at,valid_until",
     order_id: "in.(" + ids.join(",") + ")",
     limit: "100",
   });
