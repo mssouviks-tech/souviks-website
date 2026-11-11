@@ -273,7 +273,14 @@
       tr.appendChild(el("td", formatINR(order.subtotal)));
       tr.appendChild(el("td", pretty(order.order_status)));
       const action = el("td");
-      const choose = button(order.quote ? "Revise quotation" : "Prepare quotation", "button small", () => selectFreightOrder(order));
+      const paymentSessionActive = order.quote?.status === "payment_pending" &&
+        Date.parse(String(order.quote.payment_session_expires_at || "")) > Date.now();
+      const choose = button(
+        paymentSessionActive ? "Payment session active" : order.quote ? "Revise quotation" : "Prepare quotation",
+        "button small",
+        () => selectFreightOrder(order)
+      );
+      choose.disabled = paymentSessionActive;
       action.appendChild(choose);
       tr.appendChild(action);
       freightOrdersBody.appendChild(tr);
