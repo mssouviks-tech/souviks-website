@@ -413,8 +413,13 @@ def apply_import(rows: list[dict], products: list[dict]) -> dict:
 
 
 
-def extend_pending_gst_candidates(products: list[dict]) -> dict:
-    """Keep post-approval additions visible without extending prior approval."""
+
+def sync_gst_approval_scope(products: list[dict]) -> dict:
+    """Apply the confirmed 11 November GST approval to the 16 named additions only.
+
+    Future products outside the recorded approval remain in pending_records and
+    are deliberately not made invoice-ready by the existence of this approval.
+    """
     with GST_MANIFEST.open("r", encoding="utf-8") as handle:
         manifest = json.load(handle)
     with GST_POLICY.open("r", encoding="utf-8") as handle:
@@ -430,22 +435,89 @@ def extend_pending_gst_candidates(products: list[dict]) -> dict:
     ):
         raise ValueError("GST candidate manifest has an invalid schema or record count")
 
-    approved_ids = {str(record.get("id") or "") for record in approved_records}
+    approved_by_id = {}
+    for record in approved_records:
+        product_id = str(record.get("id") or "")
+        if not product_id or product_id in approved_by_id:
+            raise ValueError(f"Invalid or duplicate approved GST product: {product_id!r}")
+        approved_by_id[product_id] = record
+
     pending_by_id = {}
     for record in pending_records:
         product_id = str(record.get("id") or "")
-        if not product_id or product_id in pending_by_id or product_id in approved_ids:
+        if not product_id or product_id in pending_by_id or product_id in approved_by_id:
             raise ValueError(f"Invalid or duplicate pending GST product: {product_id!r}")
         pending_by_id[product_id] = record
 
     effective_from = str(policy.get("effective_from") or "")
     source_references = policy.get("default_source_references")
-    if effective_from != "2025-09-22" or not isinstance(source_references, list) or len(source_references) < 2:
+    if (
+        effective_from != "2025-09-22"
+        or not isinstance(source_references, list)
+        or len(source_references) < 2
+    ):
         raise ValueError("Final GST policy is missing effective date or default-rate sources")
 
-    for product in products:
-        product_id = str(product.get("id") or "")
-        if not product_id or product_id in approved_ids or product_id in pending_by_id:
+    approved_addition_ids = {
+        f"SVKS{number:06d}" for number in range(1161, 1177)
+    }
+    product_by_id = {
+        str(product.get("id") or ""): product
+        for product in products
+        if str(product.get("id") or "")
+    }
+    if len(product_by_id) != len(products):
+        raise ValueError("Catalogue contains duplicate IDs while applying GST approval")
+
+    approved_additions = []
+    for product_id in sorted(approved_addition_ids):
+        product = product_by_id.get(product_id)
+        if product is None:
+            raise ValueError(f"Approved new SKU is missing from catalogue: {product_id}")
+
+        candidate = json.loads(json.dumps(product.get("gst_rate_candidate") or {}))
+        if not candidate:
+            raise ValueError(f"{product_id}: new product has no GST candidate template")
+
+        candidate.pop("schedule_basis", None)
+        candidate.update({
+            "total_rate_percent": 18,
+            "cgst_rate_percent": 9,
+            "sgst_rate_percent": 9,
+            "igst_rate_percent": 18,
+            "status": "candidate_for_accountant_review",
+            "effective_from": effective_from,
+            "last_checked_on": "2026-11-11",
+            "source_references": list(source_references),
+            "invoice_ready": True,
+            "accountant_approval_required": False,
+            "accountant_approval_status": "approved",
+            "review_note": (
+                "18% default GST rate approved for this SKU under the "
+                "user-confirmed 11 November 2026 approval covering all 1,175 "
+                "catalogue products. HSN classification status remains a "
+                "separate catalogue control and is not changed by this rate approval."
+            ),
+        })
+        product.update({
+            "gst_rate_percent": 18,
+            "gst_cgst_rate_percent": 9,
+            "gst_sgst_rate_percent": 9,
+            "gst_igst_rate_percent": 18,
+            "gst_rate_effective_from": effective_from,
+            "gst_rate_candidate": candidate,
+        })
+        approved_by_id[product_id] = {
+            "id": product_id,
+            "gst_rate_candidate": candidate,
+        }
+        pending_by_id.pop(product_id, None)
+        approved_additions.append(product_id)
+
+    # Any later/unapproved additions remain pending; never widen this dated
+    # approval automatically to products that were not part of its scope.
+    for product_id, product in product_by_id.items():
+        if product_id in approved_by_id or product_id in pending_by_id:
             continue
         candidate = json.loads(json.dumps(product.get("gst_rate_candidate") or {}))
         if not candidate:
@@ -463,26 +535,72 @@ def extend_pending_gst_candidates(products: list[dict]) -> dict:
             "accountant_approval_required": True,
             "accountant_approval_status": "pending",
             "review_note": (
-                "18% default-rate candidate under the catalogue policy. This SKU "
-                "was added on 2026-11-11 and is outside the accountant approval "
-                "recorded on 2026-11-10 for 1,159 products. Obtain accountant "
-                "confirmation before marking the rate candidate invoice-ready. "
-                "Final HSN classification remains a separate invoice control."
+                "18% default-rate candidate under the catalogue policy. This "
+                "SKU is outside the recorded accountant approval scope. Obtain "
+                "specific confirmation before making the rate invoice-ready. "
+                "HSN classification is a separate control."
             ),
         })
         product["gst_rate_candidate"] = candidate
         pending_by_id[product_id] = {
             "id": product_id,
-            "hsn_code": str(product.get("hsn_code") or ""),
             "gst_rate_candidate": candidate,
         }
 
-    product_ids = {str(product.get("id") or "") for product in products}
-    unknown_pending = sorted(set(pending_by_id) - product_ids)
+    unknown_pending = sorted(set(pending_by_id) - set(product_by_id))
     if unknown_pending:
-        raise ValueError("Pending GST records reference missing products: " + ", ".join(unknown_pending[:10]))
+        raise ValueError(
+            "Pending GST records reference missing products: "
+            + ", ".join(unknown_pending[:10])
+        )
 
-    manifest["pending_records"] = [pending_by_id[key] for key in sorted(pending_by_id)]
+    manifest["records"] = [
+        approved_by_id[key] for key in sorted(approved_by_id)
+    ]
+    manifest["record_count"] = len(manifest["records"])
+    manifest["pending_records"] = [
+        pending_by_id[key] for key in sorted(pending_by_id)
+    ]
+    counts = {}
+    for record in manifest["records"]:
+        status = str(
+            (record.get("gst_rate_candidate") or {}).get("status") or ""
+        )
+        counts[status] = counts.get(status, 0) + 1
+    manifest["status_counts"] = counts
+
+    if approved_additions:
+        previous_approval = manifest.get("accountant_approval") or {}
+        manifest["accountant_approval_history"] = [
+            *manifest.get("accountant_approval_history", []),
+            previous_approval,
+        ]
+        manifest["accountant_approval"] = {
+            "status": "approved",
+            "approved_on": "2026-11-11",
+            "approval_source": (
+                "User-confirmed accountant approval covering all 1,175 catalogue "
+                "products, including SVKS001161–SVKS001176, recorded on 2026-11-11."
+            ),
+            "scope": (
+                "GST rate candidate approval for all 1,175 catalogue products "
+                "at their currently assigned rate and effective date."
+            ),
+            "catalogue_product_count": len(products),
+            "newly_approved_product_ids": approved_additions,
+            "limitation": (
+                "This approval marks gst_rate_candidate.invoice_ready only. "
+                "It does not change HSN classification status/confidence, "
+                "resolve the HSN review queue, or implement tax invoice generation."
+            ),
+        }
+
+    if len(approved_by_id) + len(pending_by_id) != len(products):
+        raise ValueError(
+            "GST approval coverage does not match catalogue records: "
+            f"{len(approved_by_id)} approved + {len(pending_by_id)} pending "
+            f"for {len(products)} products"
+        )
     return manifest
 
 
@@ -508,13 +626,14 @@ def main() -> None:
 
     before = len(products)
     stats = apply_import(rows, products)
-    gst_manifest = extend_pending_gst_candidates(products)
+    gst_manifest = sync_gst_approval_scope(products)
     print(
         json.dumps(
             {
                 "import_rows": len(rows),
                 "catalogue_before": before,
                 "catalogue_after": len(products),
+                "approved_gst_candidates": len(gst_manifest["records"]),
                 "pending_accountant_review_gst_candidates": len(gst_manifest["pending_records"]),
                 "check_only": args.check,
                 **stats,
