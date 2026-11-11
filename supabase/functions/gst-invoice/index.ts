@@ -46,7 +46,9 @@ function localDateLabel(date: Date): string {
   return new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", day: "2-digit", month: "2-digit", year: "numeric" }).format(date);
 }
 function sha256(bytes: Uint8Array): Promise<string> {
-  return crypto.subtle.digest("SHA-256", bytes).then(digest =>
+  const copy = new Uint8Array(bytes.byteLength);
+  copy.set(bytes);
+  return crypto.subtle.digest("SHA-256", copy.buffer).then(digest =>
     Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, "0")).join("")
   );
 }
@@ -250,7 +252,7 @@ async function renderPdf(invoiceNumber: string, snapshot: any): Promise<Uint8Arr
     drawText(page,font,"Supply: "+snapshot.supply_type.replace("_"," "),320,670,8);
     const top = 594;
     page.drawRectangle({x:44,y:top-18,width:507,height:18,color:rgb(0.04,0.13,0.26)});
-    const headers=[["Description",49],["HSN/SAC",242],["Qty",296],["UQC",326],["Taxable",355],["Rate",418],["Tax",462],["Total",510]];
+    const headers: Array<[string, number]> = [["Description",49],["HSN/SAC",242],["Qty",296],["UQC",326],["Taxable",355],["Rate",418],["Tax",462],["Total",510]];
     for(const [label,x] of headers)page.drawText(label,{x,y:top-12,size:7,font:bold,color:rgb(1,1,1)});
     const pageRows=rows.slice(index*14,(index+1)*14);
     let y=top-36;
@@ -294,7 +296,15 @@ async function storageRequest(path: string, method: string, body?: Uint8Array | 
   if(!key.startsWith("sb_secret_"))headers.Authorization="Bearer "+key;
   if(body instanceof Uint8Array){headers["Content-Type"]="application/pdf";headers["x-upsert"]="true";}
   else if(body!==undefined)headers["Content-Type"]="application/json";
-  const response=await fetch(base+"/storage/v1/"+path,{method,headers,body:body===undefined?undefined:body instanceof Uint8Array?body:JSON.stringify(body)});
+  let requestBody: BodyInit | undefined;
+  if (body instanceof Uint8Array) {
+    const copy = new Uint8Array(body.byteLength);
+    copy.set(body);
+    requestBody = copy.buffer;
+  } else if (body !== undefined) {
+    requestBody = JSON.stringify(body);
+  }
+  const response=await fetch(base+"/storage/v1/"+path,{method,headers,body:requestBody});
   const raw=await response.text();
   let parsed:any=null;try{parsed=raw?JSON.parse(raw):null;}catch{parsed=null;}
   if(!response.ok)throw new CheckoutError("invoice_storage_unavailable",503);
