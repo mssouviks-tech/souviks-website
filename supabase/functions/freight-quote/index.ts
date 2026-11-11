@@ -312,6 +312,7 @@ async function createFreightPayment(req: Request, input: any): Promise<Record<st
     payment_gateway_order_id: gatewayOrderId,
     payment_session_id: sessionId,
     payment_session_expires_at: sessionExpiresAt,
+    payment_token_expires_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
     cashfree_order_status: String(cashfreeOrder?.order_status || "ACTIVE"),
     updated_at: new Date().toISOString(),
   }, "return=minimal");
