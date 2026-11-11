@@ -222,6 +222,8 @@ jobs:
             cd "${publish_repo}"
             python3 scripts/catalogue/apply_product_workbook_import.py
             python3 scripts/catalogue/build.py
+            python3 scripts/audit/build_hsn_verification_worklist.py
+            python3 scripts/audit/test_hsn_verification_worklist.py
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/audit/prepare_mobile_listing_lcp.py
             python3 scripts/js/refresh_versions.py

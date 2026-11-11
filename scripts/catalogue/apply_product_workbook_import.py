@@ -294,11 +294,16 @@ def apply_import(rows: list[dict], products: list[dict]) -> dict:
                     stats["price_updates"] += 1
 
         product_name = str(row.get("product_name") or "").strip()
-        if product_name:
+        current_product_name = str(product.get("product_name") or product.get("name") or "").strip()
+        # Existing catalogue names are curated and may be referenced by dimension,
+        # HSN and SEO manifests. Fill a blank name, but do not replace a stable name
+        # with a supplier-code-prefixed workbook label. New SKUs use workbook names.
+        if product_name and not current_product_name:
             product["product_name"] = product_name
             product["name"] = product_name
-        if product.get("product_name"):
-            product["name"] = product["product_name"]
+        elif current_product_name:
+            product["product_name"] = current_product_name
+            product["name"] = current_product_name
 
         for field in ("brand_id",):
             if row.get(field):
