@@ -16,7 +16,7 @@ async function loadOrders(userId: string, includeFailureReason: boolean): Promis
   const fields = [
     "id", "order_number", "gateway_order_id", "created_at", "currency",
     "subtotal", "shipping_amount", "total_amount", "fulfillment_method", "payment_status",
-    "order_status", "cashfree_order_status", "paid_at", "updated_at",
+    "order_status", "cashfree_order_status", "fulfillment_method", "paid_at", "updated_at",
   ];
   if (includeFailureReason) fields.push("payment_failure_code", "payment_failure_reason");
   return await supabaseRest("orders", "GET", {
@@ -139,7 +139,10 @@ Deno.serve(async (req: Request) => {
       payment_failure_code: order.payment_failure_code || null,
       payment_failure_reason: order.payment_failure_reason || null,
       invoice_status: invoicesByOrder.get(String(order.id))?.invoice_status ||
-        (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && String(order.payment_status || "") === "paid" ? "pending" : null),
+        (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" &&
+         String(order.payment_status || "") === "paid" &&
+         (String(order.fulfillment_method || "delivery") === "pickup" ||
+          freightByOrder.get(String(order.id))?.status === "paid") ? "pending" : null),
       invoice_number: invoicesByOrder.get(String(order.id))?.invoice_number || null,
       freight_quote_id: freightByOrder.get(String(order.id))?.id || null,
       freight_quote_number: freightByOrder.get(String(order.id))?.quote_number || null,
