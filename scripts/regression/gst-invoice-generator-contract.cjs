@@ -93,6 +93,6 @@ assert.match(freightFunction, /whatsapp_url/);
 assert.match(freightFunction, /email_url/);
 assert.match(freightFunction, /reconcileCashfreeFreightOrder/);
 assert.match(checkout, /const shippingPaise = 0/);
-assert.match(shared, /status: "freight_pending"/);
+assert.match(shared, /order\.fulfillment_method === "delivery" \? "freight_pending" : "processing"/);
 
 console.log("GST invoice generator safety contract passed: paid-order issuance, immutable serials/snapshots, private storage, authenticated downloads, approved tax data and fail-closed checks.");
