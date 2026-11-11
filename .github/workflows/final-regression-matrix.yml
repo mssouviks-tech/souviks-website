@@ -63,6 +63,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python3 scripts/catalogue/apply_product_workbook_import.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
           python3 scripts/audit/build_hsn_verification_worklist.py
