@@ -23,6 +23,7 @@
             freightPaid: "Delivery charges paid",
             freightPay: "Review & pay delivery charges",
             freightPendingAmount: "Final delivery amount pending calculation",
+            productPaid: "Products paid",
             fulfillment: "Fulfilment",
             homeDelivery: "Home delivery",
             storePickup: "Store pickup",
@@ -50,6 +51,7 @@
             freightPaid: "डिलीवरी शुल्क का भुगतान हो गया",
             freightPay: "डिलीवरी शुल्क देखें और भुगतान करें",
             freightPendingAmount: "डिलीवरी शुल्क की गणना बाकी है",
+            productPaid: "उत्पाद का भुगतान",
             fulfillment: "ऑर्डर प्राप्ति",
             homeDelivery: "घर पर डिलीवरी",
             storePickup: "स्टोर से पिकअप",
@@ -77,6 +79,7 @@
             freightPaid: "ডেলিভারি চার্জ পরিশোধ হয়েছে",
             freightPay: "ডেলিভারি চার্জ দেখুন ও পেমেন্ট করুন",
             freightPendingAmount: "ডেলিভারি চার্জের হিসাব বাকি",
+            productPaid: "পণ্যের পেমেন্ট",
             fulfillment: "অর্ডার সংগ্রহের পদ্ধতি",
             homeDelivery: "বাড়িতে ডেলিভারি",
             storePickup: "স্টোর থেকে সংগ্রহ",
@@ -194,7 +197,9 @@
         card.appendChild(head);
 
         const total = element("div", "account-order-total");
-        total.appendChild(element("span", "", T.total));
+        const isDeliveryAwaitingFreight = order.fulfillment_method === "delivery" &&
+            order.payment_status === "paid" && order.freight_status !== "paid";
+        total.appendChild(element("span", "", isDeliveryAwaitingFreight ? T.productPaid : T.total));
         total.appendChild(element("strong", "", currency(order.total_amount, order.currency)));
         card.appendChild(total);
 
