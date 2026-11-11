@@ -22,6 +22,7 @@
             homeDelivery: "Home delivery",
             storePickup: "Store pickup",
             failureReason: "Payment failure reason",
+            invoice: "Download tax invoice", invoicePending: "Tax invoice pending verification", invoiceFailed: "Invoice could not be downloaded. Please retry.",
             unknown: "Not available"
         },
         hi: {
@@ -43,6 +44,7 @@
             homeDelivery: "घर पर डिलीवरी",
             storePickup: "स्टोर से पिकअप",
             failureReason: "भुगतान विफल होने का कारण",
+            invoice: "टैक्स इनवॉइस डाउनलोड करें", invoicePending: "टैक्स इनवॉइस सत्यापन की प्रतीक्षा में है", invoiceFailed: "इनवॉइस डाउनलोड नहीं हो सका। फिर प्रयास करें।",
             unknown: "उपलब्ध नहीं"
         },
         bn: {
@@ -64,6 +66,7 @@
             homeDelivery: "বাড়িতে ডেলিভারি",
             storePickup: "স্টোর থেকে সংগ্রহ",
             failureReason: "পেমেন্ট ব্যর্থ হওয়ার কারণ",
+            invoice: "ট্যাক্স ইনভয়েস ডাউনলোড করুন", invoicePending: "ট্যাক্স ইনভয়েস যাচাইয়ের অপেক্ষায়", invoiceFailed: "ইনভয়েস ডাউনলোড করা যায়নি। আবার চেষ্টা করুন।",
             unknown: "উপলভ্য নয়"
         }
     };
@@ -187,6 +190,34 @@
             card.appendChild(failure);
         }
         card.appendChild(renderItems(order));
+        if (order.payment_status === "paid" && order.invoice_status) {
+            const invoiceArea = element("div", "account-order-invoice");
+            if (order.invoice_status === "issued" && order.invoice_number) {
+                const download = element("button", "btn btn-secondary", T.invoice);
+                download.type = "button";
+                download.addEventListener("click", async () => {
+                    const tab = window.open("about:blank", "_blank");
+                    download.disabled = true;
+                    try {
+                        const result = await supabaseClient.functions.invoke("gst-invoice", {
+                            body: { action: "download", order_id: order.gateway_order_id }
+                        });
+                        if (result.error || !result.data?.ok || !result.data?.signed_url) throw new Error(T.invoiceFailed);
+                        if (tab) tab.location.href = result.data.signed_url;
+                        else window.location.href = result.data.signed_url;
+                    } catch {
+                        if (tab) tab.close();
+                        setMessage(T.invoiceFailed, "error");
+                    } finally {
+                        download.disabled = false;
+                    }
+                });
+                invoiceArea.appendChild(download);
+            } else {
+                invoiceArea.appendChild(element("p", "account-order-item-meta", T.invoicePending));
+            }
+            card.appendChild(invoiceArea);
+        }
         return card;
     }
 

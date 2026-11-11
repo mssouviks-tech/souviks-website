@@ -104,6 +104,29 @@ async function calculateDelhiveryPrepaidCharge(destinationPin: string, weightGra
   return Math.round(amount * 100);
 }
 
+const INDIA_STATE_NAMES: Record<string, string> = {
+  "01":"Jammu and Kashmir","02":"Himachal Pradesh","03":"Punjab","04":"Chandigarh",
+  "05":"Uttarakhand","06":"Haryana","07":"Delhi","08":"Rajasthan","09":"Uttar Pradesh",
+  "10":"Bihar","11":"Sikkim","12":"Arunachal Pradesh","13":"Nagaland","14":"Manipur",
+  "15":"Mizoram","16":"Tripura","17":"Meghalaya","18":"Assam","19":"West Bengal",
+  "20":"Jharkhand","21":"Odisha","22":"Chhattisgarh","23":"Madhya Pradesh","24":"Gujarat",
+  "26":"Dadra and Nagar Haveli and Daman and Diu","27":"Maharashtra","29":"Karnataka",
+  "30":"Goa","31":"Lakshadweep","32":"Kerala","33":"Tamil Nadu","34":"Puducherry",
+  "35":"Andaman and Nicobar Islands","36":"Telangana","37":"Andhra Pradesh","38":"Ladakh",
+};
+
+function stateCodeFromName(value: unknown): string {
+  const normalized = clean(value, 100).toLowerCase().replace(/[^a-z]/g, "");
+  for (const [code, name] of Object.entries(INDIA_STATE_NAMES)) {
+    if (name.toLowerCase().replace(/[^a-z]/g, "") === normalized) return code;
+  }
+  const aliases: Record<string,string> = {
+    "orissa":"21","uttaranchal":"05","nctofdelhi":"07","delhi":"07",
+    "jammuandkashmir":"01","jandk":"01","pondicherry":"34","wb":"19","westbengal":"19",
+  };
+  return aliases[normalized] || "";
+}
+
 Deno.serve(async (req: Request) => {
   const origin = req.headers.get("origin");
   if (req.method === "OPTIONS") {
@@ -128,6 +151,7 @@ Deno.serve(async (req: Request) => {
     const lang = ["en", "hi", "bn"].includes(String(input?.language || "")) ? String(input.language) : "en";
     const customer = input?.customer && typeof input.customer === "object" ? input.customer : {};
     const address = input?.shipping_address && typeof input.shipping_address === "object" ? input.shipping_address : {};
+    const billing = input?.billing_address && typeof input.billing_address === "object" ? input.billing_address : {};
     const fulfillmentMethod = clean(input?.fulfillment_method, 20).toLowerCase() || "delivery";
     if (!["delivery", "pickup"].includes(fulfillmentMethod)) throw new CheckoutError("fulfillment_method_invalid", 400);
 
@@ -137,10 +161,17 @@ Deno.serve(async (req: Request) => {
     const customerPhone = rawPhone.length === 12 && rawPhone.startsWith("91") ? rawPhone.slice(2) : rawPhone;
     const company = clean(customer.company, 160);
     const gstNumber = clean(customer.gst_number, 15).toUpperCase();
+    const billingAddress1 = clean(billing.line1, 180);
+    const billingAddress2 = clean(billing.line2, 180);
+    const billingCity = clean(billing.city, 100);
+    const billingStateCode = clean(billing.state_code, 2);
+    const billingPostalCode = clean(billing.postal_code, 6);
+    const validBillingStateCodes = new Set(["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","26","27","29","30","31","32","33","34","35","36","37","38"]);
     const address1 = fulfillmentMethod === "delivery" ? clean(address.line1, 180) : "";
     const address2 = fulfillmentMethod === "delivery" ? clean(address.line2, 120) : "";
     const city = fulfillmentMethod === "delivery" ? clean(address.city, 100) : "";
     const state = fulfillmentMethod === "delivery" ? clean(address.state, 100) : "";
+    const shippingStateCode = fulfillmentMethod === "delivery" ? stateCodeFromName(state) : billingStateCode;
     const postalCode = fulfillmentMethod === "delivery" ? clean(address.postal_code, 6) : "";
     const country = clean(address.country || "IN", 2).toUpperCase();
 
@@ -151,7 +182,19 @@ Deno.serve(async (req: Request) => {
         (!address1 || !city || !state || !/^\d{6}$/.test(postalCode) || country !== "IN")) {
       throw new CheckoutError("valid_indian_shipping_address_required", 400);
     }
-    if (gstNumber && !/^[0-9A-Z]{15}$/.test(gstNumber)) throw new CheckoutError("valid_gst_number_required", 400);
+    if (!billingAddress1 || !billingCity || !validBillingStateCodes.has(billingStateCode) || !/^\d{6}$/.test(billingPostalCode)) {
+      throw new CheckoutError("valid_billing_address_required", 400);
+    }
+    if (gstNumber && (!/^[0-9]{2}[0-9A-Z]{13}$/.test(gstNumber) || gstNumber.slice(0, 2) !== billingStateCode)) {
+      throw new CheckoutError("valid_gst_number_required", 400);
+    }
+    if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && fulfillmentMethod === "delivery" && !shippingStateCode) {
+      throw new CheckoutError("delivery_place_of_supply_state_missing", 409);
+    }
+    if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" &&
+        Deno.env.get("GST_INVOICE_SELLER_IDENTITY_VERIFIED") !== "true") {
+      throw new CheckoutError("seller_identity_not_verified", 409);
+    }
 
     const itemsInput = input?.items;
     if (!Array.isArray(itemsInput) || itemsInput.length < 1) throw new CheckoutError("cart_empty", 400);
@@ -190,6 +233,19 @@ Deno.serve(async (req: Request) => {
       if (Number.isFinite(mrp) && mrp > 0 && price > mrp) {
         throw new CheckoutError("catalogue_price_invalid", 409);
       }
+      const gstCandidate = product.gst_rate_candidate && typeof product.gst_rate_candidate === "object" ? product.gst_rate_candidate : {};
+      const gstCandidateApproved = gstCandidate.invoice_ready === true &&
+        gstCandidate.accountant_approval_required === false && gstCandidate.accountant_approval_status === "approved";
+      const gstCandidateStatus = clean(gstCandidate.status, 64);
+      const unitOfMeasure = clean(product.unit_of_measure || product.uom || product.measurement_unit, 10);
+      const hsnInvoiceReady = /^\d{8}$/.test(clean(product.hsn_code, 8)) &&
+        product.hsn_classification_status === "classified" && product.hsn_confidence === "high";
+      if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && (!gstCandidateApproved || !hsnInvoiceReady)) {
+        throw new CheckoutError("hsn_or_gst_candidate_not_final", 409);
+      }
+      if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && !/^[A-Z0-9]{1,10}$/.test(unitOfMeasure)) {
+        throw new CheckoutError("invoice_unit_of_measure_missing", 409);
+      }
       const rawWeight = product.approx_weight_g ?? product.approx_weight_grams ?? product.weight_g ?? product.shipping_weight_g;
       const unitWeightGrams = Number(rawWeight);
       if (rawWeight == null || rawWeight === "" || !Number.isFinite(unitWeightGrams) || unitWeightGrams <= 0 || unitWeightGrams > 200000) {
@@ -216,6 +272,16 @@ Deno.serve(async (req: Request) => {
         hsn_description: clean(product.hsn_description, 300) || null,
         hsn_classification_status: clean(product.hsn_classification_status, 32) || null,
         hsn_confidence: clean(product.hsn_confidence, 16) || null,
+        gst_rate_percent: Number.isFinite(Number(product.gst_rate_percent ?? gstCandidate.total_rate_percent)) ? Number(product.gst_rate_percent ?? gstCandidate.total_rate_percent) : null,
+        gst_cgst_rate_percent: Number.isFinite(Number(product.gst_cgst_rate_percent ?? gstCandidate.cgst_rate_percent)) ? Number(product.gst_cgst_rate_percent ?? gstCandidate.cgst_rate_percent) : null,
+        gst_sgst_rate_percent: Number.isFinite(Number(product.gst_sgst_rate_percent ?? gstCandidate.sgst_rate_percent)) ? Number(product.gst_sgst_rate_percent ?? gstCandidate.sgst_rate_percent) : null,
+        gst_igst_rate_percent: Number.isFinite(Number(product.gst_igst_rate_percent ?? gstCandidate.igst_rate_percent)) ? Number(product.gst_igst_rate_percent ?? gstCandidate.igst_rate_percent) : null,
+        gst_rate_effective_from: clean(product.gst_rate_effective_from || gstCandidate.effective_from, 10) || null,
+        gst_rate_source_reference: clean(product.gst_rate_source_reference || (Array.isArray(gstCandidate.source_references) ? gstCandidate.source_references.join("; ") : ""), 1500) || null,
+        gst_rate_basis: clean(product.gst_rate_basis || gstCandidate.basis || gstCandidate.review_note, 1500) || null,
+        gst_rate_candidate_approved: gstCandidateApproved,
+        gst_rate_candidate_status: gstCandidateStatus || null,
+        unit_of_measure: unitOfMeasure || null,
         quantity,
         unit_price: money(unitPaise),
         line_total: money(linePaise),
@@ -240,6 +306,14 @@ Deno.serve(async (req: Request) => {
       // Fail closed rather than undercharge freight when a product lacks weight.
       throw new CheckoutError("delhivery_shipping_weights_missing", 409);
     }
+    if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && shippingPaise > 0 &&
+        (Deno.env.get("GST_FREIGHT_APPROVAL_STATUS") !== "approved" ||
+         Deno.env.get("GST_FREIGHT_PRICE_INCLUDES_GST") !== "true" ||
+         !/^\d{6,8}$/.test(Deno.env.get("GST_FREIGHT_SAC") || "") ||
+         ![0,5,12,18,28].includes(Number(Deno.env.get("GST_FREIGHT_RATE_PERCENT"))) ||
+         !(Deno.env.get("GST_FREIGHT_APPROVAL_SOURCE") || "").trim())) {
+      throw new CheckoutError("freight_tax_treatment_not_approved", 409);
+    }
     const totalPaise = subtotalPaise + shippingPaise;
     if (!Number.isSafeInteger(totalPaise) || totalPaise < 100 || totalPaise > 100000000000) {
       throw new CheckoutError("order_total_invalid", 400);
@@ -262,11 +336,19 @@ Deno.serve(async (req: Request) => {
       customer_phone: customerPhone,
       company: company || null,
       gst_number: gstNumber || null,
+      billing_address_line1: billingAddress1,
+      billing_address_line2: billingAddress2 || null,
+      billing_city: billingCity,
+      billing_state: INDIA_STATE_NAMES[billingStateCode],
+      billing_state_code: billingStateCode,
+      billing_postal_code: billingPostalCode,
+      billing_country: "IN",
       fulfillment_method: fulfillmentMethod,
       shipping_address_line1: fulfillmentMethod === "delivery" ? address1 : null,
       shipping_address_line2: fulfillmentMethod === "delivery" ? (address2 || null) : null,
       shipping_city: fulfillmentMethod === "delivery" ? city : null,
       shipping_state: fulfillmentMethod === "delivery" ? state : null,
+      shipping_state_code: fulfillmentMethod === "delivery" ? shippingStateCode : null,
       shipping_postal_code: fulfillmentMethod === "delivery" ? postalCode : null,
       shipping_country: "IN",
       currency: "INR",
@@ -353,6 +435,13 @@ Deno.serve(async (req: Request) => {
       live_checkout_not_approved: "Live payments have not been enabled yet.",
       tax_policy_not_confirmed: "Checkout is temporarily unavailable while tax treatment is confirmed.",
       checkout_rate_limited: "Too many checkout attempts. Please wait a few minutes and retry.",
+      valid_billing_address_required: "Enter your billing address, city, state and six-digit PIN code for the tax invoice.",
+      delivery_place_of_supply_state_missing: "Select a valid delivery state before paying so the correct GST place of supply can be recorded.",
+      seller_identity_not_verified: "Online checkout is temporarily unavailable until the registered seller details are verified for tax invoicing.",
+      hsn_or_gst_candidate_not_final: "One or more items still need final HSN or GST verification before a tax invoice can be issued. Please request a quotation.",
+      invoice_unit_of_measure_missing: "One or more items still need a verified GST unit of measurement before a tax invoice can be issued.",
+      invoice_unit_of_measure_missing: "One or more items still need a verified unit of measurement before a tax invoice can be issued.",
+      freight_tax_treatment_not_approved: "Delivery tax treatment is awaiting accountant approval. Please request a quotation or choose store pickup.",
       fulfillment_method_invalid: "Choose either home delivery or store pickup to continue.",
       catalogue_unavailable: "Current product pricing could not be verified. Please request a quote.",
       cart_product_requires_quote: "One or more items require a quotation instead of online checkout.",

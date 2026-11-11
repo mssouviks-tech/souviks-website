@@ -304,6 +304,38 @@ export async function enforceCheckoutRateLimit(req: Request, config: CashfreeRun
   if (allowed !== true) throw new CheckoutError("checkout_rate_limited", 429);
 }
 
+async function attemptGstInvoiceIssue(gatewayOrderId: string): Promise<string> {
+  if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") !== "true") return "disabled";
+  try {
+    const key = getSupabaseServiceKey();
+    const response = await fetch(getSupabaseUrl() + "/functions/v1/gst-invoice", {
+      method: "POST",
+      headers: {
+        "apikey": key,
+        "Authorization": "Bearer " + key,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({ action: "issue", order_id: gatewayOrderId }),
+      signal: AbortSignal.timeout(20000),
+    });
+    if (!response.ok) {
+      console.error("[Cashfree] Paid order invoice generation is pending review", response.status);
+      return "pending";
+    }
+    const result = await response.json().catch(() => null);
+    if (!result?.ok) {
+      console.error("[Cashfree] Paid order invoice is not ready", String(result?.code || "unknown").slice(0, 80));
+      return "pending";
+    }
+    return result.invoice_status === "issued" ? "issued" : "pending";
+  } catch {
+    // Payment confirmation is authoritative; invoice retries happen on later reconciliation.
+    console.error("[Cashfree] Invoice service could not be reached after verified payment");
+    return "pending";
+  }
+}
+
 export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Record<string, unknown>> {
   const config = cashfreeConfig();
   const rows = await supabaseRest("orders", "GET", {
@@ -385,7 +417,8 @@ export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Re
         // A status query may race the signed webhook. Payment state remains verified from Cashfree.
       }
     }
-    return { order_number: order.order_number, payment_status: "paid", order_status: patch.order_status, amount: expectedAmount, currency: order.currency };
+    const invoiceStatus = await attemptGstInvoiceIssue(gatewayOrderId);
+    return { order_number: order.order_number, payment_status: "paid", order_status: patch.order_status, amount: expectedAmount, currency: order.currency, invoice_status: invoiceStatus };
   }
 
   if (["EXPIRED", "CANCELLED"].includes(providerStatus) && order.payment_status !== "paid") {

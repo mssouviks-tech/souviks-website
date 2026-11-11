@@ -30,6 +30,20 @@ HSN and GST rate are separate data. This integration does not determine GST perc
 
 The Souviks invoice template expects verified HSN/SAC and GST rates at line-item level. On 10 November 2026, the user reported accountant approval of all 1,159 GST rate candidates; each gst_rate_candidate invoice_ready flag is true and accountant_approval_required is false. This approves the GST candidate only. Do not use provisional or review-required HSN candidates as final invoice classifications unless a SKU-specific HSN exception is recorded. The end-to-end tax-invoice generator is not implemented by this flag change and must fail closed where either the HSN or transaction/tax treatment is unverified.
 
+
+## GST invoice generator
+
+The checkout migration now snapshots the accountant-approved GST rate, effective date, rate split and source reference on each order line, separately from the HSN classification. It also snapshots billing and delivery state codes and the product unit-of-measure field. New invoices are generated only for Cashfree-verified paid orders.
+
+The `gst-invoice` Edge Function creates an immutable invoice record, reserves a financial-year serial, renders a PDF and stores it in the private `gst-invoices` Storage bucket. Download requires either the authenticated order owner or the checkout capability token. The PDF is issued without a separate DSC; production electronic issuance remains gated on explicit seller-identity, accountant-format and freight-tax configuration.
+
+Invoice creation fails closed unless every line has:
+- a high-confidence, `classified` HSN;
+- the explicit accountant-approved GST candidate flag and an effective rate/split/source snapshot; and
+- a verified unit of measure.
+
+It also requires a complete buyer billing address, a verified place-of-supply state and, for paid delivery orders with freight, a configured accountant-approved freight SAC/rate/UQC. Existing orders created before the migration have no complete GST snapshots and are not backfilled from today's catalogue.
+
 ## Validation
 
 The `hsn-ecommerce-contract.cjs` regression contract checks the catalogue projection, confidence-gated product-page display, server-side checkout snapshot, authenticated order-history data, and schema migration.

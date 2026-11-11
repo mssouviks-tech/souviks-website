@@ -442,7 +442,14 @@
                 email: document.getElementById("checkout-email")?.value || "",
                 phone: document.getElementById("checkout-phone")?.value || "",
                 company: document.getElementById("checkout-company")?.value || "",
-                gst_number: document.getElementById("checkout-gst")?.value || ""
+                gst_number: document.getElementById("checkout-gst")?.value || "",
+                billing_address: {
+                    line1: document.getElementById("checkout-billing-address1")?.value || "",
+                    line2: document.getElementById("checkout-billing-address2")?.value || "",
+                    city: document.getElementById("checkout-billing-city")?.value || "",
+                    state_code: document.getElementById("checkout-billing-state")?.value || "",
+                    postal_code: document.getElementById("checkout-billing-pin")?.value || ""
+                }
             };
             const fulfillmentMethod = form.querySelector('input[name="fulfillment_method"]:checked')?.value || "";
             const shippingAddress = {
@@ -660,6 +667,7 @@
         const reference = document.getElementById("payment-status-reference");
         const detail = document.getElementById("payment-status-detail");
         const retry = document.getElementById("payment-status-retry");
+        const invoiceButton = document.getElementById("payment-status-invoice");
         const orderId = new URL(window.location.href).searchParams.get("order_id") || "";
         if (reference && orderId) reference.textContent = orderId;
 
@@ -697,7 +705,7 @@
                     setStatus(status, T.statusPaid, "success");
                     try {
                         localStorage.removeItem(STORAGE_KEY);
-                        sessionStorage.removeItem(TOKEN_KEY_PREFIX + orderId);
+                        // Retain the short-lived order capability so a guest can download the invoice on this return page.
                     } catch {
                         // A failed local cleanup cannot change verified payment status.
                     }
@@ -708,6 +716,7 @@
                         currency: String(data.currency || "INR")
                     });
                     if (retry) retry.hidden = true;
+                    if (invoiceButton) invoiceButton.hidden = data.invoice_status !== "issued";
                 } else if (["failed", "cancelled"].includes(data.payment_status)) {
                     const failureReason = String(data.payment_failure_reason || "").trim();
                     const failedMessage = failureReason ? T.statusFailed + " " + T.failureReasonPrefix + failureReason : T.statusFailed;
@@ -731,6 +740,31 @@
             }
         };
         retry?.addEventListener("click", verify);
+        invoiceButton?.addEventListener("click", async () => {
+            let token = "";
+            try { token = sessionStorage.getItem(TOKEN_KEY_PREFIX + orderId) || ""; } catch { token = ""; }
+            if (!/^[a-f0-9]{64}$/.test(token)) {
+                setStatus(status, "Invoice access could not be verified. Sign in to your account or contact Souviks.", "error");
+                return;
+            }
+            const tab = window.open("about:blank", "_blank");
+            invoiceButton.disabled = true;
+            try {
+                const result = await supabaseClient.functions.invoke("gst-invoice", {
+                    body: { action: "download", order_id: orderId, checkout_token: token }
+                });
+                if (result.error || !result.data?.ok || !result.data?.signed_url) {
+                    throw new Error(result.data?.message || "The tax invoice is not available yet.");
+                }
+                if (tab) tab.location.href = result.data.signed_url;
+                else window.location.href = result.data.signed_url;
+            } catch (error) {
+                if (tab) tab.close();
+                setStatus(status, String(error?.message || "The invoice could not be downloaded."), "error");
+            } finally {
+                invoiceButton.disabled = false;
+            }
+        });
         await verify();
     }
 
