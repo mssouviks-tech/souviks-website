@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+"use strict";
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const root = path.resolve(__dirname, "../..");
+const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
+
+const invoice = read("supabase/functions/gst-invoice/index.ts");
+const checkout = read("supabase/functions/cashfree-create-order/index.ts");
+const shared = read("supabase/functions/_shared/cashfree.ts");
+const account = read("supabase/functions/account-orders/index.ts");
+const accountUi = read("assets/js/account/auth-orders.js");
+const paymentUi = read("assets/js/cart/cart.js");
+const pageBuilder = read("scripts/catalogue/sync_checkout_pages.py");
+const migration = read("supabase/migrations/20261111100000_gst_invoice_generation.sql");
+const config = read("supabase/config.toml");
+
+assert.match(migration, /create table if not exists public\.gst_invoices/);
+assert.match(migration, /create table if not exists public\.gst_invoice_sequences/);
+assert.match(migration, /invoice_number text not null unique check \(char_length\(invoice_number\) <= 16\)/);
+assert.match(migration, /security definer/);
+assert.match(migration, /grant execute on function public\.reserve_gst_invoice.*to service_role/s);
+assert.match(migration, /alter table public\.gst_invoices enable row level security/);
+assert.match(migration, /revoke all on table public\.gst_invoices from public, anon, authenticated/);
+assert.match(migration, /values \('gst-invoices', 'gst-invoices', false/);
+assert.match(migration, /guard_issued_gst_invoice_immutable/);
+
+assert.match(invoice, /npm:pdf-lib/);
+assert.match(invoice, /order\.payment_status !== "paid"/);
+assert.match(invoice, /gst_rate_candidate_approved === true/);
+assert.match(invoice, /hsn_classification_status !== "classified"/);
+assert.match(invoice, /hsn_confidence !== "high"/);
+assert.match(invoice, /unit_of_measure_missing/);
+assert.match(invoice, /GST_INVOICE_SELLER_IDENTITY_VERIFIED/);
+assert.match(invoice, /GST_INVOICE_ELECTRONIC_ISSUANCE_APPROVED/);
+assert.match(invoice, /GST_INVOICE_REVERSE_CHARGE_APPLICABLE/);
+assert.match(invoice, /GST_FREIGHT_APPROVAL_STATUS/);
+assert.match(invoice, /GST_FREIGHT_SAC/);
+assert.match(invoice, /GST_FREIGHT_RATE_PERCENT/);
+assert.match(invoice, /GST_FREIGHT_UQC/);
+assert.match(invoice, /reserve_gst_invoice/);
+assert.match(invoice, /sha256\(pdf\)/);
+assert.match(invoice, /object\/sign\/gst-invoices/);
+assert.match(invoice, /expiresIn:300/);
+assert.match(invoice, /order\.user_id===userId/);
+assert.match(invoice, /token_hash:"eq\."+hash/);
+assert.match(invoice, /requireInternal\(req\)/);
+assert.match(invoice, /invoice_status:"issued"/);
+assert.match(invoice, /SVK\//);
+assert.doesNotMatch(invoice, /DSC signing implementation/i);
+
+assert.match(checkout, /billing_address_line1: billingAddress1/);
+assert.match(checkout, /billing_state_code: billingStateCode/);
+assert.match(checkout, /shipping_state_code: fulfillmentMethod === "delivery" \? shippingStateCode : null/);
+assert.match(checkout, /gst_rate_candidate_approved: gstCandidateApproved/);
+assert.match(checkout, /unit_of_measure: unitOfMeasure/);
+assert.match(checkout, /GST_FREIGHT_APPROVAL_STATUS/);
+assert.match(shared, /attemptGstInvoiceIssue/);
+assert.match(shared, /payment_status: "paid"/);
+assert.match(account, /user_id: "eq\." \+ userId/);
+assert.match(account, /gst_invoices/);
+assert.match(account, /invoice_status/);
+assert.match(accountUi, /functions\.invoke\("gst-invoice"/);
+assert.match(accountUi, /order\.invoice_status === "issued"/);
+assert.match(paymentUi, /data\.invoice_status !== "issued"/);
+assert.match(paymentUi, /checkout_token: token/);
+assert.match(pageBuilder, /INVOICE_DOWNLOAD/);
+assert.match(config, /\[functions\.gst-invoice\]\s*verify_jwt\s*=\s*false/);
+
+console.log("GST invoice generator safety contract passed: paid-order issuance, immutable serials/snapshots, private storage, authenticated downloads, approved tax data and fail-closed checks.");

@@ -97,6 +97,36 @@ The bank details above are transcribed from the supplied sample letterhead, not 
 
 **Before the first production invoice:** verify current GST registration status on the GST Portal, obtain a current GST certificate if amended, confirm the bank details, and have the accountant approve the legal supplier-name presentation and tax invoice template. The template pre-populates the legal supplier name as `CHANDRANI SADHU (Proprietor - Souviks)`, but the field remains editable.
 
+
+## Invoice generator implementation (11 November 2026)
+
+A server-side implementation is prepared in the invoice-generator change set. It adds:
+- a private invoice ledger and private PDF bucket;
+- an atomic financial-year sequence with a 16-character maximum invoice serial (example: `SVK/26-27/000001`);
+- a paid-order-only Edge Function that calculates GST-exclusive taxable value from GST-inclusive line prices, applies intra-State CGST/SGST or inter-State IGST, renders a PDF and records the PDF SHA-256;
+- immutable issued invoice snapshots and a private, short-lived signed download URL; and
+- invoice links in the authenticated order history and the post-payment page.
+
+The invoice PDF contains supplier and recipient identity, GSTIN where provided, bill-to and ship-to addresses, place of supply/state code, HSN/SAC, quantity/UQC, taxable value, rate, tax and total. It states reverse-charge applicability from the configured supplier policy. It does not apply a DSC.
+
+### Activation remains deliberately disabled
+
+The code is not enabled for live invoice issuance until the following configuration is confirmed and installed as Supabase Edge Function secrets:
+
+- `GST_INVOICE_ISSUANCE_ENABLED=true`
+- `GST_INVOICE_SELLER_IDENTITY_VERIFIED=true` plus the supplier legal name, trade name, GSTIN, full registered address and state code.
+- `GST_INVOICE_ELECTRONIC_ISSUANCE_APPROVED=true` after the accountant confirms the proposed electronically issued PDF process.
+- `GST_INVOICE_REVERSE_CHARGE_APPLICABLE=true|false` after the accountant confirms Souviks' policy.
+- For delivery charges: `GST_FREIGHT_APPROVAL_STATUS=approved`, `GST_FREIGHT_PRICE_INCLUDES_GST=true`, accountant-confirmed `GST_FREIGHT_SAC`, `GST_FREIGHT_RATE_PERCENT`, `GST_FREIGHT_UQC` and `GST_FREIGHT_APPROVAL_SOURCE`.
+
+The earlier accountant green light concerned the 1,159 GST rate candidates. It is not evidence of approval for freight taxation, reverse-charge treatment, or the electronic PDF issuance format. These flags must not be enabled based on the GST-rate approval alone.
+
+The generator refuses to issue an invoice if even one order line lacks high-confidence classified HSN, the explicit approved GST candidate snapshot or a valid UQC. It also blocks unsupported bill-to/ship-to GSTIN state mismatches. Existing historic orders are not backfilled using later catalogue values.
+
+**Not included in this change:** credit/debit notes, refund-linked invoice adjustments, email delivery for guest orders, and cryptographic DSC signing. Issued PDFs are immutable; statutory corrections must not overwrite them. The guest download capability is retained only in the payment return session; logged-in customers can retrieve issued invoices from My Account.
+
+Before activation, run one controlled sandbox-to-PDF acceptance test, have the accountant review the rendered invoice and tax arithmetic, confirm freight and RCM configuration, then enable the production flags. Cashfree live-payment controls are not changed by this invoice implementation.
+
 ## Invoice layout created from the supplied example
 
 A one-page A4 fillable PDF has been prepared using the supplied letterhead PDF as its background and the supplied invoice image as the layout reference. The sample-report placeholder text has been masked. The template includes:
