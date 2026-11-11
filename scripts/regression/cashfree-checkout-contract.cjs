@@ -77,11 +77,11 @@ assert.match(fulfillmentMigration, /add column if not exists fulfillment_method 
 assert.match(fulfillmentMigration, /shipping_postal_code drop not null/);
 assert.match(createOrder, /country !== "IN"/);
 assert.ok(createOrder.includes("assertLiveCheckoutApproved(config)"), "Only new order creation must enforce the live-checkout gate.");
-assert.match(createOrder, /if \(fulfillmentMethod === "pickup"\)/);
-assert.match(createOrder, /else if \(hasCompleteWeights\)/);
+assert.match(createOrder, /const shippingPaise = 0/);
+assert.match(createOrder, /delivery_quote_required: fulfillmentMethod === "delivery"/);
+assert.doesNotMatch(createOrder, /calculateDelhiveryPrepaidCharge|estimatedWeightGrams|hasCompleteWeights|delhivery_shipping_weights_missing/);
+assert.doesNotMatch(createOrder, /GST_FREIGHT_APPROVAL_STATUS|GST_FREIGHT_SAC|GST_FREIGHT_RATE_PERCENT/);
 assert.doesNotMatch(createOrder, /policy\.threshold|CASHFREE_FREE_SHIPPING_THRESHOLD_INR/);
-assert.match(createOrder, /calculateDelhiveryPrepaidCharge\(postalCode, estimatedWeightGrams\)/);
-assert.match(createOrder, /delhivery_shipping_weights_missing/);
 assert.match(createOrder, /checkout_access_tokens/);
 assert.match(createOrder, /payment_session_id/);
 assert.match(createOrder, /billing_address_line1: billingAddress1/);
