@@ -218,6 +218,13 @@ def make_new_product(row: dict, products: list[dict]) -> dict:
             "gst_rate_source_reference"
         ),
         "gst_rate_basis": template.get("gst_rate_basis"),
+        "hsn_stock_reference_code": "",
+        "hsn_stock_reference_codes": [],
+        "hsn_stock_reference_status": "not_in_source",
+        "hsn_stock_reference_alignment": "not_in_source",
+        "hsn_stock_reference_record_count": 0,
+        "hsn_stock_reference_source_files": [],
+        "hsn_stock_reference_date": "2026-11-10",
         "catalogue_updated_at": "2026-11-11",
     }
 

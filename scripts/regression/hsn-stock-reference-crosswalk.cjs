@@ -71,12 +71,21 @@ assert.equal(conflictSourceRows, 44);
 assert.equal(uniqueSourceRows + conflictSourceRows + manifest.unmapped_source_record_count, manifest.source_record_count);
 assert.equal(catalogue.filter((p) => p.hsn_stock_reference_status === "unique_consistent").length, 796);
 assert.equal(catalogue.filter((p) => p.hsn_stock_reference_status === "conflict").length, 22);
-assert.equal(catalogue.filter((p) => p.hsn_stock_reference_status === "not_in_source").length, 341);
+assert.equal(catalogue.filter((p) => p.hsn_stock_reference_status === "not_in_source").length, 357);
+for (const productId of Array.from({ length: 16 }, (_, index) => `SVKS${String(1161 + index).padStart(6, "0")}`)) {
+  const product = byId.get(productId);
+  assert.ok(product, `missing new catalogue SKU ${productId}`);
+  assert.equal(product.hsn_stock_reference_code, "");
+  assert.deepEqual(product.hsn_stock_reference_codes, []);
+  assert.equal(product.hsn_stock_reference_status, "not_in_source");
+  assert.equal(product.hsn_stock_reference_alignment, "not_in_source");
+  assert.equal(product.hsn_stock_reference_record_count, 0);
+}
 console.log("Odoo stock HSN crosswalk passed", {
   catalogue_records: catalogue.length, public_products: products.length,
   unique_website_hsn_references: 796, conflicting_website_skus: 22,
   not_in_source_website_products: 341, mapped_stock_source_rows: uniqueSourceRows,
   conflict_stock_source_rows: conflictSourceRows, unmapped_stock_source_rows: 162,
-  existing_rate_candidates_approved: mappedIds.size,
+  stock_reference_mapped_or_conflict_skus: mappedIds.size,
   newly_added_skus_pending_accountant_approval: 16
 });
