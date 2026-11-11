@@ -99,8 +99,11 @@ for (const productId of Array.from({ length: 16 }, (_, index) => `SVKS${String(1
   assert.equal(product.hsn_stock_reference_record_count, 0);
   assert.ok(
     ["provisional", "review_required"].includes(product.hsn_classification_status),
-    `new SKU must retain non-final HSN classification ${productId}`
+    `new SKU must retain its separate HSN classification status ${productId}`
   );
+  assert.equal(product.gst_rate_candidate?.invoice_ready, true, `new SKU GST rate must be approved ${productId}`);
+  assert.equal(product.gst_rate_candidate?.accountant_approval_required, false, `new SKU must not remain pending accountant GST approval ${productId}`);
+  assert.equal(product.gst_rate_candidate?.accountant_approval_status, "approved", `new SKU accountant GST approval status mismatch ${productId}`);
 }
 console.log("Odoo stock HSN crosswalk passed", {
   catalogue_records: catalogue.length, public_products: products.length,
@@ -108,5 +111,5 @@ console.log("Odoo stock HSN crosswalk passed", {
   not_in_source_website_products: 357, mapped_stock_source_rows: uniqueSourceRows,
   conflict_stock_source_rows: conflictSourceRows, unmapped_stock_source_rows: 162,
   stock_reference_mapped_or_conflict_skus: mappedIds.size,
-  newly_added_skus_pending_accountant_approval: 16
+  newly_added_skus_gst_approved: 16
 });
