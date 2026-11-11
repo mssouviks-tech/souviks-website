@@ -213,10 +213,10 @@
                     }
                 });
                 invoiceArea.appendChild(download);
-            } else {
+            } else if (order.invoice_status) {
                 invoiceArea.appendChild(element("p", "account-order-item-meta", T.invoicePending));
             }
-            card.appendChild(invoiceArea);
+            if (invoiceArea.childNodes.length) card.appendChild(invoiceArea);
         }
         return card;
     }

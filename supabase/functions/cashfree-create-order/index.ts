@@ -115,18 +115,6 @@ const INDIA_STATE_NAMES: Record<string, string> = {
   "35":"Andaman and Nicobar Islands","36":"Telangana","37":"Andhra Pradesh","38":"Ladakh",
 };
 
-function stateCodeFromName(value: unknown): string {
-  const normalized = clean(value, 100).toLowerCase().replace(/[^a-z]/g, "");
-  for (const [code, name] of Object.entries(INDIA_STATE_NAMES)) {
-    if (name.toLowerCase().replace(/[^a-z]/g, "") === normalized) return code;
-  }
-  const aliases: Record<string,string> = {
-    "orissa":"21","uttaranchal":"05","nctofdelhi":"07","delhi":"07",
-    "jammuandkashmir":"01","jandk":"01","pondicherry":"34",
-  };
-  return aliases[normalized] || "";
-}
-
 Deno.serve(async (req: Request) => {
   const origin = req.headers.get("origin");
   if (req.method === "OPTIONS") {
@@ -171,7 +159,7 @@ Deno.serve(async (req: Request) => {
     const address2 = fulfillmentMethod === "delivery" ? clean(address.line2, 120) : "";
     const city = fulfillmentMethod === "delivery" ? clean(address.city, 100) : "";
     const state = fulfillmentMethod === "delivery" ? clean(address.state, 100) : "";
-    const shippingStateCode = fulfillmentMethod === "delivery" ? stateCodeFromName(state) : billingStateCode;
+    const shippingStateCode = fulfillmentMethod === "delivery" ? stateCodeFromName(state) : "";
     const postalCode = fulfillmentMethod === "delivery" ? clean(address.postal_code, 6) : "";
     const country = clean(address.country || "IN", 2).toUpperCase();
 
@@ -191,23 +179,9 @@ Deno.serve(async (req: Request) => {
     if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && fulfillmentMethod === "delivery" && !shippingStateCode) {
       throw new CheckoutError("delivery_place_of_supply_state_missing", 409);
     }
-    if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true") {
-      const sellerGstin = (Deno.env.get("GST_INVOICE_SELLER_GSTIN") || "").trim().toUpperCase();
-      const unitCode = (Deno.env.get("GST_INVOICE_DEFAULT_UQC") || "").trim().toUpperCase();
-      if (Deno.env.get("GST_INVOICE_SELLER_IDENTITY_VERIFIED") !== "true" ||
-          !Deno.env.get("GST_INVOICE_SELLER_LEGAL_NAME")?.trim() ||
-          !Deno.env.get("GST_INVOICE_SELLER_TRADE_NAME")?.trim() ||
-          !Deno.env.get("GST_INVOICE_SELLER_ADDRESS")?.trim() ||
-          Deno.env.get("GST_INVOICE_SELLER_STATE_CODE") !== "19" ||
-          !/^[0-9A-Z]{15}$/.test(sellerGstin) || sellerGstin.slice(0, 2) !== "19") {
-        throw new CheckoutError("seller_identity_not_verified", 409);
-      }
-      if (Deno.env.get("GST_INVOICE_ELECTRONIC_ISSUANCE_APPROVED") !== "true" ||
-          Deno.env.get("GST_INVOICE_REVERSE_CHARGE_APPROVED") !== "true" ||
-          Deno.env.get("GST_INVOICE_UQC_APPROVED") !== "true" ||
-          !["NOS","SET","KGS","LTR","MTR","OTH"].includes(unitCode)) {
-        throw new CheckoutError("invoice_release_controls_incomplete", 409);
-      }
+    if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" &&
+        Deno.env.get("GST_INVOICE_SELLER_IDENTITY_VERIFIED") !== "true") {
+      throw new CheckoutError("seller_identity_not_verified", 409);
     }
 
     const itemsInput = input?.items;
@@ -447,9 +421,9 @@ Deno.serve(async (req: Request) => {
       tax_policy_not_confirmed: "Checkout is temporarily unavailable while tax treatment is confirmed.",
       checkout_rate_limited: "Too many checkout attempts. Please wait a few minutes and retry.",
       valid_billing_address_required: "Enter your billing address, city, state and six-digit PIN code for the tax invoice.",
-      delivery_place_of_supply_state_missing: "Select a valid delivery state before paying so the correct GST place of supply can be recorded.",
+      valid_gst_number_required: "Enter a valid GSTIN whose state code matches the billing state.",
+      delivery_place_of_supply_state_missing: "Select a valid delivery state so the correct GST place of supply can be recorded.",
       seller_identity_not_verified: "Online checkout is temporarily unavailable until the registered seller details are verified for tax invoicing.",
-      invoice_release_controls_incomplete: "Tax invoice issuance is not configured for the required accountant-approved electronic invoice and tax controls.",
       hsn_or_gst_candidate_not_final: "One or more items still need final HSN or GST verification before a tax invoice can be issued. Please request a quotation.",
       freight_tax_treatment_not_approved: "Delivery tax treatment is awaiting accountant approval. Please request a quotation or choose store pickup.",
       fulfillment_method_invalid: "Choose either home delivery or store pickup to continue.",

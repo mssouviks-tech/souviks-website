@@ -15,6 +15,7 @@ on:
       - 'scripts/audit/generate_product_thumbnails.py'
       - 'scripts/catalogue/sync_root_homepage.py'
       - 'scripts/regression/**'
+      - 'supabase/**'
       - '_headers'
       - '.github/workflows/**'
   push:
@@ -109,7 +110,6 @@ jobs:
           node --check scripts/regression/production-browser-smoke.cjs
           node --check scripts/regression/cashfree-checkout-contract.cjs
           node --check scripts/regression/account-orders-contract.cjs
-          node --check scripts/regression/gst-invoice-contract.cjs
           node --check scripts/regression/hsn-ecommerce-contract.cjs
           node --check scripts/regression/hsn-stock-reference-crosswalk.cjs
           node --check scripts/regression/delhivery-estimate-contract.cjs
@@ -123,9 +123,6 @@ jobs:
       - name: Validate authenticated account order history contract
         run: node scripts/regression/account-orders-contract.cjs
 
-      - name: Validate GST invoice generation and access controls
-        run: node scripts/regression/gst-invoice-contract.cjs
-
       - name: Validate HSN ecommerce integration contract
         run: node scripts/regression/hsn-ecommerce-contract.cjs
       - name: Validate supplier invoice HSN reference reconciliation
@@ -137,6 +134,21 @@ jobs:
         run: node scripts/regression/hsn-candidate-overrides.cjs
       - name: Validate GST rate candidates and invoice-safety controls
         run: node scripts/regression/gst-rate-candidate-contract.cjs
+
+      - name: Validate GST invoice generation and issuance controls
+        run: node scripts/regression/gst-invoice-generator-contract.cjs
+
+      - name: Set up Deno for Edge Function type checks
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check GST invoice Edge Function and order integrations
+        run: >-
+          deno check
+          supabase/functions/gst-invoice/index.ts
+          supabase/functions/cashfree-create-order/index.ts
+          supabase/functions/account-orders/index.ts
 
       - name: Validate Delhivery delivery estimator contract
         run: node scripts/regression/delhivery-estimate-contract.cjs

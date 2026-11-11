@@ -109,4 +109,13 @@ A one-page A4 fillable PDF has been prepared using the supplied letterhead PDF a
 
 The example transaction's third-party buyer, furniture items, USD amounts, 15% tax rate and dates have not been carried into the template. No GST rate is pre-filled. Freight must be added as a separate line item with the correct SAC/HSN and accountant-approved tax treatment where applicable.
 
-**Historical prototype limitation:** the fillable PDF is still a non-calculating layout prototype and is not the production generator. A server-side invoice-generator implementation has since been prepared on branch `commerce/gst-invoice-generator-2026-11-10`; its merge, migration, function deployment, current seller verification and accountant release gates remain outstanding. Credit-note/refund automation and guest email delivery are not included.
+**Limitations:** PDF fields are fillable, but totals and GST are not calculated automatically. The template is a layout prototype, not a deployed invoice-generation feature. Invoice numbering, server-side tax computation, PDF generation, storage, credit notes and delivery through the order workflow remain to be implemented and accountant-tested.
+
+
+## Automated invoice generator implementation (11 November 2026)
+
+The gst-invoice Supabase Edge Function generates a GST-inclusive A4 PDF from immutable order/item snapshots, reserves consecutive FY numbering in a database transaction, stores the PDF in a private gst-invoices bucket, calculates a SHA-256 digest and exposes a short-lived signed download URL after ownership/capability checks.
+
+Invoice number format: SVK/26-27/000001 (16 characters maximum). No DSC is embedded. Issuance requires explicit server-side controls for registered seller identity and accountant approval of electronic PDF issuance. Freight is separately blocked until its SAC, rate and GST-inclusive treatment are explicitly approved. No historical order is backfilled with current catalogue HSN/GST values.
+
+The invoice feature flag remains off until the registered GST certificate details and electronic invoice format are reconfirmed, and freight treatment is confirmed for courier orders. The first production issuance test must be a low-value, paid, verified order and the resulting PDF must be checked by the accountant before general enablement.

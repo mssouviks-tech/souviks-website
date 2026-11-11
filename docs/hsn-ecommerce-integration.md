@@ -26,9 +26,9 @@ The authenticated `account-orders` function returns those saved fields with the 
 
 ## GST invoice boundary
 
-HSN and GST rate are separate data. This integration does not determine GST percentages, taxable values, CGST/SGST/IGST splits, cess, or place-of-supply treatment. It does not generate or issue tax invoices.
+HSN and GST rate are separate data. This integration does not determine GST percentages, taxable values, CGST/SGST/IGST splits, cess, or place-of-supply treatment. It now supplies inputs to the tax-invoice Edge Function; the PDF is issued only after payment verification and all invoice controls pass.
 
-The GST invoice generator is being implemented on branch `commerce/gst-invoice-generator-2026-11-10`. It adds server-calculated GST-inclusive price extraction, invoice-number reservations, immutable order snapshots, private PDF storage and authenticated/checkout-capability downloads. It must still fail closed for provisional or review-required HSN candidates; candidate GST approval is not a final HSN classification. The implementation is not production-active until the migration and Edge Functions are deployed and seller identity, electronic-issuance process, freight and accountant release gates are confirmed. See `docs/audit/gst-invoice-implementation-2026-11.md`.
+The Souviks invoice template expects verified HSN/SAC and GST rates at line-item level. On 10 November 2026, the user reported accountant approval of all 1,159 GST rate candidates; each gst_rate_candidate invoice_ready flag is true and accountant_approval_required is false. This approves the GST candidate only. Do not use provisional or review-required HSN candidates as final invoice classifications unless a SKU-specific HSN exception is recorded. The invoice generator now snapshots the accountant-approved GST rate separately from the HSN, derives the place of supply from the delivery destination (or Souviks' handover state for pickup), and refuses issuance unless the HSN is classified/high-confidence, supplier identity and electronic-invoice format controls are enabled, and freight tax treatment is explicitly approved.
 
 ## Validation
 

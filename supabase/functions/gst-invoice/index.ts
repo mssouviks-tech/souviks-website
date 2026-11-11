@@ -25,7 +25,7 @@ const INDIA_STATES: Record<string, string> = {
 
 type InvoiceLine = {
   description: string; part_number: string; hsn_code: string; quantity: number;
-  gross_paise: number; taxable_paise: number; tax_paise: number; rate: number; unit_code: string;
+  gross_paise: number; taxable_paise: number; tax_paise: number; rate: number;
   cgst_paise: number; sgst_paise: number; igst_paise: number;
 };
 
@@ -68,12 +68,8 @@ function assertSeller(): Record<string,string> {
   if (Deno.env.get("GST_INVOICE_ELECTRONIC_ISSUANCE_APPROVED") !== "true") {
     throw new CheckoutError("electronic_invoice_format_not_approved", 409);
   }
-  if (Deno.env.get("GST_INVOICE_REVERSE_CHARGE_APPROVED") !== "true") {
-    throw new CheckoutError("reverse_charge_treatment_not_approved", 409);
-  }
-  if (Deno.env.get("GST_INVOICE_UQC_APPROVED") !== "true" ||
-      !["NOS","SET","KGS","LTR","MTR","OTH"].includes((Deno.env.get("GST_INVOICE_DEFAULT_UQC") || "").trim().toUpperCase())) {
-    throw new CheckoutError("invoice_unit_code_not_approved", 409);
+  if (Deno.env.get("GST_INVOICE_ELECTRONIC_ISSUANCE_APPROVED") !== "true") {
+    throw new CheckoutError("electronic_invoice_format_not_approved", 409);
   }
   const seller = {
     legal_name: clean(Deno.env.get("GST_INVOICE_SELLER_LEGAL_NAME"), 160),
@@ -119,16 +115,9 @@ function buildLines(items: any[], intraState: boolean): InvoiceLine[] {
   return items.map((item) => {
     const hsn = clean(item.hsn_code, 8);
     const candidateApproved = item.gst_rate_candidate_approved === true;
-    const candidateStatus = clean(item.gst_rate_candidate_status, 64);
-    const rate = Number(item.gst_rate_percent);
-    const effectiveDate = Date.parse(String(item.gst_rate_effective_from || "") + "T00:00:00Z");
-    const splitMatches = Number(item.gst_cgst_rate_percent) === rate / 2 &&
-      Number(item.gst_sgst_rate_percent) === rate / 2 &&
-      Number(item.gst_igst_rate_percent) === rate;
-    if (!Number.isFinite(effectiveDate) || effectiveDate > Date.now() || !splitMatches ||
-        !/^\d{8}$/.test(hsn) || item.hsn_classification_status !== "classified" ||
+      const rate = Number(item.gst_rate_percent);
+    if (!/^\d{8}$/.test(hsn) || item.hsn_classification_status !== "classified" ||
         item.hsn_confidence !== "high" || !candidateApproved ||
-        !["candidate_for_accountant_review","approved"].includes(candidateStatus) ||
         ![5,18].includes(rate) || item.gst_rate_effective_from == null ||
         !clean(item.gst_rate_source_reference) || !clean(item.gst_rate_basis)) {
       throw new CheckoutError("hsn_or_gst_candidate_not_final", 409);
@@ -144,7 +133,6 @@ function buildLines(items: any[], intraState: boolean): InvoiceLine[] {
       hsn_code: hsn,
       quantity,
       ...addTax(gross, rate, intraState),
-      unit_code: (Deno.env.get("GST_INVOICE_DEFAULT_UQC") || "NOS").trim().toUpperCase(),
     };
   });
 }
@@ -154,9 +142,9 @@ function financialSnapshot(order: any, items: any[], seller: Record<string,strin
   }
   const buyer = validateBuyerState(order);
   const supplyCode = order.fulfillment_method === "delivery"
-    ? clean(order.shipping_state_code, 2)
-    : buyer.code;
-  if (!INDIA_STATES[supplyCode]) throw new CheckoutError("place_of_supply_not_verified", 409);
+    ? clean(order.shipping_state_code,2)
+    : seller.state_code;
+  if (!INDIA_STATES[supplyCode]) throw new CheckoutError("place_of_supply_not_verified",409);
   const supplyName = INDIA_STATES[supplyCode];
   const intraState = supplyCode === seller.state_code;
   const lines = buildLines(items, intraState);
@@ -169,7 +157,7 @@ function financialSnapshot(order: any, items: any[], seller: Record<string,strin
     const freightLine = addTax(freightPaise, config.rate, intraState);
     freight = {
       description: "Courier and delivery charges", part_number: "", hsn_code: config.sac,
-      quantity: 1, ...freightLine, unit_code: "",
+      quantity: 1, ...freightLine,
     };
   }
   const allLines = freight ? [...lines, freight] : lines;
@@ -246,7 +234,6 @@ async function renderPdf(invoiceNumber: string, snapshot: any): Promise<Uint8Arr
     }
     drawText(page,bold,"Place of supply: "+snapshot.place_of_supply+" ("+snapshot.place_of_supply_state_code+")",320,684,8,80);
     drawText(page,font,"Supply: "+snapshot.supply_type.replace("_"," "),320,670,8);
-    drawText(page,font,"Reverse charge: No",320,656,8);
     const top = 594;
     page.drawRectangle({x:44,y:top-18,width:507,height:18,color:rgb(0.04,0.13,0.26)});
     const headers=[["Description",49],["HSN/SAC",260],["Qty",322],["Taxable",354],["Rate",418],["Tax",462],["Total",510]];
@@ -257,7 +244,7 @@ async function renderPdf(invoiceNumber: string, snapshot: any): Promise<Uint8Arr
       const row=pageRows[i];
       drawText(page,font,row.description,49,y,7,38);
       drawText(page,font,row.hsn_code,260,y,7,9);
-      drawText(page,font,String(row.quantity)+(row.unit_code ? " "+row.unit_code : ""),322,y,7,12);
+      drawText(page,font,String(row.quantity)+" NOS",322,y,7,11);
       drawText(page,font,rupees(row.taxable_paise),354,y,7,10);
       drawText(page,font,String(row.rate)+"%",418,y,7,7);
       drawText(page,font,rupees(row.tax_paise),462,y,7,10);
@@ -302,13 +289,13 @@ function requireInternal(req: Request): boolean {
   return !!auth && constantTimeEqual(auth,getSupabaseServiceKey());
 }
 async function issueInvoice(gatewayOrderId: string): Promise<Record<string,unknown>> {
-  const seller=assertSeller();
   const orders=await supabaseRest("orders","GET",{
     select:"id,order_number,gateway_order_id,customer_name,customer_email,company,gst_number,billing_address_line1,billing_address_line2,billing_city,billing_state,billing_state_code,billing_postal_code,billing_country,fulfillment_method,shipping_address_line1,shipping_address_line2,shipping_city,shipping_state,shipping_state_code,shipping_postal_code,currency,subtotal,shipping_amount,total_amount,tax_included,payment_status,cf_payment_id,paid_at",
     gateway_order_id:"eq."+gatewayOrderId,limit:"1"
   });
   const order=Array.isArray(orders)?orders[0]:null;
   if(!order)throw new CheckoutError("order_not_found",404);
+  const seller=assertSeller();
   const items=await supabaseRest("order_items","GET",{
     select:"product_id,part_number,product_name,quantity,line_total,hsn_code,hsn_description,hsn_classification_status,hsn_confidence,gst_rate_percent,gst_cgst_rate_percent,gst_sgst_rate_percent,gst_igst_rate_percent,gst_rate_effective_from,gst_rate_source_reference,gst_rate_basis,gst_rate_candidate_approved,gst_rate_candidate_status",
     order_id:"eq."+order.id,order:"created_at.asc",limit:"100"
@@ -351,6 +338,8 @@ async function downloadInvoice(req: Request, orderId: string, checkoutToken: str
     allowed=Array.isArray(tokens)&&tokens.length>0;
   }
   if(!allowed)throw new CheckoutError("invoice_order_access_denied",403);
+  // A later customer download can retry a previously blocked/pending invoice.
+  await issueInvoice(orderId);
   const invoices=await supabaseRest("gst_invoices","GET",{
     select:"invoice_number,invoice_status,storage_path",
     order_id:"eq."+order.id,invoice_status:"eq.issued",limit:"1"

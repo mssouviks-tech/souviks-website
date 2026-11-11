@@ -304,7 +304,7 @@ export async function enforceCheckoutRateLimit(req: Request, config: CashfreeRun
   if (allowed !== true) throw new CheckoutError("checkout_rate_limited", 429);
 }
 
-async function attemptGstInvoiceIssue(gatewayOrderId: string): Promise<void> {
+export async function attemptGstInvoiceIssue(gatewayOrderId: string): Promise<void> {
   if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") !== "true") return;
   try {
     const key = getSupabaseServiceKey();

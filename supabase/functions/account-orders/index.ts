@@ -2,6 +2,7 @@ import {
   allowedOrigin,
   jsonResponse,
   optionalUserId,
+  attemptGstInvoiceIssue,
   reconcileCashfreeOrder,
   supabaseRest,
 } from "../_shared/cashfree.ts";
@@ -74,6 +75,17 @@ Deno.serve(async (req: Request) => {
     }
     if (!Array.isArray(orders)) throw new Error("Account order refresh response was not an array.");
 
+    // Retry the five most recent paid-order invoices when issuance is enabled.
+    // The invoice generator is idempotent and preserves its first financial snapshot.
+    if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true") {
+      await Promise.all(orders
+        .filter(order => String(order?.payment_status || "").toLowerCase() === "paid" && order?.gateway_order_id)
+        .slice(0,5)
+        .map(order => attemptGstInvoiceIssue(String(order.gateway_order_id))));
+    }
+
+    
+
     const orderIds = orders.map(order => String(order?.id || "")).filter(id => /^[0-9a-f-]{36}$/i.test(id));
     const items = orderIds.length
       ? await supabaseRest("order_items", "GET", {
@@ -128,7 +140,7 @@ Deno.serve(async (req: Request) => {
       payment_failure_code: order.payment_failure_code || null,
       payment_failure_reason: order.payment_failure_reason || null,
       invoice_status: invoicesByOrder.get(String(order.id))?.invoice_status ||
-        (String(order.payment_status || "") === "paid" ? "pending" : null),
+        (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && String(order.payment_status || "") === "paid" ? "pending" : null),
       invoice_number: invoicesByOrder.get(String(order.id))?.invoice_number || null,
       items: itemsByOrder.get(String(order.id)) || [],
     }));
