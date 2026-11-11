@@ -44,7 +44,7 @@ assert.match(invoice, /sha256\(pdf\)/);
 assert.match(invoice, /object\/sign\/gst-invoices/);
 assert.match(invoice, /expiresIn:300/);
 assert.match(invoice, /order\.user_id===userId/);
-assert.match(invoice, /token_hash:"eq\."+hash/);
+assert.match(invoice, /token_hash\s*:\s*"eq\."\s*\+\s*hash/);
 assert.match(invoice, /requireInternal\(req\)/);
 assert.match(invoice, /invoice_status:"issued"/);
 assert.match(invoice, /SVK\//);
