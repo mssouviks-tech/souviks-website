@@ -307,6 +307,22 @@ export async function enforceCheckoutRateLimit(req: Request, config: CashfreeRun
 async function attemptGstInvoiceIssue(gatewayOrderId: string): Promise<string> {
   if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") !== "true") return "disabled";
   try {
+    const orderRows = await supabaseRest("orders", "GET", {
+      select: "id,fulfillment_method",
+      gateway_order_id: "eq." + gatewayOrderId,
+      limit: "1",
+    });
+    const order = Array.isArray(orderRows) ? orderRows[0] : null;
+    if (!order) return "pending";
+    if (order.fulfillment_method === "delivery") {
+      const freightRows = await supabaseRest("freight_quotes", "GET", {
+        select: "id,status",
+        order_id: "eq." + order.id,
+        status: "eq.paid",
+        limit: "1",
+      });
+      if (!Array.isArray(freightRows) || !freightRows.length) return "awaiting_freight";
+    }
     const key = getSupabaseServiceKey();
     const response = await fetch(getSupabaseUrl() + "/functions/v1/gst-invoice", {
       method: "POST",
@@ -339,7 +355,7 @@ async function attemptGstInvoiceIssue(gatewayOrderId: string): Promise<string> {
 export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Record<string, unknown>> {
   const config = cashfreeConfig();
   const rows = await supabaseRest("orders", "GET", {
-    select: "id,order_number,gateway_order_id,currency,total_amount,payment_status,order_status,payment_failure_reason,payment_failure_code",
+    select: "id,order_number,gateway_order_id,currency,subtotal,total_amount,payment_status,order_status,fulfillment_method,payment_failure_reason,payment_failure_code",
     gateway_order_id: "eq." + gatewayOrderId,
     limit: "1",
   });
@@ -394,7 +410,11 @@ export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Re
     const paymentId = String(successful.cf_payment_id || "");
     const patch = {
       payment_status: "paid",
-      order_status: order.order_status === "awaiting_payment" ? "processing" : order.order_status,
+      order_status: order.order_status === "awaiting_payment"
+        ? (order.fulfillment_method === "delivery" ? "freight_pending" : "processing")
+        : order.order_status,
+      product_paid_at: order.payment_status === "paid" ? undefined : now,
+      product_paid_amount: Number(order.subtotal) || expectedAmount,
       cashfree_order_status: "PAID",
       cf_payment_id: paymentId || null,
       payment_failure_code: null,
@@ -506,6 +526,110 @@ export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Re
     ...(order.payment_failure_code ? { payment_failure_code: order.payment_failure_code } : {}),
   };
 }
+export async function reconcileCashfreeFreightOrder(gatewayOrderId: string): Promise<Record<string, unknown>> {
+  const config = cashfreeConfig();
+  const quoteRows = await supabaseRest("freight_quotes", "GET", {
+    select: "id,order_id,quote_number,status,amount,currency,payment_gateway_order_id,cf_payment_id,paid_at",
+    payment_gateway_order_id: "eq." + gatewayOrderId,
+    limit: "1",
+  });
+  const quote = Array.isArray(quoteRows) ? quoteRows[0] : null;
+  if (!quote) throw new CheckoutError("order_not_found", 404);
+
+  const orderRows = await supabaseRest("orders", "GET", {
+    select: "id,order_number,gateway_order_id,subtotal,total_amount,currency,payment_status,order_status,fulfillment_method",
+    id: "eq." + quote.order_id,
+    limit: "1",
+  });
+  const order = Array.isArray(orderRows) ? orderRows[0] : null;
+  if (!order) throw new CheckoutError("order_not_found", 404);
+  if (order.payment_status !== "paid" || order.fulfillment_method !== "delivery") {
+    throw new CheckoutError("freight_order_not_eligible", 409);
+  }
+
+  const configOrder = await cashfreeRequest(config, "/orders/" + encodeURIComponent(gatewayOrderId));
+  const expectedAmount = Number(quote.amount);
+  const providerAmount = Number(configOrder?.order_amount);
+  const providerCurrency = String(configOrder?.order_currency || "");
+  if (!Number.isFinite(expectedAmount) || expectedAmount <= 0 ||
+      !Number.isFinite(providerAmount) || Math.round(providerAmount * 100) !== Math.round(expectedAmount * 100) ||
+      providerCurrency !== "INR" || providerCurrency !== quote.currency || providerCurrency !== order.currency) {
+    throw new CheckoutError("payment_amount_mismatch", 409);
+  }
+
+  let payments: any[] = [];
+  try {
+    const response = await cashfreeRequest(config, "/orders/" + encodeURIComponent(gatewayOrderId) + "/payments");
+    if (Array.isArray(response)) payments = response;
+    else if (Array.isArray(response?.data)) payments = response.data;
+  } catch {
+    // A transient payment-history failure must not promote the freight quote to paid.
+  }
+  const successful = payments.find(payment =>
+    String(payment?.payment_status || "").toUpperCase() === "SUCCESS" &&
+    Number.isFinite(Number(payment?.payment_amount)) &&
+    Math.round(Number(payment.payment_amount) * 100) === Math.round(expectedAmount * 100) &&
+    String(payment?.payment_currency || providerCurrency) === "INR"
+  );
+  const providerStatus = String(configOrder?.order_status || "ACTIVE").toUpperCase();
+  if (providerStatus !== "PAID" || !successful) {
+    return {
+      order_number: order.order_number,
+      payment_status: "pending",
+      order_status: order.order_status,
+      payment_kind: "freight",
+      freight_status: quote.status,
+      amount: expectedAmount,
+      currency: "INR",
+    };
+  }
+
+  const now = new Date().toISOString();
+  const paymentId = String(successful.cf_payment_id || "");
+  if (quote.status !== "paid") {
+    await supabaseRest("freight_quotes", "PATCH", {
+      id: "eq." + quote.id,
+      status: "in.(quoted,payment_pending)",
+    }, {
+      status: "paid",
+      cf_payment_id: paymentId || null,
+      paid_at: now,
+      cashfree_order_status: "PAID",
+      updated_at: now,
+    }, "return=minimal");
+    const existing = await supabaseRest("freight_quotes", "GET", {
+      select: "status",
+      id: "eq." + quote.id,
+      limit: "1",
+    });
+    if (!Array.isArray(existing) || existing[0]?.status !== "paid") {
+      throw new CheckoutError("freight_payment_recording_failed", 503);
+    }
+  }
+
+  const finalTotal = Math.round((Number(order.subtotal) + expectedAmount) * 100) / 100;
+  await supabaseRest("orders", "PATCH", { id: "eq." + order.id }, {
+    shipping_amount: expectedAmount,
+    total_amount: finalTotal,
+    freight_paid_at: order.order_status === "processing" ? undefined : now,
+    order_status: "processing",
+    updated_at: now,
+  }, "return=minimal");
+
+  const invoiceStatus = await attemptGstInvoiceIssue(String(order.gateway_order_id));
+  return {
+    order_number: order.order_number,
+    payment_status: "paid",
+    order_status: "processing",
+    payment_kind: "freight",
+    freight_status: "paid",
+    amount: expectedAmount,
+    currency: "INR",
+    cf_payment_id: paymentId || null,
+    invoice_status: invoiceStatus,
+  };
+}
+
 export async function verifyCashfreeWebhookSignature(
   signature: string,
   timestamp: string,
