@@ -440,7 +440,6 @@ Deno.serve(async (req: Request) => {
       seller_identity_not_verified: "Online checkout is temporarily unavailable until the registered seller details are verified for tax invoicing.",
       hsn_or_gst_candidate_not_final: "One or more items still need final HSN or GST verification before a tax invoice can be issued. Please request a quotation.",
       invoice_unit_of_measure_missing: "One or more items still need a verified GST unit of measurement before a tax invoice can be issued.",
-      invoice_unit_of_measure_missing: "One or more items still need a verified unit of measurement before a tax invoice can be issued.",
       freight_tax_treatment_not_approved: "Delivery tax treatment is awaiting accountant approval. Please request a quotation or choose store pickup.",
       fulfillment_method_invalid: "Choose either home delivery or store pickup to continue.",
       catalogue_unavailable: "Current product pricing could not be verified. Please request a quote.",
