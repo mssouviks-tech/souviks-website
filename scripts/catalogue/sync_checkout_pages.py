@@ -279,7 +279,7 @@ STATUS_TEMPLATE = """<!doctype html>
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script defer src="/assets/js/site-core.js"></script><script defer src="/assets/js/attribution.js"></script><script defer src="/assets/js/cart/cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script><script defer src="/assets/js/site-core.js"></script><script defer src="/assets/js/attribution.js"></script><script defer src="/assets/js/cart/cart.js"></script>
 </body>
 </html>
 """
