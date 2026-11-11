@@ -11,7 +11,7 @@ import {
 } from "../_shared/cashfree.ts";
 
 function clean(value: unknown, max = 500): string {
-  return String(value ?? "").trim().replace(/[\\u0000-\\u001F\\u007F]/g, "").slice(0, max);
+  return String(value ?? "").trim().replace(/[\u0000-\u001F\u007F]/g, "").slice(0, max);
 }
 function randomToken(): string {
   return Array.from(crypto.getRandomValues(new Uint8Array(32)))
@@ -37,7 +37,7 @@ function publishableKey(): string {
 }
 async function verifiedUser(req: Request): Promise<any | null> {
   const authorization = req.headers.get("authorization") || "";
-  const match = authorization.match(/^Bearer\\s+(.+)$/i);
+  const match = authorization.match(/^Bearer\s+(.+)$/i);
   const key = publishableKey();
   if (!match || !key) return null;
   try {
@@ -58,8 +58,8 @@ function isStaff(user: any): boolean {
     roles.some((role: unknown) => allowed.has(String(role || "").toLowerCase()));
 }
 function siteUrl(): string {
-  const value = (Deno.env.get("CASHFREE_SITE_URL") || "https://www.souviks.co.in").trim().replace(/\\/+$/, "");
-  return /^https:\\/\\//i.test(value) ? value : "https://www.souviks.co.in";
+  const value = (Deno.env.get("CASHFREE_SITE_URL") || "https://www.souviks.co.in").trim().replace(/\/+$/, "");
+  return /^https:\/\//i.test(value) ? value : "https://www.souviks.co.in";
 }
 async function loadQuote(id: string): Promise<any> {
   const rows = await supabaseRest("freight_quotes", "GET", {
@@ -99,6 +99,7 @@ function publicQuote(quote: any, order: any): Record<string, unknown> {
     quote_number: quote.quote_number,
     quote_status: quote.status,
     order_number: order.order_number,
+    gateway_order_id: order.gateway_order_id,
     amount: Number(quote.amount) || 0,
     currency: quote.currency || "INR",
     chargeable_weight_g: quote.chargeable_weight_g,
@@ -224,7 +225,7 @@ async function createQuote(req: Request, input: any, user: any): Promise<Record<
     "This quotation is valid until " + new Date(validUntil).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) + ".",
     "The final GST tax invoice will be issued after the delivery payment is confirmed and before dispatch.",
   ].join("\n");
-  const phone = String(order.customer_phone || "").replace(/\\D/g, "");
+  const phone = String(order.customer_phone || "").replace(/\D/g, "");
   const whatsappUrl = phone ? "https://wa.me/91" + phone.slice(-10) + "?text=" + encodeURIComponent(message) : null;
   const emailUrl = order.customer_email
     ? "mailto:" + encodeURIComponent(String(order.customer_email)) +
@@ -286,7 +287,7 @@ async function createFreightPayment(req: Request, input: any): Promise<Record<st
       customer_id: customerId,
       customer_name: clean(order.customer_name, 100),
       customer_email: clean(order.customer_email, 254) || undefined,
-      customer_phone: String(order.customer_phone || "").replace(/\\D/g, "").slice(-10),
+      customer_phone: String(order.customer_phone || "").replace(/\D/g, "").slice(-10),
     },
     order_meta: { return_url: paymentUrl + "&freight_payment=1" },
     order_note: "Souviks delivery quotation " + quote.quote_number + " for order " + order.order_number,
