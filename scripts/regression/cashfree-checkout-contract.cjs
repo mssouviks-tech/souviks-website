@@ -167,6 +167,7 @@ assert.match(cart, /quantityControls\?\.remove\(\)/);
 
 assert.match(pageGenerator, /ROOT \/ lang \/ "cart\.html"/);
 assert.match(pageGenerator, /ROOT \/ lang \/ "payment-status\.html"/);
+assert.match(pageGenerator, /sdk\.cashfree\.com\/js\/v3\/cashfree\.js/, "Generated payment-status pages must load Cashfree for the separate freight payment.");
 assert.match(pageGenerator, /window\.souviks =/);
 assert.match(pageGenerator, /currentLanguage: "__LANG__"/);
 assert.match(pageGenerator, /href="\/__LANG__\/terms"/);
