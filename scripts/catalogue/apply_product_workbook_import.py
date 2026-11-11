@@ -507,12 +507,14 @@ def sync_gst_approval_scope(products: list[dict]) -> dict:
             "gst_rate_effective_from": effective_from,
             "gst_rate_candidate": candidate,
         })
+        was_approved = product_id in approved_by_id
         approved_by_id[product_id] = {
             "id": product_id,
             "gst_rate_candidate": candidate,
         }
         pending_by_id.pop(product_id, None)
-        approved_additions.append(product_id)
+        if not was_approved:
+            approved_additions.append(product_id)
 
     # Any later/unapproved additions remain pending; never widen this dated
     # approval automatically to products that were not part of its scope.
@@ -568,6 +570,12 @@ def sync_gst_approval_scope(products: list[dict]) -> dict:
         )
         counts[status] = counts.get(status, 0) + 1
     manifest["status_counts"] = counts
+    manifest["note"] = (
+        f"All {len(approved_by_id)} products in the recorded approval scope "
+        "have accountant-approved GST rate candidates at their assigned rates. "
+        "New products outside the dated approval remain separately pending. "
+        "HSN classification status/confidence remains independent."
+    )
 
     if approved_additions:
         previous_approval = manifest.get("accountant_approval") or {}
