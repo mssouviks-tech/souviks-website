@@ -8,6 +8,13 @@ const catalogue = JSON.parse(fs.readFileSync("assets/data/catalogue-index.json",
 const products = JSON.parse(fs.readFileSync("assets/data/products.json", "utf8"));
 const byId = new Map(catalogue.map((p) => [String(p.id), p]));
 const publicById = new Map(products.map((p) => [String(p.id), p]));
+const activeIds = new Set(catalogue.filter((p) => p.active !== false).map((p) => String(p.id)));
+assert.equal(publicById.size, products.length, "duplicate product IDs in public projection");
+assert.deepEqual(
+  [...publicById.keys()].sort(),
+  [...activeIds].sort(),
+  "public product projection must contain exactly active catalogue products"
+);
 assert.equal(manifest.schema_version, 1);
 assert.equal(manifest.source_record_count, 1034);
 assert.equal(manifest.unique_website_product_count, 796);
@@ -28,16 +35,21 @@ for (const record of manifest.records) {
   uniqueSourceRows += sourceCount;
   const product = byId.get(id);
   const projected = publicById.get(id);
-  assert.ok(product && projected, `missing mapped SKU ${id}`);
+  assert.ok(product, `missing mapped catalogue SKU ${id}`);
+  if (product.active !== false) {
+    assert.ok(projected, `missing active public projection for mapped SKU ${id}`);
+    for (const field of ["hsn_stock_reference_code","hsn_stock_reference_status","hsn_stock_reference_alignment","hsn_stock_reference_record_count","hsn_stock_reference_date"]) {
+      assert.equal(projected[field], product[field], `projection mismatch ${id} ${field}`);
+    }
+    assert.deepEqual(projected.hsn_stock_reference_codes, product.hsn_stock_reference_codes);
+    assert.deepEqual(projected.hsn_stock_reference_source_files, product.hsn_stock_reference_source_files);
+  } else {
+    assert.equal(projected, undefined, `inactive mapped SKU must not be publicly projected ${id}`);
+  }
   assert.equal(product.hsn_stock_reference_code, code);
   assert.equal(product.hsn_stock_reference_record_count, sourceCount);
   assert.equal(product.hsn_stock_reference_status, "unique_consistent");
   assert.ok(["agrees", "differs", "not_compared"].includes(product.hsn_stock_reference_alignment));
-  for (const field of ["hsn_stock_reference_code","hsn_stock_reference_status","hsn_stock_reference_alignment","hsn_stock_reference_record_count","hsn_stock_reference_date"]) {
-    assert.equal(projected[field], product[field], `projection mismatch ${id} ${field}`);
-  }
-  assert.deepEqual(projected.hsn_stock_reference_codes, product.hsn_stock_reference_codes);
-  assert.deepEqual(projected.hsn_stock_reference_source_files, product.hsn_stock_reference_source_files);
   assert.ok(product.hsn_code, `catalogue HSN candidate unexpectedly blank ${id}`);
   assert.ok(product.gst_rate_percent === 5 || product.gst_rate_percent === 18, `missing GST candidate ${id}`);
   assert.equal(product.gst_rate_candidate?.invoice_ready, true, `existing GST candidate should retain accountant approval ${id}`);
@@ -57,13 +69,18 @@ for (const record of manifest.conflicts) {
   conflictSourceRows += sourceCount;
   const product = byId.get(id);
   const projected = publicById.get(id);
-  assert.ok(product && projected, `missing conflict SKU ${id}`);
+  assert.ok(product, `missing conflict catalogue SKU ${id}`);
+  if (product.active !== false) {
+    assert.ok(projected, `missing active public projection for conflict SKU ${id}`);
+    assert.equal(projected.hsn_stock_reference_code, "");
+    assert.deepEqual(projected.hsn_stock_reference_codes, product.hsn_stock_reference_codes);
+  } else {
+    assert.equal(projected, undefined, `inactive conflict SKU must not be publicly projected ${id}`);
+  }
   assert.equal(product.hsn_stock_reference_code, "");
   assert.deepEqual(product.hsn_stock_reference_codes, [...codes].sort());
   assert.equal(product.hsn_stock_reference_status, "conflict");
   assert.equal(product.hsn_stock_reference_alignment, "conflicting_source_codes");
-  assert.equal(projected.hsn_stock_reference_code, "");
-  assert.deepEqual(projected.hsn_stock_reference_codes, product.hsn_stock_reference_codes);
   assert.equal(product.gst_rate_candidate?.invoice_ready, true, `existing GST candidate should retain accountant approval ${id}`);
   assert.equal(product.gst_rate_candidate?.accountant_approval_required, false, `existing GST candidate should not require repeat accountant approval ${id}`);
 }
