@@ -9,7 +9,7 @@
     const TEXT = {
         en: {
             added: "Added to your cart.",
-            shippingUnconfirmed: "Confirmed before payment",
+            shippingUnconfirmed: "Delivery charges calculated after packing",
             pickupShipping: "Store pickup — no shipping charge",
             shippingAfterPacking: "Delivery charges calculated after packing",
             totalUnconfirmed: "Review to calculate",
@@ -37,7 +37,7 @@
         },
         hi: {
             added: "उत्पाद आपके कार्ट में जोड़ दिया गया है।",
-            shippingUnconfirmed: "भुगतान से पहले पुष्टि होगी",
+            shippingUnconfirmed: "पैकिंग के बाद डिलीवरी शुल्क की गणना होगी",
             pickupShipping: "स्टोर से पिकअप — शिपिंग शुल्क नहीं",
             shippingAfterPacking: "पैकिंग के बाद डिलीवरी शुल्क की गणना होगी",
             totalUnconfirmed: "गणना के लिए समीक्षा करें",
@@ -65,7 +65,7 @@
         },
         bn: {
             added: "পণ্যটি আপনার কার্টে যোগ করা হয়েছে।",
-            shippingUnconfirmed: "পেমেন্টের আগে নিশ্চিত হবে",
+            shippingUnconfirmed: "প্যাকিংয়ের পরে ডেলিভারি চার্জ গণনা করা হবে",
             pickupShipping: "স্টোর থেকে সংগ্রহ — শিপিং চার্জ নেই",
             shippingAfterPacking: "প্যাকিংয়ের পরে ডেলিভারি চার্জ গণনা করা হবে",
             totalUnconfirmed: "মূল্য যাচাই করুন",
