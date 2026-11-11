@@ -80,11 +80,15 @@ for (const productId of Array.from({ length: 16 }, (_, index) => `SVKS${String(1
   assert.equal(product.hsn_stock_reference_status, "not_in_source");
   assert.equal(product.hsn_stock_reference_alignment, "not_in_source");
   assert.equal(product.hsn_stock_reference_record_count, 0);
+  assert.ok(
+    ["provisional", "review_required"].includes(product.hsn_classification_status),
+    `new SKU must retain non-final HSN classification ${productId}`
+  );
 }
 console.log("Odoo stock HSN crosswalk passed", {
   catalogue_records: catalogue.length, public_products: products.length,
   unique_website_hsn_references: 796, conflicting_website_skus: 22,
-  not_in_source_website_products: 341, mapped_stock_source_rows: uniqueSourceRows,
+  not_in_source_website_products: 357, mapped_stock_source_rows: uniqueSourceRows,
   conflict_stock_source_rows: conflictSourceRows, unmapped_stock_source_rows: 162,
   stock_reference_mapped_or_conflict_skus: mappedIds.size,
   newly_added_skus_pending_accountant_approval: 16
