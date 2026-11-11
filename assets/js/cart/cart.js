@@ -666,6 +666,155 @@
         }
     }
 
+    async function bindFreightPaymentPage(root, status, reference, detail, quoteId, params) {
+        const token = String(params.get("token") || "").trim();
+        const returningFromPayment = params.get("freight_payment") === "1";
+        const callFreight = async (action, extra = {}) => {
+            const response = await supabaseClient.functions.invoke("freight-quote", {
+                body: { action, quote_id: quoteId, ...(token ? { token } : {}), ...extra }
+            });
+            if (response.error) {
+                const message = await getFunctionError(response.error);
+                throw new Error(message || "The delivery quotation could not be loaded.");
+            }
+            if (!response.data?.ok) throw new Error(response.data?.message || "The delivery quotation could not be loaded.");
+            return response.data;
+        };
+        const createActionButton = (label, onClick) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "btn btn-secondary";
+            button.textContent = label;
+            button.addEventListener("click", onClick);
+            root.appendChild(button);
+            return button;
+        };
+        const showInvoiceDownload = (gatewayOrderId, accessToken) => {
+            createActionButton("Download final GST tax invoice", async event => {
+                const button = event.currentTarget;
+                const tab = window.open("about:blank", "_blank");
+                button.disabled = true;
+                try {
+                    const result = await supabaseClient.functions.invoke("gst-invoice", {
+                        body: {
+                            action: "download",
+                            order_id: gatewayOrderId,
+                            freight_token: accessToken || undefined
+                        }
+                    });
+                    if (result.error || !result.data?.ok || !result.data?.signed_url) {
+                        throw new Error(result.data?.message || "The final invoice is not available yet.");
+                    }
+                    if (tab) tab.location.href = result.data.signed_url;
+                    else window.location.href = result.data.signed_url;
+                } catch (error) {
+                    if (tab) tab.close();
+                    setStatus(status, String(error?.message || "The invoice could not be downloaded."), "error");
+                } finally {
+                    button.disabled = false;
+                }
+            });
+        };
+        const renderPaid = (data) => {
+            setStatus(status, "Delivery payment confirmed. Your order is ready for final invoice processing.", "success");
+            if (detail) detail.textContent = currency(data.amount) + " " + String(data.currency || "INR");
+            if (data.invoice_status === "issued" && data.gateway_order_id) {
+                showInvoiceDownload(data.gateway_order_id, token);
+            } else {
+                const note = document.createElement("p");
+                note.className = "payment-status-detail";
+                note.textContent = "The delivery payment is recorded. The final GST invoice is being prepared; refresh this page shortly to check availability.";
+                root.appendChild(note);
+                createActionButton("Check invoice status", async button => {
+                    button.disabled = true;
+                    try {
+                        const refreshed = await callFreight("verify_payment");
+                        if (refreshed.payment_status === "paid" && refreshed.invoice_status === "issued") {
+                            setStatus(status, "Delivery payment confirmed. Your final GST invoice is ready.", "success");
+                            button.remove();
+                            showInvoiceDownload(refreshed.gateway_order_id, token);
+                        } else {
+                            setStatus(status, "Payment is confirmed. The final invoice is still pending its release checks.", "info");
+                        }
+                    } catch (error) {
+                        setStatus(status, String(error?.message || "Invoice status could not be checked."), "error");
+                    } finally {
+                        button.disabled = false;
+                    }
+                });
+            }
+        };
+        const verifyPayment = async () => {
+            setStatus(status, "Verifying your delivery payment with Cashfree…", "info");
+            try {
+                const data = await callFreight("verify_payment");
+                if (data.payment_status === "paid" && data.quote_status === "paid") {
+                    renderPaid(data);
+                } else {
+                    setStatus(status, "Cashfree has not confirmed the delivery payment yet. Do not pay again while this status is pending. Retry verification shortly.", "info");
+                    createActionButton("Retry payment verification", async button => {
+                        button.disabled = true;
+                        try {
+                            const latest = await callFreight("verify_payment");
+                            if (latest.payment_status === "paid" && latest.quote_status === "paid") renderPaid(latest);
+                            else setStatus(status, "Delivery payment is still pending confirmation.", "info");
+                        } catch (error) {
+                            setStatus(status, String(error?.message || "Payment verification is unavailable."), "error");
+                        } finally {
+                            button.disabled = false;
+                        }
+                    });
+                }
+            } catch (error) {
+                setStatus(status, String(error?.message || "Payment verification is unavailable."), "error");
+            }
+        };
+
+        try {
+            if (!quoteId || !/^[0-9a-f-]{36}$/i.test(quoteId) || typeof supabaseClient === "undefined") {
+                throw new Error("This delivery quotation link is invalid.");
+            }
+            const quote = await callFreight("get_quote");
+            if (reference) reference.textContent = String(quote.quote_number || quote.order_number || quoteId);
+            const quoteDetails = [
+                currency(quote.amount) + " " + String(quote.currency || "INR"),
+                quote.chargeable_weight_g ? "Packed chargeable weight: " + Number(quote.chargeable_weight_g).toLocaleString("en-IN") + " g" : "",
+                quote.carrier ? "Courier: " + quote.carrier : "",
+                quote.delivery_estimate ? "Estimated delivery: " + quote.delivery_estimate : "",
+                quote.valid_until ? "Valid until: " + new Date(quote.valid_until).toLocaleString("en-IN") : ""
+            ].filter(Boolean);
+            if (detail) detail.textContent = quoteDetails.join(" · ");
+            if (quote.quote_status === "paid" || returningFromPayment) {
+                await verifyPayment();
+                return;
+            }
+            if (quote.quote_status === "expired" || quote.quote_status === "cancelled") {
+                setStatus(status, "This delivery quotation has expired. Contact Souviks for an updated quotation.", "error");
+                return;
+            }
+            setStatus(status, "Your delivery quotation is ready. Review the packed-weight charge and continue to secure payment.", "success");
+            createActionButton("Pay delivery charges", async button => {
+                button.disabled = true;
+                try {
+                    const session = await callFreight("create_payment");
+                    if (!session.payment_session_id || typeof window.Cashfree !== "function") {
+                        throw new Error("Secure delivery payment is temporarily unavailable. Please retry.");
+                    }
+                    const cashfree = window.Cashfree({ mode: session.mode === "production" ? "production" : "sandbox" });
+                    await cashfree.checkout({
+                        paymentSessionId: session.payment_session_id,
+                        redirectTarget: "_self"
+                    });
+                } catch (error) {
+                    setStatus(status, String(error?.message || "The delivery payment could not be started."), "error");
+                    button.disabled = false;
+                }
+            });
+        } catch (error) {
+            setStatus(status, String(error?.message || "The delivery quotation could not be loaded."), "error");
+        }
+    }
+
     async function bindPaymentStatusPage() {
         const root = document.getElementById("payment-status-root");
         if (!root) return;
@@ -674,7 +823,15 @@
         const detail = document.getElementById("payment-status-detail");
         const retry = document.getElementById("payment-status-retry");
         const invoiceButton = document.getElementById("payment-status-invoice");
-        const orderId = new URL(window.location.href).searchParams.get("order_id") || "";
+        const pageParams = new URL(window.location.href).searchParams;
+        const freightQuoteId = pageParams.get("freight_quote_id") || "";
+        if (freightQuoteId) {
+            if (retry) retry.hidden = true;
+            if (invoiceButton) invoiceButton.hidden = true;
+            await bindFreightPaymentPage(root, status, reference, detail, freightQuoteId, pageParams);
+            return;
+        }
+        const orderId = pageParams.get("order_id") || "";
         if (reference && orderId) reference.textContent = orderId;
 
         const verify = async () => {
