@@ -47,7 +47,7 @@ assert.match(invoice, /order\.user_id===userId/);
 assert.match(invoice, /token_hash\s*:\s*"eq\."\s*\+\s*hash/);
 assert.match(invoice, /requireInternal\(req\)/);
 assert.match(invoice, /invoice_status:"issued"/);
-assert.match(invoice, /SVK\//);
+assert.match(migration, /'SVK\/'\s*\|\|\s*right\(p_financial_year,\s*5\)\s*\|\|\s*'\/'\s*\|\|\s*lpad\(v_next::text,\s*6,\s*'0'\)/);
 assert.doesNotMatch(invoice, /DSC signing implementation/i);
 
 assert.match(checkout, /billing_address_line1: billingAddress1/);
