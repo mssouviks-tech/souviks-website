@@ -355,7 +355,7 @@ async function attemptGstInvoiceIssue(gatewayOrderId: string): Promise<string> {
 export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Record<string, unknown>> {
   const config = cashfreeConfig();
   const rows = await supabaseRest("orders", "GET", {
-    select: "id,order_number,gateway_order_id,currency,subtotal,total_amount,payment_status,order_status,fulfillment_method,payment_failure_reason,payment_failure_code",
+    select: "id,order_number,gateway_order_id,currency,subtotal,total_amount,product_paid_amount,payment_status,order_status,fulfillment_method,payment_failure_reason,payment_failure_code",
     gateway_order_id: "eq." + gatewayOrderId,
     limit: "1",
   });
@@ -364,7 +364,9 @@ export async function reconcileCashfreeOrder(gatewayOrderId: string): Promise<Re
 
   const providerOrder = await cashfreeRequest(config, "/orders/" + encodeURIComponent(gatewayOrderId));
   const providerAmount = Number(providerOrder?.order_amount);
-  const expectedAmount = Number(order.total_amount);
+  // The first Cashfree order always represents goods only. After the separate
+  // freight payment, orders.total_amount becomes the combined invoice total.
+  const expectedAmount = Number(order.product_paid_amount ?? order.total_amount);
   const providerCurrency = String(providerOrder?.order_currency || "");
   const amountMatches = Number.isFinite(providerAmount) && Math.round(providerAmount * 100) === Math.round(expectedAmount * 100);
   const currencyMatches = providerCurrency === order.currency && providerCurrency === "INR";
