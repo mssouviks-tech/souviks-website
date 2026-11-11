@@ -594,6 +594,7 @@ export async function reconcileCashfreeFreightOrder(gatewayOrderId: string): Pro
       status: "paid",
       cf_payment_id: paymentId || null,
       paid_at: now,
+      payment_token_expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
       cashfree_order_status: "PAID",
       updated_at: now,
     }, "return=minimal");
