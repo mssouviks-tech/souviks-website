@@ -51,7 +51,7 @@ jobs:
           deno-version: v2.x
 
       - name: Check Cashfree Edge Function types
-        run: deno check --config supabase/functions/deno.json supabase/functions/_shared/cashfree.ts supabase/functions/cashfree-create-order/index.ts supabase/functions/cashfree-verify-order/index.ts supabase/functions/cashfree-webhook/index.ts supabase/functions/account-orders/index.ts supabase/functions/gst-invoice/index.ts
+        run: deno check --config supabase/functions/deno.json supabase/functions/_shared/cashfree.ts supabase/functions/cashfree-create-order/index.ts supabase/functions/cashfree-verify-order/index.ts supabase/functions/cashfree-webhook/index.ts supabase/functions/account-orders/index.ts supabase/functions/gst-invoice/index.ts supabase/functions/freight-quote/index.ts
 
       - name: Check Delhivery Edge Function types
         run: deno check supabase/functions/delhivery-estimate/index.ts
@@ -179,6 +179,7 @@ jobs:
           node scripts/regression/rfq-security-contract.cjs
           node scripts/regression/cashfree-checkout-contract.cjs
           node scripts/regression/delhivery-estimate-contract.cjs
+          node scripts/regression/gst-invoice-generator-contract.cjs
           npm run format:check
 
           echo "Catalogue release gate passed."
