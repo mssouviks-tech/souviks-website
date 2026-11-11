@@ -68,6 +68,7 @@ jobs:
           import py_compile
           for path in (
               "scripts/catalogue/build.py",
+              "scripts/catalogue/apply_product_workbook_import.py",
               "scripts/catalogue/application_display.py",
               "scripts/catalogue/product_seo.py",
               "scripts/catalogue/product_title.py",
@@ -129,6 +130,7 @@ jobs:
           set -euo pipefail
 
           python3 scripts/audit/optimize_static_images.py
+          python3 scripts/catalogue/apply_product_workbook_import.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
           python3 scripts/catalogue/sync_checkout_pages.py
@@ -214,6 +216,7 @@ jobs:
           # actual PR branch, not the synthetic merge candidate used by validation.
           (
             cd "${publish_repo}"
+            python3 scripts/catalogue/apply_product_workbook_import.py
             python3 scripts/catalogue/build.py
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/audit/prepare_mobile_listing_lcp.py
@@ -223,6 +226,7 @@ jobs:
           )
 
           generated_paths=(
+            assets/data/product-workbook-import-2026-11-11
             assets/data/catalogue-index.json
             assets/data/products.json
             assets/data/search.json
