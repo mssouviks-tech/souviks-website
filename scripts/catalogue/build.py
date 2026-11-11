@@ -492,7 +492,8 @@ def reconcile_catalogue_projections():
     if (
         not isinstance(accountant_approval, dict)
         or accountant_approval.get("status") != "approved"
-        or accountant_approval.get("approved_on") != "2026-11-10"
+        or accountant_approval.get("approved_on") != "2026-11-11"
+        or accountant_approval.get("catalogue_product_count") != len(catalogue_by_id)
         or not text(accountant_approval.get("approval_source"))
         or not text(accountant_approval.get("scope"))
         or not text(accountant_approval.get("limitation"))
@@ -525,7 +526,8 @@ def reconcile_catalogue_projections():
         or gst_rate_policy.get("default_igst_rate_percent") != 18
         or not isinstance(gst_rate_policy.get("accountant_approval"), dict)
         or gst_rate_policy["accountant_approval"].get("status") != "approved"
-        or gst_rate_policy["accountant_approval"].get("approved_on") != "2026-11-10"
+        or gst_rate_policy["accountant_approval"].get("approved_on") != "2026-11-11"
+        or gst_rate_policy["accountant_approval"].get("catalogue_product_count") != len(catalogue_by_id)
     ):
         raise SystemExit("Final GST rate policy has an unsupported schema/default rate")
 
