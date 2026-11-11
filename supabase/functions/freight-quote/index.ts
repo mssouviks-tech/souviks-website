@@ -3,10 +3,8 @@ import {
   cashfreeConfig,
   cashfreeRequest,
   CheckoutError,
-  getSupabaseServiceKey,
   getSupabaseUrl,
   jsonResponse,
-  optionalUserId,
   sha256Hex,
   supabaseRest,
   reconcileCashfreeFreightOrder,
@@ -54,7 +52,8 @@ async function verifiedUser(req: Request): Promise<any | null> {
 function isStaff(user: any): boolean {
   const app = user?.app_metadata && typeof user.app_metadata === "object" ? user.app_metadata : {};
   const allowed = new Set(["admin", "sales", "owner"]);
-  const roles = Array.isArray(app.roles) ? app.roles : [];
+  const roles = Array.isArray(app.roles) ? app.roles
+    : app.roles && typeof app.roles === "object" ? Object.keys(app.roles) : [];
   return allowed.has(String(app.role || "").toLowerCase()) ||
     roles.some((role: unknown) => allowed.has(String(role || "").toLowerCase()));
 }
