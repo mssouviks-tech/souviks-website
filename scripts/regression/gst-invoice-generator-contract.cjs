@@ -61,6 +61,8 @@ assert.match(invoice, /freight_token/);
 assert.match(shared, /attemptGstInvoiceIssue/);
 assert.match(shared, /reconcileCashfreeFreightOrder/);
 assert.match(shared, /awaiting_freight/);
+assert.match(shared, /product_paid_amount/);
+assert.match(shared, /order\.product_paid_amount \?\? order\.total_amount/);
 assert.match(shared, /payment_status: "paid"/);
 assert.match(account, /user_id: "eq\." \+ userId/);
 assert.match(account, /gst_invoices/);
