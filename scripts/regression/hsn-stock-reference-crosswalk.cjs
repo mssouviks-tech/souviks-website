@@ -40,8 +40,8 @@ for (const record of manifest.records) {
   assert.deepEqual(projected.hsn_stock_reference_source_files, product.hsn_stock_reference_source_files);
   assert.ok(product.hsn_code, `catalogue HSN candidate unexpectedly blank ${id}`);
   assert.ok(product.gst_rate_percent === 5 || product.gst_rate_percent === 18, `missing GST candidate ${id}`);
-  assert.equal(product.gst_rate_candidate?.invoice_ready, false, `invoice gate must remain closed ${id}`);
-  assert.equal(product.gst_rate_candidate?.accountant_approval_required, true, `accountant review must remain required ${id}`);
+  assert.equal(product.gst_rate_candidate?.invoice_ready, true, `existing GST candidate should retain accountant approval ${id}`);
+  assert.equal(product.gst_rate_candidate?.accountant_approval_required, false, `existing GST candidate should not require repeat accountant approval ${id}`);
 }
 assert.equal(uniqueSourceRows, 828);
 let conflictSourceRows = 0;
@@ -64,7 +64,8 @@ for (const record of manifest.conflicts) {
   assert.equal(product.hsn_stock_reference_alignment, "conflicting_source_codes");
   assert.equal(projected.hsn_stock_reference_code, "");
   assert.deepEqual(projected.hsn_stock_reference_codes, product.hsn_stock_reference_codes);
-  assert.equal(product.gst_rate_candidate?.invoice_ready, false);
+  assert.equal(product.gst_rate_candidate?.invoice_ready, true, `existing GST candidate should retain accountant approval ${id}`);
+  assert.equal(product.gst_rate_candidate?.accountant_approval_required, false, `existing GST candidate should not require repeat accountant approval ${id}`);
 }
 assert.equal(conflictSourceRows, 44);
 assert.equal(uniqueSourceRows + conflictSourceRows + manifest.unmapped_source_record_count, manifest.source_record_count);
@@ -76,5 +77,6 @@ console.log("Odoo stock HSN crosswalk passed", {
   unique_website_hsn_references: 796, conflicting_website_skus: 22,
   not_in_source_website_products: 341, mapped_stock_source_rows: uniqueSourceRows,
   conflict_stock_source_rows: conflictSourceRows, unmapped_stock_source_rows: 162,
-  invoice_ready: 0
+  existing_rate_candidates_approved: mappedIds.size,
+  newly_added_skus_pending_accountant_approval: 16
 });

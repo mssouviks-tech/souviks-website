@@ -133,6 +133,8 @@ jobs:
           python3 scripts/catalogue/apply_product_workbook_import.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
+          python3 scripts/audit/build_hsn_verification_worklist.py
+          python3 scripts/audit/test_hsn_verification_worklist.py
           python3 scripts/catalogue/sync_checkout_pages.py
           python3 scripts/audit/generate_product_thumbnails.py
           python3 scripts/catalogue/sync_navigation.py
@@ -179,6 +181,8 @@ jobs:
           node scripts/regression/rfq-security-contract.cjs
           node scripts/regression/cashfree-checkout-contract.cjs
           node scripts/regression/delhivery-estimate-contract.cjs
+          node scripts/regression/gst-rate-candidate-contract.cjs
+          node scripts/regression/hsn-stock-reference-crosswalk.cjs
           npm run format:check
 
           echo "Catalogue release gate passed."
@@ -228,6 +232,8 @@ jobs:
           generated_paths=(
             assets/data/product-workbook-import-2026-11-11
             assets/data/catalogue-index.json
+            assets/data/gst-rate-candidate-overrides-2026-11-08.json
+            docs/audit/hsn-verification-worklist.csv
             assets/data/products.json
             assets/data/search.json
             assets/images/hero/index-hero-mobile.webp
