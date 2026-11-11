@@ -18,7 +18,6 @@
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site-base.css?v=64fc7dc83f79">
   <link rel="stylesheet" href="/assets/css/bundles/cart.css?v=15ed6401555a">
-  <link rel="stylesheet" href="/assets/css/delhivery-estimator.css?v=711998a87394">
 </head>
 <body class="site-page page-cart">
   <div class="top-bar"><div class="container">
@@ -82,6 +81,18 @@
             <div class="form-group"><label for="checkout-phone">मोबाइल नंबर</label><input type="tel" id="checkout-phone" name="phone" autocomplete="tel-national" inputmode="numeric" pattern="[0-9]{10}" minlength="10" maxlength="10" placeholder="10-digit mobile number" required></div>
             <div class="form-group"><label for="checkout-company">कंपनी (वैकल्पिक)</label><input type="text" id="checkout-company" name="company" autocomplete="organization" maxlength="160"></div>
             <div class="form-group"><label for="checkout-gst">GSTIN (वैकल्पिक)</label><input type="text" id="checkout-gst" name="gst_number" maxlength="15" autocapitalize="characters"></div>
+            <fieldset class="purchase-billing-details">
+              <legend>चालान का बिलिंग विवरण</legend>
+              <div class="purchase-address-grid">
+                <div class="form-group form-group-full"><label for="checkout-billing-address1">बिलिंग पता</label><input type="text" id="checkout-billing-address1" maxlength="180" autocomplete="billing address-line1" required></div>
+                <div class="form-group form-group-full"><label for="checkout-billing-address2">पता पंक्ति 2 (वैकल्पिक)</label><input type="text" id="checkout-billing-address2" maxlength="180" autocomplete="billing address-line2"></div>
+                <div class="form-group"><label for="checkout-billing-city">शहर</label><input type="text" id="checkout-billing-city" maxlength="100" required></div>
+                <div class="form-group"><label for="checkout-billing-state">राज्य</label><select id="checkout-billing-state" required><option value="">Select state</option>
+                  <option value="01">Jammu and Kashmir</option><option value="02">Himachal Pradesh</option><option value="03">Punjab</option><option value="04">Chandigarh</option><option value="05">Uttarakhand</option><option value="06">Haryana</option><option value="07">Delhi</option><option value="08">Rajasthan</option><option value="09">Uttar Pradesh</option><option value="10">Bihar</option><option value="11">Sikkim</option><option value="12">Arunachal Pradesh</option><option value="13">Nagaland</option><option value="14">Manipur</option><option value="15">Mizoram</option><option value="16">Tripura</option><option value="17">Meghalaya</option><option value="18">Assam</option><option value="19">West Bengal</option><option value="20">Jharkhand</option><option value="21">Odisha</option><option value="22">Chhattisgarh</option><option value="23">Madhya Pradesh</option><option value="24">Gujarat</option><option value="26">Dadra and Nagar Haveli and Daman and Diu</option><option value="27">Maharashtra</option><option value="29">Karnataka</option><option value="30">Goa</option><option value="31">Lakshadweep</option><option value="32">Kerala</option><option value="33">Tamil Nadu</option><option value="34">Puducherry</option><option value="35">Andaman and Nicobar Islands</option><option value="36">Telangana</option><option value="37">Andhra Pradesh</option><option value="38">Ladakh</option>
+                </select></div>
+                <div class="form-group"><label for="checkout-billing-pin">पिन कोड</label><input type="text" id="checkout-billing-pin" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" required></div>
+              </div>
+            </fieldset>
             <fieldset class="purchase-fulfillment-options">
               <legend>आप अपना ऑर्डर कैसे प्राप्त करना चाहेंगे?</legend>
               <label class="purchase-fulfillment-option" for="checkout-fulfillment-delivery"><input type="radio" id="checkout-fulfillment-delivery" name="fulfillment_method" value="delivery" required><span>डिलीवरी</span></label>
@@ -138,7 +149,6 @@
   <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
   <script defer src="/assets/js/site-core.js?v=c2e5b8438e2b"></script>
   <script defer src="/assets/js/attribution.js?v=6b8229cb515b"></script>
-  <script defer src="/assets/js/cart/cart.js?v=4ad7a7ec116a"></script>
-  <script defer src="/assets/js/cart/delivery-estimate.js?v=8953d65ca5a5"></script>
+  <script defer src="/assets/js/cart/cart.js?v=29bf042fcf14"></script>
 </body>
 </html>
