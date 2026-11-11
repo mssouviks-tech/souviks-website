@@ -51,7 +51,7 @@ jobs:
           deno-version: v2.x
 
       - name: Check Cashfree Edge Function types
-        run: deno check supabase/functions/_shared/cashfree.ts supabase/functions/cashfree-create-order/index.ts supabase/functions/cashfree-verify-order/index.ts supabase/functions/cashfree-webhook/index.ts supabase/functions/account-orders/index.ts
+        run: deno check supabase/functions/_shared/cashfree.ts supabase/functions/cashfree-create-order/index.ts supabase/functions/cashfree-verify-order/index.ts supabase/functions/cashfree-webhook/index.ts supabase/functions/account-orders/index.ts supabase/functions/gst-invoice/index.ts
 
       - name: Check Delhivery Edge Function types
         run: deno check supabase/functions/delhivery-estimate/index.ts
