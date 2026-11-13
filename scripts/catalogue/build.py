@@ -462,9 +462,6 @@ def reconcile_catalogue_projections():
     ):
         raise SystemExit("GST candidate accountant approval record is missing or invalid")
 
-    if len(gst_rate_override_ids) != len(catalogue_by_id):
-        raise SystemExit(f"GST candidate coverage mismatch: {len(gst_rate_override_ids)} of {len(catalogue_by_id)} catalogue records")
-
     gst_rate_policy_path = ROOT / "assets/data/gst-rate-final-policy-2026-11-08.json"
     try:
         gst_rate_policy = json.loads(gst_rate_policy_path.read_text(encoding="utf-8"))
@@ -487,6 +484,43 @@ def reconcile_catalogue_projections():
     default_sources = gst_rate_policy.get("default_source_references")
     if not isinstance(default_sources, list) or len(default_sources) < 2:
         raise SystemExit("Final GST default-rate source references are missing")
+
+    # The accountant-approved GST manifest is SKU-specific and currently covers
+    # the 1,159 products present when that approval was recorded. New catalogue
+    # imports may use the published default rate as a provisional candidate, but
+    # they must remain explicitly non-invoice-ready until their own HSN review
+    # and GST candidate approval are completed.
+    unreviewed_gst_ids = sorted(set(catalogue_by_id) - gst_rate_override_ids)
+    for product_id in unreviewed_gst_ids:
+        product = catalogue_by_id[product_id]
+        candidate = product.get("gst_rate_candidate")
+        source_references = candidate.get("source_references") if isinstance(candidate, dict) else None
+        hsn_code = text(product.get("hsn_code"))
+        if (
+            not isinstance(candidate, dict)
+            or candidate.get("total_rate_percent") != gst_rate_policy.get("default_rate_percent")
+            or candidate.get("cgst_rate_percent") != gst_rate_policy.get("default_cgst_rate_percent")
+            or candidate.get("sgst_rate_percent") != gst_rate_policy.get("default_sgst_rate_percent")
+            or candidate.get("igst_rate_percent") != gst_rate_policy.get("default_igst_rate_percent")
+            or candidate.get("effective_from") != text(gst_rate_policy.get("effective_from"))
+            or candidate.get("invoice_ready") is not False
+            or candidate.get("accountant_approval_required") is not False
+            or candidate.get("accountant_approval_status") != "approved"
+            or not text(candidate.get("review_note"))
+            or "hsn" not in text(candidate.get("review_note")).casefold()
+            or "blocked" not in text(candidate.get("review_note")).casefold()
+            or not isinstance(source_references, list)
+            or not any(text(source) for source in source_references)
+            or len(hsn_code) != 8
+            or not hsn_code.isdigit()
+            or text(product.get("hsn_classification_status")) != "review_required"
+            or text(product.get("hsn_confidence")) != "low"
+            or not text(product.get("hsn_review_note"))
+        ):
+            raise SystemExit(
+                f"New SKU must retain a non-invoice-ready GST/HSN review hold: {product_id}"
+            )
+
     exceptions = gst_rate_policy.get("tractor_exceptions")
     if not isinstance(exceptions, list) or len(exceptions) != 1:
         raise SystemExit("Expected exactly one evidence-backed 5% tractor exception")
@@ -579,7 +613,9 @@ def reconcile_catalogue_projections():
             candidate["effective_from"] = text(gst_rate_policy.get("effective_from"))
             candidate["accountant_approval_status"] = "approved"
             candidate["accountant_approval_required"] = False
-            candidate["invoice_ready"] = True
+            # Only SKUs present in the accountant-approved candidate manifest
+            # may be invoice-ready. New imported SKUs remain held for HSN review.
+            candidate["invoice_ready"] = product_id in gst_rate_override_ids
             candidate["source_references"] = list(dict.fromkeys(list(candidate.get("source_references") or []) + list(sources or [])))
             if product_id in general_rate_by_id:
                 candidate["status"] = "candidate_for_accountant_review"
