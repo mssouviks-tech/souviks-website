@@ -230,6 +230,7 @@ def apply_import(rows: list[dict], products: list[dict]) -> dict:
         "price_updates": 0,
         "category_updates": 0,
         "description_updates": 0,
+        "name_updates_deferred": 0,
         "application_updates": 0,
         "vehicle_updates": 0,
         "manufacturer_references_added": 0,
@@ -288,8 +289,15 @@ def apply_import(rows: list[dict], products: list[dict]) -> dict:
 
         product_name = str(row.get("product_name") or "").strip()
         if product_name:
-            product["product_name"] = product_name
-            product["name"] = product_name
+            # Do not rename an existing SKU from a workbook row that supplies
+            # neither a catalogue part number nor a manufacturer part number.
+            # Such a row can update other fields, but its product identity is
+            # not independently corroborated against the existing master record.
+            if incoming_part or incoming_mpns:
+                product["product_name"] = product_name
+                product["name"] = product_name
+            elif normal(product_name) != normal(product.get("product_name")):
+                stats["name_updates_deferred"] += 1
         if product.get("product_name"):
             product["name"] = product["product_name"]
 
