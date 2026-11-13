@@ -83,7 +83,7 @@ assert.match(config, /\[functions\.gst-invoice\]\s*verify_jwt\s*=\s*false/);
 assert.match(config, /\[functions\.freight-quote\]\s*verify_jwt\s*=\s*false/);
 const freightMigration = read("supabase/migrations/20261111190000_two_stage_delivery_freight.sql");
 const freightFunction = read("supabase/functions/freight-quote/index.ts");
-assert.match(freightMigration, /create table if not exists public\.freight_quotes/);
+assert.match(freightMigration, /create table if not exists public\.freight_quotes/i);
 assert.match(freightMigration, /product_paid_at/);
 assert.match(freightMigration, /freight_paid_at/);
 assert.match(freightFunction, /app_metadata/);

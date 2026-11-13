@@ -351,7 +351,6 @@ Deno.serve(async (req: Request) => {
       delhivery_credentials_invalid: "Delhivery could not authenticate the shipping request. Please contact Souviks.",
       delhivery_destination_not_serviceable: "Delhivery prepaid service is unavailable for this PIN code. Please contact Souviks for a delivery quote.",
       delhivery_shipping_quote_unavailable: "Delhivery could not calculate shipping right now. Please retry or request a quote.",
-      delhivery_shipping_weight_invalid: "The cart weight is outside Delhivery’s supported range. Please request a shipping quote.",
     };
     return jsonResponse(req, {
       ok: false,

@@ -79,7 +79,7 @@ assert.match(createOrder, /country !== "IN"/);
 assert.ok(createOrder.includes("assertLiveCheckoutApproved(config)"), "Only new order creation must enforce the live-checkout gate.");
 assert.match(createOrder, /const shippingPaise = 0/);
 assert.match(createOrder, /delivery_quote_required: fulfillmentMethod === "delivery"/);
-assert.doesNotMatch(createOrder, /calculateDelhiveryPrepaidCharge|estimatedWeightGrams|hasCompleteWeights|delhivery_shipping_weights_missing/,
+assert.doesNotMatch(createOrder, /calculateDelhiveryPrepaidCharge|chargesUrl|estimatedWeightGrams|hasCompleteWeights|delhivery_shipping_weight_invalid|delhivery_shipping_weights_missing/,
   "Goods-only checkout must not retain legacy Delhivery prepaid-weight code or error identifiers.");
 assert.doesNotMatch(createOrder, /delhivery_shipping_weights_missing/,
   "The obsolete all-items-have-weights checkout error must stay removed.");
