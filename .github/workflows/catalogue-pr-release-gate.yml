@@ -133,6 +133,8 @@ jobs:
           python3 scripts/catalogue/apply_product_workbook_import.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
+          python3 scripts/audit/build_hsn_verification_worklist.py
+          python3 scripts/audit/test_hsn_verification_worklist.py
           python3 scripts/catalogue/sync_checkout_pages.py
           python3 scripts/audit/generate_product_thumbnails.py
           python3 scripts/catalogue/sync_navigation.py
@@ -179,6 +181,8 @@ jobs:
           node scripts/regression/rfq-security-contract.cjs
           node scripts/regression/cashfree-checkout-contract.cjs
           node scripts/regression/delhivery-estimate-contract.cjs
+          node scripts/regression/gst-rate-candidate-contract.cjs
+          node scripts/regression/hsn-stock-reference-crosswalk.cjs
           npm run format:check
 
           echo "Catalogue release gate passed."
@@ -218,6 +222,8 @@ jobs:
             cd "${publish_repo}"
             python3 scripts/catalogue/apply_product_workbook_import.py
             python3 scripts/catalogue/build.py
+            python3 scripts/audit/build_hsn_verification_worklist.py
+            python3 scripts/audit/test_hsn_verification_worklist.py
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/audit/prepare_mobile_listing_lcp.py
             python3 scripts/js/refresh_versions.py
@@ -226,8 +232,9 @@ jobs:
           )
 
           generated_paths=(
-            assets/data/product-workbook-import-2026-11-11
             assets/data/catalogue-index.json
+            assets/data/gst-rate-candidate-overrides-2026-11-08.json
+            docs/audit/hsn-verification-worklist.csv
             assets/data/products.json
             assets/data/search.json
             assets/images/hero/index-hero-mobile.webp
@@ -259,6 +266,16 @@ jobs:
             fi
           done
 
+          # The importer consumes the staged JSONL directory on its first run.
+          # On a later release-gate retry the directory may already have been
+          # committed away from the PR branch, so only stage it when files are
+          # still tracked or the directory exists in the generated worktree.
+          workbook_import_path="assets/data/product-workbook-import-2026-11-11"
+          if git -C "${publish_repo}" ls-files -z -- "${workbook_import_path}" | grep -q . || [ -d "${publish_repo}/${workbook_import_path}" ]; then
+            git -C "${publish_repo}" add -A -- "${workbook_import_path}"
+          else
+            echo "No staged workbook-import files remain to stage."
+          fi
           git -C "${publish_repo}" add -- "${generated_paths[@]}" "${generated_product_page_directories[@]}"
           if git -C "${publish_repo}" diff --cached --quiet; then
             echo "Generated mobile LCP assets and HTML are already current on the PR branch."

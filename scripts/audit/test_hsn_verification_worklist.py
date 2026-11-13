@@ -49,7 +49,9 @@ assert len(actual) == len(rows), "duplicate catalogue IDs in HSN worklist"
 catalogue_by_id = {product["id"]: product for product in catalogue}
 for row in rows:
     product = catalogue_by_id[row["catalogue_id"]]
-    assert row["gst_rate_candidate_approved"] == "TRUE", row["catalogue_id"]
+    candidate = product.get("gst_rate_candidate") or {}
+    rate_approved = candidate.get("invoice_ready") is True and candidate.get("accountant_approval_required") is False
+    assert row["gst_rate_candidate_approved"] == str(rate_approved).upper(), row["catalogue_id"]
     assert row["invoice_ready"] == "FALSE", row["catalogue_id"]
     assert row["stock_reference_hsn_code"] == str(product.get("hsn_stock_reference_code") or ""), row["catalogue_id"]
     assert row["stock_reference_hsn_codes"] == (" | ".join(product.get("hsn_stock_reference_codes") or [])), row["catalogue_id"]
@@ -60,8 +62,10 @@ for row in rows:
     assert row["gst_rate_percent"] == str(product.get("gst_rate_percent") or ""), row["catalogue_id"]
     assert row["gst_rate_effective_from"] == str(product.get("gst_rate_effective_from") or ""), row["catalogue_id"]
     assert row["gst_rate_source_reference"] == str(product.get("gst_rate_source_reference") or ""), row["catalogue_id"]
-    assert (product.get("gst_rate_candidate") or {}).get("invoice_ready") is True, row["catalogue_id"]
-    assert (product.get("gst_rate_candidate") or {}).get("accountant_approval_required") is False, row["catalogue_id"]
+    assert candidate.get("invoice_ready") is rate_approved, row["catalogue_id"]
+    assert candidate.get("accountant_approval_required") is (not rate_approved), row["catalogue_id"]
+    if not rate_approved:
+        assert candidate.get("accountant_approval_status") == "pending", row["catalogue_id"]
     assert row["gst_rate_percent"] in {"5", "18"}, row["catalogue_id"]
     assert not row["final_hsn_code"], row["catalogue_id"]
     assert row["candidate_hsn_code"], row["catalogue_id"]

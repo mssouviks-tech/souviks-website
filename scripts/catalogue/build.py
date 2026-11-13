@@ -417,7 +417,13 @@ def reconcile_catalogue_projections():
     except (OSError, json.JSONDecodeError) as exc:
         raise SystemExit(f"Invalid GST rate candidate manifest: {exc}")
     gst_records = gst_rate_overrides_data.get("records") if isinstance(gst_rate_overrides_data, dict) else None
-    if gst_rate_overrides_data.get("schema_version") != 2 or not isinstance(gst_records, list) or len(gst_records) != gst_rate_overrides_data.get("record_count"):
+    pending_gst_records = gst_rate_overrides_data.get("pending_records", []) if isinstance(gst_rate_overrides_data, dict) else []
+    if (
+        gst_rate_overrides_data.get("schema_version") != 2
+        or not isinstance(gst_records, list)
+        or len(gst_records) != gst_rate_overrides_data.get("record_count")
+        or not isinstance(pending_gst_records, list)
+    ):
         raise SystemExit("GST rate candidate manifest has an unsupported schema or count")
 
     catalogue_by_id = {text(p.get("id")): p for p in catalogue if isinstance(p, dict) and text(p.get("id"))}
@@ -451,19 +457,59 @@ def reconcile_catalogue_projections():
             raise SystemExit(f"Missing GST evidence for {product_id}")
         product["gst_rate_candidate"] = candidate
 
+    # New SKUs added after the dated accountant approval must have an explicit,
+    # separate pending candidate. Never widen the approval scope implicitly.
+    pending_gst_ids = set()
+    for record in pending_gst_records:
+        if not isinstance(record, dict):
+            raise SystemExit("Every pending GST candidate record must be an object")
+        product_id = text(record.get("id"))
+        if not product_id or product_id in pending_gst_ids or product_id in gst_rate_override_ids:
+            raise SystemExit(f"Missing, duplicate or already-approved pending GST SKU: {product_id!r}")
+        pending_gst_ids.add(product_id)
+        product = catalogue_by_id.get(product_id)
+        candidate = record.get("gst_rate_candidate")
+        if product is None or not isinstance(candidate, dict):
+            raise SystemExit(f"Missing product or pending GST candidate for {product_id}")
+        if text(record.get("hsn_code")) and text(product.get("hsn_code")) != text(record.get("hsn_code")):
+            raise SystemExit(f"Pending GST overlay HSN mismatch for {product_id}")
+        if (
+            candidate.get("total_rate_percent") != 18
+            or (candidate.get("cgst_rate_percent"), candidate.get("sgst_rate_percent"), candidate.get("igst_rate_percent")) != (9, 9, 18)
+            or candidate.get("effective_from") != "2025-09-22"
+            or candidate.get("invoice_ready") is not False
+            or candidate.get("accountant_approval_required") is not True
+            or candidate.get("accountant_approval_status") != "pending"
+            or candidate.get("status") != "candidate_for_accountant_review"
+            or not text(candidate.get("review_note"))
+            or not isinstance(candidate.get("source_references"), list)
+            or len(candidate.get("source_references")) < 2
+        ):
+            raise SystemExit(f"Invalid pending GST candidate or approval guard for {product_id}")
+        product["gst_rate_candidate"] = candidate
+
     accountant_approval = gst_rate_overrides_data.get("accountant_approval")
     if (
         not isinstance(accountant_approval, dict)
         or accountant_approval.get("status") != "approved"
-        or accountant_approval.get("approved_on") != "2026-11-10"
+        or accountant_approval.get("approved_on") != "2026-11-11"
+        or accountant_approval.get("catalogue_product_count") != len(catalogue_by_id)
         or not text(accountant_approval.get("approval_source"))
         or not text(accountant_approval.get("scope"))
         or not text(accountant_approval.get("limitation"))
     ):
         raise SystemExit("GST candidate accountant approval record is missing or invalid")
 
-    if len(gst_rate_override_ids) != len(catalogue_by_id):
-        raise SystemExit(f"GST candidate coverage mismatch: {len(gst_rate_override_ids)} of {len(catalogue_by_id)} catalogue records")
+    covered_gst_ids = gst_rate_override_ids | pending_gst_ids
+    missing_gst_ids = sorted(set(catalogue_by_id) - covered_gst_ids)
+    orphan_gst_ids = sorted(covered_gst_ids - set(catalogue_by_id))
+    if missing_gst_ids or orphan_gst_ids:
+        raise SystemExit(
+            "GST candidate coverage mismatch: "
+            f"{len(gst_rate_override_ids)} approved + {len(pending_gst_ids)} pending "
+            f"for {len(catalogue_by_id)} catalogue records; "
+            f"missing={missing_gst_ids[:10]}, orphan={orphan_gst_ids[:10]}"
+        )
 
     gst_rate_policy_path = ROOT / "assets/data/gst-rate-final-policy-2026-11-08.json"
     try:
@@ -480,7 +526,8 @@ def reconcile_catalogue_projections():
         or gst_rate_policy.get("default_igst_rate_percent") != 18
         or not isinstance(gst_rate_policy.get("accountant_approval"), dict)
         or gst_rate_policy["accountant_approval"].get("status") != "approved"
-        or gst_rate_policy["accountant_approval"].get("approved_on") != "2026-11-10"
+        or gst_rate_policy["accountant_approval"].get("approved_on") != "2026-11-11"
+        or gst_rate_policy["accountant_approval"].get("catalogue_product_count") != len(catalogue_by_id)
     ):
         raise SystemExit("Final GST rate policy has an unsupported schema/default rate")
 
@@ -577,10 +624,16 @@ def reconcile_catalogue_projections():
             candidate["sgst_rate_percent"] = sgst_rate
             candidate["igst_rate_percent"] = rate
             candidate["effective_from"] = text(gst_rate_policy.get("effective_from"))
-            candidate["accountant_approval_status"] = "approved"
-            candidate["accountant_approval_required"] = False
-            candidate["invoice_ready"] = True
             candidate["source_references"] = list(dict.fromkeys(list(candidate.get("source_references") or []) + list(sources or [])))
+            if product_id in pending_gst_ids:
+                candidate["accountant_approval_status"] = "pending"
+                candidate["accountant_approval_required"] = True
+                candidate["invoice_ready"] = False
+                candidate["status"] = "candidate_for_accountant_review"
+            else:
+                candidate["accountant_approval_status"] = "approved"
+                candidate["accountant_approval_required"] = False
+                candidate["invoice_ready"] = True
             if product_id in general_rate_by_id:
                 candidate["status"] = "candidate_for_accountant_review"
                 candidate["review_note"] = text(general_rate_by_id[product_id].get("basis")) + " The notified tractor-only 5% entry does not apply to this Tata Ace/Intra product."
