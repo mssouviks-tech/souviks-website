@@ -72,33 +72,21 @@ assert.match(cartClient, /checkout-pincode/);
 assert.match(cartClient, /fulfillment_method/);
 assert.match(cartClient, /souviks_delivery_estimate_v2/);
 assert.match(cartClient, /savedEstimateForPin/);
-assert.match(cartClient, /setShippingSummary/);
 assert.match(cartClient, /purchase-cart-shipping/);
 assert.match(cartClient, /estimate_type:"delivery_time"/);
-assert.match(cartClient, /estimate_type:"shipping_charge"/);
-assert.ok(cartClient.indexOf('estimate_type:"delivery_time"') < cartClient.indexOf('estimate_type:"shipping_charge"'), "PIN serviceability must be checked before weight-dependent freight.");
-
+assert.match(cartClient, /freightLater/);
+assert.doesNotMatch(cartClient, /setShippingSummary|shipping_charge|approx_weight_g|chargeable_weight_g/);
 assert.match(cartClient, /souviks_purchase_cart_v1/);
-assert.match(cartClient, /approx_weight_g/);
-assert.match(cartClient, /estimate_type:"shipping_charge"/);
-assert.match(cartClient, /chargeable_weight_g/);
-assert.match(cartClient, /Estimated delivery charges/);
 assert.match(catalogueBuilder, /def approximate_weight_grams\(p\)/);
 assert.match(catalogueBuilder, /"approx_weight_g": approximate_weight_grams\(p\)/);
 assert.match(catalogueBuilder, /"mrp",\s*"selling_price",\s*"prior_price_30d",\s*"price_history_1m",\s*"price_history_3m",\s*"price_history_6m",\s*"price_history_all_time",\s*"price_history_since",\s*"approx_weight_g"/);
 assert.match(catalogueBuilder, /data\["approx_weight_g"\] = approximate_weight_grams\(product\)/);
 assert.match(catalogueBuilder, /sheet_weight_grams = approximate_weight_grams\(sheet_row\)/);
 assert.match(catalogueBuilder, /if sheet_weight_grams is not None:/);
-assert.match(checkout, /function calculateDelhiveryPrepaidCharge/);
-assert.match(checkout, /chargesUrl\.searchParams\.set\("pt", "Pre-paid"\)/);
-assert.match(checkout, /estimatedWeightGrams \+= Math\.round\(unitWeightGrams\) \* quantity/);
-assert.match(checkout, /calculateDelhiveryPrepaidCharge\(postalCode, estimatedWeightGrams\)/);
-assert.match(checkout, /delhivery_shipping_weight_invalid/);
-assert.match(checkout, /delhivery_shipping_weights_missing/);
-assert.doesNotMatch(checkout, /shippingPaise = Math\.round\(policy\.shippingBelowThreshold \* 100\)/);
+assert.doesNotMatch(checkout, /function calculateDelhiveryPrepaidCharge|chargesUrl|estimatedWeightGrams|hasCompleteWeights|delhivery_shipping_weight_invalid|delhivery_shipping_weights_missing/);
+assert.match(checkout, /const shippingPaise = 0/);
+assert.match(checkout, /delivery_quote_required: fulfillmentMethod === "delivery"/);
 assert.doesNotMatch(checkout, /CASHFREE_SHIPPING_UNDER_THRESHOLD_INR|shippingBelowThreshold|policy\.threshold|CASHFREE_FREE_SHIPPING_THRESHOLD_INR/);
-assert.match(checkout, /else if \(hasCompleteWeights\)/);
-assert.match(checkout, /calculateDelhiveryPrepaidCharge\(postalCode, estimatedWeightGrams\)/);
 assert.match(css, /@media \(max-width: 520px\)/);
 assert.match(css, /\.delhivery-product-estimator\.has-estimate/);
 assert.match(css, /\.delhivery-estimator-change-pin/);
@@ -133,4 +121,4 @@ assert.match(cartPage, /Delivery charges are calculated automatically at checkou
 
 assert.match(versions, /assets\/css/);
 
-console.log("Delivery estimate contract OK: product PIN/date lookup, checkout date carry-over, automatic weighted freight estimates, pickup bypass, missing-weight quote guard, and server-side credentials/rate limits.");
+console.log("Delivery estimate contract OK: product/cart PIN serviceability and ETA lookup, post-packing freight quotation, no pre-payment freight calculation, and server-side credentials/rate limits.");

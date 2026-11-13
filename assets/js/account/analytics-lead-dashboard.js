@@ -12,7 +12,12 @@
   const contactIntentBody = $("#contact-intent-body");
   const outcomePanel = $("#outcome-panel");
   const manualForm = $("#manual-lead-form");
+  const freightOrdersBody = $("#freight-orders-body");
+  const freightQuoteForm = $("#freight-quote-form");
+  const freightQuoteStatus = $("#freight-quote-status");
+  const freightQuoteLinks = $("#freight-quote-links");
   let selectedLead = null;
+  let selectedFreightOrder = null;
   let lastLoadedLeads = [];
 
   function status(message, kind = "") {
@@ -249,6 +254,150 @@
     outcomePanel.hidden = true;
   }
 
+  function renderFreightOrders(orders) {
+    if (!freightOrdersBody) return;
+    clear(freightOrdersBody);
+    if (!Array.isArray(orders) || !orders.length) {
+      const tr = el("tr");
+      const td = el("td", "No delivery orders are currently waiting for a freight quotation.", "empty-cell");
+      td.colSpan = 6;
+      tr.appendChild(td);
+      freightOrdersBody.appendChild(tr);
+      return;
+    }
+    for (const order of orders) {
+      const tr = document.createElement("tr");
+      tr.appendChild(el("td", order.order_number || "—", "reference-cell"));
+      tr.appendChild(el("td", [order.customer_name, order.customer_phone].filter(Boolean).join(" · ") || "—"));
+      tr.appendChild(el("td", [order.postal_code, order.city, order.state].filter(Boolean).join(", ") || "—"));
+      tr.appendChild(el("td", formatINR(order.subtotal)));
+      tr.appendChild(el("td", pretty(order.order_status)));
+      const action = el("td");
+      const paymentSessionActive = order.quote?.status === "payment_pending" &&
+        Date.parse(String(order.quote.payment_session_expires_at || "")) > Date.now();
+      const choose = button(
+        paymentSessionActive ? "Payment session active" : order.quote ? "Revise quotation" : "Prepare quotation",
+        "button small",
+        () => selectFreightOrder(order)
+      );
+      choose.disabled = paymentSessionActive;
+      action.appendChild(choose);
+      tr.appendChild(action);
+      freightOrdersBody.appendChild(tr);
+    }
+  }
+
+  function selectFreightOrder(order) {
+    selectedFreightOrder = order;
+    if (!freightQuoteForm) return;
+    freightQuoteForm.hidden = false;
+    $("#freight-selected-order").textContent =
+      "Delivery quotation · " + String(order.order_number || "Order");
+    freightQuoteForm.dataset.orderId = String(order.order_id || "");
+    const existing = order.quote || {};
+    $("#freight-amount").value = existing.amount ? String(existing.amount) : "";
+    $("#freight-weight").value = existing.chargeable_weight_g ? String(existing.chargeable_weight_g) : "";
+    $("#freight-length").value = existing.package_length_cm ? String(existing.package_length_cm) : "";
+    $("#freight-width").value = existing.package_width_cm ? String(existing.package_width_cm) : "";
+    $("#freight-height").value = existing.package_height_cm ? String(existing.package_height_cm) : "";
+    $("#freight-carrier").value = existing.carrier || "";
+    $("#freight-service").value = existing.service_level || "";
+    $("#freight-estimate").value = existing.delivery_estimate || "";
+    $("#freight-notes").value = existing.quote_notes || "";
+    if (freightQuoteStatus) {
+      freightQuoteStatus.hidden = true;
+      freightQuoteStatus.textContent = "";
+      freightQuoteStatus.className = "notice";
+    }
+    if (freightQuoteLinks) {
+      freightQuoteLinks.hidden = true;
+      clear(freightQuoteLinks);
+    }
+    freightQuoteForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  async function loadFreightOrders() {
+    if (!freightOrdersBody || typeof supabaseClient === "undefined") return;
+    try {
+      const { data, error } = await supabaseClient.functions.invoke("freight-quote", {
+        body: { action: "list_orders" }
+      });
+      if (error || !data?.ok || !Array.isArray(data.orders)) {
+        throw error || new Error(data?.message || "Delivery quotation queue is unavailable.");
+      }
+      renderFreightOrders(data.orders);
+    } catch (error) {
+      const tr = el("tr");
+      const td = el("td", "Delivery quotation queue is unavailable. Refresh after confirming staff permissions.", "empty-cell");
+      td.colSpan = 6;
+      tr.appendChild(td);
+      clear(freightOrdersBody);
+      freightOrdersBody.appendChild(tr);
+      SouviksErrors?.log("[Souviks Freight Dashboard] Could not load delivery orders.", error, "warn");
+    }
+  }
+
+  async function handleFreightQuote(event) {
+    event.preventDefault();
+    if (!selectedFreightOrder || !freightQuoteForm) return;
+    const submit = $("#freight-create-quote");
+    submit.disabled = true;
+    if (freightQuoteStatus) {
+      freightQuoteStatus.hidden = false;
+      freightQuoteStatus.className = "notice";
+      freightQuoteStatus.textContent = "Creating secure freight quotation…";
+    }
+    if (freightQuoteLinks) {
+      freightQuoteLinks.hidden = true;
+      clear(freightQuoteLinks);
+    }
+    const body = {
+      action: "create_quote",
+      order_id: freightQuoteForm.dataset.orderId,
+      amount: Number($("#freight-amount").value),
+      chargeable_weight_g: Number($("#freight-weight").value),
+      length_cm: $("#freight-length").value || null,
+      width_cm: $("#freight-width").value || null,
+      height_cm: $("#freight-height").value || null,
+      carrier: $("#freight-carrier").value.trim(),
+      service_level: $("#freight-service").value.trim() || null,
+      delivery_estimate: $("#freight-estimate").value.trim() || null,
+      quote_notes: $("#freight-notes").value.trim() || null
+    };
+    try {
+      const { data, error } = await supabaseClient.functions.invoke("freight-quote", { body });
+      if (error || !data?.ok || !data.payment_url) {
+        throw error || new Error(data?.message || "Freight quotation could not be created.");
+      }
+      if (freightQuoteStatus) {
+        freightQuoteStatus.className = "notice success";
+        freightQuoteStatus.textContent =
+          "Quotation " + data.quote_number + " created for " + formatINR(data.amount) +
+          ". It is valid until " + formatDate(data.valid_until) + ".";
+      }
+      const addLink = (label, href) => {
+        if (!href) return;
+        const link = el("a", label, "button secondary");
+        link.href = href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        freightQuoteLinks.appendChild(link);
+      };
+      addLink("Open WhatsApp message", data.whatsapp_url);
+      addLink("Open email draft", data.email_url);
+      addLink("Open customer payment link", data.payment_url);
+      freightQuoteLinks.hidden = false;
+      await loadFreightOrders();
+    } catch (error) {
+      if (freightQuoteStatus) {
+        freightQuoteStatus.className = "notice error";
+        freightQuoteStatus.textContent = "Quotation failed: " + String(error?.message || error).slice(0, 240);
+      }
+    } finally {
+      submit.disabled = false;
+    }
+  }
+
   async function loadDashboard() {
     status("Loading funnel and lead records…");
     const filters = selectedFilters();
@@ -283,7 +432,8 @@
       SouviksErrors?.log("[Souviks Sales Dashboard] Contact-intent report unavailable.", intentError, "warn");
     }
     renderContactIntentAnalytics(intentSummaryResult.data || [], intentEventsResult.data || [], Boolean(intentError));
-    status("Loaded " + leads.length + " most recent leads. Funnel counts include all leads in the selected date range.", "success");
+    await loadFreightOrders();
+    status("Loaded " + leads.length + " most recent leads and refreshed the delivery quotation queue.", "success");
   }
 
   function setDefaultDates() {
@@ -414,6 +564,11 @@
     $("#clear-outcome").addEventListener("click", closeOutcome);
     manualForm.addEventListener("submit", handleManualLead);
     $("#outcome-form").addEventListener("submit", handleOutcome);
+    freightQuoteForm?.addEventListener("submit", handleFreightQuote);
+    $("#freight-quote-cancel")?.addEventListener("click", () => {
+      selectedFreightOrder = null;
+      freightQuoteForm.hidden = true;
+    });
     $("#outcome-status").addEventListener("change", event => {
       const won = event.target.value === "won";
       $("#order-reference").required = won;

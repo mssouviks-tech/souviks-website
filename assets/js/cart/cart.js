@@ -9,8 +9,9 @@
     const TEXT = {
         en: {
             added: "Added to your cart.",
-            shippingUnconfirmed: "Confirmed before payment",
+            shippingUnconfirmed: "Delivery charges calculated after packing",
             pickupShipping: "Store pickup — no shipping charge",
+            shippingAfterPacking: "Delivery charges calculated after packing",
             totalUnconfirmed: "Review to calculate",
             reviewInvalidated: "Your cart or checkout details changed. Review the total again before payment.",
             addFailed: "This item could not be added to the cart.",
@@ -22,7 +23,8 @@
             reviewFailed: "We could not prepare this order. Check the information and try again.",
             continueFailed: "Cashfree Checkout could not open. Please retry the checkout.",
             statusLoading: "Checking your payment with Cashfree…",
-            statusPaid: "Payment confirmed. Your order is recorded; Souviks will confirm availability and fulfilment.",
+            statusPaid: "Payment confirmed. Your order is recorded.",
+            statusPaidFreightPending: "Product payment confirmed. Souviks will pack your order, calculate delivery charges and send a separate quotation by email and WhatsApp.",
             statusPending: "Cashfree has not confirmed payment yet. Do not pay again while this status is pending. Retry verification shortly.",
             statusFailed: "Cashfree reports that this payment failed. Review the reason below, then try again with a different payment method if needed.",
             failureReasonPrefix: "Reason: ",
@@ -35,8 +37,9 @@
         },
         hi: {
             added: "उत्पाद आपके कार्ट में जोड़ दिया गया है।",
-            shippingUnconfirmed: "भुगतान से पहले पुष्टि होगी",
+            shippingUnconfirmed: "पैकिंग के बाद डिलीवरी शुल्क की गणना होगी",
             pickupShipping: "स्टोर से पिकअप — शिपिंग शुल्क नहीं",
+            shippingAfterPacking: "पैकिंग के बाद डिलीवरी शुल्क की गणना होगी",
             totalUnconfirmed: "गणना के लिए समीक्षा करें",
             reviewInvalidated: "कार्ट या चेकआउट विवरण बदल गए हैं। भुगतान से पहले कुल राशि फिर से जाँचें।",
             addFailed: "इस उत्पाद को कार्ट में नहीं जोड़ा जा सका।",
@@ -48,7 +51,8 @@
             reviewFailed: "ऑर्डर तैयार नहीं हो सका। जानकारी जाँचकर फिर कोशिश करें।",
             continueFailed: "Cashfree Checkout नहीं खुल सका। कृपया फिर कोशिश करें।",
             statusLoading: "Cashfree से भुगतान की पुष्टि हो रही है…",
-            statusPaid: "भुगतान की पुष्टि हो गई है। आपका ऑर्डर दर्ज है; Souviks उपलब्धता और डिलीवरी की पुष्टि करेगा।",
+            statusPaid: "भुगतान की पुष्टि हो गई है। आपका ऑर्डर दर्ज है।",
+            statusPaidFreightPending: "उत्पाद का भुगतान मिल गया है। Souviks ऑर्डर पैक करके डिलीवरी शुल्क की गणना करेगा और ईमेल व WhatsApp पर अलग कोटेशन भेजेगा।",
             statusPending: "Cashfree ने अभी भुगतान की पुष्टि नहीं की है। इस स्थिति में दोबारा भुगतान न करें; थोड़ी देर बाद फिर जाँचें।",
             statusFailed: "Cashfree के अनुसार भुगतान विफल हुआ। नीचे दिया गया कारण देखें और ज़रूरत होने पर किसी अन्य भुगतान तरीके से फिर कोशिश करें।",
             failureReasonPrefix: "कारण: ",
@@ -61,8 +65,9 @@
         },
         bn: {
             added: "পণ্যটি আপনার কার্টে যোগ করা হয়েছে।",
-            shippingUnconfirmed: "পেমেন্টের আগে নিশ্চিত হবে",
+            shippingUnconfirmed: "প্যাকিংয়ের পরে ডেলিভারি চার্জ গণনা করা হবে",
             pickupShipping: "স্টোর থেকে সংগ্রহ — শিপিং চার্জ নেই",
+            shippingAfterPacking: "প্যাকিংয়ের পরে ডেলিভারি চার্জ গণনা করা হবে",
             totalUnconfirmed: "মূল্য যাচাই করুন",
             reviewInvalidated: "কার্ট বা চেকআউটের বিবরণ বদলেছে। পেমেন্টের আগে মোট মূল্য আবার যাচাই করুন।",
             addFailed: "পণ্যটি কার্টে যোগ করা যায়নি।",
@@ -74,7 +79,8 @@
             reviewFailed: "অর্ডার তৈরি করা যায়নি। তথ্য যাচাই করে আবার চেষ্টা করুন।",
             continueFailed: "Cashfree Checkout খোলা যায়নি। আবার চেষ্টা করুন।",
             statusLoading: "Cashfree থেকে পেমেন্ট যাচাই হচ্ছে…",
-            statusPaid: "পেমেন্ট নিশ্চিত হয়েছে। আপনার অর্ডার রেকর্ড করা হয়েছে; Souviks পণ্যের উপলভ্যতা ও ডেলিভারি নিশ্চিত করবে।",
+            statusPaid: "পেমেন্ট নিশ্চিত হয়েছে। আপনার অর্ডার রেকর্ড করা হয়েছে।",
+            statusPaidFreightPending: "পণ্যের পেমেন্ট নিশ্চিত হয়েছে। Souviks অর্ডার প্যাক করে ডেলিভারি চার্জ গণনা করবে এবং ইমেল ও WhatsApp-এ আলাদা কোটেশন পাঠাবে।",
             statusPending: "Cashfree এখনও পেমেন্ট নিশ্চিত করেনি। এই অবস্থায় আবার পেমেন্ট করবেন না; কিছুক্ষণ পরে যাচাই করুন।",
             statusFailed: "Cashfree অনুযায়ী পেমেন্ট ব্যর্থ হয়েছে। নিচের কারণ দেখুন, প্রয়োজনে অন্য পেমেন্ট পদ্ধতিতে আবার চেষ্টা করুন।",
             failureReasonPrefix: "কারণ: ",
@@ -493,7 +499,7 @@
                     cartSnapshot: JSON.stringify(currentCart),
                     formSnapshot: new FormData(form)
                 };
-                const shippingLabel = preparedCheckout.fulfillmentMethod === "pickup" ? T.pickupShipping : currency(preparedCheckout.shipping);
+                const shippingLabel = preparedCheckout.fulfillmentMethod === "pickup" ? T.pickupShipping : T.shippingAfterPacking;
                 document.getElementById("purchase-cart-shipping").textContent = shippingLabel;
                 document.getElementById("purchase-cart-total").textContent = currency(preparedCheckout.total);
                 document.getElementById("checkout-review-order-number").textContent = preparedCheckout.orderNumber;
@@ -660,6 +666,155 @@
         }
     }
 
+    async function bindFreightPaymentPage(root, status, reference, detail, quoteId, params) {
+        const token = String(params.get("token") || "").trim();
+        const returningFromPayment = params.get("freight_payment") === "1";
+        const callFreight = async (action, extra = {}) => {
+            const response = await supabaseClient.functions.invoke("freight-quote", {
+                body: { action, quote_id: quoteId, ...(token ? { token } : {}), ...extra }
+            });
+            if (response.error) {
+                const message = await getFunctionError(response.error);
+                throw new Error(message || "The delivery quotation could not be loaded.");
+            }
+            if (!response.data?.ok) throw new Error(response.data?.message || "The delivery quotation could not be loaded.");
+            return response.data;
+        };
+        const createActionButton = (label, onClick) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "btn btn-secondary";
+            button.textContent = label;
+            button.addEventListener("click", onClick);
+            root.appendChild(button);
+            return button;
+        };
+        const showInvoiceDownload = (gatewayOrderId, accessToken) => {
+            createActionButton("Download final GST tax invoice", async event => {
+                const button = event.currentTarget;
+                const tab = window.open("about:blank", "_blank");
+                button.disabled = true;
+                try {
+                    const result = await supabaseClient.functions.invoke("gst-invoice", {
+                        body: {
+                            action: "download",
+                            order_id: gatewayOrderId,
+                            freight_token: accessToken || undefined
+                        }
+                    });
+                    if (result.error || !result.data?.ok || !result.data?.signed_url) {
+                        throw new Error(result.data?.message || "The final invoice is not available yet.");
+                    }
+                    if (tab) tab.location.href = result.data.signed_url;
+                    else window.location.href = result.data.signed_url;
+                } catch (error) {
+                    if (tab) tab.close();
+                    setStatus(status, String(error?.message || "The invoice could not be downloaded."), "error");
+                } finally {
+                    button.disabled = false;
+                }
+            });
+        };
+        const renderPaid = (data) => {
+            setStatus(status, "Delivery payment confirmed. Your order is ready for final invoice processing.", "success");
+            if (detail) detail.textContent = currency(data.amount) + " " + String(data.currency || "INR");
+            if (data.invoice_status === "issued" && data.gateway_order_id) {
+                showInvoiceDownload(data.gateway_order_id, token);
+            } else {
+                const note = document.createElement("p");
+                note.className = "payment-status-detail";
+                note.textContent = "The delivery payment is recorded. The final GST invoice is being prepared; refresh this page shortly to check availability.";
+                root.appendChild(note);
+                createActionButton("Check invoice status", async button => {
+                    button.disabled = true;
+                    try {
+                        const refreshed = await callFreight("verify_payment");
+                        if (refreshed.payment_status === "paid" && refreshed.invoice_status === "issued") {
+                            setStatus(status, "Delivery payment confirmed. Your final GST invoice is ready.", "success");
+                            button.remove();
+                            showInvoiceDownload(refreshed.gateway_order_id, token);
+                        } else {
+                            setStatus(status, "Payment is confirmed. The final invoice is still pending its release checks.", "info");
+                        }
+                    } catch (error) {
+                        setStatus(status, String(error?.message || "Invoice status could not be checked."), "error");
+                    } finally {
+                        button.disabled = false;
+                    }
+                });
+            }
+        };
+        const verifyPayment = async () => {
+            setStatus(status, "Verifying your delivery payment with Cashfree…", "info");
+            try {
+                const data = await callFreight("verify_payment");
+                if (data.payment_status === "paid" && data.quote_status === "paid") {
+                    renderPaid(data);
+                } else {
+                    setStatus(status, "Cashfree has not confirmed the delivery payment yet. Do not pay again while this status is pending. Retry verification shortly.", "info");
+                    createActionButton("Retry payment verification", async button => {
+                        button.disabled = true;
+                        try {
+                            const latest = await callFreight("verify_payment");
+                            if (latest.payment_status === "paid" && latest.quote_status === "paid") renderPaid(latest);
+                            else setStatus(status, "Delivery payment is still pending confirmation.", "info");
+                        } catch (error) {
+                            setStatus(status, String(error?.message || "Payment verification is unavailable."), "error");
+                        } finally {
+                            button.disabled = false;
+                        }
+                    });
+                }
+            } catch (error) {
+                setStatus(status, String(error?.message || "Payment verification is unavailable."), "error");
+            }
+        };
+
+        try {
+            if (!quoteId || !/^[0-9a-f-]{36}$/i.test(quoteId) || typeof supabaseClient === "undefined") {
+                throw new Error("This delivery quotation link is invalid.");
+            }
+            const quote = await callFreight("get_quote");
+            if (reference) reference.textContent = String(quote.quote_number || quote.order_number || quoteId);
+            const quoteDetails = [
+                currency(quote.amount) + " " + String(quote.currency || "INR"),
+                quote.chargeable_weight_g ? "Packed chargeable weight: " + Number(quote.chargeable_weight_g).toLocaleString("en-IN") + " g" : "",
+                quote.carrier ? "Courier: " + quote.carrier : "",
+                quote.delivery_estimate ? "Estimated delivery: " + quote.delivery_estimate : "",
+                quote.valid_until ? "Valid until: " + new Date(quote.valid_until).toLocaleString("en-IN") : ""
+            ].filter(Boolean);
+            if (detail) detail.textContent = quoteDetails.join(" · ");
+            if (quote.quote_status === "paid" || returningFromPayment) {
+                await verifyPayment();
+                return;
+            }
+            if (quote.quote_status === "expired" || quote.quote_status === "cancelled") {
+                setStatus(status, "This delivery quotation has expired. Contact Souviks for an updated quotation.", "error");
+                return;
+            }
+            setStatus(status, "Your delivery quotation is ready. Review the packed-weight charge and continue to secure payment.", "success");
+            createActionButton("Pay delivery charges", async button => {
+                button.disabled = true;
+                try {
+                    const session = await callFreight("create_payment");
+                    if (!session.payment_session_id || typeof window.Cashfree !== "function") {
+                        throw new Error("Secure delivery payment is temporarily unavailable. Please retry.");
+                    }
+                    const cashfree = window.Cashfree({ mode: session.mode === "production" ? "production" : "sandbox" });
+                    await cashfree.checkout({
+                        paymentSessionId: session.payment_session_id,
+                        redirectTarget: "_self"
+                    });
+                } catch (error) {
+                    setStatus(status, String(error?.message || "The delivery payment could not be started."), "error");
+                    button.disabled = false;
+                }
+            });
+        } catch (error) {
+            setStatus(status, String(error?.message || "The delivery quotation could not be loaded."), "error");
+        }
+    }
+
     async function bindPaymentStatusPage() {
         const root = document.getElementById("payment-status-root");
         if (!root) return;
@@ -668,7 +823,15 @@
         const detail = document.getElementById("payment-status-detail");
         const retry = document.getElementById("payment-status-retry");
         const invoiceButton = document.getElementById("payment-status-invoice");
-        const orderId = new URL(window.location.href).searchParams.get("order_id") || "";
+        const pageParams = new URL(window.location.href).searchParams;
+        const freightQuoteId = pageParams.get("freight_quote_id") || "";
+        if (freightQuoteId) {
+            if (retry) retry.hidden = true;
+            if (invoiceButton) invoiceButton.hidden = true;
+            await bindFreightPaymentPage(root, status, reference, detail, freightQuoteId, pageParams);
+            return;
+        }
+        const orderId = pageParams.get("order_id") || "";
         if (reference && orderId) reference.textContent = orderId;
 
         const verify = async () => {
@@ -702,7 +865,10 @@
                 if (reference) reference.textContent = String(data.order_number || orderId);
                 if (detail) detail.textContent = currency(data.amount) + " " + String(data.currency || "INR");
                 if (data.payment_status === "paid") {
-                    setStatus(status, T.statusPaid, "success");
+                    const paymentMessage = data.order_status === "freight_pending"
+                        ? T.statusPaidFreightPending
+                        : T.statusPaid;
+                    setStatus(status, paymentMessage, "success");
                     try {
                         localStorage.removeItem(STORAGE_KEY);
                         // Retain the short-lived order capability so a guest can download the invoice on this return page.
