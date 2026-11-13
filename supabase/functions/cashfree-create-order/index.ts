@@ -352,7 +352,6 @@ Deno.serve(async (req: Request) => {
       delhivery_destination_not_serviceable: "Delhivery prepaid service is unavailable for this PIN code. Please contact Souviks for a delivery quote.",
       delhivery_shipping_quote_unavailable: "Delhivery could not calculate shipping right now. Please retry or request a quote.",
       delhivery_shipping_weight_invalid: "The cart weight is outside Delhivery’s supported range. Please request a shipping quote.",
-      delhivery_shipping_weights_missing: "Shipping cannot be calculated until weights are available for every item. Please request a quote or try again once the catalogue is updated.",
     };
     return jsonResponse(req, {
       ok: false,
