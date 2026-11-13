@@ -21,3 +21,7 @@ verify_jwt = false
 
 [functions.gst-invoice]
 verify_jwt = false
+
+# Staff-only freight quotations and customer payment links; authorization is enforced in the handler.
+[functions.freight-quote]
+verify_jwt = false

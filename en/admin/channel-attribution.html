@@ -117,6 +117,35 @@
 
     <div id="dashboard-status" class="notice" role="status" aria-live="polite">Checking sign-in and staff permissions…</div>
 
+    <section class="section" id="freight-quote-section" aria-labelledby="freight-quote-heading">
+      <h2 id="freight-quote-heading">Delivery quotations</h2>
+      <p class="muted">Orders appear here after the product payment is verified. Pack the items, enter the actual chargeable weight and dimensions, then create a separate delivery payment quotation. The final GST invoice is generated only after freight payment is verified.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Order</th><th>Customer</th><th>Destination</th><th>Products paid</th><th>Order state</th><th>Action</th></tr></thead>
+          <tbody id="freight-orders-body"><tr><td class="empty-cell" colspan="6">Loading delivery orders…</td></tr></tbody>
+        </table>
+      </div>
+      <form id="freight-quote-form" hidden style="margin-top:18px">
+        <h3 id="freight-selected-order">Create delivery quotation</h3>
+        <div class="form-grid">
+          <div class="field"><label for="freight-amount">Delivery charge (INR)</label><input id="freight-amount" name="amount" type="number" min="0.01" step="0.01" required></div>
+          <div class="field"><label for="freight-weight">Packed chargeable weight (grams)</label><input id="freight-weight" name="chargeable_weight_g" type="number" min="1" max="200000" step="1" required></div>
+          <div class="field"><label for="freight-length">Length (cm)</label><input id="freight-length" name="length_cm" type="number" min="0.1" max="500" step="0.1"></div>
+          <div class="field"><label for="freight-width">Width (cm)</label><input id="freight-width" name="width_cm" type="number" min="0.1" max="500" step="0.1"></div>
+          <div class="field"><label for="freight-height">Height (cm)</label><input id="freight-height" name="height_cm" type="number" min="0.1" max="500" step="0.1"></div>
+          <div class="field"><label for="freight-carrier">Courier / carrier</label><input id="freight-carrier" name="carrier" maxlength="80" placeholder="Delhivery, Blue Dart, etc." required></div>
+          <div class="field"><label for="freight-service">Service level</label><input id="freight-service" name="service_level" maxlength="80" placeholder="Surface / Express"></div>
+          <div class="field"><label for="freight-estimate">Delivery estimate</label><input id="freight-estimate" name="delivery_estimate" maxlength="120" placeholder="e.g. 4–6 working days"></div>
+          <div class="field span-2"><label for="freight-notes">Customer note (optional)</label><textarea id="freight-notes" name="quote_notes" maxlength="1000" placeholder="Packaging or delivery notes"></textarea></div>
+        </div>
+        <div class="form-actions"><button id="freight-create-quote" class="button" type="submit">Create quotation &amp; payment link</button><button id="freight-quote-cancel" class="button secondary" type="button">Cancel</button></div>
+        <div id="freight-quote-status" class="notice" role="status" aria-live="polite" hidden></div>
+        <div id="freight-quote-links" class="form-actions" hidden></div>
+        <p class="small-note">The generated WhatsApp and email links open pre-filled customer messages. Review and send them from your connected apps. The payment link expires after 72 hours.</p>
+      </form>
+    </section>
+
     <section class="section" aria-labelledby="metrics-heading">
       <h2 id="metrics-heading">Funnel overview</h2>
       <div id="metric-grid" class="metric-grid"></div>

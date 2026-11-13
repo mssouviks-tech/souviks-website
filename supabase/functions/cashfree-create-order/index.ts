@@ -32,78 +32,6 @@ function errorPayload(error: unknown): { code: string; status: number } {
   return { code: "checkout_temporarily_unavailable", status: 503 };
 }
 
-function findNumberDeep(value: unknown, keys: string[], depth = 0): number | null {
-  if (!value || typeof value !== "object" || depth > 6) return null;
-  const record = value as Record<string, unknown>;
-  for (const key of keys) {
-    const candidate = record[key];
-    if ((typeof candidate === "number" || (typeof candidate === "string" && candidate.trim() !== "")) &&
-        Number.isFinite(Number(candidate))) {
-      return Number(candidate);
-    }
-  }
-  for (const child of Object.values(record)) {
-    const found = findNumberDeep(child, keys, depth + 1);
-    if (found !== null) return found;
-  }
-  return null;
-}
-
-async function delhiveryGetJson(url: URL, token: string): Promise<any> {
-  let response: Response;
-  try {
-    response = await fetch(url, {
-      method: "GET",
-      headers: { "Authorization": "Token " + token, "Accept": "application/json" },
-      signal: AbortSignal.timeout(10000),
-    });
-  } catch {
-    throw new CheckoutError("delhivery_shipping_quote_unavailable", 503);
-  }
-  if (!response.ok) {
-    console.error("[Cashfree create-order] Delhivery request failed", response.status);
-    throw new CheckoutError(response.status === 401 || response.status === 403
-      ? "delhivery_credentials_invalid"
-      : "delhivery_shipping_quote_unavailable", 503);
-  }
-  try {
-    return await response.json();
-  } catch {
-    throw new CheckoutError("delhivery_shipping_quote_unavailable", 503);
-  }
-}
-
-async function calculateDelhiveryPrepaidCharge(destinationPin: string, weightGrams: number): Promise<number> {
-  const token = (Deno.env.get("DELHIVERY_B2C_API_TOKEN") || Deno.env.get("DELHIVERY_API_TOKEN") || "").trim();
-  if (!token) throw new CheckoutError("delhivery_shipping_not_configured", 503);
-  const originPin = (Deno.env.get("DELHIVERY_ORIGIN_PIN") || "713321").trim();
-  if (!/^\d{6}$/.test(originPin)) throw new CheckoutError("delhivery_shipping_not_configured", 503);
-
-  const serviceUrl = new URL("https://track.delhivery.com/c/api/pin-codes/json/");
-  serviceUrl.searchParams.set("filter_codes", destinationPin);
-  const serviceData = await delhiveryGetJson(serviceUrl, token);
-  const deliveryCodes = Array.isArray(serviceData?.delivery_codes) ? serviceData.delivery_codes : [];
-  const postal = deliveryCodes[0]?.postal_code || deliveryCodes[0] || null;
-  if (!postal || String(postal.pre_paid || postal.prepaid || "").toUpperCase() !== "Y" ||
-      String(postal.remarks || "").toLowerCase() === "embargo") {
-    throw new CheckoutError("delhivery_destination_not_serviceable", 409);
-  }
-
-  const chargesUrl = new URL("https://track.delhivery.com/api/kinko/v1/invoice/charges/.json");
-  chargesUrl.searchParams.set("md", "E");
-  chargesUrl.searchParams.set("ss", "Delivered");
-  chargesUrl.searchParams.set("d_pin", destinationPin);
-  chargesUrl.searchParams.set("o_pin", originPin);
-  chargesUrl.searchParams.set("cgm", String(weightGrams));
-  chargesUrl.searchParams.set("pt", "Pre-paid");
-  const chargeData = await delhiveryGetJson(chargesUrl, token);
-  const amount = findNumberDeep(chargeData, ["total_amount", "totalAmount", "total_charges", "total_charges_amount"]);
-  if (amount === null || amount <= 0 || amount > 1000000) {
-    throw new CheckoutError("delhivery_shipping_quote_unavailable", 503);
-  }
-  return Math.round(amount * 100);
-}
-
 const INDIA_STATE_NAMES: Record<string, string> = {
   "01":"Jammu and Kashmir","02":"Himachal Pradesh","03":"Punjab","04":"Chandigarh",
   "05":"Uttarakhand","06":"Haryana","07":"Delhi","08":"Rajasthan","09":"Uttar Pradesh",
@@ -220,8 +148,7 @@ Deno.serve(async (req: Request) => {
 
     const lineItems: Array<Record<string, unknown>> = [];
     let subtotalPaise = 0;
-    let estimatedWeightGrams = 0;
-    let hasCompleteWeights = true;
+    // Delivery freight is deliberately quoted only after Souviks has packed and weighed the order.
     for (const [productId, quantity] of requested.entries()) {
       const product = byId.get(productId);
       if (!product || product.active === false) throw new CheckoutError("cart_product_unavailable", 409);
@@ -246,13 +173,7 @@ Deno.serve(async (req: Request) => {
       if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && !/^[A-Z0-9]{1,10}$/.test(unitOfMeasure)) {
         throw new CheckoutError("invoice_unit_of_measure_missing", 409);
       }
-      const rawWeight = product.approx_weight_g ?? product.approx_weight_grams ?? product.weight_g ?? product.shipping_weight_g;
-      const unitWeightGrams = Number(rawWeight);
-      if (rawWeight == null || rawWeight === "" || !Number.isFinite(unitWeightGrams) || unitWeightGrams <= 0 || unitWeightGrams > 200000) {
-        hasCompleteWeights = false;
-      } else {
-        estimatedWeightGrams += Math.round(unitWeightGrams) * quantity;
-      }
+      // Catalogue weight is not used for the initial product-payment checkout.
 
       const unitPaise = Math.round(price * 100);
       const linePaise = unitPaise * quantity;
@@ -290,30 +211,8 @@ Deno.serve(async (req: Request) => {
 
     if (subtotalPaise < 100) throw new CheckoutError("minimum_order_amount_not_met", 400);
     const subtotal = money(subtotalPaise);
-    let shippingPaise = 0;
-    if (fulfillmentMethod === "pickup") {
-      // Store pickup does not use courier serviceability or freight calculations.
-      shippingPaise = 0;
-    } else if (hasCompleteWeights) {
-      if (!Number.isInteger(estimatedWeightGrams) || estimatedWeightGrams < 1 || estimatedWeightGrams > 200000) {
-        throw new CheckoutError("delhivery_shipping_weight_invalid", 400);
-      }
-      // Every home-delivery order gets a server-side freight quote using trusted
-      // catalogue weights and the destination PIN. Never waive freight based on
-      // subtotal or trust a browser-provided shipping estimate.
-      shippingPaise = await calculateDelhiveryPrepaidCharge(postalCode, estimatedWeightGrams);
-    } else {
-      // Fail closed rather than undercharge freight when a product lacks weight.
-      throw new CheckoutError("delhivery_shipping_weights_missing", 409);
-    }
-    if (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && shippingPaise > 0 &&
-        (Deno.env.get("GST_FREIGHT_APPROVAL_STATUS") !== "approved" ||
-         Deno.env.get("GST_FREIGHT_PRICE_INCLUDES_GST") !== "true" ||
-         !/^\d{6,8}$/.test(Deno.env.get("GST_FREIGHT_SAC") || "") ||
-         ![0,5,12,18,28].includes(Number(Deno.env.get("GST_FREIGHT_RATE_PERCENT"))) ||
-         !(Deno.env.get("GST_FREIGHT_APPROVAL_SOURCE") || "").trim())) {
-      throw new CheckoutError("freight_tax_treatment_not_approved", 409);
-    }
+    // Product payment only. Delivery will be quoted separately after packed weight/dimensions are confirmed.
+    const shippingPaise = 0;
     const totalPaise = subtotalPaise + shippingPaise;
     if (!Number.isSafeInteger(totalPaise) || totalPaise < 100 || totalPaise > 100000000000) {
       throw new CheckoutError("order_total_invalid", 400);
@@ -414,6 +313,7 @@ Deno.serve(async (req: Request) => {
       subtotal,
       shipping: shippingAmount,
       total: totalAmount,
+      delivery_quote_required: fulfillmentMethod === "delivery",
       currency: "INR",
     });
   } catch (error) {
@@ -451,8 +351,6 @@ Deno.serve(async (req: Request) => {
       delhivery_credentials_invalid: "Delhivery could not authenticate the shipping request. Please contact Souviks.",
       delhivery_destination_not_serviceable: "Delhivery prepaid service is unavailable for this PIN code. Please contact Souviks for a delivery quote.",
       delhivery_shipping_quote_unavailable: "Delhivery could not calculate shipping right now. Please retry or request a quote.",
-      delhivery_shipping_weight_invalid: "The cart weight is outside Delhivery’s supported range. Please request a shipping quote.",
-      delhivery_shipping_weights_missing: "Shipping cannot be calculated until weights are available for every item. Please request a quote or try again once the catalogue is updated.",
     };
     return jsonResponse(req, {
       ok: false,
