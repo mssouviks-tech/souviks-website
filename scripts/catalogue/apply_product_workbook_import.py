@@ -183,12 +183,23 @@ def make_new_product(row: dict, products: list[dict]) -> dict:
         "discountPercent": discount,
         "hsn_code": template.get("hsn_code"),
         "hsn_description": template.get("hsn_description"),
-        "hsn_confidence": template.get("hsn_confidence"),
-        "hsn_classification_status": template.get(
-            "hsn_classification_status"
+        # The inherited code is a research lead only. This SKU has not been
+        # individually classified against its precise tariff description.
+        "hsn_confidence": "low",
+        "hsn_classification_status": "review_required",
+        "hsn_basis": (
+            "Comparable-SKU HSN carried forward as a provisional research lead; "
+            "this newly imported SKU has not been individually classified against "
+            "the exact tariff description."
         ),
-        "hsn_basis": template.get("hsn_basis"),
-        "hsn_reference_date": template.get("hsn_reference_date"),
+        "hsn_review_note": (
+            "Review required: verify this SKU's exact material, function, vehicle "
+            "application and current tariff description before using this HSN for "
+            "GST invoicing."
+        ),
+        "hsn_reference_date": "",
+        "hsn_research_source": "",
+        "hsn_research_date": "",
         "hsn_dpiit_mapping": hsn_mapping,
         "gst_rate_candidate": gst_candidate,
         "gst_rate_percent": template.get("gst_rate_percent"),
