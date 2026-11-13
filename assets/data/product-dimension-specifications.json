@@ -1,14 +1,5059 @@
 {
-      "id": "SVKS000975",
+  "version": 1,
+  "purpose": "Explicit product-component and fitment measurements captured from catalogue item names, plus one Dana Aftermarket cross-reference. These values are not shipping-carton or parcel dimensions.",
+  "unit": "mm",
+  "records": 407,
+  "products": [
+    {
+      "id": "SVKS000002",
+      "part_number": "",
+      "product_name": "10 mm Benjo Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000003",
+      "part_number": "",
+      "product_name": "10 mm Mounting Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000004",
+      "part_number": "",
+      "product_name": "10 mm Spring Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000005",
+      "part_number": "",
+      "product_name": "10 mm Steel Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000006",
+      "part_number": "",
+      "product_name": "10 x 1.5 Nut",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000007",
+      "part_number": "",
+      "product_name": "10 x 1.5 x 30 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 30,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000008",
+      "part_number": "",
+      "product_name": "10 x 1.5 x 35 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 35,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000009",
+      "part_number": "",
+      "product_name": "10 x 1.5 x 45 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 45,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000010",
+      "part_number": "",
+      "product_name": "10 x 1.5 x 50 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000011",
+      "part_number": "",
+      "product_name": "10 x 1.5 x 60 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 60,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000012",
+      "part_number": "",
+      "product_name": "10 x 10 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000013",
+      "part_number": "",
+      "product_name": "10 x 12 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000014",
+      "part_number": "",
+      "product_name": "10 x 15 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000016",
+      "part_number": "",
+      "product_name": "10mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000017",
+      "part_number": "",
+      "product_name": "10mm PU connector socket PVC T Type",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000018",
+      "part_number": "",
+      "product_name": "10mm PU connector socket Steel Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000019",
+      "part_number": "",
+      "product_name": "11mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 11,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000020",
+      "part_number": "",
+      "product_name": "12 mm Benjo Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000021",
+      "part_number": "",
+      "product_name": "12 mm Mounting Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000022",
+      "part_number": "",
+      "product_name": "12 mm Spring Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000023",
+      "part_number": "",
+      "product_name": "12 mm Steel Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000024",
+      "part_number": "",
+      "product_name": "12 x 1.5 lock nut",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000025",
+      "part_number": "",
+      "product_name": "12 x 1.5 nut",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000026",
+      "part_number": "",
+      "product_name": "12 x 1.5 x 35 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 35,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000027",
+      "part_number": "",
+      "product_name": "12 x 1.5 x 45 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 45,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000028",
+      "part_number": "",
+      "product_name": "12 x 1.5 x 45 crown bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 45,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000029",
+      "part_number": "",
+      "product_name": "12 x 1.5 x 50 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000032",
+      "part_number": "",
+      "product_name": "12 x 1.5 x 60 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 60,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000033",
+      "part_number": "",
+      "product_name": "12 x 12 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000034",
+      "part_number": "",
+      "product_name": "12 x 15 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000035",
+      "part_number": "",
+      "product_name": "12mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000036",
+      "part_number": "",
+      "product_name": "12mm PU connector socket PVC T Type",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000037",
+      "part_number": "",
+      "product_name": "12mm PU connector socket Steel Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000038",
+      "part_number": "",
+      "product_name": "13mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 13,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000039",
+      "part_number": "",
+      "product_name": "14 mm Benjo Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000040",
+      "part_number": "",
+      "product_name": "14 mm Mounting Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000041",
+      "part_number": "",
+      "product_name": "14 mm Spring Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000042",
+      "part_number": "",
+      "product_name": "14 mm Steel Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000043",
+      "part_number": "",
+      "product_name": "14 x 1.5 nut",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000044",
+      "part_number": "",
+      "product_name": "14 x 1.5 x 50 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000045",
+      "part_number": "",
+      "product_name": "14 x 1.5 x 60 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 60,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000046",
+      "part_number": "",
+      "product_name": "14 x 1.5 x 75 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 75,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000048",
+      "part_number": "",
+      "product_name": "14mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000049",
+      "part_number": "",
+      "product_name": "15 x 15 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000050",
+      "part_number": "",
+      "product_name": "15mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000051",
+      "part_number": "",
+      "product_name": "15mm PU connector socket PVC T Type",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000052",
+      "part_number": "",
+      "product_name": "15mm PU connector socket Steel Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000053",
+      "part_number": "",
+      "product_name": "16 mm Benjo Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000054",
+      "part_number": "",
+      "product_name": "16 mm Mounting Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000055",
+      "part_number": "",
+      "product_name": "16 mm Spring Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000056",
+      "part_number": "",
+      "product_name": "16 mm Steel Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000057",
+      "part_number": "",
+      "product_name": "16 x 1.5 lock nut",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000058",
+      "part_number": "",
+      "product_name": "16 x 1.5 nut",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000059",
+      "part_number": "",
+      "product_name": "16 x 1.5 x 100 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 100,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000066",
+      "part_number": "",
+      "product_name": "16 x 1.5 x 125 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 125,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000067",
+      "part_number": "",
+      "product_name": "16 x 1.5 x 143 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 143,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000068",
+      "part_number": "",
+      "product_name": "16 x 1.5 x 150 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 150,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000069",
+      "part_number": "",
+      "product_name": "16 x 1.5 x 174 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 174,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000070",
+      "part_number": "",
+      "product_name": "16 x 1.5 x 50 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000071",
+      "part_number": "",
+      "product_name": "16 x 1.5 x 60 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 60,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000072",
+      "part_number": "",
+      "product_name": "16 x 1.5 x 75 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 75,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000073",
+      "part_number": "",
+      "product_name": "16mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000074",
+      "part_number": "",
+      "product_name": "18 mm Benjo Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000075",
+      "part_number": "",
+      "product_name": "18 mm Mounting Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000076",
+      "part_number": "",
+      "product_name": "18 mm Spring Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000077",
+      "part_number": "",
+      "product_name": "18 mm Steel Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000079",
+      "part_number": "",
+      "product_name": "18 x 15 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 18,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000081",
+      "part_number": "",
+      "product_name": "18 x 22 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 18,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000082",
+      "part_number": "",
+      "product_name": "18 x 26 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 18,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 26,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000083",
+      "part_number": "",
+      "product_name": "20 mm Benjo Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000084",
+      "part_number": "",
+      "product_name": "20 mm Mounting Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000085",
+      "part_number": "",
+      "product_name": "22 mm Benjo Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000086",
+      "part_number": "",
+      "product_name": "22 mm Mounting Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000087",
+      "part_number": "",
+      "product_name": "22 x 22 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000088",
+      "part_number": "",
+      "product_name": "22 x 26 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 26,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000089",
+      "part_number": "",
+      "product_name": "24 mm Mounting Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 24,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000090",
+      "part_number": "",
+      "product_name": "25 mm Spring Leaf Side Washer 4mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 25,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000091",
+      "part_number": "",
+      "product_name": "25 mm Spring Leaf Side Washer 5mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 25,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000092",
+      "part_number": "",
+      "product_name": "26 x 26 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 26,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 26,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000117",
+      "part_number": "285126207803",
+      "product_name": "Oil Seal (Main Shaft) 38x48x8 BS 1/2/3/4",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Seal bore diameter",
+          "value_mm": 38,
+          "source": "product_name"
+        },
+        {
+          "name": "Seal outside diameter",
+          "value_mm": 48,
+          "source": "product_name"
+        },
+        {
+          "name": "Seal width",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000126",
+      "part_number": "",
+      "product_name": "30 mm Spring Leaf Side Washer 4mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 30,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000127",
+      "part_number": "",
+      "product_name": "30 mm Spring Leaf Side Washer 5mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 30,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000128",
+      "part_number": "",
+      "product_name": "32 mm Spring Leaf Side Washer 4mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 32,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000129",
+      "part_number": "",
+      "product_name": "32 mm Spring Leaf Side Washer 5mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 32,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000130",
+      "part_number": "",
+      "product_name": "35 mm Bell Crank Washer 4mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000131",
+      "part_number": "",
+      "product_name": "35 mm Bell Crank Washer 5mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000132",
+      "part_number": "",
+      "product_name": "35 mm Bell Crank Washer 6mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000133",
+      "part_number": "",
+      "product_name": "35 mm Bell Crank Washer 7mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000134",
+      "part_number": "",
+      "product_name": "35 mm Bell Crank Washer 8mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000135",
+      "part_number": "",
+      "product_name": "42 mm Bell Crank Washer 4mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000136",
+      "part_number": "",
+      "product_name": "42 mm Bell Crank Washer 5mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000137",
+      "part_number": "",
+      "product_name": "42 mm Bell Crank Washer 6mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000138",
+      "part_number": "",
+      "product_name": "42 mm Bell Crank Washer 7mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000139",
+      "part_number": "",
+      "product_name": "42 mm Bell Crank Washer 8mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000140",
+      "part_number": "",
+      "product_name": "50 mm Bell Crank Washer 4mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000141",
+      "part_number": "",
+      "product_name": "50 mm Bell Crank Washer 5mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000142",
+      "part_number": "",
+      "product_name": "50 mm Bell Crank Washer 6mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000143",
+      "part_number": "",
+      "product_name": "50 mm Bell Crank Washer 7mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000144",
+      "part_number": "",
+      "product_name": "50 mm Bell Crank Washer 8mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 50,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000152",
+      "part_number": "",
+      "product_name": "6 mm Benjo Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000153",
+      "part_number": "",
+      "product_name": "6 mm Spring Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000154",
+      "part_number": "",
+      "product_name": "6 mm Steel Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000155",
+      "part_number": "",
+      "product_name": "6 x 10 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000156",
+      "part_number": "",
+      "product_name": "6 x 12 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000157",
+      "part_number": "",
+      "product_name": "6 x 15 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000158",
+      "part_number": "",
+      "product_name": "6 x 6 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000159",
+      "part_number": "",
+      "product_name": "6 x 8 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000160",
+      "part_number": "",
+      "product_name": "6mm PTO connector socket PVC",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000161",
+      "part_number": "",
+      "product_name": "6mm PTO connector socket Steel",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000162",
+      "part_number": "",
+      "product_name": "6mm PU connector socket PVC L Type",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000163",
+      "part_number": "",
+      "product_name": "6mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000164",
+      "part_number": "",
+      "product_name": "6mm PU connector socket PVC T Type",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000165",
+      "part_number": "",
+      "product_name": "6mm PU connector socket Steel Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000166",
+      "part_number": "",
+      "product_name": "7mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000167",
+      "part_number": "",
+      "product_name": "8 mm Benjo Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000168",
+      "part_number": "",
+      "product_name": "8 mm Mounting Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000169",
+      "part_number": "",
+      "product_name": "8 mm Spring Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000170",
+      "part_number": "",
+      "product_name": "8 mm Steel Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000171",
+      "part_number": "",
+      "product_name": "8 x 10 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000172",
+      "part_number": "",
+      "product_name": "8 x 12 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000173",
+      "part_number": "",
+      "product_name": "8 x 15 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000174",
+      "part_number": "",
+      "product_name": "8 x 8 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection 1 outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        },
+        {
+          "name": "Tube connection 2 outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000197",
+      "part_number": "",
+      "product_name": "8mm PTO connector socket PVC",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000213",
+      "part_number": "",
+      "product_name": "8mm PTO connector socket Steel",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000214",
+      "part_number": "",
+      "product_name": "8mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000215",
+      "part_number": "",
+      "product_name": "8mm PU connector socket PVC T Type",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000216",
+      "part_number": "",
+      "product_name": "8mm PU connector socket Steel Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000217",
+      "part_number": "",
+      "product_name": "9mm PU connector socket PVC Straight",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 9,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000229",
+      "part_number": "B 1151",
+      "product_name": "Rear Engine Mount Signa 16mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified mounting size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000231",
+      "part_number": "PTB15-WP",
+      "product_name": "380 PTB15-WP Clutch Plate 380 1.5\" Wider Pad",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Clutch plate outside diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000248",
+      "part_number": "380CN",
+      "product_name": "Clutch Plate 395 Dia NaviStar",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Clutch plate outside diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000250",
+      "part_number": "",
+      "product_name": "Coolant Pipe Socket 12mm L (11.8) Coupler",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal pipe size",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Listed coupler size",
+          "value_mm": 11.8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000274",
+      "part_number": "SDUJFM40D48",
+      "product_name": "UJ Cross 47.7 x 135",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 47.68,
+          "source": "https://www.danaaftermarket.in/pd-2402_spicer-uj-kit-47-68x135-17-sdujfm40d48"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 135.17,
+          "source": "https://www.danaaftermarket.in/pd-2402_spicer-uj-kit-47-68x135-17-sdujfm40d48"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000315",
+      "part_number": "LLTS105",
+      "product_name": "Bell Crank Set 50 mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified bell-crank set size",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000329",
+      "part_number": "",
+      "product_name": "Bell Crank Set 50 mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified bell-crank set size",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000334",
+      "part_number": "BS4923TAP",
+      "product_name": "Bell Crank Set 50 mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified bell-crank set size",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000339",
+      "part_number": "RK 103",
+      "product_name": "UJ Cross 38 x 57",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 38,
+          "source": "product_name"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 57,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000340",
+      "part_number": "RK 105",
+      "product_name": "UJ Cross 42 x 129",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 129,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000343",
+      "part_number": "KF5120",
+      "product_name": "UJ Cross 41.28 x 125.90",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 41.28,
+          "source": "product_name"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 125.9,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000344",
+      "part_number": "KF5121",
+      "product_name": "UJ Cross 42 x 129",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 129,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000345",
+      "part_number": "KF5122",
+      "product_name": "UJ Cross 48 x 135",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 48,
+          "source": "product_name"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 135,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000364",
+      "part_number": "CB300130",
+      "product_name": "Clutch Booster Assy. 70 mm Dia",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Booster diaphragm diameter",
+          "value_mm": 70,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000372",
+      "part_number": "MP168",
+      "product_name": "Bell Crank Set 50 mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified bell-crank set size",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000394",
+      "part_number": "NIRMAL/UB/204",
+      "product_name": "Bolt w/ Nut 20 x 70 x 10\" HR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 250,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 70,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000395",
+      "part_number": "NIRMAL/UB/205",
+      "product_name": "Bolt w/ Nut 20 x 70 x 11\" HR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 275,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 70,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000396",
+      "part_number": "NIRMAL/UB/229",
+      "product_name": "Bolt w/ Nut 22 x 82 x 20\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 500,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000397",
+      "part_number": "NIRMAL/UB/230",
+      "product_name": "Bolt w/ Nut 22 x 82 x 21\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 525,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000398",
+      "part_number": "NIRMAL/UB/231",
+      "product_name": "Bolt w/ Nut 22 x 82 x 22\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 550,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000399",
+      "part_number": "NIRMAL/UB/232",
+      "product_name": "Bolt w/ Nut 22 x 82 x 23\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 575,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000400",
+      "part_number": "NIRMAL/UB/233",
+      "product_name": "Bolt w/ Nut 22 x 82 x 24\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 600,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000401",
+      "part_number": "NIRMAL/UB/234",
+      "product_name": "Bolt w/ Nut 22 x 82 x 25\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 625,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000404",
+      "part_number": "PLK199F",
+      "product_name": "Bell Crank Set 50 mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified bell-crank set size",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000428",
+      "part_number": "4054P",
+      "product_name": "UJ Cross 46 mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified cross diameter/size",
+          "value_mm": 46,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000436",
+      "part_number": "4054BP2",
+      "product_name": "UJ Cross 42 x 129",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 129,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000437",
+      "part_number": "4054CP",
+      "product_name": "UJ Cross 48 x 135",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 48,
+          "source": "product_name"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 135,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000438",
+      "part_number": "4104GP",
+      "product_name": "UJ Cross 41.28 x 125.90",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 41.28,
+          "source": "product_name"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 125.9,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000567",
+      "part_number": "",
+      "product_name": "UJ Cross 48 x 135",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing cup diameter",
+          "value_mm": 48,
+          "source": "product_name"
+        },
+        {
+          "name": "Overall cross span",
+          "value_mm": 135,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000586",
+      "part_number": "",
+      "product_name": "14 mm Extra Thick - Aluminium Washer",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal fastener/bore size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000686",
+      "part_number": "FA0016700",
+      "product_name": "154.90x49.20mm   Spicer transmission TML 3118/4018/AL 4018/ AMW 2518/ Eicher Mega 40.40 (Patti   Type)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Catalogue dimension A",
+          "value_mm": 154.9,
+          "source": "product_name"
+        },
+        {
+          "name": "Catalogue dimension B",
+          "value_mm": 49.2,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000716",
+      "part_number": "J2216A",
+      "product_name": "Rear Spring Bracket   Chittal/E Comet 14mm Hole F-7103272",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000720",
+      "part_number": "J4004",
+      "product_name": "R/S Front Bracket 35mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 35,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000721",
+      "part_number": "J4003",
+      "product_name": "R/S Rear Bracket 42mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 42,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000724",
+      "part_number": "J1049",
+      "product_name": "R/s Bracket 42mm 4 Holes   16mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000725",
+      "part_number": "J1051",
+      "product_name": "R/s Front Bracket 35MM 6   Holes 16mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000726",
+      "part_number": "J1053",
+      "product_name": "R/s Rear Bracket 42mm 6   Holes 14mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000727",
+      "part_number": "J1053A",
+      "product_name": "R/s Rear Bracket 42mm 6   Holes 16mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000735",
+      "part_number": "J1617",
+      "product_name": "Bolt with Nut for Tara   Signa Front Spring M24x2x185",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 24,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 2,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 185,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000771",
+      "part_number": "J1660",
+      "product_name": "R/S Front Hanger 35mm 4 Hole Heavy Duty 14mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 35,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000803",
+      "part_number": "L9542R",
+      "product_name": "395 Dia Eicher Clutch   Plate 10MM",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Clutch plate outside diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        },
+        {
+          "name": "Specified plate thickness",
+          "value_mm": 10,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000811",
+      "part_number": "A02309020-0200",
+      "product_name": "Tata M20 x   2.5 x 78 Knurled Bolt & Nut",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 20,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 2.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 78,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000812",
+      "part_number": "A15979020-0200",
+      "product_name": "M22 x 2.5   x 115 Bolt W/M85900 Nut",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 2.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 115,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000813",
+      "part_number": "A22479020-0200",
+      "product_name": "M22 x 2.5   x 125 Hub Bolt W/Nut Knurlbolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 2.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 125,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000814",
+      "part_number": "B00941020-0200",
+      "product_name": "10 x 1.5 x   30 bolt & Nut Assy OAF",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 30,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000815",
+      "part_number": "B14305020-0200",
+      "product_name": "14 x 1.5 x   50 bolt & Nut Old A/F with nut",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 50,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000823",
+      "part_number": "885442071618",
+      "product_name": "Brk   Lng Std. RR - 4 pcs W/Rvt 410X 180 Cargo",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Lining length",
+          "value_mm": 410,
+          "source": "product_name"
+        },
+        {
+          "name": "Lining width",
+          "value_mm": 180,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000827",
+      "part_number": "886732000025",
+      "product_name": "LPK   3118 Fr. Pb. M/L 90x24",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf width",
+          "value_mm": 90,
+          "source": "product_name"
+        },
+        {
+          "name": "Leaf thickness",
+          "value_mm": 24,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000828",
+      "part_number": "886732000032",
+      "product_name": "LPT   2518/ Signa 3718 Rr. Conv. M/L 80x15",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf width",
+          "value_mm": 80,
+          "source": "product_name"
+        },
+        {
+          "name": "Leaf thickness",
+          "value_mm": 15,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000829",
+      "part_number": "886732000560",
+      "product_name": "LPK   3118 Fr. PB Aux-A/L 90x24",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leaf width",
+          "value_mm": 90,
+          "source": "product_name"
+        },
+        {
+          "name": "Leaf thickness",
+          "value_mm": 24,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000849",
+      "part_number": "FLA-UNVR-60 LED",
+      "product_name": "Fog Lamp 110mm   19 LED 12V",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Lamp diameter",
+          "value_mm": 110,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000850",
+      "part_number": "FLA-UNVR-60LED24",
+      "product_name": "Fog Lamp   110mm 19LED 24V",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Lamp diameter",
+          "value_mm": 110,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000851",
+      "part_number": "FLA-UNVR-60ledy",
+      "product_name": "Fog Lamp 110mm   19 LED 12V Yellow",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Lamp diameter",
+          "value_mm": 110,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000951",
+      "part_number": "395PN",
+      "product_name": "Clutch Plate 395 Dia Organic Disc NaviStar",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Clutch plate outside diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000954",
+      "part_number": "",
+      "product_name": "45 mm Bell Crank Washer 4mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 4,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000955",
+      "part_number": "",
+      "product_name": "45 mm Bell Crank Washer 5mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000956",
+      "part_number": "",
+      "product_name": "45 mm Bell Crank Washer 6mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000957",
+      "part_number": "",
+      "product_name": "45 mm Bell Crank Washer 7mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 7,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000958",
+      "part_number": "",
+      "product_name": "45 mm Bell Crank Washer 8mm Thickness",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified washer size",
+          "value_mm": 45,
+          "source": "product_name"
+        },
+        {
+          "name": "Washer thickness",
+          "value_mm": 8,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000969",
+      "part_number": "183F-AD-000395019L467-5R",
+      "product_name": "395 dia Disc Assy - Organic",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Clutch plate outside diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000970",
+      "part_number": "183F-AD-0004300199799-0R",
+      "product_name": "430 dia disc assy",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Clutch plate outside diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001005",
+      "part_number": "212103065-0201",
+      "product_name": "M10 x 1.5 x 65 Bolt GR. 8.8",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 10,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 65,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001006",
+      "part_number": "212123075-0200",
+      "product_name": "M12 x 1.5 x 75 Bolt GR. 8.8",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 75,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001009",
+      "part_number": "M91710-0200",
+      "product_name": "Tata 3rd arm nut 16 x 1.5 castle nut G10",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001027",
+      "part_number": "552330100125",
+      "product_name": "Accelerator Cable 2526 mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cable length",
+          "value_mm": 2526,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001028",
+      "part_number": "208230100108",
+      "product_name": "Accelerator Cable 3105 mm BS3",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Cable length",
+          "value_mm": 3105,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001030",
+      "part_number": "J4036",
+      "product_name": "R/S Rear Bracket 6 Hole 30mm New",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 30,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001036",
+      "part_number": "J4036A",
+      "product_name": "R/S Front Bracket EicherPro 35mm (chassis holes: 17mm)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 35,
+          "source": "product_name"
+        },
+        {
+          "name": "Chassis hole diameter",
+          "value_mm": 17,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001048",
+      "part_number": "TX-6011WOS-BZ",
+      "product_name": "Center bearing, 22 mm bearing width",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bearing width",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001051",
+      "part_number": "TX-88513WOS",
+      "product_name": "Center bearing for Tata 3118, 65 mm diameter",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified bearing diameter",
+          "value_mm": 65,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001053",
+      "part_number": "TX-6213WOS(2RS)",
+      "product_name": "Center bearing for VECV models, 65 mm diameter",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified bearing diameter",
+          "value_mm": 65,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001062",
+      "part_number": "NIRMAL/UB/372AB",
+      "product_name": "Bolt w/ Nut 20 x 102 x 10\" HR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 250,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 102,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001063",
+      "part_number": "NIRMAL/UB/1018",
+      "product_name": "Bolt w/ Nut 22 x 92 x 10.5\" FLT",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 263,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 92,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001064",
+      "part_number": "NIRMAL/UB/1019",
+      "product_name": "Bolt w/ Nut 22 x 92 x 11.5\" FLT",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 288,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 92,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001065",
+      "part_number": "NIRMAL/UB/793",
+      "product_name": "Bolt w/ Nut 22 x 92 x 12\" HR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 300,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 92,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001066",
+      "part_number": "NIRMAL/UB/208",
+      "product_name": "Bolt w/ Nut 20 x 70 x 14\" HR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 350,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 70,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001067",
+      "part_number": "NIRMAL/UB/369",
+      "product_name": "Bolt w/ Nut 20 x 92 x 11\" FLT",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 275,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 92,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001068",
+      "part_number": "NIRMAL/UB/792",
+      "product_name": "Bolt w/ Nut 22 x 92 x 11\" HR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 275,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 92,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001069",
+      "part_number": "NIRMAL/UB/368A",
+      "product_name": "Bolt w/ Nut 20 x 92 x 10\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 250,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 92,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 20,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001070",
+      "part_number": "NIRMAL/UB/790",
+      "product_name": "Bolt w/ Nut 22 x 92 x 9\" HR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 225,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 92,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001071",
+      "part_number": "NIRMAL/UB/266",
+      "product_name": "Bolt w/ Nut 22 x 82 x 18\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 450,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001072",
+      "part_number": "NIRMAL/UB/265",
+      "product_name": "Bolt w/ Nut 22 x 82 x 17\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 425,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001073",
+      "part_number": "NIRMAL/UB/267",
+      "product_name": "Bolt w/ Nut 22 x 82 x 19\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 475,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001074",
+      "part_number": "NIRMAL/UB/268",
+      "product_name": "Bolt w/ Nut 22 x 82 x 20\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 500,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001075",
+      "part_number": "NIRMAL/UB/269",
+      "product_name": "Bolt w/ Nut 22 x 82 x 21\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 525,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001076",
+      "part_number": "NIRMAL/UB/270",
+      "product_name": "Bolt w/ Nut 22 x 82 x 22\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 550,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001077",
+      "part_number": "NIRMAL/UB/271",
+      "product_name": "Bolt w/ Nut 22 x 82 x 23\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 575,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001078",
+      "part_number": "NIRMAL/UB/272",
+      "product_name": "Bolt w/ Nut 22 x 82 x 24\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 600,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001079",
+      "part_number": "NIRMAL/UB/273",
+      "product_name": "Bolt w/ Nut 22 x 82 x 25\" FR",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Leg length",
+          "value_mm": 625,
+          "source": "product_name; nominal inch length converted at 25 mm/in using the existing Nirmal weight-model convention"
+        },
+        {
+          "name": "Inside width",
+          "value_mm": 82,
+          "source": "product_name"
+        },
+        {
+          "name": "Rod diameter",
+          "value_mm": 22,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001131",
+      "part_number": "KF5002",
+      "product_name": "Front Engine Mounting Tata 16 mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified mounting size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001141",
+      "part_number": "RM016001E",
+      "product_name": "Front Engine Mounting Cummins 16 mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified mounting size",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000015",
+      "part_number": "",
+      "product_name": "10\" Center Bolt LH",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000047",
+      "part_number": "SBAM 495",
+      "product_name": "14\" Center Bolt 5/8",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000078",
+      "part_number": "",
+      "product_name": "18 x 110 bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal bolt diameter",
+          "value_mm": 18,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 110,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000095",
+      "part_number": "272425000223",
+      "product_name": "Set - Clutch Assy. Dia 190",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 190,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000096",
+      "part_number": "272425000235",
+      "product_name": "Clutch Disc Assy. (Dia 275) BS6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 275,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000097",
+      "part_number": "272425200235",
+      "product_name": "Clutch Disc Dia 215 BS6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 215,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000098",
+      "part_number": "272425400235",
+      "product_name": "Clutch Cover Assy. Dia 215 BS6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 215,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000232",
+      "part_number": "380CT",
+      "product_name": "380 CT Cover Assy. for 380 Dia",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000301",
+      "part_number": "SBAM 145",
+      "product_name": "Centre Bolt - 15/32 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000302",
+      "part_number": "SBAM 146",
+      "product_name": "Centre Bolt - 15/32 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000303",
+      "part_number": "SBAM 147",
+      "product_name": "Centre Bolt - 15/32 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000304",
+      "part_number": "SBAM 228",
+      "product_name": "Centre Bolt - 15/32 16\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 406.4,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000305",
+      "part_number": "SBAM 369",
+      "product_name": "Centre Bolt - 15/32 18\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 11.91,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 457.2,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000306",
+      "part_number": "SBAM 366",
+      "product_name": "Centre Bolt - 5/8 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000307",
+      "part_number": "SBAM 427",
+      "product_name": "Centre Bolt - 5/8 16\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 406.4,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000308",
+      "part_number": "SBAM 442",
+      "product_name": "Centre Bolt - 5/8 18\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 457.2,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000317",
+      "part_number": "SBAM 367",
+      "product_name": "Center Bolt 5/8 - 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000318",
+      "part_number": "SBAM 394",
+      "product_name": "Center Bolt 5/8 - 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt diameter",
+          "value_mm": 15.88,
+          "source": "product_name; inch fraction converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000429",
+      "part_number": "",
+      "product_name": "Pressure Plate 330 Dia Sonalika 4 Lever",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 330,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000442",
+      "part_number": "SK380",
+      "product_name": "Spring Kit 380 Dia",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000503",
+      "part_number": "TX-7896 SC",
+      "product_name": "430 dia. 2.0 inch spline for Tata Prima/Eicher Pro-8000 (self-centering)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        },
+        {
+          "name": "Spline nominal diameter",
+          "value_mm": 50.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000504",
+      "part_number": "TX-92AL-H",
+      "product_name": "Ashok Leyland clutch bearing (280–300 dia./Ecomet) with hub",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter minimum",
+          "value_mm": 280,
+          "source": "product_name"
+        },
+        {
+          "name": "Associated clutch diameter maximum",
+          "value_mm": 300,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000505",
+      "part_number": "TX-6695SC",
+      "product_name": "Ashok Leyland 380 dia. 2516IL/3116IL/3118IL/4019IL/3518IL/2516XL/1218 Boss/918 Boss truck",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000537",
+      "part_number": "TX-430-CRK9",
+      "product_name": "Tata Prima 430 dia. collector ring",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000796",
+      "part_number": "183-AP-00380061L1019-3R",
+      "product_name": "380Dia   Cover Assy. Low Mi",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000798",
+      "part_number": "183F-ST-000LP41600070-0R",
+      "product_name": "430   Dia Clutch Set",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000799",
+      "part_number": "183LP-L4648R-144",
+      "product_name": "395 Dia Eicher   combo",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000800",
+      "part_number": "380019-L1013-5R",
+      "product_name": "380Dia Clutch   Set",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000801",
+      "part_number": "4648R",
+      "product_name": "395 Dia Eicher Cover Assy",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000802",
+      "part_number": "AP-00330061L9527-0R",
+      "product_name": "330Dia   Clutch Cover Assy BS VI Diaphragm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 330,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000826",
+      "part_number": "886725000020",
+      "product_name": "Clutch Facing 380 Dia with Rivets",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000942",
+      "part_number": "TX 78139SC",
+      "product_name": "Clutch Release Bearing for Tata Commercial Vehicles 430 dia",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000944",
+      "part_number": "TX 4049 SC M",
+      "product_name": "Mahindra Blazo (395 dia)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000945",
+      "part_number": "SF5030",
+      "product_name": "Leyland 430 dia 160 teeth",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000947",
+      "part_number": "TX 6638SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland Heavy Duty Truck 31ton and 9speen GB 380dia",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000948",
+      "part_number": "TX 6398SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland 1.75 inch 9S GB - 395 dia BS 6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000950",
+      "part_number": "395DN",
+      "product_name": "Cover Assy 395 Dia Navistar",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000971",
+      "part_number": "183F-AP-0004307019800-0R",
+      "product_name": "430 dia cover assembly BS VI",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 430,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000997",
+      "part_number": "TX 6396SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland 1.75\" 6S GB 380 dia BS6",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 380,
+          "source": "product_name"
+        },
+        {
+          "name": "Spline nominal diameter",
+          "value_mm": 44.45,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000309",
+      "part_number": "SBAM 499",
+      "product_name": "Centre Bolt 3118 - 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000310",
+      "part_number": "SBAM 500",
+      "product_name": "Centre Bolt 3118 - 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000311",
+      "part_number": "SBBS 1424",
+      "product_name": "Centre Bolt Turbo - 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000312",
+      "part_number": "SBBS 1426",
+      "product_name": "Centre Bolt Turbo - 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000313",
+      "part_number": "SBAM 496",
+      "product_name": "Centre Bolt U Truck - 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000314",
+      "part_number": "SBAM 596",
+      "product_name": "Centre Bolt U Truck - 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000690",
+      "part_number": "MBJS 112",
+      "product_name": "Eye Bolt w/ Lock Nut 10\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 254,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000691",
+      "part_number": "MBJS 114",
+      "product_name": "Eye Bolt w/ Lock Nut 11\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 279.4,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000692",
+      "part_number": "MBJS 116",
+      "product_name": "Eye Bolt w/ Lock Nut 12\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 304.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000693",
+      "part_number": "MSJS 217",
+      "product_name": "Eye Bolt w/ Lock Nut 13\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 330.2,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000694",
+      "part_number": "MBJS 258",
+      "product_name": "Eye Bolt w/ Lock Nut 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal eye-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000877",
+      "part_number": "SBAM 231",
+      "product_name": "Centre Bolt LH 14\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal centre-bolt length",
+          "value_mm": 355.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000080",
+      "part_number": "",
+      "product_name": "18 mm Union",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Tube connection outside diameter",
+          "value_mm": 18,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000242",
+      "part_number": "",
+      "product_name": "Brake Pipe Clutch O/O 84\"",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Brake pipe overall length",
+          "value_mm": 2133.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000754",
+      "part_number": "F8014600",
+      "product_name": "Front Cab Mounting Bush, 8.1 cm, ID 1.95 cm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Bush outside diameter",
+          "value_mm": 81,
+          "source": "product_name; 8.1 cm converted to millimetres"
+        },
+        {
+          "name": "Bush inside diameter",
+          "value_mm": 19.5,
+          "source": "product_name; 1.95 cm converted to millimetres"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000861",
+      "part_number": "HLU-UNVR-70M",
+      "product_name": "HL Unit 7\"   MFR P-43 WT/P",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal headlamp diameter",
+          "value_mm": 177.8,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001007",
+      "part_number": "29050626",
+      "product_name": "Clutch Booster Assy 4\" 16mm (Ball End)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Clutch booster nominal diaphragm diameter",
+          "value_mm": 101.6,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Ball-end diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001008",
+      "part_number": "M58340-5901",
+      "product_name": "SFL M16 x 1.5 x 144 collar bolt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 16,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 144,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000816",
+      "part_number": "M13520-0200",
+      "product_name": "M12x1.5x35",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal thread diameter",
+          "value_mm": 12,
+          "source": "product_name"
+        },
+        {
+          "name": "Thread pitch",
+          "value_mm": 1.5,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal bolt length",
+          "value_mm": 35,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000715",
+      "part_number": "J2111",
+      "product_name": "Front Shackle Leyland BS6   80mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified shackle size",
+          "value_mm": 80,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000731",
+      "part_number": "J1114",
+      "product_name": "Front Shackle 32mm 3718",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified shackle/pin size",
+          "value_mm": 32,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000736",
+      "part_number": "J1618",
+      "product_name": "Shackle Assembly for Tata   Signa Front Spring (fits with J1606 24mm Bush)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Specified mating bush diameter",
+          "value_mm": 24,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000795",
+      "part_number": "J1029",
+      "product_name": "R/s Bracket 42mm 4 Holes 14mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Main pin/bush bore or nominal size",
+          "value_mm": 42,
+          "source": "product_name"
+        },
+        {
+          "name": "Mounting hole diameter",
+          "value_mm": 14,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000755",
+      "part_number": "FAT02000",
+      "product_name": "Cl. Disc. 33cm Dia   Diaph B8090 1.38SPL - 1cm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 330,
+          "source": "product_name"
+        },
+        {
+          "name": "Spline nominal diameter",
+          "value_mm": 35.05,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in"
+        },
+        {
+          "name": "Specified facing/pad dimension",
+          "value_mm": 10,
+          "source": "product_name; 1 cm converted to millimetres"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000751",
+      "part_number": "B1M03401",
+      "product_name": "Cl. Cover 33cm   Diaphragm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch/pressure-plate diameter",
+          "value_mm": 330,
+          "source": "product_name; 33 cm converted to millimetres"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000246",
+      "part_number": "CC 016008R",
+      "product_name": "Withdrawal Plate GB 75 (6mm)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Withdrawal plate thickness",
+          "value_mm": 6,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000494",
+      "part_number": "TX-5780",
+      "product_name": "Eicher dia. 395 – VE2100 8x2/6x2 haulage vehicles",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 395,
+          "source": "product_name"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000495",
+      "part_number": "TX-60 TM",
+      "product_name": "Tata GB60 (1.75 inch/4.45 cm)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 44.45,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000496",
+      "part_number": "TX-6346 SC",
+      "product_name": "Clutch release bearing for Ashok Leyland 1.75 inch 15\" RDC 2095 GB & 850 OD gearbox",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 44.45,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000499",
+      "part_number": "TX-6698 SC",
+      "product_name": "Ashok Leyland 1.75 inch, 25 ton to 31 ton, 15\" RDC 2095 GB & 850 OD gearbox, FVB00700",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 44.45,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000946",
+      "part_number": "TX 4865SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland 1.5\" haulage U-truck",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 38.1,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000993",
+      "part_number": "TX 4556SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland 1.7\" Tipper 25-40 ton",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 43.18,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000998",
+      "part_number": "TX 6647SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland (1.5\" clutch haulage- 1616 all model + pv viking + cheetha)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 38.1,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000999",
+      "part_number": "TX 6651SC",
+      "product_name": "Clutch Release Bearing for Ashok Leyland (1.7\" clutch/25-40 ton, Tipper)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Associated clutch diameter",
+          "value_mm": 43.18,
+          "source": "product_name; inch converted to millimetres at 25.4 mm/in; source does not identify this as the bearing body's overall diameter"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000230",
+      "part_number": "15IPL",
+      "product_name": "15 IPL-WP C.P. AL Fan Type 15\" Wider Pad",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal clutch size",
+          "value_mm": 381,
+          "source": "product_name; 15-inch clutch designation converted to millimetres; catalogue says wider pad, not an overall envelope measurement"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000467",
+      "part_number": "886715000001",
+      "product_name": "Poly V Belt (4 Grooves 720)",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Belt groove count",
+          "value_mm": 4,
+          "source": "product_name"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 720,
+          "source": "product_name; Poly-V belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000617",
+      "part_number": "AV13X850",
+      "product_name": "AV13X850 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 850,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001115",
+      "part_number": "AV10X1185",
+      "product_name": "AV10X1185 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 10,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1185,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001116",
+      "part_number": "AV13X1325T",
+      "product_name": "AV13X1325T Fan Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1325,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001151",
+      "part_number": "AV13X820",
+      "product_name": "AV13X820 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 820,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001155",
+      "part_number": "XV13X1355",
+      "product_name": "XV13X1355 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1355,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001156",
+      "part_number": "AVX13X1260",
+      "product_name": "AVX13X1260 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1260,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS001160",
+      "part_number": "AV13X1580",
+      "product_name": "AV13X1580 Cogged Belt",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Nominal belt section width",
+          "value_mm": 13,
+          "source": "product_name; AV/XV belt designation; validate against belt maker datasheet"
+        },
+        {
+          "name": "Nominal belt length designation",
+          "value_mm": 1580,
+          "source": "product_name; AV/XV belt designation; not parcel envelope"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000671",
+      "part_number": "",
+      "product_name": "Battery (Terminal) Cable   440/.30mm",
+      "dimensions_label": "Named component or fitment specifications (mm); not shipping-carton dimensions",
+      "specs": [
+        {
+          "name": "Conductor strand diameter",
+          "value_mm": 0.3,
+          "source": "product_name; 0.30 mm strand size in 440/.30 cable designation"
+        }
+      ]
+    },
+    {
+      "id": "SVKS000064",
       "part_number": "269533403101",
-      "product_name": "TAPER ROLLER BRG 30204",
+      "product_name": "Taper Roller Bearing 30204",
       "dimensions_label": "Bearing boundary or associated component dimensions (mm); not shipping-carton dimensions",
       "specs": [
         {
           "name": "Bearing bore diameter",
           "value_mm": 20,
           "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30204; standard metric tapered bearing dimension reference; verify brand-specific variant"
-        }{
+        },
+        {
+          "name": "Bearing outside diameter",
+          "value_mm": 47,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30204; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        },
+        {
+          "name": "Bearing overall width (T)",
+          "value_mm": 15.25,
+          "source": "https://cad.timken.com/item/tapered-roller-bearings-ts-tapered-single-/tapered-roller-bearings-ts-tapered-single-metric/30204; standard metric tapered bearing dimension reference; verify brand-specific variant"
+        }
+      ]
+    },
+    {
       "id": "SVKS000975",
       "part_number": "269533403101",
       "product_name": "TAPER ROLLER BRG 30204",
