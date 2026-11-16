@@ -156,6 +156,43 @@ def validate_auth_ownership(errors: list[str]) -> None:
             f"assets/js/site-core.js; found {auth_listeners}"
         )
 
+def validate_rfq_engine_routing(errors: list[str]) -> None:
+    """Ensure the RFQ engine is loaded only where the page requires it."""
+    html_paths = [
+        *sorted(ROOT.glob("*.html")),
+        *sorted((ROOT / "en").rglob("*.html")),
+        *sorted((ROOT / "hi").rglob("*.html")),
+        *sorted((ROOT / "bn").rglob("*.html")),
+    ]
+    required_marker = re.compile(
+        r'class=["\'][^"\']*(?:add-to-cart|pdp-rfq-btn)',
+        flags=re.I,
+    )
+
+    for html_path in html_paths:
+        if not html_path.is_file():
+            continue
+        html = html_path.read_text(encoding="utf-8")
+        sources = script_sources(html)
+        has_alternative_engine = "/assets/js/request-quote/rfq.js" in sources
+        requires_engine = not has_alternative_engine and (
+            bool(required_marker.search(html))
+            or "/assets/js/components/product-card.js" in sources
+        )
+        loads_engine = "/assets/js/account/rfq.js" in sources
+
+        if requires_engine and not loads_engine:
+            errors.append(
+                f"{html_path.relative_to(ROOT)} has RFQ/product-card controls "
+                "but does not load assets/js/account/rfq.js."
+            )
+        elif loads_engine and not requires_engine:
+            errors.append(
+                f"{html_path.relative_to(ROOT)} loads assets/js/account/rfq.js "
+                "without RFQ/product-card requirements."
+            )
+
+
 def main() -> None:
     if not SITE_CORE.is_file():
         fail("assets/js/site-core.js is missing.")
@@ -163,6 +200,7 @@ def main() -> None:
     errors: list[str] = []
     validate_asset_versions(errors)
     validate_auth_ownership(errors)
+    validate_rfq_engine_routing(errors)
 
     # All browser JavaScript modules use lowercase kebab-case; numeric utility
     # pages such as 404.js are explicitly permitted.
