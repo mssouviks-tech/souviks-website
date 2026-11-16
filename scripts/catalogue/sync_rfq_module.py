@@ -46,7 +46,7 @@ def sync_shared_rfq_script(path: Path, html: str, version: str) -> str:
     # Remove any stale or duplicate include first. Required pages get one
     # correctly versioned include reinserted after their shared runtime.
     updated = RFQ_SCRIPT_TAG.sub("", html)
-    if not needs_rfq_engine(updated):
+    if not needs_rfq_engine(path, updated):
         return updated
 
     tag = f'<script defer src="{RFQ_URL}?v={version}"></script>'
@@ -77,7 +77,7 @@ def main() -> int:
         updated = sync_shared_rfq_script(path, original, version)
         if updated != original:
             had_script = bool(RFQ_SCRIPT_TAG.search(original))
-            needs_script = needs_rfq_engine(updated)
+            needs_script = needs_rfq_engine(path, updated)
             path.write_text(updated, encoding="utf-8")
             changed += 1
             if needs_script and not had_script:
