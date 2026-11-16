@@ -31,8 +31,11 @@ def pages_to_scan():
         yield from (ROOT / language).rglob("*.html")
 
 
-def needs_rfq_engine(html: str) -> bool:
-    """Return whether visible page markup or modules require the RFQ engine."""
+def needs_rfq_engine(path: Path, html: str) -> bool:
+    """Return whether this route's markup or modules require the RFQ engine."""
+    # The account route hosts the authenticated RFQ basket itself.
+    if path.name == "account.html":
+        return True
     if "/assets/js/request-quote/rfq.js" in html:
         return False
     return bool(
