@@ -175,9 +175,11 @@ def validate_rfq_engine_routing(errors: list[str]) -> None:
         html = html_path.read_text(encoding="utf-8")
         sources = script_sources(html)
         has_alternative_engine = "/assets/js/request-quote/rfq.js" in sources
-        requires_engine = not has_alternative_engine and (
-            bool(required_marker.search(html))
-            or "/assets/js/components/product-card.js" in sources
+        requires_engine = html_path.name == "account.html" or (
+            not has_alternative_engine and (
+                bool(required_marker.search(html))
+                or "/assets/js/components/product-card.js" in sources
+            )
         )
         loads_engine = "/assets/js/account/rfq.js" in sources
 
