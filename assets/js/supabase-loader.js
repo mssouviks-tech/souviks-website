@@ -83,25 +83,40 @@
     return clientPromise;
   }
 
-  function queryProxy(promise) {
+  function queryProxy(valuePromise) {
+    // Supabase PostgREST builders are thenable. Keep each intermediate value
+    // inside a plain box so Promise resolution does not execute the query
+    // before the caller has finished chaining select/filter/single methods.
+    const unwrap = () => valuePromise.then((box) => box.value);
+
     return new Proxy(Object.create(null), {
       get(_target, property) {
-        if (property === "then") return promise.then.bind(promise);
-        if (property === "catch") return promise.catch.bind(promise);
-        if (property === "finally") return promise.finally.bind(promise);
+        if (property === "then") {
+          const promise = unwrap();
+          return promise.then.bind(promise);
+        }
+        if (property === "catch") {
+          const promise = unwrap();
+          return promise.catch.bind(promise);
+        }
+        if (property === "finally") {
+          const promise = unwrap();
+          return promise.finally.bind(promise);
+        }
         if (property === Symbol.toStringTag) return "SupabaseLazyQuery";
         if (typeof property === "symbol") return undefined;
 
         return (...args) =>
           queryProxy(
-            promise.then((builder) => {
+            valuePromise.then((box) => {
+              const builder = box.value;
               const operation = builder?.[property];
               if (typeof operation !== "function") {
                 throw new TypeError(
                   "Unsupported Supabase query operation: " + String(property),
                 );
               }
-              return operation.apply(builder, args);
+              return { value: operation.apply(builder, args) };
             }),
           );
       },
@@ -128,7 +143,7 @@
                     String(property),
                 );
               }
-              return operation.apply(service, args);
+              return { value: operation.apply(service, args) };
             }),
           );
       },
@@ -156,11 +171,11 @@
 
         if (property === "from") {
           return (...args) =>
-            queryProxy(ensureClient().then((client) => client.from(...args)));
+            queryProxy(ensureClient().then((client) => ({ value: client.from(...args) })));
         }
         if (property === "rpc") {
           return (...args) =>
-            queryProxy(ensureClient().then((client) => client.rpc(...args)));
+            queryProxy(ensureClient().then((client) => ({ value: client.rpc(...args) })));
         }
         if (
           property === "auth" ||
@@ -180,7 +195,7 @@
                     String(property),
                 );
               }
-              return operation.apply(client, args);
+              return { value: operation.apply(client, args) };
             }),
           );
       },
