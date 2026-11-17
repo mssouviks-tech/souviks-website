@@ -63,7 +63,7 @@ assert.match(account, /gst_invoices/);
 assert.match(account, /invoice_status/);
 assert.match(accountUi, /functions\.invoke\("gst-invoice"/);
 assert.match(accountUi, /order\.invoice_status === "issued"/);
-assert.match(paymentUi, /data\.invoice_status !== "issued"/);
+assert.match(paymentUi, /data\.invoice_status\s*!==\s*"issued"/);
 assert.match(paymentUi, /checkout_token: token/);
 assert.match(pageBuilder, /INVOICE_DOWNLOAD/);
 assert.match(config, /\[functions\.gst-invoice\]\s*verify_jwt\s*=\s*false/);
