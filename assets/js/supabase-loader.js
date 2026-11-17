@@ -108,23 +108,19 @@
     });
   }
 
-  function serviceProxy(servicePromise) {
+  function serviceProxy(serviceName) {
     return new Proxy(Object.create(null), {
       get(_target, property) {
         if (property === "then") return undefined;
         if (property === Symbol.toStringTag) return "SupabaseLazyService";
         if (typeof property === "symbol") return undefined;
 
-        if (property === "from") {
-          return (...args) =>
-            queryProxy(
-              servicePromise.then((service) => service.from(...args)),
-            );
-        }
-
+        // Reading supabaseClient.auth/functions/storage is inert. The SDK
+        // loads only when an actual method on that service is invoked.
         return (...args) =>
           queryProxy(
-            servicePromise.then((service) => {
+            ensureClient().then((client) => {
+              const service = client?.[serviceName];
               const operation = service?.[property];
               if (typeof operation !== "function") {
                 throw new TypeError(
@@ -171,9 +167,7 @@
           property === "functions" ||
           property === "storage"
         ) {
-          return serviceProxy(
-            ensureClient().then((client) => client[property]),
-          );
+          return serviceProxy(property);
         }
 
         return (...args) =>
