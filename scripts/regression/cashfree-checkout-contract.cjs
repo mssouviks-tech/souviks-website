@@ -133,7 +133,7 @@ assert.match(pageGenerator, /checkout-fulfillment-pickup/);
 assert.match(pageGenerator, /checkout-delivery-fields/);
 assert.match(cart, /cashfree-create-order/);
 assert.match(cart, /cashfree-verify-order/);
-assert.match(cart, /payment_status === "paid"/);
+assert.match(cart, /payment_status\s*===\s*"paid"/);
 assert.match(cart, /add-to-purchase-cart/);
 assert.match(cart, /checkout_token/);
 assert.doesNotMatch(cart, /CASHFREE_CLIENT_SECRET|SUPABASE_SERVICE_ROLE_KEY|sb_secret_/i);
@@ -162,7 +162,7 @@ assert.match(cart, /closest\("\.product-card"\)\?\.querySelector\("\[data-produc
 // fails closed if only the orphaned remove control remains.
 assert.match(cart, /legacyRfqButton\?\.remove\(\)/);
 assert.match(cart, /legacyRemoveButton\?\.remove\(\)/);
-assert.match(cart, /if \(!legacyRfqButton\)/);
+assert.match(cart, /if\s*\(!legacyRfqButton\)/);
 assert.match(cart, /quantityControls\?\.remove\(\)/);
 
 assert.match(pageGenerator, /ROOT \/ lang \/ "cart\.html"/);
