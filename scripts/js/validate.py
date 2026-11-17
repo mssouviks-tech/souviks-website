@@ -92,7 +92,7 @@ def script_sources(html: str) -> list[str]:
 
 
 VERSIONED_ASSET_RE = re.compile(
-    r'(?P<asset>/(?:assets/js/(?:site-core|catalogue-core|attribution)\.js|assets/js/bundles/[^"?]+\.js|assets/js/(?:account|products|product|request-quote|components|cart)/[^"?]+\.js))'
+    r'(?P<asset>/(?:assets/js/(?:site-core|catalogue-core|attribution|supabase-loader)\.js|assets/js/bundles/[^"?]+\.js|assets/js/(?:account|products|product|request-quote|components|cart)/[^"?]+\.js))'
     r'(?P<query>\?v=(?P<version>[0-9a-f]{12}))?'
 )
 
@@ -131,6 +131,39 @@ def validate_asset_versions(errors: list[str]) -> None:
                     f"{html_path.relative_to(ROOT)} has a stale JavaScript cache version for "
                     f"{asset_rel}: expected ?v={expected}, got {observed}."
                 )
+
+def validate_supabase_loader(errors: list[str]) -> None:
+    """Ensure the eager CDN SDK is removed and the lazy loader precedes site-core."""
+    html_paths = [
+        *sorted(ROOT.glob("*.html")),
+        *sorted((ROOT / "en").rglob("*.html")),
+        *sorted((ROOT / "hi").rglob("*.html")),
+        *sorted((ROOT / "bn").rglob("*.html")),
+    ]
+    sdk_tag = re.compile(
+        r'<script\b[^>]*\bsrc=["\'][^"\']*supabase-js[^"\']*["\'][^>]*></script>',
+        flags=re.I | re.S,
+    )
+
+    for html_path in html_paths:
+        if not html_path.is_file():
+            continue
+        html = html_path.read_text(encoding="utf-8")
+        if sdk_tag.search(html):
+            errors.append(
+                f"{html_path.relative_to(ROOT)} still loads the Supabase SDK directly from a CDN."
+            )
+        sources = script_sources(html)
+        if "/assets/js/site-core.js" in sources:
+            if "/assets/js/supabase-loader.js" not in sources:
+                errors.append(
+                    f"{html_path.relative_to(ROOT)} loads site-core.js without supabase-loader.js."
+                )
+            elif sources.index("/assets/js/supabase-loader.js") > sources.index("/assets/js/site-core.js"):
+                errors.append(
+                    f"{html_path.relative_to(ROOT)} loads supabase-loader.js after site-core.js."
+                )
+
 
 def validate_auth_ownership(errors: list[str]) -> None:
     """Ensure the shared core is the sole owner of Supabase auth lifecycle."""
@@ -201,6 +234,7 @@ def main() -> None:
 
     errors: list[str] = []
     validate_asset_versions(errors)
+    validate_supabase_loader(errors)
     validate_auth_ownership(errors)
     validate_rfq_engine_routing(errors)
 
