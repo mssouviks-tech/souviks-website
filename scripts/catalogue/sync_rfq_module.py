@@ -45,14 +45,28 @@ def needs_rfq_engine(path: Path, html: str) -> bool:
 
 
 def sync_shared_rfq_script(path: Path, html: str, version: str) -> str:
-    """Add, refresh or remove the RFQ engine based on actual page requirements."""
-    # Remove any stale or duplicate include first. Required pages get one
-    # correctly versioned include reinserted after their shared runtime.
-    updated = RFQ_SCRIPT_TAG.sub("", html)
-    if not needs_rfq_engine(path, updated):
+    """Add, refresh or remove the RFQ engine without changing valid script order."""
+    tag = f'<script defer src="{RFQ_URL}?v={version}"></script>'
+    if not needs_rfq_engine(path, html):
+        return RFQ_SCRIPT_TAG.sub("", html)
+
+    # Keep an existing script in its original location. This matters on account
+    # pages, where rfq.js is one entry in a deliberately ordered module list.
+    found = False
+
+    def refresh_existing(_match: re.Match[str]) -> str:
+        nonlocal found
+        if found:
+            return ""
+        found = True
+        return tag + "\n"
+
+    updated = RFQ_SCRIPT_TAG.sub(refresh_existing, html)
+    if found:
         return updated
 
-    tag = f'<script defer src="{RFQ_URL}?v={version}"></script>'
+    # New RFQ-enabled pages get the engine after the shared runtime and before
+    # any page module that binds its controls.
     for pattern in (CATALOGUE_CORE_TAG, SITE_CORE_TAG, PRODUCT_CARD_TAG):
         match = pattern.search(updated)
         if match:
