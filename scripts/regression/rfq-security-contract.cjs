@@ -33,7 +33,10 @@ function loadValidators(moduleSource, label) {
     window: { souviks: { currentLanguage: "en" } },
     document: { documentElement: { lang: "en" } },
   };
-  vm.runInNewContext(moduleSource.slice(start, end), sandbox, {
+  const validatorSource = moduleSource
+    .slice(start, end)
+    .replace(/,\\s*$/, ";");
+  vm.runInNewContext(validatorSource, sandbox, {
     filename: label,
     timeout: 1000,
   });
