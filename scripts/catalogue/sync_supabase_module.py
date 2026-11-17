@@ -46,7 +46,7 @@ def sync_page(path: Path, source: str, version: str) -> str:
     # Removing an indented script tag can leave its original indentation on
     # an otherwise blank line; strip whitespace-only lines so git diff --check
     # remains clean on generated HTML.
-    updated = re.sub(r"(?m)^[ \\t]+$", "", updated)
+    updated = re.sub(r"(?m)^[ \t]+$", "", updated)
     tag = f'<script defer src="{LOADER_URL}?v={version}"></script>'
 
     # Normalize any existing loader tags first, then insert exactly one
