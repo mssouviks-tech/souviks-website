@@ -38,21 +38,9 @@ def sync_page(path: Path, source: str, version: str) -> str:
     updated = SUPABASE_SDK_TAG.sub("", source)
     tag = f'<script defer src="{LOADER_URL}?v={version}"></script>'
 
-    existing = list(LOADER_TAG.finditer(updated))
-    if existing:
-        first = existing[0]
-        updated = (
-            updated[:first.start()]
-            + tag
-            + updated[first.end():]
-        )
-        # Remove any duplicate lazy-loader references.
-        updated = LOADER_TAG.sub(
-            lambda match: "" if match.start() != first.start() else match.group(0),
-            updated,
-        )
-        return updated
-
+    # Normalize any existing loader tags first, then insert exactly one
+    # versioned reference immediately before site-core.js.
+    updated = LOADER_TAG.sub("", updated)
     core = SITE_CORE_TAG.search(updated)
     if not core:
         if source != updated:
@@ -88,4 +76,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()
