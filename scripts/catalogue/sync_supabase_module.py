@@ -43,6 +43,10 @@ def pages_to_scan():
 def sync_page(path: Path, source: str, version: str) -> str:
     # Remove every eager SDK script, including the non-defer cart-page variant.
     updated = SUPABASE_SDK_TAG.sub("", source)
+    # Removing an indented script tag can leave its original indentation on
+    # an otherwise blank line; strip whitespace-only lines so git diff --check
+    # remains clean on generated HTML.
+    updated = re.sub(r"(?m)^[ \\t]+$", "", updated)
     tag = f'<script defer src="{LOADER_URL}?v={version}"></script>'
 
     # Normalize any existing loader tags first, then insert exactly one
