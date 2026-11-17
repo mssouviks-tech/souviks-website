@@ -114,9 +114,13 @@ jobs:
           node --check scripts/regression/hsn-ecommerce-contract.cjs
           node --check scripts/regression/hsn-stock-reference-crosswalk.cjs
           node --check scripts/regression/delhivery-estimate-contract.cjs
+          node --check scripts/regression/supabase-lazy-loader-contract.cjs
 
       - name: Validate RFQ security contract
         run: node scripts/regression/rfq-security-contract.cjs
+
+      - name: Validate Supabase lazy-loader contract
+        run: node scripts/regression/supabase-lazy-loader-contract.cjs
 
       - name: Validate Cashfree checkout contract
         run: node scripts/regression/cashfree-checkout-contract.cjs
