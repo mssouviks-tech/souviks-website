@@ -20,19 +20,23 @@ const source = Object.fromEntries(
 );
 
 function loadValidators(moduleSource, label) {
-  const start = moduleSource.indexOf("RFQ.SUBMISSION_LIMITS = Object.freeze({");
-  const end = moduleSource.indexOf(
-    "\n\n/*\n----------------------------------------------------------\nGET CURRENT USER",
-    start
-  );
-  assert.ok(start >= 0 && end > start, `${label}: validator source block must exist`);
+  // Locate the validation block by JavaScript assignments, not formatting or
+  // comments: the production build minifies this module before this contract runs.
+  const startMatch = /RFQ\.SUBMISSION_LIMITS\s*=\s*Object\.freeze\s*\(\s*\{/.exec(moduleSource);
+  const endMatch = /RFQ\.getUser\s*=/.exec(moduleSource);
+  const start = startMatch?.index ?? -1;
+  const end = endMatch?.index ?? -1;
+  assert.ok(start >= 0 && end > start, label + ": validator source block must exist");
 
   const sandbox = {
     RFQ: {},
     window: { souviks: { currentLanguage: "en" } },
     document: { documentElement: { lang: "en" } },
   };
-  vm.runInNewContext(moduleSource.slice(start, end), sandbox, {
+  const validatorSource = moduleSource
+    .slice(start, end)
+    .replace(/,\s*$/, ";");
+  vm.runInNewContext(validatorSource, sandbox, {
     filename: label,
     timeout: 1000,
   });
