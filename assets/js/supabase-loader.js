@@ -219,12 +219,8 @@
     }
   }
 
-  const shim = {};
-  shim.__souviksLazyLoader = true;
-  shim["createClient"] = createLazyClient;
-  window["supabase"] = shim;
-
   window.SouviksSupabase = Object.freeze({
+    createClient: createLazyClient,
     ensureClient,
     loadSdk,
     hasPersistedSessionOrCallback,
