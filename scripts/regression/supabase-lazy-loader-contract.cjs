@@ -99,8 +99,14 @@ async function main() {
   const queryResult = client
     .from("product_reviews")
     .select("id,reviewer_name")
-    .eq("status", "approved");
+    .eq("status", "approved")
+    .maybeSingle();
 
+  assert.equal(
+    operations.some((operation) => operation[0] === "execute"),
+    false,
+    "chaining methods on a thenable PostgREST builder must not execute the query early",
+  );
   assert.equal(injectedScripts.length, 1, "first data access must request the SDK");
   const script = injectedScripts[0];
   assert.equal(script.async, true, "SDK script must be asynchronous");
@@ -113,10 +119,18 @@ async function main() {
     },
     eq(column, value) {
       operations.push(["eq", column, value]);
+      return this;
+    },
+    maybeSingle() {
+      operations.push(["maybeSingle"]);
+      return this;
+    },
+    then(resolve, reject) {
+      operations.push(["execute"]);
       return Promise.resolve({
-        data: [{ id: "review-1", reviewer_name: "Souviks Customer" }],
+        data: { id: "review-1", reviewer_name: "Souviks Customer" },
         error: null,
-      });
+      }).then(resolve, reject);
     },
   };
 
@@ -167,7 +181,12 @@ async function main() {
   script.onload();
 
   const result = await queryResult;
-  assert.equal(result.data.length, 1);
+  assert.equal(result.data.id, "review-1");
+  assert.equal(
+    operations.filter((operation) => operation[0] === "execute").length,
+    1,
+    "the thenable PostgREST builder must execute exactly once when awaited",
+  );
   assert.deepEqual(
     operations.slice(0, 3).map((operation) => operation[0]),
     ["from", "select", "eq"],
