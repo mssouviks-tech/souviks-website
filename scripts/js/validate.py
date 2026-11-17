@@ -173,7 +173,7 @@ def validate_auth_ownership(errors: list[str]) -> None:
 
     for path in candidates:
         source = path.read_text(encoding="utf-8", errors="ignore")
-        if re.search(r"\bsupabase\.createClient\s*\(", source):
+        if re.search(r"(?:\bsupabase\.createClient|\bwindow\.SouviksSupabase\.createClient)\s*\(", source):
             client_defs.append(path.relative_to(ROOT).as_posix())
         if re.search(r"\bsupabaseClient\.auth\.onAuthStateChange\s*\(", source):
             auth_listeners.append(path.relative_to(ROOT).as_posix())
