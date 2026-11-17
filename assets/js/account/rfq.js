@@ -260,6 +260,11 @@ GET CURRENT USER
 
 RFQ.getUser = async function () {
 
+    // Guest RFQ baskets remain local; do not download Supabase for anonymous visitors.
+    if (!window.SouviksSupabase?.hasPersistedSessionOrCallback?.()) {
+        return null;
+    }
+
     if (
         typeof supabaseClient ===
         "undefined"
