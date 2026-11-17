@@ -13,6 +13,7 @@ const targets = [
   path.join(root, "assets", "js", "account", "rfq.js"),
   path.join(root, "assets", "js", "cart", "cart.js"),
   path.join(root, "assets", "js", "bundles", "index.js"),
+  path.join(root, "assets", "js", "supabase-loader.js"),
 ];
 
 // Page-specific modules remain separate classic scripts so their global APIs
