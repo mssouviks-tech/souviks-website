@@ -88,6 +88,13 @@ async function main() {
     0,
     "creating the compatibility client must not download the SDK",
   );
+  const authService = client.auth;
+  const functionsService = client.functions;
+  assert.equal(
+    injectedScripts.length,
+    0,
+    "reading service namespaces must not download the SDK",
+  );
 
   const queryResult = client
     .from("product_reviews")
@@ -170,13 +177,13 @@ async function main() {
   assert.equal(observedConfig.key, "sb_publishable_test");
   assert.equal(observedConfig.options, config, "auth persistence options must be preserved");
 
-  const userResult = await client.auth.getUser();
+  const userResult = await authService.getUser();
   assert.equal(userResult.data.user, null);
   const rpcResult = await client.rpc("record_website_lead_details", {
     p_lead_reference: "lead-1",
   });
   assert.equal(rpcResult.data.ok, true);
-  const functionResult = await client.functions.invoke("cashfree-create-order", {
+  const functionResult = await functionsService.invoke("cashfree-create-order", {
     body: { items: [] },
   });
   assert.equal(functionResult.data.ok, true);
