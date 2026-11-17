@@ -11,6 +11,13 @@ LANGUAGES = ("en", "bn", "hi")
 LOADER_PATH = ROOT / "assets" / "js" / "supabase-loader.js"
 LOADER_URL = "/assets/js/supabase-loader.js"
 
+# Legacy thank-you pages have no shared site runtime and no authenticated actions.
+NO_SITE_CORE_SUPABASE_PAGES = {
+    "en/thank-you.html",
+    "bn/thank-you.html",
+    "hi/thank-you.html",
+}
+
 SUPABASE_SDK_TAG = re.compile(
     r'<script\b(?=[^>]*\bsrc=["\'][^"\']*supabase-js[^"\']*["\'])[^>]*>\s*</script>',
     flags=re.I | re.S,
@@ -43,7 +50,7 @@ def sync_page(path: Path, source: str, version: str) -> str:
     updated = LOADER_TAG.sub("", updated)
     core = SITE_CORE_TAG.search(updated)
     if not core:
-        if source != updated:
+        if source != updated and path.relative_to(ROOT).as_posix() not in NO_SITE_CORE_SUPABASE_PAGES:
             raise RuntimeError(
                 f"{path.relative_to(ROOT)} had the Supabase CDN script but no site-core.js anchor."
             )
