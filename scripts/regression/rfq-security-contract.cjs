@@ -35,7 +35,7 @@ function loadValidators(moduleSource, label) {
   };
   const validatorSource = moduleSource
     .slice(start, end)
-    .replace(/,\\s*$/, ";");
+    .replace(/,\s*$/, ";");
   vm.runInNewContext(validatorSource, sandbox, {
     filename: label,
     timeout: 1000,
