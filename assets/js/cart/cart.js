@@ -343,6 +343,8 @@
     }
 
     async function prefillCustomer() {
+        // Guest checkout does not need an authentication lookup or SDK download.
+        if (!window.SouviksSupabase?.hasPersistedSessionOrCallback?.()) return;
         if (typeof supabaseClient === "undefined") return;
         try {
             const result = await supabaseClient.auth.getUser();
