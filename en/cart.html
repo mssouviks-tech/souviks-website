@@ -63,7 +63,7 @@
   </div></div></header>
   <main id="main-content" class="container purchase-cart-page">
     <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><ol class="breadcrumb-list"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item active" aria-current="page">Cart</li></ol></div></nav>
-    <section class="purchase-cart-heading"><h1>Cart</h1><p>Review the products and quantities before checkout. Your final amount, including configured shipping, is confirmed securely before you continue to payment.</p></section>
+    <section class="purchase-cart-heading"><h1>Cart</h1><p>Review the products and quantities. Pay for the goods first; delivery freight is calculated after packing and sent as a separate quotation by email and WhatsApp.</p></section>
     <div id="purchase-cart-root">
       <div id="purchase-cart-status" class="form-status purchase-cart-status" role="status" aria-live="polite" hidden></div>
       <div id="purchase-cart-empty" class="purchase-cart-empty" hidden>Your cart is empty. Browse our catalogue and add priced products to start an order.<br><a href="/en/products">Browse products</a></div>
@@ -71,8 +71,8 @@
         <section class="purchase-cart-panel" aria-labelledby="purchase-cart-items-heading"><h2 id="purchase-cart-items-heading">Your items</h2><div id="purchase-cart-items" class="purchase-cart-items"></div></section>
         <aside class="purchase-cart-summary" aria-labelledby="purchase-cart-summary-heading">
           <h2 id="purchase-cart-summary-heading">Order summary</h2>
-          <dl><div><dt>Items subtotal</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>Shipping</dt><dd id="purchase-cart-shipping">Calculated when you enter a delivery PIN</dd></div><div class="purchase-cart-grand-total"><dt>Order total</dt><dd id="purchase-cart-total">Review to calculate</dd></div></dl>
-          <p class="purchase-cart-help">The final total is calculated on the server using current catalogue prices and the configured shipping policy.</p><p class="purchase-cart-help">Online checkout is for domestic Indian deliveries at present. If checkout is unavailable for your delivery address or an item, return to the product page and use Request a Part.</p>
+          <dl><div><dt>Items subtotal</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>Delivery freight</dt><dd id="purchase-cart-shipping">Quoted after packing</dd></div><div class="purchase-cart-grand-total"><dt>Order total</dt><dd id="purchase-cart-total">Review to calculate</dd></div></dl>
+          <p class="purchase-cart-help">Pay for the goods first. Delivery freight is calculated after packing and sent as a separate quotation by email and WhatsApp.</p><p class="purchase-cart-help">Online checkout is for domestic Indian deliveries at present. If checkout is unavailable for your delivery address or an item, return to the product page and use Request a Part.</p>
           <form id="purchase-checkout-form" class="purchase-checkout-form">
             <h3>Customer details</h3>
             <div class="form-group"><label for="checkout-name">Full name</label><input type="text" id="checkout-name" name="name" autocomplete="name" maxlength="100" required></div>
@@ -100,7 +100,7 @@
             <p id="checkout-pickup-note" class="purchase-cart-help" hidden>No courier charge applies. The Souviks team will confirm collection details after your order is placed.</p>
             <div id="checkout-delivery-fields" hidden>
               <h3>Delivery address</h3>
-              <p id="checkout-delivery-charge-note" class="purchase-cart-help">Delivery charges are calculated automatically at checkout based on your PIN code and the combined weight of your cart. The displayed rate is an estimate; we recheck the applicable amount before payment.</p>
+              <p id="checkout-delivery-charge-note" class="purchase-cart-help">Use your PIN to check delivery availability and estimated transit time. Delivery freight is calculated after packing and sent as a separate quotation by email and WhatsApp.</p>
               <div class="purchase-address-grid">
               <div class="form-group form-group-full"><label for="checkout-address1">Address line 1</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180"></div>
               <div class="form-group form-group-full"><label for="checkout-address2">Address line 2 (optional)</label><input type="text" id="checkout-address2" name="address2" autocomplete="address-line2" maxlength="120"></div>
@@ -113,8 +113,8 @@
             <button id="purchase-review-button" type="submit" class="btn btn-primary">Review total & continue</button>
           </form>
           <section id="purchase-payment-review" class="purchase-payment-review" aria-live="polite" hidden>
-            <h3>Review your order total</h3><p>Check this exact amount before opening Cashfree's secure payment page.</p>
-            <dl><div><dt>Order reference</dt><dd id="checkout-review-order-number">—</dd></div><div><dt>Items subtotal</dt><dd id="checkout-review-subtotal">—</dd></div><div><dt>Shipping</dt><dd id="checkout-review-shipping">—</dd></div><div class="purchase-review-total"><dt>Amount payable</dt><dd id="checkout-review-total">—</dd></div></dl>
+            <h3>Review your order total</h3><p>Review the goods-only amount before opening Cashfree's secure payment page. Delivery freight will be quoted separately after packing.</p>
+            <dl><div><dt>Order reference</dt><dd id="checkout-review-order-number">—</dd></div><div><dt>Items subtotal</dt><dd id="checkout-review-subtotal">—</dd></div><div><dt>Delivery freight</dt><dd id="checkout-review-shipping">—</dd></div><div class="purchase-review-total"><dt>Amount payable</dt><dd id="checkout-review-total">—</dd></div></dl>
             <button id="purchase-pay-button" type="button" class="btn btn-primary">Continue to secure payment</button>
           </section>
         </aside>
