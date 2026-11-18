@@ -11,9 +11,7 @@ The checkout separates **delivery availability/ETA** from **freight pricing**. T
 - **Final invoice:** the final GST invoice is not issued at the goods-payment stage for delivery orders. It is generated only after the separate freight payment is verified, and before dispatch. Freight tax treatment must also pass the configured accountant-approval checks.
 - **Store pickup:** skips courier checks and freight payment. After the product payment is verified, the normal invoice flow can proceed.
 
-Every delivered order incurs the applicable freight charge; there is no free-shipping threshold. The customer is not charged a provisional or guessed freight amount at the first checkout.
-
-## Product weight field
+Every delivered order incurs the applicable freight charge. There is no free-shipping threshold. The customer is not charged a provisional or guessed freight amount at the first checkout. ## Product weight field
 
 Store per-item approximate packed weight as `approx_weight_g` in each product record in the canonical `assets/data/catalogue-index.json`. **The unit is grams per single item.** Example: `"approx_weight_g": 850` means one item is approximately 850 grams. The catalogue builder also recognizes `weight_g`, `shipping_weight_g`, and `approx_weight_grams` as aliases. `approx_weight_g` is preferred.
 
