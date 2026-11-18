@@ -72,6 +72,10 @@ jobs:
               "scripts/catalogue/application_display.py",
               "scripts/catalogue/product_seo.py",
               "scripts/catalogue/product_title.py",
+              "scripts/catalogue/price_history_markup.py",
+              "scripts/catalogue/sync_supabase_module.py",
+              "scripts/audit/test_price_history_markup.py",
+              "scripts/audit/test_supabase_loader_sync.py",
               "scripts/audit/test_product_seo.py",
               "scripts/audit/test_product_title.py",
               "scripts/audit/test_wabco_product_specs.py",
@@ -154,6 +158,9 @@ jobs:
           python3 scripts/catalogue/sync_root_homepage.py
 
           python3 scripts/catalogue/validate.py
+          python3 scripts/audit/catalogue_parity.py
+          python3 scripts/audit/test_price_history_markup.py
+          python3 scripts/audit/test_supabase_loader_sync.py
           python3 scripts/audit/test_application_public_display.py
           python3 scripts/audit/test_product_weight_estimates.py
           python3 scripts/audit/test_wabco_product_specs.py

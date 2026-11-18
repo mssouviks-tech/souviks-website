@@ -52,8 +52,12 @@ jobs:
 
       - name: Validate catalogue architecture contract
         run: python3 scripts/catalogue/validate.py
+      - name: Validate Supabase loader script synchronization
+        run: python3 scripts/audit/test_supabase_loader_sync.py
       - name: Validate A10 cross-entity catalogue parity
         run: python3 scripts/audit/catalogue_parity.py
+      - name: Validate product price-history markup replacement
+        run: python3 scripts/audit/test_price_history_markup.py
       - name: Validate blocking production contract
         run: python3 scripts/audit/critical_build.py
 
@@ -300,13 +304,16 @@ jobs:
                       )
 
               for vehicle in p.get("vehicles") or []:
-                  vehicle_text = str(vehicle).strip()
-                  if not vehicle_text:
-                      continue
-                  if vehicle_text.casefold() not in vehicle_names and vehicle_text not in vehicle_by_id:
-                      errors.append(
-                          f"Product references unknown/inactive vehicle: {p.get('id')} -> {vehicle_text}"
-                      )
+                  # Some product rows store more than one valid model in a
+                  # semicolon-separated entry. Validate each model against
+                  # vehicles.json without changing the master vehicle data.
+                  for vehicle_text in (part.strip() for part in str(vehicle).split(";")):
+                      if not vehicle_text:
+                          continue
+                      if vehicle_text.casefold() not in vehicle_names and vehicle_text not in vehicle_by_id:
+                          errors.append(
+                              f"Product references unknown/inactive vehicle: {p.get('id')} -> {vehicle_text}"
+                          )
 
           expected = {
               "products": len(active_products),

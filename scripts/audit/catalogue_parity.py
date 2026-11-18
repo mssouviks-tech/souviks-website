@@ -40,6 +40,25 @@ def active(rows):
     return [row for row in rows if row.get("active") is not False]
 
 
+def vehicle_names(value):
+    """Expand a stored semicolon-separated fitment string into master names.
+
+    Some catalogue records retain multiple vehicle names in one array item,
+    while vehicles.json correctly lists each model separately. Interpret the
+    delimiter here without rewriting either authoritative data file.
+    """
+    if not isinstance(value, list):
+        return []
+    result = []
+    for item in value:
+        result.extend(
+            part.strip()
+            for part in str(item or "").split(";")
+            if part.strip()
+        )
+    return result
+
+
 def main():
     catalogue = active(load("catalogue-index.json"))
     categories = active(load("categories.json"))
@@ -131,7 +150,7 @@ def main():
         if not brand_id or brand_id not in brands_by_id:
             errors.append(f"{pid}: brand_id is missing or inactive: {brand_id!r}")
 
-        assigned_vehicles = ids(product.get("vehicles"))
+        assigned_vehicles = vehicle_names(product.get("vehicles"))
         for vehicle_name in assigned_vehicles:
             vehicle_id = vehicle_name if vehicle_name in vehicles_by_id else vehicle_ids_by_name.get(vehicle_name.casefold())
             if not vehicle_id:
@@ -177,7 +196,7 @@ def main():
                            if not any(
                                (name.casefold() in vehicle_ids_by_name and vehicle_ids_by_name[name.casefold()] == vehicle_id)
                                or name == vehicle_id
-                               for name in ids(products_by_id[pid].get("vehicles"))
+                               for name in vehicle_names(products_by_id[pid].get("vehicles"))
                            ))
         if unknown:
             errors.append(f"vehicle {vehicle_id}: products contains unknown/inactive IDs: {', '.join(unknown[:10])}")
