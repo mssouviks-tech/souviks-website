@@ -52,6 +52,8 @@ jobs:
 
       - name: Validate catalogue architecture contract
         run: python3 scripts/catalogue/validate.py
+      - name: Validate Supabase loader script synchronization
+        run: python3 scripts/audit/test_supabase_loader_sync.py
       - name: Validate A10 cross-entity catalogue parity
         run: python3 scripts/audit/catalogue_parity.py
       - name: Validate product price-history markup replacement
