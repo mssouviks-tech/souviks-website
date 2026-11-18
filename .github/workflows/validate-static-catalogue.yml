@@ -54,6 +54,8 @@ jobs:
         run: python3 scripts/catalogue/validate.py
       - name: Validate A10 cross-entity catalogue parity
         run: python3 scripts/audit/catalogue_parity.py
+      - name: Validate product price-history markup replacement
+        run: python3 scripts/audit/test_price_history_markup.py
       - name: Validate blocking production contract
         run: python3 scripts/audit/critical_build.py
 
