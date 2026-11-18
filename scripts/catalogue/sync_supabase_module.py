@@ -49,9 +49,11 @@ def sync_page(path: Path, source: str, version: str) -> str:
     updated = re.sub(r"(?m)^[ \t]+$", "", updated)
     tag = f'<script defer src="{LOADER_URL}?v={version}"></script>'
 
-    # Normalize any existing loader tags first, then insert exactly one
-    # versioned reference immediately before site-core.js.
+    # Normalize any existing loader tags first, then remove indentation
+    # left on an otherwise empty line by the tag replacement. Insert exactly
+    # one versioned reference immediately before site-core.js.
     updated = LOADER_TAG.sub("", updated)
+    updated = re.sub(r"(?m)^[ \\t]+$", "", updated)
     core = SITE_CORE_TAG.search(updated)
     if not core:
         if source != updated and path.relative_to(ROOT).as_posix() not in NO_SITE_CORE_SUPABASE_PAGES:
