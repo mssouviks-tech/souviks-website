@@ -17,7 +17,13 @@
             unitPrice: "Unit price",
             hsnCode: "HSN code",
             paymentStates: { paid: "Paid", pending: "Pending", failed: "Failed", cancelled: "Cancelled", refunded: "Refunded" },
-            orderStates: { awaiting_payment: "Awaiting payment", confirmed: "Confirmed", processing: "Processing", dispatched: "Dispatched", delivered: "Delivered", cancelled: "Cancelled" },
+            orderStates: { awaiting_payment: "Awaiting payment", confirmed: "Confirmed", freight_pending: "Delivery quotation pending", freight_quoted: "Delivery quotation sent", processing: "Processing", dispatched: "Dispatched", delivered: "Delivered", cancelled: "Cancelled" },
+            freightPending: "Delivery charges will be calculated after packing. Souviks will send the quotation by email and WhatsApp.",
+            freightQuoted: "Delivery quotation",
+            freightPaid: "Delivery charges paid",
+            freightPay: "Review & pay delivery charges",
+            freightPendingAmount: "Final delivery amount pending calculation",
+            productPaid: "Products paid",
             fulfillment: "Fulfilment",
             homeDelivery: "Home delivery",
             storePickup: "Store pickup",
@@ -39,7 +45,13 @@
             unitPrice: "प्रति यूनिट",
             hsnCode: "एचएसएन कोड",
             paymentStates: { paid: "भुगतान हो गया", pending: "लंबित", failed: "विफल", cancelled: "रद्द", refunded: "वापस किया गया" },
-            orderStates: { awaiting_payment: "भुगतान की प्रतीक्षा", confirmed: "पुष्ट", processing: "प्रक्रिया में", dispatched: "भेज दिया गया", delivered: "डिलीवर हो गया", cancelled: "रद्द" },
+            orderStates: { awaiting_payment: "भुगतान की प्रतीक्षा", confirmed: "पुष्ट", freight_pending: "डिलीवरी शुल्क की गणना लंबित", freight_quoted: "डिलीवरी कोटेशन भेजा गया", processing: "प्रक्रिया में", dispatched: "भेज दिया गया", delivered: "डिलीवर हो गया", cancelled: "रद्द" },
+            freightPending: "पैकिंग के बाद डिलीवरी शुल्क की गणना होगी। Souviks ईमेल और WhatsApp पर कोटेशन भेजेगा।",
+            freightQuoted: "डिलीवरी कोटेशन",
+            freightPaid: "डिलीवरी शुल्क का भुगतान हो गया",
+            freightPay: "डिलीवरी शुल्क देखें और भुगतान करें",
+            freightPendingAmount: "डिलीवरी शुल्क की गणना बाकी है",
+            productPaid: "उत्पाद का भुगतान",
             fulfillment: "ऑर्डर प्राप्ति",
             homeDelivery: "घर पर डिलीवरी",
             storePickup: "स्टोर से पिकअप",
@@ -61,7 +73,13 @@
             unitPrice: "প্রতি ইউনিট",
             hsnCode: "এইচএসএন কোড",
             paymentStates: { paid: "পেমেন্ট হয়েছে", pending: "অপেক্ষমাণ", failed: "ব্যর্থ", cancelled: "বাতিল", refunded: "ফেরত দেওয়া হয়েছে" },
-            orderStates: { awaiting_payment: "পেমেন্টের অপেক্ষায়", confirmed: "নিশ্চিত", processing: "প্রক্রিয়াধীন", dispatched: "পাঠানো হয়েছে", delivered: "ডেলিভারি হয়েছে", cancelled: "বাতিল" },
+            orderStates: { awaiting_payment: "পেমেন্টের অপেক্ষায়", confirmed: "নিশ্চিত", freight_pending: "ডেলিভারি চার্জের হিসাব বাকি", freight_quoted: "ডেলিভারি কোটেশন পাঠানো হয়েছে", processing: "প্রক্রিয়াধীন", dispatched: "পাঠানো হয়েছে", delivered: "ডেলিভারি হয়েছে", cancelled: "বাতিল" },
+            freightPending: "প্যাকিংয়ের পরে ডেলিভারি চার্জ গণনা করা হবে। Souviks ইমেল ও WhatsApp-এ কোটেশন পাঠাবে।",
+            freightQuoted: "ডেলিভারি কোটেশন",
+            freightPaid: "ডেলিভারি চার্জ পরিশোধ হয়েছে",
+            freightPay: "ডেলিভারি চার্জ দেখুন ও পেমেন্ট করুন",
+            freightPendingAmount: "ডেলিভারি চার্জের হিসাব বাকি",
+            productPaid: "পণ্যের পেমেন্ট",
             fulfillment: "অর্ডার সংগ্রহের পদ্ধতি",
             homeDelivery: "বাড়িতে ডেলিভারি",
             storePickup: "স্টোর থেকে সংগ্রহ",
@@ -179,9 +197,34 @@
         card.appendChild(head);
 
         const total = element("div", "account-order-total");
-        total.appendChild(element("span", "", T.total));
+        const isDeliveryAwaitingFreight = order.fulfillment_method === "delivery" &&
+            order.payment_status === "paid" && order.freight_status !== "paid";
+        total.appendChild(element("span", "", isDeliveryAwaitingFreight ? T.productPaid : T.total));
         total.appendChild(element("strong", "", currency(order.total_amount, order.currency)));
         card.appendChild(total);
+
+        if (order.payment_status === "paid" && order.fulfillment_method === "delivery") {
+            const freightArea = element("div", "account-order-invoice");
+            if (order.freight_status === "paid") {
+                freightArea.appendChild(element("p", "account-order-item-meta",
+                    T.freightPaid + ": " + currency(order.freight_amount, order.currency)));
+            } else if (order.freight_status === "quoted" || order.freight_status === "payment_pending") {
+                freightArea.appendChild(element("p", "account-order-item-meta",
+                    T.freightQuoted + ": " + currency(order.freight_amount, order.currency) +
+                    (order.freight_valid_until ? " · " + dateLabel(order.freight_valid_until) : "")));
+                const payFreight = element("button", "btn btn-secondary", T.freightPay);
+                payFreight.type = "button";
+                payFreight.addEventListener("click", () => {
+                    window.location.href = "/en/payment-status?freight_quote_id=" +
+                        encodeURIComponent(String(order.freight_quote_id || ""));
+                });
+                freightArea.appendChild(payFreight);
+            } else {
+                freightArea.appendChild(element("p", "account-order-item-meta", T.freightPending));
+                freightArea.appendChild(element("p", "account-order-item-meta", T.freightPendingAmount));
+            }
+            card.appendChild(freightArea);
+        }
 
         if (order.payment_status === "failed" && order.payment_failure_reason) {
             const failure = element("p", "account-order-failure-reason");

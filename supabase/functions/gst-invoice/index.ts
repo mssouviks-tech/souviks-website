@@ -322,6 +322,17 @@ async function issueInvoice(gatewayOrderId: string): Promise<Record<string,unkno
   });
   const order=Array.isArray(orders)?orders[0]:null;
   if(!order)throw new CheckoutError("order_not_found",404);
+  if (order.fulfillment_method === "delivery") {
+    const freightRows = await supabaseRest("freight_quotes", "GET", {
+      select: "id,status,amount",
+      order_id: "eq." + order.id,
+      status: "eq.paid",
+      limit: "1",
+    });
+    if (!Array.isArray(freightRows) || !freightRows.length) {
+      throw new CheckoutError("freight_payment_not_confirmed", 409);
+    }
+  }
   const items=await supabaseRest("order_items","GET",{
     select:"product_id,part_number,product_name,quantity,line_total,hsn_code,hsn_description,hsn_classification_status,hsn_confidence,gst_rate_percent,gst_cgst_rate_percent,gst_sgst_rate_percent,gst_igst_rate_percent,gst_rate_effective_from,gst_rate_source_reference,gst_rate_basis,gst_rate_candidate_approved,gst_rate_candidate_status,unit_of_measure",
     order_id:"eq."+order.id,order:"created_at.asc",limit:"100"
@@ -346,7 +357,7 @@ async function issueInvoice(gatewayOrderId: string): Promise<Record<string,unkno
   },"return=minimal");
   return {ok:true,invoice_number:reservation.invoice_number,invoice_status:"issued"};
 }
-async function downloadInvoice(req: Request, orderId: string, checkoutToken: string): Promise<Record<string,unknown>> {
+async function downloadInvoice(req: Request, orderId: string, checkoutToken: string, freightToken: string): Promise<Record<string,unknown>> {
   const userId=await optionalUserId(req);
   const orders=await supabaseRest("orders","GET",{
     select:"id,user_id,payment_status,gateway_order_id",
@@ -362,6 +373,18 @@ async function downloadInvoice(req: Request, orderId: string, checkoutToken: str
       expires_at:"gt."+new Date().toISOString(),limit:"1"
     });
     allowed=Array.isArray(tokens)&&tokens.length>0;
+  }
+  if (!allowed && /^[a-f0-9]{64}$/.test(freightToken)) {
+    const hash = await sha256Hex(freightToken);
+    const freightRows = await supabaseRest("freight_quotes", "GET", {
+      select: "id",
+      order_id: "eq." + order.id,
+      payment_token_hash: "eq." + hash,
+      payment_token_expires_at: "gt." + new Date().toISOString(),
+      status: "eq.paid",
+      limit: "1",
+    });
+    allowed = Array.isArray(freightRows) && freightRows.length > 0;
   }
   if(!allowed)throw new CheckoutError("invoice_order_access_denied",403);
   const invoices=await supabaseRest("gst_invoices","GET",{
@@ -394,7 +417,7 @@ Deno.serve(async(req:Request)=>{
       return jsonResponse(req,result);
     }
     if(action==="download"){
-      const result=await downloadInvoice(req,orderId,clean(input?.checkout_token,64));
+      const result=await downloadInvoice(req,orderId,clean(input?.checkout_token,64),clean(input?.freight_token,64));
       return jsonResponse(req,result);
     }
     throw new CheckoutError("action_invalid",400);

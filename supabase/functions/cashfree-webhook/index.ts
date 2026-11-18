@@ -2,6 +2,7 @@ import {
   cashfreeConfig,
   CheckoutError,
   reconcileCashfreeOrder,
+  reconcileCashfreeFreightOrder,
   supabaseRest,
   verifyCashfreeWebhookSignature,
 } from "../_shared/cashfree.ts";
@@ -50,14 +51,20 @@ Deno.serve(async (req: Request) => {
       return response(200, { received: true, ignored: true });
     }
 
-    const result = await reconcileCashfreeOrder(gatewayOrderId);
+    let result: Record<string, unknown>;
+    try {
+      result = await reconcileCashfreeOrder(gatewayOrderId);
+    } catch (error) {
+      if (!(error instanceof CheckoutError) || error.code !== "order_not_found") throw error;
+      result = await reconcileCashfreeFreightOrder(gatewayOrderId);
+    }
     const successEvent = paymentStatus === "SUCCESS" || eventType.toUpperCase().includes("PAYMENT_SUCCESS");
     if (successEvent && result.payment_status !== "paid") {
       // Cashfree may deliver the signed event before its order/payment query has
       // converged. Return a retryable response rather than lose the only signal.
       return response(500, { received: false, retry: true });
     }
-    if (cfPaymentId && Number.isFinite(rawAmount)) {
+    if (result.payment_kind !== "freight" && cfPaymentId && Number.isFinite(rawAmount)) {
       const verifiedAmount = Number(result.amount);
       if (Math.round(rawAmount * 100) === Math.round(verifiedAmount * 100) && currency === "INR") {
         try {

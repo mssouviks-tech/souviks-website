@@ -51,7 +51,7 @@ jobs:
           deno-version: v2.x
 
       - name: Check Cashfree Edge Function types
-        run: deno check --config supabase/functions/deno.json supabase/functions/_shared/cashfree.ts supabase/functions/cashfree-create-order/index.ts supabase/functions/cashfree-verify-order/index.ts supabase/functions/cashfree-webhook/index.ts supabase/functions/account-orders/index.ts supabase/functions/gst-invoice/index.ts
+        run: deno check --config supabase/functions/deno.json supabase/functions/_shared/cashfree.ts supabase/functions/cashfree-create-order/index.ts supabase/functions/cashfree-verify-order/index.ts supabase/functions/cashfree-webhook/index.ts supabase/functions/account-orders/index.ts supabase/functions/gst-invoice/index.ts supabase/functions/freight-quote/index.ts
 
       - name: Check Delhivery Edge Function types
         run: deno check supabase/functions/delhivery-estimate/index.ts
@@ -190,6 +190,7 @@ jobs:
           node scripts/regression/delhivery-estimate-contract.cjs
           node scripts/regression/gst-rate-candidate-contract.cjs
           node scripts/regression/hsn-stock-reference-crosswalk.cjs
+          node scripts/regression/gst-invoice-generator-contract.cjs
           npm run format:check
 
           echo "Catalogue release gate passed."
@@ -239,6 +240,7 @@ jobs:
           )
 
           generated_paths=(
+            assets/js/cart/cart.js
             assets/data/catalogue-index.json
             assets/data/gst-rate-candidate-overrides-2026-11-08.json
             docs/audit/hsn-verification-worklist.csv
@@ -284,6 +286,10 @@ jobs:
             echo "No staged workbook-import files remain to stage."
           fi
           git -C "${publish_repo}" add -- "${generated_paths[@]}" "${generated_product_page_directories[@]}"
+          # Versioned first-party script URLs must follow the minified cart asset.
+          while IFS= read -r path; do
+            git -C "${publish_repo}" add -- "$path"
+          done < <(git -C "${publish_repo}" diff --name-only -- "*.html")
           if git -C "${publish_repo}" diff --cached --quiet; then
             echo "Generated mobile LCP assets and HTML are already current on the PR branch."
             exit 0
