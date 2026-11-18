@@ -23,8 +23,11 @@ SUPABASE_SDK_TAG = re.compile(
     flags=re.I | re.S,
 )
 LOADER_TAG = re.compile(
-    r'<script\b[^>]*\bsrc=["\']/assets/js/supabase-loader\.js(?:\?v=[^"\']*)?["\'][^>]*></script>',
-    flags=re.I,
+    # Match the whole script line, including its indentation and newline.
+    # Removing only the tag leaves progressively accumulating blank lines
+    # each time the synchronizer is run, breaking idempotency.
+    r'(?m)^[ \t]*<script\b(?=[^>]*\bsrc=["\']/assets/js/supabase-loader\.js(?:\?v=[^"\']*)?["\'])[^>]*>\s*</script>[ \t]*(?:\r?\n|$)',
+    flags=re.I | re.S,
 )
 SITE_CORE_TAG = re.compile(
     r'<script\b[^>]*\bsrc=["\']/assets/js/site-core\.js(?:\?v=[^"\']*)?["\'][^>]*></script>',
