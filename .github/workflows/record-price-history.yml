@@ -56,6 +56,7 @@ jobs:
           python3 scripts/catalogue/validate.py
           python3 scripts/audit/test_static_product_pricing.py
           python3 scripts/audit/test_price_history.py
+          python3 scripts/audit/test_price_history_markup.py
           git diff --check
 
       - name: Publish price evidence and generated prior-price fields
