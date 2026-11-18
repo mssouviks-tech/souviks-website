@@ -16,7 +16,7 @@ async function loadOrders(userId: string, includeFailureReason: boolean): Promis
   const fields = [
     "id", "order_number", "gateway_order_id", "created_at", "currency",
     "subtotal", "shipping_amount", "total_amount", "fulfillment_method", "payment_status",
-    "order_status", "cashfree_order_status", "paid_at", "updated_at",
+    "order_status", "cashfree_order_status", "fulfillment_method", "paid_at", "updated_at",
   ];
   if (includeFailureReason) fields.push("payment_failure_code", "payment_failure_reason");
   return await supabaseRest("orders", "GET", {
@@ -89,6 +89,17 @@ Deno.serve(async (req: Request) => {
           limit: "20",
         })
       : [];
+    const freightRows = orderIds.length
+      ? await supabaseRest("freight_quotes", "GET", {
+          select: "id,order_id,quote_number,status,amount,valid_until,carrier,delivery_estimate",
+          order_id: "in.(" + orderIds.join(",") + ")",
+          limit: "20",
+        })
+      : [];
+    const freightByOrder = new Map<string, any>();
+    for (const freight of Array.isArray(freightRows) ? freightRows : []) {
+      freightByOrder.set(String(freight.order_id), freight);
+    }
     const invoicesByOrder = new Map<string, any>();
     for (const invoice of Array.isArray(invoiceRows) ? invoiceRows : []) {
       invoicesByOrder.set(String(invoice.order_id), invoice);
@@ -128,8 +139,18 @@ Deno.serve(async (req: Request) => {
       payment_failure_code: order.payment_failure_code || null,
       payment_failure_reason: order.payment_failure_reason || null,
       invoice_status: invoicesByOrder.get(String(order.id))?.invoice_status ||
-        (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" && String(order.payment_status || "") === "paid" ? "pending" : null),
+        (Deno.env.get("GST_INVOICE_ISSUANCE_ENABLED") === "true" &&
+         String(order.payment_status || "") === "paid" &&
+         (String(order.fulfillment_method || "delivery") === "pickup" ||
+          freightByOrder.get(String(order.id))?.status === "paid") ? "pending" : null),
       invoice_number: invoicesByOrder.get(String(order.id))?.invoice_number || null,
+      freight_quote_id: freightByOrder.get(String(order.id))?.id || null,
+      freight_quote_number: freightByOrder.get(String(order.id))?.quote_number || null,
+      freight_status: freightByOrder.get(String(order.id))?.status || null,
+      freight_amount: Number(freightByOrder.get(String(order.id))?.amount) || 0,
+      freight_valid_until: freightByOrder.get(String(order.id))?.valid_until || null,
+      freight_carrier: freightByOrder.get(String(order.id))?.carrier || null,
+      freight_delivery_estimate: freightByOrder.get(String(order.id))?.delivery_estimate || null,
       items: itemsByOrder.get(String(order.id)) || [],
     }));
     return jsonResponse(req, { ok: true, orders: result });

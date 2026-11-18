@@ -63,7 +63,7 @@
   </div></div></header>
   <main id="main-content" class="container purchase-cart-page">
     <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><ol class="breadcrumb-list"><li class="breadcrumb-item"><a href="/hi/">Home</a></li><li class="breadcrumb-item active" aria-current="page">कार्ट</li></ol></div></nav>
-    <section class="purchase-cart-heading"><h1>कार्ट</h1><p>चेकआउट से पहले उत्पाद और मात्रा जाँचें। भुगतान पर आगे बढ़ने से पहले कॉन्फ़िगर की गई शिपिंग सहित अंतिम राशि की पुष्टि की जाएगी।</p></section>
+    <section class="purchase-cart-heading"><h1>कार्ट</h1><p>उत्पाद और मात्रा जाँचें। पहले केवल उत्पादों का भुगतान करें; डिलीवरी शुल्क पैकिंग के बाद तय करके ईमेल और WhatsApp पर अलग कोटेशन भेजा जाएगा।</p></section>
     <div id="purchase-cart-root">
       <div id="purchase-cart-status" class="form-status purchase-cart-status" role="status" aria-live="polite" hidden></div>
       <div id="purchase-cart-empty" class="purchase-cart-empty" hidden>आपका कार्ट खाली है। ऑर्डर शुरू करने के लिए कैटलॉग से मूल्य वाले उत्पाद जोड़ें।<br><a href="/hi/products">उत्पाद देखें</a></div>
@@ -71,8 +71,8 @@
         <section class="purchase-cart-panel" aria-labelledby="purchase-cart-items-heading"><h2 id="purchase-cart-items-heading">आपके उत्पाद</h2><div id="purchase-cart-items" class="purchase-cart-items"></div></section>
         <aside class="purchase-cart-summary" aria-labelledby="purchase-cart-summary-heading">
           <h2 id="purchase-cart-summary-heading">ऑर्डर सारांश</h2>
-          <dl><div><dt>उत्पादों का उप-योग</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>शिपिंग</dt><dd id="purchase-cart-shipping">डिलीवरी पिन कोड दर्ज करने पर गणना होगी</dd></div><div class="purchase-cart-grand-total"><dt>ऑर्डर का कुल</dt><dd id="purchase-cart-total">गणना के लिए समीक्षा करें</dd></div></dl>
-          <p class="purchase-cart-help">सटीक राशि सर्वर पर वर्तमान कैटलॉग कीमतों और कॉन्फ़िगर की गई शिपिंग नीति से निकाली जाती है।</p><p class="purchase-cart-help">फिलहाल ऑनलाइन चेकआउट केवल भारत के भीतर डिलीवरी के लिए है। यदि आपके पते या किसी उत्पाद के लिए चेकआउट उपलब्ध नहीं है, तो उत्पाद पेज पर जाकर पार्ट का अनुरोध करें।</p>
+          <dl><div><dt>उत्पादों का उप-योग</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>डिलीवरी शुल्क</dt><dd id="purchase-cart-shipping">पैकिंग के बाद अलग से बताया जाएगा</dd></div><div class="purchase-cart-grand-total"><dt>ऑर्डर का कुल</dt><dd id="purchase-cart-total">गणना के लिए समीक्षा करें</dd></div></dl>
+          <p class="purchase-cart-help">पहले केवल उत्पादों का भुगतान करें। पैकिंग के बाद डिलीवरी शुल्क की गणना करके ईमेल और WhatsApp पर अलग कोटेशन भेजा जाएगा।</p><p class="purchase-cart-help">फिलहाल ऑनलाइन चेकआउट केवल भारत के भीतर डिलीवरी के लिए है। यदि आपके पते या किसी उत्पाद के लिए चेकआउट उपलब्ध नहीं है, तो उत्पाद पेज पर जाकर पार्ट का अनुरोध करें।</p>
           <form id="purchase-checkout-form" class="purchase-checkout-form">
             <h3>ग्राहक विवरण</h3>
             <div class="form-group"><label for="checkout-name">पूरा नाम</label><input type="text" id="checkout-name" name="name" autocomplete="name" maxlength="100" required></div>
@@ -100,7 +100,7 @@
             <p id="checkout-pickup-note" class="purchase-cart-help" hidden>कोई कूरियर शुल्क नहीं लगेगा। ऑर्डर देने के बाद Souviks टीम पिकअप विवरण की पुष्टि करेगी।</p>
             <div id="checkout-delivery-fields" hidden>
               <h3>डिलीवरी का पता</h3>
-              <p id="checkout-delivery-charge-note" class="purchase-cart-help">डिलीवरी शुल्क की गणना चेकआउट में पिन कोड और कार्ट के कुल वज़न के आधार पर अपने-आप होगी। दिखाया गया शुल्क अनुमानित है; भुगतान से पहले लागू राशि की दोबारा जाँच होगी।</p>
+              <p id="checkout-delivery-charge-note" class="purchase-cart-help">PIN से डिलीवरी उपलब्धता और अनुमानित समय जाँचें। डिलीवरी शुल्क पैकिंग के बाद तय होगा और ईमेल व WhatsApp पर अलग कोटेशन भेजा जाएगा।</p>
               <div class="purchase-address-grid">
               <div class="form-group form-group-full"><label for="checkout-address1">पता पंक्ति 1</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180"></div>
               <div class="form-group form-group-full"><label for="checkout-address2">पता पंक्ति 2 (वैकल्पिक)</label><input type="text" id="checkout-address2" name="address2" autocomplete="address-line2" maxlength="120"></div>
@@ -113,8 +113,8 @@
             <button id="purchase-review-button" type="submit" class="btn btn-primary">कुल राशि जाँचें और आगे बढ़ें</button>
           </form>
           <section id="purchase-payment-review" class="purchase-payment-review" aria-live="polite" hidden>
-            <h3>ऑर्डर की कुल राशि जाँचें</h3><p>Cashfree के सुरक्षित भुगतान पेज पर जाने से पहले इस राशि की पुष्टि करें।</p>
-            <dl><div><dt>ऑर्डर संदर्भ</dt><dd id="checkout-review-order-number">—</dd></div><div><dt>उत्पादों का उप-योग</dt><dd id="checkout-review-subtotal">—</dd></div><div><dt>शिपिंग</dt><dd id="checkout-review-shipping">—</dd></div><div class="purchase-review-total"><dt>देय राशि</dt><dd id="checkout-review-total">—</dd></div></dl>
+            <h3>ऑर्डर की कुल राशि जाँचें</h3><p>Cashfree के सुरक्षित भुगतान पेज पर जाने से पहले केवल उत्पादों की राशि की पुष्टि करें। डिलीवरी शुल्क पैकिंग के बाद अलग से बताया जाएगा।</p>
+            <dl><div><dt>ऑर्डर संदर्भ</dt><dd id="checkout-review-order-number">—</dd></div><div><dt>उत्पादों का उप-योग</dt><dd id="checkout-review-subtotal">—</dd></div><div><dt>डिलीवरी शुल्क</dt><dd id="checkout-review-shipping">—</dd></div><div class="purchase-review-total"><dt>देय राशि</dt><dd id="checkout-review-total">—</dd></div></dl>
             <button id="purchase-pay-button" type="button" class="btn btn-primary">सुरक्षित भुगतान पर आगे बढ़ें</button>
           </section>
         </aside>
@@ -149,7 +149,7 @@
   <script defer src="/assets/js/supabase-loader.js?v=6f170775b78a"></script>
 <script defer src="/assets/js/site-core.js?v=77fdc4616f5f"></script>
   <script defer src="/assets/js/attribution.js?v=6b8229cb515b"></script>
-  <script defer src="/assets/js/cart/cart.js?v=ec0120fb14c5"></script>
-  <script defer src="/assets/js/cart/delivery-estimate.js?v=8953d65ca5a5"></script>
+  <script defer src="/assets/js/cart/cart.js?v=d0cc3e989984"></script>
+  <script defer src="/assets/js/cart/delivery-estimate.js?v=0559d361ff38"></script>
 </body>
 </html>

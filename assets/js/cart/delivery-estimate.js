@@ -7,8 +7,8 @@
     const DATE_LOCALES = { en: "en-IN", hi: "hi-IN", bn: "bn-IN" };
     const COPY = {
         en: {
-            helper: "Enter your PIN code to see the estimated delivery date and calculate delivery charges.",
-            checking: "Checking delivery details and calculating estimated charges…",
+            helper: "Enter your PIN code to check delivery availability and the estimated delivery date. Delivery charges are calculated after packing and shared separately.",
+            checking: "Checking delivery availability and estimated delivery date…",
             serviceable: "Souviks delivery is available for PIN code ",
             unavailable: "We could not confirm delivery to PIN code ",
             time: "Estimated delivery date",
@@ -20,12 +20,13 @@
             config: "We cannot calculate a delivery estimate right now. Please try again shortly or contact Souviks.",
             failed: "We could not confirm delivery details right now. Please try again shortly or contact Souviks.",
             approximate: "Delivery charges are an estimate. The applicable amount is rechecked before payment.",
+            freightLater: "Delivery charges will be calculated after packing and shared separately by email and WhatsApp.",
             estimated: "estimated",
             pickupShipping: "No courier charge"
         },
         hi: {
-            helper: "अनुमानित डिलीवरी तारीख देखने और डिलीवरी शुल्क की गणना के लिए पिन कोड दर्ज करें।",
-            checking: "डिलीवरी विवरण जाँचे जा रहे हैं और अनुमानित शुल्क निकाला जा रहा है…",
+            helper: "डिलीवरी उपलब्धता और अनुमानित तारीख देखने के लिए पिन कोड दर्ज करें। डिलीवरी शुल्क पैकिंग के बाद अलग से बताया जाएगा।",
+            checking: "डिलीवरी उपलब्धता और अनुमानित तारीख जाँची जा रही है…",
             serviceable: "Souviks इस पिन कोड पर डिलीवरी कर सकता है: ",
             unavailable: "हम इस पिन कोड पर डिलीवरी की पुष्टि नहीं कर सके: ",
             time: "अनुमानित डिलीवरी तारीख",
@@ -37,12 +38,13 @@
             config: "अभी डिलीवरी का अनुमान नहीं निकाला जा सकता। कृपया थोड़ी देर बाद फिर प्रयास करें या Souviks से संपर्क करें।",
             failed: "अभी डिलीवरी विवरण की पुष्टि नहीं हो सकी। कृपया थोड़ी देर बाद फिर प्रयास करें या Souviks से संपर्क करें।",
             approximate: "डिलीवरी शुल्क अनुमानित है। भुगतान से पहले लागू राशि की दोबारा जाँच की जाएगी।",
+            freightLater: "डिलीवरी शुल्क पैकिंग के बाद तय करके ईमेल और WhatsApp पर अलग से भेजा जाएगा।",
             estimated: "अनुमानित",
             pickupShipping: "कोई कूरियर शुल्क नहीं"
         },
         bn: {
-            helper: "আনুমানিক ডেলিভারির তারিখ দেখতে এবং ডেলিভারি চার্জ হিসাব করতে পিন কোড দিন।",
-            checking: "ডেলিভারির তথ্য যাচাই ও আনুমানিক চার্জ হিসাব হচ্ছে…",
+            helper: "ডেলিভারির সুবিধা ও আনুমানিক তারিখ জানতে পিন কোড দিন। প্যাকিংয়ের পরে ডেলিভারি চার্জ আলাদাভাবে জানানো হবে।",
+            checking: "ডেলিভারি সুবিধা ও আনুমানিক তারিখ যাচাই হচ্ছে…",
             serviceable: "Souviks এই পিন কোডে ডেলিভারি করতে পারে: ",
             unavailable: "এই পিন কোডে ডেলিভারি নিশ্চিত করা যায়নি: ",
             time: "আনুমানিক ডেলিভারির তারিখ",
@@ -54,6 +56,7 @@
             config: "এই মুহূর্তে ডেলিভারির অনুমান হিসাব করা যাচ্ছে না। কিছুক্ষণ পরে আবার চেষ্টা করুন বা Souviks-এর সঙ্গে যোগাযোগ করুন।",
             failed: "এই মুহূর্তে ডেলিভারির তথ্য নিশ্চিত করা যায়নি। কিছুক্ষণ পরে আবার চেষ্টা করুন বা Souviks-এর সঙ্গে যোগাযোগ করুন।",
             approximate: "ডেলিভারি চার্জ আনুমানিক। পেমেন্টের আগে প্রযোজ্য চার্জ আবার যাচাই করা হবে।",
+            freightLater: "প্যাকিংয়ের পরে ডেলিভারি চার্জ নির্ধারণ করে ইমেল ও WhatsApp-এ আলাদাভাবে পাঠানো হবে।",
             estimated: "আনুমানিক",
             pickupShipping: "কুরিয়ার চার্জ নেই"
         }
@@ -212,12 +215,6 @@
             return Number.isFinite(amount) ? amount : null;
         }
 
-        function setShippingSummary(amount) {
-            if (shippingNode) shippingNode.textContent = currency(amount) + " (" + T.estimated + ")";
-            const subtotal = subtotalValue();
-            if (totalNode && subtotal !== null) totalNode.textContent = currency(subtotal + amount) + " (" + T.estimated + ")";
-        }
-
         function setPickupSummary() {
             if (shippingNode) shippingNode.textContent = T.pickupShipping;
             const subtotal = subtotalValue();
@@ -253,31 +250,6 @@
             } catch {
                 return [];
             }
-        }
-
-        async function getTotalWeight() {
-            const cart = readCart();
-            if (!cart.length) return { error: T.weightMissing };
-            const response = await fetch("/assets/data/catalogue-index.json", {
-                headers: { Accept: "application/json" }, cache: "no-store", credentials: "same-origin"
-            });
-            if (!response.ok) throw new Error("catalogue_unavailable");
-            const catalogue = await response.json();
-            if (!Array.isArray(catalogue)) throw new Error("catalogue_unavailable");
-            const byId = new Map(catalogue.filter(item => item && typeof item.id === "string").map(item => [item.id, item]));
-            let total = 0;
-            for (const line of cart) {
-                const product = byId.get(String(line.productId));
-                const rawWeight = product?.approx_weight_g ?? product?.approx_weight_grams ??
-                    product?.weight_g ?? product?.shipping_weight_g;
-                const weight = Number(rawWeight);
-                const quantity = Number(line.quantity);
-                if (rawWeight == null || rawWeight === "" || !Number.isFinite(weight) || weight <= 0 ||
-                    !Number.isInteger(quantity) || quantity < 1) return { error: T.weightMissing };
-                total += Math.round(weight) * quantity;
-            }
-            if (!Number.isInteger(total) || total < 1 || total > 200000) return { error: T.weightInvalid };
-            return { grams: total };
         }
 
         async function lookup(pin) {
@@ -330,51 +302,12 @@
                     '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.time) + '</span><strong>' +
                     escapeHtml(formatDate(estimatedDate) || T.timeMissing) + '</strong></div>';
 
-                const weight = await getTotalWeight();
-                if (current !== sequence) return;
-                if (weight.error) {
-                    result.innerHTML = resultHtml + '<p class="delhivery-estimator-help">' + escapeHtml(weight.error) + '</p>';
-                    result.hidden = false;
-                    resetSummary();
-                    return;
-                }
-
-                const response = await supabaseClient.functions.invoke("delhivery-estimate", {
-                    body: { estimate_type:"shipping_charge", destination_pin: pin, chargeable_weight_g: weight.grams }
-                });
-                const data = await unpackResponse(response);
-                if (current !== sequence) return;
-                if (response.error || !data?.ok) {
-                    const code = data?.code;
-                    const message = ["delhivery_b2c_token_not_configured", "rate_limit_unavailable",
-                        "origin_pin_not_configured"].includes(code) ? T.config : T.failed;
-                    result.innerHTML = resultHtml + '<p class="delhivery-estimator-help">' + escapeHtml(message) + '</p>';
-                    result.hidden = false;
-                    resetSummary();
-                    return;
-                }
-                if (!data.serviceability?.serviceable) {
-                    clearSavedEstimate();
-                    result.innerHTML = '<p class="delhivery-estimator-help">' +
-                        escapeHtml(T.unavailable + pin + ". Please contact Souviks if you need help confirming an alternative.") + '</p>';
-                    result.hidden = false;
-                    resetSummary();
-                    return;
-                }
-                if (!data.shipping?.available || !Number.isFinite(Number(data.shipping.amount)) || Number(data.shipping.amount) <= 0) {
-                    result.innerHTML = resultHtml + '<p class="delhivery-estimator-help">' + escapeHtml(T.priceMissing) + '</p>';
-                    result.hidden = false;
-                    resetSummary();
-                    return;
-                }
-
-                const amount = Number(data.shipping.amount);
-                setShippingSummary(amount);
+                // Delivery availability and ETA are useful before purchase, but packed
+                // chargeable weight is not final. Keep freight out of the initial checkout total.
                 result.innerHTML = resultHtml +
-                    '<div class="delhivery-estimator-metric"><span>' + escapeHtml(T.price) + '</span><strong>' +
-                    escapeHtml(currency(amount)) + '</strong></div>' +
-                    '<p class="delhivery-estimator-disclaimer">' + escapeHtml(T.approximate) + '</p>';
+                    '<p class="delhivery-estimator-disclaimer">' + escapeHtml(T.freightLater) + '</p>';
                 result.hidden = false;
+                resetSummary();
             } catch (error) {
                 if (window.SouviksErrors?.log) window.SouviksErrors.log("Checkout delivery estimate failed", error, "warn");
                 if (current === sequence) {

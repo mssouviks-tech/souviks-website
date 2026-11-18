@@ -23,7 +23,7 @@ for(const row of manifest.records) {
 }
 const byId=new Map(catalogue.map(p=>[String(p.id),p]));
 const projected=new Map(products.map(p=>[String(p.id),p]));
-if(byId.size<manifest.catalogue_reviewed_record_count||overrides.size!==manifest.record_count) {
+if(byId.size!==catalogue.length||byId.size<manifest.catalogue_reviewed_record_count||overrides.size!==manifest.record_count) {
  throw new Error("HSN correction manifest/canonical catalogue coverage mismatch");
 }
 const statusCounts={classified:0,provisional:0,review_required:0};

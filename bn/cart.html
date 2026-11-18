@@ -63,7 +63,7 @@
   </div></div></header>
   <main id="main-content" class="container purchase-cart-page">
     <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><ol class="breadcrumb-list"><li class="breadcrumb-item"><a href="/bn/">Home</a></li><li class="breadcrumb-item active" aria-current="page">কার্ট</li></ol></div></nav>
-    <section class="purchase-cart-heading"><h1>কার্ট</h1><p>চেকআউটের আগে পণ্য ও পরিমাণ যাচাই করুন। পেমেন্টে যাওয়ার আগে নির্ধারিত শিপিং-সহ চূড়ান্ত মূল্য নিশ্চিত করা হবে।</p></section>
+    <section class="purchase-cart-heading"><h1>কার্ট</h1><p>পণ্য ও পরিমাণ যাচাই করুন। প্রথমে শুধু পণ্যের মূল্য পরিশোধ করুন; প্যাকিংয়ের পরে ডেলিভারি চার্জ নির্ধারণ করে ইমেল ও WhatsApp-এ আলাদা কোটেশন পাঠানো হবে।</p></section>
     <div id="purchase-cart-root">
       <div id="purchase-cart-status" class="form-status purchase-cart-status" role="status" aria-live="polite" hidden></div>
       <div id="purchase-cart-empty" class="purchase-cart-empty" hidden>আপনার কার্ট খালি। অর্ডার শুরু করতে ক্যাটালগ থেকে মূল্যযুক্ত পণ্য যোগ করুন।<br><a href="/bn/products">পণ্য দেখুন</a></div>
@@ -71,8 +71,8 @@
         <section class="purchase-cart-panel" aria-labelledby="purchase-cart-items-heading"><h2 id="purchase-cart-items-heading">আপনার পণ্য</h2><div id="purchase-cart-items" class="purchase-cart-items"></div></section>
         <aside class="purchase-cart-summary" aria-labelledby="purchase-cart-summary-heading">
           <h2 id="purchase-cart-summary-heading">অর্ডারের সারাংশ</h2>
-          <dl><div><dt>পণ্যের উপমোট</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>শিপিং</dt><dd id="purchase-cart-shipping">ডেলিভারি পিন কোড দিলে হিসাব হবে</dd></div><div class="purchase-cart-grand-total"><dt>মোট অর্ডার মূল্য</dt><dd id="purchase-cart-total">মূল্য যাচাই করুন</dd></div></dl>
-          <p class="purchase-cart-help">বর্তমান ক্যাটালগ মূল্য এবং নির্ধারিত শিপিং নীতি ব্যবহার করে সার্ভারে চূড়ান্ত মূল্য গণনা করা হয়।</p><p class="purchase-cart-help">এই পর্যায়ে অনলাইন চেকআউট শুধুমাত্র ভারতের মধ্যে ডেলিভারির জন্য। আপনার ঠিকানা বা কোনো পণ্যের জন্য চেকআউট উপলভ্য না হলে পণ্য পেজে ফিরে পার্টের অনুরোধ করুন।</p>
+          <dl><div><dt>পণ্যের উপমোট</dt><dd id="purchase-cart-subtotal">₹0.00</dd></div><div><dt>ডেলিভারি চার্জ</dt><dd id="purchase-cart-shipping">প্যাকিংয়ের পরে আলাদা করে জানানো হবে</dd></div><div class="purchase-cart-grand-total"><dt>মোট অর্ডার মূল্য</dt><dd id="purchase-cart-total">মূল্য যাচাই করুন</dd></div></dl>
+          <p class="purchase-cart-help">প্রথমে শুধু পণ্যের মূল্য পরিশোধ করুন। প্যাকিংয়ের পরে ডেলিভারি চার্জ গণনা করে ইমেল ও WhatsApp-এ আলাদা কোটেশন পাঠানো হবে।</p><p class="purchase-cart-help">এই পর্যায়ে অনলাইন চেকআউট শুধুমাত্র ভারতের মধ্যে ডেলিভারির জন্য। আপনার ঠিকানা বা কোনো পণ্যের জন্য চেকআউট উপলভ্য না হলে পণ্য পেজে ফিরে পার্টের অনুরোধ করুন।</p>
           <form id="purchase-checkout-form" class="purchase-checkout-form">
             <h3>গ্রাহকের বিবরণ</h3>
             <div class="form-group"><label for="checkout-name">পুরো নাম</label><input type="text" id="checkout-name" name="name" autocomplete="name" maxlength="100" required></div>
@@ -100,7 +100,7 @@
             <p id="checkout-pickup-note" class="purchase-cart-help" hidden>কুরিয়ার চার্জ লাগবে না। অর্ডার দেওয়ার পর Souviks টিম সংগ্রহের বিস্তারিত নিশ্চিত করবে।</p>
             <div id="checkout-delivery-fields" hidden>
               <h3>ডেলিভারির ঠিকানা</h3>
-              <p id="checkout-delivery-charge-note" class="purchase-cart-help">চেকআউটে পিন কোড ও কার্টের মোট ওজনের ভিত্তিতে ডেলিভারি চার্জ স্বয়ংক্রিয়ভাবে হিসাব হবে। দেখানো চার্জটি আনুমানিক; পেমেন্টের আগে প্রযোজ্য পরিমাণ আবার যাচাই করা হবে।</p>
+              <p id="checkout-delivery-charge-note" class="purchase-cart-help">PIN দিয়ে ডেলিভারি উপলভ্যতা ও আনুমানিক সময় যাচাই করুন। প্যাকিংয়ের পরে ডেলিভারি চার্জ নির্ধারণ করে ইমেল ও WhatsApp-এ আলাদা কোটেশন পাঠানো হবে।</p>
               <div class="purchase-address-grid">
               <div class="form-group form-group-full"><label for="checkout-address1">ঠিকানা লাইন ১</label><input type="text" id="checkout-address1" name="address1" autocomplete="address-line1" maxlength="180"></div>
               <div class="form-group form-group-full"><label for="checkout-address2">ঠিকানা লাইন ২ (ঐচ্ছিক)</label><input type="text" id="checkout-address2" name="address2" autocomplete="address-line2" maxlength="120"></div>
@@ -113,8 +113,8 @@
             <button id="purchase-review-button" type="submit" class="btn btn-primary">মোট মূল্য যাচাই করে এগিয়ে যান</button>
           </form>
           <section id="purchase-payment-review" class="purchase-payment-review" aria-live="polite" hidden>
-            <h3>অর্ডারের মোট মূল্য যাচাই করুন</h3><p>Cashfree-এর নিরাপদ পেমেন্ট পেজে যাওয়ার আগে এই নির্দিষ্ট মূল্য যাচাই করুন।</p>
-            <dl><div><dt>অর্ডার রেফারেন্স</dt><dd id="checkout-review-order-number">—</dd></div><div><dt>পণ্যের উপমোট</dt><dd id="checkout-review-subtotal">—</dd></div><div><dt>শিপিং</dt><dd id="checkout-review-shipping">—</dd></div><div class="purchase-review-total"><dt>পরিশোধযোগ্য</dt><dd id="checkout-review-total">—</dd></div></dl>
+            <h3>অর্ডারের মোট মূল্য যাচাই করুন</h3><p>Cashfree-এর নিরাপদ পেমেন্ট পেজে যাওয়ার আগে শুধু পণ্যের মূল্য যাচাই করুন। ডেলিভারি চার্জ প্যাকিংয়ের পরে আলাদা করে জানানো হবে।</p>
+            <dl><div><dt>অর্ডার রেফারেন্স</dt><dd id="checkout-review-order-number">—</dd></div><div><dt>পণ্যের উপমোট</dt><dd id="checkout-review-subtotal">—</dd></div><div><dt>ডেলিভারি চার্জ</dt><dd id="checkout-review-shipping">—</dd></div><div class="purchase-review-total"><dt>পরিশোধযোগ্য</dt><dd id="checkout-review-total">—</dd></div></dl>
             <button id="purchase-pay-button" type="button" class="btn btn-primary">নিরাপদ পেমেন্টে এগিয়ে যান</button>
           </section>
         </aside>
@@ -149,7 +149,7 @@
   <script defer src="/assets/js/supabase-loader.js?v=6f170775b78a"></script>
 <script defer src="/assets/js/site-core.js?v=77fdc4616f5f"></script>
   <script defer src="/assets/js/attribution.js?v=6b8229cb515b"></script>
-  <script defer src="/assets/js/cart/cart.js?v=ec0120fb14c5"></script>
-  <script defer src="/assets/js/cart/delivery-estimate.js?v=8953d65ca5a5"></script>
+  <script defer src="/assets/js/cart/cart.js?v=d0cc3e989984"></script>
+  <script defer src="/assets/js/cart/delivery-estimate.js?v=0559d361ff38"></script>
 </body>
 </html>
