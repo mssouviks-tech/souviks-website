@@ -110,7 +110,7 @@ assert.match(docs, /There is no free-shipping threshold/);
 assert.match(checkoutPages, /"home_delivery": "Delivery"/);
 assert.match(checkoutPages, /"store_pickup": "Store pickup"/);
 assert.match(checkoutPages, /delivery_note/);
-assert.match(checkoutPages, /Delivery charges are calculated automatically at checkout/);
+assert.match(checkoutPages, /Delivery freight is calculated after packing/);
 assert.doesNotMatch(client, /Delhivery/);
 const productDetailsIndex = productPage.indexOf('class="pdp-meta"');
 const pinPanelIndex = productPage.indexOf('id="product-delivery-estimator"');
@@ -121,7 +121,7 @@ assert.match(productPage, /assets\/js\/product\/delivery-estimate\.js\?v=[0-9a-f
 assert.match(productPage, /delhivery-estimator\.css\?v=[0-9a-f]{12}/);
 assert.match(cartPage, /<span>Delivery<\/span>/);
 assert.match(cartPage, /<span>Store pickup<\/span>/);
-assert.match(cartPage, /Delivery charges are calculated automatically at checkout/);
+assert.match(cartPage, /Delivery freight is calculated after packing/);
 
 assert.match(versions, /assets\/css/);
 
