@@ -430,6 +430,7 @@ def main() -> None:
     # before page modules bind the product-card and product-detail controls.
     runpy.run_path(str(ROOT / "scripts/catalogue/normalize_page_config.py"), run_name="__main__")
     runpy.run_path(str(ROOT / "scripts/catalogue/sync_rfq_module.py"), run_name="__main__")
+    runpy.run_path(str(ROOT / "scripts/catalogue/sync_supabase_module.py"), run_name="__main__")
 
     write(CORE_PATH, extract_core())
 
