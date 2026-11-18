@@ -302,13 +302,16 @@ jobs:
                       )
 
               for vehicle in p.get("vehicles") or []:
-                  vehicle_text = str(vehicle).strip()
-                  if not vehicle_text:
-                      continue
-                  if vehicle_text.casefold() not in vehicle_names and vehicle_text not in vehicle_by_id:
-                      errors.append(
-                          f"Product references unknown/inactive vehicle: {p.get('id')} -> {vehicle_text}"
-                      )
+                  # Some product rows store more than one valid model in a
+                  # semicolon-separated entry. Validate each model against
+                  # vehicles.json without changing the master vehicle data.
+                  for vehicle_text in (part.strip() for part in str(vehicle).split(";")):
+                      if not vehicle_text:
+                          continue
+                      if vehicle_text.casefold() not in vehicle_names and vehicle_text not in vehicle_by_id:
+                          errors.append(
+                              f"Product references unknown/inactive vehicle: {p.get('id')} -> {vehicle_text}"
+                          )
 
           expected = {
               "products": len(active_products),
