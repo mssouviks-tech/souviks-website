@@ -18,7 +18,9 @@ const failureMigration = read("supabase/migrations/20261022100000_cashfree_payme
 const invoiceMigration = read("supabase/migrations/20261111100000_gst_invoice_generation.sql");
 const invoiceFunction = read("supabase/functions/gst-invoice/index.ts");
 const fulfillmentMigration = read("supabase/migrations/20261023130000_checkout_fulfillment_method.sql");
-const cart = read("assets/js/cart/cart.js");
+const cart = read("assets/js/source/cart/cart.js");
+const cartRuntime = read("assets/js/cart/cart.js");
+assert.ok(cart.length > cartRuntime.length * 1.2, "Cart runtime must be minified from its readable source.");
 const staticCard = read("scripts/catalogue/product_card.py");
 const runtimeCard = read("assets/js/components/product-card.js");
 const pageGenerator = read("scripts/catalogue/sync_checkout_pages.py");

@@ -48,6 +48,8 @@ jobs:
           python3 scripts/js/validate.py
           npm run lint:js
           npm run check:js
+          node scripts/regression/minified-source-contract.cjs
+          node scripts/regression/supabase-lazy-loader-contract.cjs
           npm run format:check
 
           echo "JavaScript architecture candidate validated. Publishing is owned by Build Static Catalogue."
