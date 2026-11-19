@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "record_count": 3,
+  "records": [
+    {
+      "id": "SVKS001161",
+      "source_gallery": [
+        "J1084-view-1.webp",
+        "J1084-view-2.webp",
+        "J1084-view-3.webp",
+        "J1084-view-4.webp"
+      ],
+      "gallery": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp"
+      ]
+    },
+    {
+      "id": "SVKS001162",
+      "source_gallery": [
+        "J1083-view-1.webp",
+        "J1083-view-2.webp",
+        "J1083-view-3.webp",
+        "J1083-view-4.webp"
+      ],
+      "gallery": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp"
+      ]
+    },
+    {
+      "id": "SVKS001163",
+      "source_gallery": [
+        "rear-spring-rear-hanger-50mm-7-hole-rh-bs6-view-1.webp",
+        "rear-spring-rear-hanger-50mm-7-hole-rh-bs6-view-2.webp",
+        "rear-spring-rear-hanger-50mm-7-hole-rh-bs6-view-3.webp",
+        "rear-spring-rear-hanger-50mm-7-hole-rh-bs6-view-4.webp"
+      ],
+      "gallery": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp"
+      ]
+    }
+  ]
+}

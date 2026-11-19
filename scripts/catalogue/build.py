@@ -137,6 +137,85 @@ def reconcile_catalogue_projections():
     def text(v):
         return str(v or "").strip()
 
+    # Apply narrowly scoped, auditable image-gallery filename normalization.
+    # The manifest changes filenames only; product identity, fitment, pricing,
+    # dimensions, and technical metadata remain untouched.
+    gallery_overrides_path = ROOT / "assets/data/image-gallery-normalization-overrides-2026-11-19.json"
+    try:
+        gallery_overrides = json.loads(gallery_overrides_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"Invalid image-gallery normalization manifest: {exc}")
+    if (
+        not isinstance(gallery_overrides, dict)
+        or gallery_overrides.get("schema_version") != 1
+        or not isinstance(gallery_overrides.get("records"), list)
+        or len(gallery_overrides["records"]) != gallery_overrides.get("record_count")
+    ):
+        raise SystemExit("Image-gallery normalization manifest has an unsupported or inconsistent schema")
+
+    catalogue_by_id_for_images = {
+        text(product.get("id")): product
+        for product in catalogue
+        if isinstance(product, dict) and text(product.get("id"))
+    }
+    seen_gallery_override_ids = set()
+    for override in gallery_overrides["records"]:
+        if not isinstance(override, dict):
+            raise SystemExit("Every image-gallery override must be an object")
+        product_id = text(override.get("id"))
+        source_gallery = override.get("source_gallery")
+        target_gallery = override.get("gallery")
+        if (
+            not product_id
+            or product_id in seen_gallery_override_ids
+            or not isinstance(source_gallery, list)
+            or not isinstance(target_gallery, list)
+            or target_gallery != ["1.webp", "2.webp", "3.webp", "4.webp"]
+            or len(source_gallery) != 4
+        ):
+            raise SystemExit(f"Invalid or duplicate image-gallery override for {product_id or 'unknown product'}")
+        seen_gallery_override_ids.add(product_id)
+        product = catalogue_by_id_for_images.get(product_id)
+        if product is None:
+            raise SystemExit(f"Image-gallery override references unknown product: {product_id}")
+
+        image_folder = text(product.get("image_folder")) or product_id
+        image_directory = ROOT / "assets" / "images" / "products" / image_folder
+        thumbnail_directory = ROOT / "assets" / "images" / "product-thumbnails" / image_folder
+        missing_images = [name for name in target_gallery if not (image_directory / name).is_file()]
+        if missing_images:
+            raise SystemExit(
+                f"{product_id}: normalized gallery files are missing: " + ", ".join(missing_images)
+            )
+        if not (thumbnail_directory / "1.webp").is_file():
+            raise SystemExit(f"{product_id}: normalized product-card thumbnail 1.webp is missing")
+
+        current_gallery = product.get("gallery")
+        if current_gallery == target_gallery:
+            # The builder is intentionally idempotent after the first build.
+            pass
+        elif current_gallery == source_gallery:
+            product["gallery"] = list(target_gallery)
+            product["image"] = "1.webp"
+            product["primary_image"] = "1.webp"
+            product["image_url"] = f"/assets/images/products/{image_folder}/1.webp"
+            product["card_image_url"] = f"/assets/images/product-thumbnails/{image_folder}/1.webp"
+            old_dimensions = product.get("gallery_dimensions")
+            if isinstance(old_dimensions, dict):
+                product["gallery_dimensions"] = {
+                    new_name: old_dimensions[old_name]
+                    for old_name, new_name in zip(source_gallery, target_gallery)
+                    if old_name in old_dimensions
+                }
+        else:
+            raise SystemExit(
+                f"{product_id}: source gallery changed unexpectedly; refusing to apply filename override"
+            )
+        product["image"] = "1.webp"
+        product["primary_image"] = "1.webp"
+        product["image_url"] = f"/assets/images/products/{image_folder}/1.webp"
+        product["card_image_url"] = f"/assets/images/product-thumbnails/{image_folder}/1.webp"
+
     # Apply the source-backed SKU-level HSN corrections as a versioned,
     # auditable overlay. Only the corrected products' HSN metadata is changed;
     # supplier-invoice evidence and DPIIT mappings are applied independently.
