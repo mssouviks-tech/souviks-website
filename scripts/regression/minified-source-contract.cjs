@@ -25,12 +25,10 @@ for (const [sourcePath, runtimePath] of mappings) {
   const runtimeSegments = runtimePath.split("/").slice(2);
   const quoted = segments => segments.map(segment => JSON.stringify(segment)).join(",\\s*");
   const sourceMapping = new RegExp(
-    "source:\\s*path\\.join\\(root,\\s*\\"assets\\",\\s*\\"js\\",\\s*\\"source\\",\\s*" +
-      quoted(sourceSegments) + "\\s*\\)",
+    `source:\\s*path\\.join\\(root,\\s*"assets",\\s*"js",\\s*"source",\\s*${quoted(sourceSegments)}\\s*\\)`,
   );
   const runtimeMapping = new RegExp(
-    "output:\\s*path\\.join\\(root,\\s*\\"assets\\",\\s*\\"js\\",\\s*" +
-      quoted(runtimeSegments) + "\\s*\\)",
+    `output:\\s*path\\.join\\(root,\\s*"assets",\\s*"js",\\s*${quoted(runtimeSegments)}\\s*\\)`,
   );
   assert.match(minifier, sourceMapping, "Minifier must read " + sourcePath);
   assert.match(minifier, runtimeMapping, "Minifier must write " + runtimePath);
