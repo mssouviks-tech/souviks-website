@@ -338,7 +338,7 @@ def validate() -> None:
 
     for filename in sorted(KNOWN_BUNDLES):
         source_path = INDEX_SOURCE_PATH if filename == "index.js" else BUNDLES / filename
-    source = read(source_path)
+        source = read(source_path)
         if "/* ===== utils.js ===== */" in source:
             raise ValueError(f"{filename} still embeds the shared utilities layer")
         if "/* ===== auth/supabase.js ===== */" in source:
