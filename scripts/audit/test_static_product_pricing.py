@@ -281,13 +281,16 @@ for product_id, expected in EXPECTED.items():
         # Delimit the complete pricing area by the next metadata block.
         # This markup contains nested <div> elements, so matching the first
         # closing </div> truncates the pricing container and creates a false failure.
+        # Delimit the complete pricing area by the next metadata block.
+        # This markup contains nested <div> elements, so matching the first
+        # closing </div> truncates the pricing container and creates a false failure.
         pricing_match = re.search(
-            r'(<div\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-pricing\\b[^"\\']*["\\'])[^>]*>.*?)'
-            r'(?=<div\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-meta\\b[^"\\']*["\\'])[^>]*>)',
+            r'(<div\b(?=[^>]*class=["\'][^"\']*\bpdp-pricing\b[^"\']*["\'])[^>]*>.*?)'
+            r'(?=<div\b(?=[^>]*class=["\'][^"\']*\bpdp-meta\b[^"\']*["\'])[^>]*>)',
             page,
             flags=re.I | re.S,
         )
-        assert pricing_match, f"{'{' }product_id{' }'}: missing server-rendered pricing area on {'{' }language{' }'} page"
+        assert pricing_match, f"{product_id}: missing server-rendered pricing area on {language} page"
         pricing_area = pricing_match.group(1)
         pricing = pricing_area
         below_mrp_labels = {
