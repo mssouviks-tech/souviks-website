@@ -46,9 +46,15 @@ async function minify(sourceFile, outputFile) {
   const output = result.code.endsWith("\n") ? result.code : result.code + "\n";
   await writeFile(outputFile, output, "utf8");
   console.log(
-    "Minified " + path.relative(root, sourceFile) + " -> " +
-    path.relative(root, outputFile) + ": " +
-    Buffer.byteLength(source) + " -> " + Buffer.byteLength(result.code) + " bytes",
+    "Minified " +
+      path.relative(root, sourceFile) +
+      " -> " +
+      path.relative(root, outputFile) +
+      ": " +
+      Buffer.byteLength(source) +
+      " -> " +
+      Buffer.byteLength(result.code) +
+      " bytes",
   );
 }
 
