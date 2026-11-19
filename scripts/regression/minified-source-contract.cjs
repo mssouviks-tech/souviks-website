@@ -21,10 +21,19 @@ for (const [sourcePath, runtimePath] of mappings) {
   const runtime = fs.readFileSync(path.join(ROOT, runtimePath), "utf8");
   assert.ok(source.includes("\n"), sourcePath + " must remain human-readable.");
   assert.ok(source.length > runtime.length * 1.2, runtimePath + " must be materially smaller than its readable source.");
-  assert.ok(
-    minifier.includes(sourcePath) && minifier.includes(runtimePath),
-    "Minifier must map " + sourcePath + " to " + runtimePath,
+  const sourceSegments = sourcePath.split("/").slice(3);
+  const runtimeSegments = runtimePath.split("/").slice(2);
+  const quoted = segments => segments.map(segment => JSON.stringify(segment)).join(",\\s*");
+  const sourceMapping = new RegExp(
+    "source:\\s*path\\.join\\(root,\\s*\\"assets\\",\\s*\\"js\\",\\s*\\"source\\",\\s*" +
+      quoted(sourceSegments) + "\\s*\\)",
   );
+  const runtimeMapping = new RegExp(
+    "output:\\s*path\\.join\\(root,\\s*\\"assets\\",\\s*\\"js\\",\\s*" +
+      quoted(runtimeSegments) + "\\s*\\)",
+  );
+  assert.match(minifier, sourceMapping, "Minifier must read " + sourcePath);
+  assert.match(minifier, runtimeMapping, "Minifier must write " + runtimePath);
   assert.ok(!runtimePath.includes(".source."), "Runtime URL must remain stable.");
 }
 
