@@ -302,7 +302,7 @@ try {
 
       const final = navigationError
         ? { navigationError }
-        : await page.evaluate(() => {
+        : await page.evaluate((requests) => {
             const round = (value) =>
               Number.isFinite(value) ? Math.round(value * 10) / 10 : null;
             const navigation = performance.getEntriesByType("navigation")[0];
@@ -408,11 +408,11 @@ try {
               runtime: {
                 startupAuthState:
                   window.__souviksLcpDiagnostics?.startupAuthState || null,
-                requests: runtimeRequests,
+                requests,
               },
               heroResources: resources,
             };
-          });
+          }, runtimeRequests);
 
       const result = {
         label: target.label,
