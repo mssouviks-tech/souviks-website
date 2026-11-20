@@ -243,6 +243,145 @@ async function main() {
     "OAuth callback URLs must trigger persisted-session initialization",
   );
 
+  const catalogueCoreSource = fs.readFileSync(
+    path.join(ROOT, "assets/js/catalogue-core.js"),
+    "utf8",
+  );
+  const documentListeners = new Map();
+  const windowListeners = new Map();
+  let currentUser = null;
+  let persistedSession = false;
+  let savedAuthCalls = 0;
+  let savedProductQueries = 0;
+
+  const savedDocument = {
+    addEventListener(type, callback) {
+      documentListeners.set(type, callback);
+    },
+    querySelectorAll() {
+      return [];
+    },
+  };
+  const savedWindow = {
+    SouviksSupabase: {
+      hasPersistedSessionOrCallback: () => persistedSession,
+    },
+    addEventListener(type, callback) {
+      windowListeners.set(type, callback);
+    },
+  };
+  const savedSupabaseClient = {
+    auth: {
+      async getUser() {
+        savedAuthCalls += 1;
+        return { data: { user: currentUser }, error: null };
+      },
+    },
+    from(table) {
+      assert.equal(table, "saved_products");
+      savedProductQueries += 1;
+      return {
+        select(columns) {
+          assert.equal(columns, "product_id");
+          return this;
+        },
+        eq(column, value) {
+          assert.equal(column, "user_id");
+          assert.equal(value, "regression-saved-user");
+          return Promise.resolve({
+            data: [{ product_id: "saved-product" }],
+            error: null,
+          });
+        },
+      };
+    },
+  };
+  const savedProductsSandbox = {
+    window: savedWindow,
+    document: savedDocument,
+    supabaseClient: savedSupabaseClient,
+    SouviksErrors: { log() {} },
+  };
+
+  vm.runInNewContext(catalogueCoreSource, savedProductsSandbox, {
+    filename: "catalogue-core.js",
+    timeout: 1000,
+  });
+
+  assert.equal(
+    documentListeners.has("DOMContentLoaded"),
+    false,
+    "catalogue startup must not schedule an unconditional SavedProducts auth check",
+  );
+  assert.equal(
+    savedAuthCalls,
+    0,
+    "anonymous homepage/listing startup must not call Supabase auth.getUser",
+  );
+  assert.equal(
+    savedProductQueries,
+    0,
+    "anonymous startup must not query saved_products",
+  );
+
+  const savedAuthStateListener = documentListeners.get("souviks:auth-state");
+  assert.equal(
+    typeof savedAuthStateListener,
+    "function",
+    "saved products must subscribe to the shared authenticated-session lifecycle",
+  );
+
+  currentUser = { id: "regression-saved-user" };
+  persistedSession = true;
+  savedAuthStateListener({
+    detail: {
+      event: "INITIAL_SESSION",
+      session: { user: currentUser },
+    },
+  });
+  await new Promise((resolve) => setImmediate(resolve));
+
+  assert.equal(
+    savedAuthCalls,
+    1,
+    "a confirmed authenticated session must initialize saved products",
+  );
+  assert.equal(
+    savedProductQueries,
+    1,
+    "a confirmed authenticated session must hydrate saved-product IDs",
+  );
+  assert.equal(
+    savedWindow.SavedProducts.state.savedIds.has("saved-product"),
+    true,
+    "saved-product state must be hydrated for the signed-in user",
+  );
+
+  savedAuthStateListener({
+    detail: { event: "SIGNED_OUT", session: null },
+  });
+  assert.equal(
+    savedWindow.SavedProducts.state.user,
+    null,
+    "sign-out events must clear the saved-products user",
+  );
+  assert.equal(
+    savedWindow.SavedProducts.state.savedIds.size,
+    0,
+    "sign-out events must clear saved-product IDs",
+  );
+
+  persistedSession = false;
+  windowListeners.get("storage")({
+    key: "sb-kjxrfmujzdxatpgegqcs-auth-token",
+    newValue: null,
+  });
+  assert.equal(
+    savedWindow.SavedProducts.state.savedIds.size,
+    0,
+    "cross-tab session removal must clear saved-product state",
+  );
+
   console.log(
     "[Supabase lazy-loader contract] PASS — no eager SDK download, async on-demand load, query/auth/RPC/Edge Function compatibility, singleton client, and callback detection.",
   );
