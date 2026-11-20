@@ -247,6 +247,7 @@ jobs:
             docs/audit/hsn-verification-worklist.csv
             assets/data/products.json
             assets/data/search.json
+            assets/data/brands.json
             assets/images/hero/index-hero-mobile.webp
             assets/images/hero/product-hero-mobile.webp
             assets/images/hero/product-hero-mobile-crop.avif
@@ -262,6 +263,10 @@ jobs:
             hi/products
             bn/products
           )
+          generated_shared_image_directories=(
+            assets/images/brands
+            assets/images/about
+          )
 
           for path in "${generated_paths[@]}"; do
             if [ ! -f "${publish_repo}/${path}" ]; then
@@ -269,9 +274,9 @@ jobs:
               exit 1
             fi
           done
-          for directory in "${generated_product_page_directories[@]}"; do
+          for directory in "${generated_product_page_directories[@]}" "${generated_shared_image_directories[@]}"; do
             if [ ! -d "${publish_repo}/${directory}" ]; then
-              echo "Missing generated product-page directory on PR branch: ${directory}"
+              echo "Missing generated output directory on PR branch: ${directory}"
               exit 1
             fi
           done
@@ -286,7 +291,7 @@ jobs:
           else
             echo "No staged workbook-import files remain to stage."
           fi
-          git -C "${publish_repo}" add -- "${generated_paths[@]}" "${generated_product_page_directories[@]}"
+          git -C "${publish_repo}" add -- "${generated_paths[@]}" "${generated_product_page_directories[@]}" "${generated_shared_image_directories[@]}"
           # Versioned first-party script URLs must follow the minified cart asset.
           while IFS= read -r path; do
             git -C "${publish_repo}" add -- "$path"
