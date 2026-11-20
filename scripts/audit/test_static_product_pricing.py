@@ -288,8 +288,11 @@ for product_id, expected in EXPECTED.items():
             flags=re.I | re.S,
         )
         assert price_area_match, f"{product_id}: missing server-rendered pricing block on {language} page"
-        pricing = price_area_match.group(1)
         pricing_area = price_area_match.group(1) + price_area_match.group(2)
+        pricing = pricing_area
+        assert display_price(expected["selling_price"]) in pricing, (
+            f"{product_id}: {language} pricing block missing selling price {display_price(expected['selling_price'])}"
+        )
         below_mrp_labels = {
             "en": "below MRP",
             "hi": "एमआरपी से कम",
