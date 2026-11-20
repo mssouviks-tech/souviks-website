@@ -8,6 +8,8 @@ import runpy
 
 ROOT = Path(__file__).resolve().parents[2]
 BUNDLES = ROOT / "assets" / "js" / "bundles"
+SOURCE_BUNDLES = ROOT / "assets" / "js" / "source" / "bundles"
+INDEX_SOURCE_PATH = SOURCE_BUNDLES / "index.js"
 CORE_PATH = ROOT / "assets" / "js" / "site-core.js"
 LANGUAGES = ("en", "bn", "hi")
 
@@ -130,7 +132,8 @@ def strip_marked_sections(source: str, excluded_markers: set[str]) -> str:
 
 
 def build_page_bundle(filename: str) -> str:
-    source = read(BUNDLES / filename)
+    source_path = INDEX_SOURCE_PATH if filename == "index.js" else BUNDLES / filename
+    source = read(source_path)
 
     if source.startswith(SHARED_CORE_PREFIX):
         source = source[len(SHARED_CORE_PREFIX):].lstrip()
@@ -334,7 +337,8 @@ def validate() -> None:
                 raise ValueError(f"Missing page module: {full_path}")
 
     for filename in sorted(KNOWN_BUNDLES):
-        source = read(BUNDLES / filename)
+        source_path = INDEX_SOURCE_PATH if filename == "index.js" else BUNDLES / filename
+        source = read(source_path)
         if "/* ===== utils.js ===== */" in source:
             raise ValueError(f"{filename} still embeds the shared utilities layer")
         if "/* ===== auth/supabase.js ===== */" in source:
@@ -435,7 +439,8 @@ def main() -> None:
     write(CORE_PATH, extract_core())
 
     for filename in sorted(KNOWN_BUNDLES):
-        write(BUNDLES / filename, build_page_bundle(filename))
+        output_path = INDEX_SOURCE_PATH if filename == "index.js" else BUNDLES / filename
+        write(output_path, build_page_bundle(filename))
 
     changed = migrate_html()
     validate()

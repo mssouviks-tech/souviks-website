@@ -191,6 +191,7 @@ jobs:
           node scripts/regression/gst-rate-candidate-contract.cjs
           node scripts/regression/hsn-stock-reference-crosswalk.cjs
           node scripts/regression/gst-invoice-generator-contract.cjs
+          node scripts/regression/minified-source-contract.cjs
           npm run format:check
 
           echo "Catalogue release gate passed."

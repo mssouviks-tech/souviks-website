@@ -11,6 +11,11 @@ const loaderSource = fs.readFileSync(
   path.join(ROOT, "assets/js/supabase-loader.js"),
   "utf8",
 );
+const readableLoaderSource = fs.readFileSync(
+  path.join(ROOT, "assets/js/source/supabase-loader.js"),
+  "utf8",
+);
+assert.ok(readableLoaderSource.length > loaderSource.length * 1.2, "Supabase loader runtime must be minified from its readable source.");
 
 async function main() {
   const injectedScripts = [];

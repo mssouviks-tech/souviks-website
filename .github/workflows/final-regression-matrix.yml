@@ -122,6 +122,9 @@ jobs:
       - name: Validate Supabase lazy-loader contract
         run: node scripts/regression/supabase-lazy-loader-contract.cjs
 
+      - name: Validate readable JavaScript sources and minified runtime outputs
+        run: node scripts/regression/minified-source-contract.cjs
+
       - name: Validate Cashfree checkout contract
         run: node scripts/regression/cashfree-checkout-contract.cjs
 

@@ -7,17 +7,20 @@ const { createHash } = require("node:crypto");
 
 const ROOT = path.resolve(__dirname, "../..");
 const paths = {
-  accountBasket: "assets/js/account/rfq.js",
+  accountBasket: "assets/js/source/account/rfq.js",
   quoteBasket: "assets/js/request-quote/rfq.js",
   accountSubmit: "assets/js/account/rfq-submit.js",
   standaloneSubmit: "assets/js/request-quote/standalone-rfq-submission.js",
 };
+const rfqRuntime = fs.readFileSync(path.join(ROOT, "assets/js/account/rfq.js"), "utf8");
 const source = Object.fromEntries(
   Object.entries(paths).map(([key, relative]) => [
     key,
     fs.readFileSync(path.join(ROOT, relative), "utf8"),
   ])
 );
+
+assert.ok(source.accountBasket.length > rfqRuntime.length * 1.2, "RFQ runtime must be minified from its readable source.");
 
 function loadValidators(moduleSource, label) {
   // Locate the validation block by JavaScript assignments, not formatting or
