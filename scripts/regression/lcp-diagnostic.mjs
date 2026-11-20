@@ -50,6 +50,52 @@ try {
         hasTouch: true,
       });
       const page = await context.newPage();
+      const runtimeRequests = [];
+      const trackedRequests = new Map();
+      const classifyRuntimeRequest = (request) => {
+        try {
+          const url = new URL(request.url());
+          if (
+            url.hostname === "cdn.jsdelivr.net" &&
+            url.pathname.includes("/npm/@supabase/supabase-js")
+          ) {
+            return { kind: "supabase-sdk", host: url.hostname, path: url.pathname };
+          }
+          if (url.hostname.endsWith(".supabase.co")) {
+            return { kind: "supabase-api", host: url.hostname, path: url.pathname };
+          }
+          if (
+            url.hostname === "www.googletagmanager.com" &&
+            url.pathname === "/gtag/js"
+          ) {
+            return { kind: "google-tag", host: url.hostname, path: url.pathname };
+          }
+        } catch {
+          // Ignore malformed or non-HTTP request URLs.
+        }
+        return null;
+      };
+      page.on("request", (request) => {
+        const classified = classifyRuntimeRequest(request);
+        if (!classified) return;
+        const record = {
+          ...classified,
+          method: request.method(),
+          resourceType: request.resourceType(),
+          statusCode: null,
+          failed: false,
+        };
+        runtimeRequests.push(record);
+        trackedRequests.set(request, record);
+      });
+      page.on("response", (response) => {
+        const record = trackedRequests.get(response.request());
+        if (record) record.statusCode = response.status();
+      });
+      page.on("requestfailed", (request) => {
+        const record = trackedRequests.get(request);
+        if (record) record.failed = true;
+      });
       const cdp = await context.newCDPSession(page);
 
       await cdp.send("Network.enable");
@@ -66,7 +112,34 @@ try {
       await page.addInitScript(() => {
         const round = (value) =>
           Number.isFinite(value) ? Math.round(value * 10) / 10 : null;
-        window.__souviksLcpDiagnostics = { entries: [], longTasks: [] };
+        const authStorageKey = "sb-kjxrfmujzdxatpgegqcs-auth-token";
+        let supabaseSessionStoragePresent = false;
+        let authCallbackInUrl = false;
+        try {
+          supabaseSessionStoragePresent = Boolean(
+            window.localStorage.getItem(authStorageKey),
+          );
+        } catch {
+          // Storage can be unavailable in restricted browser contexts.
+        }
+        try {
+          const currentUrl = new URL(window.location.href);
+          authCallbackInUrl =
+            currentUrl.searchParams.has("code") ||
+            /(?:^|[&#])(access_token|refresh_token|error)=/.test(
+              window.location.hash,
+            );
+        } catch {
+          // The navigation URL is not always available at the initial document.
+        }
+        window.__souviksLcpDiagnostics = {
+          entries: [],
+          longTasks: [],
+          startupAuthState: {
+            supabaseSessionStoragePresent,
+            authCallbackInUrl,
+          },
+        };
 
         try {
           new PerformanceObserver((list) => {
@@ -320,6 +393,11 @@ try {
               })(),
               longTasks:
                 window.__souviksLcpDiagnostics?.longTasks || [],
+              runtime: {
+                startupAuthState:
+                  window.__souviksLcpDiagnostics?.startupAuthState || null,
+                requests: runtimeRequests,
+              },
               heroResources: resources,
             };
           });
@@ -356,6 +434,7 @@ try {
           fcp: final.paint?.find((entry) => entry.name === "first-contentful-paint")
             ?.startTime,
           lcp: final.lcpEntries?.at(-1) || null,
+          runtime: final.runtime || null,
           screenshotCheckpoints: screenshots.map((item) => ({
             requested: item.checkpoint,
             capturedAt: item.snapshot.at,
