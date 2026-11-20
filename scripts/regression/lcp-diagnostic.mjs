@@ -59,16 +59,28 @@ try {
             url.hostname === "cdn.jsdelivr.net" &&
             url.pathname.includes("/npm/@supabase/supabase-js")
           ) {
-            return { kind: "supabase-sdk", host: url.hostname, path: url.pathname };
+            return {
+              kind: "supabase-sdk",
+              host: url.hostname,
+              path: url.pathname,
+            };
           }
           if (url.hostname.endsWith(".supabase.co")) {
-            return { kind: "supabase-api", host: url.hostname, path: url.pathname };
+            return {
+              kind: "supabase-api",
+              host: url.hostname,
+              path: url.pathname,
+            };
           }
           if (
             url.hostname === "www.googletagmanager.com" &&
             url.pathname === "/gtag/js"
           ) {
-            return { kind: "google-tag", host: url.hostname, path: url.pathname };
+            return {
+              kind: "google-tag",
+              host: url.hostname,
+              path: url.pathname,
+            };
           }
         } catch {
           // Ignore malformed or non-HTTP request URLs.
