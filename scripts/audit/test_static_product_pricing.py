@@ -280,9 +280,10 @@ for product_id, expected in EXPECTED.items():
 
         # The price-history panel is rendered after .pdp-pricing and before .pdp-meta.
         # Capture this whole area instead of requiring those two blocks to be adjacent.
+        # Use a two-part pattern so the match stops before the next product metadata block.
         pricing_area_match = re.search(
-            r'(<div\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-pricing\\b[^"\\']*["\\'])[^>]*>.*?)'
-            r'(?=<div\\b(?=[^>]*class=["\\'][^"\\']*\\bpdp-meta\\b[^"\\']*["\\'])[^>]*>)',
+            r"""(<div\b(?=[^>]*class=["'][^"']*\bpdp-pricing\b[^"']*["'])[^>]*>.*?)"""
+            r"""(?=<div\b(?=[^>]*class=["'][^"']*\bpdp-meta\b[^"']*["'])[^>]*>)""",
             page,
             flags=re.I | re.S,
         )
