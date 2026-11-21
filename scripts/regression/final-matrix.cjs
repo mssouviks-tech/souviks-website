@@ -372,6 +372,15 @@ function langPath(lang, suffix) {
   return `/${lang}/${suffix}`;
 }
 
+function brandLogoPath(slug) {
+  const brandsPath = path.join(__dirname, "../../assets/data/brands.json");
+  const brands = JSON.parse(fs.readFileSync(brandsPath, "utf8"));
+  const brand = brands.find(item => item && item.slug === slug);
+  if (!brand || typeof brand.logo !== "string" || !brand.logo.trim()) {
+    throw new Error("missing canonical brand logo path for " + slug);
+  }
+  return new URL(brand.logo, "http://localhost").pathname;
+}
 async function main() {
   browser = await chromium.launch({ headless: true });
 
@@ -382,6 +391,12 @@ async function main() {
     if (!master || master.active === false) throw new Error("SVKS000883 master product is missing or inactive");
     if (master.brand_id !== "toyo" || (master.brand_name || master.brand) !== "Toyo") {
       throw new Error("SVKS000883 master brand is not Toyo");
+    }
+    const brandsPath = path.join(__dirname, "../../assets/data/brands.json");
+    const brands = JSON.parse(fs.readFileSync(brandsPath, "utf8"));
+    const toyoBrand = brands.find(item => item && item.slug === "toyo");
+    if (!toyoBrand || typeof toyoBrand.logo !== "string" || !toyoBrand.logo.trim()) {
+      throw new Error("Toyo master brand logo is missing");
     }
 
     for (const lang of ["en", "hi", "bn"]) {
@@ -401,8 +416,8 @@ async function main() {
         throw new Error(relative + " brand breadcrumb does not point to Toyo");
       }
 
-      if (!/<img\b[^>]*src=["']\/assets\/images\/brands\/toyo\.png["'][^>]*alt=["']Toyo["']/i.test(html)) {
-        throw new Error(relative + " Toyo brand badge is missing or incorrect");
+      if (!html.includes('src="' + toyoBrand.logo + '" alt="Toyo"')) {
+        throw new Error(relative + " Toyo brand badge does not match the canonical brands.json logo");
       }
       const mainImage = html.match(/<img\b[^>]*id=["']pdpMainImage["'][^>]*>/i);
       if (!mainImage || !mainImage[0].includes("/assets/images/products/SVKS000883/1.webp")) {
@@ -940,7 +955,8 @@ async function main() {
       const page = await context.newPage();
       page.__view = "desktop";
       let interceptedLogo = false;
-      await page.route("**/assets/images/brands/abc.png", async route => {
+      const abcLogoPath = brandLogoPath("abc");
+      await page.route(url => url.pathname === abcLogoPath, async route => {
         interceptedLogo = true;
         await route.fulfill({ status: 404, contentType: "image/png", body: "missing brand logo fixture" });
       });
@@ -982,7 +998,8 @@ async function main() {
     try {
       const page = await context.newPage();
       page.__view = "desktop";
-      await page.route("**/assets/images/brands/abc.png", async route => {
+      const abcLogoPath = brandLogoPath("abc");
+      await page.route(url => url.pathname === abcLogoPath, async route => {
         await route.fulfill({ status: 404, contentType: "image/png", body: "missing brand logo fixture" });
       });
       await page.route("**/assets/images/placeholder.webp", async route => {

@@ -16,7 +16,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]
 SKIP_DIRS = {".git", "node_modules", ".venv", "__pycache__", ".pytest_cache"}
 TEXT_SUFFIXES = {".html", ".css", ".js", ".json", ".xml", ".webmanifest", ".txt"}
-SERVED_SUFFIXES = {".html", ".css", ".js", ".xml", ".webmanifest"}
+SERVED_SUFFIXES = {".html", ".css", ".js", ".json", ".xml", ".webmanifest"}
 PHOTO_QUALITY = 82
 GRAPHIC_QUALITY = 88
 LOGO_QUALITY = 92
@@ -25,6 +25,8 @@ MAX_DIMENSIONS = {
     "categories": (512, 512),
     "support": (256, 256),
     "logo": (512, 512),
+    "brands": (512, 512),
+    "about": (1600, 1600),
 }
 GA_BLOCK_RE = re.compile(
     r'^[ \t]*<!--\s*Google tag \(gtag\.js\)\s*-->\s*'
@@ -35,6 +37,47 @@ GA_BLOCK_RE = re.compile(
     r'gtag\(\s*[\'"]config[\'"]\s*,\s*[\'"]G-FDLYP5QB8V[\'"]\s*\);\s*</script>\s*',
     flags=re.IGNORECASE | re.DOTALL | re.MULTILINE,
 )
+
+
+def referenced_image_paths(group: str) -> list[Path]:
+    """Return shared UI image sources that are actually referenced by served content."""
+    prefix = f"assets/images/{group}/"
+    pattern = re.compile(
+        r"(?<![A-Za-z0-9])/?"
+        + re.escape(prefix)
+        + r"""[^"'\s<>?#,]+"""
+    )
+    referenced: set[Path] = set()
+    for text_path in served_text_files():
+        try:
+            content = text_path.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue
+        for match in pattern.finditer(content):
+            candidate = ROOT / match.group(0).lstrip("/")
+            if candidate.is_file():
+                referenced.add(candidate)
+    return sorted(referenced)
+
+
+def referenced_image_sources(group: str) -> list[Path]:
+    """Resolve referenced WebP derivatives back to retained source images."""
+    source_extensions = (".png", ".jpg", ".jpeg")
+    sources: set[Path] = set()
+    for referenced in referenced_image_paths(group):
+        suffix = referenced.suffix.lower()
+        if suffix in source_extensions:
+            if referenced.is_file():
+                sources.add(referenced)
+            continue
+        if suffix != ".webp":
+            continue
+        for extension in source_extensions:
+            source = referenced.with_suffix(extension)
+            if source.is_file():
+                sources.add(source)
+                break
+    return sorted(sources)
 
 
 def candidate_images() -> list[tuple[Path, int]]:
@@ -55,6 +98,21 @@ def candidate_images() -> list[tuple[Path, int]]:
         path = logo_dir / name
         if path.exists():
             result.append((path, LOGO_QUALITY))
+
+    # Brand logos appear on the directory and brand-detail pages. Only optimise
+    # files referenced by served HTML/data, retain alpha, and cap their native
+    # canvas to a 512px ceiling without upscaling.
+    result.extend(
+        (path, LOGO_QUALITY)
+        for path in referenced_image_sources("brands")
+    )
+
+    # The about page uses real store/gallery photography. These are shared UI
+    # assets (not product master images); preserve aspect ratio and never enlarge.
+    result.extend(
+        (path, PHOTO_QUALITY)
+        for path in referenced_image_sources("about")
+    )
     return result
 
 
@@ -143,7 +201,7 @@ def version_webp_references(mapping: dict[str, str]) -> int:
         original = text
         for asset_path, digest in versions.items():
             text = re.sub(
-                re.escape(asset_path) + r"(?!\?v=)",
+                re.escape(asset_path) + r"(?:\?v=[0-9a-f]{12})?(?![A-Za-z0-9])",
                 asset_path + "?v=" + digest,
                 text,
             )
@@ -451,6 +509,10 @@ def main() -> None:
             max_dimensions = MAX_DIMENSIONS["categories"]
         elif "/icons/support." in relative:
             max_dimensions = MAX_DIMENSIONS["support"]
+        elif "/images/brands/" in relative:
+            max_dimensions = MAX_DIMENSIONS["brands"]
+        elif "/images/about/" in relative:
+            max_dimensions = MAX_DIMENSIONS["about"]
         else:
             max_dimensions = MAX_DIMENSIONS["logo"]
 

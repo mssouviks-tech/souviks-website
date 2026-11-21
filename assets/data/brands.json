@@ -4,7 +4,7 @@
     "slug": "fleetguard",
     "name": "Fleetguard",
     "short_name": "Fleetguard",
-    "logo": "/assets/images/brands/fleetguard.png",
+    "logo": "/assets/images/brands/fleetguard.webp?v=0939dfd7ef1f",
     "logo_dimensions": [
       400,
       400
@@ -111,7 +111,7 @@
     "slug": "tvs-girling",
     "name": "TVS Girling",
     "short_name": "TVS Girling",
-    "logo": "/assets/images/brands/tvs-girling.png",
+    "logo": "/assets/images/brands/tvs-girling.webp?v=1338b5bcaa0f",
     "logo_dimensions": [
       400,
       400
@@ -333,7 +333,7 @@
     "slug": "rider",
     "name": "Rider",
     "short_name": "Rider",
-    "logo": "/assets/images/brands/rider.png",
+    "logo": "/assets/images/brands/rider.webp?v=2f8de645ea5f",
     "logo_dimensions": [
       400,
       400
@@ -427,7 +427,7 @@
     "slug": "roots",
     "name": "Roots",
     "short_name": "Roots",
-    "logo": "/assets/images/brands/roots.png",
+    "logo": "/assets/images/brands/roots.webp?v=8fea9040a705",
     "logo_dimensions": [
       400,
       400
@@ -485,7 +485,7 @@
     "slug": "gs",
     "name": "GS",
     "short_name": "GS",
-    "logo": "/assets/images/brands/gs.png",
+    "logo": "/assets/images/brands/gs.webp?v=3dfda95c2bb3",
     "logo_dimensions": [
       400,
       400
@@ -577,7 +577,7 @@
     "slug": "spicer",
     "name": "Spicer",
     "short_name": "Spicer",
-    "logo": "/assets/images/brands/spicer.png",
+    "logo": "/assets/images/brands/spicer.webp?v=c60ea5696ed8",
     "logo_dimensions": [
       400,
       400
@@ -637,7 +637,7 @@
     "slug": "tata-genuine-parts",
     "name": "Tata Genuine Parts",
     "short_name": "Tata Genuine Parts",
-    "logo": "/assets/images/brands/tata-genuine-parts.png",
+    "logo": "/assets/images/brands/tata-genuine-parts.webp?v=f4febcf9b645",
     "logo_dimensions": [
       400,
       400
@@ -851,7 +851,7 @@
     "slug": "harish",
     "name": "Harish",
     "short_name": "Harish",
-    "logo": "/assets/images/brands/harish.png",
+    "logo": "/assets/images/brands/harish.webp?v=711dc012bc05",
     "logo_dimensions": [
       400,
       400
@@ -954,7 +954,7 @@
     "slug": "anupam",
     "name": "Anupam",
     "short_name": "Anupam",
-    "logo": "/assets/images/brands/anupam.png",
+    "logo": "/assets/images/brands/anupam.webp?v=806d9c6bc8f9",
     "logo_dimensions": [
       400,
       400
@@ -1022,7 +1022,7 @@
     "slug": "unominda",
     "name": "UnoMinda",
     "short_name": "UnoMinda",
-    "logo": "/assets/images/brands/unominda.png",
+    "logo": "/assets/images/brands/unominda.webp?v=b5124a45d8bf",
     "logo_dimensions": [
       400,
       400
@@ -1139,7 +1139,7 @@
     "slug": "ask",
     "name": "ASK",
     "short_name": "ASK",
-    "logo": "/assets/images/brands/ask.png",
+    "logo": "/assets/images/brands/ask.webp?v=4e1f2890c954",
     "logo_dimensions": [
       400,
       400
@@ -1212,7 +1212,7 @@
     "slug": "abc",
     "name": "ABC",
     "short_name": "ABC",
-    "logo": "/assets/images/brands/abc.png",
+    "logo": "/assets/images/brands/abc.webp?v=acbec44f860a",
     "logo_dimensions": [
       400,
       400
@@ -1259,7 +1259,7 @@
     "slug": "delphi-tvs",
     "name": "Delphi-TVS",
     "short_name": "Delphi-TVS",
-    "logo": "/assets/images/brands/delphi-tvs.png",
+    "logo": "/assets/images/brands/delphi-tvs.webp?v=03e9f6b34065",
     "logo_dimensions": [
       400,
       400
@@ -1309,7 +1309,7 @@
     "slug": "alok",
     "name": "Alok",
     "short_name": "Alok",
-    "logo": "/assets/images/brands/alok.png",
+    "logo": "/assets/images/brands/alok.webp?v=cfbab2954024",
     "logo_dimensions": [
       400,
       400
@@ -1387,7 +1387,7 @@
     "slug": "valvoline",
     "name": "Valvoline",
     "short_name": "Valvoline",
-    "logo": "/assets/images/brands/valvoline.png",
+    "logo": "/assets/images/brands/valvoline.webp?v=0ee52806a294",
     "logo_dimensions": [
       400,
       400
@@ -1442,7 +1442,7 @@
     "slug": "bir",
     "name": "BIR",
     "short_name": "BIR",
-    "logo": "/assets/images/brands/bir.png",
+    "logo": "/assets/images/brands/bir.webp?v=f2b616851952",
     "logo_dimensions": [
       1774,
       887
@@ -1495,7 +1495,7 @@
     "slug": "bgl",
     "name": "BGL",
     "short_name": "BGL",
-    "logo": "/assets/images/brands/bgl.png",
+    "logo": "/assets/images/brands/bgl.webp?v=cc5ce1a4e66f",
     "logo_dimensions": [
       400,
       400
@@ -1569,7 +1569,7 @@
     "slug": "bosch",
     "name": "Bosch",
     "short_name": "Bosch",
-    "logo": "/assets/images/brands/bosch.png",
+    "logo": "/assets/images/brands/bosch.webp?v=8118be52cccb",
     "logo_dimensions": [
       400,
       400
@@ -1674,7 +1674,7 @@
     "slug": "motherson",
     "name": "Motherson",
     "short_name": "Motherson",
-    "logo": "/assets/images/brands/motherson.png",
+    "logo": "/assets/images/brands/motherson.webp?v=89cc5df26236",
     "logo_dimensions": [
       400,
       400
@@ -1723,7 +1723,7 @@
     "slug": "msl",
     "name": "MSL",
     "short_name": "MSL",
-    "logo": "/assets/images/brands/msl.png",
+    "logo": "/assets/images/brands/msl.webp?v=d6f0730c4820",
     "logo_dimensions": [
       400,
       400
@@ -1773,7 +1773,7 @@
     "slug": "compo",
     "name": "Compo",
     "short_name": "Compo",
-    "logo": "/assets/images/brands/compo.png",
+    "logo": "/assets/images/brands/compo.webp?v=38d7975e406a",
     "logo_dimensions": [
       400,
       400
@@ -1822,7 +1822,7 @@
     "slug": "comet",
     "name": "Comet",
     "short_name": "Comet",
-    "logo": "/assets/images/brands/comet.png",
+    "logo": "/assets/images/brands/comet.webp?v=ebd6ea3877a6",
     "logo_dimensions": [
       400,
       400
@@ -1869,7 +1869,7 @@
     "slug": "nirmal",
     "name": "Nirmal",
     "short_name": "Nirmal",
-    "logo": "/assets/images/brands/nirmal.png",
+    "logo": "/assets/images/brands/nirmal.webp?v=046e88a4e1c7",
     "logo_dimensions": [
       400,
       400
@@ -1982,7 +1982,7 @@
     "slug": "jmp",
     "name": "JMP",
     "short_name": "JMP",
-    "logo": "/assets/images/brands/jmp.png",
+    "logo": "/assets/images/brands/jmp.webp?v=f1630bb2d109",
     "logo_dimensions": [
       400,
       400
@@ -2122,7 +2122,7 @@
     "slug": "leyparts",
     "name": "Leyparts",
     "short_name": "Leyparts",
-    "logo": "/assets/images/brands/leyparts.png",
+    "logo": "/assets/images/brands/leyparts.webp?v=723b627eb036",
     "logo_dimensions": [
       400,
       400
@@ -2236,7 +2236,7 @@
     "slug": "fenner",
     "name": "Fenner",
     "short_name": "Fenner",
-    "logo": "/assets/images/brands/fenner.png",
+    "logo": "/assets/images/brands/fenner.webp?v=077aea5dadf1",
     "logo_dimensions": [
       400,
       400
@@ -2303,7 +2303,7 @@
     "slug": "hp",
     "name": "HP",
     "short_name": "HP",
-    "logo": "/assets/images/brands/hp.png",
+    "logo": "/assets/images/brands/hp.webp?v=30c9a2dbf9ae",
     "logo_dimensions": [
       400,
       400
@@ -2366,7 +2366,7 @@
     "slug": "meritor",
     "name": "Meritor",
     "short_name": "Meritor",
-    "logo": "/assets/images/brands/meritor.png",
+    "logo": "/assets/images/brands/meritor.webp?v=32b352250d0d",
     "logo_dimensions": [
       400,
       400
@@ -2430,7 +2430,7 @@
     "slug": "phoenix",
     "name": "Phoenix",
     "short_name": "Phoenix",
-    "logo": "/assets/images/brands/phoenix.png",
+    "logo": "/assets/images/brands/phoenix.webp?v=b45364b9916d",
     "logo_dimensions": [
       400,
       400
@@ -2489,7 +2489,7 @@
     "slug": "jai",
     "name": "JAI",
     "short_name": "JAI",
-    "logo": "/assets/images/brands/jai.png",
+    "logo": "/assets/images/brands/jai.webp?v=f0eef6d7d546",
     "logo_dimensions": [
       400,
       400
@@ -2659,7 +2659,7 @@
     "slug": "rki",
     "name": "RKI",
     "short_name": "RKI",
-    "logo": "/assets/images/brands/rki.png",
+    "logo": "/assets/images/brands/rki.webp?v=6db347c55abe",
     "logo_dimensions": [
       400,
       400
@@ -2792,7 +2792,7 @@
     "slug": "kfl",
     "name": "KFL",
     "short_name": "KFL",
-    "logo": "/assets/images/brands/kfl.png",
+    "logo": "/assets/images/brands/kfl.webp?v=2e59b8d9920d",
     "logo_dimensions": [
       400,
       400
@@ -2916,7 +2916,7 @@
     "slug": "mahle",
     "name": "Mahle",
     "short_name": "Mahle",
-    "logo": "/assets/images/brands/mahle.png",
+    "logo": "/assets/images/brands/mahle.webp?v=7dbba77aa770",
     "logo_dimensions": [
       400,
       400
@@ -2985,7 +2985,7 @@
     "slug": "neolite",
     "name": "NeoLite",
     "short_name": "NeoLite",
-    "logo": "/assets/images/brands/neolite.png",
+    "logo": "/assets/images/brands/neolite.webp?v=3a3290934a6c",
     "logo_dimensions": [
       400,
       400
@@ -3065,7 +3065,7 @@
     "slug": "nbc",
     "name": "NBC",
     "short_name": "NBC",
-    "logo": "/assets/images/brands/nbc.png",
+    "logo": "/assets/images/brands/nbc.webp?v=fceb2ca54e01",
     "logo_dimensions": [
       400,
       400
@@ -3113,7 +3113,7 @@
     "slug": "mei",
     "name": "MEI",
     "short_name": "MEI",
-    "logo": "/assets/images/brands/mei.png",
+    "logo": "/assets/images/brands/mei.webp?v=5158e70e4326",
     "logo_dimensions": [
       400,
       400
@@ -3176,7 +3176,7 @@
     "slug": "manu",
     "name": "Manu",
     "short_name": "Manu",
-    "logo": "/assets/images/brands/manu.png",
+    "logo": "/assets/images/brands/manu.webp?v=d2ed751ac1c9",
     "logo_dimensions": [
       400,
       400
@@ -3229,7 +3229,7 @@
     "slug": "ci",
     "name": "CI",
     "short_name": "CI",
-    "logo": "/assets/images/brands/ci.png",
+    "logo": "/assets/images/brands/ci.webp?v=76f032819ca0",
     "logo_dimensions": [
       794,
       875
@@ -3280,7 +3280,7 @@
     "slug": "philips",
     "name": "Philips",
     "short_name": "Philips",
-    "logo": "/assets/images/brands/philips.png",
+    "logo": "/assets/images/brands/philips.webp?v=679f4c74a802",
     "logo_dimensions": [
       400,
       400
@@ -3327,7 +3327,7 @@
     "slug": "pix",
     "name": "Pix",
     "short_name": "Pix",
-    "logo": "/assets/images/brands/pix.png",
+    "logo": "/assets/images/brands/pix.webp?v=40dc3b2592b3",
     "logo_dimensions": [
       400,
       400
@@ -3413,7 +3413,7 @@
     "slug": "rane",
     "name": "Rane",
     "short_name": "Rane",
-    "logo": "/assets/images/brands/rane.png",
+    "logo": "/assets/images/brands/rane.webp?v=c4f7e57b7b92",
     "logo_dimensions": [
       400,
       400
@@ -3494,7 +3494,7 @@
     "slug": "sargun",
     "name": "Sargun",
     "short_name": "Sargun",
-    "logo": "/assets/images/brands/sargun.png",
+    "logo": "/assets/images/brands/sargun.webp?v=ffae06689c5d",
     "logo_dimensions": [
       2172,
       724
@@ -3549,7 +3549,7 @@
     "slug": "amw",
     "name": "AMW",
     "short_name": "AMW",
-    "logo": "/assets/images/brands/amw.png",
+    "logo": "/assets/images/brands/amw.webp?v=4452fe746da5",
     "logo_dimensions": [
       400,
       400
@@ -3596,7 +3596,7 @@
     "slug": "skf",
     "name": "SKF",
     "short_name": "SKF",
-    "logo": "/assets/images/brands/skf.png",
+    "logo": "/assets/images/brands/skf.webp?v=56b2eb98bdfb",
     "logo_dimensions": [
       400,
       400
@@ -3645,7 +3645,7 @@
     "slug": "texspin",
     "name": "Texspin",
     "short_name": "Texspin",
-    "logo": "/assets/images/brands/texspin.png",
+    "logo": "/assets/images/brands/texspin.webp?v=5d514dbbf934",
     "logo_dimensions": [
       400,
       400
@@ -3850,7 +3850,7 @@
     "slug": "tata-autocomp",
     "name": "Tata AutoComp",
     "short_name": "Tata AutoComp",
-    "logo": "/assets/images/brands/tata-autocomp.png",
+    "logo": "/assets/images/brands/tata-autocomp.webp?v=9c501b9bb99a",
     "logo_dimensions": [
       400,
       400
@@ -3911,7 +3911,7 @@
     "slug": "timken",
     "name": "Timken",
     "short_name": "Timken",
-    "logo": "/assets/images/brands/timken.png",
+    "logo": "/assets/images/brands/timken.webp?v=d6216c190be2",
     "logo_dimensions": [
       400,
       400
@@ -3967,7 +3967,7 @@
     "slug": "everest",
     "name": "Everest",
     "short_name": "Everest",
-    "logo": "/assets/images/brands/everest.png",
+    "logo": "/assets/images/brands/everest.webp?v=040f587b3c49",
     "logo_dimensions": [
       400,
       400
@@ -4015,7 +4015,7 @@
     "slug": "wabco",
     "name": "WABCO",
     "short_name": "WABCO",
-    "logo": "/assets/images/brands/wabco.png",
+    "logo": "/assets/images/brands/wabco.webp?v=22c7a3c87f14",
     "logo_dimensions": [
       400,
       400
@@ -4119,7 +4119,7 @@
     "slug": "lucas-tvs",
     "name": "Lucas TVS",
     "short_name": "Lucas TVS",
-    "logo": "/assets/images/brands/lucas-tvs.png",
+    "logo": "/assets/images/brands/lucas-tvs.webp?v=5fe9f4271b55",
     "logo_dimensions": [
       400,
       400
@@ -4246,7 +4246,7 @@
     "slug": "bapi",
     "name": "Bapi",
     "short_name": "Bapi",
-    "logo": "/assets/images/brands/bapi.png",
+    "logo": "/assets/images/brands/bapi.webp?v=c8e30f156cec",
     "logo_dimensions": [
       400,
       400
@@ -4304,7 +4304,7 @@
     "slug": "gulf",
     "name": "Gulf",
     "short_name": "Gulf",
-    "logo": "/assets/images/brands/gulf.png",
+    "logo": "/assets/images/brands/gulf.webp?v=315eafad38d4",
     "logo_dimensions": [
       400,
       400
@@ -4401,7 +4401,7 @@
     "slug": "setco",
     "name": "Setco",
     "short_name": "Setco",
-    "logo": "/assets/images/brands/setco.png",
+    "logo": "/assets/images/brands/setco.webp?v=550b00c981f5",
     "logo_dimensions": [
       400,
       400
@@ -4476,7 +4476,7 @@
     "slug": "varroc",
     "name": "Varroc",
     "short_name": "Varroc",
-    "logo": "/assets/images/brands/varroc.png",
+    "logo": "/assets/images/brands/varroc.webp?v=1569bbc396fb",
     "logo_dimensions": [
       1080,
       1080
@@ -4552,7 +4552,7 @@
     "slug": "toyo",
     "name": "Toyo",
     "short_name": "Toyo",
-    "logo": "/assets/images/brands/toyo.png",
+    "logo": "/assets/images/brands/toyo.webp?v=1ec039f94d98",
     "logo_dimensions": [
       400,
       400
@@ -4611,7 +4611,7 @@
     "slug": "knorr-bremse",
     "name": "Knorr-Bremse",
     "short_name": "Knorr-Bremse",
-    "logo": "/assets/images/brands/knorr-bremse.png",
+    "logo": "/assets/images/brands/knorr-bremse.webp?v=e873a4cbf6ff",
     "logo_dimensions": [
       400,
       400
@@ -4711,7 +4711,7 @@
     "slug": "suprajit",
     "name": "Suprajit",
     "short_name": "Suprajit",
-    "logo": "/assets/images/brands/suprajit.png",
+    "logo": "/assets/images/brands/suprajit.webp?v=02aa84d9b520",
     "logo_dimensions": [
       400,
       400
