@@ -164,6 +164,40 @@ def validate_supabase_loader(errors: list[str]) -> None:
                 )
 
 
+
+def validate_global_analytics(errors: list[str]) -> None:
+    """Keep GA event APIs in shared core and prevent the duplicate account loader."""
+    core = SITE_CORE.read_text(encoding="utf-8")
+    required_core_markers = (
+        "analyticsApi.trackEvent=function",
+        "analyticsApi.trackSearch=function",
+        "analyticsApi.trackLead=function",
+        "googletagmanager.com/gtag/js",
+        "requestIdleCallback",
+    )
+    for marker in required_core_markers:
+        if marker not in core:
+            errors.append(
+                "site-core.js is missing shared analytics capability or idle GA loading: "
+                + marker
+            )
+
+    html_paths = [
+        *sorted(ROOT.glob("*.html")),
+        *sorted((ROOT / "en").rglob("*.html")),
+        *sorted((ROOT / "hi").rglob("*.html")),
+        *sorted((ROOT / "bn").rglob("*.html")),
+    ]
+    for html_path in html_paths:
+        if not html_path.is_file():
+            continue
+        html = html_path.read_text(encoding="utf-8")
+        if "analytics-account-analytics.js" in html:
+            errors.append(
+                f"{html_path.relative_to(ROOT)} must use the shared site-core analytics API; "
+                "the duplicate account analytics module is retired."
+            )
+
 def validate_auth_ownership(errors: list[str]) -> None:
     """Ensure the shared core is the sole owner of Supabase auth lifecycle."""
     candidates = sorted(set(JS_ROOT.glob("**/*.js")))
@@ -234,6 +268,7 @@ def main() -> None:
     errors: list[str] = []
     validate_asset_versions(errors)
     validate_supabase_loader(errors)
+    validate_global_analytics(errors)
     validate_auth_ownership(errors)
     validate_rfq_engine_routing(errors)
 
