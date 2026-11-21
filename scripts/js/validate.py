@@ -22,7 +22,6 @@ SHARED_MARKERS = {
 
 SITE_CORE = JS_ROOT / "site-core.js"
 ACCOUNT_MODULES = (
-    "analytics-account-analytics.js",
     "auth-register.js",
     "rfq.js",
     "rfq-submit.js",
