@@ -45,7 +45,6 @@ ACCOUNT_SHARED_MARKERS = {
     "main.js",
 }
 ACCOUNT_MODULES = (
-    "analytics-account-analytics.js",
     "auth-register.js",
     "rfq.js",
     "rfq-submit.js",
