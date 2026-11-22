@@ -314,7 +314,12 @@ jobs:
             exit 0
           fi
 
-          git -C "${publish_repo}" commit -m "Optimize generated mobile LCP assets"
+          # Commits made with GITHUB_TOKEN do not trigger follow-up workflows
+          # automatically. Explicitly request PR checks for this generated commit.
+          git -C "${publish_repo}" -c commit.cleanup=verbatim commit -m "Optimize generated mobile LCP assets
+
+
+          request-checks: true"
 
           # Retry if a human or another workflow advances the PR branch between
           # fetch and push. Rebase the generated-output commit on the newest head.
