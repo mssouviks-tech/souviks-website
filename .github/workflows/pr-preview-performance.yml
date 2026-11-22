@@ -250,6 +250,12 @@ jobs:
 
             core.setFailed(`No successful Cloudflare Pages preview for ${shortSha} within fifteen minutes. The local main-vs-PR Lighthouse A/B results remain available; deployed-preview verification is still outstanding.`);
 
+      - name: Verify candidate cache headers on Cloudflare preview
+        if: ${{ steps.preview.outputs.url != '' }}
+        env:
+          SOUVIKS_PRODUCTION_BASE_URL: ${{ steps.preview.outputs.url }}
+        run: node scripts/audit/production_cache_headers.mjs
+
       - name: Run mobile Lighthouse on deployed branch preview
         if: ${{ steps.preview.outputs.url != '' }}
         uses: treosh/lighthouse-ci-action@v12
