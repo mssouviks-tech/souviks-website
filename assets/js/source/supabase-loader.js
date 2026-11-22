@@ -202,6 +202,55 @@
     });
   }
 
+  async function fetchPublicTable(table, query = {}) {
+    if (!configuration) {
+      throw new Error("Supabase client has not been configured.");
+    }
+
+    const tableName = String(table || "").trim();
+    if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(tableName)) {
+      throw new TypeError("Invalid Supabase public table name.");
+    }
+    if (!query || typeof query !== "object" || Array.isArray(query)) {
+      throw new TypeError("Supabase public table filters must be an object.");
+    }
+
+    const endpoint = new URL("/rest/v1/" + tableName, configuration.url);
+    for (const [name, value] of Object.entries(query)) {
+      if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(name)) {
+        throw new TypeError("Invalid Supabase public query parameter.");
+      }
+      if (value !== undefined && value !== null) {
+        endpoint.searchParams.set(name, String(value));
+      }
+    }
+
+    // Public, read-only PostgREST access does not need the 48 KB Supabase SDK.
+    // The publishable key and anonymous bearer match the unauthenticated client
+    // credentials used by the SDK; RLS still controls which rows are visible.
+    const response = await fetch(endpoint.href, {
+      method: "GET",
+      credentials: "omit",
+      headers: {
+        apikey: configuration.key,
+        Authorization: "Bearer " + configuration.key,
+        Accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        "Supabase public table read failed (HTTP " + response.status + ").",
+      );
+    }
+
+    const rows = await response.json();
+    if (!Array.isArray(rows)) {
+      throw new TypeError("Supabase public table response was not an array.");
+    }
+    return rows;
+  }
+
   function hasPersistedSessionOrCallback() {
     try {
       if (
@@ -232,6 +281,7 @@
     createClient: createLazyClient,
     ensureClient,
     loadSdk,
+    fetchPublicTable,
     hasPersistedSessionOrCallback,
   });
 })();
