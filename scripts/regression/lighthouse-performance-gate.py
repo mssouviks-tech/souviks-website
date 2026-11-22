@@ -147,9 +147,16 @@ def load_observed_lcp() -> dict[str, dict[str, list[float]]]:
         if not entries:
             raise RuntimeError(f"No PerformanceObserver LCP entries found in {path}")
 
+        # Several largest-contentful-paint candidates can share the same
+        # timestamp (for example, text and the hero image painted in one frame).
+        # In a timestamp tie, keep the larger candidate rather than whichever
+        # element PerformanceObserver happened to return first.
         final_entry = max(
             entries,
-            key=lambda entry: float(entry.get("startTime") or 0),
+            key=lambda entry: (
+                float(entry.get("startTime") or 0),
+                float(entry.get("size") or 0),
+            ),
         )
         class_name = final_entry.get("className") or ""
         element_id = final_entry.get("id") or ""
