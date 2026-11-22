@@ -202,16 +202,16 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
         if "home-hero-image" not in raw:
             continue
         mobile_avif_source = re.search(
-            r'<source\\b(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])'
-            r'(?=[^>]*\\bsrcset=["\\'][^"\\']*/assets/images/hero/index-hero-mobile-crop\\.avif\\?v=[0-9a-f]{12}["\\'])'
-            r'(?=[^>]*\\btype=["\\']image/avif["\\'])[^>]*>',
+            r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+            r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\btype=["\']image/avif["\'])[^>]*>',
             raw,
             flags=re.I | re.S,
         )
         mobile_webp_source = re.search(
-            r'<source\\b(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])'
-            r'(?=[^>]*\\bsrcset=["\\'][^"\\']*/assets/images/hero/index-hero-mobile-crop\\.webp\\?v=[0-9a-f]{12}["\\'])'
-            r'(?=[^>]*\\btype=["\\']image/webp["\\'])[^>]*>',
+            r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+            r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.webp\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\btype=["\']image/webp["\'])[^>]*>',
             raw,
             flags=re.I | re.S,
         )
@@ -222,11 +222,11 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
             )
 
         mobile_preloads = re.findall(
-            r'<link\\b(?=[^>]*\\brel=["\\']preload["\\'])'
-            r'(?=[^>]*\\bas=["\\']image["\\'])'
-            r'(?=[^>]*\\bhref=["\\'][^"\\']*/assets/images/hero/index-hero-mobile-crop\\.avif\\?v=[0-9a-f]{12}["\\'])'
-            r'(?=[^>]*\\btype=["\\']image/avif["\\'])'
-            r'(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])[^>]*>',
+            r'<link\b(?=[^>]*\brel=["\']preload["\'])'
+            r'(?=[^>]*\bas=["\']image["\'])'
+            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\btype=["\']image/avif["\'])'
+            r'(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])[^>]*>',
             raw,
             flags=re.I | re.S,
         )
@@ -237,9 +237,9 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
             )
 
         desktop_preload = re.search(
-            r'<link\\b(?=[^>]*\\brel=["\\']preload["\\'])'
-            r'(?=[^>]*\\bas=["\\']image["\\'])'
-            r'(?=[^>]*\\bhref=["\\'][^"\\']*/assets/images/hero/index-hero\\.webp\\?v=[0-9a-f]{12}["\\'])[^>]*>',
+            r'<link\b(?=[^>]*\brel=["\']preload["\'])'
+            r'(?=[^>]*\bas=["\']image["\'])'
+            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/index-hero\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
             raw,
             flags=re.I | re.S,
         )
@@ -250,8 +250,8 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
             )
 
         picture = re.search(
-            r'<picture\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bhome-hero-picture\\b[^"\\']*["\\'])'
-            r'[^>]*>([\\s\\S]*?)</picture\\s*>',
+            r'<picture\b(?=[^>]*\bclass=["\'][^"\']*\bhome-hero-picture\b[^"\']*["\'])'
+            r'[^>]*>([\s\S]*?)</picture\s*>',
             raw,
             flags=re.I | re.S,
         )
@@ -260,23 +260,23 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
         else:
             picture_markup = picture.group(1)
             mobile_avif_source = re.search(
-                r'<source\\b(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])'
-                r'(?=[^>]*\\bsrcset=["\\'][^"\\']*/assets/images/hero/index-hero-mobile-crop\\.avif\\?v=[0-9a-f]{12}["\\'])'
-                r'(?=[^>]*\\btype=["\\']image/avif["\\'])[^>]*>',
+                r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+                r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
+                r'(?=[^>]*\btype=["\']image/avif["\'])[^>]*>',
                 picture_markup,
                 flags=re.I | re.S,
             )
             mobile_webp_source = re.search(
-                r'<source\\b(?=[^>]*\\bmedia=["\\']\\(max-width:\\s*768px\\)["\\'])'
-                r'(?=[^>]*\\bsrcset=["\\'][^"\\']*/assets/images/hero/index-hero-mobile-crop\\.webp\\?v=[0-9a-f]{12}["\\'])'
-                r'(?=[^>]*\\btype=["\\']image/webp["\\'])[^>]*>',
+                r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+                r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.webp\?v=[0-9a-f]{12}["\'])'
+                r'(?=[^>]*\btype=["\']image/webp["\'])[^>]*>',
                 picture_markup,
                 flags=re.I | re.S,
             )
             desktop_image = re.search(
-                r'<img\\b(?=[^>]*\\bclass=["\\'][^"\\']*\\bhome-hero-image\\b[^"\\']*["\\'])'
-                r'(?=[^>]*\\bsrc=["\\'][^"\\']*/assets/images/hero/index-hero\\.webp\\?v=[0-9a-f]{12}["\\'])'
-                r'(?=[^>]*\\bfetchpriority=["\\']high["\\'])[^>]*>',
+                r'<img\b(?=[^>]*\bclass=["\'][^"\']*\bhome-hero-image\b[^"\']*["\'])'
+                r'(?=[^>]*\bsrc=["\'][^"\']*/assets/images/hero/index-hero\.webp\?v=[0-9a-f]{12}["\'])'
+                r'(?=[^>]*\bfetchpriority=["\']high["\'])[^>]*>',
                 picture_markup,
                 flags=re.I | re.S,
             )
