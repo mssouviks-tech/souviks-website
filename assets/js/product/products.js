@@ -1931,22 +1931,17 @@ if(
             return `${"★".repeat(n)}${"☆".repeat(5 - n)}`;
         };
 
-        if (typeof supabaseClient === "undefined") {
-            if (list) list.innerHTML = '<div class="pdp-review-empty">Reviews are currently unavailable.</div>';
-            return;
-        }
-
         try {
-            const { data, error } = await supabaseClient
-                .from("product_reviews")
-                .select("id, reviewer_name, rating, title, review, created_at")
-                .eq("product_id", String(product.id))
-                .eq("status", "approved")
-                .order("created_at", { ascending: false });
+            const reviews = await window.SouviksSupabase.fetchPublicTable(
+                "product_reviews",
+                {
+                    select: "id, reviewer_name, rating, title, review, created_at",
+                    product_id: "eq." + String(product.id),
+                    status: "eq.approved",
+                    order: "created_at.desc",
+                },
+            );
 
-            if (error) throw error;
-
-            const reviews = Array.isArray(data) ? data : [];
             const average = reviews.length
                 ? reviews.reduce((sum, item) => sum + Number(item.rating || 0), 0) / reviews.length
                 : 0;
@@ -1972,8 +1967,25 @@ if(
             if (list) list.innerHTML = '<div class="pdp-review-empty">No customer reviews have been published yet.</div>';
         }
 
+        const showSignInPrompt = () => {
+            if (form) form.hidden = true;
+            if (signIn) {
+                signIn.hidden = false;
+                const language = window.souviks?.currentLanguage || "en";
+                const loginPath = `/${encodeURIComponent(language)}/login`;
+                signIn.innerHTML = `Please <a href="${loginPath}">sign in</a> to share your experience with this product.`;
+            }
+        };
+
         try {
-            const { data: { user } } = await supabaseClient.auth.getUser();
+            let user = null;
+            const hasAuthState =
+                window.SouviksSupabase?.hasPersistedSessionOrCallback?.() === true;
+            if (hasAuthState && typeof supabaseClient !== "undefined") {
+                const result = await supabaseClient.auth.getUser();
+                user = result?.data?.user || null;
+            }
+
             if (user) {
                 if (form) {
                     form.hidden = false;
@@ -1984,22 +1996,24 @@ if(
                 }
                 if (signIn) signIn.hidden = true;
             } else {
-                if (form) form.hidden = true;
-                if (signIn) {
-                    signIn.hidden = false;
-                    const language = window.souviks?.currentLanguage || "en";
-                    const loginPath = `/${encodeURIComponent(language)}/login`;
-                    signIn.innerHTML = `Please <a href="${loginPath}">sign in</a> to share your experience with this product.`;
-                }
+                showSignInPrompt();
             }
         } catch (error) {
-            if (form) form.hidden = true;
-            if (signIn) signIn.hidden = false;
+            SouviksErrors?.log("Souviks review authentication check unavailable:", error, "warn");
+            showSignInPrompt();
         }
 
         form?.addEventListener("submit", async event => {
             event.preventDefault();
             if (status) status.textContent = "";
+
+            if (
+                window.SouviksSupabase?.hasPersistedSessionOrCallback?.() !== true ||
+                typeof supabaseClient === "undefined"
+            ) {
+                if (status) status.textContent = "Please sign in before submitting a review.";
+                return;
+            }
 
             const { data: { user } } = await supabaseClient.auth.getUser();
             if (!user) {
