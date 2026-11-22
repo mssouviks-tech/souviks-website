@@ -1,11 +1,6 @@
 name: Production Cache Headers
 
 on:
-  pull_request:
-    paths:
-      - "_headers"
-      - "scripts/audit/production_cache_headers.mjs"
-      - ".github/workflows/production-cache-headers.yml"
   push:
     branches:
       - main
