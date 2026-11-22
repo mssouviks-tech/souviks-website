@@ -67,27 +67,33 @@ jobs:
               return subprocess.check_output(["git", "show", f"{sha}:{path}"])
 
           try:
-              hero = show("assets/images/hero/index-hero-mobile.webp")
+              hero_avif = show("assets/images/hero/index-hero-mobile-crop.avif")
+              hero_webp = show("assets/images/hero/index-hero-mobile-crop.webp")
           except subprocess.CalledProcessError:
               sys.exit(1)
 
-          if len(hero) > 80_000:
+          if max(len(hero_avif), len(hero_webp)) > 80_000:
               sys.exit(1)
 
-          hero_hash = hashlib.sha256(hero).hexdigest()[:12]
+          avif_hash = hashlib.sha256(hero_avif).hexdigest()[:12]
+          webp_hash = hashlib.sha256(hero_webp).hexdigest()[:12]
           for path in ("index.html", "en/index.html", "hi/index.html", "bn/index.html"):
               try:
                   html = show(path).decode("utf-8")
               except (subprocess.CalledProcessError, UnicodeDecodeError):
                   sys.exit(1)
-              if f"index-hero-mobile.webp?v={hero_hash}" not in html:
+              if f"index-hero-mobile-crop.avif?v={avif_hash}" not in html:
+                  sys.exit(1)
+              if f"index-hero-mobile-crop.webp?v={webp_hash}" not in html:
                   sys.exit(1)
               tags = re.findall(r"<link[^>]*>", html, flags=re.I)
               preload = [
                   tag for tag in tags
                   if 'rel="preload"' in tag
                   and 'as="image"' in tag
-                  and "index-hero-mobile.webp" in tag
+                  and "index-hero-mobile-crop.avif" in tag
+                  and 'type="image/avif"' in tag
+                  and 'media="(max-width: 768px)"' in tag
               ]
               if len(preload) != 1:
                   sys.exit(1)
