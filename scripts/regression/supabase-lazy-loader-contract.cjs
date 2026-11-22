@@ -124,8 +124,9 @@ async function main() {
   assert.equal(publicFetches[0].options.credentials, "omit");
   assert.equal(publicFetches[0].options.headers.apikey, "sb_publishable_test");
   assert.equal(
-    publicFetches[0].options.headers.Authorization,
-    "Bearer sb_publishable_test",
+    Object.hasOwn(publicFetches[0].options.headers, "Authorization"),
+    false,
+    "publishable API keys must not be sent as Bearer JWTs",
   );
   const publicReviewUrl = new URL(publicFetches[0].url);
   assert.equal(publicReviewUrl.origin, "https://project.supabase.co");
