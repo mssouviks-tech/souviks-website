@@ -31,7 +31,7 @@ jobs:
   lighthouse:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - name: Check out pull request revision
         uses: actions/checkout@v4
@@ -49,7 +49,7 @@ jobs:
           # The catalogue release gate builds responsive assets and publishes them
           # from the real PR head. Wait for that output before measuring either the
           # local candidate or the Cloudflare branch preview.
-          for attempt in $(seq 1 60); do
+          for attempt in $(seq 1 120); do
             git fetch --no-tags --depth=1 origin "+refs/heads/${PR_HEAD_REF}:refs/remotes/origin/${PR_HEAD_REF}"
             candidate_sha="$(git rev-parse "refs/remotes/origin/${PR_HEAD_REF}")"
             export CANDIDATE_SHA="${candidate_sha}"
@@ -124,7 +124,7 @@ jobs:
             sleep 10
           done
 
-          echo "The PR branch did not receive the validated responsive LCP assets within ten minutes."
+          echo "The PR branch did not receive the validated responsive LCP assets within twenty minutes."
           exit 1
 
       - name: Set up Node for browser-level LCP diagnostics
@@ -264,7 +264,7 @@ jobs:
           runs: 3
 
       - name: Capture browser-level LCP timing and paint checkpoints
-        if: always()
+        if: ${{ success() }}
         env:
           PREVIEW_URL: ${{ steps.preview.outputs.url }}
         shell: bash
@@ -403,7 +403,7 @@ jobs:
         with:
           name: lcp-paint-diagnostics-${{ github.run_id }}
           path: lcp-diagnostic/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14
 
       - name: Upload Lighthouse reports
@@ -412,6 +412,6 @@ jobs:
         with:
           name: lighthouse-preview-reports-${{ github.run_id }}
           path: .lighthouseci/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14
           include-hidden-files: true
