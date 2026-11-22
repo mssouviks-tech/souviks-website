@@ -226,14 +226,13 @@
     }
 
     // Public, read-only PostgREST access does not need the 48 KB Supabase SDK.
-    // The publishable key and anonymous bearer match the unauthenticated client
-    // credentials used by the SDK; RLS still controls which rows are visible.
+    // New sb_publishable keys are API keys, not JWTs: send them on apikey only.
+    // Postgres RLS still controls which rows the anonymous role can read.
     const response = await fetch(endpoint.href, {
       method: "GET",
       credentials: "omit",
       headers: {
         apikey: configuration.key,
-        Authorization: "Bearer " + configuration.key,
         Accept: "application/json",
       },
     });
