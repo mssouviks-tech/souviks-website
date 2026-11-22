@@ -140,7 +140,7 @@ async function inspect(check) {
   let bodyExcerpt = '';
   if (!response.ok) {
     const body = await response.text().catch(() => "");
-    bodyExcerpt = body.replace(/\\s+/g, " ").trim().slice(0, 400);
+    bodyExcerpt = body.replace(/\s+/g, " ").trim().slice(0, 400);
   } else {
     // The audit needs headers only; do not download the full asset payload.
     await response.body?.cancel().catch(() => {});
