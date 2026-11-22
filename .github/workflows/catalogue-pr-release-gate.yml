@@ -240,7 +240,18 @@ jobs:
             python3 scripts/audit/performance_guard.py
           )
 
+          # Publish the compiled lazy-loader together with its readable source.
+          # The PR preview is built from source, but the local browser performance
+          # run serves the checked-in asset directly; publishing only source leaves
+          # that candidate with a stale runtime and breaks anonymous PDP review reads.
+          cp "${GITHUB_WORKSPACE}/assets/js/supabase-loader.js" "${publish_repo}/assets/js/supabase-loader.js"
+          (
+            cd "${publish_repo}"
+            python3 scripts/js/refresh_versions.py
+          )
+
           generated_paths=(
+            assets/js/supabase-loader.js
             assets/js/cart/cart.js
             assets/data/catalogue-index.json
             assets/data/gst-rate-candidate-overrides-2026-11-08.json
