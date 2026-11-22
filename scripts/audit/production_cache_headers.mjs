@@ -92,7 +92,15 @@ async function inspect(check) {
       method: "GET",
       redirect: "follow",
       signal: AbortSignal.timeout(15_000),
-      headers: { Accept: "*/*" },
+      headers: {
+        Accept: check.path.endsWith("/")
+          ? "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
+          : check.path.endsWith(".json")
+            ? "application/json,*/*;q=0.8"
+            : "*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+      },
     });
   } catch (error) {
     return {
@@ -129,6 +137,15 @@ async function inspect(check) {
     }
   }
 
+  let bodyExcerpt = '';
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    bodyExcerpt = body.replace(/\\s+/g, " ").trim().slice(0, 400);
+  } else {
+    // The audit needs headers only; do not download the full asset payload.
+    await response.body?.cancel().catch(() => {});
+  }
+
   const result = {
     name: check.name,
     ok: issues.length === 0,
@@ -137,12 +154,13 @@ async function inspect(check) {
     cacheControl: cacheControl || "(missing)",
     cfCacheStatus: response.headers.get("cf-cache-status") || "(not exposed)",
     age: response.headers.get("age") || "(not exposed)",
+    server: response.headers.get("server") || "(not exposed)",
+    cfRay: response.headers.get("cf-ray") || "(not exposed)",
+    contentType: response.headers.get("content-type") || "(not exposed)",
+    bodyExcerpt,
     detail: issues.join("; "),
   };
 
-  // The audit needs response headers only; do not download full catalogue or
-  // image payloads after the headers have arrived.
-  await response.body?.cancel().catch(() => {});
   return result;
 }
 
@@ -159,6 +177,10 @@ for (const result of results) {
   console.log(`  Cache-Control: ${result.cacheControl || result.detail}`);
   if (result.cfCacheStatus) console.log(`  CF-Cache-Status: ${result.cfCacheStatus}`);
   if (result.age) console.log(`  Age: ${result.age}`);
+  if (result.server) console.log(`  Server: ${result.server}`);
+  if (result.cfRay) console.log(`  CF-Ray: ${result.cfRay}`);
+  if (result.contentType) console.log(`  Content-Type: ${result.contentType}`);
+  if (result.bodyExcerpt) console.log(`  Response body: ${result.bodyExcerpt}`);
   if (!result.ok) console.log(`  Issue: ${result.detail}`);
 }
 
