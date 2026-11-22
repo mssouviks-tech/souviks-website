@@ -216,3 +216,25 @@ jobs:
           console.error("Cashfree checkout preflight received an unexpected response:", status, payload.code || "unknown_error");
           process.exit(1);
           NODE
+
+  production-cache-headers:
+    name: Verify production Cache-Control policies
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out pull request revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Inspect production response headers (PR snapshot)
+        continue-on-error: true
+        env:
+          SOUVIKS_PRODUCTION_BASE_URL: https://www.souviks.co.in
+          SOUVIKS_CACHE_AUDIT_ALLOW_CHALLENGE: "true"
+        run: node scripts/audit/production_cache_headers.mjs

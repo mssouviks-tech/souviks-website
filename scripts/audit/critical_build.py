@@ -607,8 +607,10 @@ def validate_security_headers(errors: list[str]) -> None:
         return
 
     blocks: dict[str, dict[str, str]] = {}
+    removals: dict[str, set[str]] = {}
     current_block = None
     header_pattern = re.compile(r"^\s*([^:]+?)\s*:\s*(.*?)\s*$")
+    remove_header_pattern = re.compile(r"^\s*!\s*([A-Za-z0-9-]+)\s*$")
 
     for lineno, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
         stripped = line.strip()
@@ -617,6 +619,17 @@ def validate_security_headers(errors: list[str]) -> None:
         if not line[0].isspace():
             current_block = stripped
             blocks.setdefault(current_block, {})
+            continue
+
+        # Cloudflare Pages uses "! Header-Name" to remove a header inherited
+        # from a broader matching rule before a narrower rule sets its value.
+        remove_match = remove_header_pattern.match(line)
+        if remove_match:
+            if current_block is None:
+                errors.append(f"_headers:{lineno}: header removal appears before a path block")
+                continue
+            name = remove_match.group(1).strip().casefold()
+            removals.setdefault(current_block, set()).add(name)
             continue
 
         match = header_pattern.match(line)
@@ -632,6 +645,28 @@ def validate_security_headers(errors: list[str]) -> None:
         if name in blocks[current_block]:
             errors.append(f"_headers:{lineno}: duplicate {name} header in {current_block}")
         blocks[current_block][name] = value
+
+    # Keep the cache policy explicit and machine-checked. Narrow Cloudflare
+    # Pages rules must remove the broader Cache-Control value before setting
+    # their own directive; otherwise matching values can be combined at the edge.
+    expected_cache_policies = {
+        "/assets/*": "public, max-age=86400, stale-while-revalidate=604800",
+        "/assets/js/*": "public, max-age=31536000, immutable",
+        "/assets/css/*": "public, max-age=31536000, immutable",
+        "/assets/data/*": "public, max-age=0, must-revalidate",
+    }
+    for block, expected_value in expected_cache_policies.items():
+        actual = blocks.get(block, {}).get("cache-control", "")
+        if actual.casefold() != expected_value.casefold():
+            errors.append(
+                f"_headers {block} Cache-Control {actual!r} != required {expected_value!r}"
+            )
+
+    for block in ("/assets/js/*", "/assets/css/*", "/assets/data/*"):
+        if "cache-control" not in removals.get(block, set()):
+            errors.append(
+                f"_headers {block} must remove inherited Cache-Control before setting its policy"
+            )
 
     root_headers = blocks.get("/*", {})
     hsts = root_headers.get("strict-transport-security", "")
