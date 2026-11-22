@@ -232,7 +232,8 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Inspect production response headers
+      - name: Inspect production response headers (PR snapshot)
+        continue-on-error: true
         env:
           SOUVIKS_PRODUCTION_BASE_URL: https://www.souviks.co.in
         run: node scripts/audit/production_cache_headers.mjs
