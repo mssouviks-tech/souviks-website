@@ -236,4 +236,5 @@ jobs:
         continue-on-error: true
         env:
           SOUVIKS_PRODUCTION_BASE_URL: https://www.souviks.co.in
+          SOUVIKS_CACHE_AUDIT_ALLOW_CHALLENGE: "true"
         run: node scripts/audit/production_cache_headers.mjs
