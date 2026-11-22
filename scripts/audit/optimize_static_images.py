@@ -12,6 +12,7 @@ import re
 from pathlib import Path
 
 from PIL import Image
+import pillow_avif  # noqa: F401; registers AVIF save support
 
 ROOT = Path(__file__).resolve().parents[2]
 SKIP_DIRS = {".git", "node_modules", ".venv", "__pycache__", ".pytest_cache"}
