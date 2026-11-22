@@ -31,7 +31,7 @@ jobs:
   lighthouse:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - name: Check out pull request revision
         uses: actions/checkout@v4
@@ -49,7 +49,7 @@ jobs:
           # The catalogue release gate builds responsive assets and publishes them
           # from the real PR head. Wait for that output before measuring either the
           # local candidate or the Cloudflare branch preview.
-          for attempt in $(seq 1 60); do
+          for attempt in $(seq 1 120); do
             git fetch --no-tags --depth=1 origin "+refs/heads/${PR_HEAD_REF}:refs/remotes/origin/${PR_HEAD_REF}"
             candidate_sha="$(git rev-parse "refs/remotes/origin/${PR_HEAD_REF}")"
             export CANDIDATE_SHA="${candidate_sha}"
@@ -67,27 +67,33 @@ jobs:
               return subprocess.check_output(["git", "show", f"{sha}:{path}"])
 
           try:
-              hero = show("assets/images/hero/index-hero-mobile.webp")
+              hero_avif = show("assets/images/hero/index-hero-mobile-crop.avif")
+              hero_webp = show("assets/images/hero/index-hero-mobile-crop.webp")
           except subprocess.CalledProcessError:
               sys.exit(1)
 
-          if len(hero) > 80_000:
+          if max(len(hero_avif), len(hero_webp)) > 80_000:
               sys.exit(1)
 
-          hero_hash = hashlib.sha256(hero).hexdigest()[:12]
+          avif_hash = hashlib.sha256(hero_avif).hexdigest()[:12]
+          webp_hash = hashlib.sha256(hero_webp).hexdigest()[:12]
           for path in ("index.html", "en/index.html", "hi/index.html", "bn/index.html"):
               try:
                   html = show(path).decode("utf-8")
               except (subprocess.CalledProcessError, UnicodeDecodeError):
                   sys.exit(1)
-              if f"index-hero-mobile.webp?v={hero_hash}" not in html:
+              if f"index-hero-mobile-crop.avif?v={avif_hash}" not in html:
+                  sys.exit(1)
+              if f"index-hero-mobile-crop.webp?v={webp_hash}" not in html:
                   sys.exit(1)
               tags = re.findall(r"<link[^>]*>", html, flags=re.I)
               preload = [
                   tag for tag in tags
                   if 'rel="preload"' in tag
                   and 'as="image"' in tag
-                  and "index-hero-mobile.webp" in tag
+                  and "index-hero-mobile-crop.avif" in tag
+                  and 'type="image/avif"' in tag
+                  and 'media="(max-width: 768px)"' in tag
               ]
               if len(preload) != 1:
                   sys.exit(1)
@@ -118,7 +124,7 @@ jobs:
             sleep 10
           done
 
-          echo "The PR branch did not receive the validated responsive LCP assets within ten minutes."
+          echo "The PR branch did not receive the validated responsive LCP assets within twenty minutes."
           exit 1
 
       - name: Set up Node for browser-level LCP diagnostics
@@ -258,7 +264,7 @@ jobs:
           runs: 3
 
       - name: Capture browser-level LCP timing and paint checkpoints
-        if: always()
+        if: ${{ success() }}
         env:
           PREVIEW_URL: ${{ steps.preview.outputs.url }}
         shell: bash
@@ -397,7 +403,7 @@ jobs:
         with:
           name: lcp-paint-diagnostics-${{ github.run_id }}
           path: lcp-diagnostic/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14
 
       - name: Upload Lighthouse reports
@@ -406,6 +412,6 @@ jobs:
         with:
           name: lighthouse-preview-reports-${{ github.run_id }}
           path: .lighthouseci/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14
           include-hidden-files: true

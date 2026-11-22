@@ -155,25 +155,37 @@ def check_script_loading(errors: list[str]) -> None:
 def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
     """Keep mobile LCP hero derivatives, source selection, and preload hints synchronized."""
     hero_dir = ROOT / "assets" / "images" / "hero"
-    for stem in ("index-hero", "product-hero"):
-        desktop = hero_dir / f"{stem}.webp"
-        mobile = hero_dir / f"{stem}-mobile.webp"
-        if not desktop.is_file():
-            fail(f"missing desktop hero image: {desktop.relative_to(ROOT)}", errors)
-            continue
+    product_desktop = hero_dir / "product-hero.webp"
+    product_mobile = hero_dir / "product-hero-mobile.webp"
+    if not product_desktop.is_file():
+        fail(f"missing desktop hero image: {product_desktop.relative_to(ROOT)}", errors)
+    if not product_mobile.is_file():
+        fail(f"missing responsive mobile hero image: {product_mobile.relative_to(ROOT)}", errors)
+    elif product_desktop.is_file() and product_mobile.stat().st_size >= product_desktop.stat().st_size:
+        fail(
+            f"{product_mobile.relative_to(ROOT)} must be smaller than "
+            f"{product_desktop.relative_to(ROOT)} for mobile delivery",
+            errors,
+        )
+
+    home_desktop = hero_dir / "index-hero.webp"
+    home_avif = hero_dir / "index-hero-mobile-crop.avif"
+    home_webp = hero_dir / "index-hero-mobile-crop.webp"
+    if not home_desktop.is_file():
+        fail(f"missing desktop homepage hero: {home_desktop.relative_to(ROOT)}", errors)
+    for mobile in (home_avif, home_webp):
         if not mobile.is_file():
-            fail(f"missing responsive mobile hero image: {mobile.relative_to(ROOT)}", errors)
+            fail(f"missing responsive homepage hero derivative: {mobile.relative_to(ROOT)}", errors)
             continue
-        if mobile.stat().st_size >= desktop.stat().st_size:
+        if mobile.stat().st_size > 80_000:
             fail(
-                f"{mobile.relative_to(ROOT)} must be smaller than "
-                f"{desktop.relative_to(ROOT)} for mobile delivery",
+                f"{mobile.relative_to(ROOT)}: mobile homepage hero must be at most 80,000 bytes",
                 errors,
             )
-        if stem == "index-hero" and mobile.stat().st_size > 80_000:
+        if home_desktop.is_file() and mobile.stat().st_size >= home_desktop.stat().st_size:
             fail(
-                f"{mobile.relative_to(ROOT)}: mobile homepage hero must be at most 80,000 bytes "
-                "to meet the 4-second mobile LCP budget",
+                f"{mobile.relative_to(ROOT)} must be smaller than "
+                f"{home_desktop.relative_to(ROOT)}",
                 errors,
             )
 
@@ -189,31 +201,41 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
         raw = path.read_text(encoding="utf-8", errors="ignore")
         if "home-hero-image" not in raw:
             continue
-        mobile_source = re.search(
+        mobile_avif_source = re.search(
             r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
-            r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
+            r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\btype=["\']image/avif["\'])[^>]*>',
             raw,
             flags=re.I | re.S,
         )
-        if not mobile_source:
-            fail(f"{path.relative_to(ROOT)}: home hero is missing its versioned mobile <source>", errors)
-        mobile_preload = re.search(
+        mobile_webp_source = re.search(
+            r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+            r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.webp\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\btype=["\']image/webp["\'])[^>]*>',
+            raw,
+            flags=re.I | re.S,
+        )
+        if not mobile_avif_source or not mobile_webp_source:
+            fail(
+                f"{path.relative_to(ROOT)}: home hero needs versioned AVIF and WebP mobile sources",
+                errors,
+            )
+
+        mobile_preloads = re.findall(
             r'<link\b(?=[^>]*\brel=["\']preload["\'])'
             r'(?=[^>]*\bas=["\']image["\'])'
-            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/index-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\bhref=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
+            r'(?=[^>]*\btype=["\']image/avif["\'])'
             r'(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])[^>]*>',
             raw,
             flags=re.I | re.S,
         )
-        if not mobile_preload:
+        if len(mobile_preloads) != 1:
             fail(
-                f"{path.relative_to(ROOT)}: missing index-hero-mobile preload with max-width media condition",
+                f"{path.relative_to(ROOT)}: expected exactly one AVIF mobile homepage hero preload, found {len(mobile_preloads)}",
                 errors,
             )
 
-        # The responsive <picture> selects the desktop image through its
-        # high-priority <img src>. Do not separately preload the desktop image:
-        # mobile Chromium can still fetch a media-conditioned desktop preload.
         desktop_preload = re.search(
             r'<link\b(?=[^>]*\brel=["\']preload["\'])'
             r'(?=[^>]*\bas=["\']image["\'])'
@@ -237,9 +259,17 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
             fail(f"{path.relative_to(ROOT)}: home hero must use a responsive <picture>", errors)
         else:
             picture_markup = picture.group(1)
-            mobile_source = re.search(
+            mobile_avif_source = re.search(
                 r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
-                r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile\.webp\?v=[0-9a-f]{12}["\'])[^>]*>',
+                r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.avif\?v=[0-9a-f]{12}["\'])'
+                r'(?=[^>]*\btype=["\']image/avif["\'])[^>]*>',
+                picture_markup,
+                flags=re.I | re.S,
+            )
+            mobile_webp_source = re.search(
+                r'<source\b(?=[^>]*\bmedia=["\']\(max-width:\s*768px\)["\'])'
+                r'(?=[^>]*\bsrcset=["\'][^"\']*/assets/images/hero/index-hero-mobile-crop\.webp\?v=[0-9a-f]{12}["\'])'
+                r'(?=[^>]*\btype=["\']image/webp["\'])[^>]*>',
                 picture_markup,
                 flags=re.I | re.S,
             )
@@ -250,8 +280,13 @@ def check_responsive_mobile_hero_assets(errors: list[str]) -> None:
                 picture_markup,
                 flags=re.I | re.S,
             )
-            if not mobile_source:
-                fail(f"{path.relative_to(ROOT)}: home hero picture is missing the versioned mobile source", errors)
+            if not mobile_avif_source or not mobile_webp_source:
+                fail(
+                    f"{path.relative_to(ROOT)}: home hero picture is missing the AVIF/WebP mobile source pair",
+                    errors,
+                )
+            elif picture_markup.find(mobile_avif_source.group(0)) > picture_markup.find(mobile_webp_source.group(0)):
+                fail(f"{path.relative_to(ROOT)}: AVIF source must precede the WebP fallback", errors)
             if not desktop_image:
                 fail(f"{path.relative_to(ROOT)}: home hero picture is missing the high-priority desktop image", errors)
 

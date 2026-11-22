@@ -249,6 +249,8 @@ jobs:
             assets/data/search.json
             assets/data/brands.json
             assets/images/hero/index-hero-mobile.webp
+            assets/images/hero/index-hero-mobile-crop.avif
+            assets/images/hero/index-hero-mobile-crop.webp
             assets/images/hero/product-hero-mobile.webp
             assets/images/hero/product-hero-mobile-crop.avif
             assets/images/hero/product-hero-mobile-crop.webp
