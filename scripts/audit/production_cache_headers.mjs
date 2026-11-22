@@ -146,9 +146,17 @@ async function inspect(check) {
     await response.body?.cancel().catch(() => {});
   }
 
+  const cloudflareChallenge =
+    response.status === 403 &&
+    (response.headers.get("server") || "").toLowerCase() === "cloudflare" &&
+    /just a moment|cf-chl|challenge-platform/i.test(bodyExcerpt);
+  const challengeAllowed = process.env.SOUVIKS_CACHE_AUDIT_ALLOW_CHALLENGE === "true";
+  const blocked = cloudflareChallenge && challengeAllowed;
+
   const result = {
     name: check.name,
-    ok: issues.length === 0,
+    ok: issues.length === 0 || blocked,
+    blocked,
     status: response.status,
     url: response.url,
     cacheControl: cacheControl || "(missing)",
@@ -158,7 +166,9 @@ async function inspect(check) {
     cfRay: response.headers.get("cf-ray") || "(not exposed)",
     contentType: response.headers.get("content-type") || "(not exposed)",
     bodyExcerpt,
-    detail: issues.join("; "),
+    detail: blocked
+      ? "Cloudflare bot challenge prevented inspection; this route is inconclusive."
+      : issues.join("; "),
   };
 
   return result;
@@ -172,7 +182,8 @@ for (const check of checks) {
 console.log(`Production cache-header audit: ${baseUrl}`);
 for (const result of results) {
   const status = result.status === undefined ? "ERR" : String(result.status);
-  console.log(`${result.ok ? "PASS" : "FAIL"} [${status}] ${result.name}`);
+  const label = result.blocked ? "BLOCKED" : result.ok ? "PASS" : "FAIL";
+  console.log(`${label} [${status}] ${result.name}`);
   console.log(`  URL: ${result.url || "not reached"}`);
   console.log(`  Cache-Control: ${result.cacheControl || result.detail}`);
   if (result.cfCacheStatus) console.log(`  CF-Cache-Status: ${result.cfCacheStatus}`);
@@ -184,8 +195,10 @@ for (const result of results) {
   if (!result.ok) console.log(`  Issue: ${result.detail}`);
 }
 
+const passed = results.filter((result) => result.ok && !result.blocked).length;
+const blocked = results.filter((result) => result.blocked).length;
 const failed = results.filter((result) => !result.ok);
-console.log(`\nSummary: ${results.length - failed.length}/${results.length} checks passed.`);
+console.log(`\nSummary: ${passed}/${results.length} passed; ${blocked} blocked by Cloudflare challenge; ${failed.length} failed.`);
 if (failed.length > 0) {
   process.exitCode = 1;
 }
