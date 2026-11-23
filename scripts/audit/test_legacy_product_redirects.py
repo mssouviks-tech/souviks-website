@@ -41,6 +41,7 @@ ROOT_LEGACY_RULES = {
     "/thank-you": "/en/thank-you",
     "/thank-you.html": "/en/thank-you",
     "/products/12-x-12-mm-union": "/en/products/12-x-12-mm-union",
+    "/" + "$" + "{LANG}" + "/brands.html": "/en/brands",
 }
 
 
@@ -80,6 +81,11 @@ def main() -> None:
         if isinstance(product, dict) and product.get("active") is not False
     }
     rules = read_redirects()
+    redirect_lines = {
+        line.strip()
+        for line in REDIRECTS_PATH.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    }
     middleware = (ROOT / "functions/_middleware.js").read_text(encoding="utf-8")
     assert "function normalizeLegacyAliasPath(pathname)" in middleware, (
         "legacy host middleware must normalize legacy page paths"
@@ -171,10 +177,19 @@ def main() -> None:
         if destination in rules
     ]
     assert not chains, f"concrete redirect chains detected: {chains[:10]}"
-    template_token = "$" + "{LANG}"
-    assert not any(template_token in source or template_token in destination for source, (destination, _) in rules.items()), (
-        "literal template token found in _redirects"
+    template_token_path = "/" + "$" + "{LANG}" + "/brands.html"
+    assert rules.get(template_token_path) == ("/en/brands", "301"), (
+        "the malformed GSC language-token URL must redirect directly to the English brands page"
     )
+    for source, destination in (
+        ("/products/:slug.html", "/en/products/:slug"),
+        ("/brands/:slug.html", "/en/brands/:slug"),
+        ("/categories/:slug.html", "/en/categories/:slug"),
+        ("/vehicles/:slug.html", "/en/vehicles/:slug"),
+    ):
+        assert f"{source} {destination} 301" in redirect_lines, (
+            f"missing root .html entity redirect rule: {source} -> {destination}"
+        )
 
     print(
         "Legacy product redirect contract PASS: "
