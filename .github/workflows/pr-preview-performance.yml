@@ -70,10 +70,11 @@ jobs:
               hero_avif = show("assets/images/hero/index-hero-mobile-crop.avif")
               hero_webp = show("assets/images/hero/index-hero-mobile-crop.webp")
               supabase_loader = show("assets/js/supabase-loader.js")
+              cart_runtime = show("assets/js/cart/cart.js")
           except subprocess.CalledProcessError:
               sys.exit(1)
 
-          # The performance run serves the checked-in runtime directly. Do not
+          # The performance run serves checked-in runtimes directly. Do not
           # proceed with an old minified loader just because the hero images
           # already exist from an earlier PR.
           try:
@@ -84,6 +85,12 @@ jobs:
               sys.exit(1)
 
           loader_hash = hashlib.sha256(supabase_loader).hexdigest()[:12]
+          if (
+              b"begin_checkout" not in cart_runtime
+              or b"souviks:ga4-purchase-context:" not in cart_runtime
+          ):
+              sys.exit(1)
+          cart_hash = hashlib.sha256(cart_runtime).hexdigest()[:12]
           for language in ("en", "hi", "bn"):
               path = f"{language}/products/10-x-15-nut.html"
               try:
@@ -91,6 +98,8 @@ jobs:
               except (subprocess.CalledProcessError, UnicodeDecodeError):
                   sys.exit(1)
               if f"supabase-loader.js?v={loader_hash}" not in html:
+                  sys.exit(1)
+              if f"cart/cart.js?v={cart_hash}" not in html:
                   sys.exit(1)
 
           if max(len(hero_avif), len(hero_webp)) > 80_000:
@@ -137,11 +146,11 @@ jobs:
           PY
             then
               git checkout --detach "${candidate_sha}"
-              echo "Testing generated PR head ${candidate_sha} with current responsive LCP assets and compiled Supabase public-review runtime."
+              echo "Testing generated PR head ${candidate_sha} with current responsive LCP assets, Supabase public-review runtime and GA4 cart runtime."
               exit 0
             fi
 
-            echo "Generated LCP assets or compiled Supabase review runtime are not committed yet (attempt ${attempt}/120); waiting for the catalogue release gate."
+            echo "Generated LCP assets or compiled Supabase/GA4 cart runtimes are not committed yet (attempt ${attempt}/120); waiting for the catalogue release gate."
             sleep 10
           done
 
