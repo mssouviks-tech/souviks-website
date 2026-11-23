@@ -1,32 +1,76 @@
 # Souviks Performance Baseline
 
-Updated: 2026-11-20
+Updated: 2026-11-23
 
-## Current production release
+## Current production performance readout — 23 Nov 2026
 
-- Repository: `mssouviks-tech/souviks-website`
-- Validated main revision: `d3bad97d606a78681a837c324d409961f710a451`
-- Phase 1 JavaScript optimization: PRs [#243](https://github.com/mssouviks-tech/souviks-website/pull/243), [#244](https://github.com/mssouviks-tech/souviks-website/pull/244) and [#247](https://github.com/mssouviks-tech/souviks-website/pull/247) are merged.
-- Static catalogue build: [run #352](https://github.com/mssouviks-tech/souviks-website/actions/runs/44677878679) — success.
-- Production performance monitor: [run #213](https://github.com/mssouviks-tech/souviks-website/actions/runs/44678938692) — success. The workflow confirmed the deployed Cloudflare Pages revision matched the validated main revision.
+- Repository: mssouviks-tech/souviks-website
+- Latest completed production monitor inspected: [Production Performance Monitor #227](https://github.com/mssouviks-tech/souviks-website/actions/runs/45122140667) — success, 23 Nov 2026.
+- Measured deployed revision: fdc621976a2a74f21e7ddc72d003ddeedbb807ea (fdc6219). The workflow waited for the matching deployment before testing.
+- Static catalogue and price-history publishing continued on main after this measured revision. These timings are a dated baseline, not a claim that every later commit was re-measured.
+- The measurements below were read from the workflow artifacts, not inferred from its green status.
 
-## Measured mobile Lighthouse — 20 Nov 2026
+### Mobile Lighthouse — monitor #227
 
-These values are medians of three simulated-mobile Lighthouse runs for each route in production monitor #213. Score is shown as a percentage. Transfer is the median reported total network transfer.
+Medians of three simulated-mobile Lighthouse runs per route. Performance is a score out of 100; transfer is reported network transfer.
 
-| Route | Performance score | LCP | FCP | TBT | CLS | Speed Index | Transfer |
+| Route | Performance | LCP | FCP | TBT | CLS | Speed Index | Transfer |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Homepage | 87 | 3.31 s | 1.31 s | 271 ms | 0.0017 | 1.48 s | 1.59 MB |
+| Products listing | 81 | 2.94 s | 1.28 s | 296 ms | 0.0006 | 1.28 s | 1.42 MB |
+| Product detail | 81 | 3.97 s | 3.22 s | 84 ms | 0.0011 | 3.22 s | 1.12 MB |
+
+Run-to-run variance remains material. The worst Lighthouse LCP run was 9.07 s on the homepage, 4.79 s on the listing and 4.28 s on the PDP; the other runs were materially faster. Do not use the median alone to claim every Lighthouse run is stable.
+
+Compared with the 20 Nov monitor (#213), the homepage median LCP improved from 3.75 s to 3.31 s. The listing median was broadly unchanged (2.92 s to 2.94 s), while the PDP median increased from 3.20 s to 3.97 s. The score change and outliers should be interpreted alongside browser-observed measurements below; they do not, by themselves, prove a sustained regression.
+
+### Production browser-observed LCP — monitor #227
+
+Three production Chromium runs per route under CDP simulated 3G and 4× CPU throttling. These are browser PerformanceObserver LCP entries, not Lighthouse's simulated-mobile LCP.
+
+| Route | Three LCP readings | Median | Maximum | Gate |
+|---|---|---:|---:|---|
+| Homepage | 1.91 s, 1.88 s, 1.86 s | 1.88 s | 1.91 s | Pass |
+| Products listing | 1.70 s, 1.68 s, 1.66 s | 1.68 s | 1.70 s | Pass |
+| Product detail | 1.54 s, 1.53 s, 1.58 s | 1.54 s | 1.58 s | Pass |
+
+All nine runs returned HTTP 200, identified the expected final LCP image and remained below the strict 4.0-second budget. This is strong evidence that browser-observed LCP is healthy even though Lighthouse is more variable.
+
+Run artifacts: [Lighthouse results and browser LCP diagnostics — monitor #227](https://github.com/mssouviks-tech/souviks-website/actions/runs/45122140667).
+
+## SEO and performance checklist — status as at 23 Nov 2026
+
+| Workstream | Status | Implementation / evidence | Remaining action |
+|---|---|---|---|
+| First-party JavaScript and route loading | Implemented | PRs [#243](https://github.com/mssouviks-tech/souviks-website/pull/243), [#244](https://github.com/mssouviks-tech/souviks-website/pull/244), [#247](https://github.com/mssouviks-tech/souviks-website/pull/247), [#257](https://github.com/mssouviks-tech/souviks-website/pull/257) | Retain architecture and regression checks; do not defer/split bundles without route-level evidence. |
+| Supabase SDK on anonymous public routes | Implemented | Diagnostic [#250](https://github.com/mssouviks-tech/souviks-website/pull/250), saved-products session guard [#251](https://github.com/mssouviks-tech/souviks-website/pull/251), public PDP review reads without SDK [#262](https://github.com/mssouviks-tech/souviks-website/pull/262) | Re-test anonymous homepage, listing and PDP network requests after auth/runtime changes. Preserve authenticated review submission, account, RFQ and checkout flows. |
+| Analytics privacy and ecommerce events | Instrumentation implemented; live property validation pending | Search privacy [#259](https://github.com/mssouviks-tech/souviks-website/pull/259); GST-safe ecommerce funnel [#264](https://github.com/mssouviks-tech/souviks-website/pull/264) | Verify event receipt in GA4 Realtime / DebugView and purchase attribution when property access is approved. Do not remove or further delay Google Tag based only on unused-JS estimates. |
+| Shared UI imagery and responsive mobile hero | Implemented | Shared brand/about imagery [#252](https://github.com/mssouviks-tech/souviks-website/pull/252); mobile homepage hero crop [#260](https://github.com/mssouviks-tech/souviks-website/pull/260) | Keep measuring mobile Lighthouse and browser LCP. Product master imagery remains excluded from optimization. |
+| Route-specific CSS delivery | Audited; no broad loading change justified | Monitor #227 intermittently estimated about 190 ms of homepage render-blocking savings; the estimate was not present in every run. The shared base stylesheet also showed about 11 KB of potentially unused CSS in sampled reports. PDP CSS did not show a consistent comparable render-blocking opportunity. | Do not make stylesheets asynchronous or inline the entire base stylesheet. Consider narrowly scoped unused-rule removal only if a route-specific test and repeatable performance gain justify it. Recheck FOUC, CLS and desktop/mobile rendering. |
+| Production edge cache headers | Automated live-edge audit implemented | PR [#261](https://github.com/mssouviks-tech/souviks-website/pull/261) adds a production response-header check for representative HTML, static assets and data URLs. | Use the workflow's actual response report as evidence; repository _headers configuration alone is not proof of edge behaviour. |
+| Catalogue image naming / static price-history assertion | Corrected | Gallery normalization [#253](https://github.com/mssouviks-tech/souviks-website/pull/253); clean pricing regression correction [#258](https://github.com/mssouviks-tech/souviks-website/pull/258) | Keep static catalogue and price-history validation gates enabled. |
+
+## CSS delivery investigation — 23 Nov 2026
+
+The current templates load the shared base stylesheet and their route bundle as regular stylesheets. Google Fonts are already loaded using a non-blocking media-switch pattern with a noscript fallback. The latest Lighthouse artifacts show a possible but intermittent homepage render-blocking saving (about 190 ms) and unused rules in the shared base CSS (about 11 KB in the sampled reports). The PDP did not show a consistent render-blocking saving.
+
+The production browser-observed LCP medians are currently 1.54–1.88 seconds, with maxima of 1.58–1.91 seconds. A broad async-CSS or critical-CSS rewrite would add FOUC, font/layout timing and regression risk for a modest and inconsistent potential gain. The current decision is to hold CSS loading behaviour. If future measurements justify work, isolate unused shared rules by route, preserve cascade order, and rerun the full homepage/listing/PDP mobile and desktop matrix.
+
+## Historical mobile Lighthouse baseline — 20 Nov 2026
+
+Medians of three simulated-mobile Lighthouse runs per route from production monitor #213.
+
+| Route | Performance | LCP | FCP | TBT | CLS | Speed Index | Transfer |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | Homepage | 84 | 3.75 s | 2.78 s | 39 ms | 0.0017 | 2.78 s | 1.79 MB |
 | Products listing | 93 | 2.92 s | 1.29 s | 49.5 ms | 0.0006 | 1.29 s | 1.52 MB |
 | Product detail | 93 | 3.20 s | 1.29 s | 37.5 ms | 0.0011 | 1.29 s | 1.23 MB |
 
-The median is materially better than the earlier 19 Nov monitor (#212): homepage score 68 to 84 and LCP 9.95 s to 3.75 s; listing score 77 to 93 and LCP 4.53 s to 2.92 s; product detail score 79 to 93 and LCP 4.29 s to 3.20 s.
+Run-to-run variance in monitor #213 was material: homepage Lighthouse LCP readings were 10.11 s, 3.75 s and 3.17 s; listing readings were 2.92 s, 4.64 s and 2.85 s.
 
-Run-to-run variance remains relevant. In monitor #213 the three homepage Lighthouse LCP readings were 10.11 s, 3.75 s and 3.17 s; the listing readings were 2.92 s, 4.64 s and 2.85 s. Do not interpret a median alone as proof that every Lighthouse run is stable.
+### Production browser-observed LCP — 20 Nov 2026
 
-## Production browser-observed LCP gate — 20 Nov 2026
-
-The same monitor performed three production browser runs per route under CDP simulated 3G and 4× CPU throttling. All nine observations passed the repository's strict 4.0-second maximum.
+Three production browser runs per route under CDP simulated 3G and 4× CPU throttling.
 
 | Route | Three LCP readings | Median | Maximum | Gate |
 |---|---|---:|---:|---|
@@ -34,11 +78,13 @@ The same monitor performed three production browser runs per route under CDP sim
 | Products listing | 1.67 s, 1.65 s, 1.64 s | 1.65 s | 1.67 s | Pass |
 | Product detail | 1.46 s, 1.49 s, 1.47 s | 1.47 s | 1.49 s | Pass |
 
-The browser-observed LCP gate is a separate measurement from Lighthouse's simulated-mobile LCP. Both are useful; they must not be mixed into a single metric or treated as interchangeable.
+Sources:
+- 20 Nov production monitor #213: https://github.com/mssouviks-tech/souviks-website/actions/runs/44678938692
+- 19 Nov production monitor #212: https://github.com/mssouviks-tech/souviks-website/actions/runs/44516604194
 
 ## Historical mobile Lighthouse baseline — 14 Oct 2026
 
-The initial baseline was one mobile run on the `pages.dev` alias. The first post-deployment measurement used three mobile runs per route on the canonical production domain; the table records the median of those three runs. Because the host and run count changed, these are directional comparisons rather than a controlled A/B test.
+The initial baseline was one mobile run on the pages.dev alias. The first post-deployment measurement used three mobile runs per route on the canonical production domain; values below are medians. Because host and run count changed, these are directional comparisons rather than a controlled A/B test.
 
 | Route | Baseline score | First post-deploy score | Baseline LCP | First post-deploy LCP | Baseline TBT | First post-deploy TBT | Baseline transfer | First post-deploy transfer |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -49,30 +95,14 @@ The initial baseline was one mobile run on the `pages.dev` alias. The first post
 Sources:
 - Initial baseline: https://github.com/mssouviks-tech/souviks-website/actions/runs/38552100890
 - First post-deploy run: https://github.com/mssouviks-tech/souviks-website/actions/runs/38559199355
-- 19 Nov production monitor: https://github.com/mssouviks-tech/souviks-website/actions/runs/44516604194
-- 20 Nov production monitor: https://github.com/mssouviks-tech/souviks-website/actions/runs/44678938692
-
-## Remaining evidence-backed opportunities
-
-The 20 Nov Lighthouse reports show that the core LCP and interaction budgets are now substantially healthier. The remaining work should target confirmed network costs without destabilising authentication, analytics, checkout or catalogue delivery.
-
-1. **Trace the Supabase SDK request on public routes.** Lighthouse still observes approximately 48 KB from `@supabase/supabase-js` on the homepage and public catalogue pages, with roughly 39–40 KB classified as unused in those page loads. PR #244 introduced lazy loading, so inspect the actual caller/import path and ensure public pages do not initialise the SDK before a feature needs it. Preserve sign-in, account, cart, checkout, delivery and review behaviour with regression coverage.
-
-2. **Audit Google Analytics loading and event coverage.** Lighthouse reports about 183 KB transferred from the Google tag script, with roughly 77 KB classified as unused. The current implementation schedules analytics after page load/idle. Do not remove, block or materially delay measurement until key commerce events and conversion attribution are verified end-to-end.
-
-3. **Optimise shared UI imagery only.** Lighthouse's homepage image-delivery estimate is approximately 566–603 KiB, but much of that estimate is generated by product catalogue photographs displayed in smaller cards. Candidate shared UI assets include the store-interior JPEG, brand/category artwork and the 1024px Souviks logo used at small rendered dimensions. Audit actual rendered dimensions and all references before creating appropriately sized/versioned UI derivatives.
-
-4. **Review route CSS delivery after JS/network work.** Lighthouse continues to list `site-base.css` plus route CSS as render-blocking resources. TBT and browser LCP are currently low, so use the LCP phase data and browser traces to justify any critical-CSS or stylesheet-loading change; do not add broad inline CSS without a measurable benefit.
-
-5. **Verify edge delivery characteristics.** Confirm Cache-Control, Brotli or other content encoding, and cache-hit behaviour against the production domain from an actual browser/network session. Repository `_headers` declarations alone do not prove Cloudflare edge behaviour.
 
 ## Product image integrity constraint
 
-Keep product catalogue imagery at its native source resolution. Do not resize, recompress, replace or regenerate the master product images to improve Lighthouse's generic responsive-image savings estimate. Any approved optimisation must be limited to shared UI imagery or delivery behaviour that leaves product catalogue source assets untouched.
+Keep product catalogue imagery at native source resolution. Do not resize, recompress, replace or regenerate master product images to improve Lighthouse's generic responsive-image savings estimate. Approved optimization is limited to shared UI imagery or delivery behaviour that leaves product catalogue source assets untouched.
 
 ## Historical source-byte snapshot — 14 Oct 2026
 
-The following were source-file sizes recorded from the repository on 14 Oct 2026, not compressed network-transfer sizes. They are a historical snapshot and are not a current post-Phase-1 measurement.
+These are source-file sizes recorded from the repository on 14 Oct 2026, not compressed network-transfer sizes. They are a historical snapshot and are not a current post-Phase-1 measurement.
 
 | Asset | Bytes |
 |---|---:|
@@ -89,15 +119,15 @@ The following were source-file sizes recorded from the repository on 14 Oct 2026
 
 ## Current delivery safeguards
 
-- Google Analytics is queued after page load and scheduled during browser idle time.
-- Supabase and shared site JavaScript are deferred; the public-route SDK request remains a measured follow-up, not a reason to bypass account/checkout flows.
-- First-party JavaScript is split by route, and Phase 1 source modules are preserved in readable form while the runtime bundles remain minified.
+- Google Analytics is queued after page load and scheduled during browser idle time. Commerce and GST-safe purchase events are instrumented; real GA4 property receipt still requires access for validation.
+- Supabase is loaded on demand. Anonymous public review reads use a lightweight read-only PostgREST request rather than downloading the SDK.
+- First-party JavaScript is split by route, and Phase 1 source modules are preserved in readable form while runtime bundles remain minified.
 - Product-page JavaScript defers full catalogue sorting/facet work until the listing hero has produced its LCP entry or the visitor interacts with a control.
 - Product gallery images are lazy-loaded except the primary PDP image.
-- The homepage and product-listing hero images use responsive mobile assets and explicit mobile preload hints.
-- Shared hero/category/support/logo assets have WebP variants; product catalogue images remain untouched and at native source resolution.
-- CSS bundle base styles are loaded explicitly in parallel rather than through a CSS `@import` waterfall; CSS and WebP URLs are versioned to avoid stale CDN cache entries.
-- Static assets receive long-lived browser/CDN cache headers through `_headers`; catalogue JSON is deliberately revalidated.
+- Homepage and product-listing hero images use responsive mobile assets and explicit mobile preload hints.
+- Shared hero/category/support/logo assets have optimized variants; product catalogue images remain untouched and at native source resolution.
+- CSS base styles and route bundles are loaded as separate stylesheets; route CSS is not placed behind a CSS @import waterfall. CSS and shared-image URLs are versioned to avoid stale CDN cache entries.
+- A production edge audit checks actual response headers for representative routes and assets; use its CI output, not only repository declarations.
 - The bare-root language bootstrap has a timeout fallback so a language-detection failure cannot leave the loader permanently blocking navigation.
 
 ## Measurement rules
@@ -106,4 +136,4 @@ The following were source-file sizes recorded from the repository on 14 Oct 2026
 - Use three runs per route and record median plus maximum; investigate material outliers rather than hiding them in the median.
 - Measure the homepage, products listing and a representative PDP after any shared runtime, hero, CSS or image delivery change.
 - Preserve product catalogue source images at native resolution.
-- Do not split/defer large route bundles blindly. Measure route-specific execution and retain regression coverage for all account, catalogue and checkout flows.
+- Do not split/defer large route bundles or make CSS asynchronous blindly. Measure route-specific execution and retain regression coverage for account, catalogue and checkout flows.
