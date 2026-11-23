@@ -21,8 +21,20 @@ constructor() {
     this.currentPage = 1;
 
     this.pageSize = 20;
+    this.trackedProductViewId = null;
 
 }
+
+    trackProductView(product) {
+        const productId = String(product?.id || "").trim();
+        if (!productId || this.trackedProductViewId === productId) return;
+        this.trackedProductViewId = productId;
+        window.SouviksEcommerceAnalytics?.track?.(
+            "view_item",
+            [{ product, quantity: 1 }],
+            { includeValue: true }
+        );
+    }
     // ======================================================
     // INIT
     // ======================================================
@@ -1104,6 +1116,7 @@ async hydrateProductPage() {
     const staticTarget=Utils.el("#product-detail");
     const embeddedProduct=window.SOUVIKS_PRODUCT_PAGE_DATA;
     if(staticTarget?.dataset.staticRendered==="true" && embeddedProduct?.id){
+        this.trackProductView(embeddedProduct);
         // Keep the statically generated PDP fast, but refresh image/gallery metadata
         // from the canonical catalogue index so newly added product images become
         // visible without requiring 3 x N static HTML page rewrites.
@@ -1188,6 +1201,7 @@ async hydrateProductPage() {
         return;
     }
 
+    this.trackProductView(product);
     const brand = await API.brandById(product.brand_id);
     const category = await API.categoryById(product.category_id);
 
