@@ -18,6 +18,24 @@ Responsibilities owned here:
 let allProducts = [];
 let currentSort = "featured";
 let preserveInitialStaticCatalogue = false;
+let productListReady = false;
+let initialProductListEventSent = false;
+let suppressProductListEvent = false;
+
+function trackProductListView(products) {
+    if (!Array.isArray(products) || !products.length) return;
+    if (!productListReady && initialProductListEventSent) return;
+    if (!productListReady) initialProductListEventSent = true;
+    window.SouviksEcommerceAnalytics?.track?.(
+        "view_item_list",
+        products.map((product, index) => ({ product, quantity: 1, index })),
+        {
+            includeValue: false,
+            listId: "product_catalogue",
+            listName: "Product catalogue"
+        }
+    );
+}
 
 const FILTER_CONFIGS = [
     {
@@ -174,6 +192,9 @@ async function initialiseProductsPage() {
         const liveQuery = String(searchInput?.value || "").trim();
         if (liveQuery !== getSearchQuery()) applyCatalogue();
     }
+
+    productListReady = true;
+    if (!initialProductListEventSent) trackProductListView(Pagination.pageData());
 
     // Used by browser regression checks to avoid racing deferred hydration.
     document.body.dataset.productsPageReady = "true";
@@ -579,9 +600,17 @@ function applyCatalogue({ resetPage = true } = {}) {
     const requestedPage = !resetPage ? Utils.queryNumber("page", 1, 1, 1000000) : 1;
     const pageData = Pagination.update(results);
     Products.container.innerHTML = pageData.map(item => Products.card(item)).join("");
-    if (!resetPage && Number.isFinite(requestedPage) && requestedPage > 1) Pagination.go(requestedPage);
+    if (!resetPage && Number.isFinite(requestedPage) && requestedPage > 1) {
+        suppressProductListEvent = true;
+        try {
+            Pagination.go(requestedPage);
+        } finally {
+            suppressProductListEvent = false;
+        }
+    }
     updateCounters(results);
     updateNoResultsState(results.length === 0);
+    trackProductListView(Pagination.pageData());
 }
 
 function initialisePagination() {
@@ -603,6 +632,7 @@ function initialisePagination() {
         onChange: pageData => {
             Products.container.innerHTML = pageData.map(item => Products.card(item)).join("");
             updateCounters(Pagination.data);
+            if (productListReady && !suppressProductListEvent) trackProductListView(pageData);
         }
     });
 
@@ -633,6 +663,7 @@ function initialisePagination() {
             updateCounters(initialResults);
             updateNoResultsState(initialResults.length === 0);
             preserveInitialStaticCatalogue = false;
+            trackProductListView(Pagination.pageData());
             return;
         }
     }
@@ -648,6 +679,7 @@ function initialisePagination() {
     Products.container.innerHTML = Pagination.pageData().map(item => Products.card(item)).join("");
     updateCounters(initialResults);
     preserveInitialStaticCatalogue = false;
+    trackProductListView(Pagination.pageData());
 }
 
 function bindFilters() {
@@ -732,6 +764,7 @@ function renderCurrentPage() {
     updateCounters(Pagination.data);
     updateNoResultsState(Pagination.data.length === 0);
     updateCatalogueRobotsMeta();
+    if (productListReady) trackProductListView(pageData);
 }
 
 function sentenceCase(value) {

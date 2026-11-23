@@ -192,6 +192,7 @@ jobs:
           node scripts/regression/hsn-stock-reference-crosswalk.cjs
           node scripts/regression/gst-invoice-generator-contract.cjs
           node scripts/regression/minified-source-contract.cjs
+          node scripts/regression/analytics-ecommerce-contract.cjs
           npm run format:check
 
           echo "Catalogue release gate passed."
@@ -245,6 +246,9 @@ jobs:
           # run serves the checked-in asset directly; publishing only source leaves
           # that candidate with a stale runtime and breaks anonymous PDP review reads.
           cp "${GITHUB_WORKSPACE}/assets/js/supabase-loader.js" "${publish_repo}/assets/js/supabase-loader.js"
+          # The cart is compiled from its readable source during candidate validation.
+          # Publish that exact runtime too, so branch previews never serve the old bundle.
+          cp "${GITHUB_WORKSPACE}/assets/js/cart/cart.js" "${publish_repo}/assets/js/cart/cart.js"
           (
             cd "${publish_repo}"
             python3 scripts/js/refresh_versions.py

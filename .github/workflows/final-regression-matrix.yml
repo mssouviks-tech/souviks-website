@@ -115,6 +115,7 @@ jobs:
           node --check scripts/regression/hsn-stock-reference-crosswalk.cjs
           node --check scripts/regression/delhivery-estimate-contract.cjs
           node --check scripts/regression/supabase-lazy-loader-contract.cjs
+          node --check scripts/regression/analytics-ecommerce-contract.cjs
 
       - name: Validate RFQ security contract
         run: node scripts/regression/rfq-security-contract.cjs
@@ -166,6 +167,9 @@ jobs:
 
       - name: Validate analytics search privacy contract
         run: node scripts/regression/analytics-privacy-contract.cjs
+
+      - name: Validate GA4 ecommerce event and GST-value contract
+        run: node scripts/regression/analytics-ecommerce-contract.cjs
 
       - name: Run final regression matrix
         env:
