@@ -22,6 +22,27 @@ def version(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
 
 
+def resolve_asset_prefix(prefix: str) -> str:
+    """Resolve a stale locale-prefixed bundle URL only to a real shared asset."""
+    relative = prefix.lstrip("/")
+    requested = ROOT / relative
+    if requested.is_file():
+        return prefix
+
+    for shared_directory in ("assets/js/bundles", "assets/css/bundles"):
+        try:
+            remainder = Path(relative).relative_to(shared_directory).parts
+        except ValueError:
+            continue
+        if len(remainder) < 2 or remainder[0] not in {"en", "bn", "hi"}:
+            continue
+        candidate = Path(shared_directory, *remainder[1:])
+        if (ROOT / candidate).is_file():
+            return "/" + candidate.as_posix()
+
+    return prefix
+
+
 def main() -> int:
     changed = 0
     html_paths = [
@@ -35,12 +56,14 @@ def main() -> int:
         source = html.read_text(encoding="utf-8")
 
         def replace(match: re.Match[str]) -> str:
-            asset = ROOT / match.group("prefix").lstrip("/")
+            requested_prefix = match.group("prefix")
+            resolved_prefix = resolve_asset_prefix(requested_prefix)
+            asset = ROOT / resolved_prefix.lstrip("/")
             if not asset.is_file():
                 raise FileNotFoundError(
-                    f"{html.relative_to(ROOT)} references missing asset {match.group('prefix')}"
+                    f"{html.relative_to(ROOT)} references missing asset {requested_prefix}"
                 )
-            return f'{match.group("prefix")}?v={version(asset)}'
+            return f'{resolved_prefix}?v={version(asset)}'
 
         updated = ASSET_RE.sub(replace, source)
         if updated != source:
