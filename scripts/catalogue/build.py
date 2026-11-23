@@ -1995,6 +1995,12 @@ def reconcile_catalogue_projections():
 
             seeded = dict(template_data)
             seeded.update(product_from_catalogue(product))
+            seeded_candidate = product.get("gst_rate_candidate") if isinstance(product.get("gst_rate_candidate"), dict) else {}
+            seeded["gst_rate_candidate_approved"] = (
+                seeded_candidate.get("invoice_ready") is True
+                and seeded_candidate.get("accountant_approval_required") is False
+                and seeded_candidate.get("accountant_approval_status") == "approved"
+            )
             seeded["seo"] = dict(template_data.get("seo") or {})
             seeded["seo"]["canonical"] = f"{BASE}/{lang}/products/{slug}"
             seeded["seo"]["title"] = build_product_page_title(
@@ -2272,6 +2278,13 @@ def reconcile_catalogue_projections():
             )
             data["mrp"] = product.get("mrp")
             data["selling_price"] = product.get("selling_price")
+            data["gst_rate_percent"] = product.get("gst_rate_percent")
+            gst_candidate = product.get("gst_rate_candidate") if isinstance(product.get("gst_rate_candidate"), dict) else {}
+            data["gst_rate_candidate_approved"] = (
+                gst_candidate.get("invoice_ready") is True
+                and gst_candidate.get("accountant_approval_required") is False
+                and gst_candidate.get("accountant_approval_status") == "approved"
+            )
             data["hsn_code"] = text(product.get("hsn_code"))
             data["hsn_description"] = text(product.get("hsn_description"))
             data["hsn_confidence"] = text(product.get("hsn_confidence"))
