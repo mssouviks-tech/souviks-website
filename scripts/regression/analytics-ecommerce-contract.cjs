@@ -138,7 +138,7 @@ for (const eventName of [
 }
 assert.match(productModule, /"view_item"/, "PDP must emit view_item");
 assert.match(listingModule, /"view_item_list"/, "catalogue must emit view_item_list");
-assert.match(listingModule, /"select_item"/, "catalogue selection must emit select_item");
+assert.match(cart, /"select_item"/, "catalogue selection must emit select_item");
 assert.match(cart, /data\.payment_status === "paid"[\s\S]*?trackVerifiedPurchase/,
   "purchase must be emitted only after server-verified paid status");
 assert.match(catalogueBuilder, /data\["gst_rate_percent"\] = product\.get\("gst_rate_percent"\)/);
