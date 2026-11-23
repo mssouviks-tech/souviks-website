@@ -280,9 +280,9 @@ def migrate_html() -> int:
         # module exists. The HTML may be regenerated from an older localized
         # PDP shell during the catalogue build.
         module_asset_pattern = re.compile(
-            r'(?P<prefix><script\\b[^>]*\\bsrc=")'
+            r'(?P<prefix><script\b[^>]*\bsrc=")'
             r'(?P<path>/assets/js/(?:account|products|product|request-quote|components|cart)/[^"?]+)'
-            r'(?P<query>\\?[^"]*)?(?P<suffix>")',
+            r'(?P<query>\?[^"]*)?(?P<suffix>")',
             re.IGNORECASE | re.DOTALL,
         )
 
