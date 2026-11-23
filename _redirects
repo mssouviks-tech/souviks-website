@@ -177,6 +177,7 @@
 /bn/products/7032-ace-dicor-mega-rear-parabolic-leaf-spring.html /bn/products/7032-ace-dicor-mega-rear-aux-a 301
 
 # Root-level legacy page/listing routes. New public links should use language-prefixed canonical routes.
+/${LANG}/brands.html /en/brands 301
 /products /en/products 301
 /products.html /en/products 301
 /brands /en/brands 301
@@ -229,6 +230,12 @@
 /:lang/brands/:slug.html /:lang/brands/:slug 301
 /:lang/categories/:slug.html /:lang/categories/:slug 301
 /:lang/vehicles/:slug.html /:lang/vehicles/:slug 301
+
+# Root-level legacy entity URLs with .html must be normalized before generic slug routes.
+ /products/:slug.html /en/products/:slug 301
+ /brands/:slug.html /en/brands/:slug 301
+ /categories/:slug.html /en/categories/:slug 301
+ /vehicles/:slug.html /en/vehicles/:slug 301
 
 # Legacy non-language entity/product routes now resolve to the English canonical route.
 /products/:slug /en/products/:slug 301
