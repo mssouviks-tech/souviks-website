@@ -45,6 +45,7 @@ assert.ok(ecommerce, "shared ecommerce analytics API must be exported");
 const approved18 = {
   id: "SVKS000001",
   product_name: "Brake Valve",
+  part_number: "A0000000001",
   brand_name: "BharatBenz",
   category_name: "Brake Components",
   subcategory_name: "Valves",
@@ -79,6 +80,7 @@ assert.equal(basket.params.value, 300, "GA4 value must exclude GST");
 assert.equal(basket.params.tax, 41, "GST must be reported separately");
 assert.equal(basket.params.items.length, 2);
 assert.equal(basket.params.items[0].item_id, "SVKS000001");
+assert.equal(basket.params.items[0].item_variant, "A0000000001");
 assert.equal(basket.params.items[0].quantity, 2);
 assert.equal(basket.params.items[0].price, 100);
 assert.equal(basket.params.items[1].price, 100);
