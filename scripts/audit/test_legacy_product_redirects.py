@@ -5,9 +5,12 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
+from internal_redirects import replace_exact_redirect_reference  # noqa: E402
 LANGUAGES = ("en", "bn", "hi")
 MANIFEST_PATH = ROOT / "assets/data/legacy-product-redirects.json"
 REDIRECTS_PATH = ROOT / "_redirects"
@@ -68,7 +71,43 @@ def read_redirects() -> dict[str, tuple[str, str]]:
     return rules
 
 
+
+def test_exact_redirect_path_boundaries() -> None:
+    base = "https://www.souviks.co.in"
+    source = "/products/old-product"
+    destination = "/en/products/new-product"
+    sample = (
+        f'<link rel="canonical" href="{base}/en/products/old-product">'
+        f'<meta property="og:image" content="{base}/assets/images/products/SVKS000596/1.webp">'
+        '<a href="/products/old-product?source=gsc#specs">Legacy product</a>'
+        f'<a href="{base}/products/old-product">Absolute legacy product</a>'
+        '<a href="/bn/products/old-product">Localized product</a>'
+    )
+    rewritten = replace_exact_redirect_reference(
+        sample, source, destination, base
+    )
+    assert f'href="{base}/en/products/old-product"' in rewritten
+    assert f'content="{base}/assets/images/products/SVKS000596/1.webp"' in rewritten
+    assert 'href="/en/products/new-product?source=gsc#specs"' in rewritten
+    assert f'href="{base}/en/products/new-product"' in rewritten
+    assert 'href="/bn/products/old-product"' in rewritten
+
+    listing_sample = (
+        f'<link rel="canonical" href="{base}/en/products">'
+        '<img src="/assets/images/products/SVKS000596/1.webp">'
+        '<a href="/products?source=legacy">Products</a>'
+        '<a href="/products/another-product">Nested route</a>'
+    )
+    listing_rewritten = replace_exact_redirect_reference(
+        listing_sample, "/products", "/en/products", base
+    )
+    assert f'href="{base}/en/products"' in listing_rewritten
+    assert 'src="/assets/images/products/SVKS000596/1.webp"' in listing_rewritten
+    assert 'href="/en/products?source=legacy"' in listing_rewritten
+    assert 'href="/products/another-product"' in listing_rewritten
+
 def main() -> None:
+    test_exact_redirect_path_boundaries()
     manifest = load_json(MANIFEST_PATH)
     catalogue = load_json(CATALOGUE_PATH)
     assert manifest.get("schema_version") == 1, "unsupported redirect manifest schema"
