@@ -192,6 +192,31 @@ def versioned_asset_url(relative_path: str) -> str:
     return f"/{relative_path}?v={asset_version(path)}"
 
 
+def resolve_bundle_name(bundle_name: str) -> str:
+    """Resolve stale locale-prefixed references to an existing shared bundle.
+
+    The site stores its compatibility bundles once in assets/js/bundles/.
+    Older localized HTML can still reference assets/js/bundles/{lang}/name.js.
+    Only collapse that prefix when the localized file does not exist and the
+    corresponding shared bundle does; otherwise preserve the original path so
+    genuinely missing assets remain visible as build failures.
+    """
+    requested_path = BUNDLES / bundle_name
+    if requested_path.is_file():
+        return bundle_name
+
+    language, separator, filename = bundle_name.partition("/")
+    if (
+        separator
+        and language in LANGUAGES
+        and "/" not in filename
+        and (BUNDLES / filename).is_file()
+    ):
+        return filename
+
+    return bundle_name
+
+
 def migrate_html() -> int:
     changed = 0
     bundle_pattern = re.compile(
@@ -229,6 +254,21 @@ def migrate_html() -> int:
     for path in sorted(set(paths)):
         content = read(path)
         new_content = core_pattern.sub(core_tag, content)
+
+        # Normalize stale locale-prefixed compatibility-bundle URLs only when
+        # the shared root-level bundle exists and no localized bundle exists.
+        def normalize_legacy_bundle(match: re.Match[str]) -> str:
+            requested_name = match.group(1)
+            resolved_name = resolve_bundle_name(requested_name)
+            if resolved_name == requested_name:
+                return match.group(0)
+            return match.group(0).replace(
+                f"/assets/js/bundles/{requested_name}",
+                f"/assets/js/bundles/{resolved_name}",
+                1,
+            )
+
+        new_content = bundle_pattern.sub(normalize_legacy_bundle, new_content)
 
         # Persist acquisition attribution on public entry pages, including the canonical root homepage.
         if not attribution_pattern.search(new_content):
