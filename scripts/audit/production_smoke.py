@@ -400,6 +400,8 @@ def run_smoke() -> int:
         errors.append(f"legacy product redirect manifest could not be loaded for production smoke: {exc}")
 
     redirects.update({
+        "/" + "$" + "{LANG}" + "/brands.html": "/en/brands",
+        "/products/12-x-12-mm-union.html": "/en/products/12-x-12-mm-union",
         "/brands.html": "/en/brands",
         "/categories.html": "/en/categories",
         "/vehicles.html": "/en/vehicles",
