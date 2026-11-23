@@ -20,6 +20,7 @@ assert.ok(readableLoaderSource.length > loaderSource.length * 1.2, "Supabase loa
 async function main() {
   const injectedScripts = [];
   const operations = [];
+  const publicFetches = [];
   let createClientCount = 0;
   let observedConfig = null;
 
@@ -62,6 +63,16 @@ async function main() {
         this.type = type;
       }
     },
+    fetch: async (url, options) => {
+      publicFetches.push({ url: String(url), options });
+      return {
+        ok: true,
+        status: 200,
+        async json() {
+          return [{ id: "review-1", reviewer_name: "Souviks Customer" }];
+        },
+      };
+    },
   };
 
   vm.runInNewContext(loaderSource, sandbox, {
@@ -87,6 +98,41 @@ async function main() {
     "sb_publishable_test",
     config,
   );
+
+  const publicReviews = await window.SouviksSupabase.fetchPublicTable(
+    "product_reviews",
+    {
+      select: "id,reviewer_name",
+      product_id: "eq.SVKS000006",
+      status: "eq.approved",
+      order: "created_at.desc",
+    },
+  );
+  assert.equal(
+    JSON.stringify(publicReviews),
+    JSON.stringify([{ id: "review-1", reviewer_name: "Souviks Customer" }]),
+    "public approved reviews must be returned without constructing the SDK client",
+  );
+  assert.equal(
+    injectedScripts.length,
+    0,
+    "read-only public REST access must not download the Supabase SDK",
+  );
+  assert.equal(createClientCount, 0, "public REST access must not create an SDK client");
+  assert.equal(publicFetches.length, 1, "public review access must issue one GET request");
+  assert.equal(publicFetches[0].options.method, "GET");
+  assert.equal(publicFetches[0].options.credentials, "omit");
+  assert.equal(publicFetches[0].options.headers.apikey, "sb_publishable_test");
+  assert.equal(
+    Object.hasOwn(publicFetches[0].options.headers, "Authorization"),
+    false,
+    "publishable API keys must not be sent as Bearer JWTs",
+  );
+  const publicReviewUrl = new URL(publicFetches[0].url);
+  assert.equal(publicReviewUrl.origin, "https://project.supabase.co");
+  assert.equal(publicReviewUrl.pathname, "/rest/v1/product_reviews");
+  assert.equal(publicReviewUrl.searchParams.get("status"), "eq.approved");
+  assert.equal(publicReviewUrl.searchParams.get("product_id"), "eq.SVKS000006");
 
   assert.equal(
     injectedScripts.length,
@@ -383,7 +429,7 @@ async function main() {
   );
 
   console.log(
-    "[Supabase lazy-loader contract] PASS — no eager SDK download, async on-demand load, query/auth/RPC/Edge Function compatibility, singleton client, and callback detection.",
+    "[Supabase lazy-loader contract] PASS — public read-only REST access works without the SDK; SDK remains on-demand for authenticated queries, auth, RPC and Edge Functions; singleton client and callback detection preserved.",
   );
 }
 

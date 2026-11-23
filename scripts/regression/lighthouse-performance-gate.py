@@ -109,13 +109,54 @@ def load_observed_lcp() -> dict[str, dict[str, list[float]]]:
             route = "Product listing"
         else:
             continue
+        final_report = report.get("final") or {}
+        if label in {"PR", "preview"}:
+            runtime = final_report.get("runtime") or {}
+            startup_auth = runtime.get("startupAuthState") or {}
+            if not isinstance(startup_auth, dict):
+                raise RuntimeError(f"Missing anonymous auth-state evidence in {path}")
+
+            is_anonymous = (
+                not startup_auth.get("supabaseSessionStoragePresent")
+                and not startup_auth.get("authCallbackInUrl")
+            )
+            if is_anonymous:
+                requests = runtime.get("requests") or []
+                sdk_requests = [
+                    request for request in requests
+                    if request.get("kind") == "supabase-sdk"
+                ]
+                if sdk_requests:
+                    raise RuntimeError(
+                        f"Anonymous {route.lower()} still downloaded the Supabase SDK in {path}"
+                    )
+
+                if route == "Product detail":
+                    review_reads = [
+                        request for request in requests
+                        if request.get("kind") == "supabase-api"
+                        and request.get("path", "").endswith("/rest/v1/product_reviews")
+                        and request.get("statusCode") == 200
+                    ]
+                    if not review_reads:
+                        raise RuntimeError(
+                            f"Anonymous product detail did not retrieve public approved reviews in {path}"
+                        )
+
         entries = report.get("final", {}).get("lcpEntries") or []
         if not entries:
             raise RuntimeError(f"No PerformanceObserver LCP entries found in {path}")
 
+        # Several largest-contentful-paint candidates can share the same
+        # timestamp (for example, text and the hero image painted in one frame).
+        # In a timestamp tie, keep the larger candidate rather than whichever
+        # element PerformanceObserver happened to return first.
         final_entry = max(
             entries,
-            key=lambda entry: float(entry.get("startTime") or 0),
+            key=lambda entry: (
+                float(entry.get("startTime") or 0),
+                float(entry.get("size") or 0),
+            ),
         )
         class_name = final_entry.get("className") or ""
         element_id = final_entry.get("id") or ""
