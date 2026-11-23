@@ -203,7 +203,6 @@
 /request-quote.html /en/cart 301
 /thank-you /en/thank-you 301
 /thank-you.html /en/thank-you 301
-/${LANG}/brands.html /en/brands 301
 /products/12-x-12-mm-union /en/products/12-x-12-mm-union 301
 
 # Legacy .html page routes: permanently redirect to the clean public URLs.
