@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "source": "Google Search Console Page indexing > Not found (404), exported 23 November 2026",
+  "generated_from": "souviks.co.in-Coverage-Drilldown-2026-11-23 (1).zip",
+  "matching_policy": "Only explicit old/new slugs whose destination product record was verified by product ID and manufacturer part number are included. Unresolved or ambiguous references are deliberately excluded.",
+  "source_variants": [
+    "/products/{old_slug}",
+    "/products/{old_slug}.html",
+    "/{lang}/products/{old_slug}",
+    "/{lang}/products/{old_slug}.html"
+  ],
+  "languages": [
+    "en",
+    "hi",
+    "bn"
+  ],
+  "migrations": [
+    {
+      "old_slug": "0181n-tata-1210d-front-leaf-spring-svks000612",
+      "new_slug": "0181n-tata-1210d-front-leaf-spring",
+      "product_id": "SVKS000596",
+      "brand": "JAI",
+      "part_number": "0181N",
+      "product_name": "Tata 1210D Front Leaf Spring"
+    },
+    {
+      "old_slug": "1931-tata-1516-1616-2213-front-leaf-spring-svks000618",
+      "new_slug": "1931-tata-1516-1616-2213-front-leaf-spring",
+      "product_id": "SVKS000602",
+      "brand": "JAI",
+      "part_number": "1931",
+      "product_name": "Tata 1516 1616 2213 Front Leaf Spring"
+    },
+    {
+      "old_slug": "2332s-ace-magic-spl-rear-leaf-spring-svks000605",
+      "new_slug": "2332s-ace-magic-spl-rear-leaf-spring",
+      "product_id": "SVKS000589",
+      "brand": "JAI",
+      "part_number": "2332S",
+      "product_name": "Ace Magic SPL Rear Leaf Spring"
+    },
+    {
+      "old_slug": "2582-tata-2515-lpt-3723-lpt-3118-tc-rear-leaf-spring-svks000613",
+      "new_slug": "2582-tata-2515-lpt-3723-lpt-3118-tc-rear-leaf-spring",
+      "product_id": "SVKS000597",
+      "brand": "JAI",
+      "part_number": "2582",
+      "product_name": "Tata 2515 LPT 3723 LPT 3118 TC Rear Leaf Spring"
+    },
+    {
+      "old_slug": "2731-tata-2515-ex-4018-front-parabolic-leaf-spring-svks000614",
+      "new_slug": "2731-tata-2515-ex-4018-front-parabolic-leaf-spring",
+      "product_id": "SVKS000598",
+      "brand": "JAI",
+      "part_number": "2731",
+      "product_name": "Tata 2515 EX 4018 Front Parabolic Leaf Spring"
+    },
+    {
+      "old_slug": "2951-tata-magic-front-parabolic-leaf-spring-svks000603",
+      "new_slug": "2951-tata-magic-front-parabolic-leaf-spring",
+      "product_id": "SVKS000587",
+      "brand": "JAI",
+      "part_number": "2951",
+      "product_name": "Tata Magic Front Parabolic Leaf Spring"
+    },
+    {
+      "old_slug": "539532x-taper-roller-bearing-svks000443",
+      "new_slug": "539532x-taper-roller-bearing",
+      "product_id": "SVKS000440",
+      "brand": "SKF",
+      "part_number": "539/532X",
+      "product_name": "Taper Roller Bearing"
+    },
+    {
+      "old_slug": "6891-tata-lpt-3718-front-parabolic-leaf-spring-svks000616",
+      "new_slug": "6891-tata-lpt-3718-front-parabolic-leaf-spring",
+      "product_id": "SVKS000600",
+      "brand": "JAI",
+      "part_number": "6891",
+      "product_name": "Tata LPT 3718 Front Parabolic Leaf Spring"
+    },
+    {
+      "old_slug": "6901-tata-lpt-3718-front-parabolic-leaf-spring-type-2-svks000617",
+      "new_slug": "6901-tata-lpt-3718-front-parabolic-leaf-spring-type-2",
+      "product_id": "SVKS000601",
+      "brand": "JAI",
+      "part_number": "6901",
+      "product_name": "Tata LPT 3718 Front Parabolic Leaf Spring Type 2"
+    },
+    {
+      "old_slug": "kf3392-tie-rod-end-tata-lpt-3118-rh",
+      "new_slug": "kfl-kf3392-tie-rod-end-tata-lpt-3118-rh",
+      "product_id": "SVKS000745",
+      "brand": "KFL",
+      "part_number": "KF3392",
+      "product_name": "Tie Rod End Tata LPT 3118 RH"
+    },
+    {
+      "old_slug": "s114004-000m00-combination-switch",
+      "new_slug": "unominda-s114004-000m00-combination-switch",
+      "product_id": "SVKS001012",
+      "brand": "UnoMinda",
+      "part_number": "S114004-000M00",
+      "product_name": "Combination Switch"
+    },
+    {
+      "old_slug": "tvs-girling-29966940d-dot-4-1-4-ltr",
+      "new_slug": "29966940d-dot-4-1-4-ltr",
+      "product_id": "SVKS000806",
+      "brand": "TVS Girling",
+      "part_number": "29966940D",
+      "product_name": "Dot 4 1/4 Ltr"
+    },
+    {
+      "old_slug": "tvs-girling-4006094160-drain-valve-with-o-rings-set-of-15-nos",
+      "new_slug": "4006094160-drain-valve-with-o-rings-set-of-15-nos",
+      "product_id": "SVKS000810",
+      "brand": "WABCO",
+      "part_number": "4006094160",
+      "product_name": "Drain Valve With O Rings Set of 15 nos"
+    },
+    {
+      "old_slug": "tvs-girling-a02309020-0200-tata-m20-x-2-5-x-78-knurled-bolt-and-nut",
+      "new_slug": "a02309020-0200-tata-m20-x-2-5-x-78-knurled-bolt-and-nut",
+      "product_id": "SVKS000811",
+      "brand": "TVS Girling",
+      "part_number": "A02309020-0200",
+      "product_name": "Tata M20 x 2.5 x 78 Knurled Bolt & Nut"
+    },
+    {
+      "old_slug": "tvs-girling-a15979020-0200-m22-x-2-5-x-115-bolt-w-m85900-nut",
+      "new_slug": "a15979020-0200-m22-x-2-5-x-115-bolt-w-m85900-nut",
+      "product_id": "SVKS000812",
+      "brand": "TVS Girling",
+      "part_number": "A15979020-0200",
+      "product_name": "M22 x 2.5 x 115 Bolt W/M85900 Nut"
+    },
+    {
+      "old_slug": "tvs-girling-a22479020-0200-m22-x-2-5-x-125-hub-bolt-w-nut-knurlbolt",
+      "new_slug": "a22479020-0200-m22-x-2-5-x-125-hub-bolt-w-nut-knurlbolt",
+      "product_id": "SVKS000813",
+      "brand": "TVS Girling",
+      "part_number": "A22479020-0200",
+      "product_name": "M22 x 2.5 x 125 Hub Bolt W/Nut Knurlbolt"
+    },
+    {
+      "old_slug": "tvs-girling-b00941020-0200-10-x-1-5-x-30-bolt-and-nut-assy-oaf",
+      "new_slug": "b00941020-0200-10-x-1-5-x-30-bolt-and-nut-assy-oaf",
+      "product_id": "SVKS000814",
+      "brand": "TVS Girling",
+      "part_number": "B00941020-0200",
+      "product_name": "10 x 1.5 x 30 Bolt & Nut Assy OAF"
+    },
+    {
+      "old_slug": "tvs-girling-b14305020-0200-14-x-1-5-x-50-bolt-and-nut-old-a-f-with-nut",
+      "new_slug": "b14305020-0200-14-x-1-5-x-50-bolt-and-nut-old-a-f-with-nut",
+      "product_id": "SVKS000815",
+      "brand": "TVS Girling",
+      "part_number": "B14305020-0200",
+      "product_name": "14 x 1.5 x 50 Bolt & Nut Old A/F with nut"
+    },
+    {
+      "old_slug": "tvs-girling-sias-6214dt-for-trailer-balloon-ca-20ft-2-duo-for-tr",
+      "new_slug": "sias-6214dt-for-trailer-balloon-ca-20ft-2-duo-for-tr",
+      "product_id": "SVKS000817",
+      "brand": "TVS Girling",
+      "part_number": "SIAS6214DT",
+      "product_name": "Air Spring For Trailer balloon CA-20Ft 2 Duo for TR"
+    },
+    {
+      "old_slug": "7032-ace-dicor-mega-rear-parabolic-leaf-spring",
+      "new_slug": "7032-ace-dicor-mega-rear-aux-a",
+      "product_id": "SVKS000615",
+      "brand": "JAI",
+      "part_number": "7032",
+      "product_name": "Ace Dicor / Mega Rear - AUX-A"
+    }
+  ]
+}
