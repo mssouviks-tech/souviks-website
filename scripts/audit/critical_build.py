@@ -1331,6 +1331,22 @@ def validate_legacy_product_redirect_manifest(expected_routes, records_by_kind, 
         "/thank-you": "/en/thank-you", "/thank-you.html": "/en/thank-you",
         "/products/12-x-12-mm-union": "/en/products/12-x-12-mm-union",
     }
+    root_legacy_rules["/" + "$" + "{LANG}" + "/brands.html"] = "/en/brands"
+    redirect_lines = {
+        line.strip()
+        for line in redirects_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    }
+    for source, destination in (
+        ("/products/:slug.html", "/en/products/:slug"),
+        ("/brands/:slug.html", "/en/brands/:slug"),
+        ("/categories/:slug.html", "/en/categories/:slug"),
+        ("/vehicles/:slug.html", "/en/vehicles/:slug"),
+    ):
+        expected_rule = f"{source} {destination} 301"
+        if expected_rule not in redirect_lines:
+            errors.append(f"missing root .html entity redirect rule: {expected_rule}")
+
     for source, destination in root_legacy_rules.items():
         if rules.get(source) != (destination, "301"):
             errors.append(
