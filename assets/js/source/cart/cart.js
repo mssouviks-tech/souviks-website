@@ -97,6 +97,142 @@
     let preparedCheckout = null;
     let isPreparing = false;
     let isLaunching = false;
+    let cartViewTracked = false;
+    const GA4_PURCHASE_CONTEXT_PREFIX = "souviks:ga4-purchase-context:";
+    const GA4_PURCHASE_SENT_PREFIX = "souviks:ga4-purchase-sent:";
+
+    function ecommerceEntries(items) {
+        return (Array.isArray(items) ? items : []).map((entry, index) => ({
+            product: entry?.product && typeof entry.product === "object"
+                ? entry.product
+                : catalogueById.get(String(entry?.productId || "")),
+            quantity: entry?.quantity,
+            index: Number.isSafeInteger(Number(entry?.index)) ? Number(entry.index) : index
+        })).filter(entry => entry.product);
+    }
+
+    function buildCartEcommercePayload(items, options = {}) {
+        return window.SouviksEcommerceAnalytics?.buildPayload?.(
+            ecommerceEntries(items),
+            options
+        ) || null;
+    }
+
+    function trackCartEcommerce(eventName, items, options = {}) {
+        const result = buildCartEcommercePayload(items, options);
+        if (result?.params?.items?.length) {
+            window.souviksAnalytics?.trackEvent?.(eventName, result.params);
+        }
+        return result;
+    }
+
+    function savePurchaseAnalyticsContext(orderId, orderNumber, items, serverSubtotal) {
+        const result = buildCartEcommercePayload(items, { includeValue: true, includeTax: true });
+        if (!result?.params?.items?.length) return;
+        const subtotal = Number(serverSubtotal);
+        const financialsMatch = result.financialsComplete &&
+            Number.isFinite(subtotal) &&
+            Math.abs(result.grossValue - subtotal) <= 0.01;
+        const params = { ...result.params, transaction_id: String(orderNumber || orderId) };
+        if (!financialsMatch) {
+            params.items = params.items.map(item => {
+                const safeItem = { ...item };
+                delete safeItem.price;
+                return safeItem;
+            });
+            delete params.value;
+            delete params.tax;
+        }
+        const context = {
+            grossValue: Number.isFinite(subtotal) ? subtotal : null,
+            financialsMatch,
+            params
+        };
+        try {
+            sessionStorage.setItem(
+                GA4_PURCHASE_CONTEXT_PREFIX + String(orderId),
+                JSON.stringify(context)
+            );
+        } catch {
+            // Purchase reporting must never block checkout when session storage is unavailable.
+        }
+    }
+
+    async function trackVerifiedPurchase(orderId, data) {
+        const sentKey = GA4_PURCHASE_SENT_PREFIX + String(orderId);
+        try {
+            if (sessionStorage.getItem(sentKey) === "true") return;
+        } catch {
+            // Continue with transaction_id deduplication at the GA4 layer if storage is unavailable.
+        }
+
+        let context = null;
+        try {
+            const raw = sessionStorage.getItem(GA4_PURCHASE_CONTEXT_PREFIX + String(orderId));
+            context = raw ? JSON.parse(raw) : null;
+        } catch {
+            context = null;
+        }
+
+        // Recovery path for a same-tab return where the checkout context was not persisted.
+        if (!context?.params?.items?.length && safeReadCart().length) {
+            try {
+                await loadCatalogue();
+                const current = buildCartEcommercePayload(safeReadCart(), { includeValue: true, includeTax: true });
+                const paidAmount = Number(data?.amount);
+                const matches = current?.financialsComplete &&
+                    Number.isFinite(paidAmount) &&
+                    Math.abs(current.grossValue - paidAmount) <= 0.01;
+                if (current?.params?.items?.length) {
+                    context = {
+                        grossValue: Number.isFinite(paidAmount) ? paidAmount : null,
+                        financialsMatch: matches,
+                        params: { ...current.params }
+                    };
+                    if (!matches) {
+                        context.params.items = context.params.items.map(item => {
+                            const safeItem = { ...item };
+                            delete safeItem.price;
+                            return safeItem;
+                        });
+                        delete context.params.value;
+                        delete context.params.tax;
+                    }
+                }
+            } catch {
+                context = null;
+            }
+        }
+
+        if (!context?.params?.items?.length) return;
+        const paidAmount = Number(data?.amount);
+        const amountMatches = context.financialsMatch === true &&
+            Number.isFinite(context.grossValue) &&
+            Number.isFinite(paidAmount) &&
+            Math.abs(context.grossValue - paidAmount) <= 0.01;
+        const params = {
+            ...context.params,
+            transaction_id: String(data?.order_number || context.params.transaction_id || orderId),
+            currency: String(data?.currency || "INR")
+        };
+        if (!amountMatches) {
+            params.items = params.items.map(item => {
+                const safeItem = { ...item };
+                delete safeItem.price;
+                return safeItem;
+            });
+            delete params.value;
+            delete params.tax;
+        }
+
+        window.souviksAnalytics?.trackEvent?.("purchase", params);
+        try {
+            sessionStorage.setItem(sentKey, "true");
+            sessionStorage.removeItem(GA4_PURCHASE_CONTEXT_PREFIX + String(orderId));
+        } catch {
+            // The transaction_id remains available for downstream GA4 purchase deduplication.
+        }
+    }
 
     function safeReadCart() {
         try {
@@ -266,7 +402,10 @@
                 button.disabled = false;
             }, 1000);
         }
-        window.souviksAnalytics?.trackEvent?.("add_to_cart", { product_id: productId, quantity });
+        const product = catalogueById.get(productId);
+        if (product) {
+            trackCartEcommerce("add_to_cart", [{ productId, quantity }], { includeValue: true });
+        }
         window.dispatchEvent(new CustomEvent("souviks:purchase-cart-added", { detail: { productId } }));
     }
 
@@ -338,6 +477,10 @@
         }
         updateCartLink();
         invalidateReviewIfEmpty();
+        if (!cartViewTracked && items.length > 0 && unavailableCount === 0) {
+            trackCartEcommerce("view_cart", items, { includeValue: true });
+            cartViewTracked = true;
+        }
     }
 
     function invalidateReviewIfEmpty() {
@@ -437,6 +580,7 @@
                 return;
             }
             isPreparing = true;
+            trackCartEcommerce("begin_checkout", currentCart, { includeValue: true });
             if (reviewButton) {
                 reviewButton.disabled = true;
                 reviewButton.textContent = "Preparing secure total…";
@@ -486,6 +630,18 @@
                 if (!data?.ok || !data?.payment_session_id || !data?.checkout_token || !data?.order_id) {
                     throw new Error(data?.message || T.reviewFailed);
                 }
+                savePurchaseAnalyticsContext(
+                    String(data.order_id),
+                    String(data.order_number || data.order_id),
+                    currentCart,
+                    data.subtotal
+                );
+                trackCartEcommerce("add_shipping_info", currentCart, {
+                    includeValue: true,
+                    eventParams: {
+                        shipping_tier: fulfillmentMethod === "pickup" ? "Store pickup" : "Home delivery"
+                    }
+                });
                 preparedCheckout = {
                     orderId: String(data.order_id),
                     orderNumber: String(data.order_number || data.order_id),
@@ -869,6 +1025,7 @@
                         ? T.statusPaidFreightPending
                         : T.statusPaid;
                     setStatus(status, paymentMessage, "success");
+                    await trackVerifiedPurchase(orderId, data);
                     try {
                         localStorage.removeItem(STORAGE_KEY);
                         // Retain the short-lived order capability so a guest can download the invoice on this return page.
@@ -876,11 +1033,6 @@
                         // A failed local cleanup cannot change verified payment status.
                     }
                     updateCartLink();
-                    window.souviksAnalytics?.trackEvent?.("purchase", {
-                        transaction_id: String(data.order_number || orderId),
-                        value: Number(data.amount) || 0,
-                        currency: String(data.currency || "INR")
-                    });
                     if (retry) retry.hidden = true;
                     if (invoiceButton) invoiceButton.hidden = data.invoice_status !== "issued";
                 } else if (["failed", "cancelled"].includes(data.payment_status)) {
@@ -933,6 +1085,39 @@
         });
         await verify();
     }
+
+    document.addEventListener("click", event => {
+        const link = event.target instanceof Element
+            ? event.target.closest(".product-card a[href*='/products/']")
+            : null;
+        if (!link) return;
+        const card = link.closest(".product-card");
+        const itemId = String(card?.querySelector("[data-saved-product-id]")?.getAttribute("data-saved-product-id") || "").trim();
+        const itemName = String(card?.querySelector(".product-title a")?.textContent || "").trim();
+        if (!itemId || !itemName) return;
+        const itemBrand = String(card?.querySelector(".product-brand-label")?.textContent || "").trim();
+        const listRoot = card.closest("#product-grid, .pdp-frequent-slider, .pdp-related-slider-main");
+        const listId = listRoot?.id === "product-grid"
+            ? "product_catalogue"
+            : listRoot?.classList.contains("pdp-frequent-slider")
+                ? "frequently_used"
+                : listRoot?.classList.contains("pdp-related-slider-main")
+                    ? "related_products"
+                    : "product_collection";
+        const listName = listId === "product_catalogue"
+            ? "Product catalogue"
+            : listId === "frequently_used"
+                ? "Frequently used with this product"
+                : listId === "related_products"
+                    ? "Related products"
+                    : "Product collection";
+        const cards = listRoot ? Array.from(listRoot.querySelectorAll(".product-card")) : [];
+        trackCartEcommerce("select_item", [{
+            product: { id: itemId, product_name: itemName, brand_name: itemBrand },
+            quantity: 1,
+            index: Math.max(0, cards.indexOf(card))
+        }], { includeValue: false, listId, listName });
+    }, true);
 
     document.addEventListener("click", event => {
         const target = event.target instanceof Element
