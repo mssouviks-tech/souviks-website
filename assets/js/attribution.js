@@ -164,6 +164,7 @@ const buildEcommercePayload=(entries,options={})=>{
    ...(itemId?{item_id:itemId}:{}),
    ...(itemName?{item_name:itemName}:{}),
    ...(clean(product.brand_name||product.brand,120)?{item_brand:clean(product.brand_name||product.brand,120)}:{}),
+   ...(clean(product.part_number||product.partNumber||product.manufacturer_part_number,120)?{item_variant:clean(product.part_number||product.partNumber||product.manufacturer_part_number,120)}:{}),
    ...(clean(product.category_name||product.category,120)?{item_category:clean(product.category_name||product.category,120)}:{}),
    ...(clean(product.subcategory_name||product.subcategory,120)?{item_category2:clean(product.subcategory_name||product.subcategory,120)}:{}),
    ...(options.listId?{item_list_id:clean(options.listId,100)}:{}),
