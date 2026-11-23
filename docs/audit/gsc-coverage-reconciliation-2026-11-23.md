@@ -67,7 +67,7 @@ Four generic root-level entity rules were also added ahead of same-slug non-lang
 - /categories/:slug.html → /en/categories/:slug
 - /vehicles/:slug.html → /en/vehicles/:slug
 
-The GSC export also contains the literal malformed path ${LANG}/brands.html; it now redirects directly to /en/brands.
+The GSC export also contains the literal malformed path /${LANG}/brands.html; it now redirects directly to /en/brands.
 
 ### 3. Single-hop host and path normalization
 
