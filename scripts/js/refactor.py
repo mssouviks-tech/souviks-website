@@ -276,6 +276,38 @@ def migrate_html() -> int:
 
         new_content = bundle_pattern.sub(normalize_legacy_bundle, new_content)
 
+        # Normalize stale locale-prefixed page-module URLs when the shared
+        # module exists. The HTML may be regenerated from an older localized
+        # PDP shell during the catalogue build.
+        module_asset_pattern = re.compile(
+            r'(?P<prefix><script\\b[^>]*\\bsrc=")'
+            r'(?P<path>/assets/js/(?:account|products|product|request-quote|components|cart)/[^"?]+)'
+            r'(?P<query>\\?[^"]*)?(?P<suffix>")',
+            re.IGNORECASE | re.DOTALL,
+        )
+
+        def normalize_legacy_module(match: re.Match[str]) -> str:
+            requested_path = match.group("path")
+            relative_path = requested_path.lstrip("/")
+            parts = Path(relative_path).parts
+            if len(parts) < 4:
+                return match.group(0)
+            shared_directory = Path(*parts[:3]).as_posix()
+            resolved_path = resolve_locale_prefixed_asset(
+                relative_path,
+                shared_directory,
+            )
+            if resolved_path == relative_path:
+                return match.group(0)
+            return (
+                match.group("prefix")
+                + "/" + resolved_path
+                + (match.group("query") or "")
+                + match.group("suffix")
+            )
+
+        new_content = module_asset_pattern.sub(normalize_legacy_module, new_content)
+
         # Persist acquisition attribution on public entry pages, including the canonical root homepage.
         if not attribution_pattern.search(new_content):
             if core_tag in new_content:
