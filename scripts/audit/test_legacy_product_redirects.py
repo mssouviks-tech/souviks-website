@@ -80,6 +80,19 @@ def main() -> None:
         if isinstance(product, dict) and product.get("active") is not False
     }
     rules = read_redirects()
+    middleware = (ROOT / "functions/_middleware.js").read_text(encoding="utf-8")
+    assert "function normalizeLegacyAliasPath(pathname)" in middleware, (
+        "legacy host middleware must normalize legacy page paths"
+    )
+    assert "url.pathname = normalizeLegacyAliasPath(url.pathname)" in middleware, (
+        "legacy host middleware must normalize path before its single redirect"
+    )
+    assert '["/brands.html", "/en/brands"]' in middleware, (
+        "root brands.html alias must be folded into host normalization"
+    )
+    assert '["/request-quote.html", "/en/cart"]' in middleware, (
+        "root request-quote.html alias must be folded into host normalization"
+    )
     seen_old = set()
     seen_products = set()
     expected_count = 0
