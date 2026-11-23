@@ -1423,6 +1423,8 @@ def validate_pages_middleware(errors: list[str]) -> None:
         '"Permissions-Policy"',
         '"Content-Security-Policy"',
         "headers.set(name, value)",
+        "function normalizeLegacyAliasPath(pathname)",
+        "url.pathname = normalizeLegacyAliasPath(url.pathname)",
     )
     for fragment in required_fragments:
         if fragment not in source:
