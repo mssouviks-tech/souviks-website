@@ -122,10 +122,10 @@ assert.equal(emitted.length, 1);
 assert.equal(emitted[0].name, "add_to_cart");
 assert.equal(emitted[0].params.value, 100);
 
-const cart = fs.readFileSync(path.join(ROOT, "assets/js/source/cart/cart.js"), "utf8");
-const productModule = fs.readFileSync(path.join(ROOT, "assets/js/product/products.js"), "utf8");
-const listingModule = fs.readFileSync(path.join(ROOT, "assets/js/products/products-page.js"), "utf8");
-const catalogueBuilder = fs.readFileSync(path.join(ROOT, "scripts/catalogue/build.py"), "utf8");
+const cart = fs.readFileSync(pathModule.join(ROOT, "assets/js/source/cart/cart.js"), "utf8");
+const productModule = fs.readFileSync(pathModule.join(ROOT, "assets/js/product/products.js"), "utf8");
+const listingModule = fs.readFileSync(pathModule.join(ROOT, "assets/js/products/products-page.js"), "utf8");
+const catalogueBuilder = fs.readFileSync(pathModule.join(ROOT, "scripts/catalogue/build.py"), "utf8");
 
 for (const eventName of [
   "add_to_cart",
