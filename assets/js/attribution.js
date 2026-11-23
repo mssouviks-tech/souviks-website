@@ -140,7 +140,9 @@ document.addEventListener("click",event=>{
 const approvedEcommerceRate=product=>{
  const candidate=product?.gst_rate_candidate&&typeof product.gst_rate_candidate==="object"?product.gst_rate_candidate:{};
  const rate=Number(product?.gst_rate_percent??candidate.total_rate_percent);
- if(![5,18].includes(rate)||candidate.invoice_ready!==true||candidate.accountant_approval_required!==false||candidate.accountant_approval_status!=="approved")return null;
+ const approved=product?.gst_rate_candidate_approved===true||
+  (candidate.invoice_ready===true&&candidate.accountant_approval_required===false&&candidate.accountant_approval_status==="approved");
+ if(![5,18].includes(rate)||!approved)return null;
  return rate;
 };
 const buildEcommercePayload=(entries,options={})=>{
