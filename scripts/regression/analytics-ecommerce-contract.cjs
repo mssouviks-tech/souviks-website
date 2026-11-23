@@ -22,9 +22,9 @@ const windowStub = {
   }
 };
 const clean = (value, max = 120) => String(value ?? "")
-  .replace(/https?:\\/\\/\\S+/gi, "")
-  .replace(/[\\w.+-]+@[\\w.-]+\\.[A-Za-z]{2,}/g, "")
-  .replace(/[\\u0000-\\u001f\\u007f]/g, " ")
+  .replace(/https?:\/\/\S+/gi, "")
+  .replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g, "")
+  .replace(/[\u0000-\u001f\u007f]/g, " ")
   .replace(/[<>]/g, "")
   .trim()
   .slice(0, max);
@@ -139,14 +139,14 @@ for (const eventName of [
 assert.match(productModule, /"view_item"/, "PDP must emit view_item");
 assert.match(listingModule, /"view_item_list"/, "catalogue must emit view_item_list");
 assert.match(listingModule, /"select_item"/, "catalogue selection must emit select_item");
-assert.match(cart, /data\.payment_status === "paid"[\\s\\S]*?trackVerifiedPurchase/,
+assert.match(cart, /data\.payment_status === "paid"[\s\S]*?trackVerifiedPurchase/,
   "purchase must be emitted only after server-verified paid status");
 assert.match(catalogueBuilder, /data\["gst_rate_percent"\] = product\.get\("gst_rate_percent"\)/);
 assert.match(catalogueBuilder, /data\["gst_rate_candidate_approved"\]/,
   "PDP projection must expose the server-approved GST flag");
 assert.match(cart, /GA4_PURCHASE_SENT_PREFIX/,
   "purchase event must be guarded against duplicate returns");
-assert.doesNotMatch(cart, /trackEvent\?\.\("purchase",\\s*\\{\\s*transaction_id:[^}]*value:\s*Number\(data\.amount\)/,
-  "purchase must not report GST-inclusive gross as GA4 value");
+assert.ok(!cart.includes('window.souviksAnalytics?.trackEvent?.("purchase", {'),
+  "purchase must not report a legacy GST-inclusive gross payload");
 
 console.log("[GA4 ecommerce contract] PASS — item payloads, GST-exclusive value, separate tax, approval guard, product/list/cart funnel and verified purchase are covered.");
