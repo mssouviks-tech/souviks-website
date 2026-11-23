@@ -192,29 +192,35 @@ def versioned_asset_url(relative_path: str) -> str:
     return f"/{relative_path}?v={asset_version(path)}"
 
 
-def resolve_bundle_name(bundle_name: str) -> str:
-    """Resolve stale locale-prefixed references to an existing shared bundle.
-
-    The site stores its compatibility bundles once in assets/js/bundles/.
-    Older localized HTML can still reference assets/js/bundles/{lang}/name.js.
-    Only collapse that prefix when the localized file does not exist and the
-    corresponding shared bundle does; otherwise preserve the original path so
-    genuinely missing assets remain visible as build failures.
-    """
-    requested_path = BUNDLES / bundle_name
+def resolve_locale_prefixed_asset(relative_path: str, shared_directory: str) -> str:
+    """Collapse a stale locale subdirectory only when a shared asset exists."""
+    requested_path = ROOT / relative_path
     if requested_path.is_file():
-        return bundle_name
+        return relative_path
 
-    language, separator, filename = bundle_name.partition("/")
-    if (
-        separator
-        and language in LANGUAGES
-        and "/" not in filename
-        and (BUNDLES / filename).is_file()
-    ):
-        return filename
+    try:
+        remainder = Path(relative_path).relative_to(shared_directory).parts
+    except ValueError:
+        return relative_path
 
-    return bundle_name
+    if len(remainder) < 2 or remainder[0] not in LANGUAGES:
+        return relative_path
+
+    shared_path = Path(shared_directory, *remainder[1:])
+    if (ROOT / shared_path).is_file():
+        return shared_path.as_posix()
+
+    # Leave genuinely missing assets untouched so the caller still fails loudly.
+    return relative_path
+
+
+def resolve_bundle_name(bundle_name: str) -> str:
+    """Resolve a stale locale-prefixed JavaScript bundle to its shared file."""
+    relative_path = resolve_locale_prefixed_asset(
+        f"assets/js/bundles/{bundle_name}",
+        "assets/js/bundles",
+    )
+    return Path(relative_path).relative_to("assets/js/bundles").as_posix()
 
 
 def migrate_html() -> int:
@@ -346,9 +352,14 @@ def migrate_html() -> int:
         new_content = bundle_pattern.sub(replace_bundle, new_content)
 
         def replace_css(match: re.Match[str]) -> str:
-            relative_path = f"assets/css/{match.group(2)}"
+            requested_path = f"assets/css/{match.group(2).split('?')[0]}"
+            relative_path = resolve_locale_prefixed_asset(
+                requested_path,
+                "assets/css/bundles",
+            )
+            css_href_path = Path(relative_path).relative_to("assets/css").as_posix()
             return (
-                f'{match.group(1)}{match.group(2).split("?")[0]}'
+                f'{match.group(1)}{css_href_path}'
                 f'?v={asset_version(ROOT / relative_path)}{match.group(3)}'
             )
 
