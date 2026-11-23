@@ -138,6 +138,7 @@ jobs:
               "scripts/catalogue/sync_product_cards.py",
               "scripts/audit/catalogue_parity.py",
               "scripts/audit/critical_build.py",
+              "scripts/audit/test_legacy_product_redirects.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/optimize_static_images.py",
               "scripts/audit/prepare_mobile_listing_lcp.py",
@@ -178,6 +179,7 @@ jobs:
             python3 scripts/audit/test_pin_product_specs.py
             python3 scripts/audit/test_catalogue_dimension_specifications.py
             python3 scripts/audit/critical_build.py
+            python3 scripts/audit/test_legacy_product_redirects.py
             python3 scripts/audit/test_static_product_pricing.py
             python3 scripts/audit/test_product_checkout_actions.py
             python3 scripts/audit/test_navigation_dropdowns.py
@@ -247,6 +249,7 @@ jobs:
             python3 scripts/audit/test_wabco_product_specs.py
             python3 scripts/audit/test_pin_product_specs.py
             python3 scripts/audit/critical_build.py
+            python3 scripts/audit/test_legacy_product_redirects.py
             python3 scripts/audit/test_static_product_pricing.py
             python3 scripts/audit/test_product_checkout_actions.py
             python3 scripts/audit/test_navigation_dropdowns.py
