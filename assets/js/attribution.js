@@ -136,5 +136,76 @@ document.addEventListener("click",event=>{
  const contactType=href.startsWith("mailto:")?"email":href.startsWith("tel:")?"phone":null;
  if(contactType)void recordContactIntent(contactType);
 },true);
+
+const approvedEcommerceRate=product=>{
+ const candidate=product?.gst_rate_candidate&&typeof product.gst_rate_candidate==="object"?product.gst_rate_candidate:{};
+ const rate=Number(product?.gst_rate_percent??candidate.total_rate_percent);
+ const approved=product?.gst_rate_candidate_approved===true||
+  (candidate.invoice_ready===true&&candidate.accountant_approval_required===false&&candidate.accountant_approval_status==="approved");
+ if(![5,18].includes(rate)||!approved)return null;
+ return rate;
+};
+const buildEcommercePayload=(entries,options={})=>{
+ const source=Array.isArray(entries)?entries:[];
+ const items=[];
+ let grossPaise=0;
+ let taxablePaise=0;
+ let taxPaise=0;
+ let financialsComplete=source.length>0;
+ source.forEach((entry,index)=>{
+  const product=entry?.product&&typeof entry.product==="object"?entry.product:entry;
+  if(!product||typeof product!=="object")return;
+  const quantityValue=Number(entry?.quantity??1);
+  const quantity=Number.isSafeInteger(quantityValue)&&quantityValue>0?Math.min(quantityValue,9999):1;
+  const itemId=clean(product.id,128);
+  const itemName=clean(product.product_name||product.name,120);
+  if(!itemId&&!itemName)return;
+  const item={
+   ...(itemId?{item_id:itemId}:{}),
+   ...(itemName?{item_name:itemName}:{}),
+   ...(clean(product.brand_name||product.brand,120)?{item_brand:clean(product.brand_name||product.brand,120)}:{}),
+   ...(clean(product.part_number||product.partNumber||product.manufacturer_part_number,120)?{item_variant:clean(product.part_number||product.partNumber||product.manufacturer_part_number,120)}:{}),
+   ...(clean(product.category_name||product.category,120)?{item_category:clean(product.category_name||product.category,120)}:{}),
+   ...(clean(product.subcategory_name||product.subcategory,120)?{item_category2:clean(product.subcategory_name||product.subcategory,120)}:{}),
+   ...(options.listId?{item_list_id:clean(options.listId,100)}:{}),
+   ...(options.listName?{item_list_name:clean(options.listName,100)}:{}),
+   ...(Number.isSafeInteger(Number(entry?.index??index))?{index:Number(entry?.index??index)}:{}),
+   quantity
+  };
+  const grossUnit=Number(product.selling_price);
+  const rate=approvedEcommerceRate(product);
+  if(Number.isFinite(grossUnit)&&grossUnit>0&&rate!==null){
+   const grossLinePaise=Math.round(grossUnit*100)*quantity;
+   const taxableLinePaise=Math.round(grossLinePaise*10000/(10000+Math.round(rate*100)));
+   const taxLinePaise=grossLinePaise-taxableLinePaise;
+   item.price=taxableLinePaise/100/quantity;
+   grossPaise+=grossLinePaise;
+   taxablePaise+=taxableLinePaise;
+   taxPaise+=taxLinePaise;
+  }else{
+   financialsComplete=false;
+  }
+  items.push(item);
+ });
+ const params={...(options.eventParams&&typeof options.eventParams==="object"?options.eventParams:{}),currency:"INR",items};
+ if(options.includeValue!==false&&financialsComplete&&items.length){
+  params.value=taxablePaise/100;
+  if(options.includeTax===true)params.tax=taxPaise/100;
+ }
+ return {
+  params,
+  grossValue:grossPaise/100,
+  netValue:taxablePaise/100,
+  taxValue:taxPaise/100,
+  financialsComplete:financialsComplete&&items.length===source.length&&items.length>0
+ };
+};
+const trackEcommerceEvent=(eventName,entries,options={})=>{
+ const result=buildEcommercePayload(entries,options);
+ if(result.params.items.length)window.souviksAnalytics?.trackEvent?.(eventName,result.params);
+ return result;
+};
+window.SouviksEcommerceAnalytics=Object.freeze({buildPayload:buildEcommercePayload,track:trackEcommerceEvent});
+
 window.SouviksAttribution={getPayload,recordLead,recordContactIntent};
 })();
