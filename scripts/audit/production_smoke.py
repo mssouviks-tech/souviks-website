@@ -13,6 +13,7 @@ import urllib.request
 import uuid
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
+from pathlib import Path
 
 REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "mssouviks-tech/souviks-website")
 BASE = os.environ.get("PRODUCTION_BASE_URL", "https://www.souviks.co.in").rstrip("/")
@@ -374,6 +375,41 @@ def run_smoke() -> int:
         except Exception as exc:
             errors.append(f"{label}: request failed: {exc}")
             print(f"[FAIL] {label}: {exc}")
+
+    # Reconcile representative live redirects from the reviewed GSC 404 export.
+    legacy_manifest_path = Path(__file__).resolve().parents[2] / "assets" / "data" / "legacy-product-redirects.json"
+    try:
+        legacy_manifest = json.loads(legacy_manifest_path.read_text(encoding="utf-8"))
+        for migration in legacy_manifest.get("migrations", []):
+            old_slug = str(migration.get("old_slug") or "").strip()
+            new_slug = str(migration.get("new_slug") or "").strip()
+            if old_slug and new_slug:
+                redirects[f"/products/{old_slug}"] = f"/en/products/{new_slug}"
+
+        # Exercise localized and .html variants as well as root-level legacy listings.
+        sample_migrations = legacy_manifest.get("migrations", [])
+        for language, index in (("bn", 10), ("hi", 6), ("en", 18)):
+            if len(sample_migrations) > index:
+                migration = sample_migrations[index]
+                old_slug = str(migration.get("old_slug") or "").strip()
+                new_slug = str(migration.get("new_slug") or "").strip()
+                if old_slug and new_slug:
+                    redirects[f"/{language}/products/{old_slug}"] = f"/{language}/products/{new_slug}"
+                    redirects[f"/{language}/products/{old_slug}.html"] = f"/{language}/products/{new_slug}"
+    except (OSError, json.JSONDecodeError, TypeError) as exc:
+        errors.append(f"legacy product redirect manifest could not be loaded for production smoke: {exc}")
+
+    redirects.update({
+        "/brands.html": "/en/brands",
+        "/categories.html": "/en/categories",
+        "/vehicles.html": "/en/vehicles",
+        "/about.html": "/en/about",
+        "/contact.html": "/en/contact",
+        "/privacy-policy.html": "/en/privacy-policy",
+        "/refund.html": "/en/refund",
+        "/request-part.html": "/en/request-part",
+        "/thank-you.html": "/en/thank-you",
+    })
 
     # Canonical host + HTTPS behavior, following at most five redirects.
     for start in ("http://souviks.co.in/", "https://souviks.co.in/", "http://www.souviks.co.in/"):
