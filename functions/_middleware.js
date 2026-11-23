@@ -24,6 +24,7 @@ const ROOT_LEGACY_PAGE_PATHS = new Map([
   ["/request-part", "/en/request-part"], ["/request-part.html", "/en/request-part"],
   ["/request-quote", "/en/cart"], ["/request-quote.html", "/en/cart"],
   ["/thank-you", "/en/thank-you"], ["/thank-you.html", "/en/thank-you"],
+  ["/${LANG}/brands.html", "/en/brands"],
 ]);
 
 const LEGACY_LANGUAGE_PAGE_NAMES = new Set([
