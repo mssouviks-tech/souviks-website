@@ -29,7 +29,17 @@ def resolve_asset_prefix(prefix: str) -> str:
     if requested.is_file():
         return prefix
 
-    for shared_directory in ("assets/js/bundles", "assets/css/bundles"):
+    shared_directories = (
+        "assets/js/bundles",
+        "assets/js/account",
+        "assets/js/products",
+        "assets/js/product",
+        "assets/js/request-quote",
+        "assets/js/components",
+        "assets/js/cart",
+        "assets/css/bundles",
+    )
+    for shared_directory in shared_directories:
         try:
             remainder = Path(relative).relative_to(shared_directory).parts
         except ValueError:
