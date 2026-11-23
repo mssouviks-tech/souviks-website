@@ -402,10 +402,15 @@
                 button.disabled = false;
             }, 1000);
         }
-        const product = catalogueById.get(productId);
-        if (product) {
-            trackCartEcommerce("add_to_cart", [{ productId, quantity }], { includeValue: true });
-        }
+        const product = catalogueById.get(productId) || {
+            id: productId,
+            product_name: button?.dataset.name || "",
+            brand_name: button?.dataset.brand || ""
+        };
+        trackCartEcommerce("add_to_cart", [{
+            product,
+            quantity
+        }], { includeValue: Boolean(catalogueById.has(productId)) });
         window.dispatchEvent(new CustomEvent("souviks:purchase-cart-added", { detail: { productId } }));
     }
 
@@ -713,6 +718,15 @@
             if (!productId) return;
             let items = safeReadCart();
             const item = items.find(entry => entry.productId === productId);
+            if (item && (target.hasAttribute("data-cart-remove") || target.hasAttribute("data-cart-decrease"))) {
+                const removedQuantity = target.hasAttribute("data-cart-remove") || item.quantity <= 1
+                    ? item.quantity
+                    : 1;
+                trackCartEcommerce("remove_from_cart", [{
+                    productId,
+                    quantity: removedQuantity
+                }], { includeValue: true });
+            }
             if (target.hasAttribute("data-cart-remove")) {
                 items = items.filter(entry => entry.productId !== productId);
             } else if (item && target.hasAttribute("data-cart-increase")) {
