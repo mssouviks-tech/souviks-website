@@ -23,6 +23,7 @@ on:
       - "bn/products/**"
       - "hi/products/**"
       - "scripts/catalogue/build.py"
+      - "scripts/catalogue/internal_redirects.py"
       - "scripts/catalogue/apply_product_workbook_import.py"
       - "scripts/catalogue/product_seo.py"
       - "scripts/catalogue/product_title.py"
@@ -119,6 +120,7 @@ jobs:
           import py_compile
           for path in (
               "scripts/catalogue/build.py",
+              "scripts/catalogue/internal_redirects.py",
               "scripts/catalogue/apply_product_workbook_import.py",
               "scripts/catalogue/application_display.py",
               "scripts/catalogue/product_seo.py",
