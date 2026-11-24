@@ -41,6 +41,19 @@ function normalizeLegacyAliasPath(pathname) {
   const requestQuote = pathname.match(/^\/(en|bn|hi)\/request-quote(?:\.html)?$/);
   if (requestQuote) return "/" + requestQuote[1] + "/cart";
 
+  // Root-level legacy entity details need the same language normalization
+  // in the apex-host redirect. Otherwise the browser receives a host redirect
+  // followed by a second Pages _redirects hop from /products/:slug to /en/...
+  const rootEntityHtmlPage = pathname.match(/^\/(products|brands|categories|vehicles)\/([^/]+)\.html$/);
+  if (rootEntityHtmlPage) {
+    return "/en/" + rootEntityHtmlPage[1] + "/" + rootEntityHtmlPage[2];
+  }
+
+  const rootEntityPage = pathname.match(/^\/(products|brands|categories|vehicles)\/([^/]+)$/);
+  if (rootEntityPage) {
+    return "/en/" + rootEntityPage[1] + "/" + rootEntityPage[2];
+  }
+
   const entityPage = pathname.match(/^\/(en|bn|hi)\/(products|brands|categories|vehicles)\/(.+)\.html$/);
   if (entityPage) return "/" + entityPage[1] + "/" + entityPage[2] + "/" + entityPage[3];
 
