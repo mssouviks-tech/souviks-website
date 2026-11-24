@@ -810,9 +810,17 @@ def enrich_entity_pages(kind, data, catalogue, entity_indexes):
                 )
                 if summary_replacements != 1:
                     raise ValueError(f"{path}: vehicle product count could not be synchronized.")
-            elif marker not in page:
+            else:
+                # Rebuild existing brand/category context as well as new pages;
+                # otherwise previously published plain-text cards would remain stale.
+                context_pattern = re.compile(
+                    r'<section class=["\']entity-context section-spacing["\'][^>]*>[\s\S]*?</section>',
+                    flags=re.I,
+                )
+                page = context_pattern.sub("", page)
+                page = re.sub(re.escape(marker), "", page, flags=re.I)
                 section = context_section(kind, item, products, lang, entity_indexes)
-                anchor_pattern = rf'<!--\s*=+\s*{kind.upper()} PRODUCTS\s*=+\s*-->' if kind != "vehicle" else r'<!--\s*=+\s*COMPATIBLE PRODUCTS\s*=+\s*-->'
+                anchor_pattern = rf'<!--\s*=+\s*{kind.upper()} PRODUCTS\s*=+\s*-->'
                 anchor_match = re.search(anchor_pattern, page, flags=re.I)
                 if anchor_match:
                     page = page[:anchor_match.start()] + marker + "\n" + section + "\n" + page[anchor_match.start():]
