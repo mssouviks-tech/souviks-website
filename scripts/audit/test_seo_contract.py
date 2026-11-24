@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+
+import seo_contract
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "audit"))
@@ -14,6 +17,7 @@ from seo_contract import (  # noqa: E402
     alternate_values,
     canonical_target_from_anchor,
     internal_anchor_hrefs,
+    sitemap_internal_discovery,
     duplicate_product_meta_groups,
     duplicate_title_groups,
     embedded_product_record,
@@ -225,6 +229,41 @@ class InternalDiscoveryTests(unittest.TestCase):
         ):
             with self.subTest(href=href):
                 self.assertEqual(canonical_target_from_anchor(href), "")
+
+
+
+    def test_sitemap_discovery_report_counts_only_canonical_direct_links(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            sitemap_dir = root / "sitemaps"
+            sitemap_dir.mkdir()
+            (sitemap_dir / "products.xml").write_text(
+                '<?xml version="1.0"?>'
+                '<urlset><url><loc>https://www.souviks.co.in/en/products/a</loc></url>'
+                '<url><loc>https://www.souviks.co.in/bn/products/b</loc></url></urlset>',
+                encoding="utf-8",
+            )
+            previous_root = seo_contract.ROOT
+            seo_contract.ROOT = root
+            try:
+                report = sitemap_internal_discovery({
+                    "https://www.souviks.co.in/en/products/a": {"source-page-1", "source-page-2"},
+                })
+            finally:
+                seo_contract.ROOT = previous_root
+
+        self.assertEqual(report["sitemap_urls_scanned"], 2)
+        self.assertEqual(report["with_internal_anchor_links"], 1)
+        self.assertEqual(report["without_internal_anchor_links"], 1)
+        self.assertEqual(
+            report["zero_inbound_urls"],
+            [{
+                "url": "https://www.souviks.co.in/bn/products/b",
+                "language": "bn",
+                "type": "products",
+                "inbound_anchor_pages": 0,
+            }],
+        )
 
 
 
