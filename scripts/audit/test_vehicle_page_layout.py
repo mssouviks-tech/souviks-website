@@ -97,7 +97,6 @@ def validate_generated_vehicle_entity_links() -> None:
     categories = json.loads((ROOT / "assets/data/categories.json").read_text(encoding="utf-8"))
     vehicles = json.loads((ROOT / "assets/data/vehicles.json").read_text(encoding="utf-8"))
     products = json.loads((ROOT / "assets/data/products.json").read_text(encoding="utf-8"))
-    build_entity_link_indexes(brands, categories, vehicles, products)
     category_by_id = {
         str(item.get("id") or "").strip(): item
         for item in categories
@@ -149,6 +148,33 @@ def validate_generated_vehicle_entity_links() -> None:
                             f"{relationship[:-1]} link to {slug}"
                         )
 
+        # Brand pages must link their catalogue-derived category IDs; category
+        # pages must link their catalogue-derived brand IDs.
+        for route, entity_kind, records, relation_field, target_index, target_route in (
+            ("brands", "BRAND", brands, "categories", category_by_id, "categories"),
+            ("categories", "CATEGORY", categories, "brands", brand_by_id, "brands"),
+        ):
+            for record in records:
+                if record.get("active") is False:
+                    continue
+                path = ROOT / language / route / f'{record.get("slug")}.html'
+                if not path.is_file():
+                    continue
+                page = path.read_text(encoding="utf-8")
+                marker_at = page.find(f"<!-- ENTITY_CONTEXT_{entity_kind} -->")
+                section_at = page.find('<section class="entity-context section-spacing">', marker_at)
+                section_end = page.find("</section>", section_at) if section_at >= 0 else -1
+                context = page[section_at:section_end] if section_at >= 0 and section_end >= 0 else page
+                for value in record.get(relation_field) or []:
+                    identity = str(value.get("id") or "").strip() if isinstance(value, dict) else str(value).strip()
+                    target = target_index.get(identity)
+                    target_slug = str((target or {}).get("slug") or "").strip()
+                    if target_slug and f'href="/{language}/{target_route}/{target_slug}"' not in context:
+                        fail(
+                            f"{path.relative_to(ROOT)} is missing cross-entity link "
+                            f"{target_route}/{target_slug}"
+                        )
+
         # Indexable vehicle destinations are linked by exact model/name from brand
         # and category pages. A noindex vehicle detail page must never be a target.
         vehicle_by_label = {}
@@ -164,9 +190,9 @@ def validate_generated_vehicle_entity_links() -> None:
             if len(matches) == 1
         }
 
-        for route, entity_kind, records, relation_field, target_index, target_route in (
-            ("brands", "BRAND", brands, "vehicles", None, "vehicles"),
-            ("categories", "CATEGORY", categories, "vehicles", None, "vehicles"),
+        for route, entity_kind, records, relation_field in (
+            ("brands", "BRAND", brands, "vehicles"),
+            ("categories", "CATEGORY", categories, "vehicles"),
         ):
             for record in records:
                 if record.get("active") is False:
