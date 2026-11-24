@@ -9,7 +9,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "audit"))
 
-from seo_contract import duplicate_product_meta_groups, duplicate_title_groups, embedded_product_record, warning_breakdown  # noqa: E402
+from seo_contract import (  # noqa: E402
+    alternate_page_path,
+    alternate_values,
+    duplicate_product_meta_groups,
+    duplicate_title_groups,
+    embedded_product_record,
+    expected_hreflang,
+    warning_breakdown,
+)
 
 
 class DuplicateTitleAuditTests(unittest.TestCase):
@@ -158,6 +166,76 @@ class WarningSummaryTests(unittest.TestCase):
                 "title length": 1,
             },
         )
+
+
+class HreflangContractTests(unittest.TestCase):
+    def test_root_homepages_share_the_expected_language_alternates(self) -> None:
+        expected = {
+            "en": "https://www.souviks.co.in/",
+            "bn": "https://www.souviks.co.in/bn/",
+            "hi": "https://www.souviks.co.in/hi/",
+            "x-default": "https://www.souviks.co.in/",
+        }
+        for relative in ("index.html", "en/index.html", "bn/index.html", "hi/index.html"):
+            with self.subTest(path=relative):
+                self.assertEqual(expected_hreflang(ROOT / relative), expected)
+
+    def test_product_and_listing_routes_keep_matching_locale_paths(self) -> None:
+        product = expected_hreflang(ROOT / "en/products/sample-part.html")
+        self.assertEqual(
+            product,
+            {
+                "en": "https://www.souviks.co.in/en/products/sample-part",
+                "bn": "https://www.souviks.co.in/bn/products/sample-part",
+                "hi": "https://www.souviks.co.in/hi/products/sample-part",
+                "x-default": "https://www.souviks.co.in/en/products/sample-part",
+            },
+        )
+        listing = expected_hreflang(ROOT / "bn/products.html")
+        self.assertEqual(listing["bn"], "https://www.souviks.co.in/bn/products")
+        self.assertEqual(listing["en"], "https://www.souviks.co.in/en/products")
+
+    def test_alternate_parser_ignores_canonical_and_stylesheet_links(self) -> None:
+        raw = (
+            '<link rel="canonical" href="https://www.souviks.co.in/en/products">'
+            '<link rel="stylesheet" href="/assets/site.css">'
+            '<link rel="alternate" hreflang="en" href="https://www.souviks.co.in/en/products">'
+            '<link rel="alternate" hreflang="bn" href="https://www.souviks.co.in/bn/products">'
+        )
+        self.assertEqual(
+            alternate_values(raw),
+            {
+                "en": ["https://www.souviks.co.in/en/products"],
+                "bn": ["https://www.souviks.co.in/bn/products"],
+            },
+        )
+
+    def test_alternate_parser_preserves_duplicate_values_for_validation(self) -> None:
+        raw = (
+            '<link rel="alternate" hreflang="en" href="https://www.souviks.co.in/en/a">'
+            '<link rel="alternate" hreflang="en" href="https://www.souviks.co.in/en/a">'
+        )
+        self.assertEqual(
+            alternate_values(raw)["en"],
+            [
+                "https://www.souviks.co.in/en/a",
+                "https://www.souviks.co.in/en/a",
+            ],
+        )
+
+    def test_alternate_route_resolves_to_static_html_page(self) -> None:
+        self.assertEqual(
+            alternate_page_path("https://www.souviks.co.in/bn/"),
+            ROOT / "bn" / "index.html",
+        )
+        self.assertEqual(
+            alternate_page_path("https://www.souviks.co.in/hi/products/sample-part"),
+            ROOT / "hi" / "products" / "sample-part.html",
+        )
+
+    def test_nonlocalized_root_document_has_no_inferred_hreflang_group(self) -> None:
+        self.assertEqual(expected_hreflang(ROOT / "robots.html"), {})
+
 
 
 if __name__ == "__main__":
