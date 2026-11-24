@@ -34,7 +34,7 @@ def validate_cross_entity_link_helpers() -> None:
         {"id": "inactive-category", "slug": "inactive-category", "name": "Hidden", "active": False},
     ]
     vehicles = [
-        {"id": "tata-signa", "slug": "tata-signa", "model": "Tata Signa", "active": True},
+        {"id": "tata-signa", "slug": "tata-signa", "name": "Tata Signa", "model": "Tata Signa", "active": True},
         {"id": "rare-model", "slug": "rare-model", "model": "Rare Model", "active": True},
     ]
     catalogue = (
