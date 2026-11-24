@@ -181,11 +181,12 @@ def linked_entity_card(card_label, values, entity_kind, language, entity_indexes
         if not fallback_label:
             continue
 
-        target = by_id.get(identity) if identity else None
-        if target is None:
-            target = by_label.get(fallback_label.casefold())
-        if target is None and identity:
-            target = by_id.get(fallback_label)
+        if isinstance(value, dict):
+            # An explicit source ID is authoritative. Never silently relink a
+            # stale/conflicting ID to another entity that happens to share its label.
+            target = by_id.get(identity) if identity else by_label.get(fallback_label.casefold())
+        else:
+            target = by_id.get(identity) or by_label.get(fallback_label.casefold())
 
         if target is not None:
             slug = clean(target.get("slug"))
