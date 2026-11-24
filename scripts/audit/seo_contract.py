@@ -58,7 +58,7 @@ def canonical_target_from_anchor(href: str) -> str:
     indexable page and would otherwise inflate discoverability counts.
     """
     parsed = urlparse(unescape(str(href or "").strip()))
-    if parsed.scheme and parsed.scheme.casefold() not in {"http", "https"}:
+    if parsed.scheme and parsed.scheme.casefold() != "https":
         return ""
     if parsed.netloc and (parsed.hostname or "").casefold() != "www.souviks.co.in":
         return ""
