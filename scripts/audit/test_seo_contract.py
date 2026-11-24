@@ -261,7 +261,17 @@ class InternalDiscoveryTests(unittest.TestCase):
                 "language": "bn",
                 "type": "products",
                 "inbound_anchor_pages": 0,
+                "inbound_source_pages": [],
             }],
+        )
+        low_by_url = {record["url"]: record for record in report["low_inbound_urls"]}
+        self.assertEqual(
+            low_by_url["https://www.souviks.co.in/en/products/a"]["inbound_source_pages"],
+            ["source-page-1", "source-page-2"],
+        )
+        self.assertEqual(
+            low_by_url["https://www.souviks.co.in/bn/products/b"]["inbound_source_pages"],
+            [],
         )
 
 
