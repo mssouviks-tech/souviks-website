@@ -54,6 +54,62 @@ def expected_canonical(path: Path) -> str:
     return ""
 
 
+def expected_hreflang(path: Path) -> dict[str, str]:
+    """Return the four expected alternate URLs for a localized static page."""
+    relative = path.relative_to(ROOT).as_posix()
+    parts = Path(relative).parts
+    if relative == "index.html" or relative == "en/index.html":
+        route = "/"
+    elif relative in {"bn/index.html", "hi/index.html"}:
+        route = "/"
+    elif len(parts) >= 2 and parts[0] in LANGUAGES:
+        route_parts = list(parts[1:])
+        route_parts[-1] = Path(route_parts[-1]).stem
+        route = "/" + "/".join(route_parts)
+    else:
+        return {}
+
+    alternates = {
+        language: (
+            BASE + "/"
+            if route == "/" and language == "en"
+            else BASE + "/" + language + "/"
+            if route == "/"
+            else BASE + "/" + language + route
+        )
+        for language in ("en", "bn", "hi")
+    }
+    alternates["x-default"] = alternates["en"]
+    return alternates
+
+
+def alternate_values(raw: str) -> dict[str, list[str]]:
+    """Return alternate URLs grouped by hreflang code."""
+    found: dict[str, list[str]] = defaultdict(list)
+    for tag in re.findall(r"<link\b[^>]*>", raw, flags=re.I):
+        rel = re.search(r"""\brel=["']([^"']+)["']""", tag, flags=re.I)
+        language = re.search(r"""\bhreflang=["']([^"']+)["']""", tag, flags=re.I)
+        href = re.search(r"""\bhref=["']([^"']*)["']""", tag, flags=re.I)
+        if not rel or "alternate" not in rel.group(1).casefold().split() or not language:
+            continue
+        found[language.group(1).strip().casefold()].append(
+            href.group(1).strip() if href else ""
+        )
+    return dict(found)
+
+
+def alternate_page_path(url: str) -> Path | None:
+    """Map a canonical localized URL to its generated HTML file."""
+    parts = [part for part in urlparse(url).path.strip("/").split("/") if part]
+    if not parts:
+        return ROOT / "index.html"
+    if parts[0] not in LANGUAGES:
+        return None
+    if len(parts) == 1:
+        return ROOT / parts[0] / "index.html"
+    return ROOT / parts[0] / Path(*parts[1:-1]) / (parts[-1] + ".html")
+
+
 def meta_values(raw: str, name: str) -> list[str]:
     found = []
     for tag in re.findall(r"<meta\b[^>]*>", raw, flags=re.I):
@@ -219,6 +275,8 @@ def main() -> int:
     product_meta_records: list[dict[str, str]] = []
     weak_product_copy: list[str] = []
     scanned = 0
+    hreflang_pages = 0
+    canonical_cache: dict[Path, list[str]] = {}
     image_count = 0
     product_schema_count = 0
 
@@ -236,6 +294,7 @@ def main() -> int:
         label = path.relative_to(ROOT).as_posix()
 
         canonicals = canonical_values(raw)
+        canonical_cache[path] = canonicals
         expected_url = expected_canonical(path)
         if len(canonicals) != 1 or not canonicals[0]:
             errors.append(f"{label}: expected exactly one non-empty canonical URL, found {len(canonicals)}")
@@ -243,6 +302,47 @@ def main() -> int:
             errors.append(f"{label}: canonical must use HTTPS on www.souviks.co.in ({canonicals[0]!r})")
         elif expected_url and canonicals[0].rstrip("/") != expected_url.rstrip("/"):
             errors.append(f"{label}: canonical {canonicals[0]!r} != expected route {expected_url!r}")
+
+        expected_alternates = expected_hreflang(path)
+        if expected_alternates:
+            hreflang_pages += 1
+            actual_alternates = alternate_values(raw)
+            for language, expected_alternate in expected_alternates.items():
+                values = actual_alternates.get(language, [])
+                if len(values) != 1:
+                    errors.append(
+                        f"{label}: expected exactly one hreflang={language}, found {len(values)}"
+                    )
+                    continue
+                if values[0] != expected_alternate:
+                    errors.append(
+                        f"{label}: hreflang={language} {values[0]!r} != {expected_alternate!r}"
+                    )
+                    continue
+
+                target_path = alternate_page_path(expected_alternate)
+                if target_path is None or not target_path.is_file():
+                    errors.append(
+                        f"{label}: hreflang={language} target page is missing ({expected_alternate})"
+                    )
+                    continue
+
+                target_canonicals = canonical_cache.get(target_path)
+                if target_canonicals is None:
+                    target_raw = target_path.read_text(encoding="utf-8", errors="ignore")
+                    target_canonicals = canonical_values(target_raw)
+                    canonical_cache[target_path] = target_canonicals
+                if target_canonicals != [expected_alternate]:
+                    errors.append(
+                        f"{label}: hreflang={language} target {target_path.relative_to(ROOT)} "
+                        f"must self-canonicalize to {expected_alternate!r}; found {target_canonicals!r}"
+                    )
+
+            unexpected_languages = set(actual_alternates) - set(expected_alternates)
+            if unexpected_languages:
+                errors.append(
+                    f"{label}: unexpected hreflang code(s): {', '.join(sorted(unexpected_languages))}"
+                )
 
         title_values = tags(raw, r"<title\b[^>]*>(.*?)</title>")
         if len(title_values) != 1 or not clean(title_values[0]):
@@ -398,6 +498,7 @@ def main() -> int:
             "schema_version": 1,
             "summary": {
                 "indexable_html_pages_scanned": scanned,
+                "multilingual_hreflang_pages_checked": hreflang_pages,
                 "seo_image_elements": image_count,
                 "product_schema_nodes": product_schema_count,
                 "weak_boilerplate_product_pages": len(weak_product_copy),
@@ -423,6 +524,7 @@ def main() -> int:
 
     print(
         f"SEO contract scanned {scanned} indexable HTML pages, "
+        f"validated reciprocal hreflang on {hreflang_pages} multilingual routes, "
         f"{image_count} SEO image elements, and {product_schema_count} Product schema nodes; "
         f"{len(weak_product_copy)} weak-boilerplate product descriptions."
     )
@@ -447,7 +549,7 @@ def main() -> int:
         if len(errors) > 300:
             print(f"... and {len(errors) - 300} additional errors")
         return 1
-    print("SEO snippet, heading, image-alt and placeholder-image contract passed.")
+    print("SEO snippet, canonical, multilingual hreflang, heading, image-alt and placeholder-image contract passed.")
     return 0
 
 
