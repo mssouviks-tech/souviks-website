@@ -10,6 +10,48 @@ const LEGACY_HOSTS = new Set([
   "qqq.souviks.co.in",
 ]);
 
+const ROOT_LEGACY_PAGE_PATHS = new Map([
+  ["/products", "/en/products"], ["/products.html", "/en/products"],
+  ["/brands", "/en/brands"], ["/brands.html", "/en/brands"],
+  ["/categories", "/en/categories"], ["/categories.html", "/en/categories"],
+  ["/vehicles", "/en/vehicles"], ["/vehicles.html", "/en/vehicles"],
+  ["/about", "/en/about"], ["/about.html", "/en/about"],
+  ["/contact", "/en/contact"], ["/contact.html", "/en/contact"],
+  ["/terms", "/en/terms"], ["/terms.html", "/en/terms"],
+  ["/privacy-policy", "/en/privacy-policy"], ["/privacy-policy.html", "/en/privacy-policy"],
+  ["/refund", "/en/refund"], ["/refund.html", "/en/refund"],
+  ["/shipping", "/en/shipping"], ["/shipping.html", "/en/shipping"],
+  ["/request-part", "/en/request-part"], ["/request-part.html", "/en/request-part"],
+  ["/request-quote", "/en/cart"], ["/request-quote.html", "/en/cart"],
+  ["/thank-you", "/en/thank-you"], ["/thank-you.html", "/en/thank-you"],
+  ["/${LANG}/brands.html", "/en/brands"],
+]);
+
+const LEGACY_LANGUAGE_PAGE_NAMES = new Set([
+  "products", "brands", "categories", "vehicles", "about", "contact",
+  "shipping", "account", "login", "register", "forgot-password",
+  "reset-password", "request-part", "thank-you", "privacy-policy",
+  "terms", "refund",
+]);
+
+function normalizeLegacyAliasPath(pathname) {
+  const rootTarget = ROOT_LEGACY_PAGE_PATHS.get(pathname);
+  if (rootTarget) return rootTarget;
+
+  const requestQuote = pathname.match(/^\/(en|bn|hi)\/request-quote(?:\.html)?$/);
+  if (requestQuote) return "/" + requestQuote[1] + "/cart";
+
+  const entityPage = pathname.match(/^\/(en|bn|hi)\/(products|brands|categories|vehicles)\/(.+)\.html$/);
+  if (entityPage) return "/" + entityPage[1] + "/" + entityPage[2] + "/" + entityPage[3];
+
+  const languagePage = pathname.match(/^\/(en|bn|hi)\/([a-z0-9-]+)\.html$/i);
+  if (languagePage && LEGACY_LANGUAGE_PAGE_NAMES.has(languagePage[2].toLowerCase())) {
+    return "/" + languagePage[1] + "/" + languagePage[2].toLowerCase();
+  }
+
+  return pathname;
+}
+
 const SECURITY_HEADERS = Object.freeze({
   "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
   "X-Content-Type-Options": "nosniff",
@@ -26,6 +68,9 @@ export async function onRequest({ request, next }) {
     url.protocol = "https:";
     url.hostname = CANONICAL_HOST;
     url.port = "";
+    // Normalize legacy page paths in the same response as the host redirect.
+    // This avoids host -> .html -> clean-route redirect chains.
+    url.pathname = normalizeLegacyAliasPath(url.pathname);
     return Response.redirect(url.toString(), 301);
   }
 

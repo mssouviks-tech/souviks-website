@@ -1210,6 +1210,160 @@ def validate_redirects(expected_routes, errors: list[str]) -> None:
         if source == destination:
             errors.append(f"_redirects:{lineno}: self-redirect: {source}")
 
+
+def validate_legacy_product_redirect_manifest(expected_routes, records_by_kind, errors: list[str]) -> None:
+    """Keep the reviewed GSC legacy URL map aligned with active catalogue identities and direct 301 rules."""
+    manifest_path = ROOT / "assets" / "data" / "legacy-product-redirects.json"
+    redirects_path = ROOT / "_redirects"
+    if not manifest_path.is_file():
+        errors.append("Missing assets/data/legacy-product-redirects.json")
+        return
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"legacy product redirect manifest is invalid JSON: {exc}")
+        return
+
+    if not isinstance(manifest, dict) or manifest.get("schema_version") != 1:
+        errors.append("legacy product redirect manifest must use schema_version 1")
+        return
+    migrations = manifest.get("migrations")
+    if not isinstance(migrations, list) or not migrations:
+        errors.append("legacy product redirect manifest must contain a non-empty migrations array")
+        return
+
+    active_by_id = {
+        text(product.get("id")): product
+        for product in records_by_kind.get("products", [])
+        if text(product.get("id"))
+    }
+    rules: dict[str, tuple[str, str]] = {}
+    if redirects_path.is_file():
+        for lineno, line in enumerate(redirects_path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
+            stripped = line.strip()
+            if not stripped or stripped.startswith("#"):
+                continue
+            parts = stripped.split()
+            if len(parts) < 3:
+                continue
+            source, destination, status = parts[:3]
+            if not any(token in source for token in (":splat", ":lang", ":slug", "*")):
+                rules[source] = (destination, status)
+    else:
+        errors.append("Missing _redirects file for legacy product redirect manifest validation")
+        return
+
+    seen_old_slugs: set[str] = set()
+    seen_product_ids: set[str] = set()
+    for index, migration in enumerate(migrations, start=1):
+        if not isinstance(migration, dict):
+            errors.append(f"legacy product redirect manifest migration {index} must be an object")
+            continue
+        old_slug = text(migration.get("old_slug"))
+        new_slug = text(migration.get("new_slug"))
+        product_id = text(migration.get("product_id"))
+        if not old_slug or not new_slug or not product_id:
+            errors.append(f"legacy product redirect manifest migration {index} is missing old_slug, new_slug, or product_id")
+            continue
+        if old_slug == new_slug:
+            errors.append(f"legacy product redirect manifest migration {old_slug}: old and new slugs are identical")
+        if old_slug in seen_old_slugs:
+            errors.append(f"legacy product redirect manifest contains duplicate old slug: {old_slug}")
+        if product_id in seen_product_ids:
+            errors.append(f"legacy product redirect manifest contains duplicate product ID: {product_id}")
+        seen_old_slugs.add(old_slug)
+        seen_product_ids.add(product_id)
+
+        product = active_by_id.get(product_id)
+        if product is None:
+            errors.append(f"legacy product redirect manifest {old_slug}: product ID {product_id} is not an active catalogue product")
+            continue
+        if text(product.get("slug")) != new_slug:
+            errors.append(
+                f"legacy product redirect manifest {old_slug}: destination slug {new_slug!r} "
+                f"does not match active product {product_id} slug {text(product.get('slug'))!r}"
+            )
+
+        localized_routes = {
+            language: public_route("products", language, new_slug)
+            for language in LANGUAGES
+        }
+        for language, route in localized_routes.items():
+            if route not in expected_routes:
+                errors.append(f"legacy product redirect manifest {old_slug}: missing {language} destination route {route}")
+
+        expected_rules = [
+            (f"/products/{old_slug}", f"/en/products/{new_slug}"),
+            (f"/products/{old_slug}.html", f"/en/products/{new_slug}"),
+        ]
+        for language in LANGUAGES:
+            expected_rules.extend([
+                (f"/{language}/products/{old_slug}", f"/{language}/products/{new_slug}"),
+                (f"/{language}/products/{old_slug}.html", f"/{language}/products/{new_slug}"),
+            ])
+        for source, destination in expected_rules:
+            actual = rules.get(source)
+            if actual != (destination, "301"):
+                errors.append(
+                    f"legacy product redirect manifest {old_slug}: expected direct 301 "
+                    f"{source} -> {destination}, got {actual!r}"
+                )
+            if destination in rules:
+                errors.append(
+                    f"legacy product redirect manifest {old_slug}: redirect chain detected "
+                    f"{source} -> {destination} -> {rules[destination][0]}"
+                )
+
+    # Root-level legacy pages must resolve directly to the language-prefixed canonical page.
+    root_legacy_rules = {
+        "/products": "/en/products", "/products.html": "/en/products",
+        "/brands": "/en/brands", "/brands.html": "/en/brands",
+        "/categories": "/en/categories", "/categories.html": "/en/categories",
+        "/vehicles": "/en/vehicles", "/vehicles.html": "/en/vehicles",
+        "/about": "/en/about", "/about.html": "/en/about",
+        "/contact": "/en/contact", "/contact.html": "/en/contact",
+        "/terms": "/en/terms", "/terms.html": "/en/terms",
+        "/privacy-policy": "/en/privacy-policy", "/privacy-policy.html": "/en/privacy-policy",
+        "/refund": "/en/refund", "/refund.html": "/en/refund",
+        "/shipping": "/en/shipping", "/shipping.html": "/en/shipping",
+        "/request-part": "/en/request-part", "/request-part.html": "/en/request-part",
+        "/request-quote": "/en/cart", "/request-quote.html": "/en/cart",
+        "/thank-you": "/en/thank-you", "/thank-you.html": "/en/thank-you",
+        "/products/12-x-12-mm-union": "/en/products/12-x-12-mm-union",
+    }
+    root_legacy_rules["/" + "$" + "{LANG}" + "/brands.html"] = "/en/brands"
+    redirect_lines = {
+        line.strip()
+        for line in redirects_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    }
+    for source, destination in (
+        ("/products/:slug.html", "/en/products/:slug"),
+        ("/brands/:slug.html", "/en/brands/:slug"),
+        ("/categories/:slug.html", "/en/categories/:slug"),
+        ("/vehicles/:slug.html", "/en/vehicles/:slug"),
+    ):
+        expected_rule = f"{source} {destination} 301"
+        if expected_rule not in redirect_lines:
+            errors.append(f"missing root .html entity redirect rule: {expected_rule}")
+
+    for source, destination in root_legacy_rules.items():
+        if rules.get(source) != (destination, "301"):
+            errors.append(
+                f"root legacy redirect is missing or incorrect: expected direct 301 "
+                f"{source} -> {destination}, got {rules.get(source)!r}"
+            )
+        if destination in rules:
+            errors.append(f"root legacy redirect chain detected: {source} -> {destination} -> {rules[destination][0]}")
+
+    # No exact/concrete redirect may point to another exact/concrete redirect source.
+    for source, (destination, _status) in rules.items():
+        if destination in rules:
+            errors.append(
+                f"_redirects contains a concrete redirect chain: "
+                f"{source} -> {destination} -> {rules[destination][0]}"
+            )
+
 def validate_pages_routes(errors: list[str]) -> None:
     """Keep required HTML/SEO responses on middleware while avoiding function calls for heavy assets."""
     path = ROOT / "_routes.json"
@@ -1285,6 +1439,8 @@ def validate_pages_middleware(errors: list[str]) -> None:
         '"Permissions-Policy"',
         '"Content-Security-Policy"',
         "headers.set(name, value)",
+        "function normalizeLegacyAliasPath(pathname)",
+        "url.pathname = normalizeLegacyAliasPath(url.pathname)",
     )
     for fragment in required_fragments:
         if fragment not in source:
@@ -1971,6 +2127,7 @@ def main() -> None:
     validate_product_card_images(records_by_kind, errors)
     validate_static_product_listing_page(records_by_kind, errors)
     validate_redirects(expected_routes, errors)
+    validate_legacy_product_redirect_manifest(expected_routes, records_by_kind, errors)
     validate_pages_middleware(errors)
     validate_pages_routes(errors)
     validate_robots_and_sitemap_index(errors)

@@ -192,6 +192,37 @@ def versioned_asset_url(relative_path: str) -> str:
     return f"/{relative_path}?v={asset_version(path)}"
 
 
+def resolve_locale_prefixed_asset(relative_path: str, shared_directory: str) -> str:
+    """Collapse a stale locale subdirectory only when a shared asset exists."""
+    requested_path = ROOT / relative_path
+    if requested_path.is_file():
+        return relative_path
+
+    try:
+        remainder = Path(relative_path).relative_to(shared_directory).parts
+    except ValueError:
+        return relative_path
+
+    if len(remainder) < 2 or remainder[0] not in LANGUAGES:
+        return relative_path
+
+    shared_path = Path(shared_directory, *remainder[1:])
+    if (ROOT / shared_path).is_file():
+        return shared_path.as_posix()
+
+    # Leave genuinely missing assets untouched so the caller still fails loudly.
+    return relative_path
+
+
+def resolve_bundle_name(bundle_name: str) -> str:
+    """Resolve a stale locale-prefixed JavaScript bundle to its shared file."""
+    relative_path = resolve_locale_prefixed_asset(
+        f"assets/js/bundles/{bundle_name}",
+        "assets/js/bundles",
+    )
+    return Path(relative_path).relative_to("assets/js/bundles").as_posix()
+
+
 def migrate_html() -> int:
     changed = 0
     bundle_pattern = re.compile(
@@ -229,6 +260,53 @@ def migrate_html() -> int:
     for path in sorted(set(paths)):
         content = read(path)
         new_content = core_pattern.sub(core_tag, content)
+
+        # Normalize stale locale-prefixed compatibility-bundle URLs only when
+        # the shared root-level bundle exists and no localized bundle exists.
+        def normalize_legacy_bundle(match: re.Match[str]) -> str:
+            requested_name = match.group(1)
+            resolved_name = resolve_bundle_name(requested_name)
+            if resolved_name == requested_name:
+                return match.group(0)
+            return match.group(0).replace(
+                f"/assets/js/bundles/{requested_name}",
+                f"/assets/js/bundles/{resolved_name}",
+                1,
+            )
+
+        new_content = bundle_pattern.sub(normalize_legacy_bundle, new_content)
+
+        # Normalize stale locale-prefixed page-module URLs when the shared
+        # module exists. The HTML may be regenerated from an older localized
+        # PDP shell during the catalogue build.
+        module_asset_pattern = re.compile(
+            r'(?P<prefix><script\b[^>]*\bsrc=")'
+            r'(?P<path>/assets/js/(?:account|products|product|request-quote|components|cart)/[^"?]+)'
+            r'(?P<query>\?[^"]*)?(?P<suffix>")',
+            re.IGNORECASE | re.DOTALL,
+        )
+
+        def normalize_legacy_module(match: re.Match[str]) -> str:
+            requested_path = match.group("path")
+            relative_path = requested_path.lstrip("/")
+            parts = Path(relative_path).parts
+            if len(parts) < 4:
+                return match.group(0)
+            shared_directory = Path(*parts[:3]).as_posix()
+            resolved_path = resolve_locale_prefixed_asset(
+                relative_path,
+                shared_directory,
+            )
+            if resolved_path == relative_path:
+                return match.group(0)
+            return (
+                match.group("prefix")
+                + "/" + resolved_path
+                + (match.group("query") or "")
+                + match.group("suffix")
+            )
+
+        new_content = module_asset_pattern.sub(normalize_legacy_module, new_content)
 
         # Persist acquisition attribution on public entry pages, including the canonical root homepage.
         if not attribution_pattern.search(new_content):
@@ -306,9 +384,14 @@ def migrate_html() -> int:
         new_content = bundle_pattern.sub(replace_bundle, new_content)
 
         def replace_css(match: re.Match[str]) -> str:
-            relative_path = f"assets/css/{match.group(2)}"
+            requested_path = f"assets/css/{match.group(2).split('?')[0]}"
+            relative_path = resolve_locale_prefixed_asset(
+                requested_path,
+                "assets/css/bundles",
+            )
+            css_href_path = Path(relative_path).relative_to("assets/css").as_posix()
             return (
-                f'{match.group(1)}{match.group(2).split("?")[0]}'
+                f'{match.group(1)}{css_href_path}'
                 f'?v={asset_version(ROOT / relative_path)}{match.group(3)}'
             )
 

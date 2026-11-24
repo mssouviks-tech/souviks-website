@@ -31,6 +31,7 @@ from product_title import (
     unique_vehicle_title_variants,
 )
 from price_history_markup import replace_pdp_pricing_block
+from internal_redirects import replace_exact_redirect_reference
 
 BASE = "https://www.souviks.co.in"
 # URL normalization keeps generated catalogue routes canonical.
@@ -4168,9 +4169,11 @@ def normalize_internal_redirect_links():
         html = path.read_text(encoding="utf-8", errors="ignore")
         original = html
         for source_path, destination_path in redirects.items():
-            # Handle root-relative links and fully-qualified Souviks links.
-            html = html.replace(source_path, destination_path)
-            html = html.replace(BASE + source_path, BASE + destination_path)
+            # Redirect source paths are exact URL paths, never substrings of
+            # localized routes or shared product-image asset paths.
+            html = replace_exact_redirect_reference(
+                html, source_path, destination_path, BASE
+            )
         if html != original:
             path.write_text(html, encoding="utf-8")
             changed += 1

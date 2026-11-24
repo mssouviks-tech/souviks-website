@@ -32,7 +32,7 @@ concurrency:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Check out candidate
@@ -62,12 +62,18 @@ jobs:
       - name: Install image optimisation dependencies
         run: python3 -m pip install --user --break-system-packages Pillow pillow-avif-plugin
 
+      - name: Install browser regression dependencies
+        run: |
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright@latest
+          npx playwright install chromium
+
       - name: Compile catalogue builders
         run: |
           python3 - <<'PY'
           import py_compile
           for path in (
               "scripts/catalogue/build.py",
+          "scripts/catalogue/internal_redirects.py",
               "scripts/catalogue/apply_product_workbook_import.py",
               "scripts/catalogue/application_display.py",
               "scripts/catalogue/product_seo.py",
@@ -133,7 +139,6 @@ jobs:
         run: |
           set -euo pipefail
 
-          python3 scripts/audit/optimize_static_images.py
           python3 scripts/catalogue/apply_product_workbook_import.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
@@ -166,6 +171,7 @@ jobs:
           python3 scripts/audit/test_wabco_product_specs.py
           python3 scripts/audit/test_pin_product_specs.py
           python3 scripts/audit/critical_build.py
+          python3 scripts/audit/test_legacy_product_redirects.py
           python3 scripts/audit/test_static_product_pricing.py
             python3 scripts/audit/test_product_checkout_actions.py
           python3 scripts/audit/test_navigation_dropdowns.py
@@ -197,6 +203,57 @@ jobs:
 
           echo "Catalogue release gate passed."
 
+      - name: Validate remaining regression contracts
+        run: |
+          set -euo pipefail
+          python3 scripts/audit/test_price_history.py
+          node --check scripts/regression/final-matrix.cjs
+          node --check scripts/regression/production-browser-smoke.cjs
+          node --check scripts/regression/account-orders-contract.cjs
+          node --check scripts/regression/hsn-ecommerce-contract.cjs
+          node --check scripts/regression/hsn-stock-reference-crosswalk.cjs
+          node --check scripts/regression/supabase-lazy-loader-contract.cjs
+          node --check scripts/regression/analytics-ecommerce-contract.cjs
+          node scripts/regression/supabase-lazy-loader-contract.cjs
+          node scripts/regression/account-orders-contract.cjs
+          node scripts/regression/hsn-ecommerce-contract.cjs
+          node scripts/regression/hsn-supplier-invoice-reference.cjs
+          node scripts/regression/hsn-candidate-overrides.cjs
+          node scripts/regression/sales-funnel-security-contract.cjs
+          node scripts/regression/account-sales-funnel-shortcut-contract.cjs
+          node scripts/regression/dashboard-session-startup-contract.cjs
+          node scripts/regression/lead-attribution-contract.cjs
+          node scripts/regression/contact-intent-analytics-contract.cjs
+          node scripts/regression/analytics-privacy-contract.cjs
+
+      - name: Start local static regression server
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/regression/static-server.cjs > /tmp/souviks-regression-server.log 2>&1 &
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if curl --silent --fail http://127.0.0.1:4173/en/products > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/souviks-regression-server.log
+          exit 1
+
+      - name: Run browser regression matrix
+        env:
+          REGRESSION_BASE_URL: http://127.0.0.1:4173
+        run: node scripts/regression/final-matrix.cjs
+
+      - name: Upload browser regression results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-regression-results
+          path: regression-results/final-regression-results.json
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Upload vehicle application coverage audit
         if: always()
         uses: actions/upload-artifact@v4
@@ -209,50 +266,24 @@ jobs:
       - name: Commit generated mobile LCP assets to the pull-request branch
         if: ${{ success() && github.event.pull_request.head.repo.full_name == github.repository }}
         env:
+          GH_TOKEN: ${{ github.token }}
           PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # pull_request workflows check out GitHub's synthetic merge ref by default.
-          # Publish generated output from a separate worktree rooted at the real PR
-          # branch so the pushed commit is a fast-forward and never includes that merge ref.
+          # Generate once against the tested merge candidate. Reuse that output
+          # when the PR branch contains its base; rebuild only when stale.
           remote_ref="refs/remotes/pr-head/${PR_HEAD_REF}"
           git fetch --no-tags --depth=1 origin "+refs/heads/${PR_HEAD_REF}:${remote_ref}"
 
           publish_root="$(mktemp -d)"
           publish_repo="${publish_root}/repo"
           git worktree add --detach "${publish_repo}" "${remote_ref}"
-
-          # Build the responsive hero assets and source references against the
-          # actual PR branch, not the synthetic merge candidate used by validation.
-          (
-            cd "${publish_repo}"
-            python3 scripts/catalogue/apply_product_workbook_import.py
-            python3 scripts/catalogue/build.py
-            python3 scripts/audit/build_hsn_verification_worklist.py
-            python3 scripts/audit/test_hsn_verification_worklist.py
-            python3 scripts/audit/optimize_static_images.py
-            python3 scripts/audit/prepare_mobile_listing_lcp.py
-            python3 scripts/js/refresh_versions.py
-            python3 scripts/catalogue/sync_root_homepage.py
-            python3 scripts/audit/performance_guard.py
-          )
-
-          # Publish the compiled lazy-loader together with its readable source.
-          # The PR preview is built from source, but the local browser performance
-          # run serves the checked-in asset directly; publishing only source leaves
-          # that candidate with a stale runtime and breaks anonymous PDP review reads.
-          cp "${GITHUB_WORKSPACE}/assets/js/supabase-loader.js" "${publish_repo}/assets/js/supabase-loader.js"
-          # The cart is compiled from its readable source during candidate validation.
-          # Publish that exact runtime too, so branch previews never serve the old bundle.
-          cp "${GITHUB_WORKSPACE}/assets/js/cart/cart.js" "${publish_repo}/assets/js/cart/cart.js"
-          (
-            cd "${publish_repo}"
-            python3 scripts/js/refresh_versions.py
-          )
 
           generated_paths=(
             assets/js/supabase-loader.js
@@ -275,60 +306,100 @@ jobs:
             scripts/catalogue/sync_product_cards.py
             scripts/audit/performance_guard.py
           )
-          generated_product_page_directories=(
-            en/products
-            hi/products
-            bn/products
-          )
-          generated_shared_image_directories=(
-            assets/images/brands
-            assets/images/about
-          )
+          generated_product_page_directories=(en/products hi/products bn/products)
+          generated_shared_image_directories=(assets/images/brands assets/images/about)
+          workbook_import_path="assets/data/product-workbook-import-2026-11-11"
+
+          compare_json=""
+          if [ "$(git rev-parse "${remote_ref}")" != "${PR_HEAD_SHA}" ]; then
+            compare_status="branch_moved_during_run"
+            compare_behind="-1"
+          elif compare_json="$(curl --silent --show-error --fail \
+            --header "Authorization: Bearer ${GH_TOKEN}" \
+            --header "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/compare/${PR_BASE_SHA}...$(git rev-parse "${remote_ref}")" 2>/dev/null)"; then
+            compare_status="$(printf '%s' "${compare_json}" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("status", ""))')"
+            compare_behind="$(printf '%s' "${compare_json}" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("behind_by", -1))')"
+          else
+            compare_status="unknown"
+            compare_behind="-1"
+          fi
+
+          if { [ "${compare_status}" = "ahead" ] && [ "${compare_behind}" = "0" ]; } || [ "${compare_status}" = "identical" ]; then
+            echo "PR branch contains its base commit; copying the validated candidate without rebuilding."
+            for path in "${generated_paths[@]}"; do
+              source_path="${GITHUB_WORKSPACE}/${path}"
+              if [ ! -f "${source_path}" ]; then
+                echo "Missing candidate output: ${path}"
+                exit 1
+              fi
+              mkdir -p "${publish_repo}/$(dirname "${path}")"
+              cp -p "${source_path}" "${publish_repo}/${path}"
+            done
+            for directory in "${generated_product_page_directories[@]}" "${generated_shared_image_directories[@]}"; do
+              if [ ! -d "${GITHUB_WORKSPACE}/${directory}" ]; then
+                echo "Missing candidate directory: ${directory}"
+                exit 1
+              fi
+              mkdir -p "${publish_repo}/${directory}"
+              rsync -a --delete "${GITHUB_WORKSPACE}/${directory}/" "${publish_repo}/${directory}/"
+            done
+            if [ -d "${GITHUB_WORKSPACE}/${workbook_import_path}" ]; then
+              rm -rf "${publish_repo:?}/${workbook_import_path}"
+              mkdir -p "${publish_repo}/$(dirname "${workbook_import_path}")"
+              rsync -a --delete "${GITHUB_WORKSPACE}/${workbook_import_path}/" "${publish_repo}/${workbook_import_path}/"
+            fi
+          else
+            echo "PR branch is behind or diverged; regenerating against the branch head."
+            (
+              cd "${publish_repo}"
+              python3 scripts/catalogue/apply_product_workbook_import.py
+              python3 scripts/catalogue/build.py
+              python3 scripts/audit/build_hsn_verification_worklist.py
+              python3 scripts/audit/test_hsn_verification_worklist.py
+              python3 scripts/audit/optimize_static_images.py
+              python3 scripts/audit/prepare_mobile_listing_lcp.py
+              python3 scripts/js/refresh_versions.py
+              python3 scripts/catalogue/sync_root_homepage.py
+              python3 scripts/audit/performance_guard.py
+            )
+            cp "${GITHUB_WORKSPACE}/assets/js/supabase-loader.js" "${publish_repo}/assets/js/supabase-loader.js"
+            cp "${GITHUB_WORKSPACE}/assets/js/cart/cart.js" "${publish_repo}/assets/js/cart/cart.js"
+            (cd "${publish_repo}" && python3 scripts/js/refresh_versions.py)
+          fi
 
           for path in "${generated_paths[@]}"; do
-            if [ ! -f "${publish_repo}/${path}" ]; then
-              echo "Missing generated output on PR branch: ${path}"
-              exit 1
-            fi
+            test -f "${publish_repo}/${path}" || { echo "Missing published output: ${path}"; exit 1; }
           done
           for directory in "${generated_product_page_directories[@]}" "${generated_shared_image_directories[@]}"; do
-            if [ ! -d "${publish_repo}/${directory}" ]; then
-              echo "Missing generated output directory on PR branch: ${directory}"
-              exit 1
-            fi
+            test -d "${publish_repo}/${directory}" || { echo "Missing published directory: ${directory}"; exit 1; }
           done
 
-          # The importer consumes the staged JSONL directory on its first run.
-          # On a later release-gate retry the directory may already have been
-          # committed away from the PR branch, so only stage it when files are
-          # still tracked or the directory exists in the generated worktree.
-          workbook_import_path="assets/data/product-workbook-import-2026-11-11"
           if git -C "${publish_repo}" ls-files -z -- "${workbook_import_path}" | grep -q . || [ -d "${publish_repo}/${workbook_import_path}" ]; then
-            git -C "${publish_repo}" add -A -- "${workbook_import_path}"
+            if [ -d "${GITHUB_WORKSPACE}/${workbook_import_path}" ]; then
+              git -C "${publish_repo}" add -A -- "${workbook_import_path}"
+            else
+              echo "Staged workbook-import source already consumed; preserving branch state."
+            fi
           else
             echo "No staged workbook-import files remain to stage."
           fi
+
           git -C "${publish_repo}" add -- "${generated_paths[@]}" "${generated_product_page_directories[@]}" "${generated_shared_image_directories[@]}"
-          # Versioned first-party script URLs must follow the minified cart asset.
-          while IFS= read -r path; do
-            git -C "${publish_repo}" add -- "$path"
+          while IFS= read -r html_path; do
+            git -C "${publish_repo}" add -- "${html_path}"
           done < <(git -C "${publish_repo}" diff --name-only -- "*.html")
+
           if git -C "${publish_repo}" diff --cached --quiet; then
             echo "Generated mobile LCP assets and HTML are already current on the PR branch."
             exit 0
           fi
 
-          # Commits made with GITHUB_TOKEN do not trigger follow-up workflows
-          # automatically. Explicitly request PR checks for this generated commit.
           git -C "${publish_repo}" -c commit.cleanup=verbatim commit -m "Optimize generated mobile LCP assets
 
 
           request-checks: true"
 
-          # Retry if a human or another workflow advances the PR branch between
-          # fetch and push. Rebase the generated-output commit on the newest head.
-          # This allow-listed commit is kept intact across retries; only generated
-          # workspace changes outside the allow-list are discarded before rebasing.
           for attempt in 1 2 3; do
             if git -C "${publish_repo}" push origin "HEAD:refs/heads/${PR_HEAD_REF}"; then
               echo "Published generated mobile LCP output to ${PR_HEAD_REF}."
@@ -338,9 +409,6 @@ jobs:
               echo "Unable to publish generated mobile LCP output after three attempts."
               exit 1
             fi
-            # Optimisation scripts may leave additional generated files modified
-            # outside the commit allow-list. Clear those workspace changes before
-            # rebasing, otherwise Git aborts with "cannot rebase: unstaged changes".
             git -C "${publish_repo}" reset --hard HEAD
             git fetch --no-tags origin "+refs/heads/${PR_HEAD_REF}:${remote_ref}"
             git -C "${publish_repo}" rebase "${remote_ref}"
