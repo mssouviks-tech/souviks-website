@@ -30,6 +30,7 @@ def validate_cross_entity_link_helpers() -> None:
     ]
     categories = [
         {"id": "filters", "slug": "filters", "name": "Filters", "active": True},
+        {"id": "gear-parts", "slug": "gear-parts", "name": "Gear Parts", "active": True},
         {"id": "inactive-category", "slug": "inactive-category", "name": "Hidden", "active": False},
     ]
     vehicles = [
@@ -47,7 +48,7 @@ def validate_cross_entity_link_helpers() -> None:
         [
             {"id": "filters", "name": "Filters"},
             {"id": "unknown", "name": "Unmapped category"},
-            {"id": "wrong-id", "name": "Filters"},
+            {"id": "wrong-id", "name": "Gear Parts"},
             {"id": "filters", "name": "Filters"},
             {"id": "inactive-category", "name": "Hidden"},
         ],
@@ -57,8 +58,8 @@ def validate_cross_entity_link_helpers() -> None:
     )
     if category_html.count('href="/en/categories/filters"') != 1:
         fail("category context must link each verified category once")
-    if "wrong-id" in category_html and 'href="/en/categories/filters"' in category_html.split("wrong-id", 1)[-1]:
-        fail("an explicit invalid entity ID must not fall back to a different record by label")
+    if 'href="/en/categories/gear-parts"' in category_html or "Gear Parts" not in category_html:
+        fail("an explicit invalid entity ID must stay text instead of relinking by label")
     if "Unmapped category" not in category_html or "href=\"/en/categories/unknown\"" in category_html:
         fail("unresolved category labels must remain text, not guessed links")
     if "href=\"/en/categories/inactive-category\"" in category_html or ">Hidden</a>" in category_html:
@@ -163,9 +164,9 @@ def validate_generated_vehicle_entity_links() -> None:
             if len(matches) == 1
         }
 
-        for route, records, relation_field in (
-            ("brands", brands, "vehicles"),
-            ("categories", categories, "vehicles"),
+        for route, entity_kind, records, relation_field, target_index, target_route in (
+            ("brands", "BRAND", brands, "vehicles", None, "vehicles"),
+            ("categories", "CATEGORY", categories, "vehicles", None, "vehicles"),
         ):
             for record in records:
                 if record.get("active") is False:
@@ -174,7 +175,7 @@ def validate_generated_vehicle_entity_links() -> None:
                 if not path.is_file():
                     continue
                 page = path.read_text(encoding="utf-8")
-                marker_at = page.find(f"<!-- ENTITY_CONTEXT_{route[:-1].upper()} -->")
+                marker_at = page.find(f"<!-- ENTITY_CONTEXT_{entity_kind} -->")
                 section_at = page.find('<section class="entity-context section-spacing">', marker_at)
                 section_end = page.find("</section>", section_at) if section_at >= 0 else -1
                 context = page[section_at:section_end] if section_at >= 0 and section_end >= 0 else page
@@ -194,6 +195,32 @@ def validate_generated_vehicle_entity_links() -> None:
                     if f'href="/{language}/vehicles/{slug}"' in page:
                         fail(
                             f"{path.relative_to(ROOT)} links to noindex vehicle page {slug}"
+                        )
+
+        # Vehicle pages must expose all verified linked category and brand records.
+        for path in sorted((ROOT / language / "vehicles").glob("*.html")):
+            vehicle = next(
+                (row for row in vehicles if str(row.get("slug") or "") == path.stem),
+                None,
+            )
+            if vehicle is None:
+                continue
+            page = path.read_text(encoding="utf-8")
+            marker_at = page.find("<!-- ENTITY_CONTEXT_VEHICLE -->")
+            section_at = page.find('<section class="entity-context section-spacing">', marker_at)
+            section_end = page.find("</section>", section_at) if section_at >= 0 else -1
+            context = page[section_at:section_end] if section_at >= 0 and section_end >= 0 else page
+            for relationship, target_index, route in (
+                ("categories", category_by_id, "categories"),
+                ("brands", brand_by_id, "brands"),
+            ):
+                for value in vehicle.get(relationship) or []:
+                    identity = str(value.get("id") or "").strip() if isinstance(value, dict) else str(value).strip()
+                    target = target_index.get(identity)
+                    slug = str((target or {}).get("slug") or "").strip()
+                    if slug and f'href="/{language}/{route}/{slug}"' not in context:
+                        fail(
+                            f"{path.relative_to(ROOT)} is missing cross-entity link {route}/{slug}"
                         )
         checked += 1
 
