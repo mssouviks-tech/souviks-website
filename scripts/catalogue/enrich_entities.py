@@ -149,12 +149,14 @@ def build_entity_link_indexes(brands, categories, vehicles, catalogue=None):
             for field in ("name", "model"):
                 label = clean(record.get(field))
                 if label:
-                    by_label.setdefault(label.casefold(), []).append(record)
+                    identity_key = entity_id or f"{kind}:{label.casefold()}"
+                    by_label.setdefault(label.casefold(), {})[identity_key] = record
         indexes[kind] = {
             "by_id": by_id,
-            # Do not resolve label-only references when two active records share a label.
+            # Repeated name/model fields on one record are one match; labels shared
+            # by distinct active records remain ambiguous and are not linked.
             "by_label": {
-                label: matches[0]
+                label: next(iter(matches.values()))
                 for label, matches in by_label.items()
                 if len(matches) == 1
             },
