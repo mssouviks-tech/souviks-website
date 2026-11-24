@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression tests for multilingual duplicate-title audit behavior."""
+"""Regression tests for generated multilingual SEO contracts."""
 from __future__ import annotations
 
 import sys
@@ -224,6 +224,10 @@ class HreflangContractTests(unittest.TestCase):
         )
 
     def test_alternate_route_resolves_to_static_html_page(self) -> None:
+        self.assertEqual(
+            alternate_page_path("https://www.souviks.co.in/"),
+            ROOT / "index.html",
+        )
         self.assertEqual(
             alternate_page_path("https://www.souviks.co.in/bn/"),
             ROOT / "bn" / "index.html",
