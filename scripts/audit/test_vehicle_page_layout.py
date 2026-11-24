@@ -5,9 +5,14 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "catalogue"))
+
+from enrich_entities import build_entity_link_indexes, linked_entity_card  # noqa: E402
+
 LANGUAGES = ("en", "hi", "bn")
 PRODUCT_LABELS = {"en": "Products", "hi": "उत्पाद", "bn": "পণ্য"}
 
@@ -16,7 +21,149 @@ def fail(message: str) -> None:
     raise SystemExit(f"VEHICLE PAGE LAYOUT ERROR: {message}")
 
 
+def validate_cross_entity_link_helpers() -> None:
+    brands = [
+        {"id": "acme", "slug": "acme", "name": "ACME", "active": True},
+        {"id": "inactive", "slug": "inactive", "name": "Inactive", "active": False},
+        {"id": "same-a", "slug": "same-a", "name": "Shared Name", "active": True},
+        {"id": "same-b", "slug": "same-b", "name": "Shared Name", "active": True},
+    ]
+    categories = [
+        {"id": "filters", "slug": "filters", "name": "Filters", "active": True},
+        {"id": "inactive-category", "slug": "inactive-category", "name": "Hidden", "active": False},
+    ]
+    vehicles = [
+        {"id": "tata-signa", "slug": "tata-signa", "model": "Tata Signa", "active": True},
+        {"id": "rare-model", "slug": "rare-model", "model": "Rare Model", "active": True},
+    ]
+    catalogue = (
+        [{"active": True, "vehicles": ["Tata Signa"]} for _ in range(6)]
+        + [{"active": True, "vehicles": ["Rare Model"]} for _ in range(5)]
+    )
+    indexes = build_entity_link_indexes(brands, categories, vehicles, catalogue)
+
+    category_html = linked_entity_card(
+        "Categories",
+        [
+            {"id": "filters", "name": "Filters"},
+            {"id": "unknown", "name": "Unmapped category"},
+            {"id": "filters", "name": "Filters"},
+            {"id": "inactive-category", "name": "Hidden"},
+        ],
+        "category",
+        "en",
+        indexes,
+    )
+    if category_html.count('href="/en/categories/filters"') != 1:
+        fail("category context must link each verified category once")
+    if "Unmapped category" not in category_html or "href=\"/en/categories/unknown\"" in category_html:
+        fail("unresolved category labels must remain text, not guessed links")
+    if "href=\"/en/categories/inactive-category\"" in category_html or ">Hidden</a>" in category_html:
+        fail("inactive category records must not become link destinations")
+
+    brand_html = linked_entity_card(
+        "Brands",
+        [{"id": "acme", "name": "ACME"}, {"id": "same-a", "name": "Shared Name"}],
+        "brand",
+        "hi",
+        indexes,
+    )
+    if 'href="/hi/brands/acme"' not in brand_html:
+        fail("verified brand identity must use the requested locale route")
+    if "href=\"/hi/brands/same-a\"" in brand_html or "href=\"/hi/brands/same-b\"" in brand_html:
+        fail("ambiguous label-only brand references must not generate links")
+
+    vehicle_html = linked_entity_card(
+        "Vehicle applications",
+        ["Tata Signa", "Rare Model", "Unknown Model"],
+        "vehicle",
+        "bn",
+        indexes,
+    )
+    if 'href="/bn/vehicles/tata-signa"' not in vehicle_html:
+        fail("verified vehicle labels must link to the localized vehicle page")
+    if "href=\"/bn/vehicles/rare-model\"" in vehicle_html:
+        fail("noindex vehicle pages with five or fewer products must not be linked")
+    if "Unknown Model" not in vehicle_html or "href=\"/bn/vehicles/Unknown-Model\"" in vehicle_html:
+        fail("unresolved vehicle labels must remain plain text")
+
+
+def validate_generated_vehicle_entity_links() -> None:
+    brands = json.loads((ROOT / "assets/data/brands.json").read_text(encoding="utf-8"))
+    categories = json.loads((ROOT / "assets/data/categories.json").read_text(encoding="utf-8"))
+    vehicles = json.loads((ROOT / "assets/data/vehicles.json").read_text(encoding="utf-8"))
+    products = json.loads((ROOT / "assets/data/products.json").read_text(encoding="utf-8"))
+    indexes = build_entity_link_indexes(brands, categories, vehicles, products)
+    category_by_id = {
+        str(item.get("id") or "").strip(): item
+        for item in categories
+        if item.get("active") is not False
+    }
+    brand_by_id = {
+        str(item.get("id") or "").strip(): item
+        for item in brands
+        if item.get("active") is not False
+    }
+
+    noindex_vehicle_slugs = {
+        str(item.get("slug") or "").strip()
+        for item in vehicles
+        if item.get("active") is not False
+        and str(item.get("slug") or "").strip()
+        and str(item.get("product_count") or 0).isdigit()
+        and int(item.get("product_count") or 0) <= 5
+    }
+
+    checked = 0
+    for language in LANGUAGES:
+        directory = ROOT / language / "vehicles"
+        for path in sorted(directory.glob("*.html")):
+            item = next((row for row in vehicles if str(row.get("slug") or "") == path.stem), None)
+            if item is None:
+                fail(f"{path.relative_to(ROOT)} does not map to vehicles.json")
+            page = path.read_text(encoding="utf-8")
+            marker_at = page.find("<!-- ENTITY_CONTEXT_VEHICLE -->")
+            section_at = page.find('<section class="entity-context section-spacing">', marker_at)
+            section_end = page.find("</section>", section_at) if section_at >= 0 else -1
+            if section_at < 0 or section_end < 0:
+                fail(f"{path.relative_to(ROOT)} is missing its vehicle context section")
+            context = page[section_at:section_end]
+
+            for relationship, target_index, route in (
+                ("categories", category_by_id, "categories"),
+                ("brands", brand_by_id, "brands"),
+            ):
+                for value in item.get(relationship) or []:
+                    identity = str(value.get("id") or "").strip() if isinstance(value, dict) else str(value).strip()
+                    target = target_index.get(identity)
+                    if target is None:
+                        continue
+                    slug = str(target.get("slug") or "").strip()
+                    if slug and f'href="/{language}/{route}/{slug}"' not in context:
+                        fail(
+                            f"{path.relative_to(ROOT)} is missing its verified "
+                            f"{relationship[:-1]} link to {slug}"
+                        )
+
+        # Indexable vehicle destinations are linked by name from brand and category
+        # pages. A noindex vehicle detail page must never be an internal-link target.
+        for route in ("brands", "categories"):
+            for path in sorted((ROOT / language / route).glob("*.html")):
+                page = path.read_text(encoding="utf-8")
+                for slug in noindex_vehicle_slugs:
+                    if f'href="/{language}/vehicles/{slug}"' in page:
+                        fail(
+                            f"{path.relative_to(ROOT)} links to noindex vehicle page {slug}"
+                        )
+        checked += 1
+
+    if checked != len(LANGUAGES):
+        fail("not all supported languages were checked")
+
+
 def main() -> None:
+    validate_cross_entity_link_helpers()
+    validate_generated_vehicle_entity_links()
     vehicles_path = ROOT / "assets/data/vehicles.json"
     vehicles = json.loads(vehicles_path.read_text(encoding="utf-8"))
     by_slug = {str(item.get("slug") or "").strip(): item for item in vehicles}
