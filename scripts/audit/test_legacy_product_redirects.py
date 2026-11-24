@@ -138,6 +138,14 @@ def main() -> None:
     assert '["/request-quote.html", "/en/cart"]' in middleware, (
         "root request-quote.html alias must be folded into host normalization"
     )
+    assert "const rootEntityHtmlPage = pathname.match(/^\\/(products|brands|categories|vehicles)\\/([^/]+)\\.html$/)" in middleware, (
+        "root-level legacy .html entity routes must be folded into the apex-host redirect"
+    )
+    assert "const rootEntityPage = pathname.match(/^\\/(products|brands|categories|vehicles)\\/([^/]+)$/)" in middleware, (
+        "root-level legacy clean entity routes must be folded into the apex-host redirect"
+    )
+    assert 'return "/en/" + rootEntityHtmlPage[1] + "/" + rootEntityHtmlPage[2];' in middleware
+    assert 'return "/en/" + rootEntityPage[1] + "/" + rootEntityPage[2];' in middleware
     seen_old = set()
     seen_products = set()
     expected_count = 0

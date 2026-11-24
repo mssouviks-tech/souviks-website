@@ -413,31 +413,53 @@ def run_smoke() -> int:
         "/thank-you.html": "/en/thank-you",
     })
 
-    # Legacy apex-host page aliases should normalize host and path in one 301.
-    legacy_alias_url = "https://souviks.co.in/en/brands.html"
-    label = "legacy host/path redirect https://souviks.co.in/en/brands.html"
-    try:
-        result = fetch(legacy_alias_url)
-        location = result.headers.get("location", "")
-        destination = urllib.parse.urlsplit(urllib.parse.urljoin(legacy_alias_url, location))
-        if (
-            result.status != 301
-            or destination.scheme != "https"
-            or destination.hostname != "www.souviks.co.in"
-            or destination.path != "/en/brands"
-            or destination.query
-            or destination.fragment
-        ):
-            errors.append(
-                f"{label}: expected one 301 to https://www.souviks.co.in/en/brands, "
-                f"got HTTP {result.status} Location={location!r}"
-            )
-            print(f"[FAIL] {label}: HTTP {result.status} Location={location!r}")
-        else:
-            print(f"[PASS] {label}: HTTP 301 -> {destination.geturl()}")
-    except Exception as exc:
-        errors.append(f"{label}: request failed: {exc}")
-        print(f"[FAIL] {label}: {exc}")
+    # Legacy apex-host aliases normalize both host and entity path in one 301.
+    legacy_alias_cases = (
+        (
+            "https://souviks.co.in/en/brands.html",
+            "/en/brands",
+        ),
+        (
+            "https://souviks.co.in/products/7pk-1422-epdm-7pk-1422-v-belt.html",
+            "/en/products/7pk-1422-epdm-7pk-1422-v-belt",
+        ),
+        (
+            "https://souviks.co.in/products/p321510-spring-pin-32-x-151",
+            "/en/products/p321510-spring-pin-32-x-151",
+        ),
+        (
+            "https://souviks.co.in/brands/anupam.html",
+            "/en/brands/anupam",
+        ),
+        (
+            "https://souviks.co.in/vehicles/tata-lpt",
+            "/en/vehicles/tata-lpt",
+        ),
+    )
+    for legacy_alias_url, expected_path in legacy_alias_cases:
+        label = f"legacy host/path redirect {legacy_alias_url}"
+        try:
+            result = fetch(legacy_alias_url)
+            location = result.headers.get("location", "")
+            destination = urllib.parse.urlsplit(urllib.parse.urljoin(legacy_alias_url, location))
+            if (
+                result.status != 301
+                or destination.scheme != "https"
+                or destination.hostname != "www.souviks.co.in"
+                or destination.path != expected_path
+                or destination.query
+                or destination.fragment
+            ):
+                errors.append(
+                    f"{label}: expected one 301 to https://www.souviks.co.in{expected_path}, "
+                    f"got HTTP {result.status} Location={location!r}"
+                )
+                print(f"[FAIL] {label}: HTTP {result.status} Location={location!r}")
+            else:
+                print(f"[PASS] {label}: HTTP 301 -> {destination.geturl()}")
+        except Exception as exc:
+            errors.append(f"{label}: request failed: {exc}")
+            print(f"[FAIL] {label}: {exc}")
 
     # Canonical host + HTTPS behavior, following at most five redirects.
     for start in ("http://souviks.co.in/", "https://souviks.co.in/", "http://www.souviks.co.in/"):
