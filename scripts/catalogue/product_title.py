@@ -53,14 +53,16 @@ def shorten_product_name_for_title(name: str, max_length: int) -> str:
 
 
 def unique_vehicle_title_variants(products: list[dict[str, Any]]) -> dict[str, str]:
-    """Return recorded single-vehicle qualifiers for otherwise identical SKUs.
+    """Return recorded fitment qualifiers for otherwise identical product identities.
 
-    Only groups sharing brand, manufacturer part number and normalized product
-    name qualify. Every member must have exactly one non-Universal vehicle, and
-    those vehicle values must be distinct. This changes titles only; it does not
-    alter fitment, product data, URLs or canonical records.
+    Only records sharing brand, manufacturer part number and normalized product
+    name qualify. Every member must have a non-empty, non-Universal vehicle
+    profile, and each member's complete profile must differ. Multi-vehicle and
+    overlapping fitment sets are allowed because the qualifier describes the
+    exact fitment recorded for that catalogue record. This changes titles only;
+    it does not alter fitment, product data, URLs or canonical records.
     """
-    groups: dict[tuple[str, str, str], list[tuple[str, str]]] = defaultdict(list)
+    groups: dict[tuple[str, str, str], list[tuple[str, tuple[str, ...]]]] = defaultdict(list)
     for product in products:
         product_id = re.sub(r"\s+", " ", str(product.get("id") or "")).strip()
         brand = re.sub(
@@ -81,23 +83,38 @@ def unique_vehicle_title_variants(products: list[dict[str, Any]]) -> dict[str, s
         ).strip()
         raw_vehicles = product.get("vehicles") or []
         if isinstance(raw_vehicles, str):
-            vehicles = [value.strip() for value in re.split(r"[,;]", raw_vehicles) if value.strip()]
+            candidates = re.split(r"[,;]", raw_vehicles)
         elif isinstance(raw_vehicles, (list, tuple, set)):
-            vehicles = [str(value).strip() for value in raw_vehicles if str(value).strip()]
+            candidates = list(raw_vehicles)
         else:
-            vehicles = []
-        vehicles = [value for value in vehicles if value.casefold() != "universal"]
-        if not product_id or not brand or not part or not name or len(vehicles) != 1:
+            candidates = []
+
+        vehicles: list[str] = []
+        seen_vehicles: set[str] = set()
+        for candidate in candidates:
+            vehicle = re.sub(r"\s+", " ", str(candidate or "")).strip()
+            key = vehicle.casefold()
+            if not vehicle or key == "universal" or key in seen_vehicles:
+                continue
+            seen_vehicles.add(key)
+            vehicles.append(vehicle)
+
+        if not product_id or not brand or not part or not name or not vehicles:
             continue
         key = (brand.casefold(), part.casefold(), name.casefold())
-        groups[key].append((product_id, vehicles[0]))
+        groups[key].append((product_id, tuple(vehicles)))
 
     variants: dict[str, str] = {}
     for members in groups.values():
-        vehicle_keys = [vehicle.casefold() for _, vehicle in members]
-        if len(members) < 2 or len(set(vehicle_keys)) != len(members):
+        if len(members) < 2:
             continue
-        variants.update(members)
+        profile_keys = [tuple(value.casefold() for value in profile) for _, profile in members]
+        if len(set(profile_keys)) != len(members):
+            # At least two records have identical recorded fitment; do not imply
+            # they are distinct by adding a qualifier to only some members.
+            continue
+        for product_id, profile in members:
+            variants[product_id] = ", ".join(profile)
     return variants
 
 

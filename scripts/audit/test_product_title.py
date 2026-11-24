@@ -104,6 +104,55 @@ class ProductTitleShorteningTests(unittest.TestCase):
         self.assertIn("F0987915", titles[1])
         self.assertTrue(all(len(title) <= 70 for title in titles))
 
+    def test_overlapping_multi_vehicle_profiles_generate_distinct_qualified_titles(self) -> None:
+        products = [
+            {
+                "id": "SVKS000345",
+                "brand_name": "KFL",
+                "part_number": "KF5122",
+                "product_name": "UJ Cross 48 x 135",
+                "vehicles": ["Tata LPT", "Ashok Leyland 2516"],
+            },
+            {
+                "id": "SVKS000841",
+                "brand_name": "KFL",
+                "part_number": "KF5122",
+                "product_name": "UJ Cross 48 x 135",
+                "vehicles": ["Ashok Leyland 2516"],
+            },
+        ]
+        variants = unique_vehicle_title_variants(products)
+        self.assertEqual(
+            variants,
+            {
+                "SVKS000345": "Tata LPT, Ashok Leyland 2516",
+                "SVKS000841": "Ashok Leyland 2516",
+            },
+        )
+        titles = [
+            build_product_page_title(
+                product["brand_name"],
+                product["part_number"],
+                product["product_name"],
+                variants[product["id"]],
+            )
+            for product in products
+        ]
+        self.assertNotEqual(titles[0], titles[1])
+        self.assertIn("Tata LPT", titles[0])
+        self.assertIn("Ashok Leyland 2516", titles[0])
+        self.assertIn("Ashok Leyland 2516", titles[1])
+        self.assertIn("KF5122", titles[0])
+        self.assertIn("KF5122", titles[1])
+        self.assertTrue(all(len(title) <= 70 for title in titles))
+
+    def test_identical_multi_vehicle_profiles_do_not_generate_title_variants(self) -> None:
+        products = [
+            {"id": "A", "brand": "X", "part_number": "123", "name": "Part", "vehicles": ["Tata LPT", "Ashok Leyland 2516"]},
+            {"id": "B", "brand": "X", "part_number": "123", "name": "Part", "vehicles": ["tata lpt", "Ashok Leyland 2516"]},
+        ]
+        self.assertEqual(unique_vehicle_title_variants(products), {})
+
     def test_universal_or_shared_vehicle_values_do_not_generate_title_variants(self) -> None:
         products = [
             {"id": "A", "brand": "X", "part_number": "123", "name": "Part", "vehicles": ["Universal"]},
