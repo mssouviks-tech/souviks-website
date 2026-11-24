@@ -3,15 +3,20 @@
 from __future__ import annotations
 
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "audit"))
 
+import seo_contract  # noqa: E402
 from seo_contract import (  # noqa: E402
     alternate_page_path,
     alternate_values,
+    canonical_target_from_anchor,
+    internal_anchor_hrefs,
+    sitemap_internal_discovery,
     duplicate_product_meta_groups,
     duplicate_title_groups,
     embedded_product_record,
@@ -166,6 +171,99 @@ class WarningSummaryTests(unittest.TestCase):
                 "title length": 1,
             },
         )
+
+
+class InternalDiscoveryTests(unittest.TestCase):
+    def test_anchor_extractor_ignores_link_tags_and_non_anchor_hrefs(self) -> None:
+        raw = (
+            '<link rel="canonical" href="https://www.souviks.co.in/en/products">'
+            '<link rel="alternate" hreflang="bn" href="https://www.souviks.co.in/bn/products">'
+            '<a href="/en/products/part">Part</a>'
+            "<a href='https://www.souviks.co.in/hi/products/part'>Hindi</a>"
+            '<button data-href="/en/products/other">Other</button>'
+        )
+        self.assertEqual(
+            internal_anchor_hrefs(raw),
+            [
+                "/en/products/part",
+                "https://www.souviks.co.in/hi/products/part",
+            ],
+        )
+
+    def test_canonical_internal_anchor_targets_are_normalized(self) -> None:
+        self.assertEqual(
+            canonical_target_from_anchor("/en/products/part"),
+            "https://www.souviks.co.in/en/products/part",
+        )
+        self.assertEqual(
+            canonical_target_from_anchor("https://www.souviks.co.in/bn/products/part"),
+            "https://www.souviks.co.in/bn/products/part",
+        )
+        self.assertEqual(
+            canonical_target_from_anchor("/"),
+            "https://www.souviks.co.in/",
+        )
+        self.assertEqual(
+            canonical_target_from_anchor("/en/"),
+            "https://www.souviks.co.in/",
+        )
+        self.assertEqual(
+            canonical_target_from_anchor("/bn/"),
+            "https://www.souviks.co.in/bn/",
+        )
+
+    def test_noncanonical_or_nonindexable_links_do_not_count_as_discovery(self) -> None:
+        for href in (
+            "http://www.souviks.co.in/en/products/part",
+            "https://souviks.co.in/en/products/part",
+            "https://external.example/en/products/part",
+            "/en/products/part?brand_id=bosch",
+            "/en/request-part?product_id=SVKS000001",
+            "/en/products/part#specifications",
+            "/en/products/part.html",
+            "/products/part",
+            "/brands/example",
+            "mailto:sales@souviks.co.in",
+            "javascript:void(0)",
+        ):
+            with self.subTest(href=href):
+                self.assertEqual(canonical_target_from_anchor(href), "")
+
+
+
+    def test_sitemap_discovery_report_counts_only_canonical_direct_links(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            sitemap_dir = root / "sitemaps"
+            sitemap_dir.mkdir()
+            (sitemap_dir / "products.xml").write_text(
+                '<?xml version="1.0"?>'
+                '<urlset><url><loc>https://www.souviks.co.in/en/products/a</loc></url>'
+                '<url><loc>https://www.souviks.co.in/bn/products/b</loc></url></urlset>',
+                encoding="utf-8",
+            )
+            previous_root = seo_contract.ROOT
+            seo_contract.ROOT = root
+            try:
+                report = sitemap_internal_discovery({
+                    "https://www.souviks.co.in/en/products/a": {"source-page-1", "source-page-2"},
+                })
+            finally:
+                seo_contract.ROOT = previous_root
+
+        self.assertEqual(report["sitemap_urls_scanned"], 2)
+        self.assertEqual(report["with_internal_anchor_links"], 1)
+        self.assertEqual(report["without_internal_anchor_links"], 1)
+        self.assertEqual(
+            report["zero_inbound_urls"],
+            [{
+                "url": "https://www.souviks.co.in/bn/products/b",
+                "language": "bn",
+                "type": "products",
+                "inbound_anchor_pages": 0,
+            }],
+        )
+
 
 
 class HreflangContractTests(unittest.TestCase):

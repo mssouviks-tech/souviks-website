@@ -40,6 +40,95 @@ def canonical_values(raw: str) -> list[str]:
     return values
 
 
+def internal_anchor_hrefs(raw: str) -> list[str]:
+    """Return hrefs from body anchors; head canonical/hreflang links are not anchors."""
+    values = []
+    for tag in re.findall(r"<a\b[^>]*>", raw, flags=re.I | re.S):
+        href = re.search(r"""\bhref=["']([^"']*)["']""", tag, flags=re.I | re.S)
+        if href:
+            values.append(unescape(href.group(1)).strip())
+    return values
+
+
+def canonical_target_from_anchor(href: str) -> str:
+    """Normalize a direct internal anchor to its canonical www URL.
+
+    Query-driven routes, fragments, .html aliases, apex-host links and root-level
+    legacy entity aliases are excluded: they do not directly link to a canonical
+    indexable page and would otherwise inflate discoverability counts.
+    """
+    parsed = urlparse(unescape(str(href or "").strip()))
+    if parsed.scheme and parsed.scheme.casefold() != "https":
+        return ""
+    if parsed.netloc and (parsed.hostname or "").casefold() != "www.souviks.co.in":
+        return ""
+    if parsed.query or parsed.fragment:
+        return ""
+    path = parsed.path or ("/" if parsed.netloc else "")
+    if not path.startswith("/") or path.casefold().endswith(".html"):
+        return ""
+    path = re.sub(r"/{2,}", "/", path)
+    if path in {"/en", "/en/"}:
+        path = "/"
+    elif path in {"/bn", "/bn/"}:
+        path = "/bn/"
+    elif path in {"/hi", "/hi/"}:
+        path = "/hi/"
+    elif path != "/":
+        path = path.rstrip("/")
+    # Root-level entity aliases redirect to language-prefixed canonical routes.
+    if re.match(r"^/(products|brands|categories|vehicles)(?:/|$)", path, flags=re.I):
+        return ""
+    return BASE + path
+
+
+def sitemap_internal_discovery(inbound_sources: dict[str, set[str]]) -> dict[str, object]:
+    """Summarize direct internal anchor links to URLs submitted in the XML sitemaps."""
+    urls: set[str] = set()
+    for filename in ("pages.xml", "products.xml", "brands.xml", "categories.xml", "vehicles.xml"):
+        sitemap_path = ROOT / "sitemaps" / filename
+        if not sitemap_path.is_file():
+            continue
+        raw = sitemap_path.read_text(encoding="utf-8", errors="ignore")
+        urls.update(
+            unescape(value).strip()
+            for value in re.findall(r"<loc>\s*([^<]+?)\s*</loc>", raw, flags=re.I)
+            if unescape(value).strip()
+        )
+
+    records = []
+    for url in sorted(urls):
+        count = len(inbound_sources.get(url, set()))
+        parsed = urlparse(url)
+        parts = [part for part in parsed.path.strip("/").split("/") if part]
+        language = parts[0] if parts and parts[0] in LANGUAGES else "root"
+        kind = next(
+            (part for part in parts if part in {"products", "brands", "categories", "vehicles"}),
+            "page",
+        )
+        records.append({
+            "url": url,
+            "language": language,
+            "type": kind,
+            "inbound_anchor_pages": count,
+        })
+
+    zero = [record for record in records if record["inbound_anchor_pages"] == 0]
+    low = [record for record in records if record["inbound_anchor_pages"] <= 2]
+    by_language = Counter(str(record["language"]) for record in zero)
+    by_type = Counter(str(record["type"]) for record in zero)
+    return {
+        "sitemap_urls_scanned": len(records),
+        "with_internal_anchor_links": len(records) - len(zero),
+        "without_internal_anchor_links": len(zero),
+        "with_one_or_two_internal_anchor_pages": len(low) - len(zero),
+        "zero_inbound_by_language": dict(sorted(by_language.items())),
+        "zero_inbound_by_type": dict(sorted(by_type.items())),
+        "zero_inbound_urls": zero,
+        "low_inbound_urls": low,
+    }
+
+
 def expected_canonical(path: Path) -> str:
     relative = path.relative_to(ROOT).as_posix()
     if relative == "index.html" or relative == "en/index.html":
@@ -277,6 +366,7 @@ def main() -> int:
     scanned = 0
     hreflang_pages = 0
     canonical_cache: dict[Path, list[str]] = {}
+    inbound_anchor_sources: dict[str, set[str]] = defaultdict(set)
     image_count = 0
     product_schema_count = 0
 
@@ -295,7 +385,13 @@ def main() -> int:
 
         canonicals = canonical_values(raw)
         canonical_cache[path] = canonicals
+        source_canonical = canonicals[0].strip() if len(canonicals) == 1 and canonicals[0] else ""
         expected_url = expected_canonical(path)
+        if source_canonical.startswith(BASE + "/"):
+            for href in internal_anchor_hrefs(raw):
+                target = canonical_target_from_anchor(href)
+                if target and target != source_canonical:
+                    inbound_anchor_sources[target].add(source_canonical)
         if len(canonicals) != 1 or not canonicals[0]:
             errors.append(f"{label}: expected exactly one non-empty canonical URL, found {len(canonicals)}")
         elif not canonicals[0].startswith(BASE + "/"):
@@ -474,6 +570,14 @@ def main() -> int:
                     if any("placeholder" in str(value).casefold() for value in schema_images):
                         errors.append(f"{label}: Product JSON-LD references a placeholder image")
 
+    discovery_audit = sitemap_internal_discovery(inbound_anchor_sources)
+    if discovery_audit["without_internal_anchor_links"]:
+        warnings.append(
+            "sitemap URLs with no direct internal anchor links: "
+            f"{discovery_audit['without_internal_anchor_links']} of "
+            f"{discovery_audit['sitemap_urls_scanned']}"
+        )
+
     duplicate_meta_groups = duplicate_product_meta_groups(product_meta_records)
     for group in duplicate_meta_groups:
         products = group["products"]
@@ -499,6 +603,9 @@ def main() -> int:
             "summary": {
                 "indexable_html_pages_scanned": scanned,
                 "multilingual_hreflang_pages_checked": hreflang_pages,
+                "sitemap_urls_scanned": discovery_audit["sitemap_urls_scanned"],
+                "sitemap_urls_without_internal_anchor_links": discovery_audit["without_internal_anchor_links"],
+                "sitemap_urls_with_one_or_two_internal_anchor_pages": discovery_audit["with_one_or_two_internal_anchor_pages"],
                 "seo_image_elements": image_count,
                 "product_schema_nodes": product_schema_count,
                 "weak_boilerplate_product_pages": len(weak_product_copy),
@@ -513,6 +620,7 @@ def main() -> int:
                 for language, title, paths in duplicate_titles
             ],
             "weak_boilerplate_product_pages": sorted(set(weak_product_copy)),
+            "sitemap_internal_discovery": discovery_audit,
             "blocking_errors": errors,
         }
         args.report_file.parent.mkdir(parents=True, exist_ok=True)
@@ -525,6 +633,8 @@ def main() -> int:
     print(
         f"SEO contract scanned {scanned} indexable HTML pages, "
         f"validated reciprocal hreflang on {hreflang_pages} multilingual routes, "
+        f"{discovery_audit['with_internal_anchor_links']}/{discovery_audit['sitemap_urls_scanned']} sitemap URLs "
+        "with direct internal anchor links, "
         f"{image_count} SEO image elements, and {product_schema_count} Product schema nodes; "
         f"{len(weak_product_copy)} weak-boilerplate product descriptions."
     )
