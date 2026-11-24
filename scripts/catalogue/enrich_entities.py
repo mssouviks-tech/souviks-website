@@ -117,20 +117,33 @@ ENTITY_ROUTE_DIRECTORIES = {
 }
 
 
-def build_entity_link_indexes(brands, categories, vehicles):
-    """Build exact-match indexes from active master records only."""
+def build_entity_link_indexes(brands, categories, vehicles, catalogue=None):
+    """Build exact-match indexes from active, indexable entity master records."""
     indexes = {}
-    for kind, records in (
+    records_by_kind = (
         ("brand", brands),
         ("category", categories),
         ("vehicle", vehicles),
-    ):
+    )
+    for kind, records in records_by_kind:
         by_id = {}
         by_label = {}
         for record in records:
             if not isinstance(record, dict) or record.get("active") is False:
                 continue
             entity_id = clean(record.get("id"))
+            if kind == "vehicle" and catalogue is not None:
+                # Vehicle pages with five or fewer matched products carry noindex.
+                # Do not create internal links to destinations that the site excludes from its sitemap.
+                model = clean(record.get("model") or record.get("name"))
+                matched = sum(
+                    1
+                    for product in catalogue
+                    if product.get("active") is not False
+                    and any(clean(value) in {entity_id, model} for value in (product.get("vehicles") or []))
+                )
+                if matched <= 5:
+                    continue
             if entity_id:
                 by_id[entity_id] = record
             for field in ("name", "model"):
@@ -1112,7 +1125,7 @@ def main():
     brands = json.loads((ROOT / "assets/data/brands.json").read_text(encoding="utf-8"))
     categories = json.loads((ROOT / "assets/data/categories.json").read_text(encoding="utf-8"))
     vehicles = json.loads((ROOT / "assets/data/vehicles.json").read_text(encoding="utf-8"))
-    entity_indexes = build_entity_link_indexes(brands, categories, vehicles)
+    entity_indexes = build_entity_link_indexes(brands, categories, vehicles, catalogue)
     enrich_entity_pages("brand", brands, catalogue, entity_indexes)
     enrich_entity_pages("category", categories, catalogue, entity_indexes)
     sync_category_listing_pages(categories)
