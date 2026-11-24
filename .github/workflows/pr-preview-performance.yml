@@ -60,7 +60,7 @@ jobs:
             const relevant = files
               .map(file => file.filename)
               .filter(path =>
-                /(^|\\/)[^/]+\\.html$/i.test(path) ||
+                /(^|\/)[^/]+\.html$/i.test(path) ||
                 path.startsWith("assets/js/") ||
                 path.startsWith("assets/css/") ||
                 path.startsWith("assets/images/hero/") ||
@@ -70,7 +70,7 @@ jobs:
               );
             core.info(
               relevant.length
-                ? "Browser-visible files changed:\\n" + relevant.join("\\n")
+                ? "Browser-visible files changed:\n" + relevant.join("\n")
                 : "No browser-delivered page, stylesheet, script, performance image or catalogue data changed. Lighthouse A/B is not applicable to this PR revision."
             );
             core.setOutput("runtime_changed", String(relevant.length > 0));
