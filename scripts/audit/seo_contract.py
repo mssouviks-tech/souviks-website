@@ -101,7 +101,9 @@ def alternate_values(raw: str) -> dict[str, list[str]]:
 def alternate_page_path(url: str) -> Path | None:
     """Map a canonical localized URL to its generated HTML file."""
     parts = [part for part in urlparse(url).path.strip("/").split("/") if part]
-    if not parts or parts[0] not in LANGUAGES:
+    if not parts:
+        return ROOT / "index.html"
+    if parts[0] not in LANGUAGES:
         return None
     if len(parts) == 1:
         return ROOT / parts[0] / "index.html"
@@ -274,6 +276,7 @@ def main() -> int:
     weak_product_copy: list[str] = []
     scanned = 0
     hreflang_pages = 0
+    canonical_cache: dict[Path, list[str]] = {}
     image_count = 0
     product_schema_count = 0
 
@@ -291,6 +294,7 @@ def main() -> int:
         label = path.relative_to(ROOT).as_posix()
 
         canonicals = canonical_values(raw)
+        canonical_cache[path] = canonicals
         expected_url = expected_canonical(path)
         if len(canonicals) != 1 or not canonicals[0]:
             errors.append(f"{label}: expected exactly one non-empty canonical URL, found {len(canonicals)}")
@@ -323,8 +327,11 @@ def main() -> int:
                     )
                     continue
 
-                target_raw = target_path.read_text(encoding="utf-8", errors="ignore")
-                target_canonicals = canonical_values(target_raw)
+                target_canonicals = canonical_cache.get(target_path)
+                if target_canonicals is None:
+                    target_raw = target_path.read_text(encoding="utf-8", errors="ignore")
+                    target_canonicals = canonical_values(target_raw)
+                    canonical_cache[target_path] = target_canonicals
                 if target_canonicals != [expected_alternate]:
                     errors.append(
                         f"{label}: hreflang={language} target {target_path.relative_to(ROOT)} "
