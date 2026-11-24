@@ -7,11 +7,10 @@ import tempfile
 import unittest
 from pathlib import Path
 
-import seo_contract
-
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "audit"))
 
+import seo_contract  # noqa: E402
 from seo_contract import (  # noqa: E402
     alternate_page_path,
     alternate_values,
