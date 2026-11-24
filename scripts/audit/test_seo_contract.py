@@ -12,6 +12,8 @@ sys.path.insert(0, str(ROOT / "scripts" / "audit"))
 from seo_contract import (  # noqa: E402
     alternate_page_path,
     alternate_values,
+    canonical_target_from_anchor,
+    internal_anchor_hrefs,
     duplicate_product_meta_groups,
     duplicate_title_groups,
     embedded_product_record,
@@ -166,6 +168,64 @@ class WarningSummaryTests(unittest.TestCase):
                 "title length": 1,
             },
         )
+
+
+class InternalDiscoveryTests(unittest.TestCase):
+    def test_anchor_extractor_ignores_link_tags_and_non_anchor_hrefs(self) -> None:
+        raw = (
+            '<link rel="canonical" href="https://www.souviks.co.in/en/products">'
+            '<link rel="alternate" hreflang="bn" href="https://www.souviks.co.in/bn/products">'
+            '<a href="/en/products/part">Part</a>'
+            "<a href='https://www.souviks.co.in/hi/products/part'>Hindi</a>"
+            '<button data-href="/en/products/other">Other</button>'
+        )
+        self.assertEqual(
+            internal_anchor_hrefs(raw),
+            [
+                "/en/products/part",
+                "https://www.souviks.co.in/hi/products/part",
+            ],
+        )
+
+    def test_canonical_internal_anchor_targets_are_normalized(self) -> None:
+        self.assertEqual(
+            canonical_target_from_anchor("/en/products/part"),
+            "https://www.souviks.co.in/en/products/part",
+        )
+        self.assertEqual(
+            canonical_target_from_anchor("https://www.souviks.co.in/bn/products/part"),
+            "https://www.souviks.co.in/bn/products/part",
+        )
+        self.assertEqual(
+            canonical_target_from_anchor("/"),
+            "https://www.souviks.co.in/",
+        )
+        self.assertEqual(
+            canonical_target_from_anchor("/en/"),
+            "https://www.souviks.co.in/",
+        )
+        self.assertEqual(
+            canonical_target_from_anchor("/bn/"),
+            "https://www.souviks.co.in/bn/",
+        )
+
+    def test_noncanonical_or_nonindexable_links_do_not_count_as_discovery(self) -> None:
+        for href in (
+            "http://www.souviks.co.in/en/products/part",
+            "https://souviks.co.in/en/products/part",
+            "https://external.example/en/products/part",
+            "/en/products/part?brand_id=bosch",
+            "/en/request-part?product_id=SVKS000001",
+            "/en/products/part#specifications",
+            "/en/products/part.html",
+            "/products/part",
+            "/brands/example",
+            "mailto:sales@souviks.co.in",
+            "javascript:void(0)",
+        ):
+            with self.subTest(href=href):
+                self.assertEqual(canonical_target_from_anchor(href), "")
+
 
 
 class HreflangContractTests(unittest.TestCase):
