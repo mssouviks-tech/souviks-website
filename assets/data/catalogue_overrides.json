@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "source": "Alok Price List 151",
-  "source_effective_date": "2026-01-20",
-  "reconciliation_note": "All 15 Alok SKUs retain the original Alok pricing ratio: selling price = 5/6 of printed MRP (equivalent to a 16.67% discount, with currency values rounded to 2 decimals). MRP is the only pricing basis; dealer-list values are not used in the selling-price calculation.",
+  "source": "Alok Price List 151; Lucas TVS Price List (May 2024)",
+  "source_effective_date": "Multiple source dates; see source_documents",
+  "reconciliation_note": "Alok: all 15 SKUs retain selling price = 5/6 of printed MRP; dealer-list values are excluded from selling-price calculations. Lucas TVS: seven exact part-number matches updated by increasing existing catalogue MRP and selling price by 19%, preserving the exact existing ratio and displayed 12% discount. All 10 active Lucas TVS catalogue products already carry approved GST rate 18%; no GST-rate change was required. Three active Lucas TVS SKUs do not occur in the supplied May 2024 list and were left unchanged.",
   "field_updates": [
     {
       "id": "SVKS000224",
@@ -349,6 +349,67 @@
         "Sales unit: each"
       ],
       "description": "Alok 1012-R is the right-hand drag-link end listed for Tata 3118 EX and Tata LPT. Specification: M30 × 1.5 RH housing thread, thin M20 × 1.5 ball pin and 30 mm spanner. OE reference: 501346990104. Supplied individually."
+    },
+    {
+      "id": "SVKS000619",
+      "part_number": "26215686",
+      "mrp": 1093.24,
+      "selling_price": 967.47,
+      "discount_percent": 12
+    },
+    {
+      "id": "SVKS000620",
+      "part_number": "26248010",
+      "mrp": 4371.62,
+      "selling_price": 3868.69,
+      "discount_percent": 12
+    },
+    {
+      "id": "SVKS000621",
+      "part_number": "26212684",
+      "mrp": 2995.99,
+      "selling_price": 2651.32,
+      "discount_percent": 12
+    },
+    {
+      "id": "SVKS000622",
+      "part_number": "26216033",
+      "mrp": 1450.93,
+      "selling_price": 1284.01,
+      "discount_percent": 12
+    },
+    {
+      "id": "SVKS000623",
+      "part_number": "26247149",
+      "mrp": 1620.36,
+      "selling_price": 1433.95,
+      "discount_percent": 12
+    },
+    {
+      "id": "SVKS000624",
+      "part_number": "26218362",
+      "mrp": 1293.6,
+      "selling_price": 1144.78,
+      "discount_percent": 12
+    },
+    {
+      "id": "SVKS000626",
+      "part_number": "26247137",
+      "mrp": 2033.19,
+      "selling_price": 1799.28,
+      "discount_percent": 12
+    }
+  ],
+  "source_documents": [
+    {
+      "brand": "Alok",
+      "document": "Alok Price List 151",
+      "effective_date": "2026-01-20"
+    },
+    {
+      "brand": "Lucas TVS",
+      "document": "Lucas TVS Price List - w.e.f. May 2024",
+      "effective_date": "May 2024 (as printed)"
     }
   ]
 }
