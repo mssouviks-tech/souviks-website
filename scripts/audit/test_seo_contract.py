@@ -28,6 +28,82 @@ from seo_contract import (  # noqa: E402
 
 
 
+class LocalizedEntityCopyAuditTests(unittest.TestCase):
+    def test_extracts_only_the_entity_introduction_after_the_h1(self) -> None:
+        raw = """
+        <div class="vehicle-info">
+          <h1>Tata LPT</h1>
+          <p>Souviks lists parts for Tata LPT, a Tata Motors application.</p>
+          <div>Products: 332</div>
+        </div>
+        """
+        record = seo_contract.localized_entity_intro_record(
+            ROOT / "hi" / "vehicles" / "tata-lpt.html",
+            raw,
+        )
+        self.assertIsNotNone(record)
+        self.assertEqual(record["entity_type"], "vehicle")
+        self.assertEqual(record["entity_slug"], "tata-lpt")
+        self.assertEqual(record["language"], "hi")
+        self.assertEqual(
+            record["introduction"],
+            "Souviks lists parts for Tata LPT, a Tata Motors application.",
+        )
+
+    def test_reports_identical_introductions_by_locale_and_entity_type(self) -> None:
+        shared = "Filters covers active commercial-vehicle spare parts across recorded applications."
+        entries = [
+            {"entity_type": "category", "entity_slug": "filters", "language": "en",
+             "canonical": "https://www.souviks.co.in/en/categories/filters", "introduction": shared,
+             "title": "Filters | Souviks", "h1": "Filters"},
+            {"entity_type": "category", "entity_slug": "filters", "language": "hi",
+             "canonical": "https://www.souviks.co.in/hi/categories/filters", "introduction": shared,
+             "title": "Filters स्पेयर पार्ट्स | Souviks", "h1": "Filters"},
+            {"entity_type": "category", "entity_slug": "filters", "language": "bn",
+             "canonical": "https://www.souviks.co.in/bn/categories/filters", "introduction": shared,
+             "title": "Filters স্পেয়ার পার্টস | Souviks", "h1": "Filters"},
+            {"entity_type": "brand", "entity_slug": "skf", "language": "en",
+             "canonical": "https://www.souviks.co.in/en/brands/skf", "introduction": shared},
+            {"entity_type": "brand", "entity_slug": "skf", "language": "hi",
+             "canonical": "https://www.souviks.co.in/hi/brands/skf",
+             "introduction": "Souviks पर SKF के सक्रिय पार्ट्स उपलब्ध हैं।"},
+            {"entity_type": "vehicle", "entity_slug": "tata-lpt", "language": "hi",
+             "canonical": "https://www.souviks.co.in/hi/vehicles/tata-lpt", "introduction": shared},
+        ]
+
+        result = seo_contract.localized_entity_copy_audit(entries)
+        self.assertEqual(result["entities_compared"], 2)
+        self.assertEqual(result["localized_pages_compared"], 3)
+        self.assertEqual(result["pages_with_introduction_identical_to_english"], 2)
+        self.assertEqual(result["identical_by_language"], {"bn": 1, "hi": 1})
+        self.assertEqual(
+            [(item["entity_type"], item["language"], item["entity_slug"])
+             for item in result["records"]],
+            [("category", "bn", "filters"), ("category", "hi", "filters")],
+        )
+        self.assertEqual(result["records"][0]["h1_matches_english"], "true")
+        self.assertEqual(result["records"][0]["title_matches_english"], "false")
+
+    def test_missing_english_counterpart_is_not_compared(self) -> None:
+        result = seo_contract.localized_entity_copy_audit([
+            {"entity_type": "brand", "entity_slug": "skf", "language": "hi",
+             "introduction": "ब्रांड के पुर्जे।"},
+        ])
+        self.assertEqual(result["entities_compared"], 0)
+        self.assertEqual(result["localized_pages_compared"], 0)
+        self.assertEqual(result["pages_with_introduction_identical_to_english"], 0)
+
+    def test_non_entity_and_empty_introduction_records_are_ignored(self) -> None:
+        result = seo_contract.localized_entity_copy_audit([
+            {"entity_type": "product", "entity_slug": "part", "language": "en",
+             "introduction": "Description."},
+            {"entity_type": "vehicle", "entity_slug": "model", "language": "en",
+             "introduction": "   "},
+        ])
+        self.assertEqual(result["entities_compared"], 0)
+        self.assertEqual(result["records"], [])
+
+
 class LocalizedProductCopyAuditTests(unittest.TestCase):
     def test_reports_only_localized_descriptions_identical_to_english(self) -> None:
         records = [
