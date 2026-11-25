@@ -4024,7 +4024,7 @@ def sync_product_seo_and_schema():
                         continue
                     items = node.get("itemListElement")
                     if isinstance(items, list) and items and isinstance(items[0], dict):
-                        home_url = f"{BASE}/" if lang == "en" else f"{BASE}/{lang}/"
+                        home_url = f"{BASE}/{lang}/"
                         if items[0].get("item") != home_url:
                             items[0]["item"] = home_url
                             updated = True
@@ -4096,7 +4096,7 @@ def sync_product_seo_and_schema():
                             "@type": "ListItem",
                             "position": 1,
                             "name": "Home",
-                            "item": f"{BASE}/" if lang == "en" else f"{BASE}/{lang}/",
+                            "item": f"{BASE}/{lang}/",
                         },
                         {
                             "@type": "ListItem",

@@ -90,6 +90,7 @@ jobs:
               "scripts/audit/test_product_checkout_actions.py",
               "scripts/audit/test_navigation_dropdowns.py",
               "scripts/audit/test_seo_contract.py",
+              "scripts/audit/test_product_breadcrumb_home.py",
               "scripts/audit/test_entity_titles.py",
               "scripts/audit/test_vehicle_page_layout.py",
               "scripts/audit/test_application_public_display.py",
@@ -178,6 +179,7 @@ jobs:
           python3 scripts/audit/test_product_seo.py
           python3 scripts/audit/test_product_title.py
           python3 scripts/audit/test_seo_contract.py
+          python3 scripts/audit/test_product_breadcrumb_home.py
           python3 scripts/audit/test_entity_titles.py
           python3 scripts/audit/test_vehicle_page_layout.py
           python3 scripts/audit/structured_data.py

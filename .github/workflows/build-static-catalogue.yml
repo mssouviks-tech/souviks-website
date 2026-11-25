@@ -158,6 +158,7 @@ jobs:
               "scripts/audit/test_product_checkout_actions.py",
               "scripts/audit/test_navigation_dropdowns.py",
               "scripts/audit/test_seo_contract.py",
+              "scripts/audit/test_product_breadcrumb_home.py",
               "scripts/audit/test_entity_titles.py",
               "scripts/audit/build_hsn_verification_worklist.py",
               "scripts/audit/test_hsn_verification_worklist.py",
@@ -189,6 +190,7 @@ jobs:
             python3 scripts/audit/test_product_seo.py
             python3 scripts/audit/test_product_title.py
             python3 scripts/audit/test_seo_contract.py
+            python3 scripts/audit/test_product_breadcrumb_home.py
             python3 scripts/audit/test_entity_titles.py
             python3 scripts/audit/test_hsn_verification_worklist.py
             python3 scripts/audit/test_application_public_display.py
@@ -259,6 +261,7 @@ jobs:
             python3 scripts/audit/test_product_seo.py
             python3 scripts/audit/test_product_title.py
             python3 scripts/audit/test_seo_contract.py
+            python3 scripts/audit/test_product_breadcrumb_home.py
             python3 scripts/audit/test_entity_titles.py
             python3 scripts/audit/test_hsn_verification_worklist.py
             python3 scripts/audit/test_application_public_display.py
