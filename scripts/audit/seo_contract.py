@@ -115,6 +115,13 @@ def sitemap_internal_discovery(inbound_sources: dict[str, set[str]]) -> dict[str
 
     zero = [record for record in records if record["inbound_anchor_pages"] == 0]
     low = [record for record in records if record["inbound_anchor_pages"] <= 2]
+    # Preserve the exact canonical source pages for low-coverage URLs. This
+    # turns a count-only warning into an actionable list without inflating the
+    # report for every normally linked sitemap URL.
+    for record in low:
+        record["inbound_source_pages"] = sorted(
+            inbound_sources.get(str(record["url"]), set())
+        )
     by_language = Counter(str(record["language"]) for record in zero)
     by_type = Counter(str(record["type"]) for record in zero)
     return {
