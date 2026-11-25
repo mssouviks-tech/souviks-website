@@ -89,6 +89,7 @@ class LocalizedEntityCopyAuditTests(unittest.TestCase):
             {"entity_type": "brand", "entity_slug": "skf", "language": "hi",
              "introduction": "ब्रांड के पुर्जे।"},
         ])
+        self.assertEqual(result["entities_compared"], 0)
         self.assertEqual(result["localized_pages_compared"], 0)
         self.assertEqual(result["pages_with_introduction_identical_to_english"], 0)
 
