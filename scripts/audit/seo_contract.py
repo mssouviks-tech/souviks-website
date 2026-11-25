@@ -589,8 +589,8 @@ def main() -> int:
                 or label
             )
             product_description = clean(str(product_record.get("description") or ""))
-            h1_values = tags(raw, r"<h1\\b[^>]*>(.*?)</h1>")
-            title_values = tags(raw, r"<title\\b[^>]*>(.*?)</title>")
+            h1_values = tags(raw, r"<h1\b[^>]*>(.*?)</h1>")
+            title_values = tags(raw, r"<title\b[^>]*>(.*?)</title>")
             localized_product_records.append({
                 "product_id": product_id,
                 "language": language,
