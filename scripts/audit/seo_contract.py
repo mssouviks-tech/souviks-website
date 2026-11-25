@@ -269,6 +269,8 @@ def warning_category(warning: str) -> str:
     """Classify SEO review warnings so the log exposes actionable totals."""
     if warning.startswith("duplicate page title "):
         return "duplicate page title"
+    if warning.startswith("localized product descriptions identical to English:"):
+        return "localized product description identical to English"
     if warning.startswith("duplicate product meta description "):
         return "duplicate product meta description"
     if "meta description length " in warning:
@@ -340,6 +342,82 @@ def duplicate_product_meta_groups(
 
 
 
+def localized_product_copy_audit(entries: list[dict[str, str]]) -> dict[str, object]:
+    """Identify localized PDPs whose full product descriptions duplicate English.
+
+    Product names, part numbers, brand labels and technical terms can correctly
+    remain unchanged between locales. This review therefore compares the full
+    product-description field only, and never recommends canonical changes.
+    """
+    by_product: dict[str, dict[str, dict[str, str]]] = defaultdict(dict)
+    for entry in entries:
+        product_id = str(entry.get("product_id") or "").strip()
+        language = str(entry.get("language") or "").strip().lower()
+        description = clean(str(entry.get("description") or ""))
+        if not product_id or language not in {"en", "hi", "bn"} or not description:
+            continue
+        candidate = dict(entry)
+        current = by_product[product_id].get(language)
+        # Prefer the canonical static route when duplicate files happen to
+        # carry the same product ID and locale.
+        if current is None or (
+            not current.get("canonical") and candidate.get("canonical")
+        ):
+            by_product[product_id][language] = candidate
+
+    records: list[dict[str, str]] = []
+    compared_by_language: Counter[str] = Counter()
+    identical_by_language: Counter[str] = Counter()
+    for product_id, locales in by_product.items():
+        english = locales.get("en")
+        if not english:
+            continue
+        english_description = clean(english.get("description", ""))
+        if not english_description:
+            continue
+        for language in ("hi", "bn"):
+            localized = locales.get(language)
+            if not localized:
+                continue
+            localized_description = clean(localized.get("description", ""))
+            if not localized_description:
+                continue
+            compared_by_language[language] += 1
+            if localized_description.casefold() != english_description.casefold():
+                continue
+            identical_by_language[language] += 1
+            records.append({
+                "product_id": product_id,
+                "language": language,
+                "url": str(localized.get("canonical") or localized.get("path") or ""),
+                "english_url": str(english.get("canonical") or english.get("path") or ""),
+                "slug": str(localized.get("slug") or english.get("slug") or ""),
+                "product_name": str(localized.get("product_name") or english.get("product_name") or ""),
+                "brand": str(localized.get("brand") or english.get("brand") or ""),
+                "part_number": str(localized.get("part_number") or english.get("part_number") or ""),
+                "description": localized_description,
+                "english_description": english_description,
+                "title_matches_english": str(
+                    clean(localized.get("title", "")).casefold()
+                    == clean(english.get("title", "")).casefold()
+                ).lower(),
+                "h1_matches_english": str(
+                    clean(localized.get("h1", "")).casefold()
+                    == clean(english.get("h1", "")).casefold()
+                ).lower(),
+            })
+
+    records.sort(key=lambda item: (item["language"], item["product_id"], item["url"]))
+    return {
+        "products_compared": len(by_product),
+        "localized_pages_compared": sum(compared_by_language.values()),
+        "pages_with_description_identical_to_english": len(records),
+        "identical_by_language": dict(sorted(identical_by_language.items())),
+        "compared_by_language": dict(sorted(compared_by_language.items())),
+        "records": records,
+    }
+
+
 def embedded_product_record(raw: str) -> dict[str, object]:
     """Parse the structured product record embedded in a generated product page."""
     match = re.search(
@@ -369,6 +447,7 @@ def main() -> int:
     warnings: list[str] = []
     seen_title_entries: list[tuple[str, str, str, str]] = []
     product_meta_records: list[dict[str, str]] = []
+    localized_product_records: list[dict[str, str]] = []
     weak_product_copy: list[str] = []
     scanned = 0
     hreflang_pages = 0
@@ -489,26 +568,58 @@ def main() -> int:
             embedded_product_record(raw) if is_product_page else {}
         )
 
-        if is_product_page and descriptions and descriptions[0]:
+        if is_product_page and product_record:
             language = route_parts[0]
             product_seo = product_record.get("seo", {})
             if not isinstance(product_seo, dict):
                 product_seo = {}
-            product_meta_records.append({
+            product_id = str(product_record.get("id") or "")
+            product_slug = str(product_record.get("slug") or path.stem)
+            product_name = str(product_record.get("product_name") or product_record.get("name") or "")
+            product_brand = str(product_record.get("brand_name") or product_record.get("brand") or "")
+            product_part = str(
+                product_record.get("manufacturer_part_number")
+                or product_record.get("part_number")
+                or product_record.get("partNumber")
+                or ""
+            )
+            canonical = str(
+                product_seo.get("canonical")
+                or (canonicals[0] if len(canonicals) == 1 else "")
+                or label
+            )
+            product_description = clean(str(product_record.get("description") or ""))
+            h1_values = tags(raw, r"<h1\\b[^>]*>(.*?)</h1>")
+            title_values = tags(raw, r"<title\\b[^>]*>(.*?)</title>")
+            localized_product_records.append({
+                "product_id": product_id,
                 "language": language,
-                "snippet": clean(descriptions[0]),
+                "slug": product_slug,
+                "canonical": canonical,
                 "path": label,
-                "slug": str(product_record.get("slug") or path.stem),
-                "canonical": str((product_seo.get("canonical") or (canonicals[0] if len(canonicals) == 1 else "")) or label),
-                "product_id": str(product_record.get("id") or ""),
-                "brand": str(product_record.get("brand_name") or product_record.get("brand") or ""),
-                "part_number": str(product_record.get("manufacturer_part_number") or product_record.get("part_number") or product_record.get("partNumber") or ""),
-                "product_name": str(product_record.get("product_name") or product_record.get("name") or ""),
+                "brand": product_brand,
+                "part_number": product_part,
+                "product_name": product_name,
+                "title": clean(title_values[0]) if title_values else "",
+                "h1": clean(h1_values[0]) if h1_values else "",
+                "description": product_description,
             })
+
+            if descriptions and descriptions[0]:
+                product_meta_records.append({
+                    "language": language,
+                    "snippet": clean(descriptions[0]),
+                    "path": label,
+                    "slug": product_slug,
+                    "canonical": canonical,
+                    "product_id": product_id,
+                    "brand": product_brand,
+                    "part_number": product_part,
+                    "product_name": product_name,
+                })
 
             # Generic product-description copy is review-only: sparse source
             # data must remain publishable while the catalogue is improved.
-            product_description = clean(str(product_record.get("description") or ""))
             weak_phrases = (
                 "supports the mechanical linkage or assembly identified by the product name",
                 "allowing its connected parts to",
@@ -585,6 +696,18 @@ def main() -> int:
             f"{discovery_audit['sitemap_urls_scanned']}"
         )
 
+    localized_copy_audit = localized_product_copy_audit(localized_product_records)
+    if localized_copy_audit["pages_with_description_identical_to_english"]:
+        by_language = localized_copy_audit["identical_by_language"]
+        breakdown = ", ".join(
+            f"{language}={count}" for language, count in sorted(by_language.items())
+        )
+        warnings.append(
+            "localized product descriptions identical to English: "
+            f"{localized_copy_audit['pages_with_description_identical_to_english']} "
+            f"pages ({breakdown})"
+        )
+
     duplicate_meta_groups = duplicate_product_meta_groups(product_meta_records)
     for group in duplicate_meta_groups:
         products = group["products"]
@@ -616,12 +739,15 @@ def main() -> int:
                 "seo_image_elements": image_count,
                 "product_schema_nodes": product_schema_count,
                 "weak_boilerplate_product_pages": len(weak_product_copy),
+                "localized_product_pages_compared_to_english": localized_copy_audit["localized_pages_compared"],
+                "localized_product_descriptions_identical_to_english": localized_copy_audit["pages_with_description_identical_to_english"],
                 "warning_count": len(warnings),
                 "warning_breakdown": warning_breakdown(warnings),
                 "blocking_error_count": len(errors),
             },
             "warnings": warnings,
             "duplicate_product_meta_description_groups": duplicate_meta_groups,
+            "localized_product_copy_audit": localized_copy_audit,
             "duplicate_page_titles": [
                 {"language": language, "title": title, "paths": paths}
                 for language, title, paths in duplicate_titles
@@ -643,7 +769,8 @@ def main() -> int:
         f"{discovery_audit['with_internal_anchor_links']}/{discovery_audit['sitemap_urls_scanned']} sitemap URLs "
         "with direct internal anchor links, "
         f"{image_count} SEO image elements, and {product_schema_count} Product schema nodes; "
-        f"{len(weak_product_copy)} weak-boilerplate product descriptions."
+        f"{len(weak_product_copy)} weak-boilerplate product descriptions, "
+        f"{localized_copy_audit['pages_with_description_identical_to_english']} localized product descriptions identical to English."
     )
     if warnings:
         print(f"SEO review warnings: {len(warnings)}")
