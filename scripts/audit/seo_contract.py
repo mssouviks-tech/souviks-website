@@ -409,7 +409,14 @@ def localized_product_copy_audit(entries: list[dict[str, str]]) -> dict[str, obj
                 ).lower(),
             })
 
-    records.sort(key=lambda item: (item["language"], item["product_id"], item["url"]))
+    language_order = {"hi": 0, "bn": 1}
+    records.sort(
+        key=lambda item: (
+            language_order.get(item["language"], 99),
+            item["product_id"],
+            item["url"],
+        )
+    )
     return {
         "products_compared": len(by_product),
         "localized_pages_compared": sum(compared_by_language.values()),
@@ -540,8 +547,13 @@ def localized_entity_copy_audit(entries: list[dict[str, str]]) -> dict[str, obje
     records.sort(key=lambda item: (
         item["entity_type"], item["language"], item["entity_slug"], item["url"]
     ))
+    comparable_entities = sum(
+        1
+        for locales in by_entity.values()
+        if locales.get("en") and any(locales.get(language) for language in ("hi", "bn"))
+    )
     return {
-        "entities_compared": len(by_entity),
+        "entities_compared": comparable_entities,
         "localized_pages_compared": sum(compared_by_language.values()),
         "pages_with_introduction_identical_to_english": len(records),
         "identical_by_language": dict(sorted(identical_by_language.items())),
