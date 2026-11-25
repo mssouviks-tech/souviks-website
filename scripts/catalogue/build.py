@@ -775,6 +775,30 @@ def reconcile_catalogue_projections():
         if not isinstance(dimension_records, list):
             raise SystemExit("Product dimension specifications must contain a products array")
 
+        # Catalogue name overrides are applied later in this build. Use any pending,
+        # source-backed product-name override for dimension identity validation so
+        # a legitimate catalogue rename does not fail against the pre-override name.
+        pending_name_updates = {}
+        pending_catalogue_override_path = ROOT / "assets/data/catalogue_overrides.json"
+        if pending_catalogue_override_path.exists():
+            try:
+                pending_catalogue_override = json.loads(
+                    pending_catalogue_override_path.read_text(encoding="utf-8")
+                )
+            except (OSError, json.JSONDecodeError) as exc:
+                raise SystemExit(f"Invalid catalogue override file: {exc}")
+            for pending_update in pending_catalogue_override.get("field_updates", []):
+                if not isinstance(pending_update, dict):
+                    continue
+                pending_id = text(pending_update.get("id"))
+                pending_name_value = (
+                    pending_update.get("product_name")
+                    if "product_name" in pending_update
+                    else pending_update.get("name")
+                )
+                if pending_id and pending_name_value is not None:
+                    pending_name_updates[pending_id] = text(pending_name_value)
+
         dimension_products_by_id = {
             text(product.get("id")): product
             for product in catalogue
@@ -798,7 +822,9 @@ def reconcile_catalogue_projections():
             if product is None or product.get("active") is False:
                 raise SystemExit(f"Dimension record references an unknown/inactive product: {pid}")
             actual_part_number = text(product.get("part_number") or product.get("partNumber"))
-            actual_product_name = text(product.get("product_name") or product.get("name"))
+            actual_product_name = pending_name_updates.get(
+                pid, text(product.get("product_name") or product.get("name"))
+            )
             if actual_part_number != expected_part_number:
                 raise SystemExit(
                     f"Dimension part-number mismatch for {pid}: "
