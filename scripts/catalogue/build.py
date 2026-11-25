@@ -1101,7 +1101,10 @@ def reconcile_catalogue_projections():
                 raise SystemExit(f"Field update references unknown catalogue product: {pid}")
             unknown_fields = set(field_update) - {
                 "id", "part_number", "partNumber", "mrp", "selling_price",
-                "discount_percent", "discountPercent",
+                "discount_percent", "discountPercent", "product_name", "name",
+                "description", "manufacturer_part_number", "manufacturer_part_numbers",
+                "oem_numbers", "alternate_part_numbers", "cross_references",
+                "vehicles", "applications",
             }
             if unknown_fields:
                 raise SystemExit(
@@ -1117,6 +1120,43 @@ def reconcile_catalogue_projections():
                     raise SystemExit(f"Part number update is empty for catalogue product: {pid}")
                 current["part_number"] = part_number
                 current["partNumber"] = part_number
+
+            # Source-backed SKU metadata corrections are applied narrowly so
+            # existing catalogue identity, images, taxonomy, GST and HSN data
+            # remain untouched.
+            for string_field in (
+                "product_name", "name", "description", "manufacturer_part_number",
+            ):
+                if string_field in field_update:
+                    value = text(field_update[string_field])
+                    if string_field in {"product_name", "name", "description"} and not value:
+                        raise SystemExit(
+                            f"{string_field} update is empty for catalogue product {pid}"
+                        )
+                    current[string_field] = value
+
+            if "product_name" in field_update and "name" not in field_update:
+                current["name"] = current["product_name"]
+            if "name" in field_update and "product_name" not in field_update:
+                current["product_name"] = current["name"]
+
+            for list_field in (
+                "manufacturer_part_numbers", "oem_numbers", "alternate_part_numbers",
+                "cross_references", "vehicles", "applications",
+            ):
+                if list_field not in field_update:
+                    continue
+                values = field_update[list_field]
+                if not isinstance(values, list):
+                    raise SystemExit(
+                        f"{list_field} update must be a list for catalogue product {pid}"
+                    )
+                normalized = [text(value) for value in values]
+                if any(not value for value in normalized):
+                    raise SystemExit(
+                        f"{list_field} update contains an empty value for catalogue product {pid}"
+                    )
+                current[list_field] = normalized
 
             price_updated = False
             for price_field in ("mrp", "selling_price"):
