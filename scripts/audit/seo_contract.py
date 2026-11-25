@@ -269,6 +269,8 @@ def warning_category(warning: str) -> str:
     """Classify SEO review warnings so the log exposes actionable totals."""
     if warning.startswith("duplicate page title "):
         return "duplicate page title"
+    if warning.startswith("localized entity introductions identical to English:"):
+        return "localized entity introduction identical to English"
     if warning.startswith("localized product descriptions identical to English:"):
         return "localized product description identical to English"
     if warning.startswith("duplicate product meta description "):
@@ -418,6 +420,136 @@ def localized_product_copy_audit(entries: list[dict[str, str]]) -> dict[str, obj
     }
 
 
+def localized_entity_intro_record(path: Path, raw: str) -> dict[str, str] | None:
+    """Extract the explanatory paragraph from a localized entity detail block."""
+    parts = path.relative_to(ROOT).parts
+    if (
+        len(parts) != 3
+        or parts[0] not in LANGUAGES
+        or parts[1] not in {"brands", "categories", "vehicles"}
+    ):
+        return None
+
+    entity_type = {
+        "brands": "brand",
+        "categories": "category",
+        "vehicles": "vehicle",
+    }[parts[1]]
+    info_class = {
+        "brand": "brand-info",
+        "category": "category-info",
+        "vehicle": "vehicle-info",
+    }[entity_type]
+    container_match = re.search(
+        rf'<div[^>]+class="[^"]*\b{re.escape(info_class)}\b[^"]*"[^>]*>(.*?)</div>',
+        raw,
+        flags=re.I | re.S,
+    )
+    if not container_match:
+        return None
+
+    paragraphs = tags(container_match.group(1), r"<p\b[^>]*>(.*?)</p>")
+    if not paragraphs:
+        return None
+    introduction = clean(paragraphs[0])
+    if not introduction:
+        return None
+
+    canonicals = canonical_values(raw)
+    h1_values = tags(raw, r"<h1\b[^>]*>(.*?)</h1>")
+    title_values = tags(raw, r"<title\b[^>]*>(.*?)</title>")
+    return {
+        "entity_type": entity_type,
+        "entity_slug": Path(parts[2]).stem,
+        "language": parts[0],
+        "canonical": canonicals[0] if len(canonicals) == 1 else "",
+        "path": path.relative_to(ROOT).as_posix(),
+        "title": clean(title_values[0]) if title_values else "",
+        "h1": clean(h1_values[0]) if h1_values else "",
+        "introduction": introduction,
+    }
+
+
+def localized_entity_copy_audit(entries: list[dict[str, str]]) -> dict[str, object]:
+    """Report Hindi/Bengali entity introductions that exactly duplicate English.
+
+    Brand names, vehicle names, category names and technical terminology may
+    legitimately remain in English. Only the explanatory paragraph from each
+    entity detail block is compared. This is diagnostic and never recommends
+    canonical or hreflang changes.
+    """
+    by_entity: dict[tuple[str, str], dict[str, dict[str, str]]] = defaultdict(dict)
+    for entry in entries:
+        entity_type = str(entry.get("entity_type") or "").strip().lower()
+        entity_slug = str(entry.get("entity_slug") or "").strip().lower()
+        language = str(entry.get("language") or "").strip().lower()
+        introduction = clean(str(entry.get("introduction") or ""))
+        if (
+            entity_type not in {"brand", "category", "vehicle"}
+            or not entity_slug
+            or language not in LANGUAGES
+            or not introduction
+        ):
+            continue
+        key = (entity_type, entity_slug)
+        candidate = dict(entry)
+        current = by_entity[key].get(language)
+        if current is None or (
+            not current.get("canonical") and candidate.get("canonical")
+        ):
+            by_entity[key][language] = candidate
+
+    records: list[dict[str, str]] = []
+    compared_by_language: Counter[str] = Counter()
+    identical_by_language: Counter[str] = Counter()
+    for (entity_type, entity_slug), locales in by_entity.items():
+        english = locales.get("en")
+        if not english:
+            continue
+        english_intro = clean(english.get("introduction", ""))
+        if not english_intro:
+            continue
+        for language in ("hi", "bn"):
+            localized = locales.get(language)
+            if not localized:
+                continue
+            localized_intro = clean(localized.get("introduction", ""))
+            if not localized_intro:
+                continue
+            compared_by_language[language] += 1
+            if localized_intro.casefold() != english_intro.casefold():
+                continue
+            records.append({
+                "entity_type": entity_type,
+                "entity_slug": entity_slug,
+                "language": language,
+                "url": str(localized.get("canonical") or localized.get("path") or ""),
+                "english_url": str(english.get("canonical") or english.get("path") or ""),
+                "h1_matches_english": str(
+                    clean(localized.get("h1", "")).casefold()
+                    == clean(english.get("h1", "")).casefold()
+                ).lower(),
+                "title_matches_english": str(
+                    clean(localized.get("title", "")).casefold()
+                    == clean(english.get("title", "")).casefold()
+                ).lower(),
+                "introduction": localized_intro,
+            })
+            identical_by_language[language] += 1
+
+    records.sort(key=lambda item: (
+        item["entity_type"], item["language"], item["entity_slug"], item["url"]
+    ))
+    return {
+        "entities_compared": len(by_entity),
+        "localized_pages_compared": sum(compared_by_language.values()),
+        "pages_with_introduction_identical_to_english": len(records),
+        "identical_by_language": dict(sorted(identical_by_language.items())),
+        "compared_by_language": dict(sorted(compared_by_language.items())),
+        "records": records,
+    }
+
+
 def embedded_product_record(raw: str) -> dict[str, object]:
     """Parse the structured product record embedded in a generated product page."""
     match = re.search(
@@ -448,6 +580,7 @@ def main() -> int:
     seen_title_entries: list[tuple[str, str, str, str]] = []
     product_meta_records: list[dict[str, str]] = []
     localized_product_records: list[dict[str, str]] = []
+    localized_entity_records: list[dict[str, str]] = []
     weak_product_copy: list[str] = []
     scanned = 0
     hreflang_pages = 0
@@ -468,6 +601,9 @@ def main() -> int:
             continue
         scanned += 1
         label = path.relative_to(ROOT).as_posix()
+        entity_record = localized_entity_intro_record(path, raw)
+        if entity_record:
+            localized_entity_records.append(entity_record)
 
         canonicals = canonical_values(raw)
         canonical_cache[path] = canonicals
@@ -708,6 +844,18 @@ def main() -> int:
             f"pages ({breakdown})"
         )
 
+    localized_entity_audit = localized_entity_copy_audit(localized_entity_records)
+    if localized_entity_audit["pages_with_introduction_identical_to_english"]:
+        by_language = localized_entity_audit["identical_by_language"]
+        breakdown = ", ".join(
+            f"{language}={count}" for language, count in sorted(by_language.items())
+        )
+        warnings.append(
+            "localized entity introductions identical to English: "
+            f"{localized_entity_audit['pages_with_introduction_identical_to_english']} "
+            f"pages ({breakdown})"
+        )
+
     duplicate_meta_groups = duplicate_product_meta_groups(product_meta_records)
     for group in duplicate_meta_groups:
         products = group["products"]
@@ -741,6 +889,8 @@ def main() -> int:
                 "weak_boilerplate_product_pages": len(weak_product_copy),
                 "localized_product_pages_compared_to_english": localized_copy_audit["localized_pages_compared"],
                 "localized_product_descriptions_identical_to_english": localized_copy_audit["pages_with_description_identical_to_english"],
+                "localized_entity_pages_compared_to_english": localized_entity_audit["localized_pages_compared"],
+                "localized_entity_introductions_identical_to_english": localized_entity_audit["pages_with_introduction_identical_to_english"],
                 "warning_count": len(warnings),
                 "warning_breakdown": warning_breakdown(warnings),
                 "blocking_error_count": len(errors),
@@ -748,6 +898,7 @@ def main() -> int:
             "warnings": warnings,
             "duplicate_product_meta_description_groups": duplicate_meta_groups,
             "localized_product_copy_audit": localized_copy_audit,
+            "localized_entity_copy_audit": localized_entity_audit,
             "duplicate_page_titles": [
                 {"language": language, "title": title, "paths": paths}
                 for language, title, paths in duplicate_titles
