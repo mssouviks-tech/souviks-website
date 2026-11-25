@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "Alok Price List 151",
   "source_effective_date": "2026-01-20",
-  "reconciliation_note": "For previously priced products, preserve the historical exact selling-price-to-MRP ratio (5/6; displayed discount rounded to 17%). Three previously on-request SKUs use the same Alok brand ratio because user requested pricing for all listed products.",
+  "reconciliation_note": "All 15 Alok SKUs use selling price = 95% of printed MRP (5% discount, rounded to 2 decimals). MRP is the sole price basis; dealer-list values are excluded from all selling-price calculations. Dealer-list values may only be used in a separate margin sanity check.",
   "field_updates": [
     {
       "id": "SVKS000224",
@@ -10,7 +10,7 @@
       "product_name": "Drag Link End T-3178 III",
       "name": "Drag Link End T-3178 III",
       "mrp": 1102,
-      "selling_price": 918.33,
+      "selling_price": 1046.9,
       "vehicles": [],
       "manufacturer_part_number": "",
       "manufacturer_part_numbers": [],
@@ -32,7 +32,7 @@
       "product_name": "Tie Rod Ends Tata Ace Mega RH/LH Pair",
       "name": "Tie Rod Ends Tata Ace Mega RH/LH Pair",
       "mrp": 696,
-      "selling_price": 580,
+      "selling_price": 661.2,
       "vehicles": [
         "Tata Ace"
       ],
@@ -63,7 +63,7 @@
       "product_name": "Tie Rod Ends Tata Ace HT RH/LH Pair",
       "name": "Tie Rod Ends Tata Ace HT RH/LH Pair",
       "mrp": 593,
-      "selling_price": 494.17,
+      "selling_price": 563.35,
       "vehicles": [
         "Tata Ace"
       ],
@@ -85,7 +85,7 @@
       "id": "SVKS001117",
       "part_number": "723-G",
       "mrp": 301,
-      "selling_price": 250.83,
+      "selling_price": 285.95,
       "manufacturer_part_number": "250726700149",
       "manufacturer_part_numbers": [
         "250726700149"
@@ -108,7 +108,7 @@
       "id": "SVKS001118",
       "part_number": "712-G",
       "mrp": 557,
-      "selling_price": 464.17,
+      "selling_price": 529.15,
       "manufacturer_part_number": "250726700138",
       "manufacturer_part_numbers": [
         "250726700138"
@@ -138,7 +138,7 @@
       "id": "SVKS001119",
       "part_number": "773",
       "mrp": 237,
-      "selling_price": 197.5,
+      "selling_price": 225.15,
       "manufacturer_part_number": "IA233495",
       "manufacturer_part_numbers": [
         "IA233495",
@@ -168,7 +168,7 @@
       "id": "SVKS001120",
       "part_number": "1055",
       "mrp": 466,
-      "selling_price": 388.33,
+      "selling_price": 442.7,
       "manufacturer_part_number": "P2N00005/4",
       "manufacturer_part_numbers": [
         "P2N00005/4"
@@ -197,7 +197,7 @@
       "product_name": "Sonalika Power Steering Repair Kit",
       "name": "Sonalika Power Steering Repair Kit",
       "mrp": 1224,
-      "selling_price": 1020,
+      "selling_price": 1162.8,
       "vehicles": [
         "Tractors"
       ],
@@ -215,7 +215,7 @@
       "id": "SVKS001122",
       "part_number": "728",
       "mrp": 1560,
-      "selling_price": 1300,
+      "selling_price": 1482,
       "vehicles": [
         "Tata LPT",
         "Tata 2416"
@@ -234,7 +234,7 @@
       "id": "SVKS001123",
       "part_number": "9756",
       "mrp": 1447,
-      "selling_price": 1205.83,
+      "selling_price": 1374.65,
       "vehicles": [],
       "applications": [
         "Leyland IVECO 909 / 1613 / Tipper",
@@ -251,7 +251,7 @@
       "id": "SVKS001124",
       "part_number": "975",
       "mrp": 728,
-      "selling_price": 606.67,
+      "selling_price": 691.6,
       "manufacturer_part_number": "P2406551",
       "manufacturer_part_numbers": [
         "P2406551"
@@ -284,7 +284,7 @@
       "id": "SVKS001125",
       "part_number": "750-R-1",
       "mrp": 983,
-      "selling_price": 819.17,
+      "selling_price": 933.85,
       "vehicles": [],
       "applications": [
         "Leyland 1613 Tipper",
@@ -300,7 +300,7 @@
       "id": "SVKS001126",
       "part_number": "750-L-1",
       "mrp": 983,
-      "selling_price": 819.17,
+      "selling_price": 933.85,
       "vehicles": [],
       "applications": [
         "Leyland 1613 Tipper",
@@ -316,7 +316,7 @@
       "id": "SVKS001127",
       "part_number": "1012-L",
       "mrp": 998,
-      "selling_price": 831.67,
+      "selling_price": 948.1,
       "vehicles": [
         "Tata LPT"
       ],
@@ -335,7 +335,7 @@
       "id": "SVKS001128",
       "part_number": "1012-R",
       "mrp": 998,
-      "selling_price": 831.67,
+      "selling_price": 948.1,
       "vehicles": [
         "Tata LPT"
       ],
