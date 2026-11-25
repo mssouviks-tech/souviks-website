@@ -17,12 +17,86 @@ from seo_contract import (  # noqa: E402
     canonical_target_from_anchor,
     internal_anchor_hrefs,
     sitemap_internal_discovery,
+    localized_product_copy_audit,
     duplicate_product_meta_groups,
     duplicate_title_groups,
     embedded_product_record,
     expected_hreflang,
     warning_breakdown,
 )
+
+
+
+
+class LocalizedProductCopyAuditTests(unittest.TestCase):
+    def test_reports_only_localized_descriptions_identical_to_english(self) -> None:
+        records = [
+            {
+                "product_id": "SVKS000050",
+                "language": "en",
+                "slug": "15mm-pu-connector-socket-pvc-straight",
+                "canonical": "https://www.souviks.co.in/en/products/15mm-pu-connector-socket-pvc-straight",
+                "title": "Rider - 15mm PU connector socket PVC Straight | Souviks",
+                "h1": "15mm PU connector socket PVC Straight",
+                "description": "The Rider connector joins air-line ends for compressed air.",
+            },
+            {
+                "product_id": "SVKS000050",
+                "language": "hi",
+                "slug": "15mm-pu-connector-socket-pvc-straight",
+                "canonical": "https://www.souviks.co.in/hi/products/15mm-pu-connector-socket-pvc-straight",
+                "title": "Rider - 15mm PU connector socket PVC Straight | Souviks",
+                "h1": "15mm PU connector socket PVC Straight",
+                "description": "The Rider connector joins air-line ends for compressed air.",
+            },
+            {
+                "product_id": "SVKS000050",
+                "language": "bn",
+                "slug": "15mm-pu-connector-socket-pvc-straight",
+                "canonical": "https://www.souviks.co.in/bn/products/15mm-pu-connector-socket-pvc-straight",
+                "title": "Rider - 15mm PU connector socket PVC Straight | Souviks",
+                "h1": "15mm PU connector socket PVC Straight",
+                "description": "Rider-এর কানেক্টরটি কমপ্রেসড এয়ার লাইনের সংযোগে ব্যবহৃত হয়।",
+            },
+        ]
+        report = localized_product_copy_audit(records)
+        self.assertEqual(report["products_compared"], 1)
+        self.assertEqual(report["localized_pages_compared"], 2)
+        self.assertEqual(report["pages_with_description_identical_to_english"], 1)
+        self.assertEqual(report["identical_by_language"], {"hi": 1})
+        self.assertEqual(report["records"][0]["language"], "hi")
+        self.assertEqual(report["records"][0]["english_url"], records[0]["canonical"])
+        # Identical technical titles/H1s are reported as context, not treated
+        # as a problem by themselves.
+        self.assertEqual(report["records"][0]["title_matches_english"], "true")
+        self.assertEqual(report["records"][0]["h1_matches_english"], "true")
+
+    def test_ignores_products_without_an_english_counterpart_or_with_empty_copy(self) -> None:
+        records = [
+            {"product_id": "ONLY-HI", "language": "hi", "description": "Hindi description"},
+            {"product_id": "EMPTY-EN", "language": "en", "description": ""},
+            {"product_id": "EMPTY-EN", "language": "bn", "description": "Bengali description"},
+        ]
+        report = localized_product_copy_audit(records)
+        self.assertEqual(report["products_compared"], 2)
+        self.assertEqual(report["localized_pages_compared"], 0)
+        self.assertEqual(report["pages_with_description_identical_to_english"], 0)
+        self.assertEqual(report["records"], [])
+
+    def test_uses_one_locale_record_per_product_and_sorts_the_result(self) -> None:
+        records = [
+            {"product_id": "B", "language": "en", "description": "Same description"},
+            {"product_id": "B", "language": "bn", "description": "Same description", "canonical": "https://www.souviks.co.in/bn/products/b"},
+            {"product_id": "A", "language": "en", "description": "Same description"},
+            {"product_id": "A", "language": "hi", "description": "Same description", "canonical": "https://www.souviks.co.in/hi/products/a"},
+            {"product_id": "A", "language": "hi", "description": "Alternate alias", "path": "hi/products/a-alias.html"},
+        ]
+        report = localized_product_copy_audit(records)
+        self.assertEqual(report["pages_with_description_identical_to_english"], 2)
+        self.assertEqual(
+            [(r["language"], r["product_id"]) for r in report["records"]],
+            [("hi", "A"), ("bn", "B")],
+        )
 
 
 class DuplicateTitleAuditTests(unittest.TestCase):
