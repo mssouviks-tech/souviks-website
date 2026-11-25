@@ -110,6 +110,112 @@ def card(label, value):
     return f'<div class="entity-context-card"><span>{esc(label)}</span><strong>{esc(value)}</strong></div>'
 
 
+ENTITY_ROUTE_DIRECTORIES = {
+    "brand": "brands",
+    "category": "categories",
+    "vehicle": "vehicles",
+}
+
+
+def build_entity_link_indexes(brands, categories, vehicles, catalogue=None):
+    """Build exact-match indexes from active, indexable entity master records."""
+    indexes = {}
+    records_by_kind = (
+        ("brand", brands),
+        ("category", categories),
+        ("vehicle", vehicles),
+    )
+    for kind, records in records_by_kind:
+        by_id = {}
+        by_label = {}
+        for record in records:
+            if not isinstance(record, dict) or record.get("active") is False:
+                continue
+            entity_id = clean(record.get("id"))
+            if kind == "vehicle" and catalogue is not None:
+                # Vehicle pages with five or fewer matched products carry noindex.
+                # Do not create internal links to destinations that the site excludes from its sitemap.
+                model = clean(record.get("model") or record.get("name"))
+                matched = sum(
+                    1
+                    for product in catalogue
+                    if product.get("active") is not False
+                    and any(clean(value) in {entity_id, model} for value in (product.get("vehicles") or []))
+                )
+                if matched <= 5:
+                    continue
+            if entity_id:
+                by_id[entity_id] = record
+            for field in ("name", "model"):
+                label = clean(record.get(field))
+                if label:
+                    identity_key = entity_id or f"{kind}:{label.casefold()}"
+                    by_label.setdefault(label.casefold(), {})[identity_key] = record
+        indexes[kind] = {
+            "by_id": by_id,
+            # Repeated name/model fields on one record are one match; labels shared
+            # by distinct active records remain ambiguous and are not linked.
+            "by_label": {
+                label: next(iter(matches.values()))
+                for label, matches in by_label.items()
+                if len(matches) == 1
+            },
+        }
+    return indexes
+
+
+def linked_entity_card(card_label, values, entity_kind, language, entity_indexes):
+    """Link only catalogue relationships that resolve to one active entity record."""
+    route_directory = ENTITY_ROUTE_DIRECTORIES.get(entity_kind)
+    index = entity_indexes.get(entity_kind, {})
+    by_id = index.get("by_id", {})
+    by_label = index.get("by_label", {})
+    rendered = []
+    seen = set()
+
+    for value in values or []:
+        if isinstance(value, dict):
+            identity = clean(value.get("id"))
+            fallback_label = clean(value.get("name") or value.get("model") or identity)
+        else:
+            identity = clean(value)
+            fallback_label = identity
+        if not fallback_label:
+            continue
+
+        if isinstance(value, dict):
+            # An explicit source ID is authoritative. Never silently relink a
+            # stale/conflicting ID to another entity that happens to share its label.
+            target = by_id.get(identity) if identity else by_label.get(fallback_label.casefold())
+        else:
+            target = by_id.get(identity) or by_label.get(fallback_label.casefold())
+
+        if target is not None:
+            slug = clean(target.get("slug"))
+            name = clean(target.get("name") or target.get("model") or fallback_label)
+            if slug and name and route_directory:
+                key = (entity_kind, slug)
+                if key in seen:
+                    continue
+                seen.add(key)
+                href = f"/{language}/{route_directory}/{slug}"
+                rendered.append(f'<a href="{esc(href)}">{esc(name)}</a>')
+                continue
+
+        # Keep unresolved catalogue labels visible as text; never invent a destination.
+        key = ("text", fallback_label.casefold())
+        if key in seen:
+            continue
+        seen.add(key)
+        rendered.append(esc(fallback_label))
+
+    value_html = ", ".join(rendered) if rendered else "—"
+    return (
+        f'<div class="entity-context-card"><span>{esc(card_label)}</span>'
+        f'<strong>{value_html}</strong></div>'
+    )
+
+
 def entity_product_galleries(kind, item, products, lang):
     product_groups = {}
     for product in products:
@@ -156,17 +262,29 @@ def entity_product_galleries(kind, item, products, lang):
         )
     return "\n".join(sections)
 
-def context_section(kind, item, products, lang):
+def context_section(kind, item, products, lang, entity_indexes):
     L = LABELS[lang]
     name = clean(item.get("name") or item.get("model"))
-    cats = top(arr_products(products, "category_name"), 8)
     subs = top(arr_products(products, "subcategory_name"), 8)
     brands = top(arr_products(products, "brand_name"), 8)
     vehicles = top(arr_products(products, "vehicles"), 8)
     if kind == "brand":
-        intro = L["intro_brand"].format(name=name, count=len(products), categories=list_text(cats, 5))
-        rows = [card(L["products"], str(len(products))), card(L["categories"], list_text(cats, 5)),
-                card(L["vehicles"], list_text(vehicles, 5)), card(L["common"], list_text(subs, 5))]
+        intro = L["intro_brand"].format(
+            name=name,
+            count=len(products),
+            categories=list_text(top(arr_products(products, "category_name"), 8), 5),
+        )
+        category_values = [
+            {"id": clean(product.get("category_id")), "name": clean(product.get("category_name") or product.get("category"))}
+            for product in products
+            if clean(product.get("category_id")) or clean(product.get("category_name") or product.get("category"))
+        ]
+        rows = [
+            card(L["products"], str(len(products))),
+            linked_entity_card(L["categories"], category_values, "category", lang, entity_indexes),
+            linked_entity_card(L["vehicles"], arr_products(products, "vehicles"), "vehicle", lang, entity_indexes),
+            card(L["common"], list_text(subs, 5)),
+        ]
         if clean(item.get("website")):
             rows.append(f'<div class="entity-context-card"><span>{esc(L["website"])}</span><strong><a href="{esc(item["website"])}" target="_blank" rel="noopener noreferrer">{esc(item["website"])}</a></strong></div>')
         if clean(item.get("country")):
@@ -176,15 +294,28 @@ def context_section(kind, item, products, lang):
     elif kind == "vehicle":
         intro = L["intro_vehicle"].format(name=name, count=len(products))
         manufacturer = clean((item.get("manufacturer") or {}).get("name")) or clean(name.split()[0])
-        rows = [card(L["products"], str(len(products))), card(L["manufacturer"], manufacturer),
-                card(L["categories"], list_text(cats, 5)), card(L["brands"], list_text(brands, 5)),
-                card(L["common"], list_text(subs, 5))]
+        rows = [
+            card(L["products"], str(len(products))),
+            card(L["manufacturer"], manufacturer),
+            linked_entity_card(L["categories"], item.get("categories") or [], "category", lang, entity_indexes),
+            linked_entity_card(L["brands"], item.get("brands") or [], "brand", lang, entity_indexes),
+            card(L["common"], list_text(subs, 5)),
+        ]
         faq = [(L["faq_vehicle_1"].format(name=name), f"Common catalogue areas for {name} include {list_text(subs, 8)}."),
                (L["faq_vehicle_2"].format(name=name), f"The current catalogue lists {list_text(brands, 8)} for this vehicle application.")]
     else:
         intro = L["intro_category"].format(name=name, count=len(products))
-        rows = [card(L["products"], str(len(products))), card(L["brands"], list_text(brands, 5)),
-                card(L["vehicles"], list_text(vehicles, 5)), card(L["common"], list_text(subs, 6))]
+        brand_values = [
+            {"id": clean(product.get("brand_id")), "name": clean(product.get("brand_name") or product.get("brand"))}
+            for product in products
+            if clean(product.get("brand_id")) or clean(product.get("brand_name") or product.get("brand"))
+        ]
+        rows = [
+            card(L["products"], str(len(products))),
+            linked_entity_card(L["brands"], brand_values, "brand", lang, entity_indexes),
+            linked_entity_card(L["vehicles"], arr_products(products, "vehicles"), "vehicle", lang, entity_indexes),
+            card(L["common"], list_text(subs, 6)),
+        ]
         faq = [(L["faq_category_1"].format(name=name), f"The current {name} catalogue includes {list_text(subs, 8)}."),
                (L["faq_category_2"].format(name=name), f"Current catalogue coverage includes {list_text(vehicles, 8)} and brands such as {list_text(brands, 8)}.")]
     faq_html = "".join(f'<details class="entity-faq-item"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faq)
@@ -487,7 +618,7 @@ def replace_static_product_grid(page: str, gallery_html: str) -> str:
     raise ValueError("Entity page has an unclosed #product-grid container.")
 
 
-def enrich_entity_pages(kind, data, catalogue):
+def enrich_entity_pages(kind, data, catalogue, entity_indexes):
     for item in data:
         if item.get("active") is False:
             continue
@@ -645,7 +776,7 @@ def enrich_entity_pages(kind, data, catalogue):
                 )
             marker = f'<!-- ENTITY_CONTEXT_{kind.upper()} -->'
             if kind == "vehicle":
-                section = context_section(kind, item, products, lang)
+                section = context_section(kind, item, products, lang, entity_indexes)
                 # Vehicle context belongs after compatible products and before
                 # </main>. Older generated pages may already have the marker
                 # after the footer, so always remove and rebuild this section.
@@ -681,9 +812,17 @@ def enrich_entity_pages(kind, data, catalogue):
                 )
                 if summary_replacements != 1:
                     raise ValueError(f"{path}: vehicle product count could not be synchronized.")
-            elif marker not in page:
-                section = context_section(kind, item, products, lang)
-                anchor_pattern = rf'<!--\s*=+\s*{kind.upper()} PRODUCTS\s*=+\s*-->' if kind != "vehicle" else r'<!--\s*=+\s*COMPATIBLE PRODUCTS\s*=+\s*-->'
+            else:
+                # Rebuild existing brand/category context as well as new pages;
+                # otherwise previously published plain-text cards would remain stale.
+                context_pattern = re.compile(
+                    r'<section class=["\']entity-context section-spacing["\'][^>]*>[\s\S]*?</section>',
+                    flags=re.I,
+                )
+                page = context_pattern.sub("", page)
+                page = re.sub(re.escape(marker), "", page, flags=re.I)
+                section = context_section(kind, item, products, lang, entity_indexes)
+                anchor_pattern = rf'<!--\s*=+\s*{kind.upper()} PRODUCTS\s*=+\s*-->'
                 anchor_match = re.search(anchor_pattern, page, flags=re.I)
                 if anchor_match:
                     page = page[:anchor_match.start()] + marker + "\n" + section + "\n" + page[anchor_match.start():]
@@ -997,10 +1136,11 @@ def main():
     brands = json.loads((ROOT / "assets/data/brands.json").read_text(encoding="utf-8"))
     categories = json.loads((ROOT / "assets/data/categories.json").read_text(encoding="utf-8"))
     vehicles = json.loads((ROOT / "assets/data/vehicles.json").read_text(encoding="utf-8"))
-    enrich_entity_pages("brand", brands, catalogue)
-    enrich_entity_pages("category", categories, catalogue)
+    entity_indexes = build_entity_link_indexes(brands, categories, vehicles, catalogue)
+    enrich_entity_pages("brand", brands, catalogue, entity_indexes)
+    enrich_entity_pages("category", categories, catalogue, entity_indexes)
     sync_category_listing_pages(categories)
-    enrich_entity_pages("vehicle", vehicles, catalogue)
+    enrich_entity_pages("vehicle", vehicles, catalogue, entity_indexes)
     (ROOT / "assets/data/brands.json").write_text(json.dumps(brands, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (ROOT / "assets/data/categories.json").write_text(json.dumps(categories, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (ROOT / "assets/data/vehicles.json").write_text(json.dumps(vehicles, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
