@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 BASE = "https://www.souviks.co.in"
 LANGUAGES = ("en", "hi", "bn")
 JSON_LD_RE = re.compile(
-    r'<script\\b[^>]*type=["\\']application/ld\\+json["\\'][^>]*>(.*?)</script>',
+    r"""<script\b[^>]*type=["']application/ld\+json["'][^>]*>(.*?)</script>""",
     flags=re.I | re.S,
 )
 
