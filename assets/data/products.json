@@ -36348,19 +36348,19 @@
   {
     "id": "SVKS000224",
     "slug": "alk-1014-drag-link-end-t-intra",
-    "part_number": "ALK 1014",
+    "part_number": "1014",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
-    "discount_percent": null,
-    "discountPercent": null,
-    "product_name": "Drag Link End T. Intra",
-    "name": "Drag Link End T. Intra",
-    "partNumber": "ALK 1014",
+    "mrp": 1102,
+    "selling_price": 918.33,
+    "discount_percent": 17,
+    "discountPercent": 17,
+    "product_name": "Drag Link End T-3178 III",
+    "name": "Drag Link End T-3178 III",
+    "partNumber": "1014",
     "brand_id": "alok",
     "brand_name": "Alok",
     "brand": "Alok",
@@ -36377,17 +36377,19 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "The Alok ALK 1014 Drag Link End T. Intra transfers steering movement between the steering gear and the connected wheel or axle linkage. Vehicle applications include Tata Intra.",
+    "description": "Alok 1014 drag-link end for T-3178 III. Specification: M30 × 1.5 right-hand housing thread, M24 × 1.5 ball-pin thread and 36 mm spanner size. Supplied individually.",
     "image_folder": "SVKS000224",
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS000224/1.webp",
-    "vehicles": [
-      "Tata Intra"
-    ],
+    "vehicles": [],
     "applications": [
-      "Steering Linkage Assembly",
-      "Steering System Repair"
+      "T-3178 III",
+      "Right-hand drag-link end",
+      "Housing thread: M30 × 1.5 RH",
+      "Ball-pin thread: M24 × 1.5",
+      "Spanner: 36 mm",
+      "Sales unit: each"
     ],
     "featured": false,
     "active": true,
@@ -36506,19 +36508,24 @@
   {
     "id": "SVKS000225",
     "slug": "alk-2312-tie-rod-end-t-ace-mega-lr",
-    "part_number": "ALK 2312",
-    "manufacturer_part_number": "",
-    "manufacturer_part_numbers": [],
+    "part_number": "2312",
+    "manufacturer_part_number": "552333990101",
+    "manufacturer_part_numbers": [
+      "552333990101"
+    ],
     "alternate_part_numbers": [],
-    "oem_numbers": [],
+    "oem_numbers": [
+      "552333990101",
+      "552333990102"
+    ],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
-    "discount_percent": null,
-    "discountPercent": null,
-    "product_name": "Tie Rod End T. ACE Mega L=R",
-    "name": "Tie Rod End T. ACE Mega L=R",
-    "partNumber": "ALK 2312",
+    "mrp": 696,
+    "selling_price": 580,
+    "discount_percent": 17,
+    "discountPercent": 17,
+    "product_name": "Tie Rod Ends Tata Ace Mega RH/LH Pair",
+    "name": "Tie Rod Ends Tata Ace Mega RH/LH Pair",
+    "partNumber": "2312",
     "brand_id": "alok",
     "brand_name": "Alok",
     "brand": "Alok",
@@ -36535,7 +36542,7 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "The Alok ALK 2312 Tie Rod End T. ACE Mega L=R transfers steering movement between the steering gear and the connected wheel or axle linkage. Vehicle applications include Tata Ace.",
+    "description": "Alok 2312 tie-rod ends for Tata Ace Mega, supplied as an RH/LH pair. Specification: M18 × 1.5 RH/LH housing threads, M12 × 1.5 ball-pin thread and 19 mm spanner. OE references: 552333990101 and 552333990102.",
     "image_folder": "SVKS000225",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -36544,8 +36551,13 @@
       "Tata Ace"
     ],
     "applications": [
-      "Steering Linkage Assembly",
-      "Front Steering System"
+      "Tata Ace Mega",
+      "Right-hand and left-hand tie-rod ends",
+      "Housing threads: M18 × 1.5 RH/LH",
+      "Ball-pin thread: M12 × 1.5",
+      "OE references: 552333990101 / 552333990102",
+      "Spanner: 19 mm",
+      "Sales unit: pair"
     ],
     "featured": false,
     "active": true,
@@ -36664,19 +36676,19 @@
   {
     "id": "SVKS000226",
     "slug": "alk-2314-tie-rod-end-rhlh-t-ace-ht",
-    "part_number": "ALK 2314",
+    "part_number": "2314",
     "manufacturer_part_number": "",
     "manufacturer_part_numbers": [],
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": null,
-    "selling_price": null,
-    "discount_percent": null,
-    "discountPercent": null,
-    "product_name": "Tie Rod End RH/LH T. Ace H/T",
-    "name": "Tie Rod End RH/LH T. Ace H/T",
-    "partNumber": "ALK 2314",
+    "mrp": 593,
+    "selling_price": 494.17,
+    "discount_percent": 17,
+    "discountPercent": 17,
+    "product_name": "Tie Rod Ends Tata Ace HT RH/LH Pair",
+    "name": "Tie Rod Ends Tata Ace HT RH/LH Pair",
+    "partNumber": "2314",
     "brand_id": "alok",
     "brand_name": "Alok",
     "brand": "Alok",
@@ -36693,7 +36705,7 @@
       "4.webp"
     ],
     "gallery_dimensions": {},
-    "description": "The Alok ALK 2314 Tie Rod End RH/LH T. Ace H/T transfers steering movement between the steering gear and the connected wheel or axle linkage. Vehicle applications include Tata Ace.",
+    "description": "Alok 2314 tie-rod ends for Tata Ace HT, supplied as an RH/LH pair. Specification: M14 × 1.5 RH/LH housing threads, M12 × 1.25 ball-pin thread and 17 / 22 mm spanner sizes.",
     "image_folder": "SVKS000226",
     "image": "1.webp",
     "primary_image": "1.webp",
@@ -36702,8 +36714,12 @@
       "Tata Ace"
     ],
     "applications": [
-      "Steering Linkage Assembly",
-      "Front Steering System"
+      "Tata Ace HT",
+      "Right-hand and left-hand tie-rod ends",
+      "Housing threads: M14 × 1.5 RH/LH",
+      "Ball-pin thread: M12 × 1.25",
+      "Spanner: 17 / 22 mm",
+      "Sales unit: pair"
     ],
     "featured": false,
     "active": true,
@@ -99474,8 +99490,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 918.69,
-    "selling_price": 813,
+    "mrp": 1093.24,
+    "selling_price": 967.47,
     "discount_percent": 12,
     "discountPercent": 12,
     "product_name": "Regulator and Brush Box Assembly",
@@ -99613,8 +99629,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 3673.63,
-    "selling_price": 3251,
+    "mrp": 4371.62,
+    "selling_price": 3868.69,
     "discount_percent": 12,
     "discountPercent": 12,
     "product_name": "Solenoid Assembly 8M14",
@@ -99751,8 +99767,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 2517.64,
-    "selling_price": 2228,
+    "mrp": 2995.99,
+    "selling_price": 2651.32,
     "discount_percent": 12,
     "discountPercent": 12,
     "product_name": "Stator Assembly",
@@ -99889,8 +99905,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 1219.27,
-    "selling_price": 1079,
+    "mrp": 1450.93,
+    "selling_price": 1284.01,
     "discount_percent": 12,
     "discountPercent": 12,
     "product_name": "Regulator and Brush Box Assembly",
@@ -100032,8 +100048,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 1361.65,
-    "selling_price": 1205,
+    "mrp": 1620.36,
+    "selling_price": 1433.95,
     "discount_percent": 12,
     "discountPercent": 12,
     "product_name": "Starter Drive Assembly HD10",
@@ -100170,8 +100186,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 1087.06,
-    "selling_price": 962,
+    "mrp": 1293.6,
+    "selling_price": 1144.78,
     "discount_percent": 12,
     "discountPercent": 12,
     "product_name": "Regulator Assembly",
@@ -100448,8 +100464,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 1708.56,
-    "selling_price": 1512,
+    "mrp": 2033.19,
+    "selling_price": 1799.28,
     "discount_percent": 12,
     "discountPercent": 12,
     "product_name": "Starter Drive Assembly",
@@ -176906,15 +176922,17 @@
     "id": "SVKS001117",
     "slug": "723-g-gear-lever-end",
     "part_number": "723-G",
-    "manufacturer_part_number": "250727000000",
+    "manufacturer_part_number": "250726700149",
     "manufacturer_part_numbers": [
-      "250727000000"
+      "250726700149"
     ],
     "alternate_part_numbers": [],
-    "oem_numbers": [],
+    "oem_numbers": [
+      "250726700149"
+    ],
     "cross_references": [],
-    "mrp": 361.2,
-    "selling_price": 301,
+    "mrp": 301,
+    "selling_price": 250.83,
     "product_name": "Gear Lever End RH, Long",
     "name": "Gear Lever End RH, Long",
     "partNumber": "723-G",
@@ -176930,18 +176948,17 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001117/1.webp",
-    "vehicles": [
-      "Tata LPT"
-    ],
+    "vehicles": [],
     "applications": [
       "Tata 1516",
-      "long RH greaseless type",
-      "reference 250726700149",
-      "M18 × 1.5 and M12 × 1.5 threads."
+      "Long RH greaseless gearbox gear-lever end",
+      "Threads: M18 × 1.5 and M12 × 1.5",
+      "OE reference: 250726700149",
+      "Sales unit: each"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 723-G Gear Lever End RH Long is a greaseless gearbox-linkage component used in the gear-selection mechanism of compatible Tata commercial vehicles. Its long, right-hand configuration is designed for the corresponding linkage arrangement and features M18 × 1.5 and M12 × 1.5 threaded connections. The part is listed under reference 250726700149 for the Tata 1516 application.",
+    "description": "Alok 723-G is a long, right-hand greaseless gear-lever end listed for Tata 1516. The listed thread sizes are M18 × 1.5 and M12 × 1.5. OE reference: 250726700149. Supplied individually.",
     "image_folder": "SVKS001117",
     "gallery": [
       "1.webp",
@@ -177057,15 +177074,17 @@
     "id": "SVKS001118",
     "slug": "712-g-gear-lever-ends",
     "part_number": "712-G",
-    "manufacturer_part_number": "250727000000",
+    "manufacturer_part_number": "250726700138",
     "manufacturer_part_numbers": [
-      "250727000000"
+      "250726700138"
     ],
     "alternate_part_numbers": [],
-    "oem_numbers": [],
+    "oem_numbers": [
+      "250726700138"
+    ],
     "cross_references": [],
-    "mrp": 668.4,
-    "selling_price": 557,
+    "mrp": 557,
+    "selling_price": 464.17,
     "product_name": "Gear Lever Ends RH/RH Pair",
     "name": "Gear Lever Ends RH/RH Pair",
     "partNumber": "712-G",
@@ -177087,19 +177106,18 @@
       "Ashok Leyland 2516"
     ],
     "applications": [
-      "Tata 1612",
-      "1510",
-      "1516",
-      "2213 and 2416",
-      "Ashok Leyland 1612",
-      "2214",
-      "2516 and 3516",
-      "catalogue-listed 2002-onward models",
-      "RH/RH greaseless pair."
+      "Tata 1612 / 1510 / 1516 / 2213 / 2416",
+      "Ashok Leyland 1612 / 2516 / 3516 / 2214",
+      "Year 2002 onwards",
+      "Turbo RH/RH small greaseless gear-lever-end pair",
+      "Threads: M18 × 1.5 RH and M12 × 1.5",
+      "OE reference: 250726700138",
+      "Spanner: 19 mm",
+      "Sales unit: pair"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 712-G Gear Lever End Pair comprises two right-hand greaseless gear lever ends for commercial-vehicle gearbox linkage systems. The components feature M18 × 1.5 and M12 × 1.5 threaded connections. Listed applications include Tata 1510, 1516, 1612, 2213 and 2416, together with selected Ashok Leyland 1612, 2214, 2516 and 3516 models. The associated reference is 250726700138.",
+    "description": "Alok 712-G is a small RH/RH greaseless gear-lever-end pair for the listed Tata 1612, 1510, 1516, 2213 and 2416, and Ashok Leyland 1612, 2516, 3516 and 2214 applications from model year 2002 onwards. Specification: M18 × 1.5 RH and M12 × 1.5 threads, 19 mm spanner. OE reference: 250726700138.",
     "image_folder": "SVKS001118",
     "gallery": [
       "1.webp",
@@ -177220,10 +177238,13 @@
       "IA233495"
     ],
     "alternate_part_numbers": [],
-    "oem_numbers": [],
+    "oem_numbers": [
+      "IA233495",
+      "264126800193"
+    ],
     "cross_references": [],
-    "mrp": 284.4,
-    "selling_price": 237,
+    "mrp": 237,
+    "selling_price": 197.5,
     "product_name": "Gear Lever End LH",
     "name": "Gear Lever End LH",
     "partNumber": "773",
@@ -177240,28 +177261,21 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001119/1.webp",
     "vehicles": [
-      "Tata LPT",
-      "Tata 407",
       "Tata 709",
-      "Tata 1109",
-      "Tata 1512",
       "Tata 2416"
     ],
     "applications": [
-      "Tata 2516",
-      "609",
-      "709",
-      "1510",
-      "1612",
-      "2213",
-      "2416",
-      "1613 and 2515 EX Turbo",
-      "LH type",
-      "references IA233495 and 264126800193."
+      "Tata 2516 / 609 / 709 / 1510 / 1612 / 2213 / 2416 / 1613 / 2515 EX Turbo",
+      "TC-model left-hand gear-lever end",
+      "Housing thread: M12 × 1.25 LH",
+      "Ball-pin thread: M10 × 1.0",
+      "OE references: IA233495 / 264126800193",
+      "Spanner: 17 mm",
+      "Sales unit: each"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 773 Gear Lever End LH is a left-hand gearbox-linkage component for listed Tata commercial vehicles. Its thread configuration includes an M12 × 1.25 left-hand thread and an M10 × 1.0 thread, supporting the corresponding gear-shift linkage assembly. Listed vehicle applications include Tata 609, 709, 1510, 1612, 2213, 2416, 1613 and 2515 EX Turbo. Associated reference numbers are IA233495 and 264126800193.",
+    "description": "Alok 773 is a left-hand gear-lever end for the listed Tata 2516, 609, 709, 1510, 1612, 2213, 2416, 1613 and 2515 EX Turbo applications. Specification: M12 × 1.25 LH housing thread, M10 × 1.0 ball-pin thread and 17 mm spanner. OE references: IA233495 and 264126800193.",
     "image_folder": "SVKS001119",
     "gallery": [
       "1.webp",
@@ -177382,10 +177396,12 @@
       "P2N00005/4"
     ],
     "alternate_part_numbers": [],
-    "oem_numbers": [],
+    "oem_numbers": [
+      "P2N00005/4"
+    ],
     "cross_references": [],
-    "mrp": 559.2,
-    "selling_price": 466,
+    "mrp": 466,
+    "selling_price": 388.33,
     "product_name": "Gear Lever Ends RH/LH Pair",
     "name": "Gear Lever Ends RH/LH Pair",
     "partNumber": "1055",
@@ -177406,14 +177422,17 @@
     ],
     "applications": [
       "Ashok Leyland Boss",
-      "RH/LH pair",
-      "inner-thread type",
-      "12 × 1.75 mm and 10 × 1.5 mm threads",
-      "reference P2N00005/4."
+      "RH/LH gear-lever-end pair",
+      "Inner-thread type",
+      "Housing thread: 12 × 1.75",
+      "Ball-pin thread: 10 × 1.5",
+      "Reference: P2N00005/4",
+      "Spanner: 17 mm",
+      "Sales unit: pair"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 1055 Gear Lever End Pair contains right-hand and left-hand components for the gearbox linkage used in Ashok Leyland Boss commercial vehicles. The pair is specified with inner-thread connections and 12 × 1.75 mm and 10 × 1.5 mm thread sizes. It is listed under reference P2N00005/4 for the Boss series.",
+    "description": "Alok 1055 gear-lever ends for Ashok Leyland Boss, supplied as an RH/LH pair. Inner-thread type, with 12 × 1.75 housing thread, 10 × 1.5 ball-pin thread and 17 mm spanner. Reference: P2N00005/4.",
     "image_folder": "SVKS001120",
     "gallery": [
       "1.webp",
@@ -177534,10 +177553,10 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 1468.8,
-    "selling_price": 1224,
-    "product_name": "Power Steering Repair Kit",
-    "name": "Power Steering Repair Kit",
+    "mrp": 1224,
+    "selling_price": 1020,
+    "product_name": "Sonalika Power Steering Repair Kit",
+    "name": "Sonalika Power Steering Repair Kit",
     "partNumber": "5858",
     "brand_id": "alok",
     "brand_name": "Alok",
@@ -177555,14 +177574,16 @@
       "Tractors"
     ],
     "applications": [
-      "Tractor steering system",
-      "four-piece large ball-pin set",
-      "35 mm ball diameter",
-      "M18 × 1.5 thread."
+      "Sonalika power-steering system",
+      "Four-piece big ball-pin repair set",
+      "Ball diameter: 35 mm",
+      "Thread: M18 × 1.5",
+      "Spanner: 27 mm",
+      "Sales unit: each"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 5858 Power Steering Repair Kit is a four-piece ball-pin set for tractor steering assemblies. The kit includes large ball pins with a 35 mm ball diameter and M18 × 1.5 threaded connections. These components form part of the steering linkage and are intended for repair of the corresponding steering-joint arrangement.",
+    "description": "Alok 5858 is a Sonalika power-steering repair kit containing four large ball pins. Specification: 35 mm ball diameter, M18 × 1.5 thread and 27 mm spanner size.",
     "image_folder": "SVKS001121",
     "gallery": [
       "1.webp",
@@ -177678,8 +177699,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 1872,
-    "selling_price": 1560,
+    "mrp": 1560,
+    "selling_price": 1300,
     "product_name": "Tie Rod Ends RH/LH Pair",
     "name": "Tie Rod Ends RH/LH Pair",
     "partNumber": "728",
@@ -177696,23 +177717,20 @@
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001122/1.webp",
     "vehicles": [
-      "Tata Signa",
       "Tata LPT",
       "Tata 2416"
     ],
     "applications": [
-      "Tata 3516",
-      "3118",
-      "1616",
-      "2416",
-      "2516",
-      "2213 and 2515 EX",
-      "M30 × 1.5 threads",
-      "M18 × 1.5 ball-pin threads."
+      "Tata 3516 / 3118 / 1616 / 2416 / 2516 / 2213 / 2515 EX",
+      "Right-hand and left-hand tie-rod ends",
+      "Housing threads: M30 × 1.5 RH/LH",
+      "Ball-pin thread: M18 × 1.5",
+      "Spanner: 27 mm",
+      "Sales unit: pair"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 728 Tie Rod End Pair includes right-hand and left-hand tie rod ends for steering linkage assemblies in heavy commercial vehicles. The components feature M30 × 1.5 threaded connections and M18 × 1.5 ball-pin threads. Listed Tata applications include models 1616, 2213, 2416, 2516, 2515 EX, 3118 and 3516.",
+    "description": "Alok 728 tie-rod ends for the listed Tata 3516, 3118, 1616, 2416, 2516, 2213 and 2515 EX applications, supplied as an RH/LH pair. Specification: M30 × 1.5 RH/LH housing threads, M18 × 1.5 ball-pin thread and 27 mm spanner.",
     "image_folder": "SVKS001122",
     "gallery": [
       "1.webp",
@@ -177833,8 +177851,8 @@
     "alternate_part_numbers": [],
     "oem_numbers": [],
     "cross_references": [],
-    "mrp": 1736.4,
-    "selling_price": 1447,
+    "mrp": 1447,
+    "selling_price": 1205.83,
     "product_name": "Tie Rod & Drag Link Repair Kit",
     "name": "Tie Rod & Drag Link Repair Kit",
     "partNumber": "9756",
@@ -177850,20 +177868,19 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001123/1.webp",
-    "vehicles": [
-      "Ashok Leyland U-Truck",
-      "Ashok Leyland Ecomet"
-    ],
+    "vehicles": [],
     "applications": [
-      "Leyland Iveco 909",
-      "1613 and 2214 U Truck",
-      "four ball-pin set",
-      "35 mm diameter",
-      "M20 × 1.5 thread."
+      "Leyland IVECO 909 / 1613 / Tipper",
+      "Tie-rod and drag-link repair kit",
+      "Four ball pins",
+      "Ball-pin diameter: 35 mm",
+      "Thread: M20 × 1.5",
+      "Spanner: 30 mm",
+      "Kit contents: four ball pins"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 9756 Tie Rod and Drag Link Repair Kit is a four-piece ball-pin set for steering-linkage joints in listed Leyland Iveco commercial vehicles, including the 909, 1613 and 2214 U Truck applications. The kit features 35 mm ball pins with M20 × 1.5 threaded connections and is intended for the corresponding tie-rod and drag-link joint assemblies.",
+    "description": "Alok 9756 is a four-ball-pin repair kit for the tie-rod and drag-link assemblies listed for Leyland IVECO 909, 1613 and tipper applications. Specification: 35 mm ball pins, M20 × 1.5 thread and 30 mm spanner.",
     "image_folder": "SVKS001123",
     "gallery": [
       "1.webp",
@@ -177973,11 +177990,15 @@
     "manufacturer_part_numbers": [
       "P2406551"
     ],
-    "alternate_part_numbers": [],
-    "oem_numbers": [],
+    "alternate_part_numbers": [
+      "P2616951"
+    ],
+    "oem_numbers": [
+      "P2406551"
+    ],
     "cross_references": [],
-    "mrp": 873.6,
-    "selling_price": 728,
+    "mrp": 728,
+    "selling_price": 606.67,
     "product_name": "Drag Link Kit",
     "name": "Drag Link Kit",
     "partNumber": "975",
@@ -177998,17 +178019,20 @@
       "Ashok Leyland Captain"
     ],
     "applications": [
-      "Leyland Iveco 909",
-      "1109 and 2214 U Truck",
-      "Captain series",
+      "Leyland IVECO 909 / 1109 / 2214 U-Truck",
+      "Ashok Leyland Captain series",
       "FA 90 axle",
-      "35 mm pin-head diameter",
-      "M20 × 1.5 thread",
-      "references P2406551 and P2616951."
+      "Drag-link kit",
+      "Pin-head diameter: 35 mm",
+      "Thread: M20 × 1.5",
+      "OE reference: P2406551",
+      "Alternate reference: P2616951",
+      "Spanner: 30 mm",
+      "Sales unit: kit"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 975 Drag Link Kit is a steering-linkage component set listed for Leyland Iveco 909, 1109 and 2214 U Truck applications, as well as selected Captain-series vehicles. It features a 35 mm pin-head diameter and M20 × 1.5 threaded connections and is associated with references P2406551 and P2616951. The kit is also listed for FA 90 axle applications.",
+    "description": "Alok 975 drag-link kit for Leyland IVECO 909, 1109 and 2214 U-Truck and Ashok Leyland Captain series applications on the FA 90 axle. Specification: 35 mm pin-head diameter, M20 × 1.5 thread and 30 mm spanner. OE reference: P2406551; alternate reference: P2616951.",
     "image_folder": "SVKS001124",
     "gallery": [
       "1.webp",
@@ -178630,18 +178654,18 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001125/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516"
-    ],
+    "vehicles": [],
     "applications": [
       "Leyland 1613 Tipper",
-      "RH steering tie rod end",
-      "M30 × 1.5 RH thread",
-      "M20 × 1.5 ball-pin thread"
+      "Right-hand tie-rod end",
+      "Housing thread: M30 × 1.5 RH",
+      "Ball-pin thread: M20 × 1.5",
+      "Spanner: 30 mm",
+      "Sales unit: each"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 750-R-1 Right-Hand Tie Rod End is a steering linkage component designed for Leyland 1613 Tipper applications. Featuring an M30 × 1.5 right-hand threaded connection and an M20 × 1.5 ball-pin thread, it helps transmit steering movement through the vehicle's steering linkage. With a 30 mm spanner specification, this tie rod end is suited to heavy commercial vehicle steering system maintenance and replacement.",
+    "description": "Alok 750-R-1 is the right-hand tie-rod end listed for Leyland 1613 Tipper. Specification: M30 × 1.5 RH housing thread, M20 × 1.5 ball-pin thread and 30 mm spanner. Supplied individually.",
     "image_folder": "SVKS001125",
     "gallery": [
       "1.webp",
@@ -178810,18 +178834,18 @@
     "image": "1.webp",
     "primary_image": "1.webp",
     "image_url": "/assets/images/products/SVKS001126/1.webp",
-    "vehicles": [
-      "Ashok Leyland 2516"
-    ],
+    "vehicles": [],
     "applications": [
       "Leyland 1613 Tipper",
-      "LH steering tie rod end",
-      "M30 × 1.5 LH thread",
-      "M20 × 1.5 ball-pin thread"
+      "Left-hand tie-rod end",
+      "Housing thread: M30 × 1.5 LH",
+      "Ball-pin thread: M20 × 1.5",
+      "Spanner: 30 mm",
+      "Sales unit: each"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 750-L-1 Left-Hand Tie Rod End is designed for the steering linkage of Leyland 1613 Tipper vehicles. It features an M30 × 1.5 left-hand threaded connection and an M20 × 1.5 ball-pin thread. Working as part of the steering assembly, it helps transfer steering input through the linkage and supports controlled directional movement in heavy-duty commercial vehicle applications.",
+    "description": "Alok 750-L-1 is the left-hand tie-rod end listed for Leyland 1613 Tipper. Specification: M30 × 1.5 LH housing thread, M20 × 1.5 ball-pin thread and 30 mm spanner. Supplied individually.",
     "image_folder": "SVKS001126",
     "gallery": [
       "1.webp",
@@ -178991,14 +179015,17 @@
       "Tata LPT"
     ],
     "applications": [
-      "Tata LPT-2518",
-      "3118 EX family",
-      "LH drag link end",
-      "OE 501346990103"
+      "Tata 3118 EX / LPT-2518",
+      "Left-hand drag-link end",
+      "M30 × 1.5 LH thread",
+      "Thin ball pin: M20 × 1.5",
+      "OE reference: 501346990103",
+      "Spanner: 30 mm",
+      "Sales unit: each"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 1012-L Left-Hand Drag Link End is a steering linkage component for Tata LPT-2518 and 3118 EX commercial vehicles. It features an M30 × 1.5 left-hand thread and a thin ball pin with a 20 × 1.5 thread, along with a 30 mm spanner specification. OE reference 501346990103 identifies this version. The component helps transmit steering movement through the drag link assembly in heavy commercial vehicle steering systems.",
+    "description": "Alok 1012-L is the left-hand drag-link end listed for Tata 3118 EX and LPT-2518. Specification: M30 × 1.5 LH housing thread, thin M20 × 1.5 ball pin and 30 mm spanner. OE reference: 501346990103. Supplied individually.",
     "image_folder": "SVKS001127",
     "gallery": [
       "1.webp",
@@ -179173,13 +179200,17 @@
       "Tata LPT"
     ],
     "applications": [
-      "Tata 3118 EX/LPT family",
-      "RH drag link end",
-      "OE 501346990104"
+      "Tata 3118 EX / Tata LPT",
+      "Right-hand drag-link end",
+      "M30 × 1.5 RH thread",
+      "Thin ball pin: M20 × 1.5",
+      "OE reference: 501346990104",
+      "Spanner: 30 mm",
+      "Sales unit: each"
     ],
     "featured": false,
     "active": true,
-    "description": "The Alok 1012-R Right-Hand Drag Link End is designed for Tata LPT and 3118 EX steering linkage applications. Its specifications include an M30 × 1.5 right-hand thread, a thin ball pin with a 20 × 1.5 thread, and a 30 mm spanner size. Associated with OE reference 501346990104, this component transfers steering movement through the drag link assembly and is suited to commercial vehicle steering system replacement.",
+    "description": "Alok 1012-R is the right-hand drag-link end listed for Tata 3118 EX and Tata LPT. Specification: M30 × 1.5 RH housing thread, thin M20 × 1.5 ball pin and 30 mm spanner. OE reference: 501346990104. Supplied individually.",
     "image_folder": "SVKS001128",
     "gallery": [
       "1.webp",
