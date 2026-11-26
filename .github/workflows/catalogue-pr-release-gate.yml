@@ -75,6 +75,7 @@ jobs:
               "scripts/catalogue/build.py",
           "scripts/catalogue/internal_redirects.py",
               "scripts/catalogue/apply_product_workbook_import.py",
+              "scripts/catalogue/apply_leykart_catalogue_import.py",
               "scripts/catalogue/application_display.py",
               "scripts/catalogue/product_seo.py",
               "scripts/catalogue/product_title.py",
@@ -141,6 +142,7 @@ jobs:
           set -euo pipefail
 
           python3 scripts/catalogue/apply_product_workbook_import.py
+          python3 scripts/catalogue/apply_leykart_catalogue_import.py
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/build.py
           python3 scripts/audit/build_hsn_verification_worklist.py
@@ -197,6 +199,7 @@ jobs:
           node scripts/regression/cashfree-checkout-contract.cjs
           node scripts/regression/delhivery-estimate-contract.cjs
           node scripts/regression/gst-rate-candidate-contract.cjs
+          node scripts/regression/leykart-catalogue-import-contract.cjs
           node scripts/regression/hsn-stock-reference-crosswalk.cjs
           node scripts/regression/gst-invoice-generator-contract.cjs
           node scripts/regression/minified-source-contract.cjs
@@ -291,7 +294,12 @@ jobs:
             assets/js/supabase-loader.js
             assets/js/cart/cart.js
             assets/data/catalogue-index.json
+            assets/data/categories.json
+            assets/data/vehicles.json
             assets/data/gst-rate-candidate-overrides-2026-11-08.json
+            assets/data/gst-rate-final-policy-2026-11-08.json
+            sitemap.xml
+            sitemaps/products.xml sitemaps/brands.xml sitemaps/categories.xml sitemaps/vehicles.xml sitemaps/pages.xml
             docs/audit/hsn-verification-worklist.csv
             assets/data/products.json
             assets/data/search.json
@@ -308,9 +316,10 @@ jobs:
             scripts/catalogue/sync_product_cards.py
             scripts/audit/performance_guard.py
           )
-          generated_product_page_directories=(en/products hi/products bn/products)
+          generated_product_page_directories=(en/products hi/products bn/products en/brands hi/brands bn/brands en/categories hi/categories bn/categories en/vehicles hi/vehicles bn/vehicles)
           generated_shared_image_directories=(assets/images/brands assets/images/about)
           workbook_import_path="assets/data/product-workbook-import-2026-11-11"
+          leykart_import_path="assets/data/leykart-catalogue-import-2026-11-27.json.gz"
 
           compare_json=""
           if [ "$(git rev-parse "${remote_ref}")" != "${PR_HEAD_SHA}" ]; then
@@ -351,11 +360,15 @@ jobs:
               mkdir -p "${publish_repo}/$(dirname "${workbook_import_path}")"
               rsync -a --delete "${GITHUB_WORKSPACE}/${workbook_import_path}/" "${publish_repo}/${workbook_import_path}/"
             fi
+            if [ ! -f "${GITHUB_WORKSPACE}/${leykart_import_path}" ]; then
+              rm -f "${publish_repo}/${leykart_import_path}"
+            fi
           else
             echo "PR branch is behind or diverged; regenerating against the branch head."
             (
               cd "${publish_repo}"
               python3 scripts/catalogue/apply_product_workbook_import.py
+              python3 scripts/catalogue/apply_leykart_catalogue_import.py
               python3 scripts/catalogue/build.py
               python3 scripts/audit/build_hsn_verification_worklist.py
               python3 scripts/audit/test_hsn_verification_worklist.py
@@ -388,6 +401,7 @@ jobs:
           fi
 
           git -C "${publish_repo}" add -- "${generated_paths[@]}" "${generated_product_page_directories[@]}" "${generated_shared_image_directories[@]}"
+          git -C "${publish_repo}" add -A -- "${leykart_import_path}"
           while IFS= read -r html_path; do
             git -C "${publish_repo}" add -- "${html_path}"
           done < <(git -C "${publish_repo}" diff --name-only -- "*.html")

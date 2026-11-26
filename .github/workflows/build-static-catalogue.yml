@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "assets/data/catalogue-index.json"
+      - "assets/data/leykart-catalogue-import-2026-11-27.json.gz"
       - "assets/data/hsn-dpiit-ministry-mappings.json"
       - "assets/data/hsn-candidate-overrides-2026-11-06.json"
       - "assets/data/gst-rate-candidate-overrides-2026-11-08.json"
@@ -122,6 +123,7 @@ jobs:
               "scripts/catalogue/build.py",
               "scripts/catalogue/internal_redirects.py",
               "scripts/catalogue/apply_product_workbook_import.py",
+              "scripts/catalogue/apply_leykart_catalogue_import.py",
               "scripts/catalogue/application_display.py",
               "scripts/catalogue/product_seo.py",
               "scripts/catalogue/product_title.py",
@@ -196,6 +198,7 @@ jobs:
             python3 scripts/audit/test_application_public_display.py
             node scripts/regression/hsn-candidate-overrides.cjs
             node scripts/regression/gst-rate-candidate-contract.cjs
+            node scripts/regression/leykart-catalogue-import-contract.cjs
             node scripts/regression/hsn-stock-reference-crosswalk.cjs
             python3 scripts/audit/test_vehicle_page_layout.py
             python3 scripts/audit/seo_contract.py
@@ -211,6 +214,7 @@ jobs:
 
           prepare_candidate() {
             python3 scripts/catalogue/apply_product_workbook_import.py
+            python3 scripts/catalogue/apply_leykart_catalogue_import.py
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
@@ -267,6 +271,7 @@ jobs:
             python3 scripts/audit/test_application_public_display.py
             node scripts/regression/hsn-candidate-overrides.cjs
             node scripts/regression/gst-rate-candidate-contract.cjs
+            node scripts/regression/leykart-catalogue-import-contract.cjs
             node scripts/regression/hsn-stock-reference-crosswalk.cjs
             python3 scripts/audit/test_vehicle_page_layout.py
             python3 scripts/audit/seo_contract.py
@@ -306,6 +311,7 @@ jobs:
             npm install --no-package-lock --no-audit --no-fund
 
             python3 scripts/catalogue/apply_product_workbook_import.py
+            python3 scripts/catalogue/apply_leykart_catalogue_import.py
             python3 scripts/audit/optimize_static_images.py
             python3 scripts/catalogue/enrich_entities.py
             python3 scripts/catalogue/build.py
