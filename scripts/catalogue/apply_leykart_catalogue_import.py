@@ -295,6 +295,18 @@ def main() -> None:
         "catalogue control. This approval does not itself issue tax invoices."
     )
 
+    # Keep the documented tractor-use GST boundary review tied to the exact
+    # canonical product name. The reviewed SKU is unchanged; this only fixes
+    # stale descriptive text that otherwise fails the builder's identity check.
+    for review in policy.get("tractor_general_rate_review", []):
+        reviewed_product = by_id.get(str(review.get("id") or ""))
+        if reviewed_product is not None:
+            canonical_name = str(
+                reviewed_product.get("name") or reviewed_product.get("product_name") or ""
+            ).strip()
+            if canonical_name:
+                review["product_name"] = canonical_name
+
     # Valueparts occurs on five verified import rows but is not yet represented in
     # the brand directory. Add a minimal entity record; enrich_entities.py derives
     # counts, categories, product links and localized brand pages from the catalogue.
