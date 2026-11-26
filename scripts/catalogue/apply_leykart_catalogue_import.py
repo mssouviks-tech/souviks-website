@@ -110,6 +110,8 @@ def verify_and_enrich_new_product(product: dict[str, Any], gst_sources: list[str
         if price <= 0:
             raise ValueError(f"{product_id}: {field} must be positive")
 
+    # The user confirmed the HSN code itself. Do not invent an official tariff
+    # description: the public page will show the verified code without a guess.
     product["hsn_description"] = ""
     product["hsn_confidence"] = "high"
     product["hsn_classification_status"] = "classified"
@@ -129,7 +131,7 @@ def verify_and_enrich_new_product(product: dict[str, Any], gst_sources: list[str
     product["gst_sgst_rate_percent"] = 9
     product["gst_igst_rate_percent"] = 18
     product["gst_rate_effective_from"] = EFFECTIVE_FROM
-    product["gst_rate_source_reference"] = "; ".join(gst_sources)
+    product["gst_rate_source_reference"] = gst_sources[0]
     product["gst_rate_basis"] = (
         "18% default GST rate confirmed ready by Souviks on 27 November 2026; "
         "9% CGST + 9% SGST intra-State or 18% IGST inter-State."
@@ -138,7 +140,7 @@ def verify_and_enrich_new_product(product: dict[str, Any], gst_sources: list[str
     product["updated_at"] = APPROVAL_DATE
 
 
-def approval_record(count: int, ids: list[str]) -> dict[str, Any]:
+def approval_record(count: int, ids: list[str], previous: dict[str, Any]) -> dict[str, Any]:
     return {
         "status": "approved",
         "approved_on": APPROVAL_DATE,
@@ -193,6 +195,8 @@ def main() -> None:
             raise ValueError(f"Leykart exact-match update refers to missing SKU {product_id}")
         for field in UPDATE_FIELDS:
             value = row.get(field)
+            # Do not erase previously established fitment, part references or names
+            # with empty values from the Leykart listing.
             if value not in (None, "", []):
                 current[field] = value
 
@@ -207,6 +211,8 @@ def main() -> None:
         if existing is not None:
             if str(existing.get("part_number") or "") != str(product.get("part_number") or ""):
                 raise ValueError(f"SKU collision with different part number: {product_id}")
+            # Idempotent reruns preserve the catalogue record but refresh only the
+            # Leykart-owned commercial and HSN/GST fields below.
             existing.update({key: value for key, value in product.items() if key in UPDATE_FIELDS})
             verify_and_enrich_new_product(existing, policy.get("default_source_references") or [])
             new_ids.append(product_id)
@@ -222,6 +228,9 @@ def main() -> None:
     new_ids = sorted(set(new_ids), key=lambda value: int(value.replace("SVKS", "")))
     catalogue.sort(key=lambda item: int(str(item.get("id", "SVKS000000")).replace("SVKS", "")))
 
+    # Persist an explicit GST candidate record for every new SKU. Existing
+    # approval entries remain unchanged, and the old pending queue is retained
+    # only for IDs that are still outside the expanded approved scope.
     gst_records = manifest["records"]
     gst_by_id = {str(item.get("id")): item for item in gst_records if item.get("id")}
     if len(gst_by_id) != len(gst_records):
@@ -252,7 +261,6 @@ def main() -> None:
         str(manifest.get("source_research", "")).rstrip(".")
         + "; expanded with Souviks-confirmed Leykart catalogue GST readiness on 2026-11-27."
     )
-    manifest["catalogue_snapshot"] = "assets/data/catalogue-index.json after Leykart catalogue import on 2026-11-27"
     manifest["note"] = (
         f"All {len(catalogue):,} catalogue products have approved, invoice-ready GST rate "
         "candidates. The default is 18% total and the one evidence-backed tractor clutch "
@@ -268,7 +276,7 @@ def main() -> None:
             for item in manifest_history
         ):
             manifest_history.append(previous_manifest_approval)
-    manifest["accountant_approval"] = approval_record(len(catalogue), new_ids)
+    manifest["accountant_approval"] = approval_record(len(catalogue), new_ids, previous_manifest_approval)
 
     previous_policy_approval = policy.get("accountant_approval") or {}
     policy_history = policy.setdefault("accountant_approval_history", [])
@@ -278,7 +286,7 @@ def main() -> None:
             for item in policy_history
         ):
             policy_history.append(previous_policy_approval)
-    policy["accountant_approval"] = approval_record(len(catalogue), new_ids)
+    policy["accountant_approval"] = approval_record(len(catalogue), new_ids, previous_policy_approval)
     policy["note"] = (
         f"All {len(catalogue):,} catalogue records have invoice-ready GST rate candidates. "
         "The default is 18% total and the one specified tractor clutch-assembly exception "
@@ -287,6 +295,9 @@ def main() -> None:
         "catalogue control. This approval does not itself issue tax invoices."
     )
 
+    # Valueparts occurs on five verified import rows but is not yet represented in
+    # the brand directory. Add a minimal entity record; enrich_entities.py derives
+    # counts, categories, product links and localized brand pages from the catalogue.
     if not any(str(brand.get("id")) == "valueparts" for brand in brands):
         brands.append({
             "id": "valueparts",
@@ -341,6 +352,8 @@ def main() -> None:
     write_json(GST_MANIFEST_PATH, manifest)
     write_json(GST_POLICY_PATH, policy)
     write_json(BRANDS_PATH, brands)
+    # Consume the staged payload after a successful write. This makes the import
+    # one-shot and prevents later catalogue builds from replaying stale source data.
     PATCH_PATH.unlink()
 
 
