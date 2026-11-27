@@ -27,6 +27,182 @@ EXPECTED_IMAGE_BACKED_ADDITIONS = 818
 EXPECTED_IMAGELESS_ADDITIONS = EXPECTED_ADDITIONS - EXPECTED_IMAGE_BACKED_ADDITIONS
 EXPECTED_UPDATES = 3
 
+# Taxonomy additions are derived from the imported product descriptions. The
+# category directory is regenerated from these product-level assignments by
+# enrich_entities.py later in the catalogue build.
+NEW_SUBCATEGORY_LABELS = {
+    "brakes": {
+        "brake-hose": "Brake Hose",
+        "brake-pipe": "Brake Pipe",
+        "brake-bracket": "Brake Bracket",
+        "brake-pedal": "Brake Pedal",
+        "brake-linkage": "Brake Linkage",
+        "brake-assembly": "Brake Assembly",
+        "brake-actuator": "Brake Actuator",
+        "exhaust-brake": "Exhaust Brake",
+        "brake-repair-kit": "Brake Repair Kit",
+        "brake-camshaft": "Brake Camshaft",
+        "brake-spring": "Brake Spring",
+        "brake-hardware": "Brake Hardware",
+    },
+    "electricals": {
+        "wire-harness": "Wiring Harness",
+        "electronic-control-unit": "Electronic Control Unit",
+    },
+    "engine-components": {
+        "engine-valve-components": "Engine Valve Components",
+        "valve-stem-seal": "Valve Stem Seal",
+    },
+}
+
+CATEGORY_LABELS = {
+    "brakes": "Brakes",
+    "electricals": "Electricals",
+    "bearings": "Bearings",
+    "engine-components": "Engine Components",
+}
+
+SUBCATEGORY_PURPOSES = {
+    "brake-hose": "A flexible line used in the vehicle's brake circuit.",
+    "brake-pipe": "A pipe used to connect components in the vehicle's brake circuit.",
+    "brake-bracket": "A mounting or support component for the stated brake-system assembly.",
+    "brake-pedal": "A pedal or pedal-mounted component in the driver's brake control mechanism.",
+    "brake-linkage": "A mechanical link that transfers movement within the brake control mechanism.",
+    "brake-assembly": "A brake assembly for the wheel position and dimensions stated in the product name.",
+    "brake-actuator": "A pneumatic actuator used in the vehicle's air-brake system.",
+    "exhaust-brake": "A component of the vehicle's exhaust-braking system.",
+    "brake-repair-kit": "A service kit containing replacement components for the stated brake mechanism.",
+    "brake-camshaft": "A camshaft or related service component within the drum-brake mechanism.",
+    "brake-spring": "A return or retaining spring used in the brake mechanism.",
+    "brake-hardware": "A supporting, retaining or service component used within the stated brake assembly.",
+    "brake-lining": "A friction-lined component used in the vehicle's braking assembly.",
+    "brake-chamber": "A component associated with the vehicle's pneumatic brake actuation system.",
+    "wire-harness": "An electrical wiring harness for the vehicle's electrical or ABS braking system.",
+    "electronic-control-unit": "An electronic control module for the vehicle's ABS or brake-control system.",
+    "hub-units-wheel-bearings": "A wheel-hub component associated with the vehicle's wheel-end and bearing assembly.",
+    "engine-valve-components": "A component of the engine's valve train or cylinder-head valve mechanism.",
+    "valve-stem-seal": "A seal fitted around an engine valve stem to regulate oil passage along the stem.",
+    "gasket": "A sealing component for the engine joint or mounting identified in the product name.",
+}
+
+
+def populate_leykart_product_taxonomy(product: dict[str, Any]) -> None:
+    """Fill factual product copy and normalize taxonomy for imported Leykart SKUs."""
+    name = str(product.get("product_name") or product.get("name") or "").strip()
+    if not name:
+        raise ValueError(f"{product.get('id') or 'Leykart product'}: product name is missing")
+    normalized = " ".join(name.casefold().split())
+    category_id = str(product.get("category_id") or "").strip()
+    subcategory_id = str(product.get("subcategory_id") or "").strip()
+
+    # Correct subsystem placement before assigning a category-local subcategory.
+    # ABS electrical hardware is catalogued under Electricals, and wheel hubs
+    # under Bearings rather than the Brakes application category.
+    if "wiring harness" in normalized or "abs harness" in normalized:
+        category_id, subcategory_id = "electricals", "wire-harness"
+    elif "control unit" in normalized and ("abs" in normalized or "brake" in normalized):
+        category_id, subcategory_id = "electricals", "electronic-control-unit"
+    elif "front hub" in normalized or "hub front axle" in normalized:
+        category_id, subcategory_id = "bearings", "hub-units-wheel-bearings"
+    elif not subcategory_id:
+        if category_id == "engine-components":
+            if "valve stem seal" in normalized:
+                subcategory_id = "valve-stem-seal"
+            elif "gasket" in normalized:
+                subcategory_id = "gasket"
+            else:
+                subcategory_id = "engine-valve-components"
+        elif category_id == "brakes":
+            if "spring brake actuator" in normalized or "actuator" in normalized:
+                subcategory_id = "brake-actuator"
+            elif "exhaust brake" in normalized:
+                subcategory_id = "brake-hardware" if "clamp" in normalized else "exhaust-brake"
+            elif "hose clamp" in normalized or "clamp" in normalized:
+                subcategory_id = "brake-hardware"
+            elif "hose" in normalized:
+                subcategory_id = "brake-hose"
+            elif "bundy" in normalized or "pipe" in normalized:
+                subcategory_id = "brake-pipe"
+            elif "bracket" in normalized:
+                subcategory_id = "brake-bracket"
+            elif "pedal" in normalized:
+                subcategory_id = "brake-pedal"
+            elif "push rod" in normalized:
+                subcategory_id = "brake-linkage"
+            elif "camshaft" in normalized or "cam shaft" in normalized:
+                subcategory_id = "brake-camshaft"
+            elif "lined shoe" in normalized or "brake lining" in normalized or "brake ling" in normalized:
+                subcategory_id = "brake-lining"
+            elif "spring washer" in normalized or "washer" in normalized or "circlip" in normalized:
+                subcategory_id = "brake-hardware"
+            elif "shim" in normalized or "retainer" in normalized or "roller" in normalized or "bush" in normalized:
+                subcategory_id = "brake-hardware"
+            elif "anchor plate" in normalized or "dust cover" in normalized or "cover parking" in normalized:
+                subcategory_id = "brake-hardware"
+            elif "repair kit" in normalized or "rep kit" in normalized or "minor repair" in normalized or "major repair" in normalized:
+                subcategory_id = "brake-repair-kit"
+            elif "brake spring" in normalized or "return spg" in normalized or "spring shoe" in normalized:
+                subcategory_id = "brake-spring"
+            elif "brake assembly" in normalized or "rear brake" in normalized or "front brake" in normalized:
+                subcategory_id = "brake-assembly"
+            else:
+                subcategory_id = "brake-hardware"
+
+    if category_id not in CATEGORY_LABELS:
+        raise ValueError(
+            f"{product.get('id')}: no approved Leykart category mapping for {category_id!r}"
+        )
+
+    subcategory_labels = NEW_SUBCATEGORY_LABELS.get(category_id, {})
+    subcategory_name = subcategory_labels.get(subcategory_id)
+    if not subcategory_name:
+        # Existing, established subcategories retain their current display name.
+        subcategory_name = str(
+            product.get("subcategory_name") or product.get("subcategory") or ""
+        ).strip()
+    if not subcategory_name and subcategory_id:
+        existing_labels = {
+            "brake-lining": "Brake Lining",
+            "brake-chamber": "Brake Chamber",
+            "brake-valve": "Brake Valve",
+            "brake-disc": "Brake Disc",
+            "brake-drum": "Brake Drum",
+            "brake-switch": "Brake Switch",
+            "brake-slack-adjuster": "Brake Slack Adjuster",
+            "brake-anchor-pin": "Brake Anchor Pin",
+            "air-spring": "Air Spring",
+            "gasket": "Gasket",
+            "hub-units-wheel-bearings": "Hub Units & Wheel Bearings",
+        }
+        subcategory_name = existing_labels.get(
+            subcategory_id, subcategory_id.replace("-", " ").title()
+        )
+
+    if not subcategory_id or not subcategory_name:
+        raise ValueError(f"{product.get('id')}: category/subcategory mapping is incomplete")
+
+    category_name = CATEGORY_LABELS[category_id]
+    product["category_id"] = category_id
+    product["category_name"] = category_name
+    product["category"] = category_name
+    product["subcategory_id"] = subcategory_id
+    product["subcategory_name"] = subcategory_name
+    product["subcategory"] = subcategory_name
+
+    # Do not overwrite source-backed descriptions. Fill missing descriptions
+    # with copy based only on the supplied product name and component taxonomy.
+    if not str(product.get("description") or "").strip():
+        purpose = SUBCATEGORY_PURPOSES.get(
+            subcategory_id,
+            f"A replacement component for the {category_name.casefold()} system.",
+        )
+        verification = (
+            "Confirm the OE reference, vehicle model and variant, installation "
+            "position, and any dimensions or connection details before ordering."
+        )
+        product["description"] = f"{name}. {purpose} {verification}"
+
+
 UPDATE_FIELDS = (
     "part_number", "partNumber", "mrp", "selling_price", "discount_percent",
     "discountPercent", "product_name", "name", "description", "applications",
@@ -246,6 +422,7 @@ def main() -> None:
         if not image_views:
             skipped_without_images.append(product_id)
             continue
+        populate_leykart_product_taxonomy(product)
         product["image"] = "1.webp"
         product["primary_image"] = "1.webp"
         product["image_folder"] = product_id
@@ -285,6 +462,7 @@ def main() -> None:
             # Idempotent reruns preserve the catalogue record but refresh only the
             # Leykart-owned commercial and HSN/GST fields below.
             existing.update({key: value for key, value in product.items() if key in UPDATE_FIELDS})
+            populate_leykart_product_taxonomy(existing)
             verify_and_enrich_new_product(existing, policy.get("default_source_references") or [])
             new_ids.append(product_id)
             continue
