@@ -56,10 +56,19 @@ NEW_SUBCATEGORY_LABELS = {
 }
 
 CATEGORY_LABELS = {
-    "brakes": "Brakes",
+    "filters": "Filters",
+    "fasteners-hardware": "Fasteners & Hardware",
+    "air-system": "Air System",
+    "suspension-steering": "Suspension & Steering",
     "electricals": "Electricals",
-    "bearings": "Bearings",
+    "brakes": "Brakes",
     "engine-components": "Engine Components",
+    "bearings": "Bearings",
+    "rubber-parts": "Rubber Parts",
+    "clutch-parts": "Clutch Parts",
+    "lubricants": "Lubricants",
+    "cooling-system": "Cooling System",
+    "cooling-pump": "Cooling Pump",
 }
 
 SUBCATEGORY_PURPOSES = {
@@ -113,7 +122,11 @@ def populate_leykart_product_taxonomy(product: dict[str, Any]) -> None:
             else:
                 subcategory_id = "engine-valve-components"
         elif category_id == "brakes":
-            if "spring brake actuator" in normalized or "actuator" in normalized:
+            if "camshaft" in normalized or "cam shaft" in normalized:
+                subcategory_id = "brake-camshaft"
+            elif "repair kit" in normalized or "rep kit" in normalized or "minor repair" in normalized or "major repair" in normalized:
+                subcategory_id = "brake-repair-kit"
+            elif "spring brake actuator" in normalized or "actuator" in normalized:
                 subcategory_id = "brake-actuator"
             elif "exhaust brake" in normalized:
                 subcategory_id = "brake-hardware" if "clamp" in normalized else "exhaust-brake"
@@ -121,7 +134,9 @@ def populate_leykart_product_taxonomy(product: dict[str, Any]) -> None:
                 subcategory_id = "brake-hardware"
             elif "hose" in normalized:
                 subcategory_id = "brake-hose"
-            elif "bundy" in normalized or "pipe" in normalized:
+            elif "brkt brake pipe" in normalized or normalized.startswith("brkt "):
+                subcategory_id = "brake-bracket"
+            elif "bundy" in normalized or "pipe" in normalized or "tee piece" in normalized or "elbow" in normalized:
                 subcategory_id = "brake-pipe"
             elif "bracket" in normalized:
                 subcategory_id = "brake-bracket"
@@ -129,20 +144,16 @@ def populate_leykart_product_taxonomy(product: dict[str, Any]) -> None:
                 subcategory_id = "brake-pedal"
             elif "push rod" in normalized:
                 subcategory_id = "brake-linkage"
-            elif "camshaft" in normalized or "cam shaft" in normalized:
-                subcategory_id = "brake-camshaft"
             elif "lined shoe" in normalized or "brake lining" in normalized or "brake ling" in normalized:
                 subcategory_id = "brake-lining"
             elif "spring washer" in normalized or "washer" in normalized or "circlip" in normalized:
                 subcategory_id = "brake-hardware"
+            elif "spring" in normalized and "brake" in normalized:
+                subcategory_id = "brake-spring"
             elif "shim" in normalized or "retainer" in normalized or "roller" in normalized or "bush" in normalized:
                 subcategory_id = "brake-hardware"
             elif "anchor plate" in normalized or "dust cover" in normalized or "cover parking" in normalized:
                 subcategory_id = "brake-hardware"
-            elif "repair kit" in normalized or "rep kit" in normalized or "minor repair" in normalized or "major repair" in normalized:
-                subcategory_id = "brake-repair-kit"
-            elif "brake spring" in normalized or "return spg" in normalized or "spring shoe" in normalized:
-                subcategory_id = "brake-spring"
             elif "brake assembly" in normalized or "rear brake" in normalized or "front brake" in normalized:
                 subcategory_id = "brake-assembly"
             else:
