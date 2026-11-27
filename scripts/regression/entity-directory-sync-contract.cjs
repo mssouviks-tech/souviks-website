@@ -22,22 +22,22 @@ const numberById = (html, id) => {
 const divBlock = (source, openIndex) => {
     const openingEnd = source.indexOf(">", openIndex);
     assert.ok(openingEnd >= 0, "Malformed div opening tag");
-    const tags = /<\\/?div\\b[^>]*>/gi;
+    const tags = /<\/?div\b[^>]*>/gi;
     tags.lastIndex = openingEnd + 1;
     let depth = 1;
     let match;
     while ((match = tags.exec(source))) {
-        if (/^<\\/div/i.test(match[0])) {
+        if (/^<\/div/i.test(match[0])) {
             depth -= 1;
             if (depth === 0) return source.slice(openIndex, tags.lastIndex);
-        } else if (!/\\/\\s*>$/.test(match[0])) {
+        } else if (!/\/\s*>$/.test(match[0])) {
             depth += 1;
         }
     }
     throw new Error("Unclosed div in static page");
 };
 const heroValue = (html, icon) => {
-    const openers = [...html.matchAll(/<div\\b[^>]*class=["'][^"']*\\bhero-stat\\b[^"']*["'][^>]*>/gi)];
+    const openers = [...html.matchAll(/<div\b[^>]*class=["'][^"']*\bhero-stat\b[^"']*["'][^>]*>/gi)];
     for (const match of openers) {
         const block = divBlock(html, match.index);
         const iconPattern = new RegExp(
@@ -46,14 +46,14 @@ const heroValue = (html, icon) => {
             "i"
         );
         if (!iconPattern.test(block)) continue;
-        const number = block.match(/<(?:span|div)\\b[^>]*class=["'][^"']*\\bstat-number\\b[^"']*["'][^>]*>\\s*([\\d,]+)\\s*<\\/(?:span|div)>/i);
+        const number = block.match(/<(?:span|div)\b[^>]*class=["'][^"']*\bstat-number\b[^"']*["'][^>]*>\s*([\d,]+)\s*<\/(?:span|div)>/i);
         assert.ok(number, "Hero stat " + icon + " has no numeric value");
         return Number(number[1].replace(/,/g, ""));
     }
     throw new Error("Missing hero stat " + icon);
 };
 const heroTrust = (html, icon) => {
-    const openers = [...html.matchAll(/<div\\b[^>]*class=["'][^"']*\\bhome-trust-item\\b[^"']*["'][^>]*>/gi)];
+    const openers = [...html.matchAll(/<div\b[^>]*class=["'][^"']*\bhome-trust-item\b[^"']*["'][^>]*>/gi)];
     for (const match of openers) {
         const block = divBlock(html, match.index);
         const iconPattern = new RegExp(
@@ -62,7 +62,7 @@ const heroTrust = (html, icon) => {
             "i"
         );
         if (!iconPattern.test(block)) continue;
-        const number = block.match(/<strong\\b[^>]*>\\s*([\\d,]+)\\+\\s*<\\/strong>/i);
+        const number = block.match(/<strong\b[^>]*>\s*([\d,]+)\+\s*<\/strong>/i);
         assert.ok(number, "Homepage trust stat " + icon + " has no numeric value");
         return Number(number[1].replace(/,/g, ""));
     }
