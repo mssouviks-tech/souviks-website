@@ -296,7 +296,7 @@ def create_missing_brand_pages() -> int:
 
             marker = "<!-- ENTITY_CONTEXT_BRAND -->"
             page = re.sub(
-                r'<section class=["\']entity-context section-spacing["'][^>]*>[\s\S]*?</section>',
+                r"""<section class=["']entity-context section-spacing["'][^>]*>[\s\S]*?</section>""",
                 "",
                 page,
                 flags=re.I,
