@@ -139,6 +139,9 @@ for (const language of ["en", "hi", "bn"]) {
     assert.equal(numberById(productsHtml, "totalProducts"), productCount, language + " totalProducts");
     assert.equal(numberById(productsHtml, "totalResults"), productCount, language + " totalResults");
     assert.equal(heroValue(productsHtml, "products.svg"), productCount, language + " products hero");
+    assert.equal(heroValue(productsHtml, "brands.svg"), brandCount, language + " products-page brand hero");
+    assert.equal(heroValue(productsHtml, "category.svg"), categoryCount, language + " products-page category hero");
+    assert.equal(heroValue(productsHtml, "vehicle.svg"), vehicleCount, language + " products-page vehicle hero");
 
     const categoriesHtml = readText(language + "/categories.html");
     assert.equal(heroValue(categoriesHtml, "category.svg"), categoryCount, language + " category hero");
