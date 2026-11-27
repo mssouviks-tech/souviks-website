@@ -145,6 +145,15 @@ for (const language of ["en", "hi", "bn"]) {
 
     const categoriesHtml = readText(language + "/categories.html");
     assert.equal(heroValue(categoriesHtml, "category.svg"), categoryCount, language + " category hero");
+    const categoryCards = cardBlocks(categoriesHtml, "category-card", "article");
+    assert.equal(categoryCards.length, categoryCount, language + " category card count");
+    assert.equal(numberById(categoriesHtml, "visibleCategories"), categoryCount, language + " visible category counter");
+    for (const category of categories) {
+        const card = cards(categoriesHtml, "category-card", "article", "/" + language + "/categories/" + category.slug);
+        assert.ok(card, language + " category listing omits " + category.name);
+        assert.equal(cardNumber(card, "category-count"), Number(category.product_count || (category.products || []).length),
+            language + " category product count for " + category.name);
+    }
     assert.equal(heroValue(categoriesHtml, "subcategories.svg"), subcategoryCount, language + " subcategory hero");
     assert.equal(heroValue(categoriesHtml, "products.svg"), productCount, language + " category-page product hero");
 
