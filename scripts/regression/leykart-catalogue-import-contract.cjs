@@ -116,6 +116,30 @@ if (frontHubs.some(product =>
 )) {
   throw new Error("Front wheel hubs must map to Bearings / Hub Units & Wheel Bearings");
 }
+
+const waterPumps = catalogue.filter(product =>
+  /water\\s+pump/i.test(displayName(product)) &&
+  !/water\\s+pump\\s+bearings?/i.test(displayName(product))
+);
+const coolingSystem = categoriesById.get("cooling-system");
+const waterPumpSubcategory = (coolingSystem?.subcategories || []).find(item =>
+  item.id === "water-pump" && item.name === "Water Pump"
+);
+if (!waterPumpSubcategory || waterPumps.length === 0 || waterPumps.some(product =>
+  product.category_id !== "cooling-system" ||
+  product.category_name !== "Cooling System" ||
+  product.category !== "Cooling System" ||
+  product.subcategory_id !== "water-pump" ||
+  product.subcategory_name !== "Water Pump" ||
+  product.subcategory !== "Water Pump"
+)) {
+  throw new Error("Water pumps must map to Cooling System / Water Pump");
+}
+const canonicalKflWaterPump = byId.get("SVKS000748");
+if (!canonicalKflWaterPump || canonicalKflWaterPump.category_id !== "cooling-system" ||
+    canonicalKflWaterPump.subcategory_id !== "water-pump") {
+  throw new Error("KFL KF427 Water Pump must map to Cooling System / Water Pump");
+}
 for (const id of noImageIds) {
   if (byId.has(id)) throw new Error("Image-less Leykart SKU was retained: " + id);
 }
@@ -193,5 +217,6 @@ console.log("Image-backed Leykart catalogue import contract passed", {
   user_verified_hsn: newProducts.length,
   gst_invoice_ready: newProducts.length,
   valueparts_skus: valueparts.length,
+  water_pump_products: waterPumps.length,
   exact_existing_matches_updated: 3,
 });
