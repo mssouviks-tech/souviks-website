@@ -17,7 +17,11 @@ COUNT_LABELS = {
     "en": "Products",
     "hi": "उत्पाद",
     "bn": "পণ্যসমূহ",
+    "en": "Products",
+    "hi": "उत्पाद",
+    "bn": "পণ্যসমূহ",
 }
+EVERY_VEHICLE_LABELS = {"en": "Every Vehicle", "hi": "सभी वाहन", "bn": "সব যানবাহন"}
 
 
 def read_json(path: Path) -> Any:
@@ -265,6 +269,53 @@ def update_home_brand_cards(source: str, brands_by_slug: dict[str, dict], langua
     return pattern.sub(update, source)
 
 
+def every_vehicle_card(vehicle: dict, language: str) -> str:
+    slug = clean(vehicle.get("slug"))
+    count = int(vehicle.get("product_count") or len(vehicle.get("products") or []))
+    name = EVERY_VEHICLE_LABELS[language]
+    return (
+        f'<article class="vehicle-card vehicle-card--every"><a href="/{language}/vehicles/{html.escape(slug, quote=True)}" '
+        f'data-breadcrumb="{html.escape(name, quote=True)}">'
+        '<div class="vehicle-image vehicle-image--every" aria-hidden="true">'
+        '<img class="vehicle-every-icon" src="/assets/icons/vehicle.svg" alt="" '
+        'width="64" height="64" decoding="async"></div>'
+        f'<div class="vehicle-content"><h3 class="vehicle-title">{html.escape(name)}</h3>'
+        f'<div class="vehicle-count">{count} {COUNT_LABELS[language]}</div></div>'
+        '</a></article>'
+    )
+
+
+def update_home_category_cards(source: str, categories_by_slug: dict[str, dict], language: str) -> str:
+    pattern = re.compile(
+        r"<article\\b(?=[^>]*\\bclass=[\\x22\\x27][^\\x22\\x27]*\\bcategory-card\\b[^\\x22\\x27]*[\\x22\\x27])[^>]*>.*?</article>",
+        re.I | re.S,
+    )
+
+    def update(match: re.Match) -> str:
+        card = match.group(0)
+        href = re.search(
+            r"\\bhref=[\\x22\\x27]/" + re.escape(language) + r"/categories/([^\\x22\\x27/?#]+)",
+            card,
+            re.I,
+        )
+        if not href:
+            return card
+        category = categories_by_slug.get(href.group(1))
+        if not category:
+            return card
+        count = int(category.get("product_count") or len(category.get("products") or []))
+        updated, replacements = re.subn(
+            r"(<div\\b[^>]*class=[\\x22\\x27][^\\x22\\x27]*\\bcategory-count\\b[^\\x22\\x27]*[\\x22\\x27][^>]*>)[\\s\\S]*?(</div>)",
+            lambda item: item.group(1) + f"{count} {COUNT_LABELS[language]}" + item.group(2),
+            card,
+            count=1,
+            flags=re.I,
+        )
+        return updated if replacements == 1 else card
+
+    return pattern.sub(update, source)
+
+
 def update_featured_vehicle_cards(source: str, vehicles_by_id: dict[str, dict], language: str) -> str:
     pattern = re.compile(
         r"<a\b(?=[^>]*\bclass=[\"'][^\"']*\bpopular-vehicle-card\b[^\"']*[\"'])[^>]*>.*?</a>",
@@ -342,6 +393,7 @@ def main() -> None:
         raise ValueError("Refusing to synchronize empty catalogue or entity counts.")
 
     brands_by_slug = {clean(item.get("slug")): item for item in active_brands}
+    categories_by_slug = {clean(item.get("slug")): item for item in active_categories}
     vehicles_by_id = {clean(item.get("id")): item for item in active_vehicles}
     display_date = datetime.now(timezone.utc).strftime("%d %B %Y")
     changed_files = 0
@@ -362,6 +414,10 @@ def main() -> None:
         vehicle_path = ROOT / language / "vehicles.html"
         vehicle_html = vehicle_path.read_text(encoding="utf-8")
         vehicle_cards = "".join(vehicle_card(item, language) for item in active_vehicles)
+        universal_vehicle = vehicles_by_id.get("universal")
+        if universal_vehicle is None:
+            raise ValueError("Universal vehicle entry is required for the Every Vehicle directory card.")
+        vehicle_cards += every_vehicle_card(universal_vehicle, language)
         vehicle_html = replace_div_contents(vehicle_html, "vehicle-grid", vehicle_cards)
         vehicle_html = replace_numeric_id(vehicle_html, "visibleVehicles", vehicle_count)
         vehicle_html = update_hero_stat(vehicle_html, "vehicle.svg", vehicle_count)
@@ -405,6 +461,7 @@ def main() -> None:
         home_html = update_home_trust_stat(home_html, "products.svg", active_product_count, language)
         home_html = update_home_trust_stat(home_html, "brands.svg", brand_count, language)
         home_html = update_home_brand_cards(home_html, brands_by_slug, language)
+        home_html = update_home_category_cards(home_html, categories_by_slug, language)
         home_html = update_featured_vehicle_cards(home_html, vehicles_by_id, language)
         changed_files += int(write_if_changed(home_path, home_html))
 
