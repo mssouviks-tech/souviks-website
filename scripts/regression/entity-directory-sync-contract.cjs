@@ -120,6 +120,37 @@ for (const language of ["en", "hi", "bn"]) {
         assert.ok(card, language + " brand listing omits " + brand.name);
         assert.equal(cardNumber(card, "brand-count"), Number(brand.product_count || (brand.products || []).length),
             language + " brand product count for " + brand.name);
+
+        const detailPath = language + "/brands/" + brand.slug + ".html";
+        const detailHtml = readText(detailPath);
+        const expectedUrl = "https://www.souviks.co.in/" + language + "/brands/" + brand.slug;
+        const escapedName = String(brand.name).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        assert.ok(detailHtml.includes("<h1>" + escapedName + "</h1>"),
+            detailPath + " must render the canonical brand name");
+        assert.ok(detailHtml.includes('rel="canonical" href="' + expectedUrl + '"'),
+            detailPath + " canonical must match the brand slug");
+        for (const code of ["en", "hi", "bn"]) {
+            const alternateUrl = "https://www.souviks.co.in/" + code + "/brands/" + brand.slug;
+            assert.ok(detailHtml.includes('hreflang="' + code + '" href="' + alternateUrl + '"'),
+                detailPath + " missing correct hreflang=" + code);
+        }
+        assert.ok(detailHtml.includes('hreflang="x-default" href="https://www.souviks.co.in/en/brands/' + brand.slug + '"'),
+            detailPath + " missing correct x-default hreflang");
+
+        const schemaMatch = detailHtml.match(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i);
+        assert.ok(schemaMatch, detailPath + " missing JSON-LD");
+        const schema = JSON.parse(schemaMatch[1]);
+        assert.equal(schema["@type"], "CollectionPage", detailPath + " JSON-LD type");
+        assert.equal(schema.url, expectedUrl, detailPath + " JSON-LD canonical URL");
+        assert.equal(schema.about?.name, brand.name, detailPath + " JSON-LD brand identity");
+        assert.equal(Number(schema.mainEntity?.numberOfItems), Number(brand.product_count || (brand.products || []).length),
+            detailPath + " JSON-LD active-product count");
+        if (brand.logo) {
+            const expectedLogo = brand.logo.startsWith("/") ? "https://www.souviks.co.in" + brand.logo : brand.logo;
+            assert.equal(schema.about?.logo?.url, expectedLogo, detailPath + " JSON-LD brand logo");
+        } else {
+            assert.ok(!schema.about?.logo, detailPath + " must not inherit a logo from its page shell");
+        }
     }
 
     const vehicleHtml = readText(language + "/vehicles.html");
