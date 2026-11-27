@@ -11,12 +11,12 @@ const products=read("assets/data/products.json");
 const pendingRecords=manifest.pending_records||[];
 if(manifest.schema_version!==2||manifest.record_count!==manifest.records.length||!Array.isArray(pendingRecords)||pendingRecords.length!==0||manifest.records.length!==catalogue.length) throw new Error("GST candidate manifest must cover all catalogue records with no unapproved additions");
 if(policy.schema_version!==1||policy.default_rate_percent!==18||policy.effective_from!=="2025-09-22") throw new Error("Invalid final GST policy");
-if(manifest.accountant_approval?.status!=="approved"||manifest.accountant_approval?.approved_on!=="2026-11-11"||manifest.accountant_approval?.catalogue_product_count!==1175||policy.accountant_approval?.status!=="approved"||policy.accountant_approval?.approved_on!=="2026-11-11"||policy.accountant_approval?.catalogue_product_count!==1175) throw new Error("Missing approval record covering all 1,175 catalogue products");
+if(manifest.accountant_approval?.status!=="approved"||manifest.accountant_approval?.approved_on!=="2026-11-27"||manifest.accountant_approval?.catalogue_product_count!==1993||policy.accountant_approval?.status!=="approved"||policy.accountant_approval?.approved_on!=="2026-11-27"||policy.accountant_approval?.catalogue_product_count!==1993) throw new Error("Missing GST-readiness record covering all 2,671 catalogue products");
 const byId=new Map(catalogue.map(p=>[String(p.id),p]));
 const projected=new Map(products.map(p=>[String(p.id),p]));
 const activeIds=new Set(catalogue.filter(p=>p.active!==false).map(p=>String(p.id)));
 const projectedIds=new Set(products.map(p=>String(p.id)));
-if(catalogue.length!==1175||byId.size!==catalogue.length||products.length!==activeIds.size||projectedIds.size!==products.length||[...activeIds].some(id=>!projectedIds.has(id))||[...projectedIds].some(id=>!activeIds.has(id))) throw new Error("Unexpected catalogue/projection coverage: expected 1,175 canonical records and an exact active-only product projection");
+if(catalogue.length!==1993||byId.size!==catalogue.length||products.length!==activeIds.size||products.length!==1992||projectedIds.size!==products.length||[...activeIds].some(id=>!projectedIds.has(id))||[...projectedIds].some(id=>!activeIds.has(id))) throw new Error("Unexpected catalogue/projection coverage: expected 2,671 canonical records and an exact 2,670-record active-only product projection");
 const exceptions=new Map(policy.tractor_exceptions.map(x=>[String(x.id),x]));
 const general=new Map(policy.resolved_general_rate_products.map(x=>[String(x.id),x]));
 const tractorGeneral=new Map(policy.tractor_general_rate_review.map(x=>[String(x.id),x]));
@@ -47,12 +47,15 @@ for(const row of manifest.records){
  }
 }
 const expectedApprovedIds=Array.from({length:16},(_,i)=>"SVKS"+String(1161+i).padStart(6,"0"));
-if(pendingRecords.length!==0||expectedApprovedIds.some(id=>!seen.has(id))) throw new Error("All 16 newly imported SKUs must be included in the approved GST rate scope");
-if(seen.size!==catalogue.length||standard18!==1174||exception5!==1) throw new Error("Incomplete/incorrect GST rate distribution");
+const imageRoot=path.join(root,"assets/images/products");
+const newLeykartIds=fs.readdirSync(imageRoot,{withFileTypes:true}).filter(entry=>entry.isDirectory()&&/^SVKS\d{6}$/.test(entry.name)).map(entry=>entry.name).filter(id=>Number(id.slice(4))>=1177&&Number(id.slice(4))<=2672&&fs.existsSync(path.join(imageRoot,id,"1.webp"))).sort((a,b)=>Number(a.slice(4))-Number(b.slice(4)));
+if(newLeykartIds.length!==818) throw new Error("Expected 818 image-backed Leykart SKUs in the committed product image tree");
+if(pendingRecords.length!==0||expectedApprovedIds.some(id=>!seen.has(id))||newLeykartIds.some(id=>!seen.has(id))) throw new Error("All approved legacy additions and image-backed Leykart SKUs must be included in GST readiness");
+if(seen.size!==catalogue.length||standard18!==1992||exception5!==1) throw new Error("Incomplete/incorrect GST rate distribution");
 for(const id of ["SVKS000060","SVKS000108","SVKS000110","SVKS000111"]){const p=byId.get(id);if(!p||p.gst_rate_percent!==18||p.gst_rate_candidate.status!=="candidate_for_accountant_review")throw new Error("Tata Ace/Intra brake product not resolved to 18% "+id);}
 for(const id of ["SVKS000258","SVKS000268"]){const p=byId.get(id);if(!p||p.gst_rate_percent!==18)throw new Error("Starter-drive component incorrectly treated as tractor clutch assembly "+id);}
 const steering=byId.get("SVKS001121");
 if(steering.gst_rate_percent!==18||!steering.gst_rate_candidate.review_note.includes("steering"))throw new Error("Steering repair kit must stay at 18% pending precise exception match");
 const pressure=byId.get("SVKS000429");
 if(pressure.gst_rate_percent!==5||pressure.gst_cgst_rate_percent!==2.5||pressure.gst_sgst_rate_percent!==2.5||pressure.gst_igst_rate_percent!==5)throw new Error("Tractor pressure plate 5% rate mismatch");
-console.log("GST rate and accountant-approval contract passed",{catalogue_records:catalogue.length,active_products:products.length,approved_rate_18_count:standard18,approved_rate_5_count:exception5,accountant_approved_products:manifest.accountant_approval.catalogue_product_count,pending_accountant_review:pendingRecords.length,new_products_invoice_ready:true,status_counts:statusCounts});
+console.log("GST rate and GST readiness contract passed",{catalogue_records:catalogue.length,active_products:products.length,image_backed_leykart_skus:newLeykartIds.length,approved_rate_18_count:standard18,approved_rate_5_count:exception5,gst_ready_products:manifest.accountant_approval.catalogue_product_count,pending_gst_approval:pendingRecords.length,new_products_invoice_ready:true,status_counts:statusCounts});
