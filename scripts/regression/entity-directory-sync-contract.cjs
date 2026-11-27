@@ -11,7 +11,7 @@ const readText = relative => fs.readFileSync(path.join(root, relative), "utf8");
 const active = rows => rows.filter(row => row && row.active !== false && row.id && row.slug);
 const numberById = (html, id) => {
     const pattern = new RegExp(
-        '<(?:span|div)\\\\b(?=[^>]*\\\\bid=[\\\\x22\\\\x27]' + id +
+        '<(?:span|div|strong)\\\\b(?=[^>]*\\\\bid=[\\\\x22\\\\x27]' + id +
         '[\\\\x22\\\\x27])[^>]*>\\\\s*([\\\\d,]+)\\\\s*</(?:span|div)>',
         "i"
     );
