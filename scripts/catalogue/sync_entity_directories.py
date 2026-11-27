@@ -70,6 +70,11 @@ def replace_div_contents(source: str, element_id: str, contents: str) -> str:
     return source[:opening.end()] + "\n\n" + contents + "\n\n" + source[close:]
 
 
+def trim_trailing_horizontal_whitespace(fragment: str) -> str:
+    """Remove spaces or tabs immediately before line endings in a preserved HTML suffix."""
+    return re.sub(r"[ \\t]+(?=\\r?$)", "", fragment, flags=re.MULTILINE)
+
+
 def replace_numeric_id(source: str, element_id: str, value: int, *, required: bool = True) -> str:
     pattern = re.compile(
         r"(<(?P<tag>span|div|strong)\b(?=[^>]*\bid=[\"']"
@@ -78,7 +83,7 @@ def replace_numeric_id(source: str, element_id: str, value: int, *, required: bo
         re.I,
     )
     updated, count = pattern.subn(
-        lambda match: match.group(1) + str(value) + match.group(3),
+        lambda match: match.group(1) + str(value) + trim_trailing_horizontal_whitespace(match.group(3)),
         source,
         count=1,
     )
@@ -111,7 +116,7 @@ def update_hero_stat(source: str, icon_name: str, value: int, *, required: bool 
         if not icon:
             continue
         updated, count = number.subn(
-            lambda match: match.group(1) + str(value) + match.group(2),
+            lambda match: match.group(1) + str(value) + trim_trailing_horizontal_whitespace(match.group(2)),
             block,
             count=1,
         )
