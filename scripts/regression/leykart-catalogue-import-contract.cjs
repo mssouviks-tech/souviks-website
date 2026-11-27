@@ -10,6 +10,7 @@ const sortSku = (a, b) => numericSku(a) - numericSku(b);
 const catalogue = read("assets/data/catalogue-index.json");
 const products = read("assets/data/products.json");
 const brands = read("assets/data/brands.json");
+const categories = read("assets/data/categories.json");
 const gstManifest = read("assets/data/gst-rate-candidate-overrides-2026-11-08.json");
 const gstPolicy = read("assets/data/gst-rate-final-policy-2026-11-08.json");
 const byId = new Map(catalogue.map(product => [String(product.id), product]));
@@ -59,6 +60,47 @@ const newProducts = catalogue
 if (newProducts.length !== EXPECTED_IMAGE_BACKED_COUNT ||
     JSON.stringify(newProducts.map(product => product.id)) !== JSON.stringify(imageBackedIds)) {
   throw new Error("Only the repository's image-backed Leykart SKUs may remain in the catalogue");
+}
+
+const categoriesById = new Map(categories.map(category => [String(category.id), category]));
+for (const product of newProducts) {
+  const id = product.id;
+  const category = categoriesById.get(String(product.category_id || ""));
+  if (!category) throw new Error("Missing or invalid category assignment for " + id);
+  const subcategory = (category.subcategories || []).find(item =>
+    String(item.id) === String(product.subcategory_id || "")
+  );
+  if (!subcategory) throw new Error("Missing or invalid subcategory assignment for " + id);
+  if (product.category_name !== category.name || product.category !== category.name ||
+      product.subcategory_name !== subcategory.name || product.subcategory !== subcategory.name) {
+    throw new Error("Product taxonomy labels do not match the category master: " + id);
+  }
+  if (typeof product.description !== "string" || product.description.trim().length < 50) {
+    throw new Error("Leykart product description is missing or too short: " + id);
+  }
+}
+const displayName = product => String(product.product_name || product.name || "");
+const harnessProducts = newProducts.filter(product => /harness/i.test(displayName(product)));
+if (harnessProducts.some(product =>
+  product.category_id !== "electricals" || product.subcategory_id !== "wire-harness"
+)) {
+  throw new Error("ABS/wiring harness products must map to Electricals / Wiring Harness");
+}
+const absControlUnits = newProducts.filter(product =>
+  /control unit/i.test(displayName(product)) && /abs|brake/i.test(displayName(product))
+);
+if (absControlUnits.some(product =>
+  product.category_id !== "electricals" || product.subcategory_id !== "electronic-control-unit"
+)) {
+  throw new Error("ABS brake control units must map to Electricals / Electronic Control Unit");
+}
+const frontHubs = newProducts.filter(product =>
+  /front hub|hub front axle/i.test(displayName(product))
+);
+if (frontHubs.some(product =>
+  product.category_id !== "bearings" || product.subcategory_id !== "hub-units-wheel-bearings"
+)) {
+  throw new Error("Front wheel hubs must map to Bearings / Hub Units & Wheel Bearings");
 }
 for (const id of noImageIds) {
   if (byId.has(id)) throw new Error("Image-less Leykart SKU was retained: " + id);
