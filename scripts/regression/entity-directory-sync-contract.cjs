@@ -127,14 +127,16 @@ for (const language of ["en", "hi", "bn"]) {
         const escapedName = String(brand.name).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         assert.ok(detailHtml.includes("<h1>" + escapedName + "</h1>"),
             detailPath + " must render the canonical brand name");
-        assert.ok(detailHtml.includes('rel="canonical" href="' + expectedUrl + '"'),
+        const linkTags = [...detailHtml.matchAll(/<link\\b[^>]*>/gi)].map(match => match[0]);
+        assert.ok(linkTags.some(tag => /\\brel=["']canonical["']/i.test(tag) && tag.includes(expectedUrl)),
             detailPath + " canonical must match the brand slug");
         for (const code of ["en", "hi", "bn"]) {
             const alternateUrl = "https://www.souviks.co.in/" + code + "/brands/" + brand.slug;
-            assert.ok(detailHtml.includes('hreflang="' + code + '" href="' + alternateUrl + '"'),
+            assert.ok(linkTags.some(tag => new RegExp('\\\\bhreflang=["']' + code + '["']', "i").test(tag) && tag.includes(alternateUrl)),
                 detailPath + " missing correct hreflang=" + code);
         }
-        assert.ok(detailHtml.includes('hreflang="x-default" href="https://www.souviks.co.in/en/brands/' + brand.slug + '"'),
+        const defaultUrl = "https://www.souviks.co.in/en/brands/" + brand.slug;
+        assert.ok(linkTags.some(tag => /\\bhreflang=["']x-default["']/i.test(tag) && tag.includes(defaultUrl)),
             detailPath + " missing correct x-default hreflang");
 
         const schemaMatch = detailHtml.match(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i);
