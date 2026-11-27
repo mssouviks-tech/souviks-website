@@ -126,6 +126,12 @@ for (const language of ["en", "hi", "bn"]) {
     assert.equal(heroValue(vehicleHtml, "products.svg"), productCount, language + " vehicle-page product counter");
     assert.equal(heroValue(vehicleHtml, "brands.svg"), brandCount, language + " vehicle-page brand counter");
     const vehicleCards = cardBlocks(vehicleHtml, "vehicle-card", "article");
+    assert.equal(vehicleCards.length, vehicleCount + 1, language + " vehicle card count including Every Vehicle");
+    const universal = vehicles.find(vehicle => vehicle.id === "universal");
+    assert.ok(universal, language + " Universal vehicle entry");
+    const everyVehicleCard = vehicleCards.find(card => card.includes("vehicle-card--every"));
+    assert.ok(everyVehicleCard && everyVehicleCard.includes("/" + language + "/vehicles/" + universal.slug), language + " Every Vehicle card");
+    assert.equal(cardNumber(everyVehicleCard, "vehicle-count"), Number(universal.product_count || (universal.products || []).length), language + " Every Vehicle product count");
     assert.equal(vehicleCards.length, vehicleCount, language + " vehicle card count");
     for (const vehicle of vehicles) {
         const vehicleName = vehicle.model || vehicle.name;
@@ -163,6 +169,15 @@ for (const language of ["en", "hi", "bn"]) {
     assert.equal(heroValue(aboutHtml, "vehicle.svg"), vehicleCount, language + " About application counter");
 
     const homeHtml = readText(language + "/index.html");
+    const homeCategoryCards = cardBlocks(homeHtml, "category-card", "article");
+    for (const card of homeCategoryCards) {
+        const href = card.match(new RegExp("/" + language + "/categories/([^\\\\x22\\\\x27/?#]+)"));
+        assert.ok(href, language + " homepage category card link");
+        const category = categories.find(item => item.slug === href[1]);
+        assert.ok(category, language + " homepage category card master reference " + href[1]);
+        assert.equal(cardNumber(card, "category-count"), Number(category.product_count || (category.products || []).length),
+            language + " homepage category count for " + category.name);
+    }
     assert.equal(heroTrust(homeHtml, "products.svg"), productCount, language + " homepage product trust counter");
     assert.equal(heroTrust(homeHtml, "brands.svg"), brandCount, language + " homepage brand trust counter");
 
