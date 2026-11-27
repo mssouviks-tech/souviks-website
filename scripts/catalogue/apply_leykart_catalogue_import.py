@@ -295,7 +295,7 @@ def main() -> None:
         inserted += 1
 
     if len(set(new_ids)) != EXPECTED_IMAGE_BACKED_ADDITIONS:
-        raise ValueError(f"Expected {EXPECTED_IMAGE_BACKED_ADDITIONS} unique image-backed Leykart additions, got {len(set(new_ids))})
+        raise ValueError(f"Expected {EXPECTED_IMAGE_BACKED_ADDITIONS} unique image-backed Leykart additions, got {len(set(new_ids))}")
     new_ids = sorted(set(new_ids), key=lambda value: int(value.replace("SVKS", "")))
     catalogue.sort(key=lambda item: int(str(item.get("id", "SVKS000000")).replace("SVKS", "")))
 
