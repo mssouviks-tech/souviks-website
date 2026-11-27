@@ -98,6 +98,7 @@ const vehicles = active(readJson("assets/data/vehicles.json"));
 const products = catalogue.filter(row => row && row.id && row.active !== false);
 const productCount = products.length;
 const categoryCount = categories.length;
+const productCategoryCount = new Set(products.map(row => String(row.category_id || "").trim()).filter(Boolean)).size;
 const brandCount = brands.length;
 const vehicleCount = vehicles.length;
 const subcategoryCount = new Set(products.map(row => String(row.subcategory_id || "").trim()).filter(Boolean)).size;
@@ -111,6 +112,7 @@ for (const language of ["en", "hi", "bn"]) {
     assert.equal(numberById(brandHtml, "totalBrands"), brandCount, language + " total brand counter");
     assert.equal(heroValue(brandHtml, "brands.svg"), brandCount, language + " brand hero counter");
     assert.equal(heroValue(brandHtml, "products.svg"), productCount, language + " brand-page product counter");
+    assert.equal(heroValue(brandHtml, "category.svg"), productCategoryCount, language + " brand-page categories with products");
     const brandCards = cardBlocks(brandHtml, "brand-card", "article");
     assert.equal(brandCards.length, brandCount, language + " brand card count");
     for (const brand of brands) {
@@ -145,7 +147,7 @@ for (const language of ["en", "hi", "bn"]) {
     assert.equal(numberById(productsHtml, "totalResults"), productCount, language + " totalResults");
     assert.equal(heroValue(productsHtml, "products.svg"), productCount, language + " products hero");
     assert.equal(heroValue(productsHtml, "brands.svg"), brandCount, language + " products-page brand hero");
-    assert.equal(heroValue(productsHtml, "category.svg"), categoryCount, language + " products-page category hero");
+    assert.equal(heroValue(productsHtml, "category.svg"), productCategoryCount, language + " products-page categories with products");
     assert.equal(heroValue(productsHtml, "vehicle.svg"), vehicleCount, language + " products-page vehicle hero");
 
     const categoriesHtml = readText(language + "/categories.html");
