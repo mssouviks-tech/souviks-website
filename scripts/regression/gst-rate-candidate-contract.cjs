@@ -48,7 +48,7 @@ for(const row of manifest.records){
 }
 const expectedApprovedIds=Array.from({length:16},(_,i)=>"SVKS"+String(1161+i).padStart(6,"0"));
 const imageRoot=path.join(root,"assets/images/products");
-const newLeykartIds=fs.readdirSync(imageRoot,{withFileTypes:true}).filter(entry=>entry.isDirectory()&&/^SVKS\\d{6}$/.test(entry.name)).map(entry=>entry.name).filter(id=>Number(id.slice(4))>=1177&&Number(id.slice(4))<=2672&&fs.existsSync(path.join(imageRoot,id,"1.webp"))).sort((a,b)=>Number(a.slice(4))-Number(b.slice(4)));
+const newLeykartIds=fs.readdirSync(imageRoot,{withFileTypes:true}).filter(entry=>entry.isDirectory()&&/^SVKS\d{6}$/.test(entry.name)).map(entry=>entry.name).filter(id=>Number(id.slice(4))>=1177&&Number(id.slice(4))<=2672&&fs.existsSync(path.join(imageRoot,id,"1.webp"))).sort((a,b)=>Number(a.slice(4))-Number(b.slice(4)));
 if(newLeykartIds.length!==818) throw new Error("Expected 818 image-backed Leykart SKUs in the committed product image tree");
 if(pendingRecords.length!==0||expectedApprovedIds.some(id=>!seen.has(id))||newLeykartIds.some(id=>!seen.has(id))) throw new Error("All approved legacy additions and image-backed Leykart SKUs must be included in GST readiness");
 if(seen.size!==catalogue.length||standard18!==1992||exception5!==1) throw new Error("Incomplete/incorrect GST rate distribution");
