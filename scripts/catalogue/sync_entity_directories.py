@@ -71,7 +71,7 @@ def replace_div_contents(source: str, element_id: str, contents: str) -> str:
 
 def replace_numeric_id(source: str, element_id: str, value: int, *, required: bool = True) -> str:
     pattern = re.compile(
-        r"(<(?P<tag>span|div)\b(?=[^>]*\bid=[\"']"
+        r"(<(?P<tag>span|div|strong)\b(?=[^>]*\bid=[\"']"
         + re.escape(element_id)
         + r"[\"'])[^>]*>\s*)\d[\d,]*(\s*</(?P=tag)\s*>)",
         re.I,
