@@ -12,7 +12,7 @@ const active = rows => rows.filter(row => row && row.active !== false && row.id 
 const numberById = (html, id) => {
     const pattern = new RegExp(
         '<(?:span|div|strong)\\\\b(?=[^>]*\\\\bid=[\\\\x22\\\\x27]' + id +
-        '[\\\\x22\\\\x27])[^>]*>\\\\s*([\\\\d,]+)\\\\s*</(?:span|div)>',
+        '[\\\\x22\\\\x27])[^>]*>\\\\s*([\\\\d,]+)\\\\s*</(?:span|div|strong)>',
         "i"
     );
     const match = html.match(pattern);
