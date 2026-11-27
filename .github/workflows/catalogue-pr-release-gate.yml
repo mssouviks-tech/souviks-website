@@ -103,6 +103,7 @@ jobs:
               "scripts/catalogue/sync_delhivery_module.py",
               "scripts/audit/production_smoke.py",
               "scripts/catalogue/enrich_entities.py",
+              "scripts/catalogue/sync_entity_directories.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
               "scripts/catalogue/validate.py",
               "scripts/catalogue/navigation.py",
@@ -152,6 +153,7 @@ jobs:
           python3 scripts/catalogue/sync_navigation.py
           python3 scripts/catalogue/sync_product_cards.py
           python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/sync_entity_directories.py
           python3 scripts/catalogue/normalize_page_config.py
           python3 scripts/catalogue/sync_rfq_module.py
           python3 scripts/catalogue/sync_product_actions.py
@@ -200,6 +202,7 @@ jobs:
           node scripts/regression/delhivery-estimate-contract.cjs
           node scripts/regression/gst-rate-candidate-contract.cjs
           node scripts/regression/leykart-catalogue-import-contract.cjs
+          node scripts/regression/entity-directory-sync-contract.cjs
           node scripts/regression/hsn-stock-reference-crosswalk.cjs
           node scripts/regression/gst-invoice-generator-contract.cjs
           node scripts/regression/minified-source-contract.cjs
