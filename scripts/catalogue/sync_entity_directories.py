@@ -349,6 +349,9 @@ def main() -> None:
         products_html = replace_numeric_id(products_html, "totalProducts", active_product_count)
         products_html = replace_numeric_id(products_html, "totalResults", active_product_count)
         products_html = update_hero_stat(products_html, "products.svg", active_product_count)
+        products_html = update_hero_stat(products_html, "brands.svg", brand_count)
+        products_html = update_hero_stat(products_html, "category.svg", category_count)
+        products_html = update_hero_stat(products_html, "vehicle.svg", vehicle_count)
         products_html = update_last_updated(products_html, display_date, f"{language}/products.html")
         changed_files += int(write_if_changed(products_path, products_html))
 
