@@ -80,11 +80,25 @@ for (const product of newProducts) {
   }
 }
 const displayName = product => String(product.product_name || product.name || "");
-const harnessProducts = newProducts.filter(product => /harness/i.test(displayName(product)));
-if (harnessProducts.some(product =>
+// Check full wiring-harness assemblies, not every product name that mentions
+// a harness as an accessory or part of a pigtail/sensor description.
+const wiringHarnessProducts = newProducts.filter(product =>
+  /wiring harness|abs harness/i.test(displayName(product))
+);
+if (wiringHarnessProducts.some(product =>
   product.category_id !== "electricals" || product.subcategory_id !== "wire-harness"
 )) {
-  throw new Error("ABS/wiring harness products must map to Electricals / Wiring Harness");
+  throw new Error("Wiring harness assemblies must map to Electricals / Wiring Harness");
+}
+// A brake switch supplied with a wire harness remains a brake switch; the
+// accessory wording must not change the product's primary subsystem.
+const brakeSwitchHarnessProducts = newProducts.filter(product =>
+  /brake switch.*wire harness/i.test(displayName(product))
+);
+if (brakeSwitchHarnessProducts.some(product =>
+  product.category_id !== "brakes" || product.subcategory_id !== "brake-switch"
+)) {
+  throw new Error("Brake switches supplied with a wire harness must remain Brakes / Brake Switch");
 }
 const absControlUnits = newProducts.filter(product =>
   /control unit/i.test(displayName(product)) && /abs|brake/i.test(displayName(product))
