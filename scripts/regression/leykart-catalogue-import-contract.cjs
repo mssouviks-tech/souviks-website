@@ -118,8 +118,8 @@ if (frontHubs.some(product =>
 }
 
 const waterPumps = catalogue.filter(product =>
-  /water\\s+pump/i.test(displayName(product)) &&
-  !/water\\s+pump\\s+bearings?/i.test(displayName(product))
+  /water\s+pump/i.test(displayName(product)) &&
+  !/water\s+pump\s+bearings?/i.test(displayName(product))
 );
 const coolingSystem = categoriesById.get("cooling-system");
 const waterPumpSubcategory = (coolingSystem?.subcategories || []).find(item =>
