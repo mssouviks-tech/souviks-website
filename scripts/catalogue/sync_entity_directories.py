@@ -17,9 +17,6 @@ COUNT_LABELS = {
     "en": "Products",
     "hi": "उत्पाद",
     "bn": "পণ্যসমূহ",
-    "en": "Products",
-    "hi": "उत्पाद",
-    "bn": "পণ্যসমূহ",
 }
 EVERY_VEHICLE_LABELS = {"en": "Every Vehicle", "hi": "सभी वाहन", "bn": "সব যানবাহন"}
 
@@ -287,14 +284,14 @@ def every_vehicle_card(vehicle: dict, language: str) -> str:
 
 def update_home_category_cards(source: str, categories_by_slug: dict[str, dict], language: str) -> str:
     pattern = re.compile(
-        r"<article\\b(?=[^>]*\\bclass=[\\x22\\x27][^\\x22\\x27]*\\bcategory-card\\b[^\\x22\\x27]*[\\x22\\x27])[^>]*>.*?</article>",
+        r"<article\b(?=[^>]*\bclass=[\x22\x27][^\x22\x27]*\bcategory-card\b[^\x22\x27]*[\x22\x27])[^>]*>.*?</article>",
         re.I | re.S,
     )
 
     def update(match: re.Match) -> str:
         card = match.group(0)
         href = re.search(
-            r"\\bhref=[\\x22\\x27]/" + re.escape(language) + r"/categories/([^\\x22\\x27/?#]+)",
+            r"\bhref=[\x22\x27]/" + re.escape(language) + r"/categories/([^\x22\x27/?#]+)",
             card,
             re.I,
         )
@@ -305,7 +302,7 @@ def update_home_category_cards(source: str, categories_by_slug: dict[str, dict],
             return card
         count = int(category.get("product_count") or len(category.get("products") or []))
         updated, replacements = re.subn(
-            r"(<div\\b[^>]*class=[\\x22\\x27][^\\x22\\x27]*\\bcategory-count\\b[^\\x22\\x27]*[\\x22\\x27][^>]*>)[\\s\\S]*?(</div>)",
+            r"(<div\b[^>]*class=[\x22\x27][^\x22\x27]*\bcategory-count\b[^\x22\x27]*[\x22\x27][^>]*>)[\s\S]*?(</div>)",
             lambda item: item.group(1) + f"{count} {COUNT_LABELS[language]}" + item.group(2),
             card,
             count=1,
