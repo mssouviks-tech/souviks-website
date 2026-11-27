@@ -393,6 +393,13 @@ def main() -> None:
         categories_html = update_last_updated(categories_html, display_date, f"{language}/categories.html")
         changed_files += int(write_if_changed(categories_path, categories_html))
 
+        about_path = ROOT / language / "about.html"
+        about_html = about_path.read_text(encoding="utf-8")
+        about_html = update_hero_stat(about_html, "products.svg", active_product_count)
+        about_html = update_hero_stat(about_html, "brands.svg", brand_count)
+        about_html = update_hero_stat(about_html, "vehicle.svg", vehicle_count)
+        changed_files += int(write_if_changed(about_path, about_html))
+
         home_path = ROOT / language / "index.html"
         home_html = home_path.read_text(encoding="utf-8")
         home_html = update_home_trust_stat(home_html, "products.svg", active_product_count, language)
