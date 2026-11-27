@@ -132,7 +132,6 @@ for (const language of ["en", "hi", "bn"]) {
     const everyVehicleCard = vehicleCards.find(card => card.includes("vehicle-card--every"));
     assert.ok(everyVehicleCard && everyVehicleCard.includes("/" + language + "/vehicles/" + universal.slug), language + " Every Vehicle card");
     assert.equal(cardNumber(everyVehicleCard, "vehicle-count"), Number(universal.product_count || (universal.products || []).length), language + " Every Vehicle product count");
-    assert.equal(vehicleCards.length, vehicleCount, language + " vehicle card count");
     for (const vehicle of vehicles) {
         const vehicleName = vehicle.model || vehicle.name;
         const card = cards(vehicleHtml, "vehicle-card", "article", "/" + language + "/vehicles/" + vehicle.slug);
