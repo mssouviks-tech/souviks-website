@@ -180,6 +180,33 @@ def brand_card(brand: dict, language: str) -> str:
     )
 
 
+def category_card(category: dict, language: str) -> str:
+    name = clean(category.get("name"))
+    slug = clean(category.get("slug"))
+    image = clean(category.get("image"))
+    count = int(category.get("product_count") or len(category.get("products") or []))
+    if image:
+        media = (
+            f'<img src="{html.escape(image, quote=True)}" '
+            f'alt="{html.escape(name, quote=True)}" loading="lazy" decoding="async" '
+            'width="400" height="400">'
+        )
+    else:
+        media = (
+            '<span class="category-image-fallback" '
+            f'aria-label="{html.escape(name, quote=True)}">'
+            f'{html.escape(name)}</span>'
+        )
+    return (
+        f'<article class="category-card"><a href="/{language}/categories/{html.escape(slug, quote=True)}" '
+        f'data-breadcrumb="{html.escape(name, quote=True)}">'
+        f'<div class="category-image">{media}</div>'
+        f'<div class="category-content"><h3 class="category-title">{html.escape(name)}</h3>'
+        f'<div class="category-count">{count} {COUNT_LABELS[language]}</div>'
+        '</div></a></article>'
+    )
+
+
 def vehicle_card(vehicle: dict, language: str) -> str:
     name = clean(vehicle.get("model") or vehicle.get("name"))
     slug = clean(vehicle.get("slug"))
@@ -357,6 +384,9 @@ def main() -> None:
 
         categories_path = ROOT / language / "categories.html"
         categories_html = categories_path.read_text(encoding="utf-8")
+        category_cards = "".join(category_card(item, language) for item in active_categories)
+        categories_html = replace_div_contents(categories_html, "categoryGrid", category_cards)
+        categories_html = replace_numeric_id(categories_html, "visibleCategories", category_count)
         categories_html = update_hero_stat(categories_html, "category.svg", category_count)
         categories_html = update_hero_stat(categories_html, "subcategories.svg", subcategory_count)
         categories_html = update_hero_stat(categories_html, "products.svg", active_product_count)
