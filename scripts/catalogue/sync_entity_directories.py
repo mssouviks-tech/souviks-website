@@ -381,6 +381,11 @@ def main() -> None:
     brand_count = len(active_brands)
     category_count = len(active_categories)
     vehicle_count = len(active_vehicles)
+    product_category_count = len({
+        clean(item.get("category_id"))
+        for item in products
+        if clean(item.get("category_id"))
+    })
     subcategory_count = len({
         clean(item.get("subcategory_id"))
         for item in products
@@ -404,7 +409,7 @@ def main() -> None:
         brand_html = replace_numeric_id(brand_html, "totalBrands", brand_count)
         brand_html = update_hero_stat(brand_html, "brands.svg", brand_count)
         brand_html = update_hero_stat(brand_html, "products.svg", active_product_count)
-        brand_html = update_hero_stat(brand_html, "category.svg", category_count, required=False)
+        brand_html = update_hero_stat(brand_html, "category.svg", product_category_count, required=False)
         brand_html = update_last_updated(brand_html, display_date, f"{language}/brands.html")
         changed_files += int(write_if_changed(brand_path, brand_html))
 
@@ -430,7 +435,7 @@ def main() -> None:
         products_html = replace_numeric_id(products_html, "totalResults", active_product_count)
         products_html = update_hero_stat(products_html, "products.svg", active_product_count)
         products_html = update_hero_stat(products_html, "brands.svg", brand_count)
-        products_html = update_hero_stat(products_html, "category.svg", category_count)
+        products_html = update_hero_stat(products_html, "category.svg", product_category_count)
         products_html = update_hero_stat(products_html, "vehicle.svg", vehicle_count)
         products_html = update_last_updated(products_html, display_date, f"{language}/products.html")
         changed_files += int(write_if_changed(products_path, products_html))
