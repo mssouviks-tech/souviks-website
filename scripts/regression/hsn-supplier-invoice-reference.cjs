@@ -25,7 +25,7 @@ const byId=new Map(catalogue.map(p=>[p.id,p]));
 const projections=new Map(products.map(p=>[p.id,p]));
 const matched=catalogue.filter(p=>p.hsn_supplier_invoice_match_status==="matched");
 const conflicts=catalogue.filter(p=>p.hsn_supplier_invoice_match_status==="conflict");
-if(catalogue.length!==2671||products.length!==2670)throw new Error("Unexpected expanded catalogue/projection coverage");
+if(catalogue.length!==1993||products.length!==1992)throw new Error("Unexpected image-backed catalogue/projection coverage");
 if(matched.length!==850||conflicts.length!==17)throw new Error("Unexpected SKU totals");
 if(matches.length!==913||review.length!==121||matches.length+review.length!==1034)throw new Error("Supplier source rows not fully accounted for");
 for(const p of [...matched,...conflicts]){

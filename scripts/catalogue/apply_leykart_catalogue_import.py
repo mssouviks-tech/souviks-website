@@ -22,7 +22,9 @@ BRANDS_PATH = DATA / "brands.json"
 EXPECTED_PATCH_SHA256 = "3379edcd0c2bb4e302c800843ddd889eccf05869beb1ee4a74148f80499a1ee6"
 APPROVAL_DATE = "2026-11-27"
 EFFECTIVE_FROM = "2025-09-22"
-EXPECTED_ADDITIONS = 1496
+EXPECTED_ADDITIONS = 1496  # Full staged source batch, before image-based selection.
+EXPECTED_IMAGE_BACKED_ADDITIONS = 818
+EXPECTED_IMAGELESS_ADDITIONS = EXPECTED_ADDITIONS - EXPECTED_IMAGE_BACKED_ADDITIONS
 EXPECTED_UPDATES = 3
 
 UPDATE_FIELDS = (
@@ -97,6 +99,32 @@ def approved_gst_candidate(sources: list[str]) -> dict[str, Any]:
     }
 
 
+def discover_product_gallery(product_id: str) -> list[str]:
+    """Return the committed full-resolution WebP views for one product SKU."""
+    product_dir = ROOT / "assets" / "images" / "products" / product_id
+    if not product_dir.is_dir():
+        return []
+    views = [
+        item.name
+        for item in product_dir.iterdir()
+        if item.is_file() and item.suffix.lower() == ".webp"
+    ]
+    views.sort(
+        key=lambda name: (
+            (0, int(Path(name).stem))
+            if Path(name).stem.isdigit()
+            else (1, name.casefold())
+        )
+    )
+    if views and "1.webp" not in views:
+        raise ValueError(f"{product_id}: product gallery has no primary 1.webp image")
+    if views:
+        thumbnail = ROOT / "assets" / "images" / "product-thumbnails" / product_id / "1.webp"
+        if not thumbnail.is_file():
+            raise ValueError(f"{product_id}: full-resolution gallery exists but thumbnail is missing")
+    return views
+
+
 def verify_and_enrich_new_product(product: dict[str, Any], gst_sources: list[str]) -> None:
     product_id = str(product.get("id") or "")
     code = str(product.get("hsn_code") or "")
@@ -145,13 +173,13 @@ def approval_record(count: int, ids: list[str], previous: dict[str, Any]) -> dic
         "status": "approved",
         "approved_on": APPROVAL_DATE,
         "approval_source": (
-            "User-confirmed GST-ready instruction for all 1,496 newly imported Leykart "
+            f"User-confirmed GST-ready instruction for all {len(ids):,} image-backed Leykart "
             "products, recorded on 2026-11-27. The 18% default rate is applied with "
             "9% CGST + 9% SGST intra-State or 18% IGST inter-State."
         ),
         "scope": (
             f"GST rate candidate approval for all {count:,} catalogue products at "
-            "their assigned rates; the 1,496 Leykart additions use the 18% default."
+            f"their assigned rates; the {len(ids):,} image-backed Leykart additions use the 18% default."
         ),
         "catalogue_product_count": count,
         "newly_approved_product_ids": ids,
@@ -200,9 +228,52 @@ def main() -> None:
             if value not in (None, "", []):
                 current[field] = value
 
+    source_records = patch["records"]
+    source_ids = [str(row.get("id") or "") for row in source_records]
+    if len(source_ids) != EXPECTED_ADDITIONS or any(not product_id for product_id in source_ids):
+        raise ValueError("Leykart source batch must contain all 1,496 assigned SKU IDs")
+    if len(set(source_ids)) != EXPECTED_ADDITIONS:
+        raise ValueError("Leykart source batch contains duplicate SKU IDs")
+
+    # Publish only products with an actual full-resolution product gallery.
+    # A thumbnail or placeholder image does not qualify a product for activation.
+    records_with_images: list[dict[str, Any]] = []
+    skipped_without_images: list[str] = []
+    for source_row in source_records:
+        product = json.loads(json.dumps(source_row, ensure_ascii=False))
+        product_id = str(product.get("id") or "")
+        image_views = discover_product_gallery(product_id)
+        if not image_views:
+            skipped_without_images.append(product_id)
+            continue
+        product["image"] = "1.webp"
+        product["primary_image"] = "1.webp"
+        product["image_folder"] = product_id
+        product["gallery"] = image_views
+        product["gallery_dimensions"] = (
+            product.get("gallery_dimensions")
+            if isinstance(product.get("gallery_dimensions"), dict)
+            else {}
+        )
+        product["image_url"] = f"/assets/images/products/{product_id}/1.webp"
+        product["card_image_url"] = f"/assets/images/product-thumbnails/{product_id}/1.webp"
+        product["active"] = True
+        records_with_images.append(product)
+
+    if (
+        len(records_with_images) != EXPECTED_IMAGE_BACKED_ADDITIONS
+        or len(skipped_without_images) != EXPECTED_IMAGELESS_ADDITIONS
+    ):
+        raise ValueError(
+            "Image-backed Leykart coverage changed: "
+            f"expected {EXPECTED_IMAGE_BACKED_ADDITIONS} publishable products and "
+            f"{EXPECTED_IMAGELESS_ADDITIONS} products without galleries; found "
+            f"{len(records_with_images)} and {len(skipped_without_images)}"
+        )
+
     new_ids: list[str] = []
     inserted = 0
-    for source_row in patch["records"]:
+    for source_row in records_with_images:
         product = json.loads(json.dumps(source_row, ensure_ascii=False))
         product_id = str(product.get("id") or "")
         if not product_id:
@@ -223,8 +294,8 @@ def main() -> None:
         new_ids.append(product_id)
         inserted += 1
 
-    if len(set(new_ids)) != EXPECTED_ADDITIONS:
-        raise ValueError(f"Expected {EXPECTED_ADDITIONS} unique Leykart additions, got {len(set(new_ids))}")
+    if len(set(new_ids)) != EXPECTED_IMAGE_BACKED_ADDITIONS:
+        raise ValueError(f"Expected {EXPECTED_IMAGE_BACKED_ADDITIONS} unique image-backed Leykart additions, got {len(set(new_ids))})
     new_ids = sorted(set(new_ids), key=lambda value: int(value.replace("SVKS", "")))
     catalogue.sort(key=lambda item: int(str(item.get("id", "SVKS000000")).replace("SVKS", "")))
 
@@ -264,8 +335,9 @@ def main() -> None:
     manifest["note"] = (
         f"All {len(catalogue):,} catalogue products have approved, invoice-ready GST rate "
         "candidates. The default is 18% total and the one evidence-backed tractor clutch "
-        "assembly exception remains 5%. The 27 November 2026 confirmation adds 1,496 "
-        "Leykart HCV/haulage/tipper SKUs at 18%. HSN code verification is separate from "
+        "assembly exception remains 5%. The 27 November 2026 confirmation adds "
+        f"{len(new_ids):,} image-backed Leykart HCV/haulage/tipper SKUs at 18%. "
+        "HSN code verification is separate from "
         "the GST rate record; this approval does not itself issue tax invoices."
     )
     previous_manifest_approval = manifest.get("accountant_approval") or {}
@@ -291,7 +363,7 @@ def main() -> None:
         f"All {len(catalogue):,} catalogue records have invoice-ready GST rate candidates. "
         "The default is 18% total and the one specified tractor clutch-assembly exception "
         "remains 5%. The user-confirmed 27 November 2026 Leykart update extends readiness "
-        "to 1,496 new HCV/haulage/tipper SKUs. HSN code verification remains a separate "
+        f"to {len(new_ids):,} image-backed HCV/haulage/tipper SKUs. HSN code verification remains a separate "
         "catalogue control. This approval does not itself issue tax invoices."
     )
 
@@ -345,7 +417,8 @@ def main() -> None:
     print(json.dumps({
         "source_rows": patch["source_rows"],
         "existing_sku_updates": len(updates),
-        "new_skus_expected": EXPECTED_ADDITIONS,
+        "source_new_skus": len(source_records),
+        "image_backed_new_skus_expected": EXPECTED_IMAGE_BACKED_ADDITIONS,
         "new_skus_added_this_run": inserted,
         "new_skus_present_after_run": len(new_ids),
         "catalogue_records": len(catalogue),

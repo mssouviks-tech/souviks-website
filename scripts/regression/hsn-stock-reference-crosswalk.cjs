@@ -88,7 +88,7 @@ assert.equal(conflictSourceRows, 44);
 assert.equal(uniqueSourceRows + conflictSourceRows + manifest.unmapped_source_record_count, manifest.source_record_count);
 assert.equal(catalogue.filter((p) => p.hsn_stock_reference_status === "unique_consistent").length, 796);
 assert.equal(catalogue.filter((p) => p.hsn_stock_reference_status === "conflict").length, 22);
-assert.equal(catalogue.filter((p) => p.hsn_stock_reference_status === "not_in_source").length, 357);
+assert.equal(catalogue.filter((p) => p.hsn_stock_reference_status === "not_in_source").length, 1175);
 for (const productId of Array.from({ length: 16 }, (_, index) => `SVKS${String(1161 + index).padStart(6, "0")}`)) {
   const product = byId.get(productId);
   assert.ok(product, `missing new catalogue SKU ${productId}`);
@@ -105,8 +105,25 @@ for (const productId of Array.from({ length: 16 }, (_, index) => `SVKS${String(1
   assert.equal(product.gst_rate_candidate?.accountant_approval_required, false, `new SKU must not remain pending accountant GST approval ${productId}`);
   assert.equal(product.gst_rate_candidate?.accountant_approval_status, "approved", `new SKU accountant GST approval status mismatch ${productId}`);
 }
+const imageBackedIds = fs.readdirSync("assets/images/products", { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && /^SVKS\\d{6}$/.test(entry.name))
+  .map((entry) => entry.name)
+  .filter((id) => Number(id.slice(4)) >= 1177 && Number(id.slice(4)) <= 2672 && fs.existsSync(`assets/images/products/${id}/1.webp`));
+assert.equal(imageBackedIds.length, 818);
+for (const id of imageBackedIds) {
+  const product = byId.get(id);
+  assert.ok(product, `missing image-backed catalogue SKU ${id}`);
+  assert.equal(product.active, true);
+  assert.equal(product.hsn_stock_reference_status, "not_in_source");
+  assert.equal(product.hsn_stock_reference_alignment, "not_in_source");
+  assert.equal(product.hsn_stock_reference_record_count, 0);
+  assert.equal(product.hsn_classification_status, "classified");
+  assert.equal(product.hsn_confidence, "high");
+  assert.equal(product.gst_rate_candidate?.invoice_ready, true);
+  assert.equal(product.gst_rate_candidate?.accountant_approval_required, false);
+}
 console.log("Odoo stock HSN crosswalk passed", {
-  catalogue_records: catalogue.length, public_products: products.length,
+  catalogue_records: catalogue.length, public_products: products.length, image_backed_leykart_skus: imageBackedIds.length,
   unique_website_hsn_references: 796, conflicting_website_skus: 22,
   not_in_source_website_products: 357, mapped_stock_source_rows: uniqueSourceRows,
   conflict_stock_source_rows: conflictSourceRows, unmapped_stock_source_rows: 162,
