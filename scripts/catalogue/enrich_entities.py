@@ -619,27 +619,25 @@ def replace_static_product_grid(page: str, gallery_html: str) -> str:
 
 
 def load_brand_page_shell(language: str, target_path: Path) -> str:
-    """Use an existing localized brand detail page as the shell for a new brand."""
+    """Copy an existing localized brand page as a safe shell for a new brand."""
     for candidate in sorted(target_path.parent.glob("*.html")):
         if candidate == target_path:
             continue
         page = candidate.read_text(encoding="utf-8")
         if (
             re.search(r'<body\b[^>]*\bpage-brand\b', page, flags=re.I)
-            and re.search(r'<div\b(?=[^>]*\bid=["\']brand-detail["\'])', page, flags=re.I)
-            and re.search(r'<div\b(?=[^>]*\bid=["\']product-grid["\'])', page, flags=re.I)
+            and 'id="brand-detail"' in page
+            and 'id="product-grid"' in page
         ):
-            print(f"Creating {target_path.relative_to(ROOT)} from {candidate.name} brand-page shell.")
             return page
-    raise FileNotFoundError(f"No localized brand-page shell in {target_path.parent.relative_to(ROOT)}")
+    raise FileNotFoundError(f"No existing brand-page shell for {language}: {target_path.parent}")
 
 
-def replace_static_rendered_container(page: str, element_id: str, inner_html: str) -> str:
+def replace_static_div(page: str, element_id: str, inner_html: str) -> str:
     opening = re.search(
         r'<div\b(?=[^>]*\bid=["\']' + re.escape(element_id) +
         r'["\'])(?=[^>]*\bdata-static-rendered=["\']true["\'])[^>]*>',
-        page,
-        flags=re.I,
+        page, flags=re.I,
     )
     if not opening:
         raise ValueError(f"Missing static-rendered #{element_id} container.")
@@ -1183,51 +1181,45 @@ if __name__ == "__main__":
     raise ValueError(f"Unclosed static-rendered #{element_id} container.")
 
 
-def update_brand_page_identity(page: str, item: dict, products: list[dict], language: str) -> str:
-    """Synchronize the brand name, canonical routes, logo and CollectionPage JSON-LD."""
+def hydrate_brand_page(page: str, item: dict, products: list[dict], language: str) -> str:
+    """Bind a brand page shell to the canonical brand record and active products."""
     name, slug = clean(item.get("name")), clean(item.get("slug"))
     if not name or not slug:
-        raise ValueError("A brand detail page requires a name and slug.")
-    site = "https://www.souviks.co.in"
-    page_url = f"{site}/{language}/brands/{slug}"
-    alternate_urls = {
-        "en": f"{site}/en/brands/{slug}",
-        "hi": f"{site}/hi/brands/{slug}",
-        "bn": f"{site}/bn/brands/{slug}",
-        "x-default": f"{site}/en/brands/{slug}",
+        raise ValueError("Active brand requires a name and slug.")
+    base_url = "https://www.souviks.co.in"
+    page_url = f"{base_url}/{language}/brands/{slug}"
+    routes = {
+        "en": f"{base_url}/en/brands/{slug}",
+        "hi": f"{base_url}/hi/brands/{slug}",
+        "bn": f"{base_url}/bn/brands/{slug}",
+        "x-default": f"{base_url}/en/brands/{slug}",
     }
 
-    def put_href(tag: str, target: str) -> str:
-        updated, count = re.subn(
+    def update_link(match: re.Match) -> str:
+        tag = match.group(0)
+        rel = re.search(r'\brel=["\']([^"\']+)["\']', tag, re.I)
+        if not rel:
+            return tag
+        rel_value = rel.group(1).casefold()
+        target = page_url if rel_value == "canonical" else None
+        if rel_value == "alternate":
+            code = re.search(r'\bhreflang=["\']([^"\']+)["\']', tag, re.I)
+            target = routes.get(code.group(1).lower()) if code else None
+        if not target:
+            return tag
+        return re.sub(
             r'(\bhref\s*=\s*)(["\'])[^"\']*\2',
             lambda m: m.group(1) + m.group(2) + target + m.group(2),
             tag, count=1, flags=re.I,
         )
-        if count != 1:
-            raise ValueError("Brand page link has no replaceable href.")
-        return updated
-
-    def update_link(match: re.Match) -> str:
-        tag = match.group(0)
-        rel = re.search(r'\brel\s*=\s*["\']([^"\']+)["\']', tag, flags=re.I)
-        if not rel:
-            return tag
-        if rel.group(1).casefold() == "canonical":
-            return put_href(tag, page_url)
-        if rel.group(1).casefold() == "alternate":
-            language_match = re.search(r'\bhreflang\s*=\s*["\']([^"\']+)["\']', tag, flags=re.I)
-            code = language_match.group(1).lower() if language_match else ""
-            if code in alternate_urls:
-                return put_href(tag, alternate_urls[code])
-        return tag
 
     page = re.sub(r'<link\b[^>]*>', update_link, page, flags=re.I)
 
-    def update_social_url(match: re.Match) -> str:
+    def update_social(match: re.Match) -> str:
         tag = match.group(0)
         if not (
-            re.search(r'\bproperty\s*=\s*["\']og:url["\']', tag, re.I)
-            or re.search(r'\bname\s*=\s*["\']twitter:url["\']', tag, re.I)
+            re.search(r'\bproperty=["\']og:url["\']', tag, re.I)
+            or re.search(r'\bname=["\']twitter:url["\']', tag, re.I)
         ):
             return tag
         return re.sub(
@@ -1236,112 +1228,85 @@ def update_brand_page_identity(page: str, item: dict, products: list[dict], lang
             tag, count=1, flags=re.I,
         )
 
-    page = re.sub(r'<meta\b[^>]*>', update_social_url, page, flags=re.I)
-    page, current_url_count = re.subn(
+    page = re.sub(r'<meta\b[^>]*>', update_social, page, flags=re.I)
+    page, url_count = re.subn(
         r'(\bcurrentPageUrl\s*:\s*)(["\'])[^"\']*\2',
         lambda m: m.group(1) + m.group(2) + f"/{language}/brands/{slug}" + m.group(2),
         page, count=1, flags=re.I,
     )
-    if current_url_count != 1:
-        raise ValueError(f"{language}/brands/{slug}.html has no unique currentPageUrl.")
+    if url_count != 1:
+        raise ValueError(f"{language}/brands/{slug}.html has no currentPageUrl.")
 
-    breadcrumb = re.compile(
+    crumb = re.compile(
         r'(<li\b(?=[^>]*\bclass=["\'][^"\']*\bactive\b[^"\']*["\'])'
         r'(?=[^>]*\baria-current=["\']page["\'])[^>]*>)[\s\S]*?(</li>)',
         flags=re.I,
     )
-    page, breadcrumb_count = breadcrumb.subn(
-        lambda m: m.group(1) + esc(name) + m.group(2), page, count=1
-    )
-    if breadcrumb_count != 1:
+    page, crumb_count = crumb.subn(lambda m: m.group(1) + esc(name) + m.group(2), page, count=1)
+    if crumb_count != 1:
         raise ValueError(f"{language}/brands/{slug}.html has no active breadcrumb.")
 
     logo = clean(item.get("logo"))
-    logo_html = ""
     if logo:
-        dimensions = item.get("logo_dimensions")
+        dims = item.get("logo_dimensions")
         width = height = 400
-        if isinstance(dimensions, (list, tuple)) and len(dimensions) >= 2:
+        if isinstance(dims, (list, tuple)) and len(dims) >= 2:
             try:
-                w, h = int(dimensions[0]), int(dimensions[1])
+                w, h = int(dims[0]), int(dims[1])
                 if w > 0 and h > 0:
                     width, height = w, h
             except (TypeError, ValueError):
                 pass
-        logo_html = (
-            f'<div class="brand-logo"><img src="{esc(logo)}" alt="{esc(name)}" '
-            f'loading="lazy" decoding="async" width="{width}" height="{height}"></div>'
-        )
-    brand_markup = (
-        '<div class="brand-detail">' + logo_html
-        + '<div class="brand-info"><h1>' + esc(name) + '</h1><p>'
-        + esc(item.get("description")) + '</p></div></div>'
-    )
-    page = replace_static_rendered_container(page, "brand-detail", brand_markup)
+        media = f'<div class="brand-logo"><img src="{esc(logo)}" alt="{esc(name)}" loading="lazy" decoding="async" width="{width}" height="{height}"></div>'
+    else:
+        media = f'<div class="brand-logo brand-logo--placeholder" role="img" aria-label="{esc(name)}"><span>{esc(name)}</span></div>'
+    detail = '<div class="brand-detail">' + media + '<div class="brand-info"><h1>' + esc(name) + '</h1><p>' + esc(item.get("description")) + '</p></div></div>'
+    page = replace_static_div(page, "brand-detail", detail)
 
-    collection_found = False
+    updated_schema = False
 
-    def update_schema(value):
-        nonlocal collection_found
-        if isinstance(value, list):
-            for child in value:
+    def update_schema(data):
+        nonlocal updated_schema
+        if isinstance(data, list):
+            for child in data:
                 update_schema(child)
             return
-        if not isinstance(value, dict):
+        if not isinstance(data, dict):
             return
-        types = value.get("@type")
-        types = types if isinstance(types, list) else [types]
-        if "CollectionPage" in types:
-            collection_found = True
-            value["@id"] = page_url + "#collection"
-            value["name"] = f"{name} Parts | Souviks"
-            value["url"] = page_url
-            value["mainEntityOfPage"] = page_url
+        schema_type = data.get("@type")
+        if "CollectionPage" in (schema_type if isinstance(schema_type, list) else [schema_type]):
+            updated_schema = True
             about = {"@type": "Brand", "@id": page_url + "#brand", "name": name, "url": page_url}
             if logo:
-                about["logo"] = {"@type": "ImageObject", "url": site + logo if logo.startswith("/") else logo}
-            value["about"] = about
+                about["logo"] = {"@type": "ImageObject", "url": base_url + logo if logo.startswith("/") else logo}
             entries = []
             for product in products:
                 product_slug = clean(product.get("slug"))
                 product_name = clean(product.get("product_name") or product.get("name"))
-                if not product_slug or not product_name:
-                    continue
-                product_url = f"{site}/{language}/products/{product_slug}"
-                entries.append({
-                    "@type": "ListItem", "position": len(entries) + 1,
-                    "name": product_name, "url": product_url, "item": product_url,
-                })
-            value["mainEntity"] = {
-                "@type": "ItemList",
-                "itemListOrder": "https://schema.org/ItemListOrderAscending",
-                "numberOfItems": len(entries),
-                "itemListElement": entries,
-            }
-        elif "BreadcrumbList" in types:
-            entries = value.get("itemListElement")
-            if isinstance(entries, list) and entries and isinstance(entries[-1], dict):
-                entries[-1]["name"] = name
-                entries[-1]["item"] = page_url
-        for child in list(value.values()):
+                if product_slug and product_name:
+                    url = f"{base_url}/{language}/products/{product_slug}"
+                    entries.append({"@type": "ListItem", "position": len(entries)+1, "name": product_name, "url": url, "item": url})
+            data["@id"] = page_url + "#collection"
+            data["name"] = f"{name} Parts | Souviks"
+            data["url"] = page_url
+            data["mainEntityOfPage"] = page_url
+            data["about"] = about
+            data["mainEntity"] = {"@type": "ItemList", "itemListOrder": "https://schema.org/ItemListOrderAscending", "numberOfItems": len(entries), "itemListElement": entries}
+        for child in list(data.values()):
             if isinstance(child, (dict, list)):
                 update_schema(child)
 
+    pattern = re.compile(r'<script\b([^>]*\btype=["\']application/ld\+json["\'][^>]*)>([\s\S]*?)</script>', re.I)
     def update_jsonld(match: re.Match) -> str:
         try:
             data = json.loads(match.group(2))
         except json.JSONDecodeError as exc:
-            raise ValueError(f"{language}/brands/{slug}.html contains invalid JSON-LD: {exc}") from exc
+            raise ValueError(f"Invalid JSON-LD on {language}/brands/{slug}.html: {exc}") from exc
         update_schema(data)
         return "<script" + match.group(1) + ">" + json.dumps(data, ensure_ascii=False, indent=2) + "</script>"
-
-    script_pattern = re.compile(
-        r'<script\b([^>]*\btype=["\']application/ld\+json["\'][^>]*)>([\s\S]*?)</script>',
-        flags=re.I,
-    )
-    page, schema_count = script_pattern.subn(update_jsonld, page)
-    if schema_count == 0 or not collection_found:
-        raise ValueError(f"{language}/brands/{slug}.html is missing CollectionPage JSON-LD.")
+    page, schema_count = pattern.subn(update_jsonld, page)
+    if schema_count == 0 or not updated_schema:
+        raise ValueError(f"{language}/brands/{slug}.html has no CollectionPage JSON-LD.")
     return page
 
 
@@ -1455,10 +1420,7 @@ def enrich_entity_pages(kind, data, catalogue, entity_indexes):
                 page = path.read_text(encoding="utf-8")
             if kind == "brand":
                 page = update_page_title(page, brand_page_title(item.get("name"), lang))
-                item.setdefault("seo", {})
-                item["seo"]["title"] = brand_page_title(item.get("name"), lang)
-                item["seo"]["canonical"] = f"https://www.souviks.co.in/{lang}/brands/{clean(item.get('slug'))}"
-                page = update_brand_page_identity(page, item, products, lang)
+                page = hydrate_brand_page(page, item, products, lang)
             elif kind == "vehicle":
                 page = update_page_title(
                     page,
