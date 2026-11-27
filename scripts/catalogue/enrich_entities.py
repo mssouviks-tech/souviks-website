@@ -1449,9 +1449,7 @@ def enrich_entity_pages(kind, data, catalogue, entity_indexes):
             path = ROOT / lang / entity_directory / f'{clean(item.get("slug"))}.html'
             if not path.exists():
                 if kind != "brand":
-                    raise FileNotFoundError(
-                        f"Missing active {kind} detail page: {path.relative_to(ROOT)}"
-                    )
+                    continue
                 page = load_brand_page_shell(lang, path)
             else:
                 page = path.read_text(encoding="utf-8")
