@@ -26,6 +26,8 @@ on:
       - "scripts/catalogue/build.py"
       - "scripts/catalogue/internal_redirects.py"
       - "scripts/catalogue/apply_product_workbook_import.py"
+      - "scripts/catalogue/sync_entity_directories.py"
+      - "scripts/regression/entity-directory-sync-contract.cjs"
       - "scripts/catalogue/product_seo.py"
       - "scripts/catalogue/product_title.py"
       - "scripts/catalogue/enrich_entities.py"
@@ -134,6 +136,7 @@ jobs:
               "scripts/catalogue/sync_checkout_module.py",
               "scripts/catalogue/sync_delhivery_module.py",
               "scripts/catalogue/enrich_entities.py",
+              "scripts/catalogue/sync_entity_directories.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
               "scripts/catalogue/validate.py",
               "scripts/catalogue/navigation.py",
@@ -199,6 +202,7 @@ jobs:
             node scripts/regression/hsn-candidate-overrides.cjs
             node scripts/regression/gst-rate-candidate-contract.cjs
             node scripts/regression/leykart-catalogue-import-contract.cjs
+            node scripts/regression/entity-directory-sync-contract.cjs
             node scripts/regression/hsn-stock-reference-crosswalk.cjs
             python3 scripts/audit/test_vehicle_page_layout.py
             python3 scripts/audit/seo_contract.py
@@ -222,6 +226,7 @@ jobs:
             python3 scripts/catalogue/sync_checkout_pages.py
             python3 scripts/audit/generate_product_thumbnails.py
             python3 scripts/catalogue/enrich_entities.py
+            python3 scripts/catalogue/sync_entity_directories.py
             python3 scripts/catalogue/normalize_page_config.py
             python3 scripts/catalogue/sync_rfq_module.py
           python3 scripts/catalogue/sync_product_actions.py
@@ -272,6 +277,7 @@ jobs:
             node scripts/regression/hsn-candidate-overrides.cjs
             node scripts/regression/gst-rate-candidate-contract.cjs
             node scripts/regression/leykart-catalogue-import-contract.cjs
+            node scripts/regression/entity-directory-sync-contract.cjs
             node scripts/regression/hsn-stock-reference-crosswalk.cjs
             python3 scripts/audit/test_vehicle_page_layout.py
             python3 scripts/audit/seo_contract.py
@@ -319,6 +325,7 @@ jobs:
             python3 scripts/catalogue/sync_checkout_pages.py
             python3 scripts/audit/generate_product_thumbnails.py
             python3 scripts/catalogue/enrich_entities.py
+            python3 scripts/catalogue/sync_entity_directories.py
             python3 scripts/catalogue/normalize_page_config.py
             python3 scripts/catalogue/sync_rfq_module.py
           python3 scripts/catalogue/sync_product_actions.py
