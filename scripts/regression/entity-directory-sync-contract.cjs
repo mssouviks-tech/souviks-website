@@ -127,7 +127,7 @@ for (const language of ["en", "hi", "bn"]) {
         const escapedName = String(brand.name).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         assert.ok(detailHtml.includes("<h1>" + escapedName + "</h1>"),
             detailPath + " must render the canonical brand name");
-        const linkTags = [...detailHtml.matchAll(/<link\\b[^>]*>/gi)].map(match => match[0]);
+        const linkTags = [...detailHtml.matchAll(/<link\b[^>]*>/gi)].map(match => match[0]);
         const hasAttribute = (tag, attribute, value) =>
             tag.includes(attribute + '="' + value + '"') || tag.includes(attribute + "='" + value + "'");
         assert.ok(linkTags.some(tag => hasAttribute(tag, "rel", "canonical") && tag.includes(expectedUrl)),
