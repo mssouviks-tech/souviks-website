@@ -32,7 +32,8 @@ concurrency:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # The full catalogue candidate is larger than the main pre-merge catalogue; allow a complete build and regression pass.
+    timeout-minutes: 180
 
     steps:
       - name: Check out candidate
@@ -141,7 +142,8 @@ jobs:
       - name: Build and validate candidate
         shell: bash
         run: |
-          set -euo pipefail
+          set -euxo pipefail
+          export PYTHONUNBUFFERED=1
 
           python3 scripts/catalogue/apply_product_workbook_import.py
           python3 scripts/catalogue/apply_leykart_catalogue_import.py
