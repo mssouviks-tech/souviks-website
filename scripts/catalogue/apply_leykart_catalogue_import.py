@@ -128,13 +128,13 @@ def populate_leykart_product_taxonomy(product: dict[str, Any]) -> None:
                 subcategory_id = "brake-repair-kit"
             elif "spring brake actuator" in normalized or "actuator" in normalized:
                 subcategory_id = "brake-actuator"
-            elif "exhaust brake" in normalized:
+            elif "exhaust brake" in normalized or "exh brake" in normalized:
                 subcategory_id = "brake-hardware" if "clamp" in normalized else "exhaust-brake"
             elif "hose clamp" in normalized or "clamp" in normalized:
                 subcategory_id = "brake-hardware"
             elif "hose" in normalized:
                 subcategory_id = "brake-hose"
-            elif "brkt brake pipe" in normalized or normalized.startswith("brkt "):
+            elif "brkt brake pipe" in normalized or normalized.startswith("brkt ") or "braket" in normalized:
                 subcategory_id = "brake-bracket"
             elif "bundy" in normalized or "pipe" in normalized or "tee piece" in normalized or "elbow" in normalized:
                 subcategory_id = "brake-pipe"
@@ -148,13 +148,13 @@ def populate_leykart_product_taxonomy(product: dict[str, Any]) -> None:
                 subcategory_id = "brake-lining"
             elif "spring washer" in normalized or "washer" in normalized or "circlip" in normalized:
                 subcategory_id = "brake-hardware"
-            elif "spring" in normalized and "brake" in normalized:
+            elif ("spring" in normalized or "return spg" in normalized) and "brake" in normalized:
                 subcategory_id = "brake-spring"
             elif "shim" in normalized or "retainer" in normalized or "roller" in normalized or "bush" in normalized:
                 subcategory_id = "brake-hardware"
             elif "anchor plate" in normalized or "dust cover" in normalized or "cover parking" in normalized:
                 subcategory_id = "brake-hardware"
-            elif "brake assembly" in normalized or "rear brake" in normalized or "front brake" in normalized:
+            elif "brake assembly" in normalized or "brake assy" in normalized or "rear brake" in normalized or "front brake" in normalized:
                 subcategory_id = "brake-assembly"
             else:
                 subcategory_id = "brake-hardware"
