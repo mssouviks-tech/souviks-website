@@ -103,6 +103,7 @@ jobs:
               "scripts/catalogue/sync_delhivery_module.py",
               "scripts/audit/production_smoke.py",
               "scripts/catalogue/enrich_entities.py",
+              "scripts/catalogue/generate_missing_brand_pages.py",
               "scripts/catalogue/sync_entity_directories.py",
               "scripts/catalogue/sync_entity_sitemaps.py",
               "scripts/catalogue/validate.py",
@@ -153,6 +154,7 @@ jobs:
           python3 scripts/catalogue/sync_navigation.py
           python3 scripts/catalogue/sync_product_cards.py
           python3 scripts/catalogue/enrich_entities.py
+          python3 scripts/catalogue/generate_missing_brand_pages.py
           python3 scripts/catalogue/sync_entity_directories.py
           python3 scripts/catalogue/normalize_page_config.py
           python3 scripts/catalogue/sync_rfq_module.py
