@@ -106,7 +106,7 @@ for (const productId of Array.from({ length: 16 }, (_, index) => `SVKS${String(1
   assert.equal(product.gst_rate_candidate?.accountant_approval_status, "approved", `new SKU accountant GST approval status mismatch ${productId}`);
 }
 const imageBackedIds = fs.readdirSync("assets/images/products", { withFileTypes: true })
-  .filter((entry) => entry.isDirectory() && /^SVKS\\d{6}$/.test(entry.name))
+  .filter((entry) => entry.isDirectory() && /^SVKS\d{6}$/.test(entry.name))
   .map((entry) => entry.name)
   .filter((id) => Number(id.slice(4)) >= 1177 && Number(id.slice(4)) <= 2672 && fs.existsSync(`assets/images/products/${id}/1.webp`));
 assert.equal(imageBackedIds.length, 818);
