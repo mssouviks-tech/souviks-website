@@ -618,8 +618,38 @@ def replace_static_product_grid(page: str, gallery_html: str) -> str:
     raise ValueError("Entity page has an unclosed #product-grid container.")
 
 
-def enrich_entity_pages(kind, data, catalogue, entity_indexes):
-    for item in data:
+def load_brand_page_shell(language: str, target_path: Path) -> str:
+    """Use an existing localized brand detail page as the shell for a new brand."""
+    for candidate in sorted(target_path.parent.glob("*.html")):
+        if candidate == target_path:
+            continue
+        page = candidate.read_text(encoding="utf-8")
+        if (
+            re.search(r'<body\b[^>]*\bpage-brand\b', page, flags=re.I)
+            and re.search(r'<div\b(?=[^>]*\bid=["\']brand-detail["\'])', page, flags=re.I)
+            and re.search(r'<div\b(?=[^>]*\bid=["\']product-grid["\'])', page, flags=re.I)
+        ):
+            print(f"Creating {target_path.relative_to(ROOT)} from {candidate.name} brand-page shell.")
+            return page
+    raise FileNotFoundError(f"No localized brand-page shell in {target_path.parent.relative_to(ROOT)}")
+
+
+def replace_static_rendered_container(page: str, element_id: str, inner_html: str) -> str:
+    opening = re.search(
+        r'<div\b(?=[^>]*\bid=["\']' + re.escape(element_id) +
+        r'["\'])(?=[^>]*\bdata-static-rendered=["\']true["\'])[^>]*>',
+        page,
+        flags=re.I,
+    )
+    if not opening:
+        raise ValueError(f"Missing static-rendered #{element_id} container.")
+    depth = 1
+    for tag in re.compile(r'</?div\b[^>]*>', flags=re.I).finditer(page, opening.end()):
+        if re.match(r'</div\b', tag.group(0), flags=re.I):
+            depth -= 1
+            if depth == 0:
+                return page[:opening.end()] + "\n" + inner_html + "\n" + page[tag.start():]
+        elif not re.search(r'/\s*>    for item in data:
         if item.get("active") is False:
             continue
         item_id = clean(item.get("id"))
@@ -725,6 +755,712 @@ def enrich_entity_pages(kind, data, catalogue, entity_indexes):
             page = path.read_text(encoding="utf-8")
             if kind == "brand":
                 page = update_page_title(page, brand_page_title(item.get("name"), lang))
+            elif kind == "vehicle":
+                page = update_page_title(
+                    page,
+                    vehicle_page_title(item.get("model") or item.get("name"), lang),
+                )
+            page = update_meta(page, entity_meta_description(kind, item, products, lang))
+            gallery_html = entity_product_galleries(kind, item, products, lang)
+            page = replace_static_product_grid(page, gallery_html)
+            if kind == "vehicle":
+                # A vehicle page may cross the indexability threshold as catalogue
+                # coverage grows. Update both directions so a previously noindex
+                # page does not remain noindex after it becomes eligible for sitemap.
+                robots_pattern = r'(<meta\s+name=["\']robots["\']\s+content=["\'])[^"\']*(["\'])'
+                robots_value = (
+                    "noindex,follow,max-image-preview:large"
+                    if len(products) <= 5
+                    else "index,follow,max-image-preview:large"
+                )
+                page = re.sub(
+                    robots_pattern,
+                    lambda m: m.group(1) + robots_value + m.group(2),
+                    page,
+                    count=1,
+                    flags=re.I,
+                )
+            if kind == "brand":
+                logo = clean(item.get("logo"))
+                if logo:
+                    page = re.sub(
+                        r'(<div class="brand-logo">.*?<img\s+src=")[^"]+"',
+                        lambda m: m.group(1) + logo + '"',
+                        page,
+                        count=1,
+                        flags=re.I,
+                    )
+                selector = r'(<div class="brand-info">\s*<h1>.*?</h1>\s*<p>)[\s\S]*?(</p>)'
+            elif kind == "vehicle":
+                selector = r'(<div class="vehicle-info">\s*<h1>.*?</h1>\s*<p>)[\s\S]*?(</p>)'
+            else:
+                selector = r'(<div class="category-info">\s*<h1>.*?</h1>\s*<p>)[\s\S]*?(</p>)'
+            page = re.sub(selector, lambda m: m.group(1) + esc(item.get("description")) + m.group(2), page, count=1, flags=re.I)
+            if kind == "category":
+                page = re.sub(
+                    r'(<div>\s*Products:\s*)\d+(\s*</div>)',
+                    lambda m: m.group(1) + str(len(products)) + m.group(2),
+                    page,
+                    count=1,
+                    flags=re.I,
+                )
+            marker = f'<!-- ENTITY_CONTEXT_{kind.upper()} -->'
+            if kind == "vehicle":
+                section = context_section(kind, item, products, lang, entity_indexes)
+                # Vehicle context belongs after compatible products and before
+                # </main>. Older generated pages may already have the marker
+                # after the footer, so always remove and rebuild this section.
+                context_pattern = re.compile(
+                    r'<section class=["\']entity-context section-spacing["\'][^>]*>[\s\S]*?</section>',
+                    flags=re.I,
+                )
+                page = context_pattern.sub("", page)
+                page = re.sub(re.escape(marker), "", page, flags=re.I)
+
+                # Establish the main landmark before choosing the insertion point.
+                page = ensure_main_landmark(page)
+                context_block = f"{marker}\n{section}\n"
+                main_end = re.search(r"</main\s*>", page, flags=re.I)
+                if main_end:
+                    page = page[:main_end.start()] + "\n" + context_block + "\n" + page[main_end.start():]
+                else:
+                    # Defensive fallback for unusual legacy templates.
+                    footer_match = re.search(r"<footer\b", page, flags=re.I)
+                    if footer_match:
+                        page = page[:footer_match.start()] + context_block + "\n" + page[footer_match.start():]
+                    else:
+                        page = page.replace("</body>", context_block + "</body>", 1)
+
+                # The vehicle summary and context section must use the same
+                # active-product set; do not leave a stale count in the hero card.
+                page, summary_replacements = re.subn(
+                    r'(<div class=["\']vehicle-info["\'][\s\S]*?<div>\s*Products:\s*)\d+(\s*</div>)',
+                    lambda m: m.group(1) + str(len(products)) + m.group(2),
+                    page,
+                    count=1,
+                    flags=re.I,
+                )
+                if summary_replacements != 1:
+                    raise ValueError(f"{path}: vehicle product count could not be synchronized.")
+            else:
+                # Rebuild existing brand/category context as well as new pages;
+                # otherwise previously published plain-text cards would remain stale.
+                context_pattern = re.compile(
+                    r'<section class=["\']entity-context section-spacing["\'][^>]*>[\s\S]*?</section>',
+                    flags=re.I,
+                )
+                page = context_pattern.sub("", page)
+                page = re.sub(re.escape(marker), "", page, flags=re.I)
+                section = context_section(kind, item, products, lang, entity_indexes)
+                anchor_pattern = rf'<!--\s*=+\s*{kind.upper()} PRODUCTS\s*=+\s*-->'
+                anchor_match = re.search(anchor_pattern, page, flags=re.I)
+                if anchor_match:
+                    page = page[:anchor_match.start()] + marker + "\n" + section + "\n" + page[anchor_match.start():]
+                else:
+                    page = page.replace("</body>", marker + "\n" + section + "\n</body>", 1)
+            page = deduplicate_entity_product_galleries(page)
+            page = ensure_main_landmark(page)
+            path.write_text(page, encoding="utf-8")
+
+def replace_static_grid(page: str, element_id: str, inner_html: str) -> str:
+    """Replace a complete static-rendered grid by its element ID."""
+    opening = re.search(
+        r'<div\b(?=[^>]*\bid=["\']' + re.escape(element_id) +
+        r'["\'])(?=[^>]*\bdata-static-rendered=["\']true["\'])[^>]*>',
+        page,
+        flags=re.I,
+    )
+    if not opening:
+        return page
+
+    depth = 1
+    tag_pattern = re.compile(r'</?div\b[^>]*>', flags=re.I)
+    for tag in tag_pattern.finditer(page, opening.end()):
+        token = tag.group(0)
+        if re.match(r'</div\b', token, flags=re.I):
+            depth -= 1
+            if depth == 0:
+                return page[:opening.end()] + "\n\n" + inner_html + "\n\n" + page[tag.start():]
+        elif not re.search(r'/\s*>$', token):
+            depth += 1
+    raise ValueError(f"Unclosed static-rendered #{element_id} grid.")
+
+
+def category_card(category: dict, language: str) -> str:
+    slug = clean(category.get("slug"))
+    name = clean(category.get("name"))
+    image = clean(category.get("image") or category.get("icon")) or "/assets/images/category-placeholder.webp"
+    count = int(category.get("product_count") or 0)
+    count_labels = {"en": "Products", "hi": "उत्पाद", "bn": "পণ্যসমূহ"}
+    return (
+        f'<article class="category-card"><a href="/{language}/categories/{esc(slug)}" '
+        f'data-breadcrumb="{esc(name)}"><div class="category-image"><img src="{esc(image)}" '
+        f'alt="{esc(name)}" loading="lazy" decoding="async" width="400" height="400"></div>'
+        f'<div class="category-content"><h3 class="category-title">{esc(name)}</h3>'
+        f'<div class="category-count">{count} {count_labels[language]}</div></div></a></article>'
+    )
+
+
+def sync_category_listing_pages(categories: list[dict]) -> None:
+    """Keep category listing cards, visible totals and homepage badges on the category master."""
+    active = [
+        category for category in categories
+        if isinstance(category, dict)
+        and category.get("active") is not False
+        and clean(category.get("slug"))
+    ]
+    if not active:
+        raise ValueError("Refusing to publish an empty category listing.")
+
+    for language in LANGUAGES:
+        listing = ROOT / language / "categories.html"
+        if not listing.is_file():
+            raise ValueError(f"Missing category listing: {listing.relative_to(ROOT)}")
+        page = listing.read_text(encoding="utf-8")
+        cards = "".join(category_card(category, language) for category in active)
+        updated = replace_static_grid(page, "categoryGrid", cards)
+        updated, count_replacements = re.subn(
+            r'(<span\b(?=[^>]*\bid=["\']visibleCategories["\'])[^>]*>)[\s\S]*?(</span>)',
+            lambda match: match.group(1) + "\n\n                        " + str(len(active)) + "\n\n                    " + match.group(2),
+            updated,
+            count=1,
+            flags=re.I,
+        )
+        if count_replacements != 1:
+            raise ValueError(f"{listing.relative_to(ROOT)}: missing #visibleCategories counter.")
+
+        # Keep the denominator and hero category statistic in sync as well.
+        # Older generated pages could show "13 of 12" while the cards were correct.
+        updated, denominator_replacements = re.subn(
+            r'(<span\b(?=[^>]*\bid=["\']visibleCategories["\'])[^>]*>[\s\S]*?</span>[\s\S]{0,160}?<span\b[^>]*>)[\s\S]*?(</span>)',
+            lambda match: match.group(1) + str(len(active)) + match.group(2),
+            updated,
+            count=1,
+            flags=re.I,
+        )
+        if denominator_replacements != 1:
+            raise ValueError(f"{listing.relative_to(ROOT)}: missing category total denominator after #visibleCategories.")
+
+        category_labels = {
+            "en": ("Categories",),
+            "hi": ("श्रेणियाँ", "श्रेणियां"),
+            "bn": ("বিভাগসমূহ", "বিভাগ"),
+        }[language]
+        stat_pattern = re.compile(
+            r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b[^"\']*["\'][^>]*>[\s\S]*?</span>',
+            re.I,
+        )
+        category_stat_updated = False
+        for stat in stat_pattern.finditer(updated):
+            following = updated[stat.end():stat.end() + 450]
+            next_stat = re.search(
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-number\b',
+                following,
+                re.I,
+            )
+            label_match = re.search(
+                r'<span\b[^>]*class=["\'][^"\']*\bstat-label\b[^"\']*["\'][^>]*>([\s\S]*?)</span>',
+                following,
+                re.I,
+            )
+            label = re.sub(r'<[^>]+>', '', label_match.group(1)).strip() if label_match else ""
+            if next_stat and label_match and next_stat.start() < label_match.start():
+                continue
+            if label not in category_labels:
+                continue
+            stat_html = stat.group(0)
+            number_match = re.search(r'>([\s\S]*?)</span>$', stat_html, re.I)
+            if not number_match:
+                raise ValueError(f"{listing.relative_to(ROOT)}: category hero statistic is missing its number.")
+            replacement = stat_html[:number_match.start(1)] + str(len(active)) + stat_html[number_match.end(1):]
+            updated = updated[:stat.start()] + replacement + updated[stat.end():]
+            category_stat_updated = True
+            break
+        if not category_stat_updated:
+            raise ValueError(f"{listing.relative_to(ROOT)}: category hero statistic not found.")
+
+        if updated != page:
+            listing.write_text(updated, encoding="utf-8")
+
+        home = ROOT / language / "index.html"
+        if not home.is_file():
+            continue
+        home_page = home.read_text(encoding="utf-8")
+        category_by_slug = {clean(item.get("slug")): item for item in active}
+        card_pattern = re.compile(r'<article class="category-card">[\s\S]*?</article>', flags=re.I)
+
+        def update_home_card(match):
+            card_html = match.group(0)
+            href = re.search(
+                r'href=["\']/' + re.escape(language) + r'/categories/([^"?#/]+)',
+                card_html,
+                flags=re.I,
+            )
+            if not href:
+                return card_html
+            category = category_by_slug.get(href.group(1))
+            if not category:
+                return card_html
+            label = {"en": "Products", "hi": "उत्पाद", "bn": "পণ্যসমূহ"}[language]
+            count = int(category.get("product_count") or 0)
+            updated_card, replacements = re.subn(
+                r'(<div class=["\']category-count["\']>)[^<]*(</div>)',
+                lambda m: m.group(1) + f"{count} {label}" + m.group(2),
+                card_html,
+                count=1,
+                flags=re.I,
+            )
+            return updated_card if replacements else card_html
+
+        updated_home = card_pattern.sub(update_home_card, home_page)
+        if updated_home != home_page:
+            home.write_text(updated_home, encoding="utf-8")
+
+
+def enrich_about():
+    T = {
+        "en": {
+            "cards": [("Store tour", "A short look at the Souviks premises and stocked inventory.", "inventory-part1.mp4"), ("Inside the store", "Shelving and stock arranged for day-to-day parts trade.", "store-interior.jpg"), ("Parts counter", "The working counter used for customer enquiries and part identification.", "store-counter.jpg")],
+            "b2b_title": "Built for B2B parts buyers",
+            "b2b": ["Commercial-vehicle focus for workshops, retailers, fleet operators and distributors.", "Part-number, vehicle and application based assistance before you buy.", "Pan-India shipping for stocked parts, with dispatch and availability confirmed against the order.", "Catalogue coverage across filters, bearings, clutch parts, brakes, lubricants, electricals, engine parts and related systems."],
+            "position_title": "Genuine OEM and aftermarket — clearly distinguished",
+            "position": "Souviks lists genuine/OE-specified products where the catalogue identifies them as genuine, and separately lists branded aftermarket products. An aftermarket product is not presented as an OEM part merely because it fits the same application.",
+            "service_title": "Buying and distribution support",
+            "service": "We help customers identify parts using part numbers, vehicle models, applications and product photographs. Orders can be supplied across India; availability, pricing and compatibility should be confirmed for the specific requirement before dispatch.",
+            "faq_title": "Frequently asked questions",
+            "faq": [("Can Souviks help identify a part?", "Yes. Send the part number, vehicle details or a clear photograph and the team can help match the requirement against the catalogue."), ("Do you supply genuine and aftermarket parts?", "Yes. The catalogue contains both genuine/OE-specified and branded aftermarket products. They are not represented as the same thing."), ("Where do you ship?", "Souviks serves customers across India. Delivery timing and freight treatment depend on the order and destination.")],
+        },
+        "hi": {
+            "cards": [("स्टोर टूर", "Souviks परिसर और स्टॉक का एक छोटा वीडियो।", "inventory-part1.mp4"), ("स्टोर के अंदर", "दैनिक पार्ट्स ट्रेड के लिए व्यवस्थित स्टॉक और शेल्फ।", "store-interior.jpg"), ("पार्ट्स काउंटर", "ग्राहक पूछताछ और पार्ट पहचान के लिए उपयोग होने वाला काउंटर।", "store-counter.jpg")],
+            "b2b_title": "B2B पार्ट्स खरीदारों के लिए बनाया गया",
+            "b2b": ["वर्कशॉप, रिटेलर, फ्लीट ऑपरेटर और डिस्ट्रीब्यूटर के लिए कमर्शियल-व्हीकल फोकस।", "खरीद से पहले पार्ट नंबर, वाहन और एप्लिकेशन आधारित सहायता।", "स्टॉक किए गए पार्ट्स के लिए पूरे भारत में शिपिंग।", "फिल्टर, बेयरिंग, क्लच, ब्रेक, लुब्रिकेंट, इलेक्ट्रिकल और इंजन पार्ट्स सहित व्यापक कैटलॉग।"],
+            "position_title": "Genuine OEM और aftermarket को स्पष्ट रूप से अलग रखा गया है",
+            "position": "जहाँ कैटलॉग किसी उत्पाद को genuine/OE-specified बताता है, वहीं उसे उसी रूप में सूचीबद्ध किया जाता है। ब्रांडेड aftermarket उत्पाद अलग रूप से सूचीबद्ध हैं और उन्हें केवल फिटमेंट के आधार पर OEM नहीं बताया जाता।",
+            "service_title": "खरीद और वितरण सहायता",
+            "service": "पार्ट नंबर, वाहन मॉडल, एप्लिकेशन और उत्पाद की फोटो के आधार पर पार्ट पहचान में सहायता दी जाती है। पूरे भारत में ऑर्डर सप्लाई किए जा सकते हैं; उपलब्धता, कीमत और compatibility को dispatch से पहले पुष्टि करना चाहिए।",
+            "faq_title": "अक्सर पूछे जाने वाले प्रश्न",
+            "faq": [("क्या Souviks पार्ट पहचानने में मदद कर सकता है?", "हाँ। पार्ट नंबर, वाहन विवरण या स्पष्ट फोटो भेजें; कैटलॉग में मिलान खोजने में सहायता की जा सकती है।"), ("क्या genuine और aftermarket दोनों पार्ट मिलते हैं?", "हाँ। दोनों प्रकार के उत्पाद अलग-अलग सूचीबद्ध हैं और उन्हें एक ही श्रेणी के रूप में प्रस्तुत नहीं किया जाता।"), ("कहाँ shipping होती है?", "Souviks पूरे भारत में ग्राहकों को सेवा देता है। डिलीवरी समय और freight ऑर्डर व destination पर निर्भर करते हैं।")],
+        },
+        "bn": {
+            "cards": [("স্টোর ট্যুর", "Souviks স্টোর ও স্টকের একটি ছোট ভিডিও।", "inventory-part1.mp4"), ("স্টোরের ভেতরে", "দৈনন্দিন পার্টস ব্যবসার জন্য সাজানো স্টক ও তাক।", "store-interior.jpg"), ("পার্টস কাউন্টার", "গ্রাহকের জিজ্ঞাসা ও পার্ট শনাক্তকরণের জন্য ব্যবহৃত কাউন্টার।", "store-counter.jpg")],
+            "b2b_title": "B2B পার্টস ক্রেতাদের জন্য তৈরি",
+            "b2b": ["ওয়ার্কশপ, রিটেলার, ফ্লিট অপারেটর ও ডিস্ট্রিবিউটরদের জন্য কমার্শিয়াল-ভেহিকল ফোকাস।", "কেনার আগে পার্ট নম্বর, গাড়ি ও অ্যাপ্লিকেশন অনুযায়ী সহায়তা।", "স্টক থাকা পণ্যের জন্য সারা ভারতে শিপিং।", "ফিল্টার, বিয়ারিং, ক্লাচ, ব্রেক, লুব্রিক্যান্ট, ইলেকট্রিক্যাল ও ইঞ্জিন পার্টসসহ বিস্তৃত ক্যাটালগ।"],
+            "position_title": "Genuine OEM ও aftermarket পরিষ্কারভাবে আলাদা",
+            "position": "ক্যাটালগে যে পণ্য genuine/OE-specified হিসেবে চিহ্নিত, সেটিকে সেইভাবেই দেখানো হয়। ব্র্যান্ডেড aftermarket পণ্য আলাদা করে তালিকাভুক্ত এবং শুধু একই অ্যাপ্লিকেশনে ব্যবহারযোগ্য বলেই OEM হিসেবে দেখানো হয় না।",
+            "service_title": "কেনাকাটা ও ডিস্ট্রিবিউশন সহায়তা",
+            "service": "পার্ট নম্বর, গাড়ির মডেল, অ্যাপ্লিকেশন ও পণ্যের ছবি ব্যবহার করে পার্ট শনাক্ত করতে সাহায্য করা হয়। সারা ভারতে অর্ডার সরবরাহ করা যায়; dispatch-এর আগে availability, price ও compatibility নিশ্চিত করা উচিত।",
+            "faq_title": "সাধারণ জিজ্ঞাসা",
+            "faq": [("Souviks কি পার্ট শনাক্ত করতে সাহায্য করতে পারে?", "হ্যাঁ। পার্ট নম্বর, গাড়ির তথ্য বা পরিষ্কার ছবি পাঠালে ক্যাটালগে মিল খুঁজতে সাহায্য করা যায়।"), ("Genuine ও aftermarket দু ধরনের পার্ট কি পাওয়া যায়?", "হ্যাঁ। দু ধরনের পণ্য আলাদা ভাবে তালিকাভুক্ত এবং একই জিনিস হিসেবে উপস্থাপন করা হয় না।"), ("কোথায় shipping হয়?", "Souviks সারা ভারতের গ্রাহকদের পরিষেবা দেয়। delivery time ও freight অর্ডার এবং গন্তব্যের উপর নির্ভর করে।")],
+        },
+    }
+    for lang in LANGUAGES:
+        path = ROOT / lang / "about.html"
+        if not path.exists():
+            continue
+        page = path.read_text(encoding="utf-8")
+        t = T[lang]
+        grid_open = re.search(
+            r"""<div\b[^>]*class=["'][^"']*\bvideo-grid\b[^"']*["'][^>]*>""",
+            page,
+            flags=re.I,
+        )
+        if grid_open:
+            grid_close_start = None
+            div_depth = 1
+            div_tags = re.compile(r"</?div\b[^>]*>", flags=re.I)
+            for div_tag in div_tags.finditer(page, grid_open.end()):
+                token = div_tag.group(0)
+                if re.match(r"</div\b", token, flags=re.I):
+                    div_depth -= 1
+                    if div_depth == 0:
+                        grid_close_start = div_tag.start()
+                        break
+                elif not re.search(r"/\s*>$", token):
+                    div_depth += 1
+
+            if grid_close_start is None:
+                raise ValueError(f"Unclosed About page video grid: {path}")
+
+            cards = ''.join(
+                (
+                    f'<div class="video-card about-video-card"><video controls preload="metadata" playsinline width="400" height="225"><source src="/assets/images/about/{fn}" type="video/mp4"></video><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>'
+                    if fn.lower().endswith(".mp4")
+                    else f'<div class="video-card about-photo-card"><img src="/assets/images/about/{fn}" width="400" height="400" loading="lazy" decoding="async" alt="{esc(title)}"><h3>{esc(title)}</h3><p>{esc(desc)}</p></div>'
+                )
+                for title, desc, fn in t["cards"]
+            )
+            # Only replace the video-grid contents; preserve parent closers.
+            page = page[:grid_open.end()] + cards + page[grid_close_start:]
+        page = page.replace('<span class="video-coming-soon">Video coming soon</span>', '')
+        marker = '<!-- ABOUT_TRUST_CONTEXT -->'
+        if marker not in page:
+            faq = ''.join(f'<details class="entity-faq-item"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q,a in t["faq"])
+            proof = ''.join(f'<div class="why-card"><p>{esc(x)}</p></div>' for x in t["b2b"])
+            section = f'''{marker}
+<section class="about-trust-context section-spacing">
+  <div class="container">
+    <div class="section-heading"><h2>{esc(t["b2b_title"])}</h2></div>
+    <div class="about-proof-grid">{proof}</div>
+    <div class="about-context-columns"><div><h3>{esc(t["position_title"])}</h3><p>{esc(t["position"])}</p></div><div><h3>{esc(t["service_title"])}</h3><p>{esc(t["service"])}</p></div></div>
+    <div class="entity-faq"><h3>{esc(t["faq_title"])}</h3>{faq}</div>
+  </div>
+</section>
+'''
+            anchor = '<div class="container">\n\n    <div class="cta-wrapper">'
+            page = page.replace(anchor, section + '\n' + anchor, 1)
+
+        # Always normalize the boundary between the video section and the B2B
+        # section. The previous card-refresh logic removed these parent closers.
+        video_section_start = page.find('<section class="store-videos section-spacing">')
+        marker_at = page.find(marker, video_section_start) if video_section_start >= 0 else -1
+        if video_section_start >= 0 and marker_at >= 0:
+            grid_match = re.search(
+                r"""<div\b[^>]*class=["'][^"']*\bvideo-grid\b[^"']*["'][^>]*>""",
+                page[video_section_start:marker_at],
+                flags=re.I,
+            )
+            if grid_match:
+                grid_open_end = video_section_start + grid_match.end()
+                div_depth = 1
+                grid_close_end = None
+                div_tags = re.compile(r"</?div\b[^>]*>", flags=re.I)
+                for div_tag in div_tags.finditer(page, grid_open_end, marker_at):
+                    token = div_tag.group(0)
+                    if re.match(r"</div\b", token, flags=re.I):
+                        div_depth -= 1
+                        if div_depth == 0:
+                            grid_close_end = div_tag.end()
+                            break
+                    elif not re.search(r"/\s*>$", token):
+                        div_depth += 1
+
+                if grid_close_end is None:
+                    raise ValueError(f"Unclosed About page video grid: {path}")
+
+                between = page[grid_close_end:marker_at]
+                unexpected = re.sub(r"</(?:div|section)\s*>", "", between, flags=re.I).strip()
+                if unexpected:
+                    raise ValueError(f"Unexpected markup between About video grid and B2B section: {path}")
+                # Reconstruct the expected container and section closers exactly once.
+                page = (
+                    page[:grid_close_end]
+                    + "\n\n    </div>\n\n</section>\n\n"
+                    + page[marker_at:]
+                )
+
+        # The legacy malformed page already carried the video-section closing
+        # tag after the B2B section. Once that closing tag is restored before
+        # the B2B section, remove the now-orphaned duplicate after it.
+        page = re.sub(
+            r'(<!-- ABOUT_TRUST_CONTEXT -->\s*<section class="about-trust-context section-spacing">[\s\S]*?</section>)\s*</section>(\s*<div class="container">\s*<div class="cta-wrapper">)',
+            r'\1\2',
+            page,
+            count=1,
+            flags=re.I,
+        )
+
+        path.write_text(page, encoding="utf-8")
+
+def main():
+    catalogue = json.loads((ROOT / "assets/data/catalogue-index.json").read_text(encoding="utf-8"))
+    brands = json.loads((ROOT / "assets/data/brands.json").read_text(encoding="utf-8"))
+    categories = json.loads((ROOT / "assets/data/categories.json").read_text(encoding="utf-8"))
+    vehicles = json.loads((ROOT / "assets/data/vehicles.json").read_text(encoding="utf-8"))
+    entity_indexes = build_entity_link_indexes(brands, categories, vehicles, catalogue)
+    enrich_entity_pages("brand", brands, catalogue, entity_indexes)
+    enrich_entity_pages("category", categories, catalogue, entity_indexes)
+    sync_category_listing_pages(categories)
+    enrich_entity_pages("vehicle", vehicles, catalogue, entity_indexes)
+    (ROOT / "assets/data/brands.json").write_text(json.dumps(brands, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "assets/data/categories.json").write_text(json.dumps(categories, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "assets/data/vehicles.json").write_text(json.dumps(vehicles, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    enrich_about()
+
+if __name__ == "__main__":
+    main()
+, tag.group(0)):
+            depth += 1
+    raise ValueError(f"Unclosed static-rendered #{element_id} container.")
+
+
+def update_brand_page_identity(page: str, item: dict, products: list[dict], language: str) -> str:
+    """Synchronize the brand name, canonical routes, logo and CollectionPage JSON-LD."""
+    name, slug = clean(item.get("name")), clean(item.get("slug"))
+    if not name or not slug:
+        raise ValueError("A brand detail page requires a name and slug.")
+    site = "https://www.souviks.co.in"
+    page_url = f"{site}/{language}/brands/{slug}"
+    alternate_urls = {
+        "en": f"{site}/en/brands/{slug}",
+        "hi": f"{site}/hi/brands/{slug}",
+        "bn": f"{site}/bn/brands/{slug}",
+        "x-default": f"{site}/en/brands/{slug}",
+    }
+
+    def put_href(tag: str, target: str) -> str:
+        updated, count = re.subn(
+            r'(\bhref\s*=\s*)(["\'])[^"\']*\2',
+            lambda m: m.group(1) + m.group(2) + target + m.group(2),
+            tag, count=1, flags=re.I,
+        )
+        if count != 1:
+            raise ValueError("Brand page link has no replaceable href.")
+        return updated
+
+    def update_link(match: re.Match) -> str:
+        tag = match.group(0)
+        rel = re.search(r'\brel\s*=\s*["\']([^"\']+)["\']', tag, flags=re.I)
+        if not rel:
+            return tag
+        if rel.group(1).casefold() == "canonical":
+            return put_href(tag, page_url)
+        if rel.group(1).casefold() == "alternate":
+            language_match = re.search(r'\bhreflang\s*=\s*["\']([^"\']+)["\']', tag, flags=re.I)
+            code = language_match.group(1).lower() if language_match else ""
+            if code in alternate_urls:
+                return put_href(tag, alternate_urls[code])
+        return tag
+
+    page = re.sub(r'<link\b[^>]*>', update_link, page, flags=re.I)
+
+    def update_social_url(match: re.Match) -> str:
+        tag = match.group(0)
+        if not (
+            re.search(r'\bproperty\s*=\s*["\']og:url["\']', tag, re.I)
+            or re.search(r'\bname\s*=\s*["\']twitter:url["\']', tag, re.I)
+        ):
+            return tag
+        return re.sub(
+            r'(\bcontent\s*=\s*)(["\'])[^"\']*\2',
+            lambda m: m.group(1) + m.group(2) + page_url + m.group(2),
+            tag, count=1, flags=re.I,
+        )
+
+    page = re.sub(r'<meta\b[^>]*>', update_social_url, page, flags=re.I)
+    page, current_url_count = re.subn(
+        r'(\bcurrentPageUrl\s*:\s*)(["\'])[^"\']*\2',
+        lambda m: m.group(1) + m.group(2) + f"/{language}/brands/{slug}" + m.group(2),
+        page, count=1, flags=re.I,
+    )
+    if current_url_count != 1:
+        raise ValueError(f"{language}/brands/{slug}.html has no unique currentPageUrl.")
+
+    breadcrumb = re.compile(
+        r'(<li\b(?=[^>]*\bclass=["\'][^"\']*\bactive\b[^"\']*["\'])'
+        r'(?=[^>]*\baria-current=["\']page["\'])[^>]*>)[\s\S]*?(</li>)',
+        flags=re.I,
+    )
+    page, breadcrumb_count = breadcrumb.subn(
+        lambda m: m.group(1) + esc(name) + m.group(2), page, count=1
+    )
+    if breadcrumb_count != 1:
+        raise ValueError(f"{language}/brands/{slug}.html has no active breadcrumb.")
+
+    logo = clean(item.get("logo"))
+    logo_html = ""
+    if logo:
+        dimensions = item.get("logo_dimensions")
+        width = height = 400
+        if isinstance(dimensions, (list, tuple)) and len(dimensions) >= 2:
+            try:
+                w, h = int(dimensions[0]), int(dimensions[1])
+                if w > 0 and h > 0:
+                    width, height = w, h
+            except (TypeError, ValueError):
+                pass
+        logo_html = (
+            f'<div class="brand-logo"><img src="{esc(logo)}" alt="{esc(name)}" '
+            f'loading="lazy" decoding="async" width="{width}" height="{height}"></div>'
+        )
+    brand_markup = (
+        '<div class="brand-detail">' + logo_html
+        + '<div class="brand-info"><h1>' + esc(name) + '</h1><p>'
+        + esc(item.get("description")) + '</p></div></div>'
+    )
+    page = replace_static_rendered_container(page, "brand-detail", brand_markup)
+
+    collection_found = False
+
+    def update_schema(value):
+        nonlocal collection_found
+        if isinstance(value, list):
+            for child in value:
+                update_schema(child)
+            return
+        if not isinstance(value, dict):
+            return
+        types = value.get("@type")
+        types = types if isinstance(types, list) else [types]
+        if "CollectionPage" in types:
+            collection_found = True
+            value["@id"] = page_url + "#collection"
+            value["name"] = f"{name} Parts | Souviks"
+            value["url"] = page_url
+            value["mainEntityOfPage"] = page_url
+            about = {"@type": "Brand", "@id": page_url + "#brand", "name": name, "url": page_url}
+            if logo:
+                about["logo"] = {"@type": "ImageObject", "url": site + logo if logo.startswith("/") else logo}
+            value["about"] = about
+            entries = []
+            for product in products:
+                product_slug = clean(product.get("slug"))
+                product_name = clean(product.get("product_name") or product.get("name"))
+                if not product_slug or not product_name:
+                    continue
+                product_url = f"{site}/{language}/products/{product_slug}"
+                entries.append({
+                    "@type": "ListItem", "position": len(entries) + 1,
+                    "name": product_name, "url": product_url, "item": product_url,
+                })
+            value["mainEntity"] = {
+                "@type": "ItemList",
+                "itemListOrder": "https://schema.org/ItemListOrderAscending",
+                "numberOfItems": len(entries),
+                "itemListElement": entries,
+            }
+        elif "BreadcrumbList" in types:
+            entries = value.get("itemListElement")
+            if isinstance(entries, list) and entries and isinstance(entries[-1], dict):
+                entries[-1]["name"] = name
+                entries[-1]["item"] = page_url
+        for child in list(value.values()):
+            if isinstance(child, (dict, list)):
+                update_schema(child)
+
+    def update_jsonld(match: re.Match) -> str:
+        try:
+            data = json.loads(match.group(2))
+        except json.JSONDecodeError as exc:
+            raise ValueError(f"{language}/brands/{slug}.html contains invalid JSON-LD: {exc}") from exc
+        update_schema(data)
+        return "<script" + match.group(1) + ">" + json.dumps(data, ensure_ascii=False, indent=2) + "</script>"
+
+    script_pattern = re.compile(
+        r'<script\b([^>]*\btype=["\']application/ld\+json["\'][^>]*)>([\s\S]*?)</script>',
+        flags=re.I,
+    )
+    page, schema_count = script_pattern.subn(update_jsonld, page)
+    if schema_count == 0 or not collection_found:
+        raise ValueError(f"{language}/brands/{slug}.html is missing CollectionPage JSON-LD.")
+    return page
+
+
+def enrich_entity_pages(kind, data, catalogue, entity_indexes):
+    for item in data:
+        if item.get("active") is False:
+            continue
+        item_id = clean(item.get("id"))
+        if not item_id:
+            continue
+        if kind == "brand":
+            products = [p for p in catalogue if p.get("active") is not False and clean(p.get("brand_id")) == item_id]
+            item["product_count"] = len(products)
+            item["categories"] = sorted(set(clean(p.get("category_id")) for p in products if clean(p.get("category_id"))))
+            item["subcategories"] = sorted(set(clean(p.get("subcategory_id")) for p in products if clean(p.get("subcategory_id"))))
+            item["vehicles"] = sorted(set(arr_products(products, "vehicles")))
+            item["products"] = [clean(p.get("id")) for p in products if clean(p.get("id"))]
+            meta = OFFICIAL_BRANDS.get(item_id)
+            if meta:
+                item["website"], item["country"] = meta["website"], meta["country"]
+            logo_override = BRAND_LOGO_OVERRIDES.get(item_id)
+            if logo_override:
+                item["logo"] = logo_override
+            cats = sorted(set(clean(p.get("category_name") or p.get("category")) for p in products if clean(p.get("category_name") or p.get("category"))))
+            item.setdefault("seo", {})
+            subs = top(arr_products(products, "subcategory_name"), 6)
+            vehicles = top(arr_products(products, "vehicles"), 6)
+            manufacturer_note = ""
+            if meta and clean(meta.get("country")):
+                manufacturer_note = f' Manufacturer country: {clean(meta.get("country"))}.'
+            example_products = []
+            seen_example_ids = set()
+            for product in products:
+                pid = clean(product.get("id"))
+                pname = clean(product.get("product_name") or product.get("name"))
+                if pid and pname and pid not in seen_example_ids:
+                    example_products.append(pname)
+                    seen_example_ids.add(pid)
+                if len(example_products) >= 3:
+                    break
+
+            item["description"] = (
+                f'Souviks currently lists {len(products)} active {clean(item.get("name"))} products across '
+                f'{list_text(cats, 5) or "the commercial-vehicle parts catalogue"}. '
+                f'The listed range is mapped to applications such as '
+                f'{list_text(vehicles, 5) or "commercial vehicle applications"} and common replacement areas including '
+                f'{list_text(subs, 5) or "related commercial-vehicle parts"}. '
+                f'{manufacturer_note} Current catalogue examples include '
+                f'{list_text(example_products, 3) or "multiple commercial-vehicle replacement parts"}. '
+                f'Use the part number, application and vehicle details when checking fitment.'
+            )
+            item["short_description"] = (
+                f'{clean(item.get("name"))} products at Souviks cover '
+                f'{list_text(cats, 4) or "commercial-vehicle parts"} and applications across '
+                f'{list_text(vehicles, 3) or "commercial vehicles"}.'
+            )
+            item["seo"]["description"] = item["description"]
+        elif kind == "vehicle":
+            name = clean(item.get("model") or item.get("name"))
+            products = [p for p in catalogue if p.get("active") is not False and any(clean(v) in {item_id, name} for v in (p.get("vehicles") or []))]
+            prefix = name.split()[0] if name else ""
+            manufacturer_map = {"Tata": "Tata Motors", "Ashok": "Ashok Leyland", "Eicher": "Eicher", "Mahindra": "Mahindra", "Universal": "Multi-brand / Universal", "Tractors": "Multiple manufacturers"}
+            item.setdefault("manufacturer", {})
+            item["manufacturer"]["name"] = manufacturer_map.get(prefix, prefix)
+            item["product_count"] = len(products)
+            item["products"] = [clean(p.get("id")) for p in products if clean(p.get("id"))]
+            cat_pairs, brand_pairs = {}, {}
+            for p in products:
+                if clean(p.get("category_id")):
+                    cat_pairs[clean(p.get("category_id"))] = clean(p.get("category_name") or p.get("category"))
+                if clean(p.get("brand_id")):
+                    brand_pairs[clean(p.get("brand_id"))] = clean(p.get("brand_name") or p.get("brand"))
+            item["categories"] = [{"id": k, "name": v} for k, v in sorted(cat_pairs.items())]
+            item["brands"] = [{"id": k, "name": v} for k, v in sorted(brand_pairs.items())]
+            subs = top(arr_products(products, "subcategory_name"), 8)
+            cats = top(arr_products(products, "category_name"), 8)
+            item.setdefault("seo", {})
+            item["description"] = f'Souviks lists {len(products)} active spare parts for {name}, a {manufacturer_map.get(prefix, prefix) or "commercial-vehicle"} application. Current catalogue coverage includes {list_text(cats, 5)} and common replacement areas such as {list_text(subs, 5)}; listed brands include {list_text(top(arr_products(products, "brand_name"), 5), 5)}.'
+            item["short_description"] = f'{name}: {len(products)} active parts mapped across {list_text(cats, 4) or "commercial-vehicle systems"}.'
+            item["seo"]["description"] = item["description"]
+        else:
+            products = [p for p in catalogue if p.get("active") is not False and clean(p.get("category_id")) == item_id]
+            item["product_count"] = len(products)
+            item["products"] = [clean(p.get("id")) for p in products if clean(p.get("id"))]
+            sub_pairs, brand_pairs, vehicle_names = {}, {}, set()
+            for p in products:
+                if clean(p.get("subcategory_id")):
+                    sub_pairs[clean(p.get("subcategory_id"))] = clean(p.get("subcategory_name") or p.get("subcategory"))
+                if clean(p.get("brand_id")):
+                    brand_pairs[clean(p.get("brand_id"))] = clean(p.get("brand_name") or p.get("brand"))
+                vehicle_names.update(arr_products([p], "vehicles"))
+            item["subcategories"] = [{"id": k, "name": v} for k, v in sorted(sub_pairs.items())]
+            item["brands"] = [{"id": k, "name": v} for k, v in sorted(brand_pairs.items())]
+            item["vehicles"] = sorted(vehicle_names)
+            brands = [v for v in brand_pairs.values() if v]
+            item.setdefault("seo", {})
+            item["description"] = f'{clean(item.get("name"))} covers {len(products)} active commercial-vehicle spare parts used across {list_text(sorted(vehicle_names), 5) or "truck, bus and commercial-vehicle applications"}. The category includes subcategories such as {list_text(sorted(set(sub_pairs.values())), 5) or "related replacement parts"} and brands including {list_text(sorted(set(brands)), 5) or "multiple suppliers"}.'
+            item["short_description"] = f'{clean(item.get("name"))}: {len(products)} active parts across {list_text(sorted(set(sub_pairs.values())), 4) or "related replacement parts"}.'
+            item["seo"]["description"] = item["description"]
+
+        for lang in LANGUAGES:
+            entity_directory = {"brand": "brands", "category": "categories", "vehicle": "vehicles"}.get(kind)
+            if not entity_directory:
+                raise ValueError(f"Unsupported entity kind: {kind}")
+            path = ROOT / lang / entity_directory / f'{clean(item.get("slug"))}.html'
+            if not path.exists():
+                if kind != "brand":
+                    raise FileNotFoundError(
+                        f"Missing active {kind} detail page: {path.relative_to(ROOT)}"
+                    )
+                page = load_brand_page_shell(lang, path)
+            else:
+                page = path.read_text(encoding="utf-8")
+            if kind == "brand":
+                page = update_page_title(page, brand_page_title(item.get("name"), lang))
+                item.setdefault("seo", {})
+                item["seo"]["title"] = brand_page_title(item.get("name"), lang)
+                item["seo"]["canonical"] = f"https://www.souviks.co.in/{lang}/brands/{clean(item.get('slug'))}"
+                page = update_brand_page_identity(page, item, products, lang)
             elif kind == "vehicle":
                 page = update_page_title(
                     page,
