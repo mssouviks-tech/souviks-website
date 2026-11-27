@@ -49,6 +49,9 @@ NEW_SUBCATEGORY_LABELS = {
         "wire-harness": "Wiring Harness",
         "electronic-control-unit": "Electronic Control Unit",
     },
+    "cooling-system": {
+        "water-pump": "Water Pump",
+    },
     "engine-components": {
         "engine-valve-components": "Engine Valve Components",
         "valve-stem-seal": "Valve Stem Seal",
@@ -86,6 +89,7 @@ SUBCATEGORY_PURPOSES = {
     "brake-hardware": "A supporting, retaining or service component used within the stated brake assembly.",
     "brake-lining": "A friction-lined component used in the vehicle's braking assembly.",
     "brake-chamber": "A component associated with the vehicle's pneumatic brake actuation system.",
+    "water-pump": "A coolant-circulation pump for the engine cooling system.",
     "wire-harness": "An electrical wiring harness for the vehicle's electrical or ABS braking system.",
     "electronic-control-unit": "An electronic control module for the vehicle's ABS or brake-control system.",
     "hub-units-wheel-bearings": "A wheel-hub component associated with the vehicle's wheel-end and bearing assembly.",
@@ -105,9 +109,11 @@ def populate_leykart_product_taxonomy(product: dict[str, Any]) -> None:
     subcategory_id = str(product.get("subcategory_id") or "").strip()
 
     # Correct subsystem placement before assigning a category-local subcategory.
-    # ABS electrical hardware is catalogued under Electricals, and wheel hubs
-    # under Bearings rather than the Brakes application category.
-    if "wiring harness" in normalized or "abs harness" in normalized:
+    # ABS electrical hardware is catalogued under Electricals, wheel hubs under
+    # Bearings, and water pumps under the Cooling System.
+    if "water pump" in normalized and "water pump bearing" not in normalized:
+        category_id, subcategory_id = "cooling-system", "water-pump"
+    elif "wiring harness" in normalized or "abs harness" in normalized:
         category_id, subcategory_id = "electricals", "wire-harness"
     elif "control unit" in normalized and ("abs" in normalized or "brake" in normalized):
         category_id, subcategory_id = "electricals", "electronic-control-unit"
@@ -213,6 +219,32 @@ def populate_leykart_product_taxonomy(product: dict[str, Any]) -> None:
         )
         product["description"] = f"{name}. {purpose} {verification}"
 
+
+
+def normalize_catalogue_water_pump_taxonomy(catalogue: list[dict[str, Any]]) -> int:
+    """Place actual water-pump products under Cooling System / Water Pump."""
+    changed = 0
+    for product in catalogue:
+        if not isinstance(product, dict):
+            continue
+        name = str(product.get("product_name") or product.get("name") or "").strip()
+        normalized = " ".join(name.casefold().split())
+        # Bearings stay in their own subcategory; this applies to the pump
+        # assembly/component itself, not to a water-pump bearing.
+        if "water pump" not in normalized or "water pump bearing" in normalized:
+            continue
+        target = {
+            "category_id": "cooling-system",
+            "category_name": "Cooling System",
+            "category": "Cooling System",
+            "subcategory_id": "water-pump",
+            "subcategory_name": "Water Pump",
+            "subcategory": "Water Pump",
+        }
+        if any(product.get(field) != value for field, value in target.items()):
+            product.update(target)
+            changed += 1
+    return changed
 
 UPDATE_FIELDS = (
     "part_number", "partNumber", "mrp", "selling_price", "discount_percent",
@@ -486,6 +518,7 @@ def main() -> None:
     if len(set(new_ids)) != EXPECTED_IMAGE_BACKED_ADDITIONS:
         raise ValueError(f"Expected {EXPECTED_IMAGE_BACKED_ADDITIONS} unique image-backed Leykart additions, got {len(set(new_ids))}")
     new_ids = sorted(set(new_ids), key=lambda value: int(value.replace("SVKS", "")))
+    water_pump_taxonomy_updates = normalize_catalogue_water_pump_taxonomy(catalogue)
     catalogue.sort(key=lambda item: int(str(item.get("id", "SVKS000000")).replace("SVKS", "")))
 
     # Persist an explicit GST candidate record for every new SKU. Existing
@@ -610,6 +643,7 @@ def main() -> None:
         "image_backed_new_skus_expected": EXPECTED_IMAGE_BACKED_ADDITIONS,
         "new_skus_added_this_run": inserted,
         "new_skus_present_after_run": len(new_ids),
+        "water_pump_taxonomy_updates": water_pump_taxonomy_updates,
         "catalogue_records": len(catalogue),
         "active_catalogue_records": sum(item.get("active") is not False for item in catalogue),
         "gst_invoice_ready_records": len(manifest["records"]),
