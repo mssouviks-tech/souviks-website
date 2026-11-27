@@ -72,7 +72,7 @@ def replace_div_contents(source: str, element_id: str, contents: str) -> str:
 
 def trim_trailing_horizontal_whitespace(fragment: str) -> str:
     """Remove spaces or tabs immediately before line endings in a preserved HTML suffix."""
-    return re.sub(r"[ \\t]+(?=\\r?$)", "", fragment, flags=re.MULTILINE)
+    return re.sub(r"[ \t]+(?=\r?$)", "", fragment, flags=re.MULTILINE)
 
 
 def replace_numeric_id(source: str, element_id: str, value: int, *, required: bool = True) -> str:
