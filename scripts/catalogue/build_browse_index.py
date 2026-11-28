@@ -93,6 +93,12 @@ def project_product(product: dict[str, Any]) -> dict[str, Any]:
     projected["category"] = clean(product.get("category") or product.get("category_name"))
     projected["subcategory_name"] = clean(product.get("subcategory_name") or product.get("subcategory"))
     projected["subcategory"] = clean(product.get("subcategory") or product.get("subcategory_name"))
+    projected["brand_id"] = clean(product.get("brand_id"))
+    projected["category_id"] = clean(product.get("category_id"))
+    projected["subcategory_id"] = clean(product.get("subcategory_id"))
+    # Preserve explicit null prices so unpriced items keep the request-a-part state.
+    projected["mrp"] = product.get("mrp")
+    projected["selling_price"] = product.get("selling_price")
 
     primary_image = clean(product.get("primary_image")) or first_gallery_image(product) or clean(product.get("image"))
     if primary_image:
