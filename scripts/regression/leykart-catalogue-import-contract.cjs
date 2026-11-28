@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 const fs = require("node:fs");
+const crypto = require("node:crypto");
 const path = require("node:path");
 const root = path.resolve(__dirname, "../..");
 const read = relative => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -157,11 +158,28 @@ for (const product of newProducts) {
   if (!fs.existsSync(path.join(thumbnailRoot, id, "1.webp"))) {
     throw new Error("Missing product-card thumbnail for " + id);
   }
+  // The catalogue build publishes up to four native-resolution views and
+  // removes duplicate-content files. Validate that final selection rather
+  // than requiring every source file to appear in the public gallery.
+  const expectedGallery = [];
+  const seenImageHashes = new Set();
+  for (const filename of gallery) {
+    const imagePath = path.join(galleryDir, filename);
+    const header = fs.readFileSync(imagePath).subarray(0, 12);
+    if (header.length < 12 || header.toString("ascii", 0, 4) !== "RIFF" ||
+        header.toString("ascii", 8, 12) !== "WEBP") continue;
+    const digest = crypto.createHash("sha256").update(fs.readFileSync(imagePath)).digest("hex");
+    if (seenImageHashes.has(digest)) continue;
+    seenImageHashes.add(digest);
+    expectedGallery.push(filename);
+    if (expectedGallery.length === 4) break;
+  }
   if (product.image !== "1.webp" || product.primary_image !== "1.webp" ||
       product.image_folder !== id ||
       product.image_url !== `/assets/images/products/${id}/1.webp` ||
       product.card_image_url !== `/assets/images/product-thumbnails/${id}/1.webp` ||
-      JSON.stringify(product.gallery) !== JSON.stringify(gallery)) {
+      !Array.isArray(product.gallery) ||
+      JSON.stringify(product.gallery) !== JSON.stringify(expectedGallery)) {
     throw new Error("Catalogue image metadata does not match committed gallery files: " + id);
   }
   if (!/^\d{8}$/.test(String(product.hsn_code || "")) ||
