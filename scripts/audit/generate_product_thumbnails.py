@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CATALOGUE = ROOT / "assets/data/catalogue-index.json"
 SOURCE_ROOT = ROOT / "assets/images/products"
 THUMB_ROOT = ROOT / "assets/images/product-thumbnails"
+PRODUCTS = ROOT / "assets/data/products.json"
 MAX_EDGE = 400
 QUALITY = 78
 
@@ -129,6 +130,39 @@ def generate() -> tuple[int, int, int, int]:
     if metadata_changed:
         CATALOGUE.write_text(
             json.dumps(products, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+
+    # build.py creates products.json before this derivative pass. Synchronize
+    # the finalized thumbnail field into that public projection as well, so
+    # catalogue-index.json and products.json cannot diverge on card_image_url.
+    if not PRODUCTS.is_file():
+        raise SystemExit(f"Missing public product projection: {PRODUCTS.relative_to(ROOT)}")
+    projected_products = json.loads(PRODUCTS.read_text(encoding="utf-8"))
+    if not isinstance(projected_products, list):
+        raise SystemExit("products.json must contain a JSON array")
+    catalogue_by_id = {
+        clean(product.get("id")): product
+        for product in products
+        if isinstance(product, dict) and clean(product.get("id"))
+    }
+    projection_changed = False
+    for projected in projected_products:
+        if not isinstance(projected, dict):
+            continue
+        canonical = catalogue_by_id.get(clean(projected.get("id")))
+        if canonical is None:
+            continue
+        card_image_url = clean(canonical.get("card_image_url"))
+        if card_image_url:
+            if projected.get("card_image_url") != card_image_url:
+                projected["card_image_url"] = card_image_url
+                projection_changed = True
+        elif projected.pop("card_image_url", None) is not None:
+            projection_changed = True
+    if projection_changed:
+        PRODUCTS.write_text(
+            json.dumps(projected_products, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
 
