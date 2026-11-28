@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="460" viewBox="0 0 1500 460" role="img" aria-labelledby="title desc">
+  <title id="title">Valueparts</title>
+  <desc id="desc">Valueparts automotive and commercial vehicle spare parts logo.</desc>
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e1262f"/>
+      <stop offset="1" stop-color="#b91620"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#343a40"/>
+      <stop offset="1" stop-color="#171b1f"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(218 224)">
+    <path fill="url(#metal)" fill-rule="evenodd" d="M 0,-176 L 30,-176 L 43,-143 L 75,-132 L 103,-153 L 128,-128 L 107,-100 L 119,-68 L 152,-55 L 152,-20 L 119,-8 L 107,24 L 128,52 L 103,77 L 75,56 L 43,68 L 30,101 L -5,101 L -17,68 L -49,56 L -77,77 L -102,52 L -81,24 L -93,-8 L -126,-20 L -126,-55 L -93,-68 L -81,-100 L -102,-128 L -77,-153 L -49,-132 L -17,-143 Z M -2,-117 A 117,117 0 1,0 -2,117 A 117,117 0 1,0 -2,-117 Z"/>
+    <path fill="url(#red)" d="M -91,-85 L -36,49 L 82,-104 L 137,-104 L -33,130 L -127,-85 Z"/>
+    <path fill="#20252a" d="M -33,130 L 137,-104 L 156,-104 L -8,142 Z" opacity=".9"/>
+    <path d="M -146,87 C -112,143 -47,159 25,137" fill="none" stroke="url(#red)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M -4,-140 C 66,-198 170,-168 149,-83" fill="none" stroke="#9aa0a6" stroke-width="11" stroke-linecap="round"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-style="italic" font-weight="900" letter-spacing="-7">
+    <text x="425" y="286" font-size="150" fill="#20252a">VALUE</text>
+    <text x="830" y="286" font-size="150" fill="#d51f2a">PARTS</text>
+  </g>
+  <path d="M 430 326 H 1430" stroke="#d51f2a" stroke-width="8" stroke-linecap="round"/>
+</svg>
