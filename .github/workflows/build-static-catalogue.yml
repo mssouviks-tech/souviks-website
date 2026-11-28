@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "assets/data/catalogue-index.json"
+      - "assets/data/catalogue-browse.json"
       - "assets/data/leykart-catalogue-import-2026-11-27.json.gz"
       - "assets/data/hsn-dpiit-ministry-mappings.json"
       - "assets/data/hsn-candidate-overrides-2026-11-06.json"
@@ -24,6 +25,7 @@ on:
       - "bn/products/**"
       - "hi/products/**"
       - "scripts/catalogue/build.py"
+      - "scripts/catalogue/build_browse_index.py"
       - "scripts/catalogue/internal_redirects.py"
       - "scripts/catalogue/apply_product_workbook_import.py"
       - "scripts/catalogue/sync_entity_directories.py"
@@ -34,6 +36,7 @@ on:
       - "scripts/catalogue/generate_missing_brand_pages.py"
       - "scripts/catalogue/sync_entity_sitemaps.py"
       - "scripts/audit/critical_build.py"
+      - "scripts/audit/test_catalogue_browse_index.py"
       - "scripts/audit/performance_guard.py"
       - "scripts/audit/optimize_static_images.py"
       - "scripts/audit/prepare_mobile_listing_lcp.py"
@@ -124,6 +127,7 @@ jobs:
           import py_compile
           for path in (
               "scripts/catalogue/build.py",
+              "scripts/catalogue/build_browse_index.py",
               "scripts/catalogue/internal_redirects.py",
               "scripts/catalogue/apply_product_workbook_import.py",
               "scripts/catalogue/apply_leykart_catalogue_import.py",
@@ -147,6 +151,7 @@ jobs:
               "scripts/catalogue/sync_product_cards.py",
               "scripts/audit/catalogue_parity.py",
               "scripts/audit/critical_build.py",
+              "scripts/audit/test_catalogue_browse_index.py",
               "scripts/audit/test_legacy_product_redirects.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/optimize_static_images.py",
@@ -184,6 +189,7 @@ jobs:
 
           run_candidate_checks() {
             python3 scripts/catalogue/validate.py
+            python3 scripts/audit/test_catalogue_browse_index.py
             python3 scripts/audit/test_product_weight_estimates.py
             python3 scripts/audit/test_wabco_product_specs.py
             python3 scripts/audit/test_pin_product_specs.py
@@ -238,6 +244,7 @@ jobs:
             python3 scripts/catalogue/sync_checkout_module.py
             python3 scripts/catalogue/sync_delhivery_module.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
+            python3 scripts/catalogue/build_browse_index.py
             python3 scripts/js/refactor.py
             npm run build:js
             python3 scripts/audit/optimize_static_images.py
@@ -261,6 +268,7 @@ jobs:
           # Re-declare the full gate so remote-main retry attempts are validated too.
           run_candidate_checks() {
             python3 scripts/catalogue/validate.py
+            python3 scripts/audit/test_catalogue_browse_index.py
             python3 scripts/audit/test_product_weight_estimates.py
             python3 scripts/audit/test_wabco_product_specs.py
             python3 scripts/audit/test_pin_product_specs.py
@@ -337,6 +345,7 @@ jobs:
             python3 scripts/catalogue/sync_product_cards.py
             python3 scripts/catalogue/sync_checkout_module.py
             python3 scripts/catalogue/sync_entity_sitemaps.py
+            python3 scripts/catalogue/build_browse_index.py
             python3 scripts/js/refactor.py
             npm run build:js
             python3 scripts/audit/optimize_static_images.py
