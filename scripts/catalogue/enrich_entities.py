@@ -35,6 +35,7 @@ OFFICIAL_BRANDS = {
 # Explicit logo overrides for catalogue brands whose asset is intentionally queued separately.
 BRAND_LOGO_OVERRIDES = {
     "rxi": "/assets/images/brands/rxi.png",
+    "valueparts": "/assets/images/brands/valueparts.svg?v=20261128",
 }
 
 LABELS = {
