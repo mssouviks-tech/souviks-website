@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 const fs = require("node:fs");
+const crypto = require("node:crypto");
 const path = require("node:path");
 const root = path.resolve(__dirname, "../..");
 const read = relative => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -10,6 +11,7 @@ const sortSku = (a, b) => numericSku(a) - numericSku(b);
 const catalogue = read("assets/data/catalogue-index.json");
 const products = read("assets/data/products.json");
 const brands = read("assets/data/brands.json");
+const categories = read("assets/data/categories.json");
 const gstManifest = read("assets/data/gst-rate-candidate-overrides-2026-11-08.json");
 const gstPolicy = read("assets/data/gst-rate-final-policy-2026-11-08.json");
 const byId = new Map(catalogue.map(product => [String(product.id), product]));
@@ -60,6 +62,85 @@ if (newProducts.length !== EXPECTED_IMAGE_BACKED_COUNT ||
     JSON.stringify(newProducts.map(product => product.id)) !== JSON.stringify(imageBackedIds)) {
   throw new Error("Only the repository's image-backed Leykart SKUs may remain in the catalogue");
 }
+
+const categoriesById = new Map(categories.map(category => [String(category.id), category]));
+for (const product of newProducts) {
+  const id = product.id;
+  const category = categoriesById.get(String(product.category_id || ""));
+  if (!category) throw new Error("Missing or invalid category assignment for " + id);
+  const subcategory = (category.subcategories || []).find(item =>
+    String(item.id) === String(product.subcategory_id || "")
+  );
+  if (!subcategory) throw new Error("Missing or invalid subcategory assignment for " + id);
+  if (product.category_name !== category.name || product.category !== category.name ||
+      product.subcategory_name !== subcategory.name || product.subcategory !== subcategory.name) {
+    throw new Error("Product taxonomy labels do not match the category master: " + id);
+  }
+  if (typeof product.description !== "string" || product.description.trim().length < 50) {
+    throw new Error("Leykart product description is missing or too short: " + id);
+  }
+}
+const displayName = product => String(product.product_name || product.name || "");
+// Check full wiring-harness assemblies, not every product name that mentions
+// a harness as an accessory or part of a pigtail/sensor description.
+const wiringHarnessProducts = newProducts.filter(product =>
+  /wiring harness|abs harness/i.test(displayName(product))
+);
+if (wiringHarnessProducts.some(product =>
+  product.category_id !== "electricals" || product.subcategory_id !== "wire-harness"
+)) {
+  throw new Error("Wiring harness assemblies must map to Electricals / Wiring Harness");
+}
+// A brake switch supplied with a wire harness remains a brake switch; the
+// accessory wording must not change the product's primary subsystem.
+const brakeSwitchHarnessProducts = newProducts.filter(product =>
+  /brake switch.*wire harness/i.test(displayName(product))
+);
+if (brakeSwitchHarnessProducts.some(product =>
+  product.category_id !== "brakes" || product.subcategory_id !== "brake-switch"
+)) {
+  throw new Error("Brake switches supplied with a wire harness must remain Brakes / Brake Switch");
+}
+const absControlUnits = newProducts.filter(product =>
+  /control unit/i.test(displayName(product)) && /abs|brake/i.test(displayName(product))
+);
+if (absControlUnits.some(product =>
+  product.category_id !== "electricals" || product.subcategory_id !== "electronic-control-unit"
+)) {
+  throw new Error("ABS brake control units must map to Electricals / Electronic Control Unit");
+}
+const frontHubs = newProducts.filter(product =>
+  /front hub|hub front axle/i.test(displayName(product))
+);
+if (frontHubs.some(product =>
+  product.category_id !== "bearings" || product.subcategory_id !== "hub-units-wheel-bearings"
+)) {
+  throw new Error("Front wheel hubs must map to Bearings / Hub Units & Wheel Bearings");
+}
+
+const waterPumps = catalogue.filter(product =>
+  /water\s+pump/i.test(displayName(product)) &&
+  !/water\s+pump\s+bearings?/i.test(displayName(product))
+);
+const coolingSystem = categoriesById.get("cooling-system");
+const waterPumpSubcategory = (coolingSystem?.subcategories || []).find(item =>
+  item.id === "water-pump" && item.name === "Water Pump"
+);
+if (!waterPumpSubcategory || waterPumps.length === 0 || waterPumps.some(product =>
+  product.category_id !== "cooling-system" ||
+  product.category_name !== "Cooling System" ||
+  product.category !== "Cooling System" ||
+  product.subcategory_id !== "water-pump" ||
+  product.subcategory_name !== "Water Pump" ||
+  product.subcategory !== "Water Pump"
+)) {
+  throw new Error("Water pumps must map to Cooling System / Water Pump");
+}
+const canonicalKflWaterPump = byId.get("SVKS000748");
+if (!canonicalKflWaterPump || canonicalKflWaterPump.category_id !== "cooling-system" ||
+    canonicalKflWaterPump.subcategory_id !== "water-pump") {
+  throw new Error("KFL KF427 Water Pump must map to Cooling System / Water Pump");
+}
 for (const id of noImageIds) {
   if (byId.has(id)) throw new Error("Image-less Leykart SKU was retained: " + id);
 }
@@ -77,11 +158,28 @@ for (const product of newProducts) {
   if (!fs.existsSync(path.join(thumbnailRoot, id, "1.webp"))) {
     throw new Error("Missing product-card thumbnail for " + id);
   }
+  // The catalogue build publishes up to four native-resolution views and
+  // removes duplicate-content files. Validate that final selection rather
+  // than requiring every source file to appear in the public gallery.
+  const expectedGallery = [];
+  const seenImageHashes = new Set();
+  for (const filename of gallery) {
+    const imagePath = path.join(galleryDir, filename);
+    const header = fs.readFileSync(imagePath).subarray(0, 12);
+    if (header.length < 12 || header.toString("ascii", 0, 4) !== "RIFF" ||
+        header.toString("ascii", 8, 12) !== "WEBP") continue;
+    const digest = crypto.createHash("sha256").update(fs.readFileSync(imagePath)).digest("hex");
+    if (seenImageHashes.has(digest)) continue;
+    seenImageHashes.add(digest);
+    expectedGallery.push(filename);
+    if (expectedGallery.length === 4) break;
+  }
   if (product.image !== "1.webp" || product.primary_image !== "1.webp" ||
       product.image_folder !== id ||
       product.image_url !== `/assets/images/products/${id}/1.webp` ||
       product.card_image_url !== `/assets/images/product-thumbnails/${id}/1.webp` ||
-      JSON.stringify(product.gallery) !== JSON.stringify(gallery)) {
+      !Array.isArray(product.gallery) ||
+      JSON.stringify(product.gallery) !== JSON.stringify(expectedGallery)) {
     throw new Error("Catalogue image metadata does not match committed gallery files: " + id);
   }
   if (!/^\d{8}$/.test(String(product.hsn_code || "")) ||
@@ -137,5 +235,6 @@ console.log("Image-backed Leykart catalogue import contract passed", {
   user_verified_hsn: newProducts.length,
   gst_invoice_ready: newProducts.length,
   valueparts_skus: valueparts.length,
+  water_pump_products: waterPumps.length,
   exact_existing_matches_updated: 3,
 });

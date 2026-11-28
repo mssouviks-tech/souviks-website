@@ -170,7 +170,7 @@ async function initialiseProductsPage() {
     const initialQuery = getSearchQuery();
     if (searchInput && initialQuery && !searchInputChangedBeforeReady) searchInput.value = initialQuery;
 
-    await Products.init("#product-grid", "catalogue-index");
+    await Products.init("#product-grid", "catalogue-browse");
 
     allProducts = [...Products.products];
     Filters.init(allProducts);
