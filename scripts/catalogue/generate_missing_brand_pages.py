@@ -282,10 +282,18 @@ def create_missing_brand_pages() -> int:
 
         for language in LANGUAGES:
             target = ROOT / language / "brands" / f"{slug}.html"
-            if target.is_file():
-                continue
             target.parent.mkdir(parents=True, exist_ok=True)
-            page, shell_path = find_brand_shell(target.parent, target)
+            existed = target.is_file()
+            if existed:
+                # Existing routes can carry stale CollectionPage ItemList data
+                # even when their visible copy and meta descriptions were refreshed.
+                # Rebind every active brand route to the current canonical master.
+                page = target.read_text(encoding="utf-8")
+                shell_name = "existing page"
+            else:
+                page, shell_path = find_brand_shell(target.parent, target)
+                shell_name = f"shell {shell_path.name}"
+
             page = update_page_title(page, brand_page_title(brand.get("name"), language))
             page = update_meta(page, entity_meta_description("brand", brand, products, language))
             page = update_brand_identity(page, brand, products, language)
@@ -313,9 +321,10 @@ def create_missing_brand_pages() -> int:
             page = ensure_main_landmark(page)
             target.write_text(page, encoding="utf-8")
             created += 1
-            print(f"Created {target.relative_to(ROOT)} using shell {shell_path.name}")
+            action = "Synchronized" if existed else "Created"
+            print(f"{action} {target.relative_to(ROOT)} using {shell_name}")
 
-    print(f"Missing localized brand pages created: {created}")
+    print(f"Active localized brand pages synchronized: {created}")
     return created
 
 
