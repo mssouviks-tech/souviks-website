@@ -80,7 +80,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.runtime_changed == 'true' && github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 120
     steps:
       - name: Check out pull request revision
         uses: actions/checkout@v4
@@ -98,7 +98,9 @@ jobs:
           # The catalogue release gate builds responsive assets and publishes them
           # from the real PR head. Wait for that output before measuring either the
           # local candidate or the Cloudflare branch preview.
-          for attempt in $(seq 1 120); do
+          # Catalogue candidate generation is a full-site build and can exceed 20 minutes.
+          # Leave time for Lighthouse itself after that publisher finishes.
+          for attempt in $(seq 1 540); do
             git fetch --no-tags --depth=1 origin "+refs/heads/${PR_HEAD_REF}:refs/remotes/origin/${PR_HEAD_REF}"
             candidate_sha="$(git rev-parse "refs/remotes/origin/${PR_HEAD_REF}")"
             export CANDIDATE_SHA="${candidate_sha}"
@@ -215,11 +217,11 @@ jobs:
               exit 0
             fi
 
-            echo "Generated LCP assets or compiled Supabase/GA4 cart runtimes are not committed yet (attempt ${attempt}/120); waiting for the catalogue release gate."
+            echo "Generated LCP assets, compact browse data or compiled Supabase/GA4 cart runtimes are not committed yet (attempt ${attempt}/540); waiting for the catalogue release gate."
             sleep 10
           done
 
-          echo "The PR branch did not receive the validated responsive LCP assets within twenty minutes."
+          echo "The PR branch did not receive the validated responsive LCP assets within ninety minutes."
           exit 1
 
       - name: Set up Node for browser-level LCP diagnostics
