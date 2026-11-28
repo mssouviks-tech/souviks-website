@@ -105,6 +105,7 @@ jobs:
 
             if python3 - <<'PY'
           import hashlib
+          import json
           import os
           import re
           import subprocess
@@ -120,7 +121,22 @@ jobs:
               hero_webp = show("assets/images/hero/index-hero-mobile-crop.webp")
               supabase_loader = show("assets/js/supabase-loader.js")
               cart_runtime = show("assets/js/cart/cart.js")
+              browse_payload = show("assets/data/catalogue-browse.json")
+              master_payload = show("assets/data/catalogue-index.json")
           except subprocess.CalledProcessError:
+              sys.exit(1)
+
+          # The listing now uses a generated compact projection. Do not run
+          # a performance comparison against the temporary full-master fallback.
+          try:
+              browse_records = json.loads(browse_payload)
+          except (UnicodeDecodeError, json.JSONDecodeError):
+              sys.exit(1)
+          if (
+              not isinstance(browse_records, list)
+              or not browse_records
+              or len(browse_payload) >= len(master_payload)
+          ):
               sys.exit(1)
 
           # The performance run serves checked-in runtimes directly. Do not
