@@ -46,6 +46,7 @@ jobs:
             );
             const runtimeData = new Set([
               "assets/data/catalogue-index.json",
+              "assets/data/catalogue-browse.json",
               "assets/data/products.json",
               "assets/data/search.json",
               "assets/data/brands.json",
