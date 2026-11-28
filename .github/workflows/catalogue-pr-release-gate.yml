@@ -74,6 +74,7 @@ jobs:
           import py_compile
           for path in (
               "scripts/catalogue/build.py",
+              "scripts/catalogue/build_browse_index.py",
           "scripts/catalogue/internal_redirects.py",
               "scripts/catalogue/apply_product_workbook_import.py",
               "scripts/catalogue/apply_leykart_catalogue_import.py",
@@ -116,6 +117,7 @@ jobs:
               "scripts/catalogue/sync_root_homepage.py",
               "scripts/audit/catalogue_parity.py",
               "scripts/audit/critical_build.py",
+              "scripts/audit/test_catalogue_browse_index.py",
               "scripts/audit/performance_guard.py",
               "scripts/audit/optimize_static_images.py",
               "scripts/audit/prepare_mobile_listing_lcp.py",
@@ -158,6 +160,8 @@ jobs:
           python3 scripts/catalogue/enrich_entities.py
           python3 scripts/catalogue/generate_missing_brand_pages.py
           python3 scripts/catalogue/sync_entity_directories.py
+          python3 scripts/catalogue/build_browse_index.py
+          python3 scripts/audit/test_catalogue_browse_index.py
           python3 scripts/catalogue/normalize_page_config.py
           python3 scripts/catalogue/sync_rfq_module.py
           python3 scripts/catalogue/sync_product_actions.py
@@ -301,6 +305,7 @@ jobs:
             assets/js/supabase-loader.js
             assets/js/cart/cart.js
             assets/data/catalogue-index.json
+            assets/data/catalogue-browse.json
             assets/data/categories.json
             assets/data/vehicles.json
             assets/data/gst-rate-candidate-overrides-2026-11-08.json
@@ -377,6 +382,7 @@ jobs:
               python3 scripts/catalogue/apply_product_workbook_import.py
               python3 scripts/catalogue/apply_leykart_catalogue_import.py
               python3 scripts/catalogue/build.py
+              python3 scripts/catalogue/build_browse_index.py
               python3 scripts/audit/build_hsn_verification_worklist.py
               python3 scripts/audit/test_hsn_verification_worklist.py
               python3 scripts/audit/optimize_static_images.py
