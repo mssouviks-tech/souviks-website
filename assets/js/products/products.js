@@ -46,11 +46,19 @@ constructor() {
 
         }
 
-        const sourceProducts = source === "catalogue-browse"
-            ? await API.catalogueBrowse()
-            : source === "catalogue-index"
-                ? await API.catalogueIndex()
-                : await API.products();
+        let sourceProducts;
+        if (source === "catalogue-browse") {
+            sourceProducts = await API.catalogueBrowse();
+            // A fresh PR checkout may precede the publisher's generated browse
+            // asset commit. Keep regression previews functional until it lands.
+            if (!Array.isArray(sourceProducts) || sourceProducts.length === 0) {
+                sourceProducts = await API.catalogueIndex();
+            }
+        } else if (source === "catalogue-index") {
+            sourceProducts = await API.catalogueIndex();
+        } else {
+            sourceProducts = await API.products();
+        }
 
         // Inactive master records are not customer-facing catalogue data.
         // Filter them at the runtime boundary so search, facets, sorting and
