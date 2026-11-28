@@ -46,9 +46,11 @@ constructor() {
 
         }
 
-        const sourceProducts = source === "catalogue-index"
-            ? await API.catalogueIndex()
-            : await API.products();
+        const sourceProducts = source === "catalogue-browse"
+            ? await API.catalogueBrowse()
+            : source === "catalogue-index"
+                ? await API.catalogueIndex()
+                : await API.products();
 
         // Inactive master records are not customer-facing catalogue data.
         // Filter them at the runtime boundary so search, facets, sorting and
