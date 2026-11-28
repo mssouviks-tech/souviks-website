@@ -11,8 +11,8 @@ const readText = relative => fs.readFileSync(path.join(root, relative), "utf8");
 const active = rows => rows.filter(row => row && row.active !== false && row.id && row.slug);
 const numberById = (html, id) => {
     const pattern = new RegExp(
-        '<(?:span|div|strong)\\\\b(?=[^>]*\\\\bid=[\\\\x22\\\\x27]' + id +
-        '[\\\\x22\\\\x27])[^>]*>\\\\s*([\\\\d,]+)\\\\s*</(?:span|div|strong)>',
+        '<(?:span|div|strong)\\b(?=[^>]*\\bid=[\\x22\\x27]' + id +
+        '[\\x22\\x27])[^>]*>\\s*([\\d,]+)\\s*</(?:span|div|strong)>',
         "i"
     );
     const match = html.match(pattern);
@@ -41,8 +41,8 @@ const heroValue = (html, icon) => {
     for (const match of openers) {
         const block = divBlock(html, match.index);
         const iconPattern = new RegExp(
-            '<img\\\\b(?=[^>]*\\\\bsrc=[\\\\x22\\\\x27][^\\\\x22\\\\x27]*/' + icon +
-            '(?:[?#][^\\\\x22\\\\x27]*)?[\\\\x22\\\\x27])',
+            '<img\\b(?=[^>]*\\bsrc=[\\x22\\x27][^\\x22\\x27]*/' + icon +
+            '(?:[?#][^\\x22\\x27]*)?[\\x22\\x27])',
             "i"
         );
         if (!iconPattern.test(block)) continue;
@@ -57,8 +57,8 @@ const heroTrust = (html, icon) => {
     for (const match of openers) {
         const block = divBlock(html, match.index);
         const iconPattern = new RegExp(
-            '<img\\\\b(?=[^>]*\\\\bsrc=[\\\\x22\\\\x27][^\\\\x22\\\\x27]*/' + icon +
-            '(?:[?#][^\\\\x22\\\\x27]*)?[\\\\x22\\\\x27])',
+            '<img\\b(?=[^>]*\\bsrc=[\\x22\\x27][^\\x22\\x27]*/' + icon +
+            '(?:[?#][^\\x22\\x27]*)?[\\x22\\x27])',
             "i"
         );
         if (!iconPattern.test(block)) continue;
@@ -70,8 +70,8 @@ const heroTrust = (html, icon) => {
 };
 const cardBlocks = (html, className, tagName) => {
     const expression = new RegExp(
-        "<" + tagName + "\\\\b(?=[^>]*class=[\\\\x22\\\\x27][^\\\\x22\\\\x27]*\\\\b" +
-        className + "\\\\b[^\\\\x22\\\\x27]*[\\\\x22\\\\x27])[^>]*>[\\\\s\\\\S]*?</" +
+        "<" + tagName + "\\b(?=[^>]*class=[\\x22\\x27][^\\x22\\x27]*\\b" +
+        className + "\\b[^\\x22\\x27]*[\\x22\\x27])[^>]*>[\\s\\S]*?</" +
         tagName + ">",
         "gi"
     );
@@ -82,8 +82,8 @@ const cards = (html, className, tagName, href) =>
 const cardNumber = (card, className) => {
     assert.ok(card, "Missing directory card");
     const pattern = new RegExp(
-        '<(?:span|div)\\\\b[^>]*class=[\\\\x22\\\\x27][^\\\\x22\\\\x27]*\\\\b' +
-        className + '\\\\b[^\\\\x22\\\\x27]*[\\\\x22\\\\x27][^>]*>\\\\s*(?:<span\\\\b[^>]*class=[\\\\x22\\\\x27][^\\\\x22\\\\x27]*\\\\bcount-number\\\\b[^>]*>)?\\\\s*([\\\\d,]+)',
+        '<(?:span|div)\\b[^>]*class=[\\x22\\x27][^\\x22\\x27]*\\b' +
+        className + '\\b[^\\x22\\x27]*[\\x22\\x27][^>]*>\\s*(?:<span\\b[^>]*class=[\\x22\\x27][^\\x22\\x27]*\\bcount-number\\b[^>]*>)?\\s*([\\d,]+)',
         "i"
     );
     const match = card.match(pattern);
@@ -207,7 +207,7 @@ for (const language of ["en", "hi", "bn"]) {
     const homeHtml = readText(language + "/index.html");
     const homeCategoryCards = cardBlocks(homeHtml, "category-card", "article");
     for (const card of homeCategoryCards) {
-        const href = card.match(new RegExp("/" + language + "/categories/([^\\\\x22\\\\x27/?#]+)"));
+        const href = card.match(new RegExp("/" + language + "/categories/([^\\x22\\x27/?#]+)"));
         assert.ok(href, language + " homepage category card link");
         const category = categories.find(item => item.slug === href[1]);
         assert.ok(category, language + " homepage category card master reference " + href[1]);
