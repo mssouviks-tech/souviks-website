@@ -184,6 +184,9 @@
     <loc>https://www.souviks.co.in/en/brands/trendy</loc>
   </url>
   <url>
+    <loc>https://www.souviks.co.in/en/brands/valueparts</loc>
+  </url>
+  <url>
     <loc>https://www.souviks.co.in/bn/brands/fleetguard</loc>
   </url>
   <url>
@@ -367,6 +370,9 @@
     <loc>https://www.souviks.co.in/bn/brands/trendy</loc>
   </url>
   <url>
+    <loc>https://www.souviks.co.in/bn/brands/valueparts</loc>
+  </url>
+  <url>
     <loc>https://www.souviks.co.in/hi/brands/fleetguard</loc>
   </url>
   <url>
@@ -548,5 +554,8 @@
   </url>
   <url>
     <loc>https://www.souviks.co.in/hi/brands/trendy</loc>
+  </url>
+  <url>
+    <loc>https://www.souviks.co.in/hi/brands/valueparts</loc>
   </url>
 </urlset>
